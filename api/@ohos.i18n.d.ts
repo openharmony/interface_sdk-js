@@ -265,7 +265,7 @@ declare namespace i18n {
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      *     [since 26.0.0]
      * @syscap SystemCapability.Global.I18n
-     * @systemapi Hide this for inner system use.
+     * @systemapi
      * @since 9 dynamic
      * @since 23 static
      */
@@ -299,7 +299,7 @@ declare namespace i18n {
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      *     [since 26.0.0]
      * @syscap SystemCapability.Global.I18n
-     * @systemapi Hide this for inner system use.
+     * @systemapi
      * @since 9 dynamic
      * @since 23 static
      */
@@ -344,7 +344,7 @@ declare namespace i18n {
      *     2.Incorrect parameter types.
      * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed.
      * @syscap SystemCapability.Global.I18n
-     * @systemapi Hide this for inner system use.
+     * @systemapi
      * @since 9 dynamiconly
      * @deprecated since 20
      */
@@ -381,7 +381,7 @@ declare namespace i18n {
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      *     [since 26.0.0]
      * @syscap SystemCapability.Global.I18n
-     * @systemapi Hide this for inner system use.
+     * @systemapi
      * @since 9 dynamic
      * @since 23 static
      */
@@ -402,7 +402,7 @@ declare namespace i18n {
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      *     [since 26.0.0]
      * @syscap SystemCapability.Global.I18n
-     * @systemapi Hide this for inner system use.
+     * @systemapi
      * @since 9 dynamic
      * @since 23 static
      */
@@ -422,7 +422,7 @@ declare namespace i18n {
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      *     [since 26.0.0]
      * @syscap SystemCapability.Global.I18n
-     * @systemapi Hide this for inner system use.
+     * @systemapi
      * @since 9 dynamic
      * @since 23 static
      */
@@ -497,7 +497,7 @@ declare namespace i18n {
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      *     [since 26.0.0]
      * @syscap SystemCapability.Global.I18n
-     * @systemapi Hide this for inner system use.
+     * @systemapi
      * @since 9 dynamic
      * @since 23 static
      */
@@ -548,7 +548,7 @@ declare namespace i18n {
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed.
      * @syscap SystemCapability.Global.I18n
-     * @systemapi Hide this for inner system use.
+     * @systemapi
      * @since 18 dynamic
      * @since 23 static
      */
@@ -590,7 +590,7 @@ declare namespace i18n {
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed.
      * @syscap SystemCapability.Global.I18n
-     * @systemapi Hide this for inner system use.
+     * @systemapi
      * @since 18 dynamic
      * @since 23 static
      */
@@ -1130,17 +1130,17 @@ declare namespace i18n {
      * @atomicservice
      * @since 18 dynamiconly
      * @deprecated since 20
-     * @useinstead getUnicodeWrappedFilePath
+     * @useinstead i18n.I18NUtil.getUnicodeWrappedFilePath(path: string, delimiter?: string, locale?: Intl.Locale)
      */
     static getUnicodeWrappedFilePath(path: string, delimiter?: string, locale?: intl.Locale): string;
 
     /**
-     * Converts a locale string into canonical locale identifier with BCP47 standard.
-     * [BCP47](https://www.rfc-editor.org/info/bcp47).
+     * Adjusts a locale ID to a format that complies with the [BCP47](https://www.rfc-editor.org/info/bcp47) standard.
      *
      * @param { string } locale - Locale string to be converted, which consists of the language, script,
      *     and country/region.
-     * @returns { string } BCP47 standard locale identifier.
+     * @returns { string } If the input locale ID is valid, a locale ID that complies with the [BCP47](https://www.rfc-editor.org/info/bcp47) standard will be returned.
+     *                     If the input locale ID is invalid, an empty string is returned.
      * @syscap SystemCapability.Global.I18n
      * @stagemodelonly
      * @atomicservice
@@ -1149,15 +1149,14 @@ declare namespace i18n {
     static convertCanonicalLocaleIdentifier(locale: string): string;
 
     /**
-     * Sets the text direction for a specific piece of text independently,
-     * separating it from the text direction of the surrounding context.
+     * Sets the text direction for certain text within a paragraph, including RTL (right-to-left) and
+     * LTR (left-to-right). NOTE: The setting does not take effect within strong characters (characters
+     *  with an intrinsic, unambiguous writing direction).
      *
-     * @param { string } text - Input characters need to set direction.
-     *     <br>Pending Text
-     * @param { 'RTL' | 'LTR' } direction - The value can be  or "LTR".
+     * @param { string } text - Text for which the direction needs to be set.
+     * @param { 'RTL' | 'LTR' } direction - The value can be "RTL" or "LTR".
      *     "RTL" indicates setting the input text direction from right to left.
      *     "LTR" indicates setting the input text direction from left to right.
-     *     <br>Text main directionality
      * @returns { string } Processed Text.
      * @syscap SystemCapability.Global.I18n
      * @stagemodelonly
@@ -1351,8 +1350,8 @@ declare namespace i18n {
     /**
      * Sets the date and time for a **Calendar** object based on the input timestamp.
      *
-     * @param { double } time - Unix timestamp, which indicates the number of milliseconds that have elapsed since the
-     *     Unix epoch.
+     * @param { double } time - Unix timestamp, which indicates the number of milliseconds
+     *     that have elapsed since the Unix epoch.
      * @syscap SystemCapability.Global.I18n
      * @crossplatform [since 10]
      * @atomicservice [since 12]
@@ -1821,7 +1820,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead Unicode.isDigit
+     * @useinstead i18n.Unicode.isDigit
      */
     isDigit(ch: string): boolean;
 
@@ -1834,7 +1833,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead Unicode.isSpaceChar
+     * @useinstead i18n.Unicode.isSpaceChar
      */
     isSpaceChar(ch: string): boolean;
 
@@ -1847,7 +1846,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead Unicode.isWhitespace
+     * @useinstead i18n.Unicode.isWhitespace
      */
     isWhitespace(ch: string): boolean;
 
@@ -1860,7 +1859,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead Unicode.isRTL
+     * @useinstead i18n.Unicode.isRTL
      */
     isRTL(ch: string): boolean;
 
@@ -1873,7 +1872,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead Unicode.isIdeograph
+     * @useinstead i18n.Unicode.isIdeograph
      */
     isIdeograph(ch: string): boolean;
 
@@ -1886,7 +1885,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead Unicode.isLetter
+     * @useinstead i18n.Unicode.isLetter
      */
     isLetter(ch: string): boolean;
 
@@ -1899,7 +1898,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead Unicode.isLowerCase
+     * @useinstead i18n.Unicode.isLowerCase
      */
     isLowerCase(ch: string): boolean;
 
@@ -1912,7 +1911,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead Unicode.isUpperCase
+     * @useinstead i18n.Unicode.isUpperCase
      */
     isUpperCase(ch: string): boolean;
 
@@ -1925,7 +1924,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead Unicode.getType
+     * @useinstead i18n.Unicode.getType
      */
     getType(ch: string): string;
   }
@@ -2134,6 +2133,8 @@ declare namespace i18n {
      *     U_MODIFIER_SYMBOL： Modifier symbol.
      *
      *     U_OTHER_SYMBOL： Other symbols.
+     *
+     *     For details, see Unicode standard.
      * @syscap SystemCapability.Global.I18n
      * @crossplatform [since 10]
      * @atomicservice [since 12]
@@ -2143,8 +2144,7 @@ declare namespace i18n {
     static getType(ch: string): string;
 
     /**
-     * Detects the encoding format of the input byte array.
-     * It is recommended to check the encoding format before performing data conversion operations.
+     * Detects the encoding information of the input byte stream.
      *
      * @param { Uint8Array } bytes - Input byte stream. To detect the encoding of a text string,
      *     convert the text to a byte stream first while preserving its original format.
@@ -2200,7 +2200,7 @@ declare namespace i18n {
    * @syscap SystemCapability.Global.I18n
    * @since 7 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.i18n/i18n.System#is24HourClock
+   * @useinstead i18n.System.is24HourClock
    */
   export function is24HourClock(): boolean;
 
@@ -2214,7 +2214,7 @@ declare namespace i18n {
    * @syscap SystemCapability.Global.I18n
    * @since 7 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.i18n/i18n.System#set24HourClock
+   * @useinstead i18n.System.set24HourClock
    */
   export function set24HourClock(option: boolean): boolean;
 
@@ -2229,7 +2229,7 @@ declare namespace i18n {
    * @syscap SystemCapability.Global.I18n
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.i18n/i18n.System#addPreferredLanguage
+   * @useinstead i18n.System.addPreferredLanguage
    */
   export function addPreferredLanguage(language: string, index?: int): boolean;
 
@@ -2243,7 +2243,7 @@ declare namespace i18n {
    * @syscap SystemCapability.Global.I18n
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.i18n/i18n.System#removePreferredLanguage
+   * @useinstead i18n.System.removePreferredLanguage
    */
   export function removePreferredLanguage(index: int): boolean;
 
@@ -2254,7 +2254,7 @@ declare namespace i18n {
    * @syscap SystemCapability.Global.I18n
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.i18n/i18n.System#getPreferredLanguageList
+   * @useinstead i18n.System.getPreferredLanguageList
    */
   export function getPreferredLanguageList(): Array<string>;
 
@@ -2265,7 +2265,7 @@ declare namespace i18n {
    * @syscap SystemCapability.Global.I18n
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.i18n/i18n.System#getFirstPreferredLanguage
+   * @useinstead i18n.System.getFirstPreferredLanguage
    */
   export function getFirstPreferredLanguage(): string;
 
@@ -2431,8 +2431,7 @@ declare namespace i18n {
     /**
      * Check if the given date use daylight saving time. The calculation will be based on the matched time zone rules.
      *
-     * @param { Date } date - Date and time for calculation.
-     *     The value must match the time range supported by the time zone rule.
+     * @param { Date } date - Date and time. Note: The month starts from **0**, indicating January.
      * @returns { boolean } true if the date use daylight saving time, and false otherwise.
      * @syscap SystemCapability.Global.I18n
      * @stagemodelonly
@@ -2456,7 +2455,9 @@ declare namespace i18n {
     static setAppDefaultTimeZoneById(zoneID: string): void;
 
     /**
-     * Obtains the TimeZone object of default time zone used by application.
+     * Obtains the default time zone object used by an application.
+     * If the default time zone has been set by calling setAppDefaultTimeZoneById, the default time zone object
+     * is returned. Otherwise, the system time zone object is returned.
      *
      * @returns { TimeZone } TimeZone object, first set by application, then system time zone, last GMT time zone.
      * @syscap SystemCapability.Global.I18n
@@ -2691,7 +2692,7 @@ declare namespace i18n {
    * Represents the language or country/region suggestion type.
    *
    * @syscap SystemCapability.Global.I18n
-   * @systemapi Hide this for inner system use.
+   * @systemapi
    * @since 10 dynamic
    * @since 23 static
    */
@@ -2700,7 +2701,7 @@ declare namespace i18n {
      * Not a recommended language or country/region.
      *
      * @syscap SystemCapability.Global.I18n
-     * @systemapi Hide this for inner system use.
+     * @systemapi
      * @since 10 dynamic
      * @since 23 static
      */
@@ -2709,7 +2710,7 @@ declare namespace i18n {
      * Country/region recommended by the system language or language recommended by the system country/region.
      *
      * @syscap SystemCapability.Global.I18n
-     * @systemapi Hide this for inner system use.
+     * @systemapi
      * @since 10 dynamic
      * @since 23 static
      */
@@ -2718,7 +2719,7 @@ declare namespace i18n {
      * Language recommended by the country/region of the SIM card.
      *
      * @syscap SystemCapability.Global.I18n
-     * @systemapi Hide this for inner system use.
+     * @systemapi
      * @since 10 dynamic
      * @since 23 static
      */
@@ -2729,7 +2730,7 @@ declare namespace i18n {
    * Represents the language or country/region sorting option.
    *
    * @syscap SystemCapability.Global.I18n
-   * @systemapi Hide this for inner system use.
+   * @systemapi
    * @since 10 dynamic
    * @since 23 static
    */
@@ -2739,7 +2740,7 @@ declare namespace i18n {
      * The default value is the current system locale.
      *
      * @syscap SystemCapability.Global.I18n
-     * @systemapi Hide this for inner system use.
+     * @systemapi
      * @since 10 dynamic
      * @since 23 static
      */
@@ -2751,7 +2752,7 @@ declare namespace i18n {
      * true. If getRegionInfoArray is called, the default value of isUseLocalName is false.
      *
      * @syscap SystemCapability.Global.I18n
-     * @systemapi Hide this for inner system use.
+     * @systemapi
      * @since 10 dynamic
      * @since 23 static
      */
@@ -2763,7 +2764,7 @@ declare namespace i18n {
      * The default value is true.
      *
      * @syscap SystemCapability.Global.I18n
-     * @systemapi Hide this for inner system use.
+     * @systemapi
      * @since 10 dynamic
      * @since 23 static
      */
@@ -2774,7 +2775,7 @@ declare namespace i18n {
    * Represents the locale information, which consists of the language, script, and country/region.
    *
    * @syscap SystemCapability.Global.I18n
-   * @systemapi Hide this for inner system use.
+   * @systemapi
    * @since 10 dynamic
    * @since 23 static
    */
@@ -2783,7 +2784,7 @@ declare namespace i18n {
      * Language code or country/region code, for example, "zh" or "CN".
      *
      * @syscap SystemCapability.Global.I18n
-     * @systemapi Hide this for inner system use.
+     * @systemapi
      * @since 10 dynamic
      * @since 23 static
      */
@@ -2793,7 +2794,7 @@ declare namespace i18n {
      * Language or country/region suggestion type.
      *
      * @syscap SystemCapability.Global.I18n
-     * @systemapi Hide this for inner system use.
+     * @systemapi
      * @since 10 dynamic
      * @since 23 static
      */
@@ -2803,7 +2804,7 @@ declare namespace i18n {
      * Representation of ID in the specified locale in SystemLocaleManager.
      *
      * @syscap SystemCapability.Global.I18n
-     * @systemapi Hide this for inner system use.
+     * @systemapi
      * @since 10 dynamic
      * @since 23 static
      */
@@ -2813,7 +2814,7 @@ declare namespace i18n {
      * Local name of the ID.
      *
      * @syscap SystemCapability.Global.I18n
-     * @systemapi Hide this for inner system use.
+     * @systemapi
      * @since 10 dynamic
      * @since 23 static
      */
@@ -2824,7 +2825,7 @@ declare namespace i18n {
    * Represents a time zone and city combination item.
    *
    * @syscap SystemCapability.Global.I18n
-   * @systemapi Hide this for inner system use.
+   * @systemapi
    * @since 10 dynamic
    * @since 23 static
    */
@@ -2833,7 +2834,7 @@ declare namespace i18n {
      * Time zone ID, for example, "Asia/Shanghai".
      *
      * @syscap SystemCapability.Global.I18n
-     * @systemapi Hide this for inner system use.
+     * @systemapi
      * @since 10 dynamic
      * @since 23 static
      */
@@ -2843,7 +2844,7 @@ declare namespace i18n {
      * City ID, for example, "Shanghai".
      *
      * @syscap SystemCapability.Global.I18n
-     * @systemapi Hide this for inner system use.
+     * @systemapi
      * @since 10 dynamic
      * @since 23 static
      */
@@ -2853,7 +2854,7 @@ declare namespace i18n {
      * City display name in the system locale.
      *
      * @syscap SystemCapability.Global.I18n
-     * @systemapi Hide this for inner system use.
+     * @systemapi
      * @since 10 dynamic
      * @since 23 static
      */
@@ -2863,7 +2864,7 @@ declare namespace i18n {
      * Offset of the time zone ID.
      *
      * @syscap SystemCapability.Global.I18n
-     * @systemapi Hide this for inner system use.
+     * @systemapi
      * @since 10 dynamic
      * @since 23 static
      */
@@ -2873,7 +2874,7 @@ declare namespace i18n {
      * Time zone display name in the system locale.
      *
      * @syscap SystemCapability.Global.I18n
-     * @systemapi Hide this for inner system use.
+     * @systemapi
      * @since 10 dynamic
      * @since 23 static
      */
@@ -2883,7 +2884,7 @@ declare namespace i18n {
      * Fixed offset of the time zone ID.
      *
      * @syscap SystemCapability.Global.I18n
-     * @systemapi Hide this for inner system use.
+     * @systemapi
      * @since 10 dynamic
      * @since 23 static
      */
@@ -2894,7 +2895,7 @@ declare namespace i18n {
    * Provide some functions for settings and startup guide to select language or region.
    *
    * @syscap SystemCapability.Global.I18n
-   * @systemapi Hide this for inner system use.
+   * @systemapi
    * @since 10 dynamic
    * @since 23 static
    */
@@ -2905,7 +2906,7 @@ declare namespace i18n {
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      *     [since 26.0.0]
      * @syscap SystemCapability.Global.I18n
-     * @systemapi Hide this for inner system use.
+     * @systemapi
      * @since 10 dynamic
      * @since 23 static
      */
@@ -2923,7 +2924,7 @@ declare namespace i18n {
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      *     [since 12]
      * @syscap SystemCapability.Global.I18n
-     * @systemapi Hide this for inner system use.
+     * @systemapi
      * @since 10 dynamic
      * @since 23 static
      */
@@ -2942,7 +2943,7 @@ declare namespace i18n {
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      *     [since 12]
      * @syscap SystemCapability.Global.I18n
-     * @systemapi Hide this for inner system use.
+     * @systemapi
      * @since 10 dynamic
      * @since 23 static
      */
@@ -2955,7 +2956,7 @@ declare namespace i18n {
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      *     [since 12]
      * @syscap SystemCapability.Global.I18n
-     * @systemapi Hide this for inner system use.
+     * @systemapi
      * @since 10 dynamic
      * @since 23 static
      */
@@ -3091,8 +3092,8 @@ declare namespace i18n {
     /**
      * Determines whether the specified date is a holiday.
      *
-     * @param { Date } [date] - Date and time. Note: The month starts from **0**. For example, **0** indicates January.<
-     *     br>The default value is the current date.
+     * @param { Date } [date] - Date and time. Note: The month starts from **0**. For example, **0** indicates January.
+     *     The default value is the current date.
      * @returns { boolean } **true** if the specified date is a holiday, and **false** otherwise.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
      *     2.Incorrect parameter types.
@@ -3247,7 +3248,7 @@ declare namespace i18n {
    * @atomicservice
    * @since 18 dynamiconly
    * @deprecated since 20
-   * @useinstead getSimpleDateTimeFormatByPattern
+   * @useinstead i18n.getSimpleDateTimeFormatByPattern(pattern: string, locale?: Intl.Locale)
    */
   export function getSimpleDateTimeFormatByPattern(pattern: string, locale?: intl.Locale): SimpleDateTimeFormat;
 
@@ -3286,7 +3287,7 @@ declare namespace i18n {
    * @atomicservice
    * @since 18 dynamiconly
    * @deprecated since 20
-   * @useinstead getSimpleDateTimeFormatBySkeleton
+   * @useinstead i18n.getSimpleDateTimeFormatBySkeleton(skeleton: string, locale?: Intl.Locale)
    */
   export function getSimpleDateTimeFormatBySkeleton(skeleton: string, locale?: intl.Locale): SimpleDateTimeFormat;
 
@@ -3343,7 +3344,7 @@ declare namespace i18n {
    * @atomicservice
    * @since 18 dynamiconly
    * @deprecated since 20
-   * @useinstead getSimpleNumberFormatBySkeleton
+   * @useinstead i18n.getSimpleNumberFormatBySkeleton(skeleton: string, locale?: Intl.Locale)
    */
   export function getSimpleNumberFormatBySkeleton(skeleton: string, locale?: intl.Locale): SimpleNumberFormat;
 
@@ -3401,7 +3402,7 @@ declare namespace i18n {
      * @atomicservice
      * @since 18 dynamiconly
      * @deprecated since 20
-     * @useinstead constructor
+     * @useinstead i18n.StyledNumberFormat.constructor(numberFormat: Intl.NumberFormat | SimpleNumberFormat, options?: StyledNumberFormatOptions)
      */
     constructor(numberFormat: intl.NumberFormat | SimpleNumberFormat, options?: StyledNumberFormatOptions);
 
@@ -3601,12 +3602,8 @@ declare namespace i18n {
   }
 
   /**
-   * Building upon the measurement unit formatting capabilities provided by Intl.NumberFormat, the formatting
-   * functionality has been enhanced. It supports automatically selecting appropriate measurement units
-   * based on usage scenarios to format numbers.For example, there are many units of measurement for length,
-   * including millimeters, centimeters, meters, kilometers, and so on. However, depending on the context
-   * in which the measurement is used, each scenario has its commonly used units. Millimeters are more frequently
-   * used when expressing rainfall, while meters are more commonly used to describe visibility.
+   * Provides the number formatting capability, supporting automatic unit conversion based on 
+   * specific application scenarios.
    *
    * @syscap SystemCapability.Global.I18n
    * @stagemodelonly
@@ -3918,12 +3915,8 @@ declare namespace i18n {
      *
      * @param { Intl.Locale } [locale] - Locale object used for formatting the date time value.
      *     The default value is the current system locale.
-     *     <br>Default value:The default is the current system locale.
-     *     <br>Default value: system default area.
-     *     <br>Region object.
      * @param { SymbolDateTimeFormatOptions } [options] - Indicates the symbols used to replace.
      *     The symbols that support replacement are "AM" and "PM".
-     *     <br>Symbol DateTime Formatting Options.
      * @throws { BusinessError } 8900001 - Invalid parameter. Possible causes: Parameter verification failed.
      * @syscap SystemCapability.Global.I18n
      * @stagemodelonly
@@ -4332,9 +4325,8 @@ declare namespace i18n {
     /**
      * A constructor used to create a ISO8601DateTimeFormat object.
      *
-     * @param { ISO8601DateTimeFormatOptions } [options] - Indicates the format options formatted result include.
-     *     Default format is yyyy-MM-ddThh:mm:ssZZZZZ.
-     *     <br>ISO8601 Style DateTime Formatting Options.
+     * @param { ISO8601DateTimeFormatOptions } [options] - Options for creating a date formatting object
+     *     that complies with ISO 8601.
      * @syscap SystemCapability.Global.I18n
      * @stagemodelonly
      * @atomicservice
@@ -4346,7 +4338,7 @@ declare namespace i18n {
      * Formats a date to ISO 8601 formatted string.
      *
      * @param { Date } date - date to be formatted. Note: The month starts from 0. For example, 0 indicates January.
-     * @returns { string } ISO 8601 formatted string, such as yyyy-MM-dd or yyyy-MM-ddThh:mm:ssZZZZZ.
+     * @returns { string } Date and time string that complies with ISO 8601.
      * @syscap SystemCapability.Global.I18n
      * @stagemodelonly
      * @atomicservice
