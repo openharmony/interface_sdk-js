@@ -23,6 +23,8 @@ import type { AsyncCallback } from './@ohos.base';
  * 提供统一的密码算法库加解密接口，以屏蔽底层硬件和算法库。
  *
  * @syscap SystemCapability.Security.CryptoFramework
+ * @stagemodelonly [since 9 - 11]
+ * @FaAndStageModel [since 12]
  * @crossplatform [since 11]
  * @atomicservice [since 11]
  * @since 9 dynamic
@@ -33,6 +35,8 @@ declare namespace cryptoFramework {
    * 表示执行结果的枚举。
    *
    * @syscap SystemCapability.Security.CryptoFramework
+   * @stagemodelonly [since 9 - 11]
+   * @FaAndStageModel [since 12]
    * @crossplatform [since 11]
    * @atomicservice [since 11]
    * @since 9 dynamic
@@ -43,6 +47,8 @@ declare namespace cryptoFramework {
      * 非法入参。
      *
      * @syscap SystemCapability.Security.CryptoFramework
+     * @stagemodelonly [since 9 - 11]
+     * @FaAndStageModel [since 12]
      * @crossplatform [since 11]
      * @atomicservice [since 11]
      * @since 9 dynamic
@@ -54,6 +60,8 @@ declare namespace cryptoFramework {
      * 操作不支持。
      *
      * @syscap SystemCapability.Security.CryptoFramework
+     * @stagemodelonly [since 9 - 11]
+     * @FaAndStageModel [since 12]
      * @crossplatform [since 11]
      * @atomicservice [since 12]
      * @since 9 dynamic
@@ -65,6 +73,8 @@ declare namespace cryptoFramework {
      * 内存操作失败。
      *
      * @syscap SystemCapability.Security.CryptoFramework
+     * @stagemodelonly [since 9 - 11]
+     * @FaAndStageModel [since 12]
      * @crossplatform [since 11]
      * @atomicservice [since 11]
      * @since 9 dynamic
@@ -76,6 +86,8 @@ declare namespace cryptoFramework {
      * 获取Native对象失败或参数转换失败。
      *
      * @syscap SystemCapability.Security.CryptoFramework
+     * @stagemodelonly [since 9 - 11]
+     * @FaAndStageModel [since 12]
      * @crossplatform [since 11]
      * @atomicservice [since 12]
      * @since 9 dynamic
@@ -87,6 +99,7 @@ declare namespace cryptoFramework {
      * 表示参数检查失败。
      *
      * @syscap SystemCapability.Security.CryptoFramework
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
@@ -108,6 +121,8 @@ declare namespace cryptoFramework {
      * 密码操作错误。
      *
      * @syscap SystemCapability.Security.CryptoFramework
+     * @stagemodelonly [since 9 - 11]
+     * @FaAndStageModel [since 12]
      * @crossplatform [since 11]
      * @atomicservice [since 11]
      * @since 9 dynamic
@@ -124,6 +139,8 @@ declare namespace cryptoFramework {
    * > Uint8Array类型数据表示8位无符号整数的数组。
    *
    * @syscap SystemCapability.Security.CryptoFramework
+   * @stagemodelonly [since 9 - 11]
+   * @FaAndStageModel [since 12]
    * @crossplatform [since 11]
    * @atomicservice [since 11]
    * @since 9 dynamic
@@ -134,6 +151,8 @@ declare namespace cryptoFramework {
      * 数据。
      *
      * @syscap SystemCapability.Security.CryptoFramework
+     * @stagemodelonly [since 9 - 11]
+     * @FaAndStageModel [since 12]
      * @crossplatform [since 11]
      * @atomicservice [since 11]
      * @since 9 dynamic
@@ -1017,6 +1036,8 @@ declare namespace cryptoFramework {
    *
    * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
    * @syscap SystemCapability.Security.CryptoFramework.Rand [since 12]
+   * @stagemodelonly [since 9 - 11]
+   * @FaAndStageModel [since 12]
    * @crossplatform [since 11]
    * @atomicservice [since 11]
    * @since 9 dynamic
@@ -1037,6 +1058,8 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 17630001 - 密码操作错误。
      * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Rand [since 12]
+     * @stagemodelonly [since 9 - 11]
+     * @FaAndStageModel [since 12]
      * @crossplatform [since 11]
      * @atomicservice [since 11]
      * @since 9 dynamic
@@ -1057,6 +1080,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 17630001 - 密码操作错误。
      * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Rand [since 12]
+     * @stagemodelonly
      * @crossplatform [since 11]
      * @atomicservice [since 11]
      * @since 9 dynamic
@@ -1081,6 +1105,8 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 17630001 - 密码操作错误。
      * @syscap SystemCapability.Security.CryptoFramework [since 10 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Rand [since 12]
+     * @stagemodelonly [since 10 - 11]
+     * @FaAndStageModel [since 12]
      * @crossplatform [since 11]
      * @atomicservice [since 11]
      * @since 10 dynamic
@@ -1095,6 +1121,8 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 17620001 - 内存操作失败。
      * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Rand [since 12]
+     * @stagemodelonly [since 9 - 11]
+     * @FaAndStageModel [since 12]
      * @crossplatform
      * @atomicservice [since 11]
      * @since 9 dynamic
@@ -1110,6 +1138,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 17620002 - 获取Native对象失败或参数转换失败。
      * @throws { BusinessError } 17630001 - 密码操作错误。
      * @syscap SystemCapability.Security.CryptoFramework.Rand
+     * @stagemodelonly
      * @atomicservice
      * @since 21 dynamic
      * @since 23 static
@@ -1121,6 +1150,7 @@ declare namespace cryptoFramework {
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 10 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Rand [since 12]
+     * @stagemodelonly
      * @crossplatform [since 11]
      * @atomicservice [since 11]
      * @since 10 dynamic
@@ -1137,6 +1167,8 @@ declare namespace cryptoFramework {
    * @throws { BusinessError } 17620001 - 内存操作失败。
    * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
    * @syscap SystemCapability.Security.CryptoFramework.Rand [since 12]
+   * @stagemodelonly [since 9 - 11]
+   * @FaAndStageModel [since 12]
    * @crossplatform [since 11]
    * @atomicservice [since 11]
    * @since 9 dynamic
@@ -2063,6 +2095,8 @@ declare namespace cryptoFramework {
    *
    * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
    * @syscap SystemCapability.Security.CryptoFramework.MessageDigest [since 12]
+   * @stagemodelonly [since 9 - 11]
+   * @FaAndStageModel [since 12]
    * @crossplatform [since 11]
    * @atomicservice [since 12]
    * @since 9 dynamic
@@ -2087,6 +2121,8 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 17630001 - 密码操作错误。
      * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.MessageDigest [since 12]
+     * @stagemodelonly [since 9 - 11]
+     * @FaAndStageModel [since 12]
      * @crossplatform [since 11]
      * @atomicservice [since 12]
      * @since 9 dynamic
@@ -2112,6 +2148,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 17630001 - 密码操作错误。
      * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.MessageDigest [since 12]
+     * @stagemodelonly
      * @crossplatform [since 11]
      * @atomicservice [since 12]
      * @since 9 dynamic
@@ -2140,6 +2177,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 17620001 - 内存操作失败。
      * @throws { BusinessError } 17630001 - 密码操作错误。
      * @syscap SystemCapability.Security.CryptoFramework.MessageDigest
+     * @FaAndStageModel
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
@@ -2156,6 +2194,8 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 17630001 - 密码操作错误。
      * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.MessageDigest [since 12]
+     * @stagemodelonly [since 9 - 11]
+     * @FaAndStageModel [since 12]
      * @crossplatform [since 11]
      * @atomicservice [since 12]
      * @since 9 dynamic
@@ -2171,6 +2211,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 17630001 - 密码操作错误。
      * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.MessageDigest [since 12]
+     * @stagemodelonly
      * @crossplatform [since 11]
      * @atomicservice [since 12]
      * @since 9 dynamic
@@ -2194,6 +2235,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 17620002 - 获取Native对象失败或参数转换失败。
      * @throws { BusinessError } 17630001 - 密码操作错误。
      * @syscap SystemCapability.Security.CryptoFramework.MessageDigest
+     * @FaAndStageModel
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
@@ -2208,6 +2250,8 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 17630001 - 密码操作错误。
      * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.MessageDigest [since 12]
+     * @stagemodelonly [since 9 - 11]
+     * @FaAndStageModel [since 12]
      * @crossplatform [since 11]
      * @atomicservice [since 12]
      * @since 9 dynamic
@@ -2220,6 +2264,7 @@ declare namespace cryptoFramework {
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.MessageDigest [since 12]
+     * @stagemodelonly
      * @crossplatform [since 11]
      * @atomicservice [since 12]
      * @since 9 dynamic
@@ -2244,6 +2289,8 @@ declare namespace cryptoFramework {
    * @throws { BusinessError } 17620001 - 内存操作失败。
    * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
    * @syscap SystemCapability.Security.CryptoFramework.MessageDigest [since 12]
+   * @stagemodelonly [since 9 - 11]
+   * @FaAndStageModel [since 12]
    * @crossplatform [since 11]
    * @atomicservice [since 12]
    * @since 9 dynamic
