@@ -19,7 +19,7 @@
  */
 
 /**
- * Defines the response to the cipher interface called.
+ * 调用cipher接口后，返回的内容。
  *
  * @syscap SystemCapability.Security.Cipher
  * @since 3 dynamiconly
@@ -28,7 +28,7 @@
  */
 export interface CipherResponse {
   /**
-   * Response content.
+   * 返回的内容。
    *
    * @syscap SystemCapability.Security.Cipher
    * @since 3 dynamiconly
@@ -39,7 +39,7 @@ export interface CipherResponse {
 }
 
 /**
- * Defines the input parameters of **cipher.rsa()**.
+ * 调用cipher rsa方法时，传入的参数。
  *
  * @syscap SystemCapability.Security.Cipher
  * @since 3 dynamiconly
@@ -48,10 +48,10 @@ export interface CipherResponse {
  */
 export interface CipherRsaOptions {
   /**
-   * Action to perform. The options are as follows:
+   * 加解密操作类型，可选项有：
    *
-   * 1. **encrypt**: Encrypts data.
-   * 2. **decrypt**: Decrypts data.
+   * 1. encrypt 加密；
+   * 2. decrypt 解密。
    *
    * @syscap SystemCapability.Security.Cipher
    * @since 3 dynamiconly
@@ -61,12 +61,9 @@ export interface CipherRsaOptions {
   action: string;
 
   /**
-   * Text to be encrypted or decrypted.
-   *
-   * The text to be encrypted must be a common text and cannot exceed the length calculated based on the formula (
-   * keySize/8 - 66). **keySize** indicates the key length. For example, if the key length is 1024 bytes, the text
-   * cannot exceed 62 bytes (1024/8 - 66 = 62). The text to be decrypted must be a binary value encoded in Base64. The
-   * default format is used for Base64 encoding.
+   * 待加密或解密的文本内容。待加密的文本内容应该是一段普通文本，长度不能超过keySize / 8 - 66，其中keySize是密钥的长度
+   * （例如密钥长度为1024时，text不能超过62个字节）。待解密的文本内容应该是经过base64编码的一段二进制值。base64编码使用
+   * 默认风格。
    *
    * @syscap SystemCapability.Security.Cipher
    * @since 3 dynamiconly
@@ -76,7 +73,7 @@ export interface CipherRsaOptions {
   text: string;
 
   /**
-   * RSA key. It is a public key in encryption and a private key in decryption.
+   * 加解密使用的RSA密钥。加密时key为公钥，解密时key为私钥。
    *
    * @syscap SystemCapability.Security.Cipher
    * @since 3 dynamiconly
@@ -86,7 +83,7 @@ export interface CipherRsaOptions {
   key: string;
 
   /**
-   * RSA padding. The default value is **RSA/None/OAEPWithSHA256AndMGF1Padding**.
+   * RSA算法的填充项，默认为RSA/None/OAEPWithSHA256AndMGF1Padding。
    *
    * @syscap SystemCapability.Security.Cipher
    * @since 3 dynamiconly
@@ -96,7 +93,7 @@ export interface CipherRsaOptions {
   transformation?: string;
 
   /**
-   * Called when data is encrypted or decrypted successfully.
+   * 接口调用成功的回调函数。
    *
    * @syscap SystemCapability.Security.Cipher
    * @since 3 dynamiconly
@@ -106,7 +103,7 @@ export interface CipherRsaOptions {
   success: (data: CipherResponse) => void;
 
   /**
-   * Called when data fails to be encrypted or decrypted.
+   * 接口调用失败的回调函数。
    *
    * @syscap SystemCapability.Security.Cipher
    * @since 3 dynamiconly
@@ -116,7 +113,7 @@ export interface CipherRsaOptions {
   fail: (data: string, code: number) => void;
 
   /**
-   * Called when the execution is complete.
+   * 接口调用结束的回调函数。
    *
    * @syscap SystemCapability.Security.Cipher
    * @since 3 dynamiconly
@@ -127,7 +124,7 @@ export interface CipherRsaOptions {
 }
 
 /**
- * Defines the input parameters of **cipher.aes()**.
+ * 调用cipher aes方法时，传入的参数。
  *
  * @syscap SystemCapability.Security.Cipher
  * @since 3 dynamiconly
@@ -136,10 +133,10 @@ export interface CipherRsaOptions {
  */
 export interface CipherAesOptions {
   /**
-   * Action to perform. The options are as follows:
+   * 加解密操作类型，可选项有：
    *
-   * 1. **encrypt**: Encrypts data.
-   * 2. **decrypt**: Decrypts data.
+   * 1. encrypt 加密；
+   * 2. decrypt 解密。
    *
    * @syscap SystemCapability.Security.Cipher
    * @since 3 dynamiconly
@@ -149,10 +146,7 @@ export interface CipherAesOptions {
   action: string;
 
   /**
-   * Text to be encrypted or decrypted.
-   *
-   * The text to be encrypted must be common text. The text to be decrypted must be a binary value encoded in Base64.
-   * The default format is used for Base64 encoding.
+   * 待加密或解密的文本内容。待加密的文本内容应该是一段普通文本。待解密的文本内容应该是经过 base64 编码的一段二进制值。base64 编码使用默认风格。
    *
    * @syscap SystemCapability.Security.Cipher
    * @since 3 dynamiconly
@@ -162,7 +156,7 @@ export interface CipherAesOptions {
   text: string;
 
   /**
-   * Key used for encryption or decryption. It is a Base64 encoded string.
+   * 加密或解密使用到的密钥，经过 base64 编码后生成的字符串。
    *
    * @syscap SystemCapability.Security.Cipher
    * @since 3 dynamiconly
@@ -172,7 +166,7 @@ export interface CipherAesOptions {
   key: string;
 
   /**
-   * Encryption mode and padding of the AES algorithm. The default value is **AES/CBC/PKCS5Padding**.
+   * AES算法的加密模式和填充项，默认AES/CBC/PKCS5Padding。
    *
    * @syscap SystemCapability.Security.Cipher
    * @since 3 dynamiconly
@@ -182,8 +176,7 @@ export interface CipherAesOptions {
   transformation?: string;
 
   /**
-   * Initialization vector (IV) for AES-based encryption and decryption. The value is a string encoded in Base64. The
-   * default value is the key value.
+   * AES加解密的初始向量，经过base64编码后的字符串，默认值为key值。
    *
    * @syscap SystemCapability.Security.Cipher
    * @since 3 dynamiconly
@@ -193,8 +186,7 @@ export interface CipherAesOptions {
   iv?: string;
 
   /**
-   * Offset of the IV for AES-based encryption and decryption. The default value is **0**, which is the only value
-   * supported.
+   * AES加解密的初始向量偏移，默认值0，仅支持0。
    *
    * @syscap SystemCapability.Security.Cipher
    * @since 3 dynamiconly
@@ -204,7 +196,7 @@ export interface CipherAesOptions {
   ivOffset?: string;
 
   /**
-   * Length of the IV, in bytes. This field is reserved. The default value is **16**, which is the only value supported.
+   * AES加解密的初始向量字节长度，当前为预留字段，默认值16，仅支持16。
    *
    * @syscap SystemCapability.Security.Cipher
    * @since 3 dynamiconly
@@ -214,7 +206,7 @@ export interface CipherAesOptions {
   ivLen?: string;
 
   /**
-   * Called when data is encrypted or decrypted successfully.
+   * 接口调用成功的回调函数。
    *
    * @syscap SystemCapability.Security.Cipher
    * @since 3 dynamiconly
@@ -224,7 +216,7 @@ export interface CipherAesOptions {
   success: (data: CipherResponse) => void;
 
   /**
-   * Called when data fails to be encrypted or decrypted.
+   * 接口调用失败的回调函数。
    *
    * @syscap SystemCapability.Security.Cipher
    * @since 3 dynamiconly
@@ -234,7 +226,7 @@ export interface CipherAesOptions {
   fail: (data: string, code: number) => void;
 
   /**
-   * Called when the execution is complete.
+   * 接口调用结束的回调函数。
    *
    * @syscap SystemCapability.Security.Cipher
    * @since 3 dynamiconly
@@ -245,7 +237,7 @@ export interface CipherAesOptions {
 }
 
 /**
- * Defines the cipher functions.
+ * 提供加解密接口。
  *
  * @syscap SystemCapability.Security.Cipher
  * @since 3 dynamiconly
@@ -254,9 +246,9 @@ export interface CipherAesOptions {
  */
 export default class Cipher {
   /**
-   * Encrypts or decrypts data using RSA.
+   * 使用RSA对数据进行加密或解密。
    *
-   * @param { CipherRsaOptions } options - RSA options.
+   * @param { CipherRsaOptions } options - RSA 加解密参数。
    * @syscap SystemCapability.Security.Cipher
    * @since 3 dynamiconly
    * @deprecated since 9
@@ -265,9 +257,9 @@ export default class Cipher {
   static rsa(options: CipherRsaOptions): void;
 
   /**
-   * Encrypts or decrypts data using AES.
+   * 使用AES对数据进行加密或解密。
    *
-   * @param { CipherAesOptions } options - AES options.
+   * @param { CipherAesOptions } options - AES 加解密参数。
    * @syscap SystemCapability.Security.Cipher
    * @since 3 dynamiconly
    * @deprecated since 9
