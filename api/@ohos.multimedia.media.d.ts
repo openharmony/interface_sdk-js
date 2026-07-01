@@ -12206,7 +12206,7 @@ declare namespace media {
    * @returns { Promise<MediaSource | undefined> } If success, an MediaSource is returned. Otherwise returns null.
    * @throws { BusinessError } 5411007 - The directory specified by the path parameter does not exist or unaccessed.
    * @syscap SystemCapability.Multimedia.Media.Core
-   * @stagemodeonly
+   * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
   function createMediaSourceWithDirectory(path: string): Promise< MediaSource | undefined>;
@@ -12216,7 +12216,7 @@ declare namespace media {
    *
    * @returns { Promise<AVDownloaderManager> } Returns an instance of the Offline Download Manager
    * @syscap SystemCapability.Multimedia.Media.Core
-   * @stagemodeonly
+   * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
   function createAVDownloaderManager( ): Promise<AVDownloaderManager>;
@@ -12224,7 +12224,7 @@ declare namespace media {
   /**
    * Enumerates the states of the download task.
    * @syscap SystemCapability.Multimedia.Media.Core
-   * @stagemodeonly
+   * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
   type AVDownloadTaskState = 'init' | 'queued' | 'running' | 'completed' | 'paused' | 'removing' | 'error';
@@ -12235,7 +12235,7 @@ declare namespace media {
    * @param { string } taskId - ID of the task whose status changes.
    * @param { AVDownloadTaskState } status - New status of the task switchover.
    * @syscap SystemCapability.Multimedia.Media.Core
-   * @stagemodeonly
+   * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
   type OnAVDownloadTaskStateHandle = (taskId: string, state: AVDownloadTaskState) => void;
@@ -12246,7 +12246,7 @@ declare namespace media {
    * @param { string } taskId - ID of the task whose status changes.
    * @param { double } status - Progress value ranges from 0.0 to 1.0.
    * @syscap SystemCapability.Multimedia.Media.Core
-   * @stagemodeonly
+   * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
   type OnAVDownloadProgressChangeHandle = (taskId: string, progress: double) => void;
@@ -12255,7 +12255,7 @@ declare namespace media {
    * Definition of the Offline Download Management Interface
    *
    * @syscap SystemCapability.Multimedia.Media.Core
-   * @stagemodeonly
+   * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
   interface AVDownloaderManager {
@@ -12265,20 +12265,20 @@ declare namespace media {
      * @param { boolean } value - If is set to true, the download can be performed in any network environment,
      *     Otherwise, the download is performed only in the free Wi-Fi network environment.
      * @syscap SystemCapability.Multimedia.Media.Core
-     * @stagemodeonly
+     * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
-    allowCellularAccess(value: boolean): void;
+    allowsCellularAccess(value: boolean): void;
 
     /**
      * Sets the network timeout interval for HTTP requests. If the timeout interval is exceeded, the download fails.
      *
-     * @param { int } expired - Timeout duration, in ms. If is not set, the default timtout duration is used.
+     * @param { int } expired - Timeout duration, in ms. If is not set, the default timeout duration is used.
      *     The value should be an interager.
      *     <br>**Description**</br>
      *     <ul><li>If the value is less than 0, there is no timeout duration.</li></ul>.
      * @syscap SystemCapability.Multimedia.Media.Core
-     * @stagemodeonly
+     * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
     setRequestTimeout(expired: int): void;
@@ -12287,10 +12287,10 @@ declare namespace media {
      * Create a download task based on the media description.
      *
      * @param { MediaSource } source - Media description, including at least the resource URL.
-     *     <br>Value constraint:The value cannot be null</br>
+     *     <br>Value constraint:The value cannot be null.
      * @returns { string } ID of the offline download task that is successfully added.
      * @syscap SystemCapability.Multimedia.Media.Core
-     * @stagemodeonly
+     * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
     addAVDownloadTask(source: MediaSource): string;
@@ -12302,23 +12302,23 @@ declare namespace media {
      *     <br>Default value:    If this parameter is not specified, all offline download tasks are cleared..
      * @throws { BusinessError } 5400108 - If the specified ID is not in the offline download task manager.
      * @syscap SystemCapability.Multimedia.Media.Core
-     * @stagemodeonly
+     * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
-    removeDownloadTask(taskId?: string): string;
+    removeDownloadTask(taskId?: string): void;
 
     /**
      * Suspending the download of a specified task
      *
      * @param { string } [taskId] - ID of the task whose download needs to be suspended.
-     *     Value constraint:If the task ID is not transferred, all download tasks are suspened..
+     *     Value constraint:If the task ID is not transferred, all download tasks are suspended..
      * @throws { BusinessError } 5400108 - If the specified ID is not in the offline download task manager.
      * @throws { BusinessError } 5400102 - Operation not allowed.
      * @syscap SystemCapability.Multimedia.Media.Core
-     * @stagemodeonly
+     * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
-    pauseDownloadTask(taskId?: string): string;
+    pauseDownloadTask(taskId?: string): void;
 
     /**
      * Resuming Offline download of a Specified Task
@@ -12328,7 +12328,7 @@ declare namespace media {
      * @throws { BusinessError } 5400108 - If the specified ID is not in the offline download task manager.
      * @throws { BusinessError } 5400102 - Operation not allowed.
      * @syscap SystemCapability.Multimedia.Media.Core
-     * @stagemodeonly
+     * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
     resumeDownloadTask(taskId?: string): void;
@@ -12338,7 +12338,7 @@ declare namespace media {
      *
      * @returns { Array<string> } If a task exists in the task manager, the taskID array is returned. Otherwise null.
      * @syscap SystemCapability.Multimedia.Media.Core
-     * @stagemodeonly
+     * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
     getDownloadTasks(): Array<string>;
@@ -12350,7 +12350,7 @@ declare namespace media {
      * @returns { string } Return the accessible path of the offline download task on the disk.
      * @throws { BusinessError } 5400108 - If the specified ID is not in the manager, an error is returned.
      * @syscap SystemCapability.Multimedia.Media.Core
-     * @stagemodeonly
+     * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
     getTaskCacheDirectory(taskId: string): string;
@@ -12362,7 +12362,7 @@ declare namespace media {
      * @returns { AVDownloadTaskState } Returns the task status of a specified task.
      * @throws { BusinessError } 5400108 - If the specified ID is not in the manager, an error is returned.
      * @syscap SystemCapability.Multimedia.Media.Core
-     * @stagemodeonly
+     * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
     getTaskStatus(taskId: string): AVDownloadTaskState;
@@ -12376,7 +12376,7 @@ declare namespace media {
      *     If the returned value range is -1, the resource size is unknown.
      * @throws { BusinessError } 5400108 - If the specified ID is not in the manager, an error is returned.
      * @syscap SystemCapability.Multimedia.Media.Core
-     * @stagemodeonly
+     * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
     getTaskProgress(taskId: string): double;
@@ -12388,7 +12388,7 @@ declare namespace media {
      *     The first parameter indicates the ID of the task whose status changes.
      *     The second parameter indicates the new status of the task switchover.
      * @syscap SystemCapability.Multimedia.Media.Core
-     * @stagemodeonly
+     * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
     onStatusChange(callback: OnAVDownloadTaskStateHandle): void;
@@ -12401,10 +12401,10 @@ declare namespace media {
      * @param { OnAVDownloadProgressChangeHandle } callback - Prototype of the function called by the event.
      *     The first parameter indicates the offline download task ID.
      *     The second parameter indicates the progress of an offline download task.
-     *     The progress value range from 0.0 to 1.0,
+     *     The progress value ranges from 0.0 to 1.0,
      *     If the value is -1, the size of the resource is unknown.
      * @syscap SystemCapability.Multimedia.Media.Core
-     * @stagemodeonly
+     * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
     onProgressChange(callback: OnAVDownloadProgressChangeHandle): void;
@@ -12414,10 +12414,10 @@ declare namespace media {
      *
      * @param { OnAVDownloadTaskStateHandle } [callback] - Prototype of the function invoked by the event.
      *     The first parameter indicates the ID of the offline download task.
-     *     The second parameter indicates the lastest status of the offline download task.
+     *     The second parameter indicates the latest status of the offline download task.
      *     <br>Default value: If no parameter is set, all listening functions for the event are canceled.
      * @syscap SystemCapability.Multimedia.Media.Core
-     * @stagemodeonly
+     * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
     offStatusChange(callback?: OnAVDownloadTaskStateHandle): void;
@@ -12428,20 +12428,20 @@ declare namespace media {
      * @param { OnAVDownloadProgressChangeHandle } [callback] - Prototype of the function called by the event.
      *     The first parameter indicates the offline download task ID.
      *     The second parameter indicates the progress of an offline download task.
-     *     The progress value range from 0.0 to 1.0,
+     *     The progress value ranges from 0.0 to 1.0,
      *     If the value is -1, the size of the resource is unknown.
      *     <br>Default value: If no parameter is set, all listening functions for the event are canceled.
      * @syscap SystemCapability.Multimedia.Media.Core
-     * @stagemodeonly
+     * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
-    offProgressChange(callback: OnAVDownloadProgressChangeHandle): void;
+    offProgressChange(callback?: OnAVDownloadProgressChangeHandle): void;
 
     /**
      * Release resources used for AVDownloaderManager.
      *
      * @syscap SystemCapability.Multimedia.Media.Core
-     * @stagemodeonly
+     * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
     release(): void;
