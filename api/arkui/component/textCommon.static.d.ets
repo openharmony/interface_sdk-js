@@ -219,7 +219,6 @@ export declare interface TextDataDetectorConfig {
     /**
      * Text data detect result callback.
      *
-     * @type { ?Callback<string> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
