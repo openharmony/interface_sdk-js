@@ -838,7 +838,6 @@ export declare interface GestureStyleInterface {
     /**
      * Trigger a click event when a click is clicked.
      *
-     * @type { ?Callback<ClickEvent> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -847,7 +846,6 @@ export declare interface GestureStyleInterface {
     /**
      * Trigger a gesture event when long press event is complete.
      *
-     * @type { ?Callback<GestureEvent> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -856,7 +854,6 @@ export declare interface GestureStyleInterface {
     /**
      * Trigger a touch event when touched.
      *
-     * @type { ?Callback<TouchEvent> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 24 static
