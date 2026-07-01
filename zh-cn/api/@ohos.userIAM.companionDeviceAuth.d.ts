@@ -409,9 +409,7 @@ declare namespace companionDeviceAuth {
          * 获取伴随设备模板状态。用于查询当前用户下所有已注册的伴随设备认证模板的状态信息，包括模板有效性、支持的业务范围、关联设备状态等。使用Promise异步回调。
          *
      * @permission ohos.permission.USE_USER_IDM
-     * @returns { Promise<TemplateStatus[]> } Promise used to return the status list of all templates of the current
-     *     user. The status of each template contains the template ID, validity, and device information. If the
-     *     operation fails, an error code is returned.
+     * @returns { Promise<TemplateStatus[]> } Promise对象，成功时返回当前用户下全部模板的状态列表，每个模板状态包含模板ID、有效性、设备信息等；失败时抛出相应错误码。
      * @throws { BusinessError } 32600001 - The system service is not working properly. Please try again later.
      * @syscap SystemCapability.UserIAM.UserAuth.CompanionDeviceAuth
      * @systemapi Hide this for inner system use.
