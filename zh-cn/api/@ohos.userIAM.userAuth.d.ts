@@ -24,15 +24,16 @@ import type { AsyncCallback } from './@ohos.base';
 /*** if arkts static */
 import Context from './application/Context';
 import window from '@ohos.window';
+
 /*** endif */
 
 /**
  * **userAuth**模块是OpenHarmony系统中用于用户身份认证的核心模块，提供了设备解锁、支付验证、应用登录等场景下的身份认证能力。
- * 
+ *
  * 该模块支持多种生物特征认证方式（人脸、指纹）和密码认证（PIN），并提供不同级别的安全信任等级。从API版本26.0.0开始，新增伴随设备认证的方式。
- * 
+ *
  * 该模块主要用于以下场景：
- * 
+ *
  * - 设备解锁认证。
  * - 金融支付验证。
  * - 应用登录保护。
@@ -371,7 +372,7 @@ declare namespace userAuth {
   interface IUserAuthCallback {
     /**
      * 回调函数，返回认证结果。
-     * 
+     *
      * - **result**: 认证结果，参见[ResultCode]{@link userAuth.ResultCode}。
      * - **extraInfo**: 扩展信息，不同情况下的具体信息。如果身份验证通过，则在extraInfo中返回用户认证令牌；如果身份验证失败，则在extraInfo中返回剩余的用户认证次数；如果身份验证执行器被锁定，则在
      * extraInfo中返回冻结时间，类型为[AuthResult]{@link userAuth.AuthResult}。
@@ -385,7 +386,7 @@ declare namespace userAuth {
 
     /**
      * 回调函数，返回认证过程中的提示信息，非必须实现。
-     * 
+     *
      * - **module**: 发送提示信息的模块标识。
      * - **acquire**: 认证执过程中的提示信息。
      * - **extraInfo**: 预留字段。
@@ -798,7 +799,7 @@ declare namespace userAuth {
   /**
    * 表示认证结果的信任等级枚举。该枚举定义了四个认证可信等级，用于描述认证结果的安全强度。认证可信等级越高，表示认证方案的活体检测能力越强、用户身份识别越精确，适用于更高安全要求的业务场景。应用应根据业务场景的安全需求选择合适的认证可
    * 信等级。
-   * 
+   *
    * 典型场景及举例可参考[生物认证可信等级划分原则](docroot://security/UserAuthenticationKit/user-authentication-overview.md#生物认证可信等级划分原则)。
    *
    * @syscap SystemCapability.UserIAM.UserAuth.Core
@@ -853,7 +854,7 @@ declare namespace userAuth {
 
   /**
    * 表示认证事件类型的关键字，作为[on]{@link userAuth.AuthInstance.on}接口的参数。
-   * 
+   *
    * 该类型为下表类型取值中的联合类型。
    *
    * @unionmember { 'result' } If the first parameter of
@@ -872,7 +873,7 @@ declare namespace userAuth {
 
   /**
    * 表示认证过程中事件信息的类型。
-   * 
+   *
    * 该类型为下表类型取值中的联合类型。
    *
    * @unionmember { AuthResultInfo } 获取到的认证结果信息。
@@ -996,11 +997,11 @@ declare namespace userAuth {
   interface AuthInstance {
     /**
      * 订阅指定类型的用户认证事件。
-     * 
+     *
      * - **name**: 表示认证事件类型，取值为"result"时，回调函数返回认证结果；取值为"tip"时，回调函数返回认证过程中的提示信息，类型为
      * [AuthEventKey]{@link userAuth.AuthEventKey}。
      * - **callback**: 认证接口的回调函数，用于返回认证结果或认证过程中的提示信息，类型为[AuthEvent]{@link userAuth.AuthEvent}。
-     * 
+     *
      * > **说明：**
      * >
      * > 使用获取到的[AuthInstance]{@link userAuth.AuthInstance}对象调用该接口进行订阅。
@@ -1016,10 +1017,10 @@ declare namespace userAuth {
 
     /**
      * 取消订阅特定类型的认证事件。
-     * 
+     *
      * - **name**: 表示认证事件类型，取值为"result"时，取消订阅认证结果；取值为"tip"时，取消订阅认证过程中的提示信息，类型为
      * [AuthEventKey]{@link userAuth.AuthEventKey}。
-     * 
+     *
      * > **说明：**
      * >
      * > 需要使用已经成功订阅事件的[AuthInstance]{@link userAuth.AuthInstance}对象调用该接口进行取消订阅。
@@ -1035,7 +1036,7 @@ declare namespace userAuth {
 
     /**
      * 开始认证。
-     * 
+     *
      * > **说明：**
      * >
      * > 使用获取到的[AuthInstance]{@link userAuth.AuthInstance}对象调用该接口进行认证。
@@ -1061,7 +1062,7 @@ declare namespace userAuth {
 
     /**
      * 取消认证。
-     * 
+     *
      * > **说明：**
      * >
      * > 使用获取到的[AuthInstance]{@link userAuth.AuthInstance}对象调用该接口进行取消认证，此[AuthInstance]{@link userAuth.AuthInstance}需要是正
@@ -1117,7 +1118,7 @@ declare namespace userAuth {
   interface EnrolledState {
     /**
      * 注册的凭据摘要，在凭据增加时随机生成。该值用于标识当前注册凭据的版本，当用户新增或删除凭据时该值会变化。应用可保存此值并在后续查询时对比，以判断凭据是否发生变化。
-     * 
+     *
      * **注意**：当复用认证结果时，如果之前认证使用的凭据已被删除，返回的credentialDigest可能为0。
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
@@ -1129,7 +1130,7 @@ declare namespace userAuth {
 
     /**
      * 注册的凭据数量。表示当前用户已注册的该类型凭据数量，例如指纹数量或人脸数量。
-     * 
+     *
      * **注意**：当复用认证结果时，如果之前认证使用的凭据已被删除，返回的credentialCount可能为0。
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
@@ -1192,7 +1193,7 @@ declare namespace userAuth {
 
     /**
      * 认证被冻结时的剩余冻结时间，单位为毫秒。此字段仅在isLocked为true时有效。
-     * 
+     *
      * 当永久冻结时，值为
      * [PERMANENT_LOCKOUT_DURATION]{@link userAuth.PERMANENT_LOCKOUT_DURATION}，
      * 表示认证器已永久锁定，需要用户通过PIN认证解锁后才能继续使用该认证类型。临时冻结时，该值为实际的剩余冻结时长，冻结结束后用户可继续尝试认证。
@@ -1225,7 +1226,7 @@ declare namespace userAuth {
 
   /**
    * 获取AuthInstance对象，用于执行用户身份认证。
-   * 
+   *
    * > **说明：**
    * >
    * > 每个AuthInstance只能进行一次认证，若需要再次进行认证则需重新获取AuthInstance。
@@ -1286,7 +1287,7 @@ declare namespace userAuth {
   enum ReuseMode {
     /**
      * 与认证类型相关，只有当设备解锁认证结果在有效时间内，并且设备解锁的认证类型匹配上本次认证指定认证类型之一时，可以复用该结果。
-     * 
+     *
      * 例如：用户使用人脸解锁设备后，在有效时间内发起需要人脸认证的业务操作，可直接复用解锁结果；但如果发起需要指纹认证的业务操作，则无法复用。
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
@@ -1298,7 +1299,7 @@ declare namespace userAuth {
 
     /**
      * 与认证类型无关，设备解锁认证结果在有效时间内，可以重复使用。
-     * 
+     *
      * 例如：用户使用人脸解锁设备后，在有效时间内发起需要指纹或PIN认证的业务操作，均可直接复用解锁结果，无需再次认证。
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
@@ -1310,7 +1311,7 @@ declare namespace userAuth {
 
     /**
      * 与认证类型相关，任意身份认证（包括设备解锁）结果在有效时间内，并且身份认证的认证类型匹配上本次认证指定认证类型之一时，可以复用该结果。
-     * 
+     *
      * 例如：用户在某应用中使用人脸认证完成支付后，在有效时间内另一应用发起需要人脸认证的操作，可复用之前的认证结果；但如果发起需要指纹认证的操作，则无法复用。
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
@@ -1322,7 +1323,7 @@ declare namespace userAuth {
 
     /**
      * 与认证类型无关，任意身份认证（包括设备解锁）结果在有效时间内，可以重复使用。
-     * 
+     *
      * 例如：用户在某应用中使用人脸认证完成操作后，在有效时间内另一应用发起任意类型的认证操作，均可复用之前的认证结果。
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
@@ -1335,7 +1336,7 @@ declare namespace userAuth {
 
   /**
    * 复用解锁认证结果。该接口用于配置认证结果复用的相关参数，包括复用模式和有效时长。通过合理配置认证结果复用，可以在保证安全性的前提下提升用户体验，避免用户频繁重复认证。
-   * 
+   *
    * > **说明：**
    * >
    * > 如果身份认证解锁（包括设备解锁）后，在有效时间内凭据发生了变化，身份认证的结果依然可以复用，认证结果中返回当前实际的EnrolledState。若复用认证结果时，之前认证时所使用的身份认证凭据已经被删除：
@@ -1352,7 +1353,7 @@ declare namespace userAuth {
   interface ReuseUnlockResult {
     /**
      * 复用解锁认证结果的模式。根据业务场景的安全需求选择合适的复用模式：
-     * 
+     *
      * - AUTH_TYPE_RELEVANT(1)：仅复用匹配认证类型的设备解锁结果，安全性最高。
      * - AUTH_TYPE_IRRELEVANT(2)：复用任意类型的设备解锁结果，适用于中等安全场景。
      * - CALLER_IRRELEVANT_AUTH_TYPE_RELEVANT(3)：复用匹配认证类型的任意认证结果，适用于跨应用场景。
@@ -1369,7 +1370,7 @@ declare namespace userAuth {
      * 允许复用解锁认证结果的有效时长，单位为毫秒。有效时长的值应大于0，最大值为
      * [MAX_ALLOWABLE_REUSE_DURATION]{@link userAuth.MAX_ALLOWABLE_REUSE_DURATION}，
      * （300000毫秒，即5分钟）。建议根据业务场景设置合理的时长：
-     * 
+     *
      * - 高安全场景（如支付）：建议设置较短时长（如30秒至1分钟）。
      * - 中等安全场景（如应用登录）：建议设置中等时长（如2至3分钟）。
      * - 低安全场景（如数据查询）：可使用最大时长。
@@ -1415,12 +1416,12 @@ declare namespace userAuth {
 
     /**
      * 期望达到的认证可信等级。认证可信等级决定了认证的安全强度，应根据业务场景的安全需求选择合适的等级：
-     * 
+     *
      * - ATL1：适用于业务风控、一般个人数据查询等低安全场景。
      * - ATL2：适用于应用登录、维持设备解锁状态等中等安全场景。
      * - ATL3：适用于设备解锁等较高安全场景。
      * - ATL4：适用于小额支付等高安全场景。
-     * 
+     *
      * 典型操作需要的身份认证可信等级，以及身份认证可信等级的划分请参见
      * [认证可信等级划分原则](docroot://security/UserAuthenticationKit/user-authentication-overview.md#生物认证可信等级划分原则)。
      *
@@ -1454,7 +1455,7 @@ declare namespace userAuth {
 
     /**
      * 是否跳过已禁用的认证方式自动切换至其它方式的认证。若无可切换的认证方式则关闭控件，返回认证冻结错误码。
-     * 
+     *
      * - true：生物认证冻结时，跳过倒计时界面直接切换到其他方式的认证（如从冻结的指纹切换到人脸或PIN）。适用于希望快速完成认证的场景。
      * - false（默认）：不跳过，用户需要等待冻结倒计时结束后才能继续尝试该认证方式或手动切换。
      *
@@ -1520,7 +1521,7 @@ declare namespace userAuth {
      * 以模应用弹窗方式显示身份认证对话框，仅支持在2in1设备上使用。传入有效的uiContext后，认证对话框将以模应用弹窗方式显示，认证结果返回后应用需先获取控件释放消息（订阅
      * [on('authTip')]{@link userAuth.UserAuthInstance.on(type: 'authTip', callback: AuthTipCallback)}并等待WIDGET_RELEASED
      * 状态）才能弹出其他窗口。如果没有此参数或其他类型的设备，身份认证对话框将以模系统弹窗方式显示，此时控件释放后应用可直接进行后续操作。
-     * 
+     *
      * **默认值：** 以模系统弹窗方式显示身份认证对话框。
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
@@ -1555,14 +1556,14 @@ declare namespace userAuth {
   interface UserAuthResult {
     /**
      * 用户认证结果。若成功返回SUCCESS(12500000)，若失败返回相应错误码。错误码包括：
-     * 
+     *
      * - FAIL(12500001)：认证不通过。
      * - CANCELED(12500003)：认证取消。
      * - TIMEOUT(12500004)：认证超时。
      * - LOCKED(12500009)：认证器锁定。
      * - NOT_ENROLLED(12500010)：未注册凭据。
      * - PIN_EXPIRED(12500013)：锁屏密码过期。
-     * 
+     *
      * 完整错误码列表参见[UserAuthResultCode]{@link userAuth.UserAuthResultCode}。
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
@@ -1778,9 +1779,9 @@ declare namespace userAuth {
 
   /**
    * 用于执行用户身份认证，并支持使用统一用户身份认证控件。该接口提供了完整的用户认证能力，包括订阅认证结果、订阅认证中间状态、启动认证和取消认证等操作。通过统一认证控件，可以为用户提供标准化的认证界面和一致的认证体验。
-   * 
+   *
    * 使用以下接口前，需先通过[getUserAuthInstance]{@link userAuth.getUserAuthInstance}方法获取UserAuthInstance对象。
-   * 
+   *
    * > **说明：**
    * >
    * > 每个UserAuthInstance实例只能用于一次认证过程。若需要再次认证，必须重新获取UserAuthInstance实例。
@@ -1795,7 +1796,7 @@ declare namespace userAuth {
      * 订阅用户身份认证的最终结果。通过该接口获取到的是用户在认证控件完成身份认证交互后的最终身份认证结果。认证控件消失前，用户中间的认证不通过尝试并不会通过该接口返回，只有最终的认证结果（成功或最终失败）会通过此接口返回。如果需要感
      * 知整个认证过程中用户的每一次认证不通过尝试和中间状态，请通过
      * [on('authTip')]{@link userAuth.UserAuthInstance.on(type: 'authTip', callback: AuthTipCallback)}接口订阅。
-     * 
+     *
      * > **说明：**
      * >
      * > 在PC/2in1设备上，应用如果使用模应用弹窗方式发起认证（即配置用户界面参数[widgetParam]{@link userAuth.WidgetParam}时传入了有效的uiContext），收到认证结果后，若需弹出其
@@ -1833,7 +1834,7 @@ declare namespace userAuth {
 
     /**
      * 取消订阅用户身份认证的结果。
-     * 
+     *
      * > **说明：**
      * >
      * > 需要使用已经成功订阅事件的[UserAuthInstance]{@link userAuth.UserAuthInstance}对象调用该接口进行取消订阅。
@@ -1854,7 +1855,7 @@ declare namespace userAuth {
 
     /**
      * 取消订阅用户身份认证的结果。
-     * 
+     *
      * > **说明：**
      * >
      * > 需要使用已经成功订阅事件的[UserAuthInstance]{@link userAuth.UserAuthInstance}对象调用该接口进行取消订阅。
@@ -1872,7 +1873,7 @@ declare namespace userAuth {
 
     /**
      * 开始认证。
-     * 
+     *
      * > **说明：**
      * >
      * > 每个UserAuthInstance只能进行一次认证，需要再次认证时，必须重新获取UserAuthInstance。
@@ -1904,7 +1905,7 @@ declare namespace userAuth {
 
     /**
      * 取消认证。
-     * 
+     *
      * > **说明：**
      * >
      * > 此时UserAuthInstance必须是正在进行认证的对象。
@@ -1923,7 +1924,7 @@ declare namespace userAuth {
 
     /**
      * 订阅身份认证过程中的提示信息。通过该接口可以获取到认证过程中控件的拉起和退出提示，以及认证过程中用户的每一次认证不通过尝试。使用callback异步回调。
-     * 
+     *
      * > **说明：**
      * >
      * > 在PC/2in1设备上，应用如果使用模应用弹窗方式发起认证（即配置用户界面参数[widgetParam]{@link userAuth.WidgetParam}时传入了有效的uiContext），收到认证结果后，若需弹出其
@@ -1953,7 +1954,7 @@ declare namespace userAuth {
 
     /**
      * 取消订阅用户身份认证中间状态。
-     * 
+     *
      * > **说明：**
      * >
      * > 需要使用已经成功订阅事件的[UserAuthInstance]{@link userAuth.UserAuthInstance}对象调用该接口进行取消订阅。
@@ -1971,7 +1972,7 @@ declare namespace userAuth {
 
     /**
      * 取消订阅用户身份认证中间状态。
-     * 
+     *
      * > **说明：**
      * >
      * > 需要使用已经成功订阅事件的[UserAuthInstance]{@link userAuth.UserAuthInstance}对象调用该接口进行取消订阅。
@@ -1987,7 +1988,7 @@ declare namespace userAuth {
   /**
    * 获取[UserAuthInstance]{@link userAuth.UserAuthInstance}对象，执行用户身份认证，并支持使用统一用户身份认证控件。该接口用于创建一个用户认证实例，配置认证参数和界面参数后，可通过返回
    * 的实例对象启动认证、订阅认证结果等。
-   * 
+   *
    * > **说明：**
    * >
    * > 每个UserAuthInstance只能进行一次认证，需要再次认证时，必须重新获取UserAuthInstance。认证完成后（无论成功或失败），该实例将无法再次使用。
@@ -2297,7 +2298,7 @@ declare namespace userAuth {
 
   /**
    * 获取身份认证组件管理器对象。用于获取UserAuthWidgetMgr实例，通过该实例可将自定义身份认证控件注册到系统进行统一管理。
-   * 
+   *
    * > **说明：**
    * >
    * > 每个UserAuthWidgetMgr实例可管理一个身份认证控件，若需要管理多个控件则需获取多个实例。
@@ -2464,107 +2465,6 @@ declare namespace userAuth {
    * @since 23 static
    */
   function queryReusableAuthResult(authParam: AuthParam): Uint8Array;
-
-  /**
-   * 机主识别结果。
-   *
-   * @syscap SystemCapability.UserIAM.UserAuth.Core
-   * @stagemodelonly
-   * @atomicservice
-   * @since 26.0.0 dynamic&static
-   */
-  enum OwnerRecognitionResult {
-    /**
-     * 不确定机主。
-     *
-     * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @stagemodelonly
-     * @atomicservice
-     * @since 26.0.0 dynamic&static
-     */
-    UNCERTAIN = 0,
-
-    /**
-     * 识别是机主。
-     *
-     * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @stagemodelonly
-     * @atomicservice
-     * @since 26.0.0 dynamic&static
-     */
-    OWNER = 1,
-
-    /**
-     * 识别是非机主。
-     *
-     * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @stagemodelonly
-     * @atomicservice
-     * @since 26.0.0 dynamic&static
-     */
-    NON_OWNER = 2
-  }
-
-  /**
-   * 当机主识别结果发生变化时调用的回调。
-   *
-   * @param { OwnerRecognitionResult } result - 机主识别结果。
-   * @param { UserAuth.AuthTrustLevel } [authTrustLevel] - 认证结果的信任级别。
-   * @syscap SystemCapability.UserIAM.UserAuth.Core
-   * @stagemodelonly
-   * @atomicservice
-   * @since 26.0.0 dynamic&static
-   */
-  type OwnerRecognitionCallback = (result: OwnerRecognitionResult, authTrustLevel?: UserAuth.AuthTrustLevel) => void;
-
-  /**
-   * 监控用户检测和机主识别结果的变化。
-   *
-   * @syscap SystemCapability.UserIAM.UserAuth.Core
-   * @stagemodelonly
-   * @atomicservice
-   * @since 26.0.0 dynamic&static
-   */
-  interface UserDetectionMonitor {
-    /**
-     * 订阅机主识别结果的命令。
-     *
-     * @param { OwnerRecognitionCallback } callback - 要移除的目标回调。
-     * @throws { BusinessError } 12500002 - General operation error.
-     * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @stagemodelonly
-     * @atomicservice
-     * @since 26.0.0 dynamic&static
-     */
-    onOwnerRecognition(callback: OwnerRecognitionCallback): void;
-
-    /**
-     * 取消机主识别结果订阅。
-     *
-     * @param { OwnerRecognitionCallback } [callback] - 处理机主识别结果的变化。
-     * @throws { BusinessError } 12500002 - General operation error.
-     * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @stagemodelonly
-     * @atomicservice
-     * @since 26.0.0 dynamic&static
-     */
-    offOwnerRecognition(callback?: OwnerRecognitionCallback): void;
-  }
-
-  /**
-   * 获取探测用户身份状态的对象。
-   *
-   * @permission ohos.permission.ACCESS_BIOMETRIC
-   * @returns { UserDetectionMonitor } 探测用户身份状态的对象。
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 12500002 - General operation error.
-   * @syscap SystemCapability.UserIAM.UserAuth.Core
-   * @stagemodelonly
-   * @atomicservice
-   * @since 26.0.0 dynamic&static
-   */
-  function getUserDetectionMonitor(): UserDetectionMonitor;
 }
 
 export default userAuth;
