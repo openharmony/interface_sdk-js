@@ -54,7 +54,7 @@ import { Scroller } from '@ohos.arkui.component';
 
 import { KeyProcessingMode } from '@ohos.arkui.component';
 
-import { TextMenuOptions, TextLayoutOptions, StyledString, Paragraph } from '@ohos.arkui.component';
+import { TextMenuOptions, TextLayoutOptions, StyledString, Paragraph, TextMenuItemId } from '@ohos.arkui.component';
 
 import { SmartGestureAction, OperateIntention } from '@ohos.arkui.component';
 
@@ -4848,6 +4848,17 @@ export declare class TextMenuController {
    * @since 23 static
    */
   static disableSystemServiceMenuItems(disable: boolean): void;
+
+  /**
+   * Disable menu action by action id.
+   *
+   * @param { Array<TextMenuItemId> } items - menu item id to disable
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  static disableMenuItems(items: Array<TextMenuItemId>): void;
 }
 
 /**
