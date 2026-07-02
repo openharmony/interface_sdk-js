@@ -2442,19 +2442,6 @@ declare class On {
    * @test
    */
   originalText(text: string, pattern?: MatchPattern): On;
-  /**
-   * 指定目标控件的控件类型属性和匹配模式，返回On对象自身。
-   *
-   * @param { string } tp - 指定控件类型。<!--RP2--><!--RP2End-->
-   * @param { MatchPattern } pattern - 指定的文本匹配模式。
-   * @returns { On } 返回指定目标控件的控件类型属性的On对象。
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @syscap SystemCapability.Test.UiTest
-   * @atomicservice
-   * @since 18
-   * @test
-   */
-  type(tp: string, pattern: MatchPattern): On;
  }
 
 /**

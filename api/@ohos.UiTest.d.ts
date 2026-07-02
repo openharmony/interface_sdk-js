@@ -2326,19 +2326,6 @@ declare class On {
    * @test
    */
   originalText(text: string, pattern?: MatchPattern): On;
-  /**
-   * Specifies the type of the target Component.
-   *
-   * @param { string } tp - The type value.
-   * @param { MatchPattern } pattern - the {@link MatchPattern} of the text value,Set it default {@link MatchPattern.EQUALS} if null or undefined.
-   * @returns { On } this {@link On} object.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @syscap SystemCapability.Test.UiTest
-   * @atomicservice
-   * @since 18
-   * @test
-   */
-  type(tp: string, pattern: MatchPattern): On;
  }
 
 /**
