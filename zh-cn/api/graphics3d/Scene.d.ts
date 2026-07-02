@@ -26,7 +26,7 @@ import { Camera, LightType, Light, Node, NodeType, Geometry } from './SceneNodes
 import { Position3, Color, GeometryDefinition, RenderingPipelineType, Vec2, Vec3, Vec4, ShadowAlgorithmType } from './SceneTypes';
 
 /**
- * The parameters for loading a scene
+ * 加载场景的参数
  *
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @systemapi
@@ -35,8 +35,8 @@ import { Position3, Color, GeometryDefinition, RenderingPipelineType, Vec2, Vec3
  */
 export interface SceneLoadParams {
   /**
-   * The offset of the start of the 3D model data in the resource
-   * Unit: byte, The value must be greater than or equal to 0. Default value: 0.
+   * 资源中3D模型数据的起始偏移量
+   * 单位：字节，值必须大于等于0. 默认值：0.
    *
    * @default { 0 }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -48,7 +48,7 @@ export interface SceneLoadParams {
 }
 
 /**
- * The scene resource parameters type.
+ * 场景资源参数类型.
  *
  * @typedef SceneResourceParameters
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -57,7 +57,7 @@ export interface SceneLoadParams {
  */
 export interface SceneResourceParameters {
   /**
-   * The name of the scene resource parameters.
+   * 场景资源参数的名称.
    *
    * @type { string }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -67,7 +67,7 @@ export interface SceneResourceParameters {
   name: string;
 
   /**
-   * The resource uri of the scene resource parameters.
+   * 场景资源参数的资源URI.
    *
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -78,7 +78,7 @@ export interface SceneResourceParameters {
 }
 
 /**
- * The scene node parameters type.
+ * 场景节点参数类型.
  *
  * @typedef SceneNodeParameters
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -87,7 +87,7 @@ export interface SceneResourceParameters {
  */
 export interface SceneNodeParameters {
   /**
-   * The name of the scene node parameters.
+   * 场景节点参数的名称.
    *
    * @type { string }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -97,7 +97,7 @@ export interface SceneNodeParameters {
   name: string;
 
   /**
-   * The path of the scene node parameters.
+   * 场景节点参数的路径.
    *
    * @type { ?string }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -108,7 +108,7 @@ export interface SceneNodeParameters {
 }
 
 /**
- * The result of a ray cast hit.
+ * 射线检测命中结果.
  *
  * @typedef RaycastResult
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -117,7 +117,7 @@ export interface SceneNodeParameters {
  */
 export interface RaycastResult {
   /**
-   * The node that was hit.
+   * 被击中的节点.
    *
    * @type { Node }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -127,7 +127,7 @@ export interface RaycastResult {
   node: Node;
 
   /**
-   * The distance to the center of the axis-aligned bounding box, the unit is the scene unit in the world coordinate system (e.g., cm, m, km).
+   * 到轴对齐包围盒中心的距离, 单位为世界坐标系下的场景单位（例如cm、m、km等）.
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -137,7 +137,7 @@ export interface RaycastResult {
   centerDistance: double;
 
   /**
-   * The position of the hit in world coordinates, the unit is the scene unit in the world coordinate system (e.g., cm, m, km).
+   * 命中点的世界坐标位置, 单位为世界坐标系下的场景单位（例如cm、m、km等）.
    *
    * @type { Position3 }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -148,7 +148,7 @@ export interface RaycastResult {
 }
 
 /**
- * How a raycast should be performed.
+ * 如何执行射线检测.
  *
  * @interface RaycastParameters
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -157,8 +157,8 @@ export interface RaycastResult {
  */
 export interface RaycastParameters {
   /**
-   * If defined, search only the nodes in the hierarchy under this node
-   * If undefined, search all the nodes in the scene
+   * 如果定义，则仅搜索该节点层级下的节点
+   * 如果未定义，则搜索场景中的所有节点
    *
    * @type { ?Node }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -168,10 +168,9 @@ export interface RaycastParameters {
   rootNode?: Node;
 }
 
-/** 
- * The render resource factory. RenderResourceFactory is used to create resources that can be shared
- * across Scenes that share a RenderContext
- * 
+/**
+ * 渲染资源工厂，用于创建可在共享RenderContext的场景间共享的资源。
+ *
  * @interface RenderResourceFactory
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 20 dynamic
@@ -179,10 +178,10 @@ export interface RaycastParameters {
  */
 export interface RenderResourceFactory {
   /**
-   * Create a shader.
+   * 创建着色器.
    *
-   * @param { SceneResourceParameters } params - the param of creating a shader
-   * @returns { Promise<Shader> } promise a shader
+   * @param { SceneResourceParameters } params - 创建着色器的参数
+   * @returns { Promise<Shader> } 返回创建的着色器
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
    * @since 23 static
@@ -190,10 +189,10 @@ export interface RenderResourceFactory {
   createShader(params: SceneResourceParameters): Promise<Shader>;
 
   /**
-   * Create an image.
+   * 创建图像.
    *
-   * @param { SceneResourceParameters } params - the param of creating an image
-   * @returns { Promise<Image> } promise an image
+   * @param { SceneResourceParameters } params - 创建图像的参数
+   * @returns { Promise<Image> } 返回创建的图像
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
    * @since 23 static
@@ -201,10 +200,10 @@ export interface RenderResourceFactory {
   createImage(params: SceneResourceParameters): Promise<Image>;
 
   /**
-   * Create an image stream.
+   * 创建图像流.
    *
-   * @param { SceneResourceParameters } params - the param of creating an image stream
-   * @returns { Promise<ImageStream> } promise an image stream
+   * @param { SceneResourceParameters } params - 创建图像流的参数
+   * @returns { Promise<ImageStream> } 返回创建的图像流
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
@@ -212,11 +211,11 @@ export interface RenderResourceFactory {
   createImageStream(params: SceneResourceParameters): Promise<ImageStream>;
 
   /**
-   * Create a Mesh from an array of vertices.
-   * 
-   * @param { SceneResourceParameters } params - the param of creating a Mesh object
-   * @param { GeometryDefinition } geometry - what sort of a geometric shape to create
-   * @returns { Promise<MeshResource> } promise a Mesh
+   * 从顶点数组创建网格.
+   *
+   * @param { SceneResourceParameters } params - 创建网格对象的参数
+   * @param { GeometryDefinition } geometry - 要创建的几何形状类型
+   * @returns { Promise<MeshResource> } 返回创建的网格
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
    * @since 23 static
@@ -224,10 +223,10 @@ export interface RenderResourceFactory {
   createMesh(params: SceneResourceParameters, geometry: GeometryDefinition): Promise<MeshResource>;
 
   /**
-   * Create a Sampler.
+   * 创建采样器.
    * 
-   * @param { SceneResourceParameters } params - the param of create a sampler
-   * @returns { Promise<Sampler> } - promise a sampler
+   * @param { SceneResourceParameters } params - 创建采样器的参数
+   * @returns { Promise<Sampler> } - 返回创建的采样器
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
    * @since 23 static
@@ -235,11 +234,11 @@ export interface RenderResourceFactory {
   createSampler(params:SceneResourceParameters): Promise<Sampler>
 
   /**
-   * Create a new scene from a Resource.
-   * If uri is not provided, will return an empty scene.
-   * 
-   * @param { ResourceStr } [uri] - the resource of creating a scene
-   * @returns { Promise<Scene> } promise a scene
+   * 从资源创建新场景.
+   * 如果未提供uri，将返回空场景.
+   *
+   * @param { ResourceStr } [uri] - 创建场景的资源
+   * @returns { Promise<Scene> } 返回创建的场景
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
    * @since 23 static
@@ -247,11 +246,11 @@ export interface RenderResourceFactory {
   createScene(uri?: ResourceStr): Promise<Scene>;
 
   /**
-   * Create a new scene from a SceneLoadParams.
+   * 从SceneLoadParams创建新场景.
    *
-   * @param { ResourceStr } uri - the resource of creating a scene
-   * @param { SceneLoadParams } param - the params for scene load
-   * @returns { Promise<Scene> } Promise used to return a scene
+   * @param { ResourceStr } uri - 创建场景的资源
+   * @param { SceneLoadParams } param - 场景加载参数
+   * @returns { Promise<Scene> } 返回场景的Promise
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @systemapi
    * @stagemodelonly
@@ -261,7 +260,7 @@ export interface RenderResourceFactory {
 }
 
 /**
- * Camera creation parameters. Can be used to define extra options for camera creation.
+ * 相机创建参数. 可用于定义相机创建的额外选项.
  *
  * @interface CameraParameters
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -270,7 +269,7 @@ export interface RenderResourceFactory {
  */
 export interface CameraParameters {
   /**
-   * Select whether MSAA is enabled.
+   * 选择是否启用MSAA.
    *
    * @type { ?boolean }
    * @default false
@@ -281,10 +280,10 @@ export interface CameraParameters {
   msaa?: boolean;
 
   /**
-   * Select the initial rendering pipeline type to use.
+   * 选择初始渲染管线类型.
    * 
    * @type { ?RenderingPipelineType }
-   * @default RenderingPipelineType.FORWARD_LIGHTWEIGHT
+    * @default RenderingPipelineType.FORWARD_LIGHTWEIGHT 前向轻量级渲染管线
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 21 dynamic
    * @since 23 static
@@ -293,7 +292,7 @@ export interface CameraParameters {
 }
 
 /**
- * The parameters for effect
+ * 特效参数
  * 
  * @interface EffectParameters
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -313,7 +312,7 @@ export interface EffectParameters {
 }
 
 /**
- * The scene resource factory.
+ * 场景资源工厂.
  *
  * @extends RenderResourceFactory
  * @interface SceneResourceFactory
@@ -325,8 +324,8 @@ export interface SceneResourceFactory extends RenderResourceFactory {
   /**
    * Create a camera.
    *
-   * @param { SceneNodeParameters } params - the param of creating a camera
-   * @returns { Promise<Camera> } promise a camera
+   * @param { SceneNodeParameters } params - 创建相机的参数
+   * @returns { Promise<Camera> } 返回创建的相机
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
    * @since 23 static
@@ -336,21 +335,21 @@ export interface SceneResourceFactory extends RenderResourceFactory {
   /**
    * Create a camera.
    *
-   * @param { SceneNodeParameters } params - the param of creating a camera
-   * @param { CameraParameters } cameraParams - camera specific extra parameters
-   * @returns { Promise<Camera> } promise a camera
+   * @param { SceneNodeParameters } params - 创建相机的参数
+   * @param { CameraParameters } cameraParams - 相机特定的额外参数
+   * @returns { Promise<Camera> } 返回创建的相机
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 21 dynamic
    * @since 23 static
    */
   createCamera(params: SceneNodeParameters, cameraParams: CameraParameters): Promise<Camera>;
-  
+
   /**
    * Create a light.
    *
    * @param { SceneNodeParameters } params - the param of creating a light
-   * @param { LightType } lightType - the type of the light
-   * @returns { Promise<Light> } promise a light
+   * @param { LightType } lightType - 光源类型
+   * @returns { Promise<Light> } 返回创建的光源
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
    * @since 23 static
@@ -360,8 +359,8 @@ export interface SceneResourceFactory extends RenderResourceFactory {
   /**
    * Create a node.
    *
-   * @param { SceneNodeParameters } params - the param of creating a node
-   * @returns { Promise<Node> } promise a node
+   * @param { SceneNodeParameters } params - 创建节点的参数
+   * @returns { Promise<Node> } 返回创建的节点
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
    * @since 23 static
@@ -372,8 +371,8 @@ export interface SceneResourceFactory extends RenderResourceFactory {
    * Create a material.
    *
    * @param { SceneResourceParameters } params - the param of creating a material
-   * @param { MaterialType } materialType - the type of the material
-   * @returns { Promise<Material> } promise a material
+   * @param { MaterialType } materialType - 材质类型
+   * @returns { Promise<Material> } 返回创建的材质
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
    * @since 23 static
@@ -383,8 +382,8 @@ export interface SceneResourceFactory extends RenderResourceFactory {
   /**
    * Create an environment.
    *
-   * @param { SceneResourceParameters } params - the param of creating an environment object
-   * @returns { Promise<Environment> } promise an environment
+   * @param { SceneResourceParameters } params - 创建环境对象的参数
+   * @returns { Promise<Environment> } 返回创建的环境
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
    * @since 23 static
@@ -392,11 +391,11 @@ export interface SceneResourceFactory extends RenderResourceFactory {
   createEnvironment(params: SceneResourceParameters): Promise<Environment>;
 
   /**
-   * Create a geometry node.
+   * 创建几何节点.
    *
-   * @param { SceneNodeParameters } params - the param of creating a geometry
-   * @param { MeshResource } mesh resource - The mesh data for the geometry
-   * @returns { Promise<Geometry> } promise a geometry
+   * @param { SceneNodeParameters } params - 创建几何体的参数
+   * @param { MeshResource } mesh resource - 几何体的网格数据
+   * @returns { Promise<Geometry> } 返回创建的几何体
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 18 dynamic
    * @since 23 static
@@ -404,10 +403,10 @@ export interface SceneResourceFactory extends RenderResourceFactory {
   createGeometry(params: SceneNodeParameters, mesh:MeshResource): Promise<Geometry>;
 
   /**
-   * Create an effect.
+   * 创建特效.
    * 
-   * @param { EffectParameters } params - the params of creating an effect.
-   * @returns { Promise<Effect> } promise an effect.
+   * @param { EffectParameters } params - 创建特效的参数.
+   * @returns { Promise<Effect> } 返回创建的特效.
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 21 dynamic
    * @since 23 static
@@ -416,8 +415,8 @@ export interface SceneResourceFactory extends RenderResourceFactory {
 }
 
 /**
- * Define underlying scene component
- * 
+ * 定义底层场景组件
+ *
  * @interface SceneComponent
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 20 dynamic
@@ -425,8 +424,8 @@ export interface SceneResourceFactory extends RenderResourceFactory {
  */
 export interface SceneComponent {
   /**
-   * Scene component name
-   * 
+   * 场景组件名称
+   *
    * @type { string }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
@@ -435,8 +434,8 @@ export interface SceneComponent {
   name: string;
 
   /**
-   * Component properties
-   * 
+   * 组件属性
+   *
    * @type { Record<string, string | double | Vec2 | Vec3 | Vec4 | SceneResource | boolean | double[] | string[] |
    * SceneResource[] | Vec2[] | Vec3[] | Vec4[] | null | undefined> }
    * @readonly
@@ -448,10 +447,9 @@ export interface SceneComponent {
   string[] | SceneResource[] | Vec2[] | Vec3[] | Vec4[] | null | undefined>;
 }
 
-/** 
- * Render context defines the context for all rendering resources. Resources within the same render context
- * may be shared between scenes created within the same render context.
- * 
+/**
+ * 渲染上下文，定义所有渲染资源的上下文。同一渲染上下文中的资源可在该上下文内创建的场景间共享。
+ *
  * @interface RenderContext
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 20 dynamic
@@ -459,9 +457,9 @@ export interface SceneComponent {
  */
 export interface RenderContext {
   /**
-   * Get resource factory.
-   * 
-   * @returns { RenderResourceFactory } -- RenderResourceFactory instance
+   * 获取资源工厂.
+   *
+   * @returns { RenderResourceFactory } -- RenderResourceFactory实例
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
    * @since 23 static
@@ -469,10 +467,10 @@ export interface RenderContext {
   getRenderResourceFactory() : RenderResourceFactory;
 
   /**
-   * Load external plugin
-   * 
-   * @param {string} name - Name of the plugin
-   * @returns { Promise<boolean> } - Promise a boolean to show if the plugin load is successful
+   * 加载外部插件
+   *
+   * @param {string} name - 插件名称
+   * @returns { Promise<boolean> } - 返回表示插件加载是否成功的Promise
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
    * @since 23 static
@@ -480,11 +478,11 @@ export interface RenderContext {
   loadPlugin(name: string): Promise<boolean>;
 
   /**
-   * Register resource path
+   * 注册资源路径
    *
-   * @param { string } protocol - Protocol of the uri
-   * @param { string } uri - Path to register
-   * @returns { boolean } - True if registration success, false indicates the protocol has already been registered
+   * @param { string } protocol - uri的协议
+   * @param { string } uri - 要注册的路径
+   * @returns { boolean } - 注册成功返回true，false表示协议已被注册
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
    * @since 23 static
@@ -493,15 +491,15 @@ export interface RenderContext {
 }
 
 /**
- * param config for soft shadow, control the algorithm type and its configuration
- * 
+ * 软阴影配置参数，控制算法类型及其配置
+ *
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @stagemodelonly
  * @since 26.0.0 dynamic&static
  */
 export declare abstract class SoftShadowConfig {
   /**
-   * type of shadow shading algorithms
+   * 阴影渲染算法类型
    *
    * @returns { ShadowAlgorithmType }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -512,7 +510,7 @@ export declare abstract class SoftShadowConfig {
 }
 
 /**
- * param config for pcf soft shadow
+ * PCF软阴影配置参数
  *
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @stagemodelonly
@@ -520,7 +518,7 @@ export declare abstract class SoftShadowConfig {
  */
 export declare class PCFConfig extends SoftShadowConfig {
   /**
-   * Get sample radius around the shadow edge, the unit is pixel.
+   * 获取像素级阴影边缘周围的采样半径.
    *
    * @returns { double | undefined }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -530,7 +528,7 @@ export declare class PCFConfig extends SoftShadowConfig {
   get shadowSampleRadius(): double | undefined;
 
   /**
-   * Set sample radius around the shadow edge at pixel-level.
+   * 设置像素级阴影边缘周围的采样半径.
    *
    * @param { double | undefined } value
    * @default 5.0
@@ -541,8 +539,8 @@ export declare class PCFConfig extends SoftShadowConfig {
   set shadowSampleRadius(value: double | undefined);
 
   /**
-   * Get the sample count number from shadow map used to render a shadow pixel.
-   * The value must be a positive integer.
+   * 获取用于渲染阴影像素的阴影图采样数量.
+   * 值必须为正整数.
    *
    * @returns { int | undefined }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -552,8 +550,7 @@ export declare class PCFConfig extends SoftShadowConfig {
   get shadowSampleCount(): int | undefined;
 
   /**
-   * Set the sample count number from shadow map used to render a shadow pixel.
-   * Values outside the range are ignored and the previous value is retained.
+   * 设置用于渲染阴影像素的阴影图采样数量.
    *
    * @param { int | undefined } value
    * @default 16
@@ -565,17 +562,17 @@ export declare class PCFConfig extends SoftShadowConfig {
 }
 
 /**
- * Global render configuration control
- *
+ * 全局渲染配置控制
+ * 
  * @interface RenderConfiguration
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 23 dynamic&static
  */
 export interface RenderConfiguration {
   /**
-   * resolution for single shadow map buffer, undefined by default,
+   * 单个阴影贴图缓冲区的分辨率, undefined by default,
    *  which means we use (1024, 1024) as the resolution of a single shadow map.
-   * You need to provide the same x and y value to get the right shadow effect, the unit is pixel.
+   * 需要提供相同的x和y值以获得正确的阴影效果，单位为像素.
    *
    * @type { ?Vec2 }
    * @default { 1024, 1024 }
@@ -585,9 +582,9 @@ export interface RenderConfiguration {
   shadowResolution?: Vec2;
 
   /**
-   * param config for soft shadow, control the algorithm type and its configuration
+   * 软阴影配置参数，控制算法类型及其配置
    *
-   * @default { undefined }, means that use the default hard shadow algorithm
+   * @default { undefined }, 表示使用默认硬阴影算法
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
@@ -596,7 +593,7 @@ export interface RenderConfiguration {
 }
 
 /**
- * Defines parameters for manual rendering.
+ * 定义手动渲染的参数.
  *
  * @interface RenderParameters
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -605,8 +602,8 @@ export interface RenderConfiguration {
  */
 export interface RenderParameters {
   /**
-   * If true, the renderer should always render even if there have been no changes in the scene
-   * since the previous frame. If false, renderer may omit rendering if no changes have been made.
+   * 如果为true，即使场景没有变化也始终渲染
+   * 自上一帧以来. 如果为false，则场景没有变化时可以省略渲染.
    *
    * @type { ?boolean }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -617,7 +614,7 @@ export interface RenderParameters {
 }
 
 /**
- * Defines the 3d scene.
+ * 定义3D场景.
  *
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 12 dynamic
@@ -625,9 +622,9 @@ export interface RenderParameters {
  */
 export declare class Scene {
   /**
-   * Get default render context
+   * 获取默认渲染上下文
    *
-   * @returns { RenderContext | null } -- The default RenderContext instance
+   * @returns { RenderContext | null } -- 默认RenderContext实例
    * @static
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
@@ -636,11 +633,11 @@ export declare class Scene {
   static getDefaultRenderContext(): RenderContext | null;
 
   /**
-   * Create a new scene from a ResourceStr.
-   * If uri is not provided, will return an empty scene.
+   * 从ResourceStr创建新场景.
+   * 如果未提供uri，将返回空场景.
    *
-   * @param { ResourceStr } [uri] - the resource of creating a scene
-   * @returns { Promise<Scene> } promise a scene
+   * @param { ResourceStr } [uri] - 创建场景的资源
+   * @returns { Promise<Scene> } 返回创建的场景
    * @static
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
@@ -649,11 +646,11 @@ export declare class Scene {
   static load(uri? : ResourceStr): Promise<Scene>;
 
   /**
-   * Create a new scene from a SceneLoadParams.
+   * 从SceneLoadParams创建新场景.
    *
-   * @param { ResourceStr } uri - the resource of creating a scene
-   * @param { SceneLoadParams } param - the params for scene load
-   * @returns { Promise<Scene> } Promise used to return a scene
+   * @param { ResourceStr } uri - 创建场景的资源
+   * @param { SceneLoadParams } param - 场景加载参数
+   * @returns { Promise<Scene> } 返回场景的Promise
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @systemapi
    * @stagemodelonly
@@ -662,7 +659,7 @@ export declare class Scene {
   static load(uri: ResourceStr, param: SceneLoadParams):Promise<Scene>;
 
   /**
-   * The environment of the scene.
+   * 场景的环境.
    *
    * @return { Environment }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -672,7 +669,7 @@ export declare class Scene {
   get environment(): Environment;
 
   /**
-   * The environment of the scene.
+   * 场景的环境.
    *
    * @param { Environment } value
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -682,7 +679,7 @@ export declare class Scene {
   set environment(value: Environment);
 
   /**
-   * The animations of the scene.
+   * 场景的动画.
    *
    * @return { Animation[] }
    * @readonly
@@ -693,7 +690,7 @@ export declare class Scene {
   get animations(): Animation[];
 
   /**
-   * The root node of the scene.
+   * 场景的根节点.
    *
    * @return { Node | null }
    * @readonly
@@ -704,11 +701,11 @@ export declare class Scene {
   get root(): Node | null;
 
   /**
-   * Get a node by path.
+   * 通过路径获取节点.
    *
-   * @param { string } path - the path of the node
-   * @param { NodeType } type - verify the type of node, if it does not match, return null
-   * @returns { Node | null } if the node is found by it's path
+   * @param { string } path - 节点路径
+   * @param { NodeType } type - 验证节点类型，如果不匹配则返回null
+   * @returns { Node | null } 如果通过路径找到节点
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
    * @since 23 static
@@ -716,9 +713,9 @@ export declare class Scene {
   getNodeByPath(path: string, type?: NodeType): Node | null;
 
   /**
-   * Get resource factory.
+   * 获取资源工厂.
    *
-   * @returns { SceneResourceFactory } if the node is found by it's path
+   * @returns { SceneResourceFactory } 如果通过路径找到节点
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
    * @since 23 static
@@ -726,7 +723,7 @@ export declare class Scene {
   getResourceFactory(): SceneResourceFactory;
 
   /**
-   * Release all native scene resources. All TS references will be undefined.
+   * 释放所有原生场景资源. 所有TS引用将变为undefined.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
@@ -735,13 +732,13 @@ export declare class Scene {
   destroy(): void;
 
   /**
-   * Import node into the scene. The original node may come from separate Scene.
-   * The node will be cloned and any modifications to the old node will not be visible after the import.
+   * 将节点导入场景. 原始节点可能来自另一个场景.
+   * 节点将被克隆，导入后对旧节点的修改将不可见.
    *
-   * @param { string } name - The name of the newly created node.
-   * @param { Node } node - The node to be imported.
-   * @param { Node | null} parent - The parent node or null for root
-   * @returns { Node } The newly created node.
+   * @param { string } name - 新创建节点的名称.
+   * @param { Node } node - 要导入的节点.
+   * @param { Node | null} parent - 父节点，根节点为null
+   * @returns { Node } 新创建的节点.
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 18 dynamic
    * @since 23 static
@@ -749,13 +746,13 @@ export declare class Scene {
   importNode(name: string, node: Node, parent: Node | null): Node;
 
   /**
-   * Import scene into the scene as a node. The node hierarchy will appear under the parent node.
-   * All animations from the scene will be duplicated in the scene.
+   * 将场景作为节点导入场景. 节点层级将出现在父节点下.
+   * 场景中的所有动画将被复制.
    *
-   * @param { string } name - The name of the newly created node
+   * @param { string } name - 新创建节点的名称
    * @param { Scene } scene - The scene to be imported.
-   * @param { Node | null } parent - The parent node or null for root
-   * @returns { Node } The newly created node.
+   * @param { Node | null } parent - 父节点，根节点为null
+   * @returns { Node } 新创建的节点.
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 18 dynamic
    * @since 23 static
@@ -763,10 +760,10 @@ export declare class Scene {
   importScene(name: string, scene: Scene, parent: Node | null): Node;
 
    /**
-   * A new frame is rendered for all active camera.
+   * 为所有活动相机渲染新帧.
    *
-   * @param { RenderParameters } params - Rendering parameters
-   * @returns { boolean } True if rendering was scheduled, false otherwise
+   * @param { RenderParameters } params - 渲染参数
+   * @returns { boolean } 如果渲染被调度则返回true，否则返回false
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 15 dynamic
    * @since 23 static
@@ -774,11 +771,11 @@ export declare class Scene {
   renderFrame(params?: RenderParameters): boolean;
 
   /**
-   * Create a new component.
-   * 
-   * @param { Node } node - The node the component is attached to
-   * @param { string } name - The name of the component to load. Valid names are defined by each plugin.
-   * @returns { Promise<SceneComponent> } - The newly added component.
+   * 创建新组件.
+   *
+   * @param { Node } node - 组件附加到的节点
+   * @param { string } name - 要加载的组件名称. 有效名称由各插件定义.
+   * @returns { Promise<SceneComponent> } - 新添加的组件.
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
    * @since 23 static
@@ -786,7 +783,7 @@ export declare class Scene {
   createComponent(node: Node, name: string): Promise<SceneComponent>;
 
   /**
-   * render configuration settings
+   * 渲染配置设置
    *
    * @returns { RenderConfiguration }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -795,10 +792,10 @@ export declare class Scene {
   get renderConfiguration(): RenderConfiguration;
 
   /**
-    * Get component by name.
+    * 通过名称获取组件.
     * 
-    * @param { Node } node - The node component is attached to. 
-    * @param { string } name - name of the component
+    * @param { Node } node - 组件附加到的节点. 
+    * @param { string } name - 组件名称
     * @returns { SceneComponent | null }
     * @syscap SystemCapability.ArkUi.Graphics3D
     * @since 20 dynamic
@@ -807,12 +804,12 @@ export declare class Scene {
   getComponent(node: Node, name: string): SceneComponent | null;
 
   /**
-   * clone a node or a subtree whose root node is the input node
+   * 克隆以输入节点为根节点的节点或子树
    *
-   * @param { Node } node - input node to be cloned
-   * @param { Node } parent - the parent node which the cloned node will be set as its child node
-   * @param { string } name - the name of the cloned node
-   * @returns { Node | null } the clone result, return null if clone is failed.
+   * @param { Node } node - 要克隆的输入节点
+   * @param { Node } parent - 克隆节点将被设置为其子节点的父节点
+   * @param { string } name - 克隆节点的名称
+   * @returns { Node | null } 克隆结果，如果克隆失败则返回null.
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 23 dynamic&static
    */
