@@ -1467,7 +1467,6 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @form [since 11 - 17]
    * @atomicservice [since 12]
    * @since 11 dynamic
    */
