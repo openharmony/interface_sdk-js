@@ -1689,8 +1689,7 @@ declare namespace certificateManager {
   }
 
   /**
-   * Install the user CA certificate. When the input parameter certificate.certFormat is set to P7B, the P7B certificate
-   *  file can contain a maximum of 20 certificates. Use Promise asynchronous callback.
+   * Install the user CA certificate. Use Promise asynchronous callback.
    *
    * @permission ohos.permission.ACCESS_ENTERPRISE_USER_TRUSTED_CERT or ohos.permission.ACCESS_USER_TRUSTED_CERT
    * @param { CertBlob } certificate - Certificate information.
