@@ -22,7 +22,7 @@ import type { Callback } from '@ohos.base';
 import nearlinkConstant from '@ohos.nearlink.constant';
 
 /**
- * Provides methods to operate or manage service of NearLink.
+ * 提供操作或管理星闪服务的方法。
  *
  * @syscap SystemCapability.Communication.NearLink.Base
  * @stagemodelonly
@@ -30,7 +30,7 @@ import nearlinkConstant from '@ohos.nearlink.constant';
  */
 declare namespace ssap {
   /**
-   * Indicates the connection state.
+   * 连接状态。
    *
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
@@ -39,12 +39,11 @@ declare namespace ssap {
   type ConnectionState = nearlinkConstant.ConnectionState;
 
   /**
-   * Creates a SSAP client instance.
+   * 创建SSAP客户端实例。
    *
    * @permission ohos.permission.ACCESS_NEARLINK
-   * @param { string } address - Indicates the device address of a server
-   *     <br>The length must be 17, The value consists of hexadecimal digits and colons (:),
-   *     for example, 11:22:33:AA:BB:FF.
+   * @param { string } address - 服务端的设备地址。例如，“11:22:33:AA:BB:FF”
+   *     <br>长度必须为17，由16进制数字和冒号组成，形如 "11:22:33:AA:BB:FF"。
    * @returns { Client } Returns a SSAP client instance {@code Client}.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 801 - Capability not supported because the chip does not support it.
@@ -58,10 +57,10 @@ declare namespace ssap {
   function createClient(address: string): Client;
 
   /**
-   * Creates a SSAP server instance.
+   * 创建SSAP服务端实例。
    *
    * @permission ohos.permission.ACCESS_NEARLINK
-   * @returns { Server } Returns a SSAP server instance {@code Server}.
+   * @returns { Server } 返回一个SSAP服务端实例{@code Server}。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 801 - Capability not supported because the chip does not support it.
    * @throws { BusinessError } 36100003 - NearLink disabled.
@@ -73,8 +72,7 @@ declare namespace ssap {
   function createServer(): Server;
 
   /**
-   * Manages SSAP client. Before calling a SSAP client method,
-   * you must use {@link createClient} to create a ssap client instance.
+   * 管理SSAP客户端。在调用ssap客户端方法之前，必须使用{@link createClient}创建ssap客户端实例。
    *
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
@@ -82,10 +80,10 @@ declare namespace ssap {
    */
   interface Client {
     /**
-     * Connects to the server.
+     * 连接服务端。
      *
      * @permission ohos.permission.ACCESS_NEARLINK
-     * @returns { Promise<void> } Returns the promise object.
+     * @returns { Promise<void> } 返回promise对象。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 36100003 - NearLink disabled.
      * @throws { BusinessError } 36100099 - Operation failed.
@@ -96,10 +94,10 @@ declare namespace ssap {
     connect(): Promise<void>;
 
     /**
-     * Disconnects from or stops an ongoing connection to a server.
+     * 断开或停止与服务端的连接。
      *
      * @permission ohos.permission.ACCESS_NEARLINK
-     * @returns { Promise<void> } Returns the promise object.
+     * @returns { Promise<void> } 返回promise对象。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 36100003 - NearLink disabled.
      * @throws { BusinessError } 36100099 - Operation failed.
@@ -110,7 +108,7 @@ declare namespace ssap {
     disconnect(): Promise<void>;
 
     /**
-     * Closes the client.
+     * 关闭客户端。
      *
      * @permission ohos.permission.ACCESS_NEARLINK
      * @throws { BusinessError } 201 - Permission denied.
@@ -123,7 +121,7 @@ declare namespace ssap {
     close(): void;
 
     /**
-     * Starts discovering all services on server.
+     * 开始发现服务端的所有服务。
      *
      * @permission ohos.permission.ACCESS_NEARLINK
      * @returns { Promise<Service[]> } Returns the service list of the server.
@@ -137,11 +135,11 @@ declare namespace ssap {
     getServices(): Promise<Service[]>;
 
     /**
-     * Reads the property of a server.
+     * 读取服务端的属性。
      *
      * @permission ohos.permission.ACCESS_NEARLINK
-     * @param { Property } property - Indicates the property to read.
-     * @returns { Promise<Property> } Promise used to return the property value.
+     * @param { Property } property - 指示要读取的属性
+     * @returns { Promise<Property> } 返回属性值Promise。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 36100003 - NearLink disabled.
      * @throws { BusinessError } 36100043 - Invalid UUID in property.
@@ -154,12 +152,12 @@ declare namespace ssap {
     readProperty(property: Property): Promise<Property>;
 
     /**
-     * Writes the property of a server.
+     * 写入服务端的属性。
      *
      * @permission ohos.permission.ACCESS_NEARLINK
-     * @param { Property } property - Indicates the property to write.
-     * @param { PropertyWriteType } writeType - Indicates the write type.
-     * @returns { Promise<void> } Promise used to return the result.
+     * @param { Property } property - 指示要写入的属性
+     * @param { PropertyWriteType } writeType - 写类型
+     * @returns { Promise<void> } Promise用于返回结果。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 36100003 - NearLink disabled.
      * @throws { BusinessError } 36100043 - Invalid UUID in property.
@@ -172,11 +170,11 @@ declare namespace ssap {
     writeProperty(property: Property, writeType: PropertyWriteType): Promise<void>;
 
     /**
-     * Reads the descriptor of a server.
+     * 读取服务器的描述符。
      *
      * @permission ohos.permission.ACCESS_NEARLINK
-     * @param { PropertyDescriptor } descriptor - Indicates the descriptor to read.
-     * @returns { Promise<PropertyDescriptor> } Promise used to return the descriptor value.
+     * @param { PropertyDescriptor } descriptor - 指示要读取的描述符
+     * @returns { Promise<PropertyDescriptor> } Promise用于返回描述符值。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
      * @throws { BusinessError } 36100003 - NearLink disabled.
@@ -191,16 +189,15 @@ declare namespace ssap {
     readDescriptor(descriptor: PropertyDescriptor): Promise<PropertyDescriptor>;
 
     /**
-     * Writes the descriptor of a server.
+     * 写入服务端的描述符。
      *
-     * This method does not support writing client property configuration descriptors. To write client property
-     * configuration descriptors, call [setPropertyNotification]{@link setPropertyNotification} or
-     * [setPropertyIndication]{@link setPropertyIndication} instead.
+     * 此方法不支持写入客户端属性配置描述符。要写入客户端属性配置描述符，请改为调用[setPropertyNotification]{@link
+     * setPropertyNotification}或[setPropertyIndication]{@link setPropertyIndication}。
      *
      * @permission ohos.permission.ACCESS_NEARLINK
-     * @param { PropertyDescriptor } descriptor - Indicates the descriptor to write.
-     *     <br>The descriptor type should not be CLIENT_PROPERTY_CONFIG.
-     * @returns { Promise<void> } Promise used to return the result.
+     * @param { PropertyDescriptor } descriptor - 指示要写入的描述符。
+     *     <br>描述符类型不应为CLIENT_PROPERTY_CONFIG。
+     * @returns { Promise<void> } Promise用于返回结果。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
      * @throws { BusinessError } 36100003 - NearLink disabled.
@@ -215,12 +212,12 @@ declare namespace ssap {
     writeDescriptor(descriptor: PropertyDescriptor): Promise<void>;
 
     /**
-     * Enables or disables notification of a property when value changed.
+     * 启用或禁用属性值变更通知。
      *
      * @permission ohos.permission.ACCESS_NEARLINK
-     * @param { Property } property - Indicates the property to set notification strategy.
-     * @param { boolean } enable - Specifies whether to enable notification of the property.
-     * @returns { Promise<void> } Returns the promise object.
+     * @param { Property } property - 要通知的属性
+     * @param { boolean } enable - 指定是否启用属性的通知
+     * @returns { Promise<void> } 返回promise对象。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 36100003 - NearLink disabled.
      * @throws { BusinessError } 36100043 - Invalid UUID in property.
@@ -233,12 +230,12 @@ declare namespace ssap {
     setPropertyNotification(property: Property, enable: boolean): Promise<void>;
 
     /**
-     * Enables or disables indication of a property when value changed.
+     * 启用或禁用属性值变更指示。
      *
      * @permission ohos.permission.ACCESS_NEARLINK and ohos.permission.MANAGE_NEARLINK
-     * @param { Property } property - Indicates the property to indicate.
-     * @param { boolean } enable - Specifies whether to enable indication of the property.
-     * @returns { Promise<void> } Returns the promise object.
+     * @param { Property } property - 要指示的属性。
+     * @param { boolean } enable - 指定是否启用属性的指示
+     * @returns { Promise<void> } 返回promise对象。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
      * @throws { BusinessError } 36100003 - NearLink disabled.
@@ -254,13 +251,13 @@ declare namespace ssap {
     setPropertyIndication(property: Property, enable: boolean): Promise<void>;
 
     /**
-     * Negotiate the MTU size with server.
-     * The negotiation result needs to be obtained by subscribing to MTU event.
+     * 与服务端协商MTU大小。
+     * 协商结果需要通过订阅MTU事件获取。
      *
      * @permission ohos.permission.ACCESS_NEARLINK
-     * @param { int } mtu - The maximum transmission unit.
-     *     <br>Unit: byte. Recommended value range: [22, 1024].
-     * @returns { Promise<void> } Returns the promise object.
+     * @param { int } mtu - 最大传输单元。
+     *     <br>单位为：字节。取值限定为整数。取值约束：建议范围[22,1024]。
+     * @returns { Promise<void> } 返回promise对象。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 36100003 - NearLink disabled.
      * @throws { BusinessError } 36100099 - Operation failed.
@@ -271,11 +268,11 @@ declare namespace ssap {
     requestMtuSize(mtu: int): Promise<void>;
 
     /**
-     * Calls the method of a server.
+     * 调用服务端的方法。
      *
      * @permission ohos.permission.ACCESS_NEARLINK
-     * @param { Method } method - Indicates the Method to call.
-     * @returns { Promise<Method> } Promise used to return the Method result.
+     * @param { Method } method - 指示要调用的方法
+     * @returns { Promise<Method> } Promise用于返回方法结果。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
      * @throws { BusinessError } 36100003 - NearLink disabled.
@@ -290,11 +287,11 @@ declare namespace ssap {
     callMethod(method: Method): Promise<Method>;
 
     /**
-     * Subscribe property value changed event.
+     * 订阅属性值变更事件。
      *
-     * This event is accessible only to applications that granted the ohos.permission.NEARLINK_ACCESS permission.
+     * 只有授予了ohos.permission.NEARLINK_ACCESS权限的应用程序才能访问此事件。
      *
-     * @param { Callback<Property> } callback - Callback used to listen for the property value changed event.
+     * @param { Callback<Property> } callback - 用于监听属性值更改事件的回调。
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
@@ -302,9 +299,9 @@ declare namespace ssap {
     onPropertyChange(callback: Callback<Property>): void;
 
     /**
-     * Unsubscribe property value changed event.
+     * 取消订阅属性值更改事件。
      *
-     * @param { Callback<Property> } [callback] - Callback used to listen for the property value changed event.
+     * @param { Callback<Property> } [callback] - 用于监听属性值变更事件的回调。
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
@@ -312,11 +309,11 @@ declare namespace ssap {
     offPropertyChange(callback?: Callback<Property>): void;
 
     /**
-     * Subscribes to event notifications.
+     * 订阅事件通知。
      *
-     * This event is accessible only to system applications that granted the ohos.permission.NEARLINK_ACCESS permission.
+     * 只有授予了ohos.permission.NEARLINK_ACCESS权限的系统应用程序才能访问此事件。
      *
-     * @param { Callback<Event> } callback - Callback used to listen for the event notified event.
+     * @param { Callback<Event> } callback - 用于监听事件通知事件的回调。
      * @syscap SystemCapability.Communication.NearLink.Base
      * @systemapi
      * @stagemodelonly
@@ -325,9 +322,9 @@ declare namespace ssap {
     onEventNotify(callback: Callback<Event>): void;
 
     /**
-     * Unsubscribes from event notifications.
+     * 取消订阅事件通知。
      *
-     * @param { Callback<Event> } [callback] - Callback used to listen for the event notified event.
+     * @param { Callback<Event> } [callback] - 用于监听事件通知事件的回调。
      * @syscap SystemCapability.Communication.NearLink.Base
      * @systemapi
      * @stagemodelonly
@@ -336,14 +333,14 @@ declare namespace ssap {
     offEventNotify(callback?: Callback<Event>): void;
 
     /**
-     * Subscribes to client connection state changed events.
+     * 订阅客户端连接状态更改事件。
      *
-     * This event is accessible only to applications that granted the ohos.permission.NEARLINK_ACCESS permission.
-     * If the application is granted the ohos.permission.GET_NEARLINK_PEER_MAC permission,
-     * the callback returns the real device address; otherwise, a random device address is returned.
+     * 只有授予了ohos.permission.NEARLINK_ACCESS权限的应用程序才能访问此事件。
+     * 如果应用被赋予了ohos.permission.GET_NEARLINK_PEER_MAC权限。
+     * 回调返回真实设备地址，否则返回随机设备地址。
      *
      * @param { Callback<ConnectionChangeState> } callback -
-     *     Callback used to listen for the SSAP connection state changed event.
+     用于监听连接状态改变事件的回调。
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
@@ -351,10 +348,10 @@ declare namespace ssap {
     onConnectionStateChange(callback: Callback<ConnectionChangeState>): void;
 
     /**
-     * Unsubscribes from client connection state changed events.
+     * 取消订阅客户端连接状态更改事件。
      *
      * @param { Callback<ConnectionChangeState> } [callback] -
-     *     Callback used to listen for the SSAP connection state changed event.
+     用于监听连接状态改变事件的回调。
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
@@ -362,11 +359,11 @@ declare namespace ssap {
     offConnectionStateChange(callback?: Callback<ConnectionChangeState>): void;
 
     /**
-     * Subscribes to MTU changed events.
+     * 订阅MTU变化事件。
      *
-     * This event is accessible only to applications that granted the ohos.permission.NEARLINK_ACCESS permission.
+     * 只有授予了ohos.permission.NEARLINK_ACCESS权限的应用程序才能访问此事件。
      *
-     * @param { Callback<int> } callback - Callback used to listen for the MTU changed event.
+     * @param { Callback<int> } callback - 用于监听mtu变化事件的回调。
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
@@ -374,9 +371,9 @@ declare namespace ssap {
     onMtuChange(callback: Callback<int>): void;
 
     /**
-     * Unsubscribes from MTU changed events.
+     * 取消订阅MTU更改事件。
      *
-     * @param { Callback<int> } [callback] - Callback used to listen for the MTU changed event.
+     * @param { Callback<int> } [callback] - 用于监听mtu变化事件的回调。
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
@@ -385,8 +382,7 @@ declare namespace ssap {
   }
 
   /**
-   * Manages SSAP server. Before calling a SSAP server method,
-   * you must use {@link createServer} to create a SSAP server instance.
+   * 管理SSAP服务端。在调用SSAP服务端方法之前，必须使用{@link createServer}创建SSAP服务端实例。
    *
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
@@ -394,10 +390,10 @@ declare namespace ssap {
    */
   interface Server {
     /**
-     * Adds a SSAP service.
+     * 添加SSAP服务。
      *
      * @permission ohos.permission.ACCESS_NEARLINK
-     * @param { Service } service - ssap service need to be added and registered.
+     * @param { Service } service - 需要添加并注册ssap服务
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 36100003 - NearLink disabled.
      * @throws { BusinessError } 36100043 - Invalid UUID.
@@ -410,13 +406,12 @@ declare namespace ssap {
     addService(service: Service): void;
 
     /**
-     * Removes a specific SSAP service.
+     * 删除指定的SSAP服务。
      *
      * @permission ohos.permission.ACCESS_NEARLINK
-     * @param { string } serviceUuid - Specific SSAP service to be removed
-     *     <br>The length must be 36, The value consists of 36 hexadecimal digits and hyphens (-), for example,
-     *     FFFFFFFF-1234-5678-ABCD-000000001234, indicating a 128-bit identifier.
-     *     <br>NearLink standard UUIDs are not allowed.
+     * @param { string } serviceUuid - 要删除的特定SSAP服务
+     *     <br>长度必须为36，由16进制数字字符和连字符共36个字符组成，形如“FFFFFFFF-1234-5678-ABCD-000000001234”，代表128比特标识。
+     *     <br>禁止使用星闪标准服务UUID。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 36100003 - NearLink disabled.
      * @throws { BusinessError } 36100043 - Invalid UUID.
@@ -429,7 +424,7 @@ declare namespace ssap {
     removeService(serviceUuid: string): void;
 
     /**
-     * Closes this {@code Server} object and unregisters its callbacks.
+     * 关闭此{@code Server}对象并注销其回调。
      *
      * @permission ohos.permission.ACCESS_NEARLINK
      * @throws { BusinessError } 201 - Permission denied.
@@ -442,14 +437,13 @@ declare namespace ssap {
     close(): void;
 
     /**
-     * Notifies the client that the value of a property on the server has changed.
+     * 通知客户端此服务端的属性值发生了变化。
      *
      * @permission ohos.permission.ACCESS_NEARLINK
-     * @param { string } address - Indicates the device address.
-     *     <br>The length must be 17, The value consists of hexadecimal digits and colons (:),
-     *     for example, 11:22:33:AA:BB:FF.
-     * @param { Property } property - Indicates the property to notify.
-     * @returns { Promise<void> } Returns the promise object.
+     * @param { string } address - 设备地址。
+     *     <br>长度必须为17，由16进制数字和冒号组成，形如 "11:22:33:AA:BB:FF"。
+     * @param { Property } property - 指示要通知的属性
+     * @returns { Promise<void> } 返回promise对象。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 36100003 - NearLink disabled.
      * @throws { BusinessError } 36100041 - Invalid address.
@@ -463,10 +457,10 @@ declare namespace ssap {
     notifyPropertyChanged(address: string, property: Property): Promise<void>;
 
     /**
-     * Responds to read or write requests from the client.
+     * 响应客户端的读或写请求。
      *
      * @permission ohos.permission.ACCESS_NEARLINK
-     * @param { ServerResponse } response - Indicates the response.
+     * @param { ServerResponse } response - 表示响应。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 36100003 - NearLink disabled.
      * @throws { BusinessError } 36100041 - Invalid address.
@@ -478,14 +472,14 @@ declare namespace ssap {
     sendResponse(response: ServerResponse): void;
 
     /**
-     * Subscribes to server connection state changed events.
+     * 订阅服务器连接状态更改事件。
      *
-     * This event is accessible only to applications that granted the ohos.permission.NEARLINK_ACCESS permission.
-     * If the application is granted the ohos.permission.GET_NEARLINK_PEER_MAC permission,
-     * the callback returns the real device address; otherwise, a random device address is returned.
+     * 只有授予了ohos.permission.NEARLINK_ACCESS权限的应用程序才能访问此事件。
+     * 如果应用被赋予了ohos.permission.GET_NEARLINK_PEER_MAC权限。
+     * 回调返回真实设备地址，否则返回随机设备地址。
      *
      * @param { Callback<ConnectionChangeState> } callback -
-     *     Callback used to listen for the SSAP connection state changed event.
+     用于监听连接状态改变事件的回调。
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
@@ -493,10 +487,10 @@ declare namespace ssap {
     onConnectionStateChange(callback: Callback<ConnectionChangeState>): void;
 
     /**
-     * Unsubscribes from server connection state changed events.
+     * 取消订阅服务器连接状态更改事件。
      *
      * @param { Callback<ConnectionChangeState> } [callback] -
-     *     Callback used to listen for the SSAP connection state changed event.
+     用于监听连接状态改变事件的回调。
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
@@ -504,13 +498,13 @@ declare namespace ssap {
     offConnectionStateChange(callback?: Callback<ConnectionChangeState>): void;
 
     /**
-     * Subscribes to property read events from the client.
+     * 从客户端订阅属性读取事件。
      *
-     * This event is accessible only to applications that granted the ohos.permission.NEARLINK_ACCESS permission.
-     * If the application is granted the ohos.permission.GET_NEARLINK_PEER_MAC permission,
-     * the callback returns the real device address; otherwise, a random device address is returned.
+     * 只有授予了ohos.permission.NEARLINK_ACCESS权限的应用程序才能访问此事件。
+     * 如果应用被赋予了ohos.permission.GET_NEARLINK_PEER_MAC权限。
+     * 回调返回真实设备地址，否则返回随机设备地址。
      *
-     * @param { Callback<PropertyReadRequest> } callback - Callback used to listen for the property operation event.
+     * @param { Callback<PropertyReadRequest> } callback - 用于监听属性操作事件的回调。
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
@@ -518,9 +512,9 @@ declare namespace ssap {
     onPropertyRead(callback: Callback<PropertyReadRequest>): void;
 
     /**
-     * Unsubscribes from property read events from the client.
+     * 取消订阅来自客户端的属性读取事件。
      *
-     * @param { Callback<PropertyReadRequest> } [callback] - Callback used to listen for the property operation event.
+     * @param { Callback<PropertyReadRequest> } [callback] - 用于监听属性操作事件的回调。
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
@@ -528,13 +522,13 @@ declare namespace ssap {
     offPropertyRead(callback?: Callback<PropertyReadRequest>): void;
 
     /**
-     * Subscribes to property write events from the client.
+     * 从客户端订阅属性写入事件。
      *
-     * This event is accessible only to applications that granted the ohos.permission.NEARLINK_ACCESS permission.
-     * If the application is granted the ohos.permission.GET_NEARLINK_PEER_MAC permission,
-     * the callback returns the real device address; otherwise, a random device address is returned.
+     * 只有授予了ohos.permission.NEARLINK_ACCESS权限的应用程序才能访问此事件。
+     * 如果应用被赋予了ohos.permission.GET_NEARLINK_PEER_MAC权限。
+     * 回调返回真实设备地址，否则返回随机设备地址。
      *
-     * @param { Callback<PropertyWriteRequest> } callback - Callback used to listen for the property operation event.
+     * @param { Callback<PropertyWriteRequest> } callback - 用于监听属性操作事件的回调。
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
@@ -542,9 +536,9 @@ declare namespace ssap {
     onPropertyWrite(callback: Callback<PropertyWriteRequest>): void;
 
     /**
-     * Unsubscribes from property write events from the client.
+     * 取消订阅来自客户端的属性写入事件。
      *
-     * @param { Callback<PropertyWriteRequest> } [callback] - Callback used to listen for the property operation event.
+     * @param { Callback<PropertyWriteRequest> } [callback] - 用于监听属性操作事件的回调。
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
@@ -552,11 +546,11 @@ declare namespace ssap {
     offPropertyWrite(callback?: Callback<PropertyWriteRequest>): void;
 
     /**
-     * Subscribes to MTU changed events.
+     * 订阅MTU变化事件。
      *
-     * This event is accessible only to applications that granted the ohos.permission.NEARLINK_ACCESS permission.
+     * 只有授予了ohos.permission.NEARLINK_ACCESS权限的应用程序才能访问此事件。
      *
-     * @param { Callback<int> } callback - Callback used to listen for the MTU changed event.
+     * @param { Callback<int> } callback - 用于监听mtu变化事件的回调。
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
@@ -564,9 +558,9 @@ declare namespace ssap {
     onMtuChange(callback: Callback<int>): void;
 
     /**
-     * Unsubscribes from MTU changed events.
+     * 取消订阅MTU更改事件。
      *
-     * @param { Callback<int> } [callback] - Callback used to listen for the MTU changed event.
+     * @param { Callback<int> } [callback] - 用于监听mtu变化事件的回调。
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
@@ -575,7 +569,7 @@ declare namespace ssap {
   }
 
   /**
-   * Describes the SSAP service.
+   * SSAP服务。
    *
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
@@ -583,10 +577,9 @@ declare namespace ssap {
    */
   interface Service {
     /**
-     * The UUID of the service.
-     * The length must be 36, The value consists of 36 hexadecimal digits and hyphens (-),
-     * for example, FFFFFFFF-1234-5678-ABCD-000000001234, indicating a 128-bit identifier.
-     * <br>NearLink standard UUIDs are not allowed.
+     * 服务的UUID。
+     * 长度必须为36，由16进制数字字符和连字符共36个字符组成，形如“FFFFFFFF-1234-5678-ABCD-000000001234”，代表128比特标识。
+     * <br>禁止使用星闪标准服务UUID。
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
@@ -594,7 +587,7 @@ declare namespace ssap {
      */
     serviceUuid: string;
     /**
-     * The properties belong to this service.
+     * 属于此服务的属性。
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
@@ -602,8 +595,8 @@ declare namespace ssap {
      */
     properties: Property[];
     /**
-     * The methods belong to this service.
-     * <br>This field is not supported in [addService]{@link ssap.Server.addService} method.
+     * 属于此服务的方法。
+     * <br>[addService]{@link ssap.Server.addService}方法中不支持此字段。
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @systemapi
@@ -612,8 +605,8 @@ declare namespace ssap {
      */
     methods?: Method[];
     /**
-     * The events belong to this service.
-     * <br>This field is not supported in [addService]{@link ssap.Server.addService} method.
+     * 属于此服务的事件。
+     * <br>[addService]{@link ssap.Server.addService}方法中不支持该字段。
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @systemapi
@@ -624,7 +617,7 @@ declare namespace ssap {
   }
 
   /**
-   * Describes the SSAP property.
+   * SSAP属性。
    *
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
@@ -632,10 +625,9 @@ declare namespace ssap {
    */
   interface Property {
     /**
-     * The UUID of the {@link Service} instance which the property belongs to.
-     * The length must be 36, The value consists of 36 hexadecimal digits and hyphens (-),
-     * for example, FFFFFFFF-1234-5678-ABCD-000000001234, indicating a 128-bit identifier.
-     * <br>NearLink standard UUIDs are not allowed.
+     * 属性所属的{@link Service}实例的UUID
+     * 长度必须为32，禁止使用星闪标准服务UUID。
+     * <br>不允许使用NearLink标准UUID。
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
@@ -643,10 +635,9 @@ declare namespace ssap {
      */
     serviceUuid: string;
     /**
-     * The UUID of a Property instance.
-     * The length must be 36, The value consists of 36 hexadecimal digits and hyphens (-),
-     * for example, FFFFFFFF-1234-5678-ABCD-000000001234, indicating a 128-bit identifier.
-     * <br>NearLink standard UUIDs are not allowed.
+     * Property实例的UUID
+     * 长度必须为32，由16进制数字字符和连字符共36个字符组成，形如“FFFFFFFF-1234-5678-ABCD-000000001234”，代表128比特标识。
+     * <br>不允许使用NearLink标准UUID。
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
@@ -654,7 +645,7 @@ declare namespace ssap {
      */
     propertyUuid: string;
     /**
-     * The value of a Property instance.
+     * Property实例的值。
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
@@ -662,7 +653,7 @@ declare namespace ssap {
      */
     value: ArrayBuffer;
     /**
-     * The list of {@link propertyDescriptor} contained in the property.
+     * 属性中包含的描述符列表。
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
@@ -670,9 +661,9 @@ declare namespace ssap {
      */
     descriptors?: PropertyDescriptor[];
     /**
-     * Indications specify how data values and descriptor values are accessed {@link Operation}.
-     * The value is the OR operation of enumerated values.
-     * The value should be an integer. Default value: 3(READABLE | WRITE_NO_RESPONSE).
+     * 指示如何访问数据值和描述符值。
+     * 取值为枚举值的或运算。
+     * 取值范围为全体整数。 默认值： 默认值：READABLE | WRITE_NO_RESPONSE。
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
@@ -682,7 +673,7 @@ declare namespace ssap {
   }
 
   /**
-   * Describes the SSAP method.
+   * SSAP方法。
    *
    * @syscap SystemCapability.Communication.NearLink.Base
    * @systemapi
@@ -691,10 +682,9 @@ declare namespace ssap {
    */
   interface Method {
     /**
-     * The UUID of the {@link Service} instance to which the method belongs
-     * The length must be 36, The value consists of 36 hexadecimal digits and hyphens (-),
-     * for example, FFFFFFFF-1234-5678-ABCD-000000001234, indicating a 128-bit identifier.
-     * <br>NearLink standard UUIDs are not allowed.
+     * 方法所属的{@link Service}实例的UUID
+     * 长度必须为36，由16进制数字字符和连字符共36个字符组成，形如“FFFFFFFF-1234-5678-ABCD-000000001234”，代表128比特标识。
+     * <br>不允许使用NearLink标准UUID。
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @systemapi
@@ -703,10 +693,9 @@ declare namespace ssap {
      */
     serviceUuid: string;
     /**
-     * The UUID of a method instance.
-     * The length must be 36, The value consists of 36 hexadecimal digits and hyphens (-),
-     * for example, FFFFFFFF-1234-5678-ABCD-000000001234, indicating a 128-bit identifier.
-     * <br>NearLink standard UUIDs are not allowed.
+     * 方法实例的UUID
+     * 长度必须为36，由16进制数字字符和连字符共36个字符组成，形如“FFFFFFFF-1234-5678-ABCD-000000001234”，代表128比特标识。
+     * <br>不允许使用NearLink标准UUID。
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @systemapi
@@ -715,7 +704,7 @@ declare namespace ssap {
      */
     methodUuid: string;
     /**
-     * The parameter of a method instance.
+     * 方法实例的参数
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @systemapi
@@ -724,7 +713,7 @@ declare namespace ssap {
      */
     parameter?: ArrayBuffer;
     /**
-     * The result of a method instance.
+     * 方法实例的结果
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @systemapi
@@ -735,7 +724,7 @@ declare namespace ssap {
   }
 
   /**
-   * Describes the SSAP event.
+   * SSAP事件。
    *
    * @syscap SystemCapability.Communication.NearLink.Base
    * @systemapi
@@ -744,10 +733,9 @@ declare namespace ssap {
    */
   interface Event {
     /**
-     * The UUID of the {@link Service} instance to which the event belongs
-     * The length must be 36, The value consists of 36 hexadecimal digits and hyphens (-),
-     * for example, FFFFFFFF-1234-5678-ABCD-000000001234, indicating a 128-bit identifier.
-     * <br>NearLink standard UUIDs are not allowed.
+     * 事件所属服务实例的UUID
+     * 长度必须为36，由16进制数字字符和连字符共36个字符组成，形如“FFFFFFFF-1234-5678-ABCD-000000001234”，代表128比特标识。
+     * <br>禁止使用星闪标准服务UUID。
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @systemapi
@@ -756,10 +744,9 @@ declare namespace ssap {
      */
     serviceUuid: string;
     /**
-     * The UUID of a event instance.
-     * The length must be 36, The value consists of 36 hexadecimal digits and hyphens (-),
-     * for example, FFFFFFFF-1234-5678-ABCD-000000001234, indicating a 128-bit identifier.
-     * <br>NearLink standard UUIDs are not allowed.
+     * 事件实例的UUID。
+     * 长度必须为36，由16进制数字字符和连字符共36个字符组成，形如“FFFFFFFF-1234-5678-ABCD-000000001234”，代表128比特标识。
+     * <br>不允许使用NearLink标准UUID。
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @systemapi
@@ -768,7 +755,7 @@ declare namespace ssap {
      */
     eventUuid: string;
     /**
-     * The parameter of a event instance.
+     * 事件实例的参数。
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @systemapi
@@ -779,7 +766,7 @@ declare namespace ssap {
   }
 
   /**
-   * Describes the SSAP descriptor for property.
+   * 属性的SSAP描述符。
    *
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
@@ -787,10 +774,9 @@ declare namespace ssap {
    */
   interface PropertyDescriptor {
     /**
-     * The UUID of the {@link Service} instance which the master property of descriptor belongs to.
-     * The length must be 36, The value consists of 36 hexadecimal digits and hyphens (-),
-     * for example, FFFFFFFF-1234-5678-ABCD-000000001234, indicating a 128-bit identifier.
-     * <br>NearLink standard UUIDs are not allowed.
+     * 描述符所属属性所属的服务实例的UUID。
+     * 长度必须为36，由16进制数字字符和连字符共36个字符组成，形如“FFFFFFFF-1234-5678-ABCD-000000001234”，代表128比特标识。
+     * <br>不允许使用NearLink标准UUID。
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
@@ -798,10 +784,9 @@ declare namespace ssap {
      */
     serviceUuid: string;
     /**
-     * The UUID of the {@link Property} instance which the propertyDescriptor belongs to.
-     * The length must be 36, The value consists of 36 hexadecimal digits and hyphens (-),
-     * for example, FFFFFFFF-1234-5678-ABCD-000000001234, indicating a 128-bit identifier.
-     * <br>NearLink standard UUIDs are not allowed.
+     * 描述符所属的属性实例的UUID。
+     * 长度必须为36，由16进制数字字符和连字符共36个字符组成，形如“FFFFFFFF-1234-5678-ABCD-000000001234”，代表128比特标识。
+     * <br>禁止使用星闪标准服务UUID。
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
@@ -809,7 +794,7 @@ declare namespace ssap {
      */
     propertyUuid: string;
     /**
-     * The value of the propertyDescriptor instance.
+     * 属性描述符实例的值。
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
@@ -817,7 +802,7 @@ declare namespace ssap {
      */
     value: ArrayBuffer;
     /**
-     * The type of the propertyDescriptor instance.
+     * 属性描述符实例的类型。
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
@@ -825,8 +810,8 @@ declare namespace ssap {
      */
     descriptorType: PropertyDescriptorType;
     /**
-     * Indicates whether the descriptor is writable.
-     * Default value: true.
+     * 描述符是否可写。
+     * 默认值： 默认值：false。
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
@@ -836,7 +821,7 @@ declare namespace ssap {
   }
 
   /**
-   * Describes the parameters of the SSAP client's property read request.
+   * SSAP客户端属性读请求参数说明。
    *
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
@@ -844,8 +829,8 @@ declare namespace ssap {
    */
   interface PropertyReadRequest {
     /**
-     * Indicates the device address.
-     * The length must be 17, The value consists of hexadecimal digits and colons (:), for example, 11:22:33:AA:BB:FF.
+     * 设备地址。
+     * 长度必须为17，由16进制数字和冒号组成，形如 "11:22:33:AA:BB:FF"。
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
@@ -853,10 +838,9 @@ declare namespace ssap {
      */
     address: string;
     /**
-     * The UUID of the {@link Service} instance which the property belongs to.
-     * The length must be 36, The value consists of 36 hexadecimal digits and hyphens (-),
-     * for example, FFFFFFFF-1234-5678-ABCD-000000001234, indicating a 128-bit identifier.
-     * <br>NearLink standard UUIDs are not allowed.
+     * 属性所属的{@link Service}实例的UUID
+     * 长度必须为32，禁止使用星闪标准服务UUID。
+     * <br>不允许使用NearLink标准UUID。
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
@@ -864,10 +848,9 @@ declare namespace ssap {
      */
     serviceUuid: string;
     /**
-     * The UUID of the Property instance which client request to read.
-     * The length must be 36, The value consists of 36 hexadecimal digits and hyphens (-),
-     * for example, FFFFFFFF-1234-5678-ABCD-000000001234, indicating a 128-bit identifier.
-     * <br>NearLink standard UUIDs are not allowed.
+     * 客户端请求读取的属性实例的UUID。
+     * 长度必须为36，由16进制数字字符和连字符共36个字符组成，形如“FFFFFFFF-1234-5678-ABCD-000000001234”，代表128比特标识。
+     * <br>禁止使用星闪标准服务UUID。
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
@@ -875,7 +858,8 @@ declare namespace ssap {
      */
     propertyUuid: string;
     /**
-     * The request ID.
+     * 请求ID。
+     * 取值范围为全体整数。
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
@@ -885,7 +869,7 @@ declare namespace ssap {
   }
 
   /**
-   * Describes the parameters of the SSAP client's property write request.
+   * SSAP客户端属性写请求参数说明。
    *
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
@@ -893,8 +877,8 @@ declare namespace ssap {
    */
   interface PropertyWriteRequest {
     /**
-     * Indicates the device address.
-     * The length must be 17, The value consists of hexadecimal digits and colons (:), for example, 11:22:33:AA:BB:FF.
+     * 设备地址。
+     * 长度必须为17，由16进制数字和冒号组成，形如 "11:22:33:AA:BB:FF"。
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
@@ -902,10 +886,9 @@ declare namespace ssap {
      */
     address: string;
     /**
-     * The UUID of the {@link Service} instance which the property belongs to.
-     * The length must be 36, The value consists of 36 hexadecimal digits and hyphens (-),
-     * for example, FFFFFFFF-1234-5678-ABCD-000000001234, indicating a 128-bit identifier.
-     * <br>NearLink standard UUIDs are not allowed.
+     * 属性所属的{@link Service}实例的UUID
+     * 长度必须为32，禁止使用星闪标准服务UUID。
+     * <br>不允许使用NearLink标准UUID。
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
@@ -913,10 +896,9 @@ declare namespace ssap {
      */
     serviceUuid: string;
     /**
-     * The UUID of the Property instance which client request to write.
-     * The length must be 36, The value consists of 36 hexadecimal digits and hyphens (-),
-     * for example, FFFFFFFF-1234-5678-ABCD-000000001234, indicating a 128-bit identifier.
-     * <br>NearLink standard UUIDs are not allowed.
+     * 客户端请求写入的属性实例的UUID。
+     * 长度必须为36，由16进制数字字符和连字符共36个字符组成，形如“FFFFFFFF-1234-5678-ABCD-000000001234”，代表128比特标识。
+     * <br>禁止使用星闪标准服务UUID。禁止使用星闪标准服务UUID。
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
@@ -924,7 +906,7 @@ declare namespace ssap {
      */
     propertyUuid: string;
     /**
-     * Indicates the data to be written.
+     * 需要写入的数据。
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
@@ -932,7 +914,8 @@ declare namespace ssap {
      */
     value: ArrayBuffer;
     /**
-     * The request ID.
+     * 请求ID。
+     * 取值范围为全体整数。
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
@@ -940,7 +923,7 @@ declare namespace ssap {
      */
     requestId: int;
     /**
-     * The write type for this request.
+     * 此请求的写入类型。
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
@@ -950,7 +933,7 @@ declare namespace ssap {
   }
 
   /**
-   * Describes the parameters of a response send by the server to a specified read or write request.
+   * 服务端对指定读或写请求的响应的参数。
    *
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
@@ -958,8 +941,8 @@ declare namespace ssap {
    */
   interface ServerResponse {
     /**
-     * Indicates the device address.
-     * The length must be 17, The value consists of hexadecimal digits and colons (:), for example, 11:22:33:AA:BB:FF.
+     * 设备地址。
+     * 长度必须为17，由16进制数字和冒号组成，形如 "11:22:33:AA:BB:FF"。
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
@@ -967,8 +950,8 @@ declare namespace ssap {
      */
     address: string;
     /**
-     * The request ID.
-     * The value range is all integers.
+     * 请求ID。
+     * 取值范围为全体整数。
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
@@ -976,7 +959,7 @@ declare namespace ssap {
      */
     requestId: int;
     /**
-     * Indicates the response data.
+     * 响应数据。
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
@@ -986,7 +969,7 @@ declare namespace ssap {
   }
 
   /**
-   * Describes SSAP connection state.
+   * 描述SSAP连接状态。
    *
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
@@ -994,8 +977,8 @@ declare namespace ssap {
    */
   interface ConnectionChangeState {
     /**
-     * Indicates the device address.
-     * The length must be 17, The value consists of hexadecimal digits and colons (:), for example, 11:22:33:AA:BB:FF.
+     * 设备地址。
+     * 长度必须为17，由16进制数字和冒号组成，形如 "11:22:33:AA:BB:FF"。
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
@@ -1003,7 +986,7 @@ declare namespace ssap {
      */
     address: string;
     /**
-     * Connection state.
+     * 连接状态。
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
@@ -1013,7 +996,7 @@ declare namespace ssap {
   }
 
   /**
-   * The enum of property descriptor type.
+   * 属性描述符类型的枚举。
    *
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
@@ -1021,7 +1004,7 @@ declare namespace ssap {
    */
   enum PropertyDescriptorType {
     /**
-     * Property description descriptor.
+     * 属性说明描述符。
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
@@ -1029,7 +1012,7 @@ declare namespace ssap {
      */
     PROPERTY = 1,
     /**
-     * Client property configuration descriptor.
+     * 客户端属性配置描述符。
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
@@ -1037,7 +1020,7 @@ declare namespace ssap {
      */
     CLIENT_PROPERTY_CONFIG = 2,
     /**
-     * Server property configuration descriptor.
+     * 服务端属性配置描述符。
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
@@ -1045,7 +1028,7 @@ declare namespace ssap {
      */
     SERVER_PROPERTY_CONFIG = 3,
     /**
-     * Property format descriptor.
+     * 属性格式描述符。
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
@@ -1053,7 +1036,7 @@ declare namespace ssap {
      */
     PROPERTY_FORMAT = 4,
     /**
-     * Vendor-defined.
+     * 厂商自定义。
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
@@ -1063,7 +1046,7 @@ declare namespace ssap {
   }
 
   /**
-   * Enum of property operation indication.
+   * 属性操作指示的枚举。
    *
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
@@ -1071,7 +1054,7 @@ declare namespace ssap {
    */
   enum Operation {
     /**
-     * When this bit is set, the property value can be read.
+     * 当该比特置位后，属性值可被读取。
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
@@ -1079,7 +1062,7 @@ declare namespace ssap {
      */
     READABLE = 0x01,
     /**
-     * When this bit is set, the property value can be written without response after writing.
+     * 当该比特置位后，属性值可被写入，写入后无反馈。
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
@@ -1087,7 +1070,9 @@ declare namespace ssap {
      */
     WRITE_NO_RESPONSE = 0x02,
     /**
-     * When this bit is set, the property value can be written, and a response is generated for the client.
+     * 当该比特置位后，属性值可被写入，写入后产生反
+     * 馈给客户端。
+     * 写操作完成后，会反馈给客户端。
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
@@ -1095,7 +1080,8 @@ declare namespace ssap {
      */
     WRITE_WITH_RESPONSE = 0x04,
     /**
-     * When this bit is set, the property value is delivered to the client via notification.
+     * 当该比特置位后，属性值通过通知方式传递给客户
+     * 端。
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
@@ -1105,7 +1091,7 @@ declare namespace ssap {
   }
 
   /**
-   * The enum of property write type.
+   * 属性写入类型的枚举。
    *
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
@@ -1113,7 +1099,7 @@ declare namespace ssap {
    */
   enum PropertyWriteType {
     /**
-     * Writes property and waits for response.
+     * 写入属性并等待响应。
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
@@ -1121,7 +1107,7 @@ declare namespace ssap {
      */
     WRITE = 1,
     /**
-     * Writes property without response.
+     * 写入属性且没有响应。
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly

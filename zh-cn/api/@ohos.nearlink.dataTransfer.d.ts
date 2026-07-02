@@ -22,7 +22,7 @@ import type { Callback } from '@ohos.base';
 import nearlinkConstant from '@ohos.nearlink.constant';
 
 /**
- * Provides methods to operate and manage data transfer of NearLink.
+ * 提供操作和管理星闪数据传输的方法。
  *
  * @syscap SystemCapability.Communication.NearLink.Base
  * @stagemodelonly
@@ -30,7 +30,7 @@ import nearlinkConstant from '@ohos.nearlink.constant';
  */
 declare namespace dataTransfer {
   /**
-   * Indicates the connection state.
+   * 连接状态。
    *
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
@@ -39,13 +39,12 @@ declare namespace dataTransfer {
   type ConnectionState = nearlinkConstant.ConnectionState;
 
   /**
-   * Creates a NearLink listening port that can receive data by UUID.
+   * 通过UUID创建可以接收数据的星闪端口。
    *
    * @permission ohos.permission.ACCESS_NEARLINK
-   * @param { string } uuid - Indicates application service UUID.
-   *     <br>The length must be 36, The value consists of 36 hexadecimal digits and hyphens (-), for example,
-   *     FFFFFFFF-1234-5678-ABCD-000000001234, indicating a 128-bit identifier.
-   *     <br>NearLink standard UUIDs not allowed.
+   * @param { string } uuid - 应用服务UUID
+   *     <br>长度必须为36，由16进制数字字符和连字符共36个字符组成，形如“FFFFFFFF-1234-5678-ABCD-000000001234”，代表128比特标识。
+   *     <br>禁止使用星闪标准服务UUID。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 801 - Capability not supported because the chip does not support it.
    * @throws { BusinessError } 36100003 - NearLink disabled.
@@ -61,13 +60,12 @@ declare namespace dataTransfer {
   function createPort(uuid: string): void;
 
   /**
-   * Destroys a listen port and releases related resources by UUID.
+   * 根据UUID销毁监听端口并释放相关资源。
    *
    * @permission ohos.permission.ACCESS_NEARLINK
-   * @param { string } uuid - Indicates application service UUID.
-   *     <br>The length must be 36, The value consists of 36 hexadecimal digits and hyphens (-), for example,
-   *     FFFFFFFF-1234-5678-ABCD-000000001234, indicating a 128-bit identifier.
-   *     <br>NearLink standard UUIDs not allowed.
+   * @param { string } uuid - 应用服务UUID
+   *     <br>长度必须为36，由16进制数字字符和连字符共36个字符组成，形如“FFFFFFFF-1234-5678-ABCD-000000001234”，代表128比特标识。
+   *     <br>不允许使用NearLink标准UUID。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 801 - Capability not supported because the chip does not support it.
    * @throws { BusinessError } 36100003 - NearLink disabled.
@@ -82,11 +80,11 @@ declare namespace dataTransfer {
   function destroyPort(uuid: string): void;
 
   /**
-   * Connects to a server. If the connection is successful, data can be sent to the server.
+   * 连接服务端。如果连接成功，则可以向服务端发送数据。
    *
    * @permission ohos.permission.ACCESS_NEARLINK
-   * @param { ConnectionParams } params - Indicates the connection params.
-   * @returns { Promise<void> } Returns the promise object.
+   * @param { ConnectionParams } params - 连接参数
+   * @returns { Promise<void> } 返回promise对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 801 - Capability not supported because the chip does not support it.
    * @throws { BusinessError } 36100003 - NearLink disabled.
@@ -101,11 +99,11 @@ declare namespace dataTransfer {
   function connect(params: ConnectionParams): Promise<void>;
 
   /**
-   * Disconnects or stops an ongoing connection to a server.
+   * 断开或停止与服务端的连接。
    *
    * @permission ohos.permission.ACCESS_NEARLINK
-   * @param { ConnectionParams } params - Indicates the connection params.
-   * @returns { Promise<void> } Returns the promise object.
+   * @param { ConnectionParams } params - 连接参数
+   * @returns { Promise<void> } 返回promise对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 801 - Capability not supported because the chip does not support it.
    * @throws { BusinessError } 36100003 - NearLink disabled.
@@ -120,11 +118,11 @@ declare namespace dataTransfer {
   function disconnect(params: ConnectionParams): Promise<void>;
 
   /**
-   * Subscribes to the connection state change event.
+   * 订阅连接状态变化事件。
    *
-   * This event is accessible only to applications that granted the ohos.permission.NEARLINK_ACCESS permission.
+   * 只有授予了ohos.permission.NEARLINK_ACCESS权限的应用程序才能访问此事件。
    *
-   * @param { Callback<ConnectionResult> } callback - Callback used to listen for the state change event.
+   * @param { Callback<ConnectionResult> } callback - 用于监听状态改变事件的回调。
    * @throws { BusinessError } 801 - Capability not supported because the chip does not support it.
    * @throws { BusinessError } 36100099 - Operation failed.
    * @syscap SystemCapability.Communication.NearLink.Base
@@ -134,9 +132,9 @@ declare namespace dataTransfer {
   function onConnectionStateChanged(callback: Callback<ConnectionResult>): void;
 
   /**
-   * Unsubscribes from the connection state change event.
+   * 取消订阅连接状态变更事件。
    *
-   * @param { Callback<ConnectionResult> } [callback] - Callback used to listen for the state change event.
+   * @param { Callback<ConnectionResult> } [callback] - 用于监听状态改变事件的回调。
    * @throws { BusinessError } 801 - Capability not supported because the chip does not support it.
    * @throws { BusinessError } 36100099 - Operation failed.
    * @syscap SystemCapability.Communication.NearLink.Base
@@ -146,11 +144,11 @@ declare namespace dataTransfer {
   function offConnectionStateChanged(callback?: Callback<ConnectionResult>): void;
 
   /**
-   * Writes data by address and UUID.
+   * 根据地址和UUID写入数据。
    *
    * @permission ohos.permission.ACCESS_NEARLINK
-   * @param { DataParams } params - Indicates the send data params.
-   * @returns { Promise<void> } Returns the promise object.
+   * @param { DataParams } params - 发送数据的参数
+   * @returns { Promise<void> } 返回promise对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 801 - Capability not supported because the chip does not support it.
    * @throws { BusinessError } 36100003 - NearLink disabled.
@@ -166,11 +164,11 @@ declare namespace dataTransfer {
   function writeData(params: DataParams): Promise<void>;
 
   /**
-   * Subscribes to the event reported when data is read from the port.
+   * 订阅从端口读取数据事件。
    *
-   * This event is accessible only to applications that granted the ohos.permission.NEARLINK_ACCESS permission.
+   * 只有授予了ohos.permission.NEARLINK_ACCESS权限的应用程序才能访问此事件。
    *
-   * @param { Callback<DataParams> } callback - Callback used to listen for the port read event.
+   * @param { Callback<DataParams> } callback - 监听端口读事件的回调。
    * @throws { BusinessError } 801 - Capability not supported because the chip does not support it.
    * @throws { BusinessError } 36100099 - Operation failed.
    * @syscap SystemCapability.Communication.NearLink.Base
@@ -180,9 +178,9 @@ declare namespace dataTransfer {
   function onReadData(callback: Callback<DataParams>): void;
 
   /**
-   * Unsubscribes from the event reported when data is read from the port.
+   * 取消订阅从端口读取数据的事件。
    *
-   * @param { Callback<DataParams> } [callback] - Callback used to listen for the port read event.
+   * @param { Callback<DataParams> } [callback] - 监听端口读事件的回调。
    * @throws { BusinessError } 801 - Capability not supported because the chip does not support it.
    * @throws { BusinessError } 36100099 - Operation failed.
    * @syscap SystemCapability.Communication.NearLink.Base
@@ -192,11 +190,11 @@ declare namespace dataTransfer {
   function offReadData(callback?: Callback<DataParams>): void;
 
   /**
-   * Obtains the connection status for data transfer.
+   * 获取数据传输的连接状态。
    *
    * @permission ohos.permission.ACCESS_NEARLINK
-   * @param { ConnectionStateParams } params - Parameters used to obtain the connection status.
-   * @returns { ConnectionState } Returns the connection status for data transfer.
+   * @param { ConnectionStateParams } params - 获取连接状态参数
+   * @returns { ConnectionState } 返回数据传输的连接状态。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 801 - Capability not supported because the chip does not support it.
    * @throws { BusinessError } 36100003 - NearLink disabled.
@@ -211,7 +209,7 @@ declare namespace dataTransfer {
   function getConnectionState(params: ConnectionStateParams): ConnectionState;
 
   /**
-   * Describes the parameters for connection.
+   * 连接参数。
    *
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
@@ -219,9 +217,8 @@ declare namespace dataTransfer {
    */
   interface ConnectionParams {
     /**
-     * Indicates the connected device address.
-     * The length must be 17, The value consists of hexadecimal digits and colons (:),
-     * for example, 11:22:33:AA:BB:FF.
+     * 连接的设备地址。
+     * 长度必须为17，由16进制数字和冒号组成，形如 "11:22:33:AA:BB:FF"。
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
@@ -229,10 +226,9 @@ declare namespace dataTransfer {
      */
     address: string;
     /**
-     * Indicates the service UUID.
-     * The length must be 36, The value consists of 36 hexadecimal digits and hyphens (-),
-     * for example, FFFFFFFF-1234-5678-ABCD-000000001234, indicating a 128-bit identifier.
-     * <br>NearLink standard UUIDs are not allowed.
+     * 服务ID。
+     * 长度必须为36，由16进制数字字符和连字符共36个字符组成，形如“FFFFFFFF-1234-5678-ABCD-000000001234”，代表128比特标识。
+     * <br>禁止使用星闪标准服务UUID。
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
@@ -240,8 +236,8 @@ declare namespace dataTransfer {
      */
     uuid: string;
     /**
-     * Data transfer mode. The basic transfer mode is used by default
-     * Default value: BASIC.
+     * 数据传输模式。默认使用基本传输模式
+     * 默认值： 默认值：BASIC。
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
@@ -251,7 +247,7 @@ declare namespace dataTransfer {
   }
 
   /**
-   * Describes the parameters for Data.
+   * 数据参数说明。
    *
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
@@ -259,8 +255,8 @@ declare namespace dataTransfer {
    */
   interface DataParams {
     /**
-     * Indicates the connected device address.
-     * The length must be 17, The value consists of hexadecimal digits and colons (:), for example, 11:22:33:AA:BB:FF.
+     * 连接的设备地址。
+     * 长度必须为17，由十六进制数字和冒号组成，例如：11:22:33:AA:BB:FF。
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
@@ -268,10 +264,9 @@ declare namespace dataTransfer {
      */
     address: string;
     /**
-     * Indicates the service UUID.
-     * The length must be 36, The value consists of 36 hexadecimal digits and hyphens (-),
-     * for example, FFFFFFFF-1234-5678-ABCD-000000001234, indicating a 128-bit identifier.
-     * <br>NearLink standard UUIDs are not allowed.
+     * 服务ID。
+     * 长度必须为36，由16进制数字字符和连字符共36个字符组成，形如“FFFFFFFF-1234-5678-ABCD-000000001234”，代表128比特标识。
+     * <br>禁止使用星闪标准服务UUID。
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
@@ -279,7 +274,7 @@ declare namespace dataTransfer {
      */
     uuid: string;
     /**
-     * Indicates the data buffer.
+     * 数据缓冲区。
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
@@ -289,7 +284,7 @@ declare namespace dataTransfer {
   }
 
   /**
-   * Describes the parameters for connection result.
+   * 连接结果的参数说明。
    *
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
@@ -297,8 +292,8 @@ declare namespace dataTransfer {
    */
   interface ConnectionResult {
     /**
-     * Indicates the connected device address.
-     * The length must be 17, The value consists of hexadecimal digits and colons (:), for example, 11:22:33:AA:BB:FF.
+     * 连接的设备地址。
+     * 长度必须为17，由十六进制数字和冒号组成，例如：11:22:33:AA:BB:FF。
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
@@ -306,10 +301,9 @@ declare namespace dataTransfer {
      */
     address: string;
     /**
-     * Indicates the service UUID.
-     * The length must be 36, The value consists of 36 hexadecimal digits and hyphens (-),
-     * for example, FFFFFFFF-1234-5678-ABCD-000000001234, indicating a 128-bit identifier.
-     * <br>NearLink standard UUIDs are not allowed.
+     * 服务ID。
+     * 长度必须为36，由16进制数字字符和连字符共36个字符组成，形如“FFFFFFFF-1234-5678-ABCD-000000001234”，代表128比特标识。
+     * <br>禁止使用星闪标准服务UUID。
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
@@ -317,8 +311,8 @@ declare namespace dataTransfer {
      */
     uuid: string;
     /**
-     * Indicates the maximum channel data length.
-     * Unit: Bytes, The value must be an integer within [0,65535].
+     * 通道数据的最大长度
+     * 单位为： 字节，取值应为[0,65535]内的整数。
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
@@ -326,7 +320,7 @@ declare namespace dataTransfer {
      */
     mtu: int;
     /**
-     * Connection state.
+     * 连接状态。
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
@@ -336,7 +330,7 @@ declare namespace dataTransfer {
   }
 
   /**
-   * Describes the parameters required for obtaining the connection status.
+   * 获取连接状态所需的参数。
    *
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
@@ -344,8 +338,8 @@ declare namespace dataTransfer {
    */
   interface ConnectionStateParams {
     /**
-     * Indicates the connected device address.
-     * The length must be 17, The value consists of hexadecimal digits and colons (:), for example, 11:22:33:AA:BB:FF.
+     * 连接的设备地址。
+     * 长度必须为17，由十六进制数字和冒号组成，例如：11:22:33:AA:BB:FF。
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
@@ -353,10 +347,9 @@ declare namespace dataTransfer {
      */
     address: string;
     /**
-     * Indicates the service uuid.
-     * The length must be 36, The value consists of 36 hexadecimal digits and hyphens (-),
-     * for example, FFFFFFFF-1234-5678-ABCD-000000001234, indicating a 128-bit identifier.
-     * <br>NearLink standard UUIDs are not allowed.
+     * 服务UUID。
+     * 长度必须为36，由16进制数字字符和连字符共36个字符组成，形如“FFFFFFFF-1234-5678-ABCD-000000001234”，代表128比特标识。
+     * <br>禁止使用星闪标准服务UUID。
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
@@ -366,7 +359,7 @@ declare namespace dataTransfer {
   }
 
   /**
-   * Indicates the data transfer mode.
+   * 数据传输模式。
    *
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
@@ -374,7 +367,7 @@ declare namespace dataTransfer {
    */
   enum TransferMode {
     /**
-     * Basic data transfer mode.
+     * 基本数据传输模式。
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
@@ -382,7 +375,7 @@ declare namespace dataTransfer {
      */
     BASIC = 0,
     /**
-     * Reliable data transfer mode.
+     * 可靠数据传输模式。
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly

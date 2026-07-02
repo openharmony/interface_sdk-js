@@ -1,5 +1,4 @@
 /*
-/*
  * Copyright (c) 2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,270 +19,326 @@
  */
 
 import type { Callback } from '@ohos.base';
-import nearlinkConstant from '@ohos.nearlink.constant';
 
 /**
- * Provides methods for scanning and discovering nearby devices.
+ * 提供与广播相关的方法。附近的设备可以扫描并发现该设备。
  *
  * @syscap SystemCapability.Communication.NearLink.Base
  * @stagemodelonly
  * @since 26.0.0 dynamic&static
  */
-declare namespace scan {
+declare namespace advertising {
   /**
-   * Starts scanning for specified NearLink devices with filters.
-   * It is allowed to set filter parameter to {@code null} if you do not want to use filter.
+   * 开始广播。
    *
    * @permission ohos.permission.ACCESS_NEARLINK
-   * @param { ScanFilters[] | null } filters - The list of filters and this parameter is mandatory.
-   *     If you do not want to use filter, set this parameter to {@code null}.
-   *     If you want to use filter, at least one filter should be set.
-   * @param { ScanOptions } [options] - The parameters for scanning, and the low power mode is used by default.
-   * @returns { Promise<void> } The promise object is returned.
+   * @param { AdvertisingParams } advertisingParams - 表示广播参数。
+   * @returns { Promise<int> } 返回广播句柄promise对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 801 - Capability not supported because the chip does not support it.
    * @throws { BusinessError } 36100003 - NearLink disabled.
    * @throws { BusinessError } 36100040 - Integer out of range.
-   * @throws { BusinessError } 36100041 - Invalid address.
-   * @throws { BusinessError } 36100042 - Empty array.
+   * @throws { BusinessError } 36100043 - Invalid UUID.
    * @throws { BusinessError } 36100099 - Operation failed.
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
-  function startScan(filters: ScanFilters[] | null, options?: ScanOptions): Promise<void>;
+  function startAdvertising(advertisingParams: AdvertisingParams): Promise<int>;
 
   /**
-   * Stops scanning.
+   * 停止广播ID对应的广播。
    *
    * @permission ohos.permission.ACCESS_NEARLINK
-   * @returns { Promise<void> }
+   * @param { int } advertisingId - 表示广播ID
+   *     <br>取值应为≥0的整数，取值为当前广播的广播ID。
+   * @returns { Promise<void> } 返回promise对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 801 - Capability not supported because the chip does not support it.
    * @throws { BusinessError } 36100003 - NearLink disabled.
+   * @throws { BusinessError } 36100040 - Invalid advertising ID.
    * @throws { BusinessError } 36100099 - Operation failed.
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
-  function stopScan(): Promise<void>;
+  function stopAdvertising(advertisingId: int): Promise<void>;
 
   /**
-   * Subscribes to NearLink scan results.
+   * 订阅广播状态变化事件。
    *
-   * This event is accessible only to applications that granted the ohos.permission.NEARLINK_ACCESS permission.
-   * If the application is granted the ohos.permission.GET_NEARLINK_PEER_MAC permission,
-   * the callback returns the real device address; otherwise, a random device address is returned.
+   * 只有授予了ohos.permission.NEARLINK_ACCESS权限的系统应用程序才能访问此事件。
    *
-   * @param { Callback<ScanResults[]> } callback - Callback used to listen for the scan result event.
+   * @param { Callback<AdvertisingStateChangeInfo> } callback - 用于监听广播状态的回调。
    * @throws { BusinessError } 801 - Capability not supported because the chip does not support it.
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
-  function onDeviceFound(callback: Callback<ScanResults[]>): void;
+  function onAdvertisingStateChange(callback: Callback<AdvertisingStateChangeInfo>): void;
 
   /**
-   * Unsubscribes from NearLink scan results.
+   * 取消订阅广播状态变更事件。
    *
-   * @param { Callback<ScanResults[]> } [callback] - Callback used to listen for the scan result event.
+   * @param { Callback<AdvertisingStateChangeInfo> } [callback] - 用于监听广播状态的回调。
    * @throws { BusinessError } 801 - Capability not supported because the chip does not support it.
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
-  function offDeviceFound(callback?: Callback<ScanResults[]>): void;
+  function offAdvertisingStateChange(callback?: Callback<AdvertisingStateChangeInfo>): void;
 
   /**
-   * Describes the contents of the scan results.
+   * 广播参数。
    *
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
-  interface ScanResults {
+  interface AdvertisingParams {
     /**
-     * Address of the remote device.
-     * The length is 17, and the value consists of hexadecimal digits and colons (:), for example, 11:22:33:AA:BB:FF.
+     * 广播设置。
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
-    address: string;
+    advertisingSettings: AdvertisingSettings;
     /**
-     * RSSI of the remote device.
-     * Unit: dBm. The value is an integer within [-128,127], and the value 127 indicates an invalid RSSI.
+     * 广播数据。
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
-    rssi: int;
-    /**
-     * The raw data.
-     *
-     * @syscap SystemCapability.Communication.NearLink.Base
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    data: ArrayBuffer;
-    /**
-     * Device name of the remote device.
-     *
-     * @syscap SystemCapability.Communication.NearLink.Base
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    deviceName: string;
-    /**
-     * Indicates whether the remote device is connectable.
-     *
-     * @syscap SystemCapability.Communication.NearLink.Base
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    isConnectable: boolean;
-    /**
-     * Indicates the device class.
-     *
-     * @syscap SystemCapability.Communication.NearLink.Base
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    deviceClass?: nearlinkConstant.DeviceClass;
+    advertisingData: AdvertisingData;
   }
 
   /**
-   * Describes the scan filters.
+   * 广播设置。
    *
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
-  interface ScanFilters {
+  interface AdvertisingSettings {
     /**
-     * Indicates the device address.
-     * The length must be 17, The value consists of hexadecimal digits and colons (:), for example, 11:22:33:AA:BB:FF.
+     * 广播时间间隔，单位为slot。
+     * 最小的slot数是160，对应的时间是160*0.125=20ms。
+     * 最大slot数为16777215，对应的时间为2097151.875 ms。
+     * 如果不设置“interval”，则默认值为5000，对应的时间为625 ms。
+     * 单位为： 时隙，取值应为[160,16777215]内的整数，每个时隙为125微秒，。 默认值： 5000。
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
-    address?: string;
-
+    interval?: int;
     /**
-     * Indicates the device name.
+     * 广播功率模式。
+     * 如果不设置“power”，则默认值为“ADV_TX_POWER_LOW”。
+     * 默认值： ADV_TX_POWER_LOW。
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
-    deviceName?: string;
-
+    power?: TxPowerMode;
     /**
-     * Indicates the manufacturer ID.
+     * 广播是否可连接。
+     * 如果不设置“isConnectable”，则默认值为true。
+     * 默认值： 默认值：true。
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
-    manufacturerId?: int;
-
-    /**
-     * Indicates the manufacturer data.
-     *
-     * @syscap SystemCapability.Communication.NearLink.Base
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    manufacturerData?: ArrayBuffer;
-
-    /**
-     * Indicates the manufacturer data mask.
-     * If a manufacturer data mask is set in the scan filter, its length must match the manufacturer data length.
-     *
-     * @syscap SystemCapability.Communication.NearLink.Base
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    manufacturerDataMask?: ArrayBuffer;
-
-    /**
-     * Indicates the RSSI.
-     * Unit: dBm, The value must be an integer within [-128,127].
-     *
-     * @syscap SystemCapability.Communication.NearLink.Base
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    rssi?: int;
+    isConnectable?: boolean;
   }
 
   /**
-   * Describes the parameters for scan.
+   * 广播数据。
    *
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
-  interface ScanOptions {
+  interface AdvertisingData {
     /**
-     * Indicates the scan mode.
-     * If the "scanMode" is not set, the default value is "SCAN_MODE_LOW_POWER".
-     * Default value: SCAN_MODE_LOW_POWER.
+     * 指定的服务UUID。
+     * UUID的长度必须为36，由36位十六进制数字和“-”组成。
+     * 例如：FFFFFFFF-1234-5678-ABCD-000000001234，表示128位的标识符。
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
-    scanMode?: ScanMode;
-
+    serviceUuids?: string[];
     /**
-     * Indicates the scan duration.
-     * If the "duration" is not set, the scanning is performed all the time.
-     * Unit: Seconds, The value must be an integer within [10,60].
+     * 制造商数据。
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
-    duration?: int;
+    manufacturerData?: ManufacturerData[];
+    /**
+     * 服务数据。
+     *
+     * @syscap SystemCapability.Communication.NearLink.Base
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    serviceData?: ServiceData[];
+    /**
+     * 指示是否包含设备名称。
+     * 默认值： 默认值：false。
+     *
+     * @syscap SystemCapability.Communication.NearLink.Base
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    includeDeviceName?: boolean;
   }
 
   /**
-   * The enum of scan mode.
+   * 描述制造商数据。
    *
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
-  enum ScanMode {
+  interface ManufacturerData {
     /**
-     * Low-power mode with a lower scan frequency (default).
+     * 厂商ID。
+     * 取值范围为全体整数。
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
-    SCAN_MODE_LOW_POWER = 0,
+    manufacturerId: int;
     /**
-     * Medium-power mode with a medium scan frequency.
+     * 制造商数据。
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
-    SCAN_MODE_BALANCED = 1,
+    manufacturerData: ArrayBuffer;
+  }
+
+  /**
+   * 服务数据。
+   *
+   * @syscap SystemCapability.Communication.NearLink.Base
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  interface ServiceData {
     /**
-     * High-power mode with a higher scan frequency.
+     * 服务UUID。
      *
      * @syscap SystemCapability.Communication.NearLink.Base
-     * @systemapi
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
-    SCAN_MODE_LOW_LATENCY = 2
+    serviceUuid: string;
+    /**
+     * 服务数据。
+     *
+     * @syscap SystemCapability.Communication.NearLink.Base
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    serviceData: ArrayBuffer;
+  }
+
+  /**
+   * 广播模式的枚举。
+   *
+   * @syscap SystemCapability.Communication.NearLink.Base
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  enum TxPowerMode {
+    /**
+     * 低功率模式。
+     *
+     * @syscap SystemCapability.Communication.NearLink.Base
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    ADV_TX_POWER_LOW = 1,
+    /**
+     * 中等功率模式。
+     *
+     * @syscap SystemCapability.Communication.NearLink.Base
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    ADV_TX_POWER_MEDIUM = 2,
+    /**
+     * 高功率模式。
+     *
+     * @syscap SystemCapability.Communication.NearLink.Base
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    ADV_TX_POWER_HIGH = 3
+  }
+
+  /**
+   * 广播状态变化信息。
+   *
+   * @syscap SystemCapability.Communication.NearLink.Base
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  interface AdvertisingStateChangeInfo {
+    /**
+     * 广播ID。
+     * 取值范围为全体整数。
+     *
+     * @syscap SystemCapability.Communication.NearLink.Base
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    advertisingId: int;
+    /**
+     * 广播状态。
+     *
+     * @syscap SystemCapability.Communication.NearLink.Base
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    state: AdvertisingState;
+  }
+
+  /**
+   * 广播状态的枚举。
+   *
+   * @syscap SystemCapability.Communication.NearLink.Base
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  enum AdvertisingState {
+    /**
+     * 广播已开始。
+     *
+     * @syscap SystemCapability.Communication.NearLink.Base
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    STARTED = 1,
+    /**
+     * 广播已停止。
+     *
+     * @syscap SystemCapability.Communication.NearLink.Base
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    STOPPED = 2
   }
 }
-export default scan;
+export default advertising;
