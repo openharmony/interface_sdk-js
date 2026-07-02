@@ -142,9 +142,9 @@ declare namespace advertising {
     /**
      * Whether you want your content to be treated as child-directed for purposes of COPPA.
      *
-     * 1: Default value, unspecified.
+     * -1: Default value, unspecified.
      * 0: No.
-     * -1: Yes.
+     * 1: Yes.
      *
      * The default value is -1.
      *
