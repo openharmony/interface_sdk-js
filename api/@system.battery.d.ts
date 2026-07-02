@@ -88,7 +88,7 @@ export interface BatteryResponse {
 export interface GetStatusOptions {
   /**
    * Called when an API call is successful. **data** is a return value of the
-   *     [BatteryResponse](#batteryresponsedeprecated) type.
+   *     {@link BatteryResponse} type.
    *
    * @syscap SystemCapability.PowerManager.BatteryManager.Lite
    * @FaAndStageModel

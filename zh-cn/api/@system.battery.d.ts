@@ -85,7 +85,7 @@ export interface BatteryResponse {
  */
 export interface GetStatusOptions {
   /**
-   * 接口调用成功的回调函数，data为[BatteryResponse](#batteryresponsedeprecated)类型的返回值。
+   * 接口调用成功的回调函数，data为{@link BatteryResponse}类型的返回值。
    *
    * @syscap SystemCapability.PowerManager.BatteryManager.Lite
    * @FaAndStageModel
