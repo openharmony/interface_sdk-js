@@ -11019,7 +11019,7 @@ declare namespace window {
      *     Invalid parameter range.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
-     *      Possible cause: Invalid window type. Only main windows are supported.
+     *     Possible cause: Invalid window type. Only main windows are supported.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice [since 12]
      * @since 10 dynamic
