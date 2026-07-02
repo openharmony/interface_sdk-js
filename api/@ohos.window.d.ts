@@ -7300,7 +7300,7 @@ declare namespace window {
      *
      * @param { Orientation } orientation - Display orientation.
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: Invalid parameter value range.
      * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause:
      *     1. The window is not created or destroyed;
      *     2. Internal task error.
@@ -7636,7 +7636,7 @@ declare namespace window {
      * @param { Orientation } orientation - Display orientation.
      * @param { AsyncCallback<void> } callback - Callback used to return the result. The callback indicates the API call
      *     result. It does not mean that the application rotation animation ends.
-     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: Invalid parameter value range.
      * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause:
      *     1. The window is not created or destroyed;
      *     2. Internal task error.
