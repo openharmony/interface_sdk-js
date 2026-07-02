@@ -38,7 +38,7 @@ declare enum BadgePosition {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  RightTop = 0,
+  RightTop,
 
   /**
    * The badge is vertically centered on the right of the parent component.

@@ -3926,7 +3926,7 @@ declare enum ImageSpanAlignment {
    * @atomicservice [since 11]
    * @since 10 dynamic
    */
-  BASELINE = 0,
+  BASELINE,
 
   /**
    * The image is bottom aligned with the line.
@@ -3937,7 +3937,7 @@ declare enum ImageSpanAlignment {
    * @atomicservice [since 11]
    * @since 10 dynamic
    */
-  BOTTOM = 1,
+  BOTTOM,
 
   /**
    * The image is centered aligned with the line.
@@ -3948,7 +3948,7 @@ declare enum ImageSpanAlignment {
    * @atomicservice [since 11]
    * @since 10 dynamic
    */
-  CENTER = 2,
+  CENTER,
 
   /**
    * The image is top aligned with the line.
@@ -3959,7 +3959,7 @@ declare enum ImageSpanAlignment {
    * @atomicservice [since 11]
    * @since 10 dynamic
    */
-  TOP = 3,
+  TOP,
 
   /**
    * The alignment mode follows the parent component of the **Text** component.
@@ -3970,7 +3970,7 @@ declare enum ImageSpanAlignment {
    * @atomicservice
    * @since 20 dynamic
    */
-  FOLLOW_PARAGRAPH = 4
+  FOLLOW_PARAGRAPH,
 }
 
 /**
