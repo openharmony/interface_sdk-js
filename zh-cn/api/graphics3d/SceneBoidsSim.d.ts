@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2026-2026 Huawei Device Co., Ltd.
+ * Copyright (c) 2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -23,7 +23,7 @@ import { Node } from './SceneNodes';
 import { Vec3, Quaternion } from './SceneTypes';
 
 /**
- * Boids simulation parameters bound per-boid.
+ * 每个boid绑定的群组模拟参数.
  *
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @systemapi
@@ -32,7 +32,7 @@ import { Vec3, Quaternion } from './SceneTypes';
  */
 export interface BoidsSimParameters {
   /**
-   * Initial velocity of the boid. Default: (0, 0, 0).
+   * boid的初始速度. 默认值：(0, 0, 0).
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @systemapi
@@ -42,8 +42,8 @@ export interface BoidsSimParameters {
   initialVelocity?: Vec3;
 
   /**
-   * Initial position of the boid. When it's not set, the entity's current transform position is used.
-   * Default: (NaN, NaN, NaN).
+   * boid的初始位置. 未设置时，使用实体的当前变换位置.
+   * 默认值：(NaN, NaN, NaN).
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @systemapi
@@ -53,8 +53,8 @@ export interface BoidsSimParameters {
   initialPosition?: Vec3;
 
   /**
-   * Initial rotation of the boid. When it's not set, the entity's current transform rotation is used.
-   * Default: (NaN, NaN, NaN, NaN).
+   * boid的初始旋转. 未设置时，使用实体的当前变换旋转.
+   * 默认值：(NaN, NaN, NaN, NaN).
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @systemapi
@@ -64,9 +64,7 @@ export interface BoidsSimParameters {
   initialRotation?: Quaternion;
 
   /**
-   * Lower corner of the axis-aligned bounding box constraining boid movement.
-   * When any component of boundaryMinPos is greater than or equal to the corresponding component of
-   * boundaryMaxPos, this boid is considered unbounded. Default: (0, 0, 0).
+   * 约束boid运动的轴对齐包围盒最小角点。当boundaryMinPos的任何分量大于等于对应boundaryMaxPos分量时，该boid被视为无边界。默认值：(0, 0, 0)。
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @systemapi
@@ -76,7 +74,7 @@ export interface BoidsSimParameters {
   boundaryMinPos?: Vec3;
 
   /**
-   * Upper corner of the axis-aligned bounding box constraining boid movement. Default: (0, 0, 0).
+   * 约束boid运动的轴对齐包围盒最大角点. 默认值：(0, 0, 0).
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @systemapi
@@ -86,8 +84,7 @@ export interface BoidsSimParameters {
   boundaryMaxPos?: Vec3;
 
   /**
-   * Maximum speed the boid can reach per simulation frame. Range: [0, +inf). Default: approximately 0.625.
-   * If a value exceeding the valid range is assigned, it will be clamped.
+   * boid每模拟帧可达到的最大速度. 取值范围：[0, +∞). 默认值：约为0.625.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @systemapi
@@ -97,8 +94,7 @@ export interface BoidsSimParameters {
   maxVelocityMag?: double;
 
   /**
-   * Maximum acceleration the boid can reach per simulation frame. Range: [0, +inf). Default: approximately 39.06.
-   * If a value exceeding the valid range is assigned, it will be clamped.
+   * boid每模拟帧可达到的最大加速度. 取值范围：[0, +∞). 默认值：约为39.06.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @systemapi
@@ -108,9 +104,8 @@ export interface BoidsSimParameters {
   maxAccelerationMag?: double;
 
   /**
-   * Per-axis rotation limit in radians per simulation frame. Range: [0, +inf) per axis.
-   * Default: approximately 0.0377 per axis.
-   * If a value exceeding the valid range is assigned, it will be clamped.
+   * 每模拟帧每轴最大转向速率. 取值范围：[0, +∞) per axis.
+   * 默认值：每轴约为0.0377.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @systemapi
@@ -120,8 +115,7 @@ export interface BoidsSimParameters {
   maxTurnRate?: Vec3;
 
   /**
-   * How strongly the boid steers away from nearby neighbours within separationDistance. Range: [0, +inf). Default: 0.0
-   * If a value exceeding the valid range is assigned, it will be clamped.
+   * boid在separationDistance范围内避开邻近个体的强度。取值范围：[0, +∞)。默认值：0.0
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @systemapi
@@ -131,9 +125,7 @@ export interface BoidsSimParameters {
   separationWeight?: double;
 
   /**
-   * Perception radius for the separation rule. Only boids strictly within this distance contribute
-   * to separation force (force is zero at the boundary). Range: [0, +inf). Default: 0.0
-   * If a value exceeding the valid range is assigned, it will be clamped.
+   * 分离规则的感知半径。此距离范围内的boid会产生分离力（边界处力为零）。取值范围：[0, +∞)。默认值：0.0
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @systemapi
@@ -143,9 +135,7 @@ export interface BoidsSimParameters {
   separationDistance?: double;
 
   /**
-   * How strongly the boid steers to match the average heading of neighbours within alignmentDistance.
-   * Range: [0, +inf). Default: 0.0
-   * If a value exceeding the valid range is assigned, it will be clamped.
+   * boid在alignmentDistance范围内匹配邻近个体平均航向的强度。取值范围：[0, +∞)。默认值：0.0
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @systemapi
@@ -155,9 +145,7 @@ export interface BoidsSimParameters {
   alignmentWeight?: double;
 
   /**
-   * Perception radius for the alignment rule. Boids within this distance (inclusive) contribute
-   * to alignment force. Range: [0, +inf). Default: 0.0
-   * If a value exceeding the valid range is assigned, it will be clamped.
+   * 对齐规则的感知半径。此距离范围内的boid会对齐航向。取值范围：[0, +∞)。默认值：0.0
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @systemapi
@@ -167,9 +155,7 @@ export interface BoidsSimParameters {
   alignmentDistance?: double;
 
   /**
-   * How strongly the boid steers toward the average position of neighbours within cohesionDistance.
-   * Range: [0, +inf). Default: 0.0
-   * If a value exceeding the valid range is assigned, it will be clamped.
+   * boid在cohesionDistance范围内朝向邻近个体平均位置的强度。取值范围：[0, +∞)。默认值：0.0
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @systemapi
@@ -179,9 +165,7 @@ export interface BoidsSimParameters {
   cohesionWeight?: double;
 
   /**
-   * Perception radius for the cohesion rule. Boids within this distance (inclusive) contribute
-   * to cohesion force. Range: [0, +inf). Default: 0.0
-   * If a value exceeding the valid range is assigned, it will be clamped.
+   * 凝聚规则的感知半径。此距离范围内的boid会相互聚集。取值范围：[0, +∞)。默认值：0.0
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @systemapi
@@ -191,9 +175,7 @@ export interface BoidsSimParameters {
   cohesionDistance?: double;
 
   /**
-   * How strongly the boid is pushed back when within boundaryDistance of the boundary box edges.
-   * Range: [0, +inf). Default: 0.0.
-   * If a value exceeding the valid range is assigned, it will be clamped.
+   * boid在boundaryDistance范围内被边界墙推回的强度。取值范围：[0, +∞)。默认值：0.0
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @systemapi
@@ -203,8 +185,7 @@ export interface BoidsSimParameters {
   boundaryWeight?: double;
 
   /**
-   * Distance from boundary walls within which the boundary repulsion force takes effect. Range: [0, +inf). Default: 0.0
-   * If a value exceeding the valid range is assigned, it will be clamped.
+   * 边界斥力生效的距离。取值范围：[0, +∞)。默认值：0.0
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @systemapi
@@ -214,8 +195,7 @@ export interface BoidsSimParameters {
   boundaryDistance?: double;
 
   /**
-   * How strongly gravity field entities attract this boid. Range: [0, +inf). Default: 0.0
-   * If a value exceeding the valid range is assigned, it will be clamped.
+   * 引力场对该boid的吸引强度。取值范围：[0, +∞)。默认值：0.0
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @systemapi
@@ -225,8 +205,7 @@ export interface BoidsSimParameters {
   gravityWeight?: double;
 
   /**
-   * How strongly repulsion field entities push this boid away. Range: [0, +inf). Default: 0.0
-   * If a value exceeding the valid range is assigned, it will be clamped.
+   * 斥力场对该boid的排斥强度。取值范围：[0, +∞)。默认值：0.0
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @systemapi
@@ -237,7 +216,7 @@ export interface BoidsSimParameters {
 }
 
 /**
- * Boids simulation gravity field parameters.
+ * Boids模拟引力场参数。
  *
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @systemapi
@@ -246,9 +225,7 @@ export interface BoidsSimParameters {
  */
 export interface BoidsSimGravityParameters {
   /**
-   * Radius of influence. Boids strictly within this distance from the entity are attracted
-   * (force is zero at the boundary). Range: [0, +inf). Default: 0.0
-   * If a value exceeding the valid range is assigned, it will be clamped.
+   * 作用半径。实体在此距离范围内的boid会受到吸引（边界处力为零）。取值范围：[0, +∞)。默认值：0.0
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @systemapi
@@ -258,8 +235,7 @@ export interface BoidsSimGravityParameters {
   radius?: double;
 
   /**
-   * Magnitude of gravitational acceleration applied toward the entity. Range: [0, +inf). Default: 0.0
-   * If a value exceeding the valid range is assigned, it will be clamped.
+   * 施加于boid、方向指向实体的吸引加速度大小。取值范围：[0, +∞)。默认值：0.0
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @systemapi
@@ -270,7 +246,7 @@ export interface BoidsSimGravityParameters {
 }
 
 /**
- * Boids simulation repulsion field parameters.
+ * Boids模拟斥力场参数。
  *
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @systemapi
@@ -279,9 +255,7 @@ export interface BoidsSimGravityParameters {
  */
 export interface BoidsSimRepulsionParameters {
   /**
-   * Radius of influence. Boids strictly within this distance from the entity are pushed away
-   * (force is zero at the boundary). Range: [0, +inf). Default: 0.0
-   * If a value exceeding the valid range is assigned, it will be clamped.
+   * 作用半径。实体在此距离范围内的boid会被推开（边界处力为零）。取值范围：[0, +∞)。默认值：0.0
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @systemapi
@@ -291,8 +265,7 @@ export interface BoidsSimRepulsionParameters {
   radius?: double;
 
   /**
-   * Magnitude of repulsion acceleration applied away from the entity. Range: [0, +inf). Default: 0.0
-   * If a value exceeding the valid range is assigned, it will be clamped.
+   * 施加于boid、方向远离实体的排斥加速度大小。取值范围：[0, +∞)。默认值：0.0
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @systemapi
@@ -303,7 +276,7 @@ export interface BoidsSimRepulsionParameters {
 }
 
 /**
- * Provides playback control and component management for boids simulation.
+ * 群组模拟世界接口. 提供群组模拟的播放控制和组件管理.
  *
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @systemapi
@@ -312,7 +285,7 @@ export interface BoidsSimRepulsionParameters {
  */
 export declare class BoidsSimWorld {
   /**
-   * Start or resume the simulation.
+   * 开始或恢复模拟.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @systemapi
@@ -322,7 +295,7 @@ export declare class BoidsSimWorld {
   play(): void;
 
   /**
-   * Pause the simulation.
+   * 暂停模拟.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @systemapi
@@ -332,7 +305,7 @@ export declare class BoidsSimWorld {
   pause(): void;
 
   /**
-   * Stop the simulation and reset all boids to their initial state.
+   * 停止模拟并重置所有boid到初始状态.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @systemapi
@@ -342,9 +315,9 @@ export declare class BoidsSimWorld {
   stop(): void;
 
   /**
-   * Whether the simulation is currently playing.
+   * 模拟是否正在播放.
    *
-   * @returns { boolean } whether the simulation is currently playing.
+   * @returns { boolean } 返回模拟是否正在播放
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @systemapi
    * @stagemodelonly
@@ -353,10 +326,10 @@ export declare class BoidsSimWorld {
   get isPlaying(): boolean;
 
   /**
-   * Add a boids simulation component to the given node.
+   * 在指定节点上添加群组模拟组件.
    *
-   * @param { Node } node - the node to add the component to
-   * @param { BoidsSimParameters } param - boids simulation parameters
+   * @param { Node } node - 要添加组件的节点
+   * @param { BoidsSimParameters } param - 群组模拟参数
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @systemapi
    * @stagemodelonly
@@ -365,10 +338,10 @@ export declare class BoidsSimWorld {
   addBoidsSimComponent(node: Node, param: BoidsSimParameters): void;
 
   /**
-   * Add a gravity field component to the given node.
+   * 在指定节点上添加引力场组件.
    *
-   * @param { Node } node - the node to add the component to
-   * @param { BoidsSimGravityParameters } param - gravity field parameters
+   * @param { Node } node - 要添加组件的节点
+   * @param { BoidsSimGravityParameters } param - 引力场参数
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @systemapi
    * @stagemodelonly
@@ -377,10 +350,10 @@ export declare class BoidsSimWorld {
   addBoidsSimGravityComponent(node: Node, param: BoidsSimGravityParameters): void;
 
   /**
-   * Add a repulsion field component to the given node.
+   * 在指定节点上添加斥力场组件.
    *
-   * @param { Node } node - the node to add the component to
-   * @param { BoidsSimRepulsionParameters } param - repulsion field parameters
+   * @param { Node } node - 要添加组件的节点
+   * @param { BoidsSimRepulsionParameters } param - 斥力场参数
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @systemapi
    * @stagemodelonly
@@ -389,10 +362,10 @@ export declare class BoidsSimWorld {
   addBoidsSimRepulsionComponent(node: Node, param: BoidsSimRepulsionParameters): void;
 
   /**
-   * Update the boids simulation component parameters on the given node.
+   * 更新指定节点上的群组模拟组件参数.
    *
-   * @param { Node } node - the node to update
-   * @param { BoidsSimParameters } param - boids simulation parameters
+   * @param { Node } node - 要更新的节点
+   * @param { BoidsSimParameters } param - 群组模拟参数
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @systemapi
    * @stagemodelonly
@@ -401,10 +374,10 @@ export declare class BoidsSimWorld {
   setBoidsSimComponent(node: Node, param: BoidsSimParameters): void;
 
   /**
-   * Update the gravity field component parameters on the given node.
+   * 更新指定节点上的引力场组件参数.
    *
-   * @param { Node } node - the node to update
-   * @param { BoidsSimGravityParameters } param - gravity field parameters
+   * @param { Node } node - 要更新的节点
+   * @param { BoidsSimGravityParameters } param - 引力场参数
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @systemapi
    * @stagemodelonly
@@ -413,10 +386,10 @@ export declare class BoidsSimWorld {
   setBoidsSimGravityComponent(node: Node, param: BoidsSimGravityParameters): void;
 
   /**
-   * Update the repulsion field component parameters on the given node.
+   * 更新指定节点上的斥力场组件参数.
    *
-   * @param { Node } node - the node to update
-   * @param { BoidsSimRepulsionParameters } param - repulsion field parameters
+   * @param { Node } node - 要更新的节点
+   * @param { BoidsSimRepulsionParameters } param - 斥力场参数
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @systemapi
    * @stagemodelonly
@@ -425,10 +398,10 @@ export declare class BoidsSimWorld {
   setBoidsSimRepulsionComponent(node: Node, param: BoidsSimRepulsionParameters): void;
 
   /**
-   * Get the boids simulation component parameters from the given node.
+   * 获取指定节点上的群组模拟组件参数.
    *
-   * @param { Node } node - the node to query
-   * @returns { BoidsSimParameters | null } boids simulation parameters, or null if not found
+   * @param { Node } node - 要查询的节点
+   * @returns { BoidsSimParameters | null } 群组模拟参数，如果未找到则返回null
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @systemapi
    * @stagemodelonly
@@ -437,10 +410,10 @@ export declare class BoidsSimWorld {
   getBoidsSimComponent(node: Node): BoidsSimParameters | null;
 
   /**
-   * Get the gravity field component parameters from the given node.
+   * 获取指定节点上的引力场组件参数.
    *
-   * @param { Node } node - the node to query
-   * @returns { BoidsSimGravityParameters | null } gravity field parameters, or null if not found
+   * @param { Node } node - 要查询的节点
+   * @returns { BoidsSimGravityParameters | null } 引力场参数，如果未找到则返回null
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @systemapi
    * @stagemodelonly
@@ -449,10 +422,10 @@ export declare class BoidsSimWorld {
   getBoidsSimGravityComponent(node: Node): BoidsSimGravityParameters | null;
 
   /**
-   * Get the repulsion field component parameters from the given node.
+   * 获取指定节点上的斥力场组件参数.
    *
-   * @param { Node } node - the node to query
-   * @returns { BoidsSimRepulsionParameters | null } repulsion field parameters, or null if not found
+   * @param { Node } node - 要查询的节点
+   * @returns { BoidsSimRepulsionParameters | null } 斥力场参数，如果未找到则返回null
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @systemapi
    * @stagemodelonly
@@ -461,9 +434,9 @@ export declare class BoidsSimWorld {
   getBoidsSimRepulsionComponent(node: Node): BoidsSimRepulsionParameters | null;
 
   /**
-   * Remove the boids simulation component from the given node.
+   * 从指定节点移除群组模拟组件.
    *
-   * @param { Node } node - the node to remove the component from
+   * @param { Node } node - 要移除组件的节点
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @systemapi
    * @stagemodelonly
@@ -472,9 +445,9 @@ export declare class BoidsSimWorld {
   removeBoidsSimComponent(node: Node): void;
 
   /**
-   * Remove the gravity field component from the given node.
+   * 从指定节点移除引力场组件.
    *
-   * @param { Node } node - the node to remove the component from
+   * @param { Node } node - 要移除组件的节点
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @systemapi
    * @stagemodelonly
@@ -483,9 +456,9 @@ export declare class BoidsSimWorld {
   removeBoidsSimGravityComponent(node: Node): void;
 
   /**
-   * Remove the repulsion field component from the given node.
+   * 从指定节点移除斥力场组件.
    *
-   * @param { Node } node - the node to remove the component from
+   * @param { Node } node - 要移除组件的节点
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @systemapi
    * @stagemodelonly
@@ -495,7 +468,7 @@ export declare class BoidsSimWorld {
 }
 
 /**
- * Boids simulation plugin. Provides static methods to manage boids simulation components.
+ * 群组模拟插件. 提供用于管理群组模拟组件的静态方法.
  *
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @systemapi
@@ -504,10 +477,10 @@ export declare class BoidsSimWorld {
  */
 export declare class BoidsSimPlugin {
   /**
-   * Get the default boids simulation world for the given scene.
+   * 获取指定场景的默认群组模拟世界.
    *
-   * @param { Scene } scene - the scene to get the boids simulation world from
-   * @returns { BoidsSimWorld | null } boids simulation world, or null if the plugin is not loaded
+   * @param { Scene } scene - 要获取群组模拟世界的场景
+   * @returns { BoidsSimWorld | null } 群组模拟世界，如果插件未加载则返回null
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @systemapi
    * @stagemodelonly
