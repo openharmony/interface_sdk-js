@@ -1249,7 +1249,7 @@ declare namespace observer {
   function onCommunicationStateChange(callback: Callback<boolean>, options?: ObserverOptions): void;
 
   /**
-   * Unsubscribe from the callback for listening to the 5A state.
+   * Unsubscribes from the callback for listening to the 5A state.
    *
    * @permission ohos.permission.GET_NETWORK_INFO
    * @param { Callback<boolean> } callback - Callback used to return the result.
