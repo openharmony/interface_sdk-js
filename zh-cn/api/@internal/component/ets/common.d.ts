@@ -8190,7 +8190,7 @@ declare enum SourceType {
    * @atomicservice [since 11]
    * @since 8 dynamic
    */
-  Unknown = 0,
+  Unknown,
 
   /**
    * 鼠标。
@@ -8200,7 +8200,7 @@ declare enum SourceType {
    * @atomicservice [since 11]
    * @since 8 dynamic
    */
-  Mouse = 1,
+  Mouse,
 
   /**
    * 触摸屏。
@@ -8210,7 +8210,7 @@ declare enum SourceType {
    * @atomicservice [since 11]
    * @since 8 dynamic
    */
-  TouchScreen = 2,
+  TouchScreen,
 
   /**
    * 按键。
@@ -8253,7 +8253,7 @@ declare enum SourceTool {
    * @atomicservice [since 11]
    * @since 9 dynamic
    */
-  Unknown = 0,
+  Unknown,
 
   /**
    * 手指输入。
@@ -8263,7 +8263,7 @@ declare enum SourceTool {
    * @atomicservice [since 11]
    * @since 9 dynamic
    */
-  Finger = 1,
+  Finger,
 
   /**
    * 手写笔输入。
@@ -8273,7 +8273,7 @@ declare enum SourceTool {
    * @atomicservice [since 11]
    * @since 9 dynamic
    */
-  Pen = 2,
+  Pen,
 
   /**
    * 鼠标输入。
@@ -8284,7 +8284,7 @@ declare enum SourceTool {
    * @atomicservice
    * @since 12 dynamic
    */
-  MOUSE = 3,
+  MOUSE,
 
   /**
    * 触控板输入。触控板单指输入被视为鼠标输入操作。
@@ -8295,7 +8295,7 @@ declare enum SourceTool {
    * @atomicservice
    * @since 12 dynamic
    */
-  TOUCHPAD = 4,
+  TOUCHPAD,
 
   /**
    * 手柄输入。
@@ -8306,7 +8306,7 @@ declare enum SourceTool {
    * @atomicservice
    * @since 12 dynamic
    */
-  JOYSTICK = 5
+  JOYSTICK
 }
 
 /**
