@@ -24,7 +24,7 @@ import { Position3, Quaternion, Scale3, Color, Vec2, Vec3, RenderingPipelineType
 import { PostProcessSettings } from './ScenePostProcessSettings';
 
 /**
- * Defines the layer mask of the node.
+ * 定义节点的图层掩码.
  *
  * @interface LayerMask
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -33,10 +33,10 @@ import { PostProcessSettings } from './ScenePostProcessSettings';
  */
 export interface LayerMask {
   /**
-   * Get whether layer mask is enabled.
+   * 获取图层掩码是否启用.
    *
-   * @param { int } index - the layer mask
-   * @returns { boolean } whether layer mask is enabled 
+   * @param { int } index - 图层掩码
+   * @returns { boolean } 图层掩码是否启用 
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
    * @since 23 static
@@ -44,10 +44,10 @@ export interface LayerMask {
   getEnabled(index: int): boolean;
 
   /**
-   * Set whether the layer mask is enabled.
+   * 设置图层掩码是否启用.
    *
-   * @param { int } index - the layer mask
-   * @param { boolean } enabled - whether layer mask is enabled
+   * @param { int } index - 图层掩码
+   * @param { boolean } enabled - 图层掩码是否启用
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
    * @since 23 static
@@ -56,7 +56,7 @@ export interface LayerMask {
 }
 
 /**
- * The enum of node type.
+ * 节点类型枚举.
  *
  * @enum { int }
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -65,7 +65,7 @@ export interface LayerMask {
  */
 export enum NodeType {
   /**
-   * The node is an empty node.
+   * 节点是空节点.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
@@ -74,7 +74,7 @@ export enum NodeType {
   NODE = 1,
 
   /**
-   * The node is a geometry node.
+   * 节点是几何节点.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
@@ -83,7 +83,7 @@ export enum NodeType {
   GEOMETRY = 2,
 
   /**
-   * The node is a camera node.
+   * 节点是相机节点.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
@@ -92,7 +92,7 @@ export enum NodeType {
   CAMERA = 3,
 
   /**
-   * The node is a light node.
+   * 节点是光源节点.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
@@ -101,8 +101,8 @@ export enum NodeType {
   LIGHT = 4,
 
   /** 
-   * The node is of custom type.
-   * Usually this means that the node is of a type defined in an extension plugin.
+   * 节点是自定义类型.
+   * 通常这意味着该节点是在扩展插件中定义的类型.
    * 
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 21 dynamic
@@ -112,7 +112,7 @@ export enum NodeType {
 }
 
 /**
- * Defines a scene object container.
+ * 定义场景对象容器.
  *
  * @interface Container
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -121,9 +121,9 @@ export enum NodeType {
  */
 export interface Container<T> {
   /**
-   * Append an item to the container.
+   * 将项目追加到容器.
    *
-   * @param { T } item - the item append to the end of container
+   * @param { T } item - 要追加到容器末尾的项目
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
    * @since 23 static
@@ -131,10 +131,10 @@ export interface Container<T> {
   append(item: T): void;
 
   /**
-   * Insert an item.
+   * 插入项目.
    *
-   * @param { T } item - the item insert to the container
-   * @param { T | null } sibling - insert after this item, insert to the head if sibling is null
+   * @param { T } item - 要插入到容器的项目
+   * @param { T | null } sibling - 在此项目后插入，如果sibling为null则插入到头部
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
    * @since 23 static
@@ -142,9 +142,9 @@ export interface Container<T> {
   insertAfter(item: T, sibling: T | null): void;
 
   /**
-   * Remove an item from Container's children.
+   * 从容器的子节点中移除项目.
    *
-   * @param { T } item - the item to be removed
+   * @param { T } item - 要移除的项目
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
    * @since 23 static
@@ -152,10 +152,10 @@ export interface Container<T> {
   remove(item: T): void;
 
   /**
-   * Returns a child at given index from this Container's child list.
+   * 从容器的子节点列表中返回给定索引的子节点.
    *
-   * @param { int } index - the index of the child to return
-   * @returns { T | null } return the item specified by the index
+   * @param { int } index - 要返回的子节点的索引
+   * @returns { T | null } 返回由索引指定的项目
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
    * @since 23 static
@@ -163,7 +163,7 @@ export interface Container<T> {
   get(index: int): T | null;
 
   /**
-   * Clear all children.
+   * 清空所有子节点.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
@@ -172,9 +172,9 @@ export interface Container<T> {
   clear(): void;
 
   /**
-   * Returns the number of items in the container.
+   * 返回容器中的项目数量.
    *
-   * @returns { int } the number of the container
+   * @returns { int } 容器的数量
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
    * @since 23 static
@@ -183,7 +183,7 @@ export interface Container<T> {
 }
 
 /**
- * Defines Node interface.
+ * 定义Node接口.
  *
  * @extends SceneResource
  * @interface Node
@@ -193,7 +193,7 @@ export interface Container<T> {
  */
 export interface Node extends SceneResource {
   /**
-   * position of the node, the unit is the scene unit in the world coordinate system (e.g., cm, m, km).
+   * 节点位置, 单位为世界坐标系下的场景单位（例如cm、m、km等）.
    *
    * @type { Position3 }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -203,7 +203,7 @@ export interface Node extends SceneResource {
   position: Position3;
 
   /**
-   * Rotation of the node.
+   * 节点旋转.
    *
    * @type { Quaternion }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -213,7 +213,7 @@ export interface Node extends SceneResource {
   rotation: Quaternion;
 
   /**
-   * Scale of the node.
+   * 节点缩放.
    *
    * @type { Scale3 }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -223,7 +223,7 @@ export interface Node extends SceneResource {
   scale: Scale3;
 
   /**
-   * Visibility flag for the node.
+   * 节点可见性标志.
    *
    * @type { boolean }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -233,7 +233,7 @@ export interface Node extends SceneResource {
   visible: boolean;
 
   /**
-   * Type of the node.
+   * 节点类型.
    *
    * @type { NodeType }
    * @readonly
@@ -244,7 +244,7 @@ export interface Node extends SceneResource {
   readonly nodeType: NodeType;
 
   /**
-   * Layer mask of the node.
+   * 节点图层掩码.
    *
    * @type { LayerMask }
    * @readonly
@@ -255,7 +255,7 @@ export interface Node extends SceneResource {
   readonly layerMask: LayerMask;
 
   /**
-   * Path of the node.
+   * 节点路径.
    *
    * @type { string }
    * @readonly
@@ -266,7 +266,7 @@ export interface Node extends SceneResource {
   readonly path: string;
 
   /**
-   * Parent of the node.
+   * 节点的父节点.
    *
    * @type { Node | null }
    * @readonly
@@ -277,9 +277,9 @@ export interface Node extends SceneResource {
   readonly parent: Node | null;
 
   /**
-   * Get node by path.
+   * 通过路径获取节点.
    *
-   * @param { string } path - the path of the node queried
+   * @param { string } path - 要查询的节点路径
    * @returns { Node | null }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
@@ -288,7 +288,7 @@ export interface Node extends SceneResource {
   getNodeByPath(path: string): Node | null;
 
   /**
-   * Children of the node.
+   * 节点的子节点.
    *
    * @type { Container<Node> }
    * @readonly
@@ -300,7 +300,7 @@ export interface Node extends SceneResource {
 }
 
 /**
- * Defines Geometry interface.
+ * 定义Geometry接口.
  *
  * @extends Node
  * @interface Geometry
@@ -310,7 +310,7 @@ export interface Node extends SceneResource {
  */
 export interface Geometry extends Node {
   /**
-   * Mesh of the node.
+   * 节点的网格.
    *
    * @type { Mesh }
    * @readonly
@@ -321,7 +321,7 @@ export interface Geometry extends Node {
   readonly mesh: Mesh;
   
   /**
-   * Morpher target definition.
+   * Morpher目标定义.
    * 
    * @type { ?Morpher }
    * @readonly
@@ -333,7 +333,7 @@ export interface Geometry extends Node {
 }
 
 /**
- * The enum of light type.
+ * 光源类型枚举.
  *
  * @enum { int }
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -342,7 +342,7 @@ export interface Geometry extends Node {
  */
 export enum LightType {
   /**
-   * Directional light.
+   * 平行光.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
@@ -351,7 +351,7 @@ export enum LightType {
   DIRECTIONAL = 1,
 
   /**
-   * Spot light.
+   * 聚光灯.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
@@ -361,7 +361,7 @@ export enum LightType {
 }
 
 /**
- * Defines light interface.
+ * 定义Light接口.
  *
  * @extends Node
  * @interface Light
@@ -371,7 +371,7 @@ export enum LightType {
  */
 export interface Light extends Node {
   /**
-   * The type of the light.
+   * 光源类型.
    *
    * @type { LightType }
    * @readonly
@@ -382,7 +382,7 @@ export interface Light extends Node {
   readonly lightType: LightType;
 
   /**
-   * The color of the light.
+   * 光源颜色.
    *
    * @type { Color }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -392,7 +392,7 @@ export interface Light extends Node {
   color: Color;
 
   /**
-   * The intensity of the light, the unit is candela.
+   * 光源强度, 单位为坎德拉.
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -402,7 +402,7 @@ export interface Light extends Node {
   intensity: double;
 
   /**
-   * Whether casting shadows.
+   * 是否投射阴影.
    *
    * @type { boolean }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -412,7 +412,7 @@ export interface Light extends Node {
   shadowEnabled: boolean;
 
   /**
-   * Whether enable the light.
+   * 是否启用光源.
    *
    * @type { boolean }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -423,7 +423,7 @@ export interface Light extends Node {
 }
 
 /**
- * Defines spot light.
+ * 定义聚光灯.
  *
  * @extends Light
  * @interface SpotLight
@@ -433,7 +433,7 @@ export interface Light extends Node {
  */
 export interface SpotLight extends Light {
   /**
-   * The inner angle of the spot light, the unit is radian.
+   * 聚光灯的内角, 单位为弧度.
    * 
    * @type { ?double }
    * @default 0
@@ -443,10 +443,10 @@ export interface SpotLight extends Light {
   innerAngle?: double;
 
   /**
-   * The outer angle of the spot light, the unit is radian.
+   * 聚光灯的外角, 单位为弧度.
    * 
    * @type { ?double }
-   * @default PI / 4.0
+    * @default PI / 4.0 π/4 弧度
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 23 dynamic&static
    */
@@ -454,7 +454,7 @@ export interface SpotLight extends Light {
 }
 
 /**
- * Defines directional light.
+ * 定义平行光.
  *
  * @extends Light
  * @interface DirectionalLight
@@ -466,7 +466,7 @@ export interface DirectionalLight extends Light {
 }
 
 /**
- * Defines camera.
+ * 定义相机.
  *
  * @extends Node
  * @interface Camera
@@ -476,7 +476,7 @@ export interface DirectionalLight extends Light {
  */
 export interface Camera extends Node {
   /**
-   * Field of view of the camera, the unit is radian.
+   * 相机视场, 单位为弧度.
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -486,7 +486,7 @@ export interface Camera extends Node {
   fov: double;
 
   /**
-   * Near plane of the camera, the unit is the scene unit in the world coordinate system (e.g., cm, m, km).
+   * 相机近平面, 单位为世界坐标系下的场景单位（例如cm、m、km等）.
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -496,7 +496,7 @@ export interface Camera extends Node {
   nearPlane: double;
 
   /**
-   * Far plane of the camera, the unit is the scene unit in the world coordinate system (e.g., cm, m, km).
+   * 相机远平面, 单位为世界坐标系下的场景单位（例如cm、m、km等）.
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -506,7 +506,7 @@ export interface Camera extends Node {
   farPlane: double;
 
   /**
-   * Whether the camera is enabled.
+   * 相机是否启用.
    *
    * @type { boolean }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -516,7 +516,7 @@ export interface Camera extends Node {
   enabled: boolean;
 
   /**
-   * The post processing settings of the camera.
+   * 相机的后处理设置.
    *
    * @type { PostProcessSettings | null }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -526,7 +526,7 @@ export interface Camera extends Node {
   postProcess: PostProcessSettings | null;
 
   /**
-   * The effects to apply on the camera output.
+   * 应用于相机输出的特效.
    * 
    * @type { Container<Effect> }
    * @readonly
@@ -537,8 +537,8 @@ export interface Camera extends Node {
   readonly effects: Container<Effect>;
 
   /**
-   * Background clear color (environment background overrides this color,
-   * BACKGROUND_NONE is needed for this to actually take effect).
+   * 背景清除颜色（环境背景会覆盖此颜色,
+   * 需要BACKGROUND_NONE才能实际生效).
    *
    * @type { Color | null }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -548,7 +548,7 @@ export interface Camera extends Node {
   clearColor: Color | null;
 
   /**
-   * Controls whether MSAA is enabled or not.
+   * 控制是否启用MSAA.
    *
    * @type { ?boolean }
    * @default false
@@ -559,11 +559,11 @@ export interface Camera extends Node {
   msaa?: boolean;
 
   /**
-   * Controls the rendering pipeline. 
-   * Note that if FORWARD_LIGHTWEIGHT pipeline is selected, some features will be unavailable.
+   * 控制渲染管线. 
+   * 请注意，如果选择了FORWARD_LIGHTWEIGHT管线，某些功能将不可用.
    *
    * @type { ?RenderingPipelineType }
-   * @default RenderingPipelineType.FORWARD_LIGHTWEIGHT
+    * @default RenderingPipelineType.FORWARD_LIGHTWEIGHT 前向轻量级渲染管线
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 21 dynamic
    * @since 23 static
@@ -571,10 +571,10 @@ export interface Camera extends Node {
   renderingPipeline?: RenderingPipelineType;
 
   /**
-   * Casts a ray to a position on the screen and lists what the ray hits.
-   * @param { Vec2 } viewPosition - Position to cast in the normalized device coordinates.
-   * @param { RaycastParameters } params - Options used to execute the ray cast.
-   * @returns { Promise<RaycastResult[]> } - Promise used to return an array of hit results, sorted from the closest to the farthest. The array may be empty.
+   * 向屏幕上的位置投射射线并列出射线击中的对象.
+   * @param { Vec2 } viewPosition - 在归一化设备坐标中投射的位置.
+   * @param { RaycastParameters } params - 执行射线检测使用的选项.
+   * @returns { Promise<RaycastResult[]> } - 返回命中结果数组的Promise，按从近到远排序. 数组可能为空.
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
    * @since 23 static
@@ -582,16 +582,16 @@ export interface Camera extends Node {
   raycast(viewPosition: Vec2, params: RaycastParameters): Promise<RaycastResult[]>;
 
   /**
-   * Get the view matrix of this camera.
-   * @returns { Mat4x4 } -- the view matrix of this camera
+   * 获取相机的视图矩阵.
+   * @returns { Mat4x4 } -- 相机的视图矩阵
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 23 dynamic&static
    */
   getViewMatrix(): Mat4x4;
 
   /**
-   * Get the projection matrix of this camera.
-   * @returns { Mat4x4 } -- the projection matrix of this camera
+   * 获取相机的投影矩阵.
+   * @returns { Mat4x4 } -- 相机的投影矩阵
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 23 dynamic&static
    */
