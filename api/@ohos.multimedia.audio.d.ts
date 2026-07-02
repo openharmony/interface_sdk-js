@@ -21,11 +21,11 @@
 import { ErrorCallback, AsyncCallback, Callback, BusinessError } from './@ohos.base';
 
 /**
- * The module provides basic audio control capabilities, including volume adjustment, device management, data capture, 
+ * The module provides basic audio control capabilities, including volume adjustment, device management, data capture,
  * and rendering.
- * 
+ *
  * This module provides the following common audio-related functions:
- * 
+ *
  * - [AudioManager]{@link @ohos.multimedia.audio:audio}: audio manager.
  * - [AudioRenderer]{@link @ohos.multimedia.audio:audio}: audio renderer, used to play Pulse Code Modulation (PCM) audio
  * data.
@@ -250,19 +250,19 @@ declare namespace audio {
   /**
    * Obtains an {@link AudioRenderer} instance.
    * This method uses a promise to return the renderer instance.
-   * 
+   *
    * The AudioRenderer instance is used to play streaming audio data.
    * When using AudioRenderer apis, there are many instructions for application
    * to achieve better performance and lower power consumption:
    * In music or audiobook background playback situation, you can have low power
    * consumption by following this best practices document **Low-Power Rules in Music Playback Scenarios**.
    * And for navigation situation, you can follow **Low-Power Rules in Navigation and Positioning Scenarios**.
-   * 
+   *
    * Application developer should also be careful when app goes to background, please check if your audio playback
    * is still needed, see **Audio Resources** in best practices document.
    * And avoiding to send silence audio data continuously to waste system resources, otherwise system will take
    * control measures when this behavior is detected, see **Audio Playback** in best practices document.
-   * 
+   *
    * If you want to use AudioRenderer api to implement a music playback application, there are also many interactive
    * scenes to consider, see **Developing an Audio Application** in best practices document.
    *
@@ -279,19 +279,19 @@ declare namespace audio {
   /**
    * Obtains an {@link AudioRenderer} instance.
    * This method uses a promise to return the renderer instance.
-   * 
+   *
    * The AudioRenderer instance is used to play streaming audio data.
    * When using AudioRenderer apis, there are many instructions for application
    * to achieve better performance and lower power consumption:
    * In music or audiobook background playback situation, you can have low power
    * consumption by following this best practices document **Low-Power Rules in Music Playback Scenarios**.
    * And for navigation situation, you can follow **Low-Power Rules in Navigation and Positioning Scenarios**.
-   * 
+   *
    * Application developer should also be careful when app goes to background, please check if your audio playback
    * is still needed, see **Audio Resources** in best practices document.
    * And avoiding to send silence audio data continuously to waste system resources, otherwise system will take
    * control measures when this behavior is detected, see **Audio Playback** in best practices document.
-   * 
+   *
    * If you want to use AudioRenderer api to implement a music playback application, there are also many interactive
    * scenes to consider, see **Developing an Audio Application** in best practices document.
    *
@@ -307,19 +307,19 @@ declare namespace audio {
   /**
    * Obtains an {@link AudioRenderer} instance.
    * This method uses a promise to return the renderer instance.
-   * 
+   *
    * The AudioRenderer instance is used to play streaming audio data.
    * When using AudioRenderer apis, there are many instructions for application
    * to achieve better performance and lower power consumption:
    * In music or audiobook background playback situation, you can have low power
    * consumption by following this best practices document **Low-Power Rules in Music Playback Scenarios**.
    * And for navigation situation, you can follow **Low-Power Rules in Navigation and Positioning Scenarios**.
-   * 
+   *
    * Application developer should also be careful when app goes to background, please check if your audio playback
    * is still needed, see **Audio Resources** in best practices document.
    * And avoiding to send silence audio data continuously to waste system resources, otherwise system will take
    * control measures when this behavior is detected, see **Audio Playback** in best practices document.
-   * 
+   *
    * If you want to use AudioRenderer api to implement a music playback application, there are also many interactive
    * scenes to consider, see **Developing an Audio Application** in best practices document.
    *
@@ -334,19 +334,19 @@ declare namespace audio {
   /**
    * Obtains an {@link AudioRenderer} instance.
    * This method uses a promise to return the renderer instance.
-   * 
+   *
    * The AudioRenderer instance is used to play streaming audio data.
    * When using AudioRenderer apis, there are many instructions for application
    * to achieve better performance and lower power consumption:
    * In music or audiobook background playback situation, you can have low power
    * consumption by following this best practices document **Low-Power Rules in Music Playback Scenarios**.
    * And for navigation situation, you can follow **Low-Power Rules in Navigation and Positioning Scenarios**.
-   * 
+   *
    * Application developer should also be careful when app goes to background, please check if your audio playback
    * is still needed, see **Audio Resources** in best practices document.
    * And avoiding to send silence audio data continuously to waste system resources, otherwise system will take
    * control measures when this behavior is detected, see **Audio Playback** in best practices document.
-   * 
+   *
    * If you want to use AudioRenderer api to implement a music playback application, there are also many interactive
    * scenes to consider, see **Developing an Audio Application** in best practices document.
    *
@@ -586,7 +586,7 @@ declare namespace audio {
    */
   enum AudioLoopbackStatus {
     /**
-     * Loopback is unavailable due to issues with the input or output device (for example, changes in the audio output 
+     * Loopback is unavailable due to issues with the input or output device (for example, changes in the audio output
      * device).
      *
      * @syscap SystemCapability.Multimedia.Audio.Capturer
@@ -595,7 +595,7 @@ declare namespace audio {
      */
     UNAVAILABLE_DEVICE = -2,
     /**
-     * Loopback is unavailable due to restrictions in the audio scene (for example, audio focus or low-latency 
+     * Loopback is unavailable due to restrictions in the audio scene (for example, audio focus or low-latency
      * management).
      *
      * @syscap SystemCapability.Multimedia.Audio.Capturer
@@ -1399,7 +1399,7 @@ declare namespace audio {
     SAMPLE_FORMAT_S16LE = 1,
     /**
      * Signed 24-bit integer, little endian.
-     * 
+     *
      * Due to system restrictions, only some devices support this sampling format.
      *
      * @syscap SystemCapability.Multimedia.Audio.Core
@@ -1410,7 +1410,7 @@ declare namespace audio {
     SAMPLE_FORMAT_S24LE = 2,
     /**
      * Signed 32-bit integer, little endian.
-     * 
+     *
      * Due to system restrictions, only some devices support this sampling format.
      *
      * @syscap SystemCapability.Multimedia.Audio.Core
@@ -1421,7 +1421,7 @@ declare namespace audio {
     SAMPLE_FORMAT_S32LE = 3,
     /**
      * Signed 32-bit floating-point number, little endian.
-     * 
+     *
      * Due to system restrictions, only some devices support this sampling format.
      *
      * @syscap SystemCapability.Multimedia.Audio.Core
@@ -1694,7 +1694,7 @@ declare namespace audio {
     SAMPLE_RATE_192000 = 192000,
     /**
      * The sampling rate is 384000.
-     * 
+     *
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
@@ -3510,7 +3510,7 @@ declare namespace audio {
      * @since 26.0.0 dynamic&static
      */
     getDeviceEnhanceManager(): AudioDeviceEnhanceManager;
-    
+
     /**
      * Obtains an AudioDebuggingManager instance.
      * <p><strong>NOTE</strong>:
@@ -3523,6 +3523,18 @@ declare namespace audio {
      * @since 26.0.0 dynamic&static
      */
     getDebuggingManager(): AudioDebuggingManager;
+
+    /**
+     * Obtains a recording manager instance. Provides recording strategy management, including collaborative recording and recording control capabilities.
+     *
+     * @returns { AudioRecordingManager } Returns an instance of audio record manager.
+     * @throws { BusinessError } 202 - Caller is not a system application.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    getRecordingManager(): AudioRecordingManager;
 
     /**
      * user disable the safe media volume state.
@@ -4506,7 +4518,7 @@ declare namespace audio {
      * @since 23 static
      */
     getExcludedDevices(usage: DeviceUsage): AudioDeviceDescriptors;
-    
+
     /**
      * Declares the original device types that the application has adapted to.
      * By default, the system returns anonymous device types. This method allows applications to
@@ -6776,11 +6788,11 @@ declare namespace audio {
      * @since 23 static
      */
     offSystemVolumeChange(callback?: Callback<VolumeEvent>): void;
-    
+
     /**
      * Subscribes to system volume change events.
      * When the system volume for the target filter changes, registered clients will receive a callback.
-     * 
+     *
      * @param { SystemVolumeFilter } filter - Filter for system volume changes.
      * @param { Callback<VolumeEvent> } callback - Callback to receive information about
      *     the system volume.
@@ -8638,7 +8650,7 @@ declare namespace audio {
 
   /**
    * Volume type for audio separation effect.
-   * 
+   *
    * @syscap SystemCapability.Multimedia.Audio.Core
    * @systemapi
    * @stagemodelonly
@@ -8729,7 +8741,7 @@ declare namespace audio {
      * Sets audio separation effect enable or disable for specific application process,
      * or for specific audio playback stream.
      * This API uses a promise to return the result.
-     * 
+     *
      * @permission ohos.permission.MANAGE_SYSTEM_AUDIO_EFFECTS
      * @param { boolean } enabled - The required effect state, true for enabled, false for disabled.
      * @param { int } uid - The uid of target application process to add effect.
@@ -8753,7 +8765,7 @@ declare namespace audio {
      * Subscribes to system audio separation effect enabled state change event.
      * The audio separation effect state in system can be set by system playback controller application,
      * other applications can use this function to listen the change event.
-     * 
+     *
      * @param { Callback<boolean> } callback - Callback used to listen the system audio separation effect
      *     enabled state change event.
      * @throws { BusinessError } 202 - Caller is not a system application.
@@ -8766,7 +8778,7 @@ declare namespace audio {
 
     /**
      * Unsubscribes from the system audio separation effect enabled state change event.
-     * 
+     *
      * @param { Callback<boolean> } [callback] - The callback used in subscription function for unsubscribing.
      *     If not using this parameter, all callbacks subscribed in current process before will be unsubscribed.
      * @throws { BusinessError } 202 - Caller is not a system application.
@@ -8781,7 +8793,7 @@ declare namespace audio {
     /**
      * Sets audio separation effect volume for specific volume type.
      * This API uses a promise to return the result.
-     * 
+     *
      * @permission ohos.permission.MANAGE_SYSTEM_AUDIO_EFFECTS
      * @param { AudioSeparationVolumeType } type - The type to set volume.
      * @param { double } volume - The target volume value.
@@ -8871,6 +8883,137 @@ declare namespace audio {
      * @since 23 static
      */
     isCollaborativePlaybackEnabledForDevice(deviceDescriptor: AudioDeviceDescriptor): boolean;
+  }
+
+  /**
+   * Defines the configuration for the system recording controller panel.
+   *
+   * @syscap SystemCapability.Multimedia.Audio.Capturer
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  interface SystemRecordControllerConfig {
+    /**
+     * The system uses this to determine the recording scenario of the application according to
+     * the SourceType that the application expects to use for streaming, and provides users with
+     * the ability to select matching noise reduction modes. The supported source types include
+     * {@link SourceType#SOURCE_TYPE_MIC}, {@link SourceType#SOURCE_TYPE_CAMCORDER}, and
+     * {@link SourceType#SOURCE_TYPE_LIVE}.
+     *
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    sourceType: SourceType;
+  }
+
+  /**
+   * Defines the information carried when the system recording controller state changes.
+   * It includes the enable status, application UID and expected audio source type.
+   *
+   * @syscap SystemCapability.Multimedia.Audio.Capturer
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  interface SystemRecordControllerChangeInfo {
+    /**
+     * Whether the system recording controller panel is enabled.
+     * The value true means the panel is enabled, and false means disabled.
+     *
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    enabled: boolean;
+
+    /**
+     * The UID of the application that triggers the system recording controller state change.
+     * The value range is all integers.
+     *
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    uid?: int;
+
+    /**
+     * The expected audio source type configured by the application when enabling the recording controller.
+     * It is used to match the corresponding recording scenario and noise reduction mode.
+     *
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    sourceType?: SourceType;
+  }
+
+  /**
+   * Provides recording strategy management, including collaborative recording
+   * and recording control capabilities.
+   *
+   * @syscap SystemCapability.Multimedia.Audio.Capturer
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  interface AudioRecordingManager {
+    /**
+     * Enables or disables the system recording controller panel.
+     * The application can call this API to pull up the recording controller panel before starting the recording stream,
+     * allowing the user to finish selecting the recording device or audio effect parameters.
+     * The recording service can then be started to avoid inconsistent audio effects caused by switching during the
+     * recording process.
+     * The application must be in the foreground to enable the panel; the enable operation does not take effect
+     * if the application is in the background. Disabling the panel is not restricted by the application's
+     * foreground or background status.
+     * The API uses a promise to return the result.
+     *
+     * @param { boolean } show - A boolean value indicating whether to show (true) or hide (false)
+     *     the system recording controller panel.
+     * @param { SystemRecordControllerConfig } config - Configuration for the system recording controller panel.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @throws { BusinessError } 6800301 - Audio service error occurs like service died.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    enableSystemRecordController(show: boolean, config: SystemRecordControllerConfig): Promise<void>;
+
+    /**
+     * Subscribes to the system recording controller panel enabled state change event.
+     *
+     * @param { Callback<SystemRecordControllerChangeInfo> } callback - Callback used to listen
+     *     whether the system recording controller panel enabled state change event.
+     * @throws { BusinessError } 202 - Caller is not a system application.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @throws { BusinessError } 6800102 - Memory allocation failed.
+     * @throws { BusinessError } 6800301 - Audio service error occurs like service died.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    onSystemRecordControllerEnabledChange(callback: Callback<SystemRecordControllerChangeInfo>): void;
+
+    /**
+     * Unsubscribes from the system recording controller panel enabled state change event.
+     *
+     * @param { Callback<SystemRecordControllerChangeInfo> } [callback] - The Callback used in subscription
+     *     function for unsubscribing. If not using this parameter, all callbacks subscribed in current
+     *     process before will be unsubscribed.
+     * @throws { BusinessError } 202 - Caller is not a system application.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @throws { BusinessError } 6800301 - Audio service error occurs like service died.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    offSystemRecordControllerEnabledChange(callback?: Callback<SystemRecordControllerChangeInfo>): void;
   }
 
   /**
@@ -9003,7 +9146,7 @@ declare namespace audio {
      */
     selectInputDeviceForAudioCapturer(capturer: AudioCapturer, inputDevice: AudioDeviceDescriptor): Promise<void>;
   }
-  
+
   /**
    * Provides audio debug management capabilities.
    *
@@ -9759,7 +9902,7 @@ declare namespace audio {
      */
     previousVolume?: int;
   }
-  
+
   /**
    * Describes the system volume filter.
    *
