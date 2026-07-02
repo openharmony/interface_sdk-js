@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2026 Huawei Device Co., Ltd.
+ * Copyright (c) 2024-2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -523,7 +523,7 @@ export declare class CustomGeometry extends GeometryDefinition {
    * 如何从索引顶点形成网格三角形.
    *
    * @type { ?PrimitiveTopology }
-   * @default PrimitiveTopology.TRIANGLE_LIST
+    * @default PrimitiveTopology.TRIANGLE_LIST 三角形列表拓扑
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 18 dynamic
    */
@@ -533,7 +533,7 @@ export declare class CustomGeometry extends GeometryDefinition {
    * 如何从索引顶点形成网格三角形.
    *
    * @return { PrimitiveTopology | undefined }
-   * @default PrimitiveTopology.TRIANGLE_LIST
+    * @default PrimitiveTopology.TRIANGLE_LIST 三角形列表拓扑
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 23 static
    */
@@ -543,7 +543,7 @@ export declare class CustomGeometry extends GeometryDefinition {
    * 如何从索引顶点形成网格三角形.
    *
    * @param { PrimitiveTopology | undefined } value
-   * @default PrimitiveTopology.TRIANGLE_LIST
+    * @default PrimitiveTopology.TRIANGLE_LIST 三角形列表拓扑
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 23 static
    */
@@ -627,7 +627,7 @@ export declare class CustomGeometry extends GeometryDefinition {
   set indices(value: int[] | undefined);
 
   /**
-   * 顶点法线. If normals is not null. normals[N] is for vertices[N] and generateNormals is ignored.
+   * 顶点法线。如果normals不为null，则normals[N]对应vertices[N]，且generateNormals参数会被忽略。
    *
    * @type { ?Vec3[] }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -636,7 +636,7 @@ export declare class CustomGeometry extends GeometryDefinition {
   normals?: Vec3[];
 
   /**
-   * 顶点法线. If normals is not null. normals[N] is for vertices[N] and generateNormals is ignored.
+   * 顶点法线。如果normals不为null，则normals[N]对应vertices[N]，且generateNormals参数会被忽略。
    *
    * @return { Vec3[] | undefined }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -645,7 +645,7 @@ export declare class CustomGeometry extends GeometryDefinition {
   get normals(): Vec3[] | undefined;
 
   /**
-   * 顶点法线. If normals is not null. normals[N] is for vertices[N] and generateNormals is ignored.
+   * 顶点法线。如果normals不为null，则normals[N]对应vertices[N]，且generateNormals参数会被忽略。
    *
    * @param { Vec3[] | undefined } value
    * @syscap SystemCapability.ArkUi.Graphics3D
