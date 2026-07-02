@@ -228,7 +228,7 @@ declare const StepperItemInstance: StepperItemAttribute;
  * ###### Child Components
  *
  * This component supports only one child component.
- *
+ * 
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
  * @atomicservice [since 11]

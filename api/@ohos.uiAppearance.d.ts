@@ -125,6 +125,7 @@ declare namespace uiAppearance {
    * @syscap SystemCapability.ArkUI.UiAppearance
    * @systemapi hide this for inner system use [since 10 - 19]
    * @publicapi [since 20]
+   * @crossplatform [since 26.0.0]
    * @since 10 dynamic
    */
   function getDarkMode(): DarkMode;
@@ -172,6 +173,7 @@ declare namespace uiAppearance {
    * @syscap SystemCapability.ArkUI.UiAppearance
    * @systemapi hide this for inner system use [since 12 - 19]
    * @publicapi [since 20]
+   * @crossplatform [since 26.0.0]
    * @since 12 dynamic
    */
   function getFontScale(): number;

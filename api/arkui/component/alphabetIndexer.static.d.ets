@@ -21,15 +21,10 @@
  */
 
 import { CommonMethod, BlurStyle, Bindable } from './common';
-
 import { ResourceColor, Length, Position } from "./units";
-
 import { Font } from "./units";
-
 import { Builder, ComponentBuilder, CustomBuilder, CustomBuilderT } from './builder';
-
 import { AttributeModifier, CommonMethod } from "./common";
-
 /**
  * indexer align property.
  *
@@ -75,7 +70,6 @@ export declare enum IndexerAlign {
    */
   END = 3
 }
-
 /**
  * AlphabetIndexer constructor options.
  *
@@ -104,7 +98,6 @@ export interface AlphabetIndexerOptions {
    */
   selected: int | Bindable<int>;
 }
-
 /**
  * Defines an AlphabetIndexer callback when onSelect.
  *
@@ -114,7 +107,6 @@ export interface AlphabetIndexerOptions {
  * @since 23 static
  */
 export type OnAlphabetIndexerSelectCallback = (index: int) => void;
-
 /**
  * Defines an AlphabetIndexer callback when onPopupSelect.
  *
@@ -124,7 +116,6 @@ export type OnAlphabetIndexerSelectCallback = (index: int) => void;
  * @since 23 static
  */
 export type OnAlphabetIndexerPopupSelectCallback = (index: int) => void;
-
 /**
  * Defines an AlphabetIndexer callback when onRequestPopupData.
  *
@@ -145,7 +136,6 @@ export type OnAlphabetIndexerRequestPopupDataCallback = (index: int) => Array<st
  * @noninterop
  */
 export declare interface AlphabetIndexerAttribute extends CommonMethod {
-
   /**
    * Definitions color.
    *
