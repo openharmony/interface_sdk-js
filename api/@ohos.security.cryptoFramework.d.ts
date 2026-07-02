@@ -174,8 +174,8 @@ declare namespace cryptoFramework {
    * > **NOTE**
    * >
    * > An initialization vector (IV) is a byte sequence used to introduce randomness or uniqueness in symmetric
-   * > encryption modes (such as CBC, CTR, OFB, CFB, GCM, CCM, and Poly1305). It ensures that different ciphertexts are
-   * > generated for the same plaintext under the same key.
+   * > encryption modes (such as CBC, CTR, OFB, CFB, GCM, CCM, and ChaCha20-Poly1305). It ensures that different
+   * > ciphertexts are generated for the same plaintext under the same key.
    *
    * > **NOTE**
    * >
@@ -200,6 +200,7 @@ declare namespace cryptoFramework {
      * - **IvParamsSpec**: applicable to the CBC, CTR, OFB, and CFB modes.
      * - **GcmParamsSpec**: applicable to the GCM mode.
      * - **CcmParamsSpec**: applicable to the CCM mode.
+     * - **AeadParamsSpec**: applicable to the AES-GCM, AES-CCM, SM4-GCM and ChaCha20-Poly1305 algorithm.
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Cipher [since 12]
@@ -251,8 +252,9 @@ declare namespace cryptoFramework {
   }
 
   /**
-   * Encapsulates the parameters for encryption or decryption using a block cipher mode that requires an IV. It is a
-   * child class of [ParamsSpec]{@link cryptoFramework.ParamsSpec} and used as a parameter in
+   * Encapsulates the parameters for encryption or decryption using the GCM AEAD mode, which requires an IV, AAD, and
+   * an authentication tag. It is a child class of [ParamsSpec]{@link cryptoFramework.ParamsSpec} and used as a
+   * parameter in
    * [init()]{@link cryptoFramework.Cipher.init(opMode: CryptoMode, key: Key, params: ParamsSpec | null)} for symmetric
    * encryption or decryption.
    *
@@ -261,12 +263,10 @@ declare namespace cryptoFramework {
    * > **NOTE**
    * >
    * > 1. Before passing a value to
-   * [init()]{@link cryptoFramework.Cipher.init(opMode: CryptoMode, key: Key, params: ParamsSpec | null)}, specify
-   * **algName** for its parent class [ParamsSpec](#paramsspec).
-   * > 2. The Crypto framework imposes no additional restrictions on the IV of 1 to 128 bytes. However, the operation
-   * result depends on the underlying OpenSSL support.
-   * > 3. If **aad** is not required or the **aad** length is 0, you can set its **data** attribute to an empty
-   * Uint8Array in the **aad: { data: new Uint8Array() }** format when constructing **GcmParamsSpec**.
+   * > [init()]{@link cryptoFramework.Cipher.init(opMode: CryptoMode, key: Key, params: ParamsSpec | null)}, specify
+   * > **algName** for its parent class [ParamsSpec](#paramsspec).
+   * > 2. If **aad** is not required or the **aad** length is 0, you can set its **data** attribute to an empty
+   * > Uint8Array in the **aad: { data: new Uint8Array() }** format when constructing **GcmParamsSpec**.
    *
    * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
    * @syscap SystemCapability.Security.CryptoFramework.Cipher [since 12]
@@ -322,8 +322,9 @@ declare namespace cryptoFramework {
   }
 
   /**
-   * Encapsulates the parameters for encryption or decryption using a block cipher mode that requires an IV. It is a
-   * child class of [ParamsSpec]{@link cryptoFramework.ParamsSpec} and used as a parameter in
+   * Encapsulates the parameters for encryption or decryption using the CCM AEAD mode, which requires an IV, AAD, and
+   * an authentication tag. It is a child class of [ParamsSpec]{@link cryptoFramework.ParamsSpec} and used as a
+   * parameter in
    * [init()]{@link cryptoFramework.Cipher.init(opMode: CryptoMode, key: Key, params: ParamsSpec | null)} for symmetric
    * encryption or decryption.
    *
@@ -369,15 +370,15 @@ declare namespace cryptoFramework {
     aad: DataBlob;
 
     /**
-     * Authentication tag, which is of 16 bytes.
+     * Authentication tag, which is of 12 bytes.
      *
-     * When CCM mode is used for encryption, you need to extract the last 16 bytes from the
+     * When CCM mode is used for encryption, you need to extract the last 12 bytes from the
      * [DataBlob]{@link cryptoFramework.DataBlob} returned by
      * [doFinal()]{@link cryptoFramework.Cipher.doFinal(data: DataBlob | null, callback: AsyncCallback<DataBlob>)} or
      * [doFinalSync()]{@link cryptoFramework.Cipher.doFinalSync(data: DataBlob | null)} and use them as **authTag** in
      * **CcmParamsSpec** for
      * [init()]{@link cryptoFramework.Cipher.init(opMode: CryptoMode, key: Key, params: ParamsSpec | null)} or
-     * [initSync()]{@link cryptoFramework.Cipher.initSync}.
+     * [initSync()]{@link cryptoFramework.Cipher.initSync} during decryption.
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Cipher [since 12]
@@ -390,8 +391,9 @@ declare namespace cryptoFramework {
   }
 
   /**
-   * Encapsulates the parameters for encryption or decryption using a block cipher mode that requires an IV. It is a
-   * child class of [ParamsSpec]{@link cryptoFramework.ParamsSpec} and used as a parameter in
+   * Encapsulates the parameters for encryption or decryption using the ChaCha20-Poly1305 AEAD mode, which requires a
+   * nonce, AAD, and an authentication tag. It is a child class of
+   * [ParamsSpec]{@link cryptoFramework.ParamsSpec} and used as a parameter in
    * [init()]{@link cryptoFramework.Cipher.init(opMode: CryptoMode, key: Key, params: ParamsSpec | null)} for symmetric
    * encryption or decryption.
    *
@@ -419,7 +421,7 @@ declare namespace cryptoFramework {
    */
   interface Poly1305ParamsSpec extends ParamsSpec {
     /**
-     * IV, which is of 12 bytes.
+     * Nonce (passed as the **iv** field), which is of 12 bytes.
      *
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
@@ -430,7 +432,7 @@ declare namespace cryptoFramework {
     iv: DataBlob;
 
     /**
-     * AAD of arbitrary length.
+     * Additional authenticated data.
      *
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
@@ -455,7 +457,7 @@ declare namespace cryptoFramework {
   /**
    * Describes parameters in
    * [init()]{@link cryptoFramework.Cipher.init(opMode: CryptoMode, key: Key, params: ParamsSpec | null)} for symmetric
-   * encryption and decryption using authenticated encryption with association data (AEAD). It inherits from
+   * encryption and decryption using authenticated encryption with associated data (AEAD). It inherits from
    * [ParamsSpec]{@link cryptoFramework.ParamsSpec}.
    *
    * It is applicable to the CCM and GCM modes of
@@ -495,7 +497,7 @@ declare namespace cryptoFramework {
     nonce: Uint8Array;
 
     /**
-     * Optional additional authenticated data, which is of any bytes.
+     * Optional additional authenticated data.
      *
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @stagemodelonly
@@ -524,7 +526,7 @@ declare namespace cryptoFramework {
   }
 
   /**
-   * Enumerates the cryptographic operations.
+   * Enumerates cipher operation modes for encryption and decryption.
    *
    * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
    * @syscap SystemCapability.Security.CryptoFramework.Cipher [since 12]
@@ -589,7 +591,7 @@ declare namespace cryptoFramework {
     password: string;
 
     /**
-     * Algorithm to use.
+     * Symmetric cipher algorithm used for encoding the private key.
      *
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
@@ -698,7 +700,7 @@ declare namespace cryptoFramework {
    */
   interface SymKey extends Key {
     /**
-     * Clears the keys in memory. This API returns the result synchronously. Call this API when the symmetric key
+     * Clears the key data in memory. This API returns the result synchronously. Call this API when the symmetric key
      * instance is no longer required.
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
@@ -713,8 +715,8 @@ declare namespace cryptoFramework {
 
   /**
    * Provides APIs for private key operations. **PriKey** is a child class of
-   * [Key]{@link cryptoFramework.Key}. It needs to be passed in during asymmetric encryption and
-   * decryption, signing, and key agreement.
+   * [Key]{@link cryptoFramework.Key}. It needs to be passed in during asymmetric decryption, signing, and
+   * key agreement.
    *
    * The private key can be generated by using the asymmetric key generator
    * [AsyKeyGenerator]{@link cryptoFramework.AsyKeyGenerator} or
@@ -729,7 +731,7 @@ declare namespace cryptoFramework {
    */
   interface PriKey extends Key {
     /**
-     * Clears the keys in memory. This API returns the result synchronously.
+     * Clears the key data in memory. This API returns the result synchronously.
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
@@ -766,20 +768,16 @@ declare namespace cryptoFramework {
      * Obtains the private key data that complies with the ASN.1 syntax and DER encoding based on the specified format (
      * such as the key specifications).
      *
-     * In API versions 12 to 24, only the ECC private key data in PKCS #8 format can be obtained.
-     *
-     * Since API version 26.0.0, the RSA private key data in PKCS #1 and PKCS #8 formats can be obtained.
-     *
      * > **NOTE**
      * >
      * > The difference between [Key.getEncoded()]{@link cryptoFramework.Key.getEncoded} and this API is as follows:
-     * > 1. You can specify the format of the key data to be obtained in this API. Currently, the ECC private key data
-     * > in PKCS #8 format is supported.
+     * > 1. You can specify the format of the key data to be obtained in this API.
      * > 2. The format of the key data to be obtained cannot be specified in
      * > [Key.getEncoded()]{@link cryptoFramework.Key.getEncoded}.
      *
-     * @param { string } format - Format of the key.<br>In API versions 12 to 24, only PKCS #8 format is supported.<br>
-     *     Since API version 26.0.0, the RSA private key can be in PKCS #1 or PKCS #8 format.
+     * @param { string } format - Format of the key. Supports EC keys, with the format value "PKCS8" supported.
+     *     <br>Since API version 26.0.0, RSA keys are supported, with the format values "PKCS1" and "PKCS8" supported.
+     *     <br>Since API version 26.0.0, ML-DSA and ML-KEM keys are supported, with the format value "X509" supported.
      * @returns { DataBlob } ECC private key data obtained.
      * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
@@ -799,9 +797,10 @@ declare namespace cryptoFramework {
     /**
      * Obtains the key data. This API returns the result synchronously.
      *
-     * @param { string } format - Encoding format of the key data to obtain. RSA key is supported, the format can be
-     *     **'PKCS8'** or **'PKCS1'**. Since API version 26.0.0, EC key is supported, the format can be **'PKCS8'**
-     *     or **'EC'**.
+     * @param { string } format - Encoding format of the key data to obtain. Supports RSA keys, with the format value
+     *     'PKCS8' or 'PKCS1' supported.
+     *     <br>Since API version 26.0.0, EC keys are supported, with the format values 'PKCS8' or 'EC' supported.
+     *     <br>Since API version 26.0.0, ML-DSA and ML-KEM keys are supported, with the format value "PKCS8" supported.
      * @returns { string } Key data obtained.
      * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
@@ -819,7 +818,7 @@ declare namespace cryptoFramework {
     getEncodedPem(format: string): string;
 
     /**
-     * Obtains the key data. This API returns the result synchronously. Currently, only RSA key are supported.
+     * Obtains the key data. This API returns the result synchronously. Currently, only RSA keys are supported.
      *
      * @param { string } format - Encoding format of the key data to obtain. For RSA key, the format can be **'PKCS8'**
      *     or **'PKCS1'**.
@@ -914,8 +913,8 @@ declare namespace cryptoFramework {
 
   /**
    * Provides APIs for public key operations. **PubKey** is a child class of
-   * [Key]{@link cryptoFramework.Key}. It needs to be passed in during asymmetric encryption and
-   * decryption, signature verification, and key agreement.
+   * [Key]{@link cryptoFramework.Key}. It needs to be passed in during asymmetric encryption, signature verification,
+   * and key agreement.
    *
    * The public key can be generated by using the asymmetric key generator
    * [AsyKeyGenerator]{@link cryptoFramework.AsyKeyGenerator} or
@@ -953,20 +952,19 @@ declare namespace cryptoFramework {
 
     /**
      * Obtains the public key data that complies with the ASN.1 syntax and DER encoding format based on the specified
-     * key format (such as the specifications and compression status). Currently, only the ECC compressed and
-     * uncompressed public key data is supported.
+     * key format (such as the specifications and compression status).
      *
      * > **NOTE**
      * >
      * > The difference between [Key.getEncoded()]{@link cryptoFramework.Key.getEncoded} and this API is as follows:
      * > 1. You can specify the format of the data to be obtained in this API.
      * > 2. The format of the key to be obtained cannot be specified in
-     * [Key.getEncoded()]{@link cryptoFramework.Key.getEncoded}. It must match that of the original data, which is the
-     * format of the key object generated by [convertKey]{@link cryptoFramework.AsyKeyGenerator.convertKey}.
+     * > [Key.getEncoded()]{@link cryptoFramework.Key.getEncoded}.
      *
-     * @param { string } format - Format of the key.<br>In API versions 12 to 24, the value can only be
-     *     **X509|COMPRESSED** and **X509|UNCOMPRESSED**.
-     *     <br>Since API version 26.0.0, the RSA public key format supports **PKCS1** and **X509**.
+     * @param { string } format - Format of the key. Supports EC keys, with the format values "X509|COMPRESSED" and
+     *     "X509|UNCOMPRESSED" supported.
+     *     <br>Since API version 26.0.0, RSA keys are supported, with the format values "PKCS1" and "X509" supported.
+     *     <br>Since API version 26.0.0, ML-DSA and ML-KEM keys are supported, with the format value "X509" supported.
      * @returns { DataBlob } Public key data obtained.
      * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
@@ -986,8 +984,10 @@ declare namespace cryptoFramework {
     /**
      * Obtains the key data. This API returns the result synchronously.
      *
-     * @param { string } format - Encoding format of the key data to obtain. RSA key is supported, the format can be
-     *     **'X509'** or **'PKCS1'**. Since API version 26.0.0, EC key is supported, the format can be **'X509'**.
+     * @param { string } format - Encoding format of the key data to obtain. Supports RSA keys, with the format values
+     *     'X509' or 'PKCS1' supported.
+     *     <br>Since API version 26.0.0, EC, ML-DSA, and ML-KEM keys are supported, with the format value 'X509'
+     *     supported.
      * @returns { string } Key data obtained.
      * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
@@ -1594,7 +1594,7 @@ declare namespace cryptoFramework {
   }
 
   /**
-   * Provides APIs for using the **symKeyGenerator**.
+   * Provides APIs for using the **SymKeyGenerator**.
    *
    * Before using the APIs of this class, use [createSymKeyGenerator]{@link cryptoFramework.createSymKeyGenerator} to
    * create a **SymKeyGenerator** instance.
@@ -1693,7 +1693,7 @@ declare namespace cryptoFramework {
     generateSymKeySync(): SymKey;
 
     /**
-     * Generates a symmetric key based on specified data. This API uses an asynchronous callback to return the result.
+     * Converts specified data into a symmetric key. This API uses an asynchronous callback to return the result.
      *
      * This API can be used only after a **symKeyGenerator** instance is created by using
      * [createSymKeyGenerator]{@link cryptoFramework.createSymKeyGenerator}.
@@ -1726,7 +1726,7 @@ declare namespace cryptoFramework {
     convertKey(key: DataBlob, callback: AsyncCallback<SymKey>): void;
 
     /**
-     * Generates a symmetric key based on specified data. This API uses a promise to return the result.
+     * Converts specified data into a symmetric key. This API uses a promise to return the result.
      *
      * Before using this API, create a symmetric key generator by using
      * [createSymKeyGenerator]{@link cryptoFramework.createSymKeyGenerator}.
@@ -1749,7 +1749,7 @@ declare namespace cryptoFramework {
     convertKey(key: DataBlob): Promise<SymKey>;
 
     /**
-     * Generates a symmetric key based on specified data.
+     * Converts specified data into a symmetric key.
      *
      * This API can be used only after a **symKeyGenerator** instance is created by using
      * [createSymKeyGenerator]{@link cryptoFramework.createSymKeyGenerator}.
@@ -1850,7 +1850,7 @@ declare namespace cryptoFramework {
 
   /**
    * Represents the message authentication code (MAC) parameters. You need to construct a child class object and use it
-   * as a parameter when generating an HMAC or a CMAC.
+   * as a parameter when computing an HMAC or a CMAC.
    *
    * > **NOTE**
    * >
@@ -1877,7 +1877,7 @@ declare namespace cryptoFramework {
 
   /**
    * Represents the child class of [MacSpec]{@link cryptoFramework.MacSpec}. It is used as an input parameter for HMAC
-   * generation.
+   * computation.
    *
    * > **NOTE**
    * >
@@ -1904,11 +1904,11 @@ declare namespace cryptoFramework {
 
   /**
    * Represents the child class of [MacSpec]{@link cryptoFramework.MacSpec}. It is used as an input parameter for CMAC
-   * generation.
+   * computation.
    *
    * > **NOTE**
    * >
-   * > **cipherName** specifies the CMAC symmetric encryption algorithm. It is mandatory.
+   * > **cipherName** specifies the symmetric cipher algorithm used by CMAC. It is mandatory.
    *
    * @syscap SystemCapability.Security.CryptoFramework.Mac
    * @crossplatform
@@ -1918,7 +1918,7 @@ declare namespace cryptoFramework {
    */
   interface CmacSpec extends MacSpec {
     /**
-     * Symmetric encryption algorithm to use.
+     * Symmetric cipher algorithm used by CMAC.
      *
      * @syscap SystemCapability.Security.CryptoFramework.Mac
      * @crossplatform
@@ -2094,7 +2094,8 @@ declare namespace cryptoFramework {
     updateSync(input: DataBlob): void;
 
     /**
-     * MAC computation result. This API uses an asynchronous callback to return the result.
+     * Finishes the MAC computation and obtains the MAC computation result. This API uses an asynchronous callback to
+     * return the result.
      *
      * @param { AsyncCallback<DataBlob> } callback - Callback used to return the result. If the operation is
      *     successful, **err** is **undefined**, and **data** is the MAC computation result obtained. Otherwise,
@@ -2111,7 +2112,8 @@ declare namespace cryptoFramework {
     doFinal(callback: AsyncCallback<DataBlob>): void;
 
     /**
-     * MAC computation result. This API uses a promise to return the result.
+     * Finishes the MAC computation and obtains the MAC computation result. This API uses a promise to return the
+     * result.
      *
      * @returns { Promise<DataBlob> } Promise used to return the MAC computation result.
      * @throws { BusinessError } 17620001 - Memory operation failed.
@@ -2571,7 +2573,7 @@ declare namespace cryptoFramework {
     PSS_MGF_NAME_STR = 101,
 
     /**
-     * Message digest parameters for the MGF1 mask generation used with the PSS padding mode in RSA.
+     * Message digest algorithm for the MGF1 mask generation used with the PSS padding mode in RSA.
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 10 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Signature [since 12]
@@ -2632,7 +2634,7 @@ declare namespace cryptoFramework {
     SM2_USER_ID_UINT8ARR = 105,
 
     /**
-     * Indicates the value for deterministic. It is used in ML-DSA signing and verifying process.
+     * Indicates whether deterministic signing is used for the ML-DSA signing and verifying process.
      *
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @stagemodelonly
@@ -2642,7 +2644,7 @@ declare namespace cryptoFramework {
     ML_DSA_DETERMINISTIC_BOOL = 106,
 
     /**
-     * Indicates the value for mu. It is used in ML-DSA signing and verifying process.
+     * Indicates the mu parameter value for the ML-DSA signing and verifying process.
      *
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @stagemodelonly
@@ -2652,7 +2654,7 @@ declare namespace cryptoFramework {
     ML_DSA_MU_BOOL = 107,
 
     /**
-     * Indicates the value for context. It is used in ML-DSA signing and verifying process.
+     * Indicates the context data for the ML-DSA signing and verifying process.
      *
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @stagemodelonly
@@ -2700,8 +2702,8 @@ declare namespace cryptoFramework {
      * **init**, **update**, and **doFinal** must be used together. **init** and **doFinal** are mandatory, and
      * **update** is optional.
      *
-     * @param { CryptoMode } opMode - Indicates the crypto mode is encryption or decryption.
-     * @param { Key } key - Indicates the symmetric key or the asymmetric key.
+     * @param { CryptoMode } opMode - Operation (encryption or decryption) to perform.
+     * @param { Key } key - Key for encryption or decryption.
      * @param { ParamsSpec } params - Indicates the algorithm parameters such as IV.
      * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
      *     **err** is **undefined**. Otherwise, **err** is an error object.
@@ -2768,8 +2770,8 @@ declare namespace cryptoFramework {
      * **init**, **update**, and **doFinal** must be used together. **init** and **doFinal** are mandatory, and
      * **update** is optional.
      *
-     * @param { CryptoMode } opMode - Indicates the crypto mode is encryption or decryption.
-     * @param { Key } key - Indicates the symmetric key or the asymmetric key.
+     * @param { CryptoMode } opMode - Operation (encryption or decryption) to perform.
+     * @param { Key } key - Key for encryption or decryption.
      * @param { ParamsSpec } params - Indicates the algorithm parameters such as IV.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
@@ -3122,7 +3124,7 @@ declare namespace cryptoFramework {
      * it is advised to invoke synchronous API within a child thread to avoid blocking the main thread.
      *
      * @param { DataBlob } data - Indicates the data to be encrypted or decrypted.
-     * @returns { DataBlob | null } cipherText when encrypted or plainText when decrypted.
+     * @returns { DataBlob | null } ciphertext when encrypted or plaintext when decrypted.
      * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
@@ -3255,7 +3257,8 @@ declare namespace cryptoFramework {
      * > integer multiple of the encryption block size, and **doFinal()** is called to pass in **null**, the returned
      * > result is **null**.
      * > 4. For details about the sample code for calling **doFinal** multiple times in asymmetric encryption and
-     * > decryption, see [Encryption and Decryption by Segment with an RSA Asymmetric Key Pair](docroot://security/CryptoArchitectureKit/crypto-rsa-asym-encrypt-decrypt-by-segment.md).
+     * > decryption, see
+     * > [Encryption and Decryption by Segment with an RSA Asymmetric Key Pair](docroot://security/CryptoArchitectureKit/crypto-rsa-asym-encrypt-decrypt-by-segment.md).
      * > The operations are similar for SM2 and RSA.
      *
      * @param { DataBlob | null } data - Indicates the data to be finally encrypted or decrypted.
@@ -3427,7 +3430,7 @@ declare namespace cryptoFramework {
      * **doFinalSync()** produces the ciphertext and **authTag**. In GCM mode, **authTag** is the last 16 bytes. In
      * CCM mode, **authTag** is the last 12 bytes. The rest part is the ciphertext. If **data** in **doFinalSync()** is
      * **null**, the result of **doFinalSync()** is **authTag**.
-     *  During decryption, **authTag** must be set in [GcmParamsSpec]{@link cryptoFramework.GcmParamsSpec} or
+     * - During decryption, **authTag** must be set in [GcmParamsSpec]{@link cryptoFramework.GcmParamsSpec} or
      * [CcmParamsSpec]{@link cryptoFramework.CcmParamsSpec}, and the ciphertext must be set in **data**.
      * - For other symmetric encryption and decryption modes and GCM and CCM decryption modes, concatenating the results
      * of **updateSync()** and **doFinalSync()** throughout the process will yield the complete plaintext or ciphertext.
@@ -3474,7 +3477,7 @@ declare namespace cryptoFramework {
      * it is advised to invoke synchronous API within a child thread to avoid blocking the main thread.
      *
      * @param { DataBlob | null } data - Indicates the data to be finally encrypted or decrypted.
-     * @returns { DataBlob | null } cipherText when encrypted or plainText when decrypted.
+     * @returns { DataBlob | null } ciphertext when encrypted or plaintext when decrypted.
      * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
@@ -3758,8 +3761,8 @@ declare namespace cryptoFramework {
     /**
      * Updates data to be signed. This API uses a promise to return the result.
      *
-     * Before using this API, you must use [Sign]{@link cryptoFramework.Sign} to initialize the
-     * [init()]{@link cryptoFramework.Sign.init} instance.
+     * Before using this API, you must initialize the [Sign]{@link cryptoFramework.Sign} instance by using
+     * [init()]{@link cryptoFramework.Sign.init}.
      *
      * > **NOTE**
      * >
@@ -3989,7 +3992,7 @@ declare namespace cryptoFramework {
     setSignSpec(itemType: SignSpecItem, itemValue: int): void;
 
     /**
-     * Sets the specified parameter to the Sign object.
+     * Sets the specified parameter for the Sign object.
      *
      * Currently, only PSS_SALT_LEN in RSA and USER_ID in SM2 are supported.
      *
@@ -4015,9 +4018,9 @@ declare namespace cryptoFramework {
     setSignSpec(itemType: SignSpecItem, itemValue: int | Uint8Array): void;
 
     /**
-     * Sets the specified parameter to the Sign object.
+     * Sets the specified parameter for the Sign object.
      *
-     * Currently, only PSS_SALT_LEN in RSA and USER_ID in SM2 and ML_DSA_DETERMINISTIC/ML_DSA_MU/ML_DSA_CONTEXT in
+     * Currently, only PSS_SALT_LEN in RSA, USER_ID in SM2, and ML_DSA_DETERMINISTIC, ML_DSA_MU, and ML_DSA_CONTEXT in
      * ML-DSA are supported.
      *
      * @param { SignSpecItem } itemType - Indicates the specified parameter type.
@@ -4037,9 +4040,9 @@ declare namespace cryptoFramework {
     setSignSpec(itemType: SignSpecItem, itemValue: int | Uint8Array | boolean): void;
 
     /**
-     * Sets the specified parameter to the Sign object.
+     * Sets the specified parameter for the Sign object.
      *
-     * Currently, only the ML-DSA parameters ML_DSA_DETERMINISTIC and ML_DSA_MU are supported. For ML_DSA_CONTEXT param,
+     * Currently, only ML_DSA_DETERMINISTIC and ML_DSA_MU in ML-DSA are supported. For ML_DSA_CONTEXT parameter,
      * use [setSignSpec()]{@link cryptoFramework.Sign.setSignSpec(itemType: SignSpecItem, itemValue: int | Uint8Array)}.
      *
      * @param { SignSpecItem } itemType - Indicates the specified parameter type.
@@ -4202,7 +4205,7 @@ declare namespace cryptoFramework {
     initSync(pubKey: PubKey): void;
 
     /**
-     * Updates the data for signature verifications. This API uses an asynchronous callback to return the result.
+     * Updates the data for signature verification. This API uses an asynchronous callback to return the result.
      *
      * This API can be called only after the [Verify]{@link cryptoFramework.Verify} instance is initialized using
      * [init]{@link cryptoFramework.Verify.init} or [initSync]{@link cryptoFramework.Verify.initSync}.
@@ -4249,7 +4252,7 @@ declare namespace cryptoFramework {
     update(data: DataBlob, callback: AsyncCallback<void>): void;
 
     /**
-     * Updates the data for signature verifications. This API uses a promise to return the result.
+     * Updates the data for signature verification. This API uses a promise to return the result.
      *
      * This API can be called only after the [Verify]{@link cryptoFramework.Verify} instance is initialized using
      * [init()]{@link cryptoFramework.Verify.init}.
@@ -4294,7 +4297,7 @@ declare namespace cryptoFramework {
     update(data: DataBlob): Promise<void>;
 
     /**
-     * Updates the data for signature verifications. This API returns the result synchronously.
+     * Updates the data for signature verification. This API returns the result synchronously.
      *
      * This API can be called only after the [Verify]{@link cryptoFramework.Verify} instance is initialized by using
      * [initSync()]{@link cryptoFramework.Verify.initSync}.
@@ -4313,11 +4316,12 @@ declare namespace cryptoFramework {
      * > [Signing and Signature Verification by Segment with an RSA Key Pair (PKCS1 Mode)](docroot://security/CryptoArchitectureKit/crypto-rsa-sign-sig-verify-pkcs1-by-segment.md)
      * > . The operations of other algorithms are similar.
      *
-     * > **OnlyVerify** cannot be used with **update()**. If **OnlyVerify** is specified, use **verifySync()** to pass
+     * > **OnlyVerify** cannot be used with **updateSync()**. If **OnlyVerify** is specified, use **verifySync()** to pass
      * > in data.
      *
      * > If the DSA algorithm is used for signature verification and the digest algorithm is **NoHash**, **updateSync**
      * > is not supported. If **updateSync** is called in this case, **ERR_CRYPTO_OPERATION** will be returned.
+     *
      * <br><br>**NOTE**
      * <br>It is recommended to prioritize the use of asynchronous API, {@link update}. Synchronous API may
      * take a long time and block the main thread due to system busyness, high load, and other reasons. Therefore,
@@ -4494,6 +4498,7 @@ declare namespace cryptoFramework {
      * > **NOTE**
      * >
      * > - Currently, only RSA is supported.
+     *
      * <br><br>**NOTE**
      * <br>It is recommended to prioritize the use of asynchronous API, {@link recover}. Synchronous API may
      * take a long time and block the main thread due to system busyness, high load, and other reasons. Therefore,
@@ -4521,7 +4526,7 @@ declare namespace cryptoFramework {
      * Sets signature verification specifications. You can use this API to set signature verification parameters that
      * cannot be set by [createVerify]{@link cryptoFramework.createVerify}.
      *
-     * Currently, only RSA and SM2 are supported. Since API version 11, SM2 signing parameters can be set.
+     * Currently, only RSA and SM2 are supported. Since API version 11, SM2 signature verification parameters can be set.
      *
      * The parameters for signature verification must be the same as those for signing.
      *
@@ -4544,8 +4549,11 @@ declare namespace cryptoFramework {
     setVerifySpec(itemType: SignSpecItem, itemValue: int): void;
 
     /**
-     * Sets the specified parameter to the Verify object.
+     * Sets the specified parameter for the Verify object.
+     *
      * Currently, only PSS_SALT_LEN in RSA and USER_ID in SM2 are supported.
+     *
+     * The parameters for signature verification must be the same as those for signing.
      *
      * @param { SignSpecItem } itemType - Indicates the specified parameter type.
      * @param { int | Uint8Array } itemValue - The value of the specified parameter.
@@ -4569,9 +4577,12 @@ declare namespace cryptoFramework {
     setVerifySpec(itemType: SignSpecItem, itemValue: int | Uint8Array): void;
 
     /**
-     * Sets the specified parameter to the Verify object.
-     * Currently, only PSS_SALT_LEN in RSA and USER_ID in SM2 and ML_DSA_DETERMINISTIC/ML_DSA_MU/ML_DSA_CONTEXT in
+     * Sets the specified parameter for the Verify object.
+     *
+     * Currently, only PSS_SALT_LEN in RSA, USER_ID in SM2, and ML_DSA_DETERMINISTIC, ML_DSA_MU and ML_DSA_CONTEXT in
      * ML-DSA are supported.
+     *
+     * The parameters for signature verification must be the same as those for signing.
      *
      * @param { SignSpecItem } itemType - Indicates the specified parameter type.
      * @param { int | Uint8Array | boolean } itemValue - The value of the specified parameter.
@@ -4590,9 +4601,11 @@ declare namespace cryptoFramework {
     setVerifySpec(itemType: SignSpecItem, itemValue: int | Uint8Array | boolean): void;
 
     /**
-     * Sets the specified parameter to the Verify object.
-     * Currently, only the ML-DSA parameters ML_DSA_DETERMINISTIC and ML_DSA_MU are supported. For ML_DSA_CONTEXT param,
+     * Sets the specified parameter for the Verify object.
+     *
+     * Currently, only ML_DSA_DETERMINISTIC and ML_DSA_MU in ML-DSA are supported. For ML_DSA_CONTEXT parameter,
      * use [setVerifySpec()]{@link cryptoFramework.Verify.setVerifySpec(itemType: SignSpecItem, itemValue: int | Uint8Array)}.
+     * The parameters for signature verification must be the same as those for signing.
      *
      * @param { SignSpecItem } itemType - Indicates the specified parameter type.
      * @param { boolean } itemValue - The value of the specified parameter.
@@ -4608,8 +4621,6 @@ declare namespace cryptoFramework {
 
     /**
      * Obtains signature verification specifications. Currently, only RSA is supported.
-     *
-     * The parameters for signature verification must be the same as those for signing.
      *
      * @param { SignSpecItem } itemType - Signature verification parameter to obtain.
      * @returns { string | int } Returns the value of the parameter obtained.
@@ -4646,10 +4657,11 @@ declare namespace cryptoFramework {
   /**
    * Creates a **Sign** instance.
    *
-   * @param { string } algName - Signing algorithm to use. Currently, RSA, ECC, DSA, SM2<sup>10+</sup> and Ed25519<sup>1
-   *     1+</sup> are supported. If RSA PKCS1 is used, you must set the digest. If RSA PSS is used, you must set the
-   *     digest and mask digest. For signing, you can set **OnlySign** to enable the data digest to be used for signing
-   *     only.<br>For details about the supported specifications, see
+   * @param { string } algName - Signing algorithm to use. Currently, RSA, ECC, DSA, SM2<sup>10+</sup>,
+   *     Ed25519<sup>11+</sup> and ML-DSA<sup>26.0.0+</sup> are supported.
+   *     <br>If RSA PKCS1 is used, you must set the digest. If RSA PSS is used, you must set the digest and mask digest.
+   *     For signing, you can set **OnlySign** to enable the data digest to be used for signing only.
+   *     <br>For details about the supported specifications, see
    *     [Signing and Signature Verification Overview and Algorithm Specifications](docroot://security/CryptoArchitectureKit/crypto-sign-sig-verify-overview.md)
    * @returns { Sign } Returns the **Sign** instance created.
    * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
@@ -4670,10 +4682,12 @@ declare namespace cryptoFramework {
   /**
    * Creates a **Verify** instance.
    *
-   * @param { string } algName - Signing algorithm to use. Currently, RSA, ECC, DSA, SM2<sup>10+</sup> and Ed25519<sup>1
-   *     1+</sup> are supported. If RSA PKCS1 is used, you must set the digest. If RSA PSS is used, you must set the
-   *     digest and mask digest. When the RSA algorithm is used for signature verification, you can use **Recover** to
-   *     verify and recover the signed data.<br>For details about the supported specifications, see
+   * @param { string } algName - Signature verification algorithm to use. Currently, RSA, ECC, DSA, SM2<sup>10+</sup>,
+   *     Ed25519<sup>11+</sup> and ML-DSA<sup>26.0.0+</sup> are supported.
+   *     <br>If RSA PKCS1 is used, you must set the digest. If RSA PSS is used, you must set the digest and mask digest.
+   *     When the RSA algorithm is used for signature verification, you can use **recover** to verify and recover the
+   *     signed data.
+   *     <br>For details about the supported specifications, see
    *     [Signing and Signature Verification Overview and Algorithm Specifications](docroot://security/CryptoArchitectureKit/crypto-sign-sig-verify-overview.md)
    *     .
    * @returns { Verify } Returns the **Verify** instance created.
@@ -4711,7 +4725,7 @@ declare namespace cryptoFramework {
      * @param { PriKey } priKey - Private key used for key agreement.
      * @param { PubKey } pubKey - Public key used for key agreement.
      * @param { AsyncCallback<DataBlob> } callback - Callback used to return the result. If the operation is successful,
-     *     **err** is **undefined**, and **data** is the shared key obtained. Otherwise, **err** is an error object.
+     *     **err** is **undefined**, and **data** is the shared secret obtained. Otherwise, **err** is an error object.
      * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
@@ -4734,7 +4748,7 @@ declare namespace cryptoFramework {
      *
      * @param { PriKey } priKey - Private key used for key agreement.
      * @param { PubKey } pubKey - Public key used for key agreement.
-     * @returns { Promise<DataBlob> } Promise used to return the shared key of key agreement.
+     * @returns { Promise<DataBlob> } Promise used to return the shared secret of key agreement.
      * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
@@ -4794,7 +4808,7 @@ declare namespace cryptoFramework {
   /**
    * Creates a **KeyAgreement** instance.
    *
-   * @param { string } algName - Key agreement algorithm to use. In addition to ECC, X25519 and DH are supported since
+   * @param { string } algName - Key agreement algorithm to use. In addition to ECDH, X25519 and DH are supported since
    *     API version 11.<br>For details about the supported specifications, see
    *     [Key Agreement Overview and Algorithm Specifications](docroot://security/CryptoArchitectureKit/crypto-key-agreement-overview.md)
    *     .
@@ -5208,7 +5222,7 @@ declare namespace cryptoFramework {
     ML_DSA_PRIVATE_SEED = 0,
 
     /**
-     * Indicates the private raw of the ML-DSA private key.
+     * Indicates the raw private key data of the ML-DSA private key.
      *
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @stagemodelonly
@@ -5218,7 +5232,7 @@ declare namespace cryptoFramework {
     ML_DSA_PRIVATE_RAW = 1,
 
     /**
-     * Indicates the public raw of the ML-DSA public key.
+     * Indicates the raw public key data of the ML-DSA public key.
      *
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @stagemodelonly
@@ -5238,7 +5252,7 @@ declare namespace cryptoFramework {
     ML_KEM_PRIVATE_SEED = 3,
 
     /**
-     * Indicates the private raw of the ML-KEM private key.
+     * Indicates the raw private key data of the ML-KEM private key.
      *
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @stagemodelonly
@@ -5248,7 +5262,7 @@ declare namespace cryptoFramework {
     ML_KEM_PRIVATE_RAW = 4,
 
     /**
-     * Indicates the public raw of the ML-KEM public key.
+     * Indicates the raw public key data of the ML-KEM public key.
      *
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @stagemodelonly
@@ -5258,7 +5272,7 @@ declare namespace cryptoFramework {
     ML_KEM_PUBLIC_RAW = 5,
 
     /**
-     * Private key **K** on the elliptic curve (EC).
+     * Private key scalar **k** on the elliptic curve (EC).
      *
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @stagemodelonly
@@ -5268,7 +5282,8 @@ declare namespace cryptoFramework {
     EC_PRIVATE_K = 6,
 
     /**
-     * Indicates the 04||X||Y||K of the EC private key.
+     * Indicates the composite encoding 04||X||Y||K of the EC key, where 04||X||Y is the uncompressed public key point
+     * and K is the private key scalar.
      *
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @stagemodelonly
@@ -5278,7 +5293,7 @@ declare namespace cryptoFramework {
     EC_PRIVATE_04_X_Y_K = 7,
 
     /**
-     * Indicates the X||Y of the EC public key.
+     * Indicates the X||Y format encoded data representing an EC public key
      *
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @stagemodelonly
@@ -5288,7 +5303,7 @@ declare namespace cryptoFramework {
     EC_PUBLIC_X_Y = 8,
 
     /**
-     * Indicates the 04||X||Y of the EC public key.
+     * Indicates the 04||X||Y format encoded data representing an EC public key
      *
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @stagemodelonly
@@ -5298,7 +5313,7 @@ declare namespace cryptoFramework {
     EC_PUBLIC_04_X_Y = 9,
 
     /**
-     * Indicates the 02||X or 03||X of the EC public key.
+     * Indicates the 02||X or 03||X format encoded data representing an EC public key
      *
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @stagemodelonly
@@ -5320,7 +5335,7 @@ declare namespace cryptoFramework {
    */
   enum AsyKeySpecType {
     /**
-     * Common parameter of the public and private keys. You can use
+     * Common parameters of the public and private keys. You can use
      * [generateKeyPair]{@link cryptoFramework.AsyKeyGeneratorBySpec.generateKeyPair(callback: AsyncCallback<KeyPair>)}
      * to randomly generate a key pair based on the parameters of this type.
      *
@@ -5864,7 +5879,7 @@ declare namespace cryptoFramework {
   }
 
   /**
-   * Generates common parameters for an asymmetric key pair based on the specified elliptic curve name.
+   * Provides utilities for ECC key parameter generation and point conversion based on the specified elliptic curve.
    *
    * @syscap SystemCapability.Security.CryptoFramework [since 11 - 11]
    * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
@@ -5951,8 +5966,8 @@ declare namespace cryptoFramework {
   }
 
   /**
-   * Defines a child class of [AsyKeySpec]{@link cryptoFramework.AsyKeySpec} used to specify the parameters of the
-   * public and private keys in the DH algorithm.
+   * Defines a child class of [AsyKeySpec]{@link cryptoFramework.AsyKeySpec} used to specify the common parameters of
+   * the public and private keys in the DH algorithm.
    *
    * To generate a key based on key parameters, pass it to
    * [createAsyKeyGeneratorBySpec()]{@link cryptoFramework.createAsyKeyGeneratorBySpec} to create a key generator.
@@ -6152,8 +6167,8 @@ declare namespace cryptoFramework {
      * @param { int } pLen - Length of the prime **p**, in bits.
      * @param { int } [skLen] - Maximum length of the generated DH private key, in bits. The default value is **0**.<br>
      *     When this parameter is set to **0**, the maximum length of the generated DH private key is as follows:<br>
-     *     ffdhe2048: 255 bits.<br>ffdhe3072: 275 bits.<br>ffdhe4096: 325 bits.<br>ffdhe6144: 375 bits.<br>ffdhe8192: 40
-     *     0 bits.
+     *     ffdhe2048: 255 bits.<br>ffdhe3072: 275 bits.<br>ffdhe4096: 325 bits.<br>ffdhe6144: 375 bits.<br>ffdhe8192:
+     *     400 bits.
      * @returns { DHCommonParamsSpec } DH common parameters generated.
      * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
@@ -6485,7 +6500,7 @@ declare namespace cryptoFramework {
   }
 
   /**
-   * Provides APIs for using the **AsyKeyGenerator**. Before using the APIs of this class, you need to use
+   * Provides APIs for using the **AsyKeyGeneratorBySpec**. Before using the APIs of this class, you need to use
    * [createAsyKeyGeneratorBySpec()]{@link cryptoFramework.createAsyKeyGeneratorBySpec} to create an
    * **AsyKeyGeneratorBySpec** instance.
    *
@@ -6736,11 +6751,11 @@ declare namespace cryptoFramework {
   /**
    * Obtains an asymmetric key generator instance with the specified key parameters.
    *
-   * @param { AsyKeySpec } asyKeySpec - Key parameters. The **AsyKeyGenerator** generates the public/private key based
+   * @param { AsyKeySpec } asyKeySpec - Key parameters. The **AsyKeyGeneratorBySpec** generates the public/private key based
    *     on the specified parameters.<br>For details about the supported specifications, see
    *     [Asymmetric Key Generation and Conversion Specifications](docroot://security/CryptoArchitectureKit/crypto-asym-key-generation-conversion-spec.md)
    *     .
-   * @returns { AsyKeyGeneratorBySpec } Returns the **AsyKeyGenerator** instance created.
+   * @returns { AsyKeyGeneratorBySpec } Returns the **AsyKeyGeneratorBySpec** instance created.
    * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
    *     <br>1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types;
@@ -6788,8 +6803,8 @@ declare namespace cryptoFramework {
    * > **NOTE**
    * >
    * > **password** is the original password. If **password** of the string type is used, pass in the actual data for
-   * > key derivation, rather than a HexString or Base64-encoded value. In addition, the string must be encoded in UTF-8
-   * > , as other encodings may alter the derivation outcome.
+   * > key derivation, rather than a HexString or Base64-encoded value. In addition, the string must be encoded in
+   * > UTF-8, as other encodings may alter the derivation outcome.
    *
    * @syscap SystemCapability.Security.CryptoFramework [since 11 - 11]
    * @syscap SystemCapability.Security.CryptoFramework.Kdf [since 12]
@@ -6920,8 +6935,8 @@ declare namespace cryptoFramework {
    *
    * > **NOTE**
    * >
-   * > **passphrase** specifies the original password. If **password** is of the string type, pass in the data used for
-   * > key derivation rather than a string of the HexString or Base64 type. In addition, the string must be in utf-8
+   * > **passphrase** specifies the original password. If **passphrase** is of the string type, pass in the data used for
+   * > key derivation rather than a string of the HexString or Base64 type. In addition, the string must be in UTF-8
    * > format. Otherwise, the key derived may be different from the one expected.
    *
    * @syscap SystemCapability.Security.CryptoFramework.Kdf
@@ -6954,7 +6969,7 @@ declare namespace cryptoFramework {
     salt: Uint8Array;
 
     /**
-     * Number of iterations. The value must be a positive integer.
+     * CPU/memory cost parameter. The value must be a positive integer.
      *
      * @syscap SystemCapability.Security.CryptoFramework.Kdf
      * @crossplatform
@@ -7036,7 +7051,7 @@ declare namespace cryptoFramework {
     key: string | Uint8Array;
 
     /**
-     * Additional description.
+     * Shared information.
      *
      * @syscap SystemCapability.Security.CryptoFramework.Kdf
      * @crossplatform
@@ -7130,7 +7145,7 @@ declare namespace cryptoFramework {
      * it is advised to invoke synchronous API within a child thread to avoid blocking the main thread.
      *
      * @param { KdfSpec } params - Parameters of the key derivation function.
-     * @returns { DataBlob } the derived key.
+     * @returns { DataBlob } The derived key.
      * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
@@ -7357,7 +7372,7 @@ declare namespace cryptoFramework {
      * Generates r and s from the ECC/SM2 signature data in ASN1 DER format.
      *
      * @param { Uint8Array } data - Signature data in ASN1 DER format.
-     * @returns { EccSignatureSpec } struct that contains r and s.
+     * @returns { EccSignatureSpec } Object that contains r and s.
      * @throws { BusinessError } 17620001 - Memory operation failed.
      * @throws { BusinessError } 17620002 - Failed to obtain the native object or convert parameters.
      * @throws { BusinessError } 17620003 - Parameter check failed. Possible causes:
@@ -7374,7 +7389,7 @@ declare namespace cryptoFramework {
     /**
      * Converts an ECC/SM2 signature (r, s) to the ASN1 DER format.
      *
-     * @param { EccSignatureSpec } spec - SM2 signature data to convert.
+     * @param { EccSignatureSpec } spec - ECC/SM2 signature data to convert.
      * @returns { Uint8Array } Signature data in ASN1 DER format.
      * @throws { BusinessError } 17620001 - Memory operation failed.
      * @throws { BusinessError } 17620002 - Failed to obtain the native object or convert parameters.
@@ -7391,7 +7406,7 @@ declare namespace cryptoFramework {
   }
 
   /**
-   * Indicates the KEM algorithm name ID.
+   * Enumerates the KEM algorithm name IDs.
    *
    * @syscap SystemCapability.Security.CryptoFramework.Cipher
    * @stagemodelonly
@@ -7431,7 +7446,7 @@ declare namespace cryptoFramework {
   }
 
   /**
-   * Indicates the encapsulation result of the KEM.
+   * Represents the encapsulation result of the KEM.
    *
    * @syscap SystemCapability.Security.CryptoFramework.Cipher
    * @stagemodelonly
@@ -7461,8 +7476,7 @@ declare namespace cryptoFramework {
   }
 
   /**
-   * Indicates the KEM(key encapsulation mechanism) type, which is used for key encapsulation and decapsulation
-   * operations.
+   * Provides APIs for key encapsulation and decapsulation operations using the key encapsulation mechanism (KEM).
    *
    * @syscap SystemCapability.Security.CryptoFramework.Cipher
    * @stagemodelonly
@@ -7501,7 +7515,7 @@ declare namespace cryptoFramework {
      * @param { PubKey } pubKey - The public key of the receiver.
      * @param { Uint8Array | null } ikme - Random number seed, used to replace the random number within the algorithm.
      *     For the ML-KEM algorithm, the random number seed is 32 bytes. It is recommended to pass null.
-     * @returns { KemEncapResult } the encapsulation result of the KEM.
+     * @returns { KemEncapResult } The encapsulation result of the KEM.
      * @throws { BusinessError } 17620001 - Memory operation failed.
      * @throws { BusinessError } 17620002 - Failed to obtain the native object or convert parameters.
      * @throws { BusinessError } 17620003 - Parameter check failed.
@@ -7542,7 +7556,7 @@ declare namespace cryptoFramework {
      *
      * @param { PriKey } priKey - The private key of the receiver.
      * @param { Uint8Array } wrappedKey - The wrapped key of the KEM.
-     * @returns { Uint8Array } the decapsulation result of the KEM.
+     * @returns { Uint8Array } The decapsulation result of the KEM.
      * @throws { BusinessError } 17620001 - Memory operation failed.
      * @throws { BusinessError } 17620002 - Failed to obtain the native object or convert parameters.
      * @throws { BusinessError } 17620003 - Parameter check failed.
@@ -7559,7 +7573,7 @@ declare namespace cryptoFramework {
    * Creates a KEM instance for key encapsulation and decapsulation operations.
    *
    * @param { KemAlgNameId } algNameId - The algorithm name ID of the KEM.
-   * @returns { Kem } the KEM instance.
+   * @returns { Kem } The KEM instance.
    * @throws { BusinessError } 17620001 - Memory operation failed.
    * @throws { BusinessError } 17620002 - Failed to obtain the native object or convert parameters.
    * @throws { BusinessError } 17620003 - Parameter check failed.

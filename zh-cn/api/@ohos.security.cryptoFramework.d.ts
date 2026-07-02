@@ -170,8 +170,8 @@ declare namespace cryptoFramework {
    *
    * > **说明：**
    * >
-   * > iv（Initialization Vector，初始化向量）是用于对称加密模式（如 CBC/CTR/OFB/CFB/GCM/CCM/Poly1305）中引入随机性或唯一性的字节序
-   * >列，保证相同明文在相同密钥下产生不同密文。
+   * > iv（Initialization Vector，初始化向量）是用于对称加密模式（如 CBC/CTR/OFB/CFB/GCM/CCM/ChaCha20-Poly1305）中引入随机性或
+   * > 唯一性的字节序列，保证相同明文在相同密钥下产生不同密文。
    *
    * > **说明：**
    * >
@@ -193,6 +193,7 @@ declare namespace cryptoFramework {
      * - "IvParamsSpec"：适用于CBC|CTR|OFB|CFB模式。
      * - "GcmParamsSpec"：适用于GCM模式。
      * - "CcmParamsSpec"：适用于CCM模式。
+     * - "AeadParamsSpec"：适用于AES-GCM，AES-CCM，SM4-GCM和ChaCha20-Poly1305算法。
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Cipher [since 12]
@@ -212,8 +213,8 @@ declare namespace cryptoFramework {
    *
    * > **说明：**
    * >
-   * > 传入[init()]{@link cryptoFramework.Cipher.init(opMode: CryptoMode, key: Key, params: ParamsSpec | null)}方法前需要指定其
-   * > algName属性（来源于父类[ParamsSpec]{@link cryptoFramework.ParamsSpec}）。
+   * > 传入[init()]{@link cryptoFramework.Cipher.init(opMode: CryptoMode, key: Key, params: ParamsSpec | null)}方法前需要
+   * > 指定其algName属性（来源于父类[ParamsSpec]{@link cryptoFramework.ParamsSpec}）。
    *
    * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
    * @syscap SystemCapability.Security.CryptoFramework.Cipher [since 12]
@@ -224,7 +225,7 @@ declare namespace cryptoFramework {
    */
   interface IvParamsSpec extends ParamsSpec {
     /**
-     * 指明加解密参数iv。常见取值如下：
+     * 加密和解密参数iv。常见取值如下：
      *
      * - AES的CBC|CTR|OFB|CFB模式：iv长度为16字节。
      * - 3DES的CBC|OFB|CFB模式：iv长度为8字节。
@@ -241,7 +242,8 @@ declare namespace cryptoFramework {
   }
 
   /**
-   * 加解密参数[ParamsSpec]{@link cryptoFramework.ParamsSpec}的子类，用于在对称加解密时作为
+   * 加解密参数[ParamsSpec]{@link cryptoFramework.ParamsSpec}的子类，封装使用GCM AEAD模式进行加密或解密的参数，需要IV、AAD和认证
+   * 标签。它是[ParamsSpec]{@link cryptoFramework.ParamsSpec}的子类，用于在对称加解密时作为
    * [init()]{@link cryptoFramework.Cipher.init(opMode: CryptoMode, key: Key, params: ParamsSpec | null)}方法的参数。
    *
    * 适用于GCM模式。
@@ -250,8 +252,7 @@ declare namespace cryptoFramework {
    * >
    * > 1. 传入[init()]{@link cryptoFramework.Cipher.init(opMode: CryptoMode, key: Key, params: ParamsSpec | null)}方法前需
    * > 要指定其algName属性（来源于父类[ParamsSpec]{@link cryptoFramework.ParamsSpec}）。
-   * > 2. Crypto框架对1到128字节的iv不做额外限制，但实际结果取决于底层OpenSSL的支持。
-   * > 3. 如果不需要aad或者aad长度为0，构造GcmParamsSpec时可以将aad的data属性设置为空的Uint8Array，
+   * > 2. 如果不需要aad或者aad长度为0，构造GcmParamsSpec时可以将aad的data属性设置为空的Uint8Array，
    * > 即aad: { data: new Uint8Array() }。
    *
    * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
@@ -307,7 +308,8 @@ declare namespace cryptoFramework {
   }
 
   /**
-   * 加解密参数[ParamsSpec]{@link cryptoFramework.ParamsSpec}的子类，用于在对称加解密时作为
+   * 加解密参数[ParamsSpec]{@link cryptoFramework.ParamsSpec}的子类，封装使用CCM AEAD模式进行加密或解密的参数，需要IV、AAD和认证
+   * 标签。它是[ParamsSpec]{@link cryptoFramework.ParamsSpec}的子类，用于在对称加解密时作为
    * [init()]{@link cryptoFramework.Cipher.init(opMode: CryptoMode, key: Key, params: ParamsSpec | null)}方法的参数。
    *
    * 适用于CCM模式。
@@ -350,12 +352,12 @@ declare namespace cryptoFramework {
     aad: DataBlob;
 
     /**
-     * 指明加解密参数authTag，长度为16字节。
+     * 指明加解密参数authTag，长度为12字节。
      *
      * 采用CCM模式加密时，需从
      * [doFinal()]{@link cryptoFramework.Cipher.doFinal(data: DataBlob | null, callback: AsyncCallback<DataBlob>)}或
      * [doFinalSync()]{@link cryptoFramework.Cipher.doFinalSync(data: DataBlob | null)}输出的
-     * [DataBlob]{@link cryptoFramework.DataBlob}中提取末尾16字节，作为
+     * [DataBlob]{@link cryptoFramework.DataBlob}中提取末尾12字节，作为解密时
      * [init()]{@link cryptoFramework.Cipher.init(opMode: CryptoMode, key: Key, params: ParamsSpec | null)}或
      * [initSync()]{@link cryptoFramework.Cipher.initSync}方法中CcmParamsSpec的authTag。
      *
@@ -370,7 +372,9 @@ declare namespace cryptoFramework {
   }
 
   /**
-   * 加解密参数[ParamsSpec]{@link cryptoFramework.ParamsSpec}的子类，用于在对称加解密时作为
+   * 加解密参数[ParamsSpec]{@link cryptoFramework.ParamsSpec}的子类，封装使用ChaCha20-Poly1305 AEAD模式进行加密或解密的参数，
+   * 需要nonce、AAD和认证标签。它是
+   * [ParamsSpec]{@link cryptoFramework.ParamsSpec}的子类，用于在对称加解密时作为
    * [init()]{@link cryptoFramework.Cipher.init(opMode: CryptoMode, key: Key, params: ParamsSpec | null)}方法的参数。
    *
    * 适用于[ChaCha20-Poly1305](docroot://security/CryptoArchitectureKit/crypto-sym-encrypt-decrypt-spec.md#chacha20)。
@@ -396,7 +400,7 @@ declare namespace cryptoFramework {
    */
   interface Poly1305ParamsSpec extends ParamsSpec {
     /**
-     * 指明加解密参数iv，长度为12字节。
+     * Nonce（通过iv字段传入），长度为12字节。
      *
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
@@ -407,7 +411,7 @@ declare namespace cryptoFramework {
     iv: DataBlob;
 
     /**
-     * 指明加解密参数aad，长度为任意字节。
+     * 指明加解密参数aad。
      *
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
@@ -430,7 +434,7 @@ declare namespace cryptoFramework {
   }
 
   /**
-   * 用于AEAD（带关联数据的认证加密）对称加解密的
+   * 用于AEAD（带附加数据的认证加密）对称加解密的
    * [init()]{@link cryptoFramework.Cipher.init(opMode: CryptoMode, key: Key, params: ParamsSpec | null)}方法参数，继承自
    * [ParamsSpec]{@link cryptoFramework.ParamsSpec}。
    *
@@ -455,10 +459,10 @@ declare namespace cryptoFramework {
   interface AeadParamsSpec extends ParamsSpec {
     /**
      * 指明加解密参数nonce。
-     * <br>对于AES-CCM,nonce长度的取值范围为7~13字节。
-     * 对于AES-GCM,nonce长度范围为1~128字节，推荐使用12字节。
-     * 对于SM4-GCM,nonce长度范围为1~128字节，推荐使用12字节。
-     * 对于ChaCha20-Poly1305,nonce长度必须为12字节。
+     * <br>对于AES-CCM，nonce长度的取值范围为7~13字节。
+     * 对于AES-GCM，nonce长度范围为1~128字节，推荐使用12字节。
+     * 对于SM4-GCM，nonce长度范围为1~128字节，推荐使用12字节。
+     * 对于ChaCha20-Poly1305，nonce长度必须为12字节。
      *
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @stagemodelonly
@@ -468,7 +472,7 @@ declare namespace cryptoFramework {
     nonce: Uint8Array;
 
     /**
-     * 指定可选的附加认证数据，长度为任意字节。
+     * 指定可选的附加认证数据。
      *
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @stagemodelonly
@@ -496,7 +500,7 @@ declare namespace cryptoFramework {
   }
 
   /**
-   * 表示加解密操作的枚举。
+   * 枚举加密和解密的密码操作模式。
    *
    * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
    * @syscap SystemCapability.Security.CryptoFramework.Cipher [since 12]
@@ -559,7 +563,7 @@ declare namespace cryptoFramework {
     password: string;
 
     /**
-     * 算法名。
+     * 用于编码私钥的对称密码算法。
      *
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
@@ -662,7 +666,7 @@ declare namespace cryptoFramework {
    */
   interface SymKey extends Key {
     /**
-     * 同步方法，将系统底层内存中的密钥内容清零。建议在不再使用对称密钥实例时调用此函数，避免密钥数据在内存中存留过久。
+     * 同步方法，将系统底层内存中的密钥数据清零。建议在不再使用对称密钥实例时调用此函数，避免密钥数据在内存中存留过久。
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Key.SymKey [since 12]
@@ -675,7 +679,7 @@ declare namespace cryptoFramework {
   }
 
   /**
-   * 私钥，是[Key]{@link cryptoFramework.Key}的子类，在非对称加解密、签名、密钥协商时需要将其作为输入使用。
+   * 私钥，是[Key]{@link cryptoFramework.Key}的子类，在非对称解密、签名、密钥协商时需要将其作为输入使用。
    *
    * 私钥可以通过非对称密钥生成器[AsyKeyGenerator]{@link cryptoFramework.AsyKeyGenerator}、
    * [AsyKeyGeneratorBySpec]{@link cryptoFramework.AsyKeyGeneratorBySpec}来生成。
@@ -689,7 +693,7 @@ declare namespace cryptoFramework {
    */
   interface PriKey extends Key {
     /**
-     * 同步方法，清零系统底层内存中的密钥内容。
+     * 同步方法，清零系统底层内存中的密钥数据。
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
@@ -725,18 +729,15 @@ declare namespace cryptoFramework {
     /**
      * 支持根据指定的密钥格式（如采用哪个规范），获取满足ASN.1语法、DER编码的私钥数据。
      *
-     * 在API版本12-24，仅支持获取PKCS8格式的ECC私钥数据。
-     *
-     * 从API版本26.0.0开始，增加支持获取PKCS1和PKCS8格式的RSA私钥数据。
-     *
      * > **说明：**
      * >
      * > 本接口和[Key.getEncoded()]{@link cryptoFramework.Key.getEncoded}的区别是：
-     * > 1. 本接口可以指定获取密钥数据的格式。当前支持获取PKCS8格式的ECC私钥数据。
+     * > 1. 本接口可以指定获取密钥数据的格式。
      * > 2. [Key.getEncoded()]{@link cryptoFramework.Key.getEncoded}不支持指定获取密钥数据的格式。
      *
-     * @param { string } format - 用于指定当前密钥格式。<br>在API版本12-24，取值仅支持"PKCS8"。 <br>从API版本26.0.0开始，RSA私钥格
-     *     式支持"PKCS1"和"PKCS8"。
+     * @param { string } format - 用于指定当前密钥格式。支持EC密钥，format取值支持"PKCS8"。
+     *     <br>从API版本26.0.0开始，支持RSA密钥，format取值支持"PKCS1"和"PKCS8"。
+     *     <br>从API版本26.0.0开始，支持ML-DSA和ML-KEM密钥，format取值支持"PKCS8"。
      * @returns { DataBlob } 返回满足ASN.1语法和DER编码的指定密钥格式的ECC私钥数据。
      * @throws { BusinessError } 401 - 非法入参。可能的原因：
      *     <br>1. 必填参数未指定；
@@ -756,8 +757,9 @@ declare namespace cryptoFramework {
     /**
      * 获取密钥数据。此API以同步方式返回结果。
      *
-     * @param { string } format - 指定的获取密钥字符串的编码格式。支持RSA密钥，格式可以是'PKCS8'或'PKCS1'。自API版本26.0.0起，支持
-     *     EC密钥，格式可'PKCS8'或'EC'。
+     * @param { string } format - 指定的获取密钥字符串的编码格式。支持RSA密钥，format取值支持'PKCS8'或'PKCS1'。
+     *     <br>自API版本26.0.0起，支持EC密钥，format取值支持'PKCS8'或'EC'。
+     *     <br>自API版本26.0.0起，支持ML-DSA和ML-KEM密钥，format取值支持'PKCS8'。
      * @returns { string } 用于获取指定密钥格式的具体内容。
      * @throws { BusinessError } 401 - 非法入参。可能的原因：
      *     <br>1. 必填参数未指定；
@@ -865,7 +867,7 @@ declare namespace cryptoFramework {
   }
 
   /**
-   * 公钥，是[Key]{@link cryptoFramework.Key}的子类，在非对称加解密、验签、密钥协商时需要将其对象作为输入使用。
+   * 公钥，是[Key]{@link cryptoFramework.Key}的子类，在非对称加密、签名验证、密钥协商时需要将其对象作为输入使用。
    *
    * 公钥可以通过非对称密钥生成器[AsyKeyGenerator]{@link cryptoFramework.AsyKeyGenerator}、
    * [AsyKeyGeneratorBySpec]{@link cryptoFramework.AsyKeyGeneratorBySpec}来生成。
@@ -901,17 +903,17 @@ declare namespace cryptoFramework {
     getAsyKeySpec(itemType: AsyKeySpecItem): bigint | string | int;
 
     /**
-     * 支持根据指定的密钥格式（如规范、压缩状态等），获取符合ASN.1语法和DER编码的公钥数据。目前仅支持ECC压缩和非压缩格式的公钥数据。
+     * 支持根据指定的密钥格式（如规范、压缩状态等），获取符合ASN.1语法和DER编码的公钥数据。
      *
      * > **说明：**
      * >
      * > 本接口和[Key.getEncoded()]{@link cryptoFramework.Key.getEncoded}的区别是：
      * > 1. 本接口可以指定获取密钥数据的格式。
-     * > 2. [Key.getEncoded()]{@link cryptoFramework.Key.getEncoded}不支持指定获取密钥数据的格式，需要与原始数据的格式一致，即与
-     * > [convertKey]{@link cryptoFramework.AsyKeyGenerator.convertKey}生成的密钥对象的格式一致。
+     * > 2. [Key.getEncoded()]{@link cryptoFramework.Key.getEncoded}不支持指定获取密钥数据的格式。
      *
-     * @param { string } format - 用于指定当前密钥格式。<br>在API版本12-24，取值仅支持"X509|COMPRESSED"和"X509|UNCOMPRESSED"。
-     *     <br>从API版本26.0.0开始，RSA公钥格式取值支持"PKCS1"和"X509"。
+     * @param { string } format - 用于指定当前密钥格式。 支持EC密钥，format取值支持"X509|COMPRESSED"和"X509|UNCOMPRESSED"。
+     *     <br>从API版本26.0.0开始，支持RSA密钥，format取值支持"PKCS1"和"X509"。
+     *     <br>从API版本26.0.0开始，支持ML-DSA和ML-KEM密钥，format取值支持"X509"。
      * @returns { DataBlob } 返回满足ASN.1语法和DER编码的指定密钥格式的公钥数据。
      * @throws { BusinessError } 401 - 非法入参。可能的原因：
      *     <br>1. 必填参数未指定；
@@ -931,8 +933,8 @@ declare namespace cryptoFramework {
     /**
      * 获取密钥数据。此API以同步方式返回结果。
      *
-     * @param { string } format - 指定的获取密钥字符串的编码格式。支持RSA密钥，格式可以是'X509'或'PKCS1'。自API版本26.0.0起，支持
-     *     EC密钥，格式可以是'X509'。
+     * @param { string } format - 指定的获取密钥字符串的编码格式。支持RSA密钥，format取值支持'X509'或'PKCS1'。
+     *     <br>自API版本26.0.0起，支持EC、ML-DSA和ML-KEM密钥，format取值支持'X509'。
      * @returns { string } 用于获取指定密钥格式的具体内容。
      * @throws { BusinessError } 401 - 非法入参。可能的原因：
      *     <br>1. 必填参数未指定；
@@ -1432,7 +1434,7 @@ declare namespace cryptoFramework {
      * 同步获取指定数据，生成非对称密钥。
      *
      * > **说明：**
-     * > > convertPemKeySync接口与convertPemKey接口注意事项相同，见
+     * > convertPemKeySync接口与convertPemKey接口注意事项相同，见
      * > [convertPemKey]{@link cryptoFramework.AsyKeyGenerator.convertPemKey(pubKey: string | null, priKey: string | null)}
      * > 接口说明。
      *
@@ -1463,7 +1465,7 @@ declare namespace cryptoFramework {
      * 获取指定数据生成非对称密钥。支持加密的私钥，同步传入私钥口令解密私钥。使用同步方法。
      *
      * > **说明：**
-     * > > convertPemKeySync接口与convertPemKey接口注意事项相同，见
+     * > convertPemKeySync接口与convertPemKey接口注意事项相同，见
      * > [convertPemKey]{@link cryptoFramework.AsyKeyGenerator.convertPemKey(pubKey: string | null, priKey: string | null, password: string)}
      * > 接口说明。
      *
@@ -1592,7 +1594,7 @@ declare namespace cryptoFramework {
     generateSymKeySync(): SymKey;
 
     /**
-     * 根据指定数据生成对称密钥。使用callback异步回调。
+     * 将指定数据转换为对称密钥。使用callback异步回调。
      *
      * 必须在使用[createSymKeyGenerator]{@link cryptoFramework.createSymKeyGenerator}创建对称密钥生成器后，才能使用本函数。
      *
@@ -1622,7 +1624,7 @@ declare namespace cryptoFramework {
     convertKey(key: DataBlob, callback: AsyncCallback<SymKey>): void;
 
     /**
-     * 根据指定数据生成对称密钥。使用Promise异步回调。
+     * 将指定数据转换为对称密钥。使用Promise异步回调。
      *
      * 在使用本函数前，需先通过[createSymKeyGenerator]{@link cryptoFramework.createSymKeyGenerator}创建对称密钥生成器。
      *
@@ -1644,7 +1646,7 @@ declare namespace cryptoFramework {
     convertKey(key: DataBlob): Promise<SymKey>;
 
     /**
-     * 根据指定数据生成对称密钥。
+     * 将指定数据转换为对称密钥。
      *
      * 必须在使用[createSymKeyGenerator]{@link cryptoFramework.createSymKeyGenerator}创建对称密钥生成器后，才能使用本函数。
      *
@@ -1718,7 +1720,7 @@ declare namespace cryptoFramework {
    * 支持的规格详见
    * [对称密钥生成和转换规格](docroot://security/CryptoArchitectureKit/crypto-sym-key-generation-conversion-spec.md)。
    *
-   * @param { string } algName - 待生成对称密钥生成器的算法名称。<br/>具体取值详见
+   * @param { string } algName - 待生成对称密钥生成器的算法名称。<br>具体取值详见
    *     [对称密钥生成和转换规格](docroot://security/CryptoArchitectureKit/crypto-sym-key-generation-conversion-spec.md)
    *     一节中的“字符串参数”。
    * @returns { SymKeyGenerator } 返回对称密钥生成器的对象。
@@ -1737,11 +1739,11 @@ declare namespace cryptoFramework {
   function createSymKeyGenerator(algName: string): SymKeyGenerator;
 
   /**
-   * 消息认证码参数，计算HMAC、CMAC消息认证码时，需要构建子类对象并作为输入参数。
+   * 消息认证码参数，计算HMAC或CMAC时，需要构建子类对象并作为输入参数。
    *
    * > **说明：**
    * >
-   * > algName是必选参数，表示消息验证码算法。
+   * > algName是必选参数，表示消息认证码算法。
    *
    * @syscap SystemCapability.Security.CryptoFramework.Mac
    * @crossplatform
@@ -1751,7 +1753,7 @@ declare namespace cryptoFramework {
    */
   interface MacSpec {
     /**
-     * 消息验证码算法名。
+     * 消息认证码算法名。
      *
      * @syscap SystemCapability.Security.CryptoFramework.Mac
      * @crossplatform
@@ -1763,7 +1765,7 @@ declare namespace cryptoFramework {
   }
 
   /**
-   * 消息认证码参数[MacSpec]{@link cryptoFramework.MacSpec}的子类，作为HMAC消息验证码计算的输入。
+   * 消息认证码参数[MacSpec]{@link cryptoFramework.MacSpec}的子类，作为HMAC计算的输入。
    *
    * > **说明：**
    * >
@@ -1789,11 +1791,11 @@ declare namespace cryptoFramework {
   }
 
   /**
-   * 消息认证码参数[MacSpec]{@link cryptoFramework.MacSpec}的子类，作为CMAC消息验证码计算的输入。
+   * 消息认证码参数[MacSpec]{@link cryptoFramework.MacSpec}的子类，作为CMAC计算的输入。
    *
    * > **说明：**
    * >
-   * > cipherName是必选参数，表示CMAC对称加密算法。
+   * > cipherName是必选参数，表示CMAC使用的对称密码算法。
    *
    * @syscap SystemCapability.Security.CryptoFramework.Mac
    * @crossplatform
@@ -1803,7 +1805,7 @@ declare namespace cryptoFramework {
    */
   interface CmacSpec extends MacSpec {
     /**
-     * 对称加密算法名。
+     * CMAC使用的对称密码算法名。
      *
      * @syscap SystemCapability.Security.CryptoFramework.Mac
      * @crossplatform
@@ -1944,7 +1946,8 @@ declare namespace cryptoFramework {
      *
      * > **说明：**
      * >
-     * > HMAC算法多次调用updateSync更新的代码示例详见[消息认证码计算](docroot://security/CryptoArchitectureKit/crypto-compute-hmac.md#分段hmac)。
+     * > HMAC算法多次调用updateSync更新的代码示例详见
+     * > [消息认证码计算](docroot://security/CryptoArchitectureKit/crypto-compute-hmac.md#分段hmac)。
      *
      * <br><br>**说明：**
      * <br>建议优先使用异步API{@link update}。同步API可能因系统繁忙、高负载等原因耗时较长而阻塞主线程。
@@ -1966,9 +1969,9 @@ declare namespace cryptoFramework {
     updateSync(input: DataBlob): void;
 
     /**
-     * 返回Mac的计算结果。使用callback异步回调。
+     * 完成MAC计算并获取MAC计算结果。使用callback异步回调。
      *
-     * @param { AsyncCallback<DataBlob> } callback - 回调函数。当Mac计算成功时，err为undefined，data为获取到的Mac计算结果；否则为
+     * @param { AsyncCallback<DataBlob> } callback - 回调函数。当MAC计算成功时，err为undefined，data为获取到的Mac计算结果；否则为
      *     错误对象。
      * @throws { BusinessError } 17620001 - 内存操作失败。
      * @throws { BusinessError } 17630001 - 密码操作错误。
@@ -1982,9 +1985,9 @@ declare namespace cryptoFramework {
     doFinal(callback: AsyncCallback<DataBlob>): void;
 
     /**
-     * 返回Mac的计算结果。使用Promise异步回调。
+     * 完成MAC计算并获取MAC计算结果。使用Promise异步回调。
      *
-     * @returns { Promise<DataBlob> } Promise对象，返回Mac的计算结果。
+     * @returns { Promise<DataBlob> } Promise对象，返回MAC计算结果。
      * @throws { BusinessError } 17620001 - 内存操作失败。
      * @throws { BusinessError } 17630001 - 密码操作错误。
      * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
@@ -1997,13 +2000,13 @@ declare namespace cryptoFramework {
     doFinal(): Promise<DataBlob>;
 
     /**
-     * 通过同步方式返回Mac的计算结果。
+     * 通过同步方式完成MAC计算并获取MAC计算结果。
      *
      * <br><br>**说明：**
      * <br>建议优先使用异步API{@link doFinal}。同步API可能因系统繁忙、高负载等原因耗时较长而阻塞主线程。
      * 因此建议在子线程中调用同步API，以避免阻塞主线程。
      *
-     * @returns { DataBlob } 返回Mac的计算结果。
+     * @returns { DataBlob } 返回MAC计算结果。
      * @throws { BusinessError } 401 - 非法入参。可能的原因：
      *     <br>1. 必填参数未指定；
      *     <br>2. 参数类型不正确；
@@ -2073,9 +2076,9 @@ declare namespace cryptoFramework {
    *
    * 支持的规格详见[MAC消息认证码算法规格](docroot://security/CryptoArchitectureKit/crypto-compute-mac-overview.md)。
    *
-   * @param { MacSpec } macSpec - 根据消息验证码的不同算法，指定入参结构体，支持算法请参考
+   * @param { MacSpec } macSpec - 根据消息认证码的不同算法，指定入参参数，支持算法请参考
    *     [MAC消息认证码算法规格](docroot://security/CryptoArchitectureKit/crypto-compute-mac-overview.md)。
-   * @returns { Mac } 返回由指定入参结构体生成的[Mac]{@link cryptoFramework.Mac}对象。
+   * @returns { Mac } 返回由指定入参参数生成的[Mac]{@link cryptoFramework.Mac}对象。
    * @throws { BusinessError } 401 - 非法入参。可能的原因：
    *     <br>1. 必填参数未指定；
    *     <br>2. 参数类型不正确；
@@ -2420,7 +2423,7 @@ declare namespace cryptoFramework {
     PSS_MGF_NAME_STR = 101,
 
     /**
-     * 表示RSA算法中，使用PSS模式时，MGF1掩码生成功能的消息摘要参数。
+     * 表示RSA算法中，使用PSS模式时，MGF1掩码生成功能的消息摘要算法。
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 10 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Signature [since 12]
@@ -2479,7 +2482,7 @@ declare namespace cryptoFramework {
     SM2_USER_ID_UINT8ARR = 105,
 
     /**
-     * 确定性值。用于ML-DSA签名和验证过程。
+     * 指示ML-DSA签名和验证过程中是否使用确定性签名。
      *
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @stagemodelonly
@@ -2489,7 +2492,7 @@ declare namespace cryptoFramework {
     ML_DSA_DETERMINISTIC_BOOL = 106,
 
     /**
-     * mu的值。用于ML-DSA签名和验证过程。
+     * 指示ML-DSA签名和验证过程中的mu参数值。
      *
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @stagemodelonly
@@ -2499,7 +2502,7 @@ declare namespace cryptoFramework {
     ML_DSA_MU_BOOL = 107,
 
     /**
-     * 表示上下文的值。用于ML-DSA签名和验证过程。
+     * 指示ML-DSA签名和验证过程中的上下文数据。
      *
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @stagemodelonly
@@ -2538,8 +2541,8 @@ declare namespace cryptoFramework {
      *
      * init、update和doFinal必须配合使用，其中init和doFinal是必选的，update是可选的。
      *
-     * @param { CryptoMode } opMode - 表示加密模式为加密或解密
-     * @param { Key } key - 表示对称密钥或非对称密钥
+     * @param { CryptoMode } opMode - 要执行的操作（加密或解密）
+     * @param { Key } key - 用于加密或解密的密钥
      * @param { ParamsSpec } params - IV等算法参数
      * @param { AsyncCallback<void> } callback - 回调函数。当加解密初始化成功时，err为undefined；否则为错误对象。
      * @throws { BusinessError } 401 - 非法入参。可能的原因：
@@ -2599,8 +2602,8 @@ declare namespace cryptoFramework {
      *
      * init、update和doFinal必须配合使用，其中init和doFinal是必选的，update是可选的。
      *
-     * @param { CryptoMode } opMode - 表示加密模式为加密或解密
-     * @param { Key } key - 表示对称密钥或非对称密钥
+     * @param { CryptoMode } opMode - 要执行的操作（加密或解密）
+     * @param { Key } key - 用于加密或解密的密钥
      * @param { ParamsSpec } params - IV等算法参数
      * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 401 - 非法入参。可能的原因：
@@ -2697,7 +2700,7 @@ declare namespace cryptoFramework {
      * 使用本函数。
      *
      * > **说明：**
-     * > >
+     * >
      * > 1.在进行对称加解密操作时，如果开发者对各分组模式不够熟悉，建议每次调用**update**和**doFinal**后，都判断结果是否为null。如果结果
      * > 不为null，则取出其中的数据进行拼接，以形成完整的密文或明文。这是因为选择的分组模式等各项规格可能会影响**update**和**doFinal**的
      * > 结果。
@@ -2740,7 +2743,7 @@ declare namespace cryptoFramework {
      * 使用输入数据更新加密操作，并反馈此次加密或解密的数据。此API使用异步回调来返回结果。
      *
      * > **说明：**
-     * > >
+     * >
      * > 1.在进行对称加解密操作时，如果开发者对各分组模式不够熟悉，建议每次调用**update**和**doFinal**后，都判断结果是否为null。如果结果
      * > 不为null，则取出其中的数据进行拼接，以形成完整的密文或明文。这是因为选择的分组模式等各项规格可能会影响**update**和**doFinal**的
      * > 结果。
@@ -2786,7 +2789,7 @@ declare namespace cryptoFramework {
      * 使用本函数。
      *
      * > **说明：**
-     * > >
+     * >
      * > 1.在进行对称加解密操作时，如果开发者对各分组模式不够熟悉，建议每次调用**update**和**doFinal**后，都判断结果是否为null。如果结果
      * > 不为null，则取出其中的数据进行拼接，以形成完整的密文或明文。这是因为选择的分组模式等各项规格可能会影响**update**和**doFinal**的
      * > 结果。
@@ -2828,7 +2831,7 @@ declare namespace cryptoFramework {
      * 使用输入数据更新加密操作，并反馈此次加密或解密的数据。使用Promise异步回调。
      *
      * > **说明：**
-     * > >
+     * >
      * > 1.在进行对称加解密操作时，如果开发者对各分组模式不够熟悉，建议每次调用**update**和**doFinal**后，都判断结果是否为null。如果结果
      * > 不为null，则取出其中的数据进行拼接，以形成完整的密文或明文。这是因为选择的分组模式等各项规格可能会影响**update**和**doFinal**的
      * > 结果。
@@ -2945,7 +2948,7 @@ declare namespace cryptoFramework {
 
     /**
      *（1）在对称加解密中**doFinal**用于处理剩余数据和本次传入的数据，并最终结束加密或解密操作，使用callback异步回调函数获取加密或解密后的
-     * 数据。如果数据量较小，可以在**doFinal**中一次性传入数据，而不使用**update**；如果在本次加解密流程中已经使用**update**传入过 数据，
+     * 数据。如果数据量较小，可以在**doFinal**中一次性传入数据，而不使用**update**；如果在本次加解密流程中已经使用**update**传入过数据，
      * 可以在**doFinal**的data参数处传入null。根据对称加解密的模式不同，**doFinal**的输出有以下区别：
      * - 在GCM和CCM模式的对称加密中，一次加密流程中，将每次**update**和**doFinal**的结果拼接起来，会得到“密文 + authTag”。GCM模式下，
      * authTag为末尾的16字节；CCM模式下，authTag为末尾的12字节。其余部分均为密文。如果**doFinal**的data参数传入null，则**doFinal**的
@@ -2953,23 +2956,23 @@ declare namespace cryptoFramework {
      * [CcmParamsSpec]{@link cryptoFramework.CcmParamsSpec}，密文作为解密时的data参数。
      * - 对于其他模式的对称加解密及GCM和CCM模式的加解密：每次加/解密流程中，**update**和**doFinal**的结果拼接起来，得到完整的明文或密文。
      *（2）在RSA、SM2非对称加解密中，**doFinal**加密或解密本次传入的数据，使用callback异步回调函数获取加密或者解密数据。如果数据量较大，
-     *可以多次调用**doFinal**，拼接结果得到完整的明文/密文。
+     * 可以多次调用**doFinal**，拼接结果得到完整的明文/密文。
      *
      * > **说明：**
-     * > >
+     * >
      * > 1.对称加解密中，调用**doFinal**标志着一次加解密流程已经完成，即[Cipher]{@link cryptoFramework.Cipher}实例的状态被清除，
      * > 因此当后续开启新一轮加解密流程时，需要重新调用**init**并传入完整的参数列表进行初始化。 即使是对同一个Cipher实例，采用同样的对称
      * > 密钥，进行加密然后解密，则解密中调用**init**的时候仍需填写params参数，而不能直接省略为null。
      * > 如果遇到解密失败，需检查加解密数据和**init**时的参数是否匹配，包括GCM模式下加密得到的authTag是否填入解密时的GcmParamsSpec等。
      * > **doFinal**的结果可能为null，因此使用.data字段访问**doFinal**结果的具体数据前，请记得先判断结果是否为null，避免产生异常。
-     * > 2.对于加密，CFB、OFB和CTR模式，如果**doFinal**传null, 则返回结果为null。
+     * > 2.对于加密，CFB、OFB和CTR模式，如果**doFinal**传null，则返回结果为null。
      * > 3.对于解密，GCM、CCM、CFB、OFB和CTR模式，如果**doFinal**传null，则返回结果为null；对于解密，其他模式，如果明文是加密块大小的
-     * > 整倍数，调用**update**传入所有密文，调用**doFinal**传null, 则返回结果为null。
+     * > 整倍数，调用**update**传入所有密文，调用**doFinal**传null，则返回结果为null。
      * > 4.非对称加解密时多次**doFinal**操作的示例代码请参阅
      * > [使用RSA非对称密钥对按段加密和解密](docroot://security/CryptoArchitectureKit/crypto-rsa-asym-encrypt-decrypt-by-segment.md)。
      * > SM2和RSA的操作类似。
      *
-     * @param { DataBlob | null } data - 要加密或解密的数据。在对称加解密中，这个 参数可以是**null**，但是
+     * @param { DataBlob | null } data - 要加密或解密的数据。在对称加解密中，这个参数可以是**null**，但是
      *     **{data: Uint8Array()}**不能传入。在API版本10之前，仅支持**DataBlob**。从API版本10开始，还支持**null**。
      * @param { AsyncCallback<DataBlob> } callback - 回调函数。当加/解密成功时，err为undefined，data为加/解密结果DataBlob；否则
      *     为错误对象。
@@ -2994,15 +2997,15 @@ declare namespace cryptoFramework {
      * 完成加密操作，对输入数据进行加密或解密，然后反馈输出数据。加密操作完成后，数据无法再更新。使用Callback异步回调。
      *
      * > **说明：**
-     * > >
+     * >
      * > 1.对称加解密中，调用**doFinal**标志着一次加解密流程已经完成，即[Cipher]{@link cryptoFramework.Cipher}实例的状态被清除，
      * > 因此当后续开启新一轮加解密流程时，需要重新调用**init**并传入完整的参数列表进行初始化。 即使是对同一个Cipher实例，采用同样的对称
      * > 密钥，进行加密然后解密，则解密中调用**init**的时候仍需填写params参数，而不能直接省略为null。
      * > 如果遇到解密失败，需检查加解密数据和**init**时的参数是否匹配，包括GCM模式下加密得到的authTag是否填入解密时的GcmParamsSpec等。
      * > **doFinal**的结果可能为null，因此使用.data字段访问**doFinal**结果的具体数据前，请记得先判断结果是否为null，避免产生异常。
-     * > 2.对于加密，CFB、OFB和CTR模式，如果**doFinal**传null, 则返回结果为null。
+     * > 2.对于加密，CFB、OFB和CTR模式，如果**doFinal**传null，则返回结果为null。
      * > 3.对于解密，GCM、CCM、CFB、OFB和CTR模式，如果**doFinal**传null，则返回结果为null；对于解密，其他模式，如果明文是加密块大小的
-     * > 整倍数，调用**update**传入所有密文，调用**doFinal**传null, 则返回结果为null。
+     * > 整倍数，调用**update**传入所有密文，调用**doFinal**传null，则返回结果为null。
      * > 4.非对称加解密时多次**doFinal**操作的示例代码请参阅
      * > [使用RSA非对称密钥对按段加密和解密](docroot://security/CryptoArchitectureKit/crypto-rsa-asym-encrypt-decrypt-by-segment.md)。
      * > SM2和RSA的操作类似。
@@ -3065,15 +3068,15 @@ declare namespace cryptoFramework {
      * 多次调用**doFinal**，拼接结果以获得完整的明文或密文。
      *
      * > **说明：**
-     * > >
+     * >
      * > 1.对称加解密中，调用**doFinal**标志着一次加解密流程已经完成，即[Cipher]{@link cryptoFramework.Cipher}实例的状态被清除，
      * > 因此当后续开启新一轮加解密流程时，需要重新调用**init**并传入完整的参数列表进行初始化。 即使是对同一个Cipher实例，采用同样的对称
      * > 密钥，进行加密然后解密，则解密中调用**init**的时候仍需填写params参数，而不能直接省略为null。
      * > 如果遇到解密失败，需检查加解密数据和**init**时的参数是否匹配，包括GCM模式下加密得到的authTag是否填入解密时的GcmParamsSpec等。
      * > **doFinal**的结果可能为null，因此使用.data字段访问**doFinal**结果的具体数据前，请记得先判断结果是否为null，避免产生异常。
-     * > 2.对于加密，CFB、OFB和CTR模式，如果**doFinal**传null, 则返回结果为null。
+     * > 2.对于加密，CFB、OFB和CTR模式，如果**doFinal**传null，则返回结果为null。
      * > 3.对于解密，GCM、CCM、CFB、OFB和CTR模式，如果**doFinal**传null，则返回结果为null；对于解密，其他模式，如果明文是加密块大小的
-     * > 整倍数，调用**update**传入所有密文，调用**doFinal**传null, 则返回结果为null。
+     * > 整倍数，调用**update**传入所有密文，调用**doFinal**传null，则返回结果为null。
      * > 4.非对称加解密时多次**doFinal**操作的示例代码请参阅
      * > [使用RSA非对称密钥对按段加密和解密](docroot://security/CryptoArchitectureKit/crypto-rsa-asym-encrypt-decrypt-by-segment.md)。
      * > SM2和RSA的操作类似。
@@ -3102,15 +3105,15 @@ declare namespace cryptoFramework {
      * 完成加密操作，对输入数据进行加密或解密，然后反馈输出数据。加密操作完成后，数据无法更新。使用Promise异步回调。
      *
      * > **说明：**
-     * > >
+     * >
      * > 1.对称加解密中，调用**doFinal**标志着一次加解密流程已经完成，即[Cipher]{@link cryptoFramework.Cipher}实例的状态被清除，
      * > 因此当后续开启新一轮加解密流程时，需要重新调用**init**并传入完整的参数列表进行初始化。 即使是对同一个Cipher实例，采用同样的对称
      * > 密钥，进行加密然后解密，则解密中调用**init**的时候仍需填写params参数，而不能直接省略为null。
      * > 如果遇到解密失败，需检查加解密数据和**init**时的参数是否匹配，包括GCM模式下加密得到的authTag是否填入解密时的GcmParamsSpec等。
      * > **doFinal**的结果可能为null，因此使用.data字段访问**doFinal**结果的具体数据前，请记得先判断结果是否为null，避免产生异常。
-     * > 2.对于加密，CFB、OFB和CTR模式，如果**doFinal**传null, 则返回结果为null。
+     * > 2.对于加密，CFB、OFB和CTR模式，如果**doFinal**传null，则返回结果为null。
      * > 3.对于解密，GCM、CCM、CFB、OFB和CTR模式，如果**doFinal**传null，则返回结果为null；对于解密，其他模式，如果明文是加密块大小的
-     * > 整倍数，调用**update**传入所有密文，调用**doFinal**传null, 则返回结果为null。
+     * > 整倍数，调用**update**传入所有密文，调用**doFinal**传null，则返回结果为null。
      * > 4.非对称加解密时多次**doFinal**操作的示例代码请参阅
      * > [使用RSA非对称密钥对按段加密和解密](docroot://security/CryptoArchitectureKit/crypto-rsa-asym-encrypt-decrypt-by-segment.md)。
      * > SM2和RSA的操作类似。
@@ -3442,8 +3445,8 @@ declare namespace cryptoFramework {
     /**
      * 追加待签名数据，使用Promise异步回调方式完成更新。
      *
-     * 在使用本函数前，必须先使用[Sign]{@link cryptoFramework.Sign}方法对
-     * [init()]{@link cryptoFramework.Sign.init}实例进行初始化。
+     * 在使用本函数前，必须先使用[init]{@link cryptoFramework.Sign.init}对
+     * [Sign]{@link cryptoFramework.Sign}实例进行初始化。
      *
      * > **说明：**
      * >
@@ -3639,7 +3642,7 @@ declare namespace cryptoFramework {
     /**
      * 设置签名参数。常用签名参数可通过 [createSign]{@link cryptoFramework.createSign} 指定，其他参数则通过本接口设置。
      *
-     * 只支持RSA算法、SM2算法，从API version11开始，支持SM2算法设置签名参数。
+     * 当前仅支持RSA算法、SM2算法，从API version11开始，支持SM2算法设置签名参数。
      *
      * @param { SignSpecItem } itemType - 用于指定需要设置的签名参数。
      * @param { int } itemValue - 用于指定签名参数的具体值。
@@ -3660,7 +3663,7 @@ declare namespace cryptoFramework {
     setSignSpec(itemType: SignSpecItem, itemValue: int): void;
 
     /**
-     * 设置签名参数。当前仅支持RSA算法中的PSS_SALT_LEN和SM2算法中的USER_ID。
+     * 为Sign对象设置指定参数。当前仅支持RSA算法中的PSS_SALT_LEN参数和SM2算法中的USER_ID参数。
      *
      * @param { SignSpecItem } itemType - 用于指定需要设置的签名参数类型。
      * @param { int | Uint8Array } itemValue - 指定签名参数的具体值。
@@ -3684,8 +3687,8 @@ declare namespace cryptoFramework {
     setSignSpec(itemType: SignSpecItem, itemValue: int | Uint8Array): void;
 
     /**
-     * 设置签名参数。当前仅支持RSA算法中的PSS_SALT_LEN、SM2算法中的USER_ID以及ML-DSA算法中的
-     * ML_DSA_DETERMINISTIC、ML_DSA_MU、ML_DSA_CONTEXT。
+     * 为Sign对象设置指定参数。当前仅支持RSA算法中的PSS_SALT_LEN参数、SM2算法中的USER_ID参数以及ML-DSA算法中的
+     * ML_DSA_DETERMINISTIC、ML_DSA_MU和ML_DSA_CONTEXT参数。
      *
      * @param { SignSpecItem } itemType - 用于指定需要设置的签名参数类型。
      * @param { int | Uint8Array | boolean } itemValue - 指定签名参数的具体值。
@@ -3704,8 +3707,7 @@ declare namespace cryptoFramework {
     setSignSpec(itemType: SignSpecItem, itemValue: int | Uint8Array | boolean): void;
 
     /**
-     * 设置签名对象的指定参数。
-     * 目前仅支持ML-DSA参数ML_DSA_DETERMINISTIC和ML_DSA_MU。ML_DSA_CONTEXT参数请使用
+     * 为Sign对象设置指定参数。当前仅支持ML-DSA算法中的ML_DSA_DETERMINISTIC和ML_DSA_MU参数。ML_DSA_CONTEXT参数请使用
      * [setSignSpec()]{@link cryptoFramework.Sign.setSignSpec(itemType: SignSpecItem, itemValue: int | Uint8Array)}。
      *
      * @param { SignSpecItem } itemType - 用于指定需要设置的签名参数类型。
@@ -3765,10 +3767,10 @@ declare namespace cryptoFramework {
    *
    * 业务方使用时，在createVerify时确定验签的模式，调用init接口设置密钥。
    *
-   * 当被签名的消息较短时，可在init初始化后，（无需update）直接调用verify接口传入被签名的消息和签名(signatureData)进行验签。
+   * 当被签名的消息较短时，可在init初始化后，（无需update）直接调用verify接口传入被签名的消息和签名（signatureData）进行验签。
    *
    * 当被签名的消息较长时，可通过update接口分段传入被签名的消息，最后调用verify接口对消息全文进行验签。verify接口的data入参在API 10之前只
-   * 支持DataBlob， API 10之后增加支持null。业务方可在循环中调用update接口，循环结束后调用verify传入签名(signatureData)进行验签。
+   * 支持DataBlob， API 10之后增加支持null。业务方可在循环中调用update接口，循环结束后调用verify传入签名（signatureData）进行验签。
    *
    * 当使用DSA算法进行验签，并设置了摘要算法为NoHash时，则不支持update操作，update接口会返回错误码ERR_CRYPTO_OPERATION。
    *
@@ -3956,7 +3958,7 @@ declare namespace cryptoFramework {
      * > [使用RSA密钥对分段签名验签](docroot://security/CryptoArchitectureKit/crypto-rsa-sign-sig-verify-pkcs1-by-segment.md)，
      * > 其余算法操作类似。
      * >
-     * > OnlyVerify模式下，不支持update操作，需要直接使用verifySync传入数据。
+     * > OnlyVerify模式下，不支持updateSync操作，需要直接使用verifySync传入数据。
      * >
      * > 当使用DSA算法进行验签，并设置了摘要算法为NoHash时，则不支持updateSync操作，updateSync接口会返回错误码ERR_CRYPTO_OPERATION。
      *
@@ -4152,9 +4154,9 @@ declare namespace cryptoFramework {
     recoverSync(signatureData: DataBlob): DataBlob | null;
 
     /**
-     * 设置验签参数。常用的签名参数直接通过[createVerify]{@link cryptoFramework.createVerify} 来指定，剩余参数通过本接口指定。
+     * 设置验签参数。常用的验签参数直接通过[createVerify]{@link cryptoFramework.createVerify} 来指定，剩余参数通过本接口指定。
      *
-     * 支持RSA算法和SM2算法，从API version 11开始，支持SM2算法设置验签参数。
+     * 支持RSA算法和SM2算法，从API version 11开始，支持SM2算法设置签名验证参数。
      *
      * 验签的参数应当与签名的参数保持一致。
      *
@@ -4177,7 +4179,9 @@ declare namespace cryptoFramework {
     setVerifySpec(itemType: SignSpecItem, itemValue: int): void;
 
     /**
-     * 设置验签参数。当前仅支持RSA算法中的PSS_SALT_LEN和SM2算法中的USER_ID。
+     * 设置签名验证参数。
+     *
+     * 当前仅支持RSA算法中的PSS_SALT_LEN和SM2签名验证中的USER_ID。
      *
      * 验签的参数应当与签名的参数保持一致。
      *
@@ -4203,8 +4207,9 @@ declare namespace cryptoFramework {
     setVerifySpec(itemType: SignSpecItem, itemValue: int | Uint8Array): void;
 
     /**
-     * 设置验签参数。当前仅支持RSA算法中的PSS_SALT_LEN、SM2算法中的USER_ID以及ML-DSA算法中的
-     * ML_DSA_DETERMINISTIC、ML_DSA_MU、ML_DSA_CONTEXT。
+     * 设置签名验证参数。
+     *
+     * 当前仅支持RSA算法中的PSS_SALT_LEN，SM2算法中的USER_ID以及ML-DSA算法中的ML_DSA_DETERMINISTIC、ML_DSA_MU和ML_DSA_CONTEXT。
      *
      * 验签的参数应当与签名的参数保持一致。
      *
@@ -4225,9 +4230,11 @@ declare namespace cryptoFramework {
     setVerifySpec(itemType: SignSpecItem, itemValue: int | Uint8Array | boolean): void;
 
     /**
-     * 设置验签对象的指定参数。
-     * 目前仅支持ML-DSA参数ML_DSA_DETERMINISTIC和ML_DSA_MU。ML_DSA_CONTEXT参数请使用
+     * 为Verify对象设置指定参数。
+     *
+     * 目前仅支持ML-DSA算法中的ML_DSA_DETERMINISTIC和ML_DSA_MU参数。ML_DSA_CONTEXT参数请使用
      * [setVerifySpec()]{@link cryptoFramework.Verify.setVerifySpec(itemType: SignSpecItem, itemValue: int | Uint8Array)}。
+     * 验签的参数应当与签名的参数保持一致。
      *
      * @param { SignSpecItem } itemType - 用于指定需要设置的验签参数类型。
      * @param { boolean } itemValue - 指定验签参数的具体值。
@@ -4243,8 +4250,6 @@ declare namespace cryptoFramework {
 
     /**
      * 获取验签参数。当前只支持RSA算法。
-     *
-     * 验签的参数应当与签名的参数保持一致。
      *
      * @param { SignSpecItem } itemType - 用于指定需要获取的验签参数。
      * @returns { string | int } 返回获取的参数值。
@@ -4281,8 +4286,10 @@ declare namespace cryptoFramework {
   /**
    * 生成Sign实例。
    *
-   * @param { string } algName - 指定签名算法：RSA、ECC、DSA、SM2<sup>10+</sup>或Ed25519<sup>11+</sup>。使用RSA PKCS1模式时需
-   *     设置摘要；使用RSA PSS模式时需设置摘要和掩码摘要。签名时，通过设置OnlySign参数可传入数据摘要仅作签名。<br>支持的规格详见
+   * @param { string } algName - 指定签名算法。当前支持RSA、ECC、DSA、SM2<sup>10+</sup>，Ed25519<sup>11+</sup>和
+   *     ML-DSA<sup>26.0.0+</sup>。
+   *     <br>使用RSA PKCS1模式时需设置摘要；使用RSA PSS模式时需设置摘要和掩码摘要。签名时，通过设置OnlySign参数可传入数据摘要仅作签名。
+   *     <br>支持的规格详见
    *     [签名验签规格](docroot://security/CryptoArchitectureKit/crypto-sign-sig-verify-overview.md)。
    * @returns { Sign } 返回由输入算法指定生成的Sign对象。
    * @throws { BusinessError } 401 - 非法入参。可能的原因：
@@ -4303,8 +4310,10 @@ declare namespace cryptoFramework {
   /**
    * 生成Verify实例。
    *
-   * @param { string } algName - 指定签名算法：RSA、ECC、DSA、SM2<sup>10+</sup>或Ed25519<sup>11+</sup>。使用RSA PKCS1模式时需
-   *     设置摘要；使用RSA PSS模式时需设置摘要和掩码摘要。使用RSA算法验签时，设置Recover参数可支持验签恢复。<br>支持的规格详见
+   * @param { string } algName - 指定签名验证算法。当前支持RSA、ECC、DSA、SM2<sup>10+</sup>，Ed25519<sup>11+</sup>和
+   *     ML-DSA<sup>26.0.0+</sup>。
+   *     <br>使用RSA PKCS1模式时需设置摘要；使用RSA PSS模式时需设置摘要和掩码摘要。使用RSA算法验签时，设置recover参数可支持验签恢复。
+   *     <br>支持的规格详见
    *     [签名验签规格](docroot://security/CryptoArchitectureKit/crypto-sign-sig-verify-overview.md)。
    * @returns { Verify } 返回由输入算法指定生成的Verify对象。
    * @throws { BusinessError } 401 - 非法入参。可能的原因：
@@ -4338,8 +4347,8 @@ declare namespace cryptoFramework {
      *
      * @param { PriKey } priKey - 设置密钥协商的私钥输入。
      * @param { PubKey } pubKey - 设置密钥协商的公钥输入。
-     * @param { AsyncCallback<DataBlob> } callback - 回调函数。当密钥协商成功时，err为undefined，data为协商的共享密钥；否则为错误
-     *     对象。
+     * @param { AsyncCallback<DataBlob> } callback - 回调函数。当密钥协商成功时，err为undefined，data为协商的共享密钥；否则为
+     *     错误对象。
      * @throws { BusinessError } 401 - 非法入参。可能的原因：
      *     <br>1. 必填参数未指定；
      *     <br>2. 参数类型不正确；
@@ -4419,7 +4428,7 @@ declare namespace cryptoFramework {
   /**
    * 生成KeyAgreement实例。
    *
-   * @param { string } algName - 指定密钥协商算法：目前仅支持ECC，从API version 11开始，增加支持X25519和DH。<br>支持的规格详见
+   * @param { string } algName - 指定密钥协商算法：目前仅支持ECDH，从API version 11开始，增加支持X25519和DH。<br>支持的规格详见
    *     [密钥协商规格](docroot://security/CryptoArchitectureKit/crypto-key-agreement-overview.md)。
    * @returns { KeyAgreement } 返回由输入算法指定生成的KeyAgreement对象。
    * @throws { BusinessError } 401 - 非法入参。可能的原因：
@@ -4653,7 +4662,7 @@ declare namespace cryptoFramework {
     ECC_FIELD_SIZE_NUM = 212,
 
     /**
-     * ECC算法中的SECG(Standards for Efficient Cryptography Group)曲线名称。
+     * ECC算法中的SECG（Standards for Efficient Cryptography Group）曲线名称。
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 10 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
@@ -4829,7 +4838,7 @@ declare namespace cryptoFramework {
     ML_DSA_PRIVATE_SEED = 0,
 
     /**
-     * ML-DSA私钥的私有raw。
+     * ML-DSA私钥的原始私钥数据。
      *
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @stagemodelonly
@@ -4839,7 +4848,7 @@ declare namespace cryptoFramework {
     ML_DSA_PRIVATE_RAW = 1,
 
     /**
-     * ML-DSA公钥的public raw。
+     * ML-DSA公钥的原始公钥数据。
      *
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @stagemodelonly
@@ -4859,7 +4868,7 @@ declare namespace cryptoFramework {
     ML_KEM_PRIVATE_SEED = 3,
 
     /**
-     * ML-KEM私钥的私有raw。
+     * ML-KEM私钥的原始私钥数据。
      *
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @stagemodelonly
@@ -4869,7 +4878,7 @@ declare namespace cryptoFramework {
     ML_KEM_PRIVATE_RAW = 4,
 
     /**
-     * ML-KEM公钥的public raw。
+     * ML-KEM公钥的原始公钥数据。
      *
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @stagemodelonly
@@ -4879,7 +4888,7 @@ declare namespace cryptoFramework {
     ML_KEM_PUBLIC_RAW = 5,
 
     /**
-     * 表示椭圆曲线（EC）私钥的 K。
+     * 表示椭圆曲线（EC）上的私钥标量k。
      *
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @stagemodelonly
@@ -4889,7 +4898,7 @@ declare namespace cryptoFramework {
     EC_PRIVATE_K = 6,
 
     /**
-     * 表示椭圆曲线（EC）私钥的 04||X||Y||K。
+      * 表示椭圆曲线（EC）密钥的复合编码04||X||Y||K，其中04||X||Y为非压缩公钥点，K为私钥标量。
      *
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @stagemodelonly
@@ -4899,7 +4908,7 @@ declare namespace cryptoFramework {
     EC_PRIVATE_04_X_Y_K = 7,
 
     /**
-     * 表示椭圆曲线（EC）公钥的 X||Y。
+     * 表示椭圆曲线（EC）公钥的 X||Y格式编码数据。
      *
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @stagemodelonly
@@ -4909,7 +4918,7 @@ declare namespace cryptoFramework {
     EC_PUBLIC_X_Y = 8,
 
     /**
-     * 表示椭圆曲线（EC）公钥的 04||X||Y 。
+     * 表示椭圆曲线（EC）公钥的 04||X||Y格式编码数据。
      *
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @stagemodelonly
@@ -4919,7 +4928,7 @@ declare namespace cryptoFramework {
     EC_PUBLIC_04_X_Y = 9,
 
     /**
-     * 表示椭圆曲线（EC）公钥的 02||X 或 03||X。
+     * 表示椭圆曲线（EC）公钥的 02||X 或 03||X格式编码数据。
      *
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @stagemodelonly
@@ -5477,7 +5486,7 @@ declare namespace cryptoFramework {
   }
 
   /**
-   * 用于根据椭圆曲线名称为非对称密钥对生成公共参数。
+   * 提供ECC密钥参数生成和基于指定椭圆曲线的点转换工具。
    *
    * @syscap SystemCapability.Security.CryptoFramework [since 11 - 11]
    * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
@@ -5559,7 +5568,7 @@ declare namespace cryptoFramework {
   }
 
   /**
-   * 密钥参数[AsyKeySpec]{@link cryptoFramework.AsyKeySpec}的子类，用于指定DH算法中公私钥包含的参数。
+   * 密钥参数[AsyKeySpec]{@link cryptoFramework.AsyKeySpec}的子类，用于指定DH算法中公私钥包含的公共参数。
    *
    * 在使用密钥参数生成密钥时，将其传入[createAsyKeyGeneratorBySpec()]{@link cryptoFramework.createAsyKeyGeneratorBySpec}方法
    * 创建密钥生成器。
@@ -6079,7 +6088,7 @@ declare namespace cryptoFramework {
   }
 
   /**
-   * 非对称密钥生成器。在使用该类的方法前，需要先使用
+   * AsyKeyGeneratorBySpec非对称密钥生成器。在使用该类的方法前，需要先使用
    * [createAsyKeyGeneratorBySpec()]{@link cryptoFramework.createAsyKeyGeneratorBySpec}方法构建一个AsyKeyGeneratorBySpec
    * 实例。
    *
@@ -6307,11 +6316,11 @@ declare namespace cryptoFramework {
   }
 
   /**
-   * 指定密钥参数，获取非对称密钥生成器实例。
+   * 指定密钥参数，获取AsyKeyGeneratorBySpec非对称密钥生成器实例。
    *
    * @param { AsyKeySpec } asyKeySpec - 密钥参数。非对称密钥生成器根据指定的这些参数生成公/私钥。<br>支持的规格详见
    *     [非对称密钥生成和转换规格](docroot://security/CryptoArchitectureKit/crypto-asym-key-generation-conversion-spec.md)。
-   * @returns { AsyKeyGeneratorBySpec } 返回非对称密钥生成器实例。
+   * @returns { AsyKeyGeneratorBySpec } 返回AsyKeyGeneratorBySpec非对称密钥生成器实例。
    * @throws { BusinessError } 401 - 非法入参。可能的原因：
    *     <br>1. 必填参数未指定；
    *     <br>2. 参数类型不正确；
@@ -6517,7 +6526,7 @@ declare namespace cryptoFramework {
     salt: Uint8Array;
 
     /**
-     * 迭代次数，需要为正整数。
+     * CPU/内存开销参数，需要为正整数。
      *
      * @syscap SystemCapability.Security.CryptoFramework.Kdf
      * @crossplatform
@@ -6598,7 +6607,7 @@ declare namespace cryptoFramework {
     key: string | Uint8Array;
 
     /**
-     * 附加信息。
+     * 共享信息。
      *
      * @syscap SystemCapability.Security.CryptoFramework.Kdf
      * @crossplatform
@@ -6862,7 +6871,7 @@ declare namespace cryptoFramework {
   }
 
   /**
-   * 包含（r、s）的ECC/SM2签名数据的结构体。
+   * 包含（r、s）的ECC/SM2签名数据的对象。
    *
    * > **说明：**
    * >
@@ -6912,7 +6921,7 @@ declare namespace cryptoFramework {
      * 从ASN1 DER格式的ECC/SM2签名数据获取r和s。
      *
      * @param { Uint8Array } data - ASN1 DER格式的签名数据。
-     * @returns { EccSignatureSpec } 包含r和s的数据结构体。
+     * @returns { EccSignatureSpec } 包含r和s的数据对象。
      * @throws { BusinessError } 17620001 - 内存操作失败。
      * @throws { BusinessError } 17620002 - 获取Native对象失败或参数转换失败。
      * @throws { BusinessError } 17620003 - 参数检查失败。可能的原因：
@@ -6946,7 +6955,7 @@ declare namespace cryptoFramework {
   }
 
   /**
-   * KEM算法名称ID。
+   * 枚举KEM算法名称ID。
    *
    * @syscap SystemCapability.Security.CryptoFramework.Cipher
    * @stagemodelonly
@@ -7016,7 +7025,7 @@ declare namespace cryptoFramework {
   }
 
   /**
-   * 表示密钥封装机制（KEM）的类型，该类型用于密钥封装和解封装操作。
+   * 提供KEM密钥封装和解封装操作的API。
    *
    * @syscap SystemCapability.Security.CryptoFramework.Cipher
    * @stagemodelonly
