@@ -7300,7 +7300,7 @@ declare namespace window {
      *
      * @param { Orientation } orientation - Display orientation.
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: Failed to convert parameter to Orientation.
+     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause:
      *     1. The window is not created or destroyed;
      *     2. Internal task error.
@@ -7636,7 +7636,7 @@ declare namespace window {
      * @param { Orientation } orientation - Display orientation.
      * @param { AsyncCallback<void> } callback - Callback used to return the result. The callback indicates the API call
      *     result. It does not mean that the application rotation animation ends.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: Failed to convert parameter to Orientation.
+     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause:
      *     1. The window is not created or destroyed;
      *     2. Internal task error.
@@ -11019,7 +11019,7 @@ declare namespace window {
      *     Invalid parameter range.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
-     *     Possible cause: Invalid window type. Only main windows are supported.
+     *      Possible cause: Invalid window type. Only main windows are supported.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice [since 12]
      * @since 10 dynamic
@@ -11946,8 +11946,7 @@ declare namespace window {
      *     2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
      *     capabilities.
-     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause:
-     *     The window is not created or destroyed.
+     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause: The window is not created or destroyed.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally. [since 20]
      * @throws { BusinessError } 1300004 - Unauthorized operation. Possible cause:
      *     Invalid window type. Only subwindows are supported.
@@ -12948,7 +12947,7 @@ declare namespace window {
      * Obtains the z-level of the current child window. This API cannot be called by the main window or system window.
      *
      * @returns { int } Z-level of the child window.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Function getSubWindowZLevel can not work correctly due to limited device capabilities.
      *     Function setSubWindowZLevel can not work correctly due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
@@ -13152,7 +13151,7 @@ declare namespace window {
      * @returns { int } Converted value of the target type.
      * @throws { BusinessError } 801 - Capability not supported.
      *     Failed to call the API due to limited device capabilities.
-     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause: 1. The window is not created or destroyed; 2. Internal task error.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
      * @since 23 dynamic&static
@@ -14294,7 +14293,7 @@ declare namespace window {
      *     2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
      *     capabilities.
-     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause: The window is not created or destroyed.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @throws { BusinessError } 1300005 - This window stage is abnormal. Possible cause:
      *     The window is not created or destroyed. [since 20]
