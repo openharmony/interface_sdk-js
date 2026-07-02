@@ -12948,7 +12948,6 @@ declare namespace window {
      *
      * @returns { int } Z-level of the child window.
      * @throws { BusinessError } 801 - Capability not supported. Function getSubWindowZLevel can not work correctly due to limited device capabilities.
-     *     Function setSubWindowZLevel can not work correctly due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.Window.SessionManager
