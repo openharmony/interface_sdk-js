@@ -14413,44 +14413,40 @@ declare namespace window {
     setSupportedWindowModes(supportedWindowModes: Array<bundleManager.SupportWindowMode>, grayOutMaximizeButton: boolean): Promise<void>;
 
     /**
-     * Sets Image for recent.
+     * Sets the image displayed in the multitasking view and on dock hover. This API uses a promise to return the result.
      *
-     * @param { long | image.PixelMap } imageResource - imageResourceId or pixelMap for recent image.
-     *     imageResourceId Value Range: [0x1000000, 0xffffffff].
-     * @param { ImageFit } value - Sets the zoom type of an image.
-     * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-     * @throws { BusinessError } 801 - Capability not supported.
-     *     Failed to call the API due to limited device capabilities.
-     * @throws { BusinessError } 1300002 - This window state is abnormal.
-     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
-     * @throws { BusinessError } 1300016 - Parameter error. Possible cause:
-     *     1. Invalid parameter range. 2. Invalid parameter length.
-     * @syscap SystemCapability.Window.SessionManager
-     * @systemapi Hide this for inner system use.
-     * @stagemodelonly
-     * @since 22 dynamic
-     * @since 23 static
-     */
-    /**
-     * Sets Image for recent.
+     * > **NOTE**
+     * >
+     * > Before calling this API, you are advised to complete page loading via
+     * > [loadContent]{@link window.Window.loadContent(path: string, storage: LocalStorage, callback: AsyncCallback<void>)} or
+     * > [setUIContent]{@link @ohos.window:window.Window.setUIContent(path: string)}. If this API is called before the application
+     * > completes page loading, the intended functionality does not take effect. As a result, only the application's
+     * > launch page is displayed in the multitasking view.
      *
-     * @permission ohos.permission.MANAGE_RECENT_SNAPSHOT
+     * @permission ohos.permission.MANAGE_RECENT_SNAPSHOT [since 26.0.0]
      * @param { long | image.PixelMap } imageResource - imageResourceId or pixelMap for recent image.
      *     imageResourceId Value Range: [0x1000000, 0xffffffff].
      * @param { ImageFit } value - Sets the zoom type of an image.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have
-     *     the permission required or a non-system application calls the API.
+     *     the permission required or a non-system application calls the API. [since 26.0.0]
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system
+     *     API. [since 22 - 24]
      * @throws { BusinessError } 801 - Capability not supported.
      *     Failed to call the API due to limited device capabilities.
-     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause:
+     *     1. The window is not created or destroyed.
+     *     2. The WindowStage is running in the background.
+     *     3. Internal task error.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @throws { BusinessError } 1300016 - Parameter error. Possible cause:
      *     1. Invalid parameter range. 2. Invalid parameter length.
      * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use. [since 22 - 24]
+     * @publicapi [since 26.0.0]
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     setImageForRecent(imageResource: long | image.PixelMap, value: ImageFit): Promise<void>;
 
