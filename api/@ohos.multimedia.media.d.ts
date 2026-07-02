@@ -2960,23 +2960,13 @@ declare namespace media {
     AV_METRICS_EVENT_CONTENT_DISCONTINUITY = 6,
 
     /**
-     * Audio/video decoder exception event, which is reported when an exception occurs in the decoder.
-     * The carried information includes the decoder type and exception type.
-     *
-     * @syscap SystemCapability.Multimedia.Media.Core
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    AV_METRICS_EVENT_CODEC_ABNORMAL = 7,
-
-    /**
      * Audio device status change event, including underload or out-of-focus.
      *
      * @syscap SystemCapability.Multimedia.Media.Core
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
-    AV_METRICS_EVENT_AUDIO_ABNORMAL = 8,
+    AV_METRICS_EVENT_AUDIO_ABNORMAL = 7,
   }
 
   /**
