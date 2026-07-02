@@ -4150,7 +4150,8 @@ declare namespace window {
    * @throws { BusinessError } 1300004 - Unauthorized operation. Possible cause: The window is not a main window.
    * @throws { BusinessError } 1300008 - Invalid display. Possible cause:
    *     1. DisplayId is a negative number or not exist.
-   * @throws { BusinessError } 1300016 - Parameter error. Possible cause: 1. The userId is not exist. 
+   * @throws { BusinessError } 1300016 - Parameter error. Possible cause: 
+   *     1. The userId is not exist. 
    * @syscap SystemCapability.Window.SessionManager
    * @systemapi Hide this for inner system use.
    * @stagemodelonly
