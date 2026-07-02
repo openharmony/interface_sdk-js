@@ -14,14 +14,14 @@
  */
 
 /**
- * @file User Authentication Extension Ability
+ * @file 用户认证扩展能力组件
  * @kit UserAuthenticationKit
  */
 
 import UIExtensionAbility from './@ohos.app.ability.UIExtensionAbility';
 
 /**
- * The class of user authentication extension ability.
+ * 用户认证扩展能力组件
  *
  * @extends UIExtensionAbility
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
