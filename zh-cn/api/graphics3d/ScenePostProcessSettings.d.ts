@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2024-2024 Huawei Device Co., Ltd.
+ * Copyright (c) 2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -19,7 +19,7 @@
  */
 
 /**
- * The enum of tone mapping type.
+ * 色调映射类型枚举.
  *
  * @enum { int }
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -28,7 +28,7 @@
  */
 export enum ToneMappingType {
   /**
-   * The tone mapping type is ACES.
+   * ACES色调映射类型.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
@@ -37,7 +37,7 @@ export enum ToneMappingType {
   ACES = 0,
 
   /**
-   * The tone mapping type is ACES_2020.
+   * ACES_2020色调映射类型.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
@@ -46,7 +46,7 @@ export enum ToneMappingType {
   ACES_2020 = 1,
 
   /**
-   * The tone mapping type is FILMIC.
+   * FILMIC色调映射类型.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
@@ -56,7 +56,7 @@ export enum ToneMappingType {
 }
 
 /**
- * Defines tone mapping parameters.
+ * 定义色调映射参数.
  *
  * @typedef ToneMappingSettings
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -65,7 +65,7 @@ export enum ToneMappingType {
  */
 export interface ToneMappingSettings {
   /**
-   * Type of the tone mapping.
+   * 色调映射类型.
    *
    * @type { ?ToneMappingType }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -75,7 +75,7 @@ export interface ToneMappingSettings {
   type?: ToneMappingType;
 
   /**
-   * Exposure of the tone mapping.
+   * 色调映射曝光度.
    *
    * @type { ?double }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -86,7 +86,7 @@ export interface ToneMappingSettings {
 }
 
 /**
- * Defines bloom parameters.
+ * 定义泛光参数.
  * 
  * @typedef BloomSettings
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -95,7 +95,7 @@ export interface ToneMappingSettings {
  */
 export interface BloomSettings {
   /**
-   * Bloom threshold hard.
+   * 泛光硬阈值.
    * 
    * @type { ?double }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -105,7 +105,7 @@ export interface BloomSettings {
   thresholdHard?: double;
 
   /**
-   * Bloom threshold soft.
+   * 泛光软阈值.
    * 
    * @type { ?double }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -115,9 +115,9 @@ export interface BloomSettings {
   thresholdSoft?: double;
 
   /**
-   * Scaling factor. Controls the amount of scaling and bloom spread.
-   * Reduces the downscale and upscale steps.
-   * Values 0 - 1. Value of 0.5 halves the scale steps.
+   * 缩放因子. 控制缩放和泛光扩散量.
+   * 减少降缩放和上缩放步骤.
+   * 取值范围0-1. 值为0.5时减半缩放步骤.
    * 
    * @type { ?double}
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -127,7 +127,7 @@ export interface BloomSettings {
   scaleFactor?: double;
 
   /**
-   * Scatter (amount of bloom spread). (1.0 full spread / default).
+   * 扩散（泛光扩散量）. (1.0 full spread / default).
    * 
    * @type { ?double }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -138,7 +138,7 @@ export interface BloomSettings {
 }
 
 /**
- * Defines vignette parameters.
+ * 定义暗角参数.
  *
  * @typedef VignetteSettings
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -147,8 +147,8 @@ export interface BloomSettings {
  */
 export interface VignetteSettings {
   /**
-   * Controls the roundness of vignette between [0, 1].
-   * Lower value will make the vignette effect more square.
+   * 控制暗角在[0, 1]之间的圆度.
+   * 较低的值将使暗角效果更接近方形.
    *
    * @type { ?double }
    * @default sqrt(0.5)
@@ -159,9 +159,9 @@ export interface VignetteSettings {
   roundness?: double;
 
   /**
-   * Controls how strong the dark or bright edges are.
-   * When intensity > 0, the edges darken and the center brightens, creating a classic vignette effect.
-   * When intensity < 0, the center darkens and the edges brighten, producing an reverse vignette effect.
+   * 控制暗边或亮边的强度.
+   * 当intensity > 0时，边缘变暗且中心变亮，创建经典暗角效果.
+   * 当intensity < 0时，中心变暗且边缘变亮，产生反向暗角效果.
    *
    * @type { ?double }
    * @default 0.4
@@ -173,7 +173,7 @@ export interface VignetteSettings {
 }
 
 /**
- * Defines color fringe parameters.
+ * 定义色晕参数.
  *
  * @typedef ColorFringeSettings
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -182,7 +182,7 @@ export interface VignetteSettings {
  */
 export interface ColorFringeSettings {
   /**
-   * Controls the strength of color fringe.
+   * 控制色晕强度.
    *
    * @type { ?double }
    * @default 0.2
@@ -194,7 +194,7 @@ export interface ColorFringeSettings {
 }
 
 /**
- * Defines post processing settings.
+ * 定义后处理设置.
  *
  * @typedef PostProcessSettings 
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -203,7 +203,7 @@ export interface ColorFringeSettings {
  */
 export interface PostProcessSettings {
   /**
-   * Tone mapping settings of the post processing settings.
+   * 后处理设置的色调映射设置.
    *
    * @type { ?ToneMappingSettings }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -213,7 +213,7 @@ export interface PostProcessSettings {
   toneMapping?: ToneMappingSettings;
 
   /**
-   * Bloom settings of the post processing settings
+   * 后处理设置的泛光设置
    * 
    * @type { ?BloomSettings }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -223,10 +223,10 @@ export interface PostProcessSettings {
   bloom?: BloomSettings;
 
   /**
-   * Vignette settings of the post processing settings
+   * 后处理设置的暗角设置
    *
    * @type { ?VignetteSettings }
-   * @default vignette enabled by default
+   * @default 暗角默认启用
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 22 dynamic
    * @since 23 static
@@ -234,10 +234,10 @@ export interface PostProcessSettings {
   vignette?: VignetteSettings;
 
   /**
-   * Color fringe settings of the post processing settings
+   * 后处理设置的色晕设置
    *
    * @type { ?ColorFringeSettings }
-   * @default colorFringe enabled by default
+   * @default 色晕默认启用
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 22 dynamic
    * @since 23 static
