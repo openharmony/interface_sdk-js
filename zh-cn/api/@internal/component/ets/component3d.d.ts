@@ -19,7 +19,7 @@
  */
 
 /**
- * Provides methods for controlling the 3d scene 
+ * 提供控制3D场景的方法 
  *
  * @typedef { import('../api/@ohos.graphics.scene').Scene }
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -29,7 +29,7 @@
 declare type Scene = import('../api/@ohos.graphics.scene').Scene;
 
 /**
- * The enum of model type
+ * 模型类型枚举
  * @enum { number }
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @atomicservice
@@ -37,7 +37,7 @@ declare type Scene = import('../api/@ohos.graphics.scene').Scene;
  */
 declare enum ModelType {
   /**
-   * Render to texture, gpu would compose this texture to screen.
+   * 渲染到纹理，GPU将此纹理合成到屏幕.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @atomicservice
@@ -46,7 +46,7 @@ declare enum ModelType {
   TEXTURE = 0,
 
   /**
-   * Render to surface, special hardware would compose this surface to screen.
+   * 渲染到表面，专有硬件将此表面合成到屏幕.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @atomicservice
@@ -56,7 +56,7 @@ declare enum ModelType {
 }
 
 /**
- * Scene options used by 3D scene control 
+ * 3D场景控制使用的场景选项 
  *
  * @interface SceneOptions
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -65,7 +65,7 @@ declare enum ModelType {
  */
 declare interface SceneOptions {
   /**
-   * ResourceStr type for 3D rendering, Scene type for 3d scene controlling
+   * 3D渲染的资源类型，3D场景控制的Scene类型
    *
    * @type { ?(ResourceStr | Scene) }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -75,10 +75,10 @@ declare interface SceneOptions {
   scene?: ResourceStr | Scene;
 
   /**
-   * Scene type when 3D rendering
+   * 3D渲染时的场景类型
    *
    * @type { ?ModelType }
-   * @default ModelType.SURFACE 
+    * @default ModelType.SURFACE 表面模型类型
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @atomicservice
    * @since 12 dynamic
@@ -87,7 +87,7 @@ declare interface SceneOptions {
 }
 
 /**
- * Defines Component3D. 
+ * 定义Component3D. 
  *
  * @interface Component3DInterface
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -96,9 +96,9 @@ declare interface SceneOptions {
  */
 interface Component3DInterface {
   /**
-   * SceneOptions used by constructor 
+   * 构造函数使用的SceneOptions 
    *
-   * @param { SceneOptions } sceneOptions - The 3D scene controller
+   * @param { SceneOptions } sceneOptions - 3D场景控制器
    * @returns { Component3DAttribute }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @atomicservice
@@ -115,10 +115,10 @@ interface Component3DInterface {
  */
 declare class Component3DAttribute extends CommonMethod<Component3DAttribute> {
   /**
-   * Load 3D model environment resource.
+   * 加载3D模型环境资源.
    *
-   * @param { ResourceStr } uri - The path of 3D environment resource
-   * @returns { Component3DAttribute } The attribute of the component3D
+   * @param { ResourceStr } uri - 3D环境资源的路径
+   * @returns { Component3DAttribute } component3D的属性
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @atomicservice
    * @since 12 dynamic
@@ -126,11 +126,11 @@ declare class Component3DAttribute extends CommonMethod<Component3DAttribute> {
   environment(uri: ResourceStr): Component3DAttribute;
 
   /**
-   * Set render pipeline of 3D scene render.
+   * 设置3D场景渲染的渲染管线.
    *
-   * @param { ResourceStr } uri - The path of Render pipeline config file
-   * @param { boolean } selfRenderUpdate - Trigger rendering every frame
-   * @returns { Component3DAttribute } The attribute of the component3D
+   * @param { ResourceStr } uri - 渲染管线配置文件的路径
+   * @param { boolean } selfRenderUpdate - 每帧触发动效渲染
+   * @returns { Component3DAttribute } component3D的属性
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @atomicservice
    * @since 12 dynamic
@@ -138,10 +138,10 @@ declare class Component3DAttribute extends CommonMethod<Component3DAttribute> {
   customRender(uri: ResourceStr, selfRenderUpdate: boolean): Component3DAttribute;
 
   /**
-   * Load shader uri. 
+   * 加载着色器URI. 
    *
-   * @param { ResourceStr } uri - The path of custom shader
-   * @returns { Component3DAttribute } The attribute of the component3D
+   * @param { ResourceStr } uri - 自定义着色器的路径
+   * @returns { Component3DAttribute } component3D的属性
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @atomicservice
    * @since 12 dynamic
@@ -149,10 +149,10 @@ declare class Component3DAttribute extends CommonMethod<Component3DAttribute> {
   shader(uri: ResourceStr): Component3DAttribute;
 
   /**
-   * Load shader texture uri. 
+   * 加载着色器纹理URI. 
    *
-   * @param { ResourceStr } uri - The path of texture used by shader
-   * @returns { Component3DAttribute } The attribute of the component3D
+   * @param { ResourceStr } uri - 着色器所用纹理的路径
+   * @returns { Component3DAttribute } component3D的属性
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @atomicservice
    * @since 12 dynamic
@@ -160,10 +160,10 @@ declare class Component3DAttribute extends CommonMethod<Component3DAttribute> {
   shaderImageTexture(uri: ResourceStr): Component3DAttribute;
   
   /**
-   * Buffer input for shader animation 
+   * 着色器动画的缓冲区输入 
    *
-   * @param { Array<number> } buffer - The uniform buffer of shader input
-   * @returns { Component3DAttribute } The attribute of the component3D
+   * @param { Array<number> } buffer - 着色器输入的统一缓冲区
+   * @returns { Component3DAttribute } component3D的属性
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @atomicservice
    * @since 12 dynamic
@@ -171,10 +171,10 @@ declare class Component3DAttribute extends CommonMethod<Component3DAttribute> {
   shaderInputBuffer(buffer: Array<number>): Component3DAttribute;
 
   /**
-   * Set render width resolution. 
+   * 设置渲染宽度分辨率. 
    *
-   * @param { Dimension } value - Width of gpu render target, target would upscale or downscale to view's width.
-   * @returns { Component3DAttribute } The attribute of the component3D
+   * @param { Dimension } value - GPU渲染目标的宽度，目标将上采样或下采样到视图宽度.
+   * @returns { Component3DAttribute } component3D的属性
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @atomicservice
    * @since 12 dynamic
@@ -182,10 +182,10 @@ declare class Component3DAttribute extends CommonMethod<Component3DAttribute> {
   renderWidth(value: Dimension): Component3DAttribute;
 
   /**
-   * Set render height resolution. 
+   * 设置渲染高度分辨率. 
    *
-   * @param { Dimension } value - Height of gpu render target, target would upscale or downscale to view's height.
-   * @returns { Component3DAttribute } The attribute of the component3D
+   * @param { Dimension } value - GPU渲染目标的高度，目标将上采样或下采样到视图高度.
+   * @returns { Component3DAttribute } component3D的属性
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @atomicservice
    * @since 12 dynamic
@@ -194,7 +194,7 @@ declare class Component3DAttribute extends CommonMethod<Component3DAttribute> {
 }
 
 /**
- * Defines Component3D component. 
+ * 定义Component3D组件. 
  *
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @atomicservice
@@ -203,7 +203,7 @@ declare class Component3DAttribute extends CommonMethod<Component3DAttribute> {
 declare const Component3D: Component3DInterface;
 
 /**
- * Defines Component3D instance.
+ * 定义Component3D实例.
  *
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @atomicservice
