@@ -1235,6 +1235,34 @@ declare namespace observer {
   function offIccAccountInfoChange(callback?: Callback<void>): void;
 
   /**
+   * This API uses an asynchronous callback to return the result.
+   *
+   * @permission ohos.permission.GET_NETWORK_INFO
+   * @param { Callback<boolean> } callback - Callback used to return the result.
+   *     The value **true** indicates 5A state, and **false** indicates not 5A state.
+   * @param { ObserverOptions } [options] - Indicates the options for observer.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @syscap SystemCapability.Telephony.StateRegistry
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function onCommunicationStateChange(callback: Callback<boolean>, options?: ObserverOptions): void;
+
+  /**
+   * Unsubscribes from the callback for listening to the 5A state.
+   *
+   * @permission ohos.permission.GET_NETWORK_INFO
+   * @param { Callback<boolean> } callback - Callback used to return the result.
+   *     The value **true** indicates 5A state, and **false** indicates not 5A state.
+   * @param { ObserverOptions } [options] - Indicates the options for observer.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @syscap SystemCapability.Telephony.StateRegistry
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function offCommunicationStateChange(callback: Callback<boolean>, options?: ObserverOptions): void;
+
+  /**
    * Indicates SIM card type and status.
    *
    * @interface SimStateData
