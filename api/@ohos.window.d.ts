@@ -3162,9 +3162,7 @@ declare namespace window {
    *     is thrown.
    * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types.
-   * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause:
-   *     1. The window is not created or destroyed.
-   *     2. Window not found.
+   * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause: The window is not created or destroyed.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @crossplatform [since 10]
    * @atomicservice [since 11]
@@ -12786,7 +12784,7 @@ declare namespace window {
      *     4. It is not allowed to create non-secure window when secure extension exists.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @throws { BusinessError } 1300004 - Unauthorized operation. Possible cause:
-     *     1. Invalid window type. Only main windows, subwindows, and floating windows are supported.
+     *     1. Invalid window type. Only main windows, subwindows, and floating windows are supported;
      *     2. When SubWindowOptions.zLevelAboveParentLoosened is true, only main windows are supported.
      * @syscap SystemCapability.Window.SessionManager
      * @StageModelOnly
@@ -12816,7 +12814,7 @@ declare namespace window {
      *     2. Internal task error.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @throws { BusinessError } 1300004 - Unauthorized operation. Possible cause:
-     *     Invalid window type. Only subwindow are supported.
+     *     Invalid window type. Only subwindows are supported.
      * @throws { BusinessError } 1300009 - The parent window is invalid. Possible cause:
      *     The parent window does not exist or has been destroyed.
      * @syscap SystemCapability.Window.SessionManager
