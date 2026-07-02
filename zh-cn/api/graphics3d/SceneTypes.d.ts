@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2024-2024 Huawei Device Co., Ltd.
+ * Copyright (c) 2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -14,12 +14,12 @@
  */
 
 /**
- * @file Defines 3D basic types
+ * @file 定义3D基础类型
  * @kit ArkGraphics3D
  */
 
 /**
- * Defines Vec2.
+ * 定义Vec2（二维向量）.
  *
  * @typedef Vec2
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -28,7 +28,7 @@
  */
 export interface Vec2 {
   /**
-   * X component of the vec2.
+   * vec2的X分量.
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -38,7 +38,7 @@ export interface Vec2 {
   x: double;
 
   /**
-   * Y component of the vec2.
+   * vec2的Y分量.
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -49,7 +49,7 @@ export interface Vec2 {
 }
 
 /**
- * Defines Vec3.
+ * 定义Vec3（三维向量）.
  *
  * @typedef Vec3
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -58,7 +58,7 @@ export interface Vec2 {
  */
 export interface Vec3 {
   /**
-   * X component of the vec3.
+   * vec3的X分量.
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -68,7 +68,7 @@ export interface Vec3 {
   x: double;
 
   /**
-   * Y component of the vec3.
+   * vec3的Y分量.
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -78,7 +78,7 @@ export interface Vec3 {
   y: double;
 
   /**
-   * Z component of the vec3.
+   * vec3的Z分量.
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -89,7 +89,7 @@ export interface Vec3 {
 }
 
 /**
- * Defines Vec4.
+ * 定义Vec4（四维向量）.
  *
  * @typedef Vec4
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -98,7 +98,7 @@ export interface Vec3 {
  */
 export interface Vec4 {
   /**
-   * X component of the vec4.
+   * vec4的X分量.
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -108,7 +108,7 @@ export interface Vec4 {
   x: double;
 
   /**
-   * Y component of the vec4.
+   * vec4的Y分量.
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -118,7 +118,7 @@ export interface Vec4 {
   y: double;
 
   /**
-   * Z component of the vec4.
+   * vec4的Z分量.
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -128,7 +128,7 @@ export interface Vec4 {
   z: double;
 
   /**
-   * W component of the vec4.
+   * vec4的W分量.
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -139,7 +139,7 @@ export interface Vec4 {
 }
 
 /**
- * Quaternion representing a rotation.
+ * 表示旋转的四元数.
  *
  * @typedef Quaternion
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -148,7 +148,7 @@ export interface Vec4 {
  */
 export interface Quaternion {
   /**
-   * X component of the quaternion.
+   * 四元数的X分量.
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -158,7 +158,7 @@ export interface Quaternion {
   x: double;
 
   /**
-   * Y component of the quaternion.
+   * 四元数的Y分量.
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -168,7 +168,7 @@ export interface Quaternion {
   y: double;
 
   /**
-   * Z component of the quaternion.
+   * 四元数的Z分量.
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -178,7 +178,7 @@ export interface Quaternion {
   z: double;
 
   /**
-   * W component of the quaternion.
+   * 四元数的W分量.
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -189,7 +189,7 @@ export interface Quaternion {
 }
 
 /**
- * Axis aligned bounding box.
+ * 轴对齐边界盒.
  *
  * @typedef Aabb 
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -198,7 +198,7 @@ export interface Quaternion {
  */
 export interface Aabb {
   /**
-   * Coordinates of the AABB minimum corner, the unit is the scene unit in the world coordinate system (e.g., cm, m, km).
+   * AABB最小角点的坐标, 单位为世界坐标系下的场景单位（例如cm、m、km等）.
    *
    * @type { Vec3 }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -208,7 +208,7 @@ export interface Aabb {
   aabbMin: Vec3;
 
   /**
-   * Coordinates of the AABB maximum corner, the unit is the scene unit in the world coordinate system (e.g., cm, m, km).
+   * AABB最大角点的坐标, 单位为世界坐标系下的场景单位（例如cm、m、km等）.
    *
    * @type { Vec3 }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -219,7 +219,7 @@ export interface Aabb {
 }
 
 /**
- * Defines Color.
+ * 定义颜色.
  *
  * @typedef Color 
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -228,7 +228,7 @@ export interface Aabb {
  */
 export interface Color {
   /**
-   * R component of the color.
+   * 颜色的R分量.
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -238,7 +238,7 @@ export interface Color {
   r: double;
 
   /**
-   * G component of the color.
+   * 颜色的G分量.
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -248,7 +248,7 @@ export interface Color {
   g: double;
 
   /**
-   * B component of the color.
+   * 颜色的B分量.
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -258,7 +258,7 @@ export interface Color {
   b: double;
 
   /**
-   * A component of the color.
+   * 颜色的A分量.
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -269,7 +269,7 @@ export interface Color {
 }
 
 /**
- * Defines rectangle.
+ * 定义矩形.
  *
  * @typedef Rect
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -278,7 +278,7 @@ export interface Color {
  */
 export interface Rect {
   /**
-   * Left up x coordinate, the unit is the scene unit in the world coordinate system (e.g., cm, m, km).
+   * 左上角x坐标, 单位为世界坐标系下的场景单位（例如cm、m、km等）.
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -288,7 +288,7 @@ export interface Rect {
   x: double;
 
   /**
-   * Left up y coordinate, the unit is the scene unit in the world coordinate system (e.g., cm, m, km).
+   * 左上角y坐标, 单位为世界坐标系下的场景单位（例如cm、m、km等）.
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -298,7 +298,7 @@ export interface Rect {
   y: double;
 
   /**
-   * The width of the rectangle, the unit is the scene unit in the world coordinate system (e.g., cm, m, km).
+   * 矩形的宽度, 单位为世界坐标系下的场景单位（例如cm、m、km等）.
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -308,7 +308,7 @@ export interface Rect {
   width: double;
 
   /**
-   * The height of the rectangle, the unit is the scene unit in the world coordinate system (e.g., cm, m, km).
+   * 矩形的高度, 单位为世界坐标系下的场景单位（例如cm、m、km等）.
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -319,7 +319,7 @@ export interface Rect {
 }
 
 /**
- * Types of geometric shapes.
+ * 几何形状类型.
  *
  * @enum { int }
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -328,7 +328,7 @@ export interface Rect {
  */
 export enum GeometryType {
   /**
-   * A custom geometric shape.
+   * 自定义几何形状.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 18 dynamic
@@ -337,7 +337,7 @@ export enum GeometryType {
   CUSTOM = 0,
 
   /**
-   * A cube.
+   * 立方体.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 18 dynamic
@@ -346,7 +346,7 @@ export enum GeometryType {
   CUBE = 1,
 
   /**
-   * A plane.
+   * 平面.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 18 dynamic
@@ -355,7 +355,7 @@ export enum GeometryType {
   PLANE = 2,
 
   /**
-   * A sphere.
+   * 球体.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 18 dynamic
@@ -364,7 +364,7 @@ export enum GeometryType {
   SPHERE = 3,
 
   /**
-   * A cylinder.
+   * 圆柱体.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 23 dynamic&static
@@ -373,7 +373,7 @@ export enum GeometryType {
 }
 
 /**
- * The enum of rendering pipeline type.
+ * 渲染管线类型枚举.
  *
  * @enum { int }
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -382,9 +382,9 @@ export enum GeometryType {
  */
 export enum RenderingPipelineType {
   /**
-   * Lightweight forward pipeline which renders directly to back buffer.
-   * This pipeline can only do per-pixel effects (e.g. tonemapping) in the shader,
-   * complex effects (e.g. bloom) are not supported.
+   * 轻量级前向渲染管线，直接渲染到后缓冲区.
+   * 该管线只能在着色器中实现逐像素效果（例如色调映射）,
+   * 不支持复杂效果（例如光晕）.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 21 dynamic
@@ -393,8 +393,8 @@ export enum RenderingPipelineType {
   FORWARD_LIGHTWEIGHT = 0,
   
   /**
-   * Forward pipeline for high quality rendering.
-   * Use this for complex visual effects (e.g. bloom).
+   * 高质量前向渲染管线.
+   * 用于复杂的视觉效果（例如光晕）.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 21 dynamic
@@ -404,7 +404,7 @@ export enum RenderingPipelineType {
 }
 
 /**
- * Define a geometric shape for mesh creation.
+ * 定义用于网格创建的几何形状.
  *
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 18 dynamic
@@ -412,7 +412,7 @@ export enum RenderingPipelineType {
  */
 export declare abstract class GeometryDefinition {
   /**
-   * Which geometry shape to interpret from this definition.
+   * 从该定义中解释几何形状的类型.
    *
    * @returns { GeometryType }
    * @readonly
@@ -424,7 +424,7 @@ export declare abstract class GeometryDefinition {
 }
 
 /**
- * Defines Mat4x4
+ * 定义Mat4x4（4x4矩阵）
  *
  * @typedef Mat4x4
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -432,7 +432,7 @@ export declare abstract class GeometryDefinition {
  */
 export interface Mat4x4 {
   /**
-   * the first column of the matrix
+   * 矩阵的第一列
    * @type { Vec4 }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 23 dynamic&static
@@ -440,7 +440,7 @@ export interface Mat4x4 {
   x: Vec4;
 
   /**
-   * the second column of the matrix
+   * 矩阵的第二列
    * @type { Vec4 }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 23 dynamic&static
@@ -448,7 +448,7 @@ export interface Mat4x4 {
   y: Vec4;
 
   /**
-   * the third column of the matrix
+   * 矩阵的第三列
    * @type { Vec4 }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 23 dynamic&static
@@ -456,7 +456,7 @@ export interface Mat4x4 {
   z: Vec4;
 
   /**
-   * the fourth column of the matrix
+   * 矩阵的第四列
    * @type { Vec4 }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 23 dynamic&static
@@ -465,7 +465,7 @@ export interface Mat4x4 {
 }
 
 /**
- * How vertices in a sequence form triangles.
+ * 顶点序列如何构成三角形.
  *
  * @enum { int }
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -474,7 +474,7 @@ export interface Mat4x4 {
  */
 export enum PrimitiveTopology {
   /**
-   * The vertices form a set of independent triangle. Vertices (0, 1, 2), (3, 4, 5), ... define separate triangles.
+   * 顶点形成一组独立的三角形. 顶点(0, 1, 2)、(3, 4, 5)、...定义独立的三角形.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 18 dynamic
@@ -483,7 +483,7 @@ export enum PrimitiveTopology {
   TRIANGLE_LIST = 0,
 
   /**
-   * The vertices form a triangle strip. Starting from the 3rd, each vertex defines a triangle with the previous two.
+   * 顶点形成三角形条带. 从第三个顶点开始，每个顶点与前两个顶点构成三角形.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 18 dynamic
@@ -493,7 +493,7 @@ export enum PrimitiveTopology {
 }
 
 /**
- * the type of shadow algorithm
+ * 阴影算法类型
  *
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @stagemodelonly
@@ -501,7 +501,7 @@ export enum PrimitiveTopology {
  */
 export enum ShadowAlgorithmType {
   /**
-   * PCF algorithm
+   * PCF算法（百分比邻近过滤）
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @stagemodelonly
@@ -511,7 +511,7 @@ export enum ShadowAlgorithmType {
 }
 
 /**
- * An array of vertices and their data defining a custom geometric shape.
+ * 定义自定义几何形状的顶点数组及其数据.
  *
  * @extends GeometryDefinition
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -520,7 +520,7 @@ export enum ShadowAlgorithmType {
  */
 export declare class CustomGeometry extends GeometryDefinition {
   /**
-   * How to form mesh triangles from the indexed vertices.
+   * 如何从索引顶点形成网格三角形.
    *
    * @type { ?PrimitiveTopology }
    * @default PrimitiveTopology.TRIANGLE_LIST
@@ -530,7 +530,7 @@ export declare class CustomGeometry extends GeometryDefinition {
   topology?: PrimitiveTopology;
 
   /**
-   * How to form mesh triangles from the indexed vertices.
+   * 如何从索引顶点形成网格三角形.
    *
    * @return { PrimitiveTopology | undefined }
    * @default PrimitiveTopology.TRIANGLE_LIST
@@ -540,7 +540,7 @@ export declare class CustomGeometry extends GeometryDefinition {
   get topology(): PrimitiveTopology | undefined;
 
   /**
-   * How to form mesh triangles from the indexed vertices.
+   * 如何从索引顶点形成网格三角形.
    *
    * @param { PrimitiveTopology | undefined } value
    * @default PrimitiveTopology.TRIANGLE_LIST
@@ -550,7 +550,7 @@ export declare class CustomGeometry extends GeometryDefinition {
   set topology(value: PrimitiveTopology | undefined);
 
   /**
-   * An array of vertices.
+   * 顶点数组.
    *
    * @return { Vec3[] }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -560,7 +560,7 @@ export declare class CustomGeometry extends GeometryDefinition {
   get vertices(): Vec3[];
 
   /**
-   * An array of vertices.
+   * 顶点数组.
    *
    * @param { Vec3[] } value
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -570,16 +570,16 @@ export declare class CustomGeometry extends GeometryDefinition {
   set vertices(value: Vec3[]);
 
   /**
-   * Indices of those vertices that form triangles. PrimitiveTopology is applied to the sequence defined by indices.
+   * 构成三角形的顶点索引. PrimitiveTopology应用于索引定义的序列.
    *
-   * An example of creating an identical pair of triangles, given vertices = [a, b, c, d]:
+   * 给定vertices = [a, b, c, d]，创建相同的一对三角形的示例:
    *     topology = PrimitiveTopology.TRIANGLE_LIST
    *     indices = [0, 1, 2, 2, 1, 3]
-   *     resulting triangles: abc, cbd
+   *     生成的三角形：abc、cbd
    *
    *     topology = PrimitiveTopology.TRIANGLE_STRIP
    *     indices = [0, 1, 2, 3]
-   *     resulting triangles: abc, cbd (b and c are reversed in cbd, to match the face direction of the first triangle)
+   *     生成的三角形：abc、cbd (b和c在cbd中被反转，以匹配第一个三角形的面方向)
    *
    * @type { ?int[] }
    * @default indices: [0, 1 ,2,..., vertices.size() - 1]
@@ -589,16 +589,16 @@ export declare class CustomGeometry extends GeometryDefinition {
   indices?: int[];
 
   /**
-   * Indices of those vertices that form triangles. PrimitiveTopology is applied to the sequence defined by indices.
+   * 构成三角形的顶点索引. PrimitiveTopology应用于索引定义的序列.
    *
-   * An example of creating an identical pair of triangles, given vertices = [a, b, c, d]:
+   * 给定vertices = [a, b, c, d]，创建相同的一对三角形的示例:
    *     topology = PrimitiveTopology.TRIANGLE_LIST
    *     indices = [0, 1, 2, 2, 1, 3]
-   *     resulting triangles: abc, cbd
+   *     生成的三角形：abc、cbd
    *
    *     topology = PrimitiveTopology.TRIANGLE_STRIP
    *     indices = [0, 1, 2, 3]
-   *     resulting triangles: abc, cbd (b and c are reversed in cbd, to match the face direction of the first triangle)
+   *     生成的三角形：abc、cbd (b和c在cbd中被反转，以匹配第一个三角形的面方向)
    *
    * @return { int[] | undefined }
    * @default indices: [0, 1 ,2,..., vertices.size() - 1]
@@ -608,16 +608,16 @@ export declare class CustomGeometry extends GeometryDefinition {
   get indices(): int[] | undefined;
 
   /**
-   * Indices of those vertices that form triangles. PrimitiveTopology is applied to the sequence defined by indices.
+   * 构成三角形的顶点索引. PrimitiveTopology应用于索引定义的序列.
    *
-   * An example of creating an identical pair of triangles, given vertices = [a, b, c, d]:
+   * 给定vertices = [a, b, c, d]，创建相同的一对三角形的示例:
    *     topology = PrimitiveTopology.TRIANGLE_LIST
    *     indices = [0, 1, 2, 2, 1, 3]
-   *     resulting triangles: abc, cbd
+   *     生成的三角形：abc、cbd
    *
    *     topology = PrimitiveTopology.TRIANGLE_STRIP
    *     indices = [0, 1, 2, 3]
-   *     resulting triangles: abc, cbd (b and c are reversed in cbd, to match the face direction of the first triangle)
+   *     生成的三角形：abc、cbd (b和c在cbd中被反转，以匹配第一个三角形的面方向)
    *
    * @param { int[] | undefined } value
    * @default indices: [0, 1 ,2,..., vertices.size() - 1]
@@ -627,7 +627,7 @@ export declare class CustomGeometry extends GeometryDefinition {
   set indices(value: int[] | undefined);
 
   /**
-   * Vertex normal. If normals is not null. normals[N] is for vertices[N] and generateNormals is ignored.
+   * 顶点法线. If normals is not null. normals[N] is for vertices[N] and generateNormals is ignored.
    *
    * @type { ?Vec3[] }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -636,7 +636,7 @@ export declare class CustomGeometry extends GeometryDefinition {
   normals?: Vec3[];
 
   /**
-   * Vertex normal. If normals is not null. normals[N] is for vertices[N] and generateNormals is ignored.
+   * 顶点法线. If normals is not null. normals[N] is for vertices[N] and generateNormals is ignored.
    *
    * @return { Vec3[] | undefined }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -645,7 +645,7 @@ export declare class CustomGeometry extends GeometryDefinition {
   get normals(): Vec3[] | undefined;
 
   /**
-   * Vertex normal. If normals is not null. normals[N] is for vertices[N] and generateNormals is ignored.
+   * 顶点法线. If normals is not null. normals[N] is for vertices[N] and generateNormals is ignored.
    *
    * @param { Vec3[] | undefined } value
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -654,7 +654,7 @@ export declare class CustomGeometry extends GeometryDefinition {
   set normals(value: Vec3[] | undefined);
 
   /**
-   * Vertex texture mapping UV coordinate. If uvs is not null, uvs[N] is for vertices[N]
+   * 顶点纹理映射UV坐标. 如果uvs不为null，则uvs[N]对应vertices[N]
    *
    * @type { ?Vec2[] }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -663,7 +663,7 @@ export declare class CustomGeometry extends GeometryDefinition {
   uvs?: Vec2[];
 
   /**
-   * Vertex texture mapping UV coordinate. If uvs is not null, uvs[N] is for vertices[N]
+   * 顶点纹理映射UV坐标. 如果uvs不为null，则uvs[N]对应vertices[N]
    *
    * @return { Vec2[] | undefined }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -672,7 +672,7 @@ export declare class CustomGeometry extends GeometryDefinition {
   get uvs(): Vec2[] | undefined;
 
   /**
-   * Vertex texture mapping UV coordinate. If uvs is not null, uvs[N] is for vertices[N]
+   * 顶点纹理映射UV坐标. 如果uvs不为null，则uvs[N]对应vertices[N]
    *
    * @param { Vec2[] | undefined } value
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -681,7 +681,7 @@ export declare class CustomGeometry extends GeometryDefinition {
   set uvs(value: Vec2[] | undefined);
 
   /**
-   * Vertex color. If colors is not null, colors[N] is for vertices[N].
+   * 顶点颜色. 如果colors不为null，则colors[N]对应vertices[N].
    *
    * @type { ?Color[] }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -690,7 +690,7 @@ export declare class CustomGeometry extends GeometryDefinition {
   colors?: Color[];
 
   /**
-   * Vertex color. If colors is not null, colors[N] is for vertices[N].
+   * 顶点颜色. 如果colors不为null，则colors[N]对应vertices[N].
    *
    * @return { Color[] | undefined }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -699,7 +699,7 @@ export declare class CustomGeometry extends GeometryDefinition {
   get colors(): Color[] | undefined;
 
   /**
-   * Vertex color. If colors is not null, colors[N] is for vertices[N].
+   * 顶点颜色. 如果colors不为null，则colors[N]对应vertices[N].
    *
    * @param { Color[] | undefined } value
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -709,7 +709,7 @@ export declare class CustomGeometry extends GeometryDefinition {
 }
 
 /**
- * Define a rectangular cuboid.
+ * 定义长方体.
  *
  * @extends GeometryDefinition
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -718,7 +718,7 @@ export declare class CustomGeometry extends GeometryDefinition {
  */
 export declare class CubeGeometry extends GeometryDefinition {
   /**
-   * The width, height and depth of the cube, the unit is the scene unit in the world coordinate system (e.g., cm, m, km).
+   * 立方体的宽高深, 单位为世界坐标系下的场景单位（例如cm、m、km等）.
    *
    * @return { Vec3 }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -728,7 +728,7 @@ export declare class CubeGeometry extends GeometryDefinition {
   get size(): Vec3;
 
   /**
-   * The width, height and depth of the cube, the unit is the scene unit in the world coordinate system (e.g., cm, m, km).
+   * 立方体的宽高深, 单位为世界坐标系下的场景单位（例如cm、m、km等）.
    *
    * @param { Vec3 } value
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -739,7 +739,7 @@ export declare class CubeGeometry extends GeometryDefinition {
 }
 
 /**
- * Define a plane.
+ * 定义平面.
  *
  * @extends GeometryDefinition
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -748,7 +748,7 @@ export declare class CubeGeometry extends GeometryDefinition {
  */
 export declare class PlaneGeometry extends GeometryDefinition {
   /**
-   * The width and length of the plane, the unit is the scene unit in the world coordinate system (e.g., cm, m, km).
+   * 平面的宽和长, 单位为世界坐标系下的场景单位（例如cm、m、km等）.
    *
    * @return { Vec2 }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -758,7 +758,7 @@ export declare class PlaneGeometry extends GeometryDefinition {
   get size(): Vec2;
 
   /**
-   * The width and length of the plane, the unit is the scene unit in the world coordinate system (e.g., cm, m, km).
+   * 平面的宽和长, 单位为世界坐标系下的场景单位（例如cm、m、km等）.
    *
    * @param { Vec2 } value
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -769,7 +769,7 @@ export declare class PlaneGeometry extends GeometryDefinition {
 }
 
 /**
- * Define a sphere.
+ * 定义球体.
  *
  * @extends GeometryDefinition
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -778,7 +778,7 @@ export declare class PlaneGeometry extends GeometryDefinition {
  */
 export declare class SphereGeometry extends GeometryDefinition {
   /**
-   * The radius of the sphere, the unit is the scene unit in the world coordinate system (e.g., cm, m, km).
+   * 球体的半径, 单位为世界坐标系下的场景单位（例如cm、m、km等）.
    *
    * @return { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -788,7 +788,7 @@ export declare class SphereGeometry extends GeometryDefinition {
   get radius(): double;
 
   /**
-   * The radius of the sphere, the unit is the scene unit in the world coordinate system (e.g., cm, m, km).
+   * 球体的半径, 单位为世界坐标系下的场景单位（例如cm、m、km等）.
    *
    * @param { double } value
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -798,7 +798,7 @@ export declare class SphereGeometry extends GeometryDefinition {
   set radius(value: double);
 
   /**
-   * Divide the sphere latitudinally into this many circles and each circle longitudinally into this many segments.
+   * 将球体按经纬度分割成若干圈和段.
    *
    * @return { int }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -808,7 +808,7 @@ export declare class SphereGeometry extends GeometryDefinition {
   get segmentCount(): int;
 
   /**
-   * Divide the sphere latitudinally into this many circles and each circle longitudinally into this many segments.
+   * 将球体按经纬度分割成若干圈和段.
    *
    * @param { int } value
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -819,7 +819,7 @@ export declare class SphereGeometry extends GeometryDefinition {
 }
 
 /**
- * Define a cylinder.
+ * 定义圆柱体.
  *
  * @extends GeometryDefinition
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -827,7 +827,7 @@ export declare class SphereGeometry extends GeometryDefinition {
  */
 export declare class CylinderGeometry extends GeometryDefinition {
   /**
-   * The radius of the base of the cylinder, the unit is the scene unit in the world coordinate system (e.g., cm, m, km).
+   * 圆柱体底面的半径, 单位为世界坐标系下的场景单位（例如cm、m、km等）.
    *
    * @return { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -836,7 +836,7 @@ export declare class CylinderGeometry extends GeometryDefinition {
   get radius(): double;
 
   /**
-   * The radius of the base of the cylinder, the unit is the scene unit in the world coordinate system (e.g., cm, m, km).
+   * 圆柱体底面的半径, 单位为世界坐标系下的场景单位（例如cm、m、km等）.
    *
    * @param { double } value
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -845,7 +845,7 @@ export declare class CylinderGeometry extends GeometryDefinition {
   set radius(value: double);
 
   /**
-   * The height of the cylinder, the unit is the scene unit in the world coordinate system (e.g., cm, m, km).
+   * 圆柱体的高度, 单位为世界坐标系下的场景单位（例如cm、m、km等）.
    *
    * @return { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -854,7 +854,7 @@ export declare class CylinderGeometry extends GeometryDefinition {
   get height(): double;
 
   /**
-   * The height of the cylinder, the unit is the scene unit in the world coordinate system (e.g., cm, m, km).
+   * 圆柱体的高度, 单位为世界坐标系下的场景单位（例如cm、m、km等）.
    *
    * @param { double } value
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -863,8 +863,8 @@ export declare class CylinderGeometry extends GeometryDefinition {
   set height(value: double);
 
   /**
-   * Use regular polygons to approximate the circular base of the cylinder,
-   * where segmentCount is the number of sides of the regular polygon used.
+   * 使用正多边形近似圆柱体的圆形底面,
+   * 其中segmentCount是正多边形的边数.
    *
    * @return { int }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -873,8 +873,8 @@ export declare class CylinderGeometry extends GeometryDefinition {
   get segmentCount(): int;
 
   /**
-   * Use regular polygons to approximate the circular base of the cylinder,
-   * where segmentCount is the number of sides of the regular polygon used.
+   * 使用正多边形近似圆柱体的圆形底面,
+   * 其中segmentCount是正多边形的边数.
    *
    * @param { int } value
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -884,7 +884,7 @@ export declare class CylinderGeometry extends GeometryDefinition {
 }
 
 /**
- * 3D position information, the unit is the scene unit in the world coordinate system (e.g., cm, m, km).
+ * 3D位置信息, 单位为世界坐标系下的场景单位（例如cm、m、km等）.
  *
  * @typedef { Vec3 } 
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -894,7 +894,7 @@ export declare class CylinderGeometry extends GeometryDefinition {
 export type Position3 = Vec3;
 
 /**
- * 3D rotation info as euler angles, the unit is radian.
+ * 3D旋转信息（欧拉角）, 单位为弧度.
  *
  * @typedef { Vec3 } 
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -904,7 +904,7 @@ export type Position3 = Vec3;
 export type Rotation3 = Vec3;
 
 /**
- * 3D scale information.
+ * 3D缩放信息.
  *
  * @typedef { Vec3 } 
  * @syscap SystemCapability.ArkUi.Graphics3D
