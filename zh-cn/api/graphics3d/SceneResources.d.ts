@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2024-2024 Huawei Device Co., Ltd.
+ * Copyright (c) 2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -25,7 +25,7 @@ import { Vec2, Vec3, Vec4, Aabb, Quaternion } from './SceneTypes';
 import { Callback } from '../@ohos.base';
 
 /**
- * The enum of SceneResource type.
+ * 场景资源类型枚举.
  *
  * @enum { int }
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -34,7 +34,7 @@ import { Callback } from '../@ohos.base';
  */
 export enum SceneResourceType {
   /**
-   * The resource is an Unknown.
+   * 资源是Unknown类型.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
@@ -43,7 +43,7 @@ export enum SceneResourceType {
   UNKNOWN = 0,
 
   /**
-   * The resource is a Node.
+   * 资源是Node类型.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
@@ -52,7 +52,7 @@ export enum SceneResourceType {
   NODE = 1,
 
   /**
-   * The resource is an Environment.
+   * 资源是Environment类型.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
@@ -61,7 +61,7 @@ export enum SceneResourceType {
   ENVIRONMENT = 2,
 
   /**
-   * The resource is a Material.
+   * 资源是Material类型.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
@@ -70,7 +70,7 @@ export enum SceneResourceType {
   MATERIAL = 3,
 
   /**
-   * The resource is a Mesh.
+   * 资源是Mesh类型.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
@@ -79,7 +79,7 @@ export enum SceneResourceType {
   MESH = 4,
 
   /**
-   * The resource is an Animation.
+   * 资源是Animation类型.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
@@ -88,7 +88,7 @@ export enum SceneResourceType {
   ANIMATION = 5,
 
   /**
-   * The resource is a Shader.
+   * 资源是Shader类型.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
@@ -97,7 +97,7 @@ export enum SceneResourceType {
   SHADER = 6,
 
   /**
-   * The resource is an Image.
+   * 资源是Image类型.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
@@ -106,7 +106,7 @@ export enum SceneResourceType {
   IMAGE = 7,
 
   /**
-   * The resource is a mesh resource
+   * 资源是MeshResource类型
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 18 dynamic
@@ -115,7 +115,7 @@ export enum SceneResourceType {
   MESH_RESOURCE = 8,
 
   /**
-   * The resource is an Effect.
+   * 资源是Effect类型.
    * 
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 21 dynamic
@@ -125,7 +125,7 @@ export enum SceneResourceType {
 }
 
 /**
- * Define scene resource extended by other 3d resource.
+ * 定义被其他3D资源扩展的场景资源.
  *
  * @interface SceneResource
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -134,7 +134,7 @@ export enum SceneResourceType {
  */
 export interface SceneResource {
   /**
-   * Scene resource name.
+   * 场景资源名称.
    *
    * @type { string }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -144,7 +144,7 @@ export interface SceneResource {
   name: string;
 
   /**
-   * Scene resource type.
+   * 场景资源类型.
    *
    * @type { SceneResourceType }
    * @readonly
@@ -155,7 +155,7 @@ export interface SceneResource {
   readonly resourceType: SceneResourceType;
 
   /**
-   * Scene resource uri.
+   * 场景资源URI.
    *
    * @type { ?ResourceStr }
    * @readonly
@@ -167,7 +167,7 @@ export interface SceneResource {
 
 
   /**
-   * Release scene resource.
+   * 释放场景资源.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
@@ -177,7 +177,7 @@ export interface SceneResource {
 }
 
 /**
- * Shader resource.
+ * 着色器资源.
  *
  * @extends SceneResource
  * @interface Shader
@@ -187,7 +187,7 @@ export interface SceneResource {
  */
 export interface Shader extends SceneResource {
   /**
-   * Shader inputs.
+   * 着色器输入.
    * 
    * @type { Record<string, double | Vec2 | Vec3 | Vec4 | Image> }
    * @readonly
@@ -198,9 +198,8 @@ export interface Shader extends SceneResource {
   readonly inputs: Record<string, double | Vec2 | Vec3 | Vec4 | Image>;
 
   /**
-   * Set shader inputs. Offers the same functionality for setting shader inputs as the property version,
-   *     but with better performance.
-   * @param { Record<string, double | Vec2 | Vec3 | Vec4 | Image> } inputs - Inputs of the shader
+   * 设置着色器输入。与属性版本功能相同，但性能更优。
+   * @param { Record<string, double | Vec2 | Vec3 | Vec4 | Image> } inputs - 着色器的输入
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @stagemodelonly
    * @since 23 dynamic&static
@@ -209,7 +208,7 @@ export interface Shader extends SceneResource {
 }
 
 /**
- * The enum of material type.
+ * 材质类型枚举.
  *
  * @enum { int }
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -218,7 +217,7 @@ export interface Shader extends SceneResource {
  */
 export enum MaterialType {
   /**
-   * The material type is a Shader.
+   * 材质类型是Shader.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
@@ -227,7 +226,7 @@ export enum MaterialType {
   SHADER = 1,
   
   /**
-   * The material is a physically-based metallic roughness material.
+   * 材质是基于物理的金属粗糙度材质.
    * 
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
@@ -236,7 +235,7 @@ export enum MaterialType {
   METALLIC_ROUGHNESS = 2,
 
   /**
-   * The material is an unlit material.
+   * 材质是无光照材质.
    * 
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 23 dynamic&static
@@ -244,7 +243,7 @@ export enum MaterialType {
   UNLIT = 3,
 
   /**
-   * The material is an occlusion material
+   * 材质是遮挡材质
    * 
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 23 dynamic&static
@@ -252,8 +251,7 @@ export enum MaterialType {
   OCCLUSION = 4,
 
   /**
-   * Only render the shadows received on the material surface,
-   *     the material is transparent.
+   * 仅渲染材质表面接收的阴影，材质透明。
    * 
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @systemapi
@@ -264,7 +262,7 @@ export enum MaterialType {
 }
 
 /**
- * The enum of PBR material cull mode.
+ * PBR材质剔除模式枚举.
  * 
  * @enum { int }
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -273,7 +271,7 @@ export enum MaterialType {
  */
 export enum CullMode {
   /**
-   * Disable culling.
+   * 禁用剔除.
    * 
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
@@ -282,7 +280,7 @@ export enum CullMode {
   NONE = 0,
 
   /**
-   * Front face culling.
+   * 剔除正面.
    * 
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
@@ -291,7 +289,7 @@ export enum CullMode {
   FRONT = 1,
 
   /**
-   * Back face culling.
+   * 剔除背面.
    * 
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
@@ -301,7 +299,7 @@ export enum CullMode {
 }
 
 /**
- * The enum of polygon mode.
+ * 多边形模式枚举.
  * 
  * @enum { int }
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -309,7 +307,7 @@ export enum CullMode {
  */
 export enum PolygonMode {
   /**
-   * Render the whole polygon
+   * 渲染整个多边形
    * 
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 23 dynamic&static
@@ -317,7 +315,7 @@ export enum PolygonMode {
   FILL = 0,
 
   /**
-   * Render only edges(wireframe) of the polygon
+   * 仅渲染多边形的边（线框）
    * 
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 23 dynamic&static
@@ -325,7 +323,7 @@ export enum PolygonMode {
   LINE = 1,
 
   /**
-   * Render only vertices of the polygon
+   * 仅渲染多边形的顶点
    * 
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 23 dynamic&static
@@ -334,7 +332,7 @@ export enum PolygonMode {
 }
 
 /**
- * Blend interface.
+ * 混合接口.
  * 
  * @interface Blend
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -343,7 +341,7 @@ export enum PolygonMode {
  */
 export interface Blend {
   /**
-   * Control whether blending is enabled
+   * 控制是否启用混合
    * 
    * @type { boolean }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -354,11 +352,11 @@ export interface Blend {
 }
 
 /**
- * Render sort Layer. Within a render slot a layer can define a sort layer order.
- * There are 0-63 values available (0 first, 63 last). Default id value is 32.
- * 1. Typical use case is to set render sort layer to objects which render with depth test without depth write.
- * 2. Typical use case is to always render character and/or camera object first to cull large parts of the view.
- * 3. Sort e.g. plane layers.
+ * 渲染排序层。在渲染槽中，层可以定义排序层顺序。
+ * 可用值为0-63（0最先，63最后）。默认id值为32。
+ * 典型用法：1. 将渲染排序层设置为对使用深度测试但未写入深度的对象进行渲染。
+ * 2. 始终首先渲染角色和/或相机对象以剔除大部分视图。
+ * 3. 对平面层进行排序。
  * 
  * @interface RenderSort
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -367,11 +365,11 @@ export interface Blend {
  */
 export interface RenderSort {
   /**
-   * Sort layer used for sorting submeshes in rendering in render slots.
-   * Valid values are 0 - 63.
+   * 用于在渲染槽中对子网格进行排序的排序层.
+   * 有效值为0-63.
    * 
    * @type { ?int }
-   * @default 32 Default render sort layer id.
+   * @default 32 默认渲染排序层id。
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
    * @since 23 static
@@ -379,11 +377,11 @@ export interface RenderSort {
   renderSortLayer?: int;
 
   /**
-   * Sort layer order to describe fine order within sort layer.
-   * Valid values are 0 - 255.
+   * 排序层内描述精细顺序的排序层顺序.
+   * 有效值为0-255.
    * 
    * @type { ?int }
-   * @default 0 Default render sort layer order.
+   * @default 0 默认渲染排序层顺序。
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
    * @since 23 static
@@ -392,7 +390,7 @@ export interface RenderSort {
 }
 
 /**
- * Material resource.
+ * 材质资源.
  *
  * @extends SceneResource
  * @interface Material
@@ -402,7 +400,7 @@ export interface RenderSort {
  */
 export interface Material extends SceneResource {
   /**
-   * Material resource type.
+   * 材质资源类型.
    *
    * @type { MaterialType }
    * @readonly
@@ -413,7 +411,7 @@ export interface Material extends SceneResource {
   readonly materialType: MaterialType;
   
   /**
-   * Defines if the material can receive shadows.
+   * 定义材质是否可以接收阴影.
    * 
    * @type { ?boolean }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -423,7 +421,7 @@ export interface Material extends SceneResource {
   shadowReceiver?: boolean;
 
   /**
-   * Culling mode.
+   * 剔除模式.
    * 
    * @type { ?CullMode }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -433,7 +431,7 @@ export interface Material extends SceneResource {
   cullMode?: CullMode;
 
   /**
-   * Control whether the blend is enabled
+   * 控制是否启用混合
    * 
    * @type { ?Blend }
    * @default undefined, which means that blending is disabled.
@@ -444,7 +442,7 @@ export interface Material extends SceneResource {
   blend?: Blend;
 
   /**
-   * Alpha cutoff value [0,1]. Enabled if < 1.
+   * 透明度截止值[0,1]. Enabled if < 1.
    * 
    * @type { ?double }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -454,7 +452,7 @@ export interface Material extends SceneResource {
   alphaCutoff?: double;
 
   /**
-   * Render sorting priority for layers.
+   * 层的渲染排序优先级.
    * 
    * @type { ?RenderSort }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -464,10 +462,10 @@ export interface Material extends SceneResource {
   renderSort?: RenderSort;
 
   /**
-   * Polygon Mode of the material
+   * 材质的多边形模式
    * 
    * @type { ?PolygonMode}
-   * @default PolygonMode.FILL
+   * @default PolygonMode.FILL 填充多边形模式
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 23 dynamic&static
    */
@@ -475,7 +473,7 @@ export interface Material extends SceneResource {
 }
 
 /**
- * Material property interface.
+ * 材质属性接口.
  * 
  * @interface MaterialProperty
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -484,7 +482,7 @@ export interface Material extends SceneResource {
  */
 export interface MaterialProperty {
   /**
-   * Texture to use. If undefined, factor defines the diffuse color.
+   * 要使用的纹理. 如果未定义，factor定义漫反射颜色.
    * 
    * @type { Image | null }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -494,7 +492,7 @@ export interface MaterialProperty {
   image: Image | null;
 
   /**
-   * Texture coefficient. Default is {1,1,1,1}, meaning no effect.
+   * 纹理系数. 默认为{1,1,1,1}，表示无效果.
    * 
    * @type { Vec4 }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -504,7 +502,7 @@ export interface MaterialProperty {
   factor: Vec4;
 
   /**
-   * Texture Sampler.
+   * 纹理采样器.
    * 
    * @type { ?Sampler }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -515,7 +513,7 @@ export interface MaterialProperty {
 }
 
 /**
- * Physically-based metallic roughness material resource.
+ * 基于物理的金属粗糙度材质资源.
  * 
  * @extends Material
  * @interface MetallicRoughnessMaterial
@@ -525,8 +523,8 @@ export interface MaterialProperty {
  */
 export interface MetallicRoughnessMaterial extends Material {
   /**
-   * Base color factor of PBR material.
-   * Value of factor.xyzw defines rgba color.
+   * PBR材质的基础颜色因子.
+   * factor.xyzw的值定义rgba颜色.
    * 
    * @type { MaterialProperty }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -536,8 +534,8 @@ export interface MetallicRoughnessMaterial extends Material {
   baseColor: MaterialProperty;
 
   /**
-   * Normal factor of PBR material.
-   * Value of factor.x defines normal scale.
+   * PBR材质的法线因子.
+   * factor.x的值定义法线缩放.
    * 
    * @type { MaterialProperty }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -547,8 +545,8 @@ export interface MetallicRoughnessMaterial extends Material {
   normal: MaterialProperty;
 
   /**
-   * Metallic roughness material parameters.
-   * Value of factor.y defines roughness, factor.z defines metallic and factor.a defines reflectance.
+   * 金属粗糙度材质参数.
+   * factor.y定义粗糙度，factor.z定义金属度，factor.a定义反射率.
    * 
    * @type { MaterialProperty }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -558,8 +556,8 @@ export interface MetallicRoughnessMaterial extends Material {
   material: MaterialProperty;
 
   /**
-   * Ambient occlusion of PBR material.
-   * Value of factor.x defines ambient occlusion factor.
+   * PBR材质的环境光遮蔽.
+   * factor.x定义环境光遮蔽因子.
    * 
    * @type { MaterialProperty }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -569,7 +567,7 @@ export interface MetallicRoughnessMaterial extends Material {
   ambientOcclusion: MaterialProperty;
 
   /**
-   * Emissive property of PBR material.
+   * PBR材质的自发光属性.
    * 
    * @type { MaterialProperty }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -579,8 +577,8 @@ export interface MetallicRoughnessMaterial extends Material {
   emissive: MaterialProperty;
 
   /**
-   * Clearcoat intensity.
-   * Value of factor.x defines clearcoat layer intensity.
+   * 清漆强度.
+   * factor.x定义清漆层强度.
    * 
    * @type { MaterialProperty }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -590,8 +588,8 @@ export interface MetallicRoughnessMaterial extends Material {
   clearCoat: MaterialProperty;
 
   /**
-   * Clearcoat roughness.
-   * Value of factor.y defines clearcoat layer roughness.
+   * 清漆粗糙度.
+   * factor.y定义清漆层粗糙度.
    * 
    * @type { MaterialProperty }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -601,8 +599,8 @@ export interface MetallicRoughnessMaterial extends Material {
   clearCoatRoughness: MaterialProperty;
   
   /**
-   * Clearcoat normal.
-   * Value of factor.xyz defines RGB clearcoat normal scale.
+   * 清漆法线.
+   * factor.xyz定义RGB清漆法线缩放.
    * 
    * @type { MaterialProperty }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -612,7 +610,7 @@ export interface MetallicRoughnessMaterial extends Material {
   clearCoatNormal: MaterialProperty;
 
   /**
-   * Sheen color of PBR material.
+   * PBR材质的光泽颜色.
    * Value of factor.xyz defines RGB sheen color,
    * Value of factor.w defines sheen roughness.
    * 
@@ -624,7 +622,7 @@ export interface MetallicRoughnessMaterial extends Material {
   sheen: MaterialProperty;
 
   /**
-   * Specular color of PBR material.
+   * PBR材质的镜面反射颜色.
    * Value of factor.xyz defines RGB specular color,
    * Value of factor.w defines specular intensity.
    * 
@@ -637,7 +635,7 @@ export interface MetallicRoughnessMaterial extends Material {
 }
 
 /**
- * Unlit material resource
+ * 无光照材质资源
  * 
  * @extends Material
  * @interface UnlitMaterial
@@ -646,8 +644,8 @@ export interface MetallicRoughnessMaterial extends Material {
  */
 export interface UnlitMaterial extends Material {
   /**
-   * Base color factor of unlit material.
-   * Value of factor.xyzw defines rgba color.
+   * 无光照材质的基础颜色因子.
+   * factor.xyzw的值定义rgba颜色.
    * 
    * @type { MaterialProperty }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -657,7 +655,7 @@ export interface UnlitMaterial extends Material {
 }
 
 /**
- * Unlit shadow alpha material resource
+ * 无光照阴影透明度材质资源
  * 
  * @extends Material
  * @interface UnlitShadowAlphaMaterial
@@ -668,8 +666,8 @@ export interface UnlitMaterial extends Material {
  */
 export interface UnlitShadowAlphaMaterial extends Material {
   /**
-   * Base color factor of UnlitShadowAlphaMaterial.
-   * Value of factor.xyzw defines rgba color
+   * UnlitShadowAlphaMaterial的基础颜色因子.
+   * factor.xyzw的值定义rgba颜色
    * 
    * @type { MaterialProperty }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -681,7 +679,7 @@ export interface UnlitShadowAlphaMaterial extends Material {
 }
 
 /**
- * Shader material resource.
+ * 着色器材质资源.
  *
  * @extends Material
  * @interface ShaderMaterial
@@ -691,7 +689,7 @@ export interface UnlitShadowAlphaMaterial extends Material {
  */
 export interface ShaderMaterial extends Material {
   /**
-   * Color shader of material.
+   * 材质的颜色着色器.
    *
    * @type { ?Shader }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -702,7 +700,7 @@ export interface ShaderMaterial extends Material {
 }
 
 /**
- * Occlusion material resource
+ * 遮挡材质资源
  *
  * @extends Material
  * @interface OcclusionMaterial
@@ -713,7 +711,7 @@ export interface OcclusionMaterial extends Material {
 }
 
 /**
- * Sampler filter Mode
+ * 采样器过滤模式
  * 
  * @enum { int }
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -722,7 +720,7 @@ export interface OcclusionMaterial extends Material {
  */
 export enum SamplerFilter {
   /**
-   * Use nearest filtering
+   * 使用最近邻过滤
    * 
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
@@ -730,7 +728,7 @@ export enum SamplerFilter {
    */
   NEAREST = 0,
   /**
-   * Use linear filtering
+   * 使用线性过滤
    * 
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
@@ -740,7 +738,7 @@ export enum SamplerFilter {
 }
 
 /**
- * Addressing mode for Sampler
+ * 采样器的寻址模式
  * 
  * @enum { int }
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -749,7 +747,7 @@ export enum SamplerFilter {
  */
 export enum SamplerAddressMode {
   /**
-   * Repeat
+   * 重复
    * 
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
@@ -758,7 +756,7 @@ export enum SamplerAddressMode {
   REPEAT = 0,
 
   /**
-   * Mirrored repeat
+   * 镜像重复
    * 
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
@@ -767,7 +765,7 @@ export enum SamplerAddressMode {
   MIRRORED_REPEAT = 1,
 
   /**
-   * clamp to edge
+   * 钳制到边缘
    * 
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
@@ -777,7 +775,7 @@ export enum SamplerAddressMode {
 }
 
 /**
- * Sampler interface
+ * 采样器接口
  * 
  * @interface { Sampler }
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -786,7 +784,7 @@ export enum SamplerAddressMode {
  */
 export interface Sampler {
   /**
-   * Mag filter
+   * 放大过滤
    * 
    * @type { ?SamplerFilter }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -796,7 +794,7 @@ export interface Sampler {
   magFilter?: SamplerFilter;
 
   /**
-   * Min filter
+   * 缩小过滤
    * 
    * @type { ?SamplerFilter }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -806,7 +804,7 @@ export interface Sampler {
   minFilter?: SamplerFilter;
 
   /**
-   * Mip-map mode
+   * Mip-map模式
    * 
    * @type { ?SamplerFilter }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -816,7 +814,7 @@ export interface Sampler {
   mipMapMode?: SamplerFilter;
 
   /**
-   * U addressing mode
+   * U寻址模式
    * 
    * @type { ?SamplerAddressMode }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -826,7 +824,7 @@ export interface Sampler {
   addressModeU?: SamplerAddressMode;
 
   /**
-   * V addressing mode
+   * V寻址模式
    * 
    * @type { ?SamplerAddressMode }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -837,7 +835,7 @@ export interface Sampler {
 }
 
 /**
- * Sub mesh resource.
+ * 子网格资源.
  *
  * @interface SubMesh
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -846,7 +844,7 @@ export interface Sampler {
  */
 export interface SubMesh {
   /**
-   * The name of the sub mesh.
+   * 子网格的名称.
    *
    * @type { string }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -856,7 +854,7 @@ export interface SubMesh {
   name: string;
 
   /**
-   * The material of the sub mesh.
+   * 子网格的材质.
    *
    * @type { Material }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -866,7 +864,7 @@ export interface SubMesh {
   material: Material;
 
   /**
-   * The axis aligned bounding box of the sub mesh.
+   * 子网格的轴对齐包围盒.
    *
    * @type { Aabb }
    * @readonly
@@ -878,7 +876,7 @@ export interface SubMesh {
 }
 
 /**
- * Defines Morpher interface for specifying morph targets for Node's geometry.
+ * 定义用于指定节点几何体形变目标的Morpher接口.
  * 
  * @interface Morpher
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -887,7 +885,7 @@ export interface SubMesh {
  */
 export interface Morpher {
   /**
-   * Morph target names and weights
+   * 形变目标名称和权重
    * 
    * @type { Record<string, double> }
    * @readonly
@@ -899,7 +897,7 @@ export interface Morpher {
 }
 
 /**
- * The mesh instance owned by the mesh node
+ * 网格节点拥有的网格实例
  *
  * @extends SceneResource
  * @interface Mesh
@@ -909,7 +907,7 @@ export interface Morpher {
  */
 export interface Mesh extends SceneResource {
   /**
-   * The sub meshes of the mesh.
+   * 网格的子网格.
    *
    * @type { SubMesh[] }
    * @readonly
@@ -920,7 +918,7 @@ export interface Mesh extends SceneResource {
   readonly subMeshes: SubMesh[];
 
   /**
-   * The axis aligned bounding box of the mesh.
+   * 网格的轴对齐包围盒.
    *
    * @type { Aabb }
    * @readonly
@@ -931,7 +929,7 @@ export interface Mesh extends SceneResource {
   readonly aabb: Aabb;
 
   /**
-   * The material override sub mesh's material.
+   * 覆盖子网格材质的材质.
    *
    * @type { ?Material }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -942,7 +940,7 @@ export interface Mesh extends SceneResource {
 }
 
 /**
- * The mesh data description resource for the geometry node
+ * 几何节点的网络数据描述资源
  * 
  * 
  * @extends SceneResource
@@ -955,7 +953,7 @@ export interface MeshResource extends SceneResource {
 }
 
 /**
- * Animation resource.
+ * 动画资源.
  *
  * @extends SceneResource
  * @interface Animation
@@ -965,7 +963,7 @@ export interface MeshResource extends SceneResource {
  */
 export interface Animation extends SceneResource {
   /**
-   * The animation is enabled.
+   * 动画是否启用.
    *
    * @type { boolean }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -975,8 +973,8 @@ export interface Animation extends SceneResource {
   enabled: boolean;
 
   /**
-   * Animation speed factor
-   * A negative value runs the animation in reverse using the given speed factor
+   * 动画速度因子
+   * 负值使用给定速度因子反向播放动画
    *
    * @type { ?double }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -986,7 +984,7 @@ export interface Animation extends SceneResource {
   speed?: double;
 
   /**
-   * The duration of the animation, the unit is second.
+   * 动画持续时间, 单位为秒.
    *
    * @type { double }
    * @readonly
@@ -997,7 +995,7 @@ export interface Animation extends SceneResource {
   readonly duration: double;
 
   /**
-   * Whether the animation is running.
+   * 动画是否正在运行.
    *
    * @type { boolean }
    * @readonly
@@ -1008,7 +1006,7 @@ export interface Animation extends SceneResource {
   readonly running: boolean;
 
   /**
-   * The progress of the animation between 0~1.
+   * 动画在0~1之间的进度.
    *
    * @type { double }
    * @readonly
@@ -1019,9 +1017,9 @@ export interface Animation extends SceneResource {
   readonly progress: double;
 
   /**
-   * Register a callback when animation finished.
+   * 注册动画完成时的回调.
    *
-   * @param { Callback<void> } callback - the callback invoked when animation finished
+   * @param { Callback<void> } callback - 动画完成时调用的回调
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
    * @since 23 static
@@ -1029,9 +1027,9 @@ export interface Animation extends SceneResource {
   onFinished(callback: Callback<void>): void;
 
   /**
-   * Register a callback when animation started.
+   * 注册动画开始时的回调.
    *
-   * @param { Callback<void> } callback - the callback invoked when animation started
+   * @param { Callback<void> } callback - 动画开始时调用的回调
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
    * @since 23 static
@@ -1039,7 +1037,7 @@ export interface Animation extends SceneResource {
   onStarted(callback: Callback<void>): void;
 
   /**
-   * Pause the animation.
+   * 暂停动画.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
@@ -1048,7 +1046,7 @@ export interface Animation extends SceneResource {
   pause(): void;
 
   /**
-   * Restart the animation.
+   * 重新启动动画.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
@@ -1057,9 +1055,9 @@ export interface Animation extends SceneResource {
   restart(): void;
 
   /**
-   * Seek the animation to the position.
+   * 将动画跳转到指定位置.
    *
-   * @param { double } position - the position seek between 0~1
+   * @param { double } position - 跳转到0~1之间的位置
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
    * @since 23 static
@@ -1067,7 +1065,7 @@ export interface Animation extends SceneResource {
   seek(position: double): void;
 
   /**
-   * Start the animation.
+   * 开始动画.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
@@ -1076,7 +1074,7 @@ export interface Animation extends SceneResource {
   start(): void;
 
   /**
-   * Stop the animation and seek the position to the beginning.
+   * 停止动画并将位置设置到开头.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
@@ -1085,7 +1083,7 @@ export interface Animation extends SceneResource {
   stop(): void;
 
   /**
-   * Finish the animation and seek the position to the end.
+   * 结束动画并将位置设置到结尾.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
@@ -1095,7 +1093,7 @@ export interface Animation extends SceneResource {
 }
 
 /**
- * The enum of environment background type.
+ * 环境背景类型枚举.
  * @enum { int }
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 12 dynamic
@@ -1103,7 +1101,7 @@ export interface Animation extends SceneResource {
  */
 export enum EnvironmentBackgroundType {
   /**
-   * The background is none.
+   * 背景为空.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
@@ -1112,7 +1110,7 @@ export enum EnvironmentBackgroundType {
   BACKGROUND_NONE = 0,
 
   /**
-   * The background is image.
+   * 背景为图像.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
@@ -1121,7 +1119,7 @@ export enum EnvironmentBackgroundType {
   BACKGROUND_IMAGE = 1,
 
   /**
-   * The background is cubemap.
+   * 背景为立方体贴图.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
@@ -1130,7 +1128,7 @@ export enum EnvironmentBackgroundType {
   BACKGROUND_CUBEMAP = 2,
 
   /**
-   * The background is equirectangular.
+   * 背景为等距柱状投影.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
@@ -1140,7 +1138,7 @@ export enum EnvironmentBackgroundType {
 }
 
 /**
- * Environment resource.
+ * 环境资源.
  *
  * @extends SceneResource
  * @interface Environment
@@ -1150,7 +1148,7 @@ export enum EnvironmentBackgroundType {
  */
 export interface Environment extends SceneResource {
   /**
-   * The background type of the environment.
+   * 环境背景类型.
    *
    * @type { EnvironmentBackgroundType }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -1160,7 +1158,7 @@ export interface Environment extends SceneResource {
   backgroundType: EnvironmentBackgroundType;
 
   /**
-   * The indirect diffuse factor of the environment.
+   * 环境间接漫反射因子.
    *
    * @type { Vec4 }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -1170,7 +1168,7 @@ export interface Environment extends SceneResource {
   indirectDiffuseFactor: Vec4;
 
   /**
-   * The indirect specular factor of the environment.
+   * 环境间接镜面反射因子.
    *
    * @type { Vec4 }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -1180,7 +1178,7 @@ export interface Environment extends SceneResource {
   indirectSpecularFactor: Vec4;
 
   /**
-   * The environment map factor of the environment.
+   * 环境贴图因子.
    *
    * @type { Vec4 }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -1190,7 +1188,7 @@ export interface Environment extends SceneResource {
   environmentMapFactor: Vec4;
 
   /**
-   * The environment image of the environment.
+   * 环境图像.
    *
    * @type { ?(Image | null) }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -1200,7 +1198,7 @@ export interface Environment extends SceneResource {
   environmentImage?: Image | null;
 
   /**
-   * The radiance image of the environment.
+   * 环境辐射图像.
    *
    * @type { ?(Image | null) }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -1210,7 +1208,7 @@ export interface Environment extends SceneResource {
   radianceImage?: Image | null;
 
   /**
-   * The irradiance coefficients (array of nine Vec3).
+   * 辐射系数（九个Vec3的数组）.
    *
    * @type { ?Vec3[] }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -1220,9 +1218,9 @@ export interface Environment extends SceneResource {
   irradianceCoefficients?: Vec3[];
 
   /**
-   * The rotation of the environment
+   * 环境旋转
    * 
-   * @default Quaternion {x:0, y:0, z:0, w:1}
+   * @default Quaternion {x:0, y:0, z:0, w:1} 单位四元数（无旋转）
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @stagemodelonly
    * @since 23 dynamic&static
@@ -1231,7 +1229,7 @@ export interface Environment extends SceneResource {
 }
 
 /**
- * Image resource.
+ * 图像资源.
  *
  * @extends SceneResource
  * @interface Image
@@ -1241,7 +1239,7 @@ export interface Environment extends SceneResource {
  */
 export interface Image extends SceneResource {
   /**
-   * The width of the image, the unit is pixel.
+   * 图像宽度, 单位为像素.
    *
    * @type { int }
    * @readonly
@@ -1252,7 +1250,7 @@ export interface Image extends SceneResource {
   readonly width: int;
 
   /**
-   * The height of the image, the unit is pixel.
+   * 图像高度, 单位为像素.
    *
    * @type { int }
    * @readonly
@@ -1264,7 +1262,7 @@ export interface Image extends SceneResource {
 }
 
 /**
- * ImageStream resource.
+ * 图像流资源.
  *
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @stagemodelonly
@@ -1272,7 +1270,7 @@ export interface Image extends SceneResource {
  */
 export interface ImageStream extends Image {
   /**
-   * The surfaceId of the imageStream.
+   * 图像流的surfaceId.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @stagemodelonly
@@ -1282,7 +1280,7 @@ export interface ImageStream extends Image {
 }
 
 /**
- * Effect resource.
+ * 特效资源.
  * 
  * @extends SceneResource
  * @interface Effect
@@ -1292,7 +1290,7 @@ export interface ImageStream extends Image {
  */
 export interface Effect extends SceneResource {
   /**
-   * Controls whether the effect is enabled or not.
+   * 控制特效是否启用.
    * 
    * @type { boolean }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -1302,8 +1300,8 @@ export interface Effect extends SceneResource {
   enabled: boolean;
 
   /**
-   * The id of the effect.
-   * This is the id that was used to create the effect.
+   * 特效的ID.
+   * 这是用于创建特效的ID.
    * 
    * @type { string }
    * @readonly
@@ -1314,10 +1312,10 @@ export interface Effect extends SceneResource {
   readonly effectId: string;
 
   /**
-   * Get the value of a specific effect property.
+   * 获取特定特效属性的值.
    *
-   * @param { string } propertyName - the name of specific property
-   * @returns { Object | null | undefined } effect property value, return null if the "get" operation failed.
+   * @param { string } propertyName - 特定属性的名称
+   * @returns { Object | null | undefined } 特效属性值，如果"get"操作失败则返回null.
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @stagemodelonly
    * @since 23 dynamic&static
@@ -1325,11 +1323,11 @@ export interface Effect extends SceneResource {
   getPropertyValue(propertyName: string): Object | null | undefined;
 
   /**
-   * Set the value of a specific effect property
+   * 设置特定特效属性的值
    *
-   * @param { string } propertyName - the name of specific property
-   * @param { Object | undefined } value - property value to be set
-   * @returns { boolean } return false if the "set" operation is failed
+   * @param { string } propertyName - 特定属性的名称
+   * @param { Object | undefined } value - 要设置的属性值
+   * @returns { boolean } 如果"set"操作失败则返回false
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @stagemodelonly
    * @since 23 dynamic&static
