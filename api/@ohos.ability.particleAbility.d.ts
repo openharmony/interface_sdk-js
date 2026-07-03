@@ -26,164 +26,194 @@ import { ConnectOptions } from './ability/connectOptions';
 import Want from './@ohos.app.ability.Want';
 
 /**
- * A Particle Ability represents an ability with service.
+ * The particleAbility module provides APIs for operating a DataAbility and ServiceAbility. You can use the APIs to
+ * start and terminate a ParticleAbility, obtain a dataAbilityHelper object, and connect to or disconnect from a
+ * ServiceAbility.
  *
- * @namespace particleAbility
  * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
- * @FAModelOnly
+ * @famodelonly
  * @since 7 dynamiconly
  */
 declare namespace particleAbility {
   /**
-   * Service ability uses this method to start a specific ability.
+   * Starts a ParticleAbility. This API uses an asynchronous callback to return the result.
    *
-   * @param { StartAbilityParameter } parameter - Indicates the ability to start.
-   * @param { AsyncCallback<void> } callback - Returns the result of starting Ability in the form of callback.
+   * > **NOTE**
+   * >
+   * > For details about the startup rules for the components in the FA model, see
+   * > [Component Startup Rules (FA Model)](docroot://application-models/component-startup-rules-fa.md).
+   *
+   * @param { StartAbilityParameter } parameter - Ability to start.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the ParticleAbility is started, **err**
+   *     is **undefined**; otherwise, **err** is an error object.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-   * @FAModelOnly
+   * @famodelonly
    * @since 7 dynamiconly
    */
   function startAbility(parameter: StartAbilityParameter, callback: AsyncCallback<void>): void;
 
   /**
-   * Service ability uses this method to start a specific ability.
+   * Starts a ParticleAbility. This API uses a promise to return the result.
    *
-   * @param { StartAbilityParameter } parameter - Indicates the ability to start.
-   * @returns { Promise<void> } the promise returned by the function.
+   * > **NOTE**
+   * >
+   * > For details about the startup rules for the components in the FA model, see
+   * > [Component Startup Rules (FA Model)](docroot://application-models/component-startup-rules-fa.md).
+   *
+   * @param { StartAbilityParameter } parameter - Ability to start.
+   * @returns { Promise<void> } Promise used to return the result. Promise that returns no value.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-   * @FAModelOnly
+   * @famodelonly
    * @since 7 dynamiconly
    */
   function startAbility(parameter: StartAbilityParameter): Promise<void>;
 
   /**
-   * Destroys this service ability.
+   * Terminates this ParticleAbility. This API uses an asynchronous callback to return the result.
    *
-   * @param { AsyncCallback<void> } callback - Return the result of stopping Ability in the form of callback.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the ParticleAbility is terminated,
+   *     **err** is **undefined**; otherwise, **err** is an error object.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-   * @FAModelOnly
+   * @famodelonly
    * @since 7 dynamiconly
    */
   function terminateSelf(callback: AsyncCallback<void>): void;
 
   /**
-   * Destroys this service ability.
+   * Terminates this ParticleAbility. This API uses a promise to return the result.
    *
-   * @returns { Promise<void> } the promise returned by the function.
+   * @returns { Promise<void> } Promise used to return the result. Promise that returns no value.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-   * @FAModelOnly
+   * @famodelonly
    * @since 7 dynamiconly
    */
   function terminateSelf(): Promise<void>;
 
   /**
-   * Obtains the dataAbilityHelper.
+   * Obtains a dataAbilityHelper object.
    *
-   * @param { string } uri - Indicates the path of the file to open.
-   * @returns { DataAbilityHelper } Returns the dataAbilityHelper.
+   * > **NOTE**
+   * >
+   * > For details about the startup rules for the components in the FA model, see
+   * > [Component Startup Rules (FA Model)](docroot://application-models/component-startup-rules-fa.md).
+   * > To access a DataAbility of another application, the target application must be configured with associated
+   * > startup (**AssociateWakeUp** set to **true**).
+   *
+   * @param { string } uri - URI of the file to open.
+   * @returns { DataAbilityHelper } A utility class used to help other abilities access a DataAbility.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-   * @FAModelOnly
+   * @famodelonly
    * @since 7 dynamiconly
    */
   function acquireDataAbilityHelper(uri: string): DataAbilityHelper;
 
   /**
-   * Keep this Service ability in the background and display a notification bar.
+   * Requests a continuous task from the system. This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
-   * @param { number } id - Identifies the notification bar information.
-   * @param { NotificationRequest } request - Indicates the notificationRequest instance containing information
-   *                                          for displaying a notification bar.
-   * @param { AsyncCallback<void> } callback - returns the result of starting a long-term task in the form of callback.
+   * @param { number } id - Notification ID of the continuous task.
+   * @param { NotificationRequest } request - Notification parameter, which is used to display information in the
+   *     notification bar.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the continuous task is requested,
+   *     **err** is **undefined**. Otherwise, **err** is an error object.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-   * @FAModelOnly
+   * @famodelonly
    * @since 7 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.resourceschedule.backgroundTaskManager/backgroundTaskManager#startBackgroundRunning
+   * @useinstead @ohos.resourceschedule.backgroundTaskManager:backgroundTaskManager.startBackgroundRunning
    */
   function startBackgroundRunning(id: number, request: NotificationRequest, callback: AsyncCallback<void>): void;
 
   /**
-   * Keep this Service ability in the background and display a notification bar.
+   * Requests a continuous task from the system. This API uses a promise to return the result.
    *
    * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
-   * @param { number } id - Identifies the notification bar information.
-   * @param { NotificationRequest } request - Indicates the notificationRequest instance containing information
-   *                                          for displaying a notification bar.
-   * @returns { Promise<void> } the promise returned by the function.
+   * @param { number } id - Notification ID of the continuous task.
+   * @param { NotificationRequest } request - Notification parameter, which is used to display information in the
+   *     notification bar.
+   * @returns { Promise<void> } Promise used to return the result. Promise that returns no value.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-   * @FAModelOnly
+   * @famodelonly
    * @since 7 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.resourceschedule.backgroundTaskManager/backgroundTaskManager#startBackgroundRunning
+   * @useinstead @ohos.resourceschedule.backgroundTaskManager:backgroundTaskManager.startBackgroundRunning
    */
   function startBackgroundRunning(id: number, request: NotificationRequest): Promise<void>;
 
   /**
-   * Cancel background running of this ability to free up system memory.
+   * Requests to cancel a continuous task from the system. This API uses an asynchronous callback to return the result.
    *
-   * @param { AsyncCallback<void> } callback - Returns the result of canceling a long-term task in the form of callback.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the continuous task is canceled,
+   *     **err** is **undefined**. Otherwise, **err** is an error object.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-   * @FAModelOnly
+   * @famodelonly
    * @since 7 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.resourceschedule.backgroundTaskManager/backgroundTaskManager#stopBackgroundRunning
+   * @useinstead @ohos.resourceschedule.backgroundTaskManager:backgroundTaskManager.stopBackgroundRunning
    */
   function cancelBackgroundRunning(callback: AsyncCallback<void>): void;
 
   /**
-   * Cancel background running of this ability to free up system memory.
+   * Requests to cancel a continuous task from the system. This API uses a promise to return the result.
    *
-   * @returns { Promise<void> } the promise returned by the function.
+   * @returns { Promise<void> } Promise used to return the result. Promise that returns no value.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-   * @FAModelOnly
+   * @famodelonly
    * @since 7 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.resourceschedule.backgroundTaskManager/backgroundTaskManager#stopBackgroundRunning
+   * @useinstead @ohos.resourceschedule.backgroundTaskManager:backgroundTaskManager.stopBackgroundRunning
    */
   function cancelBackgroundRunning(): Promise<void>;
 
   /**
-   * Connects an ability to a Service ability.
+   * Connects this ability to a ServiceAbility.
    *
-   * @param { Want } request - Indicates the Service ability to connect.
-   * @param { ConnectOptions } options - Callback object for the client. If this parameter is null,
-   *                                   an exception is thrown.
-   * @returns { number } unique identifier of the connection between the client and the service side.
+   * > **NOTE**
+   * >
+   * > For details about the startup rules for the components in the FA model, see
+   * > [Component Startup Rules (FA Model)](docroot://application-models/component-startup-rules-fa.md).
+   * > > To connect to a ServiceAbility of another application, the target application must be configured with
+   * > associated startup (**AssociateWakeUp** set to **true**).
+   *
+   * @param { Want } request - ServiceAbility to connect.
+   * @param { ConnectOptions } options - Connection options.
+   * @returns { number } ID of the connected ServiceAbility. The ID starts from 0 and is incremented by 1 each time a
+   *     connection is set up.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-   * @FAModelOnly
+   * @famodelonly
    * @since 7 dynamiconly
    */
   function connectAbility(request: Want, options: ConnectOptions): number;
 
   /**
-   * Disconnects ability to a Service ability.
+   * Disconnects this ability from a specific ServiceAbility. This API uses an asynchronous callback to return the
+   * result.
    *
-   * @param { number } connection - the connection id returned from connectAbility api.
-   * @param { AsyncCallback<void> } callback - Returns the disconnection result in the form of callback.
+   * @param { number } connection - ID of the ServiceAbility to disconnect.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the disconnection is successful,
+   *     **err** is **undefined**. Otherwise, **err** is an error object.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-   * @FAModelOnly
+   * @famodelonly
    * @since 7 dynamiconly
    */
   function disconnectAbility(connection: number, callback: AsyncCallback<void>): void;
 
   /**
-   * Disconnects ability to a Service ability.
+   * Disconnects this ability from a specific ServiceAbility. This API uses a promise to return the result.
    *
-   * @param { number } connection - the connection id returned from connectAbility api.
-   * @returns { Promise<void> } the promise returned by the function.
+   * @param { number } connection - ID of the ServiceAbility to disconnect.
+   * @returns { Promise<void> } Promise used to return the result. Promise that returns no value.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-   * @FAModelOnly
+   * @famodelonly
    * @since 7 dynamiconly
    */
   function disconnectAbility(connection: number): Promise<void>;
 
   /**
-   * Obtain the errorCode.
+   * Enumerates the error codes that may be returned when an ability is started.
    *
-   * @enum { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-   * @FAModelOnly
+   * @famodelonly
    * @since 7 dynamiconly
    */
   export enum ErrorCode {
@@ -191,10 +221,11 @@ declare namespace particleAbility {
      * Invalid parameter.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-     * @FAModelOnly
+     * @famodelonly
      * @since 7 dynamiconly
      */
     INVALID_PARAMETER = -1
   }
 }
+
 export default particleAbility;
