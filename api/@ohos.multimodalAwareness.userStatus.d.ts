@@ -993,7 +993,6 @@ declare namespace userStatus {
     directionAngle?: double[];
 
     /**
-     * Gesture speed.
      * Gesture speed, in frames per second (fps).
      *
      * @syscap SystemCapability.MultimodalAwareness.UserStatus
