@@ -433,7 +433,7 @@ declare namespace text {
      * @since 12 dynamic
      * @since 23 static
      */
-    LINE_THROUGH = 3
+    LINE_THROUGH = 4
   }
 
   /**
