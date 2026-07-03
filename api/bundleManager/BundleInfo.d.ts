@@ -260,7 +260,8 @@ export interface BundleInfo {
   readonly firstInstallTime?: long;
 
   /**
-   * Indicates the build version of the bundle
+   * Build version number of the application package, which identifies different build version packages under the same
+   * release version. It corresponds to the buildVersion field in the app.json5 file.
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @stagemodelonly
@@ -270,7 +271,7 @@ export interface BundleInfo {
   readonly buildVersion?: string;
 
   /**
-   * Bundle name of the sandbox application creator
+   * Bundle name of the sandbox application creator.
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
@@ -351,7 +352,8 @@ export interface ReqPermissionDetail {
 }
 
 /**
- * Describes the use scenario and timing for using the permission.
+ * Describes the use scenario and timing of the permission,
+ * helping developers request and use permissions properly.
  *
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @crossplatform [since 20]
@@ -384,7 +386,8 @@ export interface UsedScene {
 }
 
 /**
- * Describes the signature information of the bundle.
+ * Describes the signature information of the app package,which can identifythe app source, ensure app integrity,
+ * and be used for app security verification and identification.
  *
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @crossplatform [since 20]
@@ -456,7 +459,8 @@ export interface AppCloneIdentity {
    */
   readonly bundleName: string;
   /**
-   * Index of the application clone.
+   * Clone index information of the app package. The value is an integer ranging from [0-5],
+   * where 0 indicates the main app and 1-5 indicate clone apps.
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 14 dynamic
@@ -516,7 +520,7 @@ export interface DynamicIconInfo {
 }
 
 /**
- * Alternate icon information configured by the application.
+ * Describes the app backup icon information.
  *
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @stagemodelonly
@@ -524,7 +528,7 @@ export interface DynamicIconInfo {
  */
 export interface AlternateIconInfo {
   /**
-   * Indicates the name of the alternate icon.
+   * Name of the backup icon.
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @stagemodelonly
@@ -533,7 +537,8 @@ export interface AlternateIconInfo {
   readonly iconName: string;
 
   /**
-   * Indicates the id of the alternate icon.
+   * Resource ID of the backup icon, which is automatically generated
+   * during compilation and build based on the icon configured in the app.
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @stagemodelonly
@@ -542,9 +547,9 @@ export interface AlternateIconInfo {
   readonly iconId: long;
 
   /**
-   * Whether the alternate icon is currently in use.
-   * true: Indicates the icon is currently in use.
-   * false: Indicates the icon is not currently in use.
+   * Whether the backup icon is enabled.
+   * true: The current backup icon is enabled.
+   * false: The current backup icon is not enabled.
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @stagemodelonly
