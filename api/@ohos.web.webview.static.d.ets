@@ -4554,7 +4554,7 @@ declare namespace webview {
         *     The WebviewController must be associated with a Web component.
         * @syscap SystemCapability.Web.Webview.Core
         * @stagemodelonly
-        * @since 26.0.0 dynamic
+        * @since 26.0.0 static
         */
         getSubframeErrorPageEnabled(): boolean;
 
@@ -4566,7 +4566,7 @@ declare namespace webview {
         *     when a subframe fails to load.
         * @syscap SystemCapability.Web.Webview.Core
         * @stagemodelonly
-        * @since 26.0.0 dynamic
+        * @since 26.0.0 static
         */
         setErrorPageEnabled(enable: boolean, includeSubframe: boolean): void;
 
