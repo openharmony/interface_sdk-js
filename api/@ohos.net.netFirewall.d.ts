@@ -622,13 +622,13 @@ declare namespace netFirewall {
      */
     dns?: NetFirewallDnsParams;
     /**
- 	      * Interface name: valid when type = RULE_IP, otherwise it will be ignored.
- 	      *
- 	      * @type { ?string }
- 	      * @syscap SystemCapability.Communication.NetManager.NetFirewall
- 	      * @stagemodelonly
- 	      * @since 26.0.0 dynamic&static
- 	      */
+     * Interface name: valid when type = RULE_IP, otherwise it will be ignored.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Communication.NetManager.NetFirewall
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
     interface?: string;
   }
 
