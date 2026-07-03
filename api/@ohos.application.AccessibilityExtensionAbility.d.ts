@@ -520,7 +520,8 @@ type PageUpdateType = 'pageContentUpdate' | 'pageStateUpdate';
  *
  * @unionmember { 'touchBegin' } Start of touch.
  * @unionmember { 'touchEnd' } End of touch.
+ * @unionmember { 'touchGuideGesture' } Event indicating the touchGuide gesture. [since 26.0.0]
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @since 9 dynamiconly
  */
-type TouchGuideType = 'touchBegin' | 'touchEnd';
+type TouchGuideType = 'touchBegin' | 'touchEnd' | 'touchGuideGesture';
