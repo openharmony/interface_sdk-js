@@ -1369,7 +1369,7 @@ declare enum Edge {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Top = 0,
+  Top,
 
   /**
    * Center horizontal and vertical.
@@ -1388,7 +1388,7 @@ declare enum Edge {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Bottom = 2,
+  Bottom,
 
   /**
    * Cross axis direction text baseline alignment.
@@ -1407,7 +1407,7 @@ declare enum Edge {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Start = 4,
+  Start,
 
   /**
    * Middle
@@ -1426,7 +1426,7 @@ declare enum Edge {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  End = 6,
+  End,
 }
 
 /**
