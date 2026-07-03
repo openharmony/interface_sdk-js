@@ -111,6 +111,10 @@ declare namespace skillManager {
    * @param { int } flags {@link SkillInfoFlag} - Indicates the flag used to specify information
    *     contained in the SkillInfo objects that will be returned.
    * @returns { Promise<Array<SkillInfo>> } Returns the list of SkillInfo objects.
+   * @throws { BusinessError } 17700101 - Bundle manager service is exception. Possible causes:
+   *     1. Failed to connect to the system service.
+   *     2. IPC data transmission failed.
+   *     3. Failed to obtain the object constructor.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @stagemodelonly
    * @atomicservice
