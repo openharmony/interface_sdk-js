@@ -155,13 +155,13 @@ declare namespace webSocket {
     caPath?: string;
 
     /**
-     * Wheter or not to skip the verification of the server's certification.
+     * Whether or not to skip the verification of the server's certification.
      * @type { ?boolean }
      * @syscap SystemCapability.Communication.NetStack
      * @since 20 dynamic
      */
     /**
-     * Wheter or not to skip the verification of the server's certification.
+     * Whether or not to skip the verification of the server's certification.
      * @type { ?boolean }
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
@@ -187,14 +187,14 @@ declare namespace webSocket {
     clientCert?: ClientCert;
 
     /**
-     * HTTP proxy configuration. Use 'system' if this filed is not set.
+     * HTTP proxy configuration. Use 'system' if this field is not set.
      * @type {?ProxyConfiguration}
      * @syscap SystemCapability.Communication.NetStack
      * @since 12 dynamic
      * @since 23 static
      */
     /**
-     * HTTP proxy configuration. Use 'system' if this filed is not set.
+     * HTTP proxy configuration. Use 'system' if this field is not set.
      * @type {?ProxyConfiguration}
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
@@ -372,7 +372,6 @@ declare namespace webSocket {
   /**
    * Enumerates TLS protocols.
    *
-   * @interface ClientCert
    * @syscap SystemCapability.Communication.NetStack
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
@@ -1685,14 +1684,14 @@ declare namespace webSocket {
    */
   export interface WebSocketMessage {
     /**
-     * Contend of the message.
+     * Content of the message.
      * @type {string | ArrayBuffer}
      * @syscap SystemCapability.Communication.NetStack
      * @since 19 dynamic
      * @since 23 static
      */
     /**
-     * Contend of the message.
+     * Content of the message.
      * @type {string | ArrayBuffer}
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
