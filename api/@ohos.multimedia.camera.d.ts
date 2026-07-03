@@ -17312,6 +17312,166 @@ declare namespace camera {
      */
     setOISModeCustom(pitch: double, yaw: double): void;
   }
+
+  /**
+   * Enum for automotive camera position.
+   *
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   */
+  enum AutomotiveCameraPosition {
+    /**
+     * Exterior other position.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    AUTOMOTIVE_CAMERA_POSITION_EXTERIOR_OTHER = 0,
+
+    /**
+     * Exterior front position.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    AUTOMOTIVE_CAMERA_POSITION_EXTERIOR_FRONT = 1,
+
+    /**
+     * Exterior rear position.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    AUTOMOTIVE_CAMERA_POSITION_EXTERIOR_REAR = 2,
+
+    /**
+     * Exterior left position.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    AUTOMOTIVE_CAMERA_POSITION_EXTERIOR_LEFT = 3,
+
+    /**
+     * Exterior right position.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    AUTOMOTIVE_CAMERA_POSITION_EXTERIOR_RIGHT = 4,
+
+    /**
+     * Interior other position.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    AUTOMOTIVE_CAMERA_POSITION_INTERIOR_OTHER = 5,
+
+    /**
+     * Interior left side position of the first row.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    AUTOMOTIVE_CAMERA_POSITION_INTERIOR_ROW_1_LEFT = 6,
+
+    /**
+     * Interior center side position of the first row.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    AUTOMOTIVE_CAMERA_POSITION_INTERIOR_ROW_1_CENTER = 7,
+
+    /**
+     * Interior right side position of the first row.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    AUTOMOTIVE_CAMERA_POSITION_INTERIOR_ROW_1_RIGHT = 8,
+
+    /**
+     * Interior left side position of the second row.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    AUTOMOTIVE_CAMERA_POSITION_INTERIOR_ROW_2_LEFT = 9,
+
+    /**
+     * Interior center side position of the second row.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    AUTOMOTIVE_CAMERA_POSITION_INTERIOR_ROW_2_CENTER = 10,
+
+    /**
+     * Interior right side position of the second row.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    AUTOMOTIVE_CAMERA_POSITION_INTERIOR_ROW_2_RIGHT = 11,
+
+    /**
+     * Interior left side position of the third row.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    AUTOMOTIVE_CAMERA_POSITION_INTERIOR_ROW_3_LEFT = 12,
+
+    /**
+     * Interior center side position of the third row.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    AUTOMOTIVE_CAMERA_POSITION_INTERIOR_ROW_3_CENTER = 13,
+
+    /**
+     * Interior right side position of the third row.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    AUTOMOTIVE_CAMERA_POSITION_INTERIOR_ROW_3_RIGHT = 14
+  }
 }
 
 export default camera;
