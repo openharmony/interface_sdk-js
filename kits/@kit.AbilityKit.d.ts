@@ -128,6 +128,7 @@ import hyperSnapManager from '@ohos.app.ability.hyperSnapManager';
 import cliManager from '@ohos.app.cli.cliManager';
 import functionManager from '@ohos.app.function.functionManager';
 import pluginBundleManager from '@ohos.bundle.pluginBundleManager';
+import appMemoryOptimizer from '@ohos.app.ability.appMemoryOptimizer';
 
 export {
   Ability, AbilityConstant, AbilityLifecycleCallback, AbilityStage, ActionExtensionAbility,
@@ -150,7 +151,7 @@ export {
   InsightIntentEntry, LinkParamCategory, CompletionHandler, AppServiceExtensionAbility, InsightIntentForm, InsightIntentEntity, kioskManager,
   CompletionHandlerForAtomicService, CompletionHandlerForAbilityStartCallback, AbilityStartFailureCode, FailureCode, InteropAbilityLifecycleCallback,
   systemConfiguration, AgentExtensionAbility, AgentUIExtensionAbility, agentConstant, agentManager,hyperSnapManager, cliManager, pluginBundleManager,
-  functionManager
+  functionManager, appMemoryOptimizer
 };
 
 /*** if arkts static */
@@ -241,6 +242,7 @@ import agentManager from '@ohos.app.agent.agentManager';
 import hyperSnapManager from '@ohos.app.ability.hyperSnapManager';
 import pluginBundleManager from '@ohos.bundle.pluginBundleManager';
 import errorManager from '@ohos.app.ability.errorManager';
+import appMemoryOptimizer from '@ohos.app.ability.appMemoryOptimizer';
 
 export {
   appControl, bundleManager, bundleMonitor, bundleResourceManager, defaultAppManager, distributedBundleManager,
@@ -261,6 +263,6 @@ export {
   StartupTask, startupManager, systemConfiguration, PhotoEditorExtensionAbility, AgentExtensionAbility, 
   AgentUIExtensionAbility, agentConstant, agentManager, InsightIntentLink, InsightIntentPage, InsightIntentFunctionMethod, InsightIntentFunction, 
   InsightIntentEntry, LinkParamCategory, LinkIntentParamMapping, InsightIntentEntity, InsightIntentEntryExecutor, InsightIntentForm, hyperSnapManager, 
-  pluginBundleManager, errorManager
+  pluginBundleManager, errorManager, appMemoryOptimizer
 };
 /*** endif */
