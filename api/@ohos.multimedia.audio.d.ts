@@ -8813,6 +8813,42 @@ declare namespace audio {
   }
 
   /**
+   * Enumerates the noise reduction modes.
+   *
+   * @syscap SystemCapability.Multimedia.Audio.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  enum NoiseReductionMode {
+    /**
+     * Fidelity mode, no noise cancellation.
+     *
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    FIDELITY = 0,
+
+    /**
+     * Pure vocals mode, enhanced noise reduction.
+     *
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    PURE_VOCALS = 1,
+
+    /**
+     * Standard mode, weak noise reduction.
+     *
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    STANDARD = 2
+  }
+
+  /**
    * Implements audio collaborative management.
    *
    * @syscap SystemCapability.Multimedia.Audio.Core
@@ -13036,6 +13072,53 @@ declare namespace audio {
      * @since 24 dynamic&static
      */
     setIndependentAudioSessionStrategy(strategy: AudioSessionStrategy, behavior: int): void;
+
+    /**
+     * Sets noise reduction mode for current audio capturer.
+     * The supported mode should be obtained by {@link #getSupportedNoiseReductionModes}.
+     * The actual effect may vary from different audio devices, and will be invalid when there are multiple
+     * recording streams running simultaneously.
+     * The mode can only be changed in created and stopped state.
+     *
+     * @param { NoiseReductionMode } noiseReductionMode - The noise reduction mode to set.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @throws { BusinessError } 6800103 - Illegal state, audio capturer is in running or released state.
+     * @throws { BusinessError } 6800104 - The setted mode is not supported.
+     * @throws { BusinessError } 6800301 - Audio server process died.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    setNoiseReductionMode(noiseReductionMode: NoiseReductionMode): void;
+
+    /**
+     * Gets the noise reduction mode for current audio capturer.
+     * The mode will only consider the default and setted status, audio input device and stream concurrency will
+     * not be considered.
+     *
+     * @returns { NoiseReductionMode } The noise reduction mode for current audio capturer,
+     *     the default value is {@link NoiseReductionMode#FIDELITY}.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    getNoiseReductionMode(): NoiseReductionMode;
+
+    /**
+     * Gets all the supported noise reduction modes for current device platform.
+     * Currently the noise reduction effect is only supported when using
+     * {@link SourceType#SOURCE_TYPE_VOICE_MESSAGE}, other supported usage may be extened later.
+     * The supported modes will only consider the audio format and device platform,
+     * audio input device and stream concurrency will not be considered.
+     *
+     * @returns { Array<NoiseReductionMode> } The supported noise reduction mode array, at least
+     *     {@link NoiseReductionMode#FIDELITY} is supported.
+     * @throws { BusinessError } 6800301 - Audio server process died.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    getSupportedNoiseReductionModes(): Array<NoiseReductionMode>;
   }
 
   /**
