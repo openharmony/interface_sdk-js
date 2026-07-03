@@ -5171,15 +5171,6 @@ declare namespace ON {
   export function withinComponent(com: Component): On;
  }
 
-/*** if arkts dynamic */
- export {
-     UiComponent,
-     UiDriver,
-     BY,
-     By
- };
- /*** endif */
-
 export {
      Component,
      Driver,
