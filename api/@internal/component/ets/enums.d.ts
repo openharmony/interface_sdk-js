@@ -1448,7 +1448,7 @@ declare enum Week {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Mon = 0,
+  Mon,
 
   /**
    * Tuesday.
@@ -1459,7 +1459,7 @@ declare enum Week {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Tue = 1,
+  Tue,
 
   /**
    * Wednesday.
@@ -1470,7 +1470,7 @@ declare enum Week {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Wed = 2,
+  Wed,
 
   /**
    * Thursday.
@@ -1481,7 +1481,7 @@ declare enum Week {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Thur = 3,
+  Thur,
 
   /**
    * Friday.
@@ -1492,7 +1492,7 @@ declare enum Week {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Fri = 4,
+  Fri,
 
   /**
    * Saturday.
@@ -1503,7 +1503,7 @@ declare enum Week {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Sat = 5,
+  Sat,
 
   /**
    * Sunday.
@@ -1514,7 +1514,7 @@ declare enum Week {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Sun = 6
+  Sun,
 }
 
 /**
