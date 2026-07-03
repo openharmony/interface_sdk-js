@@ -191,7 +191,7 @@ declare namespace userStatus {
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
-  export enum DeviceType {  
+  export enum DeviceType {
     /**
      * Unknown device type.
      *
@@ -241,7 +241,7 @@ declare namespace userStatus {
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
-  export interface DeviceInfo {  
+  export interface DeviceInfo {
     /**
      * Device ID.
      *
@@ -291,7 +291,7 @@ declare namespace userStatus {
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
-  export enum UserStatusFeature {  
+  export enum UserStatusFeature {
     /**
      * Gesture recognition feature (100ms reporting interval).
      *
@@ -411,7 +411,7 @@ declare namespace userStatus {
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
-  export enum UserStatusAtomicCap {  
+  export enum UserStatusAtomicCap {
     /**
      * Unknown atomic capability.
      *
@@ -581,7 +581,7 @@ declare namespace userStatus {
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
-  export enum ReminderLevel {  
+  export enum ReminderLevel {
     /**
      * Weak reminder level.
      *
@@ -611,7 +611,7 @@ declare namespace userStatus {
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
-  export interface UserStatusData {  
+  export interface UserStatusData {
     /**
      * User status detection feature type.
      *
@@ -663,7 +663,7 @@ declare namespace userStatus {
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
-  export interface UserBlowData extends UserStatusData {  
+  export interface UserBlowData extends UserStatusData {
     /**
      * Face position relative to screen.
      * The normalized coordinate system ranges from 0 to 640.
@@ -730,7 +730,7 @@ declare namespace userStatus {
     gravityAcceleration?: double[];
 
     /**
-     * Linear acceleration of user motion status, in m/s²..
+     * Linear acceleration of user motion status, in m/s².
      *
      * @syscap SystemCapability.MultimodalAwareness.UserStatus
      * @systemapi
@@ -748,7 +748,7 @@ declare namespace userStatus {
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
-  export interface UserEmotionData extends UserStatusData {  
+  export interface UserEmotionData extends UserStatusData {
     /**
      * User real-time emotion level.
      * The value ranges from 0 to 5. 0: Very happy, 1: A little happy, 2: Calm,
@@ -823,7 +823,7 @@ declare namespace userStatus {
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
-  export interface ComfortReminderData extends UserStatusData {  
+  export interface ComfortReminderData extends UserStatusData {
     /**
      * Fusion reminder data.
      *
@@ -864,7 +864,7 @@ declare namespace userStatus {
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
-  export interface UserFacesData extends UserStatusData {  
+  export interface UserFacesData extends UserStatusData {
     /**
      * User visual angle.
      * The value ranges from 0 to 90, in degrees.
@@ -937,7 +937,7 @@ declare namespace userStatus {
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
-  export interface UserGesturesData extends UserFacesData {  
+  export interface UserGesturesData extends UserFacesData {
     /**
      * Whether user hand exists.
      *
@@ -993,6 +993,7 @@ declare namespace userStatus {
     directionAngle?: double[];
 
     /**
+     * Gesture speed.
      * Gesture speed, in frames per second (fps).
      *
      * @syscap SystemCapability.MultimodalAwareness.UserStatus
@@ -1011,7 +1012,7 @@ declare namespace userStatus {
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
-  export interface UserFaceAngleData extends UserStatusData {  
+  export interface UserFaceAngleData extends UserStatusData {
     /**
      * Network ID of device that user head is facing.
      * The maximum length is 128.
@@ -1107,3 +1108,4 @@ declare namespace userStatus {
   function queryCapabilities(capabilities: UserStatusAtomicCap[]): UserStatusAtomicCap[];
 }
 export default userStatus;
+
