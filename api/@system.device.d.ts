@@ -21,7 +21,7 @@
 /**
  *
  * @syscap SystemCapability.Startup.SystemInfo.Lite
- * @famodelonly
+ * @FaAndStageModel
  * @since 3 dynamiconly
  * @deprecated since 6
  * @reserved ["liteWearable"]
@@ -31,7 +31,7 @@ export interface DeviceResponse {
    * Brand.
    *
    * @syscap SystemCapability.Startup.SystemInfo.Lite
-   * @famodelonly
+   * @FaAndStageModel
    * @since 3 dynamiconly
    * @deprecated since 6
    * @reserved ["liteWearable"]
@@ -42,7 +42,7 @@ export interface DeviceResponse {
    * Manufacturer.
    *
    * @syscap SystemCapability.Startup.SystemInfo.Lite
-   * @famodelonly
+   * @FaAndStageModel
    * @since 3 dynamiconly
    * @deprecated since 6
    * @reserved ["liteWearable"]
@@ -53,7 +53,7 @@ export interface DeviceResponse {
    * Model.
    *
    * @syscap SystemCapability.Startup.SystemInfo.Lite
-   * @famodelonly
+   * @FaAndStageModel
    * @since 3 dynamiconly
    * @deprecated since 6
    * @reserved ["liteWearable"]
@@ -64,7 +64,7 @@ export interface DeviceResponse {
    * Product number.
    *
    * @syscap SystemCapability.Startup.SystemInfo.Lite
-   * @famodelonly
+   * @FaAndStageModel
    * @since 3 dynamiconly
    * @deprecated since 6
    * @reserved ["liteWearable"]
@@ -75,7 +75,7 @@ export interface DeviceResponse {
    * System language.
    *
    * @syscap SystemCapability.Startup.SystemInfo.Lite
-   * @famodelonly
+   * @FaAndStageModel
    * @since 4 dynamiconly
    * @deprecated since 6
    * @reserved ["liteWearable"]
@@ -86,7 +86,7 @@ export interface DeviceResponse {
    * System region.
    *
    * @syscap SystemCapability.Startup.SystemInfo.Lite
-   * @famodelonly
+   * @FaAndStageModel
    * @since 4 dynamiconly
    * @deprecated since 6
    * @reserved ["liteWearable"]
@@ -97,7 +97,7 @@ export interface DeviceResponse {
    * Window width, unit px.
    *
    * @syscap SystemCapability.Startup.SystemInfo.Lite
-   * @famodelonly
+   * @FaAndStageModel
    * @since 3 dynamiconly
    * @deprecated since 6
    * @reserved ["liteWearable"]
@@ -108,7 +108,7 @@ export interface DeviceResponse {
    * Window Height, unit px.
    *
    * @syscap SystemCapability.Startup.SystemInfo.Lite
-   * @famodelonly
+   * @FaAndStageModel
    * @since 3 dynamiconly
    * @deprecated since 6
    * @reserved ["liteWearable"]
@@ -119,7 +119,7 @@ export interface DeviceResponse {
    * Screen density, unit dpi.
    *
    * @syscap SystemCapability.Startup.SystemInfo.Lite
-   * @famodelonly
+   * @FaAndStageModel
    * @since 4 dynamiconly
    * @deprecated since 6
    * @reserved ["liteWearable"]
@@ -132,7 +132,7 @@ export interface DeviceResponse {
    * circle: Circle screen.
    *
    * @syscap SystemCapability.Startup.SystemInfo.Lite
-   * @famodelonly
+   * @FaAndStageModel
    * @since 4 dynamiconly
    * @deprecated since 6
    * @reserved ["liteWearable"]
@@ -143,43 +143,12 @@ export interface DeviceResponse {
    * API version.
    *
    * @syscap SystemCapability.Startup.SystemInfo.Lite
-   * @famodelonly
+   * @FaAndStageModel
    * @since 4 dynamiconly
    * @deprecated since 6
    * @reserved ["liteWearable"]
    */
   apiVersion: number;
-
-  
-  /**
-   * Minor API version of the system software.
-   * From API 26 and later versions, the system API version format is
-   * sdkApiVersion.sdkMinorApiVersion.sdkPatchApiVersion.
-   * Example: 26.0.0
-   * Value range: (-∞,+∞).
-   *
-   * @syscap SystemCapability.Startup.SystemInfo.Lite
-   * @famodelonly
-   * @since 26.0.0 dynamiconly
-   * @deprecated since 26.0.0
-   * @reserved ["liteWearable"]
-   */
-  sdkMinorApiVersion: number;
-
-  /**
-   * Minor API version of the system software.
-   * From API 26 and later versions, the system API version format is
-   * sdkApiVersion.sdkMinorApiVersion.sdkPatchApiVersion.
-   * Example: 26.0.0
-   * Value range: (-∞,+∞).
-   *
-   * @syscap SystemCapability.Startup.SystemInfo.Lite
-   * @famodelonly
-   * @since 26.0.0 dynamiconly
-   * @deprecated since 26.0.0
-   * @reserved ["liteWearable"]
-   */
-  sdkPatchApiVersion: number;
 
   /**
    * Device type. The options are as follows:
@@ -197,7 +166,7 @@ export interface DeviceResponse {
    * linkIoT: connection module
    *
    * @syscap SystemCapability.Startup.SystemInfo.Lite
-   * @famodelonly
+   * @FaAndStageModel
    * @since 4 dynamiconly
    * @deprecated since 6
    * @reserved ["liteWearable"]
@@ -208,7 +177,7 @@ export interface DeviceResponse {
 /**
  *
  * @syscap SystemCapability.Startup.SystemInfo.Lite
- * @famodelonly
+ * @FaAndStageModel
  * @since 3 dynamiconly
  * @deprecated since 6
  * @reserved ["liteWearable"]
@@ -218,7 +187,7 @@ export interface GetDeviceOptions {
    * Called when the device information is obtained.
    *
    * @syscap SystemCapability.Startup.SystemInfo.Lite
-   * @famodelonly
+   * @FaAndStageModel
    * @since 3 dynamiconly
    * @deprecated since 6
    * @reserved ["liteWearable"]
@@ -229,7 +198,7 @@ export interface GetDeviceOptions {
    * Called when the device information fails to be obtained.
    *
    * @syscap SystemCapability.Startup.SystemInfo.Lite
-   * @famodelonly
+   * @FaAndStageModel
    * @since 3 dynamiconly
    * @deprecated since 6
    * @reserved ["liteWearable"]
@@ -240,7 +209,7 @@ export interface GetDeviceOptions {
    * Called when the execution is completed.
    *
    * @syscap SystemCapability.Startup.SystemInfo.Lite
-   * @famodelonly
+   * @FaAndStageModel
    * @since 3 dynamiconly
    * @deprecated since 6
    * @reserved ["liteWearable"]
@@ -252,7 +221,7 @@ export interface GetDeviceOptions {
  * getInfo interface
  *
  * @syscap SystemCapability.Startup.SystemInfo.Lite
- * @famodelonly
+ * @FaAndStageModel
  * @since 3 dynamiconly
  * @deprecated since 6
  * @reserved ["liteWearable"]
@@ -263,7 +232,7 @@ export default class Device {
    *
    * @param { GetDeviceOptions } options - Options
    * @syscap SystemCapability.Startup.SystemInfo.Lite
-   * @famodelonly
+   * @FaAndStageModel
    * @since 3 dynamiconly
    * @deprecated since 6
    * @reserved ["liteWearable"]
