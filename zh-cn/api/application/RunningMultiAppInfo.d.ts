@@ -23,14 +23,12 @@ import { RunningAppClone } from './RunningAppClone';
 import { RunningMultiInstanceInfo } from './RunningMultiInstanceInfo';
 
 /**
- * # How to Use
+ * # 使用说明
  * 
- * The RunningMultiAppInfo struct is obtained from 
- * [getRunningMultiAppInfo]{@link ./../@ohos.app.ability.appManager:appManager.getRunningMultiAppInfo} of 
- * **appManager**.
+ * 通过appManager的[getRunningMultiAppInfo]{@link ./../@ohos.app.ability.appManager:appManager.getRunningMultiAppInfo}来获取。
  */
 /**
- * The RunningMultiAppInfo module defines the information of an application in multi-app mode in the running state.
+ * 定义应用多开在运行态的结构信息。
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @systemapi
@@ -40,7 +38,7 @@ import { RunningMultiInstanceInfo } from './RunningMultiInstanceInfo';
 export interface RunningMultiAppInfo {
 
   /**
-   * Bundle name of the application.
+   * 应用的包名。
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
@@ -50,7 +48,7 @@ export interface RunningMultiAppInfo {
   bundleName: string;
 
   /**
-   * Multi-app mode.
+   * 应用多开模式。
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
@@ -60,7 +58,7 @@ export interface RunningMultiAppInfo {
   mode: MultiAppMode;
 
   /**
-   * Information about a multi-instance application with the specific bundle name in the running state.
+   * 特定包名在运行态的多实例应用信息。
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
@@ -70,7 +68,7 @@ export interface RunningMultiAppInfo {
   runningMultiInstances?: Array<RunningMultiInstanceInfo>;
 
   /**
-   * Information about application clones with the specific bundle name in the running state.
+   * 特定包名在运行态的分身应用信息。
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
