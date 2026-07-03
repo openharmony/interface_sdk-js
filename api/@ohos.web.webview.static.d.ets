@@ -4547,6 +4547,30 @@ declare namespace webview {
         setErrorPageEnabled(enable: boolean): void;
 
         /**
+        * Get whether default error page feature is enabled for subframes.
+        *
+        * @returns { boolean } - True if enable the default error page feature for subframes; else false.
+        * @throws { BusinessError } 17100001 - Init error.
+        *     The WebviewController must be associated with a Web component.
+        * @syscap SystemCapability.Web.Webview.Core
+        * @stagemodelonly
+        * @since 26.0.0 dynamic
+        */
+        getSubframeErrorPageEnabled(): boolean;
+
+        /**
+        * Sets whether to enable error page. onOverrideErrorPage will be triggered when the page error.
+        *
+        * @param { boolean } enable - Whether to enable error page.
+        * @param { boolean } includeSubframe - If true, error page is displayed in iframe
+        *     when a subframe fails to load.
+        * @syscap SystemCapability.Web.Webview.Core
+        * @stagemodelonly
+        * @since 26.0.0 dynamic
+        */
+        setErrorPageEnabled(enable: boolean, includeSubframe: boolean): void;
+
+        /**
          * After enable PrivateNetworkAccess feature, ArkWeb will send a CORS preflight request before issuing any
          * sub-resource private network requests to request explicit permission from the target server.
          * After disable PrivateNetworkAccess, ArkWeb will no longer check whether the private network request
