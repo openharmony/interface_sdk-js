@@ -14,12 +14,12 @@
  */
 
 /**
- * @file
- * @kit ArkUI
+  * @file
+  * @kit ArkUI
  */
 
 /**
- * Enumerates system color modes.
+ * 系统当前深浅色模式。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -29,7 +29,7 @@
  */
 declare enum ColorMode {
   /**
-   * Light mode.
+   * 浅色模式。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -40,7 +40,7 @@ declare enum ColorMode {
   LIGHT = 0,
 
   /**
-   * Dark mode.
+   * 深色模式。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -52,7 +52,7 @@ declare enum ColorMode {
 }
 
 /**
- * Enumerates system layout directions.
+ * 系统的布局方向类型。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -62,7 +62,7 @@ declare enum ColorMode {
  */
 declare enum LayoutDirection {
   /**
-   * Left-to-right layout.
+   * 从左向右布局。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -73,7 +73,7 @@ declare enum LayoutDirection {
   LTR,
 
   /**
-   * Right-to-left layout.
+   * 从右向左布局。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -84,7 +84,7 @@ declare enum LayoutDirection {
   RTL,
 
   /**
-   * Automatic layout direction based on the system.
+   * 自动布局，跟随系统。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -96,7 +96,7 @@ declare enum LayoutDirection {
 }
 
 /**
- * Defines the base class of storage.
+ * 定义存储的基类
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
@@ -105,7 +105,7 @@ declare enum LayoutDirection {
  */
 declare class Storage {
   /**
-   * Constructor parameters.
+   * 构造函数参数。
    *
    * @param { boolean } needCrossThread
    * @param { string } file
@@ -117,11 +117,12 @@ declare class Storage {
   constructor(needCrossThread?: boolean, file?: string);
 
   /**
-   * Called when data is obtained.
+   *
+   * 获取数据时调用。
    *
    * @param { string } key
    * @returns { string | undefined }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+      * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @FaAndStageModel
    * @since 7 dynamic
@@ -129,7 +130,7 @@ declare class Storage {
   get(key: string): string | undefined;
 
   /**
-   * Called when setting.
+   * 设置时调用。
    *
    * @param { string } key
    * @param { any } val
@@ -141,7 +142,7 @@ declare class Storage {
   set(key: string, val: any): void;
 
   /**
-   * Called when data is cleared.
+   * 当数据被清除时调用此方法。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -151,7 +152,7 @@ declare class Storage {
   clear(): void;
 
   /**
-   * Called when data is deleted.
+   * 当数据被删除时调用。
    *
    * @param { string } key
    * @syscap SystemCapability.ArkUI.ArkUI.Full
