@@ -45,8 +45,8 @@ declare namespace cardEmulation {
    *
    * @enum { number }
    * @syscap SystemCapability.Communication.NFC.CardEmulation
-   * @since 6 dynamiconly
    * @stagemodelonly
+   * @since 6 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.nfc.cardEmulation/cardEmulation#hasHceCapability
    */
@@ -55,8 +55,8 @@ declare namespace cardEmulation {
      * This constant is used to check whether HCE card emulation is supported.
      *
      * @syscap SystemCapability.Communication.NFC.CardEmulation
-     * @since 6 dynamiconly
      * @stagemodelonly
+     * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.nfc.cardEmulation/cardEmulation#hasHceCapability
      */
@@ -145,8 +145,8 @@ declare namespace cardEmulation {
    * @param { number } feature Indicates the card emulation type, {@code HCE}, {@code UICC}, or {@code ESE}.
    * @returns { boolean } Returns true if the specified type of card emulation is supported; returns false otherwise.
    * @syscap SystemCapability.Communication.NFC.CardEmulation
-   * @since 6 dynamiconly
    * @stagemodelonly
+   * @since 6 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.nfc.cardEmulation/cardEmulation#hasHceCapability
    */
