@@ -1824,6 +1824,12 @@ declare namespace display {
 
     /**
      * Width of the available area, in px. The value is an integer greater than 0.
+     * 
+     * This API can be properly called on devices running OpenHarmony 7.0.0 or later.
+     * For devices running versions earlier than OpenHarmony 7.0.0,
+     * this API can be properly called on PCs/2-in-1 devices and tablets,
+     * but does not work for other device types.
+     * To obtain the width of the available area on the current device screen, you can use the width attribute.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
@@ -1835,6 +1841,12 @@ declare namespace display {
 
     /**
      * eight of the available area, in px. The value is an integer greater than 0.
+     * 
+     * This API can be properly called on devices running OpenHarmony 7.0.0 or later.
+     * For devices running versions earlier than OpenHarmony 7.0.0,
+     * this API can be properly called on PCs/2-in-1 devices and tablets,
+     * but does not work for other device types.
+     * To obtain the height of the available area on the current device screen, you can use the height attribute.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
@@ -2007,6 +2019,12 @@ declare namespace display {
      *
      * The available area is the space left for applications after the system UI (such as the status bar and dock bar)
      * is accounted for.
+     * 
+     * This API can be properly called on devices running OpenHarmony 7.0.0 or later.
+     * For devices running versions earlier than OpenHarmony 7.0.0,
+     * this API can be properly called on PCs/2-in-1 devices and tablets,
+     * but does not work for other device types. To obtain the available area on the current device screen,
+     * you can use the width and height attributes in Display.
      *
      * @returns { Promise<Rect> } Promise used to return the available area, which is a rectangle.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
@@ -2038,6 +2056,11 @@ declare namespace display {
      * Subscribes to changes of the available area on the display of the current device. This callback function is
      * triggered when the screen rotates, the freeform mode is enabled or disabled, or the visibility of system
      * components such as the dock bar and status bar changes, and returns the available area information.
+     * 
+     * This API can be properly called on devices running OpenHarmony 7.0.0 or later.
+     * For devices running versions earlier than OpenHarmony 7.0.0,
+     * this API can be properly called on PCs/2-in-1 devices and tablets.
+     * If being called on other device types, it does not take effect and no error is reported.
      *
      * @param { 'availableAreaChange' } type - Event type. The event **'availableAreaChange'** is triggered when the
      *     available area of the display changes.
@@ -2053,6 +2076,11 @@ declare namespace display {
 
     /**
      * Register the callback for available area changes.
+     * 
+     * This API can be properly called on devices running OpenHarmony 7.0.0 or later.
+     * For devices running versions earlier than OpenHarmony 7.0.0,
+     * this API can be properly called on PCs/2-in-1 devices and tablets.
+     * If being called on other device types, it does not take effect and no error is reported.
      *
      * @param { Callback<Rect> } callback - Callback used to return the available area
      * @throws { BusinessError } 1400003 - This display manager service works abnormally.
@@ -2063,6 +2091,11 @@ declare namespace display {
 
     /**
      * Unsubscribes from changes of the available area on the display of the current device.
+     * 
+     * This API can be properly called on devices running OpenHarmony 7.0.0 or later.
+     * For devices running versions earlier than OpenHarmony 7.0.0,
+     * this API can be properly called on PCs/2-in-1 devices and tablets.
+     * If being called on other device types, it does not take effect and no error is reported.
      *
      * @param { 'availableAreaChange' } type - Event type. The event **'availableAreaChange'** is triggered when the
      *     available area of the display changes.
@@ -2079,6 +2112,11 @@ declare namespace display {
 
     /**
      * Unregister the callback for available area changes.
+     * 
+     * This API can be properly called on devices running OpenHarmony 7.0.0 or later.
+     * For devices running versions earlier than OpenHarmony 7.0.0,
+     * this API can be properly called on PCs/2-in-1 devices and tablets.
+     * If being called on other device types, it does not take effect and no error is reported.
      *
      * @param { Callback<Rect> } [callback] - Unregister the callback function.
      *     If not provided, all callbacks for the given event type will be removed.
