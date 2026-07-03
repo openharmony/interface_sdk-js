@@ -3301,7 +3301,7 @@ declare enum Placement {
    * @atomicservice [since 11]
    * @since 8 dynamic
    */
-  Left = 0,
+  Left,
 
   /**
    * Right placement
@@ -3312,7 +3312,7 @@ declare enum Placement {
    * @atomicservice [since 11]
    * @since 8 dynamic
    */
-  Right = 1,
+  Right,
 
   /**
    * Top placement
@@ -3323,7 +3323,7 @@ declare enum Placement {
    * @atomicservice [since 11]
    * @since 8 dynamic
    */
-  Top = 2,
+  Top,
 
   /**
    * Bottom placement
@@ -3334,7 +3334,7 @@ declare enum Placement {
    * @atomicservice [since 11]
    * @since 8 dynamic
    */
-  Bottom = 3,
+  Bottom,
 
   /**
    * TopLeft placement
@@ -3345,7 +3345,7 @@ declare enum Placement {
    * @atomicservice [since 11]
    * @since 8 dynamic
    */
-  TopLeft = 4,
+  TopLeft,
 
   /**
    * TopRight placement
@@ -3356,7 +3356,7 @@ declare enum Placement {
    * @atomicservice [since 11]
    * @since 8 dynamic
    */
-  TopRight = 5,
+  TopRight,
 
   /**
    * BottomLeft placement
@@ -3367,7 +3367,7 @@ declare enum Placement {
    * @atomicservice [since 11]
    * @since 8 dynamic
    */
-  BottomLeft = 6,
+  BottomLeft,
 
   /**
    * BottomRight placement
@@ -3378,7 +3378,7 @@ declare enum Placement {
    * @atomicservice [since 11]
    * @since 8 dynamic
    */
-  BottomRight = 7,
+  BottomRight,
 
   /**
    * LeftTop placement
@@ -3389,7 +3389,7 @@ declare enum Placement {
    * @atomicservice [since 11]
    * @since 9 dynamic
    */
-  LeftTop = 8,
+  LeftTop,
 
   /**
    * LeftBottom placement
@@ -3400,7 +3400,7 @@ declare enum Placement {
    * @atomicservice [since 11]
    * @since 9 dynamic
    */
-  LeftBottom = 9,
+  LeftBottom,
 
   /**
    * RightTop placement
@@ -3411,7 +3411,7 @@ declare enum Placement {
    * @atomicservice [since 11]
    * @since 9 dynamic
    */
-  RightTop = 10,
+  RightTop,
 
   /**
    * RightBottom placement
@@ -3422,7 +3422,7 @@ declare enum Placement {
    * @atomicservice [since 11]
    * @since 9 dynamic
    */
-  RightBottom = 11,
+  RightBottom,
 }
 
 /**
