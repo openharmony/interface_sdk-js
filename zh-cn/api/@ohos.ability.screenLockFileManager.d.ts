@@ -14,24 +14,16 @@
  */
 
 /**
- * @file Sensitive Data Access Management Under Lock Screen
+ * @file 锁屏敏感数据管理
  * @kit AbilityKit
  */
 
 /**
- * This module provides the capability to protect app sensitive data under the lock screen, supporting requesting and 
- * releasing access permissions for sensitive data under the lock screen, as well as querying the status of sensitive 
- * data keys. When the reference count of a sensitive data key reaches zero and the screen has been locked for a 
- * duration reaching the system-configured lock duration threshold, the key is destroyed, and operations on that data 
- * become impossible. These keys can be restored only after the screen is unlocked. By calling the 
- * [acquireAccess]{@link screenLockFileManager.acquireAccess} API of this module, you can prevent the key from being 
- * destroyed after the screen has been locked for a duration reaching the system-configured lock duration threshold.
+ * 本模块提供锁屏下应用敏感数据保护的能力，支持申请和释放锁屏下应用敏感数据访问权限，以及查询敏感数据密钥的状态。当敏感数据密钥的引用计数归零，且屏幕被锁定达到系统配置的时长阈值后，密钥会被销毁，此时无法对该数据进行操作。这些密钥只有在屏幕解锁后才能恢复。通过调用本模块的[acquireAccess]{@link screenLockFileManager.acquireAccess}接口，可以防止密钥在屏幕被锁定达到系统配置的时长阈值后被销毁。
  *
- * > **NOTE**
+ * > **说明：**
  * >
- * > - To enable the sensitive data protection function under the lock screen for an app, you need to configure the 
- * > ohos.permission.PROTECT_SCREEN_LOCK_DATA permission in 
- * > [requestPermissions](docroot://security/AccessToken/declare-permissions.md#declaring-permissions-in-the-configuration-file).
+ * > - 应用开启锁屏下敏感数据保护功能，需在[requestPermissions](docroot://security/AccessToken/declare-permissions.md#在配置文件中声明权限)中配置权限ohos.permission.PROTECT_SCREEN_LOCK_DATA。
  *
  * @syscap SystemCapability.Security.ScreenLockFileManager
  * @since 12 dynamic
@@ -39,7 +31,7 @@
  */
 declare namespace screenLockFileManager {
   /**
-   * Enumerates the types of sensitive data that can be accessed under the lock screen.
+   * 表示锁屏下访问敏感数据类型的枚举。
    *
    * @syscap SystemCapability.Security.ScreenLockFileManager
    * @since 12 dynamic
@@ -47,7 +39,7 @@ declare namespace screenLockFileManager {
    */
   export enum DataType {
     /**
-     * Media data type.
+     * 媒体数据类型。
      *
      * @syscap SystemCapability.Security.ScreenLockFileManager
      * @since 12 dynamic
@@ -56,7 +48,7 @@ declare namespace screenLockFileManager {
     MEDIA_DATA = 0x00000001,
 
     /**
-     * All sensitive data types.
+     * 所有敏感数据类型。
      *
      * @syscap SystemCapability.Security.ScreenLockFileManager
      * @since 12 dynamic
@@ -66,7 +58,7 @@ declare namespace screenLockFileManager {
   }
 
   /**
-   * Enumerates the statuses for requesting access permissions for sensitive data under the lock screen.
+   * 表示锁屏下敏感数据访问权限申请状态的枚举。
    *
    * @syscap SystemCapability.Security.ScreenLockFileManager
    * @since 12 dynamic
@@ -74,7 +66,7 @@ declare namespace screenLockFileManager {
    */
   export enum AccessStatus {
     /**
-     * The request for access permission for sensitive data under lock screen is denied.
+     * 申请锁屏下敏感数据访问权限被拒绝。
      *
      * @syscap SystemCapability.Security.ScreenLockFileManager
      * @since 12 dynamic
@@ -83,7 +75,7 @@ declare namespace screenLockFileManager {
     ACCESS_DENIED = -1,
 
     /**
-     * The request for access permission for sensitive data under lock screen is granted.
+     * 申请锁屏下敏感数据访问权限被允许。
      *
      * @syscap SystemCapability.Security.ScreenLockFileManager
      * @since 12 dynamic
@@ -93,7 +85,7 @@ declare namespace screenLockFileManager {
   }
 
   /**
-   * Enumerates the statuses for releasing access permissions for sensitive data under the lock screen.
+   * 表示锁屏下敏感数据访问权限释放状态的枚举。
    *
    * @syscap SystemCapability.Security.ScreenLockFileManager
    * @since 12 dynamic
@@ -101,7 +93,7 @@ declare namespace screenLockFileManager {
    */
   export enum ReleaseStatus {
     /**
-     * Release of access permission for sensitive data under lock screen is denied.
+     * 释放锁屏下敏感数据访问权限被拒绝。
      *
      * @syscap SystemCapability.Security.ScreenLockFileManager
      * @since 12 dynamic
@@ -110,7 +102,7 @@ declare namespace screenLockFileManager {
     RELEASE_DENIED = -1,
 
     /**
-     * Release of access permission for sensitive data under lock screen is granted.
+     * 释放锁屏下敏感数据访问权限被允许。
      *
      * @syscap SystemCapability.Security.ScreenLockFileManager
      * @since 12 dynamic
@@ -120,16 +112,16 @@ declare namespace screenLockFileManager {
   }
 
   /**
-   * Enumerates the statuses of sensitive data keys under the lock screen.
+   * 表示锁屏下敏感数据密钥状态的枚举。
    *
    * @syscap SystemCapability.Security.ScreenLockFileManager
    * @since 18 dynamic
    * @since 23 static
    */
   export enum KeyStatus {
+
     /**
-     * The key does not exist. This status indicates that the app has not enabled the sensitive data protection function 
-     * under lock screen, or the protection function is unavailable on the current device.
+     * 密钥不存在。此状态表示应用未开启锁屏下敏感数据保护功能，或当前设备上该保护功能不可用。
      *
      * @syscap SystemCapability.Security.ScreenLockFileManager
      * @since 18 dynamic
@@ -138,7 +130,7 @@ declare namespace screenLockFileManager {
     KEY_NOT_EXIST = -2,
 
     /**
-     * The key has been released. This status indicates that sensitive data under lock screen cannot be operated.
+     * 密钥已释放。此状态表示锁屏下敏感数据无法被操作。
      *
      * @syscap SystemCapability.Security.ScreenLockFileManager
      * @since 18 dynamic
@@ -147,7 +139,7 @@ declare namespace screenLockFileManager {
     KEY_RELEASED = -1,
 
     /**
-     * The key exists. This status indicates that sensitive data under lock screen can be operated normally.
+     * 密钥存在。此状态表示锁屏下敏感数据可以被正常操作。
      *
      * @syscap SystemCapability.Security.ScreenLockFileManager
      * @since 18 dynamic
@@ -157,16 +149,11 @@ declare namespace screenLockFileManager {
   }
 
   /**
-   * Requests the access permission for the caller app's sensitive data under the lock screen in synchronous mode. After 
-   * the request is successful, the reference count of the sensitive data key increases, preventing the key from being 
-   * destroyed after the screen has been locked for a duration reaching the system-configured lock duration threshold. 
-   * This method must be used in pair with [releaseAccess]{@link screenLockFileManager.releaseAccess}.
+   * 以同步方法申请调用方应用锁屏下敏感数据访问权限。申请成功后，敏感数据密钥的引用计数增加，防止密钥在屏幕被锁定达到系统配置的时长阈值后被销毁。该方法需与[releaseAccess]{@link screenLockFileManager.releaseAccess}配对使用。
    *
-   * Before calling this API, ensure that the app has enabled the sensitive data protection function under the lock 
-   * screen, and that the key status queried through the 
-   * [queryAppKeyState]{@link screenLockFileManager.queryAppKeyState} API is KEY_EXIST.
+   * 调用此接口前，请确保应用已开启锁屏下敏感数据保护功能，并通过[queryAppKeyState]{@link screenLockFileManager.queryAppKeyState}接口查询密钥状态为KEY_EXIST。
    *
-   * @returns { AccessStatus } Application status for access permission for sensitive data under lock screen.
+   * @returns { AccessStatus } 锁屏下敏感数据访问权限的申请状态。
    * @throws { BusinessError } 801 - The specified SystemCapability name was not found.
    * @throws { BusinessError } 29300002 - The system ability works abnormally.
    * @throws { BusinessError } 29300003 - The application is not enabled the data protection under lock screen.
@@ -178,18 +165,13 @@ declare namespace screenLockFileManager {
   function acquireAccess(): AccessStatus;
 
   /**
-   * Requests the permission to access a specified type of sensitive data under the lock screen synchronously. After the 
-   * request is successful, the reference count of the sensitive data key increases, preventing the key from being 
-   * destroyed after the screen has been locked for the system-configured duration threshold. This method must be used 
-   * in pair with [releaseAccess]{@link screenLockFileManager.releaseAccess}.
+   * 以同步方法申请锁屏下指定类型的敏感数据访问权限。申请成功后，敏感数据密钥的引用计数增加，防止密钥在锁屏达到系统配置的时长阈值后被销毁。该方法需与[releaseAccess]{@link screenLockFileManager.releaseAccess}配对使用。
    *
-   * Before calling this API, ensure that the app has enabled the sensitive data protection under lock screen feature 
-   * and that the key state queried through the [queryAppKeyState]{@link screenLockFileManager.queryAppKeyState} API is 
-   * KEY_EXIST.
+   * 调用此接口前，请确保应用已开启锁屏下敏感数据保护功能，并通过[queryAppKeyState]{@link screenLockFileManager.queryAppKeyState}接口查询密钥状态为KEY_EXIST。
    *
    * @permission ohos.permission.ACCESS_SCREEN_LOCK_MEDIA_DATA or ohos.permission.ACCESS_SCREEN_LOCK_ALL_DATA
-   * @param { DataType } dataType - Type of sensitive data that is accessible on the lock screen.
-   * @returns { AccessStatus } Application status for access permission for sensitive data under lock screen.
+   * @param { DataType } dataType - 锁屏下访问的敏感数据类型。
+   * @returns { AccessStatus } 锁屏下敏感数据访问权限的申请状态。
    * @throws { BusinessError } 201 - Permission verification failed, usually returned by VerifyAccessToken.
    * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameter is left unspecified. 2. Incorrect parameter types.
@@ -206,16 +188,11 @@ declare namespace screenLockFileManager {
   function acquireAccess(dataType: DataType): AccessStatus;
 
   /**
-   * Releases the access permission for the caller app's sensitive data under the lock screen in synchronous mode. After 
-   * the release is successful, the reference count of the sensitive data key decreases. When the count reaches zero, 
-   * the key can be destroyed after the screen has been locked for a duration reaching the system-configured lock 
-   * duration threshold.
+   * 以同步方法释放调用方应用锁屏下敏感数据访问权限。释放成功后，敏感数据密钥的引用计数减少，当计数归零时，密钥可以在屏幕被锁定达到系统配置的时长阈值后被销毁。
    *
-   * Before calling this API, ensure that the app has enabled the sensitive data protection function under the lock 
-   * screen, and that the [acquireAccess]{@link screenLockFileManager.acquireAccess} API has been called to request the 
-   * permission successfully first.
+   * 调用此接口前，请确保应用已开启锁屏下敏感数据保护功能，并且先调用[acquireAccess]{@link screenLockFileManager.acquireAccess}接口成功申请权限后才能使用。
    *
-   * @returns { ReleaseStatus } Release status of the access permission for sensitive data under lock screen.
+   * @returns { ReleaseStatus } 锁屏下敏感数据访问权限的释放状态。
    * @throws { BusinessError } 801 - The specified SystemCapability name was not found.
    * @throws { BusinessError } 29300002 - The system ability works abnormally.
    * @throws { BusinessError } 29300003 - The application is not enabled the data protection under lock screen.
@@ -227,18 +204,13 @@ declare namespace screenLockFileManager {
   function releaseAccess(): ReleaseStatus;
 
   /**
-   * Releases the permission to access a specified type of sensitive data under the lock screen synchronously. After the 
-   * release is successful, the reference count of the sensitive data key decreases. When the reference count reaches 
-   * zero, the key can be destroyed after the screen has been locked for the system-configured duration threshold.
+   * 以同步方法释放锁屏下指定类型敏感数据访问权限。释放成功后，敏感数据密钥的引用计数减少，当引用计数归零时，密钥可以在锁屏达到系统配置的时长阈值后被销毁。
    *
-   * Before calling this API, ensure that the app has enabled the sensitive data protection under lock screen feature 
-   * and that the permission has been successfully requested by calling the 
-   * [acquireAccess]{@link screenLockFileManager.acquireAccess} API first.
+   * 调用此接口前，请确保应用已开启锁屏下敏感数据保护功能，并且先调用[acquireAccess]{@link screenLockFileManager.acquireAccess}接口成功申请权限后才能使用。
    *
    * @permission ohos.permission.ACCESS_SCREEN_LOCK_MEDIA_DATA or ohos.permission.ACCESS_SCREEN_LOCK_ALL_DATA
-   * @param { DataType } dataType - Type of sensitive data that is accessible on the lock screen. The dataType must be 
-   *     consistent with the dataType used in the acquireAccess API.
-   * @returns { ReleaseStatus } Release status of the access permission for sensitive data under lock screen.
+   * @param { DataType } dataType - 锁屏下访问的敏感数据类型。dataType需要与acquireAccess接口使用的dataType保持一致。
+   * @returns { ReleaseStatus } 锁屏下敏感数据访问权限的释放状态。
    * @throws { BusinessError } 201 - Permission verification failed, usually returned by VerifyAccessToken.
    * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameter is left unspecified. 2. Incorrect parameter types.
@@ -255,9 +227,9 @@ declare namespace screenLockFileManager {
   function releaseAccess(dataType: DataType): ReleaseStatus;
 
   /**
-   * Queries the status of the caller app's sensitive data key under the lock screen in synchronous mode.
+   * 以同步方法查询调用方应用锁屏下敏感数据密钥的状态。
    *
-   * @returns { KeyStatus } Status of the key for sensitive data under lock screen.
+   * @returns { KeyStatus } 锁屏下敏感数据密钥的状态。
    * @throws { BusinessError } 801 - The specified SystemCapability name was not found.
    * @throws { BusinessError } 29300002 - The system ability works abnormally.
    * @syscap SystemCapability.Security.ScreenLockFileManager
@@ -267,11 +239,11 @@ declare namespace screenLockFileManager {
   function queryAppKeyState(): KeyStatus;
 
   /**
-   * Queries the status of a specified type of sensitive data key under the lock screen synchronously.
+   * 以同步方法查询锁屏下指定类型敏感数据密钥的状态。
    *
    * @permission ohos.permission.ACCESS_SCREEN_LOCK_MEDIA_DATA or ohos.permission.ACCESS_SCREEN_LOCK_ALL_DATA
-   * @param { DataType } dataType - Type of sensitive data that is accessible on the lock screen.
-   * @returns { KeyStatus } Status of the key for sensitive data under lock screen.
+   * @param { DataType } dataType - 锁屏下访问的敏感数据类型。
+   * @returns { KeyStatus } 锁屏下敏感数据密钥的状态。
    * @throws { BusinessError } 201 - Permission verification failed, usually returned by VerifyAccessToken.
    * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameter is left unspecified. 2. Incorrect parameter types.
