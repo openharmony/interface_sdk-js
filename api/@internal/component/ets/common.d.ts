@@ -18069,6 +18069,40 @@ declare interface DepthColorRGB {
 }
 
 /**
+ * Spatial position mode. Indicates the coordinate system used by the corner positions.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @stagemodelonly
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+declare enum SpatialPositionMode {
+  /**
+   * World XYZ coordinate mode. The X, Y, and Z components are all in world coordinates.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  WORLD_XYZ = 0,
+
+  /**
+   * NDC XY and world Z coordinate mode. The X and Y components use NDC (Normalized Device Coordinates),
+   * and the Z component is in world coordinates.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  NDC_XY_WORLD_Z = 1
+}
+
+/**
  * Spatial corner positions in 3D space.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -18121,6 +18155,18 @@ declare interface SpatialPosition {
    * @since 26.0.0 dynamic
    */
   rightBottom: DepthVector3;
+
+  /**
+   * Coordinate mode of the corner positions.
+   *
+   * @default SpatialPositionMode.WORLD_XYZ
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  positionMode?: SpatialPositionMode;
 }
 
 /**
