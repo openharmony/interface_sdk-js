@@ -70,3 +70,5 @@ export { window, display, screen, screenshot, uiExtensionHost };
 export { componentSnapshot, componentUtils, dragController, sendTouchEvent, sendKeyEvent, sendMouseEvent };
 
 export { floatingBall, uiMaterial, PiPWindow };
+
+export { DatePickerComponent, DatePickerComponentOptions, DisplayMode, DateMode, TimeFormat, DatePickerComponentResult } from '@ohos.arkui.advanced.DatePickerComponent';
