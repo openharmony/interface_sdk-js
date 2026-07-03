@@ -10844,7 +10844,16 @@ declare namespace media {
      * @since 18 dynamic
      * @since 23 static
      */
-    AUDIO_AMR_WB = 'audio/amr-wb'
+    AUDIO_AMR_WB = 'audio/amr-wb',
+
+    /**
+     * Audio in raw streams format.
+     *
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    AUDIO_RAW = 'audio/raw'
   }
 
   /**
@@ -11607,7 +11616,7 @@ declare namespace media {
      *
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
      * @stagemodelonly
-     * @atomicservice [since 22]
+     * @atomicservice
      * @since 26.0.0 dynamic&static
      */
     audioCodecV2?: CodecMimeType;
