@@ -730,7 +730,7 @@ declare namespace userStatus {
     gravityAcceleration?: double[];
 
     /**
-     * Linear acceleration of user motion status, in m/s².
+     * Linear acceleration of user motion status, in m/s²..
      *
      * @syscap SystemCapability.MultimodalAwareness.UserStatus
      * @systemapi
