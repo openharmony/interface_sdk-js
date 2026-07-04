@@ -255,7 +255,7 @@ declare class SecurityComponentMethod<T> {
    * Sets the icon color of the security component.
    *
    * @param { ResourceColor } value - Icon color of the security component.
-   *     <br>Default value: $r('sys.color.font_on_primary').
+   *     <br>Default value: $r('sys.color.icon_on_primary').
    * @returns { T } Attribute of the security component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly

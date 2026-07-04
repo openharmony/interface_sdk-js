@@ -477,7 +477,7 @@ declare class SaveButtonAttribute extends SecurityComponentMethod<SaveButtonAttr
    *
    * @permission ohos.permission.CUSTOMIZE_SAVE_BUTTON
    * @param { Array<ResourceColor> } color - 设置保存控件Symbol图标颜色。适用于Symbol图标需要与业务视觉风格保持一致的场景。
-   *     <br>默认值：随[symbolrenderingstrategy]{@link SaveButtonAttribute#symbolRenderingStrategy}不同而变化。
+   *     <br>默认值：随[symbolRenderingStrategy]{@link SaveButtonAttribute#symbolRenderingStrategy}不同而变化。
    *     <br>若应用不具备ohos.permission.CUSTOMIZE_SAVE_BUTTON权限，则该设置不生效。
    * @returns { SaveButtonAttribute } 返回保存控件的属性。
    * @syscap SystemCapability.ArkUI.ArkUI.Full

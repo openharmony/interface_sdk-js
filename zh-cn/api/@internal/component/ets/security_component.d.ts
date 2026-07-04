@@ -225,10 +225,10 @@ declare class SecurityComponentMethod<T> {
   fontColor(value: ResourceColor): T;
 
   /**
-   * 设置安全控件文字的颜色。
+   * 设置安全控件图标的颜色。
    *
-   * @param { ResourceColor } value - 安全控件上文字的颜色。
-   *     <br>默认值：$r('sys.color.font_on_primary')。
+   * @param { ResourceColor } value - 安全控件上图标的颜色。
+   *     <br>默认值：$r('sys.color.icon_on_primary')。
    * @returns { T } 安全控件的属性。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
