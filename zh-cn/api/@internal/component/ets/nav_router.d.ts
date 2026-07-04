@@ -127,7 +127,7 @@ declare enum NavRouteMode {
    * @deprecated since 13
    * @useinstead Navigation#LaunchMode
    */
-  PUSH_WITH_RECREATE = 0,
+  PUSH_WITH_RECREATE,
 
   /**
    *
@@ -139,7 +139,7 @@ declare enum NavRouteMode {
    * @deprecated since 13
    * @useinstead Navigation#LaunchMode
    */
-  PUSH = 1,
+  PUSH,
 
   /**
    *
@@ -151,7 +151,7 @@ declare enum NavRouteMode {
    * @deprecated since 13
    * @useinstead Navigation#LaunchMode
    */
-  REPLACE = 2
+  REPLACE
 }
 
 /**
