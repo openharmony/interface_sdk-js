@@ -46,7 +46,7 @@ declare namespace router {
      * @stagemodelonly
      * @since 23 static
      */
-    Standard = 0,
+    Standard,
 
     /**
      * Single route mode.
@@ -58,7 +58,7 @@ declare namespace router {
      * @stagemodelonly
      * @since 23 static
      */
-    Single = 1
+    Single
   }
 
   /** @syscap SystemCapability.ArkUI.ArkUI.Lite @since 23 static/
