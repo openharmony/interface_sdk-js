@@ -7187,28 +7187,28 @@ declare namespace webview {
   }
 
   /**
-   * The scenarios for suspending the media player.
+   * Enumerates the suspension types of the player.
    * @enum {number}
    * @syscap SystemCapability.Web.Webview.Core
    * @since 12 dynamic
    */
   enum SuspendType {
     /**
-     * Page enters the BackForwardCache.
+     * The page enters the BFCache.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 12 dynamic
      */
     ENTER_BACK_FORWARD_CACHE = 0,
 
     /**
-     * Page enters background.
+     * The page is displayed in the background.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 12 dynamic
      */
     ENTER_BACKGROUND,
 
     /**
-     * Cleanup when the number of paused media player over limit.
+     * The page is automatically cleaned up by the system.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 12 dynamic
      */
