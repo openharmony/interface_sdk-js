@@ -309,7 +309,7 @@ declare namespace bundleManager {
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
-     GET_BUNDLE_INFO_WITH_SANDBOX_CLONE = 0x00100000
+    GET_BUNDLE_INFO_WITH_SANDBOX_CLONE = 0x00100000,
   }
 
   /**
@@ -774,7 +774,7 @@ declare namespace bundleManager {
     FENCE = 24,
 
     /**
-     * Indicates extension info with type of CALLER_INFO_QUERY
+     * CallerInfoQueryExtensionAbility: provides the capability of querying incoming and outgoing call information.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 19 dynamic
@@ -835,7 +835,7 @@ declare namespace bundleManager {
     LIVE_FORM = 30,
 
     /**
-     * Indicates extension info with type of the selection
+     * SelectionExtensionAbility: provides extended capabilities for text selection popup.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @stagemodelonly
@@ -893,7 +893,9 @@ declare namespace bundleManager {
     PARTNER_AGENT = 36,
 
     /**
-     * Indicates extension info with type of the agent.
+     * AgentExtensionAbility: provides extended capabilities for agents, including lifecycle callback APIs for agent
+     * service creation, destruction, connection and disconnection, as well as callback APIs for receiving data sent
+     * by clients and security authentication.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @stagemodelonly
@@ -902,7 +904,7 @@ declare namespace bundleManager {
     AGENT = 37,
 
     /**
-     * Indicates extension info with type of the agent UI extension.
+     * AgentUIExtensionAbility: provides the Agent UI display capability on the access device.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @stagemodelonly
@@ -1375,7 +1377,7 @@ declare namespace bundleManager {
     INTENT_PROFILE = 1,
 
     /**
-     * Indicates the JSON profile of the cloud.
+     * Device-Cloud Sync configuration file.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
@@ -2599,15 +2601,18 @@ declare namespace bundleManager {
   function setApplicationEnabled(bundleName: string, appIndex: int, isEnabled: boolean): Promise<void>;
 
   /**
-   * Set whether an application is enabled or disabled, with control over whether the process is killed when disabled.
+   * Sets the enabled or disabled state of a specified application or application clone, and controls whether
+   * to exit the application process when the application is disabled. This API uses a promise to return the result.
    *
    * @permission ohos.permission.CHANGE_ABILITY_ENABLED_STATE
-   * @param { string } bundleName - Indicates the bundle name.
-   * @param { int } appIndex - Indicates the index of clone app.
-   * @param { boolean } isEnabled - The value true means to enable the application, and the value false means to
-   *     disable the application.
-   * @param { boolean } killProcess - The value true indicates that the application process will be killed when
-   *     disabled, while the value false indicates that the application process will not be killed when disabled.
+   * @param { string } bundleName - Bundle name of the application.
+   * @param { int } appIndex - Application index. The value is an integer ranging from 0 to 5. The value 0 indicates
+   *     the main application, and the values 1 to 5 indicate the application clone indexes.
+   * @param { boolean } isEnabled - Whether to enable the application. The value true indicates that the application
+   *     is enabled, and false indicates that the application is disabled.
+   * @param { boolean } killProcess - Whether to exit the application process when the application is disabled. The
+   *     value true indicates that the application process exits when the application is disabled, and false
+   *     indicates that the application process does not exit when the application is disabled.
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied. Non-system APP calling system API.
@@ -3347,15 +3352,16 @@ declare namespace bundleManager {
   function getAbilityLabelSync(bundleName: string, moduleName: string, abilityName: string): string;
 
   /**
-   * Obtains the icon of a specified ability.
+   * Obtains the PixelMap of an icon based on the bundle name, module name, and ability name.
+   * This API uses a promise to return the result.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
-   * @param { string } bundleName - Indicates the bundle name of the application to which the ability belongs.
-   * @param { string } moduleName - Indicates the module name.
-   * @param { string } abilityName - Indicates the ability name.
+   * @param { string } bundleName - Bundle name of the application to be queried.
+   * @param { string } moduleName - Module name of the application to be queried.
+   * @param { string } abilityName - Ability component name to be queried.
    * @param { AsyncCallback<image.PixelMap> } callback - Callback used to return the result. If
-   *     getAbilityIcon is successful, **err** is **undefined**, and PixelMap is
-   *     getAbilityIcon obtained. Otherwise, **err** is an error object.
+   *     getApplicationInfos is successful, **err** is **undefined**, and PixelMap as the input parameter
+   *     for starting the application. Otherwise, **err** is an error object.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 801 - Capability not supported.
@@ -3373,13 +3379,14 @@ declare namespace bundleManager {
   function getAbilityIcon(bundleName: string, moduleName: string, abilityName: string, callback: AsyncCallback<image.PixelMap>): void;
 
   /**
-   * Obtains the icon of a specified ability.
+   * Obtains the PixelMap of an icon based on the bundle name, module name, and ability name.
+   * This API uses a promise to return the result.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
-   * @param { string } bundleName - Indicates the bundle name of the application to which the ability belongs.
-   * @param { string } moduleName - Indicates the module name.
-   * @param { string } abilityName - Indicates the ability name.
-   * @returns { Promise<image.PixelMap> } Promise used to return PixelMap.
+   * @param { string } bundleName - Bundle name of the application to be queried.
+   * @param { string } moduleName - Module name of the application to be queried.
+   * @param { string } abilityName - Ability component name to be queried.
+   * @returns { Promise<image.PixelMap> } Promise used to return the PixelMap.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 801 - Capability not supported.
@@ -3710,10 +3717,12 @@ declare namespace bundleManager {
   function getSpecifiedDistributionType(bundleName: string): string;
 
   /**
-   * Obtains the install information of all apps.
+   * Obtains the extended install information about all applications in the system.
+   * This API uses a promise to return the result.
    *
    * @permission ohos.permission.GET_INSTALLED_BUNDLE_LIST
-   * @returns { Promise<Array<Record<string, Object>>> } The install information.
+   * @returns { Promise<Array<Record<string, Object>>> } Promise used to return the list of
+   *     extended install information set of all applications.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -3977,9 +3986,11 @@ declare namespace bundleManager {
   function getAllDynamicIconInfo(userId?: int): Promise<Array<DynamicIconInfo>>;
 
   /**
-   * Get all alternate icon info configured by the application itself.
+   * Queries the alternate icon information configured in the alternateIcons in the app.json5
+   * of the current application. This API uses a promise to return the result.
    *
-   * @returns { Promise<Array<AlternateIconInfo>> } Returns a list of AlternateIconInfo objects.
+   * @returns { Promise<Array<AlternateIconInfo>> } Promise used to return the list of alternate
+   *     icons of the current application.
    * @throws { BusinessError } 17700311 - Failed to obtain the alternate icon.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @stagemodelonly
@@ -3988,13 +3999,13 @@ declare namespace bundleManager {
   function getAlternateIcons(): Promise<Array<AlternateIconInfo>>;
 
   /**
-   * Set the alternate icon for the current application.
-   * If you need to restore the app's default icon, please input an empty value for the icon name parameter.
+   * Sets the alternate icon of the caller based on the given alternate icon name.
+   * This API uses a promise to return the result.
    *
-   * @param { string } alternateIconName - Indicates the alternate icon name.
-   *     This value matches the name field under alternateIcons in the app.json5 file.
-   *     If an empty string is passed, the app's default icon will be restored.
-   * @returns { Promise<void> } Returns the result of setAlternateIcon.
+   * @param { string } alternateIconName - Name of the alternate icon to be set.
+   *     The alternate icon name must be in the name field of alternateIcons in app.json5.
+   *     If alternateIconName is left empty, the alternate icon is canceled.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 17700308 - The alternateIconName must match the name field under alternateIcons
    *     in the app.json5 file.
    * @throws { BusinessError } 17700309 - No alternate icon is enabled.
@@ -4498,7 +4509,8 @@ declare namespace bundleManager {
   function getBundleInstallStatus(bundleName: string): BundleInstallStatus;
 
   /**
-   * Check whether a specified application is forbidden to be disabled.
+   * Synchronously queries whether a specified application or application clone of a specified user
+   * is set to forbid being disabled.
    * If you need to check whether an application is forbidden to be disabled under the current user,
    * ohos.permission.GET_BUNDLE_INFO_PRIVILEGED needs to be applied for.
    * If you need to check whether an application is forbidden to be disabled under other users,
@@ -4507,10 +4519,14 @@ declare namespace bundleManager {
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or
    *     (ohos.permission.GET_BUNDLE_INFO_PRIVILEGED and ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS)
-   * @param { string } bundleName - Indicates the bundle name.
-   * @param { int } userId - Indicates the user ID.
-   * @param { int } appIndex - Indicates the index of clone app.
-   * @returns { boolean } Returns true if the application is forbidden to be disabled; returns false otherwise.
+   * @param { string } bundleName - Bundle name of the application.
+   * @param { int } userId - User ID, which can be obtained by calling getOsAccountLocalId. The value
+   *     is greater than or equal to 0.
+   * @param { int } appIndex - Index of the application. The value ranges from 0 to 5. The value 0
+   *     indicates the main application, and the values 1 to 5 indicate the indexes of application clones.
+   * @returns { boolean } Whether a specified application is set to forbid being disabled.
+   *     The value true indicates that the specified application is set to forbid being disabled, and false
+   *     indicates that the specified application is not set to forbid being disabled.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied. Non-system APP calling system API.
    * @throws { BusinessError } 17700001 - The specified bundle is not found.
@@ -4524,12 +4540,15 @@ declare namespace bundleManager {
   function isApplicationDisableForbidden(bundleName: string, userId: int, appIndex: int): boolean;
 
   /**
-   * Obtains the label of a specified application.
+   * Obtains the name of an application with the specified package name and clone index.
+   * This API uses a promise to return the result.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-   * @param { string } bundleName - Indicates the bundle name of the application.
-   * @param { int } appIndex - Indicates the index of clone app.
-   * @returns { Promise<string> } Returns label of specified application.
+   * @param { string } bundleName - Bundle name of the application.
+   * @param { int } appIndex - Index of the application. The value ranges from 0 to 5.
+   *     The value 0 indicates the main application, and the values 1 to 5 indicate the indexes of application clones.
+   * @returns { Promise<string> } Promise used to return the result. If the operation is successful, the application
+   *     name is returned. Otherwise, an error object is returned.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 17700001 - The specified bundle is not found.
    * @throws { BusinessError } 17700061 - The specified app index is invalid.
@@ -4554,12 +4573,14 @@ declare namespace bundleManager {
   function getAllNewPreinstalledApplicationInfo(): Promise<Array<PreinstalledApplicationInfo>>;
 
   /**
-   * Obtains BundleInfo of all bundles available in the system.
+   * Obtains all the bundle information in the system based on the given bundle flags.
+   * This API uses a promise to return the result.
    *
    * @permission ohos.permission.ENTERPRISE_GET_INSTALLED_BUNDLE_LIST
-   * @param { int } bundleFlags - {@link BundleFlag} - Indicates the flag used to specify information
-   *     contained in the BundleInfo that will be returned.
-   * @returns { Promise<Array<BundleInfo>> } Returns a list of BundleInfo objects.
+   * @param { int } bundleFlags - Information contained in the returned BundleInfo. For
+   *     details, see {@link BundleFlag}.
+   * @returns { Promise<Array<BundleInfo>> } Promise used to return the list of
+   *     installed applications.
    * @throws { BusinessError } 201 - Permission denied.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @stagemodelonly
@@ -5043,7 +5064,7 @@ declare namespace bundleManager {
   export type BundleOptions = _BundleOptions;
 
   /**
-   * Indicates the alternate icon configured by the application.
+   * Describes the alternate icon information of an application.
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @stagemodelonly
@@ -5052,7 +5073,7 @@ declare namespace bundleManager {
   export type AlternateIconInfo = _BundleInfo.AlternateIconInfo;
 
   /**
-   * Indicates the alternate icon configured by the application.
+   * Describes the alternate icon information of an application.
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @stagemodelonly

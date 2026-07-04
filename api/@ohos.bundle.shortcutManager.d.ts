@@ -21,8 +21,11 @@
 import { ShortcutInfo as _ShortcutInfo, ShortcutWant as _ShortcutWant, ParameterItem as _ParameterItem } from './bundleManager/ShortcutInfo';
 
 /**
- * The module provides APIs to manage [shortcuts](docroot://quick-start/typical-scenario-configuration.md), including
- * whether to display shortcuts.
+
+* This module provides the application's management capabilities for shortcuts, including setting whether a shortcut
+ * is displayed. Through shortcuts, users can quickly launch specific features of an app from the home screen,
+ * improving the app's ease of use and user retention. Typical usage scenarios include: providing users with quick
+ * access to frequently used features, dynamically adjusting the display of shortcuts based on user habits, etc.
  *
  * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
  * @systemapi [since 12 - 19]
@@ -242,12 +245,14 @@ declare namespace shortcutManager {
   function getShortcutInfoByAbility(bundleName: string, moduleName: string, abilityName: string, userId?: int, appIndex?: int): Array<ShortcutInfo>;
 
   /**
-   * Checks whether the shortcut capability is supported.
-   * @returns { boolean } Returns true if the shortcut capability is supported; returns false otherwise.
+   * Checks whether the current device supports shortcuts.
+   *
+   * @returns { boolean } Indicates whether the current device supports shortcuts.
+   *     The return value true indicates that the current device supports shortcuts;
+   *     the return value false indicates that the current device does not support shortcuts.
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
-   *
    */
   function isShortcutSupported(): boolean;
 
