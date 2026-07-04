@@ -1193,7 +1193,7 @@ declare namespace dlpPermission {
         fileId?: string;
         /**
          * Number of allowed opening times. This parameter is left empty by default. The value must be greater than or 
-         * equal to 0. If the value is out of range, error code 401 is thrown.
+         * equal to 0. If the value is out of range, error code 19100001 is thrown.
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @since 21
