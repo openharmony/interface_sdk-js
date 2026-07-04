@@ -8832,7 +8832,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
 
   /**
    * Set whether to enable media network proxy for Web components.
-   * When enabled, network requests for media resources are routed through the web component's network stack.
+   * When enabled, network requests for media resources are routed through the web components network stack.
    * This attribute takes effect for HLS media, other media formats are unaffected.
    *
    * @param { boolean } enabled - {@code true} to enable media network proxy, {@code false} to disable it.
