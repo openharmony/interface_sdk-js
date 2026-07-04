@@ -178,9 +178,8 @@ declare namespace dlpPermission {
          */
         dlpFileAccess: DLPFileAccess;
         /**
-         * Operations that can be performed on the DLP file. The value is a combination of different 
-         * [ActionFlagTypes]{@link dlpPermission.ActionFlagType}. If the value is out of range, error code 19100001 is 
-         * thrown.
+         * Operations that can be performed on the DLP file. The value is determined by a combination of different
+         * [ActionFlagTypes]{@link dlpPermission.ActionFlagType}.
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @since 10
@@ -233,8 +232,7 @@ declare namespace dlpPermission {
          */
         bundleName: string;
         /**
-         * URI list of the DLP files. The length of the array is not limited. Each string contains a maximum of 4095 
-         * bytes. If the string is out of range, error code 19100001 is thrown.
+         * URI list of the DLP files. The array has no length limit, but each string cannot exceed 4095 bytes.
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @since 10
@@ -248,8 +246,8 @@ declare namespace dlpPermission {
      * processing policy. For example, whether to open the file in a DLP sandbox.
      *
      * @param { number } fd - FD of the file to be checked. The value range is [0, 2<sup>31</sup>-1]. If the value of
-     *     **fd** is less than 0, **false** is returned. If the value of **fd** is greater than 2<sup>31</sup>-1, the
-     *     value is truncated.
+     *     **fd** is less than 0, error code 19100001 is thrown. If the value of **fd** is greater than 2<sup>31</sup>-1, 
+     *     the excess part will be truncated.
      * @returns { Promise<boolean> } Returns {@code true} if {@link fd} is a DLP file; returns {@code false} otherwise.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     2. Incorrect parameter types.
@@ -268,8 +266,8 @@ declare namespace dlpPermission {
      * processing policy. For example, whether to open the file in a DLP sandbox.
      *
      * @param { number } fd - FD of the file to be checked. The value range is [0, 2<sup>31</sup>-1]. If the value of
-     *     **fd** is less than 0, **false** is returned. If the value of **fd** is greater than 2<sup>31</sup>-1, the
-     *     value is truncated.
+     *     **fd** is less than 0, error code 19100001 is thrown. If the value of **fd** is greater than 2<sup>31</sup>-1, 
+     *     the excess part will be truncated.
      * @param { AsyncCallback<boolean> } callback - Callback used to receive the query result. The callback parameters
      *     include **err** and **res**. **err** is **undefined** when the query is successful; otherwise, **err** is an
      *     error object. If **true** is returned, **res** is a DLP file; if **false** is returned, **res** is not a DLP
@@ -1079,7 +1077,7 @@ declare namespace dlpPermission {
         dlpFileAccess: DLPFileAccess;
         /**
          * Time when the authorization expires. The value must be greater than or equal to 0. If the value is out of 
-         * range, error code 19100001 is thrown. Unit: s.
+         * range, it will be forcibly converted to an unsigned integer. Unit: s.
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @systemapi Hide this for inner system use. [since 10 - 20]
@@ -1192,8 +1190,7 @@ declare namespace dlpPermission {
          */
         fileId?: string;
         /**
-         * Number of allowed opening times. This parameter is left empty by default. The value must be greater than or 
-         * equal to 0. If the value is out of range, error code 19100001 is thrown.
+         * Number of allowed opening times. The default value is **0**. No value range restriction is specified.
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @since 21
@@ -1207,9 +1204,9 @@ declare namespace dlpPermission {
          */
         waterMarkConfig?: boolean;
         /**
-         * Validity period for file viewing, in seconds. After the validity period expires, the file is automatically 
-         * closed. This parameter is left empty by default. The value must be greater than or equal to 0. If the value 
-         * is out of range, error code 19100001 is thrown.
+         * Validity period for file viewing, in seconds. The default value is 0. After the validity period expires, 
+         * the file is automatically closed. The value must be greater than or equal to 0. No value range restriction 
+         * is specified.
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @stagemodelonly
@@ -1900,11 +1897,11 @@ declare namespace dlpPermission {
      *
      * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE
      * @param { number } plaintextFd - FD of a plaintext file. The value range is [0, 2<sup>31</sup>-1]. If the value of
-     *     **fd** is less than 0, error code 19100001 is thrown. If the value of **fd** is greater than 2<sup>31</sup>-1
-     *     , the value is truncated.
+     *     **fd** is less than 0, an error log is generated, and the function stops running. If the value of **fd** is 
+     *     greater than 2<sup>31</sup>-1, the excess part will be truncated.
      * @param { number } dlpFd - FD of an encrypted file. The value range is [0, 2<sup>31</sup>-1]. If the value of
-     *     **fd** is less than 0, error code 19100001 is thrown. If the value of **fd** is greater than 2<sup>31</sup>-1
-     *     , the value is truncated.
+     *     **fd** is less than 0, an error log is generated, and the function stops running. If the value of **fd** 
+     *     is greater than 2<sup>31</sup>-1, the excess part will be truncated.
      * @param { DLPProperty } property - General policy of DLP files.
      * @param { CustomProperty } customProperty - Enterprise custom policy.
      * @returns { Promise<void> } Promise that returns no value.
@@ -1938,8 +1935,8 @@ declare namespace dlpPermission {
      *
      * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE
      * @param { number } dlpFd - FD of the DLP file to be queried. The value range is [0, 2<sup>31</sup>-1]. If the 
-     *     value of **fd** is less than 0, error code 19100001 is thrown. If the value of **fd** is greater than 
-     *     2<sup>31</sup>-1, the value is truncated.
+     *     value of **fd** is less than 0, an error log is generated, and the function stops running. If the value 
+     *     of **fd** is greater than 2<sup>31</sup>-1, the excess part will be truncated.
      * @returns { Promise<string> } Promise used to return the JSON string of the DLP policy. The length cannot exceed
      *     4,194,304 bytes.
      * @throws { BusinessError } 201 - Permission denied.
@@ -1973,11 +1970,11 @@ declare namespace dlpPermission {
      *
      * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE
      * @param { number } dlpFd - FD of the DLP file to be decrypted. The value range is [0, 2<sup>31</sup>-1]. If the
-     *     value of **fd** is less than 0, error code 19100001 is thrown. If the value of **fd** is greater than
-     *     2<sup>31</sup>-1, the value is truncated.
+     *     value of **fd** is less than 0, n error log is generated, and the function stops running. If the value of 
+     *     **fd** is greater than 2<sup>31</sup>-1, the excess part will be truncated.
      * @param { number } plaintextFd - FD of the decrypted file. The value range is [0, 2<sup>31</sup>-1]. If the value
-     *     of **fd** is less than 0, error code 19100001 is thrown. If the value of **fd** is greater than
-     *     2<sup>31</sup>, the value is truncated.
+     *     of **fd** is less than 0, an error log is generated, and the function stops running. If the value of **fd** 
+     *     is greater than 2<sup>31</sup>, the excess part will be truncated.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications use system APIs. [since 20 - 20]
