@@ -12142,9 +12142,8 @@ declare namespace window {
      *     Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      *     Possible cause: The window is not created or destroyed.
-     * @throws { BusinessError } 1300004 - Unauthorized operation. Possible cause:
-     *     1. Invalid window type. Main windows are supported;
-     *     2. Invalid window type. When SubWindowOptions.zLevelAboveParentLoosened is true, the subwindow is supported.
+     * @throws { BusinessError } 1300004 - Unauthorized operation.
+     *     Possible cause: Only main windows and subwindows with subwindowoptions.zlevelaboveparentloosened set to true are supported.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 14 dynamic
