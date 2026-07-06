@@ -741,7 +741,7 @@ declare namespace display {
   function setVirtualScreenSurface(screenId: long, surfaceId: string): Promise<void>;
 
   /**
-   * 为虚拟屏幕添加surface。仅在虚拟屏为异源屏且需要绑定多个surface时使用。
+   * 为虚拟屏幕添加surface。
    *
    * @param { long } screenId - 虚拟屏幕的屏幕ID。
    * @param { string } surfaceId - surface的id。
