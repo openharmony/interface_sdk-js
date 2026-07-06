@@ -14,19 +14,38 @@
  */
 
 /**
- * 该模块管理输入法扩展信息。使ArkUI编辑器能够在输入法启动时将此类信息传递给输入法应用。
- * 输入法应用处理扩展信息后，可获取宿主应用添加的详情。这些信息的总长度不能超过32KB。
+ * **@ohos.inputMethod.ExtraConfig**模块提供输入法扩展信息的数据定义，支持ArkUI编辑框在拉起输入法时传递自定义配置信息给输入法应用。
+ * 
+ * 本模块是输入法框架的扩展信息数据模块，定义了`InputMethodExtraConfig`接口和`CustomValueType`联合类型，用于承载编辑框应用向输入法应用传递的自定义键值对配置数据。
+ * 
+ * 本模块提供编辑框应用向输入法应用传递个性化配置的能力。编辑框应用可将用户的输入习惯、快捷键设置、主题颜色、输入模式偏好等自定义信息以键值对形式封装，在绑定输入法时一并传递给输入法应用，使输入法应用据此提供个性化体验。信息总长度不超过3
+ * 2KB。
+ * 
+ * 当编辑框应用需要向输入法应用传递额外的配置信息以定制输入行为时使用本模块。典型场景包括：聊天应用希望输入法默认展示表情面板、搜索应用希望输入法使用特定输入模式、笔记应用希望配置输入法的快捷键行为等。
+ * 
+ * 本模块定义了输入法扩展信息的数据结构，用于编辑框应用向输入法应用传递自定义配置。`InputMethodExtraConfig`作为数据类型需与`@ohos.inputMethod`模块的API组合使用——在
+ * `InputMethodController.attach()`方法中，通过`TextConfig`的`extraConfig`属性将扩展信息传递给输入法应用。输入法应用侧通过`@ohos.inputMethodEngine`模块的
+ * `InputClient`获取并处理这些扩展信息，据此调整输入行为（如切换输入模式、更改主题等），实现编辑框应用与输入法应用之间的个性化配置协同。
+ * 
+ * 典型使用流程：编辑框应用构造`InputMethodExtraConfig` → 注入`TextConfig.extraConfig` → 通过`attach()`传递 → 输入法应用通过`InputClient`接收 → 输入法应用
+ * 据此调整行为。
+ * 
+ * 本模块定义了以下关键Interface和数据类型：
+ * 
+ * 本模块为纯数据定义模块，`InputMethodExtraConfig`作为数据类型需与其他模块的API组合使用。典型组合为：在`@ohos.inputMethod`模块的
+ * `InputMethodController.attach()`方法中，通过`TextConfig`将`InputMethodExtraConfig`传递给输入法应用。
  *
- * @file 编辑框的额外配置
+ * @file 输入法扩展信息
  * @kit IMEKit
  */
 
 /**
- * 表示扩展信息类型。参数的具体类型取决于其功能。
+ * 表示扩展信息值的类型，接口参数具体类型根据其功能而定。开发者可根据配置项的含义选择合适的值类型：数值型配置（如字号大小、权重系数等）使用number；文本型配置（如输入模式名称、主题标识等）使用string；开关型配置（如是否启用某功
+ * 能、是否展示某面板等）使用boolean。
  *
- * @unionmember { int } Number.
- * @unionmember { string } String.
- * @unionmember { boolean } Boolean.
+ * @unionmember { int } 表示值类型为数字。
+ * @unionmember { string } 表示值类型为字符串。
+ * @unionmember { boolean } 表示值类型为布尔值。
  * @syscap SystemCapability.MiscServices.InputMethodFramework
  * @since 22 dynamic
  * @since 23 static
@@ -34,7 +53,12 @@
 export type CustomValueType = int | string | boolean;
 
 /**
- * 表示输入法的扩展信息。
+ * 输入法扩展信息。用于编辑框应用向输入法应用传递自定义键值对配置数据，实现编辑框应用对输入法行为的个性化定制。
+ * 
+ * - **含义/功能**：定义编辑框应用传递给输入法应用的自定义配置键值对，以`Record<string, CustomValueType>`形式存储。键（key）为配置项名称，值（value）为配置项内容，值类型支持number、
+ * string、boolean三种。
+ * - **使用场景**：当编辑框应用需要向输入法应用传递额外的个性化配置信息以定制输入行为时使用。例如：聊天应用希望输入法默认展示表情面板、搜索应用希望输入法使用特定输入模式、笔记应用希望配置输入法的快捷键行为等。
+ * - **使用后效果**：设置的扩展信息将在输入法应用与编辑框绑定时加载并传递给输入法应用，输入法应用可据此调整输入行为，提供个性化用户体验。若未设置扩展信息，输入法应用将使用默认配置。
  *
  * @syscap SystemCapability.MiscServices.InputMethodFramework
  * @since 22 dynamic
@@ -42,9 +66,7 @@ export type CustomValueType = int | string | boolean;
  */
 export interface InputMethodExtraConfig {
     /**
-     * 输入法扩展信息，用于存储自定义键值对。这些键值对可以是与输入法相关的任何配置信息，
-     * 如用户输入习惯、快捷键设置、主题颜色等。这些设置在输入法应用绑定到系统时加载，
-     * 从而提供个性化的用户体验。信息的总长度不能超过32KB。
+     * 输入法扩展信息，用于储存自定义的键值对。这些键值对可以是任何与输入法相关的配置信息。例如用户的输入习惯、快捷键设置、主题颜色等。这些设置信息将在输入法应用绑定时加载，以提供个性化的用户体验。
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 22 dynamic

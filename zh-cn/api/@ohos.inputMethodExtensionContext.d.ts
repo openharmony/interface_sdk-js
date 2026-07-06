@@ -14,7 +14,10 @@
  */
 
 /**
- * @file
+ * 
+ * 在使用InputMethodExtensionContext的功能前，需要通过InputMethodExtensionAbility子类实例获取。
+ *
+ * @file InputMethodExtensionContext
  * @kit IMEKit
  */
 
@@ -24,13 +27,23 @@ import ExtensionContext from './application/ExtensionContext';
 import { ConnectOptions } from './ability/connectOptions';
 
 /**
- * InputMethodExtensionContext模块继承自ExtensionContext，为InputMethodExtension能力提供上下文环境。
+ * **@ohos.InputMethodExtensionContext**模块是InputMethodExtensionAbility的上下文环境，继承于ExtensionContext，为输入法扩展能力提供上下文级别的操作接口。
  * 
- * 开发者可以使用该模块提供的API完成启动、终止、连接和断开连接能力等操作。
+ * 本模块是输入法ExtensionAbility的上下文类，继承自`ExtensionContext`，作为`InputMethodExtensionAbility`实例的`context`属性提供。它承载了输入法扩展应用在其生命周期内
+ * 可使用的上下文能力，包括销毁自身和拉起其他应用。
  * 
- * > **说明：**
- * >
- * > - 本模块接口仅在Stage模型下可用。
+ * 本模块提供两大核心能力：1）通过`destroy()`销毁输入法ExtensionAbility自身，实现输入法应用的生命周期终止；2）通过`startAbility()`拉起目标应用，使输入法应用能够启动其他Ability进行交互，
+ * 拓展输入法功能的灵活性和可扩展性。
+ * 
+ * 当开发输入法ExtensionAbility并需要在其生命周期内执行上下文级操作时使用本模块。典型场景包括：输入法应用在`onDestroy`回调中主动销毁自身、输入法应用需要拉起设置页面或其他辅助应用等。
+ * 
+ * 模块内的核心API按功能分为两类：
+ * 
+ * 1. **生命周期管理**：`destroy()`用于销毁输入法ExtensionAbility自身，终止输入法应用运行。
+ * 2. **Ability交互**：`startAbility()`用于从输入法应用拉起目标Ability（如设置页面等），拓展输入法应用与其他应用的交互能力。
+ * 
+ * 典型使用流程：在`InputMethodExtensionAbility`的`onCreate`回调中获取`this.context` → 在需要终止输入法时调用`context.destroy()` → 在需要拉起其他应用时调用
+ * `context.startAbility(want)`。
  *
  * @syscap SystemCapability.MiscServices.InputMethodFramework
  * @stagemodelonly
@@ -39,9 +52,13 @@ import { ConnectOptions } from './ability/connectOptions';
  */
 declare class InputMethodExtensionContext extends ExtensionContext {
   /**
-   * 销毁此输入法。使用callback异步回调返回结果。
+   * 销毁输入法应用。使用callback异步回调。
+   * 
+   * - **含义/功能**：销毁当前的InputMethodExtensionAbility，终止输入法应用的运行。调用后系统将触发`InputMethodExtensionAbility.onDestroy()`生命周期回调。
+   * - **使用场景**：当输入法应用需要主动终止自身运行时使用。例如：输入法应用在处理完特定任务后主动退出、或在`onDestroy`回调中配合销毁以确保资源释放。
+   * - **使用后效果**：调用成功后，当前的InputMethodExtensionAbility将被销毁，系统触发`onDestroy()`生命周期回调，输入法应用进程终止。调用后再进行其他上下文操作将不起效。
    *
-   * @param { AsyncCallback<void> } callback - 回调函数。当销毁输入法成功，err为undefined，否则为错误对象。
+   * @param { AsyncCallback<void> } callback - 回调函数。当销毁输入法应用成功时，err为undefined；否则为错误对象。
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @stagemodelonly
    * @since 9 dynamic
@@ -50,9 +67,13 @@ declare class InputMethodExtensionContext extends ExtensionContext {
   destroy(callback: AsyncCallback<void>): void;
 
   /**
-   * 销毁此输入法。使用Promise异步回调返回结果。
+   * 销毁输入法应用。使用Promise异步回调。
+   * 
+   * - **含义/功能**：销毁当前的InputMethodExtensionAbility，终止输入法应用的运行。调用后系统将触发`InputMethodExtensionAbility.onDestroy()`生命周期回调。
+   * - **使用场景**：当输入法应用需要主动终止自身运行时使用。与callback形式功能相同，适合需要使用Promise链式调用的场景。
+   * - **使用后效果**：调用成功后，当前的InputMethodExtensionAbility将被销毁，系统触发`onDestroy()`生命周期回调，输入法应用进程终止。
    *
-   * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
+   * @returns { Promise<void> } Promise对象，无返回结果。Promise回调成功时表示销毁成功，失败时返回错误对象。
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @stagemodelonly
    * @since 9 dynamic
@@ -61,9 +82,9 @@ declare class InputMethodExtensionContext extends ExtensionContext {
   destroy(): Promise<void>;
 
   /**
-   * 销毁此输入法扩展。使用callback异步回调返回结果。
+   * 销毁输入法ExtensionAbility。使用callback异步回调。
    *
-   * @param { AsyncCallback<void> } callback - 回调函数。当销毁输入法扩展成功，err为undefined，否则为错误对象。
+   * @param { AsyncCallback<void> } callback - 回调函数。当销毁输入法应用成功时，err为undefined；否则为错误对象。
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @systemapi
    * @stagemodelonly
@@ -74,9 +95,9 @@ declare class InputMethodExtensionContext extends ExtensionContext {
   terminateSelf(callback: AsyncCallback<void>): void;
 
   /**
-   * 销毁此输入法扩展。使用Promise异步回调返回结果。
+   * 销毁输入法ExtensionAbility。使用Promise异步回调。
    *
-   * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @systemapi
    * @stagemodelonly
@@ -87,10 +108,14 @@ declare class InputMethodExtensionContext extends ExtensionContext {
   terminateSelf(): Promise<void>;
 
   /**
-   * 启动Ability。使用Promise异步回调返回结果。
+   * 拉起目标应用。使用Promise异步回调。
+   * 
+   * - **含义/功能**：从输入法应用启动指定的Ability，使输入法应用能够与其他应用交互。通过Want参数指定目标应用的Ability名称和Bundle名称。
+   * - **使用场景**：当输入法应用需要拉起其他应用时使用。例如：输入法应用拉起系统设置页面供用户配置输入法、拉起浏览器打开帮助文档等。
+   * - **使用后效果**：调用成功后，目标Ability被启动并显示在前台。输入法应用自身不会受到影响，继续正常运行。
    *
-   * @param { Want } want - Want类型参数，传入需要启动的Ability的信息，如Ability名称，Bundle名称等。
-   * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
+   * @param { Want } want - 用于指定目标应用的Want类型信息，包括ability名称、bundle名称等。
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
@@ -120,12 +145,12 @@ declare class InputMethodExtensionContext extends ExtensionContext {
   startAbility(want: Want): Promise<void>;
 
   /**
-   * 启动指定账号的Ability。使用callback异步回调返回结果。
+   * 以指定账户拉起目标应用。使用callback异步回调。
    *
    * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
-   * @param { Want } want - 启动Ability的Want信息。
-   * @param { number } accountId - 系统账号的账号ID。
-   * @param { AsyncCallback<void> } callback - 回调函数。当启动Ability成功，err为undefined，否则为错误对象。
+   * @param { Want } want - 用于指定目标应用的Want类型信息。
+   * @param { number } accountId - 目标系统账户的ID。
+   * @param { AsyncCallback<void> } callback - 回调函数。当拉起目标应用成功时，err为undefined；否则为错误对象。
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - not system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -155,12 +180,12 @@ declare class InputMethodExtensionContext extends ExtensionContext {
   startAbilityWithAccount(want: Want, accountId: number, callback: AsyncCallback<void>): void;
 
   /**
-   * 启动指定账号的Ability。使用Promise异步回调返回结果。
+   * 以指定账户拉起目标应用。使用Promise异步回调。
    *
    * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
-   * @param { Want } want - 启动Ability的Want信息。
-   * @param { number } accountId - 系统账号的账号ID。
-   * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
+   * @param { Want } want - 用于指定目标应用的Want类型信息。
+   * @param { number } accountId - 目标系统账户的ID。
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - not system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -190,11 +215,11 @@ declare class InputMethodExtensionContext extends ExtensionContext {
   startAbilityWithAccount(want: Want, accountId: number): Promise<void>;
 
   /**
-   * 将此能力连接到ServiceExtensionAbility。
+   * 将当前Ability连接到ServiceExtensionAbility。
    *
-   * @param { Want } want - Want类型参数，传入需要连接的能力的信息，如Ability名称，Bundle名称等。
-   * @param { ConnectOptions } options - ConnectOptions类型的回调函数，返回服务连接成功、断开或连接失败后的信息。
-   * @returns { number } 返回一个number，用于后续断开连接。
+   * @param { Want } want - 用于指定目标ServiceExtensionAbility的Want类型信息。
+   * @param { ConnectOptions } options - 连接回调，用于返回连接成功、中断或失败的信息。
+   * @returns { number } 连接的数字标识，用于后续断开连接时传入。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
@@ -217,12 +242,12 @@ declare class InputMethodExtensionContext extends ExtensionContext {
   connectAbility(want: Want, options: ConnectOptions): number;
 
   /**
-   * 连接指定账号的ServiceExtensionAbility。
+   * 以指定账户连接ServiceExtensionAbility。
    *
    * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
-   * @param { Want } want - 启动Ability的Want信息。
-   * @param { number } accountId - 系统账号的账号ID。
-   * @returns { number } 连接结果码。
+   * @param { Want } want - 用于指定目标ServiceExtensionAbility的Want类型信息。
+   * @param { number } accountId - 目标系统账户的ID。
+   * @returns { number } 连接的数字标识，用于后续断开连接时传入。
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - not system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -247,11 +272,11 @@ declare class InputMethodExtensionContext extends ExtensionContext {
   connectAbilityWithAccount(want: Want, accountId: number): number;
 
   /**
-   * 将此能力连接到ServiceExtensionAbility。
+   * 将当前Ability连接到ServiceExtensionAbility。
    *
-   * @param { Want } want - Want类型参数，传入需要连接的能力的信息，如Ability名称，Bundle名称等。
-   * @param { ConnectOptions } options - ConnectOptions类型的回调函数，返回服务连接成功、断开或连接失败后的信息。
-   * @returns { number } 返回一个number，用于后续断开连接。
+   * @param { Want } want - 用于指定目标ServiceExtensionAbility的Want类型信息。
+   * @param { ConnectOptions } options - 连接回调，用于返回连接成功、中断或失败的信息。
+   * @returns { number } 连接的数字标识，用于后续断开连接时传入。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
@@ -274,10 +299,10 @@ declare class InputMethodExtensionContext extends ExtensionContext {
   connectServiceExtensionAbility(want: Want, options: ConnectOptions): number;
 
   /**
-   * 断开此能力与ServiceExtensionAbility的连接。断开连接成功后，将连接时返回的remote对象置为void。使用callback异步回调返回结果。
+   * 断开与ServiceExtensionAbility的连接。使用callback异步回调。
    *
-   * @param { number } connection - connectServiceExtensionAbility调用后返回的number。
-   * @param { AsyncCallback<void> } callback - 回调函数。当断开连接成功，err为undefined，否则为错误对象。
+   * @param { number } connection - 连接的数字标识，由connectAbility/connectServiceExtensionAbility返回。
+   * @param { AsyncCallback<void> } callback - 回调函数。当断开连接成功时，err为undefined；否则为错误对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000011 - The context does not exist.
@@ -292,10 +317,10 @@ declare class InputMethodExtensionContext extends ExtensionContext {
   disconnectAbility(connection: number, callback: AsyncCallback<void>): void;
 
   /**
-   * 断开此能力与ServiceExtensionAbility的连接。断开连接成功后，将连接时返回的remote对象置为void。使用Promise异步回调返回结果。
+   * 断开与ServiceExtensionAbility的连接。使用Promise异步回调。
    *
-   * @param { number } connection - connectServiceExtensionAbility调用后返回的number。
-   * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
+   * @param { number } connection - 连接的数字标识，由connectAbility/connectServiceExtensionAbility返回。
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000011 - The context does not exist.
@@ -310,10 +335,10 @@ declare class InputMethodExtensionContext extends ExtensionContext {
   disconnectAbility(connection: number): Promise<void>;
 
   /**
-   * 断开此能力与ServiceExtensionAbility的连接。断开连接成功后，将连接时返回的remote对象置为void。此接口仅可在主线程调用。使用callback异步回调返回结果。
+   * 断开与ServiceExtensionAbility的连接。使用callback异步回调。
    *
-   * @param { number } connection - connectServiceExtensionAbility调用后返回的number。
-   * @param { AsyncCallback<void> } callback - 回调函数。当断开连接成功，err为undefined，否则为错误对象。
+   * @param { number } connection - 连接的数字标识，由connectServiceExtensionAbility返回。
+   * @param { AsyncCallback<void> } callback - 回调函数。当断开连接成功时，err为undefined；否则为错误对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000011 - The context does not exist.
@@ -328,10 +353,10 @@ declare class InputMethodExtensionContext extends ExtensionContext {
   disconnectServiceExtensionAbility(connection: number, callback: AsyncCallback<void>): void;
 
   /**
-   * 断开此能力与ServiceExtensionAbility的连接。断开连接成功后，将连接时返回的remote对象置为void。此接口仅可在主线程调用。使用Promise异步回调返回结果。
+   * 断开与ServiceExtensionAbility的连接。使用Promise异步回调。
    *
-   * @param { number } connection - connectServiceExtensionAbility调用后返回的number。
-   * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
+   * @param { number } connection - 连接的数字标识，由connectServiceExtensionAbility返回。
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000011 - The context does not exist.
