@@ -95,7 +95,7 @@ declare class LazyGridLayoutAttribute<T> extends CommonMethod<T> {
   /**
    * Sets the gap between rows. Values less than 0 are treated as the default value.
    *
-   * @param { LengthMetrics } value
+   * @param { LengthMetrics } value - Gap between rows.<br>Default value: **0vp**
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -108,7 +108,7 @@ declare class LazyGridLayoutAttribute<T> extends CommonMethod<T> {
   /**
    * Sets the gap between columns. Values less than 0 are treated as the default value.
    *
-   * @param { LengthMetrics } value
+   * @param { LengthMetrics } value - Gap between columns.<br>Default value: **0vp**.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
