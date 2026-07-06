@@ -835,7 +835,7 @@ declare namespace display {
   function removeVirtualScreenSurface(screenId: long, surfaceId: string): Promise<void>;
 
   /**
-   * Sets the screen to independent display mode.
+   * Sets the screen to independent display mode. This API uses a promise to return the result.
    *
    * @permission ohos.permission.ACCESS_VIRTUAL_SCREEN
    * @param { long } screenId - ID of the screen. Each ID must be an integer greater than 0; otherwise, error code 401
