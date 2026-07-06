@@ -14,13 +14,12 @@
  */
 
 /**
- * @file Network Firewall
+ * @file 网络防火墙
  * @kit NetworkKit
  */
 
 /**
- * The **netFirewall** module implements the network firewall functionality for applications. It allows applications to
- * query the firewall interception records of the device.
+ * 本模块为应用程序提供网络防火墙能力。应用程序可以对机器进行防火墙拦截记录的查询。
  *
  * @syscap SystemCapability.Communication.NetManager.NetFirewall
  * @since 14 dynamic
@@ -28,19 +27,16 @@
  */
 declare namespace netFirewall {
   /**
-   * Sets the firewall policy for a system user ID, including the firewall switch status and default inbound or outbound
-   * behavior (allow or deny). Different firewall policies can be configured for different system user IDs. This API
-   * uses a promise to return the result.
-   *
-   * > **NOTE**
+   * 设置系统用户ID的防火墙策略，包含防火墙开关状态，默认的出站/入站行为（允许/阻止）。支持不同的系统用户ID配置不同的防火墙策略。使用Promise异步回调。
+   * 
+   * > **说明：**
    * >
-   * > If this API is called by multiple applications under the same system user, the latest delivered policy prevails.
-   * > **Required permission**: ohos.permission.MANAGE_NET_FIREWALL
+   * > 同一系统用户下，多应用调用该接口下发策略，会以最新下发的策略为准。
    *
    * @permission ohos.permission.MANAGE_NET_FIREWALL
-   * @param { int } userId - System user ID, which must exist.
-   * @param { NetFirewallPolicy } policy - Firewall policy.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { int } userId - 系统用户ID，只能是存在的用户ID。
+   * @param { NetFirewallPolicy } policy - 设置的防火墙策略。
+   * @returns { Promise<void> } 无返回结果的Promise对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100001 - Invalid parameter value.
@@ -54,14 +50,11 @@ declare namespace netFirewall {
   function setNetFirewallPolicy(userId: int, policy: NetFirewallPolicy): Promise<void>;
 
   /**
-   * Queries the firewall policy for a system user ID, including the firewall switch status and default inbound or
-   * outbound behavior (allow or deny). This API uses a promise to return the result.
-   *
-   * **Required permission**: ohos.permission.GET_NET_FIREWALL
+   * 查询系统用户ID的防火墙策略，包含防火墙开关状态，默认出站入站行为（允许/阻止）。使用Promise异步回调。
    *
    * @permission ohos.permission.GET_NET_FIREWALL
-   * @param { int } userId - System user ID, which must exist.
-   * @returns { Promise<NetFirewallPolicy> } Promise used to return the result, which is a firewall policy.
+   * @param { int } userId - 系统用户ID，只能是存在的用户ID。
+   * @returns { Promise<NetFirewallPolicy> } 以Promise形式返回当前用户防火墙策略。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100001 - Invalid parameter value.
@@ -75,82 +68,64 @@ declare namespace netFirewall {
   function getNetFirewallPolicy(userId: int): Promise<NetFirewallPolicy>;
 
   /**
-   * Adds a firewall rule for the system user ID. The supported rule types are IP, Domain, and DNS. This API uses a
-   * promise to return the result.
-   *
-   * > **Description**
+   * 添加系统用户ID的防火墙规则，目前支持的规则类型有：IP、Domain、DNS。使用Promise异步回调。
+   * 
+   * > **说明**
    * >
-   * > 1. The priority of firewall rules is described as follows (there is no requirement on the call sequence of
-   * > [setNetFirePolicy]{@link netFirewall.setNetFirewallPolicy} and
-   * > [addNetFirewallRule]{@link netFirewall.addNetFirewallRule}):
+   * > 1. 防火墙规则优先级说明（[setNetFirePolicy]{@link netFirewall.setNetFirewallPolicy}和
+   * > [addNetFirewallRule]{@link netFirewall.addNetFirewallRule}无调用顺序要求）：
    * >
-   * > - Call [setNetFirePolicy]{@link netFirewall.setNetFirewallPolicy} to set the default policy to **DENY** and call
-   * > [addNetFirewallRule]{@link netFirewall.addNetFirewallRule} to add an explicit rule. The priorities of the rules
-   * > are as follows:
+   * > - 调用[setNetFirePolicy]{@link netFirewall.setNetFirewallPolicy}设置默认策略为阻止，调用
+   * > [addNetFirewallRule]{@link netFirewall.addNetFirewallRule}新增显式规则，规则优先级由高到低为：
    * >
-   * > - Explicit denying rule
+   * > - 显式阻止规则
    * >
-   * > - Explicit allowing rule
+   * > - 显式允许规则
    * >
-   * > - Default denying policy
+   * > - 默认阻止策略
    * >
-   * > - Call [setNetFirePolicy]{@link netFirewall.setNetFirewallPolicy} to set the default policy to **ALLOW** and call
-   * > [addNetFirewallRule]{@link netFirewall.addNetFirewallRule} to add an explicit rule. The priorities of the rules
-   * > are as follows:
+   * > - 调用[setNetFirePolicy]{@link netFirewall.setNetFirewallPolicy}设置默认策略为允许，调用
+   * > [addNetFirewallRule]{@link netFirewall.addNetFirewallRule}新增显式规则，规则优先级由高到低为：
    * >
-   * > - Explicit allowing rule
+   * > - 显式允许规则
    * >
-   * > - Explicit denying rule
+   * > - 显式阻止规则
    * >
-   * > - Default allowing policy
+   * > - 默认允许策略
    * >
-   * > - When the IP address rule and domain name rule of the firewall conflict (the IP of the domain name resolution is
-   * > the same as that in the IP address rule, and the rule behavior conflicts):
+   * > - 防火墙IP规则和域名规则冲突时（域名解析的IP与IP规则的IP相同，规则行为冲突）：
    * >
-   * > - If the access is performed using a domain name, the domain name rule has a higher priority than the IP address
-   * > rule and is not affected by the rule of the IP parsed from the domain name.
+   * > - 若以域名方式访问，则域名规则优先级高于IP规则，不受域名解析出的IP的规则影响。
    * >
-   * > - If the access is performed using an IP address, the following rules are followed:
+   * > - 若以IP方式访问，遵循以下原则：
    * >
-   * > - If the domain name rule allows the access and the domain name resolution has been performed, the IP address
-   * > denying rule or the default denying policy will not take effect, and the access using the IP address will be
-   * > allowed.
+   * > - 域名规则放行，若以IP方式访问之前经历过域名解析过程，则IP规则拦截或者默认策略拦截是不生效的，最终以IP方式访问是放行的。
    * >
-   * > - If the domain name rule allows the access and the domain name resolution has not been performed, the IP address
-   * > denying rule or the default denying policy will take effect, and the access using the IP address will be denied.
+   * > - 域名规则放行，若以IP方式访问之前未经历过域名解析过程，则IP规则拦截或者默认策略拦截是生效的，最终以IP方式访问是拦截的。
    * >
-   * > - If the domain name rule denies the access, the IP address allowing rule or the default policy will take effect,
-   * > and the access using the IP address will be allowed.
+   * > - 域名规则拦截，则IP规则放行或者默认策略放行是生效的，最终以IP方式访问是放行的。
    * >
-   * > 2. Supplementary description of rule types:
+   * > 2. 规则类型补充说明：
    * >
-   * > - When the input parameter **rule.type** of **addNetFirewallRule** is set to **RULE_IP**:
+   * > - 当addNetFirewallRule的入参rule.type配置为RULE_IP时：
    * >
-   * > - If **rule.action** is set to **RULE_ALLOW** and **rule.localIps** and **rule.remoteIps** are not configured,
-   * > the rule takes effect as full IP range access is allowed.
+   * > - 若rule.action为RULE_ALLOW，且rule.localIps、rule.remoteIps均不配置，规则生效为全IP段允许通行；
    * >
-   * > - If **rule.action** is set to **RULE_DENY** and **rule.localIps** and **rule.remoteIps** are not configured, the
-   * > rule takes effect as full IP range access is denied.
+   * > - 若rule.action 为RULE_DENY，且rule.localIps、rule.remoteIps均不配置，规则生效为全IP段拦截。
    * >
-   * > - If **rule.type** of **addNetFirewallRule** is set to **RULE_DOMAIN** and **rule.domains** is not configured,
-   * > the rule does not take effect.
+   * > - 当addNetFirewallRule的入参rule.type配置为RULE_DOMAIN时，若rule.domains未配置，该规则不生效。
    * >
-   * > 3. Description of the upper limit for adding firewall rules:
+   * > 3. 防火墙规则添加上限说明：
    * >
-   * > - A maximum of 1000 firewall rules can be added for a single system user ID. If this limit is exceeded, error
-   * > code **29400001** is reported.
+   * > - 单个系统用户ID添加的防火墙规则上限是1000，若超过该上限，则报错29400001。
    * >
-   * > - A maximum of 2000 firewall rules can be added for all system user IDs. If this limit is exceeded, error code
-   * > **29400001** is reported.
+   * > - 所有的系统用户ID添加的防火墙规则总和的上限是2000，若超过该上限，则报错29400001。
    * >
-   * > - A maximum of 100 fuzzy domain name rules can be added for all system user IDs. If this limit is exceeded, error
-   * > code **29400005** is reported.
-   * > **Required permission**: ohos.permission.MANAGE_NET_FIREWALL
+   * > - 所有的系统用户ID添加的模糊域名规则总和的上限是100，若超过该上限，则报错29400005。
    *
    * @permission ohos.permission.MANAGE_NET_FIREWALL
-   * @param { NetFirewallRule } rule - Firewall rule.
-   * @returns { Promise<int> } Promise used to return the result, which is the firewall rule ID automatically generated
-   *     by the system.
+   * @param { NetFirewallRule } rule - 防火墙规则。
+   * @returns { Promise<int> } 以Promise形式返回防火墙规则ID，防火墙规则ID由系统自动生成。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100001 - Invalid parameter value.
@@ -170,13 +145,11 @@ declare namespace netFirewall {
   function addNetFirewallRule(rule: NetFirewallRule): Promise<int>;
 
   /**
-   * Updates a firewall rule. This API uses a promise to return the result.
-   *
-   * **Required permission**: ohos.permission.MANAGE_NET_FIREWALL
+   * 更新防火墙规则。使用Promise异步回调。
    *
    * @permission ohos.permission.MANAGE_NET_FIREWALL
-   * @param { NetFirewallRule } rule - Firewall rule.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { NetFirewallRule } rule - 防火墙规则。
+   * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100001 - Invalid parameter value.
@@ -196,14 +169,12 @@ declare namespace netFirewall {
   function updateNetFirewallRule(rule: NetFirewallRule): Promise<void>;
 
   /**
-   * Deletes a specified firewall rule of a system user ID. This API uses a promise to return the result.
-   *
-   * **Required permission**: ohos.permission.MANAGE_NET_FIREWALL
+   * 删除系统用户ID的指定防火墙规则。使用Promise异步回调。
    *
    * @permission ohos.permission.MANAGE_NET_FIREWALL
-   * @param { int } userId - System user ID, which must exist.
-   * @param { int } ruleId - ID of the firewall rule.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { int } userId - 系统用户ID，只能是存在的用户ID。
+   * @param { int } ruleId - 防火墙规则ID。
+   * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100001 - Invalid parameter value.
@@ -218,16 +189,12 @@ declare namespace netFirewall {
   function removeNetFirewallRule(userId: int, ruleId: int): Promise<void>;
 
   /**
-   * Obtains firewall rules by user ID. You need to specify the pagination query parameter when calling this API.
-   * Currently, firewall rules can be sorted by name. This API uses a promise to return the result.
-   *
-   * **Required permission**: ohos.permission.GET_NET_FIREWALL
+   * 按用户ID获取防火墙规则，需要指定分页查询参数。目前支持根据防火墙规则名排序。使用Promise异步回调。
    *
    * @permission ohos.permission.GET_NET_FIREWALL
-   * @param { int } userId - System user ID, which must exist.
-   * @param { RequestParam } requestParam - Pagination query parameter. The **orderField** field can be sorted only by
-   *     firewall rule name.
-   * @returns { Promise<FirewallRulePage> } Promise used to return the result, which is list of firewall rules.
+   * @param { int } userId - 系统用户ID，只能是存在的用户ID。
+   * @param { RequestParam } requestParam - 分页查询参数，其中orderField字段仅支持根据防火墙规则名排序。
+   * @returns { Promise<FirewallRulePage> } 以Promise形式返回防火墙分页规则列表。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100001 - Invalid parameter value.
@@ -241,14 +208,12 @@ declare namespace netFirewall {
   function getNetFirewallRules(userId: int, requestParam: RequestParam): Promise<FirewallRulePage>;
 
   /**
-   * Obtains a firewall rule based on the specified user ID and rule ID. This API uses a promise to return the result.
-   *
-   * **Required permission**: ohos.permission.GET_NET_FIREWALL
+   * 通过userId和ruleId获取指定的防火墙规则。使用Promise异步回调。
    *
    * @permission ohos.permission.GET_NET_FIREWALL
-   * @param { int } userId - System user ID, which must exist.
-   * @param { int } ruleId - ID of the firewall rule.
-   * @returns { Promise<NetFirewallRule> } Promise used to return the result, which is a firewall rule.
+   * @param { int } userId - 系统用户ID，只能是存在的用户ID。
+   * @param { int } ruleId - 防火墙规则ID。
+   * @returns { Promise<NetFirewallRule> } 以Promise形式返回防火墙规则。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100001 - Invalid parameter value.
@@ -263,7 +228,7 @@ declare namespace netFirewall {
   function getNetFirewallRule(userId: int, ruleId: int): Promise<NetFirewallRule>;
 
   /**
-   * Get intercepted records by userId, and it is necessary to specify the pagination query parameters.
+   * 按userId获取截获的记录，需要指定分页查询参数。
    *
    * @permission ohos.permission.GET_NET_FIREWALL
    * @param { int } userId - Indicates the user ID. It cannot be the ID of a user that does not exist.
@@ -284,7 +249,7 @@ declare namespace netFirewall {
   function getInterceptedRecords(userId: int, requestParam: RequestParam): Promise<InterceptedRecordPage>;
 
   /**
-   * Enumerates the firewall rule directions, including inbound and outbound.
+   * 枚举类型，防火墙规则方向，包含入站、出站。
    *
    * @syscap SystemCapability.Communication.NetManager.NetFirewall
    * @since 15 dynamic
@@ -292,7 +257,7 @@ declare namespace netFirewall {
    */
   enum NetFirewallRuleDirection {
     /**
-     * Inbound direction.
+     * 入站。
      *
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @since 15 dynamic
@@ -300,7 +265,7 @@ declare namespace netFirewall {
      */
     RULE_IN = 1,
     /**
-     * Outbound direction.
+     * 出站。
      *
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @since 15 dynamic
@@ -310,7 +275,7 @@ declare namespace netFirewall {
   }
 
   /**
-   * Enumerates the firewall rule actions, including allowing or denying network connections.
+   * 枚举类型，防火墙规则行为，包含允许网络连接、阻止网络连接。
    *
    * @syscap SystemCapability.Communication.NetManager.NetFirewall
    * @since 15 dynamic
@@ -318,7 +283,7 @@ declare namespace netFirewall {
    */
   enum FirewallRuleAction {
     /**
-     * Allowing network connection.
+     * 允许。
      *
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @since 15 dynamic
@@ -326,7 +291,7 @@ declare namespace netFirewall {
      */
     RULE_ALLOW = 0,
     /**
-     * Denying network connection.
+     * 阻止。
      *
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @since 15 dynamic
@@ -336,7 +301,7 @@ declare namespace netFirewall {
   }
 
   /**
-   * Enumerates the firewall rule types, including IP, Domain, and DNS.
+   * 枚举类型，防火墙规则类型，包含IP、Domain、DNS。
    *
    * @syscap SystemCapability.Communication.NetManager.NetFirewall
    * @since 15 dynamic
@@ -344,7 +309,7 @@ declare namespace netFirewall {
    */
   enum NetFirewallRuleType {
     /**
-     * IP address-based firewall rule.
+     * IP类规则。
      *
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @since 15 dynamic
@@ -352,7 +317,7 @@ declare namespace netFirewall {
      */
     RULE_IP = 1,
     /**
-     * Domain name-based rule.
+     * 域名类规则。
      *
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @since 15 dynamic
@@ -360,7 +325,7 @@ declare namespace netFirewall {
      */
     RULE_DOMAIN = 2,
     /**
-     * DNS-based firewall rule.
+     * DNS规则。
      *
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @since 15 dynamic
@@ -370,11 +335,11 @@ declare namespace netFirewall {
   }
 
   /**
-   * Enumerates the sorting methods of firewall rules.
-   *
-   * > **Description**
+   * 枚举类型，防火墙规则排序方法。
+   * 
+   * > **说明**
    * >
-   * > [getNetFirewallRules]{@link netFirewall.getNetFirewallRules} supports only the **ORDER_BY_RULE_NAME** field.
+   * > [getNetFirewallRules]{@link netFirewall.getNetFirewallRules}接口，仅支持ORDER_BY_RULE_NAME字段。
    *
    * @syscap SystemCapability.Communication.NetManager.NetFirewall
    * @since 15 dynamic
@@ -382,7 +347,7 @@ declare namespace netFirewall {
    */
   enum NetFirewallOrderField {
     /**
-     * Sorting of firewall rules by name.
+     * 根据防火墙规则名排序。
      *
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @since 15 dynamic
@@ -390,7 +355,7 @@ declare namespace netFirewall {
      */
     ORDER_BY_RULE_NAME = 1,
     /**
-     * Sorting of firewall rules by time.
+     * 根据记录时间排序。
      *
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @since 15 dynamic
@@ -400,7 +365,7 @@ declare namespace netFirewall {
   }
 
   /**
-   * Enumerates the sorting order of firewall rules, which can be ascending or descending.
+   * 枚举类型，防火墙规则排序顺序，包含升序或降序。
    *
    * @syscap SystemCapability.Communication.NetManager.NetFirewall
    * @since 15 dynamic
@@ -408,7 +373,7 @@ declare namespace netFirewall {
    */
   enum NetFirewallOrderType {
     /**
-     * Sorting in ascending order.
+     * 按防火墙规则排序类型升序排序。
      *
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @since 15 dynamic
@@ -416,7 +381,7 @@ declare namespace netFirewall {
      */
     ORDER_ASC = 1,
     /**
-     * Sorting in descending order.
+     * 按防火墙规则排序类型降序排序。
      *
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @since 15 dynamic
@@ -426,8 +391,7 @@ declare namespace netFirewall {
   }
 
   /**
-   * Defines the firewall policy, including the firewall switch status and default inbound or outbound action (allow or
-   * deny).
+   * 防火墙策略，包含防火墙开关状态，默认的出站/入站行为（允许/阻止）。
    *
    * @syscap SystemCapability.Communication.NetManager.NetFirewall
    * @since 15 dynamic
@@ -435,8 +399,7 @@ declare namespace netFirewall {
    */
   interface NetFirewallPolicy {
     /**
-     * Whether to enable the firewall. The value **true** means to enable the firewall, and the value **false** means
-     * the opposite.
+     * 是否开启防火墙。true表示开启防火墙，false表示关闭防火墙。
      *
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @since 15 dynamic
@@ -445,7 +408,7 @@ declare namespace netFirewall {
     isOpen: boolean;
 
     /**
-     * Inbound action.
+     * 入站行为。
      *
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @since 15 dynamic
@@ -454,7 +417,7 @@ declare namespace netFirewall {
     inAction: FirewallRuleAction;
 
     /**
-     * Outbound action.
+     * 出站行为。
      *
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @since 15 dynamic
@@ -464,8 +427,7 @@ declare namespace netFirewall {
   }
 
   /**
-   * Defines the IP parameters of the firewall rule. The IP address type can be IPv4 or IPv6. A single IP address or IP
-   * address segment is supported.
+   * 防火墙规则的IP参数，IP类型包括IPv4、IPv6，支持单个IP或IP段。
    *
    * @syscap SystemCapability.Communication.NetManager.NetFirewall
    * @since 15 dynamic
@@ -473,10 +435,9 @@ declare namespace netFirewall {
    */
   interface NetFirewallIpParams {
     /**
-     * **1**: IP address or subnet. In this case, the **address** and **mask** fields must be specified. When a single
-     * IP address is used, the **mask** field must be set to **32**.
-     *
-     * **2**: IP address segment. In this case, the **startIp** and **endIp** fields must be specified.
+     * 1：IP地址或子网。该场景下必须指定address和mask字段，当使用单个IP时，mask字段需设置为32。 
+     * 
+     * 2：IP段，该场景下必须指定startIp和endIp字段。
      *
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @since 15 dynamic
@@ -484,11 +445,11 @@ declare namespace netFirewall {
      */
     type: int;
     /**
-     * **1**: IPv4.
-     *
-     * **2**: IPv6.
-     *
-     * The default value is **IPv4**. Other values are not supported currently.
+     * 1：表示family地址族设置为IPv4。
+     * 
+     * 2：表示family地址族设置为IPv6。  
+     * 
+     * 默认IPv4，其他当前不支持。
      *
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @since 15 dynamic
@@ -496,7 +457,7 @@ declare namespace netFirewall {
      */
     family?: int;
     /**
-     * IP address. This parameter is mandatory and valid only when type is set to **1**.
+     * IP地址。当type等于1时需要设置，并且仅在type等于1时有效，否则将被忽略。
      *
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @since 15 dynamic
@@ -504,11 +465,11 @@ declare namespace netFirewall {
      */
     address?: string;
     /**
-     * IPv4: subnet mask.
-     *
-     * IPv6: address prefix.
-     *
-     * This parameter is mandatory and valid only when type is set to **1**.
+     * IPv4：子网掩码。
+     * 
+     * IPv6：前缀。
+     * 
+     * 当type等于1时需要设置，并且仅在type等于1时有效，否则将被忽略。
      *
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @since 15 dynamic
@@ -516,8 +477,7 @@ declare namespace netFirewall {
      */
     mask?: int;
     /**
-     * Start IP address. This parameter is mandatory and valid only when type is set to **2**. The value ranges from 0.0
-     * .0.1 to 255.255.255.254. Otherwise, this parameter will be ignored.
+     * 起始IP。当type等于2时需要设置，并且仅在type等于2时有效，范围从0.0.0.1到255.255.255.254，否则将被忽略。
      *
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @since 15 dynamic
@@ -525,8 +485,7 @@ declare namespace netFirewall {
      */
     startIp?: string;
     /**
-     * End IP address. This parameter is mandatory and valid only when type is set to **2**. The value ranges from 0.0.0
-     * .1 to 255.255.255.254. Otherwise, this parameter will be ignored.
+     * 结束IP。当type等于2时需要设置，并且仅在type等于2时有效，范围从0.0.0.1到255.255.255.254，否则将被忽略。
      *
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @since 15 dynamic
@@ -536,7 +495,7 @@ declare namespace netFirewall {
   }
 
   /**
-   * Defines the port parameters of a firewall rule.
+   * 防火墙规则端口参数。
    *
    * @syscap SystemCapability.Communication.NetManager.NetFirewall
    * @since 15 dynamic
@@ -544,7 +503,7 @@ declare namespace netFirewall {
    */
   interface NetFirewallPortParams {
     /**
-     * Start port number.
+     * 开始端口。
      *
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @since 15 dynamic
@@ -552,7 +511,7 @@ declare namespace netFirewall {
      */
     startPort: int;
     /**
-     * End port number.
+     * 结束端口。
      *
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @since 15 dynamic
@@ -562,7 +521,7 @@ declare namespace netFirewall {
   }
 
   /**
-   * Defines domain name parameters of a firewall rule. Currently, Chinese domain names are not supported.
+   * 防火墙规则域名参数，目前不支持中文域名。
    *
    * @syscap SystemCapability.Communication.NetManager.NetFirewall
    * @since 15 dynamic
@@ -570,8 +529,7 @@ declare namespace netFirewall {
    */
   interface NetFirewallDomainParams {
     /**
-     * Whether to contain wildcards. The value **true** means to contain wildcards; and the value **false** means the
-     * opposite.
+     * 是否包含通配符。true表示包含，false表示不包含。
      *
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @since 15 dynamic
@@ -579,8 +537,7 @@ declare namespace netFirewall {
      */
     isWildcard: boolean;
     /**
-     * If **isWildcard** is set to **false**, the complete domain name, for example, "www.example.cn", needs to be
-     * specified.
+     * 当isWildcard为false时，需要确定的完整域， 例如"www.example.cn"。
      *
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @since 15 dynamic
@@ -590,12 +547,11 @@ declare namespace netFirewall {
   }
 
   /**
-   * Defines the DNS information of a firewall rule.
-   *
-   * > **Description**
+   * 防火墙规则DNS信息。
+   * 
+   * > **说明**
    * >
-   * > This parameter cannot be empty when **rule.type** of [addNetFirewallRule]{@link netFirewall.addNetFirewallRule}
-   * > is set to RULE_DNS.
+   * > 当[addNetFirewallRule]{@link netFirewall.addNetFirewallRule}的入参rule.type配置为RULE_DNS时，该字段不能为空。
    *
    * @syscap SystemCapability.Communication.NetManager.NetFirewall
    * @since 15 dynamic
@@ -603,7 +559,7 @@ declare namespace netFirewall {
    */
   interface NetFirewallDnsParams {
     /**
-     * Active DNS server.
+     * 主域名服务器。
      *
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @since 15 dynamic
@@ -611,7 +567,7 @@ declare namespace netFirewall {
      */
     primaryDns: string;
     /**
-     * Standby DNS server.
+     * 备份DNS。
      *
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @since 15 dynamic
@@ -621,7 +577,7 @@ declare namespace netFirewall {
   }
 
   /**
-   * Defines a firewall rule.
+   * 防火墙规则信息结构。
    *
    * @syscap SystemCapability.Communication.NetManager.NetFirewall
    * @since 15 dynamic
@@ -629,7 +585,7 @@ declare namespace netFirewall {
    */
   interface NetFirewallRule {
     /**
-     * System user ID, which must exist.
+     * 系统用户ID，只能是存在的用户ID。
      *
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @since 15 dynamic
@@ -637,7 +593,7 @@ declare namespace netFirewall {
      */
     userId: int;
     /**
-     * Rule name. This parameter is mandatory and can contain a maximum of 128 characters.
+     * 规则名称，必填，最多128个字符。
      *
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @since 15 dynamic
@@ -645,7 +601,7 @@ declare namespace netFirewall {
      */
     name: string;
     /**
-     * Rule direction, which can be inbound or outbound.
+     * 规则方向，包含入站和出站。
      *
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @since 15 dynamic
@@ -653,7 +609,7 @@ declare namespace netFirewall {
      */
     direction: NetFirewallRuleDirection;
     /**
-     * Action, which can be allowing or denying.
+     * 行为，包含允许和阻止。
      *
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @since 15 dynamic
@@ -661,7 +617,7 @@ declare namespace netFirewall {
      */
     action: FirewallRuleAction;
     /**
-     * Rule type, which can be IP, Domain, or DNS.
+     * 规则类型，包含IP、Domain、DNS。
      *
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @since 15 dynamic
@@ -669,8 +625,7 @@ declare namespace netFirewall {
      */
     type: NetFirewallRuleType;
     /**
-     * Whether to enable the rule. The value **true** means to enable the rule, and the value **false** means the
-     * opposite.
+     * 是否启用规则。true表示启用，false表示不启用。
      *
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @since 15 dynamic
@@ -678,7 +633,7 @@ declare namespace netFirewall {
      */
     isEnabled: boolean;
     /**
-     * ID of the firewall rule.
+     * 防火墙规则的ID。
      *
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @since 15 dynamic
@@ -686,7 +641,7 @@ declare namespace netFirewall {
      */
     id?: int;
     /**
-     * Firewall rule description. This parameter is optional and can contain a maximum of 256 characters.
+     * 规则描述，可选，最多256个字符。
      *
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @since 15 dynamic
@@ -694,7 +649,7 @@ declare namespace netFirewall {
      */
     description?: string;
     /**
-     * Application or service UID.
+     * 应用程序或服务UID。
      *
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @since 15 dynamic
@@ -702,8 +657,7 @@ declare namespace netFirewall {
      */
     appUid?: int;
     /**
-     * Local IP addresses. This parameter is valid only when **type** is set to **RULE_IP**. Otherwise, it will be
-     * ignored. A maximum of 10 IP addresses can be specified.
+     * 本地IP地址。当type=RULE_IP时有效，否则将被忽略，最多10个。
      *
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @since 15 dynamic
@@ -711,8 +665,7 @@ declare namespace netFirewall {
      */
     localIps?: Array<NetFirewallIpParams>;
     /**
-     * Remote IP addresses. This parameter is valid only when **type** is set to **RULE_IP**. Otherwise, it will be
-     * ignored. A maximum of 10 IP addresses can be specified.
+     * 远端IP地址。当type=RULE_IP时有效，否则将被忽略，最多10个。
      *
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @since 15 dynamic
@@ -720,8 +673,7 @@ declare namespace netFirewall {
      */
     remoteIps?: Array<NetFirewallIpParams>;
     /**
-     * Protocol, which can be TCP (value **6**) or UDP (value **17**). This parameter is valid only when **type** is set
-     * to **RULE_IP**.
+     * 协议，包含TCP：6，UDP：17。当type=RULE_IP时有效。
      *
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @since 15 dynamic
@@ -729,8 +681,7 @@ declare namespace netFirewall {
      */
     protocol?: int;
     /**
-     * Local ports. This parameter is valid only when **type** is set to **RULE_IP**. Otherwise, it will be ignored. A
-     * maximum of 10 IP addresses can be specified.
+     * 本地端口。当type=RULE_IP时有效，否则将被忽略，最多10个。
      *
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @since 15 dynamic
@@ -738,8 +689,7 @@ declare namespace netFirewall {
      */
     localPorts?: Array<NetFirewallPortParams>;
     /**
-     * Remote ports. This parameter is valid only when **type** is set to **RULE_IP**. Otherwise, it will be ignored. A
-     * maximum of 10 ports can be specified.
+     * 远端端口。当type=RULE_IP时有效，否则将被忽略。最多10个。
      *
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @since 15 dynamic
@@ -747,8 +697,7 @@ declare namespace netFirewall {
      */
     remotePorts?: Array<NetFirewallPortParams>;
     /**
-     * List of domain names. This parameter is valid only when **type** is set to **RULE_DOMAIN**. Currently, domain
-     * names cannot contain Chinese characters.
+     * 域名列表，当type=RULE_DOMAIN时有效，否则将被忽略，目前不支持中文域名。
      *
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @since 15 dynamic
@@ -756,8 +705,7 @@ declare namespace netFirewall {
      */
     domains?: Array<NetFirewallDomainParams>;
     /**
-     * List of DNS server names. This parameter is valid only when **type** is set to **RULE_DNS**. This parameter
-     * cannot be empty when **type** is set to **RULE_DNS**.
+     * DNS：当type=RULE_DNS时有效，否则将被忽略。当type=RULE_DNS时，该字段不能为空。
      *
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @since 15 dynamic
@@ -765,7 +713,7 @@ declare namespace netFirewall {
      */
     dns?: NetFirewallDnsParams;
     /**
-     * Interface name: valid when type = RULE_IP, otherwise it will be ignored.
+     * 接口名：当type=RULE_IP时有效，否则忽略。
      *
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @stagemodelonly
@@ -775,7 +723,7 @@ declare namespace netFirewall {
   }
 
   /**
-   * Intercepted record.
+   * 拦截记录。
    *
    * @syscap SystemCapability.Communication.NetManager.NetFirewall
    * @systemapi Hide this for inner system use.
@@ -793,7 +741,6 @@ declare namespace netFirewall {
      */
     time: int;
     /**
-     * Local IP.
      *
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @systemapi Hide this for inner system use.
@@ -802,7 +749,6 @@ declare namespace netFirewall {
      */
     localIp?: string;
     /**
-     * Remote IP.
      *
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @systemapi Hide this for inner system use.
@@ -847,7 +793,6 @@ declare namespace netFirewall {
      */
     appUid?: int;
     /**
-     * Blocked domain name information.
      *
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @systemapi Hide this for inner system use.
@@ -858,7 +803,7 @@ declare namespace netFirewall {
   }
 
   /**
-   * Defines query parameters.
+   * 查询输入信息结构。
    *
    * @syscap SystemCapability.Communication.NetManager.NetFirewall
    * @since 15 dynamic
@@ -866,7 +811,7 @@ declare namespace netFirewall {
    */
   interface RequestParam {
     /**
-     * Page number. The value range is [1,1000].
+     * 页码，值范围：[1, 1000]。
      *
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @since 15 dynamic
@@ -874,7 +819,7 @@ declare namespace netFirewall {
      */
     page: int;
     /**
-     * Page size. The value range is [1,50].
+     * 页面大小，值范围：[1, 50]。
      *
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @since 15 dynamic
@@ -882,7 +827,7 @@ declare namespace netFirewall {
      */
     pageSize: int;
     /**
-     * Sorting method. This parameter can be used to sort firewall rules only by name.
+     * 排序方法。 该字段仅支持根据防火墙规则名排序。
      *
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @since 15 dynamic
@@ -890,7 +835,7 @@ declare namespace netFirewall {
      */
     orderField: NetFirewallOrderField;
     /**
-     * Sorting order type.
+     * 排序顺序。
      *
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @since 15 dynamic
@@ -900,7 +845,7 @@ declare namespace netFirewall {
   }
 
   /**
-   * Defines the pagination structure for firewall rules.
+   * 防火墙规则页信息结构。
    *
    * @syscap SystemCapability.Communication.NetManager.NetFirewall
    * @since 15 dynamic
@@ -908,7 +853,7 @@ declare namespace netFirewall {
    */
   interface FirewallRulePage {
     /**
-     * Current page number. The value range is [1,1000].
+     * 当前页码，值范围：[1,1000]。
      *
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @since 15 dynamic
@@ -916,7 +861,7 @@ declare namespace netFirewall {
      */
     page: int;
     /**
-     * Page size. The value range is [1,50].
+     * 页面大小，值范围：[1, 50]。
      *
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @since 15 dynamic
@@ -924,7 +869,7 @@ declare namespace netFirewall {
      */
     pageSize: int;
     /**
-     * Total number of pages. The value range is [1,1000].
+     * 总页数，值范围：[1,1000]。
      *
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @since 15 dynamic
@@ -932,7 +877,7 @@ declare namespace netFirewall {
      */
     totalPage: int;
     /**
-     * Page data.
+     * 页面数据。
      *
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @since 15 dynamic
@@ -942,7 +887,7 @@ declare namespace netFirewall {
   }
 
   /**
-   * Intercepted record page information.
+   * 拦截记录分页信息。
    *
    * @syscap SystemCapability.Communication.NetManager.NetFirewall
    * @systemapi Hide this for inner system use.
@@ -978,7 +923,6 @@ declare namespace netFirewall {
      */
     totalPage: int;
     /**
-     * Page data: all records displayed on this page.
      *
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @systemapi Hide this for inner system use.

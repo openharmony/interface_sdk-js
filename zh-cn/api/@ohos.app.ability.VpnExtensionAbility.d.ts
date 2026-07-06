@@ -14,18 +14,18 @@
  */
 
 /**
- * @file
- * @kit NetworkKit
+  * @file
+  * @kit NetworkKit
  */
 
 import type VpnExtensionContext from './application/VpnExtensionContext';
 import type Want from './@ohos.app.ability.Want';
 
 /**
- * **VpnExtensionContext** represents the context of **VpnExtensionAbility** and is inherited from
- * [ExtensionContext]{@link ./application/ExtensionContext:ExtensionContext}.
- *
- * This module provides the context required for APIs to access the resources of a **VpnExtensionAbility** object.
+ * VpnExtensionContext是VpnExtensionAbility的上下文环境，继承自
+ * [ExtensionContext]{@link ./application/ExtensionContext:ExtensionContext}。
+ * 
+ * VpnExtensionContext可直接作为VpnExtension的上下文环境，提供允许访问特定于VpnExtensionAbility的资源的能力。
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @stagemodelonly
@@ -34,7 +34,7 @@ import type Want from './@ohos.app.ability.Want';
  */
 export default class VpnExtensionAbility {
   /**
-   * Specified context.
+   * 指定context。
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
@@ -44,14 +44,13 @@ export default class VpnExtensionAbility {
   context: VpnExtensionContext;
 
   /**
-   * Represents the callback triggered when the extended VPN is initialized.
-   *
-   * > **NOTE**
+   * 拓展VPN启动初始化的时候进行回调。
+   * 
+   * > **说明：**
    * >
-   * > You are advised to call [onDestroy]{@link VpnExtensionAbility#onDestroy} to listen to the destruction of the
-   * > extended VPN and clear resources in a timely manner.
+   * > 建议配对调用[onDestroy]{@link VpnExtensionAbility#onDestroy}监听拓展VPN的销毁，及时执行资源清理等操作。
    *
-   * @param { Want } want - Want information.
+   * @param { Want } want - 指示要启动的信息。
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 11 dynamic
@@ -60,7 +59,7 @@ export default class VpnExtensionAbility {
   onCreate(want: Want): void;
 
   /**
-   * Represents the callback triggered when the extended VPN is destroyed.
+   * 拓展VPN销毁之前进行回调。
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly

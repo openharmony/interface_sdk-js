@@ -14,7 +14,7 @@
  */
 
 /**
- * @file Ethernet Connection Management
+ * @file 以太网连接管理
  * @kit NetworkKit
  */
 
@@ -22,8 +22,7 @@ import type { AsyncCallback, Callback } from './@ohos.base';
 import type connection from './@ohos.net.connection';
 
 /**
- * The **ethernet** module provides Ethernet management functions such as configuring a network proxy and obtaining the
- * network IP address.
+ * 本模块提供以太网连接管理能力，包括有线网络能力、获取有线网络的IP地址等信息。
  *
  * @syscap SystemCapability.Communication.NetManager.Ethernet
  * @since 9 dynamic
@@ -31,7 +30,7 @@ import type connection from './@ohos.net.connection';
  */
 declare namespace ethernet {
   /**
-   * Defines the network proxy configuration.
+   * 网络代理配置信息。
    *
    * @syscap SystemCapability.Communication.NetManager.Ethernet
    * @since 10 dynamic
@@ -40,13 +39,11 @@ declare namespace ethernet {
   type HttpProxy = connection.HttpProxy;
 
   /**
-   * Obtains the information about a specified network interface. This API uses an asynchronous callback to return the
-   * result.
+   * 获取指定网络接口信息，使用callback异步回调。
    *
    * @permission ohos.permission.GET_NETWORK_INFO
-   * @param { string } iface - Network interface.
-   * @param { AsyncCallback<InterfaceConfiguration> } callback - Callback used to return the result. Returns information
-   *     about the specified network interface.
+   * @param { string } iface - 指定网络接口。
+   * @param { AsyncCallback<InterfaceConfiguration> } callback - 回调函数。返回指定网络接口信息。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -62,11 +59,11 @@ declare namespace ethernet {
   function getIfaceConfig(iface: string, callback: AsyncCallback<InterfaceConfiguration>): void;
 
   /**
-   * Obtains the information about a specified network interface. This API uses a promise to return the result.
+   * 获取指定网络接口信息，使用Promise异步回调。
    *
    * @permission ohos.permission.GET_NETWORK_INFO
-   * @param { string } iface - Network interface.
-   * @returns { Promise<InterfaceConfiguration> } Promise used to return the result.
+   * @param { string } iface - 指定网络接口。
+   * @returns { Promise<InterfaceConfiguration> } 以Promise形式返回接口信息。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -82,13 +79,12 @@ declare namespace ethernet {
   function getIfaceConfig(iface: string): Promise<InterfaceConfiguration>;
 
   /**
-   * Sets the network interface configuration information. This API uses an asynchronous callback to return the result.
+   * 设置网络接口配置信息，使用callback异步回调。
    *
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
-   * @param { string } iface - Interface name.
-   * @param { InterfaceConfiguration } ic - Network interface configuration to set.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful, the
-   *     return result is empty. If the operation fails, an error code is returned.
+   * @param { string } iface - 网络接口名。
+   * @param { InterfaceConfiguration } ic - 要设置的网络接口配置信息。
+   * @param { AsyncCallback<void> } callback - 回调函数。成功无返回，失败返回对应错误码。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -107,13 +103,12 @@ declare namespace ethernet {
   function setIfaceConfig(iface: string, ic: InterfaceConfiguration, callback: AsyncCallback<void>): void;
 
   /**
-   * Sets the network interface configuration information. This API uses a promise to return the result.
+   * 设置网络接口配置信息，使用Promise异步回调。
    *
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
-   * @param { string } iface - Interface name.
-   * @param { InterfaceConfiguration } ic - Network interface configuration to set.
-   * @returns { Promise<void> } Promise used to return the result. If the operation is successful, the return result is
-   *     empty. If the operation fails, an error code is returned.
+   * @param { string } iface - 接口名。
+   * @param { InterfaceConfiguration } ic - 要设置的网络接口配置信息。
+   * @returns { Promise<void> } 以Promise形式返回执行结果。成功无返回，失败返回对应错误码。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -132,14 +127,11 @@ declare namespace ethernet {
   function setIfaceConfig(iface: string, ic: InterfaceConfiguration): Promise<void>;
 
   /**
-   * Checks whether the interface is activated. This API uses an asynchronous callback to return the result.
+   * 判断接口是否已激活，使用callback异步回调。
    *
    * @permission ohos.permission.GET_NETWORK_INFO
-   * @param { string } iface - Interface name. If this parameter is left empty, the API checks for any active network
-   *     interface.
-   * @param { AsyncCallback<int> } callback - Callback used to return the result. The value **1** means that the network
-   *     interface is active, **0** means that the network interface is inactive, and any other value means that an
-   *     error has occurred.
+   * @param { string } iface - 接口名。为空时代表查询是否存在激活接口。
+   * @param { AsyncCallback<int> } callback - 回调函数。已激活：1，未激活：0，其他为获取失败错误码。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -155,14 +147,11 @@ declare namespace ethernet {
   function isIfaceActive(iface: string, callback: AsyncCallback<int>): void;
 
   /**
-   * Checks whether the interface is activated. This API uses a promise to return the result.
+   * 判断接口是否已激活，使用Promise异步回调。
    *
    * @permission ohos.permission.GET_NETWORK_INFO
-   * @param { string } iface - Interface name. If this parameter is left empty, the API checks for any active network
-   *     interface.
-   * @returns { Promise<int> } Promise used to return the result. The value **1** means that the network interface is
-   *     active, **0** means that the network interface is inactive, and any other value means that an error has
-   *     occurred.
+   * @param { string } iface - 接口名。为空时代表查询是否存在激活接口。
+   * @returns { Promise<int> } 以Promise形式返回获取结果。已激活：1，未激活：0，其他为获取失败错误码。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -178,10 +167,10 @@ declare namespace ethernet {
   function isIfaceActive(iface: string): Promise<int>;
 
   /**
-   * Obtains the active network interface. This API uses an asynchronous callback to return the result.
+   * 获取活动的网络接口，使用callback异步回调。
    *
    * @permission ohos.permission.GET_NETWORK_INFO
-   * @param { AsyncCallback<Array<string>> } callback - Callback used to return the result.
+   * @param { AsyncCallback<Array<string>> } callback - 回调函数。返回值为对应接口名。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 2200002 - Failed to connect to the service.
@@ -194,10 +183,10 @@ declare namespace ethernet {
   function getAllActiveIfaces(callback: AsyncCallback<Array<string>>): void;
 
   /**
-   * Obtains the active network interface. This API uses a promise to return the result.
+   * 获取活动的网络接口，使用Promise异步回调。
    *
    * @permission ohos.permission.GET_NETWORK_INFO
-   * @returns { Promise<Array<string>> } Promise used to return the result.
+   * @returns { Promise<Array<string>> } 以Promise形式返回获取结果。返回值为对应接口名。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 2200002 - Failed to connect to the service.
@@ -210,13 +199,13 @@ declare namespace ethernet {
   function getAllActiveIfaces(): Promise<Array<string>>;
 
   /**
-   * Registers the observer for NIC hot swap events. This API uses an asynchronous callback to return the result.
+   * 注册网卡热插拔事件，使用callback异步回调。
    *
    * @permission ohos.permission.GET_NETWORK_INFO
-   * @param { 'interfaceStateChange' } type - Event type. The value is **interfaceStateChange**.
+   * @param { 'interfaceStateChange' } type - 订阅的事件类型，'interfaceStateChange'。
    * @param { Callback<{ iface: string, active: boolean }> } callback - Callback used to return the
    *     result. [since 10 - 10]
-   * @param { Callback<InterfaceStateInfo> } callback - Callback used to return the result. [since 11]
+   * @param { Callback<InterfaceStateInfo> } callback - 回调函数。返回以太网卡状态信息。 [since 11]
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -227,11 +216,10 @@ declare namespace ethernet {
   function on(type: 'interfaceStateChange', callback: Callback<InterfaceStateInfo>): void;
 
   /**
-   * Register a callback for the ethernet interface active state change.
+   * 注册以太网接口激活状态变化回调。
    *
    * @permission ohos.permission.GET_NETWORK_INFO
-   * @param { Callback<InterfaceStateInfo> } callback - Including iface Indicates the ethernet interface,
-   *     and active Indicates whether the interface is active.
+   * @param { Callback<InterfaceStateInfo> } callback - 回调函数，包含iface表示以太网接口，active表示接口是否激活。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @syscap SystemCapability.Communication.NetManager.Ethernet
@@ -241,13 +229,13 @@ declare namespace ethernet {
   function onInterfaceStateChange(callback: Callback<InterfaceStateInfo>): void;
 
   /**
-   * Unregisters the observer for NIC hot swap events. This API uses an asynchronous callback to return the result.
+   * 注销网卡热插拔事件，使用callback异步回调。
    *
    * @permission ohos.permission.GET_NETWORK_INFO
-   * @param { 'interfaceStateChange' } type - Event type. The value is **interfaceStateChange**.
+   * @param { 'interfaceStateChange' } type - 订阅的事件类型，'interfaceStateChange'。
    * @param { Callback<{ iface: string, active: boolean }> } callback - Callback used to return the
    *     result. [since 10 - 10]
-   * @param { Callback<InterfaceStateInfo> } callback - Callback used to return the result. [since 11]
+   * @param { Callback<InterfaceStateInfo> } callback - 回调函数。返回以太网卡状态信息。 [since 11]
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -258,11 +246,10 @@ declare namespace ethernet {
   function off(type: 'interfaceStateChange', callback?: Callback<InterfaceStateInfo>): void;
 
   /**
-   * Unregister a callback from the ethernet interface active state change.
+   * 注销以太网接口激活状态变化回调。
    *
    * @permission ohos.permission.GET_NETWORK_INFO
-   * @param { Callback<InterfaceStateInfo> } [callback] - Including iface Indicates the ethernet interface,
-   *     and active Indicates whether the interface is active.
+   * @param { Callback<InterfaceStateInfo> } [callback] - 回调函数，包含iface表示以太网接口，active表示接口是否激活。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @syscap SystemCapability.Communication.NetManager.Ethernet
@@ -272,12 +259,10 @@ declare namespace ethernet {
   function offInterfaceStateChange(callback?: Callback<InterfaceStateInfo>): void;
 
   /**
-   * Obtains the names and MAC addresses of all Ethernet NICs. This API uses a promise to return the result.
-   *
-   * **Required permission**: ohos.permission.GET_ETHERNET_LOCAL_MAC
+   * 获取所有以太网网卡名称及对应网卡的MAC地址信息，使用Promise方式作为异步方法。
    *
    * @permission ohos.permission.GET_ETHERNET_LOCAL_MAC
-   * @returns { Promise<Array<MacAddressInfo>> } Promise used to return the result.
+   * @returns { Promise<Array<MacAddressInfo>> } 以Promise形式返回接口信息。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 2200002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2201005 - Device information does not exist.
@@ -288,12 +273,10 @@ declare namespace ethernet {
   function getMacAddress(): Promise<Array<MacAddressInfo>>;
 
   /**
-   * Obtains the device information (such as the vendor name, product name, and maximum connection rate) of the local
-   * Ethernet NIC. This API uses a promise to return the result.
+   * 获取本机以太网卡的设备信息（如供应商名称、产品名称、最大连接速率等）使用Promise异步回调。
    *
    * @permission ohos.permission.GET_NETWORK_INFO
-   * @returns { Promise<Array<EthernetDeviceInfos>> } Promise used to return the result. If the operation is successful,
-   *     the Ethernet device information list is returned. If the operation fails, an error code is returned.
+   * @returns { Promise<Array<EthernetDeviceInfos>> } Promise对象，返回本次执行结果。成功返回以太网设备信息列表，失败返回对应错误码。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 2201005 - Device information does not exist.
@@ -305,10 +288,10 @@ declare namespace ethernet {
   function getEthernetDeviceInfos(): Promise<Array<EthernetDeviceInfos>>;
 
   /**
-   * Enable the ethernet interface.
+   * 启用以太网接口。
    *
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
-   * @returns { Promise<void> } The promise returned when the ethernet interface is enabled.
+   * @returns { Promise<void> } 启用以太网接口成功返回的Promise。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 2200002 - Failed to connect to the service.
@@ -321,10 +304,10 @@ declare namespace ethernet {
   function enableEthernetInterface(): Promise<void>;
 
   /**
-   * Disable the ethernet interface.
+   * 禁用以太网接口。
    *
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
-   * @returns { Promise<void> } The promise returned when the ethernet interface is disabled.
+   * @returns { Promise<void> } 禁用以太网接口成功返回的Promise。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 2200002 - Failed to connect to the service.
@@ -337,10 +320,10 @@ declare namespace ethernet {
   function disableEthernetInterface(): Promise<void>;
 
   /**
-   * Check whether the global ethernet switch is enabled.
+   * 检查全局以太网开关是否启用。
    *
    * @permission ohos.permission.GET_NETWORK_INFO
-   * @returns { boolean } True if ethernet is globally enabled.
+   * @returns { boolean } 如果全局以太网启用返回true。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 2200002 - Operation failed. Cannot connect to service.
@@ -353,7 +336,7 @@ declare namespace ethernet {
   function isEthernetEnabled(): boolean;
 
   /**
-   * Defines the network configuration for the Ethernet connection.
+   * 以太网连接配置网络信息。
    *
    * @syscap SystemCapability.Communication.NetManager.Ethernet
    * @systemapi Hide this for inner system use.
@@ -362,7 +345,7 @@ declare namespace ethernet {
    */
   export interface InterfaceConfiguration {
     /**
-     * Configuration mode of the Ethernet connection.
+     * 以太网连接配置模式。
      *
      * @syscap SystemCapability.Communication.NetManager.Ethernet
      * @systemapi Hide this for inner system use.
@@ -371,9 +354,7 @@ declare namespace ethernet {
      */
     mode: IPSetMode;
     /**
-     * Static IP address of the Ethernet connection. The value must be an IPv4 address, which is a 32-bit number
-     * displayed in dotted decimal notation and each 8-bit field ranges from 0 to 255. This parameter does not need to
-     * be configured in Dynamic Host Configuration Protocol (DHCP) mode.
+     * 以太网连接静态配置ip信息，地址值范围：0-255.0-255.0-255.0-255（DHCP模式无需配置）。
      *
      * @syscap SystemCapability.Communication.NetManager.Ethernet
      * @systemapi Hide this for inner system use.
@@ -383,9 +364,7 @@ declare namespace ethernet {
     ipAddr: string;
 
     /**
-     * Route of the Ethernet connection. The value must be an IPv4 address, which is a 32-bit number displayed in dotted
-     * decimal notation and each 8-bit field ranges from 0 to 255. This parameter does not need to be configured in DHCP
-     * mode.
+     * 以太网连接静态配置路由信息，地址值范围：0-255.0-255.0-255.0-255（DHCP模式无需配置）。
      *
      * @syscap SystemCapability.Communication.NetManager.Ethernet
      * @systemapi Hide this for inner system use.
@@ -395,9 +374,7 @@ declare namespace ethernet {
     route: string;
 
     /**
-     * Gateway of the Ethernet connection. The value must be an IPv4 address, which is a 32-bit number displayed in
-     * dotted decimal notation and each 8-bit field ranges from 0 to 255. This parameter does not need to be configured
-     * in DHCP mode.
+     * 以太网连接配置网关信息，地址值范围：0-255.0-255.0-255.0-255（DHCP模式无需配置）。
      *
      * @syscap SystemCapability.Communication.NetManager.Ethernet
      * @systemapi Hide this for inner system use.
@@ -407,9 +384,7 @@ declare namespace ethernet {
     gateway: string;
 
     /**
-     * Subnet mask of the Ethernet connection. The value must be an IPv4 address, which is a 32-bit number displayed in
-     * dotted decimal notation and each 8-bit field ranges from 0 to 255. This parameter does not need to be configured
-     * in DHCP mode.
+     * 以太网连接配置子网掩码，地址值范围：0-255.0-255.0-255.0-255（DHCP模式无需配置）。
      *
      * @syscap SystemCapability.Communication.NetManager.Ethernet
      * @systemapi Hide this for inner system use.
@@ -419,9 +394,7 @@ declare namespace ethernet {
     netMask: string;
 
     /**
-     * DNS server addresses of the Ethernet connection. The value must be an IPv4 address, which is a 32-bit number
-     * displayed in dotted decimal notation and each 8-bit field ranges from 0 to 255. This parameter does not need to
-     * be configured in DHCP mode. Multiple addresses are separated by commas (,).
+     * 以太网连接配置dns服务地址，地址值范围：0-255.0-255.0-255.0-255（DHCP模式无需配置）多地址间用“,”隔开。
      *
      * @syscap SystemCapability.Communication.NetManager.Ethernet
      * @systemapi Hide this for inner system use.
@@ -431,7 +404,7 @@ declare namespace ethernet {
     dnsServers: string;
 
     /**
-     * HTTP proxy of the Ethernet connection. By default, no proxy is configured.
+     * 以太网连接代理配置信息，默认情况下不配置任何代理信息。
      *
      * @syscap SystemCapability.Communication.NetManager.Ethernet
      * @systemapi Hide this for inner system use.
@@ -442,7 +415,7 @@ declare namespace ethernet {
   }
 
   /**
-   * Listens for status changes of an Ethernet NIC.
+   * 监听以太网卡状态变化。
    *
    * @syscap SystemCapability.Communication.NetManager.Ethernet
    * @systemapi Hide this for inner system use.
@@ -451,7 +424,7 @@ declare namespace ethernet {
    */
   export interface InterfaceStateInfo {
     /**
-     * Name of the Ethernet NIC.
+     * 以太网卡名称。
      *
      * @syscap SystemCapability.Communication.NetManager.Ethernet
      * @systemapi Hide this for inner system use.
@@ -460,8 +433,7 @@ declare namespace ethernet {
      */
     iface: string;
     /**
-     * Whether the Ethernet NIC is activated. The value **true** indicates that the Ethernet NIC is activated, and the
-     * value **false** indicates the opposite.
+     * 以太网卡是否处于激活状态。true表示激活，false表示未激活。
      *
      * @syscap SystemCapability.Communication.NetManager.Ethernet
      * @systemapi Hide this for inner system use.
@@ -472,7 +444,7 @@ declare namespace ethernet {
   }
 
   /**
-   * Defines the configuration mode of the Ethernet connection.
+   * 以太网连接模式。
    *
    * @syscap SystemCapability.Communication.NetManager.Ethernet
    * @systemapi Hide this for inner system use.
@@ -481,7 +453,7 @@ declare namespace ethernet {
    */
   export enum IPSetMode {
     /**
-     * Static network configuration for an Ethernet connection.
+     * 以太网连接静态配置网络信息。
      *
      * @syscap SystemCapability.Communication.NetManager.Ethernet
      * @systemapi Hide this for inner system use.
@@ -491,7 +463,7 @@ declare namespace ethernet {
     STATIC = 0,
 
     /**
-     * Dynamic network configuration for an Ethernet connection.
+     * 以太网连接动态配置网络信息。
      *
      * @syscap SystemCapability.Communication.NetManager.Ethernet
      * @systemapi Hide this for inner system use.
@@ -501,7 +473,7 @@ declare namespace ethernet {
     DHCP = 1,
 
     /**
-     * Static network configuration for a LAN connection.
+     * LAN连接静态配置网络信息。
      *
      * @syscap SystemCapability.Communication.NetManager.Ethernet
      * @systemapi Hide this for inner system use.
@@ -511,7 +483,7 @@ declare namespace ethernet {
     LAN_STATIC = 2,
 
     /**
-     * Dynamic network configuration for a LAN connection.
+     * LAN连接动态配置网络信息。
      *
      * @syscap SystemCapability.Communication.NetManager.Ethernet
      * @systemapi Hide this for inner system use.
@@ -522,7 +494,7 @@ declare namespace ethernet {
   }
 
   /**
-   * Defines the name and MAC address of an Ethernet NIC.
+   * 以太网网卡名称及MAC地址信息。
    *
    * @syscap SystemCapability.Communication.NetManager.Ethernet
    * @since 14 dynamic
@@ -530,7 +502,7 @@ declare namespace ethernet {
    */
   export interface MacAddressInfo {
     /**
-     * Name of the Ethernet NIC.
+     * 以太网网卡名称。
      *
      * @syscap SystemCapability.Communication.NetManager.Ethernet
      * @since 14 dynamic
@@ -539,7 +511,7 @@ declare namespace ethernet {
     iface: string;
 
     /**
-     * MAC address of the Ethernet NIC.
+     * 以太网网卡MAC地址信息。
      *
      * @syscap SystemCapability.Communication.NetManager.Ethernet
      * @since 14 dynamic
@@ -549,7 +521,7 @@ declare namespace ethernet {
   }
 
   /**
-   * Defines Ethernet device information.
+   * 以太网设备信息。
    *
    * @syscap SystemCapability.Communication.NetManager.Ethernet
    * @systemapi Hide this for inner system use.
@@ -558,7 +530,7 @@ declare namespace ethernet {
    */
   export interface EthernetDeviceInfos {
     /**
-     * Interface name.
+     * 网络接口名。
      *
      * @syscap SystemCapability.Communication.NetManager.Ethernet
      * @systemapi Hide this for inner system use.
@@ -568,7 +540,7 @@ declare namespace ethernet {
     ifaceName: string;
 
     /**
-     * Device name.
+     * 设备名称。
      *
      * @syscap SystemCapability.Communication.NetManager.Ethernet
      * @systemapi Hide this for inner system use.
@@ -578,7 +550,7 @@ declare namespace ethernet {
     deviceName: string;
 
     /**
-     * Device connection mode.
+     * 设备连接模式。
      *
      * @syscap SystemCapability.Communication.NetManager.Ethernet
      * @systemapi Hide this for inner system use.
@@ -588,7 +560,7 @@ declare namespace ethernet {
     connectionMode: DeviceConnectionType;
 
     /**
-     * Vendor name.
+     * 供应商名称。
      *
      * @syscap SystemCapability.Communication.NetManager.Ethernet
      * @systemapi Hide this for inner system use.
@@ -598,7 +570,7 @@ declare namespace ethernet {
     supplierName: string;
 
     /**
-     * Supplier ID.
+     * 供应商标识号。
      *
      * @syscap SystemCapability.Communication.NetManager.Ethernet
      * @systemapi Hide this for inner system use.
@@ -608,7 +580,7 @@ declare namespace ethernet {
     supplierId: string;
 
     /**
-     * Product name.
+     * 产品名称。
      *
      * @syscap SystemCapability.Communication.NetManager.Ethernet
      * @systemapi Hide this for inner system use.
@@ -618,7 +590,7 @@ declare namespace ethernet {
     productName: string;
 
     /**
-     * Maximum connection rate.
+     * 最大连接速率。
      *
      * @syscap SystemCapability.Communication.NetManager.Ethernet
      * @systemapi Hide this for inner system use.
@@ -629,7 +601,7 @@ declare namespace ethernet {
   }
 
   /**
-   * Enumerates Ethernet device connection modes.
+   * 以太网设备连接模式。
    *
    * @syscap SystemCapability.Communication.NetManager.Ethernet
    * @systemapi Hide this for inner system use.
@@ -638,7 +610,7 @@ declare namespace ethernet {
    */
   export enum DeviceConnectionType {
     /**
-     * Internal connection mode.
+     * 以太网设备为内置连接模式。
      *
      * @syscap SystemCapability.Communication.NetManager.Ethernet
      * @systemapi Hide this for inner system use.
@@ -648,7 +620,7 @@ declare namespace ethernet {
     BUILT_IN = 0,
 
     /**
-     * External connection mode. For example, the Ethernet device is connected through a USB.
+     * 以太网设备为外接连接模式。例如，以太网设备通过USB连接。
      *
      * @syscap SystemCapability.Communication.NetManager.Ethernet
      * @systemapi Hide this for inner system use.

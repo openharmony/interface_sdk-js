@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file WebSocket Connection
  * @kit NetworkKit
  */
 
@@ -22,246 +22,186 @@ import type { AsyncCallback, ErrorCallback, Callback } from './@ohos.base';
 import type connection from './@ohos.net.connection';
 
 /**
- * Provides WebSocket APIs.
- * @namespace webSocket
+ * Provides WebSocket clients and servers for third-party applications to implement bidirectional connections between
+ * the client and server.
+ *
+ * On the WebSocket client: You can use WebSocket to establish a bidirectional connection between the server and client.
+ * Before doing this, you need to use the [createWebSocket]{@link webSocket.createWebSocket} API to create a
+ * [WebSocket]{@link webSocket.WebSocket} object and then use the
+ * [connect]{@link webSocket.WebSocket.connect(url: string, callback: AsyncCallback<boolean>)} API to connect to the
+ * server. If the connection is successful, the client will receive a callback of the
+ * [open]{@link webSocket.WebSocket.on(type: 'open', callback: AsyncCallback<Object>)} event. Then, the client can
+ * communicate with the server using the
+ * [send]{@link webSocket.WebSocket.send(data: string | ArrayBuffer, callback: AsyncCallback<boolean>)} API. When the
+ * server sends a message to the client, the client will receive a callback of the
+ * [message]{@link webSocket.WebSocket.on(type: 'message', callback: AsyncCallback<string | ArrayBuffer>)} event. If the
+ * connection is no longer needed, the client can call the
+ * [close]{@link webSocket.WebSocket.close(callback: AsyncCallback<boolean>)} API to close the connection. After
+ * successful disconnection, the client will receive a callback of the
+ * [close]{@link webSocket.WebSocket.on(type: 'close', callback: AsyncCallback<CloseResult>)} event. If an error occurs
+ * in any of the preceding processes, the client will receive a callback of the
+ * [error]{@link webSocket.WebSocket.on(type: 'error', callback: ErrorCallback)} event.
+ *
+ * On the WebSocket server: Use the [createWebSocketServer]{@link webSocket.createWebSocketServer} method to create a
+ * [WebSocketServer]{@link webSocket.WebSocketServer} object, and then use the
+ * [start]{@link webSocket.WebSocketServer.start} method to start the server and listen to the link setup request
+ * message from the client. (The API version 23 and later versions support all devices. In earlier versions, only TV
+ * devices are supported.) If the connection is successful, the server receives the callback of the
+ * [connect]{@link webSocket.WebSocketServer.on(type: 'connect', callback: Callback<WebSocketConnection>)} event. The
+ * server can then communicate with the client by using the [send]{@link webSocket.WebSocketServer.send} API or obtain
+ * information about all connected clients by using the
+ * [listAllConnections]{@link webSocket.WebSocketServer.listAllConnections} API. When the client sends a message to the
+ * server, the server receives the callback of the
+ * [messageReceive]{@link webSocket.WebSocketServer.on(type: 'messageReceive', callback: Callback<WebSocketMessage>)}
+ * event. If the connection is no longer needed, the server can call the [close]{@link webSocket.WebSocketServer.close}
+ * API to close the connection. After successful disconnection, the server will receive a callback of the
+ * [close]{@link webSocket.WebSocketServer.on(type: 'close', callback: ClientConnectionCloseCallback)} event. To stop
+ * the service, the server can use the [stop]{@link webSocket.WebSocketServer.stop} API. If an error occurs in any of
+ * the preceding processes, the server will receive a callback of the
+ * [error]{@link webSocket.WebSocketServer.on(type: 'error', callback: ErrorCallback)} event.
+ *
  * @syscap SystemCapability.Communication.NetStack
- * @since 6
- */
-/**
- * Provides WebSocket APIs.
- * @namespace webSocket
- * @syscap SystemCapability.Communication.NetStack
- * @crossplatform
- * @since 10
- */
-/**
- * Provides WebSocket APIs.
- * @namespace webSocket
- * @syscap SystemCapability.Communication.NetStack
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 6 dynamic
  * @since 23 static
  */
 declare namespace webSocket {
   /**
-   * @typedef { connection.HttpProxy }
+   * Defines the global HTTP proxy configuration of the network.
+   *
    * @syscap SystemCapability.Communication.NetManager.Core
+   * @crossplatform [since 24]
    * @since 12 dynamic
    * @since 23 static
-   */
-  /**
-   * @typedef { connection.HttpProxy }
-   * @syscap SystemCapability.Communication.NetManager.Core
-   * @crossplatform
-   * @since 24 dynamic&static
    */
   type HttpProxy = connection.HttpProxy;
 
   /**
-   * Creates a web socket connection.
-   * @returns { WebSocket } the WebSocket of the createWebSocket.
+   * Creates a **WebSocket** object, which provides methods to create or close a WebSocket connection, send data over
+   * the connection, and enable or disable listening for the **open**, **close**, **message**, and **error** events.
+   *
+   * @returns { WebSocket } A **WebSocket** object, which contains the **connect**, **send**, **close**, **on**, or
+   *     **off** method.
    * @syscap SystemCapability.Communication.NetStack
-   * @since 6
-   */
-  /**
-   * Creates a web socket connection.
-   * @returns { WebSocket } the WebSocket of the createWebSocket.
-   * @syscap SystemCapability.Communication.NetStack
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Creates a web socket connection.
-   * @returns { WebSocket } the WebSocket of the createWebSocket.
-   * @syscap SystemCapability.Communication.NetStack
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 6 dynamic
    * @since 23 static
    */
   function createWebSocket(): WebSocket;
 
   /**
    * Defines the optional parameters carried in the request for establishing a WebSocket connection.
-   * @interface WebSocketRequestOptions
+   *
    * @syscap SystemCapability.Communication.NetStack
-   * @since 6
-   */
-  /**
-   * Defines the optional parameters carried in the request for establishing a WebSocket connection.
-   * @interface WebSocketRequestOptions
-   * @syscap SystemCapability.Communication.NetStack
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Defines the optional parameters carried in the request for establishing a WebSocket connection.
-   * @interface WebSocketRequestOptions
-   * @syscap SystemCapability.Communication.NetStack
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 6 dynamic
    * @since 23 static
    */
   export interface WebSocketRequestOptions {
     /**
-     * HTTP request header.
-     * @type {?Object}
+     * Header carrying optional parameters in the request for establishing a WebSocket connection. You can customize the
+     * parameter or leave it unspecified.
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 6
-     */
-    /**
-     * HTTP request header.
-     * @type {?Object}
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * HTTP request header.
-     * @type {?Object}
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 6 dynamic
      */
     header?: Object;
 
     /**
      * HTTP request header.
-     * 
-     * @type { ?Record<string, string> }
+     *
      * @syscap SystemCapability.Communication.NetStack
      * @stagemodelonly
      * @since 23 static
      */
     header?: Record<string, string>;
-    
+
     /**
-     * File path for client cert.
-     * @type {?string}
+     * Path of CA certificates. If a path is set, the system uses the CA certificates in this path. If a path is not
+     * set, the system uses the preset CA certificate, namely, **\/etc/ssl/certs/cacert.pem**. This path is the sandbox
+     * mapping path, which can be obtained by using **UIAbilityContext** APIs. Currently, only text certificates in PEM
+     * format are supported.
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 11
-     */
-    /**
-     * File path for client cert.
-     * @type {?string}
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 12 dynamic
+     * @crossplatform [since 12]
+     * @since 11 dynamic
      * @since 23 static
      */
     caPath?: string;
 
     /**
-     * Whether or not to skip the verification of the server's certification.
-     * @type { ?boolean }
+     * Whether to skip server certificate verification. The value **true** means to skip server certificate
+     * verification, and the value **false** means the opposite. Default value: **false**.
+     *
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 24]
      * @since 20 dynamic
-     */
-    /**
-     * Whether or not to skip the verification of the server's certification.
-     * @type { ?boolean }
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 24 dynamic
-     * @since 26.0.0 static
+     * @since 26.1.0 static
      */
     skipServerCertVerification?: boolean;
 
     /**
-     * Client cert.
-     * @type {?ClientCert}
+     * Client certificate.
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 11
-     */
-    /**
-     * Client cert.
-     * @type {?ClientCert}
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 12 dynamic
+     * @crossplatform [since 12]
+     * @since 11 dynamic
      * @since 23 static
      */
     clientCert?: ClientCert;
 
     /**
-     * HTTP proxy configuration. Use 'system' if this field is not set.
-     * @type {?ProxyConfiguration}
+     * Proxy configuration. By default, the system network proxy is used.
+     *
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 24]
      * @since 12 dynamic
      * @since 23 static
-     */
-    /**
-     * HTTP proxy configuration. Use 'system' if this field is not set.
-     * @type {?ProxyConfiguration}
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 24 dynamic&static
      */
     proxy?: ProxyConfiguration;
 
     /**
-     * Self defined protocol.
-     * @type {?string}
+     * Custom **Sec-WebSocket-Protocol** field. The default value is "".
+     *
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 24]
      * @since 12 dynamic
      * @since 23 static
-     */
-    /**
-     * Self defined protocol.
-     * @type {?string}
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 24 dynamic&static
      */
     protocol?: string;
 
     /**
-     * Self defined interval of ping frame.
-     * default: 30. disable: 0. max: 30000. unit:second.
-     * Ping is performed at every pingInterval.
-     * @type {?int}
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 21 dynamic
-     */
-    /**
-     * Self defined interval of ping frame.
-     * default: 30. disable: 0. max: 30000. unit:second.
-     * Ping is performed at every pingInterval.
+     * Custom [heartbeat detection interval](docroot://network/websocket-connection.md). The default value is 30s.
+     * Heartbeat detection is initiated at the specified interval. If the value is set to **0**, heartbeat detection is
+     * disabled. The maximum value is 30000s, and the minimum value is 0s.
      *
-     * @type {?int}
      * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 24 dynamic
-     * @since 26.0.0 static
+     * @crossplatform [since 24]
+     * @since 21 dynamic
+     * @since 26.1.0 static
      */
     pingInterval?: int;
 
     /**
-     * Self defined timeout of pong frame.
-     * default: 30. max: 30000. unit:second. The value must be less than or equal to pingInterval.
-     * If no pong is received within the pongTimeout period, the websocket connection will be disconnected.
-     * @type {?int}
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 21 dynamic
-     */
-    /**
-     * Self defined timeout of pong frame.
-     * default: 30. max: 30000. unit:second. The value must be less than or equal to pingInterval.
-     * If no pong is received within the pongTimeout period, the websocket connection will be disconnected.
+     * Timeout interval for disconnecting a connection after heartbeat detection is initiated. The default value is 30s.
+     * If no response is received during the specified interval, the connection is disconnected. The maximum value is 30
+     * 000s, and the minimum value is 0s. **pongTimeout** must be less than or equal to **pingInterval**.
      *
-     * @type {?int}
      * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 24 dynamic
-     * @since 26.0.0 static
+     * @crossplatform [since 24]
+     * @since 21 dynamic
+     * @since 26.1.0 static
      */
     pongTimeout?: int;
 
     /**
-     * The minimum support version of TLS protocol.
+     * Custom minimum TLS version supported. For example, if this parameter is set to **TLS_V_1_1**, the client supports
+     * TLS 1.1, TLS 1.2, and TLS 1.3.
      *
      * @syscap SystemCapability.Communication.NetStack
      * @stagemodelonly
@@ -276,263 +216,124 @@ declare namespace webSocket {
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
-    supportOriginPort?: boolean;    
+    supportOriginPort?: boolean;
   }
 
   /**
-   * HTTP proxy configuration.
-   * system: means that use system proxy configuration.
-   * no-proxy: means do not use proxy.
-   * object of @type {connection.HttpProxy} means providing custom proxy settings
-   * @typedef { 'system' | 'no-proxy' | HttpProxy }
+   * Represents the HTTP proxy configuration.
+   *
+   * @unionmember { 'system' } The default network proxy is used.
+   * @unionmember { 'no-proxy' } No network proxy is used.
+   * @unionmember { HttpProxy } The specified network proxy is used.
    * @syscap SystemCapability.Communication.NetStack
+   * @crossplatform [since 24]
    * @since 12 dynamic
    * @since 23 static
-   */
-  /**
-   * HTTP proxy configuration.
-   * system: means that use system proxy configuration.
-   * no-proxy: means do not use proxy.
-   * object of @type {connection.HttpProxy} means providing custom proxy settings
-   * @typedef { 'system' | 'no-proxy' | HttpProxy }
-   * @syscap SystemCapability.Communication.NetStack
-   * @crossplatform
-   * @since 24 dynamic&static
    */
   export type ProxyConfiguration = 'system' | 'no-proxy' | HttpProxy;
 
   /**
-   * The clientCert field of the client certificate, which includes three attributes:
-   * client certificate (certPath) and only support PEM format, certificate private key (keyPath), 
-   * and passphrase (keyPassword).
-   * @interface ClientCert
+   * Defines the client certificate type.
+   *
    * @syscap SystemCapability.Communication.NetStack
-   * @since 11
-   */
-  /**
-   * The clientCert field of the client certificate, which includes three attributes:
-   * client certificate (certPath) and only support PEM format, certificate private key (keyPath), 
-   * and passphrase (keyPassword).
-   * @interface ClientCert
-   * @syscap SystemCapability.Communication.NetStack
-   * @crossplatform
-   * @since 12 dynamic
+   * @crossplatform [since 12]
+   * @since 11 dynamic
    * @since 23 static
    */
   export interface ClientCert {
     /**
-     * The path to the client certificate file.
-     * @type {string}
+     * Path of the certificate file.
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 11
-     */
-    /**
-     * The path to the client certificate file.
-     * @type {string}
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 12 dynamic
+     * @crossplatform [since 12]
+     * @since 11 dynamic
      * @since 23 static
      */
     certPath: string;
-    
+
     /**
-     * The path of the client certificate private key file.
-     * @type {string}
+     * Path of the certificate key file.
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 11
-     */
-    /**
-     * The path of the client certificate private key file.
-     * @type {string}
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 12 dynamic
+     * @crossplatform [since 12]
+     * @since 11 dynamic
      * @since 23 static
      */
     keyPath: string;
 
     /**
-     * Client certificate password.
-     * @type {?string}
+     * Password of the certificate key file. The default value is an empty string.
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 11
-     */
-    /**
-     * Client certificate password.
-     * @type {?string}
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 12 dynamic
+     * @crossplatform [since 12]
+     * @since 11 dynamic
      * @since 23 static
      */
     keyPassword?: string;
   }
 
   /**
-   * Enumerates TLS protocols.
+   * Defines the optional parameters carried in the request for closing a WebSocket connection.
    *
    * @syscap SystemCapability.Communication.NetStack
-   * @stagemodelonly
-   * @since 26.0.0 dynamic&static
-   */
-  export enum TlsProtocol {
-    /**
-     * TLS1.0.
-     * 
-     * @syscap SystemCapability.Communication.NetStack
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    TLS_V_1_0 = 0,
-
-    /**
-     * TLS1.1.
-     * 
-     * @syscap SystemCapability.Communication.NetStack
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    TLS_V_1_1 = 1,
-
-    /**
-     * TLS1.2.
-     * 
-     * @syscap SystemCapability.Communication.NetStack
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    TLS_V_1_2 = 2,
-
-    /**
-     * TLS1.3.
-     * 
-     * @syscap SystemCapability.Communication.NetStack
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    TLS_V_1_3 = 3
-  }
-
-  /**
-   * Defines the optional parameters carried in the request for closing a WebSocket connection.
-   * @interface WebSocketCloseOptions
-   * @syscap SystemCapability.Communication.NetStack
-   * @since 6
-   */
-  /**
-   * Defines the optional parameters carried in the request for closing a WebSocket connection.
-   * @interface WebSocketCloseOptions
-   * @syscap SystemCapability.Communication.NetStack
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Defines the optional parameters carried in the request for closing a WebSocket connection.
-   * @interface WebSocketCloseOptions
-   * @syscap SystemCapability.Communication.NetStack
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 6 dynamic
    * @since 23 static
    */
   export interface WebSocketCloseOptions {
     /**
-     * Error code.
-     * @type {?int}
+     * Error code. Set this parameter based on the actual situation. The value must be a positive integer ranging from 1
+     * 000 to 1015. If no error code is specified or the input value is not within the preceding range, the code will be
+     * set to the default value **1000**.
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 6
-     */
-    /**
-     * Error code.
-     * @type {?int}
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Error code.
-     * @type {?int}
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 6 dynamic
      * @since 23 static
      */
     code?: int;
     /**
-     * Error cause.
-     * @type {?string}
+     * Error cause. Set this parameter based on the actual situation. If no reason value is specified, the reason value
+     * is set to the default value **CLOSE_NORMAL**.
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 6
-     */
-    /**
-     * Error cause.
-     * @type {?string}
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Error cause.
-     * @type {?string}
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 6 dynamic
      * @since 23 static
      */
     reason?: string;
   }
 
   /**
-   * The result for closing a WebSocket connection.
-   * @interface CloseResult
+   * Represents the result obtained from the **close** event reported when the WebSocket connection is closed.
+   *
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * The result for closing a WebSocket connection.
-   * @interface CloseResult
-   * @syscap SystemCapability.Communication.NetStack
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    * @since 23 static
    */
   export interface CloseResult {
     /**
-     * Error code.
-     * @type {int}
+     * Error code for closing the connection.
+     *
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
-     * @since 10
-     */
-    /**
-     * Error code.
-     * @type {int}
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @atomicservice [since 11]
+     * @since 10 dynamic
      * @since 23 static
      */
     code: int;
     /**
-     * Error cause.
-     * @type {string}
+     * Error cause for closing the connection.
+     *
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
-     * @since 10
-     */
-    /**
-     * Error cause.
-     * @type {string}
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @atomicservice [since 11]
+     * @since 10 dynamic
      * @since 23 static
      */
     reason: string;
@@ -540,14 +341,14 @@ declare namespace webSocket {
 
   /**
    * The result for connect status a WebSocket connection.
-   * @interface OpenResult
+   *
    * @syscap SystemCapability.Communication.NetStack
    * @since 23 static
    */
   export interface OpenResult {
     /**
      * result status.
-     * @type {int}
+     *
      * @syscap SystemCapability.Communication.NetStack
      * @since 23 static
      */
@@ -555,7 +356,7 @@ declare namespace webSocket {
 
     /**
      * result message.
-     * @type {string}
+     *
      * @syscap SystemCapability.Communication.NetStack
      * @since 23 static
      */
@@ -564,7 +365,7 @@ declare namespace webSocket {
 
   /**
    * The result for open info of a WebSocket connection.
-   * @interface WebSocketOpenInfo
+   *
    * @syscap SystemCapability.Communication.NetStack
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
@@ -572,7 +373,7 @@ declare namespace webSocket {
   export interface WebSocketOpenInfo {
     /**
      * result status.
-     * @type {int}
+     *
      * @syscap SystemCapability.Communication.NetStack
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
@@ -581,7 +382,7 @@ declare namespace webSocket {
 
     /**
      * result message.
-     * @type {string}
+     *
      * @syscap SystemCapability.Communication.NetStack
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
@@ -590,444 +391,264 @@ declare namespace webSocket {
 
     /**
      * Negotiated protocol.
-     * @type {?string}
+     *
      * @syscap SystemCapability.Communication.NetStack
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
     protocol?: string;
-  }
-
+ 	}
 
   /**
-   * HTTP response headers.
-   * @typedef { object }
+   * Enumerates the response headers sent by the server.
+   *
    * @syscap SystemCapability.Communication.NetStack
+   * @crossplatform [since 24]
    * @since 12 dynamic
-   */
-  /**
-   * HTTP response headers.
-   * @typedef { object }
-   * @syscap SystemCapability.Communication.NetStack
-   * @crossplatform
-   * @since 24 dynamic
    */
   export type ResponseHeaders = {
     [k: string]: string | string[] | undefined;
-  }
+  };
 
   /**
    * HTTP response headers.
-   * @typedef { Record<string, string | string[] | undefined> }
-   * @syscap SystemCapability.Communication.NetStack
+   *
+   * @syscap SystemCapability.Communication.NetStack [since 23]
+   * @crossplatform [since 24]
    * @since 23 static
    */
   export type ResponseHeaders = Record<string, string | string[] | undefined>;
 
   /**
-   * <p>Defines a WebSocket object. Before invoking WebSocket APIs,
-   * you need to call webSocket.createWebSocket to create a WebSocket object.</p>
-   * @interface WebSocket
+   * Defines a **WebSocket** object. Before invoking WebSocket APIs, you need to call
+   * [webSocket.createWebSocket]{@link webSocket.createWebSocket} to create a **WebSocket** object.
+   *
    * @syscap SystemCapability.Communication.NetStack
-   * @since 6
-   */
-  /**
-   * <p>Defines a WebSocket object. Before invoking WebSocket APIs,
-   * you need to call webSocket.createWebSocket to create a WebSocket object.</p>
-   * @interface WebSocket
-   * @syscap SystemCapability.Communication.NetStack
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * <p>Defines a WebSocket object. Before invoking WebSocket APIs,
-   * you need to call webSocket.createWebSocket to create a WebSocket object.</p>
-   * @interface WebSocket
-   * @syscap SystemCapability.Communication.NetStack
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 6 dynamic
    * @since 23 static
    */
   export interface WebSocket {
     /**
-     * Initiates a WebSocket request to establish a WebSocket connection to a given URL.
+     * Initiates a WebSocket request to establish a WebSocket connection to a given URL. This API uses an asynchronous
+     * callback to return the result.
+     *
+     * > **NOTE**
+     * >
+     * > The boolean value returned in the callback indicates only whether the connection request is created
+     * > successfully. To detect whether the WebSocket connection is successful, you need to subscribe to the **open**
+     * > event via [on('open')]{@link webSocket.WebSocket.on(type: 'open', callback: AsyncCallback<Object>)} before
+     * > calling this API.
+     * > > **NOTE**
+     * >
+     * > The URL cannot contain more than 1024 characters. Otherwise, the connection fails. Since API version 15, the
+     * > maximum length of URLs is changed from 1024 characters to 2048 characters. Since API version 26, the maximum
+     * > length of URLs is changed from 2048 characters to 8196 characters.
+     *
      * @permission ohos.permission.INTERNET
      * @param { string } url - URL for establishing a WebSocket connection.
-     * @param { AsyncCallback<boolean> } callback - the callback of connect.
+     * @param { AsyncCallback<boolean> } callback - Callback used to return the result. The value **true** indicates
+     *     that the operation is successful, and the value **false** indicates the opposite.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 2302999 - Websocket other unknown error. [since 10]
+     * @throws { BusinessError } 2302001 - Websocket url error. [since 12]
+     * @throws { BusinessError } 2302002 - Websocket certificate file does not exist. [since 12]
+     * @throws { BusinessError } 2302003 - Websocket connection already exists. [since 12]
+     * @throws { BusinessError } 2302998 - It is not allowed to access this domain. [since 12]
      * @syscap SystemCapability.Communication.NetStack
-     * @since 6
-     */
-    /**
-     * Initiates a WebSocket request to establish a WebSocket connection to a given URL.
-     * @permission ohos.permission.INTERNET
-     * @param { string } url URL for establishing a WebSocket connection.
-     * @param { AsyncCallback<boolean> } callback - the callback of connect.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 2302999 - Internal error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Initiates a WebSocket request to establish a WebSocket connection to a given URL.
-     * @permission ohos.permission.INTERNET
-     * @param { string } url URL for establishing a WebSocket connection.
-     * @param { AsyncCallback<boolean> } callback - the callback of connect.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 2302999 - Internal error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Initiates a WebSocket request to establish a WebSocket connection to a given URL.
-     * @permission ohos.permission.INTERNET
-     * @param { string } url URL for establishing a WebSocket connection.
-     * @param { AsyncCallback<boolean> } callback - the callback of connect.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 2302001 - Websocket url error.
-     * @throws { BusinessError } 2302002 - Websocket certificate file does not exist.
-     * @throws { BusinessError } 2302003 - Websocket connection already exists.
-     * @throws { BusinessError } 2302998 - It is not allowed to access this domain.
-     * @throws { BusinessError } 2302999 - Internal error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 6 dynamic
      * @since 23 static
      */
     connect(url: string, callback: AsyncCallback<boolean>): void;
 
     /**
-     * Initiates a WebSocket request to establish a WebSocket connection to a given URL.
+     * Initiates a WebSocket request to establish a WebSocket connection to a given URL. This API uses an asynchronous
+     * callback to return the result.
+     *
+     * > **NOTE**
+     * >
+     * > The boolean value returned in the callback indicates only whether the connection request is created
+     * > successfully. To detect whether the WebSocket connection is successful, you need to subscribe to the **open**
+     * > event via [on('open')]{@link webSocket.WebSocket.on(type: 'open', callback: AsyncCallback<Object>)} before
+     * > calling this API.
+     * > > **NOTE**
+     * >
+     * > The URL cannot contain more than 1024 characters. Otherwise, the connection fails. Since API version 15, the
+     * > maximum length of URLs is changed from 1024 characters to 2048 characters. Since API version 26, the maximum
+     * > length of URLs is changed from 2048 characters to 8196 characters.
+     *
      * @permission ohos.permission.INTERNET
-     * @param { string } url URL for establishing a WebSocket connection.
-     * @param { WebSocketRequestOptions } options - Optional parameters {@link WebSocketRequestOptions}.
-     * @param { AsyncCallback<boolean> } callback - the callback of connect.
+     * @param { string } url - URL for establishing a WebSocket connection.
+     * @param { WebSocketRequestOptions } options - Request options. For details, see
+     *     [WebSocketRequestOptions]{@link webSocket.WebSocketRequestOptions}.
+     * @param { AsyncCallback<boolean> } callback - Callback used to return the result. The value **true** indicates
+     *     that the operation is successful, and the value **false** indicates the opposite.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 2302999 - Websocket other unknown error. [since 10]
+     * @throws { BusinessError } 2302001 - Websocket url error. [since 12]
+     * @throws { BusinessError } 2302002 - Websocket certificate file does not exist. [since 12]
+     * @throws { BusinessError } 2302003 - Websocket connection already exists. [since 12]
+     * @throws { BusinessError } 2302998 - It is not allowed to access this domain. [since 12]
      * @syscap SystemCapability.Communication.NetStack
-     * @since 6
-     */
-    /**
-     * Initiates a WebSocket request to establish a WebSocket connection to a given URL.
-     * @permission ohos.permission.INTERNET
-     * @param { string } url URL for establishing a WebSocket connection.
-     * @param { WebSocketRequestOptions } options - Optional parameters {@link WebSocketRequestOptions}.
-     * @param { AsyncCallback<boolean> } callback - the callback of connect.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 2302999 - Internal error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Initiates a WebSocket request to establish a WebSocket connection to a given URL.
-     * @permission ohos.permission.INTERNET
-     * @param { string } url URL for establishing a WebSocket connection.
-     * @param { WebSocketRequestOptions } options - Optional parameters {@link WebSocketRequestOptions}.
-     * @param { AsyncCallback<boolean> } callback - the callback of connect.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 2302999 - Internal error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Initiates a WebSocket request to establish a WebSocket connection to a given URL.
-     * @permission ohos.permission.INTERNET
-     * @param { string } url URL for establishing a WebSocket connection.
-     * @param { WebSocketRequestOptions } options - Optional parameters {@link WebSocketRequestOptions}.
-     * @param { AsyncCallback<boolean> } callback - the callback of connect.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 2302001 - Websocket url error.
-     * @throws { BusinessError } 2302002 - Websocket certificate file does not exist.
-     * @throws { BusinessError } 2302003 - Websocket connection already exists.
-     * @throws { BusinessError } 2302998 - It is not allowed to access this domain.
-     * @throws { BusinessError } 2302999 - Internal error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 6 dynamic
      * @since 23 static
      */
     connect(url: string, options: WebSocketRequestOptions, callback: AsyncCallback<boolean>): void;
 
     /**
-     * Initiates a WebSocket request to establish a WebSocket connection to a given URL.
+     * Establishes a WebSocket connection to a given URL. This API uses a promise to return the result.
+     *
+     * > **NOTE**
+     * >
+     * > The boolean value returned in the callback indicates only whether the connection request is created
+     * > successfully. To detect whether the WebSocket connection is successful, you need to subscribe to the **open**
+     * > event via [on('open')]{@link webSocket.WebSocket.on(type: 'open', callback: AsyncCallback<Object>)} before
+     * > calling this API.
+     * > > **NOTE**
+     * >
+     * > The URL cannot contain more than 1024 characters. Otherwise, the connection fails. Since API version 15, the
+     * > maximum length of URLs is changed from 1024 characters to 2048 characters. Since API version 26, the maximum
+     * > length of URLs is changed from 2048 characters to 8196 characters.
+     *
      * @permission ohos.permission.INTERNET
-     * @param { string } url URL for establishing a WebSocket connection.
-     * @param { WebSocketRequestOptions } options - Optional parameters {@link WebSocketRequestOptions}.
-     * @returns { Promise<boolean> } The promise returned by the function.
+     * @param { string } url - URL for establishing a WebSocket connection.
+     * @param { WebSocketRequestOptions } options - Request options. For details, see
+     *     [WebSocketRequestOptions]{@link webSocket.WebSocketRequestOptions}.
+     * @returns { Promise<boolean> } Callback used to return the result. The value **true** indicates that the operation
+     *     is successful, and the value **false** indicates the opposite.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 2302999 - Websocket other unknown error. [since 10]
+     * @throws { BusinessError } 2302001 - Websocket url error. [since 12]
+     * @throws { BusinessError } 2302002 - Websocket certificate file does not exist. [since 12]
+     * @throws { BusinessError } 2302003 - Websocket connection already exists. [since 12]
+     * @throws { BusinessError } 2302998 - It is not allowed to access this domain. [since 12]
      * @syscap SystemCapability.Communication.NetStack
-     * @since 6
-     */
-    /**
-     * Initiates a WebSocket request to establish a WebSocket connection to a given URL.
-     * @permission ohos.permission.INTERNET
-     * @param { string } url URL for establishing a WebSocket connection.
-     * @param { WebSocketRequestOptions } options - Optional parameters {@link WebSocketRequestOptions}.
-     * @returns { Promise<boolean> } The promise returned by the function.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 2302999 - Internal error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Initiates a WebSocket request to establish a WebSocket connection to a given URL.
-     * @permission ohos.permission.INTERNET
-     * @param { string } url URL for establishing a WebSocket connection.
-     * @param { WebSocketRequestOptions } options - Optional parameters {@link WebSocketRequestOptions}.
-     * @returns { Promise<boolean> } The promise returned by the function.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 2302999 - Internal error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Initiates a WebSocket request to establish a WebSocket connection to a given URL.
-     * @permission ohos.permission.INTERNET
-     * @param { string } url URL for establishing a WebSocket connection.
-     * @param { WebSocketRequestOptions } options - Optional parameters {@link WebSocketRequestOptions}.
-     * @returns { Promise<boolean> } The promise returned by the function.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 2302001 - Websocket url error.
-     * @throws { BusinessError } 2302002 - Websocket certificate file does not exist.
-     * @throws { BusinessError } 2302003 - Websocket connection already exists.
-     * @throws { BusinessError } 2302998 - It is not allowed to access this domain.
-     * @throws { BusinessError } 2302999 - Internal error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 6 dynamic
      * @since 23 static
      */
     connect(url: string, options?: WebSocketRequestOptions): Promise<boolean>;
 
     /**
-     * Sends data through a WebSocket connection.
+     * Sends data through a WebSocket connection. This API uses an asynchronous callback to return the result.
+     *
      * @permission ohos.permission.INTERNET
-     * @param { string | ArrayBuffer } data - Data to send. It can be a string(API 6) or an ArrayBuffer(API 8).
-     * @param { AsyncCallback<boolean> } callback - the callback of send.
+     * @param { string | ArrayBuffer } data - Data to send.
+     *     <br>Only the string type is supported for API version 6 or earlier. Both the string and ArrayBuffer types are
+     *     supported for API version 8 or later. A maximum of 5,242,864 bytes (that is, 5 x 1024 x 1024 - 16) can be
+     *     sent. If the data size exceeds the upper limit, error code 401 will be returned.
+     * @param { AsyncCallback<boolean> } callback - Callback used to return the result. The value **true** indicates
+     *     that the operation is successful, and the value **false** indicates the opposite.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 6
-     */
-    /**
-     * Sends data through a WebSocket connection.
-     * @permission ohos.permission.INTERNET
-     * @param { string | ArrayBuffer } data - Data to send. It can be a string(API 6) or an ArrayBuffer(API 8).
-     * @param { AsyncCallback<boolean> } callback - the callback of send.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Sends data through a WebSocket connection.
-     * @permission ohos.permission.INTERNET
-     * @param { string | ArrayBuffer } data - Data to send. It can be a string(API 6) or an ArrayBuffer(API 8).
-     * @param { AsyncCallback<boolean> } callback - the callback of send.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 6 dynamic
      * @since 23 static
      */
     send(data: string | ArrayBuffer, callback: AsyncCallback<boolean>): void;
 
     /**
-     * Sends data through a WebSocket connection.
+     * Sends data through the WebSocket connection. This API uses a promise to return the result.
+     *
      * @permission ohos.permission.INTERNET
-     * @param { string | ArrayBuffer } data - Data to send. It can be a string(API 6) or an ArrayBuffer(API 8).
-     * @returns { Promise<boolean> } The promise returned by the function.
+     * @param { string | ArrayBuffer } data - Data to send.
+     *     <br>Only the string type is supported for API version 6 or earlier. Both the string and ArrayBuffer types are
+     *     supported for API version 8 or later. A maximum of 5,242,864 bytes (that is, 5 x 1024 x 1024 - 16) can be
+     *     sent. If the data size exceeds the upper limit, error code 401 will be returned.
+     * @returns { Promise<boolean> } Promise used to return the result. The value **true** indicates that the operation
+     *     is successful, and the value **false** indicates the opposite.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 6
-     */
-    /**
-     * Sends data through a WebSocket connection.
-     * @permission ohos.permission.INTERNET
-     * @param { string | ArrayBuffer } data - Data to send. It can be a string(API 6) or an ArrayBuffer(API 8).
-     * @returns { Promise<boolean> } The promise returned by the function.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Sends data through a WebSocket connection.
-     * @permission ohos.permission.INTERNET
-     * @param { string | ArrayBuffer } data - Data to send. It can be a string(API 6) or an ArrayBuffer(API 8).
-     * @returns { Promise<boolean> } The promise returned by the function.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 6 dynamic
      * @since 23 static
      */
     send(data: string | ArrayBuffer): Promise<boolean>;
 
     /**
-     * Closes a WebSocket connection.
+     * Closes the WebSocket connection. This API uses an asynchronous callback to return the result.
+     *
      * @permission ohos.permission.INTERNET
-     * @param { AsyncCallback<boolean> } callback - the callback of close.
+     * @param { AsyncCallback<boolean> } callback - Callback used to return the result. The value **true** indicates
+     *     that the operation is successful, and the value **false** indicates the opposite.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 6
-     */
-    /**
-     * Closes a WebSocket connection.
-     * @permission ohos.permission.INTERNET
-     * @param { AsyncCallback<boolean> } callback - the callback of close.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Closes a WebSocket connection.
-     * @permission ohos.permission.INTERNET
-     * @param { AsyncCallback<boolean> } callback - the callback of close.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 6 dynamic
      * @since 23 static
      */
     close(callback: AsyncCallback<boolean>): void;
 
     /**
-     * Closes a WebSocket connection.
+     * Closes the WebSocket connection based on the options parameter. This API uses an asynchronous callback to return
+     * the result.
+     *
      * @permission ohos.permission.INTERNET
-     * @param { WebSocketCloseOptions } options - Optional parameters {@link WebSocketCloseOptions}.
-     * @param { AsyncCallback<boolean> } callback - the callback of close.
+     * @param { WebSocketCloseOptions } options - Request options. For details, see
+     *     [WebSocketCloseOptions]{@link webSocket.WebSocketCloseOptions}.
+     * @param { AsyncCallback<boolean> } callback - Callback used to return the result. The value **true** indicates
+     *     that the operation is successful, and the value **false** indicates the opposite.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 6
-     */
-    /**
-     * Closes a WebSocket connection.
-     * @permission ohos.permission.INTERNET
-     * @param { WebSocketCloseOptions } options - Optional parameters {@link WebSocketCloseOptions}.
-     * @param { AsyncCallback<boolean> } callback - the callback of close.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Closes a WebSocket connection.
-     * @permission ohos.permission.INTERNET
-     * @param { WebSocketCloseOptions } options - Optional parameters {@link WebSocketCloseOptions}.
-     * @param { AsyncCallback<boolean> } callback - the callback of close.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 6 dynamic
      * @since 23 static
      */
     close(options: WebSocketCloseOptions, callback: AsyncCallback<boolean>): void;
 
     /**
-     * Closes a WebSocket connection.
+     * Closes a WebSocket connection based on the specified options. This API uses a promise to return the result.
+     *
      * @permission ohos.permission.INTERNET
-     * @param { WebSocketCloseOptions } options - Optional parameters {@link WebSocketCloseOptions}.
-     * @returns { Promise<boolean> } The promise returned by the function.
+     * @param { WebSocketCloseOptions } options - Request options. For details, see
+     *     [WebSocketCloseOptions]{@link webSocket.WebSocketCloseOptions}.
+     * @returns { Promise<boolean> } Promise used to return the result. The value **true** indicates that the operation
+     *     is successful, and the value **false** indicates the opposite.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 6
-     */
-    /**
-     * Closes a WebSocket connection.
-     * @permission ohos.permission.INTERNET
-     * @param { WebSocketCloseOptions } options - Optional parameters {@link WebSocketCloseOptions}.
-     * @returns { Promise<boolean> } The promise returned by the function.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Closes a WebSocket connection.
-     * @permission ohos.permission.INTERNET
-     * @param { WebSocketCloseOptions } options - Optional parameters {@link WebSocketCloseOptions}.
-     * @returns { Promise<boolean> } The promise returned by the function.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 6 dynamic
      * @since 23 static
      */
     close(options?: WebSocketCloseOptions): Promise<boolean>;
 
     /**
-     * Enables listening for the open events of a WebSocket connection.
-     * @param { 'open' } type - event indicating that a WebSocket connection has been opened.
-     * @param { AsyncCallback<Object> } callback - the callback used to return the result.
+     * Subscribes to WebSocket open events. This API uses an asynchronous callback to return the result. This event
+     * indicates whether the WebSocket connection is successful. This API must be called before
+     * [connect]{@link webSocket.WebSocket.connect(url: string, callback: AsyncCallback<boolean>)} is called to initiate
+     * a connection request.
+     *
+     * @param { 'open' } type - Event type.<br/> **open**: event indicating that a WebSocket connection has been opened.
+     * @param { AsyncCallback<Object> } callback - Callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
      * @since 6 dynamic
-     */
-    /**
-     * Enables listening for the open events of a WebSocket connection.
-     * @param { 'open' } type - event indicating that a WebSocket connection has been opened.
-     * @param { AsyncCallback<Object> } callback - the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10 dynamic
-     */
-    /**
-     * Enables listening for the open events of a WebSocket connection.
-     * @param { 'open' } type - event indicating that a WebSocket connection has been opened.
-     * @param { AsyncCallback<Object> } callback - the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
      */
     on(type: 'open', callback: AsyncCallback<Object>): void;
 
     /**
      * Enables listening for the open events of a WebSocket connection.
+     *
      * @param { Callback<OpenResult> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
@@ -1037,33 +658,26 @@ declare namespace webSocket {
     onOpen(callback: Callback<OpenResult>): void;
 
     /**
-     * Cancels listening for the open events of a WebSocket connection.
-     * @param { 'open' } type - event indicating that a WebSocket connection has been opened.
-     * @param { AsyncCallback<Object> } callback - the callback used to return the result.
+     * Unsubscribes from WebSocket open events. This API uses an asynchronous callback to return the result.
+     *
+     * > **NOTE**
+     * >
+     * > You can pass the callback of the **on** function if you want to cancel listening for a certain type of event.
+     * > If you do not pass the callback, you will cancel listening for all events.
+     *
+     * @param { 'open' } type - Event type.<br /> **open**: event indicating that a WebSocket connection has been
+     *     opened.
+     * @param { AsyncCallback<Object> } callback - Callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
      * @since 6 dynamic
-     */
-    /**
-     * Cancels listening for the open events of a WebSocket connection.
-     * @param { 'open' } type - event indicating that a WebSocket connection has been opened.
-     * @param { AsyncCallback<Object> } callback the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10 dynamic
-     */
-    /**
-     * Cancels listening for the open events of a WebSocket connection.
-     * @param { 'open' } type - event indicating that a WebSocket connection has been opened.
-     * @param { AsyncCallback<Object> } callback the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
      */
     off(type: 'open', callback?: AsyncCallback<Object>): void;
 
     /**
      * Cancels listening for the open events of a WebSocket connection.
+     *
      * @param { Callback<OpenResult> } [callback] the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
@@ -1073,7 +687,26 @@ declare namespace webSocket {
     offOpen(callback?: Callback<OpenResult>): void;
 
     /**
+     * Subscribes to WebSocket server message receiving events. This API uses an asynchronous callback to return the
+     * result.
+     *
+     * > **NOTE**
+     * >
+     * > The data in **AsyncCallback** can be in the format of string (API version 6) or ArrayBuffer (API version 8).
+     *
+     * @param { 'message' } type - Event type.<br/> **message**: event indicating that a message has been received from
+     *     the server.
+     * @param { AsyncCallback<string | ArrayBuffer> } callback - Callback used to return the result.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 6 dynamic
+     */
+    on(type: 'message', callback: AsyncCallback<string | ArrayBuffer>): void;
+
+    /**
      * Enables listening for the open info events of a WebSocket connection.
+     *
      * @param { 'openInfo' } type - event indicating that the open info of a WebSocket connection is returned.
      * @param { AsyncCallback<WebSocketOpenInfo> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
@@ -1084,15 +717,17 @@ declare namespace webSocket {
 
     /**
      * Enables listening for the open info events of a WebSocket connection.
+     *
      * @param { Callback<WebSocketOpenInfo> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
      * @stagemodelonly
-     * @since 26.0.0 static
+     * @since 26.1.0 static
      */
     onOpenInfo(callback: Callback<WebSocketOpenInfo>): void;
 
     /**
      * Cancels listening for the open info events of a WebSocket connection.
+     *
      * @param { 'openInfo' } type - event indicating that the open info of a WebSocket connection is returned.
      * @param { AsyncCallback<WebSocketOpenInfo> } [callback] - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
@@ -1103,45 +738,18 @@ declare namespace webSocket {
 
     /**
      * Cancels listening for the open info events of a WebSocket connection.
+     *
      * @param { Callback<WebSocketOpenInfo> } [callback] - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
      * @stagemodelonly
-     * @since 26.0.0 static
+     * @since 26.1.0 static
      */
     offOpenInfo(callback?: Callback<WebSocketOpenInfo>): void;
 
     /**
      * Enables listening for the message events of a WebSocket connection.
      * data in AsyncCallback can be a string(API 6) or an ArrayBuffer(API 8).
-     * @param { 'message' } type - event indicating that a message has been received from the server.
-     * @param { AsyncCallback<string | ArrayBuffer> } callback - the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 6 dynamic
-     */
-    /**
-     * Enables listening for the message events of a WebSocket connection.
-     * data in AsyncCallback can be a string(API 6) or an ArrayBuffer(API 8).
-     * @param { 'message' } type - event indicating that a message has been received from the server.
-     * @param { AsyncCallback<string | ArrayBuffer> } callback - the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10 dynamic
-     */
-    /**
-     * Enables listening for the message events of a WebSocket connection.
-     * data in AsyncCallback can be a string(API 6) or an ArrayBuffer(API 8).
-     * @param { 'message' } type - event indicating that a message has been received from the server.
-     * @param { AsyncCallback<string | ArrayBuffer> } callback - the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
-     */
-    on(type: 'message', callback: AsyncCallback<string | ArrayBuffer>): void;
-
-    /**
-     * Enables listening for the message events of a WebSocket connection.
-     * data in AsyncCallback can be a string(API 6) or an ArrayBuffer(API 8).
+     *
      * @param { AsyncCallback<string | ArrayBuffer> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
@@ -1151,38 +759,31 @@ declare namespace webSocket {
     onMessage(callback: AsyncCallback<string | ArrayBuffer>): void;
 
     /**
-     * Cancels listening for the message events of a WebSocket connection.
-     * data in AsyncCallback can be a string(API 6) or an ArrayBuffer(API 8).
-     * @param { 'message' } type - event indicating that a message has been received from the server.
-     * @param { AsyncCallback<string | ArrayBuffer> } callback - the callback used to return the result.
+     * Unsubscribes from WebSocket server message receiving events. This API uses an asynchronous callback to return the
+     * result.
+     *
+     * > **NOTE**
+     * >
+     * > The data in **AsyncCallback** can be in the format of string (API version 6) or ArrayBuffer (API version 8).
+     * >
+     * > You can pass the callback of the **on** function if you want to cancel listening for a certain type of event.
+     * > If you do not pass the callback, you will cancel listening for all events.
+     *
+     * @param { 'message' } type - Event type.<br /> **message**: event indicating that a message has been received from
+     *     the server.
+     * @param { AsyncCallback<string | ArrayBuffer> } callback - Callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
      * @since 6 dynamic
-     */
-    /**
-     * Cancels listening for the message events of a WebSocket connection.
-     * data in AsyncCallback can be a string(API 6) or an ArrayBuffer(API 8).
-     * @param { 'message' } type - event indicating that a message has been received from the server.
-     * @param { AsyncCallback<string | ArrayBuffer> } callback - the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10 dynamic
-     */
-    /**
-     * Cancels listening for the message events of a WebSocket connection.
-     * data in AsyncCallback can be a string(API 6) or an ArrayBuffer(API 8).
-     * @param { 'message' } type - event indicating that a message has been received from the server.
-     * @param { AsyncCallback<string | ArrayBuffer> } callback - the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
      */
     off(type: 'message', callback?: AsyncCallback<string | ArrayBuffer>): void;
 
     /**
      * Cancels listening for the message events of a WebSocket connection.
      * data in AsyncCallback can be a string(API 6) or an ArrayBuffer(API 8).
-     * @param { AsyncCallback<string | ArrayBuffer> } callback - the callback used to return the result.
+     *
+     * @param { AsyncCallback<string | ArrayBuffer> } [callback] - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
@@ -1191,38 +792,25 @@ declare namespace webSocket {
     offMessage(callback?: AsyncCallback<string | ArrayBuffer>): void;
 
     /**
-     * Enables listening for the close events of a WebSocket connection.
-     * @param { 'close' } type - event indicating that a WebSocket connection has been closed.
-     * @param { AsyncCallback<CloseResult> } callback - the callback used to return the result.
-     * <br>close indicates the close error code and reason indicates the error code description.
+     * Subscribes to WebSocket close events. This API uses an asynchronous callback to return the result.
+     *
+     * @param { 'close' } type - Event type.<br/> **close**: event indicating that a WebSocket connection has been
+     *     closed.
+     * @param { AsyncCallback<CloseResult> } callback - Callback used to return the result.
+     *     <br>**close** and **reason** indicate the error code and error cause for closing the connection,
+     *     respectively.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
      * @since 6 dynamic
-     */
-    /**
-     * Enables listening for the close events of a WebSocket connection.
-     * @param { 'close' } type - event indicating that a WebSocket connection has been closed.
-     * @param { AsyncCallback<CloseResult> } callback - the callback used to return the result.
-     * <br>close indicates the close error code and reason indicates the error code description.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10 dynamic
-     */
-    /**
-     * Enables listening for the close events of a WebSocket connection.
-     * @param { 'close' } type - event indicating that a WebSocket connection has been closed.
-     * @param { AsyncCallback<CloseResult> } callback - the callback used to return the result.
-     * <br>close indicates the close error code and reason indicates the error code description.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
      */
     on(type: 'close', callback: AsyncCallback<CloseResult>): void;
 
     /**
      * Enables listening for the close events of a WebSocket connection.
+     *
      * @param { AsyncCallback<CloseResult> } callback - the callback used to return the result.
-     * <br>close indicates the close error code and reason indicates the error code description.
+     *     <br>close indicates the close error code and reason indicates the error code description.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 23 static
@@ -1230,38 +818,30 @@ declare namespace webSocket {
     onWebSocketClose(callback: AsyncCallback<CloseResult>): void;
 
     /**
-     * Cancels listening for the close events of a WebSocket connection.
-     * @param { 'close' } type - event indicating that a WebSocket connection has been closed.
-     * @param { AsyncCallback<CloseResult> } callback - the callback used to return the result.
-     * <br>close indicates the close error code and reason indicates the error code description.
+     * Unsubscribes from WebSocket close events. This API uses an asynchronous callback to return the result.
+     *
+     * > **NOTE**
+     * >
+     * > You can pass the callback of the **on** function if you want to cancel listening for a certain type of event.
+     * > If you do not pass the callback, you will cancel listening for all events.
+     *
+     * @param { 'close' } type - Event type.<br /> **close**: event indicating that a WebSocket connection has been
+     *     closed.
+     * @param { AsyncCallback<CloseResult> } callback - Callback used to return the result.
+     *     <br>**close** and **reason** indicate the error code and error cause for closing the connection,
+     *     respectively.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
      * @since 6 dynamic
-     */
-    /**
-     * Cancels listening for the close events of a WebSocket connection.
-     * @param { 'close' } type - event indicating that a WebSocket connection has been closed.
-     * @param { AsyncCallback<CloseResult> } callback - the callback used to return the result.
-     * <br>close indicates the close error code and reason indicates the error code description.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10 dynamic
-     */
-    /**
-     * Cancels listening for the close events of a WebSocket connection.
-     * @param { 'close' } type - event indicating that a WebSocket connection has been closed.
-     * @param { AsyncCallback<CloseResult> } callback - the callback used to return the result.
-     * <br>close indicates the close error code and reason indicates the error code description.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
      */
     off(type: 'close', callback?: AsyncCallback<CloseResult>): void;
 
     /**
      * Cancels listening for the close events of a WebSocket connection.
+     *
      * @param { AsyncCallback<CloseResult> } [callback] - the callback used to return the result.
-     * <br>close indicates the close error code and reason indicates the error code description.
+     *     <br>close indicates the close error code and reason indicates the error code description.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 23 static
@@ -1269,33 +849,27 @@ declare namespace webSocket {
     offWebSocketClose(callback?: AsyncCallback<CloseResult>): void;
 
     /**
-     * Enables listening for the error events of a WebSocket connection.
-     * @param { 'error' } type - event indicating the WebSocket connection has encountered an error.
-     * @param { ErrorCallback } callback - the callback used to return the result.
+     * Subscribes to WebSocket error events. This API uses an asynchronous callback to return the result.
+     *
+     * The error code of the [error]{@link webSocket.WebSocket.on(type: 'error', callback: ErrorCallback)} event
+     * callback is described as follows: WebSocket is essentially an HTTP protocol upgrade. If the server agrees to the
+     * upgrade, the server returns 101. The status code indicates that the protocol is switched from HTTP to WebSocket (
+     * the **open** callback is triggered). If the server rejects the upgrade or other exceptions occur, the server
+     * returns 200, indicating that the server only processes the request as a common HTTP request.
+     *
+     * @param { 'error' } type - Event type.<br/> **error**: event indicating the WebSocket connection has encountered
+     *     an error.
+     * @param { ErrorCallback } callback - Callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
      * @since 6 dynamic
-     */
-    /**
-     * Enables listening for the error events of a WebSocket connection.
-     * @param { 'error' } type - event indicating the WebSocket connection has encountered an error.
-     * @param { ErrorCallback } callback - the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10 dynamic
-     */
-    /**
-     * Enables listening for the error events of a WebSocket connection.
-     * @param { 'error' } type - event indicating the WebSocket connection has encountered an error.
-     * @param { ErrorCallback } callback - the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
      */
     on(type: 'error', callback: ErrorCallback): void;
 
     /**
      * Enables listening for the error events of a WebSocket connection.
+     *
      * @param { ErrorCallback } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
@@ -1304,34 +878,27 @@ declare namespace webSocket {
     onWebSocketError(callback: ErrorCallback): void;
 
     /**
-     * Cancels listening for the error events of a WebSocket connection.
-     * @param { 'error' } type - event indicating the WebSocket connection has encountered an error.
-     * @param { ErrorCallback } callback - the callback used to return the result.
+     * Unsubscribes from WebSocket error events. This API uses an asynchronous callback to return the result.
+     *
+     * > **NOTE**
+     * >
+     * > You can pass the callback of the **on** function if you want to cancel listening for a certain type of event.
+     * > If you do not pass the callback, you will cancel listening for all events.
+     *
+     * @param { 'error' } type - Event type.<br /> **error**: event indicating the WebSocket connection has encountered
+     *     an error.
+     * @param { ErrorCallback } callback - Callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
      * @since 6 dynamic
-     */
-    /**
-     * Cancels listening for the error events of a WebSocket connection.
-     * @param { 'error' } type - event indicating the WebSocket connection has encountered an error.
-     * @param { ErrorCallback } callback - the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10 dynamic
-     */
-    /**
-     * Cancels listening for the error events of a WebSocket connection.
-     * @param { 'error' } type - event indicating the WebSocket connection has encountered an error.
-     * @param { ErrorCallback } callback - the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
      */
     off(type: 'error', callback?: ErrorCallback): void;
 
     /**
      * Cancels listening for the error events of a WebSocket connection.
-     * @param { ErrorCallback } callback - the callback used to return the result.
+     *
+     * @param { ErrorCallback } [callback] - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 23 static
@@ -1339,24 +906,21 @@ declare namespace webSocket {
     offWebSocketError(callback?: ErrorCallback): void;
 
     /**
-     * Enables listening for receiving data ends events of a WebSocket connection.
-     * @param { 'dataEnd' } type - event indicating the WebSocket connection has received data ends.
-     * @param { Callback<void> } callback - the callback used to return the result.
+     * Subscribes to the WebSocket data receiving end event. This API uses an asynchronous callback to return the
+     * result.
+     *
+     * @param { 'dataEnd' } type - Event type.<br/> **dataEnd**: event indicating the data receiving over the WebSocket
+     *     connection has ended.
+     * @param { Callback<void> } callback - Callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 11
-     */
-    /**
-     * Enables listening for receiving data ends events of a WebSocket connection.
-     * @param { 'dataEnd' } type - event indicating the WebSocket connection has received data ends.
-     * @param { Callback<void> } callback - the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 12 dynamic
+     * @crossplatform [since 12]
+     * @since 11 dynamic
      */
     on(type: 'dataEnd', callback: Callback<void>): void;
 
     /**
      * Enables listening for receiving data ends events of a WebSocket connection.
+     *
      * @param { Callback<void> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
@@ -1365,24 +929,26 @@ declare namespace webSocket {
     onDataEnd(callback: Callback<void>): void;
 
     /**
-     * Cancels listening for receiving data ends events of a WebSocket connection.
-     * @param { 'dataEnd' } type - event indicating the WebSocket connection has received data ends.
-     * @param { Callback<void> } [ callback ] - the callback used to return the result.
+     * Unsubscribes from WebSocket data receiving end events. This API uses an asynchronous callback to return the
+     * result.
+     *
+     * > **NOTE**
+     * >
+     * > You can pass the callback of the **on** function if you want to cancel listening for a certain type of event.
+     * > If you do not pass the callback, you will cancel listening for all events.
+     *
+     * @param { 'dataEnd' } type - Event type.<br /> **dataEnd**: event indicating the data receiving over the WebSocket
+     *     connection has ended.
+     * @param { Callback<void> } [ callback ] - Callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 11
-     */
-    /**
-     * Cancels listening for receiving data ends events of a WebSocket connection.
-     * @param { 'dataEnd' } type - event indicating the WebSocket connection has received data ends.
-     * @param { Callback<void> } [ callback ] - the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 12 dynamic
+     * @crossplatform [since 12]
+     * @since 11 dynamic
      */
     off(type: 'dataEnd', callback?: Callback<void>): void;
 
     /**
      * Cancels listening for receiving data ends events of a WebSocket connection.
+     *
      * @param { Callback<void> } [ callback ] - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
@@ -1391,691 +957,613 @@ declare namespace webSocket {
     offDataEnd(callback?: Callback<void>): void;
 
     /**
-     * Registers an observer for HTTP Response Header events.
-     * @param { 'headerReceive'} type - Indicates Event name.
-     * @param { Callback<ResponseHeaders> } callback - the callback used to return the result.
+     * Subscribes to HTTP response header events. This API uses an asynchronous callback to return the result.
+     *
+     * @param { 'headerReceive'} type - Event type.<br/> Event type. The value is **headerReceive**.
+     * @param { Callback<ResponseHeaders> } callback - Callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 24]
      * @since 12 dynamic
-     */
-    /**
-     * Registers an observer for HTTP Response Header events.
-     * @param { 'headerReceive'} type - Indicates Event name.
-     * @param { Callback<ResponseHeaders> } callback - the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 24 dynamic
      */
     on(type: 'headerReceive', callback: Callback<ResponseHeaders>): void;
 
     /**
      * Registers an observer for HTTP Response Header events.
-     * @param { Callback<ResponseHeaders> } callback - the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetStack
+     *
+     * @param { Callback<ResponseHeaders> } callback - the callback used to return the result. [since 23]
+     * @syscap SystemCapability.Communication.NetStack [since 23]
+     * @crossplatform [since 24]
      * @since 23 static
      */
     onHeaderReceive(callback: Callback<ResponseHeaders>): void;
 
     /**
-     * Unregisters the observer for HTTP Response Header events.
-     * @param { 'headerReceive' } type - Indicates Event name.
-     * @param { Callback<ResponseHeaders> } [callback] - the callback used to return the result.
+     * Unsubscribes from HTTP response header events. This API uses an asynchronous callback to return the result.
+     *
+     * > **NOTE**
+     * >
+     * > You can pass the callback of the **on** function if you want to cancel listening for a certain type of event.
+     * > If you do not pass the callback, you will cancel listening for all events.
+     *
+     * @param { 'headerReceive' } type - Event type.<br /> Event type. The value is **headerReceive**.
+     * @param { Callback<ResponseHeaders> } [callback] - Callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 24]
      * @since 12 dynamic
-     */
-    /**
-     * Unregisters the observer for HTTP Response Header events.
-     * @param { 'headerReceive' } type - Indicates Event name.
-     * @param { Callback<ResponseHeaders> } [callback] - the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 24 dynamic
      */
     off(type: 'headerReceive', callback?: Callback<ResponseHeaders>): void;
 
     /**
      * Unregisters the observer for HTTP Response Header events.
-     * @param { Callback<ResponseHeaders> } [callback] - the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetStack
+     *
+     * @param { Callback<ResponseHeaders> } [callback] - the callback used to return the result. [since 23]
+     * @syscap SystemCapability.Communication.NetStack [since 23]
+     * @crossplatform [since 24]
      * @since 23 static
      */
     offHeaderReceive(callback?: Callback<ResponseHeaders>): void;
   }
 
   /**
-   * Creates a web socket Server.
-   * @returns { WebSocketServer } the WebSocketServer Object.
+   * Creates a **WebSocketServer** object, which provides methods to start or stop the WebSocketServer service, send
+   * data over the connection, close the connection, list all connections, and enable or disable listening for the
+   * **open**, **close**, **message**, and **error** events.
+   *
+   * > **NOTE**
+   * >
+   * > Supported on all devices since API version 23. In earlier versions, this method is supported only on TV devices.
+   *
+   * @returns { WebSocketServer } **WebSocketServer** object, which provides the **start**, **listAllConnections**,
+   *     **send**, **close**, **stop**, **on**, and **off** methods.
    * @syscap SystemCapability.Communication.NetStack
+   * @crossplatform [since 23]
    * @since 19 dynamic
-   */
-  /**
-   * Creates a web socket Server.
-   * @returns { WebSocketServer } the WebSocketServer Object.
-   * @syscap SystemCapability.Communication.NetStack
-   * @crossplatform
-   * @since 23 dynamic&static
+   * @since 23 static
    */
   function createWebSocketServer(): WebSocketServer;
 
   /**
-   * Defines parameters for a WebSocket Server.
-   * @interface WebSocketServerConfig
+   * Defines the WebSocketServer configuration.
+   *
    * @syscap SystemCapability.Communication.NetStack
+   * @crossplatform [since 24]
    * @since 19 dynamic
    * @since 23 static
    */
-  /**
-   * Defines parameters for a WebSocket Server.
-   * @interface WebSocketServerConfig
-   * @syscap SystemCapability.Communication.NetStack
-   * @crossplatform
-   * @since 24 dynamic&static
-   */
   export interface WebSocketServerConfig {
     /**
-     * Network card that the server listens on.
-     * The server listens on this specific address. It's 0.0.0.0 by default.
-     * @type {?string}
+     * Maximum number of connections for each client. The default value is **10**.
+     *
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 24]
      * @since 19 dynamic
      * @since 23 static
      */
-    /**
-     * Network card that the server listens on.
-     * The server listens on this specific address. It's 0.0.0.0 by default.
-     * @type {?string}
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 24 dynamic&static
-     */
-    serverIP?: string;
+    maxConnectionsForOneClient: int;
 
     /**
-     * Port number that the server listens on.
-     * @type {int}
+     * Maximum number of concurrent clients. When the number of concurrent clients reaches the maximum, the server
+     * rejects new connections. The default value is **10**.
+     *
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 24]
      * @since 19 dynamic
      * @since 23 static
-     */
-    /**
-     * Port number that the server listens on.
-     * @type {int}
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 24 dynamic&static
-     */
-    serverPort: int;
-
-    /**
-     * Server cert.
-     * @type {?ServerCert}
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 19 dynamic
-     * @since 23 static
-     */
-    /**
-     * Server cert.
-     * @type {?ServerCert}
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 24 dynamic&static
-     */
-    serverCert?: ServerCert;
-
-    /**
-     * Maximum number of concurrent clients. When it's reached, the server will reject new connections.
-     * @type { int }
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 19 dynamic
-     * @since 23 static
-     */
-    /**
-     * Maximum number of concurrent clients. When it's reached, the server will reject new connections.
-     * @type { int }
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 24 dynamic&static
      */
     maxConcurrentClientsNumber: int;
 
     /**
-     * Self defined protocol.
-     * @type {?string}
+     * Port of the WebSocketServer.
+     *
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 24]
      * @since 19 dynamic
      * @since 23 static
      */
-    /**
-     * Self defined protocol.
-     * @type {?string}
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 24 dynamic&static
-     */
-    protocol?: string;
+    serverPort: int;
 
     /**
-     * Maximum number of one client's connections. When it's reached, the server will reject new connections.
-     * @type {int}
+     * IP address of the WebSocketServer. The default value is **0.0.0.0**.
+     *
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 24]
      * @since 19 dynamic
      * @since 23 static
      */
+    serverIP?: string;
+
     /**
-     * Maximum number of one client's connections. When it's reached, the server will reject new connections.
-     * @type {int}
+     * Certificate information, which includes the paths of the WebSocketServer certificate file and private key file.
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 24 dynamic&static
+     * @crossplatform [since 24]
+     * @since 19 dynamic
+     * @since 23 static
      */
-    maxConnectionsForOneClient: int;
+    serverCert?: ServerCert;
+
+    /**
+     * Custom protocol.
+     *
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 24]
+     * @since 19 dynamic
+     * @since 23 static
+     */
+    protocol?: string;
   }
 
   /**
-   * The serverCert field of the server certificate, which includes two attributes:
-   * File paths of server certificate (certPath) and certificate private key (keyPath). Only support PEM format.
-   * @interface ServerCert
+   * Certificate information, which includes the paths of the WebSocketServer certificate file and private key file.
+   *
    * @syscap SystemCapability.Communication.NetStack
+   * @crossplatform [since 24]
    * @since 19 dynamic
    * @since 23 static
    */
-  /**
-   * The serverCert field of the server certificate, which includes two attributes:
-   * File paths of server certificate (certPath) and certificate private key (keyPath). Only support PEM format.
-   * @interface ServerCert
-   * @syscap SystemCapability.Communication.NetStack
-   * @crossplatform
-   * @since 24 dynamic&static
-   */
   export interface ServerCert {
     /**
-     * File path for the server cert.
-     * @type {string}
+     * Path of the server certificate file.
+     *
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 24]
      * @since 19 dynamic
      * @since 23 static
-     */
-    /**
-     * File path for the server cert.
-     * @type {string}
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 24 dynamic&static
      */
     certPath: string;
 
     /**
-     * The path of the server certificate private key file.
-     * @type {string}
+     * Path of the private key file of the server certificate.
+     *
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 24]
      * @since 19 dynamic
      * @since 23 static
-     */
-    /**
-     * The path of the server certificate private key file.
-     * @type {string}
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 24 dynamic&static
      */
     keyPath: string;
   }
 
   /**
-   * Info about the connection from each specific client.
-   * @interface WebSocketConnection
+   * Client information, including the IP address and port number.
+   *
    * @syscap SystemCapability.Communication.NetStack
+   * @crossplatform [since 24]
    * @since 19 dynamic
    * @since 23 static
-   */
-  /**
-   * Info about the connection from each specific client.
-   * @interface WebSocketConnection
-   * @syscap SystemCapability.Communication.NetStack
-   * @crossplatform
-   * @since 24 dynamic&static
    */
   export interface WebSocketConnection {
     /**
      * IP address of the client.
-     * @type {string}
+     *
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 24]
      * @since 19 dynamic
      * @since 23 static
-     */
-    /**
-     * IP address of the client.
-     * @type {string}
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 24 dynamic&static
      */
     clientIP: string;
 
     /**
-     * Port of the client.
-     * @type {int}
+     * Port number of the client.
+     *
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 24]
      * @since 19 dynamic
      * @since 23 static
      */
-    /**
-     * Port of the client.
-     * @type {int}
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 24 dynamic&static
-     */
     clientPort: int;
-  }
+    }
 
   /**
-   * Info about the message received from a specific client.
-   * @interface WebSocketMessage
+   * Callback used to return the result, which contains:
+   *
    * @syscap SystemCapability.Communication.NetStack
+   * @crossplatform [since 24]
    * @since 19 dynamic
    * @since 23 static
-   */
-  /**
-   * Info about the message received from a specific client.
-   * @interface WebSocketMessage
-   * @syscap SystemCapability.Communication.NetStack
-   * @crossplatform
-   * @since 24 dynamic&static
    */
   export interface WebSocketMessage {
     /**
-     * Content of the message.
-     * @type {string | ArrayBuffer}
+     * Client information, including the IP address and port number.
+     *
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 24]
      * @since 19 dynamic
      * @since 23 static
-     */
-    /**
-     * Content of the message.
-     * @type {string | ArrayBuffer}
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 24 dynamic&static
-     */
-    data: string | ArrayBuffer;
-
-    /**
-     * The connection where the message comes from.
-     * @type {WebSocketConnection}
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 19 dynamic
-     * @since 23 static
-     */
-    /**
-     * The connection where the message comes from.
-     * @type {WebSocketConnection}
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 24 dynamic&static
      */
     clientConnection: WebSocketConnection;
-  }
+
+    /**
+     * Message data sent by the client.
+     *
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 24]
+     * @since 19 dynamic
+     * @since 23 static
+     */
+    data: string | ArrayBuffer;
+    }
 
   /**
-   * Callback function when a client connection is closed.
-   * @typedef { function } ClientConnectionCloseCallback
+   * Callback invoked when the WebSocketServer connection is closed.
+   *
    * @param { WebSocketConnection } clientConnection - the connection which is closed.
    * @param { CloseResult } closeReason - the error code and reason why the connection is closed.
    * @syscap SystemCapability.Communication.NetStack
+   * @crossplatform [since 24]
    * @since 19 dynamic
    * @since 23 static
    */
-  /**
-   * Callback function when a client connection is closed.
-   * @typedef { function } ClientConnectionCloseCallback
-   * @param { WebSocketConnection } clientConnection - the connection which is closed.
-   * @param { CloseResult } closeReason - the error code and reason why the connection is closed.
-   * @syscap SystemCapability.Communication.NetStack
-   * @crossplatform
-   * @since 24 dynamic&static
-   */
-  export type ClientConnectionCloseCallback = (clientConnection: WebSocketConnection, closeReason: CloseResult) => void;
+  export type ClientConnectionCloseCallback = (clientConnection: WebSocketConnection, closeReason :CloseResult) => void;
 
   /**
-   * <p>Defines a WebSocketServer object. Before invoking WebSocketServer APIs,
-   * you need to call webSocketServer.createWebSocketServer to create a WebSocket Server.</p>
-   * @interface WebSocketServer
+   * Defines a **WebSocketServer** object. You need to use
+   * [webSocket.createWebSocketServer]{@link webSocket.createWebSocketServer} to create a **WebSocketServer** object
+   * before using its methods.
+   *
    * @syscap SystemCapability.Communication.NetStack
+   * @crossplatform [since 24]
    * @since 19 dynamic
    * @since 23 static
-   */
-  /**
-   * <p>Defines a WebSocketServer object. Before invoking WebSocketServer APIs,
-   * you need to call webSocketServer.createWebSocketServer to create a WebSocket Server.</p>
-   * @interface WebSocketServer
-   * @syscap SystemCapability.Communication.NetStack
-   * @crossplatform
-   * @since 24 dynamic&static
    */
   export interface WebSocketServer {
     /**
-     * Start the WebSocket Server, and listen to a given port.
+     * Starts the WebSocketServer service based on the specified **config**. This API uses a promise to return the
+     * result.
+     *
+     * > **NOTE**
+     * >
+     * > You are advised not to listen for the same port when calling this API multiple times.
+     * > **Required permission**: ohos.permission.INTERNET
+     *
      * @permission ohos.permission.INTERNET
-     * @param { WebSocketServerConfig } config - setting for the server, such as ip address and port to listen to.
-     * @returns { Promise<boolean> } Indicating whether the server starts sucessfully.
+     * @param { WebSocketServerConfig } config - Starts the WebSocket server.
+     * @returns { Promise<boolean> } Promise used to return the result. The value **true** indicates that the operation
+     *     is successful, and the value **false** indicates the opposite.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 2302002 - Websocket certificate file does not exist.
      * @throws { BusinessError } 2302004 - Can't listen on the given NIC.
      * @throws { BusinessError } 2302005 - Can't listen on the given Port.
      * @throws { BusinessError } 2302999 - Websocket other unknown error.
+     * @throws { BusinessError } 2302007 - Websocket port already occupied. [since 24]
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 24]
      * @since 19 dynamic
-     */
-    /**
-     * Start the WebSocket Server, and listen to a given port.
-     * @permission ohos.permission.INTERNET
-     * @param { WebSocketServerConfig } config - setting for the server, such as ip address and port to listen to.
-     * @returns { Promise<boolean> } Indicating whether the server starts sucessfully.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 2302002 - Websocket certificate file does not exist.
-     * @throws { BusinessError } 2302004 - Can't listen on the given NIC.
-     * @throws { BusinessError } 2302005 - Can't listen on the given Port.
-     * @throws { BusinessError } 2302007 - Websocket port already occupied.
-     * @throws { BusinessError } 2302999 - Websocket other unknown error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 24 dynamic&static
+     * @since 24 static
      */
     start(config: WebSocketServerConfig): Promise<boolean>;
 
     /**
-     * List all alive connections.
+     * Stops the WebSocketServer service. This API uses a promise to return the result.
+     *
      * @permission ohos.permission.INTERNET
-     * @returns { WebSocketConnection[] } an array consists connections from all clients.
+     * @returns { Promise<boolean> } Promise used to return the result. The value **true** indicates that the operation
+     *     is successful, and the value **false** indicates the opposite.
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 24]
      * @since 19 dynamic
      * @since 23 static
-     */
-    /**
-     * List all alive connections.
-     * @permission ohos.permission.INTERNET
-     * @returns { WebSocketConnection[] } an array consists connections from all clients.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 24 dynamic&static
-     */
-    listAllConnections(): WebSocketConnection[];
-
-    /**
-     * Close a given WebSocket connection.
-     * @permission ohos.permission.INTERNET
-     * @param { WebSocketConnection } connection - which on to be closed.
-     * @param { webSocket.WebSocketCloseOptions } options - Optional parameters {@link WebSocketCloseOptions}.
-     * @returns { Promise<boolean> } Indicating whether the connection is closed sucessfully.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 2302006 - websocket connection does not exist.
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 19 dynamic
-     * @since 23 static
-     */
-    /**
-     * Close a given WebSocket connection.
-     * @permission ohos.permission.INTERNET
-     * @param { WebSocketConnection } connection - which on to be closed.
-     * @param { webSocket.WebSocketCloseOptions } options - Optional parameters {@link WebSocketCloseOptions}.
-     * @returns { Promise<boolean> } Indicating whether the connection is closed sucessfully.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 2302006 - websocket connection does not exist.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 24 dynamic&static
-     */
-    close(connection: WebSocketConnection, options?: webSocket.WebSocketCloseOptions): Promise<boolean>;
-
-    /**
-     * Send a message using a specific connection.
-     * @permission ohos.permission.INTERNET
-     * @param { string | ArrayBuffer } data - What to send. It can be a string or an ArrayBuffer.
-     * @param { WebSocketConnection } connection - Where to sent.
-     * @returns { Promise<boolean> } Indicating whether the message is sent sucessfully.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 2302006 - websocket connection does not exist.
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 19 dynamic
-     * @since 23 static
-     */
-    /**
-     * Send a message using a specific connection.
-     * @permission ohos.permission.INTERNET
-     * @param { string | ArrayBuffer } data - What to send. It can be a string or an ArrayBuffer.
-     * @param { WebSocketConnection } connection - Where to sent.
-     * @returns { Promise<boolean> } Indicating whether the message is sent sucessfully.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 2302006 - websocket connection does not exist.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 24 dynamic&static
-     */
-    send(data: string | ArrayBuffer, connection: WebSocketConnection): Promise<boolean>;
-
-    /**
-     * Stop listening.
-     * @permission ohos.permission.INTERNET
-     * @returns { Promise<boolean> } The Indicating whether the server stops sucessfully.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 19 dynamic
-     * @since 23 static
-     */
-    /**
-     * Stop listening.
-     * @permission ohos.permission.INTERNET
-     * @returns { Promise<boolean> } The Indicating whether the server stops sucessfully.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 24 dynamic&static
      */
     stop(): Promise<boolean>;
 
     /**
-     * Enables listening for the error events of a WebSocket Server.
-     * @param { 'error' } type - event indicating that the WebSocket Server has encountered an error.
-     * @param { ErrorCallback } callback - the callback used to return the result.
+     * Obtains information about all clients connected to the server.
+     *
+     * **Required permission**: ohos.permission.INTERNET
+     *
+     * > **NOTE**
+     * >
+     * > This API is called asynchronously. The **await** keyword needs to be used to wait until the asynchronous
+     * > operation is complete, ensuring that information about all clients connected to the server can be correctly
+     * > obtained.
+     *
+     * @permission ohos.permission.INTERNET
+     * @returns { WebSocketConnection[] } an array consists connections from all clients.
+     * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 24]
      * @since 19 dynamic
+     * @since 23 static
      */
-    /**
-     * Enables listening for the error events of a WebSocket Server.
-     * @param { 'error' } type - event indicating that the WebSocket Server has encountered an error.
-     * @param { ErrorCallback } callback - the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 24 dynamic
-     */
-    on(type: 'error', callback: ErrorCallback): void;
+    listAllConnections(): WebSocketConnection[];
 
     /**
-     * Enables listening for events that a client requested to connect the server.
-     * @param { 'connect' } type - event indicating that a client requested to connect the server.
-     * @param { Callback<WebSocketConnection> } callback - the callback used to return the result.
+     * Sends data through the WebSocket connection. This API uses a promise to return the result.
+     *
+     * > **NOTE**
+     * >
+     * > The **send** API can be called only after a **connect** event is listened.
+     * > **Required permission**: ohos.permission.INTERNET
+     *
+     * @permission ohos.permission.INTERNET
+     * @param { string | ArrayBuffer } data - Data to send, which can be of the string or ArrayBuffer type. A maximum of
+     *     5,242,864 bytes (that is, 5 x 1024 x 1024 - 16) can be sent. If the data size exceeds the upper limit, error
+     *     code 401 will be returned.
+     * @param { WebSocketConnection } connection - Client information.
+     * @returns { Promise<boolean> } Promise used to return the result. The value **true** indicates that the operation
+     *     is successful, and the value **false** indicates the opposite.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 2302006 - websocket connection does not exist.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 24]
      * @since 19 dynamic
+     * @since 23 static
      */
+    send(data: string | ArrayBuffer, connection: WebSocketConnection): Promise<boolean>;
+
     /**
-     * Enables listening for events that a client requested to connect the server.
-     * @param { 'connect' } type - event indicating that a client requested to connect the server.
-     * @param { Callback<WebSocketConnection> } callback - the callback used to return the result.
+     * Closes a WebSocket connection. This API uses a promise to return the result.
+     *
+     * @permission ohos.permission.INTERNET
+     * @param { WebSocketConnection } connection - Client information, including the IP address and port number.
+     * @param { webSocket.WebSocketCloseOptions } options - Optional parameters carried in the request for closing a
+     *     WebSocket connection.
+     *     <br>By default, the error code is 200, and the cause is **Websocket connect failed**.
+     * @returns { Promise<boolean> } Promise used to return the result. The value **true** indicates that the operation
+     *     is successful, and the value **false** indicates the opposite.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 2302006 - websocket connection does not exist.
      * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 24 dynamic
+     * @crossplatform [since 24]
+     * @since 19 dynamic
+     * @since 23 static
+     */
+    close(connection: WebSocketConnection, options?: webSocket.WebSocketCloseOptions): Promise<boolean>;
+
+    /**
+     * Subscribes to the WebSocketServer connection event (the connection between the client and server is successfully
+     * established). This API uses an asynchronous callback to return the result.
+     *
+     * @param { 'connect' } type - Event type, which has a fixed value of **connect**. Successful calling of
+     *     **onconnect()** indicates that a connection is established between the client and server.
+     * @param { Callback<WebSocketConnection> } callback - Callback used to return the information about connected
+     *     clients.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 24]
+     * @since 19 dynamic
      */
     on(type: 'connect', callback: Callback<WebSocketConnection>): void;
 
     /**
-     * Enables listening for events that the server received a message.
-     * @param { 'messageReceive' } type - event indicating that the server received a message.
-     * @param { Callback<WebSocketMessage> } callback - the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 19 dynamic
-     */
-    /**
-     * Enables listening for events that the server received a message.
-     * @param { 'messageReceive' } type - event indicating that the server received a message.
-     * @param { Callback<WebSocketMessage> } callback - the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 24 dynamic
-     */
-    on(type: 'messageReceive', callback: Callback<WebSocketMessage>): void;
-
-    /**
-     * Enables listening for events that a connection from a given client has been closed.
-     * @param { 'close' } type - event indicating that a connection from a given client has been closed.
-     * @param { ClientConnectionCloseCallback } callback - the callback function when a client connection is closed.
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 19 dynamic
-     */
-    /**
-     * Enables listening for events that a connection from a given client has been closed.
-     * @param { 'close' } type - event indicating that a connection from a given client has been closed.
-     * @param { ClientConnectionCloseCallback } callback - the callback function when a client connection is closed.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 24 dynamic
-     */
-    on(type: 'close', callback: ClientConnectionCloseCallback): void;
-
-    /**
-     * Cancels listening for the error events of a WebSocket Server.
-     * @param { 'error' } type - event indicating that the WebSocket Server has encountered an error.
-     * @param { ErrorCallback } callback - the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 19 dynamic
-     */
-    /**
-     * Cancels listening for the error events of a WebSocket Server.
-     * @param { 'error' } type - event indicating that the WebSocket Server has encountered an error.
-     * @param { ErrorCallback } callback - the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 24 dynamic
-     */
-    off(type: 'error', callback?: ErrorCallback): void;
-
-    /**
-     * Cancels listening for events that a client requested to connect the server.
-     * @param { 'connect' } type - event indicating that a client requested to connect the server.
-     * @param { Callback<WebSocketConnection> } callback - the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 19 dynamic
-     */
-    /**
-     * Cancels listening for events that a client requested to connect the server.
-     * @param { 'connect' } type - event indicating that a client requested to connect the server.
-     * @param { Callback<WebSocketConnection> } callback - the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 24 dynamic
-     */
-    off(type: 'connect', callback?: Callback<WebSocketConnection>): void;
-
-    /**
-     * Cancels listening for events that a connection from a given client has been closed.
-     * @param { 'close' } type - event indicating that a connection from a given client has been closed.
-     * @param { ClientConnectionCloseCallback } callback - the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 19 dynamic
-     */
-    /**
-     * Cancels listening for events that a connection from a given client has been closed.
-     * @param { 'close' } type - event indicating that a connection from a given client has been closed.
-     * @param { ClientConnectionCloseCallback } callback - the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 24 dynamic
-     */
-    off(type: 'close', callback?: ClientConnectionCloseCallback): void;
-
-    /**
-     * Cancels listening for events that the server received a message.
-     * @param { 'messageReceive' } type - event indicating that the server received a message.
-     * @param { Callback<WebSocketMessage> } callback - the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 19 dynamic
-     */
-    /**
-     * Cancels listening for events that the server received a message.
-     * @param { 'messageReceive' } type - event indicating that the server received a message.
-     * @param { Callback<WebSocketMessage> } callback - the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 24 dynamic
-     */
-    off(type: 'messageReceive', callback?: Callback<WebSocketMessage>): void;
-
-    /**
-     * Enables listening for the error events of a WebSocket Server.
-     * @param { ErrorCallback } callback - the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 23 static
-     */
-    onWebSocketServerError(callback: ErrorCallback): void;
-
-    /**
      * Enables listening for events that a client requested to connect the server.
-     * @param { Callback<WebSocketConnection> } callback - the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetStack
+     *
+     * @param { Callback<WebSocketConnection> } callback - the callback used to return the result. [since 23]
+     * @syscap SystemCapability.Communication.NetStack [since 23]
+     * @crossplatform [since 24]
      * @since 23 static
      */
     onConnect(callback: Callback<WebSocketConnection>): void;
 
     /**
-     * Enables listening for events that the server received a message.
-     * @param { Callback<WebSocketMessage> } callback - the callback used to return the result.
+     * Unsubscribes from WebSocketServer connection events (the connection between the client and server is successfully
+     * established). This API uses an asynchronous callback to return the result.
+     *
+     * > **NOTE**
+     * >
+     * > You can pass the callback of the **on** function if you want to cancel listening for a certain type of event.
+     * > If you do not pass the callback, you will cancel listening for all events.
+     *
+     * @param { 'connect' } type - Event type, which has a fixed value of **connect**. Successful calling of
+     *     **offconnect()** indicates that listening for connection events is canceled successful.
+     * @param { Callback<WebSocketConnection> } callback - Callback used to return the information about connected
+     *     clients.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 23 static
+     * @crossplatform [since 24]
+     * @since 19 dynamic
      */
-    onMessageReceive(callback: Callback<WebSocketMessage>): void;
-
-    /**
-     * Enables listening for events that a connection from a given client has been closed.
-     * @param { ClientConnectionCloseCallback } callback - the callback function when a client connection is closed.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 26.0.0 static
-     */
-    onWebSocketServerClose(callback: ClientConnectionCloseCallback): void;
-
-    /**
-     * Cancels listening for the error events of a WebSocket Server.
-     * @param { ErrorCallback } callback - the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 23 static
-     */
-    offWebSocketServerError(callback?: ErrorCallback): void;
+    off(type: 'connect', callback?: Callback<WebSocketConnection>): void;
 
     /**
      * Cancels listening for events that a client requested to connect the server.
-     * @param { Callback<WebSocketConnection> } callback - the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetStack
+     *
+     * @param { Callback<WebSocketConnection> } [callback] - the callback used to return the result. [since 23]
+     * @syscap SystemCapability.Communication.NetStack [since 23]
+     * @crossplatform [since 24]
      * @since 23 static
      */
     offConnect(callback?: Callback<WebSocketConnection>): void;
 
     /**
-     * Cancels listening for events that a connection from a given client has been closed.
-     * @param { ClientConnectionCloseCallback } callback - the callback used to return the result.
+     * Subscribes to the WebSocketServer event of receiving client messages. This API uses an asynchronous callback to
+     * return the result.
+     *
+     * @param { 'messageReceive' } type - Event type, which has a fixed value of **messageReceive**. Successful calling
+     *     of **onmessageReceive()** indicates that a message is received from the client.
+     * @param { Callback<WebSocketMessage> } callback - Callback used to return the result.
+     *     <br>**clientconnection** indicates the client information and **data** indicates the data message sent by the
+     *     client.
      * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 26.0.0 static
+     * @crossplatform [since 24]
+     * @since 19 dynamic
      */
-    offWebSocketServerClose(callback?: ClientConnectionCloseCallback): void;
-    
+    on(type: 'messageReceive', callback: Callback<WebSocketMessage>): void;
+
+    /**
+     * Enables listening for events that the server received a message.
+     *
+     * @param { Callback<WebSocketMessage> } callback - the callback used to return the result. [since 23]
+     * @syscap SystemCapability.Communication.NetStack [since 23]
+     * @crossplatform [since 24]
+     * @since 23 static
+     */
+    onMessageReceive(callback: Callback<WebSocketMessage>): void;
+
+    /**
+     * Unsubscribes from the WebSocketServer event of receiving client messages. This API uses an asynchronous callback
+     * to return the result.
+     *
+     * > **NOTE**
+     * >
+     * > You can pass the callback of the **on** function if you want to cancel listening for a certain type of event.
+     * > If you do not pass the callback, you will cancel listening for all events.
+     *
+     * @param { 'messageReceive' } type - Event type, which has a fixed value of **messageReceive**. Successful calling
+     *     of **offmessageReceive()** indicates that listening for **messageReceive** events is canceled successfully.
+     * @param { Callback<WebSocketMessage> } callback - Callback used to return the result, which contains:
+     *     <br>- **clientconnection**: client information.
+     *     <br>- **data**: data sent by the client.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 24]
+     * @since 19 dynamic
+     */
+    off(type: 'messageReceive', callback?: Callback<WebSocketMessage>): void;
+
     /**
      * Cancels listening for events that the server received a message.
-     * @param { Callback<WebSocketMessage> } callback - the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetStack
+     *
+     * @param { Callback<WebSocketMessage> } [callback] - the callback used to return the result. [since 23]
+     * @syscap SystemCapability.Communication.NetStack [since 23]
+     * @crossplatform [since 24]
      * @since 23 static
      */
     offMessageReceive(callback?: Callback<WebSocketMessage>): void;
+
+    /**
+     * Subscribes to WebSocketServer close events. This API uses an asynchronous callback to return the result.
+     *
+     * @param { 'close' } type - Event type, which has a fixed value of **close**. Successful calling of **onclose()**
+     *     indicates that the connection is closed successfully.
+     * @param { ClientConnectionCloseCallback } callback - Callback used to return the result.
+     *     <br>**close** and **reason** indicate the error code and error cause for closing the connection,
+     *     respectively.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 24]
+     * @since 19 dynamic
+     */
+    on(type: 'close', callback: ClientConnectionCloseCallback): void;
+
+    /**
+     * Enables listening for events that a connection from a given client has been closed.
+     *
+     * @param { ClientConnectionCloseCallback } callback - the callback function when a client connection is closed.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 26.1.0 static
+     */
+    onWebSocketServerClose(callback: ClientConnectionCloseCallback): void;
+
+    /**
+     * Unsubscribes from WebSocketServer close events. This API uses an asynchronous callback to return the result.
+     *
+     * > **NOTE**
+     * >
+     * > You can pass the callback of the **on** function if you want to cancel listening for a certain type of event.
+     * > If you do not pass the callback, you will cancel listening for all events.
+     *
+     * @param { 'close' } type - Event type, which has a fixed value of **close**. Successful calling of **offclose()**
+     *     indicates that listening for the **close** events is canceled successfully.
+     * @param { ClientConnectionCloseCallback } callback - Callback used to return the result.
+     *     <br>**close** and **reason** indicate the error code and error cause for closing the connection,
+     *     respectively.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 24]
+     * @since 19 dynamic
+     */
+    off(type: 'close', callback?: ClientConnectionCloseCallback): void;
+
+    /**
+     * Cancels listening for events that a connection from a given client has been closed.
+     *
+     * @param { ClientConnectionCloseCallback } [callback] - the callback used to return the result.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 26.1.0 static
+     */
+    offWebSocketServerClose(callback?: ClientConnectionCloseCallback): void;
+
+    /**
+     * Subscribes to WebSocketServer error events. This API uses an asynchronous callback to return the result.
+     *
+     * @param { 'error' } type - Event type, which has a fixed value of **error**. Successful calling of **onerror()**
+     *     indicates that an error has occurred.
+     * @param { ErrorCallback } callback - Callback used to return the result.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 24]
+     * @since 19 dynamic
+     */
+    on(type: 'error', callback: ErrorCallback): void;
+
+    /**
+     * Enables listening for the error events of a WebSocket Server.
+     *
+     * @param { ErrorCallback } callback - the callback used to return the result. [since 23]
+     * @syscap SystemCapability.Communication.NetStack [since 23]
+     * @crossplatform [since 24]
+     * @since 23 static
+     */
+    onWebSocketServerError(callback: ErrorCallback): void;
+
+    /**
+     * Unsubscribes from WebSocketServer error events. This API uses an asynchronous callback to return the result.
+     *
+     * > **NOTE**
+     * >
+     * > You can pass the callback of the **on** function if you want to cancel listening for a certain type of event.
+     * > If you do not pass the callback, you will cancel listening for all events.
+     *
+     * @param { 'error' } type - Event type, which has a fixed value of **error**. Successful calling of **offerror()**
+     *     indicates that listening for the **error** events is canceled successfully.
+     * @param { ErrorCallback } callback - Callback used to return the error code (default value: **200**).
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 24]
+     * @since 19 dynamic
+     */
+    off(type: 'error', callback?: ErrorCallback): void;
+
+    /**
+     * Cancels listening for the error events of a WebSocket Server.
+     *
+     * @param { ErrorCallback } [callback] - the callback used to return the result. [since 23]
+     * @syscap SystemCapability.Communication.NetStack [since 23]
+     * @crossplatform [since 24]
+     * @since 23 static
+     */
+    offWebSocketServerError(callback?: ErrorCallback): void;
+    }
+
+  /**
+   * Enumerates the TLS protocol types.
+   *
+   * @syscap SystemCapability.Communication.NetStack
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  export enum TlsProtocol {
+    /**
+     * TLS version 1.0.
+     *
+     * @syscap SystemCapability.Communication.NetStack
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    TLS_V_1_0 = 0,
+
+    /**
+     * TLS version 1.1.
+     *
+     * @syscap SystemCapability.Communication.NetStack
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    TLS_V_1_1 = 1,
+
+    /**
+     * TLS version 1.2.
+     *
+     * @syscap SystemCapability.Communication.NetStack
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    TLS_V_1_2 = 2,
+
+    /**
+     * TLS version 1.3.
+     *
+     * @syscap SystemCapability.Communication.NetStack
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    TLS_V_1_3 = 3
   }
 }
 

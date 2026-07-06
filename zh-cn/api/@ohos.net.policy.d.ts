@@ -14,7 +14,7 @@
  */
 
 /**
- * @file Network Policy Management
+ * @file 网络策略管理
  * @kit NetworkKit
  */
 
@@ -23,8 +23,11 @@ import type connection from './@ohos.net.connection';
 import Context from './application/Context';
 
 /**
- * The **policy** module provides APIs for managing network policies, which allow you to use firewall technology to
- * control and manage the data traffic used.
+ * 本模块提供网络策略管理能力，采用防火墙技术对用户使用数据流量进行控制管理。
+ * 
+ * > **说明：**
+ * >
+ * > 本模块首批接口从 API version 10 开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
  *
  * @syscap SystemCapability.Communication.NetManager.Core
  * @since 10 dynamic
@@ -32,7 +35,7 @@ import Context from './application/Context';
  */
 declare namespace policy {
   /**
-   * Defines the network type.
+   * 网络类型。
    *
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 10 dynamic
@@ -41,15 +44,11 @@ declare namespace policy {
   type NetBearType = connection.NetBearType;
 
   /**
-   * Sets whether background applications are allowed to access the network. This API uses an asynchronous callback to
-   * return the result.
+   * 设置是否允许后台应用访问网络，使用 callback 异步回调。
    *
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { boolean } isAllowed - Whether background applications are allowed to use mobile data. The value **true**
-   *     indicates that background applications are allowed to use mobile data, and the value **false** indicates the
-   *     opposite.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
-   *     **err** is **undefined**. Otherwise, **err** is an error object.
+   * @param { boolean } isAllowed - 是否允许应用后台使用数据。true：允许应用后台使用数据；false：不允许应用后台使用数据。
+   * @param { AsyncCallback<void> } callback - 回调函数，成功时，err 为 undefined，失败返回错误码错误信息。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -64,15 +63,11 @@ declare namespace policy {
   function setBackgroundAllowed(isAllowed: boolean, callback: AsyncCallback<void>): void;
 
   /**
-   * Sets whether background applications are allowed to access the network. This API uses a promise to return the
-   * result.
+   * 设置是否允许后台应用访问网络，使用 Promise 异步回调。
    *
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { boolean } isAllowed - Whether background applications are allowed to use mobile data. The value **true**
-   *     indicates that background applications are allowed to use mobile data, and the value **false** indicates the
-   *     opposite.
-   * @returns { Promise<void> } Promise used to return the result. If the operation is successful, no value is returned.
-   *     If the operation fails, an error message is returned.
+   * @param { boolean } isAllowed - 是否允许应用后台使用数据。true：允许应用后台使用数据；false：不允许应用后台使用数据。
+   * @returns { Promise<void> } 以 Promise 形式返回设定结果。成功返回空，失败返回错误码错误信息。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -87,13 +82,10 @@ declare namespace policy {
   function setBackgroundAllowed(isAllowed: boolean): Promise<void>;
 
   /**
-   * Checks whether the current application is allowed to access the network in the background. This API uses an
-   * asynchronous callback to return the result.
+   * 获取当前应用是否允许后台访问网络，使用 callback 异步回调。
    *
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { AsyncCallback<boolean> } callback - Callback used to return the result. If the operation is successful,
-   *     the value **true** is returned, indicating that the application is allowed to access the network when running
-   *     at the background. If the operation fails, an error message is returned.
+   * @param { AsyncCallback<boolean> } callback - 回调函数。返回 true 代表后台策略为允许，失败返回错误码错误信息。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -108,12 +100,10 @@ declare namespace policy {
   function isBackgroundAllowed(callback: AsyncCallback<boolean>): void;
 
   /**
-   * Checks whether the current application is allowed to access the network in the background. This API uses a promise
-   * to return the result.
+   * 获取当前应用是否允许后台访问网络，使用 Promise 异步回调。
    *
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @returns { Promise<boolean> } Promise used to return the result. The value **true** indicates that the background
-   *     policy is allowed, and the value **false** indicates the opposite.
+   * @returns { Promise<boolean> } Promise 对象。 返回 true 表示后台策略为允许，返回false表示后台策略不允许。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -128,12 +118,11 @@ declare namespace policy {
   function isBackgroundAllowed(): Promise<boolean>;
 
   /**
-   * Checks whether the specified UID can access the background network. This API uses an asynchronous callback to
-   * return the result.
+   * 获取指定 uid 是否能访问后台网络，使用 callback 异步回调。
    *
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { int } uid - Unique app ID, which is a positive integer within the int32_t range.
-   * @param { AsyncCallback<NetBackgroundPolicy> } callback - Callback used to return the result.  .
+   * @param { int } uid - app 唯一标识符，取值范围为int32_t范围内的正整数。
+   * @param { AsyncCallback<NetBackgroundPolicy> } callback - 回调函数。返回获取结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -148,11 +137,11 @@ declare namespace policy {
   function getBackgroundPolicyByUid(uid: int, callback: AsyncCallback<NetBackgroundPolicy>): void;
 
   /**
-   * Obtains whether the UID can access the network of the background. This API uses a promise to return the result.
+   * 获取指定 uid 能否访问后台网络，使用 Promise 异步回调。
    *
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { int } uid - Unique app ID, which is a positive integer within the int32_t range.
-   * @returns { Promise<NetBackgroundPolicy> } Promise used to return the result.
+   * @param { int } uid - app 唯一标识符，取值范围为int32_t范围内的正整数。
+   * @returns { Promise<NetBackgroundPolicy> } 以 Promise 形式返回设定结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -167,14 +156,12 @@ declare namespace policy {
   function getBackgroundPolicyByUid(uid: int): Promise<NetBackgroundPolicy>;
 
   /**
-   * Sets the metered network access policy for the application specified by a given UID. This API uses an asynchronous
-   * callback to return the result.
+   * 设置对应 uid 应用是否能够访问计量网络的策略，使用 callback 异步回调。
    *
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { int } uid - Unique app ID, which is a positive integer within the int32_t range.
-   * @param { NetUidPolicy } policy - Network access policy for the application.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful, no
-   *     value is returned. If the operation fails, an error message is returned.
+   * @param { int } uid - app 唯一标识符，取值范围为int32_t范围内的正整数。
+   * @param { NetUidPolicy } policy - 应用对应的策略。
+   * @param { AsyncCallback<void> } callback - 回调函数，成功返回空，失败返回错误码错误信息。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -189,14 +176,12 @@ declare namespace policy {
   function setPolicyByUid(uid: int, policy: NetUidPolicy, callback: AsyncCallback<void>): void;
 
   /**
-   * Sets whether the application with the corresponding UID can access the metering network. This API uses a promise to
-   * return the result.
+   * 设置对应 uid 应用是否能够访问计量网络的策略，使用 Promise 异步回调。
    *
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { int } uid - Unique app ID, which is a positive integer within the int32_t range.
-   * @param { NetUidPolicy } policy - Network access policy for the application.
-   * @returns { Promise<void> } Promise used to return the result. If the operation is successful, no value is returned.
-   *     If the operation fails, an error message is returned.
+   * @param { int } uid - app 唯一标识符，取值范围为int32_t范围内的正整数。
+   * @param { NetUidPolicy } policy - 应用对应的策略。
+   * @returns { Promise<void> } 以 Promise 形式返回设定结果。成功返回空，失败返回错误码错误信息。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -211,13 +196,11 @@ declare namespace policy {
   function setPolicyByUid(uid: int, policy: NetUidPolicy): Promise<void>;
 
   /**
-   * Obtains the network access policy for the application specified by a given UID. This API uses an asynchronous
-   * callback to return the result.
+   * 通过应用 uid 获取对应访问网络策略，使用 callback 异步回调。
    *
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { int } uid - Unique app ID, which is a positive integer within the int32_t range.
-   * @param { AsyncCallback<NetUidPolicy> } callback - Callback used to return the result. If the operation is
-   *     successful, the policy result is returned. If the operation fails, an error code is returned.
+   * @param { int } uid - app 唯一标识符，取值范围为int32_t范围内的正整数。
+   * @param { AsyncCallback<NetUidPolicy> } callback - 回调函数。成功返回获取策略结果，失败返回错误码错误信息。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -232,12 +215,11 @@ declare namespace policy {
   function getPolicyByUid(uid: int, callback: AsyncCallback<NetUidPolicy>): void;
 
   /**
-   * Obtains the network access policy by app UID. This API uses a promise to return the result.
+   * 通过应用 uid 获取对应访问网络策略，使用 Promise 异步回调。
    *
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { int } uid - Unique app ID, which is a positive integer within the int32_t range.
-   * @returns { Promise<NetUidPolicy> } Promise used to return the result. If the operation fails, an error message is
-   *     returned.
+   * @param { int } uid - app 唯一标识符，取值范围为int32_t范围内的正整数。
+   * @returns { Promise<NetUidPolicy> } 以 Promise 形式返回获取策略结果。失败返回错误码错误信息。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -252,13 +234,11 @@ declare namespace policy {
   function getPolicyByUid(uid: int): Promise<NetUidPolicy>;
 
   /**
-   * Obtains all UIDs that match the specified network policy. This API uses an asynchronous callback to return the
-   * result.
+   * 通过策略获取跟策略匹配的所有 uid，使用 callback 异步回调。
    *
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { NetUidPolicy } policy - Network policy for the application.
-   * @param { AsyncCallback<Array<int>> } callback - Callback used to return the result. If the operation is successful,
-   *     the UID array of the application is returned. If the operation fails, an error message is returned.
+   * @param { NetUidPolicy } policy - 应用对应的计量网络下的策略。
+   * @param { AsyncCallback<Array<int>> } callback - 回调函数。成功返回应用的 uid 数组，失败返回错误码错误信息。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -273,12 +253,11 @@ declare namespace policy {
   function getUidsByPolicy(policy: NetUidPolicy, callback: AsyncCallback<Array<int>>): void;
 
   /**
-   * Obtains all UIDs that match the policy by policy. This API uses a promise to return the result.
+   * 通过策略获取跟策略匹配的所有 uid，使用 Promise 异步回调。
    *
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { NetUidPolicy } policy - Network policy for the application.
-   * @returns { Promise<Array<int>> } Promise used to return the result. If the operation is successful, the operation
-   *     result is returned. If the operation fails, an error message is returned.
+   * @param { NetUidPolicy } policy - app 对应的计量网络下的策略。
+   * @returns { Promise<Array<int>> } 以 Promise 形式返回应用的 uid 数组，失败返回错误码错误信息。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -293,15 +272,12 @@ declare namespace policy {
   function getUidsByPolicy(policy: NetUidPolicy): Promise<Array<int>>;
 
   /**
-   * Checks whether the application specified by a given UID is allowed to access a metered network. This API uses an
-   * asynchronous callback to return the result.
+   * 判断对应 uid 能否访问计量或非计量网络，使用 callback 异步回调。
    *
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { int } uid - Unique app ID, which is a positive integer within the int32_t range.
-   * @param { boolean } isMetered - Whether the network is a metered network. The value **true** indicates that the
-   *     network is a metered network, and the value **false** indicates the opposite.
-   * @param { AsyncCallback<boolean> } callback - Callback used to return the result. The value **true** means that the
-   *     application is allowed to access metered networks, and the value **false** means the opposite.
+   * @param { int } uid - app 唯一标识符，取值范围为int32_t范围内的正整数。
+   * @param { boolean } isMetered - 是否为计量网络。true：是计量网络；false：不是计量网络。
+   * @param { AsyncCallback<boolean> } callback - 回调函数。返回 true 表示这个 uid 可以访问对应的计量网络。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -316,15 +292,12 @@ declare namespace policy {
   function isUidNetAllowed(uid: int, isMetered: boolean, callback: AsyncCallback<boolean>): void;
 
   /**
-   * Checks whether the application specified by a given UID is allowed to access a metered network. This API uses a
-   * promise to return the result.
+   * 判断对应 uid 能否访问计量或非计量网络，使用 Promise 异步回调。
    *
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { int } uid - Unique app ID, which is a positive integer within the int32_t range.
-   * @param { boolean } isMetered - Whether the network is a metered network. The value **true** indicates that the
-   *     network is a metered network, and the value **false** indicates the opposite.
-   * @returns { Promise<boolean> } Promise used to return the result. The value **true** indicates that the UID can
-   *     access the metering or non-metering network, and the value **false** indicates the opposite.
+   * @param { int } uid - app 唯一标识符，取值范围为int32_t范围内的正整数。
+   * @param { boolean } isMetered - 是否为计量网络。true：是计量网络；false：不是计量网络。
+   * @returns { Promise<boolean> } Promise 对象。 返回 true 表示这个uid可以访问计量或非计量网络，返回false表示这个uid不可以访问计量或非计量网络。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -339,14 +312,12 @@ declare namespace policy {
   function isUidNetAllowed(uid: int, isMetered: boolean): Promise<boolean>;
 
   /**
-   * Obtains whether the network of the specified iface can be accessed by the corresponding UID. This API uses an
-   * asynchronous callback to return the result.
+   * 获取对应 uid 能否访问指定的 iface 的网络，使用 callback 异步回调。
    *
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { int } uid - Unique app ID, which is a positive integer within the int32_t range.
-   * @param { string } iface - Name of the target network.
-   * @param { AsyncCallback<boolean> } callback - Callback used to return the result. The value **true** means that the
-   *     application is allowed to access the specified network, and the value **false** means the opposite.
+   * @param { int } uid - app 唯一标识符，取值范围为int32_t范围内的正整数。
+   * @param { string } iface - 网络对应的名称 。
+   * @param { AsyncCallback<boolean> } callback - 回调函数。返回 true 表示这个 uid 可以访问对应 iface 的网络。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -361,14 +332,12 @@ declare namespace policy {
   function isUidNetAllowed(uid: int, iface: string, callback: AsyncCallback<boolean>): void;
 
   /**
-   * Obtains whether the UID can access the network of the specified iface. This API uses a promise to return the
-   * result.
+   * 获取对应 uid 能否访问指定的 iface 的网络，使用 Promise 异步回调。
    *
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { int } uid - Unique app ID, which is a positive integer within the int32_t range.
-   * @param { string } iface - Name of the target network.
-   * @returns { Promise<boolean> } Promise used to return the result. The value **true** means that the application is
-   *     allowed to access the specified network, and the value **false** means the opposite.
+   * @param { int } uid - app 唯一标识符，取值范围为int32_t范围内的正整数。
+   * @param { string } iface - 网络对应的名称。
+   * @returns { Promise<boolean> } Promise 对象。 返回 true 表示对应 uid 能访问指定的 iface 的网络，返回false则表示不能访问。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -383,12 +352,11 @@ declare namespace policy {
   function isUidNetAllowed(uid: int, iface: string): Promise<boolean>;
 
   /**
-   * Sets the metering network policy. This API uses an asynchronous callback to return the result.
+   * 设置计量网络策略，使用 callback 异步回调。
    *
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { Array<NetQuotaPolicy> } quotaPolicies - Defines the quota policy for the specified network.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful, no
-   *     value is returned. If the operation fails, an error message is returned.
+   * @param { Array<NetQuotaPolicy> } quotaPolicies - 计量网络策略。
+   * @param { AsyncCallback<void> } callback - 回调函数。成功返回空，失败返回错误码错误信息。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -403,12 +371,11 @@ declare namespace policy {
   function setNetQuotaPolicies(quotaPolicies: Array<NetQuotaPolicy>, callback: AsyncCallback<void>): void;
 
   /**
-   * Sets the metering network policy. This API uses a promise to return the result.
+   * 设置计量网络策略，使用 Promise 异步回调。
    *
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { Array<NetQuotaPolicy> } quotaPolicies - Defines the quota policy for the specified network.
-   * @returns { Promise<void> } Promise used to return the result. If the operation is successful, no value is returned.
-   *     If the operation fails, an error message is returned.
+   * @param { Array<NetQuotaPolicy> } quotaPolicies - 计量网络策略。
+   * @returns { Promise<void> } 以 Promise 形式返回设定结果。成功返回空，失败返回错误码错误信息。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -423,12 +390,11 @@ declare namespace policy {
   function setNetQuotaPolicies(quotaPolicies: Array<NetQuotaPolicy>): Promise<void>;
 
   /**
-   * Reset the specified network management policy.
+   * 根据指定的SIM卡识别码，恢复所有网络管理相关的策略配置，如UID策略、配额策略、防火墙规则等。
    *
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
-   * @param { string } iccid - Indicates the specified SIM that is valid when netType is cellular.
-   *     <br>Value range:(0, 1024]
-   * @returns { Promise<void> } The promise returned by the function.
+   * @param { string } iccid - SIM卡唯一识别码，通常为20位。
+   * @returns { Promise<void> } Promise对象。无返回结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 2100001 - Invalid parameter value.
@@ -442,10 +408,10 @@ declare namespace policy {
   function restoreAllPolicies(iccid: string): Promise<void>;
 
   /**
-   * Obtains the metering network policy. This API uses an asynchronous callback to return the result.
+   * 获取计量网络策略，使用 callback 异步回调。
    *
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { AsyncCallback<Array<NetQuotaPolicy>> } callback - Callback used to return the result.  .
+   * @param { AsyncCallback<Array<NetQuotaPolicy>> } callback - 回调函数。返回获取结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -460,10 +426,10 @@ declare namespace policy {
   function getNetQuotaPolicies(callback: AsyncCallback<Array<NetQuotaPolicy>>): void;
 
   /**
-   * Obtains the metering network policy. This API uses a promise to return the result.
+   * 获取计量网络策略，使用 Promise 异步回调。
    *
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @returns { Promise<Array<NetQuotaPolicy>> } Promise used to return the result.
+   * @returns { Promise<Array<NetQuotaPolicy>> } 以 Promise 形式返回设定结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -477,14 +443,13 @@ declare namespace policy {
   function getNetQuotaPolicies(): Promise<Array<NetQuotaPolicy>>;
 
   /**
-   * Updates a reminder policy. This API uses an asynchronous callback to return the result.
+   * 更新提醒策略，使用 callback 异步回调。
    *
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { NetBearType } netType - Network type.
-   * @param { string } simId - SIM card ID.
-   * @param { RemindType } remindType - Enumerates the reminder types.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful, no
-   *     value is returned. If the operation fails, an error message is returned.
+   * @param { NetBearType } netType - 网络类型。
+   * @param { string } simId - SIM 卡 ID。
+   * @param { RemindType } remindType - 提醒类型。
+   * @param { AsyncCallback<void> } callback - 回调函数。成功返回空，失败返回错误码错误信息。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -499,14 +464,13 @@ declare namespace policy {
   function updateRemindPolicy(netType: NetBearType, simId: string, remindType: RemindType, callback: AsyncCallback<void>): void;
 
   /**
-   * Updates a reminder policy. This API uses a promise to return the result.
+   * 更新提醒策略，使用 Promise 异步回调。
    *
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { NetBearType } netType - Network type.
-   * @param { string } simId - SIM card ID.
-   * @param { RemindType } remindType - Enumerates the reminder types.
-   * @returns { Promise<void> } Promise used to return the result. If the operation is successful, no value is returned.
-   *     If the operation fails, an error message is returned.
+   * @param { NetBearType } netType - 网络类型。
+   * @param { string } simId - SIM 卡 ID。
+   * @param { RemindType } remindType - 提醒类型。
+   * @returns { Promise<void> } 以 Promise 形式返回设定结果。成功返回空，失败返回错误码错误信息。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -521,15 +485,12 @@ declare namespace policy {
   function updateRemindPolicy(netType: NetBearType, simId: string, remindType: RemindType): Promise<void>;
 
   /**
-   * Adds applications specified by given UIDs to the device idle allowlist. This API uses an asynchronous callback to
-   * return the result.
+   * 设置多个 uid 是否在休眠防火墙的白名单，使用 callback 异步回调。
    *
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { Array<int> } uids - Unique ID of the application.
-   * @param { boolean } isAllowed - Whether to add the application to the allowlist. The value **true** means to add the
-   *     application to the allowlist, and the value **false** means the opposite.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful, no
-   *     value is returned. If the operation fails, an error message is returned.
+   * @param { Array<int> } uids - app 唯一标识符。
+   * @param { boolean } isAllowed - 是否加入白名单。true：加入白名单；false：没有加入白名单。
+   * @param { AsyncCallback<void> } callback - 回调函数。成功返回空，失败返回错误码错误信息。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -544,15 +505,12 @@ declare namespace policy {
   function setDeviceIdleTrustlist(uids: Array<int>, isAllowed: boolean, callback: AsyncCallback<void>): void;
 
   /**
-   * Sets whether multiple UIDs are in the whitelist of the sleep firewall. This API uses a promise to return the
-   * result.
+   * 设置多个 uid 是否在休眠防火墙的白名单，使用 Promise 异步回调。
    *
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { Array<int> } uids - Unique ID of the application.
-   * @param { boolean } isAllowed - Whether to add the application to the allowlist. The value **true** means to add the
-   *     application to the allowlist, and the value **false** means the opposite.
-   * @returns { Promise<void> } Promise used to return the result. If the operation is successful, no value is returned.
-   *     If the operation fails, an error message is returned.
+   * @param { Array<int> } uids - app 唯一标识符。
+   * @param { boolean } isAllowed - 是否加入白名单。true：加入白名单；false：没有加入白名单。
+   * @returns { Promise<void> } 以 Promise 形式返回设定结果。成功返回空，失败返回错误码错误信息。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -567,11 +525,10 @@ declare namespace policy {
   function setDeviceIdleTrustlist(uids: Array<int>, isAllowed: boolean): Promise<void>;
 
   /**
-   * Obtains the UID of applications that are on the device idle allowlist. This API uses an asynchronous callback to
-   * return the result.
+   * 获取休眠模式白名单所包含的 uid，使用 callback 异步回调。
    *
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { AsyncCallback<Array<int>> } callback - Callback used to return the result.  .
+   * @param { AsyncCallback<Array<int>> } callback - 回调函数。返回获取结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -586,11 +543,10 @@ declare namespace policy {
   function getDeviceIdleTrustlist(callback: AsyncCallback<Array<int>>): void;
 
   /**
-   * Obtains the UID of applications that are on the device idle allowlist. This API uses a promise to return the
-   * result.
+   * 获取休眠模式白名单所包含的 uid，使用 Promise 异步回调。
    *
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @returns { Promise<Array<int>> } Promise used to return the result.
+   * @returns { Promise<Array<int>> } 以 Promise 形式返回设定结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -604,15 +560,12 @@ declare namespace policy {
   function getDeviceIdleTrustlist(): Promise<Array<int>>;
 
   /**
-   * Sets whether the app with the specified UID is in the whitelist of the power saving firewall. This API uses an
-   * asynchronous callback to return the result.
+   * 设置指定 uid 应用是否在省电防火墙的白名单，使用 callback 异步回调。
    *
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { Array<int> } uids - Unique ID of the application.
-   * @param { boolean } isAllowed - Whether to add the application to the allowlist. The value **true** means to add the
-   *     application to the allowlist, and the value **false** means the opposite.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful, no
-   *     value is returned. If the operation fails, an error message is returned.
+   * @param { Array<int> } uids - app 唯一标识符。
+   * @param { boolean } isAllowed - 是否加入白名单。true：加入白名单；false：没有加入白名单。
+   * @param { AsyncCallback<void> } callback - 回调函数。成功返回空，失败返回错误码错误信息。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -627,15 +580,12 @@ declare namespace policy {
   function setPowerSaveTrustlist(uids: Array<int>, isAllowed: boolean, callback: AsyncCallback<void>): void;
 
   /**
-   * Sets whether the app with the specified UID is in the whitelist of the power saving firewall. This API uses a
-   * promise to return the result.
+   * 设置指定 uid 应用是否在省电防火墙的白名单，使用 Promise 异步回调。
    *
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { Array<int> } uids - Unique ID of the application.
-   * @param { boolean } isAllowed - Whether to add the application to the allowlist. The value **true** means to add the
-   *     application to the allowlist, and the value **false** means the opposite.
-   * @returns { Promise<void> } Promise used to return the result. If the operation is successful, no value is returned.
-   *     If the operation fails, an error message is returned.
+   * @param { Array<int> } uids - app 唯一标识符。
+   * @param { boolean } isAllowed - 是否加入白名单。true：加入白名单；false：没有加入白名单。
+   * @returns { Promise<void> } 以 Promise 形式返回设定结果。成功返回空，失败返回错误码错误信息。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -650,11 +600,10 @@ declare namespace policy {
   function setPowerSaveTrustlist(uids: Array<int>, isAllowed: boolean): Promise<void>;
 
   /**
-   * Obtains the UID array of applications that are on the power saving allowlist. This API uses an asynchronous
-   * callback to return the result.
+   * 获取省电模式白名单所包含的 uid 数组，使用 callback 异步回调。
    *
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { AsyncCallback<Array<int>> } callback - Callback used to return the result.  .
+   * @param { AsyncCallback<Array<int>> } callback - 回调函数。返回获取结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -669,11 +618,10 @@ declare namespace policy {
   function getPowerSaveTrustlist(callback: AsyncCallback<Array<int>>): void;
 
   /**
-   * Obtains the UID array of applications that are on the device idle allowlist. This API uses a promise to return the
-   * result.
+   * 获取休眠模式白名单所包含的 uid 数组，使用 Promise 异步回调。
    *
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @returns { Promise<Array<int>> } Promise used to return the result.
+   * @returns { Promise<Array<int>> } 以 Promise 形式返回设定结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -687,13 +635,11 @@ declare namespace policy {
   function getPowerSaveTrustlist(): Promise<Array<int>>;
 
   /**
-   * Restores all the policies (cellular network, background network, firewall, and application-specific network
-   * policies) for the specified SIM card. This API uses an asynchronous callback to return the result.
+   * 重置对应 sim 卡 id 的蜂窝网络、后台网络策略、防火墙策略、应用对应的策略，使用 callback 异步回调。
    *
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { string } simId - SIM card ID.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful, no
-   *     value is returned. If the operation fails, an error message is returned.
+   * @param { string } simId - SIM 卡 ID。
+   * @param { AsyncCallback<void> } callback - 回调函数。成功返回空，失败返回错误码错误信息。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -708,13 +654,11 @@ declare namespace policy {
   function resetPolicies(simId: string, callback: AsyncCallback<void>): void;
 
   /**
-   * Resets the cellular network, background network policy, firewall policy, and app policy corresponding to the SIM
-   * card ID. This API uses a promise to return the result.
+   * 重置对应 sim 卡 id 的蜂窝网络、后台网络策略、防火墙策略、应用对应的策略，使用 Promise 异步回调。
    *
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { string } simId - SIM card ID.
-   * @returns { Promise<void> } Promise used to return the result. If the operation is successful, no value is returned.
-   *     If the operation fails, an error message is returned.
+   * @param { string } simId - SIM 卡 ID。
+   * @returns { Promise<void> } 以 Promise 形式返回设定结果。成功返回空，失败返回错误码错误信息。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -729,18 +673,13 @@ declare namespace policy {
   function resetPolicies(simId: string): Promise<void>;
 
   /**
-   * Sets whether the application with the specified UID can access the network. This API uses a promise to return the
-   * result.
+   * 设置指定 uid 应用能否能访问网络的策略，使用 Promise 异步回调。
    *
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { int } uid - Unique app ID, which is a positive integer within the int32_t range.
-   * @param { NetworkAccessPolicy } policy - Network policy.
-   * @param { boolean } [isReconfirmed] - Whether reconfirmation is required. The value **true** indicates that
-   *     reconfirmation is not required and no dialog box is displayed. The value **false** indicates that
-   *     reconfirmation is required and a dialog box is displayed when the application accesses the network. The default
-   *     value is **false**.
-   * @returns { Promise<void> } Promise used to return the result. If the operation is successful, no value is returned.
-   *     If the operation fails, an error message is returned.
+   * @param { int } uid - app 唯一标识符，取值范围为int32_t范围内的正整数。
+   * @param { NetworkAccessPolicy } policy - 网络策略。
+   * @param { boolean } [isReconfirmed] - 默认false；false 表示需要重确认，应用访问网络会弹框; true 表示不需要重确认，无弹框。
+   * @returns { Promise<void> } 以 Promise 形式返回设定结果。成功返回空，失败返回错误码错误信息。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -755,12 +694,11 @@ declare namespace policy {
   function setNetworkAccessPolicy(uid: int, policy: NetworkAccessPolicy, isReconfirmed?: boolean): Promise<void>;
 
   /**
-   * Obtains whether the application with the specified UID can access the network. This API uses a promise to return
-   * the result.
+   * 获取指定 uid 能否访问网络策略，使用 Promise 异步回调。
    *
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { int } uid - Unique app ID, which is a positive integer within the int32_t range.
-   * @returns { Promise<NetworkAccessPolicy> } Promise used to return the result.
+   * @param { int } uid - app 唯一标识符，取值范围为int32_t范围内的正整数。
+   * @returns { Promise<NetworkAccessPolicy> } 以 Promise 形式返回设定结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -775,11 +713,10 @@ declare namespace policy {
   function getNetworkAccessPolicy(uid: int): Promise<NetworkAccessPolicy>;
 
   /**
-   * Obtains the network access policy of all applications under the current user. This API uses a promise to return the
-   * result.
+   * 获取当前用户下所有应用 app 能否访问网络策略信息，使用 Promise 异步回调。
    *
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @returns { Promise<UidNetworkAccessPolicy> } Promise used to return the result.
+   * @returns { Promise<UidNetworkAccessPolicy> } 以 Promise 形式返回设定结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
@@ -792,11 +729,9 @@ declare namespace policy {
   function getNetworkAccessPolicy(): Promise<UidNetworkAccessPolicy>;
 
   /**
-   * Queries the network access policy of an application (whether cellular or Wi-Fi network access is allowed). You can
-   * check the policy by choosing **Settings** > **Mobile network** > **Manage data usage** > **Network access**. This
-   * API uses a promise to return the result.
+   * 查询自身应用的联网策略（是否允许使用蜂窝、Wi-Fi网络上网），可在设备中“设置 > 移动网络 > 流量管理 > 应用联网”中查看。使用Promise异步回调。
    *
-   * @returns { Promise<NetAccessPolicy> } Promise used to return the network access policy of the application.
+   * @returns { Promise<NetAccessPolicy> } Promise对象。返回应用自身联网策略。
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error, such as nullptr。
    * @syscap SystemCapability.Communication.NetManager.Core
@@ -806,15 +741,13 @@ declare namespace policy {
   function getNetAccessPolicy(): Promise<NetAccessPolicy>;
 
   /**
-   * Registers the callback when the **policy** changes. This API uses an asynchronous callback to return the result.
+   * 注册 policy 发生改变时的回调，使用 callback 异步回调。
    *
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { 'netUidPolicyChange' } type - Event type.<br/> The value **netUidPolicyChange** indicates a policy change
-   *     event.
+   * @param { 'netUidPolicyChange' } type - 订阅的事件类型。'netUidPolicyChange'：注册policy发生改变事件。
    * @param { Callback<{ uid: number, policy: NetUidPolicy }> } callback - Callback used to return the result. It is
    *     called when the network policy changes. [since 10 - 10]
-   * @param { Callback<NetUidPolicyInfo> } callback - Callback used to return the result. It is called when the network
-   *     policy changes. [since 11]
+   * @param { Callback<NetUidPolicyInfo> } callback - 回调函数。注册 policy 发生改变时调用。 [since 11]
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -828,7 +761,7 @@ declare namespace policy {
   function on(type: 'netUidPolicyChange', callback: Callback<NetUidPolicyInfo>): void;
 
   /**
-   * Register uid policy change listener.
+   * 注册 policy 发生改变时的回调，使用 callback 异步回调。
    *
    * @permission ohos.permission.MANAGE_NET_STRATEGY
    * @param { Callback<NetUidPolicyInfo> } callback - the callback of on.
@@ -844,15 +777,13 @@ declare namespace policy {
   function onNetUidPolicyChange(callback: Callback<NetUidPolicyInfo>): void;
 
   /**
-   * Unsubscribes from **policy** changes. This API uses an asynchronous callback to return the result.
+   * 注销 policy 发生改变时的回调，使用 callback 异步回调。
    *
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { 'netUidPolicyChange' } type - Event type. The value **netUidPolicyChange** indicates a policy change
-   *     event.
+   * @param { 'netUidPolicyChange' } type - 注销的事件类型。'netUidPolicyChange'：注销policy发生改变事件。
    * @param { Callback<{ uid: number, policy: NetUidPolicy }> } callback - Callback used to return the result. It is
    *     called when the network policy changes. [since 10 - 10]
-   * @param { Callback<NetUidPolicyInfo> } callback - Callback used to return the result. It is called when the network
-   *     policy changes. [since 11]
+   * @param { Callback<NetUidPolicyInfo> } callback - 回调函数。注销 policy 发生改变时调用。 [since 11]
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -866,7 +797,7 @@ declare namespace policy {
   function off(type: 'netUidPolicyChange', callback?: Callback<NetUidPolicyInfo>): void;
 
   /**
-   * Unregister uid policy change listener.
+   * 取消注册 policy 发生改变时的回调，使用 callback 异步回调。
    *
    * @permission ohos.permission.MANAGE_NET_STRATEGY
    * @param { Callback<NetUidPolicyInfo> } [callback] - the callback of off.
@@ -882,14 +813,13 @@ declare namespace policy {
   function offNetUidPolicyChange(callback?: Callback<NetUidPolicyInfo>): void;
 
   /**
-   * Registers the callback when the **rule** changes. This API uses an asynchronous callback to return the result.
+   * 注册 rule 发生改变时的回调，使用 callback 异步回调。
    *
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { 'netUidRuleChange' } type - Event type.<br/> The value **netUidRuleChange** indicates a rule change event.
+   * @param { 'netUidRuleChange' } type - 订阅的事件类型。'netUidRuleChange'：注册rule发生改变事件。
    * @param { Callback<{ uid: number, rule: NetUidRule }> } callback - Callback used to return the result. It is called
    *     when the rule changes. [since 10 - 10]
-   * @param { Callback<NetUidRuleInfo> } callback - Callback used to return the result. It is called when the rule
-   *     changes. [since 11]
+   * @param { Callback<NetUidRuleInfo> } callback - 回调函数。注册 rule 发生改变时的调用。 [since 11]
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -903,7 +833,7 @@ declare namespace policy {
   function on(type: 'netUidRuleChange', callback: Callback<NetUidRuleInfo>): void;
 
   /**
-   * Register uid rule change listener.
+   * 注册 rule 发生改变时的回调，使用 callback 异步回调。
    *
    * @permission ohos.permission.MANAGE_NET_STRATEGY
    * @param { Callback<NetUidRuleInfo> } callback - the callback of on.
@@ -919,14 +849,13 @@ declare namespace policy {
   function onNetUidRuleChange(callback: Callback<NetUidRuleInfo>): void;
 
   /**
-   * Unsubscribes from **rule** changes. This API uses an asynchronous callback to return the result.
+   * 注销 rule 发生改变时的回调，使用 callback 异步回调。
    *
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { 'netUidRuleChange' } type - Event type. The value **netUidRuleChange** indicates a rule change event.
+   * @param { 'netUidRuleChange' } type - 注销的事件类型。'netUidRuleChange'：注销rule发生改变事件。
    * @param { Callback<{ uid: number, rule: NetUidRule }> } callback - Callback used to return the result. It is called
    *     when the rule changes. [since 10 - 10]
-   * @param { Callback<NetUidRuleInfo> } callback - Callback used to return the result. It is called when the rule
-   *     changes. [since 11]
+   * @param { Callback<NetUidRuleInfo> } callback - 回调函数。注销 rule 发生改变时的调用。 [since 11]
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -940,7 +869,7 @@ declare namespace policy {
   function off(type: 'netUidRuleChange', callback?: Callback<NetUidRuleInfo>): void;
 
   /**
-   * Unregister uid rule change listener.
+   * 取消注册 rule 发生改变时的回调，使用 callback 异步回调。
    *
    * @permission ohos.permission.MANAGE_NET_STRATEGY
    * @param { Callback<NetUidRuleInfo> } [callback] - the callback of off.
@@ -956,13 +885,11 @@ declare namespace policy {
   function offNetUidRuleChange(callback?: Callback<NetUidRuleInfo>): void;
 
   /**
-   * Registers the callback when the **iface** changes. This API uses an asynchronous callback to return the result.
+   * 注册计量 iface 发生改变时的回调，使用 callback 异步回调。
    *
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { 'netMeteredIfacesChange' } type - Event type.<br/> The value **netMeteredIfacesChange** indicates a
-   *     metered **iface** change event.
-   * @param { Callback<Array<string>> } callback - Callback used to return the result. It is called when the registered
-   *     metered **iface** changes.
+   * @param { 'netMeteredIfacesChange' } type - 订阅的事件类型。'netMeteredIfacesChange'：注册计量iface发生改变事件。
+   * @param { Callback<Array<string>> } callback - 回调函数。注册计量 iface 发生改变时调用。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -992,14 +919,11 @@ declare namespace policy {
   function onNetMeteredIfacesChange(callback: Callback<Array<string>>): void;
 
   /**
-   * Unsubscribes from the changes of the metering interface. This API uses an asynchronous callback to return the
-   * result.
+   * 注销计量 iface 发生改变时的回调，使用 callback 异步回调。
    *
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { 'netMeteredIfacesChange' } type - Event type. The value **netMeteredIfacesChange** indicates a metered
-   *     **iface** change event.
-   * @param { Callback<Array<string>> } callback - Callback used to return the result. It is called when the registered
-   *     metered **iface** changes.
+   * @param { 'netMeteredIfacesChange' } type - 注销的事件类型。'netMeteredIfacesChange'：注销计量iface发生改变事件。
+   * @param { Callback<Array<string>> } callback - 回调函数。注册计量 iface 发生改变时调用。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -1013,7 +937,7 @@ declare namespace policy {
   function off(type: 'netMeteredIfacesChange', callback?: Callback<Array<string>>): void;
 
   /**
-   * Unregister metered ifaces change listener.
+   * 取消注册计量 iface 发生改变时的回调，使用 callback 异步回调。
    *
    * @permission ohos.permission.MANAGE_NET_STRATEGY
    * @param { Callback<Array<string>> } [callback] - the callback of off.
@@ -1029,14 +953,11 @@ declare namespace policy {
   function offNetMeteredIfacesChange(callback?: Callback<Array<string>>): void;
 
   /**
-   * Registers the callback for network quota policy changes. This API uses an asynchronous callback to return the
-   * result.
+   * 注册计量网络策略发生改变时的回调，使用 callback 异步回调。
    *
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { 'netQuotaPolicyChange' } type - Event type.<br/> The value **netQuotaPolicyChange** indicates a network
-   *     quota policy change event.
-   * @param { Callback<Array<NetQuotaPolicy>> } callback - Callback used to return the result. It is called when the
-   *     registered network quota policy changes.
+   * @param { 'netQuotaPolicyChange' } type - 订阅的事件类型。'netQuotaPolicyChange'：注册计量网络策略发生改变事件。
+   * @param { Callback<Array<NetQuotaPolicy>> } callback - 回调函数。注册计量网络策略发生改变时调用。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -1050,7 +971,7 @@ declare namespace policy {
   function on(type: 'netQuotaPolicyChange', callback: Callback<Array<NetQuotaPolicy>>): void;
 
   /**
-   * Register quota policies change listener.
+   * 注册计量网络策略发生改变时的回调，使用 callback 异步回调。
    *
    * @permission ohos.permission.MANAGE_NET_STRATEGY
    * @param { Callback<Array<NetQuotaPolicy>> } callback - the callback of on.
@@ -1066,14 +987,11 @@ declare namespace policy {
   function onNetQuotaPolicyChange(callback: Callback<Array<NetQuotaPolicy>>): void;
 
   /**
-   * Unsubscribes from the changes of the metering network policy. This API uses an asynchronous callback to return the
-   * result.
+   * 注销计量网络策略发生改变时的回调，使用 callback 异步回调。
    *
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { 'netQuotaPolicyChange' } type - Event type. The value **netQuotaPolicyChange** indicates a network quota
-   *     policy change event.
-   * @param { Callback<Array<NetQuotaPolicy>> } callback - Callback used to return the result. It is called when the
-   *     registered network quota policy changes.
+   * @param { 'netQuotaPolicyChange' } type - 注销的事件类型。'netQuotaPolicyChange'：注销计量网络策略发生改变事件。
+   * @param { Callback<Array<NetQuotaPolicy>> } callback - 回调函数。注册计量网络策略发生改变时调用。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -1087,7 +1005,7 @@ declare namespace policy {
   function off(type: 'netQuotaPolicyChange', callback?: Callback<Array<NetQuotaPolicy>>): void;
 
   /**
-   * Unregister quota policies change listener.
+   * 取消注册计量网络策略发生改变时的回调，使用 callback 异步回调。
    *
    * @permission ohos.permission.MANAGE_NET_STRATEGY
    * @param { Callback<Array<NetQuotaPolicy>> } [callback] - the callback of off.
@@ -1103,14 +1021,11 @@ declare namespace policy {
   function offNetQuotaPolicyChange(callback?: Callback<Array<NetQuotaPolicy>>): void;
 
   /**
-   * Registers the callback for background network policy changes. This API uses an asynchronous callback to return the
-   * result.
+   * 注册后台网络策略发生改变时的回调，使用 callback 异步回调。
    *
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { 'netBackgroundPolicyChange' } type - Event type.<br/> The value **netBackgroundPolicyChange** indicates a
-   *     background network policy change event.
-   * @param { Callback<boolean> } callback - Callback used to return the result. It is called when the registered
-   *     background network policy changes.
+   * @param { 'netBackgroundPolicyChange' } type - 订阅的事件类型。'netBackgroundPolicyChange'：注册后台网络策略发生改变事件。
+   * @param { Callback<boolean> } callback - 回调函数。注册后台网络策略发生改变时调用。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -1124,7 +1039,7 @@ declare namespace policy {
   function on(type: 'netBackgroundPolicyChange', callback: Callback<boolean>): void;
 
   /**
-   * Register network background policy change listener.
+   * 注册后台网络策略发生改变时的回调，使用 callback 异步回调。
    *
    * @permission ohos.permission.MANAGE_NET_STRATEGY
    * @param { Callback<boolean> } callback - the callback of on.
@@ -1140,13 +1055,11 @@ declare namespace policy {
   function onNetBackgroundPolicyChange(callback: Callback<boolean>): void;
 
   /**
-   * Unsubscribes from background network policy changes. This API uses an asynchronous callback to return the result.
+   * 注销后台网络策略发生改变时的回调，使用 callback 异步回调。
    *
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { 'netBackgroundPolicyChange' } type - Event type. The value **netBackgroundPolicyChange** indicates a
-   *     background network policy change event.
-   * @param { Callback<boolean> } callback - Callback used to return the result. It is called when the registered
-   *     background network policy changes.
+   * @param { 'netBackgroundPolicyChange' } type - 注销的事件类型。'netBackgroundPolicyChange'：注销后台网络策略发生改变事件。
+   * @param { Callback<boolean> } callback - 回调函数。注册后台网络策略发生改变时调用。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -1160,7 +1073,7 @@ declare namespace policy {
   function off(type: 'netBackgroundPolicyChange', callback?: Callback<boolean>): void;
 
   /**
-   * Unregister network background policy change listener.
+   * 取消注册后台网络策略发生改变时的回调，使用 callback 异步回调。
    *
    * @permission ohos.permission.MANAGE_NET_STRATEGY
    * @param { Callback<boolean> } [callback] - the callback of off.
@@ -1176,13 +1089,10 @@ declare namespace policy {
   function offNetBackgroundPolicyChange(callback?: Callback<boolean>): void;
 
   /**
-   * Sets whether the current application can connect to the Wi-Fi or cellular network. You can call this API to open
-   * the network access settings page of the current application and set the network access permission of the
-   * application. This API uses a promise to return the result.
+   * 当需要设置当前应用能否使用Wi-Fi/蜂窝联网时，调用该接口可以打开当前应用的联网设置界面，以设置应用的联网权限。使用Promise异步回调。
    *
-   * @param { Context } context - Application context of the stage model. (Only **UIAbilityContext** and
-   *     **ExtensionContext** are supported.)
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { Context } context - Stage模型的应用上下文（仅支持UIAbilityContext和ExtensionContext）。
+   * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
    * @syscap SystemCapability.Communication.NetManager.Core
    * @stagemodelonly
    * @since 22 dynamic
@@ -1191,7 +1101,7 @@ declare namespace policy {
   function showAppNetPolicySettings(context: Context): Promise<void>;
 
   /**
-   * Enumerates the background network policies.
+   * 后台网络策略。
    *
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
@@ -1200,7 +1110,7 @@ declare namespace policy {
    */
   export enum NetBackgroundPolicy {
     /**
-     * No background network policy is specified. This is the default value.
+     * 默认值。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
@@ -1210,7 +1120,7 @@ declare namespace policy {
     NET_BACKGROUND_POLICY_NONE = 0,
 
     /**
-     * Background applications are allowed to access a metered network.
+     * 应用在后台可以使用计量网路。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
@@ -1220,7 +1130,7 @@ declare namespace policy {
     NET_BACKGROUND_POLICY_ENABLE = 1,
 
     /**
-     * Applications running in the background are not allowed to access a metered network.
+     * 应用在后台不可以使用计量网路。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
@@ -1230,8 +1140,7 @@ declare namespace policy {
     NET_BACKGROUND_POLICY_DISABLE = 2,
 
     /**
-     * Only applications on the allowlist are allowed to access metered networks when they are running in the
-     * background.
+     * 只有应用指定的列表在后台可以使用计量网络。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
@@ -1242,7 +1151,7 @@ declare namespace policy {
   }
 
   /**
-   * Defines the quota policy for the specified network.
+   * 计量网络策略。
    *
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
@@ -1251,7 +1160,7 @@ declare namespace policy {
    */
   export interface NetQuotaPolicy {
     /**
-     * Network for which the quota policy is set.
+     * 网络标识，用来确定设置哪一个网络。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
@@ -1261,7 +1170,7 @@ declare namespace policy {
     networkMatchRule: NetworkMatchRule;
 
     /**
-     * Network quota policy.
+     * 具体的计量网络策略。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
@@ -1272,7 +1181,7 @@ declare namespace policy {
   }
 
   /**
-   * Defines the network quota policy.
+   * 计量网络策略
    *
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
@@ -1281,8 +1190,7 @@ declare namespace policy {
    */
   export interface QuotaPolicy {
     /**
-     * Metering period for the quota limit. **D1**, **M1**, and **Y1** indicate one day, one month, and one year,
-     * respectively. If the specified metering period is exceeded, the quota is not limited.
+     * 流量限制计量周期。D1、M1、Y1分别代表1天、1个月、1年内流量限制，超出时间则不受限制。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
@@ -1292,7 +1200,7 @@ declare namespace policy {
     periodDuration: string;
 
     /**
-     * Data volume threshold for generating an alarm.
+     * 发出警告的流量阈值。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
@@ -1302,7 +1210,7 @@ declare namespace policy {
     warningBytes: long;
 
     /**
-     * Data volume quota.
+     * 流量设置的配额。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
@@ -1312,8 +1220,7 @@ declare namespace policy {
     limitBytes: long;
 
     /**
-     * Whether the network is a metered network. The value **true** indicates that the network is a metered network, and
-     * the value **false** indicates the opposite.
+     * 是否为计量网络。true表示是，false表示不是。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
@@ -1323,7 +1230,7 @@ declare namespace policy {
     metered: boolean;
 
     /**
-     * Action to take when the data volume quota is reached.
+     * 到达流量限制后的动作。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
@@ -1333,7 +1240,7 @@ declare namespace policy {
     limitAction: LimitAction;
 
     /**
-     * Last time when an alarm was generated. Default value: **-1**.
+     * 最新一次发出警告的时间。默认值：-1。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
@@ -1343,7 +1250,7 @@ declare namespace policy {
     lastWarningRemind?: long;
 
     /**
-     * Last time when the quota was exhausted. Default value: **-1**.
+     * 最新一次配额耗尽的时间。默认值：-1。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
@@ -1354,7 +1261,7 @@ declare namespace policy {
   }
 
   /**
-   * Defines the network for which the quota policy is set.
+   * 网络标识，用来确定设置哪一个网络
    *
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
@@ -1363,7 +1270,7 @@ declare namespace policy {
    */
   export interface NetworkMatchRule {
     /**
-     * Network type.
+     * 网络类型。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
@@ -1373,11 +1280,11 @@ declare namespace policy {
     netType: NetBearType;
 
     /**
-     * ID of the SIM card on the metered cellular network.
-     *
-     * It is used for Ethernet and Wi-Fi networks.
-     *
-     * It is used together with **iccid**.
+     * 计量蜂窝网络中配合simId联合使用。
+     * 
+     * 以太网和wifi网络单独使用。
+     * 
+     * 用于标记类型。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
@@ -1387,9 +1294,9 @@ declare namespace policy {
     identity: string;
 
     /**
-     * Identifier of the SIM card on the metered cellular network.
-     *
-     * It is not used for Ethernet and Wi-Fi networks.
+     * 计量蜂窝网络的SIM卡的标识值。
+     * 
+     * 以太网和wifi网络不会用到。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
@@ -1400,7 +1307,7 @@ declare namespace policy {
   }
 
   /**
-   * Defines a unique network ID.
+   * 生成网络唯一标识。
    *
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
@@ -1409,7 +1316,7 @@ declare namespace policy {
    */
   export interface NetUidRuleInfo {
     /**
-     * Traffic alarm threshold. The default value is **DATA_USAGE_UNKNOWN**.
+     * 流量警告的阈值，默认：DATA_USAGE_UNKNOWN。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
@@ -1418,8 +1325,7 @@ declare namespace policy {
      */
     uid: int;
     /**
-     * Rule that specifies whether the application specified by a given UID is allowed to access a metered or non-
-     * metered network.
+     * 规定一个UID访问计量网络还是非计量网络。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
@@ -1430,7 +1336,7 @@ declare namespace policy {
   }
 
   /**
-   * Defines the network policy information for an application.
+   * 注册网络UID策略变化的回调函数。
    *
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
@@ -1439,7 +1345,7 @@ declare namespace policy {
    */
   export interface NetUidPolicyInfo {
     /**
-     * Traffic alarm threshold. The default value is **DATA_USAGE_UNKNOWN**.
+     * 流量警告的阈值，默认：DATA_USAGE_UNKNOWN。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
@@ -1448,8 +1354,7 @@ declare namespace policy {
      */
     uid: int;
     /**
-     * Policy that specifies whether the application specified by a given UID is allowed to access the network when
-     * running in the background.
+     * UID指定了在后台模式下网络访问的策略。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
@@ -1460,7 +1365,7 @@ declare namespace policy {
   }
 
   /**
-   * Enumerates the actions that can be taken when the data volume quota is reached.
+   * 限制动作。
    *
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
@@ -1469,7 +1374,7 @@ declare namespace policy {
    */
   export enum LimitAction {
     /**
-     * No action is taken. This is the default value.
+     * 默认值。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
@@ -1479,7 +1384,7 @@ declare namespace policy {
     LIMIT_ACTION_NONE = -1,
 
     /**
-     * Internet access is disabled.
+     * 当配额策略达到限制时，访问被禁用。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
@@ -1489,7 +1394,7 @@ declare namespace policy {
     LIMIT_ACTION_ACCESS_DISABLED = 0,
 
     /**
-     * An alarm is generated when the quota limit is reached.
+     * 当配额策略达到限制时，将警告用户。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
@@ -1500,7 +1405,7 @@ declare namespace policy {
   }
 
   /**
-   * Enumerates the metered network rules.
+   * 计量网络规则。
    *
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
@@ -1509,7 +1414,7 @@ declare namespace policy {
    */
   export enum NetUidRule {
     /**
-     * Default rule.
+     * 默认规则。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
@@ -1519,7 +1424,7 @@ declare namespace policy {
     NET_RULE_NONE = 0,
 
     /**
-     * Applications running in the foreground are allowed to access a metered network.
+     * 允许前台访问计量网络。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
@@ -1529,7 +1434,7 @@ declare namespace policy {
     NET_RULE_ALLOW_METERED_FOREGROUND = 1 << 0,
 
     /**
-     * Applications are allowed to access a metered network.
+     * 允许访问计量网络。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
@@ -1539,7 +1444,7 @@ declare namespace policy {
     NET_RULE_ALLOW_METERED = 1 << 1,
 
     /**
-     * Applications are not allowed to access a metered network.
+     * 拒绝访问计量网络。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
@@ -1549,7 +1454,7 @@ declare namespace policy {
     NET_RULE_REJECT_METERED = 1 << 2,
 
     /**
-     * Applications are allowed to access all networks (metered or non-metered).
+     * 允许访问所有网络。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
@@ -1559,7 +1464,7 @@ declare namespace policy {
     NET_RULE_ALLOW_ALL = 1 << 5,
 
     /**
-     * Applications are not allowed to access any networks (metered or non-metered).
+     * 拒绝访问所有网络。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
@@ -1570,7 +1475,7 @@ declare namespace policy {
   }
 
   /**
-   * Enumerates the reminder types.
+   * 提醒类型。
    *
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
@@ -1579,7 +1484,7 @@ declare namespace policy {
    */
   export enum RemindType {
     /**
-     * Warning.
+     * 警告提醒。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
@@ -1589,7 +1494,7 @@ declare namespace policy {
     REMIND_TYPE_WARNING = 1,
 
     /**
-     * Limit.
+     * 限制提醒。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
@@ -1600,7 +1505,7 @@ declare namespace policy {
   }
 
   /**
-   * Enumerates network access policies for the application.
+   * 应用对应的网络策略。
    *
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
@@ -1609,7 +1514,7 @@ declare namespace policy {
    */
   export enum NetUidPolicy {
     /**
-     * Default network policy.
+     * 默认网络策略。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
@@ -1619,7 +1524,7 @@ declare namespace policy {
     NET_POLICY_NONE = 0,
 
     /**
-     * Background applications are allowed to access a metered network.
+     * 应用在后台可以使用计量网路。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
@@ -1629,7 +1534,7 @@ declare namespace policy {
     NET_POLICY_ALLOW_METERED_BACKGROUND = 1 << 0,
 
     /**
-     * Applications running in the background are not allowed to access a metered network.
+     * 应用在后台不可以使用计量网路。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
@@ -1640,7 +1545,7 @@ declare namespace policy {
   }
 
   /**
-   * Network access policy.
+   * 应用对应的连接网络的策略。
    *
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
@@ -1649,8 +1554,7 @@ declare namespace policy {
    */
   export interface NetworkAccessPolicy {
     /**
-     * Whether the application is allowed to access the Wi-Fi network. The value **true** indicates that the application
-     * is allowed to access the Wi-Fi network, and the value **false** indicates the opposite.
+     * 是否允许应用访问wifi网络。true表示允许，false表示不允许。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
@@ -1659,8 +1563,7 @@ declare namespace policy {
      */
     allowWiFi?: boolean;
     /**
-     * Whether the application is allowed to access the cellular network. The value **true** indicates that the
-     * application is allowed to access the cellular network, and the value **false** indicates the opposite.
+     * 是否允许应用访问蜂窝网络。true表示允许，false表示不允许。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
@@ -1669,8 +1572,7 @@ declare namespace policy {
      */
     allowCellular?: boolean;
     /**
-     * Whether the application is always allowed to access the Wi-Fi network. The value **true** indicates that the
-     * application is always allowed to access the Wi-Fi network, and the value **false** indicates the opposite.
+     * 是否允许应用一直访问wifi网络。true表示允许，false表示不允许。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
@@ -1679,8 +1581,7 @@ declare namespace policy {
      */
     alwaysAllowWiFi?: boolean;
     /**
-     * Whether the application is always allowed to access the cellular network. The value **true** indicates that the
-     * application is always allowed to access the cellular network, and the value **false** indicates the opposite.
+     * 是否允许应用一直访问蜂窝网络。true表示允许，false表示不允许。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
@@ -1691,7 +1592,7 @@ declare namespace policy {
   }
 
   /**
-   * Defines the network access policy information.
+   * 应用联网策略信息。
    *
    * @syscap SystemCapability.Communication.NetManager.Core
    * @stagemodelonly
@@ -1699,11 +1600,11 @@ declare namespace policy {
    */
   export interface NetAccessPolicy {
     /**
-     * Whether to allow Internet access over Wi-Fi.
-     *
-     * **true**: yes;
-     *
-     * **false**: no.
+     * 是否允许使用Wi-Fi网络上网。
+     * 
+     * true：允许使用Wi-Fi网络上网。
+     * 
+     * false： 不允许使用Wi-Fi网络上网。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @stagemodelonly
@@ -1711,11 +1612,11 @@ declare namespace policy {
      */
     allowWiFi: boolean;
     /**
-     * Whether to allow Internet access over the cellular network.
-     *
-     * **true**: yes.
-     *
-     * **false**: no.
+     * 是否允许使用蜂窝网络上网。
+     * 
+     * true：允许使用蜂窝网络上网。
+     * 
+     * false： 不允许使用蜂窝网络上网。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @stagemodelonly
@@ -1725,7 +1626,7 @@ declare namespace policy {
   }
 
   /**
-   * Defines the network policy for an application with the specified UID.
+   * 应用标识以及对应应用连接网络的策略。
    *
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
@@ -1734,7 +1635,7 @@ declare namespace policy {
    */
   export interface UidNetworkAccessPolicy {
     /**
-     * Network policy. The data type is key-value pair.
+     * 数据类型为键值对。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.

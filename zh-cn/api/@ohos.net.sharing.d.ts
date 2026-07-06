@@ -14,7 +14,7 @@
  */
 
 /**
- * @file Network Sharing
+ * @file 网络共享管理
  * @kit NetworkKit
  */
 
@@ -22,7 +22,7 @@ import type { AsyncCallback, Callback } from './@ohos.base';
 import type connection from './@ohos.net.connection';
 
 /**
- * This module allows you to share your device's network connectivity with other connected devices.
+ * 网络共享管理模块用于将设备网络连接共享给其他连接设备。
  *
  * @syscap SystemCapability.Communication.NetManager.NetSharing
  * @since 9 dynamic
@@ -30,8 +30,7 @@ import type connection from './@ohos.net.connection';
  */
 declare namespace sharing {
   /**
-   * Defines the handle of the data network. Before calling the **NetHandle** function, call the **getNetHandle**
-   * function to obtain a **NetHandle** object.
+   * 数据网络的句柄。在调用NetHandle的方法之前，需要先获取NetHandle对象。
    *
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 9 dynamic
@@ -40,11 +39,10 @@ declare namespace sharing {
   type NetHandle = connection.NetHandle;
 
   /**
-   * Checks whether network sharing is supported. This API uses an asynchronous callback to return the result.
+   * 判断是否支持网络共享，使用 callback 异步回调。
    *
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
-   * @param { AsyncCallback<boolean> } callback - Callback used to return the result. The value **true** means that
-   *     network sharing is supported, and **false** means the opposite.
+   * @param { AsyncCallback<boolean> } callback - 回调函数，返回 true 代表支持网络共享。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 2200002 - Failed to connect to the service.
@@ -58,11 +56,10 @@ declare namespace sharing {
   function isSharingSupported(callback: AsyncCallback<boolean>): void;
 
   /**
-   * Checks whether network sharing is supported. This API uses a promise to return the result.
+   * 判断是否支持网络共享，使用 Promise 异步回调。
    *
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
-   * @returns { Promise<boolean> } Promise used to return the result. The value **true** means that network sharing is
-   *     supported, and **false** means the opposite.
+   * @returns { Promise<boolean> } 以 Promise 形式返回是否支持共享结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 2200002 - Failed to connect to the service.
@@ -76,11 +73,10 @@ declare namespace sharing {
   function isSharingSupported(): Promise<boolean>;
 
   /**
-   * Obtains the current network sharing status. This API uses an asynchronous callback to return the result.
+   * 获取当前网络共享状态，使用 callback 异步回调。
    *
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
-   * @param { AsyncCallback<boolean> } callback - Callback used to return the result. The value **true** means that
-   *     network sharing is in progress, and **false** means the opposite.
+   * @param { AsyncCallback<boolean> } callback - 回调函数，返回 true 代表网络共享中。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 2200002 - Failed to connect to the service.
@@ -94,11 +90,10 @@ declare namespace sharing {
   function isSharing(callback: AsyncCallback<boolean>): void;
 
   /**
-   * Obtains the current network sharing status. This API uses a promise to return the result.
+   * 获取当前网络共享状态，使用 Promise 异步回调。
    *
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
-   * @returns { Promise<boolean> } Promise used to return the result. The value **true** means that network sharing is
-   *     in progress, and **false** means the opposite.
+   * @returns { Promise<boolean> } 以 Promise 形式返回网络共享状态结果，返回 true 代表网络共享中。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 2200002 - Failed to connect to the service.
@@ -112,12 +107,11 @@ declare namespace sharing {
   function isSharing(): Promise<boolean>;
 
   /**
-   * Enables sharing of a specified type. This API uses an asynchronous callback to return the result.
+   * 开启指定类型共享，使用 callback 异步回调。
    *
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
-   * @param { SharingIfaceType } type - Sharing type. The value **0** means Wi-Fi hotspot sharing, **1** means USB
-   *     sharing, and **2** means Bluetooth sharing.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { SharingIfaceType } type - 共享类型，0：Wi-Fi 1：USB 2：BLUETOOTH。
+   * @param { AsyncCallback<void> } callback - 回调函数，返回开启网络共享结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -137,12 +131,11 @@ declare namespace sharing {
   function startSharing(type: SharingIfaceType, callback: AsyncCallback<void>): void;
 
   /**
-   * Enables sharing of a specified type. This API uses a promise to return the result.
+   * 开启指定类型共享，使用 Promise 异步回调。
    *
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
-   * @param { SharingIfaceType } type - Sharing type. The value **0** means Wi-Fi hotspot sharing, **1** means USB
-   *     sharing, and **2** means Bluetooth sharing.
-   * @returns { Promise<void> } Promise used to return the result.
+   * @param { SharingIfaceType } type - 共享类型，0：Wi-Fi 1：USB 2：BLUETOOTH。
+   * @returns { Promise<void> } 以 Promise 形式返回开启共享执行结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -162,12 +155,11 @@ declare namespace sharing {
   function startSharing(type: SharingIfaceType): Promise<void>;
 
   /**
-   * Disables sharing of a specified type. This API uses an asynchronous callback to return the result.
+   * 关闭指定类型共享，使用 callback 异步回调。
    *
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
-   * @param { SharingIfaceType } type - Sharing type. The value **0** means Wi-Fi hotspot sharing, **1** means USB
-   *     sharing, and **2** means Bluetooth sharing.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { SharingIfaceType } type - 共享类型，0：Wi-Fi 1：USB 2：BLUETOOTH。
+   * @param { AsyncCallback<void> } callback - 回调函数,返回停止网络共享结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -186,12 +178,11 @@ declare namespace sharing {
   function stopSharing(type: SharingIfaceType, callback: AsyncCallback<void>): void;
 
   /**
-   * Disables sharing of a specified type. This API uses a promise to return the result.
+   * 关闭指定类型共享，使用 Promise 异步回调。
    *
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
-   * @param { SharingIfaceType } type - Sharing type. The value **0** means Wi-Fi hotspot sharing, **1** means USB
-   *     sharing, and **2** means Bluetooth sharing.
-   * @returns { Promise<void> } Promise used to return the result.
+   * @param { SharingIfaceType } type - 共享类型，0：Wi-Fi 1：USB 2：BLUETOOTH。
+   * @returns { Promise<void> } 以 Promise 形式返回关闭共享执行结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -210,11 +201,10 @@ declare namespace sharing {
   function stopSharing(type: SharingIfaceType): Promise<void>;
 
   /**
-   * Obtains the volume of mobile data traffic received via network sharing. This API uses an asynchronous callback to
-   * return the result.
+   * 获取共享网络接收数据量，使用 callback 异步回调。
    *
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
-   * @param { AsyncCallback<int> } callback - Callback used to return the data volume, in KB.
+   * @param { AsyncCallback<int> } callback - 回调函数，number 代表数据量，单位：KB。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -228,11 +218,10 @@ declare namespace sharing {
   function getStatsRxBytes(callback: AsyncCallback<int>): void;
 
   /**
-   * Obtains the volume of mobile data traffic received via network sharing. This API uses a promise to return the
-   * result.
+   * 获取共享网络接收数据量，使用 Promise 异步回调。
    *
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
-   * @returns { Promise<int> } Promise used to return the data volume, in KB.
+   * @returns { Promise<int> } 以 Promise 形式返回共享网络接收数据量，单位：KB。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -246,11 +235,10 @@ declare namespace sharing {
   function getStatsRxBytes(): Promise<int>;
 
   /**
-   * Obtains the volume of mobile data traffic sent via network sharing. This API uses an asynchronous callback to
-   * return the result.
+   * 获取共享网络发送数据量，使用 callback 异步回调。
    *
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
-   * @param { AsyncCallback<int> } callback - Callback used to return the data volume, in KB.
+   * @param { AsyncCallback<int> } callback - 回调函数，number 代表数据量，单位：KB。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -264,10 +252,10 @@ declare namespace sharing {
   function getStatsTxBytes(callback: AsyncCallback<int>): void;
 
   /**
-   * Obtains the volume of mobile data traffic sent via network sharing. This API uses a promise to return the result.
+   * 获取共享网络发送数据量，使用 Promise 异步回调。
    *
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
-   * @returns { Promise<int> } Promise used to return the data volume, in KB.
+   * @returns { Promise<int> } 以 Promise 形式返回共享网络发送数据量，单位：KB。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -281,11 +269,10 @@ declare namespace sharing {
   function getStatsTxBytes(): Promise<int>;
 
   /**
-   * Obtains the total volume of mobile data traffic sent via network sharing. This API uses an asynchronous callback to
-   * return the result.
+   * 获取共享网络总数据量，使用 callback 异步回调。
    *
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
-   * @param { AsyncCallback<int> } callback - Callback used to return the data volume, in KB.
+   * @param { AsyncCallback<int> } callback - 回调函数，number 代表数据量，单位：KB。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -299,11 +286,10 @@ declare namespace sharing {
   function getStatsTotalBytes(callback: AsyncCallback<int>): void;
 
   /**
-   * Obtains the total volume of mobile data traffic sent via network sharing. This API uses a promise to return the
-   * result.
+   * 获取共享网络总数据量，使用 Promise 异步回调。
    *
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
-   * @returns { Promise<int> } Promise used to return the data volume, in KB.
+   * @returns { Promise<int> } 以 Promise 形式返回共享网络总数据量，单位：KB。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -317,12 +303,11 @@ declare namespace sharing {
   function getStatsTotalBytes(): Promise<int>;
 
   /**
-   * Obtains the names of NICs in the specified network sharing state. This API uses an asynchronous callback to return
-   * the result.
+   * 获取指定状态的网卡名称列表，使用 callback 异步回调。
    *
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
-   * @param { SharingIfaceState } state - Network sharing state.
-   * @param { AsyncCallback<Array<string>> } callback - Callback used to return an array of NIC names.
+   * @param { SharingIfaceState } state - 网络共享状态。
+   * @param { AsyncCallback<Array<string>> } callback - 回调函数，返回指定状态的网卡名称列表。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -337,11 +322,11 @@ declare namespace sharing {
   function getSharingIfaces(state: SharingIfaceState, callback: AsyncCallback<Array<string>>): void;
 
   /**
-   * Obtains the names of NICs in the specified network sharing state. This API uses a promise to return the result.
+   * 获取指定状态的网卡名称列表，使用 Promise 异步回调。
    *
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
-   * @param { SharingIfaceState } state - Network sharing state.
-   * @returns { Promise<Array<string>> } Promise used to return an array of NIC names.
+   * @param { SharingIfaceState } state - 网络共享状态。
+   * @returns { Promise<Array<string>> } 以 Promise 形式返回指定状态网卡名称列表。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -356,13 +341,11 @@ declare namespace sharing {
   function getSharingIfaces(state: SharingIfaceState): Promise<Array<string>>;
 
   /**
-   * Obtains the network sharing state of the specified type. This API uses an asynchronous callback to return the
-   * result.
+   * 获取指定类型网络共享状态，使用 callback 异步回调。
    *
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
-   * @param { SharingIfaceType } type - Sharing type. The value **0** means Wi-Fi hotspot sharing, **1** means USB
-   *     sharing, and **2** means Bluetooth sharing.
-   * @param { AsyncCallback<SharingIfaceState> } callback - Callback used to return the network sharing state.
+   * @param { SharingIfaceType } type - 共享类型，0：Wi-Fi 1：USB 2：BLUETOOTH。
+   * @param { AsyncCallback<SharingIfaceState> } callback - 回调函数，返回指定类型网络共享状态。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -377,12 +360,11 @@ declare namespace sharing {
   function getSharingState(type: SharingIfaceType, callback: AsyncCallback<SharingIfaceState>): void;
 
   /**
-   * Obtains the network sharing state of the specified type. This API uses a promise to return the result.
+   * 获取指定类型网络共享状态，使用 Promise 异步回调。
    *
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
-   * @param { SharingIfaceType } type - Sharing type. The value **0** means Wi-Fi hotspot sharing, **1** means USB
-   *     sharing, and **2** means Bluetooth sharing.
-   * @returns { Promise<SharingIfaceState> } Promise used to return the network sharing state.
+   * @param { SharingIfaceType } type - 共享类型，0：Wi-Fi 1：USB 2：BLUETOOTH。
+   * @returns { Promise<SharingIfaceState> } 以 Promise 形式返回定类型网络共共享状态。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -397,13 +379,11 @@ declare namespace sharing {
   function getSharingState(type: SharingIfaceType): Promise<SharingIfaceState>;
 
   /**
-   * Obtains regular expressions of NICs of a specified type. This API uses an asynchronous callback to return the
-   * result.
+   * 获取指定类型网卡名称正则表达式列表，使用 callback 异步回调。
    *
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
-   * @param { SharingIfaceType } type - Sharing type. The value **0** means Wi-Fi hotspot sharing, **1** means USB
-   *     sharing, and **2** means Bluetooth sharing.
-   * @param { AsyncCallback<Array<string>> } callback - Callback used to return an array of regular expressions.
+   * @param { SharingIfaceType } type - 共享类型，0：Wi-Fi 1：USB 2：BLUETOOTH。
+   * @param { AsyncCallback<Array<string>> } callback - 回调函数，返回指定类型网卡名称正则表达式列表。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -418,12 +398,11 @@ declare namespace sharing {
   function getSharableRegexes(type: SharingIfaceType, callback: AsyncCallback<Array<string>>): void;
 
   /**
-   * Obtains regular expressions of NICs of a specified type. This API uses a promise to return the result.
+   * 获取指定类型网卡名称正则表达式列表，使用 Promise 异步回调。
    *
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
-   * @param { SharingIfaceType } type - Sharing type. The value **0** means Wi-Fi hotspot sharing, **1** means USB
-   *     sharing, and **2** means Bluetooth sharing.
-   * @returns { Promise<Array<string>> } Promise used to return an array of regular expressions.
+   * @param { SharingIfaceType } type - 共享类型，0：Wi-Fi 1：USB 2：BLUETOOTH。
+   * @returns { Promise<Array<string>> } 以 Promise 形式返回正则表达式列表。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -438,12 +417,11 @@ declare namespace sharing {
   function getSharableRegexes(type: SharingIfaceType): Promise<Array<string>>;
 
   /**
-   * Registers the network sharing status change event. This API uses an asynchronous callback to return the result.
+   * 注册网络共享状态变化事件，使用 callback 异步回调。
    *
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
-   * @param { 'sharingStateChange' } type - Event type.<br/> The value **sharingStateChange** indicates a network
-   *     sharing status change event.
-   * @param { Callback<boolean> } callback - Callback invoked when the network sharing state changes.
+   * @param { 'sharingStateChange' } type - 订阅的事件类型。'sharingStateChange'：注册网络共享状态变化事件。
+   * @param { Callback<boolean> } callback - 回调函数，返回网络共享状态。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -454,7 +432,7 @@ declare namespace sharing {
   function on(type: 'sharingStateChange', callback: Callback<boolean>): void;
 
   /**
-   * Register a callback for the global network sharing state change.
+   * 注册网络共享状态变化事件，使用 callback 异步回调。
    *
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
    * @param { Callback<boolean> } callback - the callback function that returns the status.
@@ -467,13 +445,11 @@ declare namespace sharing {
   function onSharingStateChange(callback: Callback<boolean>): void;
 
   /**
-   * Unregisters the network sharing status change event. This method uses an asynchronous callback to return the
-   * result.
+   * 注销网络共享状态变化事件，使用 callback 异步回调。
    *
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
-   * @param { 'sharingStateChange' } type - Event type. The value **sharingStateChange** indicates a network sharing
-   *     status change event.
-   * @param { Callback<boolean> } callback - Callback invoked when the network sharing state changes.
+   * @param { 'sharingStateChange' } type - 注销的事件类型。'sharingStateChange'：注销网络共享状态变化事件。
+   * @param { Callback<boolean> } callback - 回调函数，返回网络共享状态。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -484,7 +460,7 @@ declare namespace sharing {
   function off(type: 'sharingStateChange', callback?: Callback<boolean>): void;
 
   /**
-   * Unregister a callback for the global network sharing state change.
+   * 取消注册网络共享状态变化事件，使用 callback 异步回调。
    *
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
    * @param { Callback<boolean> } [callback] - the callback function that returns the status.
@@ -497,16 +473,13 @@ declare namespace sharing {
   function offSharingStateChange(callback?: Callback<boolean>): void;
 
   /**
-   * Subscribes to network sharing state changes of a specified NIC. This API uses an asynchronous callback to return
-   * the result.
+   * 注册网卡网络共享状态变化事件，使用 callback 异步回调。
    *
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
-   * @param { 'interfaceSharingStateChange' } type - Event type.<br/> The value **interfaceSharingStateChange**
-   *     indicates a network sharing status change event of the NIC.
+   * @param { 'interfaceSharingStateChange' } type - 订阅的事件类型。'interfaceSharingStateChange'：注册网卡网络共享状态变化事件。
    * @param { Callback<{ type: SharingIfaceType, iface: string, state: SharingIfaceState }> } callback - Callback used
    *     to return the result. It is called when the network sharing state of a specified NIC changes. [since 9 - 10]
-   * @param { Callback<InterfaceSharingStateInfo> } callback - Callback used to return the result. It is called when the
-   *     network sharing state of a specified NIC changes. [since 11]
+   * @param { Callback<InterfaceSharingStateInfo> } callback - 回调函数。指定网卡共享状态变化时调用。 [since 11]
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -517,7 +490,7 @@ declare namespace sharing {
   function on(type: 'interfaceSharingStateChange', callback: Callback<InterfaceSharingStateInfo>): void;
 
   /**
-   * Register a callback for the interface network sharing state change.
+   * 注册网卡网络共享状态变化事件，使用 callback 异步回调。
    *
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
    * @param { Callback<InterfaceSharingStateInfo> } callback - the callback function that returns the message.
@@ -526,20 +499,17 @@ declare namespace sharing {
    * @syscap SystemCapability.Communication.NetManager.NetSharing
    * @systemapi Hide this for inner system use.
    * @since 26.1.0 static
-   * @since 9 dynamic
    */
   function onInterfaceSharingStateChange(callback: Callback<InterfaceSharingStateInfo>): void;
 
   /**
-   * Unsubscribes from network sharing state changes of a specified NIC. This API uses an asynchronous callback to
-   * return the result.
+   * 注销网卡网络共享状态变化事件，使用 callback 异步回调。
    *
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
-   * @param { 'interfaceSharingStateChange' } type - Event type. The value **interfaceSharingStateChange** indicates a
-   *     network sharing status change event of the NIC.
+   * @param { 'interfaceSharingStateChange' } type - 注销的事件类型。'interfaceSharingStateChange'：注销网卡网络共享状态变化事件。
    * @param { Callback<{ type: SharingIfaceType, iface: string, state: SharingIfaceState }> } callback - Callback used
    *     to return the result. [since 9 - 10]
-   * @param { Callback<InterfaceSharingStateInfo> } callback - Callback used to return the result. [since 11]
+   * @param { Callback<InterfaceSharingStateInfo> } callback - 回调函数，注销指定网卡共享状态变化通知。 [since 11]
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -550,7 +520,7 @@ declare namespace sharing {
   function off(type: 'interfaceSharingStateChange', callback?: Callback<InterfaceSharingStateInfo>): void;
 
   /**
-   * Unregister a callback for the interface network sharing state change.
+   * 取消注册网卡网络共享状态变化事件，使用 callback 异步回调。
    *
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
    * @param { Callback<InterfaceSharingStateInfo> } [callback] - the callback function that returns the message.
@@ -563,12 +533,11 @@ declare namespace sharing {
   function offInterfaceSharingStateChange(callback?: Callback<InterfaceSharingStateInfo>): void;
 
   /**
-   * Subscribes to upstream network changes. This API uses an asynchronous callback to return the result.
+   * 注册上行网络变化事件，使用 callback 异步回调。
    *
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
-   * @param { 'sharingUpstreamChange' } type - Event type.<br/> The value **sharingUpstreamChange** indicates an
-   *     upstream network change event.
-   * @param { Callback<NetHandle> } callback - Callback invoked when the upstream network changes.
+   * @param { 'sharingUpstreamChange' } type - 订阅的事件类型。'sharingUpstreamChange'：注册上行网络变化事件。
+   * @param { Callback<NetHandle> } callback - 回调函数，上行网络变化时调用。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -579,7 +548,7 @@ declare namespace sharing {
   function on(type: 'sharingUpstreamChange', callback: Callback<NetHandle>): void;
 
   /**
-   * Register a callback for the sharing upstream network change.
+   * 注册上行网络变化事件，使用 callback 异步回调。
    *
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
    * @param { Callback<NetHandle> } callback - the callback function that returns the network handle.
@@ -592,12 +561,11 @@ declare namespace sharing {
   function onSharingUpstreamChange(callback: Callback<NetHandle>): void;
 
   /**
-   * Unsubscribes from upstream network changes. This API uses an asynchronous callback to return the result.
+   * 注销上行网络变化事件，使用 callback 异步回调。
    *
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
-   * @param { 'sharingUpstreamChange' } type - Event type. The value **sharingUpstreamChange** indicates an upstream
-   *     network change event.
-   * @param { Callback<NetHandle> } callback - Callback used for unsubscription from upstream network changes.
+   * @param { 'sharingUpstreamChange' } type - 注销的事件类型。'sharingUpstreamChange'：注销上行网络变化事件。
+   * @param { Callback<NetHandle> } callback - 回调函数，注销上行网络变化事件。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -608,7 +576,7 @@ declare namespace sharing {
   function off(type: 'sharingUpstreamChange', callback?: Callback<NetHandle>): void;
 
   /**
-   * Unregister a callback for the sharing upstream network change.
+   * 取消注册上行网络变化事件，使用 callback 异步回调。
    *
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
    * @param { Callback<NetHandle> } [callback] - the callback function that returns the network handle.
@@ -621,7 +589,7 @@ declare namespace sharing {
   function offSharingUpstreamChange(callback?: Callback<NetHandle>): void;
 
   /**
-   * Enumerates the network sharing states of an NIC.
+   * 网络共享状态。
    *
    * @syscap SystemCapability.Communication.NetManager.NetSharing
    * @systemapi Hide this for inner system use.
@@ -630,7 +598,7 @@ declare namespace sharing {
    */
   export enum SharingIfaceState {
     /**
-     * Network sharing is in progress.
+     * 正在网络共享。
      *
      * @syscap SystemCapability.Communication.NetManager.NetSharing
      * @systemapi Hide this for inner system use.
@@ -640,7 +608,7 @@ declare namespace sharing {
     SHARING_NIC_SERVING = 1,
 
     /**
-     * Network sharing is supported.
+     * 可提供网络共享。
      *
      * @syscap SystemCapability.Communication.NetManager.NetSharing
      * @systemapi Hide this for inner system use.
@@ -650,7 +618,7 @@ declare namespace sharing {
     SHARING_NIC_CAN_SERVER = 2,
 
     /**
-     * An error occurred during network sharing.
+     * 网络共享错误。
      *
      * @syscap SystemCapability.Communication.NetManager.NetSharing
      * @systemapi Hide this for inner system use.
@@ -661,7 +629,7 @@ declare namespace sharing {
   }
 
   /**
-   * Wakes up the listener for network sharing state changes of an NIC.
+   * 唤醒在网络共享模式下的变化时的监听器。
    *
    * @syscap SystemCapability.Communication.NetManager.NetSharing
    * @systemapi Hide this for inner system use.
@@ -670,7 +638,7 @@ declare namespace sharing {
    */
   export interface InterfaceSharingStateInfo {
     /**
-     * Enumerates the network sharing types of an NIC.
+     * 网络共享类型。
      *
      * @syscap SystemCapability.Communication.NetManager.NetSharing
      * @systemapi Hide this for inner system use.
@@ -679,7 +647,7 @@ declare namespace sharing {
      */
     type: SharingIfaceType;
     /**
-     * NIC name.
+     * 指定的共享网络名称。
      *
      * @syscap SystemCapability.Communication.NetManager.NetSharing
      * @systemapi Hide this for inner system use.
@@ -688,7 +656,7 @@ declare namespace sharing {
      */
     iface: string;
     /**
-     * Network sharing state of the NIC.
+     * 网卡共享状态。
      *
      * @syscap SystemCapability.Communication.NetManager.NetSharing
      * @systemapi Hide this for inner system use.
@@ -699,7 +667,7 @@ declare namespace sharing {
   }
 
   /**
-   * Enumerates the network sharing types of an NIC.
+   * 网络共享类型。
    *
    * @syscap SystemCapability.Communication.NetManager.NetSharing
    * @systemapi Hide this for inner system use.
@@ -708,7 +676,7 @@ declare namespace sharing {
    */
   export enum SharingIfaceType {
     /**
-     * Wi-Fi hotspot sharing.
+     * 网络共享类型 Wi-Fi。
      *
      * @syscap SystemCapability.Communication.NetManager.NetSharing
      * @systemapi Hide this for inner system use.
@@ -718,7 +686,7 @@ declare namespace sharing {
     SHARING_WIFI = 0,
 
     /**
-     * USB sharing.
+     * 网络共享类型 USB。
      *
      * @syscap SystemCapability.Communication.NetManager.NetSharing
      * @systemapi Hide this for inner system use.
@@ -728,7 +696,7 @@ declare namespace sharing {
     SHARING_USB = 1,
 
     /**
-     * Bluetooth sharing.
+     * 网络共享类型蓝牙。
      *
      * @syscap SystemCapability.Communication.NetManager.NetSharing
      * @systemapi Hide this for inner system use.

@@ -14,7 +14,7 @@
  */
 
 /**
- * @file Socket Connection
+ * @file Socket连接
  * @kit NetworkKit
  */
 
@@ -23,12 +23,11 @@ import connection from "./@ohos.net.connection";
 import type cert from './@ohos.security.cert';
 
 /**
- * The **socket** module implements data transfer over TCP, UDP, Web, and TLS socket connections.
+ * 本模块提供利用Socket进行数据传输的能力，支持TCPSocket、UDPSocket、WebSocket和TLSSocket。
  *
- * > **NOTE**
+ * > **说明：**
  * >
- * > You are advised to call the APIs of this module in the worker thread or taskpool to perform network-related
- * > operations. Otherwise, the UI thread may be suspended.
+ * > 本模块API使用时建议放在worker线程或者taskpool中做网络操作，否则可能会导致UI线程卡顿。
  *
  * @syscap SystemCapability.Communication.NetStack
  * @crossplatform [since 10]
@@ -40,7 +39,7 @@ declare namespace socket {
  */
 declare namespace socket {
   /**
-   * Define a network address.
+   * 定义网络地址。
    * @syscap SystemCapability.Communication.NetStack
    * @stagemodelonly
    * @crossplatform [since 24]
@@ -49,7 +48,7 @@ declare namespace socket {
   export import NetAddress = connection.NetAddress;
 
   /**
-   * Defines the certificate raw data.
+   * 存储证书的数据。
    *
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform [since 10]
@@ -59,9 +58,9 @@ declare namespace socket {
   export type X509CertRawData = cert.EncodingBlob;
 
   /**
-   * Creates a **UDPSocket** object.
+   * 创建一个UDPSocket对象。
    *
-   * @returns { UDPSocket } **UDPSocket** object.
+   * @returns { UDPSocket } 返回一个UDPSocket对象。
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform [since 10]
    * @since 7 dynamic
@@ -70,9 +69,9 @@ declare namespace socket {
   function constructUDPSocketInstance(): UDPSocket;
 
   /**
-   * Creates a **MulticastSocket** object.
+   * 创建一个MulticastSocket对象。
    *
-   * @returns { MulticastSocket } **MulticastSocket** object.
+   * @returns { MulticastSocket } 返回一个MulticastSocket对象。
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform [since 12]
    * @since 11 dynamic
@@ -81,9 +80,9 @@ declare namespace socket {
   function constructMulticastSocketInstance(): MulticastSocket;
 
   /**
-   * Creates a **TCPSocket** object.
+   * 创建一个TCPSocket对象。
    *
-   * @returns { TCPSocket } **TCPSocket** object.
+   * @returns { TCPSocket } 返回一个TCPSocket对象。
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform [since 10]
    * @since 7 dynamic
@@ -92,9 +91,9 @@ declare namespace socket {
   function constructTCPSocketInstance(): TCPSocket;
 
   /**
-   * Creates a **TLSSocket** object.
+   * 创建并返回一个TLSSocket对象。
    *
-   * @returns { TLSSocket } **TLSSocket** object.
+   * @returns { TLSSocket } 返回一个TLSSocket对象。
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform [since 10]
    * @since 9 dynamic
@@ -103,16 +102,14 @@ declare namespace socket {
   function constructTLSSocketInstance(): TLSSocket;
 
   /**
-   * Upgrades a **TCPSocket** connection to a **TLSSocket** connection.
+   * 将TCPSocket升级为TLSSocket，创建并返回一个TLSSocket对象。
    *
-   * > **NOTE**
+   * > **说明：**
    * >
-   * > Before calling **constructTLSSocketInstance**, ensure that a **TCPSocket** connection has been established and no
-   * > data is transmitted. After a successful upgrade, you do not need to call the **close** API for the **TCPSocket**
-   * > object.
+   * > 需要确保TCPSocket已连接，并且当前已经没有传输数据，再调用constructTLSSocketInstance升级TLSSocket。当升级成功后，无需对TCPSocket对象调用close方法。
    *
-   * @param { TCPSocket } tcpSocket - **TCPSocket** connection to be upgraded.
-   * @returns { TLSSocket } **TLSSocket** object.
+   * @param { TCPSocket } tcpSocket - 需要进行升级的TCPSocket对象。
+   * @returns { TLSSocket } 返回一个TLSSocket对象。
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2300002 - System internal error.
    * @throws { BusinessError } 2303601 - Invalid socket FD.
@@ -125,9 +122,9 @@ declare namespace socket {
   function constructTLSSocketInstance(tcpSocket: TCPSocket): TLSSocket;
 
   /**
-   * Creates a **TCPSocketServer** object.
+   * 创建一个TCPSocketServer对象。
    *
-   * @returns { TCPSocketServer } **TCPSocketServer** object.
+   * @returns { TCPSocketServer } 返回一个TCPSocketServer对象。
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform [since 24]
    * @since 10 dynamic
@@ -136,9 +133,9 @@ declare namespace socket {
   function constructTCPSocketServerInstance(): TCPSocketServer;
 
   /**
-   * Creates a **TLSSocketServer** object.
+   * 创建并返回一个TLSSocketServer对象。
    *
-   * @returns { TLSSocketServer } **TLSSocketServer** object.
+   * @returns { TLSSocketServer } 返回一个TLSSocketServer对象。
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform [since 24]
    * @since 10 dynamic
@@ -147,9 +144,9 @@ declare namespace socket {
   function constructTLSSocketServerInstance(): TLSSocketServer;
 
   /**
-   * Creates a **LocalSocket** object.
+   * 创建一个LocalSocket对象。
    *
-   * @returns { LocalSocket } **LocalSocket** object.
+   * @returns { LocalSocket } 返回一个LocalSocket对象。
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform [since 12]
    * @since 11 dynamic
@@ -158,9 +155,9 @@ declare namespace socket {
   function constructLocalSocketInstance(): LocalSocket;
 
   /**
-   * Creates a **LocalSocketServer** object.
+   * 创建一个LocalSocketServer对象。
    *
-   * @returns { LocalSocketServer } **LocalSocketServer** object.
+   * @returns { LocalSocketServer } 返回一个LocalSocketServer对象。
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform [since 12]
    * @since 11 dynamic
@@ -169,7 +166,7 @@ declare namespace socket {
   function constructLocalSocketServerInstance(): LocalSocketServer;
 
   /**
-   * Defines the parameters for sending data over a UDP socket connection.
+   * UDPSocket发送参数。
    *
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform [since 10]
@@ -178,7 +175,7 @@ declare namespace socket {
    */
   export interface UDPSendOptions {
     /**
-     * Data to send.
+     * 发送的数据。
      *
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
@@ -188,7 +185,7 @@ declare namespace socket {
     data: string | ArrayBuffer;
 
     /**
-     * Destination address.
+     * 目标地址信息。
      *
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
@@ -198,7 +195,7 @@ declare namespace socket {
     address: NetAddress;
 
     /**
-     * Proxy option. By default, no proxy is used.
+     * 使用的代理信息，默认不使用代理。
      *
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
@@ -209,7 +206,7 @@ declare namespace socket {
   }
 
   /**
-   * Enumerates socket proxy types.
+   * Socket代理类型。
    *
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform
@@ -218,7 +215,7 @@ declare namespace socket {
    */
   export enum ProxyTypes {
     /**
-     * No proxy.
+     * 不使用代理。
      *
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
@@ -228,7 +225,7 @@ declare namespace socket {
     NONE = 0,
 
     /**
-     * SOCKS5 proxy.
+     * 使用Socks5代理。
      *
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
@@ -239,7 +236,7 @@ declare namespace socket {
   }
 
   /**
-   * Defines the socket proxy information.
+   * Socket代理信息。
    *
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform
@@ -248,7 +245,7 @@ declare namespace socket {
    */
   export interface ProxyOptions {
     /**
-     * Proxy type.
+     * 代理类型。
      *
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
@@ -258,7 +255,7 @@ declare namespace socket {
     type: ProxyTypes;
 
     /**
-     * Proxy address.
+     * 代理地址信息。
      *
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
@@ -268,7 +265,7 @@ declare namespace socket {
     address: NetAddress;
 
     /**
-     * User name. This field must be specified if the user password authentication mode is used.
+     * 指定用户名，如果使用用户密码验证方式。
      *
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
@@ -278,7 +275,7 @@ declare namespace socket {
     username?: string;
 
     /**
-     * Password. This field must be specified if the user password authentication mode is used.
+     * 指定密码，如果使用用户密码验证方式。
      *
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
@@ -289,7 +286,7 @@ declare namespace socket {
   }
 
   /**
-   * Defines base properties of the **LocalSocket** object.
+   * Socket套接字的基础属性。
    *
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform [since 10]
@@ -298,8 +295,7 @@ declare namespace socket {
    */
   export interface ExtraOptionsBase {
     /**
-     * Size of the RX buffer, in bytes. The value ranges from 0 to 262144. If this parameter is left unspecified or the
-     * unspecified value exceeds the value range, the default value **8192** is used.
+     * 接收缓冲区大小（单位：Byte），取值范围0~262144，不设置或设置的值超过取值范围则会默认为8192。
      *
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
@@ -309,8 +305,7 @@ declare namespace socket {
     receiveBufferSize?: int;
 
     /**
-     * Size of the TX buffer, in bytes. The value ranges from 0 to 262144. If this parameter is left unspecified or the
-     * unspecified value exceeds the value range, the default value **8192** is used.
+     * 发送缓冲区大小（单位：Byte），取值范围0~262144，不设置或设置的值超过取值范围则会默认为8192。
      *
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
@@ -320,8 +315,7 @@ declare namespace socket {
     sendBufferSize?: int;
 
     /**
-     * Whether to reuse addresses. The value **true** means to reuse addresses, and the value **false** means the
-     * opposite.
+     * 是否重用地址。true：重用地址；false：不重用地址。默认值为false。
      *
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
@@ -331,7 +325,7 @@ declare namespace socket {
     reuseAddress?: boolean;
 
     /**
-     * Timeout duration of the local socket connection, in ms.
+     * 套接字超时时间，单位毫秒（ms）。默认值为0，表示不设置超时时间。
      *
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
@@ -342,8 +336,7 @@ declare namespace socket {
   }
 
   /**
-   * Defines other properties of the **UDPSocket** object. This object is inherited from
-   * [ExtraOptionsBase]{@link socket.ExtraOptionsBase}.
+   * UDPSocket连接的其他属性。继承自[ExtraOptionsBase]{@link socket.ExtraOptionsBase}。
    *
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform [since 10]
@@ -352,8 +345,7 @@ declare namespace socket {
    */
   export interface UDPExtraOptions extends ExtraOptionsBase {
     /**
-     * Whether to send broadcast messages. The value **true** indicates that broadcast messages can be sent, and the
-     * value **false** indicates the opposite. The default value is **false**.
+     * 是否可以发送广播。true表示可发送广播，false表示不可发送广播。默认为false。
      *
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
@@ -364,7 +356,7 @@ declare namespace socket {
   }
 
   /**
-   * Defines the status of the socket connection.
+   * Socket的状态信息。
    *
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform [since 10]
@@ -373,8 +365,7 @@ declare namespace socket {
    */
   export interface SocketStateBase {
     /**
-     * Whether the connection is in the bound state. The value **true** indicates that the connection is in the bound
-     * state, and the value **false** indicates the opposite.
+     * 是否绑定。true：绑定；false：不绑定。
      *
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
@@ -384,8 +375,7 @@ declare namespace socket {
     isBound: boolean;
 
     /**
-     * Whether the connection is in the closed state. The value **true** indicates that the connection is in the closed
-     * state, and the value **false** indicates the opposite.
+     * 是否关闭。true：关闭；false：打开。
      *
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
@@ -395,8 +385,7 @@ declare namespace socket {
     isClose: boolean;
 
     /**
-     * Whether the connection is in the connected state. The value **true** indicates that the connection is in the
-     * connected state, and the value **false** indicates the opposite.
+     * 是否连接。true：连接；false：断开。
      *
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
@@ -407,7 +396,7 @@ declare namespace socket {
   }
 
   /**
-   * Defines information about the socket connection.
+   * Socket的连接信息。
    *
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform [since 10]
@@ -416,7 +405,7 @@ declare namespace socket {
    */
   export interface SocketRemoteInfo {
     /**
-     * Peer IP address.
+     * 对端的IP地址。
      *
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
@@ -426,12 +415,12 @@ declare namespace socket {
     address: string;
 
     /**
-     * Network protocol type.
+     * 网络协议类型，可选类型：
      *
      * - IPv4
      * - IPv6
      *
-     * The default value is **IPv4**.
+     * 默认为IPv4。
      *
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
@@ -441,7 +430,7 @@ declare namespace socket {
     family: 'IPv4' | 'IPv6';
 
     /**
-     * Port number. The value ranges from **0** to **65535**.
+     * 端口号，范围0~65535。
      *
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
@@ -451,7 +440,7 @@ declare namespace socket {
     port: int;
 
     /**
-     * Length of the server response message, in bytes.
+     * 服务器响应信息的字节长度。
      *
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
@@ -462,7 +451,7 @@ declare namespace socket {
   }
 
   /**
-   * Defines the data received by the client over a local socket connection.
+   * LocalSocket客户端与服务端通信时接收的数据。
    *
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform [since 12]
@@ -471,7 +460,7 @@ declare namespace socket {
    */
   export interface LocalSocketMessageInfo {
     /**
-     * Data received.
+     * 收到的消息数据。
      *
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 12]
@@ -481,7 +470,7 @@ declare namespace socket {
     message: ArrayBuffer;
 
     /**
-     * Local socket connection address.
+     * 使用的本地套接字路径。
      *
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 12]
@@ -491,7 +480,7 @@ declare namespace socket {
     address: string;
 
     /**
-     * Data length.
+     * 数据长度。
      *
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 12]
@@ -502,8 +491,7 @@ declare namespace socket {
   }
 
   /**
-   * Defines the address of a local socket file. When the address is passed for binding, a socket file is created at
-   * this address.
+   * LocalSocket本地套接字文件路径信息，在传入套接字路径进行绑定时，会在此路径下创建套接字文件。
    *
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform [since 12]
@@ -512,7 +500,7 @@ declare namespace socket {
    */
   export interface LocalAddress {
     /**
-     * Address of the local socket file.
+     * 本地套接字路径。
      *
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 12]
@@ -523,7 +511,7 @@ declare namespace socket {
   }
 
   /**
-   * Defines local socket connection parameters.
+   * LocalSocket客户端在连接服务端时传入的参数信息。
    *
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform [since 12]
@@ -532,7 +520,7 @@ declare namespace socket {
    */
   export interface LocalConnectOptions {
     /**
-     * Address of the local socket file.
+     * 本地套接字路径。
      *
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 12]
@@ -542,8 +530,7 @@ declare namespace socket {
     address: LocalAddress;
 
     /**
-     * Timeout duration of the local socket connection, in ms. **Default value**: 0 You need to manually set this
-     * parameter for your application. The recommended value is **5000**.
+     * 连接服务端的超时时间，单位为毫秒。默认值为0。需要应用手动设置一下，建议设置为5000。
      *
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 12]
@@ -554,7 +541,7 @@ declare namespace socket {
   }
 
   /**
-   * Defines the request parameters for the **LocalSocket** object.
+   * LocalSocket发送请求的参数。
    *
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform [since 12]
@@ -563,7 +550,7 @@ declare namespace socket {
    */
   export interface LocalSendOptions {
     /**
-     * Data to be transmitted.
+     * 需要发送的数据。
      *
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 12]
@@ -573,7 +560,7 @@ declare namespace socket {
     data: string | ArrayBuffer;
 
     /**
-     * Encoding format of the string.
+     * 字符编码。
      *
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 12]
@@ -584,8 +571,8 @@ declare namespace socket {
   }
 
   /**
-   * Defines a UDP socket connection. Before calling UDPSocket APIs, you need to call
-   * [socket.constructUDPSocketInstance]{@link socket.constructUDPSocketInstance} to create a **UDPSocket** object.
+   * UDPSocket连接。在调用UDPSocket的方法前，需要先通过[socket.constructUDPSocketInstance]{@link socket.constructUDPSocketInstance}创建
+   * UDPSocket对象。
    *
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform [since 10]
@@ -594,14 +581,12 @@ declare namespace socket {
    */
   export interface UDPSocket {
     /**
-     * Binds the IP address and port number. The port number can be customized or randomly allocated by the system. This
-     * API uses an asynchronous callback to return the result.
+     * 绑定IP地址和端口，端口可以由用户指定或由系统随机分配。使用callback异步回调。
      *
      * @permission ohos.permission.INTERNET
-     * @param { NetAddress } address - Local address. For details, see
-     *     [NetAddress](docroot://reference/apis-network-kit/js-apis-socket.md#netaddress).
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful, no
-     *     value is returned. If the operation fails, an error message is returned.
+     * @param { NetAddress } address - 本端地址信息，参考
+     *     [NetAddress](docroot://reference/apis-network-kit/js-apis-socket.md#netaddress)。
+     * @param { AsyncCallback<void> } callback - 回调函数。成功返回空，失败返回错误码、错误信息。
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Communication.NetStack
@@ -612,13 +597,12 @@ declare namespace socket {
     bind(address: NetAddress, callback: AsyncCallback<void>): void;
 
     /**
-     * Binds the IP address and port number. The port number can be customized or randomly allocated by the system. This
-     * API uses a promise to return the result.
+     * 绑定IP地址和端口，端口可以由用户指定或由系统随机分配。使用Promise异步回调。
      *
      * @permission ohos.permission.INTERNET
-     * @param { NetAddress } address - Local address. For details, see
-     *     [NetAddress](docroot://reference/apis-network-kit/js-apis-socket.md#netaddress).
-     * @returns { Promise<void> } Promise that returns no value.
+     * @param { NetAddress } address - 本端地址信息，参考
+     *     [NetAddress](docroot://reference/apis-network-kit/js-apis-socket.md#netaddress)。
+     * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Communication.NetStack
@@ -629,13 +613,13 @@ declare namespace socket {
     bind(address: NetAddress): Promise<void>;
 
     /**
-     * Obtains the local socket address of a **UDPSocket** connection. This API uses a promise to return the result.
+     * 获取UDP连接的本地Socket地址。使用Promise异步回调。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > This API can be called only after **bind** is successfully called.
+     * > bind方法调用成功后，才可调用此方法。
      *
-     * @returns { Promise<NetAddress> } Promise used to return the result.
+     * @returns { Promise<NetAddress> } 以Promise形式返回获取本地socket地址的结果。
      * @throws { BusinessError } 2300002 - System internal error.
      * @throws { BusinessError } 2301009 - Bad file descriptor.
      * @throws { BusinessError } 2303188 - Socket operation on non-socket.
@@ -647,17 +631,14 @@ declare namespace socket {
     getLocalAddress(): Promise<NetAddress>;
 
     /**
-     * Sends data over a UDP socket connection. This API uses an asynchronous callback to return the result.
+     * 通过UDPSocket连接发送数据。使用callback异步回调。
      *
-     * Before sending data, call
-     * [UDPSocket.bind()]{@link socket.UDPSocket.bind(address: NetAddress, callback: AsyncCallback<void>)} to bind the
-     * IP address and port. Call the API in the worker thread or taskpool thread as this operation is time-consuming.
+     * 发送数据前，需要先调用[UDPSocket.bind()]{@link socket.UDPSocket.bind(address: NetAddress, callback: AsyncCallback<void>)}绑定
+     * IP地址和端口。该接口为耗时操作，请在Worker线程或taskpool线程调用该接口。
      *
      * @permission ohos.permission.INTERNET
-     * @param { UDPSendOptions } options - Parameters for sending data over a UDP socket connection. For details, see
-     *     [UDPSendOptions]{@link socket.UDPSendOptions}.
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful, no
-     *     value is returned. If the operation fails, an error message is returned.
+     * @param { UDPSendOptions } options - UDPSocket发送参数，参考[UDPSendOptions]{@link socket.UDPSendOptions}。
+     * @param { AsyncCallback<void> } callback - 回调函数。成功返回空，失败返回错误码、错误信息。
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 2301206 - Socks5 failed to connect to the proxy server. [since 18]
@@ -676,16 +657,14 @@ declare namespace socket {
     send(options: UDPSendOptions, callback: AsyncCallback<void>): void;
 
     /**
-     * Sends data over a UDP socket connection. This API uses a promise to return the result.
+     * 通过UDPSocket连接发送数据。使用Promise异步回调。
      *
-     * Before sending data, call
-     * [UDPSocket.bind()]{@link socket.UDPSocket.bind(address: NetAddress, callback: AsyncCallback<void>)} to bind the
-     * IP address and port. Call the API in the worker thread or taskpool thread as this operation is time-consuming.
+     * 发送数据前，需要先调用[UDPSocket.bind()]{@link socket.UDPSocket.bind(address: NetAddress, callback: AsyncCallback<void>)}绑定
+     * IP地址和端口。该接口为耗时操作，请在Worker线程或taskpool线程调用该接口。
      *
      * @permission ohos.permission.INTERNET
-     * @param { UDPSendOptions } options - Parameters for sending data over a UDP socket connection. For details, see
-     *     [UDPSendOptions]{@link socket.UDPSendOptions}.
-     * @returns { Promise<void> } Promise that returns no value.
+     * @param { UDPSendOptions } options - UDPSocket发送参数，参考[UDPSendOptions]{@link socket.UDPSendOptions}。
+     * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 2301206 - Socks5 failed to connect to the proxy server. [since 18]
@@ -704,10 +683,10 @@ declare namespace socket {
     send(options: UDPSendOptions): Promise<void>;
 
     /**
-     * Closes a UDP socket connection. This API uses an asynchronous callback to return the result.
+     * 关闭UDPSocket连接。使用callback异步回调。
      *
      * @permission ohos.permission.INTERNET
-     * @param { AsyncCallback<void> } callback - Callback used to return the result.
+     * @param { AsyncCallback<void> } callback - 回调函数。关闭UDPSocket连接后触发回调函数。
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
@@ -717,10 +696,10 @@ declare namespace socket {
     close(callback: AsyncCallback<void>): void;
 
     /**
-     * Closes a UDP socket connection. This API uses a promise to return the result.
+     * 关闭UDPSocket连接。使用Promise异步回调。
      *
      * @permission ohos.permission.INTERNET
-     * @returns { Promise<void> } Promise that returns no value.
+     * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
@@ -730,16 +709,14 @@ declare namespace socket {
     close(): Promise<void>;
 
     /**
-     * Obtains the status of the UDP socket connection. This API uses an asynchronous callback to return the result.
+     * 获取UDPSocket状态。使用callback异步回调。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > This API can be called only after **bind** is successfully called.
+     * > bind方法调用成功后，才可调用此方法。
      *
      * @permission ohos.permission.INTERNET
-     * @param { AsyncCallback<SocketStateBase> } callback - Callback used to return the result. If the operation is
-     *     successful, the status of the UDP socket connection is returned. If the operation fails, an error message is
-     *     returned.
+     * @param { AsyncCallback<SocketStateBase> } callback - 回调函数。成功返回UDPSocket状态信息，失败返回错误码、错误信息。
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
@@ -749,14 +726,14 @@ declare namespace socket {
     getState(callback: AsyncCallback<SocketStateBase>): void;
 
     /**
-     * Obtains the status of the UDP socket connection. This API uses a promise to return the result.
+     * 获取UDPSocket状态。使用Promise异步回调。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > This API can be called only after **bind** is successfully called.
+     * > bind方法调用成功后，才可调用此方法。
      *
      * @permission ohos.permission.INTERNET
-     * @returns { Promise<SocketStateBase> } Promise used to return the result.
+     * @returns { Promise<SocketStateBase> } 以Promise形式返回获取UDPSocket状态的结果。
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
@@ -766,15 +743,14 @@ declare namespace socket {
     getState(): Promise<SocketStateBase>;
 
     /**
-     * Sets other properties of the **UDPSocket** object. This API uses an asynchronous callback to return the result.
+     * 设置UDPSocket连接的其他属性。使用callback异步回调。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > This API can be called only after **bind** is successfully called.
+     * > bind方法调用成功后，才可调用此方法。
      *
      * @permission ohos.permission.INTERNET
-     * @param { UDPExtraOptions } options - Other properties of the **UDPSocket** object. For details, see
-     *     [UDPExtraOptions]{@link socket.UDPExtraOptions}.
+     * @param { UDPExtraOptions } options - UDPSocket连接的其他属性，参考[UDPExtraOptions]{@link socket.UDPExtraOptions}。
      * @param { AsyncCallback<void> }callback - Callback used to return the result. If the operation is successful, no
      *     value is returned. If the operation fails, an error message is returned.
      * @throws { BusinessError } 401 - Parameter error.
@@ -787,16 +763,15 @@ declare namespace socket {
     setExtraOptions(options: UDPExtraOptions, callback: AsyncCallback<void>): void;
 
     /**
-     * Sets other properties of the **UDPSocket** object. This API uses a promise to return the result.
+     * 设置UDPSocket连接的其他属性。使用Promise异步回调。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > This API can be called only after **bind** is successfully called.
+     * > bind方法调用成功后，才可调用此方法。
      *
      * @permission ohos.permission.INTERNET
-     * @param { UDPExtraOptions } options - Other properties of the **UDPSocket** object. For details, see
-     *     [UDPExtraOptions]{@link socket.UDPExtraOptions}.
-     * @returns { Promise<void> } Promise that returns no value.
+     * @param { UDPExtraOptions } options - UDPSocket连接的其他属性，参考[UDPExtraOptions]{@link socket.UDPExtraOptions}。
+     * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Communication.NetStack
@@ -807,13 +782,12 @@ declare namespace socket {
     setExtraOptions(options: UDPExtraOptions): Promise<void>;
 
     /**
-     * Subscribes to **message** events of the **UDPSocket** object. This API uses an asynchronous callback to return
-     * the result.
+     * 订阅UDPSocket连接的接收消息事件。使用callback异步回调。
      *
-     * @param { 'message' } type - Event type.<br/> **message**: message receiving event.
+     * @param { 'message' } type - 订阅的事件类型。'message'：接收消息事件。
      * @param { Callback<{ message: ArrayBuffer, remoteInfo: SocketRemoteInfo }> } callback - Callback used to return
      *     the result. [since 7 - 10]
-     * @param { Callback<SocketMessageInfo> } callback - Callback used to return the result. [since 11]
+     * @param { Callback<SocketMessageInfo> } callback - 回调函数。返回订阅某类事件后UDPSocket连接成功的状态信息。 [since 11]
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
      * @since 7 dynamic
@@ -821,7 +795,7 @@ declare namespace socket {
     on(type: 'message', callback: Callback<SocketMessageInfo>): void;
 
     /**
-     * Listens for message receiving events of the UDPSocket connection.
+     * 订阅 UDPSocket connection.
      *
      * @param { Callback<SocketMessageInfo> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
@@ -831,16 +805,13 @@ declare namespace socket {
     onUdpMessage(callback: Callback<SocketMessageInfo>): void;
 
     /**
-     * Unsubscribes from **message** events of the **UDPSocket** object. This API uses an asynchronous callback to
-     * return the result.
+     * 取消订阅UDPSocket连接的接收消息事件。使用callback异步回调。
      *
-     * @param { 'message' } type - Event type.<br/> **message**: message receiving event.
+     * @param { 'message' } type - 取消订阅的事件类型。'message'：接收消息事件。
      * @param { Callback<{ message: ArrayBuffer, remoteInfo: SocketRemoteInfo }> } callback - Callback used to return
      *     the result. You can pass the callback of the **on** function if you want to cancel listening for a certain
      *     type of events. If you do not pass the callback, you will cancel listening for all events. [since 7 - 10]
-     * @param { Callback<SocketMessageInfo> } callback - Callback used to return the result. You can pass the callback
-     *     of the **on** function if you want to cancel listening for a certain type of events. If you do not pass the
-     *     callback, you will cancel listening for all events. [since 11]
+     * @param { Callback<SocketMessageInfo> } callback - 回调函数。可以指定传入on中的callback取消对应的订阅，也可以不指定callback清空所有订阅。 [since 11]
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
      * @since 7 dynamic
@@ -848,7 +819,7 @@ declare namespace socket {
     off(type: 'message', callback?: Callback<SocketMessageInfo>): void;
 
     /**
-     * Cancels listening for message receiving events of the UDPSocket connection.
+     * 取消订阅 UDPSocket connection.
      *
      * @param { Callback<SocketMessageInfo> } [callback] - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
@@ -858,13 +829,10 @@ declare namespace socket {
     offUdpMessage(callback?: Callback<SocketMessageInfo>): void;
 
     /**
-     * Subscribes to **listening** events or **close** events of the **UDPSocket** object. This API uses an asynchronous
-     * callback to return the result.
+     * 订阅UDPSocket连接的数据包消息事件或关闭事件。使用callback异步回调。
      *
-     * @param { 'listening' | 'close' } type - Event type.<br/>
-     *     <br>- **listening**: data packet message event.
-     *     <br>- **close**: close event.
-     * @param { Callback<void> } callback - Callback used to return the result.
+     * @param { 'listening' | 'close' } type - 订阅的事件类型。<br />- 'listening'：数据包消息事件。<br />- 'close'：关闭事件。
+     * @param { Callback<void> } callback - 回调函数。UDPSocket连接的某类数据包消息事件或关闭事件发生变化后触发回调函数。
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
      * @since 7 dynamic
@@ -872,7 +840,7 @@ declare namespace socket {
     on(type: 'listening' | 'close', callback: Callback<void>): void;
 
     /**
-     * Listens for data packet message events or close events of the UDPSocket connection.
+     * 订阅 UDPSocket connection.
      *
      * @param { Callback<void> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
@@ -882,7 +850,7 @@ declare namespace socket {
     onListening(callback: Callback<void>): void;
 
     /**
-     * Listens for data packet message events or close events of the UDPSocket connection.
+     * 订阅 UDPSocket connection.
      *
      * @param { Callback<void> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
@@ -892,15 +860,10 @@ declare namespace socket {
     onClose(callback: Callback<void>): void;
 
     /**
-     * Unsubscribes from **listening** events or **close** events of the **UDPSocket** object. This API uses an
-     * asynchronous callback to return the result.
+     * 取消订阅UDPSocket连接的数据包消息事件或关闭事件。使用callback异步回调。
      *
-     * @param { 'listening' | 'close' } type - Event type.
-     *     <br>- **listening**: data packet message event.
-     *     <br>- **close**: close event.
-     * @param { Callback<void> } callback - Callback used to return the result. You can pass the callback of the **on**
-     *     function if you want to cancel listening for a certain type of events. If you do not pass the callback, you
-     *     will cancel listening for all events.
+     * @param { 'listening' | 'close' } type - 取消订阅事件类型。<br />- 'listening'：数据包消息事件。<br />- 'close'：关闭事件。
+     * @param { Callback<void> } callback - 回调函数。可以指定传入on中的callback取消对应的订阅，也可以不指定callback清空所有订阅。
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
      * @since 7 dynamic
@@ -908,7 +871,7 @@ declare namespace socket {
     off(type: 'listening' | 'close', callback?: Callback<void>): void;
 
     /**
-     * Cancels listening for data packet message events or close events of the UDPSocket connection.
+     * 取消订阅 UDPSocket connection.
      *
      * @param { Callback<void> } [callback] - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
@@ -918,7 +881,7 @@ declare namespace socket {
     offListening(callback?: Callback<void>): void;
 
     /**
-     * Cancels listening for data packet message events or close events of the UDPSocket connection.
+     * 取消订阅 UDPSocket connection.
      *
      * @param { Callback<void> } [callback] - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
@@ -928,11 +891,10 @@ declare namespace socket {
     offClose(callback?: Callback<void>): void;
 
     /**
-     * Subscribes to **error** events of the **UDPSocket** object. This API uses an asynchronous callback to return the
-     * result.
+     * 订阅UDPSocket连接的error事件。使用callback异步回调。
      *
-     * @param { 'error' } type - Event type.<br/> **error**: error event.
-     * @param { ErrorCallback } callback - Callback used to return the result.
+     * @param { 'error' } type - 订阅的事件类型。'error'：error事件。
+     * @param { ErrorCallback } callback - 回调函数。UDPSocket连接发生error事件后触发回调函数。
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
      * @since 7 dynamic
@@ -940,7 +902,7 @@ declare namespace socket {
     on(type: 'error', callback: ErrorCallback): void;
 
     /**
-     * Listens for error events of the UDPSocket connection.
+     * 订阅 UDPSocket connection.
      *
      * @param { ErrorCallback } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
@@ -950,13 +912,10 @@ declare namespace socket {
     onUdpError(callback: ErrorCallback): void;
 
     /**
-     * Unsubscribes from **error** events of the **UDPSocket** object. This API uses an asynchronous callback to return
-     * the result.
+     * 取消订阅UDPSocket连接的error事件。使用callback异步回调。
      *
-     * @param { 'error' } type - Event type.<br/> **error**: error event.
-     * @param { ErrorCallback } callback - Callback used to return the result. You can pass the callback of the **on**
-     *     function if you want to cancel listening for a certain type of events. If you do not pass the callback, you
-     *     will cancel listening for all events.
+     * @param { 'error' } type - 取消订阅的事件类型。'error'：error事件。
+     * @param { ErrorCallback } callback - 回调函数。可以指定传入on中的callback取消对应的订阅，也可以不指定callback清空所有订阅。
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
      * @since 7 dynamic
@@ -964,7 +923,7 @@ declare namespace socket {
     off(type: 'error', callback?: ErrorCallback): void;
 
     /**
-     * Cancels listening for error events of the UDPSocket connection.
+     * 取消订阅 UDPSocket connection.
      *
      * @param { ErrorCallback } [callback] - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
@@ -974,22 +933,19 @@ declare namespace socket {
     offUdpError(callback?: ErrorCallback): void;
 
     /**
-     * Obtains the UDPSocket file descriptor. This API uses a promise to return the result.
+     * 获取UDPSocket的文件描述符。使用Promise异步回调。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > - This API can be called only after
-     * > [bind]{@link socket.UDPSocket.bind(address: NetAddress, callback: AsyncCallback<void>)} is successfully called.
+     * > - [bind]{@link socket.UDPSocket.bind(address: NetAddress, callback: AsyncCallback<void>)}方法调用成功后，才可调用此方法。
      * >
-     * > - This API returns **-1** in abnormal cases such as bind exceptions or socket closed (for example, after close
-     * > is called).
+     * > - bind异常、Socket已关闭（如调用close后）等异常情况下调用本接口会返回-1。
      * >
-     * > - The lifecycle of the file descriptor is managed by the system. The application can use the
-     * > [close]{@link socket.UDPSocket.close(callback: AsyncCallback<void>)} method to close the socket connection,
-     * > instead of directly operating the file descriptor.
+     * > - 文件描述符的生命周期由系统管理，应用可以通过[close]{@link socket.UDPSocket.close(callback: AsyncCallback<void>)}方法关闭Socket连接，避免直接操作
+     * > 文件描述符进行关闭。
      *
      * @permission ohos.permission.INTERNET
-     * @returns { Promise<int> } Promise used to return the socket file descriptor.
+     * @returns { Promise<int> } Promise对象，返回Socket的文件描述符。
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 24]
@@ -1000,9 +956,8 @@ declare namespace socket {
   }
 
   /**
-   * Defines a **MulticastSocket** connection. Before calling MulticastSocket APIs, you need to call
-   * [socket.constructMulticastSocketInstance]{@link socket.constructMulticastSocketInstance} to create a
-   * **MulticastSocket** object.
+   * MulticastSocket连接。在调用MulticastSocket的方法前，需要先通过
+   * [socket.constructMulticastSocketInstance]{@link socket.constructMulticastSocketInstance}创建MulticastSocket对象。
    *
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform [since 12]
@@ -1011,20 +966,18 @@ declare namespace socket {
    */
   export interface MulticastSocket extends UDPSocket {
     /**
-     * Adds a member to a multicast group. This API uses an asynchronous callback to return the result.
+     * 加入多播组。使用callback异步回调。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > The IP addresses used for multicast belong to a specific range, for example, 224.0.0.0 to 239.255.255.255.
+     * > 多播使用的IP地址属于特定的范围（例如224.0.0.0到239.255.255.255）。
      * >
-     * > A member in a multicast group can serve as a sender or a receiver. Data is transmitted in broadcast mode,
-     * > regardless of the client or server.
+     * > 加入多播组后，既可以是发送端，也可以是接收端，相互之间以广播的形式传递数据，不区分客户端或服务端。
      *
      * @permission ohos.permission.INTERNET
-     * @param { NetAddress } multicastAddress - Destination address. For details, see
-     *     [NetAddress](docroot://reference/apis-network-kit/js-apis-socket.md#netaddress).
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation fails, an error
-     *     message is returned.
+     * @param { NetAddress } multicastAddress - 目标地址信息，参考
+     *     [NetAddress](docroot://reference/apis-network-kit/js-apis-socket.md#netaddress)。
+     * @param { AsyncCallback<void> } callback - 回调函数。失败返回错误码、错误信息。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2301022 - Invalid argument.
@@ -1038,19 +991,18 @@ declare namespace socket {
     addMembership(multicastAddress: NetAddress, callback: AsyncCallback<void>): void;
 
     /**
-     * Adds a member to a multicast group. This API uses a promise to return the result.
+     * 加入多播组。使用Promise异步回调。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > The IP addresses used for multicast belong to a specific range, for example, 224.0.0.0 to 239.255.255.255.
+     * > 多播使用的IP地址属于特定的范围（例如224.0.0.0到239.255.255.255）。
      * >
-     * > A member in a multicast group can serve as a sender or a receiver. Data is transmitted in broadcast mode,
-     * > regardless of the client or server.
+     * > 加入多播组后，既可以是发送端，也可以是接收端，相互之间以广播的形式传递数据，不区分客户端或服务端。
      *
      * @permission ohos.permission.INTERNET
-     * @param { NetAddress } multicastAddress - Destination address. For details, see
-     *     [NetAddress](docroot://reference/apis-network-kit/js-apis-socket.md#netaddress).
-     * @returns { Promise<void> } Promise used to return the result.
+     * @param { NetAddress } multicastAddress - 目标地址信息，参考
+     *     [NetAddress](docroot://reference/apis-network-kit/js-apis-socket.md#netaddress)。
+     * @returns { Promise<void> } 以Promise形式返回MulticastSocket加入多播组的行为结果。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2301088 - Not a socket.
@@ -1063,20 +1015,20 @@ declare namespace socket {
     addMembership(multicastAddress: NetAddress): Promise<void>;
 
     /**
-     * Drops a member from a multicast group. This API uses an asynchronous callback to return the result.
+     * 退出多播组。使用callback异步回调。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > The IP addresses used for multicast belong to a specific range, for example, 224.0.0.0 to 239.255.255.255.
+     * > 多播使用的IP地址属于特定的范围（例如224.0.0.0到239.255.255.255）。
      * >
-     * > You can drop only a member that has been added to a multicast group by using
-     * > [addMembership]{@link socket.MulticastSocket.addMembership(multicastAddress: NetAddress, callback: AsyncCallback<void>)}.
+     * > 从已加入的多播组中退出，必须在加入多播组
+     * > [addMembership]{@link socket.MulticastSocket.addMembership(multicastAddress: NetAddress, callback: AsyncCallback<void>)}
+     * > 之后退出才有效。
      *
      * @permission ohos.permission.INTERNET
-     * @param { NetAddress } multicastAddress - Destination address. For details, see
-     *     [NetAddress](docroot://reference/apis-network-kit/js-apis-socket.md#netaddress).
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation fails, an error
-     *     message is returned.
+     * @param { NetAddress } multicastAddress - 目标地址信息，参考
+     *     [NetAddress](docroot://reference/apis-network-kit/js-apis-socket.md#netaddress)。
+     * @param { AsyncCallback<void> } callback - 回调函数。失败返回错误码、错误信息。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2301088 - Not a socket.
@@ -1089,19 +1041,20 @@ declare namespace socket {
     dropMembership(multicastAddress: NetAddress, callback: AsyncCallback<void>): void;
 
     /**
-     * Drops a member from a multicast group. This API uses a promise to return the result.
+     * 退出多播组。使用Promise异步回调。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > The IP addresses used for multicast belong to a specific range, for example, 224.0.0.0 to 239.255.255.255.
+     * > 多播使用的IP地址属于特定的范围（例如224.0.0.0到239.255.255.255）。
      * >
-     * > You can drop only a member that has been added to a multicast group by using
-     * > [addMembership]{@link socket.MulticastSocket.addMembership(multicastAddress: NetAddress, callback: AsyncCallback<void>)}.
+     * > 从已加入的多播组中退出，必须在加入多播组
+     * > [addMembership]{@link socket.MulticastSocket.addMembership(multicastAddress: NetAddress, callback: AsyncCallback<void>)}
+     * > 之后退出才有效。
      *
      * @permission ohos.permission.INTERNET
-     * @param { NetAddress } multicastAddress - Destination address. For details, see
-     *     [NetAddress](docroot://reference/apis-network-kit/js-apis-socket.md#netaddress).
-     * @returns { Promise<void> } Promise used to return the result.
+     * @param { NetAddress } multicastAddress - 目标地址信息，参考
+     *     [NetAddress](docroot://reference/apis-network-kit/js-apis-socket.md#netaddress)。
+     * @returns { Promise<void> } 以Promise形式返回MulticastSocket加入多播组的执行结果。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2301088 - Not a socket.
@@ -1114,24 +1067,22 @@ declare namespace socket {
     dropMembership(multicastAddress: NetAddress): Promise<void>;
 
     /**
-     * Sets the time to live (TTL) for multicast packets. This API uses an asynchronous callback to return the result.
+     * 设置多播通信时数据包在网络传输过程中路由器最大跳数。使用callback异步回调。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > TTL is used to limit the maximum number of router hops for packet transmission on a network.
+     * > 用于限制数据包在网络中传输时能够经过的最大路由器跳数的字段，TTL (Time to live)。
      * >
-     * > The value ranges from 0 to 255. The default value is **1**.
+     * > 范围为 0～255，默认值为 1 。
      * >
-     * > If the TTL value is **1**, multicast packets can be transmitted only to the host directly connected to the
-     * > sender. If the TTL is set to a large value, multicast packets can be transmitted over a longer distance.
+     * > 如果一个多播数据包的 TTL 值为 1，那么它只能被直接连接到发送者的主机接收。如果 TTL 被设置为一个较大的值，那么数据包就能够被传送到更远的网络范围内。
      * >
-     * > This API is effective only after
+     * > 在调用
      * > [addMembership]{@link socket.MulticastSocket.addMembership(multicastAddress: NetAddress, callback: AsyncCallback<void>)}
-     * > is called.
+     * > 之后，调用此接口才有效。
      *
-     * @param { int } ttl - TTL value. The value is of the number type.
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation fails, an error
-     *     message is returned.
+     * @param { int } ttl - ttl设置数值，类型为数字number。
+     * @param { AsyncCallback<void> } callback - 回调函数。失败返回错误码、错误信息。
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2301022 - Invalid argument.
      * @throws { BusinessError } 2301088 - Not a socket.
@@ -1143,23 +1094,22 @@ declare namespace socket {
     setMulticastTTL(ttl: int, callback: AsyncCallback<void>): void;
 
     /**
-     * Sets the TTL for multicast packets. This API uses a promise to return the result.
+     * 设置多播通信时数据包在网络传输过程中路由器最大跳数。使用Promise异步回调。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > TTL is used to limit the maximum number of router hops for packet transmission on a network.
+     * > 用于限制数据包在网络中传输时能够经过的最大路由器跳数的字段，TTL (Time to live)。
      * >
-     * > The value ranges from 0 to 255. The default value is **1**.
+     * > 范围为 0～255，默认值为 1 。
      * >
-     * > If the TTL value is **1**, multicast packets can be transmitted only to the host directly connected to the
-     * > sender. If the TTL is set to a large value, multicast packets can be transmitted over a longer distance.
+     * > 如果一个多播数据包的 TTL 值为 1，那么它只能被直接连接到发送者的主机接收。如果 TTL 被设置为一个较大的值，那么数据包就能够被传送到更远的网络范围内。
      * >
-     * > This API is effective only after
+     * > 在调用
      * > [addMembership]{@link socket.MulticastSocket.addMembership(multicastAddress: NetAddress, callback: AsyncCallback<void>)}
-     * > is called.
+     * > 之后，调用此接口才有效。
      *
-     * @param { int } ttl - TTL value. The value is of the number type.
-     * @returns { Promise<void> } Promise used to return the result.
+     * @param { int } ttl - ttl设置数值，类型为数字Number。
+     * @returns { Promise<void> } 以Promise形式返回MulticastSocket设置TTL数值的结果。
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2301022 - Invalid argument.
      * @throws { BusinessError } 2301088 - Not a socket.
@@ -1171,23 +1121,21 @@ declare namespace socket {
     setMulticastTTL(ttl: int): Promise<void>;
 
     /**
-     * Obtains the TTL for multicast packets. This API uses an asynchronous callback to return the result.
+     * 获取数据包在网络传输过程中路由器最大跳数(TTL)的值。使用callback异步回调。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > TTL is used to limit the maximum number of router hops for packet transmission on a network.
+     * > 用于限制数据包在网络中传输时能够经过的最大路由器跳数的字段，TTL (Time to live)。
      * >
-     * > The value ranges from 0 to 255. The default value is **1**.
+     * > 范围为 0～255，默认值为 1 。
      * >
-     * > If the TTL value is **1**, multicast packets can be transmitted only to the host directly connected to the
-     * > sender. If the TTL is set to a large value, multicast packets can be transmitted over a longer distance.
+     * > 如果一个多播数据包的 TTL 值为 1，那么它只能被直接连接到发送者的主机接收。如果 TTL 被设置为一个较大的值，那么数据包就能够被传送到更远的网络范围内。
      * >
-     * > This API is effective only after
+     * > 在调用
      * > [addMembership]{@link socket.MulticastSocket.addMembership(multicastAddress: NetAddress, callback: AsyncCallback<void>)}
-     * > is called.
+     * > 之后，调用此接口才有效。
      *
-     * @param { AsyncCallback<int> } callback - Callback used to return the result. If the operation fails, an error
-     *     message is returned.
+     * @param { AsyncCallback<int> } callback - 回调函数。失败返回错误码、错误信息。
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2301088 - Not a socket.
      * @syscap SystemCapability.Communication.NetStack
@@ -1198,22 +1146,21 @@ declare namespace socket {
     getMulticastTTL(callback: AsyncCallback<int>): void;
 
     /**
-     * Obtains the TTL for multicast packets. This API uses a promise to return the result.
+     * 获取数据包在网络传输过程中路由器最大跳数(TTL)的值。使用Promise异步回调。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > TTL is used to limit the maximum number of router hops for packet transmission on a network.
+     * > 用于限制数据包在网络中传输时能够经过的最大路由器跳数的字段，TTL (Time to live)。
      * >
-     * > The value ranges from 0 to 255. The default value is **1**.
+     * > 范围为 0～255，默认值为 1 。
      * >
-     * > If the TTL value is **1**, multicast packets can be transmitted only to the host directly connected to the
-     * > sender. If the TTL is set to a large value, multicast packets can be transmitted over a longer distance.
+     * > 如果一个多播数据包的 TTL 值为 1，那么它只能被直接连接到发送者的主机接收。如果 TTL 被设置为一个较大的值，那么数据包就能够被传送到更远的网络范围内。
      * >
-     * > This API is effective only after
+     * > 在调用
      * > [addMembership]{@link socket.MulticastSocket.addMembership(multicastAddress: NetAddress, callback: AsyncCallback<void>)}
-     * > is called.
+     * > 之后，调用此接口才有效。
      *
-     * @returns { Promise<int> } Promise used to return the result.
+     * @returns { Promise<int> } 以Promise形式返回当前TTL数值。
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2301088 - Not a socket.
      * @syscap SystemCapability.Communication.NetStack
@@ -1224,24 +1171,20 @@ declare namespace socket {
     getMulticastTTL(): Promise<int>;
 
     /**
-     * Sets the loopback mode flag for multicast communication. This API uses an asynchronous callback to return the
-     * result.
+     * 设置多播通信中的环回模式标志位。使用callback异步回调。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > Use this API to enable or disable the loopback mode. By default, the loopback mode is enabled.
+     * > 用于设置环回模式，开启或关闭两种状态，默认为开启状态。
      * >
-     * > The value **true** indicates that the host is allowed to receive the multicast packets sent by itself, and the
-     * > value **false** indicates the opposite.
+     * > 如果一个多播通信中环回模式设置值为 true，那么它允许主机在本地循环接收自己发送的多播数据包。如果为 false，则主机不会接收到自己发送的多播数据包。
      * >
-     * > This API is effective only after
+     * > 在调用
      * > [addMembership]{@link socket.MulticastSocket.addMembership(multicastAddress: NetAddress, callback: AsyncCallback<void>)}
-     * > is called.
+     * > 之后，调用此接口才有效。
      *
-     * @param { boolean } flag - Whether to enable the loopback mode. The value **true** means to enable the loopback
-     *     mode, and the value **false** means the opposite.
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation fails, an error
-     *     message is returned.
+     * @param { boolean } flag - 是否开启环回模式。true表示环回模式开启，false表示环回模式关闭。
+     * @param { AsyncCallback<void> } callback - 回调函数。失败返回错误码、错误信息。
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2301088 - Not a socket.
      * @syscap SystemCapability.Communication.NetStack
@@ -1252,22 +1195,20 @@ declare namespace socket {
     setLoopbackMode(flag: boolean, callback: AsyncCallback<void>): void;
 
     /**
-     * Sets the loopback mode flag for multicast communication. This API uses a promise to return the result.
+     * 设置多播通信中的环回模式标志位。使用Promise异步回调。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > Use this API to enable or disable the loopback mode. By default, the loopback mode is enabled.
+     * > 用于设置环回模式，开启或关闭两种状态，默认为开启状态。
      * >
-     * > The value **true** indicates that the host is allowed to receive the multicast packets sent by itself, and the
-     * > value **false** indicates the opposite.
+     * > 如果一个多播通信中环回模式设置值为 true，那么它允许主机在本地循环接收自己发送的多播数据包。如果为 false，则主机不会接收到自己发送的多播数据包。
      * >
-     * > This API is effective only after
+     * > 在调用
      * > [addMembership]{@link socket.MulticastSocket.addMembership(multicastAddress: NetAddress, callback: AsyncCallback<void>)}
-     * > is called.
+     * > 之后，调用此接口才有效。
      *
-     * @param { boolean } flag - Whether to enable the loopback mode. The value **true** means to enable the loopback
-     *     mode, and the value **false** means the opposite.
-     * @returns { Promise<void> } Promise used to return the result.
+     * @param { boolean } flag - 是否开启环回模式。true表示环回模式开启，false表示环回模式关闭。
+     * @returns { Promise<void> } 以Promise形式返回MulticastSocket设置环回模式的结果。
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2301088 - Not a socket.
      * @syscap SystemCapability.Communication.NetStack
@@ -1278,22 +1219,19 @@ declare namespace socket {
     setLoopbackMode(flag: boolean): Promise<void>;
 
     /**
-     * Obtains the loopback mode flag for multicast communication. This API uses an asynchronous callback to return the
-     * result.
+     * 获取多播通信中的环回模式状态。使用callback异步回调。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > Use this API to check whether the loopback mode is enabled.
+     * > 用于获取当前环回模式开启或关闭的状态。
      * >
-     * > The value **true** indicates that the loopback mode is enabled, and the value **false** indicates the opposite.
-     * > When the loopback mode is disabled, the host does not receive the multicast packets sent by itself.
+     * > 如果获取的属性值为 true，表示环回模式是开启的状态，允许主机在本地循环接收自己发送的多播数据包。如果为 false，则表示环回模式是关闭的状态，主机不会接收到自己发送的多播数据包。
      * >
-     * > This API is effective only after
+     * > 在调用
      * > [addMembership]{@link socket.MulticastSocket.addMembership(multicastAddress: NetAddress, callback: AsyncCallback<void>)}
-     * > is called.
+     * > 之后，调用此接口才有效。
      *
-     * @param { AsyncCallback<boolean> } callback - Callback used to return the result. The value **true** indicates
-     *     that the loopback mode is enabled, and the value **false** indicates the opposite.
+     * @param { AsyncCallback<boolean> } callback - 回调函数。返回值为环回模式状态，true表示环回模式开启，false表示环回模式关闭。
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2301088 - Not a socket.
      * @syscap SystemCapability.Communication.NetStack
@@ -1304,21 +1242,19 @@ declare namespace socket {
     getLoopbackMode(callback: AsyncCallback<boolean>): void;
 
     /**
-     * Obtains the loopback mode flag for multicast communication. This API uses a promise to return the result.
+     * 获取多播通信中的环回模式状态。使用Promise异步回调。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > Use this API to check whether the loopback mode is enabled.
+     * > 用于获取当前环回模式开启或关闭的状态。
      * >
-     * > The value **true** indicates that the loopback mode is enabled, and the value **false** indicates the opposite.
-     * > When the loopback mode is disabled, the host does not receive the multicast packets sent by itself.
+     * > 如果获取的属性值为 true，表示环回模式是开启的状态，允许主机在本地循环接收自己发送的多播数据包。如果为 false，则表示环回模式是关闭的状态，主机不会接收到自己发送的多播数据包。
      * >
-     * > This API is effective only after
+     * > 在调用
      * > [addMembership]{@link socket.MulticastSocket.addMembership(multicastAddress: NetAddress, callback: AsyncCallback<void>)}
-     * > is called.
+     * > 之后，调用此接口才有效。
      *
-     * @returns { Promise<boolean> } Promise used to return the result. The value **true** indicates that the loopback
-     *     mode is enabled, and the value **false** indicates the opposite.
+     * @returns { Promise<boolean> } Promise对象。返回true表示环回模式开启，返回false表示环回模式关闭。
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2301088 - Not a socket.
      * @syscap SystemCapability.Communication.NetStack
@@ -1329,22 +1265,19 @@ declare namespace socket {
     getLoopbackMode(): Promise<boolean>;
 
     /**
-     * Obtains the file descriptor of the MulticastSocket. This API uses a promise to return the result.
+     * 获取MulticastSocket的文件描述符。使用Promise异步回调。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > - This API can be called only after
-     * > [bind]{@link socket.UDPSocket.bind(address: NetAddress, callback: AsyncCallback<void>)} is successfully called.
+     * > - [bind]{@link socket.UDPSocket.bind(address: NetAddress, callback: AsyncCallback<void>)}方法调用成功后，才可调用此方法。
      * >
-     * > - This API returns **-1** in abnormal cases such as bind exceptions or socket closed (for example, after close
-     * > is called).
+     * > - bind异常、Socket已关闭（如调用close后）等异常情况下调用本接口会返回-1。
      * >
-     * > - The lifecycle of the file descriptor is managed by the system. The application can use the
-     * > [close]{@link socket.UDPSocket.close(callback: AsyncCallback<void>)} method to close the socket connection,
-     * > instead of directly operating the file descriptor.
+     * > - 文件描述符的生命周期由系统管理，应用可以通过[close]{@link socket.UDPSocket.close(callback: AsyncCallback<void>)}方法关闭Socket连接，避免直接操作
+     * > 文件描述符进行关闭。
      *
      * @permission ohos.permission.INTERNET
-     * @returns { Promise<int> } Promise used to return the socket file descriptor.
+     * @returns { Promise<int> } Promise对象，返回Socket的文件描述符。
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Communication.NetStack
      * @stagemodelonly
@@ -1355,18 +1288,16 @@ declare namespace socket {
     getSocketFd(): Promise<int>;
 
     /**
-     * Sets whether the multicast socket supports address reuse. This API is called in synchronous mode.
+     * 设置多播Socket是否支持地址复用。使用同步方式调用。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > This API is used to control whether to enable address reuse when a multicast socket is bound to a port.
+     * > 用于控制多播Socket绑定端口时是否开启地址复用能力。
      * >
-     * > To bind an occupied port, ensure that the address reuse capability is enabled for the party that occupies the
-     * > port. In addition, the service needs to call this API before calling
-     * > [bind]{@link socket.UDPSocket.bind(address: NetAddress, callback: AsyncCallback<void>)} to enable the address
-     * > reuse capability.
+     * > 如需绑定已被占用的端口，确保占用方开启了地址复用能力，同时本业务也需在调用
+     * > [bind]{@link socket.UDPSocket.bind(address: NetAddress, callback: AsyncCallback<void>)}前调用本接口以开启地址复用能力。
      *
-     * @param { boolean } reuse - Whether to enable address reuse. **true** to enable, **false** otherwise.
+     * @param { boolean } reuse - 是否开启地址复用。true表示开启，false表示关闭。
      * @syscap SystemCapability.Communication.NetStack
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
@@ -1375,9 +1306,8 @@ declare namespace socket {
   }
 
   /**
-   * Defines a **LocalSocket** object. Before calling LocalSocket APIs, you need to call
-   * [socket.constructLocalSocketInstance]{@link socket.constructLocalSocketInstance} to create a **LocalSocket**
-   * object.
+   * LocalSocket连接。在调用LocalSocket的方法前，需要先通过
+   * [socket.constructLocalSocketInstance]{@link socket.constructLocalSocketInstance}创建LocalSocket对象。
    *
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform [since 12]
@@ -1386,16 +1316,16 @@ declare namespace socket {
    */
   export interface LocalSocket {
     /**
-     * Binds the address of a local socket file. This API uses a promise to return the result.
+     * 绑定本地套接字文件的路径。使用Promise异步回调。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > This API explicitly binds the client to a local socket file based on the specified address.
+     * > bind方法可以使客户端确保有个明确的本地套接字路径，显式的绑定一个本地套接字文件。
      * >
-     * > It is not mandatory in local socket communication.
+     * > bind方法在本地套接字通信中非必须。
      *
-     * @param { LocalAddress } address - Local address. For details, see [LocalAddress]{@link socket.LocalAddress}.
-     * @returns { Promise<void> } Promise that returns no value.
+     * @param { LocalAddress } address - 本端地址信息，参考[LocalAddress]{@link socket.LocalAddress}。
+     * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2301013 - Insufficient permissions.
      * @throws { BusinessError } 2301022 - Invalid argument.
@@ -1408,15 +1338,15 @@ declare namespace socket {
     bind(address: LocalAddress): Promise<void>;
 
     /**
-     * Connects to the specified socket file. This API uses a promise to return the result.
+     * 连接到指定的套接字文件。使用Promise异步回调。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > This API allows you to connect to the TCP server without first executing **localsocket.bind**.
+     * > 在没有执行localsocket.bind的情况下，也可以直接调用该接口完成与LocalSocket服务端的连接。
      *
-     * @param { LocalConnectOptions } options - Local socket connection parameters. For details, see
-     *     [LocalConnectOptions]{@link socket.LocalConnectOptions}.
-     * @returns { Promise<void> } Promise used to return the result.
+     * @param { LocalConnectOptions } options - LocalSocket连接的参数，参考
+     *     [LocalConnectOptions]{@link socket.LocalConnectOptions}。
+     * @returns { Promise<void> } 以Promise形式返回LocalSocket连接服务端的结果。
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2301013 - Insufficient permissions.
      * @throws { BusinessError } 2301022 - Invalid argument.
@@ -1430,15 +1360,14 @@ declare namespace socket {
     connect(options: LocalConnectOptions): Promise<void>;
 
     /**
-     * Sends data over a local socket connection. This API uses a promise to return the result.
+     * 通过LocalSocket连接发送数据。使用Promise异步回调。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > This API can be called only after **connect** is successfully called.
+     * > connect方法调用成功后，才可调用此方法。
      *
-     * @param { LocalSendOptions } options - Parameters for sending data over a local socket connection. For details,
-     *     see [LocalSendOptions]{@link socket.LocalSendOptions}.
-     * @returns { Promise<void> } Promise that returns no value.
+     * @param { LocalSendOptions } options - LocalSocket发送请求的参数，参考[LocalSendOptions]{@link socket.LocalSendOptions}。
+     * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2301011 - Operation would block.
      * @syscap SystemCapability.Communication.NetStack
@@ -1449,9 +1378,9 @@ declare namespace socket {
     send(options: LocalSendOptions): Promise<void>;
 
     /**
-     * Closes a local socket connection. This API uses a promise to return the result.
+     * 关闭LocalSocket连接。使用Promise异步回调。
      *
-     * @returns { Promise<void> } Promise that returns no value.
+     * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
      * @throws { BusinessError } 2301009 - Bad file descriptor.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 12]
@@ -1461,13 +1390,13 @@ declare namespace socket {
     close(): Promise<void>;
 
     /**
-     * Obtains the local socket connection status. This API uses a promise to return the result.
+     * 获取LocalSocket状态。使用Promise异步回调。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > This API can be called only after **bind** or **connect** is successfully called.
+     * > bind或connect方法调用成功后，才可调用此方法。
      *
-     * @returns { Promise<SocketStateBase> } Promise used to return the result.
+     * @returns { Promise<SocketStateBase> } 以Promise形式返回获取LocalSocket状态的结果。
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 12]
      * @since 11 dynamic
@@ -1476,19 +1405,17 @@ declare namespace socket {
     getState(): Promise<SocketStateBase>;
 
     /**
-     * Obtains the file descriptor of the **LocalSocket** object. This API uses a promise to return the result.
+     * 获取LocalSocket的文件描述符。使用Promise异步回调。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > - This API can be called only after **bind** or **connect** is successfully called.
+     * > - bind或connect方法调用成功后，才可调用此方法。
      * >
-     * > - The file descriptor is allocated by the system kernel to uniquely identify the local socket in use.
+     * > - 获取由系统内核分配的唯一文件描述符，用于标识当前使用的套接字。
      * >
-     * > - The lifecycle of the file descriptor is managed by the system. The application can use the
-     * > [close]{@link socket.LocalSocket.close} method to close the socket connection, instead of directly operating
-     * > the file descriptor.
+     * > - 文件描述符的生命周期由系统管理，应用可以通过[close]{@link socket.LocalSocket.close}方法关闭Socket连接，避免直接操作文件描述符进行关闭。
      *
-     * @returns { Promise<int> } Promise used to return the result.
+     * @returns { Promise<int> } 以Promise形式返回socket的文件描述符。
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 12]
      * @since 11 dynamic
@@ -1497,15 +1424,14 @@ declare namespace socket {
     getSocketFd(): Promise<int>;
 
     /**
-     * Sets the properties of the **LocalSocket** object. This API uses a promise to return the result.
+     * 设置LocalSocket的套接字属性。使用Promise异步回调。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > This API can be called only after **bind** or **connect** is successfully called.
+     * > bind或connect方法调用成功后，才可调用此方法。
      *
-     * @param { ExtraOptionsBase } options - Other properties of the LocalSocket connection. For details, see
-     *     [ExtraOptionsBase]{@link socket.ExtraOptionsBase}.
-     * @returns { Promise<void> } Promise used to return the result.
+     * @param { ExtraOptionsBase } options - LocalSocket连接的其他属性，参考[ExtraOptionsBase]{@link socket.ExtraOptionsBase}。
+     * @returns { Promise<void> } 以Promise形式返回设置LocalSocket套接字属性的结果。
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2301009 - Bad file descriptor.
      * @syscap SystemCapability.Communication.NetStack
@@ -1516,13 +1442,13 @@ declare namespace socket {
     setExtraOptions(options: ExtraOptionsBase): Promise<void>;
 
     /**
-     * Obtains the socket properties of the **LocalSocket** object. This API uses a promise to return the result.
+     * 获取LocalSocket的套接字属性。使用Promise异步回调。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > This API can be called only after **bind** or **connect** is successfully called.
+     * > bind或connect方法调用成功后，才可调用此方法。
      *
-     * @returns { Promise<ExtraOptionsBase> } Promise used to return the result.
+     * @returns { Promise<ExtraOptionsBase> } 以Promise形式返回设置LocalSocket套接字的属性。
      * @throws { BusinessError } 2301009 - Bad file descriptor.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 12]
@@ -1532,13 +1458,13 @@ declare namespace socket {
     getExtraOptions(): Promise<ExtraOptionsBase>;
 
     /**
-     * Obtains the local socket address of a **LocalSocket** connection. This API uses a promise to return the result.
+     * 获取LocalSocket的本地Socket地址。使用Promise异步回调。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > This API can be called only after **bind** is successfully called.
+     * > bind方法调用成功后，才可调用此方法。
      *
-     * @returns { Promise<string> } Promise used to return the result.
+     * @returns { Promise<string> } 以Promise形式返回获取本地socket地址的结果。
      * @throws { BusinessError } 2300002 - System internal error.
      * @throws { BusinessError } 2301009 - Bad file descriptor.
      * @throws { BusinessError } 2303188 - Socket operation on non-socket.
@@ -1550,11 +1476,10 @@ declare namespace socket {
     getLocalAddress(): Promise<string>;
 
     /**
-     * Subscribes to **message** events of the **LocalSocket** object. This API uses an asynchronous callback to return
-     * the result.
+     * 订阅LocalSocket连接的接收消息事件。使用callback异步回调。
      *
-     * @param { 'message' } type - Event type.<br/> **message**: message receiving event.
-     * @param { Callback<LocalSocketMessageInfo> } callback - Callback used to return the result.
+     * @param { 'message' } type - 订阅的事件类型。'message'：接收消息事件。
+     * @param { Callback<LocalSocketMessageInfo> } callback - 以callback的形式异步返回接收的消息。
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 12]
@@ -1563,7 +1488,7 @@ declare namespace socket {
     on(type: 'message', callback: Callback<LocalSocketMessageInfo>): void;
 
     /**
-     * Listens for message receiving events of the LocalSocket connection.
+     * 订阅 LocalSocket connection.
      *
      * @param { Callback<LocalSocketMessageInfo> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
@@ -1573,13 +1498,10 @@ declare namespace socket {
     onLocalSocketMessage(callback: Callback<LocalSocketMessageInfo>): void;
 
     /**
-     * Unsubscribes from **message** events of the **LocalSocket** object. This API uses an asynchronous callback to
-     * return the result.
+     * 取消订阅LocalSocket连接的接收消息事件。使用callback异步回调。
      *
-     * @param { 'message' } type - Event type.<br/> **message**: message receiving event.
-     * @param { Callback<LocalSocketMessageInfo> } callback - Callback used to return the result. You can pass the
-     *     callback of the **on** function if you want to cancel listening for a certain type of events. If you do not
-     *     pass the callback, you will cancel listening for all events.
+     * @param { 'message' } type - 取消订阅的事件类型。'message'：接收消息事件。
+     * @param { Callback<LocalSocketMessageInfo> } callback - 回调函数。可以指定传入on中的callback取消对应的订阅，也可以不指定callback清空所有订阅。
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 12]
@@ -1588,7 +1510,7 @@ declare namespace socket {
     off(type: 'message', callback?: Callback<LocalSocketMessageInfo>): void;
 
     /**
-     * Cancels listening for message receiving events of the LocalSocket connection.
+     * 取消订阅 LocalSocket connection.
      *
      * @param { Callback<LocalSocketMessageInfo> } [callback] - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
@@ -1598,11 +1520,10 @@ declare namespace socket {
     offLocalSocketMessage(callback?: Callback<LocalSocketMessageInfo>): void;
 
     /**
-     * Subscribes to **connect** events of the **LocalSocket** object. This API uses an asynchronous callback to return
-     * the result.
+     * 订阅LocalSocket的连接事件。使用callback异步回调。
      *
-     * @param { 'connect' } type - Event type.<br/>
-     * @param { Callback<void> } callback - Callback used to return the result.
+     * @param { 'connect' } type - 订阅的事件类型。
+     * @param { Callback<void> } callback - 以callback的形式异步返回与服务端连接的结果。
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 12]
@@ -1611,7 +1532,7 @@ declare namespace socket {
     on(type: 'connect', callback: Callback<void>): void;
 
     /**
-     * Listens for connection events of the LocalSocket connection.
+     * 订阅 LocalSocket connection.
      *
      * @param { Callback<void> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
@@ -1621,13 +1542,10 @@ declare namespace socket {
     onConnect(callback: Callback<void>): void;
 
     /**
-     * Unsubscribes from **connect** events of the **LocalSocket** object. This API uses an asynchronous callback to
-     * return the result.
+     * 取消订阅LocalSocket的连接事件。使用callback异步回调。
      *
-     * @param { 'connect' } type - Event type.<br/> 'connect': connection event.
-     * @param { Callback<void> } callback - Callback used to return the result. You can pass the callback of the **on**
-     *     function if you want to cancel listening for a certain type of events. If you do not pass the callback, you
-     *     will cancel listening for all events.
+     * @param { 'connect' } type - 取消订阅的事件类型。'connect'：LocalSocket的connect事件。
+     * @param { Callback<void> } callback - 回调函数。可以指定传入on中的callback取消对应的订阅，也可以不指定callback清空所有订阅。
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 12]
@@ -1636,7 +1554,7 @@ declare namespace socket {
     off(type: 'connect', callback?: Callback<void>): void;
 
     /**
-     * Cancels listening for connection events of the LocalSocket connection.
+     * 取消订阅 LocalSocket connection.
      *
      * @param { Callback<void> } [callback] - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
@@ -1646,11 +1564,10 @@ declare namespace socket {
     offConnect(callback?: Callback<void>): void;
 
     /**
-     * Subscribes to **close** events of the **LocalSocket** object. This API uses an asynchronous callback to return
-     * the result.
+     * 订阅LocalSocket的关闭事件。使用callback异步回调。
      *
-     * @param { 'close' } type - Event type.
-     * @param { Callback<void> } callback - Callback used to return the result.
+     * @param { 'close' } type - 订阅LocalSocket的关闭事件。
+     * @param { Callback<void> } callback - 以callback的形式异步返回关闭localsocket的结果。
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 12]
@@ -1659,7 +1576,7 @@ declare namespace socket {
     on(type: 'close', callback: Callback<void>): void;
 
     /**
-     * Listens for close events of the LocalSocket connection.
+     * 订阅 LocalSocket connection.
      *
      * @param { Callback<void> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
@@ -1669,13 +1586,10 @@ declare namespace socket {
     onLocalSocketClose(callback: Callback<void>): void;
 
     /**
-     * Unsubscribes from **close** events of the **LocalSocket** object. This API uses an asynchronous callback to
-     * return the result.
+     * 取消订阅LocalSocket的关闭事件。使用callback异步回调。
      *
-     * @param { 'close' } type - Event type.<br/> **close**: close event.
-     * @param { Callback<void> } callback - Callback used to return the result. You can pass the callback of the **on**
-     *     function if you want to cancel listening for a certain type of events. If you do not pass the callback, you
-     *     will cancel listening for all events.
+     * @param { 'close' } type - 取消订阅的事件类型。'close'：LocalSocket的关闭事件。
+     * @param { Callback<void> } callback - 回调函数。可以指定传入on中的callback取消对应的订阅，也可以不指定callback清空所有订阅。
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 12]
@@ -1684,7 +1598,7 @@ declare namespace socket {
     off(type: 'close', callback?: Callback<void>): void;
 
     /**
-     * Cancels listening for close events of the LocalSocket connection.
+     * 取消订阅 LocalSocket connection.
      *
      * @param { Callback<void> } [callback] - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
@@ -1694,11 +1608,10 @@ declare namespace socket {
     offLocalSocketClose(callback?: Callback<void>): void;
 
     /**
-     * Subscribes to **error** events of the **LocalSocket** object. This API uses an asynchronous callback to return
-     * the result.
+     * 订阅LocalSocket连接的error事件。使用callback异步回调。
      *
-     * @param { 'error' } type - Event type.
-     * @param { ErrorCallback } callback - Callback used to return the result.
+     * @param { 'error' } type - 订阅LocalSocket的error事件。
+     * @param { ErrorCallback } callback - 以callback的形式异步返回出现错误的结果。
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 12]
@@ -1707,7 +1620,7 @@ declare namespace socket {
     on(type: 'error', callback: ErrorCallback): void;
 
     /**
-     * Listens for error events of the LocalSocket connection.
+     * 订阅 LocalSocket connection.
      *
      * @param { ErrorCallback } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
@@ -1717,13 +1630,10 @@ declare namespace socket {
     onLocalSocketError(callback: ErrorCallback): void;
 
     /**
-     * Unsubscribes from **error** events of the **LocalSocket** object. This API uses an asynchronous callback to
-     * return the result.
+     * 取消订阅LocalSocket连接的error事件。使用callback异步回调。
      *
-     * @param { 'error' } type - Event type.<br/> 'error': error event.
-     * @param { ErrorCallback } callback - Callback used to return the result. You can pass the callback of the **on**
-     *     function if you want to cancel listening for a certain type of events. If you do not pass the callback, you
-     *     will cancel listening for all events.
+     * @param { 'error' } type - 取消订阅的事件类型。'error'：LocalSocket的error事件。
+     * @param { ErrorCallback } callback - 回调函数。可以指定传入on中的callback取消对应的订阅，也可以不指定callback清空所有订阅。
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 12]
@@ -1732,7 +1642,7 @@ declare namespace socket {
     off(type: 'error', callback?: ErrorCallback): void;
 
     /**
-     * Cancels listening for error events of the LocalSocket connection.
+     * 取消订阅 LocalSocket connection.
      *
      * @param { ErrorCallback } [callback] - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
@@ -1743,13 +1653,11 @@ declare namespace socket {
   }
 
   /**
-   * Defines a local socket connection, that is, the session between the local socket client and the server. Before
-   * calling LocalSocketConnection APIs, you need to obtain a **LocalSocketConnection** object.
+   * LocalSocketConnection连接，即LocalSocket客户端与服务端的会话连接。在调用LocalSocketConnection的方法前，需要先获取LocalSocketConnection对象。
    *
-   * > **NOTE**
+   * > **说明：**
    * >
-   * > The LocalSocketConnection client can call related APIs through the **LocalSocketConnection** object only after a
-   * > connection is successfully established between the local socket client and the server.
+   * > 客户端与服务端成功建立连接后，才能通过返回的LocalSocketConnection对象调用相应的接口。
    *
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform [since 12]
@@ -1758,7 +1666,7 @@ declare namespace socket {
    */
   export interface LocalSocketConnection {
     /**
-     * ID of the session between the client and the server.
+     * 客户端与服务端建立的会话连接的id。
      *
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 12]
@@ -1768,15 +1676,14 @@ declare namespace socket {
     clientId: int;
 
     /**
-     * Sends data through a local socket connection. This API uses a promise to return the result.
+     * 通过LocalSocketConnection连接对象发送数据。使用Promise异步回调。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > This API can be used only after the server obtains a **LocalSocketConnection** object through the **callback**
-     * > of the **connect** event.
+     * > 服务端与客户端建立连接后，服务端通过connect事件回调得到LocalSocketConnection连接对象后，才可使用连接对象调用此方法。
      *
-     * @param { LocalSendOptions } options - Parameters for sending data over a local socket connection.
-     * @returns { Promise<void> } Promise that returns no value.
+     * @param { LocalSendOptions } options - LocalSocketConnection发送请求的参数。
+     * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2301011 - Operation would block.
      * @syscap SystemCapability.Communication.NetStack
@@ -1787,9 +1694,9 @@ declare namespace socket {
     send(options: LocalSendOptions): Promise<void>;
 
     /**
-     * Closes a local socket connection. This API uses a promise to return the result.
+     * 关闭LocalSocket连接。使用Promise异步回调。
      *
-     * @returns { Promise<void> } Promise that returns no value.
+     * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
      * @throws { BusinessError } 2301009 - Bad file descriptor.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 12]
@@ -1799,10 +1706,9 @@ declare namespace socket {
     close(): Promise<void>;
 
     /**
-     * Obtains the local socket address of a **LocalSocketConnection** connection. This API uses a promise to return the
-     * result.
+     * 获取LocalSocketConnection连接中的本地Socket地址。使用Promise异步回调。
      *
-     * @returns { Promise<string> } Promise used to return the result.
+     * @returns { Promise<string> } 以Promise形式返回获取本地socket地址的结果。
      * @throws { BusinessError } 2300002 - System internal error.
      * @throws { BusinessError } 2301009 - Bad file descriptor.
      * @throws { BusinessError } 2303188 - Socket operation on non-socket.
@@ -1814,11 +1720,10 @@ declare namespace socket {
     getLocalAddress(): Promise<string>;
 
     /**
-     * Subscribes to **message** events of the **LocalSocketConnection** object. This API uses an asynchronous callback
-     * to return the result.
+     * 订阅LocalSocketConnection连接的接收消息事件。使用callback异步回调。
      *
-     * @param { 'message' } type - Event type.<br/> **message**: message receiving event.
-     * @param { Callback<LocalSocketMessageInfo> } callback - Callback used to return the result.
+     * @param { 'message' } type - 订阅的事件类型。'message'：接收消息事件。
+     * @param { Callback<LocalSocketMessageInfo> } callback - 以callback的形式异步返回接收到的来自客户端的消息。
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 12]
@@ -1827,7 +1732,7 @@ declare namespace socket {
     on(type: 'message', callback: Callback<LocalSocketMessageInfo>): void;
 
     /**
-     * Listens for message receiving events of the LocalSocketConnection.
+     * 订阅 LocalSocketConnection.
      *
      * @param { Callback<LocalSocketMessageInfo> } callback - The callback of on.
      * @syscap SystemCapability.Communication.NetStack
@@ -1837,13 +1742,10 @@ declare namespace socket {
     onLocalConnMessage(callback: Callback<LocalSocketMessageInfo>): void;
 
     /**
-     * Unsubscribes from **message** events of the **LocalSocketConnection** object. This API uses an asynchronous
-     * callback to return the result.
+     * 取消订阅LocalSocketConnection连接的接收消息事件。使用callback异步回调。
      *
-     * @param { 'message' } type - Event type.<br/> **message**: message receiving event.
-     * @param { Callback<LocalSocketMessageInfo> } callback - Callback used to return the result. You can pass the
-     *     callback of the **on** function if you want to cancel listening for a certain type of events. If you do not
-     *     pass the callback, you will cancel listening for all events.
+     * @param { 'message' } type - 取消订阅的事件类型。'message'：接收消息事件。
+     * @param { Callback<LocalSocketMessageInfo> } callback - 回调函数。可以指定传入on中的callback取消对应的订阅，也可以不指定callback清空所有订阅。
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 12]
@@ -1852,7 +1754,7 @@ declare namespace socket {
     off(type: 'message', callback?: Callback<LocalSocketMessageInfo>): void;
 
     /**
-     * Cancels listening for message receiving events of the LocalSocketConnection.
+     * 取消订阅 LocalSocketConnection.
      *
      * @param { Callback<LocalSocketMessageInfo> } [callback] - The callback of off.
      * @syscap SystemCapability.Communication.NetStack
@@ -1862,11 +1764,10 @@ declare namespace socket {
     offLocalConnMessage(callback?: Callback<LocalSocketMessageInfo>): void;
 
     /**
-     * Unsubscribes from **close** events of the **LocalSocketConnection** object. This API uses an asynchronous
-     * callback to return the result.
+     * 订阅LocalSocketConnection的关闭事件。使用callback异步回调。
      *
-     * @param { 'close' } type - Event type.<br/> **close**: close event.
-     * @param { Callback<void> } callback - Callback used to return the result.
+     * @param { 'close' } type - 订阅的事件类型。'close'：关闭事件。
+     * @param { Callback<void> } callback - 以callback的形式异步返回会话关闭的结果。
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 12]
@@ -1875,7 +1776,7 @@ declare namespace socket {
     on(type: 'close', callback: Callback<void>): void;
 
     /**
-     * Listens for close events of the LocalSocketConnection.
+     * 订阅 LocalSocketConnection.
      *
      * @param { Callback<void> } callback - The callback of on.
      * @syscap SystemCapability.Communication.NetStack
@@ -1885,13 +1786,10 @@ declare namespace socket {
     onLocalConnClose(callback: Callback<void>): void;
 
     /**
-     * Unsubscribes from **close** events of the **LocalSocketConnection** object. This API uses an asynchronous
-     * callback to return the result.
+     * 取消订阅LocalSocketConnection的关闭事件。使用callback异步回调。
      *
-     * @param { 'close' } type - Event type.<br/> **close**: close event.
-     * @param { Callback<void> } callback - Callback used to return the result. You can pass the callback of the **on**
-     *     function if you want to cancel listening for a certain type of events. If you do not pass the callback, you
-     *     will cancel listening for all events.
+     * @param { 'close' } type - 取消订阅的事件类型。'close'：关闭事件。
+     * @param { Callback<void> } callback - 回调函数。可以指定传入on中的callback取消对应的订阅，也可以不指定callback清空所有订阅。
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 12]
@@ -1900,7 +1798,7 @@ declare namespace socket {
     off(type: 'close', callback?: Callback<void>): void;
 
     /**
-     * Cancels listening for close events of the LocalSocketConnection.
+     * 取消订阅 LocalSocketConnection.
      *
      * @param { Callback<void> } [callback] - The callback of off.
      * @syscap SystemCapability.Communication.NetStack
@@ -1910,11 +1808,10 @@ declare namespace socket {
     offLocalConnClose(callback?: Callback<void>): void;
 
     /**
-     * Subscribes to **error** events of the **LocalSocketConnection** object. This API uses an asynchronous callback to
-     * return the result.
+     * 订阅LocalSocketConnection连接的error事件。使用callback异步回调。
      *
-     * @param { 'error' } type - Event type.<br/> **error**: error event.
-     * @param { ErrorCallback } callback - Callback used to return the result.
+     * @param { 'error' } type - 订阅的事件类型。'error'：error事件。
+     * @param { ErrorCallback } callback - 以callback的形式异步返回出现错误的结果。
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 12]
@@ -1923,7 +1820,7 @@ declare namespace socket {
     on(type: 'error', callback: ErrorCallback): void;
 
     /**
-     * Listens for error events of the LocalSocketConnection.
+     * 订阅 LocalSocketConnection.
      *
      * @param { ErrorCallback } callback - The callback of on.
      * @syscap SystemCapability.Communication.NetStack
@@ -1933,13 +1830,10 @@ declare namespace socket {
     onLocalConnError(callback: ErrorCallback): void;
 
     /**
-     * Unsubscribes from **error** events of the **LocalSocketConnection** object. This API uses an asynchronous
-     * callback to return the result.
+     * 取消订阅LocalSocketConnection连接的error事件。使用callback异步回调。
      *
-     * @param { 'error' } type - Event type.<br/> **error**: error event.
-     * @param { ErrorCallback } callback - Callback used to return the result. You can pass the callback of the **on**
-     *     function if you want to cancel listening for a certain type of events. If you do not pass the callback, you
-     *     will cancel listening for all events.
+     * @param { 'error' } type - 取消订阅的事件类型。'error'：error事件。
+     * @param { ErrorCallback } callback - 回调函数。可以指定传入on中的callback取消对应的订阅，也可以不指定callback清空所有订阅。
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 12]
@@ -1948,7 +1842,7 @@ declare namespace socket {
     off(type: 'error', callback?: ErrorCallback): void;
 
     /**
-     * Cancels listening for error events of the LocalSocketConnection.
+     * 取消订阅 LocalSocketConnection.
      *
      * @param { ErrorCallback } [callback] - The callback of off.
      * @syscap SystemCapability.Communication.NetStack
@@ -1958,20 +1852,17 @@ declare namespace socket {
     offLocalConnError(callback?: ErrorCallback): void;
 
     /**
-     * Obtains the file descriptor of a LocalSocketConnection connection. This API uses a promise to return the result.
+     * 获取LocalSocketConnection连接的文件描述符。使用Promise异步回调。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > - This method can be called only after a connection is set up.
+     * > - 成功建立连接后，才可调用此方法。
      * >
-     * > - This API returns **-1** in abnormal cases such as disconnection and socket closed (for example, after the
-     * > close API is called).
+     * > - 连接断开、Socket已关闭（如调用close后）等异常情况下调用本接口会返回-1。
      * >
-     * > - The lifecycle of the file descriptor is managed by the system. The application can use the
-     * > [close]{@link socket.LocalSocket.close} method to close the socket connection, instead of directly operating
-     * > the file descriptor.
+     * > - 文件描述符的生命周期由系统管理，应用可以通过[close]{@link socket.LocalSocket.close}方法关闭Socket连接，避免直接操作文件描述符进行关闭。
      *
-     * @returns { Promise<int> } Promise used to return the socket file descriptor.
+     * @returns { Promise<int> } Promise对象，返回Socket的文件描述符。
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 24]
      * @since 23 dynamic
@@ -1981,9 +1872,8 @@ declare namespace socket {
   }
 
   /**
-   * Defines a local socket server connection. Before calling LocalSocketServer APIs, you need to call
-   * [socket.constructLocalSocketServerInstance]{@link socket.constructLocalSocketServerInstance} to create a
-   * **LocalSocketServer** object.
+   * LocalSocketServer类。在调用LocalSocketServer的方法前，需要先通过
+   * [socket.constructLocalSocketServerInstance]{@link socket.constructLocalSocketServerInstance}创建LocalSocketServer对象。
    *
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform [since 12]
@@ -1992,18 +1882,14 @@ declare namespace socket {
    */
   export interface LocalSocketServer {
     /**
-     * Binds the address of the local socket file. The server listens to and accepts local socket connections
-     * established over the socket. Multiple threads are used to process client data concurrently. This API uses a
-     * promise to return the result.
+     * 绑定本地套接字文件，监听并接受与此套接字建立的LocalSocket连接。该接口使用多线程并发处理客户端的数据。使用Promise异步回调。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > The server uses this API to complete the **bind**, **listen**, and **accept** operations. If the address of the
-     * > local socket file is passed for binding, a socket file is automatically created when this API is called.
+     * > 服务端使用该方法完成bind，listen，accept操作，传入套接字文件路径，调用此接口后会自动生成本地套接字文件。
      *
-     * @param { LocalAddress } address - Destination address.
-     * @returns { Promise<void> } Promise used to return the result. If the operation is successful, no value is
-     *     returned. If the operation fails, an error message is returned.
+     * @param { LocalAddress } address - 目标地址信息。
+     * @returns { Promise<void> } 以Promise形式返回执行结果， 成功返回空，失败返回错误码错误信息。
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2303109 - Bad file number.
      * @throws { BusinessError } 2301013 - Insufficient permissions.
@@ -2017,13 +1903,13 @@ declare namespace socket {
     listen(address: LocalAddress): Promise<void>;
 
     /**
-     * Obtains the status of a local socket server connection. This API uses a promise to return the result.
+     * 获取LocalSocketServer状态。使用Promise异步回调。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > This API can be called only after **listen** is successfully called.
+     * > listen方法调用成功后，才可调用此方法。
      *
-     * @returns { Promise<SocketStateBase> } Promise used to return the result.
+     * @returns { Promise<SocketStateBase> } 以Promise形式返回获取LocalSocketServer状态的结果。
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 12]
      * @since 11 dynamic
@@ -2032,14 +1918,14 @@ declare namespace socket {
     getState(): Promise<SocketStateBase>;
 
     /**
-     * Sets the socket properties of the **LocalSocketServer** object. This API uses a promise to return the result.
+     * 设置LocalSocketServer连接的套接字属性。使用Promise异步回调。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > This API can be called only after **listen** is successfully called.
+     * > listen方法调用成功后，才可调用此方法。
      *
-     * @param { ExtraOptionsBase } options - Other properties of the **LocalSocketServer** object.
-     * @returns { Promise<void> } Promise that returns no value.
+     * @param { ExtraOptionsBase } options - LocalSocketServer连接的其他属性。
+     * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2301009 - Bad file descriptor.
      * @syscap SystemCapability.Communication.NetStack
@@ -2050,13 +1936,13 @@ declare namespace socket {
     setExtraOptions(options: ExtraOptionsBase): Promise<void>;
 
     /**
-     * Obtains the socket properties of the **LocalSocketServer** object. This API uses a promise to return the result.
+     * 获取LocalSocketServer中连接的套接字的属性。使用Promise异步回调。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > This API can be called only after **listen** is successfully called.
+     * > listen方法调用成功后，才可调用此方法。
      *
-     * @returns { Promise<ExtraOptionsBase> } Promise used to return the result.
+     * @returns { Promise<ExtraOptionsBase> } 以Promise形式返回套接字的属性。
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 12]
@@ -2066,14 +1952,13 @@ declare namespace socket {
     getExtraOptions(): Promise<ExtraOptionsBase>;
 
     /**
-     * Obtains the local socket address of a **LocalSocketServer** connection. This API uses a promise to return the
-     * result.
+     * 获取LocalSocketServer中本地Socket地址。使用Promise异步回调。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > This API can be called only after **listen** is successfully called.
+     * > listen方法调用成功后，才可调用此方法。
      *
-     * @returns { Promise<string> } Promise used to return the result.
+     * @returns { Promise<string> } 以Promise形式返回获取本地socket地址的结果。
      * @throws { BusinessError } 2300002 - System internal error.
      * @throws { BusinessError } 2301009 - Bad file descriptor.
      * @throws { BusinessError } 2303188 - Socket operation on non-socket.
@@ -2085,15 +1970,14 @@ declare namespace socket {
     getLocalAddress(): Promise<string>;
 
     /**
-     * Stops listening for events of the **LocalSocketServer** object and releases the port bound by
-     * [listen]{@link socket.LocalSocketServer.listen}. This API uses a promise to return the result.
+     * LocalSocketServer停止监听并释放通过[listen]{@link socket.LocalSocketServer.listen}方法绑定的监听端口。使用Promise异步回调。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > This API does not close existing connections. To close the connection, call the [close] (#close11-1) API of
-     * > [LocalSocketConnection] (#localsocketconnection11).
+     * > 该方法不会关闭已有连接。如需关闭，请调用[LocalSocketConnection]{@link socket.LocalSocketConnection}的
+     * > [close]{@link socket.LocalSocket.close}方法。
      *
-     * @returns { Promise<void> } Promise that returns no value.
+     * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 24]
@@ -2103,15 +1987,14 @@ declare namespace socket {
     close(): Promise<void>;
 
     /**
-     * Subscribes to **connect** events of the **LocalSocketServer** object. This API uses an asynchronous callback to
-     * return the result.
+     * 订阅LocalSocketServer的连接事件。使用callback异步回调。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > This API can be called only after **listen** is successfully called.
+     * > listen方法调用成功后，才可调用此方法。
      *
-     * @param { 'connect' } type - Event type.<br/> **connect**: connection event.
-     * @param { Callback<LocalSocketConnection> } callback - Callback used to return the result.
+     * @param { 'connect' } type - 订阅的事件类型。'connect'：连接事件。
+     * @param { Callback<LocalSocketConnection> } callback - 以callback的形式异步返回接收到客户端连接的结果。
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 12]
@@ -2120,7 +2003,7 @@ declare namespace socket {
     on(type: 'connect', callback: Callback<LocalSocketConnection>): void;
 
     /**
-     * Listens for connect events of the LocalSocketServer connection.
+     * 订阅 LocalSocketServer connection.
      *
      * @param { Callback<LocalSocketConnection> } callback - The callback of on.
      * @syscap SystemCapability.Communication.NetStack
@@ -2130,13 +2013,10 @@ declare namespace socket {
     onConnect(callback: Callback<LocalSocketConnection>): void;
 
     /**
-     * Unsubscribes from **connect** events of the **LocalSocketServer** object. This API uses an asynchronous callback
-     * to return the result.
+     * 取消订阅LocalSocketServer的连接事件。使用callback异步回调。
      *
-     * @param { 'connect' } type - Event type.<br/> 'connect': connection event.
-     * @param { Callback<LocalSocketConnection> } callback - Callback used to return the result. You can pass the
-     *     callback of the **on** function if you want to cancel listening for a certain type of events. If you do not
-     *     pass the callback, you will cancel listening for all events.
+     * @param { 'connect' } type - 取消订阅的事件类型。'connect'：LocalSocketServer的连接事件。
+     * @param { Callback<LocalSocketConnection> } callback - 回调函数。可以指定传入on中的callback取消对应的订阅，也可以不指定callback清空所有订阅。
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 12]
@@ -2145,7 +2025,7 @@ declare namespace socket {
     off(type: 'connect', callback?: Callback<LocalSocketConnection>): void;
 
     /**
-     * Cancels listening for connect events of the LocalSocketServer connection.
+     * 取消订阅 LocalSocketServer connection.
      *
      * @param { Callback<LocalSocketConnection> } [callback] - The callback of off.
      * @syscap SystemCapability.Communication.NetStack
@@ -2155,15 +2035,14 @@ declare namespace socket {
     offConnect(callback?: Callback<LocalSocketConnection>): void;
 
     /**
-     * Subscribes to **error** events of the **LocalSocketServer** object. This API uses an asynchronous callback to
-     * return the result.
+     * 订阅LocalSocketServer连接的error事件。使用callback异步回调。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > This API can be called only after **listen** is successfully called.
+     * > listen方法调用成功后，才可调用此方法。
      *
-     * @param { 'error' } type - Event type.<br/> **error**: error event.
-     * @param { ErrorCallback } callback - Callback used to return the result.
+     * @param { 'error' } type - 订阅的事件类型。'error'：error事件。
+     * @param { ErrorCallback } callback - 以callback的形式异步返回出现错误的结果。
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 12]
@@ -2172,7 +2051,7 @@ declare namespace socket {
     on(type: 'error', callback: ErrorCallback): void;
 
     /**
-     * Listens for error events of the LocalSocketServer connection.
+     * 订阅 LocalSocketServer connection.
      *
      * @param { ErrorCallback } callback - The callback of on.
      * @syscap SystemCapability.Communication.NetStack
@@ -2182,13 +2061,10 @@ declare namespace socket {
     onLocalServerError(callback: ErrorCallback): void;
 
     /**
-     * Unsubscribes from **error** events of the **LocalSocketServer** object. This API uses an asynchronous callback to
-     * return the result.
+     * 取消订阅LocalSocketServer连接的error事件。使用callback异步回调。
      *
-     * @param { 'error' } type - Event type.<br/> **error**: error event.
-     * @param { ErrorCallback } callback - Callback used to return the result. You can pass the callback of the **on**
-     *     function if you want to cancel listening for a certain type of events. If you do not pass the callback, you
-     *     will cancel listening for all events.
+     * @param { 'error' } type - 取消订阅的事件类型。'error'：error事件。
+     * @param { ErrorCallback } callback - 回调函数。可以指定传入on中的callback取消对应的订阅，也可以不指定callback清空所有订阅。
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 12]
@@ -2197,7 +2073,7 @@ declare namespace socket {
     off(type: 'error', callback?: ErrorCallback): void;
 
     /**
-     * Cancels listening for error events of the LocalSocketServer connection.
+     * 取消订阅 LocalSocketServer connection.
      *
      * @param { ErrorCallback } [callback] - The callback of off.
      * @syscap SystemCapability.Communication.NetStack
@@ -2207,22 +2083,17 @@ declare namespace socket {
     offLocalServerError(callback?: ErrorCallback): void;
 
     /**
-     * Obtains the file descriptor bound to the LocalSocketServer listening port. This API uses a promise to return the
-     * result.
+     * 获取LocalSocketServer监听端口绑定的文件描述符。使用Promise异步回调。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > - This method can be called only after the [listen]{@link socket.LocalSocketServer.listen} method is
-     * > successfully called.
+     * > - [listen]{@link socket.LocalSocketServer.listen}方法调用成功后，才可调用此方法。
      * >
-     * > - This API returns **-1** in abnormal cases such as listening exceptions or socket closed (for example, after
-     * > close is called).
+     * > - 监听异常、Socket已关闭（如调用close后）等异常情况下调用本接口会返回-1。
      * >
-     * > - The lifecycle of the file descriptor is managed by the system. The application can use the
-     * > [close]{@link socket.TCPSocketServer.close} method to close the socket connection, instead of directly
-     * > operating the file descriptor.
+     * > - 文件描述符的生命周期由系统管理，应用可以通过[close]{@link socket.TCPSocketServer.close}方法关闭Socket连接，避免直接操作文件描述符进行关闭。
      *
-     * @returns { Promise<int> } Promise used to return the socket file descriptor.
+     * @returns { Promise<int> } Promise对象，返回Socket的文件描述符。
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 24]
      * @since 23 dynamic
@@ -2232,7 +2103,7 @@ declare namespace socket {
   }
 
   /**
-   * Defines TCP socket connection parameters.
+   * TCPSocket连接的参数。
    *
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform [since 10]
@@ -2241,7 +2112,7 @@ declare namespace socket {
    */
   export interface TCPConnectOptions {
     /**
-     * Bound IP address and port number.
+     * 绑定的地址以及端口。
      *
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
@@ -2251,7 +2122,7 @@ declare namespace socket {
     address: NetAddress;
 
     /**
-     * Timeout duration of the TCP socket connection, in ms. The default value is **5000**.
+     * 超时时间，单位毫秒（ms）。默认值为5000。
      *
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
@@ -2261,7 +2132,7 @@ declare namespace socket {
     timeout?: int;
 
     /**
-     * Proxy option. By default, no proxy is used.
+     * 使用的代理信息，默认不使用代理。
      *
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
@@ -2272,7 +2143,7 @@ declare namespace socket {
   }
 
   /**
-   * Defines the parameters for sending data over a TCP socket connection.
+   * TCPSocket发送请求的参数。
    *
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform [since 10]
@@ -2281,7 +2152,7 @@ declare namespace socket {
    */
   export interface TCPSendOptions {
     /**
-     * Data to send.
+     * 发送的数据。
      *
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
@@ -2291,8 +2162,7 @@ declare namespace socket {
     data: string | ArrayBuffer;
 
     /**
-     * Character encoding format. The options are as follows: **UTF-8**, **UTF-16BE**, **UTF-16LE**, **UTF-16**,
-     * **US-ASCII**, and **ISO-8859-1**. The default value is **UTF-8**.
+     * 字符编码(UTF-8，UTF-16BE，UTF-16LE，UTF-16，US-ASCII，ISO-8859-1)，默认为UTF-8。
      *
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
@@ -2303,8 +2173,7 @@ declare namespace socket {
   }
 
   /**
-   * Defines other properties of the **TCPSocket** object. This object is inherited from
-   * [ExtraOptionsBase]{@link socket.ExtraOptionsBase}.
+   * TCPSocket连接的其他属性。继承自[ExtraOptionsBase]{@link socket.ExtraOptionsBase}。
    *
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform [since 10]
@@ -2313,8 +2182,7 @@ declare namespace socket {
    */
   export interface TCPExtraOptions extends ExtraOptionsBase {
     /**
-     * Whether to keep the connection alive. The default value is **false**. The value **true** means to keep the
-     * connection alive, and the value **false** indicates the opposite.
+     * 是否保持连接。默认为false。true：保持连接；false：断开连接。
      *
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
@@ -2324,8 +2192,7 @@ declare namespace socket {
     keepAlive?: boolean;
 
     /**
-     * Whether to enable OOBInline. The default value is **false**. The value **true** means to enable OOBInline, and
-     * the value **false** indicates the opposite.
+     * 是否为OOB内联。默认为false。true：是OOB内联；false：不是OOB内联。
      *
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
@@ -2335,8 +2202,7 @@ declare namespace socket {
     OOBInline?: boolean;
 
     /**
-     * Whether to enable no-delay on the TCP socket connection. The default value is **false**. The value **true** means
-     * to enable no-delay on the TCP socket connection, and the value **false** indicates the opposite.
+     * TCPSocket连接是否无时延。默认为false。true：无时延；false：有时延。
      *
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
@@ -2346,13 +2212,12 @@ declare namespace socket {
     TCPNoDelay?: boolean;
 
     /**
-     * Socket linger.
+     * socket是否继续逗留。
      *
-     * - **on**: whether to enable socket linger. The value true means to enable socket linger and false means the
-     * opposite.
-     * - **linger**: linger time, in ms. The value ranges from **0** to **65535**.
+     * - on：是否逗留（true：逗留；false：不逗留）。
+     * - linger：逗留时长，单位毫秒（ms），取值范围为0~65535。
      *
-     * Specify this parameter only when **on** is set to **true**.
+     * 当入参on设置为true时，才需要设置。
      *
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
@@ -2362,11 +2227,10 @@ declare namespace socket {
     socketLinger?: {on: boolean, linger: int};
 
     /**
-     * Whether to enable TCP Fast Open (TFO) in the TCP socket connection. This function allows the client to carry data
-     * during the first handshake, reducing the connection setup delay and improving the performance in high-frequency
-     * short connection scenarios. The default value is **false**. **true**: yes; **false**: no.
+     * 是否在TCPSocket连接中启用TCP快速打开（TCP Fast OPen， TFO），该功能允许客户端在首次握手时携带数据，从而减少连接建立的延迟，提升高频率短连接场景下的性能表现。默认为false。true：支持快速打开
+     * 属性；false：不支持快速打开属性。
      *
-     * Currently, this parameter can be configured only on the client.
+     * 当前参数只支持客户端配置。
      *
      * @syscap SystemCapability.Communication.NetStack
      * @stagemodelonly
@@ -2377,8 +2241,8 @@ declare namespace socket {
   }
 
   /**
-   * Defines a TCP socket connection. Before calling TCPSocket APIs, you need to call
-   * [socket.constructTCPSocketInstance]{@link socket.constructTCPSocketInstance} to create a **TCPSocket** object.
+   * TCPSocket连接。在调用TCPSocket的方法前，需要先通过[socket.constructTCPSocketInstance]{@link socket.constructTCPSocketInstance}创建
+   * TCPSocket对象。
    *
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform [since 10]
@@ -2387,25 +2251,20 @@ declare namespace socket {
    */
   export interface TCPSocket {
     /**
-     * Binds an IP address and a port number. The port number can be customized or randomly allocated by the system.
-     * This API uses an asynchronous callback to return the result.
+     * 绑定IP地址和端口，端口可以指定为0由系统随机分配或由用户指定为其它非0端口。使用callback异步回调。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > If the bind operation fails due to a port conflict, the system will randomly allocate a port number.
+     * > bind方法如果因为端口冲突而执行失败，则会由系统随机分配端口号。
      * >
-     * > The TCP client can call **tcp.bind** to explicitly bind the IP address and port number, and then call
-     * > **tcp.connect** to connect to the server. Alternatively, the TCP client can directly call **tcp.connect** to
-     * > automatically bind the IP address and port number to connect to the server.
+     * > TCP客户端可先调用该接口(tcp.bind)显式绑定IP地址和端口号，再调用tcp.connect完成与服务端的连接；也可直接调用tcp.connect由系统自动绑定IP地址和端口号，完成与服务端的连接。
      * >
-     * > If the IP address is **localhost** or **127.0.0.1**, only local loopback access is allowed; that is, the TCP
-     * > client and the server are deployed on the same device.
+     * > bind的IP为'localhost'或'127.0.0.1'时，只允许本地回环接口的连接，即服务端和客户端运行在同一台机器上。
      *
      * @permission ohos.permission.INTERNET
-     * @param { NetAddress } address - Local address. For details, see
-     *     [NetAddress](docroot://reference/apis-network-kit/js-apis-socket.md#netaddress).
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation fails, an error
-     *     message is returned.
+     * @param { NetAddress } address - 本端地址信息，参考
+     *     [NetAddress](docroot://reference/apis-network-kit/js-apis-socket.md#netaddress)。
+     * @param { AsyncCallback<void> } callback - 回调函数。失败返回错误、错误信息。
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Communication.NetStack
@@ -2416,24 +2275,20 @@ declare namespace socket {
     bind(address: NetAddress, callback: AsyncCallback<void>): void;
 
     /**
-     * Binds an IP address and a port number. The port number can be customized or randomly allocated by the system.
-     * This API uses a promise to return the result.
+     * 绑定IP地址和端口，端口可以指定为0由系统随机分配或由用户指定为其它非0端口。使用Promise异步回调。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > If the bind operation fails due to a port conflict, the system will randomly allocate a port number.
+     * > bind方法如果因为端口冲突而执行失败，则会由系统随机分配端口号。
      * >
-     * > The TCP client can call **tcp.bind** to explicitly bind the IP address and port number, and then call
-     * > **tcp.connect** to connect to the server. Alternatively, the TCP client can directly call **tcp.connect** to
-     * > automatically bind the IP address and port number to connect to the server.
+     * > TCP客户端可先调用该接口(tcp.bind)显式绑定IP地址和端口号，再调用tcp.connect完成与服务端的连接；也可直接调用tcp.connect由系统自动绑定IP地址和端口号，完成与服务端的连接。
      * >
-     * > If the IP address is **localhost** or **127.0.0.1**, only local loopback access is allowed; that is, the TCP
-     * > client and the server are deployed on the same device.
+     * > bind的IP为'localhost'或'127.0.0.1'时，只允许本地回环接口的连接，即服务端和客户端运行在同一台机器上。
      *
      * @permission ohos.permission.INTERNET
-     * @param { NetAddress } address - Local address. For details, see
-     *     [NetAddress](docroot://reference/apis-network-kit/js-apis-socket.md#netaddress).
-     * @returns { Promise<void> } Promise used to return the result.
+     * @param { NetAddress } address - 本端地址信息，参考
+     *     [NetAddress](docroot://reference/apis-network-kit/js-apis-socket.md#netaddress)。
+     * @returns { Promise<void> } 以Promise形式返回TCPSocket绑定本机的IP地址和端口的结果。
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Communication.NetStack
@@ -2444,18 +2299,15 @@ declare namespace socket {
     bind(address: NetAddress): Promise<void>;
 
     /**
-     * Sets up a connection to the specified IP address and port number. This API uses an asynchronous callback to
-     * return the result.
+     * 连接到指定的IP地址和端口。使用callback异步回调。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > This API allows you to connect to the TCP server without first executing **tcp.bind**.
+     * > 在没有执行tcp.bind的情况下，也可以直接调用该接口完成与TCP服务端的连接
      *
      * @permission ohos.permission.INTERNET
-     * @param { TCPConnectOptions } options - TCP socket connection parameters. For details, see
-     *     [TCPConnectOptions]{@link socket.TCPConnectOptions}.
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation fails, an error
-     *     message is returned.
+     * @param { TCPConnectOptions } options - TCPSocket连接的参数，参考[TCPConnectOptions]{@link socket.TCPConnectOptions}。
+     * @param { AsyncCallback<void> } callback - 回调函数。失败返回错误码、错误信息。
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 2301206 - Socks5 failed to connect to the proxy server. [since 18]
@@ -2474,16 +2326,15 @@ declare namespace socket {
     connect(options: TCPConnectOptions, callback: AsyncCallback<void>): void;
 
     /**
-     * Sets up a connection to the specified IP address and port number. This API uses a promise to return the result.
+     * 连接到指定的IP地址和端口。使用Promise异步回调。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > This API allows you to connect to the TCP server without first executing **tcp.bind**.
+     * > 在没有执行tcp.bind的情况下，也可以直接调用该接口完成与TCP服务端的连接。
      *
      * @permission ohos.permission.INTERNET
-     * @param { TCPConnectOptions } options - TCP socket connection parameters. For details, see
-     *     [TCPConnectOptions]{@link socket.TCPConnectOptions}.
-     * @returns { Promise<void> } Promise used to return the result.
+     * @param { TCPConnectOptions } options - TCPSocket连接的参数，参考[TCPConnectOptions]{@link socket.TCPConnectOptions}。
+     * @returns { Promise<void> } 以Promise形式返回TCPSocket连接到指定的IP地址和端口的结果。
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 2301206 - Socks5 failed to connect to the proxy server. [since 18]
@@ -2502,18 +2353,15 @@ declare namespace socket {
     connect(options: TCPConnectOptions): Promise<void>;
 
     /**
-     * Sends data over a TCP socket connection. This API uses an asynchronous callback to return the result.
+     * 通过TCPSocket连接发送数据。使用callback异步回调。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > This API can be called only after **connect** is successfully called. Call the API in the worker thread or
-     * > taskpool thread as this operation is time-consuming.
+     * > connect方法调用成功后，才可调用此方法。该接口为耗时操作，请在Worker线程或taskpool线程调用该接口。
      *
      * @permission ohos.permission.INTERNET
-     * @param { TCPSendOptions } options - Parameters for sending data over a TCP socket connection. For details, see
-     *     [TCPSendOptions]{@link socket.TCPSendOptions}.
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation fails, an error
-     *     message is returned.
+     * @param { TCPSendOptions } options - TCPSocket发送请求的参数，参考[TCPSendOptions]{@link socket.TCPSendOptions}。
+     * @param { AsyncCallback<void> } callback - 回调函数。失败返回错误码、错误信息。
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Communication.NetStack
@@ -2524,17 +2372,15 @@ declare namespace socket {
     send(options: TCPSendOptions, callback: AsyncCallback<void>): void;
 
     /**
-     * Sends data over a TCP socket connection. This API uses a promise to return the result.
+     * 通过TCPSocket连接发送数据。使用Promise异步回调。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > This API can be called only after **connect** is successfully called. Call the API in the worker thread or
-     * > taskpool thread as this operation is time-consuming.
+     * > connect方法调用成功后，才可调用此方法。该接口为耗时操作，请在Worker线程或taskpool线程调用该接口。
      *
      * @permission ohos.permission.INTERNET
-     * @param { TCPSendOptions } options - Parameters for sending data over a TCP socket connection. For details, see
-     *     [TCPSendOptions]{@link socket.TCPSendOptions}.
-     * @returns { Promise<void> } Promise that returns no value.
+     * @param { TCPSendOptions } options - TCPSocket发送请求的参数，参考[TCPSendOptions]{@link socket.TCPSendOptions}。
+     * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Communication.NetStack
@@ -2545,11 +2391,10 @@ declare namespace socket {
     send(options: TCPSendOptions): Promise<void>;
 
     /**
-     * Closes a TCP socket connection. This API uses an asynchronous callback to return the result.
+     * 关闭TCPSocket连接。使用callback异步回调。
      *
      * @permission ohos.permission.INTERNET
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation fails, an error
-     *     message is returned.
+     * @param { AsyncCallback<void> } callback - 回调函数。失败返回错误码、错误信息。
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
@@ -2559,10 +2404,10 @@ declare namespace socket {
     close(callback: AsyncCallback<void>): void;
 
     /**
-     * Closes a TCP socket connection. This API uses a promise to return the result.
+     * 关闭TCPSocket连接。使用Promise异步回调。
      *
      * @permission ohos.permission.INTERNET
-     * @returns { Promise<void> } Promise that returns no value.
+     * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
@@ -2572,15 +2417,14 @@ declare namespace socket {
     close(): Promise<void>;
 
     /**
-     * Obtains the remote address of a socket connection. This API uses an asynchronous callback to return the result.
+     * 获取对端Socket地址。使用callback异步回调。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > This API can be called only after **connect** is successfully called.
+     * > connect方法调用成功后，才可调用此方法。
      *
      * @permission ohos.permission.INTERNET
-     * @param { AsyncCallback<NetAddress> } callback - Callback used to return the result. If the operation is
-     *     successful, the remote address is returned. If the operation fails, an error message is returned.
+     * @param { AsyncCallback<NetAddress> } callback - 回调函数。成功时返回对端Socket地址，失败时返回错误码、错误信息。
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
@@ -2590,14 +2434,14 @@ declare namespace socket {
     getRemoteAddress(callback: AsyncCallback<NetAddress>): void;
 
     /**
-     * Obtains the remote address of a socket connection. This API uses a promise to return the result.
+     * 获取对端Socket地址。使用Promise异步回调。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > This API can be called only after **connect** is successfully called.
+     * > connect方法调用成功后，才可调用此方法。
      *
      * @permission ohos.permission.INTERNET
-     * @returns { Promise<NetAddress> } Promise used to return the result.
+     * @returns { Promise<NetAddress> } 以Promise形式返回获取对端socket地址的结果。
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
@@ -2607,15 +2451,14 @@ declare namespace socket {
     getRemoteAddress(): Promise<NetAddress>;
 
     /**
-     * Obtains the status of the TCP socket connection. This API uses an asynchronous callback to return the result.
+     * 获取TCPSocket状态。使用callback异步回调。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > This API can be called only after **bind** or **connect** is successfully called.
+     * > bind或connect方法调用成功后，才可调用此方法。
      *
      * @permission ohos.permission.INTERNET
-     * @param { AsyncCallback<SocketStateBase> } callback - Callback used to return the result. If the operation is
-     *     successful, the status of the TCP socket is returned. If the operation fails, an error message is returned.
+     * @param { AsyncCallback<SocketStateBase> } callback - 回调函数。成功时获取TCPSocket状态，失败时返回错误码、错误信息。
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
@@ -2625,14 +2468,14 @@ declare namespace socket {
     getState(callback: AsyncCallback<SocketStateBase>): void;
 
     /**
-     * Obtains the status of the TCP socket connection. This API uses a promise to return the result.
+     * 获取TCPSocket状态。使用Promise异步回调。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > This API can be called only after **bind** or **connect** is successfully called.
+     * > bind或connect方法调用成功后，才可调用此方法。
      *
      * @permission ohos.permission.INTERNET
-     * @returns { Promise<SocketStateBase> } Promise used to return the result.
+     * @returns { Promise<SocketStateBase> } 以Promise形式返回获取TCPSocket状态的结果。
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
@@ -2642,19 +2485,16 @@ declare namespace socket {
     getState(): Promise<SocketStateBase>;
 
     /**
-     * Obtains the file descriptor of the **TCPSocket** object. This API uses an asynchronous callback to return the
-     * result.
+     * 获取TCPSocket的文件描述符。使用callback异步回调。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > - This API can be called only after **bind** or **connect** is successfully called.
+     * > - bind或connect方法调用成功后，才可调用此方法。
      * >
-     * > - The lifecycle of the file descriptor is managed by the system. The application can use the
-     * > [close]{@link socket.UDPSocket.close(callback: AsyncCallback<void>)} method to close the socket connection,
-     * > instead of directly operating the file descriptor.
+     * > - 文件描述符的生命周期由系统管理，应用可以通过[close]{@link socket.UDPSocket.close(callback: AsyncCallback<void>)}方法关闭Socket连接，避免直接操作
+     * > 文件描述符进行关闭。
      *
-     * @param { AsyncCallback<int> } callback - Callback used to return the result. If the operation is successful, the
-     *     file descriptor of the socket is returned. Otherwise, **undefined** is returned.
+     * @param { AsyncCallback<int> } callback - 回调函数，当成功时，返回socket的文件描述符，失败时，返回undefined。
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 24]
      * @since 10 dynamic
@@ -2663,17 +2503,16 @@ declare namespace socket {
     getSocketFd(callback: AsyncCallback<int>): void;
 
     /**
-     * Obtains the file descriptor of the **TCPSocket** object. This API uses a promise to return the result.
+     * 获取TCPSocket的文件描述符。使用Promise异步回调。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > - This API can be called only after **bind** or **connect** is successfully called.
+     * > - bind或connect方法调用成功后，才可调用此方法。
      * >
-     * > - The lifecycle of the file descriptor is managed by the system. The application can use the
-     * > [close]{@link socket.UDPSocket.close(callback: AsyncCallback<void>)} method to close the socket connection,
-     * > instead of directly operating the file descriptor.
+     * > - 文件描述符的生命周期由系统管理，应用可以通过[close]{@link socket.UDPSocket.close(callback: AsyncCallback<void>)}方法关闭Socket连接，避免直接操作
+     * > 文件描述符进行关闭。
      *
-     * @returns { Promise<int> } Promise used to return the result.
+     * @returns { Promise<int> } 以Promise形式返回socket的文件描述符。
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 24]
      * @since 10 dynamic
@@ -2682,17 +2521,15 @@ declare namespace socket {
     getSocketFd(): Promise<int>;
 
     /**
-     * Sets other properties of the **TCPSocket** object. This API uses an asynchronous callback to return the result.
+     * 设置TCPSocket连接的其他属性。使用callback异步回调。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > This API can be called only after **bind** or **connect** is successfully called.
+     * > bind或connect方法调用成功后，才可调用此方法。
      *
      * @permission ohos.permission.INTERNET
-     * @param { TCPExtraOptions } options - Other properties of the **TCPSocket** object. For details, see
-     *     [TCPExtraOptions]{@link socket.TCPExtraOptions}.
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation fails, an error
-     *     message is returned.
+     * @param { TCPExtraOptions } options - TCPSocket连接的其他属性，参考[TCPExtraOptions]{@link socket.TCPExtraOptions}。
+     * @param { AsyncCallback<void> } callback - 回调函数。失败时返回错误码、错误信息。
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Communication.NetStack
@@ -2703,16 +2540,15 @@ declare namespace socket {
     setExtraOptions(options: TCPExtraOptions, callback: AsyncCallback<void>): void;
 
     /**
-     * Sets other properties of the **TCPSocket** object. This API uses a promise to return the result.
+     * 设置TCPSocket连接的其他属性。使用Promise异步回调。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > This API can be called only after **bind** or **connect** is successfully called.
+     * > bind或connect方法调用成功后，才可调用此方法。
      *
      * @permission ohos.permission.INTERNET
-     * @param { TCPExtraOptions } options - Other properties of the **TCPSocket** object. For details, see
-     *     [TCPExtraOptions]{@link socket.TCPExtraOptions}.
-     * @returns { Promise<void> } Promise that returns no value.
+     * @param { TCPExtraOptions } options - TCPSocket连接的其他属性，参考[TCPExtraOptions]{@link socket.TCPExtraOptions}。
+     * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Communication.NetStack
@@ -2723,13 +2559,13 @@ declare namespace socket {
     setExtraOptions(options: TCPExtraOptions): Promise<void>;
 
     /**
-     * Obtains the local socket address of a **TCPSocket** connection. This API uses a promise to return the result.
+     * 获取TCPSocket的本地Socket地址。使用Promise异步回调。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > This API can be called only after **bind** is successfully called.
+     * > bind方法调用成功后，才可调用此方法。
      *
-     * @returns { Promise<NetAddress> } Promise used to return the result.
+     * @returns { Promise<NetAddress> } 以Promise形式返回获取本地socket地址的结果。
      * @throws { BusinessError } 2300002 - System internal error.
      * @throws { BusinessError } 2301009 - Bad file descriptor.
      * @throws { BusinessError } 2303188 - Socket operation on non-socket.
@@ -2741,13 +2577,12 @@ declare namespace socket {
     getLocalAddress(): Promise<NetAddress>;
 
     /**
-     * Subscribes to **message** events of the **TCPSocket** object. This API uses an asynchronous callback to return
-     * the result.
+     * 订阅TCPSocket连接的接收消息事件。使用callback异步回调。
      *
-     * @param { 'message' } type - Event type.<br/> **message**: message receiving event.
+     * @param { 'message' } type - 订阅的事件类型。'message'：接收消息事件。
      * @param { Callback<{ message: ArrayBuffer, remoteInfo: SocketRemoteInfo }> } callback - Callback used to return
      *     the result. [since 7 - 10]
-     * @param { Callback<SocketMessageInfo> } callback - Callback used to return the result. [since 11]
+     * @param { Callback<SocketMessageInfo> } callback - 回调函数。返回TCPSocket连接信息。 [since 11]
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
      * @since 7 dynamic
@@ -2755,7 +2590,7 @@ declare namespace socket {
     on(type: 'message', callback: Callback<SocketMessageInfo>): void;
 
     /**
-     * Listens for message receiving events of the TCPSocket connection.
+     * 订阅 TCPSocket connection.
      *
      * @param { Callback<SocketMessageInfo> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
@@ -2765,16 +2600,13 @@ declare namespace socket {
     onTcpMessage(callback: Callback<SocketMessageInfo>): void;
 
     /**
-     * Unsubscribes from **message** events of the **TCPSocket** object. This API uses an asynchronous callback to
-     * return the result.
+     * 取消订阅TCPSocket连接的接收消息事件。使用callback异步回调。
      *
-     * @param { 'message' } type - Event type.<br/> **message**: message receiving event.
+     * @param { 'message' } type - 取消订阅的事件类型。'message'：接收消息事件。
      * @param { Callback<{ message: ArrayBuffer, remoteInfo: SocketRemoteInfo }> } callback - Callback used to return
      *     the result. You can pass the callback of the **on** function if you want to cancel listening for a certain
      *     type of events. If you do not pass the callback, you will cancel listening for all events. [since 7 - 10]
-     * @param { Callback<SocketMessageInfo> } callback - Callback used to return the result. You can pass the callback
-     *     of the **on** function if you want to cancel listening for a certain type of events. If you do not pass the
-     *     callback, you will cancel listening for all events. [since 11]
+     * @param { Callback<SocketMessageInfo> } callback - 回调函数。可以指定传入on中的callback取消对应的订阅，也可以不指定callback清空所有订阅。 [since 11]
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
      * @since 7 dynamic
@@ -2782,7 +2614,7 @@ declare namespace socket {
     off(type: 'message', callback?: Callback<SocketMessageInfo>): void;
 
     /**
-     * Cancels listening for message receiving events of the TCPSocket connection.
+     * 取消订阅 TCPSocket connection.
      *
      * @param { Callback<SocketMessageInfo> } [callback] - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
@@ -2792,13 +2624,10 @@ declare namespace socket {
     offTcpMessage(callback?: Callback<SocketMessageInfo>): void;
 
     /**
-     * Subscribes to **connect** or **close** events of the **TCPSocket** object. This API uses an asynchronous callback
-     * to return the result.
+     * 订阅TCPSocket的连接事件或关闭事件。使用callback异步回调。
      *
-     * @param { 'connect' | 'close' } type - Event type.<br/>
-     *     <br>- **connect**: connection event.
-     *     <br>- **close**: close event.
-     * @param { Callback<void> } callback - Callback used to return the result.
+     * @param { 'connect' | 'close' } type - 订阅的事件类型。<br />- 'connect'：连接事件。<br />- 'close'：关闭事件。
+     * @param { Callback<void> } callback - 回调函数。TCPSocket的连接事件或关闭事件触发时调用回调函数。
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
      * @since 7 dynamic
@@ -2806,7 +2635,7 @@ declare namespace socket {
     on(type: 'connect' | 'close', callback: Callback<void>): void;
 
     /**
-     * Listens for connection or close events of the TCPSocket connection.
+     * 订阅 TCPSocket connection.
      *
      * @param { Callback<void> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
@@ -2816,7 +2645,7 @@ declare namespace socket {
     onTcpConnect(callback: Callback<void>): void;
 
     /**
-     * Listens for connection or close events of the TCPSocket connection.
+     * 订阅 TCPSocket connection.
      *
      * @param { Callback<void> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
@@ -2826,15 +2655,10 @@ declare namespace socket {
     onTcpClose(callback: Callback<void>): void;
 
     /**
-     * Unsubscribes from **connect** or **close** events of the **TCPSocket** object. This API uses an asynchronous
-     * callback to return the result.
+     * 取消订阅TCPSocket的连接事件或关闭事件。使用callback异步回调。
      *
-     * @param { 'connect' | 'close' } type - Event type.<br/>
-     *     <br>- **connect**: connection event.
-     *     <br>- **close**: close event.
-     * @param { Callback<void> } callback - Callback used to return the result. You can pass the callback of the **on**
-     *     function if you want to cancel listening for a certain type of events. If you do not pass the callback, you
-     *     will cancel listening for all events.
+     * @param { 'connect' | 'close' } type - 取消订阅的事件类型。<br />- 'connect'：连接事件。<br />- 'close'：关闭事件。
+     * @param { Callback<void> } callback - 回调函数。可以指定传入on中的callback取消对应的订阅，也可以不指定callback清空所有订阅。
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
      * @since 7 dynamic
@@ -2842,7 +2666,7 @@ declare namespace socket {
     off(type: 'connect' | 'close', callback?: Callback<void>): void;
 
     /**
-     * Cancels listening for connection or close events of the TCPSocket connection.
+     * 取消订阅 TCPSocket connection.
      *
      * @param { Callback<void> } [callback] - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
@@ -2852,7 +2676,7 @@ declare namespace socket {
     offTcpConnect(callback?: Callback<void>): void;
 
     /**
-     * Cancels listening for connection or close events of the TCPSocket connection.
+     * 取消订阅 TCPSocket connection.
      *
      * @param { Callback<void> } [callback] - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
@@ -2862,11 +2686,10 @@ declare namespace socket {
     offTcpClose(callback?: Callback<void>): void;
 
     /**
-     * Subscribes to **error** events of the **TCPSocket** object. This API uses an asynchronous callback to return the
-     * result.
+     * 订阅TCPSocket连接的error事件。使用callback异步回调。
      *
-     * @param { 'error' } type - Event type.<br/> **error**: error event.
-     * @param { ErrorCallback } callback - Callback used to return the result.
+     * @param { 'error' } type - 订阅的事件类型。'error'：error事件。
+     * @param { ErrorCallback } callback - 回调函数。TCPSocket连接订阅的某类error事件触发时调用回调函数。
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
      * @since 7 dynamic
@@ -2874,7 +2697,7 @@ declare namespace socket {
     on(type: 'error', callback: ErrorCallback): void;
 
     /**
-     * Listens for error events of the TCPSocket connection.
+     * 订阅 TCPSocket connection.
      *
      * @param { ErrorCallback } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
@@ -2884,13 +2707,10 @@ declare namespace socket {
     onTcpError(callback: ErrorCallback): void;
 
     /**
-     * Unsubscribes from **error** events of the **TCPSocket** object. This API uses an asynchronous callback to return
-     * the result.
+     * 取消订阅TCPSocket连接的error事件。使用callback异步回调。
      *
-     * @param { 'error' } type - Event type.<br/> **error**: error event.
-     * @param { ErrorCallback } callback - Callback used to return the result. You can pass the callback of the **on**
-     *     function if you want to cancel listening for a certain type of events. If you do not pass the callback, you
-     *     will cancel listening for all events.
+     * @param { 'error' } type - 取消订阅的事件类型。'error'：error事件。
+     * @param { ErrorCallback } callback - 回调函数。可以指定传入on中的callback取消对应的订阅，也可以不指定callback清空所有订阅。
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
      * @since 7 dynamic
@@ -2898,7 +2718,7 @@ declare namespace socket {
     off(type: 'error', callback?: ErrorCallback): void;
 
     /**
-     * Cancels listening for error events of the TCPSocket connection.
+     * 取消订阅 TCPSocket connection.
      *
      * @param { ErrorCallback } [callback] - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
@@ -2909,8 +2729,8 @@ declare namespace socket {
   }
 
   /**
-   * Defines a TLS socket connection. Before calling TLSSocket APIs, you need to call
-   * [socket.constructTLSSocketInstance]{@link socket.constructTLSSocketInstance} to create a **TLSSocket** object.
+   * TLSSocket连接。在调用TLSSocket的方法前，需要先通过[socket.constructTLSSocketInstance]{@link socket.constructTLSSocketInstance}创建
+   * TLSSocket对象。
    *
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform [since 10]
@@ -2919,19 +2739,16 @@ declare namespace socket {
    */
   export interface TLSSocket {
     /**
-     * Binds the IP address and port number. This API uses an asynchronous callback to return the result.
+     * 绑定IP地址和端口。使用callback异步回调。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > If the **TLSSocket** object is upgraded from a **TCPSocket** object, you do not need to execute the **bind**
-     * > API.
+     * > 如果TLSSocket对象是通过TCPSocket对象升级创建的，可以不用执行bind方法。
      *
      * @permission ohos.permission.INTERNET
-     * @param { NetAddress } address - Local address. For details, see
-     *     [NetAddress](docroot://reference/apis-network-kit/js-apis-socket.md#netaddress).
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful, the
-     *     result of binding the local IP address and port number is returned. If the operation fails, an error message
-     *     is returned.
+     * @param { NetAddress } address - 本端地址信息，参考
+     *     [NetAddress](docroot://reference/apis-network-kit/js-apis-socket.md#netaddress)。
+     * @param { AsyncCallback<void> } callback - 回调函数。成功返回TLSSocket绑定本机的IP地址和端口的结果。失败返回错误码、错误信息。
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 2303198 - Address already in use.
@@ -2944,18 +2761,16 @@ declare namespace socket {
     bind(address: NetAddress, callback: AsyncCallback<void>): void;
 
     /**
-     * Binds the IP address and port number. This API uses a promise to return the result.
+     * 绑定IP地址和端口。使用Promise异步回调。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > If the **TLSSocket** object is upgraded from a **TCPSocket** object, you do not need to execute the **bind**
-     * > API.
+     * > 如果TLSSocket对象是通过TCPSocket对象升级创建的，可以不用执行bind方法。
      *
      * @permission ohos.permission.INTERNET
-     * @param { NetAddress } address - Local address. For details, see
-     *     [NetAddress](docroot://reference/apis-network-kit/js-apis-socket.md#netaddress).
-     * @returns { Promise<void> } Promise used to return the result. If the operation fails, an error message is
-     *     returned.
+     * @param { NetAddress } address - 本端地址信息，参考
+     *     [NetAddress](docroot://reference/apis-network-kit/js-apis-socket.md#netaddress)。
+     * @returns { Promise<void> } 以Promise形式返回TLSSocket绑定本机的IP地址和端口的结果。失败返回错误码，错误信息。
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 2303198 - Address already in use.
@@ -2968,11 +2783,9 @@ declare namespace socket {
     bind(address: NetAddress): Promise<void>;
 
     /**
-     * Obtains the remote address of a TLS socket connection. This API uses an asynchronous callback to return the
-     * result.
+     * 在TLSSocket通信连接成功之后，获取对端Socket地址。使用callback异步回调。
      *
-     * @param { AsyncCallback<NetAddress> } callback - Callback used to return the result. If the operation is
-     *     successful, the remote address is returned. If the operation fails, an error message is returned.
+     * @param { AsyncCallback<NetAddress> } callback - 回调函数。成功返回对端的socket地址，失败返回错误码、错误信息。
      * @throws { BusinessError } 2303188 - Socket operation on non-socket.
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
@@ -2983,10 +2796,9 @@ declare namespace socket {
     getRemoteAddress(callback: AsyncCallback<NetAddress>): void;
 
     /**
-     * Obtains the remote address of a TLS socket connection. This API uses a promise to return the result.
+     * 在TLSSocket通信连接成功之后，获取对端Socket地址。使用Promise异步回调。
      *
-     * @returns { Promise<NetAddress> } Promise used to return the result. If the operation fails, an error message is
-     *     returned.
+     * @returns { Promise<NetAddress> } 以Promise形式返回获取对端socket地址的结果。失败返回错误码，错误信息。
      * @throws { BusinessError } 2303188 - Socket operation on non-socket.
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
@@ -2997,11 +2809,9 @@ declare namespace socket {
     getRemoteAddress(): Promise<NetAddress>;
 
     /**
-     * Obtains the status of the TLS socket connection. This API uses an asynchronous callback to return the result.
+     * 在TLSSocket的bind成功之后，获取TLSSocket状态。使用callback异步回调。
      *
-     * @param { AsyncCallback<SocketStateBase> } callback - Callback used to return the result. If the operation is
-     *     successful, the status of the TLS socket connection is returned. If the operation fails, an error message is
-     *     returned.
+     * @param { AsyncCallback<SocketStateBase> } callback - 回调函数。成功返回TLSSocket状态，失败返回错误码、错误信息。
      * @throws { BusinessError } 2303188 - Socket operation on non-socket.
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
@@ -3012,10 +2822,9 @@ declare namespace socket {
     getState(callback: AsyncCallback<SocketStateBase>): void;
 
     /**
-     * Obtains the status of the TLS socket connection. This API uses a promise to return the result.
+     * 在TLSSocket的bind成功之后，获取TLSSocket状态。使用Promise异步回调。
      *
-     * @returns { Promise<SocketStateBase> } Promise used to return the result. If the operation fails, an error message
-     *     is returned.
+     * @returns { Promise<SocketStateBase> } 以Promise形式返回获取TLSSocket状态的结果。失败返回错误码，错误信息。
      * @throws { BusinessError } 2303188 - Socket operation on non-socket.
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
@@ -3026,14 +2835,10 @@ declare namespace socket {
     getState(): Promise<SocketStateBase>;
 
     /**
-     * Sets other properties of the **TCPSocket** object after **bind** is successfully called. This API uses an
-     * asynchronous callback to return the result.
+     * 在TLSSocket的bind成功之后，设置TCPSocket连接的其他属性。使用callback异步回调。
      *
-     * @param { TCPExtraOptions } options - Other properties of the **TCPSocket** object. For details, see
-     *     [TCPExtraOptions]{@link socket.TCPExtraOptions}.
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful, the
-     *     result of setting other properties of the **TCPSocket** object is returned. If the operation fails, an error
-     *     message is returned.
+     * @param { TCPExtraOptions } options - TCPSocket连接的其他属性，参考[TCPExtraOptions]{@link socket.TCPExtraOptions}。
+     * @param { AsyncCallback<void> } callback - 回调函数。成功返回设置TCPSocket连接的其他属性的结果，失败返回错误码、错误信息。
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2303188 - Socket operation on non-socket.
      * @throws { BusinessError } 2300002 - System internal error.
@@ -3045,12 +2850,10 @@ declare namespace socket {
     setExtraOptions(options: TCPExtraOptions, callback: AsyncCallback<void>): void;
 
     /**
-     * Sets other properties of the **TCPSocket** object after **bind** is successfully called. This API uses a promise
-     * to return the result.
+     * 在TLSSocket的bind成功之后，设置TCPSocket连接的其他属性。使用Promise异步回调。
      *
-     * @param { TCPExtraOptions } options - Other properties of the **TCPSocket** object. For details, see
-     *     [TCPExtraOptions]{@link socket.TCPExtraOptions}.
-     * @returns { Promise<void> } Promise that returns no value.
+     * @param { TCPExtraOptions } options - TCPSocket连接的其他属性，参考[TCPExtraOptions]{@link socket.TCPExtraOptions}。
+     * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2303188 - Socket operation on non-socket.
      * @throws { BusinessError } 2300002 - System internal error.
@@ -3062,13 +2865,13 @@ declare namespace socket {
     setExtraOptions(options: TCPExtraOptions): Promise<void>;
 
     /**
-     * Obtains the local socket address of a **TLSSocket** connection. This API uses a promise to return the result.
+     * 获取TLSSocket的本地Socket地址。使用Promise异步回调。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > Call this API only after the **TLSSocketServer** connection is successfully established.
+     * > 在TLSSocketServer通信连接成功之后，才可调用此方法。
      *
-     * @returns { Promise<NetAddress> } Promise used to return the result.
+     * @returns { Promise<NetAddress> } 以Promise形式返回获取本地socket地址的结果。
      * @throws { BusinessError } 2300002 - System internal error.
      * @throws { BusinessError } 2301009 - Bad file descriptor.
      * @throws { BusinessError } 2303188 - Socket operation on non-socket.
@@ -3080,17 +2883,16 @@ declare namespace socket {
     getLocalAddress(): Promise<NetAddress>;
 
     /**
-     * Subscribes to **message** events of the **TLSSocket** object. This API uses an asynchronous callback to return
-     * the result.
+     * 订阅TLSSocket连接的接收消息事件。使用callback异步回调。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > This API can be called only after **bind** is successfully called.
+     * > bind方法调用成功后，才可调用此方法。
      *
-     * @param { 'message' } type - Event type.<br/> **message**: message receiving event.
+     * @param { 'message' } type - 订阅的事件类型。'message'：接收消息事件。
      * @param { Callback<{ message: ArrayBuffer, remoteInfo: SocketRemoteInfo }> } callback - Callback used to return
      *     the result. [since 9 - 10]
-     * @param { Callback<SocketMessageInfo> } callback - Callback used to return the result. [since 11]
+     * @param { Callback<SocketMessageInfo> } callback - 回调函数。TLSSocket连接订阅某类接受消息事件触发的调用函数，返回TLSSocket连接信息。 [since 11]
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
@@ -3099,7 +2901,7 @@ declare namespace socket {
     on(type: 'message', callback: Callback<SocketMessageInfo>): void;
 
     /**
-     * Listens for message receiving events of the TLSSocket connection.
+     * 订阅 TLSSocket connection.
      *
      * @param { Callback<SocketMessageInfo> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
@@ -3109,13 +2911,12 @@ declare namespace socket {
     onTlsMessage(callback: Callback<SocketMessageInfo>): void;
 
     /**
-     * Unsubscribes from **message** events of the **TLSSocket** object. This API uses an asynchronous callback to
-     * return the result.
+     * 取消订阅TLSSocket连接的接收消息事件。使用callback异步回调。
      *
-     * @param { 'message' } type - Event type.<br/> **message**: message receiving event.
+     * @param { 'message' } type - 订阅的事件类型。'message'：接收消息事件。
      * @param { Callback<{ message: ArrayBuffer, remoteInfo: SocketRemoteInfo }> } callback - Callback used to return
      *     the result. [since 9 - 10]
-     * @param { Callback<SocketMessageInfo> } callback - Callback used to return the result. [since 11]
+     * @param { Callback<SocketMessageInfo> } callback - 回调函数。TLSSocket连接取消订阅某类接受消息事件触发的调用函数，返回TLSSocket连接信息。 [since 11]
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
@@ -3124,7 +2925,7 @@ declare namespace socket {
     off(type: 'message', callback?: Callback<SocketMessageInfo>): void;
 
     /**
-     * Cancels listening for message receiving events of the TLSSocket connection.
+     * 取消订阅 TLSSocket connection.
      *
      * @param { Callback<SocketMessageInfo> } [callback] - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
@@ -3134,17 +2935,14 @@ declare namespace socket {
     offTlsMessage(callback?: Callback<SocketMessageInfo>): void;
 
     /**
-     * Subscribes to **connect** or **close** events of the **TLSSocket** object. This API uses an asynchronous callback
-     * to return the result.
+     * 订阅TLSSocket的连接事件或关闭事件。使用callback异步回调。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > This API can be called only after **bind** is successfully called.
+     * > bind方法调用成功后，才可调用此方法。
      *
-     * @param { 'connect' | 'close' } type - Event type.<br/>
-     *     <br>- **connect**: connection event.
-     *     <br>- **close**: close event.
-     * @param {Callback<void> } callback - Callback used to return the result.
+     * @param { 'connect' | 'close' } type - 订阅的事件类型。<br />- 'connect'：连接事件。<br />- 'close'：关闭事件。
+     * @param {Callback<void> } callback - 回调函数。TLSSocket连接订阅某类事件触发的调用函数。
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
@@ -3153,7 +2951,7 @@ declare namespace socket {
     on(type: 'connect' | 'close', callback: Callback<void>): void;
 
     /**
-     * Listens for connection or close events of the TLSSocket connection.
+     * 订阅 TLSSocket connection.
      *
      * @param { Callback<void> } callback - the callback used to return the result.
      * @throws { BusinessError } 401 - Parameter error.
@@ -3164,7 +2962,7 @@ declare namespace socket {
     onTlsConnect(callback: Callback<void>): void;
 
     /**
-     * Listens for connection or close events of the TLSSocket connection.
+     * 订阅 TLSSocket connection.
      *
      * @param { Callback<void> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
@@ -3174,13 +2972,10 @@ declare namespace socket {
     onTlsClose(callback: Callback<void>): void;
 
     /**
-     * Unsubscribes from **connect** or **close** events of the **TLSSocket** object. This API uses an asynchronous
-     * callback to return the result.
+     * 取消订阅TLSSocket的连接事件或关闭事件。使用callback异步回调。
      *
-     * @param { 'connect' | 'close' } type - Event type.<br/>
-     *     <br>- **connect**: connection event.
-     *     <br>- **close**: close event.
-     * @param {Callback<void> } callback - Callback used to return the result.
+     * @param { 'connect' | 'close' } type - 订阅的事件类型。<br />- 'connect'：连接事件。<br />- 'close'：关闭事件。
+     * @param {Callback<void> } callback - 回调函数。TLSSocket连接订阅某类事件触发的调用函数。
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
@@ -3189,7 +2984,7 @@ declare namespace socket {
     off(type: 'connect' | 'close', callback?: Callback<void>): void;
 
     /**
-     * Cancels listening for connection or close events of the TLSSocket connection.
+     * 取消订阅 TLSSocket connection.
      *
      * @param { Callback<void> } [callback] - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
@@ -3199,7 +2994,7 @@ declare namespace socket {
     offTlsConnect(callback?: Callback<void>): void;
 
     /**
-     * Cancels listening for connection or close events of the TLSSocket connection.
+     * 取消订阅 TLSSocket connection.
      *
      * @param { Callback<void> } [callback] - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
@@ -3209,15 +3004,14 @@ declare namespace socket {
     offTlsClose(callback?: Callback<void>): void;
 
     /**
-     * Subscribes to **error** events of the **TLSSocket** object. This API uses an asynchronous callback to return the
-     * result.
+     * 订阅TLSSocket连接的error事件。使用callback异步回调。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > This API can be called only after **bind** is successfully called.
+     * > bind方法调用成功后，才可调用此方法。
      *
-     * @param { 'error' } type - Event type.<br/> **error**: error event.
-     * @param { ErrorCallback } callback - Callback used to return the result.
+     * @param { 'error' } type - 订阅的事件类型。'error'：error事件。
+     * @param { ErrorCallback } callback - 回调函数。TLSSocket连接订阅某类error事件触发的调用函数。
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
@@ -3226,7 +3020,7 @@ declare namespace socket {
     on(type: 'error', callback: ErrorCallback): void;
 
     /**
-     * Listens for error events of the TLSSocket connection.
+     * 订阅 TLSSocket connection.
      *
      * @param { ErrorCallback } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
@@ -3236,11 +3030,10 @@ declare namespace socket {
     onTlsError(callback: ErrorCallback): void;
 
     /**
-     * Unsubscribes from **error** events of the **TLSSocket** object. This API uses an asynchronous callback to return
-     * the result.
+     * 取消订阅TLSSocket连接的error事件。使用callback异步回调。
      *
-     * @param { 'error' } type - Event type.<br/> **error**: error event.
-     * @param { ErrorCallback } callback - Callback used to return the result.
+     * @param { 'error' } type - 订阅的事件类型。'error'：error事件。
+     * @param { ErrorCallback } callback - 回调函数。TLSSocket连接取消订阅某类error事件触发的调用函数。
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
@@ -3249,7 +3042,7 @@ declare namespace socket {
     off(type: 'error', callback?: ErrorCallback): void;
 
     /**
-     * Cancels listening for error events of the TLSSocket connection.
+     * 取消订阅 TLSSocket connection.
      *
      * @param { ErrorCallback } [callback] - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
@@ -3259,11 +3052,9 @@ declare namespace socket {
     offTlsError(callback?: ErrorCallback): void;
 
     /**
-     * Obtains the local digital certificate after a **TLSSocket** connection is established. This API is applicable to
-     * two-way authentication. It uses an asynchronous callback to return the result.
+     * 在TLSSocket通信连接成功之后，获取本地的数字证书，该接口只适用于双向认证时，使用callback异步回调。
      *
-     * @param { AsyncCallback<X509CertRawData> } callback - Callback used to return the result. If the operation is
-     *     successful, the local certificate is returned. If the operation fails, an error message is returned.
+     * @param { AsyncCallback<X509CertRawData> } callback - 回调函数，成功返回本地的证书，失败返回错误码、错误信息。
      * @throws { BusinessError } 2303501 - SSL is null.
      * @throws { BusinessError } 2303504 - An error occurred when verifying the X.509 certificate.
      * @throws { BusinessError } 2300002 - System internal error.
@@ -3275,11 +3066,9 @@ declare namespace socket {
     getCertificate(callback: AsyncCallback<X509CertRawData>): void;
 
     /**
-     * Obtains the local digital certificate after a **TLSSocket** connection is established. This API is applicable to
-     * two-way authentication. It uses a promise to return the result.
+     * 在TLSSocket通信连接之后，获取本地的数字证书，该接口只适用于双向认证时，使用Promise异步回调。
      *
-     * @returns { Promise<X509CertRawData> } Promise used to return the result. If the operation fails, an error message
-     *     is returned.
+     * @returns { Promise<X509CertRawData> } 以Promise形式返回本地的数字证书的结果。失败返回错误码，错误信息。
      * @throws { BusinessError } 2303501 - SSL is null.
      * @throws { BusinessError } 2303504 - An error occurred when verifying the X.509 certificate.
      * @throws { BusinessError } 2300002 - System internal error.
@@ -3291,11 +3080,9 @@ declare namespace socket {
     getCertificate(): Promise<X509CertRawData>;
 
     /**
-     * Obtains the digital certificate of the server after a **TLSSocket** connection is established. This API uses an
-     * asynchronous callback to return the result.
+     * 在TLSSocket通信连接成功之后，获取服务端的数字证书，使用callback异步回调。
      *
-     * @param { AsyncCallback<X509CertRawData> } callback - Callback used to return the result. If the operation fails,
-     *     an error message is returned.
+     * @param { AsyncCallback<X509CertRawData> } callback - 回调函数，返回服务端的证书。失败返回错误码、错误信息。
      * @throws { BusinessError } 2303501 - SSL is null.
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
@@ -3306,11 +3093,9 @@ declare namespace socket {
     getRemoteCertificate(callback: AsyncCallback<X509CertRawData>): void;
 
     /**
-     * Obtains the digital certificate of the server after a **TLSSocket** connection is established. This API uses a
-     * promise to return the result.
+     * 在TLSSocket通信连接成功之后，获取服务端的数字证书，使用Promise异步回调。
      *
-     * @returns { Promise<X509CertRawData> } Promise used to return the result. If the operation fails, an error message
-     *     is returned.
+     * @returns { Promise<X509CertRawData> } 以Promise形式返回服务端的数字证书的结果。失败返回错误码，错误信息。
      * @throws { BusinessError } 2303501 - SSL is null.
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
@@ -3321,11 +3106,9 @@ declare namespace socket {
     getRemoteCertificate(): Promise<X509CertRawData>;
 
     /**
-     * Obtains the communication protocol version after a **TLSSocket** connection is established. This API uses an
-     * asynchronous callback to return the result.
+     * 在TLSSocket通信连接成功之后，获取通信的协议版本，使用callback异步回调。
      *
-     * @param { AsyncCallback<string> } callback - Callback used to return the result. If the operation fails, an error
-     *     message is returned.
+     * @param { AsyncCallback<string> } callback - 回调函数，返回通信的协议。失败返回错误码、错误信息。
      * @throws { BusinessError } 2303501 - SSL is null.
      * @throws { BusinessError } 2303505 - An error occurred in the TLS system call.
      * @throws { BusinessError } 2300002 - System internal error.
@@ -3337,11 +3120,9 @@ declare namespace socket {
     getProtocol(callback: AsyncCallback<string>): void;
 
     /**
-     * Obtains the communication protocol version after a **TLSSocket** connection is established. This API uses a
-     * promise to return the result.
+     * 在TLSSocket通信连接成功之后，获取通信的协议版本，使用Promise异步回调。
      *
-     * @returns { Promise<string> } Promise used to return the result. If the operation fails, an error message is
-     *     returned.
+     * @returns { Promise<string> } 以Promise形式返回通信的协议。失败返回错误码，错误信息。
      * @throws { BusinessError } 2303501 - SSL is null.
      * @throws { BusinessError } 2303505 - An error occurred in the TLS system call.
      * @throws { BusinessError } 2300002 - System internal error.
@@ -3353,11 +3134,9 @@ declare namespace socket {
     getProtocol(): Promise<string>;
 
     /**
-     * Obtains the cipher suite negotiated by both communication parties after a **TLSSocket** connection is
-     * established. This API uses an asynchronous callback to return the result.
+     * 在TLSSocket通信连接成功之后，获取通信双方协商后的加密套件，使用callback异步回调。
      *
-     * @param { AsyncCallback<Array<string>> } callback - Callback used to return the result. If the operation fails, an
-     *     error message is returned.
+     * @param { AsyncCallback<Array<string>> } callback - 回调函数，返回通信双方支持的加密套件。失败返回错误码、错误信息。
      * @throws { BusinessError } 2303501 - SSL is null.
      * @throws { BusinessError } 2303502 - An error occurred when reading data on the TLS socket.
      * @throws { BusinessError } 2303505 - An error occurred in the TLS system call.
@@ -3370,11 +3149,9 @@ declare namespace socket {
     getCipherSuite(callback: AsyncCallback<Array<string>>): void;
 
     /**
-     * Obtains the cipher suite negotiated by both communication parties after a **TLSSocket** connection is
-     * established. This API uses a promise to return the result.
+     * 在TLSSocket通信连接成功之后，获取通信双方协商后的加密套件，使用Promise异步回调。
      *
-     * @returns { Promise<Array<string>> } Promise used to return the result. If the operation fails, an error message
-     *     is returned.
+     * @returns { Promise<Array<string>> } 以Promise形式返回通信双方支持的加密套件。失败返回错误码，错误信息。
      * @throws { BusinessError } 2303501 - SSL is null.
      * @throws { BusinessError } 2303502 - An error occurred when reading data on the TLS socket.
      * @throws { BusinessError } 2303505 - An error occurred in the TLS system call.
@@ -3387,11 +3164,9 @@ declare namespace socket {
     getCipherSuite(): Promise<Array<string>>;
 
     /**
-     * Obtains the signing algorithm negotiated by both communication parties after a **TLSSocket** connection is
-     * established. This API is applicable to two-way authentication. It uses an asynchronous callback to return the
-     * result.
+     * 在TLSSocket通信连接成功之后，获取通信双方协商后签名算法，该接口只适配双向认证模式下，使用callback异步回调。
      *
-     * @param { AsyncCallback<Array<string>> } callback - Callback used to return the result.
+     * @param { AsyncCallback<Array<string>> } callback - 回调函数，返回双方支持的签名算法。
      * @throws { BusinessError } 2303501 - SSL is null.
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
@@ -3402,10 +3177,9 @@ declare namespace socket {
     getSignatureAlgorithms(callback: AsyncCallback<Array<string>>): void;
 
     /**
-     * Obtains the signing algorithm negotiated by both communication parties after a **TLSSocket** connection is
-     * established. This API is applicable to two-way authentication. It uses a promise to return the result.
+     * 在TLSSocket通信连接成功之后，获取通信双方协商后的签名算法，该接口只适配双向认证模式下，使用Promise异步回调。
      *
-     * @returns { Promise<Array<string>> } Promise used to return the result.
+     * @returns { Promise<Array<string>> } 以Promise形式返回获取到的双方支持的签名算法。
      * @throws { BusinessError } 2303501 - SSL is null.
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
@@ -3416,17 +3190,16 @@ declare namespace socket {
     getSignatureAlgorithms(): Promise<Array<string>>;
 
     /**
-     * Obtains the file descriptor of the **TLSSocket** object. This API uses a promise to return the result.
+     * 获取TLSSocket的文件描述符。使用Promise异步回调。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > - This API can be called only after **bind** is successfully called.
+     * > - bind方法调用成功后，才可调用此方法。
      * >
-     * > - The lifecycle of the file descriptor is managed by the system. The application can use the
-     * > [close]{@link socket.TLSSocket.close(callback: AsyncCallback<void>)} method to close the socket connection,
-     * > instead of directly operating the file descriptor.
+     * > - 文件描述符的生命周期由系统管理，应用可以通过[close]{@link socket.TLSSocket.close(callback: AsyncCallback<void>)}方法关闭Socket连接，避免直接操作
+     * > 文件描述符进行关闭。
      *
-     * @returns { Promise<int> } Promise used to return the result.
+     * @returns { Promise<int> } 以Promise形式返回socket的文件描述符。
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 24]
      * @since 16 dynamic
@@ -3435,16 +3208,12 @@ declare namespace socket {
     getSocketFd(): Promise<int>;
 
     /**
-     * Sets up a **TLSSocket** connection, and creates and initializes a TLS session after **bind** is successfully
-     * called. During this process, a TLS/SSL handshake is performed between the application and the server to implement
-     * data transmission. This API uses an asynchronous callback to return the result. Note that **ca** in
-     * **secureOptions** of the **options** parameter is mandatory in API version 11 or earlier. You need to enter the
-     * CA certificate of the server for certificate authentication. The certificate content starts with "-----BEGIN
-     * CERTIFICATE-----" and ends with "-----END CERTIFICATE-----". This field is optional since API version 12.
+     * 在TLSSocket上bind成功之后，进行通信连接，并创建和初始化TLS会话，实现建立连接过程，启动与服务器的TLS/SSL握手，实现数据传输功能，使用callback异步回调。需要注意options入参下
+     * secureOptions内的ca在API11及之前的版本为必填项，需填入服务端的ca证书(用于认证校验服务端的数字证书)，证书内容以"-----BEGIN CERTIFICATE-----"开头，以"-----END
+     * CERTIFICATE-----"结尾，自API12开始，为非必填项。
      *
-     * @param { TLSConnectOptions } options - Parameters required for the TLS socket connection.
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful, no
-     *     value is returned. If the operation fails, an error message is returned.
+     * @param { TLSConnectOptions } options - TLSSocket连接所需要的参数。
+     * @param { AsyncCallback<void> } callback - 回调函数，成功无返回，失败返回错误码、错误信息。
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2303104 - Interrupted system call.
      * @throws { BusinessError } 2303109 - Bad file number.
@@ -3476,17 +3245,12 @@ declare namespace socket {
     connect(options: TLSConnectOptions, callback: AsyncCallback<void>): void;
 
     /**
-     * Sets up a **TLSSocket** connection, and creates and initializes a TLS session after **bind** is successfully
-     * called. During this process, a TLS/SSL handshake is performed between the application and the server to implement
-     * data transmission. Both two-way and one-way authentication modes are supported. This API uses a promise to return
-     * the result. Note that **ca** in **secureOptions** of the **options** parameter is mandatory in API version 11 or
-     * earlier. You need to enter the CA certificate of the server for certificate authentication. The certificate
-     * content starts with "-----BEGIN CERTIFICATE-----" and ends with "-----END CERTIFICATE-----". This field is
-     * optional since API version 12.
+     * 在TLSSocket上bind成功之后，进行通信连接，并创建和初始化TLS会话，实现建立连接过程，启动与服务器的TLS/SSL握手，实现数据传输功能，该连接包括两种认证方式，单向认证与双向认证，使用Promise异步回调。需要
+     * 注意options入参下secureOptions内的ca在API11及之前的版本为必填项，需填入服务端的ca证书(用于认证校验服务端的数字证书)，证书内容以"-----BEGIN CERTIFICATE-----"开头，以"
+     * -----END CERTIFICATE-----"结尾，自API12开始，为非必填项。
      *
-     * @param { TLSConnectOptions } options - Parameters required for the connection.
-     * @returns { Promise<void> } Promise used to return the result. If the operation is successful, no value is
-     *     returned. If the operation fails, an error message is returned.
+     * @param { TLSConnectOptions } options - 连接所需要的参数。
+     * @returns { Promise<void> } 以Promise形式返回，成功无返回，失败返回错误码，错误信息。
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2303104 - Interrupted system call.
      * @throws { BusinessError } 2303109 - Bad file number.
@@ -3518,13 +3282,11 @@ declare namespace socket {
     connect(options: TLSConnectOptions): Promise<void>;
 
     /**
-     * Sends a message to the server after a **TLSSocket** connection is established. This API uses an asynchronous
-     * callback to return the result.
+     * 在TLSSocket通信连接成功之后，向服务端发送消息，使用callback异步回调。
      *
      * @param { string } data - Data content of the message to send. [since 9 - 11]
-     * @param { string | ArrayBuffer } data - Data content of the message to send. [since 12]
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation fails, an error
-     *     message is returned.
+     * @param { string | ArrayBuffer } data - 发送的数据内容。 [since 9 - 11]
+     * @param { AsyncCallback<void> } callback - 回调函数,返回TLSSocket发送数据的结果。失败返回错误码、错误信息。
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2303501 - SSL is null.
      * @throws { BusinessError } 2303503 - An error occurred when writing data on the TLS socket.
@@ -3539,13 +3301,11 @@ declare namespace socket {
     send(data: string | ArrayBuffer, callback: AsyncCallback<void>): void;
 
     /**
-     * Sends a message to the server after a **TLSSocket** connection is established. This API uses a promise to return
-     * the result.
+     * 在TLSSocket通信连接成功之后，向服务端发送消息，使用Promise异步回调。
      *
      * @param { string } data - Data content of the message to send. [since 9 - 11]
-     * @param { string | ArrayBuffer } data - Data content of the message to send. [since 12]
-     * @returns { Promise<void> } Promise used to return the result. If the operation fails, an error message is
-     *     returned.
+     * @param { string | ArrayBuffer } data - 发送的数据内容。 [since 9 - 11]
+     * @returns { Promise<void> } 以Promise形式返回,返回TLSSocket发送数据的结果。失败返回错误码，错误信息。
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2303501 - SSL is null.
      * @throws { BusinessError } 2303503 - An error occurred when writing data on the TLS socket.
@@ -3560,10 +3320,9 @@ declare namespace socket {
     send(data: string | ArrayBuffer): Promise<void>;
 
     /**
-     * Closes a **TLSSocket** connection. This API uses an asynchronous callback to return the result.
+     * 在TLSSocket通信连接成功之后，断开连接，使用callback异步回调。
      *
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation fails, an error
-     *     message is returned.
+     * @param { AsyncCallback<void> } callback - 回调函数,成功返回TLSSocket关闭连接的结果。失败返回错误码、错误信息。
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2303501 - SSL is null.
      * @throws { BusinessError } 2303505 - An error occurred in the TLS system call.
@@ -3577,10 +3336,9 @@ declare namespace socket {
     close(callback: AsyncCallback<void>): void;
 
     /**
-     * Closes a **TLSSocket** connection. This API uses a promise to return the result.
+     * 在TLSSocket通信连接成功之后，断开连接，使用Promise异步回调。
      *
-     * @returns { Promise<void> } Promise used to return the result. If the operation fails, an error message is
-     *     returned.
+     * @returns { Promise<void> } 以Promise形式返回,返回TLSSocket关闭连接的结果。失败返回错误码，错误信息。
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2303501 - SSL is null.
      * @throws { BusinessError } 2303505 - An error occurred in the TLS system call.
@@ -3595,8 +3353,7 @@ declare namespace socket {
   }
 
   /**
-   * TLS security options. When **cert** (local certificate) and **key** (private key) are not empty, the two-way
-   * authentication mode is enabled. If **cert** or **key** is empty, one-way authentication is enabled.
+   * TLS安全相关操作。当本地证书cert和私钥key不为空时，开启双向验证模式。cert和key其中一项为空时，开启单向验证模式。
    *
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform [since 10]
@@ -3605,8 +3362,7 @@ declare namespace socket {
    */
   export interface TLSSecureOptions {
     /**
-     * CA certificate of the server, which is used to authenticate the digital certificate of the server. The default
-     * value is the preset CA certificate<sup>12+</sup>. A maximum of 1000 certificates can be set.
+     * 服务端的ca证书，用于认证校验服务端的数字证书。默认为系统预置CA证书<sup>12+</sup>。最多支持设置1000本证书。
      *
      * @type {string | Array<string>} [since 9 - 11]
      * @type {?(string | Array<string>)} [since 12]
@@ -3618,8 +3374,7 @@ declare namespace socket {
     ca?: string | Array<string>;
 
     /**
-     * Digital certificate of the local client. An array can be passed since API version 24. A maximum of 1000
-     * certificates can be set.
+     * 本地客户端的数字证书。从API Version 24开始支持传入数组，最多支持设置1000本证书。
      *
      * @type {?string} [since 9 - 23]
      * @type {?(string | Array<string>)} [since 24]
@@ -3631,7 +3386,7 @@ declare namespace socket {
     cert?: string | Array<string>;
 
     /**
-     * Private key of the local digital certificate.
+     * 本地数字证书的私钥。
      *
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
@@ -3641,7 +3396,7 @@ declare namespace socket {
     key?: string;
 
     /**
-     * Password for reading the private key.
+     * 读取私钥的密码。
      *
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
@@ -3651,7 +3406,7 @@ declare namespace socket {
     password?: string;
 
     /**
-     * TLS protocol version. The default value is **TLSv1.2**.
+     * TLS的协议版本，默认为"TLSv1.2"。
      *
      * @type {?Protocol | Array<Protocol>} [since 9 - 9]
      * @type {?(Protocol | Array<Protocol>)} [since 10]
@@ -3663,8 +3418,7 @@ declare namespace socket {
     protocols?: Protocol | Array<Protocol>;
 
     /**
-     * Whether to use the remote cipher suite preferentially. The value **true** means to use the remote cipher suite
-     * preferentially, and the value **false** means the opposite.
+     * 优先使用对等方的密码套件。true：优先使用对等方的密码套件；false：不优先使用对等方的密码套件。
      *
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
@@ -3674,7 +3428,7 @@ declare namespace socket {
     useRemoteCipherPrefer?: boolean;
 
     /**
-     * Signing algorithm used during communication. The default value is **""**.
+     * 通信过程中的签名算法，默认为"" 。
      *
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
@@ -3684,7 +3438,7 @@ declare namespace socket {
     signatureAlgorithms?: string;
 
     /**
-     * Cipher suite used during communication. The default value is **""**.
+     * 通信过程中的加密套件，默认为"" 。
      *
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
@@ -3694,8 +3448,7 @@ declare namespace socket {
     cipherSuite?: string;
 
     /**
-     * Two-way authentication. The default value is **false**. The value **true** means to enable two-way
-     * authentication, and the value **false** means the opposite.
+     * 用于设置双向认证，默认为false。true：设置双向认证；false：不设置双向认证。
      *
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 24]
@@ -3706,7 +3459,7 @@ declare namespace socket {
   }
 
   /**
-   * Defines TLS connection options.
+   * TLS连接的操作。
    *
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform [since 10]
@@ -3715,7 +3468,7 @@ declare namespace socket {
    */
   export interface TLSConnectOptions {
     /**
-     * Gateway address.
+     * 网关地址。
      *
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
@@ -3725,7 +3478,7 @@ declare namespace socket {
     address: NetAddress;
 
     /**
-     * TLS security options.
+     * TLS安全相关操作。
      *
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
@@ -3735,7 +3488,7 @@ declare namespace socket {
     secureOptions: TLSSecureOptions;
 
     /**
-     * ALPN protocol. The value range is ["spdy/1", "http/1.1"]. The default value is **[]**.
+     * ALPN协议，支持["spdy/1", "http/1.1"]，默认为[]。
      *
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
@@ -3745,8 +3498,7 @@ declare namespace socket {
     ALPNProtocols?: Array<string>;
 
     /**
-     * Whether to skip certificate authentication on the server. The default value is **false**. The value **true**
-     * means to skip certificate authentication on the server, and the value **false** means the opposite.
+     * 是否跳过对服务端进行证书认证，默认为false。true：跳过对服务端进行证书认证；false：不跳过对服务端进行证书认证。
      *
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 24]
@@ -3756,7 +3508,7 @@ declare namespace socket {
     skipRemoteValidation?: boolean;
 
     /**
-     * Proxy option. By default, no proxy is used.
+     * 使用的代理信息，默认不使用代理。
      *
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
@@ -3766,8 +3518,7 @@ declare namespace socket {
     proxy?: ProxyOptions;
 
     /**
-     * Connection timeout interval, in milliseconds. The default value is **0**. The input value must be an integer
-     * ranging from 0 to 4294967295. The TLS socket connection fails after the timeout interval.
+     * 连接超时时间，单位：ms，默认为0。传入值需为0-4294967295范围内的整数。TLSSocket连接在超时后会失败。
      *
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
@@ -3778,7 +3529,7 @@ declare namespace socket {
   }
 
   /**
-   * Enumerates TLS protocol versions.
+   * TLS通信的协议版本。
    *
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform [since 10]
@@ -3787,7 +3538,7 @@ declare namespace socket {
    */
   export enum Protocol {
     /**
-     * TLSv1.2.
+     * 使用TLSv1.2协议通信。
      *
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
@@ -3797,7 +3548,7 @@ declare namespace socket {
     TLSv12 = "TLSv1.2",
 
     /**
-     * TLSv1.3.
+     * 使用TLSv1.3协议通信。
      *
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
@@ -3808,13 +3559,11 @@ declare namespace socket {
   }
 
   /**
-   * Defines a **TCPSocketConnection** object, that is, the connection between the TCPSocket client and the server.
-   * Before calling TCPSocketConnection APIs, you need to obtain a **TCPSocketConnection** object.
+   * TCPSocketConnection连接，即TCPSocket客户端与服务端的连接。在调用TCPSocketConnection的方法前，需要先获取TCPSocketConnection对象。
    *
-   * > **NOTE**
+   * > **说明：**
    * >
-   * > The TCPSocket client can call related APIs through the **TCPSocketConnection** object only after a connection is
-   * > successfully established between the TCPSocket client and the server.
+   * > 客户端与服务端成功建立连接后，才能通过返回的TCPSocketConnection对象调用相应的接口。
    *
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform [since 24]
@@ -3823,7 +3572,7 @@ declare namespace socket {
    */
   export interface TCPSocketConnection {
     /**
-     * ID of the connection between the client and TCPSocketServer.
+     * 客户端与TCPSocketServer建立连接的id。
      *
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 24]
@@ -3833,16 +3582,15 @@ declare namespace socket {
     clientId: int;
 
     /**
-     * Sends data over a **TCPSocketConnection** object. This API uses an asynchronous callback to return the result.
+     * 通过TCPSocketConnection连接发送数据。使用callback异步回调。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > This API can be called only after a connection with the client is set up.
+     * > 与客户端建立连接后，才可调用此方法。
      *
      * @permission ohos.permission.INTERNET
-     * @param { TCPSendOptions } options - Defines the parameters for sending data over a TCP socket connection.
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation fails, an error
-     *     message is returned.
+     * @param { TCPSendOptions } options - TCPSocketConnection发送请求的参数。
+     * @param { AsyncCallback<void> } callback - 回调函数。失败时返回错误码、错误信息。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2300002 - System internal error.
@@ -3854,15 +3602,15 @@ declare namespace socket {
     send(options: TCPSendOptions, callback: AsyncCallback<void>): void;
 
     /**
-     * Sends data over a **TCPSocketConnection** object. This API uses a promise to return the result.
+     * 通过TCPSocketConnection连接发送数据。使用Promise异步回调。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > This API can be called only after a connection with the client is set up.
+     * > 与客户端建立连接后，才可调用此方法。
      *
      * @permission ohos.permission.INTERNET
-     * @param { TCPSendOptions } options - Defines the parameters for sending data over a TCP socket connection.
-     * @returns { Promise<void> } Promise that returns no value.
+     * @param { TCPSendOptions } options - TCPSocketConnection发送请求的参数。
+     * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2300002 - System internal error.
@@ -3874,11 +3622,10 @@ declare namespace socket {
     send(options: TCPSendOptions): Promise<void>;
 
     /**
-     * Closes a TCP socket connection. This API uses an asynchronous callback to return the result.
+     * 关闭一个与TCPSocket建立的连接。使用callback异步回调。
      *
      * @permission ohos.permission.INTERNET
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation fails, an error
-     *     message is returned.
+     * @param { AsyncCallback<void> } callback - 回调函数。失败时返回错误码、错误信息。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2300002 - System internal error.
@@ -3890,10 +3637,10 @@ declare namespace socket {
     close(callback: AsyncCallback<void>): void;
 
     /**
-     * Closes a TCP socket connection. This API uses a promise to return the result.
+     * 关闭一个与TCPSocket建立的连接。使用Promise异步回调。
      *
      * @permission ohos.permission.INTERNET
-     * @returns { Promise<void> } Promise that returns no value.
+     * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
@@ -3904,15 +3651,14 @@ declare namespace socket {
     close(): Promise<void>;
 
     /**
-     * Obtains the remote address of a socket connection. This API uses an asynchronous callback to return the result.
+     * 获取对端Socket地址。使用callback异步回调。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > This API can be called only after a connection with the client is set up.
+     * > 与客户端建立连接后，才可调用此方法。
      *
      * @permission ohos.permission.INTERNET
-     * @param { AsyncCallback<NetAddress> } callback - Callback used to return the result. If the operation fails, an
-     *     error message is returned.
+     * @param { AsyncCallback<NetAddress> } callback - 回调函数。失败时返回错误码、错误信息。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2300002 - System internal error.
@@ -3925,14 +3671,14 @@ declare namespace socket {
     getRemoteAddress(callback: AsyncCallback<NetAddress>): void;
 
     /**
-     * Obtains the remote address of a socket connection. This API uses a promise to return the result.
+     * 获取对端Socket地址。使用Promise异步回调。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > This API can be called only after a connection with the client is set up.
+     * > 与客户端建立连接后，才可调用此方法。
      *
      * @permission ohos.permission.INTERNET
-     * @returns { Promise<NetAddress> } Promise used to return the result.
+     * @returns { Promise<NetAddress> } 以Promise形式返回获取对端socket地址的结果。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 2300002 - System internal error.
      * @throws { BusinessError } 2303188 - Socket operation on non-socket.
@@ -3944,10 +3690,9 @@ declare namespace socket {
     getRemoteAddress(): Promise<NetAddress>;
 
     /**
-     * Obtains the local socket address of a **TCPSocketConnection** connection. This API uses a promise to return the
-     * result.
+     * 获取TCPSocketConnection连接的本地Socket地址。使用Promise异步回调。
      *
-     * @returns { Promise<NetAddress> } Promise used to return the result.
+     * @returns { Promise<NetAddress> } 以Promise形式返回获取本地socket地址的结果。
      * @throws { BusinessError } 2300002 - System internal error.
      * @throws { BusinessError } 2301009 - Bad file descriptor.
      * @throws { BusinessError } 2303188 - Socket operation on non-socket.
@@ -3959,14 +3704,12 @@ declare namespace socket {
     getLocalAddress(): Promise<NetAddress>;
 
     /**
-     * Subscribes to **message** events of the **TCPSocketConnection** object. This API uses an asynchronous callback to
-     * return the result.
+     * 订阅TCPSocketConnection连接的接收消息事件。使用callback异步回调。
      *
-     * @param { 'message' } type - Event type.<br/> **message**: message receiving event.
+     * @param { 'message' } type - 订阅的事件类型。'message'：接收消息事件。
      * @param { Callback<{ message: ArrayBuffer, remoteInfo: SocketRemoteInfo }> } callback - Callback used to return
      *     the result. If the operation fails, an error message is returned. [since 10 - 10]
-     * @param { Callback<SocketMessageInfo> } callback - Callback used to return the result. If the operation fails, an
-     *     error message is returned. [since 11]
+     * @param { Callback<SocketMessageInfo> } callback - 回调函数。失败时返回错误码、错误信息。 [since 11]
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 12]
@@ -3975,7 +3718,7 @@ declare namespace socket {
     on(type: 'message', callback: Callback<SocketMessageInfo>): void;
 
     /**
-     * Listens for message receiving events of the TCPSocketConnection.
+     * 订阅 TCPSocketConnection.
      *
      * @param { Callback<SocketMessageInfo> } callback - The callback of on.
      * @syscap SystemCapability.Communication.NetStack
@@ -3985,16 +3728,13 @@ declare namespace socket {
     onTcpConnMessage(callback: Callback<SocketMessageInfo>): void;
 
     /**
-     * Unsubscribes from **message** events of the **TCPSocketConnection** object. This API uses an asynchronous
-     * callback to return the result.
+     * 取消订阅TCPSocketConnection连接的接收消息事件。使用callback异步回调。
      *
-     * @param { 'message' } type - Event type.<br/> **message**: message receiving event.
+     * @param { 'message' } type - 取消订阅的事件类型。'message'：接收消息事件。
      * @param { Callback<{ message: ArrayBuffer, remoteInfo: SocketRemoteInfo }> } callback - Callback used to return
      *     the result. You can pass the callback of the **on** function if you want to cancel listening for a certain
      *     type of events. If you do not pass the callback, you will cancel listening for all events. [since 10 - 10]
-     * @param { Callback<SocketMessageInfo> } callback - Callback used to return the result. You can pass the callback
-     *     of the **on** function if you want to cancel listening for a certain type of events. If you do not pass the
-     *     callback, you will cancel listening for all events. [since 11]
+     * @param { Callback<SocketMessageInfo> } callback - 回调函数。可以指定传入on中的callback取消对应的订阅，也可以不指定callback清空所有订阅。 [since 11]
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 12]
@@ -4003,7 +3743,7 @@ declare namespace socket {
     off(type: 'message', callback?: Callback<SocketMessageInfo>): void;
 
     /**
-     * Cancels listening for message receiving events of the TCPSocketConnection.
+     * 取消订阅 TCPSocketConnection.
      *
      * @param { Callback<SocketMessageInfo> } [callback] - The callback of off.
      * @syscap SystemCapability.Communication.NetStack
@@ -4013,12 +3753,10 @@ declare namespace socket {
     offTcpConnMessage(callback?: Callback<SocketMessageInfo>): void;
 
     /**
-     * Subscribes to **close** events of the **TCPSocketConnection** object. This API uses an asynchronous callback to
-     * return the result.
+     * 订阅TCPSocketConnection的关闭事件。使用callback异步回调。
      *
-     * @param { 'close' } type - Event type.<br/> **close**: close event.
-     * @param { Callback<void> } callback - Callback used to return the result. If the operation fails, an error message
-     *     is returned.
+     * @param { 'close' } type - 订阅的事件类型。'close'：关闭事件。
+     * @param { Callback<void> } callback - 回调函数。失败时返回错误码、错误信息。
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 24]
@@ -4027,7 +3765,7 @@ declare namespace socket {
     on(type: 'close', callback: Callback<void>): void;
 
     /**
-     * Listens for close events of the TCPSocketConnection.
+     * 订阅 TCPSocketConnection.
      *
      * @param { Callback<void> } callback - The callback of on.
      * @syscap SystemCapability.Communication.NetStack
@@ -4037,13 +3775,10 @@ declare namespace socket {
     onTcpConnClose(callback: Callback<void>): void;
 
     /**
-     * Unsubscribes from **close** events of the **TCPSocketConnection** object. This API uses an asynchronous callback
-     * to return the result.
+     * 取消订阅TCPSocketConnection的关闭事件。使用callback异步回调。
      *
-     * @param { 'close' } type - Event type.<br/> **close**: close event.
-     * @param { Callback<void> } callback - Callback used to return the result. You can pass the callback of the **on**
-     *     function if you want to cancel listening for a certain type of events. If you do not pass the callback, you
-     *     will cancel listening for all events.
+     * @param { 'close' } type - 取消订阅的事件类型。'close'：关闭事件。
+     * @param { Callback<void> } callback - 回调函数。可以指定传入on中的callback取消对应的订阅，也可以不指定callback清空所有订阅。
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 24]
@@ -4052,7 +3787,7 @@ declare namespace socket {
     off(type: 'close', callback?: Callback<void>): void;
 
     /**
-     * Cancels listening for close events of the TCPSocketConnection.
+     * 取消订阅 TCPSocketConnection.
      *
      * @param { Callback<void> } [callback] - The callback of off.
      * @syscap SystemCapability.Communication.NetStack
@@ -4062,12 +3797,10 @@ declare namespace socket {
     offTcpConnClose(callback?: Callback<void>): void;
 
     /**
-     * Subscribes to **error** events of the **TCPSocketConnection** object. This API uses an asynchronous callback to
-     * return the result.
+     * 订阅TCPSocketConnection连接的error事件。使用callback异步回调。
      *
-     * @param { 'error' } type - Event type.<br/> **error**: error event.
-     * @param { ErrorCallback } callback - Callback used to return the result. If the operation fails, an error message
-     *     is returned.
+     * @param { 'error' } type - 订阅的事件类型。'error'：error事件。
+     * @param { ErrorCallback } callback - 回调函数。失败时返回错误码、错误信息。
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
      * @since 10 dynamic
@@ -4075,7 +3808,7 @@ declare namespace socket {
     on(type: 'error', callback: ErrorCallback): void;
 
     /**
-     * Listens for error events of the TCPSocketConnection.
+     * 订阅 TCPSocketConnection.
      *
      * @param { ErrorCallback } callback - The callback of on.
      * @syscap SystemCapability.Communication.NetStack
@@ -4084,13 +3817,10 @@ declare namespace socket {
     onTcpConnError(callback: ErrorCallback): void;
 
     /**
-     * Unsubscribes from **error** events of the **TCPSocketConnection** object. This API uses an asynchronous callback
-     * to return the result.
+     * 取消订阅TCPSocketConnection连接的error事件。使用callback异步回调。
      *
-     * @param { 'error' } type - Event type.<br/> **error**: error event.
-     * @param { ErrorCallback } callback - Callback used to return the result. You can pass the callback of the **on**
-     *     function if you want to cancel listening for a certain type of events. If you do not pass the callback, you
-     *     will cancel listening for all events.
+     * @param { 'error' } type - 取消订阅的事件类型。'error'：error事件。
+     * @param { ErrorCallback } callback - 回调函数。可以指定传入on中的callback取消对应的订阅，也可以不指定callback清空所有订阅。
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
      * @since 10 dynamic
@@ -4098,7 +3828,7 @@ declare namespace socket {
     off(type: 'error', callback?: ErrorCallback): void;
 
     /**
-     * Cancels listening for error events of the TCPSocketConnection.
+     * 取消订阅 TCPSocketConnection.
      *
      * @param { ErrorCallback } [callback] - The callback of off.
      * @syscap SystemCapability.Communication.NetStack
@@ -4107,21 +3837,19 @@ declare namespace socket {
     offTcpConnError(callback?: ErrorCallback): void;
 
     /**
-     * Obtains the file descriptor of a TCPSocketConnection connection. This API uses a promise to return the result.
+     * 获取TCPSocketConnection连接的文件描述符。使用Promise异步回调。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > - This API can be called only after a connection with the client is set up.
+     * > - 与客户端建立连接后，才可调用此方法。
      * >
-     * > - This API returns **-1** in abnormal cases such as disconnection and socket closed (for example, after the
-     * > close API is called).
+     * > - 连接断开、Socket已关闭（如调用close后）等异常情况下调用本接口会返回-1。
      * >
-     * > - The lifecycle of the file descriptor is managed by the system. The application can use the
-     * > [close]{@link socket.TCPSocketConnection.close(callback: AsyncCallback<void>)} method to close the socket
-     * > connection, instead of directly operating the file descriptor.
+     * > - 文件描述符的生命周期由系统管理，应用可以通过[close]{@link socket.TCPSocketConnection.close(callback: AsyncCallback<void>)}方法关闭
+     * > Socket连接，避免直接操作文件描述符进行关闭。
      *
      * @permission ohos.permission.INTERNET
-     * @returns { Promise<int> } Promise used to return the socket file descriptor.
+     * @returns { Promise<int> } Promise对象，返回Socket的文件描述符。
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 24]
@@ -4132,9 +3860,8 @@ declare namespace socket {
   }
 
   /**
-   * Defines a TCP socket server connection. Before calling TCPSocketServer APIs, you need to call
-   * [socket.constructTCPSocketServerInstance]{@link socket.constructTCPSocketServerInstance} to create a
-   * **TCPSocketServer** object.
+   * TCPSocketServer连接。在调用TCPSocketServer的方法前，需要先通过
+   * [socket.constructTCPSocketServerInstance]{@link socket.constructTCPSocketServerInstance}创建TCPSocketServer对象。
    *
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform [since 24]
@@ -4143,19 +3870,15 @@ declare namespace socket {
    */
   export interface TCPSocketServer {
     /**
-     * Binds the IP address and port number. The port number can be specified or randomly allocated by the system. The
-     * server listens to and accepts TCP socket connections established over the socket. Multiple threads are used to
-     * process client data concurrently. This API uses an asynchronous callback to return the result.
+     * 绑定IP地址和端口，端口可以指定或由系统随机分配。监听并接受与此套接字建立的TCPSocket连接。该接口使用多线程并发处理客户端的数据。使用callback异步回调。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > The server uses this API to perform the **bind**, **listen**, and **accept** operations. If the **bind**
-     * > operation fails, the system randomly allocates a port number.
+     * > 服务端使用该方法完成bind，listen，accept操作，bind方法失败会由系统随机分配端口号。
      *
      * @permission ohos.permission.INTERNET
-     * @param { NetAddress } address - Destination address.
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation fails, an error
-     *     message is returned.
+     * @param { NetAddress } address - 目标地址信息。
+     * @param { AsyncCallback<void> } callback - 回调函数。失败时返回错误码、错误信息。
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 2300002 - System internal error.
@@ -4171,18 +3894,15 @@ declare namespace socket {
     listen(address: NetAddress, callback: AsyncCallback<void>): void;
 
     /**
-     * Binds the IP address and port number. The port number can be specified or randomly allocated by the system. The
-     * server listens to and accepts TCP socket connections established over the socket. Multiple threads are used to
-     * process client data concurrently. This API uses a promise to return the result.
+     * 绑定IP地址和端口，端口可以指定或由系统随机分配。监听并接受与此套接字建立的TCPSocket连接。该接口使用多线程并发处理客户端的数据。使用Promise异步回调。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > The server uses this API to perform the **bind**, **listen**, and **accept** operations. If the **bind**
-     * > operation fails, the system randomly allocates a port number.
+     * > 服务端使用该方法完成bind，listen，accept操作，bind方法失败会由系统随机分配端口号。
      *
      * @permission ohos.permission.INTERNET
-     * @param { NetAddress } address - Destination address.
-     * @returns { Promise<void> } Promise that returns no value.
+     * @param { NetAddress } address - 目标地址信息。
+     * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 2300002 - System internal error.
@@ -4198,20 +3918,18 @@ declare namespace socket {
     listen(address: NetAddress): Promise<void>;
 
     /**
-     * Stops listening for events of the **TCPSocketServer** object and releases the port bound by
-     * [listen]{@link socket.TCPSocketServer.listen(address: NetAddress, callback: AsyncCallback<void>)}. If
-     * [listen]{@link socket.TCPSocketServer.listen(address: NetAddress, callback: AsyncCallback<void>)} has been called
-     * for multiple times, all listening ports of the **TCPSocketServer** object are released when this API is called.
-     * This API uses a promise to return the result.
+     * TCPSocketServer停止监听并释放通过
+     * [listen]{@link socket.TCPSocketServer.listen(address: NetAddress, callback: AsyncCallback<void>)}方法绑定的端口。若多次调用
+     * [listen]{@link socket.TCPSocketServer.listen(address: NetAddress, callback: AsyncCallback<void>)}方法，再调用此方法时会释放
+     * TCPSocketServer的所有监听端口。使用Promise异步回调。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > This API does not close existing connections. To close connections, call the
-     * > [close]{@link socket.TCPSocketConnection.close(callback: AsyncCallback<void>)} API of
-     * > [TCPSocketConnection]{@link socket.TCPSocketConnection}.
+     * > 该方法不会关闭已有连接。如需关闭，请调用[TCPSocketConnection]{@link socket.TCPSocketConnection}的
+     * > [close]{@link socket.TCPSocketConnection.close(callback: AsyncCallback<void>)}方法。
      *
      * @permission ohos.permission.INTERNET
-     * @returns { Promise<void> } Promise that returns no value.
+     * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
@@ -4222,16 +3940,14 @@ declare namespace socket {
     close(): Promise<void>;
 
     /**
-     * Obtains the status of a TCP socket server connection. This API uses an asynchronous callback to return the
-     * result.
+     * 获取TCPSocketServer状态。使用callback异步回调。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > This API can be called only after **listen** is successfully called.
+     * > listen方法调用成功后，才可调用此方法。
      *
      * @permission ohos.permission.INTERNET
-     * @param { AsyncCallback<SocketStateBase> } callback - Callback used to return the result. If the operation fails,
-     *     an error message is returned.
+     * @param { AsyncCallback<SocketStateBase> } callback - 回调函数。失败时返回错误码、错误信息。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2300002 - System internal error.
@@ -4244,14 +3960,14 @@ declare namespace socket {
     getState(callback: AsyncCallback<SocketStateBase>): void;
 
     /**
-     * Obtains the status of a TCP socket server connection. This API uses a promise to return the result.
+     * 获取TCPSocketServer状态。使用Promise异步回调。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > This API can be called only after **listen** is successfully called.
+     * > listen方法调用成功后，才可调用此方法。
      *
      * @permission ohos.permission.INTERNET
-     * @returns { Promise<SocketStateBase> } Promise used to return the result.
+     * @returns { Promise<SocketStateBase> } 以Promise形式返回获取TCPSocket状态的结果。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 2300002 - System internal error.
      * @throws { BusinessError } 2303188 - Socket operation on non-socket.
@@ -4263,17 +3979,15 @@ declare namespace socket {
     getState(): Promise<SocketStateBase>;
 
     /**
-     * Sets other properties of the **TCPSocketServer** object. This API uses an asynchronous callback to return the
-     * result.
+     * 设置TCPSocketServer连接的其他属性。使用callback异步回调。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > This API can be called only after **listen** is successfully called.
+     * > listen方法调用成功后，才可调用此方法。
      *
      * @permission ohos.permission.INTERNET
-     * @param { TCPExtraOptions } options - Other properties of the **TCPSocketServer** object.
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation fails, an error
-     *     message is returned.
+     * @param { TCPExtraOptions } options - TCPSocketServer连接的其他属性。
+     * @param { AsyncCallback<void> } callback - 回调函数。失败时返回错误码、错误信息。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2300002 - System internal error.
@@ -4286,15 +4000,15 @@ declare namespace socket {
     setExtraOptions(options: TCPExtraOptions, callback: AsyncCallback<void>): void;
 
     /**
-     * Sets other properties of the **TCPSocketServer** object. This API uses a promise to return the result.
+     * 设置TCPSocketServer连接的其他属性。使用Promise异步回调。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > This API can be called only after **listen** is successfully called.
+     * > listen方法调用成功后，才可调用此方法。
      *
      * @permission ohos.permission.INTERNET
-     * @param { TCPExtraOptions } options - Other properties of the **TCPSocketServer** object.
-     * @returns { Promise<void> } Promise that returns no value.
+     * @param { TCPExtraOptions } options - TCPSocketServer连接的其他属性。
+     * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2300002 - System internal error.
@@ -4307,14 +4021,13 @@ declare namespace socket {
     setExtraOptions(options: TCPExtraOptions): Promise<void>;
 
     /**
-     * Obtains the local socket address of a **TCPSocketServer** connection. This API uses a promise to return the
-     * result.
+     * 获取TCPSocketServer的本地Socket地址。使用Promise异步回调。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > This API can be called only after **listen** is successfully called.
+     * > listen方法调用成功后，才可调用此方法。
      *
-     * @returns { Promise<NetAddress> } Promise used to return the result.
+     * @returns { Promise<NetAddress> } 以Promise形式返回获取本地socket地址的结果。
      * @throws { BusinessError } 2300002 - System internal error.
      * @throws { BusinessError } 2301009 - Bad file descriptor.
      * @throws { BusinessError } 2303188 - Socket operation on non-socket.
@@ -4326,16 +4039,14 @@ declare namespace socket {
     getLocalAddress(): Promise<NetAddress>;
 
     /**
-     * Subscribes to **connect** events of the **TCPSocketServer** object. This API uses an asynchronous callback to
-     * return the result.
+     * 订阅TCPSocketServer的连接事件。使用callback异步回调。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > This API can be called only after **listen** is successfully called.
+     * > listen方法调用成功后，才可调用此方法。
      *
-     * @param { 'connect' } type - Event type.<br/> **connect**: connection event.
-     * @param { Callback<TCPSocketConnection> } callback - Callback used to return the result. If the operation fails,
-     *     an error message is returned.
+     * @param { 'connect' } type - 订阅的事件类型。'connect'：连接事件。
+     * @param { Callback<TCPSocketConnection> } callback - 回调函数。失败时返回错误码、错误信息。
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 24]
@@ -4344,7 +4055,7 @@ declare namespace socket {
     on(type: 'connect', callback: Callback<TCPSocketConnection>): void;
 
     /**
-     * Listens for connect events of the TCPSocketServer connection.
+     * 订阅 TCPSocketServer connection.
      *
      * @param { Callback<TCPSocketConnection> } callback - The callback of on.
      * @syscap SystemCapability.Communication.NetStack
@@ -4354,13 +4065,10 @@ declare namespace socket {
     onTcpServerConnect(callback: Callback<TCPSocketConnection>): void;
 
     /**
-     * Unsubscribes from **connect** events of the **TCPSocketServer** object. This API uses an asynchronous callback to
-     * return the result.
+     * 取消订阅TCPSocketServer的连接事件。使用callback异步回调。
      *
-     * @param { 'connect' } type - Event type.<br/> **connect**: connection event.
-     * @param { Callback<TCPSocketConnection> } callback - Callback used to return the result. You can pass the callback
-     *     of the **on** function if you want to cancel listening for a certain type of events. If you do not pass the
-     *     callback, you will cancel listening for all events.
+     * @param { 'connect' } type - 取消订阅的事件类型。'connect'：连接事件。
+     * @param { Callback<TCPSocketConnection> } callback - 回调函数。可以指定传入on中的callback取消对应的订阅，也可以不指定callback清空所有订阅。
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 24]
@@ -4369,7 +4077,7 @@ declare namespace socket {
     off(type: 'connect', callback?: Callback<TCPSocketConnection>): void;
 
     /**
-     * Cancels listening for connect events of the TCPSocketServer connection.
+     * 取消订阅 TCPSocketServer connection.
      *
      * @param { Callback<TCPSocketConnection> } [callback] - The callback of off.
      * @syscap SystemCapability.Communication.NetStack
@@ -4379,16 +4087,14 @@ declare namespace socket {
     offTcpServerConnect(callback?: Callback<TCPSocketConnection>): void;
 
     /**
-     * Subscribes to **error** events of the **TCPSocketServer** object. This API uses an asynchronous callback to
-     * return the result.
+     * 订阅TCPSocketServer连接的error事件。使用callback异步回调。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > This API can be called only after **listen** is successfully called.
+     * > listen方法调用成功后，才可调用此方法。
      *
-     * @param { 'error' } type - Event type.<br/> **error**: error event.
-     * @param { ErrorCallback } callback - Callback used to return the result. If the operation fails, an error message
-     *     is returned.
+     * @param { 'error' } type - 订阅的事件类型。'error'：error事件。
+     * @param { ErrorCallback } callback - 回调函数。失败时返回错误码、错误信息。
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
      * @since 10 dynamic
@@ -4396,7 +4102,7 @@ declare namespace socket {
     on(type: 'error', callback: ErrorCallback): void;
 
     /**
-     * Listens for error events of the TCPSocketServer connection.
+     * 订阅 TCPSocketServer connection.
      *
      * @param { ErrorCallback } callback - The callback of on.
      * @syscap SystemCapability.Communication.NetStack
@@ -4405,13 +4111,10 @@ declare namespace socket {
     onTcpServerError(callback: ErrorCallback): void;
 
     /**
-     * Unsubscribes from **error** events of the **TCPSocketServer** object. This API uses an asynchronous callback to
-     * return the result.
+     * 取消订阅TCPSocketServer连接的error事件。使用callback异步回调。
      *
-     * @param { 'error' } type - Event type.<br/> **error**: error event.
-     * @param { ErrorCallback } callback - Callback used to return the result. You can pass the callback of the **on**
-     *     function if you want to cancel listening for a certain type of events. If you do not pass the callback, you
-     *     will cancel listening for all events.
+     * @param { 'error' } type - 取消订阅的事件类型。'error'：error事件。
+     * @param { ErrorCallback } callback - 回调函数。可以指定传入on中的callback取消对应的订阅，也可以不指定callback清空所有订阅。
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
      * @since 10 dynamic
@@ -4419,7 +4122,7 @@ declare namespace socket {
     off(type: 'error', callback?: ErrorCallback): void;
 
     /**
-     * Cancels listening for error events of the TCPSocketServer connection.
+     * 取消订阅 TCPSocketServer connection.
      *
      * @param { ErrorCallback } [callback] - The callback of off.
      * @syscap SystemCapability.Communication.NetStack
@@ -4428,25 +4131,19 @@ declare namespace socket {
     offTcpServerError(callback?: ErrorCallback): void;
 
     /**
-     * Obtains the file descriptor bound to the TCPSocketServer listening port. This API uses a promise to return the
-     * result.
+     * 获取TCPSocketServer监听端口绑定的文件描述符。使用Promise异步回调。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > - This method can be called only after the
-     * > [listen]{@link socket.TCPSocketServer.listen(address: NetAddress, callback: AsyncCallback<void>)} method is
-     * > successfully called. When listen is called for multiple times, the file descriptor bound to the latest
-     * > listening port is obtained.
+     * > - [listen]{@link socket.TCPSocketServer.listen(address: NetAddress, callback: AsyncCallback<void>)}方法调用成功后，才可调用
+     * > 此方法。多次调用listen时，会获取最新监听端口绑定的文件描述符。
      * >
-     * > - This API returns **-1** in abnormal cases such as listening exceptions or socket closed (for example, after
-     * > close is called).
+     * > - 监听异常、Socket已关闭（如调用close后）等异常情况下调用本接口会返回-1。
      * >
-     * > - The lifecycle of the file descriptor is managed by the system. The application can use the
-     * > [close]{@link socket.TCPSocketServer.close} method to close the socket connection, instead of directly
-     * > operating the file descriptor.
+     * > - 文件描述符的生命周期由系统管理，应用可以通过[close]{@link socket.TCPSocketServer.close}方法关闭Socket连接，避免直接操作文件描述符进行关闭。
      *
      * @permission ohos.permission.INTERNET
-     * @returns { Promise<int> } Promise used to return the socket file descriptor.
+     * @returns { Promise<int> } Promise对象，返回Socket的文件描述符。
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 24]
@@ -4457,13 +4154,11 @@ declare namespace socket {
   }
 
   /**
-   * Defines a **TLSSocketConnection** object, that is, the connection between the TLSSocket client and the server.
-   * Before calling TLSSocketConnection APIs, you need to obtain a **TLSSocketConnection** object.
+   * TLSSocketConnection连接，即TLSSocket客户端与服务端的连接。在调用TLSSocketConnection的方法前，需要先获取TLSSocketConnection对象。
    *
-   * > **NOTE**
+   * > **说明：**
    * >
-   * > The TLSSocket client can call related APIs through the **TLSSocketConnection** object only after a connection is
-   * > successfully established between the TLSSocket client and the server.
+   * > 客户端与服务端成功建立连接后，才能通过返回的TLSSocketConnection对象调用相应的接口。
    *
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform [since 24]
@@ -4472,7 +4167,7 @@ declare namespace socket {
    */
   export interface TLSSocketConnection {
     /**
-     * ID of the connection between the client and TLSSocketServer.
+     * 客户端与TLSSocketServer建立连接的id。
      *
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 24]
@@ -4482,13 +4177,11 @@ declare namespace socket {
     clientId: int;
 
     /**
-     * Sends a message to the client after a **TLSSocketServer** connection is established. This API uses an
-     * asynchronous callback to return the result.
+     * 在TLSSocketServer通信连接成功之后，向客户端发送消息，使用callback异步回调。
      *
      * @param { string } data - Parameters for sending data over a TLS socket server connection. [since 10 - 11]
-     * @param { string | ArrayBuffer } data - Parameters for sending data over a TLS socket server connection. [since 12]
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful, no
-     *     value is returned. If the operation fails, an error message is returned.
+     * @param { string | ArrayBuffer } data - TLSSocketServer发送数据所需要的参数。 [since 10 - 11]
+     * @param { AsyncCallback<void> } callback - 回调函数，成功返回空，失败返回错误码、错误信息。
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2303501 - SSL is null.
      * @throws { BusinessError } 2303503 - An error occurred when writing data on the TLS socket.
@@ -4503,13 +4196,11 @@ declare namespace socket {
     send(data: string | ArrayBuffer, callback: AsyncCallback<void>): void;
 
     /**
-     * Sends a message to the server after a **TLSSocketServer** connection is established. This API uses a promise to
-     * return the result.
+     * 在TLSSocketServer通信连接成功之后，向服务端发送消息，使用Promise异步回调。
      *
      * @param { string } data - Parameters for sending data over a TLS socket server connection. [since 10 - 11]
-     * @param { string | ArrayBuffer } data - Parameters for sending data over a TLS socket server connection. [since 12]
-     * @returns { Promise<void> } Promise used to return the result. If the operation is successful, no value is
-     *     returned. If the operation fails, an error message is returned.
+     * @param { string | ArrayBuffer } data - TLSSocketServer发送数据所需要的参数。 [since 10 - 11]
+     * @returns { Promise<void> } 以Promise形式返回，成功返回空，失败返回错误码，错误信息。
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2303501 - SSL is null.
      * @throws { BusinessError } 2303503 - An error occurred when writing data on the TLS socket.
@@ -4524,10 +4215,9 @@ declare namespace socket {
     send(data: string | ArrayBuffer): Promise<void>;
 
     /**
-     * Closes a **TLSSocketServer** connection. This API uses an asynchronous callback to return the result.
+     * 在与TLSSocketServer通信连接成功之后，断开连接，使用callback异步回调。
      *
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful, no
-     *     value is returned. If the operation fails, an error message is returned.
+     * @param { AsyncCallback<void> } callback - 回调函数，成功返回空，失败返回错误码、错误信息。
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2303501 - SSL is null.
      * @throws { BusinessError } 2303505 - An error occurred in the TLS system call.
@@ -4541,11 +4231,9 @@ declare namespace socket {
     close(callback: AsyncCallback<void>): void;
 
     /**
-     * Closes a **TLSSocketServer** connection. This API uses a promise to return the result.
+     * 在与TLSSocketServer通信连接成功之后，断开连接，使用Promise异步回调。
      *
-     * @returns { Promise<void> } Promise used to return the result. If the operation is successful, no value is
-     *     returned. If the operation fails, an error message is returned. If the operation fails, an error message is
-     *     returned.
+     * @returns { Promise<void> } 以Promise形式返回，成功返回空。失败返回错误码，错误信息。
      * @throws { BusinessError } 2303501 - SSL is null.
      * @throws { BusinessError } 2303505 - An error occurred in the TLS system call.
      * @throws { BusinessError } 2303506 - Failed to close the TLS connection.
@@ -4558,11 +4246,9 @@ declare namespace socket {
     close(): Promise<void>;
 
     /**
-     * Obtains the remote address of a TLS socket server connection. This API uses an asynchronous callback to return
-     * the result.
+     * 在TLSSocketServer通信连接成功之后，获取对端Socket地址。使用callback异步回调。
      *
-     * @param { AsyncCallback<NetAddress> } callback - Callback used to return the result. If the operation is
-     *     successful, the remote address is returned. If the operation fails, an error message is returned.
+     * @param { AsyncCallback<NetAddress> } callback - 回调函数。成功返回对端的socket地址，失败返回错误码、错误信息。
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2300002 - System internal error.
      * @throws { BusinessError } 2303188 - Socket operation on non-socket.
@@ -4574,10 +4260,9 @@ declare namespace socket {
     getRemoteAddress(callback: AsyncCallback<NetAddress>): void;
 
     /**
-     * Obtains the remote address of a TLS socket server connection. This API uses a promise to return the result.
+     * 在TLSSocketServer通信连接成功之后，获取对端Socket地址。使用Promise异步回调。
      *
-     * @returns { Promise<NetAddress> } Promise used to return the result. If the operation fails, an error message is
-     *     returned.
+     * @returns { Promise<NetAddress> } 以Promise形式返回获取对端socket地址的结果。失败返回错误码，错误信息。
      * @throws { BusinessError } 2300002 - System internal error.
      * @throws { BusinessError } 2303188 - Socket operation on non-socket.
      * @syscap SystemCapability.Communication.NetStack
@@ -4588,12 +4273,9 @@ declare namespace socket {
     getRemoteAddress(): Promise<NetAddress>;
 
     /**
-     * Obtains the digital certificate of the peer end after a **TLSSocketServer** connection is established. This API
-     * uses an asynchronous callback to return the result. It applies only to the scenario where the client sends a
-     * certificate to the server.
+     * 在TLSSocketServer通信连接成功之后，获取对端的数字证书，该接口只适用于客户端向服务端发送证书时，使用callback异步回调。
      *
-     * @param { AsyncCallback<X509CertRawData> } callback - Callback used to return the result. If the operation fails,
-     *     an error message is returned.
+     * @param { AsyncCallback<X509CertRawData> } callback - 回调函数，返回对端的证书。失败返回错误码、错误信息。
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2303501 - SSL is null.
      * @throws { BusinessError } 2300002 - System internal error.
@@ -4605,12 +4287,9 @@ declare namespace socket {
     getRemoteCertificate(callback: AsyncCallback<X509CertRawData>): void;
 
     /**
-     * Obtains the digital certificate of the peer end after a **TLSSocketServer** connection is established. This API
-     * uses a promise to return the result. It applies only to the scenario where the client sends a certificate to the
-     * server.
+     * 在TLSSocketServer通信连接成功之后，获取对端的数字证书，该接口只适用于客户端向服务端发送证书时，使用Promise异步回调。
      *
-     * @returns { Promise<X509CertRawData> } Promise used to return the result. If the operation fails, an error message
-     *     is returned.
+     * @returns { Promise<X509CertRawData> } 以Promise形式返回对端的数字证书的结果。失败返回错误码，错误信息。
      * @throws { BusinessError } 2303501 - SSL is null.
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
@@ -4621,11 +4300,9 @@ declare namespace socket {
     getRemoteCertificate(): Promise<X509CertRawData>;
 
     /**
-     * Obtains the cipher suite negotiated by both communication parties after a **TLSSocketServer** connection is
-     * established. This API uses an asynchronous callback to return the result.
+     * 在TLSSocketServer通信连接成功之后，获取通信双方协商后的加密套件，使用callback异步回调。
      *
-     * @param { AsyncCallback<Array<string>> } callback - Callback used to return the result. If the operation fails, an
-     *     error message is returned.
+     * @param { AsyncCallback<Array<string>> } callback - 回调函数，返回通信双方支持的加密套件。失败返回错误码、错误信息。
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2303501 - SSL is null.
      * @throws { BusinessError } 2303502 - An error occurred when reading data on the TLS socket.
@@ -4639,11 +4316,9 @@ declare namespace socket {
     getCipherSuite(callback: AsyncCallback<Array<string>>): void;
 
     /**
-     * Obtains the cipher suite negotiated by both communication parties after a **TLSSocketServer** connection is
-     * established. This API uses a promise to return the result.
+     * 在TLSSocketServer通信连接成功之后，获取通信双方协商后的加密套件，使用Promise异步回调。
      *
-     * @returns { Promise<Array<string>> } Promise used to return the result. If the operation fails, an error message
-     *     is returned.
+     * @returns { Promise<Array<string>> } 以Promise形式返回通信双方支持的加密套件。失败返回错误码，错误信息。
      * @throws { BusinessError } 2303501 - SSL is null.
      * @throws { BusinessError } 2303502 - An error occurred when reading data on the TLS socket.
      * @throws { BusinessError } 2303505 - An error occurred in the TLS system call.
@@ -4656,10 +4331,9 @@ declare namespace socket {
     getCipherSuite(): Promise<Array<string>>;
 
     /**
-     * Obtains the signing algorithm negotiated by both communication parties after a **TLSSocketServer** connection is
-     * established. This API uses an asynchronous callback to return the result.
+     * 在TLSSocketServer通信连接成功之后，获取通信双方协商后签名算法，使用callback异步回调。
      *
-     * @param { AsyncCallback<Array<string>> } callback - Callback used to return the result.
+     * @param { AsyncCallback<Array<string>> } callback - 回调函数，返回双方支持的签名算法。
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2303501 - SSL is null.
      * @throws { BusinessError } 2300002 - System internal error.
@@ -4671,10 +4345,9 @@ declare namespace socket {
     getSignatureAlgorithms(callback: AsyncCallback<Array<string>>): void;
 
     /**
-     * Obtains the signing algorithm negotiated by both communication parties after a **TLSSocketServer** connection is
-     * established. This API uses a promise to return the result.
+     * 在TLSSocketServer通信连接成功之后，获取通信双方协商后的签名算法，使用Promise异步回调。
      *
-     * @returns { Promise<Array<string>> } Promise used to return the result.
+     * @returns { Promise<Array<string>> } 以Promise形式返回获取到的双方支持的签名算法。
      * @throws { BusinessError } 2303501 - SSL is null.
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
@@ -4685,14 +4358,13 @@ declare namespace socket {
     getSignatureAlgorithms(): Promise<Array<string>>;
 
     /**
-     * Obtains the local socket address of a **TLSSocketConnection** connection. This API uses a promise to return the
-     * result.
+     * 获取TLSSocketConnection连接的本地Socket地址。使用Promise异步回调。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > Call this API only after the **TLSSocketServer** connection is successfully established.
+     * > 在TLSSocketServer通信连接成功之后，才可调用此方法。
      *
-     * @returns { Promise<NetAddress> } Promise used to return the result.
+     * @returns { Promise<NetAddress> } 以Promise形式返回获取本地socket地址的结果。
      * @throws { BusinessError } 2300002 - System internal error.
      * @throws { BusinessError } 2301009 - Bad file descriptor.
      * @throws { BusinessError } 2303188 - Socket operation on non-socket.
@@ -4704,16 +4376,13 @@ declare namespace socket {
     getLocalAddress(): Promise<NetAddress>;
 
     /**
-     * Subscribes to **message** events of the **TLSSocketConnection** object. This API uses an asynchronous callback to
-     * return the result.
+     * 订阅TLSSocketConnection连接的接收消息事件。使用callback异步回调。
      *
-     * @param { 'message' } type - Event type.<br/> **message**: message receiving event.
+     * @param { 'message' } type - 订阅的事件类型。'message'：接收消息事件。
      * @param { Callback<{ message: ArrayBuffer, remoteInfo: SocketRemoteInfo }> } callback - Callback used to return
      *     the result. If the operation is successful, the TLS socket connection information is returned. If the
      *     operation fails, an error message is returned. [since 10 - 10]
-     * @param { Callback<SocketMessageInfo> } callback - Callback used to return the result. If the operation is
-     *     successful, the TLS socket connection information is returned. If the operation fails, an error message is
-     *     returned. [since 11]
+     * @param { Callback<SocketMessageInfo> } callback - 回调函数。成功时返回TLSSocketConnection连接信息，失败时返回错误码、错误信息。 [since 11]
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 12]
@@ -4722,7 +4391,7 @@ declare namespace socket {
     on(type: 'message', callback: Callback<SocketMessageInfo>): void;
 
     /**
-     * Listens for message receiving events of the TLSSocketConnection.
+     * 订阅 TLSSocketConnection.
      *
      * @param { Callback<SocketMessageInfo> } callback - The callback of on.
      * @syscap SystemCapability.Communication.NetStack
@@ -4732,16 +4401,13 @@ declare namespace socket {
     onTlsConnMessage(callback: Callback<SocketMessageInfo>): void;
 
     /**
-     * Unsubscribes from **message** events of the **TLSSocketConnection** object. This API uses an asynchronous
-     * callback to return the result.
+     * 取消订阅TLSSocketConnection连接的接收消息事件。使用callback异步回调。
      *
-     * @param { 'message' } type - Event type.<br/> **message**: message receiving event.
+     * @param { 'message' } type - 订阅的事件类型。'message'：接收消息事件。
      * @param { Callback<{ message: ArrayBuffer, remoteInfo: SocketRemoteInfo }> } callback - Callback used to return
      *     the result. If the operation is successful, the TLS socket connection information is returned. If the
      *     operation fails, an error message is returned. [since 10 - 10]
-     * @param { Callback<SocketMessageInfo> } callback - Callback used to return the result. If the operation is
-     *     successful, the TLS socket connection information is returned. If the operation fails, an error message is
-     *     returned. [since 11]
+     * @param { Callback<SocketMessageInfo> } callback - 回调函数。成功时返回TLSSocketConnection连接信息，失败时返回错误码、错误信息。 [since 11]
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 12]
@@ -4750,7 +4416,7 @@ declare namespace socket {
     off(type: 'message', callback?: Callback<SocketMessageInfo>): void;
 
     /**
-     * Cancels listening for message receiving events of the TLSSocketConnection.
+     * 取消订阅 TLSSocketConnection.
      *
      * @param { Callback<SocketMessageInfo> } [callback] - The callback of off.
      * @syscap SystemCapability.Communication.NetStack
@@ -4760,12 +4426,10 @@ declare namespace socket {
     offTlsConnMessage(callback?: Callback<SocketMessageInfo>): void;
 
     /**
-     * Subscribes to **close** events of the **TLSSocketConnection** object. This API uses an asynchronous callback to
-     * return the result.
+     * 订阅TLSSocketConnection的关闭事件。使用callback异步回调。
      *
-     * @param { 'close' } type - Event type.<br/> **close**: close event.
-     * @param { Callback<void> } callback - Callback used to return the result. If the operation is successful, no value
-     *     is returned. If the operation fails, an error message is returned.
+     * @param { 'close' } type - 订阅的事件类型。'close'：关闭事件。
+     * @param { Callback<void> } callback - 回调函数。成功时返回空，失败时返回错误码、错误信息。
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 24]
@@ -4774,7 +4438,7 @@ declare namespace socket {
     on(type: 'close', callback: Callback<void>): void;
 
     /**
-     * Listens for close events of the TLSSocketConnection.
+     * 订阅 TLSSocketConnection.
      *
      * @param { Callback<void> } callback - The callback of on.
      * @syscap SystemCapability.Communication.NetStack
@@ -4784,12 +4448,10 @@ declare namespace socket {
     onTlsConnClose(callback: Callback<void>): void;
 
     /**
-     * Unsubscribes from **close** events of the **TLSSocketConnection** object. This API uses an asynchronous callback
-     * to return the result.
+     * 取消订阅TLSSocketConnection的关闭事件。使用callback异步回调。
      *
-     * @param { 'close' } type - Event type.<br/> **close**: close event.
-     * @param { Callback<void> } callback - Callback used to return the result. If the operation is successful, no value
-     *     is returned. If the operation fails, an error message is returned.
+     * @param { 'close' } type - 订阅的事件类型。'close'：关闭事件。
+     * @param { Callback<void> } callback - 回调函数。成功时返回空，失败时返回错误码、错误信息。
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 24]
@@ -4798,7 +4460,7 @@ declare namespace socket {
     off(type: 'close', callback?: Callback<void>): void;
 
     /**
-     * Cancels listening for close events of the TLSSocketConnection.
+     * 取消订阅 TLSSocketConnection.
      *
      * @param { Callback<void> } [callback] - The callback of off.
      * @syscap SystemCapability.Communication.NetStack
@@ -4808,12 +4470,10 @@ declare namespace socket {
     offTlsConnClose(callback?: Callback<void>): void;
 
     /**
-     * Subscribes to **error** events of the **TLSSocketConnection** object. This API uses an asynchronous callback to
-     * return the result.
+     * 订阅TLSSocketConnection连接的error事件。使用callback异步回调。
      *
-     * @param { 'error' } type - Event type.<br/> **error**: error event.
-     * @param { ErrorCallback } callback - Callback used to return the result. If the operation is successful, no value
-     *     is returned. If the operation fails, an error message is returned.
+     * @param { 'error' } type - 订阅的事件类型。'error'：error事件。
+     * @param { ErrorCallback } callback - 回调函数。成功时返回空，失败时返回错误码、错误信息。
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
      * @since 10 dynamic
@@ -4821,7 +4481,7 @@ declare namespace socket {
     on(type: 'error', callback: ErrorCallback): void;
 
     /**
-     * Listens for error events of the TLSSocketConnection.
+     * 订阅 TLSSocketConnection.
      *
      * @param { ErrorCallback } callback - The callback of on.
      * @syscap SystemCapability.Communication.NetStack
@@ -4830,12 +4490,10 @@ declare namespace socket {
     onTlsConnError(callback: ErrorCallback): void;
 
     /**
-     * Unsubscribes from **error** events of the **TLSSocketConnection** object. This API uses an asynchronous callback
-     * to return the result.
+     * 取消订阅TLSSocketConnection连接的error事件。使用callback异步回调。
      *
-     * @param { 'error' } type - Event type.<br/> **error**: error event.
-     * @param { ErrorCallback } callback - Callback used to return the result. If the operation is successful, no value
-     *     is returned. If the operation fails, an error message is returned.
+     * @param { 'error' } type - 订阅的事件类型。'error'：error事件。
+     * @param { ErrorCallback } callback - 回调函数。成功时返回空，失败时返回错误码、错误信息。
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
      * @since 10 dynamic
@@ -4843,7 +4501,7 @@ declare namespace socket {
     off(type: 'error', callback?: ErrorCallback): void;
 
     /**
-     * Cancels listening for error events of the TLSSocketConnection.
+     * 取消订阅 TLSSocketConnection.
      *
      * @param { ErrorCallback } [callback] - The callback of off.
      * @syscap SystemCapability.Communication.NetStack
@@ -4852,21 +4510,19 @@ declare namespace socket {
     offTlsConnError(callback?: ErrorCallback): void;
 
     /**
-     * Obtains the file descriptor of a TLSSocketConnection connection. This API uses a promise to return the result.
+     * 获取TLSSocketConnection连接的文件描述符。使用Promise异步回调。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > - Call this API only after the **TLSSocketServer** connection is successfully established.
+     * > - 在TLSSocketServer通信连接成功之后，才可调用此方法。
      * >
-     * > - This API returns **-1** in abnormal cases such as disconnection and socket closed (for example, after the
-     * > close API is called).
+     * > - 连接断开、Socket已关闭（如调用close后）等异常情况下调用本接口会返回-1。
      * >
-     * > - The lifecycle of the file descriptor is managed by the system. The application can use the
-     * > [close]{@link socket.TCPSocketConnection.close(callback: AsyncCallback<void>)} method to close the socket
-     * > connection, instead of directly operating the file descriptor.
+     * > - 文件描述符的生命周期由系统管理，应用可以通过[close]{@link socket.TCPSocketConnection.close(callback: AsyncCallback<void>)}方法关闭
+     * > Socket连接，避免直接操作文件描述符进行关闭。
      *
      * @permission ohos.permission.INTERNET
-     * @returns { Promise<int> } Promise used to return the socket file descriptor.
+     * @returns { Promise<int> } Promise对象，返回Socket的文件描述符。
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 24]
@@ -4877,7 +4533,7 @@ declare namespace socket {
   }
 
   /**
-   * Defines the socket connection information.
+   * socket连接信息
    *
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform
@@ -4886,7 +4542,7 @@ declare namespace socket {
    */
   export interface SocketMessageInfo {
     /**
-     * Received **message** event.
+     * 接收的事件消息。
      *
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
@@ -4895,7 +4551,7 @@ declare namespace socket {
      */
     message: ArrayBuffer;
     /**
-     * Socket connection information.
+     * socket连接信息。
      *
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
@@ -4906,9 +4562,8 @@ declare namespace socket {
   }
 
   /**
-   * Defines a TLS socket server connection. Before calling TLSSocketServer APIs, you need to call
-   * [socket.constructTLSSocketServerInstance]{@link socket.constructTLSSocketServerInstance} to create a
-   * **TLSSocketServer** object.
+   * TLSSocketServer连接。在调用TLSSocketServer的方法前，需要先通过
+   * [socket.constructTLSSocketServerInstance]{@link socket.constructTLSSocketServerInstance}创建TLSSocketServer对象。
    *
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform [since 24]
@@ -4917,18 +4572,15 @@ declare namespace socket {
    */
   export interface TLSSocketServer {
     /**
-     * Listens for client connections after **bind** is successfully called to bind the IP address and port of
-     * **TLSSocketServer**. This API uses an asynchronous callback to return the result. After a connection is
-     * established, a TLS session will be created and initialized and a certificate key will be loaded and verified.
+     * 绑定IP地址和端口，在TLSSocketServer上bind成功之后，监听客户端的连接，创建和初始化TLS会话，实现建立连接过程，加载证书秘钥并验证，使用callback异步回调。
      *
-     * > **NOTE**
+     * > **注意：**
      * >
-     * > If the IP address is set to 0.0.0.0, all local IP addresses can be listened on.
+     * > IP地址设置为0.0.0.0时，可以监听本机所有地址。
      *
      * @permission ohos.permission.INTERNET
-     * @param { TLSConnectOptions } options - Parameters required for the connection.
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful, no
-     *     value is returned. If the operation fails, an error message is returned.
+     * @param { TLSConnectOptions } options - TLSSocketServer连接所需要的参数。
+     * @param { AsyncCallback<void> } callback - 回调函数，成功返回空，失败返回错误码、错误信息。
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 2300002 - System internal error.
@@ -4949,14 +4601,11 @@ declare namespace socket {
     listen(options: TLSConnectOptions, callback: AsyncCallback<void>): void;
 
     /**
-     * Listens for client connections after **bind** is successfully called to bind the IP address and port of
-     * **TLSSocketServer**. This API uses an asynchronous callback to return the result. After a connection is
-     * established, a TLS session will be created and initialized and a certificate key will be loaded and verified.
+     * 绑定IP地址和端口，在TLSSocketServer上bind成功之后，监听客户端的连接，并创建和初始化TLS会话，实现建立连接过程，加载证书秘钥并验证，使用Promise异步回调。
      *
      * @permission ohos.permission.INTERNET
-     * @param { TLSConnectOptions } options - Parameters required for the connection.
-     * @returns { Promise<void> } Promise used to return the result. If the operation is successful, no value is
-     *     returned. If the operation fails, an error message is returned.
+     * @param { TLSConnectOptions } options - 连接所需要的参数。
+     * @returns { Promise<void> } 以Promise形式返回，成功返回空，失败返回错误码，错误信息。
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 2300002 - System internal error.
@@ -4977,17 +4626,15 @@ declare namespace socket {
     listen(options: TLSConnectOptions): Promise<void>;
 
     /**
-     * Stops listening for events of the **TLSSocketServer** object and releases the port bound by
-     * [listen]{@link socket.TCPSocketServer.listen}. This API uses a promise to return the result.
+     * TLSSocketServer停止监听并释放通过[listen]{@link socket.TCPSocketServer.listen}方法绑定的端口。使用Promise异步回调。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > This API does not close existing connections. To close the connection, call the
-     * > [close]{@link socket.TCPSocketConnection.close(callback: AsyncCallback<void>)} API of
-     * > [TLSSocketConnection]{@link socket.TLSSocketConnection}.
+     * > 该方法不会关闭已有连接。如需关闭，请调用[TLSSocketConnection]{@link socket.TLSSocketConnection}的
+     * > [close]{@link socket.TCPSocketConnection.close(callback: AsyncCallback<void>)}方法。
      *
      * @permission ohos.permission.INTERNET
-     * @returns { Promise<void> } Promise that returns no value.
+     * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
@@ -4998,16 +4645,13 @@ declare namespace socket {
     close(): Promise<void>;
 
     /**
-     * Obtains the status of the TLS socket server connection upon successful listening. This API uses an asynchronous
-     * callback to return the result.
+     * 在TLSSocketServer的listen成功之后，获取TLSSocketServer状态。使用callback异步回调。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > This API can be called only after **listen** is successfully called.
+     * > listen方法调用成功后，才可调用此方法。
      *
-     * @param { AsyncCallback<SocketStateBase> } callback - Callback used to return the result. If the operation is
-     *     successful, the status of the TLS socket server connection is returned. If the operation fails, an error
-     *     message is returned.
+     * @param { AsyncCallback<SocketStateBase> } callback - 回调函数。成功返回TLSSocketServer状态，失败返回错误码、错误信息。
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2303188 - Socket operation on non-socket.
      * @throws { BusinessError } 2300002 - System internal error.
@@ -5019,15 +4663,13 @@ declare namespace socket {
     getState(callback: AsyncCallback<SocketStateBase>): void;
 
     /**
-     * Obtains the status of the TLS socket server connection upon successful listening. This API uses a promise to
-     * return the result.
+     * 在TLSSocketServer的listen成功之后，获取TLSSocketServer状态。使用Promise异步回调。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > This API can be called only after **listen** is successfully called.
+     * > listen方法调用成功后，才可调用此方法。
      *
-     * @returns { Promise<SocketStateBase> } Promise used to return the result. If the operation fails, an error message
-     *     is returned.
+     * @returns { Promise<SocketStateBase> } 以Promise形式返回获取TLSSocketServer状态的结果。失败返回错误码，错误信息。
      * @throws { BusinessError } 2303188 - Socket operation on non-socket.
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
@@ -5038,16 +4680,14 @@ declare namespace socket {
     getState(): Promise<SocketStateBase>;
 
     /**
-     * Sets other properties of the **TLSSocketServer** object after **listen** is successfully called. This API uses an
-     * asynchronous callback to return the result.
+     * 在TLSSocketServer的listen成功之后，设置TLSSocketServer连接的其他属性。使用callback异步回调。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > This API can be called only after **listen** is successfully called.
+     * > listen方法调用成功后，才可调用此方法。
      *
-     * @param { TCPExtraOptions } options - Other properties of the **TLSSocketServer** object.
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful, no
-     *     value is returned. If the operation fails, an error message is returned.
+     * @param { TCPExtraOptions } options - TLSSocketServer连接的其他属性。
+     * @param { AsyncCallback<void> } callback - 回调函数。成功返回空，失败返回错误码、错误信息。
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2303188 - Socket operation on non-socket.
      * @throws { BusinessError } 2300002 - System internal error.
@@ -5059,16 +4699,14 @@ declare namespace socket {
     setExtraOptions(options: TCPExtraOptions, callback: AsyncCallback<void>): void;
 
     /**
-     * Sets other properties of the **TLSSocketServer** object after **listen** is successfully called. This API uses a
-     * promise to return the result.
+     * 在TLSSocketServer的listen成功之后，设置TLSSocketServer连接的其他属性，使用Promise异步回调。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > This API can be called only after **listen** is successfully called.
+     * > listen方法调用成功后，才可调用此方法。
      *
-     * @param { TCPExtraOptions } options - Other properties of the **TLSSocketServer** object.
-     * @returns { Promise<void> } Promise used to return the result. If the operation is successful, no value is
-     *     returned. If the operation fails, an error message is returned.
+     * @param { TCPExtraOptions } options - TLSSocketServer连接的其他属性。
+     * @returns { Promise<void> } 以Promise形式返回，成功返回空，失败返回错误码，错误信息。
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2303188 - Socket operation on non-socket.
      * @throws { BusinessError } 2300002 - System internal error.
@@ -5080,15 +4718,13 @@ declare namespace socket {
     setExtraOptions(options: TCPExtraOptions): Promise<void>;
 
     /**
-     * Obtains the local digital certificate after a **TLSSocketServer** connection is established. This API uses an
-     * asynchronous callback to return the result.
+     * 在TLSSocketServer通信连接成功之后，获取本地的数字证书，使用callback异步回调。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > This API can be called only after **listen** is successfully called.
+     * > listen方法调用成功后，才可调用此方法。
      *
-     * @param { AsyncCallback<X509CertRawData> } callback - Callback used to return the result. If the operation is
-     *     successful, the local certificate is returned. If the operation fails, an error message is returned.
+     * @param { AsyncCallback<X509CertRawData> } callback - 回调函数，成功返回本地的证书，失败返回错误码、错误信息。
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2303501 - SSL is null.
      * @throws { BusinessError } 2303504 - An error occurred when verifying the X.509 certificate.
@@ -5101,15 +4737,13 @@ declare namespace socket {
     getCertificate(callback: AsyncCallback<X509CertRawData>): void;
 
     /**
-     * Obtains the local digital certificate after a **TLSSocketServer** connection is established. This API uses a
-     * promise to return the result.
+     * 在TLSSocketServer通信连接之后，获取本地的数字证书，使用Promise异步回调。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > This API can be called only after **listen** is successfully called.
+     * > listen方法调用成功后，才可调用此方法。
      *
-     * @returns { Promise<X509CertRawData> } Promise used to return the result. If the operation fails, an error message
-     *     is returned.
+     * @returns { Promise<X509CertRawData> } 以Promise形式返回本地的数字证书的结果。失败返回错误码，错误信息。
      * @throws { BusinessError } 2303501 - SSL is null.
      * @throws { BusinessError } 2303504 - An error occurred when verifying the X.509 certificate.
      * @throws { BusinessError } 2300002 - System internal error.
@@ -5121,15 +4755,13 @@ declare namespace socket {
     getCertificate(): Promise<X509CertRawData>;
 
     /**
-     * Obtains the communication protocol version after a **TLSSocketServer** connection is established. This API uses
-     * an asynchronous callback to return the result.
+     * 在TLSSocketServer通信连接成功之后，获取通信的协议版本，使用callback异步回调。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > This API can be called only after **listen** is successfully called.
+     * > listen方法调用成功后，才可调用此方法。
      *
-     * @param { AsyncCallback<string> } callback - Callback used to return the result. If the operation fails, an error
-     *     message is returned.
+     * @param { AsyncCallback<string> } callback - 回调函数，返回通信的协议。失败返回错误码、错误信息。
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2303501 - SSL is null.
      * @throws { BusinessError } 2303505 - An error occurred in the TLS system call.
@@ -5142,15 +4774,13 @@ declare namespace socket {
     getProtocol(callback: AsyncCallback<string>): void;
 
     /**
-     * Obtains the communication protocol version after a **TLSSocketServer** connection is established. This API uses a
-     * promise to return the result.
+     * 在TLSSocketServer通信连接成功之后，获取通信的协议版本，使用Promise异步回调。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > This API can be called only after **listen** is successfully called.
+     * > listen方法调用成功后，才可调用此方法。
      *
-     * @returns { Promise<string> } Promise used to return the result. If the operation fails, an error message is
-     *     returned.
+     * @returns { Promise<string> } 以Promise形式返回通信的协议。失败返回错误码，错误信息。
      * @throws { BusinessError } 2303501 - SSL is null.
      * @throws { BusinessError } 2303505 - An error occurred in the TLS system call.
      * @throws { BusinessError } 2300002 - System internal error.
@@ -5162,14 +4792,13 @@ declare namespace socket {
     getProtocol(): Promise<string>;
 
     /**
-     * Obtains the local socket address of a **TLSSocketServer** connection. This API uses a promise to return the
-     * result.
+     * 获取TLSSocketServer的本地Socket地址。使用Promise异步回调。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > Call this API only after the **TLSSocketServer** connection is successfully established.
+     * > 在TLSSocketServer通信连接成功之后，才可调用此方法。
      *
-     * @returns { Promise<NetAddress> } Promise used to return the result.
+     * @returns { Promise<NetAddress> } 以Promise形式返回获取本地socket地址的结果。
      * @throws { BusinessError } 2300002 - System internal error.
      * @throws { BusinessError } 2301009 - Bad file descriptor.
      * @throws { BusinessError } 2303188 - Socket operation on non-socket.
@@ -5181,15 +4810,14 @@ declare namespace socket {
     getLocalAddress(): Promise<NetAddress>;
 
     /**
-     * Subscribes to TLS socket server connection events. This API uses an asynchronous callback to return the result.
+     * 订阅TLSSocketServer的连接事件。使用callback异步回调。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > This API can be called only after **listen** is successfully called.
+     * > listen方法调用成功后，才可调用此方法。
      *
-     * @param { 'connect' } type - Event type.<br/> **connect**: connection event.
-     * @param { Callback<TLSSocketConnection> } callback - Callback used to return the result. If the operation fails,
-     *     an error message is returned.
+     * @param { 'connect' } type - 订阅的事件类型。'connect'：连接事件。
+     * @param { Callback<TLSSocketConnection> } callback - 回调函数。失败时返回错误码、错误信息。
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 24]
@@ -5198,7 +4826,7 @@ declare namespace socket {
     on(type: 'connect', callback: Callback<TLSSocketConnection>): void;
 
     /**
-     * Listens for connect events of the TLSSocketServer connection.
+     * 订阅 TLSSocketServer connection.
      *
      * @param { Callback<TLSSocketConnection> } callback - The callback of on.
      * @syscap SystemCapability.Communication.NetStack
@@ -5208,19 +4836,16 @@ declare namespace socket {
     onTlsServerConnect(callback: Callback<TLSSocketConnection>): void;
 
     /**
-     * Unsubscribes from **connect** events of the **TLSSocketServer** object. This API uses an asynchronous callback to
-     * return the result.
+     * 取消订阅TLSSocketServer的连接事件。使用callback异步回调。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > This API can be called only after **listen** is successfully called.
+     * > listen方法调用成功后，才可调用此方法。
      * >
-     * > You can pass the callback of the **on** function if you want to cancel listening for a certain type of events.
-     * > If you do not pass the callback, you will cancel listening for all events.
+     * > 可以指定传入on中的callback取消一个订阅，也可以不指定callback清空所有订阅。
      *
-     * @param { 'connect' } type - Event type.<br/> **connect**: connection event.
-     * @param { Callback<TLSSocketConnection> } callback - Callback used to return the result. If the operation fails,
-     *     an error message is returned.
+     * @param { 'connect' } type - 订阅的事件类型。'connect'：连接事件。
+     * @param { Callback<TLSSocketConnection> } callback - 回调函数。失败时返回错误码、错误信息。
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 24]
@@ -5229,7 +4854,7 @@ declare namespace socket {
     off(type: 'connect', callback?: Callback<TLSSocketConnection>): void;
 
     /**
-     * Cancels listening for connect events of the TLSSocketServer connection.
+     * 取消订阅 TLSSocketServer connection.
      *
      * @param { Callback<TLSSocketConnection> } [callback] - The callback of off.
      * @syscap SystemCapability.Communication.NetStack
@@ -5239,16 +4864,14 @@ declare namespace socket {
     offTlsServerConnect(callback?: Callback<TLSSocketConnection>): void;
 
     /**
-     * Subscribes to **error** events of the **TLSSocketServer** object. This API uses an asynchronous callback to
-     * return the result.
+     * 订阅TLSSocketServer连接的error事件。使用callback异步回调。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > This API can be called only after **listen** is successfully called.
+     * > listen方法调用成功后，才可调用此方法。
      *
-     * @param { 'error' } type - Event type.<br/> **error**: error event.
-     * @param { ErrorCallback } callback - Callback used to return the result. If the operation fails, an error message
-     *     is returned.
+     * @param { 'error' } type - 订阅的事件类型。'error'：error事件。
+     * @param { ErrorCallback } callback - 回调函数。失败时返回错误码、错误信息。
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 24]
@@ -5257,7 +4880,7 @@ declare namespace socket {
     on(type: 'error', callback: ErrorCallback): void;
 
     /**
-     * Listens for error events of the TLSSocketServer connection.
+     * 订阅 TLSSocketServer connection.
      *
      * @param { ErrorCallback } callback - The callback of on.
      * @syscap SystemCapability.Communication.NetStack
@@ -5267,19 +4890,16 @@ declare namespace socket {
     onTlsServerError(callback: ErrorCallback): void;
 
     /**
-     * Unsubscribes from **error** events of the **TLSSocketServer** object. This API uses an asynchronous callback to
-     * return the result.
+     * 取消订阅TLSSocketServer连接的error事件。使用callback异步回调。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > This API can be called only after **listen** is successfully called.
+     * > listen方法调用成功后，才可调用此方法。
      * >
-     * > You can pass the callback of the **on** function if you want to cancel listening for a certain type of events.
-     * > If you do not pass the callback, you will cancel listening for all events.
+     * > 可以指定传入on中的callback取消一个订阅，也可以不指定callback清空所有订阅。
      *
-     * @param { 'error' } type - Event type.<br/> **error**: error event.
-     * @param { ErrorCallback } callback - Callback used to return the result. If the operation fails, an error message
-     *     is returned.
+     * @param { 'error' } type - 订阅的事件类型。'error'：error事件。
+     * @param { ErrorCallback } callback - 回调函数。失败时返回错误码、错误信息。
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 24]
@@ -5288,7 +4908,7 @@ declare namespace socket {
     off(type: 'error', callback?: ErrorCallback): void;
 
     /**
-     * Cancels listening for error events of the TLSSocketServer connection.
+     * 取消订阅 TLSSocketServer connection.
      *
      * @param { ErrorCallback } [callback] - The callback of off.
      * @syscap SystemCapability.Communication.NetStack
@@ -5298,24 +4918,18 @@ declare namespace socket {
     offTlsServerError(callback?: ErrorCallback): void;
 
     /**
-     * Obtains the file descriptor bound to the TLSSocketServer listening port. This API uses a promise to return the
-     * result.
+     * 获取TLSSocketServer监听端口绑定的文件描述符。使用Promise异步回调。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > - This method can be called only after the [listen]{@link socket.TCPSocketServer.listen} method is successfully
-     * > called. When listen is called for multiple times, the file descriptor bound to the latest listening port is
-     * > obtained.
+     * > - [listen]{@link socket.TCPSocketServer.listen}方法调用成功后，才可调用此方法。多次调用listen时，会获取最新监听端口绑定的文件描述符。
      * >
-     * > - This API returns **-1** in abnormal cases such as listening exceptions or socket closed (for example, after
-     * > close is called).
+     * > - 监听异常、Socket已关闭（如调用close后）等异常情况下调用本接口会返回-1。
      * >
-     * > - The lifecycle of the file descriptor is managed by the system. The application can use the
-     * > [close]{@link socket.TCPSocketServer.close} method to close the socket connection, instead of directly
-     * > operating the file descriptor.
+     * > - 文件描述符的生命周期由系统管理，应用可以通过[close]{@link socket.TCPSocketServer.close}方法关闭Socket连接，避免直接操作文件描述符进行关闭。
      *
      * @permission ohos.permission.INTERNET
-     * @returns { Promise<int> } Promise used to return the socket file descriptor.
+     * @returns { Promise<int> } Promise对象，返回Socket的文件描述符。
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 24]
