@@ -798,7 +798,9 @@ declare namespace display {
    * @param { long } screenId - Indicates the screen id of the virtual screen.
    * @param { string } surfaceId - Indicates the surface id.
    * @param { Rect } [surfaceRegion] - Rectangular area for displaying the surface in the virtual screen.
-   *     If the virtual screen has not bound any surface via setVirtualScreenSurface or addVirtualScreenSurface, the
+   *     If the virtual screen has not bound any surface via
+   *     [setVirtualScreenSurface()]{@link display.setVirtualScreenSurface} or 
+   *     [addVirtualScreenSurface()]{@link display.addVirtualScreenSurface}, the
    *     rect is invalid and defaults to full screen. In mirror mode, the rect is invalid and defaults to full screen.
    *     In independent display mode, the rect is valid.
    * @returns { Promise<void> } Promise that returns no value
