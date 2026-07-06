@@ -1125,7 +1125,7 @@ declare namespace adminManager {
    * @stagemodelonly
    * @since 26.0.0
    */
-  function enableSelfDeviceAdmin(admin: Want, credential: string): Promise<void>;
+  function enableSelfDeviceAdmin(admin: Want, credential: string): void;
 }
 
 export default adminManager;
