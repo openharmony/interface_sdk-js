@@ -6868,13 +6868,16 @@ declare namespace camera {
    *
    * @extends PhotoSession, Beauty, ColorEffect, ColorManagement, Macro, SceneDetection, EffectSuggestion [since 11 - 13]
    * @extends PhotoSession, Beauty, ColorEffect, ColorManagement, Macro, SceneDetection, EffectSuggestion,
-   *     DepthFusion [since 14]
+   *     DepthFusion [since 14 - 24]
+   * @extends PhotoSession, Beauty, ColorEffect, ColorManagement, Macro, SceneDetection, EffectSuggestion, DepthFusion,
+   *     ImagingMode [since 26.0.0]
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 11 dynamic
    * @since 23 static
    */
-  interface PhotoSessionForSys extends PhotoSession, Beauty, ColorEffect, ColorManagement, Macro, SceneDetection, EffectSuggestion, DepthFusion{
+  interface PhotoSessionForSys extends PhotoSession, Beauty, ColorEffect, ColorManagement,
+      Macro, SceneDetection, EffectSuggestion, DepthFusion, ImagingMode{
   }
 
   /**
@@ -7496,13 +7499,16 @@ declare namespace camera {
    * @extends VideoSession, Beauty, ColorEffect, ColorManagement, Macro [since 11 - 14]
    * @extends VideoSession, Beauty, ColorEffect, ColorManagement, Macro, Aperture, ColorReservation [since 15 - 17]
    * @extends VideoSession, Beauty, ColorEffect, ColorManagement, Macro, Aperture, ColorReservation,
-   *     EffectSuggestion [since 18]
+   *     EffectSuggestion [since 18 - 24]
+   * @extends VideoSession, Beauty, ColorEffect, ColorManagement, Macro, Aperture, ColorReservation, EffectSuggestion,
+   *     ImagingMode [since 26.0.0]
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 11 dynamic
    * @since 23 static
    */
-  interface VideoSessionForSys extends VideoSession, Beauty, ColorEffect, ColorManagement, Macro, Aperture, ColorReservation, EffectSuggestion {
+  interface VideoSessionForSys extends VideoSession, Beauty, ColorEffect, ColorManagement,
+      Macro, Aperture, ColorReservation, EffectSuggestion, ImagingMode {
   }
 
   /**
@@ -7547,7 +7553,7 @@ declare namespace camera {
    *     AutoDeviceSwitch, Macro [since 19 - 19]
    * @extends Session, Flash, AutoExposure, WhiteBalance, Focus, Zoom, Stabilization, ColorManagement, ControlCenter,
    *     AutoDeviceSwitch, Macro [since 20 - 24]
- * @extends Session, Flash, AutoExposure, WhiteBalance, Focus, Zoom, Stabilization, ColorManagement, ControlCenter,
+   * @extends Session, Flash, AutoExposure, WhiteBalance, Focus, Zoom, Stabilization, ColorManagement, ControlCenter,
    *     AutoDeviceSwitch, Macro, ManualExposure, ManualFocus, ManualIso, OIS, Aperture [since 26.0.0]
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice [since 19]
@@ -7555,8 +7561,8 @@ declare namespace camera {
    * @since 23 static
    */
   interface VideoSession extends Session, Flash, AutoExposure, WhiteBalance, Focus, Zoom, Stabilization,
-      ColorManagement, ControlCenter, AutoDeviceSwitch, Macro, ManualExposure, ManualFocus, ManualIso, OIS,
-      Aperture {
+    ColorManagement, ControlCenter, AutoDeviceSwitch, Macro, ManualExposure, ManualFocus, ManualIso, OIS,
+    Aperture {
     /**
      * Checks whether this session supports a preconfigured resolution.
      *
@@ -10836,7 +10842,7 @@ declare namespace camera {
    * [CameraInput]{@link camera.CameraInput} and [CameraOutput]{@link camera.CameraOutput}
    * instances required to run the camera. It inherits from [Session]{@link camera.Session}.
    *
-* @extends Session, Flash, AutoExposure, Focus, Zoom, ColorEffect, ManualFocus [since 12 - 17]
+   * @extends Session, Flash, AutoExposure, Focus, Zoom, ColorEffect, ManualFocus [since 12 - 17]
    * @extends Session, Flash, AutoExposure, Focus, Zoom, ColorEffect, ManualFocus, ColorManagement [since 18]
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
