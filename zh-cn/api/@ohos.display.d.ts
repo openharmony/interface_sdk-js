@@ -746,7 +746,8 @@ declare namespace display {
    * @param { long } screenId - 虚拟屏幕的屏幕ID。
    * @param { string } surfaceId - surface的id。
    * @param { Rect } [surfaceRegion] - 虚拟屏用于显示surface的矩形区域。
-   *     默认值：虚拟屏幕的完整区域。
+   *     如果未通过setVirtualScreenSurface或addVirtualScreenSurface绑定过surface，rect无效，默认全屏。
+   *     在镜像模式下，rect无效，默认全屏。在异源模式下，rect有效。
    * @returns { Promise<void> } 不返回任何值的Promise
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 801 - Capability not supported.function addVirtualScreenSurface

@@ -799,7 +799,9 @@ declare namespace display {
    * @param { long } screenId - Indicates the screen id of the virtual screen.
    * @param { string } surfaceId - Indicates the surface id.
    * @param { Rect } [surfaceRegion] - Rectangular area of the virtual screen used to display the surface.
-   *     Default value: the full region of the virtual screen.
+   *     If no surface has been bound via setVirtualScreenSurface or addVirtualScreenSurface, the rect is invalid
+   *     and defaults to full screen. In mirror mode, the rect is invalid and defaults to full screen.
+   *     In independent display mode, the rect is valid.
    * @returns { Promise<void> } Promise that returns no value
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 801 - Capability not supported.function addVirtualScreenSurface
