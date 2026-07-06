@@ -26,6 +26,7 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
+ * @atomicservice
  * @since 26.0.0 dynamic
  */
 declare type OnChangedCallback = (callbackParam: CallbackParamV2) => void;
@@ -334,6 +335,7 @@ export interface CallbackParamV2 {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
+ * @atomicservice
  * @since 26.0.0 dynamic
  */
 declare type OnContainerCallback = () => void;
