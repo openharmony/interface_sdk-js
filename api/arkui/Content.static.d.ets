@@ -12,6 +12,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 /**
  * @file
  * @kit ArkUI
@@ -21,7 +22,7 @@
  * Defines the base class for ComponentContent and NodeContent.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
-export abstract class Content {
-}
+export abstract class Content {}

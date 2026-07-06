@@ -19,48 +19,37 @@
  */
 
 /**
- * Import the WindowStatusType type object for onHoverStatusChange.
+ * Enumerates the window modes.
  *
- * @typedef {import('../api/@ohos.window').default.WindowStatusType} WindowStatusType
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @atomicservice
  * @since 12 dynamic
  */
 declare type WindowStatusType = import('../api/@ohos.window').default.WindowStatusType;
 
 /**
- * FolderStack constructor options.
+ * > **NOTE**
+ * >
+ * > To standardize anonymous object definitions, the element definitions here have been revised in API version 18. 
+ * > While historical version information is preserved for anonymous objects, there may be cases where the outer
+ * > element's @since version number is higher than inner elements'. This does not affect interface usability.
  *
- * @interface FolderStackOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 18 dynamic
  */
 interface FolderStackOptions {
   /**
-   * Define the IDs of the sub component that will be moved to the upper half screen when hovering.
+   * Array of IDs of child components that will be moved to the upper half screen in the hover state.
+   * 
+   * On hover, child components with IDs in this array automatically shift away from the crease area and move to the 
+   * upper half screen, while other components are stacked in the lower half screen.
    *
-   * @type { ?Array<string> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 11
-   */
-  /**
-   * Define the IDs of the sub component that will be moved to the upper half screen when hovering.
-   *
-   * @type { ?Array<string> }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Define the IDs of the sub component that will be moved to the upper half screen when hovering.
-   *
-   * Anonymous Object Rectification
-   * @type { ?Array<string> }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -71,102 +60,63 @@ interface FolderStackOptions {
 /**
  * Provides ports for stacking containers.
  *
- * @interface FolderStackInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
- * @since 11
+ * @atomicservice [since 12]
+ * @since 11 dynamic
+ * @noninterop [since 12]
  */
-/**
- * Provides ports for stacking containers.
- *
- * @interface FolderStackInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 12 dynamic
- */
-
 interface FolderStackInterface {
   /**
-   * Defines the constructor of folderStack.
+   * Defines the constructor of FolderStack component.
    *
-   * @param { object } value - id of children need to be show in upperItem
+   * @param { object } value - id of children need to be show in upperItem [since 11 - 17]
+   * @param { FolderStackOptions } [options] - Configuration of the **FolderStack** component. [since 18]
    * @returns { FolderStackAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Defines the constructor of folderStack.
-   *
-   * @param { object } value - id of children need to be show in upperItem
-   * @returns { FolderStackAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Defines the constructor of folderStack.
-   *
-   * Anonymous Object Rectification
-   * @param { FolderStackOptions } [options] - id of children need to be show in upperItem
-   * @returns { FolderStackAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   (options?: FolderStackOptions): FolderStackAttribute;
 }
 
 /**
- * Information when onFolderStateChange.
+ * Called when the folding state changes. This API takes effect only in landscape mode.
+ * 
+ * > **NOTE**
+ * >
+ * > To standardize anonymous object definitions, the element definitions here have been revised in API version 18. 
+ * > While historical version information is preserved for anonymous objects, there may be cases where the outer
+ * > element's @since version number is higher than inner elements'. This does not affect interface usability.
  *
- * @interface OnFoldStatusChangeInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 18 dynamic
  */
 interface OnFoldStatusChangeInfo {
   /**
-   * Folder state.
+   * Current fold state of the device.
    *
-   * @type { FoldStatus }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 11
-   */
-  /**
-   * Folder state.
-   *
-   * @type { FoldStatus }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Folder state.
-   *
-   * Anonymous Object Rectification
-   * @type { FoldStatus }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
    */
-  foldStatus: FoldStatus
+  foldStatus: FoldStatus;
 }
 
 /**
- * Callback when onStateChangeCallback.
- * 
- * Anonymous Object Rectification
- * @typedef { function } OnFoldStatusChangeCallback
- * @param { OnFoldStatusChangeInfo } event - the folding information of the current device
+ * Current fold state of the device.
+ *
+ * @param { OnFoldStatusChangeInfo } event - Current fold state of the device.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 18 dynamic
@@ -174,212 +124,180 @@ interface OnFoldStatusChangeInfo {
 declare type OnFoldStatusChangeCallback = (event: OnFoldStatusChangeInfo) => void;
 
 /**
- * Callback when onHoverStatusChange.
+ * Defines the current callback invoked when the hover state of the device changes.
  *
- * Anonymous Object Rectification
- * @typedef { function } OnHoverStatusChangeCallback
- * @param { HoverEventParam } param - hover event param
+ * @param { HoverEventParam } param - Parameters related to the hover state of the device, including the fold state,
+ *     hover state, application orientation, and window mode enumeration of the device.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @atomicservice
  * @since 18 dynamic
  */
 declare type OnHoverStatusChangeCallback = (param: HoverEventParam) => void;
 
 /**
- * @extends CommonMethod<FolderStackAttribute>
+ * In addition to the [universal events]{@link CommonMethod}, the following events are supported.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
- * @since 11
- */
-/**
- * @extends CommonMethod<FolderStackAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 12 dynamic
+ * @atomicservice [since 12]
+ * @since 11 dynamic
+ * @noninterop [since 12]
  */
 declare class FolderStackAttribute extends CommonMethod<FolderStackAttribute> {
   /**
-   * Set the alignment of folderStack.
+   * Sets the alignment of child components in the container. When both this attribute and the
+   * [align]{@link CommonMethod#align} attribute are set, whichever is set last takes effect.
    *
-   * @param { Alignment } value - align of children
+   * @param { Alignment } value - Alignment of child components in the container.
+   *     <br>Default value: **Alignment.Center**.
+   *     <br>Invalid values are treated as the default value.
    * @returns { FolderStackAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Set the alignment of folderStack.
-   *
-   * @param { Alignment } value - align of children
-   * @returns { FolderStackAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   alignContent(value: Alignment): FolderStackAttribute;
 
   /**
-   * Callback folderState when the folderState changes
+   * Triggered when the fold state of the device changes. This API takes effect only in
+   * landscape mode.
    *
-   * @param { function } callback - executed when folderStatus changed
+   * @param { function } callback - Callback invoked when the fold state of the device changes. [since 11 - 17]
+   * @param { OnFoldStatusChangeCallback } callback
+   *     - Callback invoked when the fold state of the device changes. [since 18]
    * @returns { FolderStackAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-   /**
-   * Callback folderState when the folderState changes
-   *
-   * @param { function } callback - executed when folderStatus changed
-   * @returns { FolderStackAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12
-   */
-   /**
-   * Callback folderState when the folderState changes
-   *
-   * Anonymous Object Rectification
-   * @param { OnFoldStatusChangeCallback } callback - executed when folderStatus changed
-   * @returns { FolderStackAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   onFolderStateChange(callback: OnFoldStatusChangeCallback): FolderStackAttribute;
 
-
   /**
-   * Callback hoverStatus|folderStatus|rotation|windowMode when the hoverStatus changes
+   * Triggered when the hover state of the device changes.
    *
-   * @param { function } handler - executed when hoverStatus changed
+   * @param { function } handler - Callback invoked when the hover state of the device changes. [since 12 - 17]
+   * @param { OnHoverStatusChangeCallback } handler
+   *     - Callback invoked when the hover state of the device changes. [since 18]
    * @returns { FolderStackAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * Callback hoverStatus|folderStatus|rotation|windowMode when the hoverStatus changes
-   *
-   * Anonymous Object Rectification
-   * @param { OnHoverStatusChangeCallback } handler - executed when hoverStatus changed
-   * @returns { FolderStackAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    */
   onHoverStatusChange(handler: OnHoverStatusChangeCallback): FolderStackAttribute;
 
   /**
-   * Enable the animation of folderStack.
+   * Sets whether to enable the default animation.
    *
-   * @param { boolean } value - enable the animation of folderStatus changed
+   * @param { boolean } value - Whether to enable the default animation.
+   *     <br>Default value: **true**. **true**: Enable the default animation. **false**: Disable
+   *     the default animation.
+   *     <br>Invalid values are treated as the default value.
    * @returns { FolderStackAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Enable the animation of folderStack.
-   *
-   * @param { boolean } value - enable the animation of folderStatus changed
-   * @returns { FolderStackAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   enableAnimation(value: boolean): FolderStackAttribute;
 
   /**
-   * Enable auto halfFolder when orientation.
+   * Sets whether to enable auto rotation. This attribute is effective only when auto rotation
+   * is disabled in device system settings.
    *
-   * @param { boolean } value - enable auto halfFold
+   * @param { boolean } value - Whether to enable auto rotation.
+   *     <br>Default value: **true**. **true**: Enable auto rotation when the **FolderStack**
+   *     component is in [half-folded state](docroot://reference/apis-arkui/arkui-ts/ts-appendix-enums.md#foldstatus11).
+   *     **false**: Disable auto rotation. This setting applies uniformly across all device types.
+   *     <br>Invalid values are treated as the default value.
    * @returns { FolderStackAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Enable auto halfFolder when orientation.
-   *
-   * @param { boolean } value - enable auto halfFold
-   * @returns { FolderStackAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   autoHalfFold(value: boolean): FolderStackAttribute;
 }
 
 /**
- * Defines the Embed Data info.
+ * The param of hover event.
  *
- * @interface HoverEventParam
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @atomicservice
  * @since 12 dynamic
  */
 declare interface HoverEventParam {
   /**
-   * Folder state.
+   * Current fold state of the device.
    *
-   * @type { FoldStatus }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 12 dynamic
    */
-  foldStatus: FoldStatus
+  foldStatus: FoldStatus;
 
   /**
-   * Is hover mode
+   * Whether hover mode is enabled. **true**: Hover mode is enabled. **false**: Hover mode is disabled.
    *
-   * @type { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 12 dynamic
    */
-  isHoverMode: boolean
+  isHoverMode: boolean;
 
   /**
-   * App rotation
+   * Current orientation.
    *
-   * @type { AppRotation }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 12 dynamic
    */
-  appRotation: AppRotation
+  appRotation: AppRotation;
 
   /**
-   * Window status type
+   * Window mode.
    *
-   * @type { WindowStatusType }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 12 dynamic
    */
-  windowStatusType: WindowStatusType
+  windowStatusType: WindowStatusType;
 }
 /**
- * Defines FolderStack Component.
+ * **FolderStack** extends the [Stack]{@link stack} container, adding the <!--RP1-->foldable phone hover<!--RP1End-->
+ * capability. Child components specified in the **upperItems** array of [FolderStackOptions]{@link FolderStackOptions}
+ * automatically avoid the screen crease area and reposition to the upper display.
+ * > **NOTE**
+ * >
+ * > The hover capability is designed for and only works on <!--RP2-->dual-fold devices<!--RP2End-->.
+ * >
+ * > When the component's parent is an
+ * > [if/else conditional render](docroot://ui/rendering-control/arkts-rendering-control-ifelse.md) node, the foldable
+ * > hover feature is disabled.
+ * >
+ * > **Child Components**
+ * >
+ * > Multiple child components are supported.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
- * @since 11
- */
-/**
- * Defines FolderStack Component.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 12 dynamic
+ * @atomicservice [since 12]
+ * @since 11 dynamic
+ * @noninterop [since 12]
  */
 declare const FolderStack: FolderStackInterface;
 
@@ -387,15 +305,10 @@ declare const FolderStack: FolderStackInterface;
  * Defines FolderStack Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
- * @since 11
- */
-/**
- * Defines FolderStack Component instance.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 12 dynamic
+ * @atomicservice [since 12]
+ * @since 11 dynamic
+ * @noninterop [since 12]
  */
 declare const FolderStackInstance: FolderStackAttribute;

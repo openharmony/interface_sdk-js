@@ -1,0 +1,78 @@
+/*
+ * Copyright (c) 2023-2026 Huawei Device Co., Ltd.
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/**
+ * @file 轮播广告展示组件
+ * @kit AdsKit
+ */
+
+import advertising from './@ohos.advertising';
+
+/**
+ * 本模块提供展示轮播广告的能力。
+ *
+ * @syscap SystemCapability.Advertising.Ads
+ * @atomicservice [since 12]
+ * @since 11
+ */
+@Component
+declare struct AutoAdComponent {
+  /**
+   * 广告请求参数。
+   *
+   * @syscap SystemCapability.Advertising.Ads
+   * @atomicservice [since 12]
+   * @since 11
+   */
+  adParam: advertising.AdRequestParams;
+
+  /**
+   * 广告配置参数。
+   *
+   * @syscap SystemCapability.Advertising.Ads
+   * @atomicservice [since 12]
+   * @since 11
+   */
+  adOptions: advertising.AdOptions;
+
+  /**
+   * 广告展示参数。
+   *
+   * @syscap SystemCapability.Advertising.Ads
+   * @atomicservice [since 12]
+   * @since 11
+   */
+  displayOptions: advertising.AdDisplayOptions;
+
+  /**
+   * 广告状态变化回调。
+   *
+   * @syscap SystemCapability.Advertising.Ads
+   * @atomicservice [since 12]
+   * @since 11
+   */
+  interactionListener: advertising.AdInteractionListener;
+
+  /**
+   * 用于创建AutoAdComponent对象的构造函数。
+   *
+   * @syscap SystemCapability.Advertising.Ads
+   * @atomicservice [since 12]
+   * @since 11
+   */
+  build(): void;
+}
+
+export { AutoAdComponent };

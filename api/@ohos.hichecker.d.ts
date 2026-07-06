@@ -19,140 +19,198 @@
  */
 
 /**
- * This module provides the capability to check bad code usage.
+ * The HiChecker module allows you to check issues that may be easily ignored during development of applications (
+ * including system-built and third-party applications). Such issues include calling of time-consuming functions by key
+ * application threads, event distribution and execution timeout in application processes, and ability resource leakage
+ * in application processes. The issues are recorded in logs or lead to process crashes explicitly so that you can find
+ * and rectify them.
  *
- * @namespace hichecker
  * @syscap SystemCapability.HiviewDFX.HiChecker
  * @since 8 dynamic
  * @since 23 static
  */
 declare namespace hichecker {
   /**
-   * The caution rule print log.
+   * Alarm rule, which is programmed to print a log when an alarm is generated.
    *
    * @constant
    * @syscap SystemCapability.HiviewDFX.HiChecker
    * @since 8 dynamic
-   * @since 23 static
    */
-  const RULE_CAUTION_PRINT_LOG = 9223372036854775808n; // 1 << 63
+  const RULE_CAUTION_PRINT_LOG = 9223372036854775808n;
 
   /**
-   * The caution rule trigger crash.
+   * Alarm rule, which is programmed to print a log when an alarm is generated.
    *
-   * @constant
    * @syscap SystemCapability.HiviewDFX.HiChecker
-   * @since 8 dynamic
+   * @FaAndStageModel
    * @since 23 static
    */
-  const RULE_CAUTION_TRIGGER_CRASH = 4611686018427387904n; // 1 << 62
+  const RULE_CAUTION_PRINT_LOG: bigint;
 
   /**
-   * The thread rule check slow process.
+   * Alarm rule, which is programmed to force the application to exit when an alarm is generated.
    *
    * @constant
    * @syscap SystemCapability.HiviewDFX.HiChecker
    * @since 8 dynamic
+   */
+  const RULE_CAUTION_TRIGGER_CRASH = 4611686018427387904n;
+
+  /**
+   * Alarm rule, which is programmed to force the application to exit when an alarm is generated.
+   *
+   * @syscap SystemCapability.HiviewDFX.HiChecker
+   * @FaAndStageModel
    * @since 23 static
+   */
+  const RULE_CAUTION_TRIGGER_CRASH: bigint;
+
+  /**
+   * Caution rule, which is programmed to detect whether any time-consuming function is invoked.
+   *
+   * @constant
+   * @syscap SystemCapability.HiviewDFX.HiChecker
+   * @since 8 dynamic
    */
   const RULE_THREAD_CHECK_SLOW_PROCESS = 1n;
 
   /**
-   * The process rule check ability connection leak.
+   * Caution rule, which is programmed to detect whether any time-consuming function is invoked.
+   *
+   * @syscap SystemCapability.HiviewDFX.HiChecker
+   * @FaAndStageModel
+   * @since 23 static
+   */
+  const RULE_THREAD_CHECK_SLOW_PROCESS: bigint;
+
+  /**
+   * Caution rule, which is programmed to detect whether ability leakage has occurred.
    *
    * @constant
    * @syscap SystemCapability.HiviewDFX.HiChecker
    * @since 8 dynamic
+   */
+  const RULE_CHECK_ABILITY_CONNECTION_LEAK = 8589934592n;
+
+    /**
+   * Caution rule, which is programmed to detect whether ability leakage has occurred.
+   *
+   * @syscap SystemCapability.HiviewDFX.HiChecker
+   * @FaAndStageModel
    * @since 23 static
    */
-  const RULE_CHECK_ABILITY_CONNECTION_LEAK = 8589934592n; // 1 << 33
+  const RULE_CHECK_ABILITY_CONNECTION_LEAK: bigint;
 
   /**
-   * The process rule check ability Arkui performance
+   * Caution rule, which is programmed to detect the ArkUI performance.
    *
    * @constant
    * @syscap SystemCapability.HiviewDFX.HiChecker
    * @since 11 dynamic
-   * @since 23 static
    */
-  const RULE_CHECK_ARKUI_PERFORMANCE = 17179869184n; // 1 << 34
+  const RULE_CHECK_ARKUI_PERFORMANCE = 17179869184n;
 
   /**
-   * add one or more rule.
+   * Caution rule, which is programmed to detect the ArkUI performance.
    *
-   * @param { bigint } rule
+   * @syscap SystemCapability.HiviewDFX.HiChecker
+   * @FaAndStageModel
+   * @since 23 static
+   */
+  const RULE_CHECK_ARKUI_PERFORMANCE: bigint;
+
+  /**
+   * The thread rule check network usage.
+   *
+   * @syscap SystemCapability.HiviewDFX.HiChecker
+   * @FaAndStageModel
+   * @since 26.0.0 dynamic&static
+   */
+  const RULE_THREAD_CHECK_NETWORK_USAGE = 2n;
+
+  /**
+   * Adds one or more rules. HiChecker detects unexpected operations or gives feedback based on the added rules.
+   *
+   * @param { bigint } rule - Rule to be added.
    * @syscap SystemCapability.HiviewDFX.HiChecker
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.hichecker/hichecker#addCheckRule
+   * @useinstead hichecker.addCheckRule
    */
   function addRule(rule: bigint): void;
 
   /**
-   * remove one or more rule.
+   * Removes one or more rules. The removed rules will become ineffective.
    *
-   * @param { bigint } rule
+   * @param { bigint } rule - Rule to be removed.
    * @syscap SystemCapability.HiviewDFX.HiChecker
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.hichecker/hichecker#removeCheckRule
+   * @useinstead hichecker.removeCheckRule
    */
   function removeRule(rule: bigint): void;
 
   /**
-   * get added rule
+   * Obtains a collection of thread, process, and alarm rules that have been added.
    *
-   * @returns { bigint } all added thread rule and process rule.
+   * @returns { bigint } Collection of added rules.
    * @syscap SystemCapability.HiviewDFX.HiChecker
    * @since 8 dynamic
    * @since 23 static
    */
-  function getRule(): bigint;
+  function getRule() : bigint;
 
   /**
-   * whether the query rule is added
+   * Checks whether the specified rule exists in the collection of added rules. If the rule is of the thread level, this
+   * operation is performed only on the current thread.
    *
-   * @param { bigint } rule
-   * @returns { boolean } the result of whether the query rule is added.
+   * @param { bigint } rule - Rule to be checked.
+   * @returns { boolean } Check result. If the rule exists in the collection of added rules, **true** is returned;
+   *     otherwise, **false** is returned.
    * @syscap SystemCapability.HiviewDFX.HiChecker
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.hichecker/hichecker#containsCheckRule
+   * @useinstead hichecker.containsCheckRule
    */
   function contains(rule: bigint): boolean;
 
   /**
-   * Add one or more rule.
+   * Adds one or more check rules. HiChecker detects unexpected operations or gives feedback based on the added rules.
+   * You can use **grep HiChecker** to check for the application running information in the hilog.
    *
-   * @param { bigint } rule
+   * @param { bigint } rule - Rule to be added.
    * @throws { BusinessError } 401 - the parameter check failed, only one bigint type parameter is needed
    * @syscap SystemCapability.HiviewDFX.HiChecker
    * @since 9 dynamic
    * @since 23 static
    */
-  function addCheckRule(rule: bigint): void;
+  function addCheckRule(rule: bigint) : void;
 
   /**
-   * Remove one or more rule.
+   * Removes one or more rules. The removed rules will become ineffective.
    *
-   * @param { bigint } rule
+   * @param { bigint } rule - Rule to be removed.
    * @throws { BusinessError } 401 - the parameter check failed, only one bigint type parameter is needed
    * @syscap SystemCapability.HiviewDFX.HiChecker
    * @since 9 dynamic
    * @since 23 static
    */
-  function removeCheckRule(rule: bigint): void;
+  function removeCheckRule(rule: bigint) : void;
 
   /**
-   * Whether the query rule is added
+   * Checks whether the specified rule exists in the collection of added rules. If the rule is of the thread level, this
+   * operation is performed only on the current thread.
    *
-   * @param { bigint } rule
-   * @returns { boolean } the result of whether the query rule is added.
+   * @param { bigint } rule - Rule to be checked.
+   * @returns { boolean } Check result. If the rule exists in the collection of added rules, **true** is returned;
+   *     otherwise, **false** is returned.
    * @throws { BusinessError } 401 - the parameter check failed, only one bigint type parameter is needed
    * @syscap SystemCapability.HiviewDFX.HiChecker
    * @since 9 dynamic
    * @since 23 static
    */
-  function containsCheckRule(rule: bigint): boolean;
+  function containsCheckRule(rule: bigint) : boolean;
 }
+
 export default hichecker;

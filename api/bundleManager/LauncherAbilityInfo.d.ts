@@ -22,19 +22,20 @@ import { ApplicationInfo } from './ApplicationInfo';
 import { ElementName } from './ElementName';
 
 /**
- * Contains basic launcher Ability information, which uniquely identifies an LauncherAbilityInfo
+ * The module describes the ability information of the launcher application. The information can be obtained by calling
+ * [getLauncherAbilityInfoSync]{@link ./../@ohos.bundle.launcherBundleManager:launcherBundleManager.getLauncherAbilityInfoSync}
+ * <!--Del--> or
+ * [getLauncherAbilityInfo]{@link ./../@ohos.bundle.launcherBundleManager:launcherBundleManager.getLauncherAbilityInfo(bundleName: string, userId: int, callback: AsyncCallback<Array<LauncherAbilityInfo>>)}
+ * <!--DelEnd-->.
  *
- * @typedef LauncherAbilityInfo
  * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
  * @since 18 dynamic
  * @since 23 static
  */
 export interface LauncherAbilityInfo {
   /**
-   * Obtains application info information about an launcher ability.
+   * Application information of the launcher ability.
    *
-   * @type { ApplicationInfo }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @since 18 dynamic
    * @since 23 static
@@ -42,10 +43,8 @@ export interface LauncherAbilityInfo {
   readonly applicationInfo: ApplicationInfo;
 
   /**
-   * Obtains element name about an launcher ability.
+   * Element name of the launcher ability.
    *
-   * @type { ElementName }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @since 18 dynamic
    * @since 23 static
@@ -53,10 +52,8 @@ export interface LauncherAbilityInfo {
   readonly elementName: ElementName;
 
   /**
-   * Obtains labelId about an launcher ability.
+   * Label ID of the launcher ability.
    *
-   * @type { long }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @since 18 dynamic
    * @since 23 static
@@ -64,10 +61,8 @@ export interface LauncherAbilityInfo {
   readonly labelId: long;
 
   /**
-   * Obtains iconId about an launcher ability.
+   * Icon ID of the launcher ability.
    *
-   * @type { long }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @since 18 dynamic
    * @since 23 static
@@ -75,10 +70,8 @@ export interface LauncherAbilityInfo {
   readonly iconId: long;
 
   /**
-   * Obtains userId about an launcher ability.
+   * User ID of the launcher ability.
    *
-   * @type { int }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @since 18 dynamic
    * @since 23 static
@@ -86,10 +79,8 @@ export interface LauncherAbilityInfo {
   readonly userId: int;
 
   /**
-   * Obtains installTime about an launcher ability.
+   * Timestamp when the launcher ability was installed, in milliseconds.
    *
-   * @type { long }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @since 18 dynamic
    * @since 23 static

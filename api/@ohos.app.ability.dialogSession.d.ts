@@ -26,9 +26,8 @@ import { RecordData } from './@ohos.base';
 /*** endif */
 
 /**
- * This module provides the capability to manage dialog session.
+ * The dialogSession module provides APIs related to the dialog box.
  *
- * @namespace dialogSession
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @systemapi
  * @stagemodelonly
@@ -38,9 +37,8 @@ import { RecordData } from './@ohos.base';
 declare namespace dialogSession {
 
   /**
-   * Indicates the ability information displayed in the picker dialog, including bundleName, moduleName, and abilityName.
+   * Provides DialogAbility information, including the bundle name, module name, and ability name.
    *
-   * @typedef DialogAbilityInfo
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
@@ -50,9 +48,8 @@ declare namespace dialogSession {
   export interface DialogAbilityInfo {
 
     /**
-     * Bundle name
+     * Bundle name.
      *
-     * @type { string }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @stagemodelonly
@@ -62,9 +59,8 @@ declare namespace dialogSession {
     bundleName: string;
 
     /**
-     * Module name
+     * Module name.
      *
-     * @type { string }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @stagemodelonly
@@ -74,9 +70,8 @@ declare namespace dialogSession {
     moduleName: string;
 
     /**
-     * Ability name
+     * Ability name.
      *
-     * @type { string }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @stagemodelonly
@@ -86,9 +81,8 @@ declare namespace dialogSession {
     abilityName: string;
 
     /**
-     * The icon id of ability
+     * ID of the ability icon.
      *
-     * @type { int }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @stagemodelonly
@@ -98,9 +92,8 @@ declare namespace dialogSession {
     abilityIconId: int;
 
     /**
-     * The label id of ability
+     * ID of the ability label.
      *
-     * @type { int }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @stagemodelonly
@@ -110,9 +103,8 @@ declare namespace dialogSession {
     abilityLabelId: int;
 
     /**
-     * The icon id of bundle
+     * ID of the bundle icon.
      *
-     * @type { int }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @stagemodelonly
@@ -122,9 +114,8 @@ declare namespace dialogSession {
     bundleIconId: int;
 
     /**
-     * The label id of bundle
+     * ID of the bundle label.
      *
-     * @type { int }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @stagemodelonly
@@ -134,9 +125,8 @@ declare namespace dialogSession {
     bundleLabelId: int;
 
     /**
-     * The ability is visible
+     * Whether the ability is visible. **true** if visible, **false** otherwise.
      *
-     * @type { boolean }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @stagemodelonly
@@ -146,9 +136,8 @@ declare namespace dialogSession {
     visible: boolean;
 
     /**
-     * Index of an application clone. It takes effect only for cloned applications.
+     * Index of the application clone.
      *
-     * @type { int }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @stagemodelonly
@@ -158,21 +147,19 @@ declare namespace dialogSession {
     appIndex: int;
 
     /**
-      * The mode of the multi-application.
-      *
-      * @type { MultiAppMode }
-      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-      * @systemapi
-      * @stagemodelonly
-      * @since 12 dynamic
-      * @since 23 static
-      */
+     * Multi-app mode.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 12 dynamic
+     * @since 23 static
+     */
     multiAppMode: MultiAppMode;
 
     /**
-     * Indicates the application source code path.
+     * Installation directory of the application.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @stagemodelonly
@@ -181,9 +168,15 @@ declare namespace dialogSession {
     codePath?: string;
 
     /**
-     * Indicates sources to install the app.
+     * Installation source of the application. The options are as follows:
      *
-     * @type { ?string }
+     * - **pre-installed**: pre-installed application installed during the first boot.
+     * - **ota**: pre-installed application added during system upgrade.
+     * - **recovery**: pre-installed application manually restored by the user after uninstallation.
+     * - **bundleName**: installation by the application corresponding to this bundle name. **bundleName** represents a
+     * variable, subject to the actual value.
+     * - **unknown**: unknown application installation source.
+     *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @stagemodelonly
@@ -193,9 +186,9 @@ declare namespace dialogSession {
   }
 
   /**
-   * Dialog session info
+   * Provides session information, including the requester information, target ability information list, and other
+   * parameters.
    *
-   * @typedef DialogSessionInfo
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
@@ -205,9 +198,8 @@ declare namespace dialogSession {
   export interface DialogSessionInfo {
 
     /**
-     * The dialog info of caller ability
+     * Ability information of the requester.
      *
-     * @type { DialogAbilityInfo }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @stagemodelonly
@@ -217,9 +209,8 @@ declare namespace dialogSession {
     callerAbilityInfo: DialogAbilityInfo;
 
     /**
-     * The dialog infos of target ability to select
+     * List of target ability information.
      *
-     * @type { Array<DialogAbilityInfo> }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @stagemodelonly
@@ -229,9 +220,8 @@ declare namespace dialogSession {
     targetAbilityInfos: Array<DialogAbilityInfo>;
 
     /**
-     * The description of the params object in dialog session info
+     * Other parameters.
      *
-     * @type { ?Record<string, Object> }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @stagemodelonly
@@ -240,9 +230,8 @@ declare namespace dialogSession {
     parameters?: Record<string, Object>;
 
     /**
-     * The description of the params object in dialog session info
+     * Other parameters.
      *
-     * @type { ?Record<string, RecordData> }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @stagemodelonly
@@ -252,13 +241,13 @@ declare namespace dialogSession {
   }
 
   /**
-   * Query the session info of dialog.
+   * Obtains the session information based on the session ID.
    *
-   * @param { string } dialogSessionId - Query information by dialog session id.
-   * @returns { DialogSessionInfo } Returns the session info.
+   * @param { string } dialogSessionId - Session ID.
+   * @returns { DialogSessionInfo } Session information.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000050 - Internal error.
@@ -287,15 +276,15 @@ declare namespace dialogSession {
   function getDialogSessionInfo(dialogSessionId: string): DialogSessionInfo | null;
 
   /**
-   * Send the selection result of dialog.
+   * Sends a request for a dialog box. This API uses a promise to return the result.
    *
-   * @param { string } dialogSessionId - Send Result by dialog session id.
-   * @param { Want } targetWant - The selection target ability to start.
-   * @param { boolean } isAllowed - allowed or disallowed to start target ability.
-   * @returns { Promise<void> } The promise returned by the sendDialogResult.
+   * @param { string } dialogSessionId - Session ID.
+   * @param { Want } targetWant - Target of the request.
+   * @param { boolean } isAllowed - Whether the target ability can be started. **true** if allowed, **false** otherwise.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000050 - Internal error.
@@ -308,15 +297,16 @@ declare namespace dialogSession {
   function sendDialogResult(dialogSessionId: string, targetWant: Want, isAllowed: boolean): Promise<void>;
 
   /**
-   * Send the selection result of dialog.
+   * Sends a request for a dialog box. This API uses an asynchronous callback to return the result.
    *
-   * @param { string } dialogSessionId - Send Result by dialog session id.
-   * @param { Want } targetWant - The selection target ability to start.
-   * @param { boolean } isAllowed - allowed or disallowed to start target ability.
-   * @param { AsyncCallback<void> } callback - The callback of sendDialogResult.
+   * @param { string } dialogSessionId - Session ID.
+   * @param { Want } targetWant - Target of the request.
+   * @param { boolean } isAllowed - Whether the target ability can be started. **true** if allowed, **false** otherwise.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful, **err** is
+   *     **undefined**. Otherwise, **err** is an error object.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000050 - Internal error.

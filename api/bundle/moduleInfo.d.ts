@@ -19,19 +19,22 @@
  */
 
 /**
- * Stores module information about an application.
+ * The ModuleInfo module provides module information of an application.
  *
- * @typedef ModuleInfo
+ * > **NOTE**
+ * >
+ * > The APIs of this module have been deprecated since API version 9. You are advised to use
+ * > [bundleManager-HapModuleInfo]{@link hapModuleInfo:HapModuleInfo} instead.
+ *
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @since 7 dynamiconly
  * @deprecated since 9
- * @useinstead ohos.bundle.bundleManager/bundleManager.HapModuleInfo
+ * @useinstead hapModuleInfo:HapModuleInfo
  */
 export interface ModuleInfo {
   /**
    * The module name.
    *
-   * @type { string }
    * @default Indicates the name of the .hap package to which the capability belongs
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 7 dynamiconly
@@ -43,7 +46,6 @@ export interface ModuleInfo {
   /**
    * The module source path.
    *
-   * @type { string }
    * @default Indicates the module source dir of this module
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 7 dynamiconly

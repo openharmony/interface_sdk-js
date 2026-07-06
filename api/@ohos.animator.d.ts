@@ -19,300 +19,164 @@
  */
 
 /**
- * Defines the animator options.
- * @interface AnimatorOptions
+ * Animator options.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 6
- */
-/**
- * Defines the animator options.
- * @interface AnimatorOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 10
- */
-/**
- * Defines the animator options.
- * @interface AnimatorOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 6 dynamic
  */
 export interface AnimatorOptions {
   /**
-   * Duration of the animation, in milliseconds.
-   * The default value is 0.
-   * @type {number}
+   * Duration for playing the animation, in milliseconds.
+   * 
+   * Value range: [0, +∞).
+   * 
+   * Default value: **0**
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 6
-   */
-  /**
-   * Duration of the animation, in milliseconds.
-   * The default value is 0.
-   * @type {number}
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Duration of the animation, in milliseconds.
-   * The default value is 0.
-   * @type {number}
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 6 dynamic
    */
   duration: number;
 
   /**
-   * Time curve of the animation. For details about the supported types.
-   * linear The animation speed keeps unchanged.
-   * ease The animation starts and ends at a low speed, cubic-bezier(0.25, 0.1, 0.25, 1.0).
-   * ease-in The animation starts at a low speed, cubic-bezier(0.42, 0.0, 1.0, 1.0).
-   * ease-out The animation ends at a low speed, cubic-bezier(0.0, 0.0, 0.58, 1.0).
-   * ease-in-out The animation starts and ends at a low speed, cubic-bezier(0.42, 0.0, 0.58, 1.0).
-   * fast-out-slow-in Standard curve, cubic-bezier(0.4, 0.0, 0.2, 1.0).
-   * linear-out-slow-in Deceleration curve, cubic-bezier(0.0, 0.0, 0.2, 1.0).
-   * fast-out-linear-in Acceleration curve, cubic-bezier(0.4, 0.0, 1.0, 1.0).
-   * friction Damping curve, cubic-bezier(0.2, 0.0, 0.2, 1.0).
-   * extreme-deceleration Extreme deceleration curve, cubic-bezier(0.0, 0.0, 0.0, 1.0).
-   * sharp Sharp curve, cubic-bezier(0.33, 0.0, 0.67, 1.0).
-   * rhythm Rhythm curve, cubic-bezier(0.7, 0.0, 0.2, 1.0).
-   * smooth Smooth curve, cubic-bezier(0.4, 0.0, 0.4, 1.0).
-   * cubic-bezier(x1, y1, x2, y2) You can customize an animation speed curve in the cubic-bezier() function. The x and y values of each input parameter must be between 0 and 1.
-   * Step curve. The number must be set and only an integer is supported, step-position is optional. It can be set to start or end. The default value is end.
-   * The default value is ease.
-   * @type {string}
+   * Animation interpolation curve.
+   * 
+   * If the provided string is invalid, **"ease"** is used.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 6
-   */
-  /**
-   * Time curve of the animation. For details about the supported types.
-   * linear The animation speed keeps unchanged.
-   * ease The animation starts and ends at a low speed, cubic-bezier(0.25, 0.1, 0.25, 1.0).
-   * ease-in The animation starts at a low speed, cubic-bezier(0.42, 0.0, 1.0, 1.0).
-   * ease-out The animation ends at a low speed, cubic-bezier(0.0, 0.0, 0.58, 1.0).
-   * ease-in-out The animation starts and ends at a low speed, cubic-bezier(0.42, 0.0, 0.58, 1.0).
-   * fast-out-slow-in Standard curve, cubic-bezier(0.4, 0.0, 0.2, 1.0).
-   * linear-out-slow-in Deceleration curve, cubic-bezier(0.0, 0.0, 0.2, 1.0).
-   * fast-out-linear-in Acceleration curve, cubic-bezier(0.4, 0.0, 1.0, 1.0).
-   * friction Damping curve, cubic-bezier(0.2, 0.0, 0.2, 1.0).
-   * extreme-deceleration Extreme deceleration curve, cubic-bezier(0.0, 0.0, 0.0, 1.0).
-   * sharp Sharp curve, cubic-bezier(0.33, 0.0, 0.67, 1.0).
-   * rhythm Rhythm curve, cubic-bezier(0.7, 0.0, 0.2, 1.0).
-   * smooth Smooth curve, cubic-bezier(0.4, 0.0, 0.4, 1.0).
-   * cubic-bezier(x1, y1, x2, y2) You can customize an animation speed curve in the cubic-bezier() function. The x and y values of each input parameter must be between 0 and 1.
-   * Step curve. The number must be set and only an integer is supported, step-position is optional. It can be set to start or end. The default value is end.
-   * The default value is ease.
-   * @type {string}
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Time curve of the animation. For details about the supported types.
-   * linear The animation speed keeps unchanged.
-   * ease The animation starts and ends at a low speed, cubic-bezier(0.25, 0.1, 0.25, 1.0).
-   * ease-in The animation starts at a low speed, cubic-bezier(0.42, 0.0, 1.0, 1.0).
-   * ease-out The animation ends at a low speed, cubic-bezier(0.0, 0.0, 0.58, 1.0).
-   * ease-in-out The animation starts and ends at a low speed, cubic-bezier(0.42, 0.0, 0.58, 1.0).
-   * fast-out-slow-in Standard curve, cubic-bezier(0.4, 0.0, 0.2, 1.0).
-   * linear-out-slow-in Deceleration curve, cubic-bezier(0.0, 0.0, 0.2, 1.0).
-   * fast-out-linear-in Acceleration curve, cubic-bezier(0.4, 0.0, 1.0, 1.0).
-   * friction Damping curve, cubic-bezier(0.2, 0.0, 0.2, 1.0).
-   * extreme-deceleration Extreme deceleration curve, cubic-bezier(0.0, 0.0, 0.0, 1.0).
-   * sharp Sharp curve, cubic-bezier(0.33, 0.0, 0.67, 1.0).
-   * rhythm Rhythm curve, cubic-bezier(0.7, 0.0, 0.2, 1.0).
-   * smooth Smooth curve, cubic-bezier(0.4, 0.0, 0.4, 1.0).
-   * cubic-bezier(x1, y1, x2, y2) You can customize an animation speed curve in the cubic-bezier() function. The x and y values of each input parameter must be between 0 and 1.
-   * Step curve. The number must be set and only an integer is supported, step-position is optional. It can be set to start or end. The default value is end.
-   * interpolating-spring(velocity, mass, stiffness, damping), interpolating spring curve.
-   * The default value is ease.
-   * @type {string}
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 6 dynamic
    */
   easing: string;
 
   /**
-   * Delay for the animation start. The default value indicates no delay.
-   * The default value is 0.
-   * @type {number}
+   * Animation delay duration, in milliseconds. Value **0** means that there is no delay. If the value specified is a 
+   * negative number, the animation starts playing ahead of its scheduled time. If the amount of time by which the 
+   * playback is advanced exceeds the total duration of the animation, the animation immediately skips to its end state.
+   * 
+   * Default value: **0**
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 6
-   */
-  /**
-   * Delay for the animation start. The default value indicates no delay.
-   * The default value is 0.
-   * @type {number}
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Delay for the animation start. The default value indicates no delay.
-   * The default value is 0.
-   * @type {number}
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 6 dynamic
    */
   delay: number;
 
   /**
-   * Whether to resume to the initial state after the animation is executed.
-   * none: The initial state is restored after the animation is executed.
-   * forwards: The state at the end of the animation (defined in the last key frame) is retained after the animation is executed.
-   * @type {"none" | "forwards" | "backwards" | "both"}
+   * State of the animated target after the animation is executed.
+   * 
+   * **'none'**: No style is applied to the target before or after the animation is executed.
+   * 
+   * **'forwards'**: The target keeps the state at the end of the animation (defined in the last key frame) after the 
+   * animation is executed.
+   * 
+   * **'backwards'**: During the delay period specified in [AnimatorOptions]{@link AnimatorOptions}, the animation uses 
+   * the value defined in the first keyframe. When **direction** in [AnimatorOptions]{@link AnimatorOptions} is 
+   * **'normal'** or **'alternate'**, the animation uses the **from** keyframe value. When **direction** in 
+   * [AnimatorOptions]{@link AnimatorOptions} is **'reverse'** or **'alternate-reverse'**, the animation uses the **to**
+   * keyframe value.
+   * 
+   * **'both'**: The animation follows the **'forwards'** and **'backwards'** rules.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 6
-   */
-  /**
-   * Whether to resume to the initial state after the animation is executed.
-   * none: The initial state is restored after the animation is executed.
-   * forwards: The state at the end of the animation (defined in the last key frame) is retained after the animation is executed.
-   * @type {"none" | "forwards" | "backwards" | "both"}
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Whether to resume to the initial state after the animation is executed.
-   * none: The initial state is restored after the animation is executed.
-   * forwards: The state at the end of the animation (defined in the last key frame) is retained after the animation is executed.
-   * @type {"none" | "forwards" | "backwards" | "both"}
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 6 dynamic
    */
   fill: "none" | "forwards" | "backwards" | "both";
 
   /**
-   * The animation playback mode.
-   * The default value is "normal".
-   * @type {"normal" | "reverse" | "alternate" | "alternate-reverse"}
+   * Animation playback mode.
+   * 
+   * **'normal'**: plays the animation in forward loop mode.
+   * 
+   * **'reverse'**: plays the animation in reverse loop mode.
+   * 
+   * **'alternate'**: plays the animation in alternating loop mode. When the animation is played for an odd number of 
+   * times, the playback is in forward direction. When the animation is played for an even number of times, the playback
+   * is in reverse direction.
+   * 
+   * **'alternate-reverse'**: plays the animation in reverse alternating loop mode. When the animation is played for an 
+   * odd number of times, the playback is in reverse direction. When the animation is played for an even number of 
+   * times, the playback is in forward direction.
+   * 
+   * Default value: **'normal'**
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 6
-   */
-  /**
-   * The animation playback mode.
-   * The default value is "normal".
-   * @type {"normal" | "reverse" | "alternate" | "alternate-reverse"}
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * The animation playback mode.
-   * The default value is "normal".
-   * @type {"normal" | "reverse" | "alternate" | "alternate-reverse"}
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 6 dynamic
    */
   direction: "normal" | "reverse" | "alternate" | "alternate-reverse";
 
   /**
-   * Number of times the animation will be played. number indicates a fixed number of playback operations, and -1 an unlimited number of playback operations.
-   * The default value is 1.
-   * @type {number}
+   * Number of times that the animation is played. The value **0** means the animation is not played, **-1** means the 
+   * animation is played for an unlimited number of times, and a positive integer means the animation is played that 
+   * specific number of times.
+   * 
+   * Note: Any negative value other than **-1** is treated as invalid. For invalid values, the animation is played once.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 6
-   */
-  /**
-   * Number of times the animation will be played. number indicates a fixed number of playback operations, and -1 an unlimited number of playback operations.
-   * The default value is 1.
-   * @type {number}
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Number of times the animation will be played. number indicates a fixed number of playback operations, and -1 an unlimited number of playback operations.
-   * The default value is 1.
-   * @type {number}
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 6 dynamic
    */
   iterations: number;
 
   /**
-   * Starting point of animator interpolation.
-   * The default value is 0.
-   * @type {number}
+   * Start point of the animation interpolation.
+   * 
+   * Note: This setting affects the input parameter value of the 
+   * [onFrame](docroot://reference/apis-arkui/js-apis-animator.md#properties) callback.
+   * 
+   * Default value: **0**
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 6
-   */
-  /**
-   * Starting point of animator interpolation.
-   * The default value is 0.
-   * @type {number}
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Starting point of animator interpolation.
-   * The default value is 0.
-   * @type {number}
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 6 dynamic
    */
   begin: number;
 
   /**
-   * Ending point of Dynamic Interpolation
-   * The default value is 1.
-   * @type {number}
+   * End point of animation interpolation.
+   * 
+   * Note: This setting affects the input parameter value of the 
+   * [onFrame](docroot://reference/apis-arkui/js-apis-animator.md#properties) callback.
+   * 
+   * Default value: **1**
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 6
-   */
-  /**
-   * Ending point of Dynamic Interpolation
-   * The default value is 1.
-   * @type {number}
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Ending point of Dynamic Interpolation
-   * The default value is 1.
-   * @type {number}
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 6 dynamic
    */
   end: number;
 }
 
 /**
- * Defines the SimpleAnimatorOptions class.
+ * Defines a simple animation parameter object. Unlike **AnimatorOptions**, this object comes with some default values 
+ * for certain animation parameters, so you do not have to set them manually.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 18 dynamic
  */
 export declare class SimpleAnimatorOptions {
   /**
-   * constructor.
+   * A constructor used to create a **SimpleAnimatorOptions** instance.
    *
-   * @param { number } begin - Starting point of animator interpolation.
-   * @param { number } end - Ending point of animator interpolation.
+   * @param { number } begin - Start point of the animation interpolation.
+   * @param { number } end - End point of animation interpolation.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -320,11 +184,12 @@ export declare class SimpleAnimatorOptions {
   constructor(begin: number, end: number);
 
   /**
-   * Set duration of the animation, in milliseconds.
+   * Sets the animation duration.
    *
-   * @param { number } duration - if not set, default is 1000.
-   * @returns { SimpleAnimatorOptions }
+   * @param { number } duration - Animation duration, in milliseconds.<br>Default value: **1000**
+   * @returns { SimpleAnimatorOptions } **SimpleAnimatorOptions** object for animation parameters.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -332,25 +197,13 @@ export declare class SimpleAnimatorOptions {
   duration(duration: number): SimpleAnimatorOptions;
 
   /**
-   * Set time curve of the animation. For details about the supported types.
-   * linear The animation speed keeps unchanged.
-   * ease The animation starts and ends at a low speed, cubic-bezier(0.25, 0.1, 0.25, 1.0).
-   * ease-in The animation starts at a low speed, cubic-bezier(0.42, 0.0, 1.0, 1.0).
-   * ease-out The animation ends at a low speed, cubic-bezier(0.0, 0.0, 0.58, 1.0).
-   * ease-in-out The animation starts and ends at a low speed, cubic-bezier(0.42, 0.0, 0.58, 1.0).
-   * fast-out-slow-in Standard curve, cubic-bezier(0.4, 0.0, 0.2, 1.0).
-   * linear-out-slow-in Deceleration curve, cubic-bezier(0.0, 0.0, 0.2, 1.0).
-   * fast-out-linear-in Acceleration curve, cubic-bezier(0.4, 0.0, 1.0, 1.0).
-   * friction Damping curve, cubic-bezier(0.2, 0.0, 0.2, 1.0).
-   * extreme-deceleration Extreme deceleration curve, cubic-bezier(0.0, 0.0, 0.0, 1.0).
-   * sharp Sharp curve, cubic-bezier(0.33, 0.0, 0.67, 1.0).
-   * rhythm Rhythm curve, cubic-bezier(0.7, 0.0, 0.2, 1.0).
-   * smooth Smooth curve, cubic-bezier(0.4, 0.0, 0.4, 1.0).
-   * cubic-bezier(x1, y1, x2, y2) You can customize an animation speed curve in the cubic-bezier() function. The x and y values of each input parameter must be between 0 and 1.
-   * Step curve. The number must be set and only an integer is supported, step-position is optional. It can be set to start or end. The default value is end.
-   * @param { string } curve - if not set, default is ease.
-   * @returns { SimpleAnimatorOptions }
+   * Sets the interpolation curve for this animation.
+   *
+   * @param { string } curve - Interpolation curve. For details, see [AnimatorOptions]{@link AnimatorOptions}.<br>
+   *     Default value: **"ease"**
+   * @returns { SimpleAnimatorOptions } **SimpleAnimatorOptions** object for animation parameters.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -358,11 +211,15 @@ export declare class SimpleAnimatorOptions {
   easing(curve: string): SimpleAnimatorOptions;
 
   /**
-   * Set delay for the animation start. The default value indicates no delay.
+   * Sets the playback delay for this animation.
    *
-   * @param { number } delay - if not set, default is 0.
-   * @returns { SimpleAnimatorOptions }
+   * @param { number } delay - Playback delay, in milliseconds. The value **0** indicates no delay. If the value
+   *     specified is a negative number, the animation starts playing ahead of its scheduled time. If the amount of time
+   *     by which the playback is advanced exceeds the total duration of the animation, the animation immediately skips
+   *     to its end state.<br>Default value: **0**
+   * @returns { SimpleAnimatorOptions } **SimpleAnimatorOptions** object for animation parameters.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -370,11 +227,13 @@ export declare class SimpleAnimatorOptions {
   delay(delay: number): SimpleAnimatorOptions;
 
   /**
-   * Set FillMode of animation. FillMode indicates whether to resume to the initial state after the animation is executed.
+   * Sets the fill mode for this animation.
    *
-   * @param { FillMode } fillMode - if not set, default is FillMode.Forwards.
-   * @returns { SimpleAnimatorOptions }
+   * @param { FillMode } fillMode - Fill mode, which affects how the animation behaves during the delay period and after
+   *     it ends.<br>Default value: **FillMode.Forwards**
+   * @returns { SimpleAnimatorOptions } **SimpleAnimatorOptions** object for animation parameters.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -382,11 +241,12 @@ export declare class SimpleAnimatorOptions {
   fill(fillMode: FillMode): SimpleAnimatorOptions;
 
   /**
-   * Set the animation playback mode.
+   * Sets the playback direction for this animator animation.
    *
-   * @param { PlayMode } direction - if not set, default is PlayMode.Normal.
-   * @returns { SimpleAnimatorOptions }
+   * @param { PlayMode } direction - Playback direction.<br>Default value: **PlayMode.Normal**
+   * @returns { SimpleAnimatorOptions } **SimpleAnimatorOptions** object for animation parameters.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -394,11 +254,13 @@ export declare class SimpleAnimatorOptions {
   direction(direction: PlayMode): SimpleAnimatorOptions;
 
   /**
-   * Set number of times the animation will be played. number indicates a fixed number of playback operations, and -1 an unlimited number of playback operations.
+   * Sets the number of times that this animation is played.
    *
-   * @param { number } iterations - if not set, default is 1.
-   * @returns { SimpleAnimatorOptions }
+   * @param { number } iterations - Number of times that the animation is played. The value **0** means the animation is
+   *     not played, and **-1** means the animation is played for an unlimited number of times.<br>Default value: **1**
+   * @returns { SimpleAnimatorOptions } **SimpleAnimatorOptions** object for animation parameters.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -407,30 +269,18 @@ export declare class SimpleAnimatorOptions {
 }
 
 /**
- * Defines the Animator result interface.
- * @interface AnimatorResult
+ * Defines the animator result.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 6
- */
-/**
- * Defines the Animator result interface.
- * @interface AnimatorResult
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 10
- */
-/**
- * Defines the Animator result interface.
- * @interface AnimatorResult
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 6 dynamic
  */
 export interface AnimatorResult {
   /**
-   * Update the options for current animator.
-   * @param { AnimatorOptions } options - Options.
+   * Updates this animator.
+   *
+   * @param { AnimatorOptions } options - Animator options.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6 dynamiconly
    * @deprecated since 9
@@ -439,52 +289,34 @@ export interface AnimatorResult {
   update(options: AnimatorOptions): void;
 
   /**
-   * Reset the options for current animator.
-   * @param { AnimatorOptions } options - Options.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
+   * Resets the animation parameters of this animator.
+   *
+   * @param { AnimatorOptions } options - Animator options.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     <br> 1. Mandatory parameters are left unspecified.
+   *     <br> 2. Incorrect parameters types.
+   *     <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - The specified page is not found or the object property list is not obtained.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
-   */
-  /**
-   * Reset the options for current animator.
-   * @param { AnimatorOptions } options - Options.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - The specified page is not found or the object property list is not obtained.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Reset the options for current animator.
-   * @param { AnimatorOptions } options - Options.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - The specified page is not found or the object property list is not obtained.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   reset(options: AnimatorOptions): void;
 
   /**
-   * Reset the options for current animator.
-   * @param { AnimatorOptions | SimpleAnimatorOptions } options - Options.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
+   * Resets the animation parameters of this animator. Compared with 
+   * [reset]{@link AnimatorResult.reset(options: AnimatorOptions)}, this API accepts parameters of the 
+   * [SimpleAnimatorOptions]{@link SimpleAnimatorOptions} type.
+   *
+   * @param { AnimatorOptions | SimpleAnimatorOptions } options - Animator options.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     <br> 1. Mandatory parameters are left unspecified.
+   *     <br> 2. Incorrect parameters types.
+   *     <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - The specified page is not found or the object property list is not obtained.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -492,133 +324,82 @@ export interface AnimatorResult {
   reset(options: AnimatorOptions | SimpleAnimatorOptions): void;
 
   /**
-   * Starts the animation.
+   * Plays this animation. The animation retains the previous playback state. For example, if the animation is set to 
+   * **reverse** and paused, it will remain in **reverse** when resumed.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 6
-   */
-  /**
-   * Starts the animation.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Starts the animation.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 6 dynamic
    */
   play(): void;
 
   /**
-   * Ends the animation.
+   * Ends the animation, triggering the [onFinish](docroot://reference/apis-arkui/js-apis-animator.md#properties) 
+   * callback.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 6
-   */
-  /**
-   * Ends the animation.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Ends the animation.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 6 dynamic
    */
   finish(): void;
 
   /**
-   * Pauses the animation.
+   * Pauses this animation.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 6
-   */
-  /**
-   * Pauses the animation.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Pauses the animation.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 6 dynamic
    */
   pause(): void;
 
   /**
-   * Cancels the animation.
+   * Cancels the animation, triggering the [onCancel](docroot://reference/apis-arkui/js-apis-animator.md#properties) 
+   * callback. This API is functionally identical to [finish]{@link AnimatorResult.finish} except for the callback it 
+   * triggers. It is recommended that you use the **finish** API to end animations.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 6
-   */
-  /**
-   * Cancels the animation.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Cancels the animation.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 6 dynamic
    */
   cancel(): void;
 
   /**
-   * Plays the animation in reverse direction.
+   * Plays this animation in reverse order. This API does not take effect when the interpolating spring curve is used.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 6
-   */
-  /**
-   * Plays the animation in reverse direction.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Plays the animation in reverse direction.
-   * Invalid when using interpolating-spring curve.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 6 dynamic
    */
   reverse(): void;
 
   /**
-   * Trigger when vsync callback.
+   * Called when a frame is received.
+   * 
+   * Note: This API is supported since API version 6 and deprecated since API version 12. You are advised to use 
+   * **onFrame** instead.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 6
-   */
-  /**
-   * Trigger when vsync callback.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Trigger when vsync callback.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamiconly
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 6 dynamiconly
    * @deprecated since 12
    * @useinstead ohos.animator.onFrame
    */
   onframe: (progress: number) => void;
 
   /**
-   * Trigger when vSync callback.
+   * Called when a frame is received.
+   * 
+   * **progress**: current value of the animation. Value range: [begin, end] defined in 
+   * [AnimatorOptions]{@link AnimatorOptions}. Default value range: [0, 1]
    *
-   * @type { function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -626,32 +407,25 @@ export interface AnimatorResult {
   onFrame: (progress: number) => void;
 
   /**
-   * The animation is finished.
+   * Called when this animation is finished.
+   * 
+   * Note: This API is supported since API version 6 and deprecated since API version 12. You are advised to use 
+   * **onFinish** instead.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 6
-   */
-  /**
-   * The animation is finished.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * The animation is finished.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamiconly
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 6 dynamiconly
    * @deprecated since 12
    * @useinstead ohos.animator.onFinish
    */
   onfinish: () => void;
 
   /**
-   * The animation is finished.
+   * Called when this animation is finished.
    *
-   * @type { function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -659,32 +433,25 @@ export interface AnimatorResult {
   onFinish: () => void;
 
   /**
-   * The animation is canceled.
+   * Called when this animation is canceled.
+   * 
+   * Note: This API is supported since API version 6 and deprecated since API version 12. You are advised to use 
+   * **onCancel** instead.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 6
-   */
-  /**
-   * The animation is canceled.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * The animation is canceled.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamiconly
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 6 dynamiconly
    * @deprecated since 12
    * @useinstead ohos.animator.onCancel
    */
   oncancel: () => void;
 
   /**
-   * The animation is canceled.
+   * Called when this animation is canceled.
    *
-   * @type { function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -692,32 +459,25 @@ export interface AnimatorResult {
   onCancel: () => void;
 
   /**
-   * The animation is repeated.
+   * Called when this animation repeats.
+   * 
+   * Note: This API is supported since API version 6 and deprecated since API version 12. You are advised to use 
+   * **onRepeat** instead.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 6
-   */
-  /**
-   * The animation is repeated.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * The animation is repeated.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamiconly
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 6 dynamiconly
    * @deprecated since 12
    * @useinstead ohos.animator.onRepeat
    */
   onrepeat: () => void;
 
   /**
-   * The animation is repeated.
+   * Called when this animation repeats.
    *
-   * @type { function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -725,9 +485,11 @@ export interface AnimatorResult {
   onRepeat: () => void;
 
   /**
-   * The expected frame rate of dynamical of rate range.
-   * @param { ExpectedFrameRateRange } rateRange - Indicates ExpectedFrameRateRange.
+   * Sets the expected frame rate range.
+   *
+   * @param { ExpectedFrameRateRange } rateRange - Expected frame rate range.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 12 dynamic
    */
@@ -735,29 +497,19 @@ export interface AnimatorResult {
 }
 
 /**
- * Defines the Animator class.
+ * Creates an **Animator** object.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 6
- */
-/**
- * Defines the Animator class.
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 10
- */
-/**
- * Defines the Animator class.
- * 
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 6 dynamic
  */
 export default class Animator {
   /**
-   * Create an animator object for custom animation.
-   * @param { AnimatorOptions } options - Options.
-   * @returns { AnimatorResult } animator result
+   * Creates an animation.
+   *
+   * @param { AnimatorOptions } options - Animator options.
+   * @returns { AnimatorResult } Animator result.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6 dynamiconly
    * @deprecated since 9
@@ -766,57 +518,42 @@ export default class Animator {
   static createAnimator(options: AnimatorOptions): AnimatorResult;
 
   /**
-   * Create an animator object for custom animation.
-   * @param { AnimatorOptions } options - Options.
-   * @returns { AnimatorResult } animator result
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
+   * Creates an **AnimatorResult** object for animations.
+   * 
+   * > **NOTE**
+   * >
+   * > - Since API version 10, you can use the 
+   * > [createAnimator](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#createanimator) API in 
+   * > [UIContext]{@link @ohos.arkui.UIContext}, which ensures that the object is created in the intended UI instance.
+   *
+   * @param { AnimatorOptions } options - Animator options.
+   * @returns { AnimatorResult } Animator result.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     <br> 1. Mandatory parameters are left unspecified.
+   *     <br> 2. Incorrect parameters types.
+   *     <br> 3. Parameter verification failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
-   */
-  /**
-   * Create an animator object for custom animation.
-   * @param { AnimatorOptions } options - Options.
-   * @returns { AnimatorResult } animator result
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Create an animator object for custom animation.
-   * @param { AnimatorOptions } options - Options.
-   * @returns { AnimatorResult } animator result
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamiconly
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamiconly
    * @deprecated since 18
    * @useinstead ohos.arkui.UIContext.UIContext#createAnimator
    */
   static create(options: AnimatorOptions): AnimatorResult;
 
   /**
-   * Create an animator object for custom animation.
-   * This interface depends on the UI context and cannot be used when the UI context is unclear. It is recommended to
-   * use {@link ohos.arkui.UIContext.UIContext#createAnimator}.
-   * 
-   * @param { AnimatorOptions | SimpleAnimatorOptions } options - Options.
-   * @returns { AnimatorResult } - animator result
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * Creates an **AnimatorResult** object for animations. Compared with
+   * [create]{@link Animator.create(options: AnimatorOptions)}, this API accepts parameters of the 
+   * [SimpleAnimatorOptions]{@link SimpleAnimatorOptions} type.
+   *
+   * @param { AnimatorOptions | SimpleAnimatorOptions } options - Parameters of the animation.
+   * @returns { AnimatorResult } Animator result.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
    *     <br> 2. Incorrect parameters types.
    *     <br> 3. Parameter verification failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic

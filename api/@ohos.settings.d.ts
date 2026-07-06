@@ -1334,6 +1334,7 @@ declare namespace settings {
    * @syscap SystemCapability.Applications.Settings.Core
    * @since 7 dynamic
    * @since 23 static
+   * @deprecated since 26.0.0
    */
   function enableAirplaneMode(enable: boolean, callback: AsyncCallback<void>): void;
 
@@ -1346,6 +1347,7 @@ declare namespace settings {
    * @syscap SystemCapability.Applications.Settings.Core
    * @since 7 dynamic
    * @since 23 static
+   * @deprecated since 26.0.0
    */
   function enableAirplaneMode(enable: boolean): Promise<void>;
 
@@ -1356,6 +1358,7 @@ declare namespace settings {
    * @syscap SystemCapability.Applications.Settings.Core
    * @since 7 dynamic
    * @since 23 static
+   * @deprecated since 26.0.0
    */
   function canShowFloating(callback: AsyncCallback<boolean>): void;
 
@@ -1367,6 +1370,7 @@ declare namespace settings {
    * @syscap SystemCapability.Applications.Settings.Core
    * @since 7 dynamic
    * @since 23 static
+   * @deprecated since 26.0.0
    */
   function canShowFloating(): Promise<boolean>;
 
@@ -1378,6 +1382,7 @@ declare namespace settings {
    * @syscap SystemCapability.Applications.Settings.Core
    * @since 8 dynamic
    * @since 23 static
+   * @deprecated since 26.0.0
    */
   function getUriSync(name: string): string;
 
@@ -1510,7 +1515,7 @@ declare namespace settings {
   /**
    * Open the network manager settings page.
    *
-   * @param { Context } context - Application context. Only UIAbilityContext and ExtensionContext are supported.
+   * @param { Context } context - Application context. Only UIAbilityContext and UIExtensionContext are supported.
    * @returns { Promise<boolean> } The promise returned by the function.
    * @throws { BusinessError } 14800000 - Parameter error.
    * @throws { BusinessError } 14800010 - Original service error.
@@ -1523,7 +1528,7 @@ declare namespace settings {
   /**
    * Open the input method settings page.
    *
-   * @param { Context } context - Application context. Only UIAbilityContext and ExtensionContext are supported.
+   * @param { Context } context - Application context. Only UIAbilityContext and UIExtensionContext are supported.
    * @throws { BusinessError } 16900010 - Parameter error.
    * @syscap SystemCapability.Applications.Settings.Core
    * @StageModelOnly
@@ -1534,7 +1539,7 @@ declare namespace settings {
   /**
    * Open the input method detail page.
    *
-   * @param { Context } context - Application context. Only UIAbilityContext and ExtensionContext are supported.
+   * @param { Context } context - Application context. Only UIAbilityContext and UIExtensionContext are supported.
    * @param { string } bundleName - bundle name of the input method.
    * @param { string } inputMethodId - id of the input method.
    * @throws { BusinessError } 16900010 - Parameter error.
@@ -1547,7 +1552,7 @@ declare namespace settings {
   /**
    * Open the mobile network settings page.
    *
-   * @param { Context } context - Application context. Only UIAbilityContext and ExtensionContext are supported.
+   * @param { Context } context - Application context. Only UIAbilityContext and UIExtensionContext are supported.
    * @throws { BusinessError } 16900010 - Parameter error.
    * @throws { BusinessError } 16900020 - Failed to open the settings page via redirection.
    * @syscap SystemCapability.Applications.Settings.Core
@@ -1559,7 +1564,7 @@ declare namespace settings {
   /**
    * Open the display settings page.
    *
-   * @param { Context } context - Application context. Only UIAbilityContext and ExtensionContext are supported.
+   * @param { Context } context - Application context. Only UIAbilityContext and UIExtensionContext are supported.
    * @throws { BusinessError } 16900010 - Parameter error.
    * @throws { BusinessError } 16900020 - Failed to open the settings page via redirection.
    * @syscap SystemCapability.Applications.Settings.Core
@@ -1571,7 +1576,7 @@ declare namespace settings {
   /**
    * Open the screen refresh rate settings page.
    *
-   * @param { Context } context - Application context. Only UIAbilityContext and ExtensionContext are supported.
+   * @param { Context } context - Application context. Only UIAbilityContext and UIExtensionContext are supported.
    * @throws { BusinessError } 16900010 - Parameter error.
    * @throws { BusinessError } 16900020 - Failed to open the settings page via redirection.
    * @syscap SystemCapability.Applications.Settings.Core
@@ -1583,7 +1588,7 @@ declare namespace settings {
   /**
    * Open the sound settings page.
    *
-   * @param { Context } context - Application context. Only UIAbilityContext and ExtensionContext are supported.
+   * @param { Context } context - Application context. Only UIAbilityContext and UIExtensionContext are supported.
    * @throws { BusinessError } 16900010 - Parameter error.
    * @throws { BusinessError } 16900020 - Failed to open the settings page via redirection.
    * @syscap SystemCapability.Applications.Settings.Core
@@ -1595,7 +1600,7 @@ declare namespace settings {
   /**
    * Open the biometrics and password settings page.
    *
-   * @param { Context } context - Application context. Only UIAbilityContext and ExtensionContext are supported.
+   * @param { Context } context - Application context. Only UIAbilityContext and UIExtensionContext are supported.
    * @throws { BusinessError } 16900010 - Parameter error.
    * @throws { BusinessError } 16900020 - Failed to open the settings page via redirection.
    * @syscap SystemCapability.Applications.Settings.Core
@@ -1607,7 +1612,7 @@ declare namespace settings {
   /**
    * Open the about device settings page.
    *
-   * @param { Context } context - Application context. Only UIAbilityContext and ExtensionContext are supported.
+   * @param { Context } context - Application context. Only UIAbilityContext and UIExtensionContext are supported.
    * @throws { BusinessError } 16900010 - Parameter error.
    * @throws { BusinessError } 16900020 - Failed to open the settings page via redirection.
    * @syscap SystemCapability.Applications.Settings.Core
@@ -1619,7 +1624,7 @@ declare namespace settings {
   /**
    * Open the NFC settings page.
    *
-   * @param { Context } context - Application context. Only UIAbilityContext and ExtensionContext are supported.
+   * @param { Context } context - Application context. Only UIAbilityContext and UIExtensionContext are supported.
    * @throws { BusinessError } 16900010 - Parameter error.
    * @throws { BusinessError } 16900020 - Failed to open the settings page via redirection.
    * @syscap SystemCapability.Applications.Settings.Core
@@ -1631,7 +1636,7 @@ declare namespace settings {
   /**
    * Open the app detail settings page.
    *
-   * @param { Context } context - Application context. Only UIAbilityContext and ExtensionContext are supported.
+   * @param { Context } context - Application context. Only UIAbilityContext and UIExtensionContext are supported.
    * @param { string } bundleName - Application bundle name.
    * @param { int } [appIndex] - Application index.
    * @throws { BusinessError } 16900010 - Parameter error.
@@ -1640,7 +1645,36 @@ declare namespace settings {
    * @StageModelOnly
    * @since 26.0.0 dynamic&static
    */
-  function openAppDetailSettings(context: Context, bundleName: string, appIndex?: int): void;
+  function openAppDetailSettingsPage(context: Context, bundleName: string, appIndex?: int): void;
+
+  /**
+   * 1. Opens the settings page for double-pressing the Down key.
+   * 2. This API is used to set the default application started by double-pressing the Down key.
+   *
+   * @param { Context } context - 1. Application context.
+   *     2. Specify this parameter to set the application started by double-pressing the Down key.
+   * @throws { BusinessError } 16900010 - 1. The parameter is incorrect.
+   *     2. The parameter is not transferred or the transferred parameter is invalid.
+   * @throws { BusinessError } 16900020 - 1. The setting page cannot be opened through redirection.
+   *     2. Internal error
+   * @syscap SystemCapability.Applications.Settings.Core
+   * @stagemodelonly
+   * @since 24 dynamic&static
+   */
+  function openDoubleClickSettingsPage(context: Context): void;
+ 
+  /**
+   * 1. Checks whether the application started by double-pressing the Down key is the application itself.
+   * 2. This API is triggered to check whether double-pressing the Down key starts the application itself.
+   *
+   *
+   * @returns { Promise<boolean> } Check result.
+   *     {@code true} is returned if the specified application is started. Otherwise, {@code false} is returned.
+   * @syscap SystemCapability.Applications.Settings.Core
+   * @stagemodelonly
+   * @since 24 dynamic&static
+   */
+  function isDoubleClickAppForSelf(): Promise<boolean>;
 }
 
 export default settings;

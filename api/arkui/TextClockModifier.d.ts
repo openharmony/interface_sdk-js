@@ -18,35 +18,24 @@
  * @kit ArkUI
  */
 
-
-
-
 /**
  * Defines TextClock Modifier
  *
- * @extends TextClockAttribute
- * @implements AttributeModifier<TextClockAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform [since 20]
  * @atomicservice
- * @since 12
-*/
-/**
- * Defines TextClock Modifier
- *
- * @extends TextClockAttribute
- * @implements AttributeModifier<TextClockAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20 dynamic
+ * @since 12 dynamic
+ * @noninterop
  */
 export declare class TextClockModifier extends TextClockAttribute implements AttributeModifier<TextClockAttribute> {
 
   /**
    * Defines the normal update attribute function.
-   * 
+   *
    * @param { TextClockAttribute } instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic

@@ -1,17 +1,17 @@
 /*
-  * Copyright (c) 2024 Huawei Device Co., Ltd.
-  * Licensed under the Apache License, Version 2.0 (the "License");
-  * you may not use this file except in compliance with the License.
-  * You may obtain a copy of the License at
-  *
-  *     http://www.apache.org/licenses/LICENSE-2.0
-  *
-  * Unless required by applicable law or agreed to in writing, software
-  * distributed under the License is distributed on an "AS IS" BASIS,
-  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-  * See the License for the specific language governing permissions and
-  * limitations under the License.@
-  */
+ * Copyright (c) 2024 Huawei Device Co., Ltd.
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.@
+ */
 
 /**
  * @file api/@ohos.arkui.advanced.SegmentedButton.d.ts
@@ -24,20 +24,32 @@ import { SizeT } from '@ohos.arkui.node';
 import uiMaterial from './@ohos.arkui.uiMaterial';
 
 /**
- * Defines the options of the segmented button item.
+ * Defines segmented button item options.
  * 
- * @interface SegmentButtonV2ItemOptions
+ * > **Description**
+ * >
+ * > 1. If both **symbol** and **icon** are configured, **symbol** takes precedence.
+ * >
+ * > 2. If both **symbol** and **symbolModifier** are configured with HM Symbol resources, the resources specified by 
+ * > **symbolModifier** take precedence.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 18 dynamic
+ * @noninterop
  */
 export interface SegmentButtonV2ItemOptions {
     /**
-     * Sets the text of the segmented button item.
+     * Text of the segmented button item.
      * 
-     * @type { ?ResourceStr }
+     * Default value: **undefined**
+     * 
+     * Decorator type: @Trace
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
@@ -45,11 +57,14 @@ export interface SegmentButtonV2ItemOptions {
     text?: ResourceStr;
 
     /**
-     * Sets the image icon of the segmented button item.
-     * This field will be useless if the symbol field is sets.
+     * Image icon of the segmented button item.
      * 
-     * @type { ?ResourceStr }
+     * Default value: **undefined**
+     * 
+     * Decorator type: @Trace
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
@@ -57,10 +72,14 @@ export interface SegmentButtonV2ItemOptions {
     icon?: ResourceStr;
 
     /**
-     * Sets the symbol icon of the segmented button item.
+     * HM Symbol icon of the segmented button item.
      * 
-     * @type { ?Resource }
+     * Default value: **undefined**
+     * 
+     * Decorator type: @Trace
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
@@ -68,10 +87,18 @@ export interface SegmentButtonV2ItemOptions {
     symbol?: Resource;
 
     /**
-     * Sets whether segmented button item is enabled?
+     * Whether the segmented button item is enabled.
      * 
-     * @type { ?boolean }
+     * Default value: **true**
+     * 
+     * **true**: enabled. **false**: disabled.
+     * 
+     * If the value is **undefined**, the default value is used.
+     * 
+     * Decorator type: @Trace
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
@@ -79,10 +106,14 @@ export interface SegmentButtonV2ItemOptions {
     enabled?: boolean;
 
     /**
-     * Sets modifier for the text of the segmented button item.
+     * Text modifier for the segmented button item.
      * 
-     * @type { ?TextModifier }
+     * Default value: **undefined**
+     * 
+     * Decorator type: @Trace
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
@@ -90,10 +121,14 @@ export interface SegmentButtonV2ItemOptions {
     textModifier?: TextModifier;
 
     /**
-     * Sets modifier for the image icon of the segmented button item.
+     * Image icon modifier for the segmented button item.
      * 
-     * @type { ?ImageModifier }
+     * Default value: **undefined**
+     * 
+     * Decorator type: @Trace
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
@@ -101,10 +136,14 @@ export interface SegmentButtonV2ItemOptions {
     iconModifier?: ImageModifier;
 
     /**
-     * Sets modifier for the symbol icon of the segmented button item.
+     * HM Symbol icon modifier for the segmented button item.
      * 
-     * @type { ?SymbolGlyphModifier }
+     * Default value: **undefined**
+     * 
+     * Decorator type: @Trace
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
@@ -112,10 +151,16 @@ export interface SegmentButtonV2ItemOptions {
     symbolModifier?: SymbolGlyphModifier;
 
     /**
-     * Sets the accessibility text of the segmented button item.
+     * [Accessibility text]{@link CommonMethod#accessibilityText(value: string)} of the segmented button item.
      * 
-     * @type { ?ResourceStr }
+     * Default value: **""**
+     * 
+     * If the value is **undefined**, the default value is used.
+     * 
+     * Decorator type: @Trace
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
@@ -123,10 +168,17 @@ export interface SegmentButtonV2ItemOptions {
     accessibilityText?: ResourceStr;
 
     /**
-     * Sets the accessibility description of the segmented button item.
+     * [Accessibility description]{@link CommonMethod#accessibilityDescription(value: string)} of the segmented button 
+     * item.
      * 
-     * @type { ?ResourceStr }
+     * Default value: **""**
+     * 
+     * If the value is **undefined**, the default value is used.
+     * 
+     * Decorator type: @Trace
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
@@ -134,10 +186,16 @@ export interface SegmentButtonV2ItemOptions {
     accessibilityDescription?: ResourceStr;
 
     /**
-     * Sets the accessibility level of the segmented button item.
+     * [Accessibility level]{@link CommonMethod#accessibilityLevel} of the segmented button item.
      * 
-     * @type { ?string }
+     * Default value: **"auto"**
+     * 
+     * If the value is **undefined**, the default value is used.
+     * 
+     * Decorator type: @Trace
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
@@ -146,156 +204,220 @@ export interface SegmentButtonV2ItemOptions {
 }
 
 /**
- * The callback function that will be invoked when the selectedIndex of the segmented button is changed.
- * 
- * @typedef { function } OnSelectedIndexChange
- * @param { number } selectedIndex - the index of selected item
+ * Defines a callback invoked when the selected segmented button item changes.
+ *
+ * @param { number } selectedIndex - Index of the selected segmented button item.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 18 dynamic
+ * @noninterop
  */
 export type OnSelectedIndexChange = (selectedIndex: number) => void;
 
 /**
- * The callback function that will be invoked when the selectedIndexes of the segmented button is changed.
- * 
- * @typedef { function } OnSelectedIndexesChange
- * @param { number[] } selectedIndexes - the index of selected items
+ * Defines a callback invoked when the selected segmented button items change.
+ *
+ * @param { number[] } selectedIndexes - Indexes of selected segmented button items.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 18 dynamic
+ * @noninterop
  */
 export type OnSelectedIndexesChange = (selectedIndexes: number[]) => void;
 
 /**
  * Defines segmented button item.
- * 
- * @interface SegmentButtonV2Item
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 18 dynamic
+ * @noninterop
  */
 @ObservedV2
 export declare class SegmentButtonV2Item {
     /**
-     * Sets the text of the segmented button item.
+     * Text of the segmented button item.
      * 
-     * @type { ?ResourceStr }
+     * Default value: **undefined**
+     * 
+     * Decorator type: @Trace
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
      */
-    @Trace text?: ResourceStr;
+    @Trace
+    text?: ResourceStr;
 
     /**
-     * Sets the image icon of the segmented button item.
-     * This field will be useless if the symbol field is sets.
+     * Image icon of the segmented button item.
      * 
-     * @type { ?ResourceStr }
+     * Default value: **undefined**
+     * 
+     * Decorator type: @Trace
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
      */
-    @Trace icon?: ResourceStr;
+    @Trace
+    icon?: ResourceStr;
 
     /**
-     * Sets the symbol icon of the segmented button item.
+     * HM Symbol icon of the segmented button item.
      * 
-     * @type { ?Resource }
+     * Default value: **undefined**
+     * 
+     * Decorator type: @Trace
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
      */
-    @Trace symbol?: Resource;
+    @Trace
+    symbol?: Resource;
 
     /**
-     * Sets whether segmented button item is enabled?
+     * Whether the segmented button item is enabled.
      * 
-     * @type { ?boolean }
+     * Default value: **true**
+     * 
+     * **true**: enabled. **false**: disabled.
+     * 
+     * If the value is **undefined**, the default value is used.
+     * 
+     * Decorator type: @Trace
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
      */
-    @Trace enabled: boolean;
+    @Trace
+    enabled: boolean;
 
     /**
-     * Sets modifier for the text of the segmented button item.
+     * Text modifier for the segmented button item.
      * 
-     * @type { ?TextModifier }
+     * Default value: **undefined**
+     * 
+     * Decorator type: @Trace
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
      */
-    @Trace textModifier?: TextModifier;
+    @Trace
+    textModifier?: TextModifier;
 
     /**
-     * Sets modifier for the image icon of the segmented button item.
+     * Image icon modifier for the segmented button item.
      * 
-     * @type { ?ImageModifier }
+     * Default value: **undefined**
+     * 
+     * Decorator type: @Trace
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
      */
-    @Trace iconModifier?: ImageModifier;
+    @Trace
+    iconModifier?: ImageModifier;
 
     /**
-     * Sets modifier for the symbol icon of the segmented button item.
+     * HM Symbol icon modifier for the segmented button item.
      * 
-     * @type { ?SymbolGlyphModifier }
+     * Default value: **undefined**
+     * 
+     * Decorator type: @Trace
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
      */
-    @Trace symbolModifier?: SymbolGlyphModifier;
+    @Trace
+    symbolModifier?: SymbolGlyphModifier;
 
     /**
-     * Sets the accessibility text of the segmented button item.
+     * [Accessibility text]{@link CommonMethod#accessibilityText(value: string)} of the segmented button item.
      * 
-     * @type { ?ResourceStr }
+     * Default value: **""**
+     * 
+     * If the value is **undefined**, the default value is used.
+     * 
+     * Decorator type: @Trace
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
      */
-    @Trace accessibilityText?: ResourceStr;
+    @Trace
+    accessibilityText?: ResourceStr;
 
     /**
-     * Sets the accessibility description of the segmented button item.
+     * [Accessibility description]{@link CommonMethod#accessibilityDescription(value: string)} of the segmented button 
+     * item.
      * 
-     * @type { ?ResourceStr }
+     * Default value: **""**
+     * 
+     * If the value is **undefined**, the default value is used.
+     * 
+     * Decorator type: @Trace
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
      */
-    @Trace accessibilityDescription?: ResourceStr;
+    @Trace
+    accessibilityDescription?: ResourceStr;
 
     /**
-     * Sets the accessibility level of the segmented button item.
+     * [Accessibility level]{@link CommonMethod#accessibilityLevel} of the segmented button item.
      * 
-     * @type { ?string }
+     * Default value: **"auto"**
+     * 
+     * If the value is **undefined**, the default value is used.
+     * 
+     * Decorator type: @Trace
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
      */
-    @Trace accessibilityLevel?: string;
+    @Trace
+    accessibilityLevel?: string;
 
     /**
-     * The constructor of SegmentedButtonItem
-     * 
-     * @param { SegmentedButtonItemOptions } options - the options of the segmented button item
+     * Constructs a **SegmentButtonV2ItemOptions** instance.
+     *
+     * @param { SegmentButtonV2ItemOptions } options - Options of the item of the **SegmentButtonV2** component.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
@@ -303,10 +425,10 @@ export declare class SegmentButtonV2Item {
     constructor(options: SegmentButtonV2ItemOptions);
 
     /**
-     * Is the segmented button item set with both text and icon?
-     * 
-     * @type { boolean }
+     * Checks whether the segmented button item contains both text and icon configurations.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
@@ -315,21 +437,25 @@ export declare class SegmentButtonV2Item {
 }
 
 /**
- * Defines the items of the segmented button.
+ * Represents items of the **SegmentButtonV2** component.
  * 
- * @extends Array<SegmentButtonV2Item>
+ * This parameter is inherited from Array\<[SegmentButtonV2Item]{@link SegmentButtonV2Items}>.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 18 dynamic
+ * @noninterop
  */
 @ObservedV2
 export declare class SegmentButtonV2Items extends Array<SegmentButtonV2Item> {
     /**
-     * The constructor of SegmentedButtonItems
-     * 
-     * @param { SegmentButtonV2ItemOptions[] } items - the options array of the segmented button items
+     * Constructs a **SegmentButtonV2ItemOptions** instance.
+     *
+     * @param { SegmentButtonV2ItemOptions[] } items - Options of the item of the **SegmentButtonV2** component.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
@@ -337,10 +463,10 @@ export declare class SegmentButtonV2Items extends Array<SegmentButtonV2Item> {
     constructor(items: SegmentButtonV2ItemOptions[]);
 
     /**
-     * Is there an option in the segmented button options that sets both text and icon?
-     * 
-     * @type { boolean }
+     * Checks whether the component supports mixed icon and text items.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
@@ -350,21 +476,25 @@ export declare class SegmentButtonV2Items extends Array<SegmentButtonV2Item> {
 
 /**
  * Defines segmented button with tab style.
- * 
- * @struct TabSegmentedButton
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 18 dynamic
+ * @noninterop
  */
 @ComponentV2
 export declare struct TabSegmentButtonV2 {
     /**
-     * Sets the items of the segmented button.
+     * Items of the segmented button.
      * 
-     * @type { SegmentButtonV2Items }
-     * @readonly
+     * If the value is **undefined**, the option information is not displayed.
+     * 
+     * This property is read-only.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
@@ -374,11 +504,15 @@ export declare struct TabSegmentButtonV2 {
     readonly items: SegmentButtonV2Items;
 
     /**
-     * Sets the selected index of the segmented button.
+     * Index of the selected segmented button item. The index is zero-based and increments by 1.
      * 
-     * @type { number }
-     * @readonly
+     * If the value is undefined, no item is selected. If the value is a non-positive value, the default value **0** is 
+     * used.
+     * 
+     * This property is read-only.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
@@ -388,11 +522,10 @@ export declare struct TabSegmentButtonV2 {
     readonly selectedIndex: number;
 
     /**
-     * Sets the callback function which will be invoked when the selected index of the segmented button is changed.
-     * 
-     * @type { ?OnSelectedIndexChange }
-     * @readonly
+     * Callback invoked when the selected item changes.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
@@ -401,11 +534,10 @@ export declare struct TabSegmentButtonV2 {
     $selectedIndex?: OnSelectedIndexChange;
 
     /**
-     * Sets the callback function which will be invoked when the item of the segmented button is clicked.
-     * 
-     * @type { ?Callback<number> }
-     * @readonly
+     * Callback invoked when a segmented button item is clicked.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
@@ -414,11 +546,21 @@ export declare struct TabSegmentButtonV2 {
     onItemClicked?: Callback<number>;
 
     /**
-     * Sets the min font scale for all items of the segmented button.
+     * Minimum font scale factor of the segmented button item text.
      * 
-     * @type { ?(number | Resource) }
-     * @readonly
+     * Value range: [0, 1]
+     * 
+     * Default value: **0**
+     * 
+     * **NOTE**
+     * 
+     * A value less than 0 is treated as **0**. A value greater than 1 is treated as **1**. Abnormal values are 
+     * ineffective by default.
+     * 
+     * This property is read-only.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
@@ -427,11 +569,21 @@ export declare struct TabSegmentButtonV2 {
     readonly itemMinFontScale?: number | Resource;
 
     /**
-     * Sets the max font scale for all items of the segmented button.
+     * Maximum font scale factor of the segmented button item text.
      * 
-     * @type { ?(number | Resource) }
-     * @readonly
+     * Value range: [1, 2]
+     * 
+     * Default value: **1**
+     * 
+     * **NOTE**
+     * 
+     * A value less than 1 is treated as **1**. A value greater than 2 is treated as **2**. Abnormal values are 
+     * ineffective by default.
+     * 
+     * This property is read-only.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
@@ -440,11 +592,20 @@ export declare struct TabSegmentButtonV2 {
     readonly itemMaxFontScale?: number | Resource;
 
     /**
-     * Sets the space for all item of the segmented button.
+     * Space between segmented button items.
      * 
-     * @type { ?LengthMetrics }
-     * @readonly
+     * Value range: [0, +∞)
+     * 
+     * Default value: **LengthMetrics.vp(0)**
+     * 
+     * **NOTE**
+     * 
+     * Percentage values are not supported. If an invalid value is set, the default value is used.
+     * 
+     * This property is read-only.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
@@ -453,11 +614,22 @@ export declare struct TabSegmentButtonV2 {
     readonly itemSpace?: LengthMetrics;
 
     /**
-     * Sets the font size for the text of all segmented button items that are not selected.
+     * Font size of unselected segmented button items.
      * 
-     * @type { ?LengthMetrics }
-     * @readonly
+     * Value range: [0, +∞)
+     * 
+     * Default value: **14fp**
+     * 
+     * **NOTE**
+     * 
+     * Percentage values are not supported. If an invalid value is set, the default value is used.
+     * 
+     * When **fontSize** of **textModifier** is set for **items**, **itemFontSize** has no effect.
+     * 
+     * This property is read-only.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
@@ -466,11 +638,22 @@ export declare struct TabSegmentButtonV2 {
     readonly itemFontSize?: LengthMetrics;
 
     /**
-     * Sets the font size for the text of all segmented button selected items.
+     * Font size of the selected segmented button item.
      * 
-     * @type { ?LengthMetrics }
-     * @readonly
+     * Value range: [0, +∞)
+     * 
+     * Default value: **14fp**
+     * 
+     * **NOTE**
+     * 
+     * Percentage values are not supported. If an invalid value is set, the default value is used.
+     * 
+     * When **fontSize** of **textModifier** is set for **items**, **itemSelectedFontSize** has no effect.
+     * 
+     * This property is read-only.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
@@ -479,11 +662,20 @@ export declare struct TabSegmentButtonV2 {
     readonly itemSelectedFontSize?: LengthMetrics;
 
     /**
-     * Sets the font color for the text of all segmented button selected items.
+     * Font color of the selected segmented button item.
      * 
-     * @type { ?ColorMetrics }
-     * @readonly
+     * Default value: **$r('sys.color.font_primary')**.
+     * 
+     * If the value is **undefined**, the default value is used.
+     * 
+     * **NOTE**
+     * 
+     * When **fontColor** of **textModifier** is set for **items**, **itemSelectedFontColor** has no effect.
+     * 
+     * This property is read-only.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
@@ -492,11 +684,20 @@ export declare struct TabSegmentButtonV2 {
     readonly itemFontColor?: ColorMetrics;
 
     /**
-     * Sets the font color for the text of all segmented button selected items.
+     * Font color of the selected segmented button item.
      * 
-     * @type { ?ColorMetrics }
-     * @readonly
+     * Default value: **$r('sys.color.font_primary')**.
+     * 
+     * If the value is **undefined**, the default value is used.
+     * 
+     * **NOTE**
+     * 
+     * When **fontColor** of **textModifier** is set for **items**, **itemSelectedFontColor** has no effect.
+     * 
+     * This property is read-only.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
@@ -505,11 +706,20 @@ export declare struct TabSegmentButtonV2 {
     readonly itemSelectedFontColor?: ColorMetrics;
 
     /**
-     * Sets the font weight for the text of all segmented button items that are not selected.
+     * Font weight of unselected segmented button items.
      * 
-     * @type { ?FontWeight }
-     * @readonly
+     * Default value: **FontWeight.Medium**
+     * 
+     * If the value is out of the range, the default value is used.
+     * 
+     * **NOTE**
+     * 
+     * When **fontWeight** of **textModifier** is set for **items**, **itemFontWeight** has no effect.
+     * 
+     * This property is read-only.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
@@ -518,11 +728,20 @@ export declare struct TabSegmentButtonV2 {
     readonly itemFontWeight?: FontWeight;
 
     /**
-     * Sets the font weight for the text of all segmented button selected items.
+     * Font weight of the selected segmented button item.
      * 
-     * @type { ?FontWeight }
-     * @readonly
+     * Default value: **FontWeight.Medium**
+     * 
+     * If the value is out of the range, the default value is used.
+     * 
+     * **NOTE**
+     * 
+     * When **fontWeight** of **textModifier** is set for **items**, **itemSelectedFontWeight** has no effect.
+     * 
+     * This property is read-only.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
@@ -531,11 +750,18 @@ export declare struct TabSegmentButtonV2 {
     readonly itemSelectedFontWeight?: FontWeight;
 
     /**
-     * Sets the border radius for all segmented button items.
+     * Border radius of segmented button items.
      * 
-     * @type { ?LengthMetrics }
-     * @readonly
+     * Value range: [0, +∞)
+     * 
+     * Default value: **$r('sys.float.segment_button_v2_selected_corner_radius')**.
+     * 
+     * If the value is out of the range, the default value is used.
+     * 
+     * This property is read-only.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
@@ -544,11 +770,16 @@ export declare struct TabSegmentButtonV2 {
     readonly itemBorderRadius?: LengthMetrics;
 
     /**
-     * Sets the background color for all segmented button selected items.
+     * Background color of the selected segmented button item.
      * 
-     * @type { ?ColorMetrics }
-     * @readonly
+     * Default value: **$r('sys.color.segment_button_v2_tab_selected_item_background')**
+     * 
+     * If the value is **undefined**, the default value is used.
+     * 
+     * This property is read-only.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
@@ -557,11 +788,22 @@ export declare struct TabSegmentButtonV2 {
     readonly itemSelectedBackgroundColor?: ColorMetrics;
 
     /**
-     * Sets the size for the icon of all segmented button items.
+     * Image-type icon size of segmented button items.
      * 
-     * @type { ?SizeT<LengthMetrics> }
-     * @readonly
+     * Value range: [0, +∞)
+     * 
+     * Default value: **{ width: LengthMetrics.vp(24), height: LengthMetrics.vp(24) }**.
+     * 
+     * If the value is out of the range, the default value is used.
+     * 
+     * **NOTE**
+     * 
+     * When **width** and **height** of **iconModifier** are set for **items**, **itemIconSize** has no effect.
+     * 
+     * This property is read-only.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
@@ -570,11 +812,20 @@ export declare struct TabSegmentButtonV2 {
     readonly itemIconSize?: SizeT<LengthMetrics>;
 
     /**
-     * Sets the fill color for the icon of all segmented button items that are not selected.
+     * Icon color of unselected segmented button items.
      * 
-     * @type { ?ColorMetrics }
-     * @readonly
+     * Default value: **$r('sys.color.font_secondary')**
+     * 
+     * If the value is **undefined**, the default value is used.
+     * 
+     * **NOTE**
+     * 
+     * When **fillColor** of **iconModifier** is set for **items**, **itemIconFillColor** has no effect.
+     * 
+     * This property is read-only.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
@@ -583,11 +834,20 @@ export declare struct TabSegmentButtonV2 {
     readonly itemIconFillColor?: ColorMetrics;
 
     /**
-     * Sets the fill color for the icon of all segmented button selected items.
+     * Icon color of the selected segmented button item.
      * 
-     * @type { ?ColorMetrics }
-     * @readonly
+     * Default value: **$r('sys.color.font_primary')**
+     * 
+     * If the value is **undefined**, the default value is used.
+     * 
+     * **NOTE**
+     * 
+     * When **fillColor** of **iconModifier** is set for **items**, **itemSelectedIconFillColor** has no effect.
+     * 
+     * This property is read-only.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
@@ -596,11 +856,22 @@ export declare struct TabSegmentButtonV2 {
     readonly itemSelectedIconFillColor?: ColorMetrics;
 
     /**
-     * Sets the font size for the symbol icon of all segmented button.
+     * HM Symbol icon size of segmented button items.
      * 
-     * @type { ?LengthMetrics }
-     * @readonly
+     * Value range: [0, +∞)
+     * 
+     * Default value: **20fp**
+     * 
+     * **NOTE**
+     * 
+     * Percentage values are not supported. If an invalid value is set, the default value is used.
+     * 
+     * When **fontSize** of **symbolModifier** is set for **items**, **itemSymbolFontSize** has no effect.
+     * 
+     * This property is read-only.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
@@ -609,11 +880,20 @@ export declare struct TabSegmentButtonV2 {
     readonly itemSymbolFontSize?: LengthMetrics;
 
     /**
-     * Sets the font color for the symbol icon of all segmented button items that are not selected.
+     * HM Symbol icon color of unselected segmented button items.
      * 
-     * @type { ?ColorMetrics }
-     * @readonly
+     * Default value: **$r('sys.color.font_secondary')**
+     * 
+     * If the value is **undefined**, the default value is used.
+     * 
+     * **NOTE**
+     * 
+     * When **fontColor** of **symbolModifier** is set for **items**, **itemSymbolFontColor** has no effect.
+     * 
+     * This property is read-only.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
@@ -622,11 +902,20 @@ export declare struct TabSegmentButtonV2 {
     readonly itemSymbolFontColor?: ColorMetrics;
 
     /**
-     * Sets the font color for the symbol icon of all segmented button selected items.
+     * HM Symbol icon color of the selected segmented button item.
      * 
-     * @type { ?ColorMetrics }
-     * @readonly
+     * Default value: **$r('sys.color.font_primary')**
+     * 
+     * If the value is **undefined**, the default value is used.
+     * 
+     * **NOTE**
+     * 
+     * When **fontColor** of **symbolModifier** is set for **items**, **itemSelectedSymbolFontColor** has no effect.
+     * 
+     * This property is read-only.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
@@ -635,11 +924,21 @@ export declare struct TabSegmentButtonV2 {
     readonly itemSelectedSymbolFontColor?: ColorMetrics;
 
     /**
-     * Sets the min height of all segmented button items.
+     * Minimum height of the segmented button item.
      * 
-     * @type { ?LengthMetrics }
-     * @readonly
+     * Value range: [0, +∞)
+     * 
+     * Default value:
+     * 
+     * **$r('sys.float.segment_button_v2_singleline_selected_height')** for text-only buttons and icon-only buttons, and
+     * **$r('sys.float.segment_button_v2_doubleline_selected_height')** for buttons with both an icon and text.
+     * 
+     * If the value is out of the range, the default value is used.
+     * 
+     * This property is read-only.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
@@ -648,11 +947,19 @@ export declare struct TabSegmentButtonV2 {
     readonly itemMinHeight?: LengthMetrics;
 
     /**
-     * Sets the padding of all segmented button items.
+     * Padding of the segmented button item.
      * 
-     * @type { ?LocalizedPadding }
-     * @readonly
+     * Default value: 
+     * **{top: LengthMetrics.resource ($r('sys.float.padding_level2')), bottom: LengthMetrics.
+     * resource ($r('sys.float.padding_level2')), start: LengthMetrics.resource($r('sys.float.padding_level4')),
+     * end: LengthMetrics.resource($r('sys.float.padding_level4'))}**
+     * 
+     * If the value is **undefined**, the default value is used.
+     * 
+     * This property is read-only.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
@@ -661,11 +968,16 @@ export declare struct TabSegmentButtonV2 {
     readonly itemPadding?: LocalizedPadding;
 
     /**
-     * Sets the shadow of all segmented button items.
+     * Shadow of the segmented button item.
      * 
-     * @type { ?(ShadowOptions | ShadowStyle) }
-     * @readonly
+     * Default value: **ShadowStyle.OUTER_DEFAULT_XS**
+     * 
+     * If the value is out of the range, the default value is used.
+     * 
+     * This property is read-only.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
@@ -674,11 +986,16 @@ export declare struct TabSegmentButtonV2 {
     readonly itemShadow?: ShadowOptions | ShadowStyle;
 
     /**
-     * Sets the background color of the segmented button.
+     * Background color of the segmented button.
      * 
-     * @type { ?ColorMetrics }
-     * @readonly
+     * Default value: **$r('sys.color.segment_button_v2_tab_button_background')**
+     * 
+     * If the value is **undefined**, the default value is used.
+     * 
+     * This property is read-only.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
@@ -687,11 +1004,14 @@ export declare struct TabSegmentButtonV2 {
     readonly buttonBackgroundColor?: ColorMetrics;
 
     /**
-     * Sets the background blur style of the segmented button.
+     * Background blur style of the segmented button.
      * 
-     * @type { ?BlurStyle }
-     * @readonly
+     * Default value: **undefined**
+     * 
+     * This property is read-only.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
@@ -700,11 +1020,14 @@ export declare struct TabSegmentButtonV2 {
     readonly buttonBackgroundBlurStyle?: BlurStyle;
 
     /**
-     * Sets the background blur style options of the segmented button.
+     * Background blur style options of the segmented button.
      * 
-     * @type { ?BackgroundBlurStyleOptions }
-     * @readonly
+     * Default value: **undefined**
+     * 
+     * This property is read-only.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
@@ -713,11 +1036,14 @@ export declare struct TabSegmentButtonV2 {
     readonly buttonBackgroundBlurStyleOptions?: BackgroundBlurStyleOptions;
 
     /**
-     * Sets the background effect of the segmented button.
+     * Background blur effect options of the segmented button.
      * 
-     * @type { ?BackgroundEffectOptions }
-     * @readonly
+     * Default value: **undefined**
+     * 
+     * This property is read-only.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
@@ -726,11 +1052,18 @@ export declare struct TabSegmentButtonV2 {
     readonly buttonBackgroundEffect?: BackgroundEffectOptions;
 
     /**
-     * Sets the border radius of the segmented button.
+     * Background border radius of the segmented button.
      * 
-     * @type { ?LengthMetrics }
-     * @readonly
+     * Value range: [0, +∞)
+     * 
+     * Default value: **$r('sys.float.segment_button_v2_background_corner_radius')**
+     * 
+     * If the value is out of the range, the default value is used.
+     * 
+     * This property is read-only.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
@@ -739,11 +1072,20 @@ export declare struct TabSegmentButtonV2 {
     readonly buttonBorderRadius?: LengthMetrics;
 
     /**
-     * Sets the min height of the segmented button.
+     * Minimum height of the segmented button.
      * 
-     * @type { ?LengthMetrics }
-     * @readonly
+     * Value range: [0, +∞)
+     * 
+     * Default value: **$r('sys.float.segment_button_v2_singleline_background_height')** for text-only buttons and icon-
+     * only buttons, and **$r('sys.float.segment_button_v2_doubleline_background_height')** for buttons with both an 
+     * icon and text.
+     * 
+     * If the value is out of the range, the default value is used.
+     * 
+     * This property is read-only.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
@@ -752,11 +1094,18 @@ export declare struct TabSegmentButtonV2 {
     readonly buttonMinHeight?: LengthMetrics;
 
     /**
-     * Sets the padding of the segmented button.
+     * Padding of the segmented button.
      * 
-     * @type { ?LengthMetrics }
-     * @readonly
+     * Value range: [0, +∞)
+     * 
+     * Default value: **$r('sys.float.padding_level1')**
+     * 
+     * If the value is out of the range, the default value is used.
+     * 
+     * This property is read-only.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
@@ -765,11 +1114,16 @@ export declare struct TabSegmentButtonV2 {
     readonly buttonPadding?: LengthMetrics;
 
     /**
-     * Sets the language direction of the segmented button.
+     * Language direction of the segmented button.
      * 
-     * @type { ?Direction }
-     * @readonly
+     * Default value: **Direction.Auto**
+     * 
+     * If the value is out of the range, the default value is used.
+     * 
+     * This property is read-only.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
@@ -781,14 +1135,13 @@ export declare struct TabSegmentButtonV2 {
      * Set system-styled materials for the component. Different materials have different effects, which can influence
      * the backgroundColor, border, shadow, and other visual attributes of the component.
      *
-     * Device Behavior Differences:The effect of the same material may vary across different devices depending on
-     * their computing power.
-     *
-     * @type { ?uiMaterial.Material } material - System-styled material.
-     * @readonly
+     * @type { ?uiMaterial.Material } material - System-styled material. [since 23 - 24]
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @systemapi
+     * @systemapi [since 23 - 24]
+     * @publicapi [since 26.0.0]
      * @stagemodelonly
+     * @crossplatform [since 26.0.0]
+     * @atomicservice [since 26.0.0]
      * @since 23 dynamic
      */
     @Param
@@ -797,8 +1150,6 @@ export declare struct TabSegmentButtonV2 {
     /**
      * Enable animation when selectedIndexes change.
      *
-     * @type { ?boolean }
-     * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @crossplatform
@@ -810,8 +1161,9 @@ export declare struct TabSegmentButtonV2 {
 
     /**
      * Sets the build function of the segmented button.
-     * 
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
@@ -821,21 +1173,25 @@ export declare struct TabSegmentButtonV2 {
 
 /**
  * Defines the segmented button with capsule style.
- * 
- * @struct CapsuleSegmentButtonV2
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 18 dynamic
+ * @noninterop
  */
 @ComponentV2
 export declare struct CapsuleSegmentButtonV2 {
     /**
-     * Sets the items of the segmented button.
+     * Items of the segmented button.
      * 
-     * @type { SegmentButtonV2Items }
-     * @readonly
+     * If the value is **undefined**, the option information is not displayed.
+     * 
+     * This property is read-only.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
@@ -845,11 +1201,15 @@ export declare struct CapsuleSegmentButtonV2 {
     readonly items: SegmentButtonV2Items;
 
     /**
-     * Sets the selected index of the segmented button.
+     * Index of the selected segmented button item. The index is zero-based and increments by 1.
      * 
-     * @type { number }
-     * @readonly
+     * If the value is undefined, no item is selected. If the value is a non-positive value, the default value **0** is 
+     * used.
+     * 
+     * This property is read-only.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
@@ -859,11 +1219,10 @@ export declare struct CapsuleSegmentButtonV2 {
     readonly selectedIndex: number;
 
     /**
-     * Sets the callback function which will be invoked when the selected index of the segmented button is changed.
-     * 
-     * @type { ?OnSelectedIndexChange }
-     * @readonly
+     * Callback invoked when the selected item changes.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
@@ -872,11 +1231,10 @@ export declare struct CapsuleSegmentButtonV2 {
     $selectedIndex?: OnSelectedIndexChange;
 
     /**
-     * Sets the callback function which will be invoked when the item of the segmented button is clicked.
-     * 
-     * @type { ?Callback<number> }
-     * @readonly
+     * Callback invoked when a segmented button item is clicked.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
@@ -885,11 +1243,21 @@ export declare struct CapsuleSegmentButtonV2 {
     onItemClicked?: Callback<number>;
 
     /**
-     * Sets the min font scale for all items of the segmented button.
+     * Minimum font scale factor of the segmented button item text.
      * 
-     * @type { ?(number | Resource) }
-     * @readonly
+     * Value range: [0, 1]
+     * 
+     * Default value: **0**
+     * 
+     * **NOTE**
+     * 
+     * A value less than 0 is treated as **0**. A value greater than 1 is treated as **1**. Abnormal values are 
+     * ineffective by default.
+     * 
+     * This property is read-only.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
@@ -898,11 +1266,21 @@ export declare struct CapsuleSegmentButtonV2 {
     readonly itemMinFontScale?: number | Resource;
 
     /**
-     * Sets the max font scale for all items of the segmented button.
+     * Maximum font scale factor of the segmented button item text.
      * 
-     * @type { ?(number | Resource) }
-     * @readonly
+     * Value range: [1, 2]
+     * 
+     * Default value: **1**
+     * 
+     * **NOTE**
+     * 
+     * A value less than 1 is treated as **1**. A value greater than 2 is treated as **2**. Abnormal values are 
+     * ineffective by default.
+     * 
+     * This property is read-only.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
@@ -911,11 +1289,20 @@ export declare struct CapsuleSegmentButtonV2 {
     readonly itemMaxFontScale?: number | Resource;
 
     /**
-     * Sets the space for all item of the segmented button.
+     * Space between segmented button items.
      * 
-     * @type { ?LengthMetrics }
-     * @readonly
+     * Value range: [0, +∞)
+     * 
+     * Default value: **LengthMetrics.vp(0)**
+     * 
+     * **NOTE**
+     * 
+     * Percentage values are not supported. If an invalid value is set, the default value is used.
+     * 
+     * This property is read-only.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
@@ -924,11 +1311,20 @@ export declare struct CapsuleSegmentButtonV2 {
     readonly itemSpace?: LengthMetrics;
 
     /**
-     * Sets the font color for the text of all segmented button selected items.
+     * Font color of the selected segmented button item.
      * 
-     * @type { ?ColorMetrics }
-     * @readonly
+     * Default value: **$r('sys.color.font_primary')**.
+     * 
+     * If the value is **undefined**, the default value is used.
+     * 
+     * **NOTE**
+     * 
+     * When **fontColor** of **textModifier** is set for **items**, **itemSelectedFontColor** has no effect.
+     * 
+     * This property is read-only.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
@@ -937,11 +1333,20 @@ export declare struct CapsuleSegmentButtonV2 {
     readonly itemFontColor?: ColorMetrics;
 
     /**
-     * Sets the font color for the text of all segmented button selected items.
+     * Font color of the selected segmented button item.
      * 
-     * @type { ?ColorMetrics }
-     * @readonly
+     * Default value: **$r('sys.color.font_primary')**.
+     * 
+     * If the value is **undefined**, the default value is used.
+     * 
+     * **NOTE**
+     * 
+     * When **fontColor** of **textModifier** is set for **items**, **itemSelectedFontColor** has no effect.
+     * 
+     * This property is read-only.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
@@ -950,11 +1355,22 @@ export declare struct CapsuleSegmentButtonV2 {
     readonly itemSelectedFontColor?: ColorMetrics;
 
     /**
-     * Sets the font size for the text of all segmented button items that are not selected.
+     * Font size of unselected segmented button items.
      * 
-     * @type { ?LengthMetrics }
-     * @readonly
+     * Value range: [0, +∞)
+     * 
+     * Default value: **14fp**
+     * 
+     * **NOTE**
+     * 
+     * Percentage values are not supported. If an invalid value is set, the default value is used.
+     * 
+     * When **fontSize** of **textModifier** is set for **items**, **itemFontSize** has no effect.
+     * 
+     * This property is read-only.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
@@ -963,11 +1379,22 @@ export declare struct CapsuleSegmentButtonV2 {
     readonly itemFontSize?: LengthMetrics;
 
     /**
-     * Sets the font size for the text of all segmented button selected items.
+     * Font size of the selected segmented button item.
      * 
-     * @type { ?LengthMetrics }
-     * @readonly
+     * Value range: [0, +∞)
+     * 
+     * Default value: **14fp**
+     * 
+     * **NOTE**
+     * 
+     * Percentage values are not supported. If an invalid value is set, the default value is used.
+     * 
+     * When **fontSize** of **textModifier** is set for **items**, **itemSelectedFontSize** has no effect.
+     * 
+     * This property is read-only.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
@@ -976,11 +1403,20 @@ export declare struct CapsuleSegmentButtonV2 {
     readonly itemSelectedFontSize?: LengthMetrics;
 
     /**
-     * Sets the font weight for the text of all segmented button items that are not selected.
+     * Font weight of unselected segmented button items.
      * 
-     * @type { ?FontWeight }
-     * @readonly
+     * Default value: **FontWeight.Medium**
+     * 
+     * If the value is out of the range, the default value is used.
+     * 
+     * **NOTE**
+     * 
+     * When **fontWeight** of **textModifier** is set for **items**, **itemFontWeight** has no effect.
+     * 
+     * This property is read-only.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
@@ -989,11 +1425,20 @@ export declare struct CapsuleSegmentButtonV2 {
     readonly itemFontWeight?: FontWeight;
 
     /**
-     * Sets the font weight for the text of all segmented button selected items.
+     * Font weight of the selected segmented button item.
      * 
-     * @type { ?FontWeight }
-     * @readonly
+     * Default value: **FontWeight.Medium**
+     * 
+     * If the value is out of the range, the default value is used.
+     * 
+     * **NOTE**
+     * 
+     * When **fontWeight** of **textModifier** is set for **items**, **itemSelectedFontWeight** has no effect.
+     * 
+     * This property is read-only.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
@@ -1002,11 +1447,18 @@ export declare struct CapsuleSegmentButtonV2 {
     readonly itemSelectedFontWeight?: FontWeight;
 
     /**
-     * Sets the border radius for all segmented button items.
+     * Border radius of segmented button items.
      * 
-     * @type { ?LengthMetrics }
-     * @readonly
+     * Value range: [0, +∞)
+     * 
+     * Default value: **$r('sys.float.segment_button_v2_selected_corner_radius')**.
+     * 
+     * If the value is out of the range, the default value is used.
+     * 
+     * This property is read-only.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
@@ -1015,11 +1467,16 @@ export declare struct CapsuleSegmentButtonV2 {
     readonly itemBorderRadius?: LengthMetrics;
 
     /**
-     * Sets the background color for all segmented button selected items.
+     * Background color of the selected segmented button item.
      * 
-     * @type { ?ColorMetrics }
-     * @readonly
+     * Default value: **$r('sys.color.segment_button_v2_tab_selected_item_background')**
+     * 
+     * If the value is **undefined**, the default value is used.
+     * 
+     * This property is read-only.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
@@ -1028,11 +1485,22 @@ export declare struct CapsuleSegmentButtonV2 {
     readonly itemSelectedBackgroundColor?: ColorMetrics;
 
     /**
-     * Sets the size for the icon of all segmented button items.
+     * Image-type icon size of segmented button items.
      * 
-     * @type { ?SizeT<LengthMetrics> }
-     * @readonly
+     * Value range: [0, +∞)
+     * 
+     * Default value: **{ width: LengthMetrics.vp(24), height: LengthMetrics.vp(24) }**.
+     * 
+     * If the value is out of the range, the default value is used.
+     * 
+     * **NOTE**
+     * 
+     * When **width** and **height** of **iconModifier** are set for **items**, **itemIconSize** has no effect.
+     * 
+     * This property is read-only.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
@@ -1041,11 +1509,20 @@ export declare struct CapsuleSegmentButtonV2 {
     readonly itemIconSize?: SizeT<LengthMetrics>;
 
     /**
-     * Sets the fill color for the icon of all segmented button items that are not selected.
+     * Icon color of unselected segmented button items.
      * 
-     * @type { ?ColorMetrics }
-     * @readonly
+     * Default value: **$r('sys.color.font_secondary')**
+     * 
+     * If the value is **undefined**, the default value is used.
+     * 
+     * **NOTE**
+     * 
+     * When **fillColor** of **iconModifier** is set for **items**, **itemIconFillColor** has no effect.
+     * 
+     * This property is read-only.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
@@ -1054,11 +1531,20 @@ export declare struct CapsuleSegmentButtonV2 {
     readonly itemIconFillColor?: ColorMetrics;
 
     /**
-     * Sets the fill color for the icon of all segmented button selected items.
+     * Icon color of the selected segmented button item.
      * 
-     * @type { ?ColorMetrics }
-     * @readonly
+     * Default value: **$r('sys.color.font_primary')**
+     * 
+     * If the value is **undefined**, the default value is used.
+     * 
+     * **NOTE**
+     * 
+     * When **fillColor** of **iconModifier** is set for **items**, **itemSelectedIconFillColor** has no effect.
+     * 
+     * This property is read-only.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
@@ -1067,11 +1553,22 @@ export declare struct CapsuleSegmentButtonV2 {
     readonly itemSelectedIconFillColor?: ColorMetrics;
 
     /**
-     * Sets the font size for the symbol icon of all segmented button.
+     * HM Symbol icon size of segmented button items.
      * 
-     * @type { ?LengthMetrics }
-     * @readonly
+     * Value range: [0, +∞)
+     * 
+     * Default value: **20fp**
+     * 
+     * **NOTE**
+     * 
+     * Percentage values are not supported. If an invalid value is set, the default value is used.
+     * 
+     * When **fontSize** of **symbolModifier** is set for **items**, **itemSymbolFontSize** has no effect.
+     * 
+     * This property is read-only.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
@@ -1080,11 +1577,20 @@ export declare struct CapsuleSegmentButtonV2 {
     readonly itemSymbolFontSize?: LengthMetrics;
 
     /**
-     * Sets the font color for the symbol icon of all segmented button items that are not selected.
+     * HM Symbol icon color of unselected segmented button items.
      * 
-     * @type { ?ColorMetrics }
-     * @readonly
+     * Default value: **$r('sys.color.font_secondary')**
+     * 
+     * If the value is **undefined**, the default value is used.
+     * 
+     * **NOTE**
+     * 
+     * When **fontColor** of **symbolModifier** is set for **items**, **itemSymbolFontColor** has no effect.
+     * 
+     * This property is read-only.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
@@ -1093,11 +1599,20 @@ export declare struct CapsuleSegmentButtonV2 {
     readonly itemSymbolFontColor?: ColorMetrics;
 
     /**
-     * Sets the font color for the symbol icon of all segmented button selected items.
+     * HM Symbol icon color of the selected segmented button item.
      * 
-     * @type { ?ColorMetrics }
-     * @readonly
+     * Default value: **$r('sys.color.font_primary')**
+     * 
+     * If the value is **undefined**, the default value is used.
+     * 
+     * **NOTE**
+     * 
+     * When **fontColor** of **symbolModifier** is set for **items**, **itemSelectedSymbolFontColor** has no effect.
+     * 
+     * This property is read-only.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
@@ -1106,11 +1621,21 @@ export declare struct CapsuleSegmentButtonV2 {
     readonly itemSelectedSymbolFontColor?: ColorMetrics;
 
     /**
-     * Sets the min height of all segmented button items.
+     * Minimum height of the segmented button item.
      * 
-     * @type { ?LengthMetrics }
-     * @readonly
+     * Value range: [0, +∞)
+     * 
+     * Default value:
+     * 
+     * **$r('sys.float.segment_button_v2_singleline_selected_height')** for text-only buttons and icon-only buttons, and
+     * **$r('sys.float.segment_button_v2_doubleline_selected_height')** for buttons with both an icon and text.
+     * 
+     * If the value is out of the range, the default value is used.
+     * 
+     * This property is read-only.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
@@ -1119,11 +1644,19 @@ export declare struct CapsuleSegmentButtonV2 {
     readonly itemMinHeight?: LengthMetrics;
 
     /**
-     * Sets the padding of all segmented button items.
+     * Padding of the segmented button item.
      * 
-     * @type { ?LocalizedPadding }
-     * @readonly
+     * Default value: 
+     * **{top: LengthMetrics.resource ($r('sys.float.padding_level2')), bottom: LengthMetrics.
+     * resource ($r('sys.float.padding_level2')), start: LengthMetrics.resource($r('sys.float.padding_level4')),
+     * end: LengthMetrics.resource($r('sys.float.padding_level4'))}**
+     * 
+     * If the value is **undefined**, the default value is used.
+     * 
+     * This property is read-only.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
@@ -1132,11 +1665,16 @@ export declare struct CapsuleSegmentButtonV2 {
     readonly itemPadding?: LocalizedPadding;
 
     /**
-     * Sets the shadow of all segmented button items.
+     * Shadow of the segmented button item.
      * 
-     * @type { ?(ShadowOptions | ShadowStyle) }
-     * @readonly
+     * Default value: **ShadowStyle.OUTER_DEFAULT_XS**
+     * 
+     * If the value is out of the range, the default value is used.
+     * 
+     * This property is read-only.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
@@ -1145,11 +1683,16 @@ export declare struct CapsuleSegmentButtonV2 {
     readonly itemShadow?: ShadowOptions | ShadowStyle;
 
     /**
-     * Sets the background color of the segmented button.
+     * Background color of the segmented button.
      * 
-     * @type { ?ColorMetrics }
-     * @readonly
+     * Default value: **$r('sys.color.segment_button_v2_tab_button_background')**
+     * 
+     * If the value is **undefined**, the default value is used.
+     * 
+     * This property is read-only.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
@@ -1158,11 +1701,14 @@ export declare struct CapsuleSegmentButtonV2 {
     readonly buttonBackgroundColor?: ColorMetrics;
 
     /**
-     * Sets the background blur style of the segmented button.
+     * Background blur style of the segmented button.
      * 
-     * @type { ?BlurStyle }
-     * @readonly
+     * Default value: **undefined**
+     * 
+     * This property is read-only.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
@@ -1171,11 +1717,14 @@ export declare struct CapsuleSegmentButtonV2 {
     readonly buttonBackgroundBlurStyle?: BlurStyle;
 
     /**
-     * Sets the background blur style options of the segmented button.
+     * Background blur style options of the segmented button.
      * 
-     * @type { ?BackgroundBlurStyleOptions }
-     * @readonly
+     * Default value: **undefined**
+     * 
+     * This property is read-only.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
@@ -1184,11 +1733,14 @@ export declare struct CapsuleSegmentButtonV2 {
     readonly buttonBackgroundBlurStyleOptions?: BackgroundBlurStyleOptions;
 
     /**
-     * Sets the background effect of the segmented button.
+     * Background blur effect options of the segmented button.
      * 
-     * @type { ?BackgroundEffectOptions }
-     * @readonly
+     * Default value: **undefined**
+     * 
+     * This property is read-only.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
@@ -1197,11 +1749,18 @@ export declare struct CapsuleSegmentButtonV2 {
     readonly buttonBackgroundEffect?: BackgroundEffectOptions;
 
     /**
-     * Sets the border radius of the segmented button.
+     * Background border radius of the segmented button.
      * 
-     * @type { ?LengthMetrics }
-     * @readonly
+     * Value range: [0, +∞)
+     * 
+     * Default value: **$r('sys.float.segment_button_v2_background_corner_radius')**
+     * 
+     * If the value is out of the range, the default value is used.
+     * 
+     * This property is read-only.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
@@ -1210,11 +1769,20 @@ export declare struct CapsuleSegmentButtonV2 {
     readonly buttonBorderRadius?: LengthMetrics;
 
     /**
-     * Sets the min height of the segmented button.
+     * Minimum height of the segmented button.
      * 
-     * @type { ?LengthMetrics }
-     * @readonly
+     * Value range: [0, +∞)
+     * 
+     * Default value: **$r('sys.float.segment_button_v2_singleline_background_height')** for text-only buttons and icon-
+     * only buttons, and **$r('sys.float.segment_button_v2_doubleline_background_height')** for buttons with both an 
+     * icon and text.
+     * 
+     * If the value is out of the range, the default value is used.
+     * 
+     * This property is read-only.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
@@ -1223,11 +1791,18 @@ export declare struct CapsuleSegmentButtonV2 {
     readonly buttonMinHeight?: LengthMetrics;
 
     /**
-     * Sets the padding of the segmented button.
+     * Padding of the segmented button.
      * 
-     * @type { ?LengthMetrics }
-     * @readonly
+     * Value range: [0, +∞)
+     * 
+     * Default value: **$r('sys.float.padding_level1')**
+     * 
+     * If the value is out of the range, the default value is used.
+     * 
+     * This property is read-only.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
@@ -1236,11 +1811,16 @@ export declare struct CapsuleSegmentButtonV2 {
     readonly buttonPadding?: LengthMetrics;
 
     /**
-     * Sets the language direction of the segmented button.
+     * Language direction of the segmented button.
      * 
-     * @type { ?Direction }
-     * @readonly
+     * Default value: **Direction.Auto**
+     * 
+     * If the value is out of the range, the default value is used.
+     * 
+     * This property is read-only.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
@@ -1252,14 +1832,13 @@ export declare struct CapsuleSegmentButtonV2 {
      * Set system-styled materials for the component. Different materials have different effects, which can influence
      * the backgroundColor, border, shadow, and other visual attributes of the component.
      *
-     * Device Behavior Differences:The effect of the same material may vary across different devices depending on
-     * their computing power.
-     *
-     * @type { ?uiMaterial.Material } material - System-styled material.
-     * @readonly
+     * @type { ?uiMaterial.Material } material - System-styled material. [since 23 - 24]
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @systemapi
+     * @systemapi [since 23 - 24]
+     * @publicapi [since 26.0.0]
      * @stagemodelonly
+     * @crossplatform [since 26.0.0]
+     * @atomicservice [since 26.0.0]
      * @since 23 dynamic
      */
     @Param
@@ -1268,8 +1847,6 @@ export declare struct CapsuleSegmentButtonV2 {
     /**
      * Enable animation when selectedIndexes change.
      *
-     * @type { ?boolean }
-     * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @crossplatform
@@ -1281,8 +1858,9 @@ export declare struct CapsuleSegmentButtonV2 {
 
     /**
      * Sets the build function of the segmented button.
-     * 
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
@@ -1291,22 +1869,26 @@ export declare struct CapsuleSegmentButtonV2 {
 }
 
 /**
- * Defines the segmented button with capsule style.
- * 
- * @struct CapsuleSegmentButtonV2
+ * Defines the segmented button with multi capsule style.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 18 dynamic
+ * @noninterop
  */
 @ComponentV2
 export declare struct MultiCapsuleSegmentButtonV2 {
     /**
-     * Sets the items of the segmented button.
+     * Items of the segmented button.
      * 
-     * @type { SegmentButtonV2Items }
-     * @readonly
+     * If the value is **undefined**, the option information is not displayed.
+     * 
+     * This property is read-only.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
@@ -1316,11 +1898,18 @@ export declare struct MultiCapsuleSegmentButtonV2 {
     readonly items: SegmentButtonV2Items;
 
     /**
-     * Sets the selection of the segmented button.
+     * Array of indexes of the selected segmented button items. The index is zero-based and increments by 1.
      * 
-     * @type { number[] }
-     * @readonly
+     * If the value is **undefined**, no item is selected.
+     * 
+     * **NOTE**
+     * 
+     * Only valid button indexes are supported. An empty array [] indicates no selection.
+     * 
+     * This property is read-only.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
@@ -1330,11 +1919,10 @@ export declare struct MultiCapsuleSegmentButtonV2 {
     readonly selectedIndexes: number[];
 
     /**
-     * Sets the callback function will be invoked when the selectedInexes field of the segmented button is changed.
-     * 
-     * @type { ?OnSelectedIndexesChange } OnSelectedIndexesChange
-     * @readonly
+     * Callback invoked when the selected item changes.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
@@ -1343,11 +1931,10 @@ export declare struct MultiCapsuleSegmentButtonV2 {
     $selectedIndexes: OnSelectedIndexesChange;
 
     /**
-     * Sets the callback function will be invoked when the item of the segmented button is clicked.
-     * 
-     * @type { ?Callback<number> }
-     * @readonly
+     * Callback invoked when a segmented button item is clicked.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
@@ -1356,11 +1943,21 @@ export declare struct MultiCapsuleSegmentButtonV2 {
     onItemClicked?: Callback<number>;
 
     /**
-     * Sets the min font scale for all items of the segmented button.
+     * Minimum font scale factor of the segmented button item text.
      * 
-     * @type { ?(number | Resource) }
-     * @readonly
+     * Value range: [0, 1]
+     * 
+     * Default value: **0**
+     * 
+     * **NOTE**
+     * 
+     * A value less than 0 is treated as **0**. A value greater than 1 is treated as **1**. Abnormal values are 
+     * ineffective by default.
+     * 
+     * This property is read-only.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
@@ -1369,11 +1966,21 @@ export declare struct MultiCapsuleSegmentButtonV2 {
     readonly itemMinFontScale?: number | Resource;
 
     /**
-     * Sets the max font scale for all items of the segmented button.
+     * Maximum font scale factor of the segmented button item text.
      * 
-     * @type { ?(number | Resource) }
-     * @readonly
+     * Value range: [1, 2]
+     * 
+     * Default value: **1**
+     * 
+     * **NOTE**
+     * 
+     * A value less than 1 is treated as **1**. A value greater than 2 is treated as **2**. Abnormal values are 
+     * ineffective by default.
+     * 
+     * This property is read-only.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
@@ -1382,11 +1989,20 @@ export declare struct MultiCapsuleSegmentButtonV2 {
     readonly itemMaxFontScale?: number | Resource;
 
     /**
-     * Sets the space for each item of the segmented button.
+     * Space between segmented button items.
      * 
-     * @type { ?LengthMetrics }
-     * @readonly
+     * Value range: [0, +∞)
+     * 
+     * Default value: **LengthMetrics.vp(1)**
+     * 
+     * **NOTE**
+     * 
+     * Percentage values are not supported. If an invalid value is set, the default value is used.
+     * 
+     * This property is read-only.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
@@ -1395,11 +2011,20 @@ export declare struct MultiCapsuleSegmentButtonV2 {
     readonly itemSpace?: LengthMetrics;
 
     /**
-     * Sets the font color for the text of all segmented button items that are not selected.
+     * Font color of unselected segmented button items.
      * 
-     * @type { ?ColorMetrics }
-     * @readonly
+     * Default value: **$r('sys.color.font_secondary')**
+     * 
+     * If the value is **undefined**, the default value is used.
+     * 
+     * **NOTE**
+     * 
+     * When **fontColor** of **textModifier** is set for **items**, **itemFontColor** has no effect.
+     * 
+     * This property is read-only.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
@@ -1408,11 +2033,20 @@ export declare struct MultiCapsuleSegmentButtonV2 {
     readonly itemFontColor?: ColorMetrics;
 
     /**
-     * Sets the font color for the text of all segmented button selected items.
+     * Font color of the selected segmented button item.
      * 
-     * @type { ?ColorMetrics }
-     * @readonly
+     * Default value: **$r('sys.color.font_primary')**.
+     * 
+     * If the value is **undefined**, the default value is used.
+     * 
+     * **NOTE**
+     * 
+     * When **fontColor** of **textModifier** is set for **items**, **itemSelectedFontColor** has no effect.
+     * 
+     * This property is read-only.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
@@ -1421,11 +2055,22 @@ export declare struct MultiCapsuleSegmentButtonV2 {
     readonly itemSelectedFontColor?: ColorMetrics;
 
     /**
-     * Sets the font size for the text of all segmented button items that are not selected.
+     * Font size of unselected segmented button items.
      * 
-     * @type { ?LengthMetrics }
-     * @readonly
+     * Value range: [0, +∞)
+     * 
+     * Default value: **14fp**
+     * 
+     * **NOTE**
+     * 
+     * Percentage values are not supported. If an invalid value is set, the default value is used.
+     * 
+     * When **fontSize** of **textModifier** is set for **items**, **itemFontSize** has no effect.
+     * 
+     * This property is read-only.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
@@ -1434,11 +2079,22 @@ export declare struct MultiCapsuleSegmentButtonV2 {
     readonly itemFontSize?: LengthMetrics;
 
     /**
-     * Sets the font size for the text of all segmented button selected items.
+     * Font size of the selected segmented button item.
      * 
-     * @type { ?LengthMetrics }
-     * @readonly
+     * Value range: [0, +∞)
+     * 
+     * Default value: **14fp**
+     * 
+     * **NOTE**
+     * 
+     * Percentage values are not supported. If an invalid value is set, the default value is used.
+     * 
+     * When **fontSize** of **textModifier** is set for **items**, **itemSelectedFontSize** has no effect.
+     * 
+     * This property is read-only.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
@@ -1447,11 +2103,20 @@ export declare struct MultiCapsuleSegmentButtonV2 {
     readonly itemSelectedFontSize?: LengthMetrics;
 
     /**
-     * Sets the font weight for the text of all segmented button items that are not selected.
+     * Font weight of unselected segmented button items.
      * 
-     * @type { ?FontWeight }
-     * @readonly
+     * Default value: **FontWeight.Medium**
+     * 
+     * If the value is out of the range, the default value is used.
+     * 
+     * **NOTE**
+     * 
+     * When **fontWeight** of **textModifier** is set for **items**, **itemFontWeight** has no effect.
+     * 
+     * This property is read-only.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
@@ -1460,11 +2125,20 @@ export declare struct MultiCapsuleSegmentButtonV2 {
     readonly itemFontWeight?: FontWeight;
 
     /**
-     * Sets the font weight for the text of all segmented button selected items.
+     * Font weight of the selected segmented button item.
      * 
-     * @type { ?FontWeight }
-     * @readonly
+     * Default value: **FontWeight.Medium**
+     * 
+     * If the value is out of the range, the default value is used.
+     * 
+     * **NOTE**
+     * 
+     * When **fontWeight** of **textModifier** is set for **items**, **itemSelectedFontWeight** has no effect.
+     * 
+     * This property is read-only.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
@@ -1473,11 +2147,18 @@ export declare struct MultiCapsuleSegmentButtonV2 {
     readonly itemSelectedFontWeight?: FontWeight;
 
     /**
-     * Sets the border radius for all segmented button items.
+     * Border radius of segmented button items.
      * 
-     * @type { ?LengthMetrics }
-     * @readonly
+     * Value range: [0, +∞)
+     * 
+     * Default value: **$r('sys.float.segment_button_v2_selected_corner_radius')**.
+     * 
+     * If the value is out of the range, the default value is used.
+     * 
+     * This property is read-only.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
@@ -1486,11 +2167,16 @@ export declare struct MultiCapsuleSegmentButtonV2 {
     readonly itemBorderRadius?: LengthMetrics;
 
     /**
-     * Sets the background color for all segmented button items that are not selected.
+     * Background color of unselected segmented button items.
      * 
-     * @type { ?ColorMetrics }
-     * @readonly
+     * Default value: **$r('sys.color.segment_button_v2_multi_capsule_button_background')**
+     * 
+     * If the value is **undefined**, the default value is used.
+     * 
+     * This property is read-only.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
@@ -1499,11 +2185,14 @@ export declare struct MultiCapsuleSegmentButtonV2 {
     readonly itemBackgroundColor?: ColorMetrics;
 
     /**
-     * Sets the background effect of all segmented button items that are not selected.
+     * Background effect of segmented button items.
      * 
-     * @type { ?BackgroundEffectOptions }
-     * @readonly
+     * Default value: **undefined**
+     * 
+     * This property is read-only.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
@@ -1512,11 +2201,14 @@ export declare struct MultiCapsuleSegmentButtonV2 {
     readonly itemBackgroundEffect?: BackgroundEffectOptions;
     
     /**
-     * Sets the background blur style of all segmented button items that are not selected.
+     * Background blur style of segmented button items.
      * 
-     * @type { ?BlurStyle }
-     * @readonly
+     * Default value: **undefined**
+     * 
+     * This property is read-only.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
@@ -1525,11 +2217,14 @@ export declare struct MultiCapsuleSegmentButtonV2 {
     readonly itemBackgroundBlurStyle?: BlurStyle;
     
     /**
-     * Sets the background blur style options of all segmented button items that are not selected.
+     * Background blur style options of segmented button items.
      * 
-     * @type { ?BackgroundBlurStyleOptions }
-     * @readonly
+     * Default value: **undefined**
+     * 
+     * This property is read-only.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
@@ -1538,11 +2233,16 @@ export declare struct MultiCapsuleSegmentButtonV2 {
     readonly itemBackgroundBlurStyleOptions?: BackgroundBlurStyleOptions;
 
     /**
-     * Sets the background color for all segmented button selected items.
+     * Background color of the selected segmented button item.
      * 
-     * @type { ?ColorMetrics }
-     * @readonly
+     * Default value: **$r('sys.color.segment_button_v2_tab_selected_item_background')**
+     * 
+     * If the value is **undefined**, the default value is used.
+     * 
+     * This property is read-only.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
@@ -1551,11 +2251,22 @@ export declare struct MultiCapsuleSegmentButtonV2 {
     readonly itemSelectedBackgroundColor?: ColorMetrics;
 
     /**
-     * Sets the size for the icon of all segmented button items.
+     * Image-type icon size of segmented button items.
      * 
-     * @type { ?SizeT<LengthMetrics> }
-     * @readonly
+     * Value range: [0, +∞)
+     * 
+     * Default value: **{ width: LengthMetrics.vp(24), height: LengthMetrics.vp(24) }**.
+     * 
+     * If the value is out of the range, the default value is used.
+     * 
+     * **NOTE**
+     * 
+     * When **width** and **height** of **iconModifier** are set for **items**, **itemIconSize** has no effect.
+     * 
+     * This property is read-only.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
@@ -1564,11 +2275,20 @@ export declare struct MultiCapsuleSegmentButtonV2 {
     readonly itemIconSize?: SizeT<LengthMetrics>;
 
     /**
-     * Sets the fill color for the icon of all segmented button items that are not selected.
+     * Icon color of unselected segmented button items.
      * 
-     * @type { ?ColorMetrics }
-     * @readonly
+     * Default value: **$r('sys.color.font_secondary')**
+     * 
+     * If the value is **undefined**, the default value is used.
+     * 
+     * **NOTE**
+     * 
+     * When **fillColor** of **iconModifier** is set for **items**, **itemIconFillColor** has no effect.
+     * 
+     * This property is read-only.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
@@ -1577,11 +2297,20 @@ export declare struct MultiCapsuleSegmentButtonV2 {
     readonly itemIconFillColor?: ColorMetrics;
 
     /**
-     * Sets the fill color for the icon of all segmented button selected items.
+     * Icon color of the selected segmented button item.
      * 
-     * @type { ?ColorMetrics }
-     * @readonly
+     * Default value: **$r('sys.color.font_primary')**
+     * 
+     * If the value is **undefined**, the default value is used.
+     * 
+     * **NOTE**
+     * 
+     * When **fillColor** of **iconModifier** is set for **items**, **itemSelectedIconFillColor** has no effect.
+     * 
+     * This property is read-only.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
@@ -1590,11 +2319,22 @@ export declare struct MultiCapsuleSegmentButtonV2 {
     readonly itemSelectedIconFillColor?: ColorMetrics;
 
     /**
-     * Sets the font size for the symbol icon of all segmented button.
+     * HM Symbol icon size of segmented button items.
      * 
-     * @type { ?LengthMetrics }
-     * @readonly
+     * Value range: [0, +∞)
+     * 
+     * Default value: **20fp**
+     * 
+     * **NOTE**
+     * 
+     * Percentage values are not supported. If an invalid value is set, the default value is used.
+     * 
+     * When **fontSize** of **symbolModifier** is set for **items**, **itemSymbolFontSize** has no effect.
+     * 
+     * This property is read-only.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
@@ -1603,11 +2343,20 @@ export declare struct MultiCapsuleSegmentButtonV2 {
     readonly itemSymbolFontSize?: LengthMetrics;
 
     /**
-     * Sets the font color for the symbol icon of all segmented button items that are not selected.
+     * HM Symbol icon color of unselected segmented button items.
      * 
-     * @type { ?ColorMetrics }
-     * @readonly
+     * Default value: **$r('sys.color.font_secondary')**
+     * 
+     * If the value is **undefined**, the default value is used.
+     * 
+     * **NOTE**
+     * 
+     * When **fontColor** of **symbolModifier** is set for **items**, **itemSymbolFontColor** has no effect.
+     * 
+     * This property is read-only.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
@@ -1616,11 +2365,20 @@ export declare struct MultiCapsuleSegmentButtonV2 {
     readonly itemSymbolFontColor?: ColorMetrics;
 
     /**
-     * Sets the font color for the symbol icon of all segmented button selected items.
+     * HM Symbol icon color of the selected segmented button item.
      * 
-     * @type { ?ColorMetrics }
-     * @readonly
+     * Default value: **$r('sys.color.font_primary')**
+     * 
+     * If the value is **undefined**, the default value is used.
+     * 
+     * **NOTE**
+     * 
+     * When **fontColor** of **symbolModifier** is set for **items**, **itemSelectedSymbolFontColor** has no effect.
+     * 
+     * This property is read-only.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
@@ -1629,11 +2387,21 @@ export declare struct MultiCapsuleSegmentButtonV2 {
     readonly itemSelectedSymbolFontColor?: ColorMetrics;
 
      /**
-     * Sets the min height of all segmented button items.
+     * Minimum height of the segmented button item.
      * 
-     * @type { ?LengthMetrics }
-     * @readonly
+     * Value range: [0, +∞)
+     * 
+     * Default value:
+     * 
+     * **$r('sys.float.segment_button_v2_singleline_selected_height')** for text-only buttons and icon-only buttons, and
+     * **$r('sys.float.segment_button_v2_doubleline_selected_height')** for buttons with both an icon and text.
+     * 
+     * If the value is out of the range, the default value is used.
+     * 
+     * This property is read-only.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
@@ -1642,11 +2410,19 @@ export declare struct MultiCapsuleSegmentButtonV2 {
     readonly itemMinHeight?: LengthMetrics;
 
     /**
-     * Sets the padding of all segmented button items.
+     * Padding of the segmented button item.
      * 
-     * @type { ?LocalizedPadding }
-     * @readonly
+     * Default value: 
+     * **{top: LengthMetrics.resource ($r('sys.float.padding_level2')), bottom: LengthMetrics.
+     * resource ($r('sys.float.padding_level2')), start: LengthMetrics.resource($r('sys.float.padding_level4')),
+     * end: LengthMetrics.resource($r('sys.float.padding_level4'))}**
+     * 
+     * If the value is **undefined**, the default value is used.
+     * 
+     * This property is read-only.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
@@ -1655,11 +2431,16 @@ export declare struct MultiCapsuleSegmentButtonV2 {
     readonly itemPadding?: LocalizedPadding;
 
     /**
-     * Sets the language direction of the segmented button.
+     * Language direction of the segmented button.
      * 
-     * @type { ?Direction }
-     * @readonly
+     * Default value: **Direction.Auto**
+     * 
+     * If the value is out of the range, the default value is used.
+     * 
+     * This property is read-only.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
@@ -1669,8 +2450,9 @@ export declare struct MultiCapsuleSegmentButtonV2 {
 
     /**
      * Sets the build function of the segmented button.
-     * 
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic

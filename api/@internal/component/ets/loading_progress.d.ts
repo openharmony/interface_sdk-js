@@ -19,311 +19,140 @@
  */
 
 /**
- * Load style of progress bar.
+ * Enumerates style types of **LoadingProgress**. This API is not recommended for use.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 8
- */
-/**
- * Load style of progress bar.
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @since 9
- */
-/**
- * Load style of progress bar.
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Load style of progress bar.
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 8 dynamic
  */
 declare enum LoadingProgressStyle {
+
   /**
-   * Default style.
+   * Default loading style.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Default style.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Default style.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Default style.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   Default,
 
   /**
-   * Announcement style.
+   * Circular loading style.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Announcement style.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Announcement style.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Announcement style.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   Circular,
 
   /**
-   * The style of the track.
+   * Comet-shaped loading style.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * The style of the track.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * The style of the track.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * The style of the track.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   Orbital,
 }
 
 /**
- * Provides an interface for extending the loading progress.
+ * The **LoadingProgress** component is used to create a loading progress animation.
  *
- * @interface LoadingProgressInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 8
- */
-/**
- * Provides an interface for extending the loading progress.
+ * The loading progress animation stops when the component is invisible. The component's visibility is determined by the
+ * value of **ratios** in the
+ * [onVisibleAreaChange]{@link CommonMethod#onVisibleAreaChange(ratios: Array<number>, event: VisibleAreaChangeCallback)}
+ * event callback: If the value is greater than 0, the component is visible.
  *
- * @interface LoadingProgressInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @since 9
- */
-/**
- * Provides an interface for extending the loading progress.
+ * > **NOTE**
  *
- * @interface LoadingProgressInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Provides an interface for extending the loading progress.
+ * > - This component supports [WithTheme]{@link with_theme} since API version 26.0.0.
  *
- * @interface LoadingProgressInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 8 dynamic
+ * @noninterop
  */
 interface LoadingProgressInterface {
+
   /**
-   * Called when the progress bar progress is viewed.
+   * Creates a loading progress component.
    *
    * @returns { LoadingProgressAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Called when the progress bar progress is viewed.
-   *
-   * @returns { LoadingProgressAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Called when the progress bar progress is viewed.
-   *
-   * @returns { LoadingProgressAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Called when the progress bar progress is viewed.
-   *
-   * @returns { LoadingProgressAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   (): LoadingProgressAttribute;
 }
 
 /**
- * Declare the progress bar being loaded
+ * In addition to the
+ * [universal attributes](docroot://reference/apis-arkui/arkui-ts/ts-component-general-attributes.md), the following
+ * attributes are supported.
  *
- * @extends CommonMethod<LoadingProgressAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 8
- */
-/**
- * Declare the progress bar being loaded
+ * The [universal events](docroot://reference/apis-arkui/arkui-ts/ts-component-general-events.md) are supported.
  *
- * @extends CommonMethod<LoadingProgressAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @since 9
- */
-/**
- * Declare the progress bar being loaded
- *
- * @extends CommonMethod<LoadingProgressAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Declare the progress bar being loaded
- *
- * @extends CommonMethod<LoadingProgressAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 8 dynamic
+ * @noninterop
  */
 declare class LoadingProgressAttribute extends CommonMethod<LoadingProgressAttribute> {
+
   /**
-   * Load the color of the progress bar.
+   * Sets the foreground color for the **LoadingProgress** component.
    *
-   * @param { ResourceColor } value
+   * @param { ResourceColor } value - Foreground color of the **LoadingProgress** component.<br>Default value:<br>API
+   *     version 10 or earlier: **'#99666666'**<br>API version 11 or later: **'#ff666666'**
    * @returns { LoadingProgressAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Load the color of the progress bar.
-   *
-   * @param { ResourceColor } value
-   * @returns { LoadingProgressAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Load the color of the progress bar.
-   *
-   * @param { ResourceColor } value
-   * @returns { LoadingProgressAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Load the color of the progress bar.
-   *
-   * @param { ResourceColor } value
-   * @returns { LoadingProgressAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   color(value: ResourceColor): LoadingProgressAttribute;
 
   /**
-   * Whether to display the LoadingProgress content.
-   * 
-   * @param { boolean } value - indicates the state of LoadingProgress content
+   * Sets whether to display the LoadingProgress animation. The component still takes up space in the layout when the
+   * loading animation is not shown. The universal attribute [Visibility]{@link Visibility}.Hidden hides the entire
+   * component area, including the regions specified by [border]{@link CommonMethod#border} and
+   * [padding]{@link CommonMethod#padding}. In contrast, when the value of **enableLoading** is set to **false**, only
+   * the loading animation itself is hidden without affecting the borders or other elements.
+   *
+   * @param { boolean } value - Whether to show the loading animation.<br>Default value: **true**. **true**: Show the
+   *     loading animation. **false**: Do not show the loading animation.
    * @returns { LoadingProgressAttribute } the attribute of the LoadingProgress.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Whether to display the LoadingProgress content.
-   * 
-   * @param { boolean } value - indicates the state of LoadingProgress content
-   * @returns { LoadingProgressAttribute } the attribute of the LoadingProgress.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   enableLoading(value: boolean): LoadingProgressAttribute;
 
   /**
-   * Set the content modifier of loadingProgress.
+   * Creates a content modifier.
    *
-   * @param { ContentModifier<LoadingProgressConfiguration> } modifier - The contentModifier of LoadingProgress.
+   * @param { ContentModifier<LoadingProgressConfiguration> } modifier - Content modifier to apply to the current
+   *     component.<br>**modifier**: content modifier. You need a custom class to implement the **ContentModifier** API.
    * @returns { LoadingProgressAttribute} the attribute of the loading progress
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -332,21 +161,24 @@ declare class LoadingProgressAttribute extends CommonMethod<LoadingProgressAttri
 }
 
 /**
- * LoadingProgressConfiguration used by LoadingProgress contentModifier
+ * You need a custom class to implement the **ContentModifier** API. Inherits from
+ * [CommonConfiguration]{@link CommonConfiguration}.
  *
- * @extends CommonConfiguration<LoadingProgressConfiguration>
- * @interface LoadingProgressConfiguration
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
  */
 declare interface LoadingProgressConfiguration extends CommonConfiguration<LoadingProgressConfiguration> {
+
   /**
-   * Whether to enable the LoadingProgress content.
-   * 
-   * @type { boolean } 
+   * Whether to show the loading animation.
+   *
+   * Default value: **true**. **true**: Show the loading animation. **false**: Do not show the loading animation.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -355,34 +187,27 @@ declare interface LoadingProgressConfiguration extends CommonConfiguration<Loadi
 }
 
 /**
- * Defines LoadingProgress Component.
+ * The **LoadingProgress** component is used to create a loading progress animation.
+ *
+ * The loading progress animation stops when the component is invisible. The component's visibility is determined by the
+ * value of **ratios** in the
+ * [onVisibleAreaChange]{@link CommonMethod#onVisibleAreaChange(ratios: Array<number>, event: VisibleAreaChangeCallback)}
+ * event callback: If the value is greater than 0, the component is visible.
+ *
+ * > **NOTE**
+ *
+ * > - This component supports [WithTheme]{@link with_theme} since API version 26.0.0.
+ *
+ * ###### Child Components
+ *
+ * Not supported
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 8
- */
-/**
- * Defines LoadingProgress Component.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @since 9
- */
-/**
- * Defines LoadingProgress Component.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Defines LoadingProgress Component.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 8 dynamic
+ * @noninterop
  */
 declare const LoadingProgress: LoadingProgressInterface;
 
@@ -390,30 +215,10 @@ declare const LoadingProgress: LoadingProgressInterface;
  * Loading Progress Extensions on Declarative Classes
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 8
- */
-/**
- * Loading Progress Extensions on Declarative Classes
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @since 9
- */
-/**
- * Loading Progress Extensions on Declarative Classes
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Loading Progress Extensions on Declarative Classes
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 8 dynamic
+ * @noninterop
  */
 declare const LoadingProgressInstance: LoadingProgressAttribute;

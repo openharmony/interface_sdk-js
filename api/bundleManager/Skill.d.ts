@@ -14,14 +14,20 @@
  */
 
 /**
+ * The module defines a skill object. Such an object can be obtained through 
+ * [bundleManager.getBundleInfoForSelf]{@link ./../@ohos.bundle.bundleManager:bundleManager.getBundleInfoForSelf(bundleFlags: int)}
+ * , with at least **GET_BUNDLE_INFO_WITH_HAP_MODULE**, **GET_BUNDLE_INFO_WITH_ABILITY**, and 
+ * **GET_BUNDLE_INFO_WITH_SKILL** passed in to **bundleFlags**. (The skill information is contained in 
+ * [BundleInfo]{@link BundleInfo} -> [HapModuleInfo]{@link HapModuleInfo} -> [AbilityInfo]{@link AbilityInfo} or 
+ * [ExtensionAbilityInfo]{@link ExtensionAbilityInfo:ExtensionAbilityInfo}.)
+ *
  * @file
  * @kit AbilityKit
  */
 
 /**
- * Obtains configuration information about an skill
+ * The module defines a skill object.
  *
- * @typedef Skill
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @atomicservice
  * @since 12 dynamic
@@ -31,8 +37,6 @@ export interface Skill {
   /**
    * Indicates the actions of the skill
    *
-   * @type { Array<string> }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 12 dynamic
@@ -43,8 +47,6 @@ export interface Skill {
   /**
    * Indicates the entities of the skill
    *
-   * @type { Array<string> }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 12 dynamic
@@ -55,8 +57,6 @@ export interface Skill {
   /**
    * Indicates the uris of the skill
    *
-   * @type { Array<SkillUri> }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 12 dynamic
@@ -67,8 +67,6 @@ export interface Skill {
   /**
    * Indicates the domainVerify of the skill
    *
-   * @type { boolean }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 12 dynamic
@@ -78,9 +76,8 @@ export interface Skill {
 }
 
 /**
- * Obtains configuration information about an skillUri
+ * Indicates the uris of the skill
  *
- * @typedef SkillUri
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @atomicservice
  * @since 12 dynamic
@@ -90,8 +87,6 @@ export interface SkillUri {
   /**
    * Indicates the scheme of the skillUri
    *
-   * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 12 dynamic
@@ -102,8 +97,6 @@ export interface SkillUri {
   /**
    * Indicates the host of the skillUri
    *
-   * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 12 dynamic
@@ -114,8 +107,6 @@ export interface SkillUri {
   /**
    * Indicates the port of the skillUri
    *
-   * @type { int }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 12 dynamic
@@ -125,8 +116,6 @@ export interface SkillUri {
   /**
    * Indicates the port of the skillUri
    *
-   * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 23 static
@@ -136,8 +125,6 @@ export interface SkillUri {
   /**
    * Indicates the path of the skillUri
    *
-   * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 12 dynamic
@@ -148,8 +135,6 @@ export interface SkillUri {
   /**
    * Indicates the pathStartWith of the skillUri
    *
-   * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 12 dynamic
@@ -160,8 +145,6 @@ export interface SkillUri {
   /**
    * Indicates the pathRegex of the skillUri
    *
-   * @type {string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 12 dynamic
@@ -172,8 +155,6 @@ export interface SkillUri {
   /**
    * Indicates the type of the skillUri
    *
-   * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 12 dynamic
@@ -184,8 +165,6 @@ export interface SkillUri {
   /**
    * Indicates the utd of the skillUri
    *
-   * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 12 dynamic
@@ -196,8 +175,6 @@ export interface SkillUri {
   /**
    * Indicates the maxFileSupported of the skillUri
    *
-   * @type { int }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 12 dynamic
@@ -208,8 +185,6 @@ export interface SkillUri {
   /**
    * Indicates the linkFeature of the skillUri
    *
-   * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 12 dynamic

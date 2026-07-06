@@ -25,9 +25,10 @@ import { RecordData } from './@ohos.base';
 /*** endif */
 
 /**
- * AtomicServiceOptions is the basic communication component of the system.
+ * **AtomicServiceOptions** is used as an input parameter of
+ * [openAtomicService()]{@link ./application/UIAbilityContext:UIAbilityContext.openAtomicService} to carry arguments. It
+ * inherits from [StartOptions]{@link @ohos.app.ability.StartOptions:StartOptions}.
  *
- * @extends StartOptions
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @stagemodelonly
  * @atomicservice
@@ -36,9 +37,9 @@ import { RecordData } from './@ohos.base';
  */
 export default class AtomicServiceOptions extends StartOptions {
   /**
-   * The options of the flags in this AtomicServiceOptions.
+   * Mode in which the system processes the startup. For example, **wantConstant.Flags.FLAG_INSTALL_ON_DEMAND**
+   * indicates that the installation-free capability is used.
    *
-   * @type { ?int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
@@ -48,9 +49,8 @@ export default class AtomicServiceOptions extends StartOptions {
   flags?: int;
 
   /**
-   * The description of the WantParams object in an AtomicServiceOptions
+   * Additional parameters. For details, see the **parameters** field in [Want]{@link @ohos.app.ability.Want:Want}.
    *
-   * @type { ?Record<string, Object> }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
@@ -59,9 +59,8 @@ export default class AtomicServiceOptions extends StartOptions {
   parameters?: Record<string, Object>;
 
   /**
-   * The description of the WantParams object in an AtomicServiceOptions
+   * Additional parameters. For details, see the **parameters** field in [Want]{@link @ohos.app.ability.Want:Want}.
    *
-   * @type { ?Record<string, RecordData> }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 23 static
@@ -69,9 +68,8 @@ export default class AtomicServiceOptions extends StartOptions {
   parameters?: Record<string, RecordData>;
 
   /**
-   * The completion handler of openAtomicService.
+   * Operation class for receiving the result of opening an atomic service.
    *
-   * @type { ?CompletionHandlerForAtomicService }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice

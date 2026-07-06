@@ -22,9 +22,8 @@ import type { AsyncCallback, Callback } from './@ohos.base';
 import type Context from './application/Context';
 
 /**
- * System print
+ * The **print** module provides APIs for basic print operations.
  *
- * @namespace print
  * @syscap SystemCapability.Print.PrintFramework
  * @since 10 dynamic
  * @since 23 static
@@ -32,21 +31,23 @@ import type Context from './application/Context';
 declare namespace print {
 
   /**
-   * PrintTask provide event callback.
-   * @interface PrintTask
+   * Implements event listeners for print jobs.
+   *
    * @syscap SystemCapability.Print.PrintFramework
    * @since 10 dynamic
    * @since 23 static
    */
   interface PrintTask {
     /**
-     * Register event callback when the current print task is in process.
+     * Subscribes to the block events of a print job. This API uses an asynchronous callback to return the result.
+     *
      * @permission ohos.permission.PRINT
-     * @param { 'block' } type - Indicates the print task has been blocked.
-     * @param { Callback<void> } callback - The callback function for print task change event
+     * @param { 'block' } type - Listening type.<br>The value is fixed at **'block'**.<br>It means that the print job is
+     *     blocked.
+     * @param { Callback<void> } callback - Callback used to notify the caller that the print job is blocked.
      * @throws { BusinessError } 201 - the application does not have permission to call this function.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *   1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+     *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @syscap SystemCapability.Print.PrintFramework
      * @since 10 dynamic
      */
@@ -54,6 +55,7 @@ declare namespace print {
 
     /**
      * Register event callback when the current print task is in process.
+     *
      * @permission ohos.permission.PRINT
      * @param { Callback<void> } callback - The callback function for print task change event
      * @throws { BusinessError } 201 - the application does not have permission to call this function.
@@ -65,13 +67,15 @@ declare namespace print {
     onBlock(callback: Callback<void>): void;
 
     /**
-     * Register event callback when the current print task is in process.
+     * Subscribes to the success events of a print job. This API uses an asynchronous callback to return the result.
+     *
      * @permission ohos.permission.PRINT
-     * @param { 'succeed' } type - Indicates the print task succeed.
-     * @param { Callback<void> } callback - The callback function for print task change event
+     * @param { 'succeed' } type - Listening type.<br>The value is fixed at **'succeed'**.<br>It means that the print
+     *     job is successful.
+     * @param { Callback<void> } callback - Callback used to notify the caller that the print job is successful.
      * @throws { BusinessError } 201 - the application does not have permission to call this function.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *   1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+     *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @syscap SystemCapability.Print.PrintFramework
      * @since 10 dynamic
      */
@@ -79,6 +83,7 @@ declare namespace print {
 
     /**
      * Register event callback when the current print task is in process.
+     *
      * @permission ohos.permission.PRINT
      * @param { Callback<void> } callback - The callback function for print task change event
      * @throws { BusinessError } 201 - the application does not have permission to call this function.
@@ -90,13 +95,15 @@ declare namespace print {
     onSucceed(callback: Callback<void>): void;
 
     /**
-     * Register event callback when the current print task is in process.
+     * Subscribes to the failure events of a print job. This API uses an asynchronous callback to return the result.
+     *
      * @permission ohos.permission.PRINT
-     * @param { 'fail' } type - Indicates the print task has completed with failure.
-     * @param { Callback<void> } callback - The callback function for print task change event
+     * @param { 'fail' } type - Listening type.<br>The value is fixed at **'fail'**.<br>It means that the print job is
+     *     failed.
+     * @param { Callback<void> } callback - Callback used to notify the caller that the print job is failed.
      * @throws { BusinessError } 201 - the application does not have permission to call this function.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *   1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+     *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @syscap SystemCapability.Print.PrintFramework
      * @since 10 dynamic
      */
@@ -104,6 +111,7 @@ declare namespace print {
 
     /**
      * Register event callback when the current print task is in process.
+     *
      * @permission ohos.permission.PRINT
      * @param { Callback<void> } callback - The callback function for print task change event
      * @throws { BusinessError } 201 - the application does not have permission to call this function.
@@ -115,13 +123,16 @@ declare namespace print {
     onFail(callback: Callback<void>): void;
 
     /**
-     * Register event callback when the current print task is in process.
+     * Subscribes to the cancellation events of a print job. This API uses an asynchronous callback to return the
+     * result.
+     *
      * @permission ohos.permission.PRINT
-     * @param { 'cancel' } type - Indicates the print task has been cancelled.
-     * @param { Callback<void> } callback - The callback function for print task change event
+     * @param { 'cancel' } type - Listening type.<br>The value is fixed at **'cancel'**.<br>It means that the print job
+     *     is canceled.
+     * @param { Callback<void> } callback - Callback used to notify the caller that the print job is canceled.
      * @throws { BusinessError } 201 - the application does not have permission to call this function.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *   1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+     *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @syscap SystemCapability.Print.PrintFramework
      * @since 10 dynamic
      */
@@ -129,6 +140,7 @@ declare namespace print {
 
     /**
      * Register event callback when the current print task is in process.
+     *
      * @permission ohos.permission.PRINT
      * @param { Callback<void> } callback - The callback function for print task change event
      * @throws { BusinessError } 201 - the application does not have permission to call this function.
@@ -140,13 +152,15 @@ declare namespace print {
     onCancel(callback: Callback<void>): void;
 
     /**
-     * Unregister event callback when the current print task is in process.
+     * Unsubscribes from the block events of a print job. This API uses an asynchronous callback to return the result.
+     *
      * @permission ohos.permission.PRINT
-     * @param { 'block' } type - Indicates the print task has been blocked.
-     * @param { Callback<void> } callback - The callback function for print task change event
+     * @param { 'block' } type - Listening type.<br>The value is fixed at **'block'**.<br>It means that the print job is
+     *     blocked.
+     * @param { Callback<void> } callback - Callback used to unsubscribe from the block events of a specified print job.
      * @throws { BusinessError } 201 - the application does not have permission to call this function.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *   1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+     *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @syscap SystemCapability.Print.PrintFramework
      * @since 10 dynamic
      */
@@ -154,6 +168,7 @@ declare namespace print {
 
     /**
      * Unregister event callback when the current print task is in process.
+     *
      * @permission ohos.permission.PRINT
      * @param { Callback<void> } [callback] - The callback function for print task change event
      * @throws { BusinessError } 201 - the application does not have permission to call this function.
@@ -165,13 +180,16 @@ declare namespace print {
     offBlock(callback?: Callback<void>): void;
 
     /**
-     * Unregister event callback when the current print task is in process.
+     * Unsubscribes from the success events of a print job. This API uses an asynchronous callback to return the result.
+     *
      * @permission ohos.permission.PRINT
-     * @param { 'succeed' } type - Indicates the print task succeed.
-     * @param { Callback<void> } callback - The callback function for print task change event
+     * @param { 'succeed' } type - Listening type.<br>The value is fixed at **'succeed'**.<br>It means that the print
+     *     job is successful.
+     * @param { Callback<void> } callback - Callback used to unsubscribe from the success events of a specified print
+     *     job.
      * @throws { BusinessError } 201 - the application does not have permission to call this function.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *   1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+     *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @syscap SystemCapability.Print.PrintFramework
      * @since 10 dynamic
      */
@@ -179,6 +197,7 @@ declare namespace print {
 
     /**
      * Unregister event callback when the current print task is in process.
+     *
      * @permission ohos.permission.PRINT
      * @param { Callback<void> } [callback] - The callback function for print task change event
      * @throws { BusinessError } 201 - the application does not have permission to call this function.
@@ -190,13 +209,16 @@ declare namespace print {
     offSucceed(callback?: Callback<void>): void;
 
     /**
-     * Unregister event callback when the current print task is in process.
+     * Unsubscribes from the failure events of a print job. This API uses an asynchronous callback to return the result.
+     *
      * @permission ohos.permission.PRINT
-     * @param { 'fail' } type - Indicates the print task has completed with failure.
-     * @param { Callback<void> } callback - The callback function for print task change event
+     * @param { 'fail' } type - Listening type.<br>The value is fixed at **'fail'**.<br>It means that the print job is
+     *     failed.
+     * @param { Callback<void> } callback - Callback used to unsubscribe from the failure events of a specified print
+     *     job.
      * @throws { BusinessError } 201 - the application does not have permission to call this function.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *   1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+     *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @syscap SystemCapability.Print.PrintFramework
      * @since 10 dynamic
      */
@@ -204,6 +226,7 @@ declare namespace print {
 
     /**
      * Unregister event callback when the current print task is in process.
+     *
      * @permission ohos.permission.PRINT
      * @param { Callback<void> } [callback] - The callback function for print task change event
      * @throws { BusinessError } 201 - the application does not have permission to call this function.
@@ -215,13 +238,17 @@ declare namespace print {
     offFail(callback?: Callback<void>): void;
 
     /**
-     * Unregister event callback when the current print task is in process.
+     * Unsubscribes from the cancellation events of a print job. This API uses an asynchronous callback to return the
+     * result.
+     *
      * @permission ohos.permission.PRINT
-     * @param { 'cancel' } type - Indicates the print task has been cancelled.
-     * @param { Callback<void> } callback - The callback function for print task change event
+     * @param { 'cancel' } type - Listening type.<br>The value is fixed at **'cancel'**.<br>It means that the print job
+     *     is canceled.
+     * @param { Callback<void> } callback - Callback used to unsubscribe from the cancellation events of a specified
+     *     print job.
      * @throws { BusinessError } 201 - the application does not have permission to call this function.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *   1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+     *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @syscap SystemCapability.Print.PrintFramework
      * @since 10 dynamic
      */
@@ -229,6 +256,7 @@ declare namespace print {
 
     /**
      * Unregister event callback when the current print task is in process.
+     *
      * @permission ohos.permission.PRINT
      * @param { Callback<void> } [callback] - The callback function for print task change event
      * @throws { BusinessError } 201 - the application does not have permission to call this function.
@@ -242,8 +270,8 @@ declare namespace print {
   }
 
   /**
-   * Third-party application implement this interface to render files to be printed.
-   * @interface PrintDocumentAdapter
+   * Provides information about the document to print. This API must be implemented by a third-party application.
+   *
    * @syscap SystemCapability.Print.PrintFramework
    * @since 11 dynamic
    * @since 23 static
@@ -251,15 +279,18 @@ declare namespace print {
   interface PrintDocumentAdapter {
 
     /**
-     * Implement this function to update the print file.
+     * Sends an empty PDF file descriptor to a third-party application. The third-party application updates the file
+     * with the new print attributes and then calls **writeResultCallback** to print the file.
+     *
      * @permission ohos.permission.PRINT
-     * @param { string } jobId - Indicates print job id.
-     * @param { PrintAttributes } oldAttrs - Indicates old print attributes.
-     * @param { PrintAttributes } newAttrs - Indicates new print attributes.
-     * @param { int } fd - Indicates print file fd.
-     * @param { function } writeResultCallback - Indicates this function should execute after the file is updated.
+     * @param { string } jobId - ID of the print job.
+     * @param { PrintAttributes } oldAttrs - Old print attributes.
+     * @param { PrintAttributes } newAttrs - New print attributes.
+     * @param { int } fd - PDF file descriptor sent to the API caller.
+     * @param { function } writeResultCallback - Callback used to print the updated file.
      * @throws { BusinessError } 201 - the application does not have permission to call this function.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @syscap SystemCapability.Print.PrintFramework
      * @since 11 dynamic
      * @since 23 static
@@ -268,10 +299,11 @@ declare namespace print {
       writeResultCallback: (jobId: string, writeResult: PrintFileCreationState) => void): void;
 
     /**
-     * Implement this function to listen job status change.
+     * Registers a listener for print job state changes.
+     *
      * @permission ohos.permission.PRINT
-     * @param { string } jobId - Indicates print job id.
-     * @param { PrintDocumentAdapterState } state - Indicates job changes to this state.
+     * @param { string } jobId - ID of the print job.
+     * @param { PrintDocumentAdapterState } state - New state of the print job.
      * @throws { BusinessError } 201 - the application does not have permission to call this function.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
@@ -283,39 +315,60 @@ declare namespace print {
   }
 
   /**
-   * Start new print task for App.
+   * Prints files. This API uses an asynchronous callback to return the result. To start the system print preview page,
+   * call the [print]{@link print.print(files: Array<string>, context: Context)} API and pass in context.
+   *
    * @permission ohos.permission.PRINT
-   * @param { Array<string> } files - Indicates the filepath list to be printed. Only pdf and picture filetype are supported.
-   * @param { AsyncCallback<PrintTask> } callback - The callback function for print task.
+   * @param { Array<string> } files - List of files to print. Images (in .jpg, .png, .gif, .bmp, or .webp format) and
+   *     PDF files are supported. You should save the files to the application sandbox, obtain the sandbox URI through
+   *     **fileUri.getUriFromPath**, and then pass this URI as a parameter to this API.
+   * @param { AsyncCallback<PrintTask> } callback - Callback to be invoked when the print job is finished.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @syscap SystemCapability.Print.PrintFramework
    * @since 10 dynamic
    * @since 23 static
+   * @deprecated since 26.0.0
+   * @useinstead print#print
    */
   function print(files: Array<string>, callback: AsyncCallback<PrintTask>): void;
 
   /**
-   * Start new print task for App.
+   * Prints files. This API uses a promise to return the result. To start the system print preview page, call the
+   * [print]{@link print.print(files: Array<string>, context: Context)} API and pass in context.
+   *
    * @permission ohos.permission.PRINT
-   * @param { Array<string> } files - Indicates the filepath list to be printed. Only pdf and picture filetype are supported.
-   * @returns { Promise<PrintTask> } the promise returned by the function.
+   * @param { Array<string> } files - List of files to print. Images (in .jpg, .png, .gif, .bmp, or .webp format) and
+   *     PDF files are supported. You should save the files to the application sandbox, obtain the sandbox URI through
+   *     **fileUri.getUriFromPath**, and then pass this URI as a parameter to this API.
+   * @returns { Promise<PrintTask> } Promise used to return a [PrintTask]{@link print.PrintTask} object.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @syscap SystemCapability.Print.PrintFramework
    * @since 10 dynamic
    * @since 23 static
+   * @deprecated since 26.0.0
+   * @useinstead print#print
    */
   function print(files: Array<string>): Promise<PrintTask>;
 
   /**
-   * Start new print task for App.
+   * Prints files. This API uses an asynchronous callback to return the result.
+   *
    * @permission ohos.permission.PRINT
-   * @param { Array<string> } files - Indicates the filepath list to be printed. Only pdf and picture filetype are supported.
-   * @param { Context } context - The ability context that initiates the call print request.
-   * @param { AsyncCallback<PrintTask> } callback - The callback function for print task.
+   * @param { Array<string> } files - List of files to be printed. Currently, the following file types are supported: "
+   *     .bm", ".bmp", ".doc", ".docm", ".docx", ".dot", ".dotm", ".dotx", ".gif", ".jfif", ".jpe", ".jpeg", ".jpg", "
+   *     pdf", ".pot", ".potm", ".potx", ".pps", ".ppsm", ".ppsx", ".ppt", ".pptm", ".pptx", ".png", ".rtf", ".txt", "
+   *     .webp", ".wps", ".xls", ".xlsb", ".xlsm", ".xlsx", ".xlt", ".xltx", and ".xml". You should save the files to
+   *     the application sandbox, obtain the sandbox URI through **fileUri.getUriFromPath**, and then pass this URI as a
+   *     parameter to this API.
+   * @param { Context } context - UIAbilityContext used to start the system print UI.
+   * @param { AsyncCallback<PrintTask> } callback - Callback to be invoked when the print job is finished.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @syscap SystemCapability.Print.PrintFramework
    * @since 11 dynamic
    * @since 23 static
@@ -323,13 +376,20 @@ declare namespace print {
   function print(files: Array<string>, context: Context, callback: AsyncCallback<PrintTask>): void;
 
   /**
-   * Start new print task for App.
+   * Prints files. This API uses a promise to return the result.
+   *
    * @permission ohos.permission.PRINT
-   * @param { Array<string> } files - Indicates the filepath list to be printed. Only pdf and picture filetype are supported.
-   * @param { Context } context - The ability context that initiates the call print request.
-   * @returns { Promise<PrintTask> } the promise returned by the function.
+   * @param { Array<string> } files - List of files to be printed. Currently, the following file types are supported: "
+   *     .bm", ".bmp", ".doc", ".docm", ".docx", ".dot", ".dotm", ".dotx", ".gif", ".jfif", ".jpe", ".jpeg", ".jpg", "
+   *     pdf", ".pot", ".potm", ".potx", ".pps", ".ppsm", ".ppsx", ".ppt", ".pptm", ".pptx", ".png", ".rtf", ".txt", "
+   *     .webp", ".wps", ".xls", ".xlsb", ".xlsm", ".xlsx", ".xlt", ".xltx", and ".xml". You should save the files to
+   *     the application sandbox, obtain the sandbox URI through **fileUri.getUriFromPath**, and then pass this URI as a
+   *     parameter to this API.
+   * @param { Context } context - UIAbilityContext used to start the system print UI.
+   * @returns { Promise<PrintTask> } Promise used to return a [PrintTask]{@link print.PrintTask} object.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @syscap SystemCapability.Print.PrintFramework
    * @since 11 dynamic
    * @since 23 static
@@ -337,15 +397,20 @@ declare namespace print {
   function print(files: Array<string>, context: Context): Promise<PrintTask>;
 
   /**
-   * Start new print task for App And the App need update print file.
+   * Prints a file. This API uses a promise to return the result.
+   *
    * @permission ohos.permission.PRINT
-   * @param { string } jobName - Indicates print file Name.
-   * @param { PrintDocumentAdapter } printAdapter - Indicates functions implemented by the cpp.
-   * @param { PrintAttributes } printAttributes - Indicates print attributes.
-   * @param { Context } context - The ability context that initiates the call print request.
-   * @returns { Promise<PrintTask> } the promise returned by the function.
+   * @param { string } jobName - Name of the file to print, for example, **test.pdf**. The printer uses the
+   *     [onStartLayoutWrite]{@link print.PrintDocumentAdapter.onStartLayoutWrite} API to send the **fd** of the empty
+   *     PDF file to the API caller. The API caller uses the new print attributes to update the file to print.
+   * @param { PrintDocumentAdapter } printAdapter - [PrintDocumentAdapter]{@link print.PrintDocumentAdapter} API
+   *     instance implemented by a third-party application.
+   * @param { PrintAttributes } printAttributes - Print attributes.
+   * @param { Context } context - UIAbilityContext used to start the system print UI.
+   * @returns { Promise<PrintTask> } Promise used to return a [PrintTask]{@link print.PrintTask} object.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @syscap SystemCapability.Print.PrintFramework
    * @since 11 dynamic
    * @since 23 static
@@ -354,16 +419,16 @@ declare namespace print {
     context: Context): Promise<PrintTask>;
 
   /**
-   * defines print attributes.
-   * @typedef PrintAttributes
+   * Defines the print attributes.
+   *
    * @syscap SystemCapability.Print.PrintFramework
    * @since 11 dynamic
    * @since 23 static
    */
   interface PrintAttributes {
     /**
-     * Copies of document list.
-     * @type { ?int }
+     * Number of printed file copies. The default value is **1**.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 11 dynamic
      * @since 23 static
@@ -371,8 +436,8 @@ declare namespace print {
     copyNumber?: int;
 
     /**
-     * Range size to be printed.
-     * @type { ?PrintPageRange }
+     * Page range of the file to print.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 11 dynamic
      * @since 23 static
@@ -380,8 +445,8 @@ declare namespace print {
     pageRange?: PrintPageRange;
 
     /**
-     * Page size.
-     * @type { ?(PrintPageSize | PrintPageType) }
+     * Page size of the file to print.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 11 dynamic
      * @since 23 static
@@ -389,8 +454,8 @@ declare namespace print {
     pageSize?: PrintPageSize | PrintPageType;
 
     /**
-     * Print direction.
-     * @type { ?PrintDirectionMode }
+     * Print direction mode.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 11 dynamic
      * @since 23 static
@@ -398,8 +463,8 @@ declare namespace print {
     directionMode?: PrintDirectionMode;
 
     /**
-     * Color mode.
-     * @type { ?PrintColorMode }
+     * Color mode of the files to print.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 11 dynamic
      * @since 23 static
@@ -407,8 +472,8 @@ declare namespace print {
     colorMode?: PrintColorMode;
 
     /**
-     * Duplex mode.
-     * @type { ?PrintDuplexMode }
+     * Duplex mode of the files to print.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 11 dynamic
      * @since 23 static
@@ -417,16 +482,16 @@ declare namespace print {
   }
 
   /**
-   * defines print page range.
-   * @typedef PrintPageRange
+   * Defines the print range.
+   *
    * @syscap SystemCapability.Print.PrintFramework
    * @since 11 dynamic
    * @since 23 static
    */
   interface PrintPageRange {
     /**
-     * Start page of sequence.
-     * @type { ?int }
+     * Start page. The default value is **1**.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 11 dynamic
      * @since 23 static
@@ -434,8 +499,8 @@ declare namespace print {
     startPage?: int;
 
     /**
-     * End page of sequence.
-     * @type { ?int }
+     * End page. The default value is the maximum number of pages of the file to be printed.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 11 dynamic
      * @since 23 static
@@ -443,8 +508,8 @@ declare namespace print {
     endPage?: int;
 
     /**
-     * Discrete page of sequence.
-     * @type { ?Array<int> }
+     * Page range set of the file to print. The default value is empty.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 11 dynamic
      * @since 23 static
@@ -453,284 +518,192 @@ declare namespace print {
   }
 
   /**
-   * defines print margin.
-   * @typedef PrintMargin
+   * Defines the page margins for printing.
+   *
    * @syscap SystemCapability.Print.PrintFramework
-   * @systemapi Hide this for inner system use.
+   * @systemapi Hide this for inner system use. [since 10 - 23]
+   * @publicapi [since 24]
    * @since 10 dynamic
    * @since 23 static
    */
-  /**
-   * Defines print margin.
-   * @typedef PrintMargin
-   * @syscap SystemCapability.Print.PrintFramework
-   * @since 24 dynamic&static
-   */
   interface PrintMargin {
     /**
-     * Top margin.
-     * Unit: millimeter
-     * @type { ?int }
+     * Top margin of the page, in millimeters. The default value is **0**.
+     *
      * @syscap SystemCapability.Print.PrintFramework
-     * @systemapi
+     * @systemapi [since 10 - 23]
+     * @publicapi [since 24]
      * @since 10 dynamic
      * @since 23 static
-     */
-    /**
-     * Top margin.
-     * Unit: millimeter
-     * @type { ?int }
-     * @syscap SystemCapability.Print.PrintFramework
-     * @since 24 dynamic&static
      */
     top?: int;
 
     /**
-     * Bottom margin.
-     * Unit: millimeter
-     * @type { ?int }
+     * Bottom margin of the page, in millimeters. The default value is **0**.
+     *
      * @syscap SystemCapability.Print.PrintFramework
-     * @systemapi
+     * @systemapi [since 10 - 23]
+     * @publicapi [since 24]
      * @since 10 dynamic
      * @since 23 static
-     */
-    /**
-     * Bottom margin.
-     * Unit: millimeter
-     * @type { ?int }
-     * @syscap SystemCapability.Print.PrintFramework
-     * @since 24 dynamic&static
      */
     bottom?: int;
 
     /**
-     * Left margin.
-     * Unit: millimeter
-     * @type { ?int }
+     * Left margin of the page, in millimeters. The default value is **0**.
+     *
      * @syscap SystemCapability.Print.PrintFramework
-     * @systemapi
+     * @systemapi [since 10 - 23]
+     * @publicapi [since 24]
      * @since 10 dynamic
      * @since 23 static
-     */
-    /**
-     * Left margin.
-     * Unit: millimeter
-     * @type { ?int }
-     * @syscap SystemCapability.Print.PrintFramework
-     * @since 24 dynamic&static
      */
     left?: int;
 
     /**
-     * Right margin.
-     * Unit: millimeter
-     * @type { ?int }
+     * Right margin of the page, in millimeters. The default value is **0**.
+     *
      * @syscap SystemCapability.Print.PrintFramework
-     * @systemapi
+     * @systemapi [since 10 - 23]
+     * @publicapi [since 24]
      * @since 10 dynamic
      * @since 23 static
-     */
-    /**
-     * Right margin.
-     * Unit: millimeter
-     * @type { ?int }
-     * @syscap SystemCapability.Print.PrintFramework
-     * @since 24 dynamic&static
      */
     right?: int;
   }
 
   /**
-   * defines print range.
-   * @typedef PrinterRange
+   * Defines the print range.
+   *
    * @syscap SystemCapability.Print.PrintFramework
-   * @systemapi Hide this for inner system use.
+   * @systemapi Hide this for inner system use. [since 10 - 23]
+   * @publicapi [since 24]
    * @since 10 dynamic
    * @since 23 static
    */
-  /**
-   * Defines print range.
-   * @typedef PrinterRange
-   * @syscap SystemCapability.Print.PrintFramework
-   * @since 24 dynamic&static
-   */
   interface PrinterRange {
     /**
-     * Start page of sequence.
-     * @type { ?int }
+     * Start page. The default value is **1**.
+     *
      * @syscap SystemCapability.Print.PrintFramework
-     * @systemapi
+     * @systemapi [since 10 - 23]
+     * @publicapi [since 24]
      * @since 10 dynamic
      * @since 23 static
-     */
-    /**
-     * Start page of sequence.
-     * @type { ?int }
-     * @syscap SystemCapability.Print.PrintFramework
-     * @since 24 dynamic&static
      */
     startPage?: int;
 
     /**
-     * End page of sequence.
-     * @type { ?int }
+     * End page. The default value is the maximum number of pages of the file to be printed.
+     *
      * @syscap SystemCapability.Print.PrintFramework
-     * @systemapi
+     * @systemapi [since 10 - 23]
+     * @publicapi [since 24]
      * @since 10 dynamic
      * @since 23 static
-     */
-    /**
-     * End page of sequence.
-     * @type { ?int }
-     * @syscap SystemCapability.Print.PrintFramework
-     * @since 24 dynamic&static
      */
     endPage?: int;
 
     /**
-     * Discrete page of sequence.
-     * @type { ?Array<int> }
+     * Page range set of the file to print. The default value is empty.
+     *
      * @syscap SystemCapability.Print.PrintFramework
-     * @systemapi
+     * @systemapi [since 10 - 23]
+     * @publicapi [since 24]
      * @since 10 dynamic
      * @since 23 static
-     */
-    /**
-     * Discrete page of sequence.
-     * @type { ?Array<int> }
-     * @syscap SystemCapability.Print.PrintFramework
-     * @since 24 dynamic&static
      */
     pages?: Array<int>;
   }
 
   /**
-   * defines print preview attribute.
-   * @typedef PreviewAttribute
+   * Defines the print preview attributes.
+   *
    * @syscap SystemCapability.Print.PrintFramework
-   * @systemapi Hide this for inner system use.
+   * @systemapi Hide this for inner system use. [since 10 - 23]
+   * @publicapi [since 24]
    * @since 10 dynamic
    * @since 23 static
-   */
-  /**
-   * Defines print preview attribute.
-   * @typedef PreviewAttribute
-   * @syscap SystemCapability.Print.PrintFramework
-   * @since 24 dynamic&static
    */
   interface PreviewAttribute {
     /**
      * Preview page range.
-     * @type { PrinterRange }
+     *
      * @syscap SystemCapability.Print.PrintFramework
-     * @systemapi
+     * @systemapi [since 10 - 23]
+     * @publicapi [since 24]
      * @since 10 dynamic
      * @since 23 static
-     */
-    /**
-     * Preview page range.
-     * @type { PrinterRange }
-     * @syscap SystemCapability.Print.PrintFramework
-     * @since 24 dynamic&static
      */
     previewRange: PrinterRange;
 
     /**
-     * Preview file result.
-     * @type { ?int }
+     * Print preview result. The default value is **-1**.
+     *
      * @syscap SystemCapability.Print.PrintFramework
-     * @systemapi
+     * @systemapi [since 10 - 23]
+     * @publicapi [since 24]
      * @since 10 dynamic
      * @since 23 static
-     */
-    /**
-     * Preview file result.
-     * @type { ?int }
-     * @syscap SystemCapability.Print.PrintFramework
-     * @since 24 dynamic&static
      */
     result?: int;
   }
 
   /**
-   * defines print resolution.
-   * @typedef PrintResolution
+   * Defines the resolution for printing.
+   *
    * @syscap SystemCapability.Print.PrintFramework
-   * @systemapi Hide this for inner system use.
+   * @systemapi Hide this for inner system use. [since 10 - 23]
+   * @publicapi [since 24]
    * @since 10 dynamic
    * @since 23 static
    */
-  /**
-   * Defines print resolution.
-   * @typedef PrintResolution
-   * @syscap SystemCapability.Print.PrintFramework
-   * @since 24 dynamic&static
-   */
   interface PrintResolution {
     /**
-     * Resolution id.
-     * @type { string }
+     * Resolution ID.
+     *
      * @syscap SystemCapability.Print.PrintFramework
-     * @systemapi
+     * @systemapi [since 10 - 23]
+     * @publicapi [since 24]
      * @since 10 dynamic
      * @since 23 static
-     */
-    /**
-     * Resolution id.
-     * @type { string }
-     * @syscap SystemCapability.Print.PrintFramework
-     * @since 24 dynamic&static
      */
     id: string;
 
     /**
      * Horizontal DPI.
-     * Unit: DPI
-     * @type { int }
+     *
      * @syscap SystemCapability.Print.PrintFramework
-     * @systemapi
+     * @systemapi [since 10 - 23]
+     * @publicapi [since 24]
      * @since 10 dynamic
      * @since 23 static
-     */
-    /**
-     * Horizontal DPI.
-     * Unit: DPI
-     * @type { int }
-     * @syscap SystemCapability.Print.PrintFramework
-     * @since 24 dynamic&static
      */
     horizontalDpi: int;
 
     /**
      * Vertical DPI.
-     * Unit: DPI
-     * @type { int }
+     *
      * @syscap SystemCapability.Print.PrintFramework
-     * @systemapi
+     * @systemapi [since 10 - 23]
+     * @publicapi [since 24]
      * @since 10 dynamic
      * @since 23 static
-     */
-    /**
-     * Vertical DPI.
-     * Unit: DPI
-     * @type { int }
-     * @syscap SystemCapability.Print.PrintFramework
-     * @since 24 dynamic&static
      */
     verticalDpi: int;
   }
 
   /**
-   * defines print page size.
-   * @typedef PrintPageSize
+   * Defines the size of the printed page.
+   *
    * @syscap SystemCapability.Print.PrintFramework
    * @since 11 dynamic
    * @since 23 static
    */
   interface PrintPageSize {
     /**
-     * Page size id.
-     * @type { string }
+     * Paper size ID.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 11 dynamic
      * @since 23 static
@@ -738,8 +711,8 @@ declare namespace print {
     id: string;
 
     /**
-     * Page size name.
-     * @type { string }
+     * Paper size name.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 11 dynamic
      * @since 23 static
@@ -747,8 +720,8 @@ declare namespace print {
     name: string;
 
     /**
-     * Unit: millimeter width.
-     * @type { int }
+     * Page width, in millimeters.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 11 dynamic
      * @since 23 static
@@ -756,8 +729,8 @@ declare namespace print {
     width: int;
 
     /**
-     * Unit: millimeter height.
-     * @type { int }
+     * Page height, in millimeters.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 11 dynamic
      * @since 23 static
@@ -766,513 +739,368 @@ declare namespace print {
   }
 
   /**
-   * defines print capability.
-   * @typedef PrinterCapability
+   * Defines the printer capabilities.
+   *
    * @syscap SystemCapability.Print.PrintFramework
-   * @systemapi Hide this for inner system use.
+   * @systemapi Hide this for inner system use. [since 10 - 23]
+   * @publicapi [since 24]
    * @since 10 dynamic
    * @since 23 static
-   */
-  /**
-   * Defines print capability.
-   * @typedef PrinterCapability
-   * @syscap SystemCapability.Print.PrintFramework
-   * @since 24 dynamic&static
    */
   interface PrinterCapability {
     /**
      * Color mode.
-     * @type { int }
+     *
      * @syscap SystemCapability.Print.PrintFramework
-     * @systemapi
+     * @systemapi [since 10 - 23]
+     * @publicapi [since 24]
      * @since 10 dynamic
      * @since 23 static
-     */
-    /**
-     * Color mode.
-     * @type { int }
-     * @syscap SystemCapability.Print.PrintFramework
-     * @since 24 dynamic&static
      */
     colorMode: int;
 
     /**
-     * Duplex mode.
-     * @type { int }
+     * Simplex or duplex mode.
+     *
      * @syscap SystemCapability.Print.PrintFramework
-     * @systemapi
+     * @systemapi [since 10 - 23]
+     * @publicapi [since 24]
      * @since 10 dynamic
      * @since 23 static
-     */
-    /**
-     * Duplex mode.
-     * @type { int }
-     * @syscap SystemCapability.Print.PrintFramework
-     * @since 24 dynamic&static
      */
     duplexMode: int;
 
     /**
-     * The page size list supported by the printer.
-     * @type { Array<PrintPageSize> }
+     * List of page sizes supported by the printer.
+     *
      * @syscap SystemCapability.Print.PrintFramework
-     * @systemapi
+     * @systemapi [since 10 - 23]
+     * @publicapi [since 24]
      * @since 10 dynamic
      * @since 23 static
-     */
-    /**
-     * The page size list supported by the printer.
-     * @type { Array<PrintPageSize> }
-     * @syscap SystemCapability.Print.PrintFramework
-     * @since 24 dynamic&static
      */
     pageSize: Array<PrintPageSize>;
 
     /**
-     * The resolution list supported by the printer.
-     * @type { ?Array<PrintResolution> }
+     * List of resolutions supported by the printer.
+     *
      * @syscap SystemCapability.Print.PrintFramework
-     * @systemapi
+     * @systemapi [since 10 - 23]
+     * @publicapi [since 24]
      * @since 10 dynamic
      * @since 23 static
-     */
-    /**
-     * The resolution list supported by the printer.
-     * @type { ?Array<PrintResolution> }
-     * @syscap SystemCapability.Print.PrintFramework
-     * @since 24 dynamic&static
      */
     resolution?: Array<PrintResolution>;
 
     /**
-     * Min margin of printer.
-     * @type { ?PrintMargin }
+     * Minimum margin of the printer.
+     *
      * @syscap SystemCapability.Print.PrintFramework
-     * @systemapi
+     * @systemapi [since 10 - 23]
+     * @publicapi [since 24]
      * @since 10 dynamic
      * @since 23 static
-     */
-    /**
-     * Minimum margin of the printer.
-     * @type { ?PrintMargin }
-     * @syscap SystemCapability.Print.PrintFramework
-     * @since 24 dynamic&static
      */
     minMargin?: PrintMargin;
 
     /**
-     * JSON object string.
-     * @type { ?Object }
+     * Printer options. The value is a JSON object string.
+     *
      * @syscap SystemCapability.Print.PrintFramework
-     * @systemapi
+     * @systemapi [since 11 - 23]
+     * @publicapi [since 24]
      * @since 11 dynamic
      * @since 23 static
-     */
-    /**
-     * JSON object string.
-     * @type { ?Object }
-     * @syscap SystemCapability.Print.PrintFramework
-     * @since 24 dynamic&static
      */
     options?: Object;
   }
 
   /**
-   * defines print info.
-   * @typedef PrinterInfo
+   * Provides the printer information.
+   *
    * @syscap SystemCapability.Print.PrintFramework
-   * @systemapi Hide this for inner system use.
+   * @systemapi Hide this for inner system use. [since 10 - 23]
+   * @publicapi [since 24]
    * @since 10 dynamic
    * @since 23 static
    */
-  /**
-   * Defines print info.
-   * @typedef PrinterInfo
-   * @syscap SystemCapability.Print.PrintFramework
-   * @since 24 dynamic&static
-   */
   interface PrinterInfo {
     /**
-     * Printer id.
-     * @type { string }
+     * Printer ID.
+     *
      * @syscap SystemCapability.Print.PrintFramework
-     * @systemapi
+     * @systemapi [since 10 - 23]
+     * @publicapi [since 24]
      * @since 10 dynamic
      * @since 23 static
-     */
-    /**
-     * Printer id.
-     * @type { string }
-     * @syscap SystemCapability.Print.PrintFramework
-     * @since 24 dynamic&static
      */
     printerId: string;
 
     /**
      * Printer name.
-     * @type { string }
+     *
      * @syscap SystemCapability.Print.PrintFramework
-     * @systemapi
+     * @systemapi [since 10 - 23]
+     * @publicapi [since 24]
      * @since 10 dynamic
      * @since 23 static
-     */
-    /**
-     * Printer name.
-     * @type { string }
-     * @syscap SystemCapability.Print.PrintFramework
-     * @since 24 dynamic&static
      */
     printerName: string;
 
     /**
-     * Current printer state.
-     * @type { PrinterState }
+     * Printer state.
+     *
      * @syscap SystemCapability.Print.PrintFramework
-     * @systemapi
+     * @systemapi [since 10 - 23]
+     * @publicapi [since 24]
      * @since 10 dynamic
      * @since 23 static
-     */
-    /**
-     * Current printer state.
-     * @type { PrinterState }
-     * @syscap SystemCapability.Print.PrintFramework
-     * @since 24 dynamic&static
      */
     printerState: PrinterState;
 
     /**
-     * Resource id of printer icon.
-     * @type { ?int }
+     * Resource ID of the printer icon. The default value is **-1**.
+     *
      * @syscap SystemCapability.Print.PrintFramework
-     * @systemapi
+     * @systemapi [since 10 - 23]
+     * @publicapi [since 24]
      * @since 10 dynamic
      * @since 23 static
-     */
-    /**
-     * Resource ID of printer icon.
-     * @type { ?int }
-     * @syscap SystemCapability.Print.PrintFramework
-     * @since 24 dynamic&static
      */
     printerIcon?: int;
 
     /**
      * Printer description.
-     * @type { ?string }
+     *
      * @syscap SystemCapability.Print.PrintFramework
-     * @systemapi
+     * @systemapi [since 10 - 23]
+     * @publicapi [since 24]
      * @since 10 dynamic
      * @since 23 static
-     */
-    /**
-     * Printer description.
-     * @type { ?string }
-     * @syscap SystemCapability.Print.PrintFramework
-     * @since 24 dynamic&static
      */
     description?: string;
 
     /**
      * Printer capability.
-     * @type { ?PrinterCapability }
+     *
      * @syscap SystemCapability.Print.PrintFramework
-     * @systemapi
+     * @systemapi [since 10 - 23]
+     * @publicapi [since 24]
      * @since 10 dynamic
      * @since 23 static
-     */
-    /**
-     * Printer capability.
-     * @type { ?PrinterCapability }
-     * @syscap SystemCapability.Print.PrintFramework
-     * @since 24 dynamic&static
      */
     capability?: PrinterCapability;
 
     /**
-     * JSON object string.
-     * @type { ?Object }
+     * Printer options. The value is a JSON object string.
+     *
      * @syscap SystemCapability.Print.PrintFramework
-     * @systemapi
+     * @systemapi [since 10 - 23]
+     * @publicapi [since 24]
      * @since 10 dynamic
      * @since 23 static
-     */
-    /**
-     * JSON object string.
-     * @type { ?Object }
-     * @syscap SystemCapability.Print.PrintFramework
-     * @since 24 dynamic&static
      */
     options?: Object;
   }
 
   /**
-   * defines print job.
-   * @typedef PrintJob
+   * Defines a print job.
+   *
    * @syscap SystemCapability.Print.PrintFramework
-   * @systemapi Hide this for inner system use.
+   * @systemapi Hide this for inner system use. [since 10 - 23]
+   * @publicapi [since 24]
    * @since 10 dynamic
    * @since 23 static
    */
-  /**
-   * Defines print job.
-   * @typedef PrintJob
-   * @syscap SystemCapability.Print.PrintFramework
-   * @since 24 dynamic&static
-   */
   interface PrintJob {
     /**
-     * Document fd list to be printed.
-     * @type { Array<int> }
+     * FD list of files to print.
+     *
      * @syscap SystemCapability.Print.PrintFramework
-     * @systemapi
+     * @systemapi [since 10 - 23]
+     * @publicapi [since 24]
      * @since 10 dynamic
      * @since 23 static
-     */
-    /**
-     * Document FD list to be printed.
-     * @type { Array<int> }
-     * @syscap SystemCapability.Print.PrintFramework
-     * @since 24 dynamic&static
      */
     fdList: Array<int>;
 
     /**
-     * Job id.
-     * @type { string }
+     * ID of the print job.
+     *
      * @syscap SystemCapability.Print.PrintFramework
-     * @systemapi
+     * @systemapi [since 10 - 23]
+     * @publicapi [since 24]
      * @since 10 dynamic
      * @since 23 static
-     */
-    /**
-     * Job ID.
-     * @type { string }
-     * @syscap SystemCapability.Print.PrintFramework
-     * @since 24 dynamic&static
      */
     jobId: string;
 
     /**
-     * Printer id to take charge of printing.
-     * @type { string }
+     * ID of the printer used for printing.
+     *
      * @syscap SystemCapability.Print.PrintFramework
-     * @systemapi
+     * @systemapi [since 10 - 23]
+     * @publicapi [since 24]
      * @since 10 dynamic
      * @since 23 static
-     */
-    /**
-     * Printer ID that takes charge of printing.
-     * @type { string }
-     * @syscap SystemCapability.Print.PrintFramework
-     * @since 24 dynamic&static
      */
     printerId: string;
 
     /**
-     * Current print job state.
-     * @type { PrintJobState }
+     * State of the print job.
+     *
      * @syscap SystemCapability.Print.PrintFramework
-     * @systemapi
+     * @systemapi [since 10 - 23]
+     * @publicapi [since 24]
      * @since 10 dynamic
      * @since 23 static
-     */
-    /**
-     * Current print job state.
-     * @type { PrintJobState }
-     * @syscap SystemCapability.Print.PrintFramework
-     * @since 24 dynamic&static
      */
     jobState: PrintJobState;
 
     /**
-     * Current print job sub state.
-     * @type { PrintJobSubState }
+     * Substate of the print job.
+     *
      * @syscap SystemCapability.Print.PrintFramework
-     * @systemapi
+     * @systemapi [since 11 - 23]
+     * @publicapi [since 24]
      * @since 11 dynamic
      * @since 23 static
-     */
-    /**
-     * Current print job sub-state.
-     * @type { PrintJobSubState }
-     * @syscap SystemCapability.Print.PrintFramework
-     * @since 24 dynamic&static
      */
     jobSubstate: PrintJobSubState;
 
     /**
-     * Copies of document list.
-     * @type { int }
+     * Copy of the file list.
+     *
      * @syscap SystemCapability.Print.PrintFramework
-     * @systemapi
+     * @systemapi [since 10 - 23]
+     * @publicapi [since 24]
      * @since 10 dynamic
      * @since 23 static
-     */
-    /**
-     * Number of copies of the document.
-     * @type { int }
-     * @syscap SystemCapability.Print.PrintFramework
-     * @since 24 dynamic&static
      */
     copyNumber: int;
 
     /**
-     * Range size to be printed.
-     * @type { PrinterRange }
+     * Print range.
+     *
      * @syscap SystemCapability.Print.PrintFramework
-     * @systemapi
+     * @systemapi [since 10 - 23]
+     * @publicapi [since 24]
      * @since 10 dynamic
      * @since 23 static
-     */
-    /**
-     * Page range to be printed.
-     * @type { PrinterRange }
-     * @syscap SystemCapability.Print.PrintFramework
-     * @since 24 dynamic&static
      */
     pageRange: PrinterRange;
 
     /**
-     * Sequential print.
-     * @type { boolean }
+     * Whether the printing is sequential. The value **true** means that the printing is sequential, and **false** means
+     * the opposite. The default value is **false**.
+     *
      * @syscap SystemCapability.Print.PrintFramework
-     * @systemapi
+     * @systemapi [since 10 - 23]
+     * @publicapi [since 24]
      * @since 10 dynamic
      * @since 23 static
-     */
-    /**
-     * Sequential printing.
-     * @type { boolean }
-     * @syscap SystemCapability.Print.PrintFramework
-     * @since 24 dynamic&static
      */
     isSequential: boolean;
 
     /**
-     * The selected page size.
-     * @type { PrintPageSize }
+     * Selected page size.
+     *
      * @syscap SystemCapability.Print.PrintFramework
-     * @systemapi
+     * @systemapi [since 10 - 23]
+     * @publicapi [since 24]
      * @since 10 dynamic
      * @since 23 static
-     */
-    /**
-     * The selected page size.
-     * @type { PrintPageSize }
-     * @syscap SystemCapability.Print.PrintFramework
-     * @since 24 dynamic&static
      */
     pageSize: PrintPageSize;
 
     /**
-     * Vertical printing.
-     * @type { boolean }
+     * Whether pages are printed in landscape mode. The value **true** indicates that pages are printed in landscape
+     * mode, and **false** indicates that pages are printed in portrait mode. The default value is **false**.
+     *
      * @syscap SystemCapability.Print.PrintFramework
-     * @systemapi
+     * @systemapi [since 10 - 23]
+     * @publicapi [since 24]
      * @since 10 dynamic
      * @since 23 static
-     */
-    /**
-     * Vertical printing.
-     * @type { boolean }
-     * @syscap SystemCapability.Print.PrintFramework
-     * @since 24 dynamic&static
      */
     isLandscape: boolean;
 
     /**
      * Color mode.
-     * @type { int }
+     *
      * @syscap SystemCapability.Print.PrintFramework
-     * @systemapi
+     * @systemapi [since 10 - 23]
+     * @publicapi [since 24]
      * @since 10 dynamic
      * @since 23 static
-     */
-    /**
-     * Color mode.
-     * @type { int }
-     * @syscap SystemCapability.Print.PrintFramework
-     * @since 24 dynamic&static
      */
     colorMode: int;
 
     /**
-     * Duplex mode.
-     * @type { int }
+     * Simplex or duplex mode.
+     *
      * @syscap SystemCapability.Print.PrintFramework
-     * @systemapi
+     * @systemapi [since 10 - 23]
+     * @publicapi [since 24]
      * @since 10 dynamic
      * @since 23 static
-     */
-    /**
-     * Duplex mode.
-     * @type { int }
-     * @syscap SystemCapability.Print.PrintFramework
-     * @since 24 dynamic&static
      */
     duplexMode: int;
 
     /**
-     * Current margin setting.
-     * @type { ?PrintMargin }
+     * Current page margin.
+     *
      * @syscap SystemCapability.Print.PrintFramework
-     * @systemapi
+     * @systemapi [since 10 - 23]
+     * @publicapi [since 24]
      * @since 10 dynamic
      * @since 23 static
-     */
-    /**
-     * Current margin setting.
-     * @type { ?PrintMargin }
-     * @syscap SystemCapability.Print.PrintFramework
-     * @since 24 dynamic&static
      */
     margin?: PrintMargin;
 
     /**
-     * Preview setting.
-     * @type { ?PreviewAttribute }
+     * Preview settings.
+     *
      * @syscap SystemCapability.Print.PrintFramework
-     * @systemapi
+     * @systemapi [since 10 - 23]
+     * @publicapi [since 24]
      * @since 10 dynamic
      * @since 23 static
-     */
-    /**
-     * Preview setting.
-     * @type { ?PreviewAttribute }
-     * @syscap SystemCapability.Print.PrintFramework
-     * @since 24 dynamic&static
      */
     preview?: PreviewAttribute;
 
     /**
-     * JSON object string.
-     * @type { ?Object }
+     * Printer options. The value is a JSON object string.
+     *
      * @syscap SystemCapability.Print.PrintFramework
-     * @systemapi
+     * @systemapi [since 10 - 23]
+     * @publicapi [since 24]
      * @since 10 dynamic
      * @since 23 static
      */
-    /**
-     * JSON object.
-     * @type { ?Object }
-     * @syscap SystemCapability.Print.PrintFramework
-     * @since 24 dynamic&static
-     */
     options?: Object;
+
+    /**
+     * Vendor-specific job options in JSON format.
+     *
+     * @syscap SystemCapability.Print.PrintFramework
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    vendorOptions?: string;
   }
 
   /**
-   * defines job data for multi format supported print.
-   * @typedef PrintJobData
+   * Defines a print job.
+   *
    * @syscap SystemCapability.Print.PrintFramework
    * @stagemodelonly
    * @since 23 dynamic&static
    */
   interface PrintJobData {
     /**
-     * Printer id to take charge of printing.
-     * 
-     * @type { string }
+     * Printer ID.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -1280,9 +1108,8 @@ declare namespace print {
     printerId: string;
 
     /**
-     * Print Job Name.
-     * 
-     * @type { string }
+     * Name of the print job.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -1290,9 +1117,8 @@ declare namespace print {
     jobName: string;
 
     /**
-     * Document format.
-     * 
-     * @type { PrintDocumentFormat }
+     * Format of the print data.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -1300,9 +1126,8 @@ declare namespace print {
     documentFormat: PrintDocumentFormat;
 
     /**
-     * Specifies the data source type for the document.
-     * 
-     * @type { DocFlavor }
+     * Data source type.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -1310,19 +1135,17 @@ declare namespace print {
     docFlavor: DocFlavor;
 
     /**
-     * Copies of document list.
-     * 
-     * @type { int }
+     * Number of file list copies.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @stagemodelonly
      * @since 23 dynamic&static
      */
     copyNumber: int;
-
     /**
-     * Landscape printing.
-     * 
-     * @type { boolean }
+     * Whether pages are printed in landscape mode. The value **true** indicates that pages are printed in landscape
+     * mode, and **false** indicates that pages are printed in portrait mode. The default value is **false**.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -1331,8 +1154,7 @@ declare namespace print {
 
     /**
      * Color mode.
-     * 
-     * @type { PrintColorMode }
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -1340,9 +1162,8 @@ declare namespace print {
     colorMode: PrintColorMode;
 
     /**
-     * Duplex mode.
-     * 
-     * @type { PrintDuplexMode }
+     * Simplex or duplex mode.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -1350,8 +1171,8 @@ declare namespace print {
     duplexMode: PrintDuplexMode;
 
     /**
-     * Page size.
-     * @type { PrintPageSize }
+     * Selected page size.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -1359,8 +1180,8 @@ declare namespace print {
     pageSize: PrintPageSize;
 
     /**
-     * Job id.
-     * @type { ?string }
+     * Unique identifier of the print job.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -1368,19 +1189,16 @@ declare namespace print {
     jobId?: string;
 
     /**
-     * Document fd list to be printed.
-     * 
-     * @type { ?int[] }
+     * FD list of files to print.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @stagemodelonly
      * @since 23 dynamic&static
      */
     fdList?: int[];
-
     /**
-     * Binary data to be printed.
-     * 
-     * @type { ?Uint8Array }
+     * Binary data to print.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -1389,8 +1207,7 @@ declare namespace print {
 
     /**
      * Print quality.
-     * 
-     * @type { ?PrintQuality }
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -1398,9 +1215,8 @@ declare namespace print {
     printQuality?: PrintQuality;
 
     /**
-     * Media type.
-     * 
-     * @type { ?string }
+     * Type of the paper to print.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -1408,9 +1224,9 @@ declare namespace print {
     mediaType?: string;
 
     /**
-     * Is borderless.
-     * 
-     * @type { ?boolean }
+     * Whether to print without margins. The value **true** means to print without margins, and **false** means the
+     * opposite. Default value: **true**.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -1418,9 +1234,9 @@ declare namespace print {
     isBorderless?: boolean;
 
     /**
-     * Is Auto Rotate.
-     * 
-     * @type { ?boolean }
+     * Whether to automatically rotate the page. The value **true** means to automatically rotate the page, and
+     * **false** means the opposite. Default value: **true**.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -1428,9 +1244,9 @@ declare namespace print {
     isAutoRotate?: boolean;
 
     /**
-     * Print Reverse.
-     * 
-     * @type { ?boolean }
+     * Whether pages are printed in reverse order. The value **true** means that pages are printed in reverse order, and
+     * **false** means that pages are printed in normal order. The default value is **false**.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -1438,9 +1254,9 @@ declare namespace print {
     isReverse?: boolean;
 
     /**
-     * Is Collate Print.
-     * 
-     * @type { ?boolean }
+     * Whether pages are printed uncollated. The value **true** means that pages are printed uncollated, and **false**
+     * means the opposite. Default value: **true**.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -1448,9 +1264,8 @@ declare namespace print {
     isCollate?: boolean;
 
     /**
-     * Sequential print.
-     * 
-     * @type { ?boolean }
+     * Whether pages are printed in sequential order.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -1458,28 +1273,35 @@ declare namespace print {
     isSequential?: boolean;
 
     /**
-     * Detail information in json format.
-     * 
-     * @type { ?string }
+     * Object stringified in JSON format.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @stagemodelonly
      * @since 23 dynamic&static
      */
     options?: string;
+
+    /**
+     * Vendor-specific job options in JSON format.
+     *
+     * @syscap SystemCapability.Print.PrintFramework
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    vendorOptions?: string;
   }
 
   /**
-   * Print Document Format.
-   * 
-   * @enum { int } PrintDocumentFormat
+   * Enumerates the data formats.
+   *
    * @syscap SystemCapability.Print.PrintFramework
    * @stagemodelonly
    * @since 23 dynamic&static
    */
   enum PrintDocumentFormat {
     /**
-     * Auto format.
-     * 
+     * Auto-detected format.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -1487,8 +1309,8 @@ declare namespace print {
     DOCUMENT_FORMAT_AUTO = 0,
 
     /**
-     * Jpeg format.
-     * 
+     * JPEG.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -1496,8 +1318,8 @@ declare namespace print {
     DOCUMENT_FORMAT_JPEG = 1,
 
     /**
-     * Pdf format.
-     * 
+     * PDF.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -1505,8 +1327,8 @@ declare namespace print {
     DOCUMENT_FORMAT_PDF = 2,
 
     /**
-     * Postscript format.
-     * 
+     * PostScript.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -1514,8 +1336,8 @@ declare namespace print {
     DOCUMENT_FORMAT_POSTSCRIPT = 3,
 
     /**
-     * Text format.
-     * 
+     * Text.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -1523,27 +1345,26 @@ declare namespace print {
     DOCUMENT_FORMAT_TEXT = 4,
 
     /**
-     * Raw format.
-     * 
+     * RAW.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @stagemodelonly
      * @since 23 dynamic&static
      */
     DOCUMENT_FORMAT_RAW = 5
-  }
+	}
 
   /**
-   * Print Data Format.
-   * 
-   * @enum { int } DocFlavor
+   * Enumerates the data source types for printing.
+   *
    * @syscap SystemCapability.Print.PrintFramework
    * @stagemodelonly
    * @since 23 dynamic&static
    */
   enum DocFlavor {
     /**
-     * Document is provided via file descriptors.
-     * 
+     * File data.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -1551,21 +1372,20 @@ declare namespace print {
     FILE_DESCRIPTOR = 0,
 
     /**
-     * Document is provided as raw binary data.
-     * 
+     * Binary data.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @stagemodelonly
      * @since 23 dynamic&static
      */
     BYTES = 1
-  }
-
+	}
   /**
-   * Start print job supporting multiple formats
-   * .
+   * Prints a file or binary data. This API uses a promise to return the result.
+   *
    * @permission ohos.permission.PRINT
-   * @param { PrintJobData } job - Indicates the information of print job.
-   * @returns { Promise<void> } callback - The promise returned by the function.
+   * @param { PrintJobData } job - Print job data.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @syscap SystemCapability.Print.PrintFramework
    * @stagemodelonly
@@ -1574,15 +1394,16 @@ declare namespace print {
   function startPrint(job: PrintJobData): Promise<void>;
 
   /**
-   * Enumeration of Print Direction Mode.
-   * @enum { int } PrintDirectionMode
+   * Enumerates the print direction modes.
+   *
    * @syscap SystemCapability.Print.PrintFramework
    * @since 11 dynamic
    * @since 23 static
    */
   enum PrintDirectionMode {
     /**
-     * Automatically select direction.
+     * Automatic.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 11 dynamic
      * @since 23 static
@@ -1590,7 +1411,8 @@ declare namespace print {
     DIRECTION_MODE_AUTO = 0,
 
     /**
-     * Print portrait.
+     * Portrait mode.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 11 dynamic
      * @since 23 static
@@ -1598,24 +1420,26 @@ declare namespace print {
     DIRECTION_MODE_PORTRAIT = 1,
 
     /**
-     * Print landscape.
+     * Landscape mode.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 11 dynamic
      * @since 23 static
      */
-    DIRECTION_MODE_LANDSCAPE = 2,
+    DIRECTION_MODE_LANDSCAPE = 2
   }
 
   /**
-   * Enumeration of Print Color Mode.
-   * @enum { int } PrintColorMode
+   * Enumerates the color modes.
+   *
    * @syscap SystemCapability.Print.PrintFramework
    * @since 11 dynamic
    * @since 23 static
    */
   enum PrintColorMode {
     /**
-     * Print monochrome.
+     * Black and white.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 11 dynamic
      * @since 23 static
@@ -1623,24 +1447,26 @@ declare namespace print {
     COLOR_MODE_MONOCHROME = 0,
 
     /**
-     * Color printing.
+     * Color.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 11 dynamic
      * @since 23 static
      */
-    COLOR_MODE_COLOR = 1,
+    COLOR_MODE_COLOR = 1
   }
 
   /**
-   * Enumeration of Print Duplex Mode.
-   * @enum { int } PrintDuplexMode
+   * Enumerates the duplex modes.
+   *
    * @syscap SystemCapability.Print.PrintFramework
    * @since 11 dynamic
    * @since 23 static
    */
   enum PrintDuplexMode {
     /**
-     * Single side printing.
+     * Simplex (single-sided).
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 11 dynamic
      * @since 23 static
@@ -1648,7 +1474,8 @@ declare namespace print {
     DUPLEX_MODE_NONE = 0,
 
     /**
-     * Long-edge flip-up duplex printing.
+     * Duplex (double-sided) with flipping on long edge.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 11 dynamic
      * @since 23 static
@@ -1656,24 +1483,26 @@ declare namespace print {
     DUPLEX_MODE_LONG_EDGE = 1,
 
     /**
-     * Short-edge flip-up duplex printing.
+     * Duplex (double-sided) with flipping on short edge.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 11 dynamic
      * @since 23 static
      */
-    DUPLEX_MODE_SHORT_EDGE = 2,
+    DUPLEX_MODE_SHORT_EDGE = 2
   }
 
   /**
-   * Enumeration of Print Page Type.
-   * @enum { int } PrintPageType
+   * Enumerates the print page types.
+   *
    * @syscap SystemCapability.Print.PrintFramework
    * @since 11 dynamic
    * @since 23 static
    */
   enum PrintPageType {
     /**
-     * A3 page.
+     * A3.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 11 dynamic
      * @since 23 static
@@ -1681,7 +1510,8 @@ declare namespace print {
     PAGE_ISO_A3 = 0,
 
     /**
-     * A4 page.
+     * A4.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 11 dynamic
      * @since 23 static
@@ -1689,7 +1519,8 @@ declare namespace print {
     PAGE_ISO_A4 = 1,
 
     /**
-     * A5 page.
+     * A5.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 11 dynamic
      * @since 23 static
@@ -1697,7 +1528,8 @@ declare namespace print {
     PAGE_ISO_A5 = 2,
 
     /**
-     * B5 page.
+     * B5.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 11 dynamic
      * @since 23 static
@@ -1705,7 +1537,8 @@ declare namespace print {
     PAGE_JIS_B5 = 3,
 
     /**
-     * C5 page.
+     * C5.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 11 dynamic
      * @since 23 static
@@ -1713,7 +1546,8 @@ declare namespace print {
     PAGE_ISO_C5 = 4,
 
     /**
-     * DL Envelope.
+     * DL.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 11 dynamic
      * @since 23 static
@@ -1722,6 +1556,7 @@ declare namespace print {
 
     /**
      * Letter.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 11 dynamic
      * @since 23 static
@@ -1730,6 +1565,7 @@ declare namespace print {
 
     /**
      * Legal.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 11 dynamic
      * @since 23 static
@@ -1737,7 +1573,8 @@ declare namespace print {
     PAGE_LEGAL = 7,
 
     /**
-     * Photo 4x6.
+     * 4 x 6 photo paper.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 11 dynamic
      * @since 23 static
@@ -1745,7 +1582,8 @@ declare namespace print {
     PAGE_PHOTO_4X6 = 8,
 
     /**
-     * Photo 5x7.
+     * 5 x 7 photo paper.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 11 dynamic
      * @since 23 static
@@ -1753,7 +1591,8 @@ declare namespace print {
     PAGE_PHOTO_5X7 = 9,
 
     /**
-     * Envelope INT DL.
+     * International envelope DL.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 11 dynamic
      * @since 23 static
@@ -1761,24 +1600,26 @@ declare namespace print {
     PAGE_INT_DL_ENVELOPE = 10,
 
     /**
-     * Tabloid B.
+     * B Tabloid.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 11 dynamic
      * @since 23 static
      */
-    PAGE_B_TABLOID = 11,
+    PAGE_B_TABLOID = 11
   }
 
   /**
-   * Enumeration of Print Document Adapter State.
-   * @enum { int } PrintDocumentAdapterState
+   * Enumerates the print job states.
+   *
    * @syscap SystemCapability.Print.PrintFramework
    * @since 11 dynamic
    * @since 23 static
    */
   enum PrintDocumentAdapterState {
     /**
-     * Preview failed.
+     * The preview fails.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 11 dynamic
      * @since 23 static
@@ -1786,7 +1627,8 @@ declare namespace print {
     PREVIEW_DESTROY = 0,
 
     /**
-     * Print state is succeed.
+     * The print job is successful.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 11 dynamic
      * @since 23 static
@@ -1794,7 +1636,8 @@ declare namespace print {
     PRINT_TASK_SUCCEED = 1,
 
     /**
-     * Print state is fail.
+     * The print job is failed.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 11 dynamic
      * @since 23 static
@@ -1802,7 +1645,8 @@ declare namespace print {
     PRINT_TASK_FAIL = 2,
 
     /**
-     * Print state is cancel.
+     * The print job is canceled.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 11 dynamic
      * @since 23 static
@@ -1810,24 +1654,26 @@ declare namespace print {
     PRINT_TASK_CANCEL = 3,
 
     /**
-     * Print state is block.
+     * The print job is blocked.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 11 dynamic
      * @since 23 static
      */
-    PRINT_TASK_BLOCK = 4,
+    PRINT_TASK_BLOCK = 4
   }
 
   /**
-   * Enumeration of Print File Creation State.
-   * @enum { int } PrintFileCreationState
+   * Enumerates the print file creation status.
+   *
    * @syscap SystemCapability.Print.PrintFramework
    * @since 11 dynamic
    * @since 23 static
    */
   enum PrintFileCreationState {
     /**
-     * Print file created success.
+     * The print file is created successfully.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 11 dynamic
      * @since 23 static
@@ -1835,7 +1681,8 @@ declare namespace print {
     PRINT_FILE_CREATED = 0,
 
     /**
-     * Print file created fail.
+     * The print file fails to be created.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 11 dynamic
      * @since 23 static
@@ -1843,24 +1690,26 @@ declare namespace print {
     PRINT_FILE_CREATION_FAILED = 1,
 
     /**
-     * Print file created success but unrendered.
+     * The print file is successfully created but not rendered.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 11 dynamic
      * @since 23 static
      */
-    PRINT_FILE_CREATED_UNRENDERED = 2,
+    PRINT_FILE_CREATED_UNRENDERED = 2
   }
 
   /**
-   * Enumeration of Printer State.
-   * @enum { int } PrinterState
+   * Enumerates the printer states.
+   *
    * @syscap SystemCapability.Print.PrintFramework
    * @since 14 dynamic
    * @since 23 static
    */
   enum PrinterState {
     /**
-     * New printers arrival.
+     * A new printer is added.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
      * @since 23 static
@@ -1868,7 +1717,8 @@ declare namespace print {
     PRINTER_ADDED = 0,
 
     /**
-     * Printer lost.
+     * The printer is removed.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
      * @since 23 static
@@ -1876,7 +1726,8 @@ declare namespace print {
     PRINTER_REMOVED = 1,
 
     /**
-     * Printer update.
+     * The printer is updated.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
      * @since 23 static
@@ -1884,7 +1735,8 @@ declare namespace print {
     PRINTER_CAPABILITY_UPDATED = 2,
 
     /**
-     * Printer has been connected.
+     * The printer is connected.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
      * @since 23 static
@@ -1892,7 +1744,8 @@ declare namespace print {
     PRINTER_CONNECTED = 3,
 
     /**
-     * Printer has been disconnected.
+     * The printer is disconnected.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
      * @since 23 static
@@ -1900,24 +1753,26 @@ declare namespace print {
     PRINTER_DISCONNECTED = 4,
 
     /**
-     * Printer is working.
+     * The printer is running.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
      * @since 23 static
      */
-    PRINTER_RUNNING = 5,
+    PRINTER_RUNNING = 5
   }
 
   /**
-   * Enumeration of  Print Job State.
-   * @enum { int } PrintJobState
+   * Enumerates the print job states.
+   *
    * @syscap SystemCapability.Print.PrintFramework
    * @since 14 dynamic
    * @since 23 static
    */
   enum PrintJobState {
     /**
-     * Initial state of print job.
+     * The printer is prepared for the print job.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
      * @since 23 static
@@ -1925,7 +1780,8 @@ declare namespace print {
     PRINT_JOB_PREPARE = 0,
 
     /**
-     * Deliver print job to the printer.
+     * The print job is on the print queue of the printer.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
      * @since 23 static
@@ -1933,7 +1789,8 @@ declare namespace print {
     PRINT_JOB_QUEUED = 1,
 
     /**
-     * Executing print job.
+     * The print job is being executed.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
      * @since 23 static
@@ -1941,7 +1798,8 @@ declare namespace print {
     PRINT_JOB_RUNNING = 2,
 
     /**
-     * Print job has been blocked.
+     * The print job is blocked.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
      * @since 23 static
@@ -1949,24 +1807,26 @@ declare namespace print {
     PRINT_JOB_BLOCKED = 3,
 
     /**
-     * Print job completed.
+     * The print job is complete.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
      * @since 23 static
      */
-    PRINT_JOB_COMPLETED = 4,
+    PRINT_JOB_COMPLETED = 4
   }
 
   /**
-   * Enumeration of  Print Job Sub State.
-   * @enum { int } PrintJobSubState
+   * Enumerates the print job substates.
+   *
    * @syscap SystemCapability.Print.PrintFramework
    * @since 14 dynamic
    * @since 23 static
    */
   enum PrintJobSubState {
     /**
-     * Print job succeed.
+     * The print job is successful.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
      * @since 23 static
@@ -1974,7 +1834,8 @@ declare namespace print {
     PRINT_JOB_COMPLETED_SUCCESS = 0,
 
     /**
-     * Print job fail.
+     * The print job is failed.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
      * @since 23 static
@@ -1982,7 +1843,8 @@ declare namespace print {
     PRINT_JOB_COMPLETED_FAILED = 1,
 
     /**
-     * Print job has been cancelled.
+     * The print job is canceled by user.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
      * @since 23 static
@@ -1990,7 +1852,8 @@ declare namespace print {
     PRINT_JOB_COMPLETED_CANCELLED = 2,
 
     /**
-     * Print job has been corrupted.
+     * The print file is corrupted.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
      * @since 23 static
@@ -1998,7 +1861,8 @@ declare namespace print {
     PRINT_JOB_COMPLETED_FILE_CORRUPTED = 3,
 
     /**
-     * Print is offline.
+     * The printer is offline.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
      * @since 23 static
@@ -2006,7 +1870,8 @@ declare namespace print {
     PRINT_JOB_BLOCK_OFFLINE = 4,
 
     /**
-     * Print is occupied by other process.
+     * The printer is occupied by another process.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
      * @since 23 static
@@ -2014,7 +1879,8 @@ declare namespace print {
     PRINT_JOB_BLOCK_BUSY = 5,
 
     /**
-     * Blocking print job is cancelled.
+     * The print job is canceled due to a block.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
      * @since 23 static
@@ -2022,7 +1888,8 @@ declare namespace print {
     PRINT_JOB_BLOCK_CANCELLED = 6,
 
     /**
-     * Print out of paper.
+     * The printer is out of paper.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
      * @since 23 static
@@ -2030,7 +1897,8 @@ declare namespace print {
     PRINT_JOB_BLOCK_OUT_OF_PAPER = 7,
 
     /**
-     * Print out of ink.
+     * The printer is out of ink.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
      * @since 23 static
@@ -2038,7 +1906,8 @@ declare namespace print {
     PRINT_JOB_BLOCK_OUT_OF_INK = 8,
 
     /**
-     * Print out of toner.
+     * The printer is out of toner.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
      * @since 23 static
@@ -2046,7 +1915,8 @@ declare namespace print {
     PRINT_JOB_BLOCK_OUT_OF_TONER = 9,
 
     /**
-     * Print paper jam.
+     * The printer is in a paper jam.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
      * @since 23 static
@@ -2054,7 +1924,8 @@ declare namespace print {
     PRINT_JOB_BLOCK_JAMMED = 10,
 
     /**
-     * Print cover open.
+     * The printer door is open.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
      * @since 23 static
@@ -2063,6 +1934,7 @@ declare namespace print {
 
     /**
      * Print service request.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
      * @since 23 static
@@ -2070,7 +1942,8 @@ declare namespace print {
     PRINT_JOB_BLOCK_SERVICE_REQUEST = 12,
 
     /**
-     * Print low on ink.
+     * The printer is low on ink.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
      * @since 23 static
@@ -2078,7 +1951,8 @@ declare namespace print {
     PRINT_JOB_BLOCK_LOW_ON_INK = 13,
 
     /**
-     * Print low on toner.
+     * The printer is low on toner.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
      * @since 23 static
@@ -2086,7 +1960,8 @@ declare namespace print {
     PRINT_JOB_BLOCK_LOW_ON_TONER = 14,
 
     /**
-     * Print really low on ink.
+     * The printer is extremely low on ink.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
      * @since 23 static
@@ -2094,7 +1969,8 @@ declare namespace print {
     PRINT_JOB_BLOCK_REALLY_LOW_ON_INK = 15,
 
     /**
-     * Print bad certification.
+     * The print certificate is incorrect.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
      * @since 23 static
@@ -2102,15 +1978,17 @@ declare namespace print {
     PRINT_JOB_BLOCK_BAD_CERTIFICATE = 16,
 
     /**
-     * Print printer driver exception.
+     * The print driver is abnormal.
+     *
      * @syscap SystemCapability.Print.PrintFramework
-     * @since 20 dynamic	
+     * @since 20 dynamic
      * @since 23 static
      */
     PRINT_JOB_BLOCK_DRIVER_EXCEPTION = 17,
 
     /**
-     * Print an error occurred when printing the account.
+     * There is an error with the printer account.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
      * @since 23 static
@@ -2118,7 +1996,8 @@ declare namespace print {
     PRINT_JOB_BLOCK_ACCOUNT_ERROR = 18,
 
     /**
-     * Print the printing permission is abnormal.
+     * There is an error with the printer permission.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
      * @since 23 static
@@ -2126,7 +2005,8 @@ declare namespace print {
     PRINT_JOB_BLOCK_PRINT_PERMISSION_ERROR = 19,
 
     /**
-     * Print color printing permission exception.
+     * There is an error with the color printing permission.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
      * @since 23 static
@@ -2134,7 +2014,8 @@ declare namespace print {
     PRINT_JOB_BLOCK_PRINT_COLOR_PERMISSION_ERROR = 20,
 
     /**
-     * Print the device is not connected to the network.
+     * The printer fails to connect to the network.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
      * @since 23 static
@@ -2142,7 +2023,8 @@ declare namespace print {
     PRINT_JOB_BLOCK_NETWORK_ERROR = 21,
 
     /**
-     * Print unable to connect to the server.
+     * The printer fails to connect to the server.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
      * @since 23 static
@@ -2150,7 +2032,8 @@ declare namespace print {
     PRINT_JOB_BLOCK_SERVER_CONNECTION_ERROR = 22,
 
     /**
-     * Print large file exception.
+     * There is an error with a large file printing.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
      * @since 23 static
@@ -2158,7 +2041,8 @@ declare namespace print {
     PRINT_JOB_BLOCK_LARGE_FILE_ERROR = 23,
 
     /**
-     * Print file parsing exception.
+     * There is an error with file parsing.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
      * @since 23 static
@@ -2166,7 +2050,8 @@ declare namespace print {
     PRINT_JOB_BLOCK_FILE_PARSING_ERROR = 24,
 
     /**
-     * Print the file conversion is too slow.
+     * The file conversion is slow.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
      * @since 23 static
@@ -2174,7 +2059,8 @@ declare namespace print {
     PRINT_JOB_BLOCK_SLOW_FILE_CONVERSION = 25,
 
     /**
-     * Print uploading file.
+     * The file is uploading.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
      * @since 23 static
@@ -2182,7 +2068,8 @@ declare namespace print {
     PRINT_JOB_RUNNING_UPLOADING_FILES = 26,
 
     /**
-     * Print converting files.
+     * The file is converting.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
      * @since 23 static
@@ -2190,7 +2077,8 @@ declare namespace print {
     PRINT_JOB_RUNNING_CONVERTING_FILES = 27,
 
     /**
-     * Print file uploading exception.
+     * The file fails to be uploaded.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 18 dynamic
      * @since 23 static
@@ -2198,31 +2086,35 @@ declare namespace print {
     PRINT_JOB_BLOCK_FILE_UPLOADING_ERROR = 30,
 
     /**
-     * Print driver file missing.
+     * The print driver is missing.
+     *
      * @syscap SystemCapability.Print.PrintFramework
-     * @since 20 dynamic	
+     * @since 20 dynamic
      * @since 23 static
      */
     PRINT_JOB_BLOCK_DRIVER_MISSING = 34,
 
     /**
-     * Print job interrupt.
+     * The print job is interrupted.
+     *
      * @syscap SystemCapability.Print.PrintFramework
-     * @since 20 dynamic	
+     * @since 20 dynamic
      * @since 23 static
      */
     PRINT_JOB_BLOCK_INTERRUPT = 35,
 
     /**
-     * Print on an unavailable printer.
+     * The printer is unavailable.
+     *
      * @syscap SystemCapability.Print.PrintFramework
-     * @since 20 dynamic	
+     * @since 20 dynamic
      * @since 23 static
      */
     PRINT_JOB_BLOCK_PRINTER_UNAVAILABLE = 98,
 
     /**
-     * Print unknown issue.
+     * There is an unknown error with the printer.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
      * @since 23 static
@@ -2231,8 +2123,8 @@ declare namespace print {
   }
 
   /**
-   * Enumeration of  Print error Code.
-   * @enum { int } PrintErrorCode
+   * Enumerates the print error codes.
+   *
    * @syscap SystemCapability.Print.PrintFramework
    * @since 14 dynamic
    * @since 23 static
@@ -2240,6 +2132,7 @@ declare namespace print {
   enum PrintErrorCode {
     /**
      * No error.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
      * @since 23 static
@@ -2248,6 +2141,7 @@ declare namespace print {
 
     /**
      * No permission.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
      * @since 23 static
@@ -2255,7 +2149,8 @@ declare namespace print {
     E_PRINT_NO_PERMISSION = 201,
 
     /**
-     * Invalid parameter.
+     * Invalid parameters.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
      * @since 23 static
@@ -2263,7 +2158,8 @@ declare namespace print {
     E_PRINT_INVALID_PARAMETER = 401,
 
     /**
-     * Generic failure of print.
+     * Printing failure.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
      * @since 23 static
@@ -2272,6 +2168,7 @@ declare namespace print {
 
     /**
      * RPC failure.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
      * @since 23 static
@@ -2279,7 +2176,8 @@ declare namespace print {
     E_PRINT_RPC_FAILURE = 13100002,
 
     /**
-     * Failure of print service.
+     * Print service failure.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
      * @since 23 static
@@ -2287,7 +2185,8 @@ declare namespace print {
     E_PRINT_SERVER_FAILURE = 13100003,
 
     /**
-     * Invalid print extension.
+     * Invalid printer extension.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
      * @since 23 static
@@ -2296,6 +2195,7 @@ declare namespace print {
 
     /**
      * Invalid printer.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
      * @since 23 static
@@ -2304,6 +2204,7 @@ declare namespace print {
 
     /**
      * Invalid print job.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
      * @since 23 static
@@ -2311,7 +2212,8 @@ declare namespace print {
     E_PRINT_INVALID_PRINT_JOB = 13100006,
 
     /**
-     * File i/o error.
+     * Incorrect file input/output.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
      * @since 23 static
@@ -2319,7 +2221,8 @@ declare namespace print {
     E_PRINT_FILE_IO = 13100007,
 
     /**
-     * Number of files exceeding the upper limit.
+     * Excessive files. Maximum number: 99.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 18 dynamic
      * @since 23 static
@@ -2348,19 +2251,20 @@ declare namespace print {
      * @stagemodelonly
      * @since 24 dynamic&static
      */
-    E_PRINT_SMB_INVALID_CREDENTIALS = 13100014,
+    E_PRINT_SMB_INVALID_CREDENTIALS = 13100014
   }
 
   /**
-   * Enumeration of application event.
-   * @enum { int } ApplicationEvent
+   * Enumerates print application events.
+   *
    * @syscap SystemCapability.Print.PrintFramework
    * @since 14 dynamic
    * @since 23 static
    */
   enum ApplicationEvent {
     /**
-     * Application created.
+     * Starts the print application.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
      * @since 23 static
@@ -2368,7 +2272,8 @@ declare namespace print {
     APPLICATION_CREATED = 0,
 
     /**
-     * Application closed for printing started.
+     * Closes the print application by clicking **Start**.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
      * @since 23 static
@@ -2376,17 +2281,18 @@ declare namespace print {
     APPLICATION_CLOSED_FOR_STARTED = 1,
 
     /**
-     * Application closed for printing canceled.
+     * Closes the print application by clicking **Cancel**.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
      * @since 23 static
      */
-    APPLICATION_CLOSED_FOR_CANCELED = 2,
+    APPLICATION_CLOSED_FOR_CANCELED = 2
   }
 
   /**
-   * defines print ExtensionInfo.
-   * @typedef PrinterExtensionInfo
+   * Provides the printer extension information.
+   *
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
@@ -2394,8 +2300,8 @@ declare namespace print {
    */
   interface PrinterExtensionInfo {
     /**
-     * Extension id of printer extension.
-     * @type { string }
+     * ID of the printer extension.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi
      * @since 10 dynamic
@@ -2404,8 +2310,8 @@ declare namespace print {
     extensionId: string;
 
     /**
-     * Vendor id of extension.
-     * @type { string }
+     * Vendor ID of the printer extension.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi
      * @since 10 dynamic
@@ -2414,8 +2320,8 @@ declare namespace print {
     vendorId: string;
 
     /**
-     * Vendor name.
-     * @type { string }
+     * Vendor name of the printer extension.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi
      * @since 10 dynamic
@@ -2424,8 +2330,8 @@ declare namespace print {
     vendorName: string;
 
     /**
-     * Vendor icon.
-     * @type { int }
+     * Vendor icon of the printer extension.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi
      * @since 10 dynamic
@@ -2434,8 +2340,8 @@ declare namespace print {
     vendorIcon: int;
 
     /**
-     * Version of current printer extension.
-     * @type { string }
+     * Version of the printer extension.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi
      * @since 10 dynamic
@@ -2445,9 +2351,11 @@ declare namespace print {
   }
 
   /**
-   * Get all printer extension installed.
+   * Obtains the information of all installed printer extensions. This API uses an asynchronous callback to return the
+   * result.
+   *
    * @permission ohos.permission.MANAGE_PRINT_JOB
-   * @param { AsyncCallback<Array<PrinterExtensionInfo>> } callback - The callback function for handling the extension list found.
+   * @param { AsyncCallback<Array<PrinterExtensionInfo>> } callback - Callback used to return the result.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application
    * @syscap SystemCapability.Print.PrintFramework
@@ -2458,9 +2366,11 @@ declare namespace print {
   function queryAllPrinterExtensionInfos(callback: AsyncCallback<Array<PrinterExtensionInfo>>): void;
 
   /**
-   * Get all printer extension installed.
+   * Obtains the information of all installed printer extensions. This API uses a promise to return the result.
+   *
    * @permission ohos.permission.MANAGE_PRINT_JOB
-   * @returns { Promise<Array<PrinterExtensionInfo>> } the promise returned by the function.
+   * @returns { Promise<Array<PrinterExtensionInfo>> } Promise used to return the information of all installed printer
+   *     extensions.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application
    * @syscap SystemCapability.Print.PrintFramework
@@ -2471,159 +2381,125 @@ declare namespace print {
   function queryAllPrinterExtensionInfos(): Promise<Array<PrinterExtensionInfo>>;
 
   /**
-   * Load the specific printer extension and start to discover printer.
-   * @permission ohos.permission.MANAGE_PRINT_JOB
-   * @param { Array<string> } extensionList - Indicates the list of printer extension.
-   *     empty list of extensionList Indicates to find printer with all installed extension.
-   * @param { AsyncCallback<void> } callback - The callback function for indcating the result of API execution.
+   * Discovers printers by specifying the extension list. The discovered printers contain the specified print extension
+   * abilities. If an empty extension list is specified, all extension abilities are loaded. This API uses an
+   * asynchronous callback to return the result.
+   *
+   * @permission ohos.permission.MANAGE_PRINT_JOB [since 10 - 19]
+   * @permission ohos.permission.MANAGE_PRINT_JOB or ohos.permission.PRINT [since 20]
+   * @param { Array<string> } extensionList - List of
+   *     [PrintExtensionAbilities]{@link @ohos.app.ability.PrintExtensionAbility:PrintExtensionAbility} to be loaded.
+   *     The list members are the bundle names of the applications with print extension abilities. An empty list
+   *     indicates that all extension abilities are loaded.
+   * @param { AsyncCallback<void> } callback - Callback to be invoked when a printer is discovered.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
-   * @throws { BusinessError } 202 - not system application
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+   * @throws { BusinessError } 202 - not system application [since 10 - 19]
    * @syscap SystemCapability.Print.PrintFramework
-   * @systemapi Hide this for inner system use.
-   * @since 10
-   */
-  /**
-   * Load the specific printer extension and start to discover printer.
-   * @permission ohos.permission.MANAGE_PRINT_JOB or ohos.permission.PRINT
-   * @param { Array<string> } extensionList - Indicates the list of printer extension.
-   *     empty list of extensionList Indicates to find printer with all installed extension.
-   * @param { AsyncCallback<void> } callback - The callback function for indcating the result of API execution.
-   * @throws { BusinessError } 201 - the application does not have permission to call this function.
-   * @syscap SystemCapability.Print.PrintFramework
-   * @since 20 dynamic	
-     * @since 23 static
+   * @systemapi Hide this for inner system use. [since 10 - 19]
+   * @publicapi [since 20]
+   * @since 10 dynamic
+   * @since 23 static
    */
   function startDiscoverPrinter(extensionList: Array<string>, callback: AsyncCallback<void>): void;
 
   /**
-   * Load the specific printer extension and start to discover printer.
-   * @permission ohos.permission.MANAGE_PRINT_JOB
-   * @param { Array<string> } extensionList - Indicates the list of printer extension.
-   *     empty list of extensionList Indicates to find printer with all installed extension.
-   * @returns { Promise<void> } the promise returned by the function.
+   * Discovers printers by specifying the extension list. The discovered printers contain the specified print extension
+   * abilities. If an empty extension list is specified, all extension abilities are loaded. This API uses a promise to
+   * return the result.
+   *
+   * @permission ohos.permission.MANAGE_PRINT_JOB [since 10 - 19]
+   * @permission ohos.permission.MANAGE_PRINT_JOB or ohos.permission.PRINT [since 20]
+   * @param { Array<string> } extensionList - List of
+   *     [PrintExtensionAbilities]{@link @ohos.app.ability.PrintExtensionAbility:PrintExtensionAbility} to be loaded.
+   *     The list members are the bundle names of the applications with print extension abilities. An empty list
+   *     indicates that all extension abilities are loaded.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
-   * @throws { BusinessError } 202 - not system application
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+   * @throws { BusinessError } 202 - not system application [since 10 - 19]
    * @syscap SystemCapability.Print.PrintFramework
-   * @systemapi Hide this for inner system use.
-   * @since 10
-   */
-  /**
-   * Load the specific printer extension and start to discover printer.
-   * @permission ohos.permission.MANAGE_PRINT_JOB or ohos.permission.PRINT
-   * @param { Array<string> } extensionList - Indicates the list of printer extension.
-   *     empty list of extensionList Indicates to find printer with all installed extension.
-   * @returns { Promise<void> } the promise returned by the function.
-   * @throws { BusinessError } 201 - the application does not have permission to call this function.
-   * @syscap SystemCapability.Print.PrintFramework
-   * @since 20 dynamic	
-     * @since 23 static
+   * @systemapi Hide this for inner system use. [since 10 - 19]
+   * @publicapi [since 20]
+   * @since 10 dynamic
+   * @since 23 static
    */
   function startDiscoverPrinter(extensionList: Array<string>): Promise<void>;
 
   /**
-   * Stop discovering the printer with specific printer extension.
-   * @permission ohos.permission.MANAGE_PRINT_JOB
-   * @param { AsyncCallback<void> } callback - The callback function for indcating the result of API execution.
+   * Stops discovering printers. This API uses an asynchronous callback to return the result.
+   *
+   * @permission ohos.permission.MANAGE_PRINT_JOB [since 10 - 19]
+   * @permission ohos.permission.MANAGE_PRINT_JOB or ohos.permission.PRINT [since 20]
+   * @param { AsyncCallback<void> } callback - Callback to be invoked when printer discovery is stopped.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
-   * @throws { BusinessError } 202 - not system application
+   * @throws { BusinessError } 202 - not system application [since 10 - 19]
    * @syscap SystemCapability.Print.PrintFramework
-   * @systemapi Hide this for inner system use.
-   * @since 10
-   */
-  /**
-   * Stop discovering the printer with specific printer extension.
-   * @permission ohos.permission.MANAGE_PRINT_JOB or ohos.permission.PRINT
-   * @param { AsyncCallback<void> } callback - The callback function for indcating the result of API execution.
-   * @throws { BusinessError } 201 - the application does not have permission to call this function.
-   * @syscap SystemCapability.Print.PrintFramework
-   * @since 20 dynamic	
-     * @since 23 static
+   * @systemapi Hide this for inner system use. [since 10 - 19]
+   * @publicapi [since 20]
+   * @since 10 dynamic
+   * @since 23 static
    */
   function stopDiscoverPrinter(callback: AsyncCallback<void>): void;
 
   /**
-   * Stop discovering the printer with specific printer extension.
-   * @permission ohos.permission.MANAGE_PRINT_JOB
-   * @returns { Promise<void> } the promise returned by the function.
+   * Stops discovering printers. This API uses a promise to return the result.
+   *
+   * @permission ohos.permission.MANAGE_PRINT_JOB [since 10 - 19]
+   * @permission ohos.permission.MANAGE_PRINT_JOB or ohos.permission.PRINT [since 20]
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
-   * @throws { BusinessError } 202 - not system application
+   * @throws { BusinessError } 202 - not system application [since 10 - 19]
    * @syscap SystemCapability.Print.PrintFramework
-   * @systemapi Hide this for inner system use.
-   * @since 10
-   */
-  /**
-   * Stop discovering the printer with specific printer extension.
-   * @permission ohos.permission.MANAGE_PRINT_JOB or ohos.permission.PRINT
-   * @returns { Promise<void> } the promise returned by the function.
-   * @throws { BusinessError } 201 - the application does not have permission to call this function.
-   * @syscap SystemCapability.Print.PrintFramework
-   * @since 20 dynamic	
-     * @since 23 static
+   * @systemapi Hide this for inner system use. [since 10 - 19]
+   * @publicapi [since 20]
+   * @since 10 dynamic
+   * @since 23 static
    */
   function stopDiscoverPrinter(): Promise<void>;
 
   /**
-   * Connect the specific printer.
-   * @permission ohos.permission.MANAGE_PRINT_JOB
-   * @param { string } printerId - Indicates id of the printer.
-   * @param { AsyncCallback<void> } callback - The callback function for indcating the result of API execution.
+   * Connects to a printer by printer ID. This API uses an asynchronous callback to return the result.
+   *
+   * @permission ohos.permission.MANAGE_PRINT_JOB [since 10 - 19]
+   * @permission ohos.permission.MANAGE_PRINT_JOB or ohos.permission.PRINT [since 20]
+   * @param { string } printerId - Printer ID.
+   * @param { AsyncCallback<void> } callback - Callback to be invoked when a printer is connected.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
-   * @throws { BusinessError } 202 - not system application
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+   * @throws { BusinessError } 202 - not system application [since 10 - 19]
    * @syscap SystemCapability.Print.PrintFramework
-   * @systemapi Hide this for inner system use.
-   * @since 10
-   */
-  /**
-   * Connect the specific printer.
-   * @permission ohos.permission.MANAGE_PRINT_JOB or ohos.permission.PRINT
-   * @param { string } printerId - Indicates id of the printer.
-   * @param { AsyncCallback<void> } callback - The callback function for indcating the result of API execution.
-   * @throws { BusinessError } 201 - the application does not have permission to call this function.
-   * @syscap SystemCapability.Print.PrintFramework
-   * @since 20 dynamic	
-     * @since 23 static
+   * @systemapi Hide this for inner system use. [since 10 - 19]
+   * @publicapi [since 20]
+   * @since 10 dynamic
+   * @since 23 static
    */
   function connectPrinter(printerId: string, callback: AsyncCallback<void>): void;
 
   /**
-   * Connect the specific printer.
-   * @permission ohos.permission.MANAGE_PRINT_JOB
-   * @param { string } printerId - Indicates id of the printer.
-   * @returns { Promise<void> } the promise returned by the function.
+   * Connects to a printer by printer ID. This API uses a promise to return the result.
+   *
+   * @permission ohos.permission.MANAGE_PRINT_JOB [since 10 - 19]
+   * @permission ohos.permission.MANAGE_PRINT_JOB or ohos.permission.PRINT [since 20]
+   * @param { string } printerId - Printer ID.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
-   * @throws { BusinessError } 202 - not system application
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+   * @throws { BusinessError } 202 - not system application [since 10 - 19]
    * @syscap SystemCapability.Print.PrintFramework
-   * @systemapi Hide this for inner system use.
-   * @since 10
-   */
-  /**
-   * Connect the specific printer.
-   * @permission ohos.permission.MANAGE_PRINT_JOB or ohos.permission.PRINT
-   * @param { string } printerId - Indicates id of the printer.
-   * @returns { Promise<void> } the promise returned by the function.
-   * @throws { BusinessError } 201 - the application does not have permission to call this function.
-   * @syscap SystemCapability.Print.PrintFramework
-   * @since 20 dynamic	
-     * @since 23 static
+   * @systemapi Hide this for inner system use. [since 10 - 19]
+   * @publicapi [since 20]
+   * @since 10 dynamic
+   * @since 23 static
    */
   function connectPrinter(printerId: string): Promise<void>;
 
   /**
-   * Disconnect the specific printer.
+   * Disconnects from the specified printer. This API uses an asynchronous callback to return the result.
+   *
    * @permission ohos.permission.MANAGE_PRINT_JOB
-   * @param { string } printerId - Indicates id of the printer.
-   * @param { AsyncCallback<void> } callback - The callback function for indcating the result of API execution.
+   * @param { string } printerId - Printer ID.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
@@ -2632,13 +2508,15 @@ declare namespace print {
   function disconnectPrinter(printerId: string, callback: AsyncCallback<void>): void;
 
   /**
-   * Disconnect the specific printer.
+   * Disconnects from the specified printer. This API uses a promise to return the result.
+   *
    * @permission ohos.permission.MANAGE_PRINT_JOB
-   * @param { string } printerId - Indicates id of the printer.
-   * @returns { Promise<void> } the promise returned by the function.
+   * @param { string } printerId - Printer ID.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
@@ -2647,13 +2525,15 @@ declare namespace print {
   function disconnectPrinter(printerId: string): Promise<void>;
 
   /**
-   * Query capability for the specific printer.
+   * Queries the printer capability. This API uses an asynchronous callback to return the result.
+   *
    * @permission ohos.permission.MANAGE_PRINT_JOB
-   * @param { string } printerId - Indicates id of the printer.
-   * @param { AsyncCallback<void> } callback - The callback function for capability from printer.
+   * @param { string } printerId - Printer ID.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
@@ -2662,13 +2542,15 @@ declare namespace print {
   function queryPrinterCapability(printerId: string, callback: AsyncCallback<void>): void;
 
   /**
-   * Query capability for the specific printer.
+   * Queries the printer capability. This API uses a promise to return the result.
+   *
    * @permission ohos.permission.MANAGE_PRINT_JOB
-   * @param { string } printerId - Indicates id of the printer.
-   * @returns { Promise<void> } the promise returned by the function.
+   * @param { string } printerId - Printer ID.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
@@ -2677,13 +2559,15 @@ declare namespace print {
   function queryPrinterCapability(printerId: string): Promise<void>;
 
   /**
-   * Start print job.
+   * Starts the specified print job. This API uses an asynchronous callback to return the result.
+   *
    * @permission ohos.permission.MANAGE_PRINT_JOB
-   * @param { PrintJob } jobInfo - Indicates the information of print job.
-   * @param { AsyncCallback<void> } callback - The callback function for indcating the result of API execution.
+   * @param { PrintJob } jobInfo - Information about the print job.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
@@ -2692,13 +2576,15 @@ declare namespace print {
   function startPrintJob(jobInfo: PrintJob, callback: AsyncCallback<void>): void;
 
   /**
-   * Start print job.
+   * Starts the specified print job. This API uses a promise to return the result.
+   *
    * @permission ohos.permission.MANAGE_PRINT_JOB
-   * @param { PrintJob } jobInfo - Indicates the information of print job.
-   * @returns { Promise<void> } the promise returned by the function.
+   * @param { PrintJob } jobInfo - Information about the print job.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
@@ -2707,13 +2593,16 @@ declare namespace print {
   function startPrintJob(jobInfo: PrintJob): Promise<void>;
 
   /**
-   * Cancel the print job has been sent to printer.
+   * Cancels the specified print job, which is on the print queue of the printer. This API uses an asynchronous callback
+   * to return the result.
+   *
    * @permission ohos.permission.MANAGE_PRINT_JOB
-   * @param { string } jobId - Indicates the specific print job.
-   * @param { AsyncCallback<void> } callback - The callback function for indcating the result of API execution.
+   * @param { string } jobId - Print job ID.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
@@ -2722,13 +2611,16 @@ declare namespace print {
   function cancelPrintJob(jobId: string, callback: AsyncCallback<void>): void;
 
   /**
-   * Cancel the print job has been sent to printer.
+   * Cancels the specified print job, which is on the print queue of the printer. This API uses a promise to return the
+   * result.
+   *
    * @permission ohos.permission.MANAGE_PRINT_JOB
-   * @param { string } jobId - Indicates the specific print job.
-   * @returns { Promise<void> } the promise returned by the function.
+   * @param { string } jobId - Print job ID.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
@@ -2737,27 +2629,30 @@ declare namespace print {
   function cancelPrintJob(jobId: string): Promise<void>;
 
   /**
-   * Restart the print job has been sent.
+   * Restarts a print job that has been finished before. This API uses a promise to return the result.
+   *
    * @permission ohos.permission.MANAGE_PRINT_JOB
-   * @param { string } jobId - Indicates the specific print job.
-   * @returns { Promise<void> } the promise returned by the function.
+   * @param { string } jobId - ID of a print job that has been finished before.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
-   * @since 20 dynamic	
-     * @since 23 static
+   * @since 20 dynamic
+   * @since 23 static
    */
   function restartPrintJob(jobId: string): Promise<void>;
 
   /**
-   * Request preview of the print job.
+   * Requests print preview data. This API uses a callback to return the result.
+   *
    * @permission ohos.permission.MANAGE_PRINT_JOB
-   * @param { PrintJob } jobInfo - Indicates the information of print job.
-   * @param { Callback<int> } callback - The callback function for indcating the result of API execution.
+   * @param { PrintJob } jobInfo - Information about the print job.
+   * @param { Callback<int> } callback - Callback used to return the result.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
@@ -2766,13 +2661,15 @@ declare namespace print {
   function requestPrintPreview(jobInfo: PrintJob, callback: Callback<int>): void;
 
   /**
-   * Request preview of the print job.
+   * Requests print preview data. This API uses a promise to return the result.
+   *
    * @permission ohos.permission.MANAGE_PRINT_JOB
-   * @param { PrintJob } jobInfo - Indicates the information of print job.
-   * @returns { Promise<int> } the promise returned by the function.
+   * @param { PrintJob } jobInfo - Information about the print job.
+   * @returns { Promise<int> } Promise used to return the preview result.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
@@ -2781,14 +2678,15 @@ declare namespace print {
   function requestPrintPreview(jobInfo: PrintJob): Promise<int>;
 
   /**
-   * Register event callback for the state change of printer.
+   * Registers a listener for printer state change events. This API uses a callback to return the result.
+   *
    * @permission ohos.permission.MANAGE_PRINT_JOB
-   * @param { 'printerStateChange' } type - Indicates state change of printer.
-   * @param { function } callback - The callback function for state change of printer.
+   * @param { 'printerStateChange' } type - Listening type. The value is fixed at **'printerStateChange'**.
+   * @param { function } callback - Callback used to return the result.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *   1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
@@ -2800,7 +2698,6 @@ declare namespace print {
    * The value of state indicates the state of printer.
    * The value of info indicates the latest printer info.
    *
-   * @typedef { function } PrinterStateChangeCallback
    * @param { PrinterState } state - the state of printer
    * @param { PrinterInfo } info - the information of the latest printer
    * @syscap SystemCapability.Print.PrintFramework
@@ -2811,6 +2708,7 @@ declare namespace print {
 
   /**
    * Register event callback for the state change of printer.
+   *
    * @permission ohos.permission.MANAGE_PRINT_JOB
    * @param { PrinterStateChangeCallback } callback - The callback function for state change of printer.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
@@ -2824,14 +2722,16 @@ declare namespace print {
   function onPrinterStateChange(callback: PrinterStateChangeCallback): void;
 
   /**
-   * Unregister event callback for the state change of printer.
+   * Unregisters the listener for printer state change events. This API uses a callback to return the result.
+   *
    * @permission ohos.permission.MANAGE_PRINT_JOB
-   * @param { 'printerStateChange' } type - Indicates state change of printer.
-   * @param { Callback<boolean> } callback - The callback function for state change of printer.
+   * @param { 'printerStateChange' } type - Listening type. The value is fixed at **'printerStateChange'**.
+   * @param { Callback<boolean> } callback - Callback used to return the result. The value **true** means that the
+   *     operation is successful, and **false** means the opposite.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *   1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
@@ -2840,6 +2740,7 @@ declare namespace print {
 
   /**
    * Unregister event callback for the state change of printer.
+   *
    * @permission ohos.permission.MANAGE_PRINT_JOB
    * @param { Callback<boolean> } [callback] - The callback function for state change of printer.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
@@ -2853,14 +2754,15 @@ declare namespace print {
   function offPrinterStateChange(callback?: Callback<boolean>): void;
 
   /**
-   * Register event callback for the state change of print job.
+   * Registers a listener for print job state change events. This API uses a callback to return the result.
+   *
    * @permission ohos.permission.MANAGE_PRINT_JOB
-   * @param { 'jobStateChange' } type - Indicates state change of printer.
-   * @param { function } callback - The callback function for state change of printer.
+   * @param { 'jobStateChange' } type - Listening type. The value is fixed at **'jobStateChange'**.
+   * @param { function } callback - Callback used to return the result.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *   1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
@@ -2872,7 +2774,6 @@ declare namespace print {
    * The value of state indicates the state of print job.
    * The value of job indicates the latest print job info.
    *
-   * @typedef { function } PrintJobStateChangeCallback
    * @param { PrintJobState } state - the state of print job
    * @param { PrintJob } job - the information of the print job
    * @syscap SystemCapability.Print.PrintFramework
@@ -2883,6 +2784,7 @@ declare namespace print {
 
   /**
    * Register event callback for the state change of print job.
+   *
    * @permission ohos.permission.MANAGE_PRINT_JOB
    * @param { PrintJobStateChangeCallback } callback - The callback function for state change of printer.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
@@ -2896,14 +2798,16 @@ declare namespace print {
   function onJobStateChange(callback: PrintJobStateChangeCallback): void;
 
   /**
-   * Unregister event callback for the state change of print job.
+   * Unregisters the listener for print job state change events. This API uses a callback to return the result.
+   *
    * @permission ohos.permission.MANAGE_PRINT_JOB
-   * @param { 'jobStateChange' } type - Indicates state change of printer.
-   * @param { Callback<boolean> } callback - The callback function for state change of printer.
+   * @param { 'jobStateChange' } type - Listening type. The value is fixed at **'jobStateChange'**.
+   * @param { Callback<boolean> } callback - Callback used to return the result. The value **true** means that the
+   *     operation is successful, and **false** means the opposite.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *   1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
@@ -2912,6 +2816,7 @@ declare namespace print {
 
   /**
    * Unregister event callback for the state change of print job.
+   *
    * @permission ohos.permission.MANAGE_PRINT_JOB
    * @param { Callback<boolean> } [callback] - The callback function for state change of printer.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
@@ -2925,14 +2830,16 @@ declare namespace print {
   function offJobStateChange(callback?: Callback<boolean>): void;
 
   /**
-   * Register event callback for the information change of print extension.
+   * Registers a listener for printer extension information change events. This API uses a callback to return the
+   * result.
+   *
    * @permission ohos.permission.MANAGE_PRINT_JOB
-   * @param { 'extInfoChange' } type - Indicates information change of print extension.
-   * @param { function } callback - The callback function for information change of print extension.
+   * @param { 'extInfoChange' } type - Listening type. The value is fixed at **'extInfoChange'**.
+   * @param { function } callback - Callback used to return the result.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *   1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
@@ -2944,7 +2851,6 @@ declare namespace print {
    * The value of extensionId indicates the print extension id.
    * The value of info indicates the connect info.
    *
-   * @typedef { function } ExtInfoChangeCallback
    * @param { string } extensionId - the printer extension id
    * @param { string } info - the information of printer
    * @syscap SystemCapability.Print.PrintFramework
@@ -2955,6 +2861,7 @@ declare namespace print {
 
   /**
    * Register event callback for the information change of print extension.
+   *
    * @permission ohos.permission.MANAGE_PRINT_JOB
    * @param { ExtInfoChangeCallback } callback - The callback function for information change of print extension.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
@@ -2968,14 +2875,17 @@ declare namespace print {
   function onExtInfoChange(callback: ExtInfoChangeCallback): void;
 
   /**
-   * Unregister event callback for the information change of print extension.
+   * Unregisters the listener for printer extension information change events. This API uses a callback to return the
+   * result.
+   *
    * @permission ohos.permission.MANAGE_PRINT_JOB
-   * @param { 'extInfoChange' } type - Indicates state change of printer.
-   * @param { Callback<boolean> } callback - The callback function for state change of printer.
+   * @param { 'extInfoChange' } type - Listening type. The value is fixed at **'extInfoChange'**.
+   * @param { Callback<boolean> } callback - Callback used to return the result. The value **true** means that the
+   *     operation is successful, and **false** means the opposite.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *   1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
@@ -2984,6 +2894,7 @@ declare namespace print {
 
   /**
    * Unregister event callback for the information change of print extension.
+   *
    * @permission ohos.permission.MANAGE_PRINT_JOB
    * @param { Callback<boolean> } [callback] - The callback function for state change of printer.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
@@ -2997,13 +2908,15 @@ declare namespace print {
   function offExtInfoChange(callback?: Callback<boolean>): void;
 
   /**
-   * New printers have been found and notify Print SA.
+   * Adds printers. This API uses an asynchronous callback to return the result.
+   *
    * @permission ohos.permission.MANAGE_PRINT_JOB
-   * @param { Array<PrinterInfo> } printers - Indicates new arrived printer lists.
-   * @param { AsyncCallback<void> } callback - The callback function for indcating the result of API execution.
+   * @param { Array<PrinterInfo> } printers - List of printers to add.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
@@ -3012,13 +2925,15 @@ declare namespace print {
   function addPrinters(printers: Array<PrinterInfo>, callback: AsyncCallback<void>): void;
 
   /**
-   * New printers have been found and notify Print SA.
+   * Adds printers. This API uses a promise to return the result.
+   *
    * @permission ohos.permission.MANAGE_PRINT_JOB
-   * @param { Array<PrinterInfo> } printers - Indicates new arrived printer lists.
-   * @returns { Promise<void> } the promise returned by the function.
+   * @param { Array<PrinterInfo> } printers - List of printers to add.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
@@ -3027,13 +2942,15 @@ declare namespace print {
   function addPrinters(printers: Array<PrinterInfo>): Promise<void>;
 
   /**
-   * Printers have been lost and notify Print SA.
+   * Removes printers. This API uses an asynchronous callback to return the result.
+   *
    * @permission ohos.permission.MANAGE_PRINT_JOB
-   * @param { Array<string> } printerIds - Indicates the lost printer lists.
-   * @param { AsyncCallback<void> } callback - The callback function for indcating the result of API execution.
+   * @param { Array<string> } printerIds - List of printers to remove.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
@@ -3042,13 +2959,15 @@ declare namespace print {
   function removePrinters(printerIds: Array<string>, callback: AsyncCallback<void>): void;
 
   /**
-   * Printers have been lost and notify Print SA.
+   * Removes printers. This API uses a promise to return the result.
+   *
    * @permission ohos.permission.MANAGE_PRINT_JOB
-   * @param { Array<string> } printerIds - Indicates the lost printer lists.
-   * @returns { Promise<void> } the promise returned by the function.
+   * @param { Array<string> } printerIds - List of printers to remove.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
@@ -3057,13 +2976,15 @@ declare namespace print {
   function removePrinters(printerIds: Array<string>): Promise<void>;
 
   /**
-   * Update the information of the specific printers.
+   * Updates information about the specified printers. This API uses an asynchronous callback to return the result.
+   *
    * @permission ohos.permission.MANAGE_PRINT_JOB
-   * @param { Array<PrinterInfo> } printers - Indicates to be updated printer lists.
-   * @param { AsyncCallback<void> } callback - The callback function for indcating the result of API execution.
+   * @param { Array<PrinterInfo> } printers - List of printers whose information is to be updated.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
@@ -3072,13 +2993,15 @@ declare namespace print {
   function updatePrinters(printers: Array<PrinterInfo>, callback: AsyncCallback<void>): void;
 
   /**
-   * Update the information of the specific printers.
+   * Updates information about the specified printers. This API uses a promise to return the result.
+   *
    * @permission ohos.permission.MANAGE_PRINT_JOB
-   * @param { Array<PrinterInfo> } printers - Indicates to be updated printer lists.
-   * @returns { Promise<void> } the promise returned by the function.
+   * @param { Array<PrinterInfo> } printers - List of printers whose information is to be updated.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
@@ -3087,14 +3010,16 @@ declare namespace print {
   function updatePrinters(printers: Array<PrinterInfo>): Promise<void>;
 
   /**
-   * Notify Print SA the state of printer has been changed.
+   * Updates the printer state. This API uses an asynchronous callback to return the result.
+   *
    * @permission ohos.permission.MANAGE_PRINT_JOB
-   * @param { string } printerId - Indicates id of the printer.
-   * @param { PrinterState } state - Indicates state of the printer.
-   * @param { AsyncCallback<void> } callback - The callback function for indcating the result of API execution.
+   * @param { string } printerId - Printer ID.
+   * @param { PrinterState } state - Printer state.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
@@ -3103,14 +3028,16 @@ declare namespace print {
   function updatePrinterState(printerId: string, state: PrinterState, callback: AsyncCallback<void>): void;
 
   /**
-   * Notify Print SA the state of printer has been changed.
+   * Updates the printer state. This API uses a promise to return the result.
+   *
    * @permission ohos.permission.MANAGE_PRINT_JOB
-   * @param { string } printerId - Indicates id of the printer.
-   * @param { PrinterState } state - Indicates state of the printer.
-   * @returns { Promise<void> } the promise returned by the function.
+   * @param { string } printerId - Printer ID.
+   * @param { PrinterState } state - Printer state.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
@@ -3119,76 +3046,58 @@ declare namespace print {
   function updatePrinterState(printerId: string, state: PrinterState): Promise<void>;
 
   /**
-   * Notify Print SA the state of print job has been changed.
-   * @permission ohos.permission.MANAGE_PRINT_JOB
-   * @param { string} jobId - Indicates id of the print job.
-   * @param { PrintJobState } state - Indicates new state of print job.
-   * @param { PrintJobSubState } subState - Indicates sub state of print job.
-   * @param { AsyncCallback<void> } callback - The callback function for indcating the result of API execution.
-   * @throws { BusinessError } 201 - the application does not have permission to call this function.
-   * @throws { BusinessError } 202 - not system application
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * Updates the print job state. This API uses an asynchronous callback to return the result.
+   *
+   * @permission ohos.permission.MANAGE_PRINT_JOB [since 10 - 23]
+   * @permission ohos.permission.MANAGE_PRINT_JOB or ohos.permission.ENTERPRISE_MANAGE_PRINT [since 24]
+   * @param { string} jobId - ID of the print job.
+   * @param { PrintJobState } state - Print job state.
+   * @param { PrintJobSubState } subState - Substate of the print job.
+   * @param { AsyncCallback<void> } callback - Callback to be invoked when the print job state is updated.
+   * @throws { BusinessError } 201 - The application does not have permission to call this function.
+   * @throws { BusinessError } 202 - not system application [since 10 - 23]
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @syscap SystemCapability.Print.PrintFramework
-   * @systemapi Hide this for inner system use.
+   * @systemapi Hide this for inner system use. [since 10 - 23]
+   * @publicapi [since 24]
    * @since 10 dynamic
    * @since 23 static
-   */
-  /**
-   * Notify Print SA the state of print job has been changed.
-   * @permission ohos.permission.MANAGE_PRINT_JOB or ohos.permission.ENTERPRISE_MANAGE_PRINT
-   * @param { string} jobId - Indicates id of the print job.
-   * @param { PrintJobState } state - Indicates the new state of the print job.
-   * @param { PrintJobSubState } subState - Indicates sub-state of print job.
-   * @param { AsyncCallback<void> } callback - The callback function for indicating the result of API execution.
-   * @throws { BusinessError } 201 - The application does not have permission to call this function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
-   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
-   * @syscap SystemCapability.Print.PrintFramework
-   * @since 24 dynamic&static
    */
   function updatePrintJobState(jobId: string, state: PrintJobState, subState: PrintJobSubState,
     callback: AsyncCallback<void>): void;
 
   /**
-   * Notify Print SA the state of print job has been changed.
-   * @permission ohos.permission.MANAGE_PRINT_JOB
-   * @param { string} jobId - Indicates id of the print job.
-   * @param { PrintJobState } state - Indicates new state of print job.
-   * @param { PrintJobSubState } subState - Indicates sub state of print job.
-   * @returns { Promise<void> } the promise returned by the function.
+   * Updates the print job state. This API uses a promise to return the result.
+   *
+   * @permission ohos.permission.MANAGE_PRINT_JOB [since 10 - 23]
+   * @permission ohos.permission.MANAGE_PRINT_JOB or ohos.permission.ENTERPRISE_MANAGE_PRINT [since 24]
+   * @param { string} jobId - ID of the print job.
+   * @param { PrintJobState } state - Print job state.
+   * @param { PrintJobSubState } subState - Substate of the print job.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
-   * @throws { BusinessError } 202 - not system application
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * @throws { BusinessError } 202 - not system application [since 10 - 23]
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @syscap SystemCapability.Print.PrintFramework
-   * @systemapi Hide this for inner system use.
+   * @systemapi Hide this for inner system use. [since 10 - 23]
+   * @publicapi [since 24]
    * @since 10 dynamic
    * @since 23 static
-   */
-  /**
-   * Notify Print SA the state of print job has been changed.
-   * @permission ohos.permission.MANAGE_PRINT_JOB or ohos.permission.ENTERPRISE_MANAGE_PRINT
-   * @param { string} jobId - Indicates id of the print job.
-   * @param { PrintJobState } state - Indicates new state of print job.
-   * @param { PrintJobSubState } subState - Indicates sub state of print job.
-   * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 201 - the application does not have permission to call this function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
-   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
-   * @syscap SystemCapability.Print.PrintFramework
-   * @since 24 dynamic&static
    */
   function updatePrintJobState(jobId: string, state: PrintJobState, subState: PrintJobSubState): Promise<void>;
 
   /**
-   * Notify Print SA the state of print extension has been changed.
+   * Updates the printer extension information. This API uses an asynchronous callback to return the result.
+   *
    * @permission ohos.permission.MANAGE_PRINT_JOB
-   * @param { string } info - Indicates changed information of print extension.
-   * @param { AsyncCallback<void> } callback - The callback function for indcating the result of API execution.
+   * @param { string } info - New printer extension information.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
@@ -3197,13 +3106,15 @@ declare namespace print {
   function updateExtensionInfo(info: string, callback: AsyncCallback<void>): void;
 
   /**
-   * Notify Print SA the state of print extension has been changed.
+   * Updates the printer extension information. This API uses a promise to return the result.
+   *
    * @permission ohos.permission.MANAGE_PRINT_JOB
-   * @param { string } info - Indicates changed information of print extension.
-   * @returns { Promise<void> } the promise returned by the function.
+   * @param { string } info - New printer extension information.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
@@ -3212,9 +3123,10 @@ declare namespace print {
   function updateExtensionInfo(info: string): Promise<void>;
 
   /**
-   * Get all the printJobs in the queue.
+   * Queries all print jobs. This API uses an asynchronous callback to return the result.
+   *
    * @permission ohos.permission.MANAGE_PRINT_JOB
-   * @param { AsyncCallback<void> } callback - The callback function for handling the printJob list found.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application
    * @syscap SystemCapability.Print.PrintFramework
@@ -3222,14 +3134,15 @@ declare namespace print {
    * @since 10 dynamic
    * @since 23 static
    * @deprecated since 11
-   * @useinstead print#queryPrintJobList
+   * @useinstead null
    */
   function queryAllPrintJobs(callback: AsyncCallback<void>): void;
 
   /**
-   * Get all the printJobs in the queue.
+   * Queries all print jobs. This API uses a promise to return the result.
+   *
    * @permission ohos.permission.MANAGE_PRINT_JOB
-   * @returns { Promise<void> } the promise returned by the function.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application
    * @syscap SystemCapability.Print.PrintFramework
@@ -3237,27 +3150,29 @@ declare namespace print {
    * @since 10 dynamic
    * @since 23 static
    * @deprecated since 11
-   * @useinstead print#queryPrintJobList
+   * @useinstead null
    */
   function queryAllPrintJobs(): Promise<void>;
 
   /**
-   * Get all active printJobs in the queue.
+   * Queries all active print jobs. This API uses a promise to return the result.
+   *
    * @permission ohos.permission.MANAGE_PRINT_JOB
-   * @returns { Promise<PrintJob[]> } Returns a list of all active print jobs.
+   * @returns { Promise<PrintJob[]> } Promise used to return a list of all active print jobs.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
-   * @since 20 dynamic	
-     * @since 23 static
+   * @since 20 dynamic
+   * @since 23 static
    */
   function queryAllActivePrintJobs(): Promise<PrintJob[]>;
 
   /**
-   * Get all the printJobs in the queue.
+   * Queries all print jobs. This API uses an asynchronous callback to return the result.
+   *
    * @permission ohos.permission.MANAGE_PRINT_JOB
-   * @param { AsyncCallback<Array<PrintJob>> } callback - The callback function for handling the printJob list found.
+   * @param { AsyncCallback<Array<PrintJob>> } callback - Callback used to return the result.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application
    * @syscap SystemCapability.Print.PrintFramework
@@ -3268,9 +3183,10 @@ declare namespace print {
   function queryPrintJobList(callback: AsyncCallback<Array<PrintJob>>): void;
 
   /**
-   * Get all the printJobs in the queue.
+   * Queries all print jobs. This API uses a promise to return the result.
+   *
    * @permission ohos.permission.MANAGE_PRINT_JOB
-   * @returns { Promise<Array<PrintJob>> } the promise returned by the function.
+   * @returns { Promise<Array<PrintJob>> } Promise used to return a list of all print jobs.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application
    * @syscap SystemCapability.Print.PrintFramework
@@ -3281,13 +3197,15 @@ declare namespace print {
   function queryPrintJobList(): Promise<Array<PrintJob>>;
 
   /**
-   * Get printJob by jobId.
+   * Queries a print job by ID. This API uses an asynchronous callback to return the result.
+   *
    * @permission ohos.permission.MANAGE_PRINT_JOB
-   * @param { string } jobId - Indicates id of the print job.
-   * @param { AsyncCallback<PrintJob> } callback - The callback function for get printJob by jobId.
+   * @param { string } jobId - ID of the print job.
+   * @param { AsyncCallback<PrintJob> } callback - Callback used to return the result.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
    * @since 11 dynamic
@@ -3296,13 +3214,15 @@ declare namespace print {
   function queryPrintJobById(jobId: string, callback: AsyncCallback<PrintJob>): void;
 
   /**
-   * Get printJob by jobId.
+   * Queries a print job by ID. This API uses a promise to return the result.
+   *
    * @permission ohos.permission.MANAGE_PRINT_JOB
-   * @param { string } jobId - Indicates id of the print job.
-   * @returns { Promise<PrintJob> } the promise returned by the function.
+   * @param { string } jobId - ID of the print job.
+   * @returns { Promise<PrintJob> } Promise used to return the queried print job.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
    * @since 11 dynamic
@@ -3311,15 +3231,17 @@ declare namespace print {
   function queryPrintJobById(jobId: string): Promise<PrintJob>;
 
   /**
-   * Start getting print file.
+   * Starts to obtain the print file. This API uses an asynchronous callback to return the result.
+   *
    * @permission ohos.permission.MANAGE_PRINT_JOB
-   * @param { string } jobId - Indicates id of the print job.
-   * @param { PrintAttributes } printAttributes - Indicates print attributes.
-   * @param { int } fd - Indicates print file fd.
-   * @param { Callback<PrintFileCreationState> } onFileStateChanged - The callback function for update the file state.
+   * @param { string } jobId - ID of the print job.
+   * @param { PrintAttributes } printAttributes - Print attributes.
+   * @param { int } fd - File descriptor.
+   * @param { Callback<PrintFileCreationState> } onFileStateChanged - Callback for updating the file state.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
    * @since 11 dynamic
@@ -3329,15 +3251,17 @@ declare namespace print {
     onFileStateChanged: Callback<PrintFileCreationState>): void;
 
   /**
-   * Notify print service the information.
+   * Notifies the print service of the spooler shutdown information. This API uses an asynchronous callback to return
+   * the result.
+   *
    * @permission ohos.permission.MANAGE_PRINT_JOB
-   * @param { string } jobId - Indicates id of the print job.
-   * @param { 'spooler_closed_for_cancelled' | 'spooler_closed_for_started' } type - Indicates notify information.
-   * @param { AsyncCallback<void> } callback - The callback function for indcating the result of API execution.
+   * @param { string } jobId - ID of the print job.
+   * @param { 'spooler_closed_for_cancelled' | 'spooler_closed_for_started' } type - Spooler shutdown information.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *   1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
    * @since 11 dynamic
@@ -3347,13 +3271,14 @@ declare namespace print {
 
   /**
    * Notify print service the information.
+   *
    * @permission ohos.permission.MANAGE_PRINT_JOB
    * @param { string } jobId - Indicates id of the print job.
    * @param { AsyncCallback<void> } callback - The callback function for indcating the result of API execution.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *   1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
    * @since 23 static
@@ -3362,13 +3287,14 @@ declare namespace print {
 
   /**
    * Notify print service the information.
+   *
    * @permission ohos.permission.MANAGE_PRINT_JOB
    * @param { string } jobId - Indicates id of the print job.
-   * @param { AsyncCallback<void> } callback - The callback function for indcating the result of API execution.
+   * @param { AsyncCallback<void> } callback - The callback function for indicating the result of API execution.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *   1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
    * @since 23 static
@@ -3376,15 +3302,16 @@ declare namespace print {
   function notifyPrintServiceSpoolerCloseForStarted(jobId: string, callback: AsyncCallback<void>): void;
 
   /**
-   * Notify print service the information.
+   * Notifies the print service of the spooler shutdown information. This API uses a promise to return the result.
+   *
    * @permission ohos.permission.MANAGE_PRINT_JOB
-   * @param { string } jobId - Indicates id of the print job.
-   * @param { 'spooler_closed_for_cancelled' | 'spooler_closed_for_started' } type - Indicates notify information.
-   * @returns { Promise<void> } the promise returned by the function.
+   * @param { string } jobId - ID of the print job.
+   * @param { 'spooler_closed_for_cancelled' | 'spooler_closed_for_started' } type - Spooler shutdown information.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *   1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
    * @since 11 dynamic
@@ -3394,6 +3321,7 @@ declare namespace print {
 
   /**
    * Notify print service the information.
+   *
    * @permission ohos.permission.MANAGE_PRINT_JOB
    * @param { string } jobId - Indicates id of the print job.
    * @returns { Promise<void> } the promise returned by the function.
@@ -3409,6 +3337,7 @@ declare namespace print {
 
   /**
    * Notify print service the information.
+   *
    * @permission ohos.permission.MANAGE_PRINT_JOB
    * @param { string } jobId - Indicates id of the print job.
    * @returns { Promise<void> } the promise returned by the function.
@@ -3423,9 +3352,10 @@ declare namespace print {
   function notifyPrintServiceSpoolerCloseForStarted(jobId: string): Promise<void>;
 
   /**
-   * Get all added printers.
+   * Obtains the list of printers added to the system. This API uses a promise to return the result.
+   *
    * @permission ohos.permission.MANAGE_PRINT_JOB or ohos.permission.PRINT
-   * @returns { Promise<Array<string>> } the promise returned by the function.
+   * @returns { Promise<Array<string>> } Promise used to return a list of all added printers.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @syscap SystemCapability.Print.PrintFramework
    * @since 18 dynamic
@@ -3434,10 +3364,11 @@ declare namespace print {
   function getAddedPrinters(): Promise<Array<string>>;
 
   /**
-   * Get printer info by printer id.
+   * Obtains printer information based on the printer ID. This API uses a promise to return the result.
+   *
    * @permission ohos.permission.MANAGE_PRINT_JOB
-   * @param { string } printerId - Indicates id of the printer.
-   * @returns { Promise<PrinterInfo> } the promise returned by the function.
+   * @param { string } printerId - Printer ID.
+   * @returns { Promise<PrinterInfo> } Promise used to return the printer information.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -3450,13 +3381,15 @@ declare namespace print {
   function getPrinterInfoById(printerId: string): Promise<PrinterInfo>;
 
   /**
-   * Notify print service of application event.
+   * Notifies the print service of the print application events. This API uses a promise to return the result.
+   *
    * @permission ohos.permission.MANAGE_PRINT_JOB
-   * @param { ApplicationEvent } event - Indicates the event to be notified.
-   * @returns { Promise<void> } the promise returned by the function.
+   * @param { ApplicationEvent } event - Print application events.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
    * @since 12 dynamic
@@ -3465,12 +3398,14 @@ declare namespace print {
   function notifyPrintServiceEvent(event: ApplicationEvent): Promise<void>;
 
   /**
-   * New printers have been found and notify Print SA.
+   * Adds a printer to the printer discovery list. This API uses a promise to return the result.
+   *
    * @permission ohos.permission.PRINT
-   * @param { PrinterInformation } printerInformation - Indicates new arrived printer lists.
-   * @returns { Promise<void> } the promise returned by the function.
+   * @param { PrinterInformation } printerInformation - The added printer.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @syscap SystemCapability.Print.PrintFramework
    * @since 14 dynamic
    * @since 23 static
@@ -3478,12 +3413,14 @@ declare namespace print {
   function addPrinterToDiscovery(printerInformation: PrinterInformation): Promise<void>;
 
   /**
-   * Update the information of the specific printer.
+   * Updates the printer capabilities to the printer discovery list. This API uses a promise to return the result.
+   *
    * @permission ohos.permission.PRINT
-   * @param { PrinterInformation } printerInformation - Indicates to be updated printer lists.
-   * @returns { Promise<void> } the promise returned by the function.
+   * @param { PrinterInformation } printerInformation - Printer whose capability is to be updated.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @syscap SystemCapability.Print.PrintFramework
    * @since 14 dynamic
    * @since 23 static
@@ -3491,12 +3428,14 @@ declare namespace print {
   function updatePrinterInDiscovery(printerInformation: PrinterInformation): Promise<void>;
 
   /**
-   * Notify Print SA to remove printer.
+   * Removes a printer from the printer discovery list. This API uses a promise to return the result.
+   *
    * @permission ohos.permission.PRINT
-   * @param { string } printerId - Indicates the lost printer lists.
-   * @returns { Promise<void> } the promise returned by the function.
+   * @param { string } printerId - Printer to remove.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @syscap SystemCapability.Print.PrintFramework
    * @since 14 dynamic
    * @since 23 static
@@ -3504,12 +3443,14 @@ declare namespace print {
   function removePrinterFromDiscovery(printerId: string): Promise<void>;
 
   /**
-   * Get printerInformation by printer id.
+   * Obtains printer information based on the printer ID. This API uses a promise to return the result.
+   *
    * @permission ohos.permission.PRINT
-   * @param { string } printerId - Indicates id of the printer.
-   * @returns { Promise<PrinterInformation> } the promise returned by the function.
+   * @param { string } printerId - Printer ID used to obtain information.
+   * @returns { Promise<PrinterInformation> } Promise used to return the printer information.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @syscap SystemCapability.Print.PrintFramework
    * @since 14 dynamic
    * @since 23 static
@@ -3517,16 +3458,16 @@ declare namespace print {
   function getPrinterInformationById(printerId: string): Promise<PrinterInformation>;
 
   /**
-   * defines printer information.
-   * @typedef PrinterInformation
+   * Defines the printer information.
+   *
    * @syscap SystemCapability.Print.PrintFramework
    * @since 14 dynamic
    * @since 23 static
    */
   interface PrinterInformation {
     /**
-     * Printer id.
-     * @type { string }
+     * Printer ID.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
      * @since 23 static
@@ -3535,7 +3476,7 @@ declare namespace print {
 
     /**
      * Printer name.
-     * @type { string }
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
      * @since 23 static
@@ -3543,8 +3484,8 @@ declare namespace print {
     printerName: string;
 
     /**
-     * Current printer status.
-     * @type { PrinterStatus }
+     * Printer state.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
      * @since 23 static
@@ -3553,7 +3494,7 @@ declare namespace print {
 
     /**
      * Printer description.
-     * @type { ?string }
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
      * @since 23 static
@@ -3562,7 +3503,7 @@ declare namespace print {
 
     /**
      * Printer capabilities.
-     * @type { ?PrinterCapabilities }
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
      * @since 23 static
@@ -3570,8 +3511,8 @@ declare namespace print {
     capability?: PrinterCapabilities;
 
     /**
-     * Printer uri.
-     * @type { ?string }
+     * Printer URI.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
      * @since 23 static
@@ -3579,8 +3520,8 @@ declare namespace print {
     uri?: string;
 
     /**
-     * Printer make.
-     * @type { ?string }
+     * Printer model.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
      * @since 23 static
@@ -3589,7 +3530,7 @@ declare namespace print {
 
     /**
      * Printer preferences.
-     * @type { ?PrinterPreferences }
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 18 dynamic
      * @since 23 static
@@ -3598,7 +3539,7 @@ declare namespace print {
 
     /**
      * Printer alias.
-     * @type { ?string }
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 18 dynamic
      * @since 23 static
@@ -3622,8 +3563,8 @@ declare namespace print {
     selectedProtocol?: string;
 
     /**
-     * Detail information in json format.
-     * @type { ?string }
+     * Printer details.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
      * @since 23 static
@@ -3632,16 +3573,16 @@ declare namespace print {
   }
 
   /**
-   * defines printer capabilities.
-   * @typedef PrinterCapabilities
+   * Defines the printer capabilities.
+   *
    * @syscap SystemCapability.Print.PrintFramework
    * @since 14 dynamic
    * @since 23 static
    */
   interface PrinterCapabilities {
     /**
-     * The page size list supported by the printer.
-     * @type { Array<PrintPageSize> }
+     * List of paper sizes supported by the printer.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
      * @since 23 static
@@ -3649,8 +3590,8 @@ declare namespace print {
     supportedPageSizes: Array<PrintPageSize>;
 
     /**
-     * Array of supported color mode.
-     * @type { Array<PrintColorMode> }
+     * List of color modes supported by the printer.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
      * @since 23 static
@@ -3658,8 +3599,8 @@ declare namespace print {
     supportedColorModes: Array<PrintColorMode>;
 
     /**
-     * Array of supported duplex mode.
-     * @type { Array<PrintDuplexMode> }
+     * List of single- and double-sided modes supported by the printer.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
      * @since 23 static
@@ -3667,8 +3608,8 @@ declare namespace print {
     supportedDuplexModes: Array<PrintDuplexMode>;
 
     /**
-     * Array of supported print media types.
-     * @type { ?Array<string> }
+     * List of paper types supported by the printer.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
      * @since 23 static
@@ -3676,8 +3617,8 @@ declare namespace print {
     supportedMediaTypes?: Array<string>;
 
     /**
-     * Array of supported print quality.
-     * @type { ?Array<PrintQuality> }
+     * List of print quality supported by the printer.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
      * @since 23 static
@@ -3685,8 +3626,8 @@ declare namespace print {
     supportedQualities?: Array<PrintQuality>;
 
     /**
-     * Array of supported print orientation.
-     * @type { ?Array<PrintOrientationMode> }
+     * List of print directions supported by the printer.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
      * @since 23 static
@@ -3694,25 +3635,44 @@ declare namespace print {
     supportedOrientations?: Array<PrintOrientationMode>;
 
     /**
-     * Advanced capability in json format.
-     * @type { ?string }
+     * Printer capability details.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
      * @since 23 static
      */
     options?: string;
+
+    /**
+     * Ability to configure printer vendor-specific preferences.
+     *
+     * @syscap SystemCapability.Print.PrintFramework
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    vendorPrinterPrefAbility?: string;
+
+    /**
+     * Ability to configure job vendor-specific attributes.
+     *
+     * @syscap SystemCapability.Print.PrintFramework
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    vendorJobAttrAbility?: string;
   }
 
   /**
-   * Enumeration of Print Quality.
-   * @enum { int } PrintQuality
+   * Enumerates the print qualities.
+   *
    * @syscap SystemCapability.Print.PrintFramework
    * @since 14 dynamic
    * @since 23 static
    */
   enum PrintQuality {
     /**
-     * Draft quality mode.
+     * Draft
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
      * @since 23 static
@@ -3720,7 +3680,8 @@ declare namespace print {
     QUALITY_DRAFT = 3,
 
     /**
-     * Normal quality mode.
+     * Standard
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
      * @since 23 static
@@ -3728,17 +3689,18 @@ declare namespace print {
     QUALITY_NORMAL = 4,
 
     /**
-     * High quality mode.
+     * High
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
      * @since 23 static
      */
-    QUALITY_HIGH = 5,
+    QUALITY_HIGH = 5
   }
 
   /**
-   * Enumeration of Print OrientationMode.
-   * @enum { int } PrintOrientationMode
+   * Enumerates the print directions.
+   *
    * @syscap SystemCapability.Print.PrintFramework
    * @since 14 dynamic
    * @since 23 static
@@ -3746,6 +3708,7 @@ declare namespace print {
   enum PrintOrientationMode {
     /**
      * Portrait mode.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
      * @since 23 static
@@ -3754,6 +3717,7 @@ declare namespace print {
 
     /**
      * Landscape mode.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
      * @since 23 static
@@ -3762,6 +3726,7 @@ declare namespace print {
 
     /**
      * Reverse landscape mode.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
      * @since 23 static
@@ -3770,6 +3735,7 @@ declare namespace print {
 
     /**
      * Reverse portrait mode.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
      * @since 23 static
@@ -3777,24 +3743,26 @@ declare namespace print {
     ORIENTATION_MODE_REVERSE_PORTRAIT = 3,
 
     /**
-     * Not specified.
+     * Adaptive mode.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
      * @since 23 static
      */
-    ORIENTATION_MODE_NONE = 4,
+    ORIENTATION_MODE_NONE = 4
   }
 
   /**
-   * Enumeration of Printer Status.
-   * @enum { int } PrinterStatus
+   * Enumerates the printer states.
+   *
    * @syscap SystemCapability.Print.PrintFramework
    * @since 14 dynamic
    * @since 23 static
    */
   enum PrinterStatus {
     /**
-     * Printer idle.
+     * The printer is idle.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
      * @since 23 static
@@ -3802,7 +3770,8 @@ declare namespace print {
     PRINTER_IDLE = 0,
 
     /**
-     * Printer busy.
+     * The printer is busy.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
      * @since 23 static
@@ -3810,17 +3779,18 @@ declare namespace print {
     PRINTER_BUSY = 1,
 
     /**
-     * Printer not available.
+     * The printer is unavailable.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
      * @since 23 static
      */
-    PRINTER_UNAVAILABLE = 2,
+    PRINTER_UNAVAILABLE = 2
   }
 
   /**
-   * defines printer preferences.
-   * @typedef PrinterPreferences
+   * Defines the printer preferences.
+   *
    * @syscap SystemCapability.Print.PrintFramework
    * @since 18 dynamic
    * @since 23 static
@@ -3828,7 +3798,7 @@ declare namespace print {
   interface PrinterPreferences {
     /**
      * Default duplex mode.
-     * @type { ?PrintDuplexMode }
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 18 dynamic
      * @since 23 static
@@ -3836,8 +3806,8 @@ declare namespace print {
     defaultDuplexMode?: PrintDuplexMode;
 
     /**
-     * Default quality.
-     * @type { ?PrintQuality }
+     * Default print quality.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 18 dynamic
      * @since 23 static
@@ -3845,8 +3815,8 @@ declare namespace print {
     defaultPrintQuality?: PrintQuality;
 
     /**
-     * Default media type.
-     * @type { ?string }
+     * Default paper type.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 18 dynamic
      * @since 23 static
@@ -3854,8 +3824,10 @@ declare namespace print {
     defaultMediaType?: string;
 
     /**
-     * Default page size id.
-     * @type { ?string }
+     * ID of the default paper size. The value can be a standard paper size defined by the International Organization
+     * for Standardization (ISO), for example, ISO_A4, or a non-standard paper size defined in the system, for example,
+     * Custom.178 × 254 mm.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 18 dynamic
      * @since 23 static
@@ -3863,8 +3835,8 @@ declare namespace print {
     defaultPageSizeId?: string;
 
     /**
-     * Default orientation mode.
-     * @type { ?PrintOrientationMode }
+     * Default print orientation.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 18 dynamic
      * @since 23 static
@@ -3872,8 +3844,9 @@ declare namespace print {
     defaultOrientation?: PrintOrientationMode;
 
     /**
-     * Default margins.
-     * @type { ?boolean }
+     * Whether to print without margins. The value **true** means to print without margins, and **false** means the
+     * opposite. The default value is **false**.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 18 dynamic
      * @since 23 static
@@ -3905,18 +3878,28 @@ declare namespace print {
     defaultReverse?: boolean;
 
     /**
-     * Detailed printer preferences in json format.
-     * @type { ?string }
+     * Other fields in the printer preferences. The fields are queried from the printer or obtained from the printer
+     * driver and stored in the string in JSON format.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 18 dynamic
      * @since 23 static
      */
     options?: string;
+
+    /**
+     * Vendor-specific printer preferences in JSON format.
+     *
+     * @syscap SystemCapability.Print.PrintFramework
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    vendorOptions?: string;
   }
 
   /**
-   * Enumeration of Printer Change Events.
-   * @enum { int } PrinterEvent
+   * Enumerates printer-related events.
+   *
    * @syscap SystemCapability.Print.PrintFramework
    * @since 18 dynamic
    * @since 23 static
@@ -3924,6 +3907,7 @@ declare namespace print {
   enum PrinterEvent {
     /**
      * Printer added.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 18 dynamic
      * @since 23 static
@@ -3932,6 +3916,7 @@ declare namespace print {
 
     /**
      * Printer deleted.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 18 dynamic
      * @since 23 static
@@ -3940,6 +3925,7 @@ declare namespace print {
 
     /**
      * Printer state changed.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 18 dynamic
      * @since 23 static
@@ -3947,7 +3933,8 @@ declare namespace print {
     PRINTER_EVENT_STATE_CHANGED = 2,
 
     /**
-     * Printer info changed.
+     * Printer information changed.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 18 dynamic
      * @since 23 static
@@ -3955,7 +3942,8 @@ declare namespace print {
     PRINTER_EVENT_INFO_CHANGED = 3,
 
     /**
-     * Printer preference changed.
+     * Printer preferences changed.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 18 dynamic
      * @since 23 static
@@ -3963,24 +3951,26 @@ declare namespace print {
     PRINTER_EVENT_PREFERENCE_CHANGED = 4,
 
     /**
-     * Last used printer changed.
+     * The last used printer changed.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 18 dynamic
      * @since 23 static
      */
-    PRINTER_EVENT_LAST_USED_PRINTER_CHANGED = 5,
+    PRINTER_EVENT_LAST_USED_PRINTER_CHANGED = 5
   }
 
   /**
-   * Enumeration of default printer type.
-   * @enum { int } DefaultPrinterType
+   * Enumerates default printer types.
+   *
    * @syscap SystemCapability.Print.PrintFramework
    * @since 18 dynamic
    * @since 23 static
    */
   enum DefaultPrinterType {
     /**
-     * Default printer set by user.
+     * The printer set by the user serves as the default printer.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 18 dynamic
      * @since 23 static
@@ -3988,50 +3978,46 @@ declare namespace print {
     DEFAULT_PRINTER_TYPE_SET_BY_USER = 0,
 
     /**
-     * The last used printer is used as the default printer.
+     * The printer used last time serves as the default printer.
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 18 dynamic
      * @since 23 static
      */
-    DEFAULT_PRINTER_TYPE_LAST_USED_PRINTER = 1,
+    DEFAULT_PRINTER_TYPE_LAST_USED_PRINTER = 1
   }
 
   /**
-   * Update the information of the specific added printer.
-   * @permission ohos.permission.MANAGE_PRINT_JOB
-   * @param { PrinterInformation } printerInformation - Indicates the printer to be updated.
-   * @returns { Promise<void> } the promise returned by the function.
+   * Updates the information of a printer in the system. This API uses a promise to return the result. Currently, only
+   * the **alias** and **options** fields of [PrinterInformation]{@link print.PrinterInformation} can be updated.
+   *
+   * @permission ohos.permission.MANAGE_PRINT_JOB [since 18 - 23]
+   * @permission ohos.permission.MANAGE_PRINT_JOB or ohos.permission.ENTERPRISE_MANAGE_PRINT [since 24]
+   * @param { PrinterInformation } printerInformation - Printer information to be updated.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
-   * @throws { BusinessError } 202 - not system application
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * @throws { BusinessError } 202 - not system application [since 18 - 23]
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @syscap SystemCapability.Print.PrintFramework
-   * @systemapi Hide this for inner system use.
+   * @systemapi Hide this for inner system use. [since 18 - 23]
+   * @publicapi [since 24]
    * @since 18 dynamic
    * @since 23 static
-   */
-  /**
-   * Update the information of the specific added printer.
-   * @permission ohos.permission.MANAGE_PRINT_JOB or ohos.permission.ENTERPRISE_MANAGE_PRINT
-   * @param { PrinterInformation } printerInformation - Indicates the printer to be updated.
-   * @returns { Promise<void> } the promise returned by the function.
-   * @throws { BusinessError } 201 - the application does not have permission to call this function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
-   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
-   * @syscap SystemCapability.Print.PrintFramework
-   * @since 24 dynamic&static
    */
   function updatePrinterInformation(printerInformation: PrinterInformation): Promise<void>;
 
   /**
-   * Save the preferences set by the user.
+   * Sets the printer preferences. This API uses a promise to return the result.
+   *
    * @permission ohos.permission.MANAGE_PRINT_JOB
-   * @param { string } printerId - Indicates the printer to be updated.
-   * @param { PrinterPreferences } printerPreferences - Indicates the printer preferences set by the user.
-   * @returns { Promise<void> } the promise returned by the function.
+   * @param { string } printerId - Printer ID.
+   * @param { PrinterPreferences } printerPreferences - Printer preferences.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
    * @since 18 dynamic
@@ -4040,9 +4026,11 @@ declare namespace print {
   function setPrinterPreferences(printerId: string, printerPreferences: PrinterPreferences): Promise<void>;
 
   /**
-   * Discover all usb printers.
+   * Discovers USB printers. This API uses a promise to return the result.
+   *
    * @permission ohos.permission.MANAGE_PRINT_JOB
-   * @returns { Promise<Array<PrinterInformation>> } the promise returned by the function.
+   * @returns { Promise<Array<PrinterInformation>> } Promise used to return the information about the discovered USB
+   *     printers.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application
    * @syscap SystemCapability.Print.PrintFramework
@@ -4053,14 +4041,16 @@ declare namespace print {
   function discoverUsbPrinters(): Promise<Array<PrinterInformation>>;
 
   /**
-   * Save the default printer set by the user.
+   * Sets the default printer. This API uses a promise to return the result.
+   *
    * @permission ohos.permission.MANAGE_PRINT_JOB
-   * @param { string } printerId - Indicates the printer to be set as the default printer.
-   * @param { DefaultPrinterType } type - Indicates the default printer type.
-   * @returns { Promise<void> } the promise returned by the function.
+   * @param { string } printerId - Printer ID.
+   * @param { DefaultPrinterType } type - Default printer type.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
    * @since 18 dynamic
@@ -4069,14 +4059,16 @@ declare namespace print {
   function setDefaultPrinter(printerId: string, type: DefaultPrinterType): Promise<void>;
 
   /**
-   * Notify print service of application event.
+   * Notifies the print service of the print application events. This API uses a promise to return the result.
+   *
    * @permission ohos.permission.MANAGE_PRINT_JOB
-   * @param { ApplicationEvent } event - Indicates the event to be notified.
-   * @param { string } jobId - Indicates the job id.
-   * @returns { Promise<void> } the promise returned by the function.
+   * @param { ApplicationEvent } event - Print application events.
+   * @param { string } jobId - ID of the print job.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
    * @since 18 dynamic
@@ -4085,13 +4077,10 @@ declare namespace print {
   function notifyPrintServiceEvent(event: ApplicationEvent, jobId: string): Promise<void>;
 
   /**
-   * Defines the callback type used in registering to listen for PrinterEvent.
-   * The value of event indicates the information of PrinterEvent.
-   * The value of printerInformation indicates the latest printer information.
+   * Defines a callback that takes the printer event and printer information as parameters.
    *
-   * @typedef { function } PrinterChangeCallback
-   * @param { PrinterEvent } event - the information of PrinterEvent
-   * @param { PrinterInformation } printerInformation - the information of the latest printer
+   * @param { PrinterEvent } event - Printer event.
+   * @param { PrinterInformation } printerInformation - Printer information.
    * @syscap SystemCapability.Print.PrintFramework
    * @since 18 dynamic
    * @since 23 static
@@ -4099,13 +4088,14 @@ declare namespace print {
   type PrinterChangeCallback = (event: PrinterEvent, printerInformation: PrinterInformation) => void;
 
   /**
-   * Register event callback for the change of printer.
+   * Registers a listener for the printer change events. This API uses a callback to return the result.
+   *
    * @permission ohos.permission.PRINT
-   * @param { 'printerChange' } type - Indicates change of printer.
-   * @param { PrinterChangeCallback } callback - The callback function for change of printer.
+   * @param { 'printerChange' } type - Printer change event.
+   * @param { PrinterChangeCallback } callback - Callback to be invoked when the printer changes.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *   1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @syscap SystemCapability.Print.PrintFramework
    * @since 18 dynamic
    */
@@ -4113,6 +4103,7 @@ declare namespace print {
 
   /**
    * Register event callback for the change of printer.
+   *
    * @permission ohos.permission.PRINT
    * @param { PrinterChangeCallback } callback - The callback function for change of printer.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
@@ -4124,13 +4115,14 @@ declare namespace print {
   function onPrinterChange(callback: PrinterChangeCallback): void;
 
   /**
-   * Unregister event callback for the change of printer.
+   * Unregisters the listener for printer state change events. This API uses a callback to return the result.
+   *
    * @permission ohos.permission.PRINT
-   * @param { 'printerChange' } type - Indicates change of printer.
-   * @param { PrinterChangeCallback } [callback] - The callback function for change of printer.
+   * @param { 'printerChange' } type - Printer change event.
+   * @param { PrinterChangeCallback } [callback] - Callback to unregister.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *   1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @syscap SystemCapability.Print.PrintFramework
    * @since 18 dynamic
    */
@@ -4138,6 +4130,7 @@ declare namespace print {
 
   /**
    * Unregister event callback for the change of printer.
+   *
    * @permission ohos.permission.PRINT
    * @param { PrinterChangeCallback } [callback] - The callback function for change of printer.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
@@ -4162,7 +4155,7 @@ declare namespace print {
      * @since 24 dynamic&static
      */
     ip: string;
-  
+
     /**
      * Share name of the shared device.
      * @syscap SystemCapability.Print.PrintFramework
@@ -4170,7 +4163,7 @@ declare namespace print {
      * @since 24 dynamic&static
      */
     shareName: string;
-    
+
     /**
      * Workgroup name of the shared device.
      * @syscap SystemCapability.Print.PrintFramework
@@ -4562,7 +4555,7 @@ declare namespace print {
      * @stagemodelonly
      * @since 24 dynamic&static
      */
-    WATERMARK_HANDLE_FAILURE = 1,
+    WATERMARK_HANDLE_FAILURE = 1
   }
 
   /**
@@ -4583,7 +4576,7 @@ declare namespace print {
   /**
    * Register to listen for watermark handling.
    * @permission ohos.permission.ENTERPRISE_MANAGE_PRINT
-   * @param { WatermarkCallback } callback - Indicates the callback type used in registering to 
+   * @param { WatermarkCallback } callback - Indicates the callback type used in registering to
    *     listen for watermark handling.
    *     <br>Indicates the callback type used in registering to listen for watermark handling.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
@@ -4596,7 +4589,7 @@ declare namespace print {
   /**
    * Unregister to listen for watermark handling.
    * @permission ohos.permission.ENTERPRISE_MANAGE_PRINT
-   * @param { WatermarkCallback } [callback] - Indicates the callback type used in registering to 
+   * @param { WatermarkCallback } [callback] - Indicates the callback type used in registering to
    *     listen for watermark handling.
    *     <br>Indicates the callback type used in registering to listen for watermark handling.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.

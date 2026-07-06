@@ -26,6 +26,7 @@ import { ImageAttribute } from './component/image';
  *
  * @implements { ImageAttribute, AttributeModifier<ImageAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare class ImageModifier implements ImageAttribute, AttributeModifier<ImageAttribute> {}

@@ -227,6 +227,24 @@ declare namespace call {
   /**
    * Go to the dial screen and the called number is displayed.
    *
+   * @param { string } phoneNumber - Indicates the called number.
+   * @param { MakeCallOptions } [options] - Indicates additional information carried in the call.
+   *     <br>Default value: false.
+   * @returns { Promise<void> } - The promise returned by the makeCall.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @syscap SystemCapability.Applications.Contacts
+   * @FaAndStageModel
+   * @atomicservice
+   * @since 24 dynamic
+   */
+  function makeCall(phoneNumber: string, options?: MakeCallOptions): Promise<void>;
+
+  /**
+   * Go to the dial screen and the called number is displayed.
+   *
    * @param { Context } context - Indicates the context.
    * @param { string } phoneNumber - Indicates the called number.
    * @returns { Promise<void> } The promise returned by the makeCall.
@@ -240,6 +258,23 @@ declare namespace call {
    * @since 23 static
    */
   function makeCall(context: Context, phoneNumber: string): Promise<void>;
+
+  /**
+   * Go to the dial screen and the called number is displayed.The authentication challenge value is returned.
+   *
+   * @param { string } phoneNumber - Indicates the called number.
+   * @param { MakeCallOptions } [options] - Indicates additional information carried in the call.
+   * @returns { Promise<string> } Promise used to return access token by the makeCall.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @syscap SystemCapability.Applications.Contacts
+   * @FaAndStageModel
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   */
+  function makeCallWithToken(phoneNumber: string, options?: MakeCallOptions): Promise<string>;
 
   /**
    * Checks whether a call is ongoing.
@@ -576,7 +611,7 @@ declare namespace call {
   /**
    * Answers the incoming call without callId.
    *
-   * @permission ohos.permission.ANSWER_CALL
+   * @permission ohos.permission.ANSWER_CALL or ohos.permission.MANAGE_CALL_FOR_DEVICES
    * @param { AsyncCallback<void> } callback - The callback of answerCall.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -587,23 +622,10 @@ declare namespace call {
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.CallManager
-   * @systemapi Hide this for inner system use.
+   * @systemapi [since 9 - 22]
+   * @publicapi [since 23]
    * @since 9 dynamic
-   */
-  /**
-   * Answers the incoming call without callId.
-   *
-   * @permission ohos.permission.ANSWER_CALL or ohos.permission.MANAGE_CALL_FOR_DEVICES
-   * @param { AsyncCallback<void> } callback - The callback of answerCall.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
-   * 2. Incorrect parameters types;
-   * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
-   * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300999 - Unknown error code.
-   * @syscap SystemCapability.Telephony.CallManager
-   * @since 23 dynamic&static
+   * @since 23 static
    */
   function answerCall(callback: AsyncCallback<void>): void;
 
@@ -696,7 +718,8 @@ declare namespace call {
   /**
    * Hang up the foreground call without callId.
    *
-   * @permission ohos.permission.ANSWER_CALL or ohos.permission.SET_TELEPHONY_STATE
+   * @permission ohos.permission.ANSWER_CALL or ohos.permission.SET_TELEPHONY_STATE or
+   * ohos.permission.MANAGE_CALL_FOR_DEVICES
    * @param { AsyncCallback<void> } callback - The callback of hangUpCall.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -707,24 +730,10 @@ declare namespace call {
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.CallManager
-   * @systemapi Hide this for inner system use.
+   * @systemapi [since 9 - 22]
+   * @publicapi [since 23]
    * @since 9 dynamic
-   */
-  /**
-   * Hang up the foreground call without callId.
-   *
-   * @permission ohos.permission.ANSWER_CALL or ohos.permission.SET_TELEPHONY_STATE or
-   * ohos.permission.MANAGE_CALL_FOR_DEVICES
-   * @param { AsyncCallback<void> } callback - The callback of hangUpCall.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
-   * 2. Incorrect parameters types;
-   * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
-   * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300999 - Unknown error code.
-   * @syscap SystemCapability.Telephony.CallManager
-   * @since 23 dynamic&static
+   * @since 23 static
    */
   function hangUpCall(callback: AsyncCallback<void>): void;
 
@@ -796,7 +805,7 @@ declare namespace call {
   /**
    * Reject the incoming call without callId.
    *
-   * @permission ohos.permission.ANSWER_CALL
+   * @permission ohos.permission.ANSWER_CALL or ohos.permission.MANAGE_CALL_FOR_DEVICES
    * @param { AsyncCallback<void> } callback - The callback of rejectCall.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -807,23 +816,10 @@ declare namespace call {
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.CallManager
-   * @systemapi Hide this for inner system use.
+   * @systemapi [since 9 - 22]
+   * @publicapi [since 23]
    * @since 9 dynamic
-   */
-  /**
-   * Reject the incoming call without callId.
-   *
-   * @permission ohos.permission.ANSWER_CALL or ohos.permission.MANAGE_CALL_FOR_DEVICES
-   * @param { AsyncCallback<void> } callback - The callback of rejectCall.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
-   * 2. Incorrect parameters types;
-   * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
-   * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300999 - Unknown error code.
-   * @syscap SystemCapability.Telephony.CallManager
-   * @since 23 dynamic&static
+   * @since 23 static
    */
   function rejectCall(callback: AsyncCallback<void>): void;
 
@@ -1218,6 +1214,29 @@ declare namespace call {
    * @since 23 static
    */
   function setCallWaiting(slotId: int, activate: boolean): Promise<void>;
+
+  /**
+   * Obtains call transfer information with the phone number.
+   *
+   * @permission ohos.permission.GET_CALL_TRANSFER_INFO
+   * @param { CallTransferType } type - Type of call transfer to be obtained.
+   * @param { string } number - Phone number whose call transfer status is to be obtained.
+   *     Whether the SIM card exists will be checked.
+   * @returns { Promise<CallTransferResult> } - Call transfer status.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 801 - Capability not supported.
+   *      
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8401002 - Invalid input call number.
+   * @throws { BusinessError } 8401003 - Operation too frequent.
+   *      
+   * @syscap SystemCapability.Telephony.CallManager
+   * @FaAndStageModel
+   * @since 26.0.0 dynamic&static
+   */
+  function getCallTransferInfo(type: CallTransferType, number: string): Promise<CallTransferResult>;
 
   /**
    * Start DTMF(Dual Tone Multi Frequency).
@@ -1969,8 +1988,7 @@ declare namespace call {
    * @param { int } slotId - Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @param { CallTransferType } type - Indicates which type of call forwarding to obtain.
-   * @param { AsyncCallback<CallTransferResult> } callback - Indicates the callback for getting
-   * the call forwarding status.
+   * @param { AsyncCallback<CallTransferResult> } callback - Indicates the callback for getting the call forwarding status.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
@@ -3128,9 +3146,63 @@ declare namespace call {
   function stopRtt(callId: int, type: ImsRttMode): Promise<void>;
 
   /**
+   * Preload callUI.
+   *
+   * @permission ohos.permission.SET_TELEPHONY_STATE
+   * @returns { Promise<boolean> } The promise returned by the preloadCallUI.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 8400001 - Invalid parameter value.
+   * @throws { BusinessError } 8400002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8400003 - System internal error.
+   * @throws { BusinessError } 8400999 - Unknown error code.
+   * @syscap SystemCapability.Telephony.CallManager
+   * @systemapi Hide this for inner system use.
+   * @FaAndStageModel
+   * @since 24 dynamic&static
+   */
+  function preloadCallUI(): Promise<boolean>;
+
+  /**
+   * Unload callUI.
+   *
+   * @permission ohos.permission.SET_TELEPHONY_STATE
+   * @returns { Promise<boolean> } The promise returned by the unloadCallUI.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 8400001 - Invalid parameter value.
+   * @throws { BusinessError } 8400002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8400003 - System internal error.
+   * @throws { BusinessError } 8400999 - Unknown error code.
+   * @syscap SystemCapability.Telephony.CallManager
+   * @systemapi Hide this for inner system use.
+   * @FaAndStageModel
+   * @since 24 dynamic&static
+   */
+  function unloadCallUI(): Promise<boolean>;
+
+  /**
+   * Send ussd response.
+   *
+   * @permission ohos.permission.SET_TELEPHONY_STATE
+   * @param { int } slotId - Indicates the slotId to send response.
+   * @param { string } content - Indicates the response content.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 8400001 - Invalid parameter value.
+   * @throws { BusinessError } 8400002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8400003 - System internal error, system database write fail.
+   * @syscap SystemCapability.Telephony.CallManager
+   * @systemapi Hide this for inner system use.
+   * @FaAndStageModel
+   * @since 26.0.0 dynamic&static
+   */
+  function sendUssdResponse(slotId: int, content: string): void;
+
+  /**
    * Indicates the mode of the ims call.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 8 dynamic
@@ -3366,6 +3438,17 @@ declare namespace call {
      * @since 23 static
      */
     isMuted: boolean;
+
+    /**
+     * Indicates the status of microphone disabled.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @FaAndStageModel
+     * @since 24 dynamic&static
+     */
+    isMicDisabled?: boolean;
   }
 
   /**
@@ -3552,7 +3635,8 @@ declare namespace call {
    *
    * @enum { int }
    * @syscap SystemCapability.Telephony.CallManager
-   * @systemapi Hide this for inner system use.
+   * @systemapi [since 8 - 24]
+   * @publicapi [since 26.0.0]
    * @since 8 dynamic
    * @since 23 static
    */
@@ -3561,7 +3645,8 @@ declare namespace call {
      * Indicates unconditional transfer of a call.
      *
      * @syscap SystemCapability.Telephony.CallManager
-     * @systemapi Hide this for inner system use.
+     * @systemapi [since 8 - 24]
+     * @publicapi [since 26.0.0]
      * @since 8 dynamic
      * @since 23 static
      */
@@ -3571,7 +3656,8 @@ declare namespace call {
      * Indicates transfer the call when busy.
      *
      * @syscap SystemCapability.Telephony.CallManager
-     * @systemapi Hide this for inner system use.
+     * @systemapi [since 8 - 24]
+     * @publicapi [since 26.0.0]
      * @since 8 dynamic
      * @since 23 static
      */
@@ -3581,7 +3667,8 @@ declare namespace call {
      * Indicates transfer the call when no reply.
      *
      * @syscap SystemCapability.Telephony.CallManager
-     * @systemapi Hide this for inner system use.
+     * @systemapi [since 8 - 24]
+     * @publicapi [since 26.0.0]
      * @since 8 dynamic
      * @since 23 static
      */
@@ -3591,7 +3678,8 @@ declare namespace call {
      * Indicates transfer the call when unreachable.
      *
      * @syscap SystemCapability.Telephony.CallManager
-     * @systemapi Hide this for inner system use.
+     * @systemapi [since 8 - 24]
+     * @publicapi [since 26.0.0]
      * @since 8 dynamic
      * @since 23 static
      */
@@ -3846,6 +3934,26 @@ declare namespace call {
      * @since 23 static
      */
     rttState?: RttState;
+
+    /**
+     * Indicates the xcall type.
+     *
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @FaAndStageModel
+     * @since 26.0.0 dynamic&static
+     */
+    xCallType?: XCallType;
+
+    /**
+     * Indicates is custom accessibility enabled.
+     *
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @FaAndStageModel
+     * @since 26.0.0 dynamic&static
+     */
+    isCustomAccessibility?: boolean;
   }
 
   /**
@@ -4067,7 +4175,17 @@ declare namespace call {
      * @since 11 dynamic
      * @since 23 static
      */
-    TYPE_VOIP = 4
+    TYPE_VOIP = 4,
+
+    /**
+     * Indicates the call type is XCALL.
+     *
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @FaAndStageModel
+     * @since 26.0.0 dynamic&static
+     */
+    TYPE_XCALL = 5
   }
 
   /**
@@ -4690,7 +4808,7 @@ declare namespace call {
     TEL_CALL_STATE_RINGING = 1,
 
     /**
-     * Indicates that a least one call is in the dialing, and there is no new
+     * Indicates that a least one call is in the dialing, active, or hold state, and there is no new
      * incoming call ringing or waiting.
      *
      * @syscap SystemCapability.Telephony.CallManager
@@ -4882,6 +5000,40 @@ declare namespace call {
   }
 
   /**
+   * Indicates the options of make call.
+   *
+   * @syscap SystemCapability.Applications.Contacts
+   * @FaAndStageModel
+   * @atomicservice
+   * @since 24 dynamic
+   * @since 26.0.0 static
+   */
+  export interface MakeCallOptions {
+    /**
+     * Whether to hide the dialer screen after call ends.
+     * Default value: false.
+     *
+     * @syscap SystemCapability.Applications.Contacts
+     * @FaAndStageModel
+     * @atomicservice
+     * @since 24 dynamic
+     * @since 26.0.0 static
+     */
+    isHideDialScreen?: boolean;
+
+    /**
+     * Whether the third-party app supports custom accessibility features.
+     * Default value: false.
+     *
+     * @syscap SystemCapability.Applications.Contacts
+     * @FaAndStageModel
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    isCustomAccessibility?: boolean;
+  }
+
+  /**
    * Indicates the options for initiating a call.
    *
    * @interface DialCallOptions
@@ -4942,6 +5094,15 @@ declare namespace call {
      * @since 23 static
      */
     extraParams?: Record<string, Object>;
+    /**
+     * Indicates the type of the xcall.
+     *
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @FaAndStageModel
+     * @since 26.0.0 dynamic&static
+     */
+    xCallType?: XCallType;
   }
 
   /**
@@ -5023,7 +5184,17 @@ declare namespace call {
      * @since 8 dynamic
      * @since 23 static
      */
-    DIAL_OTT_TYPE = 2
+    DIAL_OTT_TYPE = 2,
+
+    /**
+     * Indicates this is a xcall.
+     *
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @FaAndStageModel
+     * @since 26.0.0 dynamic&static
+     */
+    DIAL_XCALL_TYPE = 3
   }
 
   /**
@@ -5051,9 +5222,9 @@ declare namespace call {
   /**
    * Indicates the result of call transfer.
    *
-   * @interface CallTransferResult
    * @syscap SystemCapability.Telephony.CallManager
-   * @systemapi Hide this for inner system use.
+   * @systemapi [since 8 - 24]
+   * @publicapi [since 26.0.0]
    * @since 8 dynamic
    * @since 23 static
    */
@@ -5061,9 +5232,9 @@ declare namespace call {
     /**
      * Indicates the status of call forwarding.
      *
-     * @type { TransferStatus }
      * @syscap SystemCapability.Telephony.CallManager
-     * @systemapi Hide this for inner system use.
+     * @systemapi [since 8 - 24]
+     * @publicapi [since 26.0.0]
      * @since 8 dynamic
      * @since 23 static
      */
@@ -5092,9 +5263,9 @@ declare namespace call {
     /**
      * Indicates the start time hours of call forwarding.
      *
-     * @type { int }
      * @syscap SystemCapability.Telephony.CallManager
-     * @systemapi Hide this for inner system use.
+     * @systemapi [since 9 - 24]
+     * @publicapi [since 26.0.0]
      * @since 9 dynamic
      * @since 23 static
      */
@@ -5103,9 +5274,9 @@ declare namespace call {
     /**
      * Indicates the start time minutes of call forwarding.
      *
-     * @type { int }
      * @syscap SystemCapability.Telephony.CallManager
-     * @systemapi Hide this for inner system use.
+     * @systemapi [since 9 - 24]
+     * @publicapi [since 26.0.0]
      * @since 9 dynamic
      * @since 23 static
      */
@@ -5114,9 +5285,9 @@ declare namespace call {
     /**
      * Indicates the end time hours of call forwarding.
      *
-     * @type { int }
      * @syscap SystemCapability.Telephony.CallManager
-     * @systemapi Hide this for inner system use.
+     * @systemapi [since 9 - 24]
+     * @publicapi [since 26.0.0]
      * @since 9 dynamic
      * @since 23 static
      */
@@ -5125,9 +5296,9 @@ declare namespace call {
     /**
      * Indicates the end time minutes of call forwarding.
      *
-     * @type { int }
      * @syscap SystemCapability.Telephony.CallManager
-     * @systemapi Hide this for inner system use.
+     * @systemapi [since 9 - 24]
+     * @publicapi [since 26.0.0]
      * @since 9 dynamic
      * @since 23 static
      */
@@ -5201,7 +5372,8 @@ declare namespace call {
    *
    * @enum { int }
    * @syscap SystemCapability.Telephony.CallManager
-   * @systemapi Hide this for inner system use.
+   * @systemapi [since 8 - 24]
+   * @publicapi [since 26.0.0]
    * @since 8 dynamic
    * @since 23 static
    */
@@ -5210,7 +5382,8 @@ declare namespace call {
      * Indicates that call forwarding is not enabled.
      *
      * @syscap SystemCapability.Telephony.CallManager
-     * @systemapi Hide this for inner system use.
+     * @systemapi [since 8 - 24]
+     * @publicapi [since 26.0.0]
      * @since 8 dynamic
      * @since 23 static
      */
@@ -5220,7 +5393,8 @@ declare namespace call {
      * Indicates that call forwarding is enabled.
      *
      * @syscap SystemCapability.Telephony.CallManager
-     * @systemapi Hide this for inner system use.
+     * @systemapi [since 8 - 24]
+     * @publicapi [since 26.0.0]
      * @since 8 dynamic
      * @since 23 static
      */
@@ -6789,6 +6963,44 @@ declare namespace call {
      */
     REMOTE_REQUEST_UPGRADE_LOCAL_REJECT = 3
      }
+
+  /**
+   * Indicates the type of the XCall.
+   *
+   * @syscap SystemCapability.Telephony.CallManager
+   * @systemapi Hide this for inner system use.
+   * @FaAndStageModel
+   * @since 26.0.0 dynamic&static
+   */
+  export enum XCallType {  
+    /**
+     * Indicates the xcall is Ecall.
+     *
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @FaAndStageModel
+     * @since 26.0.0 dynamic&static
+     */
+    XCALL_ECALL_TYPE = 0,
+    /**
+     * Indicates the xcall is Bcall.
+     *
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @FaAndStageModel
+     * @since 26.0.0 dynamic&static
+     */
+    XCALL_BCALL_TYPE = 1,
+    /**
+     * Indicates the xcall is Icall.
+     *
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @FaAndStageModel
+     * @since 26.0.0 dynamic&static
+     */
+    XCALL_ICALL_TYPE = 2
+    }
 }
 
 export default call;

@@ -22,7 +22,7 @@ import { CommonEventData } from './commonEvent/commonEventData';
 import StaticSubscriberExtensionContext from './@ohos.application.StaticSubscriberExtensionContext';
 
 /**
- * class of static subscriber extension ability.
+ * The **StaticSubscriberExtensionAbility** module provides Extension abilities for static subscribers.
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @systemapi
@@ -32,9 +32,8 @@ import StaticSubscriberExtensionContext from './@ohos.application.StaticSubscrib
  */
 declare class StaticSubscriberExtensionAbility {
   /**
-   * Indicates configuration information about an ability context.
+   * Context of the ExtensionAbility.
    *
-   * @type { StaticSubscriberExtensionContext }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @StageModelOnly
@@ -44,9 +43,9 @@ declare class StaticSubscriberExtensionAbility {
   context: StaticSubscriberExtensionContext;
 
   /**
-   * Called back when a specific common event is published.
+   * Represents a callback of the common event of a static subscriber.
    *
-   * @param { CommonEventData } event - Static subscriber universal event callback.
+   * @param { CommonEventData } event - Common event of a static subscriber.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @StageModelOnly

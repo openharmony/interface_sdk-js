@@ -22,20 +22,22 @@ import type { AsyncCallback } from './@ohos.base';
 import type rpc from './@ohos.rpc';
 
 /**
- * This module provides the capability of manage external device.
+ * The **deviceManager** module provides APIs for managing peripheral devices, including querying the peripheral device
+ * list and binding or unbinding a peripheral device.
  *
- * @namespace deviceManager
  * @syscap SystemCapability.Driver.ExternalDevice
  * @since 10 dynamic
  * @since 23 static
  */
 declare namespace deviceManager {
   /**
-   * Query the external device list.
+   * Queries the list of peripheral devices. If the device has no peripheral device connected, an empty list is
+   * returned.
    *
    * @permission ohos.permission.ACCESS_EXTENSIONAL_DEVICE_DRIVER
-   * @param { int } busType - The bus type of device to be queried.
-   * @returns { Array<Readonly<Device>> } External device list.
+   * @param { int } busType - Device bus type specified by [BusType]{@link deviceManager.BusType}. If this parameter is
+   *     left empty, all types of devices are searched.
+   * @returns { Array<Readonly<Device>> } List of peripheral devices obtained.
    * @throws { BusinessError } 201 - The permission check failed.
    * @throws { BusinessError } 22900001 - ExternalDeviceManager service exception or busType parameter error.
    * @syscap SystemCapability.Driver.ExternalDevice
@@ -45,126 +47,155 @@ declare namespace deviceManager {
   function queryDevices(busType?: int): Array<Readonly<Device>>;
 
   /**
-   * Bind the device based on the device information returned by queryDevices().
+   * Binds a peripheral device based on the device information returned by **queryDevices()**.
+   * You need to use [deviceManager.queryDevices()]{@link deviceManager.queryDevices} to obtain the peripheral device
+   * information and device.
    *
    * @permission ohos.permission.ACCESS_EXTENSIONAL_DEVICE_DRIVER
-   * @param { number } deviceId - Device id on the device list returned by queryDevices().
-   * @param { AsyncCallback<number> } onDisconnect - Callback is invoked when device is disconnected after bind
-   * success.
-   * @param { AsyncCallback<{deviceId: number; remote: rpc.IRemoteObject;}> } callback - Indicates the bind result
-   * including device ID and remote object.
+   * @param { number } deviceId - Device ID, which can be obtained via **queryDevices()**.
+   * @param { AsyncCallback<number> } onDisconnect - Callback used to return the result. When the bound device is
+   *     disconnected, the value of **err** is **undefined** and the value of **data** is the ID of the unbound device.
+   *     Otherwise, **err** is an error object.
+   * @param { AsyncCallback<{deviceId: number; remote: rpc.IRemoteObject;}> } callback - Callback used to return the
+   *     result. When the device is bound successfully, **err** is **undefined**, and **data** contains the device ID
+   *     and the bound device driver communication object. Otherwise, **err** is an error object.
    * @throws { BusinessError } 201 - The permission check failed.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
-   * 3.Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2
+   *     .Incorrect parameter types.
+   *     3.Parameter verification failed.
    * @throws { BusinessError } 22900001 - ExternalDeviceManager service exception.
    * @syscap SystemCapability.Driver.ExternalDevice
    * @since 10
    * @deprecated since 19
-   * @useinstead ohos.driver.deviceManager/deviceManager#bindDriverWithDeviceId
+   * @useinstead deviceManager.bindDriverWithDeviceId(deviceId: long, onDisconnect: AsyncCallback<long>)
    */
   function bindDevice(deviceId: number, onDisconnect: AsyncCallback<number>,
     callback: AsyncCallback<{deviceId: number; remote: rpc.IRemoteObject;}>): void;
 
   /**
-   * Bind the device based on the device information returned by queryDevices().
+   * Binds a peripheral device based on the device information returned by **queryDevices()**.
+   * You need to use [deviceManager.queryDevices()]{@link deviceManager.queryDevices} to obtain the peripheral device
+   * information and device.
    *
    * @permission ohos.permission.ACCESS_EXTENSIONAL_DEVICE_DRIVER
-   * @param { number } deviceId - Device id on the device list returned by queryDevices().
-   * @param { AsyncCallback<number> } onDisconnect - Callback is invoked when device is disconnected after bind
-   * success.
-   * @param { AsyncCallback<RemoteDeviceDriver> } callback - Indicates the bind result including device ID and
-   * remote object.
+   * @param { number } deviceId - Device ID, which can be obtained via **queryDevices()**.
+   * @param { AsyncCallback<number> } onDisconnect - Callback used to return the result. When the bound device is
+   *     disconnected, the value of **err** is **undefined** and the value of **data** is the ID of the unbound device.
+   *     Otherwise, **err** is an error object.
+   * @param { AsyncCallback<RemoteDeviceDriver> } callback - Callback used to return the result. When the device driver
+   *     is successfully bound, **err** is **undefined** and **data** is a
+   *     [RemoteDeviceDriver]{@link deviceManager.RemoteDeviceDriver} object that contains the device ID and remote
+   *     object. Otherwise, **err** is an error object.
    * @throws { BusinessError } 201 - The permission check failed.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
-   * 3.Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
+   *     2.Incorrect parameter types.
+   *     3.Parameter verification failed.
    * @throws { BusinessError } 22900001 - ExternalDeviceManager service exception.
    * @syscap SystemCapability.Driver.ExternalDevice
    * @since 11
    * @deprecated since 19
-   * @useinstead ohos.driver.deviceManager/deviceManager#bindDriverWithDeviceId
+   * @useinstead deviceManager.bindDriverWithDeviceId(deviceId: long, onDisconnect: AsyncCallback<long>)
    */
   function bindDeviceDriver(deviceId: number, onDisconnect: AsyncCallback<number>,
     callback: AsyncCallback<RemoteDeviceDriver>): void;
 
   /**
-   * Bind the device based on the device information returned by queryDevices().
+   * Binds a peripheral device based on the device information returned by **queryDevices()**. This API uses a promise
+   * to return the result.
+   * You need to use [deviceManager.queryDevices]{@link deviceManager.queryDevices} to obtain the peripheral device
+   * information and device.
    *
    * @permission ohos.permission.ACCESS_EXTENSIONAL_DEVICE_DRIVER
-   * @param { number } deviceId - Device id on the device list returned by queryDevices().
-   * @param { AsyncCallback<number> } onDisconnect - Callback is invoked when device is disconnected after bind
-   * success.
-   * @returns { Promise<{deviceId: number; remote: rpc.IRemoteObject;}> } Indicates the bind result including device
-   * ID and remote object.
+   * @param { number } deviceId - Device ID, which can be obtained via **queryDevices()**.
+   * @param { AsyncCallback<number> } onDisconnect - Callback used to return the result. When the bound device is
+   *     disconnected, the value of **err** is **undefined** and the value of **data** is the ID of the unbound device.
+   *     Otherwise, **err** is an error object.
+   * @returns { Promise<{deviceId: number; remote: rpc.IRemoteObject;}> } Promise used to return an object containing
+   *     the device ID and **IRemoteObject**.
    * @throws { BusinessError } 201 - The permission check failed.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
-   * 3.Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
+   *     2.Incorrect parameter types.
+   *     3.Parameter verification failed.
    * @throws { BusinessError } 22900001 - ExternalDeviceManager service exception.
    * @syscap SystemCapability.Driver.ExternalDevice
    * @since 10
    * @deprecated since 19
-   * @useinstead ohos.driver.deviceManager/deviceManager#bindDriverWithDeviceId
+   * @useinstead deviceManager.bindDriverWithDeviceId(deviceId: long, onDisconnect: AsyncCallback<long>)
    */
   function bindDevice(deviceId: number, onDisconnect: AsyncCallback<number>): Promise<{deviceId: number;
     remote: rpc.IRemoteObject;}>;
 
   /**
-   * Bind the device based on the device information returned by queryDevices().
+   * Binds a peripheral device based on the device information returned by **queryDevices()**. This API uses a promise
+   * to return the result.
+   * You need to use [deviceManager.queryDevices]{@link deviceManager.queryDevices} to obtain the peripheral device
+   * information and device.
    *
    * @permission ohos.permission.ACCESS_EXTENSIONAL_DEVICE_DRIVER
-   * @param { number } deviceId - Device id on the device list returned by queryDevices().
-   * @param { AsyncCallback<number> } onDisconnect - Callback is invoked when device is disconnected after bind
-   * success.
-   * @returns { Promise<RemoteDeviceDriver> } Indicates the bind result including device ID and remote object.
+   * @param { number } deviceId - Device ID, which can be obtained via **queryDevices()**.
+   * @param { AsyncCallback<number> } onDisconnect - Callback used to return the result. When the bound device is
+   *     disconnected, the value of **err** is **undefined** and the value of **data** is the ID of the unbound device.
+   *     Otherwise, **err** is an error object.
+   * @returns { Promise<RemoteDeviceDriver> } Promise used to return a **RemoteDeviceDriver** object.
    * @throws { BusinessError } 201 - The permission check failed.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
-   * 3.Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
+   *     2.Incorrect parameter types.
+   *     3.Parameter verification failed.
    * @throws { BusinessError } 22900001 - ExternalDeviceManager service exception.
    * @syscap SystemCapability.Driver.ExternalDevice
    * @since 11
    * @deprecated since 19
-   * @useinstead ohos.driver.deviceManager/deviceManager#bindDriverWithDeviceId
+   * @useinstead deviceManager.bindDriverWithDeviceId(deviceId: long, onDisconnect: AsyncCallback<long>)
    */
   function bindDeviceDriver(deviceId: number, onDisconnect: AsyncCallback<number>): Promise<RemoteDeviceDriver>;
 
   /**
-   * Unbind the device based on the device information returned by queryDevices().
+   * Unbinds a peripheral device.
    *
    * @permission ohos.permission.ACCESS_EXTENSIONAL_DEVICE_DRIVER
-   * @param { number } deviceId - Device id on the device list returned by queryDevices().
-   * @param { AsyncCallback<number> } callback - Indicates the unbind result invoked when unbind is finished.
+   * @param { number } deviceId - Device ID, which can be obtained via **queryDevices()**.
+   * @param { AsyncCallback<number> } callback - Callback used to return the result. When the bound device is
+   *     disconnected, the value of **err** is **undefined** and the value of **data** is the ID of the unbound device.
+   *     Otherwise, **err** is an error object.
    * @throws { BusinessError } 201 - The permission check failed.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
+   *     2.Incorrect parameter types.
    * @throws { BusinessError } 22900001 - ExternalDeviceManager service exception.
    * @syscap SystemCapability.Driver.ExternalDevice
    * @since 10
    * @deprecated since 19
-   * @useinstead ohos.driver.deviceManager/deviceManager#unbindDriverWithDeviceId
+   * @useinstead deviceManager.unbindDriverWithDeviceId(deviceId: long)
    */
   function unbindDevice(deviceId: number, callback: AsyncCallback<number>): void;
 
   /**
-   * Unbind the device based on the device information returned by queryDevices().
+   * Unbinds a peripheral device. This API uses a promise to return the result.
    *
    * @permission ohos.permission.ACCESS_EXTENSIONAL_DEVICE_DRIVER
-   * @param { number } deviceId - Device id on the device list returned by queryDevices().
-   * @returns { Promise<number> } - Indicates the unbind result invoked when unbind is finished.
+   * @param { number } deviceId - Device ID, which can be obtained via **queryDevices()**.
+   * @returns { Promise<number> } Promise used to return the ID of the unbound device.
    * @throws { BusinessError } 201 - The permission check failed.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
-   * 3.Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
+   *     2.Incorrect parameter types.
+   *     3.Parameter verification failed.
    * @throws { BusinessError } 22900001 - ExternalDeviceManager service exception.
    * @syscap SystemCapability.Driver.ExternalDevice
    * @since 10
    * @deprecated since 19
-   * @useinstead ohos.driver.deviceManager/deviceManager#unbindDriverWithDeviceId
+   * @useinstead deviceManager.unbindDriverWithDeviceId(deviceId: long)
    */
   function unbindDevice(deviceId: number): Promise<number>;
 
   /**
-   * Queries external device information.
+   * Obtains the list of detailed information about peripherals. If the device has no peripheral device connected, an
+   * empty list is returned.
    *
    * @permission ohos.permission.ACCESS_EXTENSIONAL_DEVICE_DRIVER
-   * @param { long } deviceId - ID of device to query.
-   * @returns { Array<Readonly<DeviceInfo>> } Device information obtained.
+   * @param { long } deviceId - Device ID, which is obtained through
+   *     [queryDevices]{@link @ohos.driver.deviceManager:deviceManager.queryDevices}. If no device ID is passed, all
+   *     device information is obtained by default. If no external device is connected and no device ID is passed, an
+   *     empty array is returned.
+   * @returns { Array<Readonly<DeviceInfo>> } List of detailed information about peripherals.
    * @throws { BusinessError } 201 - The permission check failed.
    * @throws { BusinessError } 202 - Permission denied. A non-system application cannot call a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types.
@@ -177,11 +208,12 @@ declare namespace deviceManager {
   function queryDeviceInfo(deviceId?: long): Array<Readonly<DeviceInfo>>;
 
   /**
-   * Queries driver information.
+   * Obtains the list of detailed information about peripheral drivers. If the device has no peripheral device
+   * connected, an empty list is returned.
    *
    * @permission ohos.permission.ACCESS_EXTENSIONAL_DEVICE_DRIVER
-   * @param { string } driverUid - Unique identifier of driver query.
-   * @returns { Array<Readonly<DriverInfo>> } Driver information obtained.
+   * @param { string } driverUid - Driver UID, which can be obtained by using **queryDeviceInfo**.
+   * @returns { Array<Readonly<DriverInfo>> } List of detailed information about peripheral drivers.
    * @throws { BusinessError } 201 - The permission check failed.
    * @throws { BusinessError } 202 - Permission denied. A non-system application cannot call a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types.
@@ -193,70 +225,71 @@ declare namespace deviceManager {
    */
   function queryDriverInfo(driverUid?: string): Array<Readonly<DriverInfo>>;
 
-/**
-* Bind the device based on the device information returned by queryDevices().
-*
-* @permission ohos.permission.ACCESS_DDK_DRIVERS
-* @param { long } deviceId - Device id on the device list returned by queryDevices().
-* @param { AsyncCallback<long> } onDisconnect - Callback is invoked when device is disconnected after bind
-*     success.
-* @returns { Promise<RemoteDeviceDriver> } Indicates the bind result including device ID and remote object.
-* @throws { BusinessError } 201 - The permission check failed.
-* @throws { BusinessError } 26300001 - ExternalDeviceManager service exception.
-* @throws { BusinessError } 26300002 - The driver service does not allow any client to bind.
-* @syscap SystemCapability.Driver.ExternalDevice
-* @since 19 dynamic
-* @since 23 static
-*/
+  /**
+   * Binds a peripheral device based on the device information returned by **queryDevices()**. This API uses a promise
+   * to return the result.
+   * You need to use [deviceManager.queryDevices]{@link deviceManager.queryDevices} to obtain the peripheral device
+   * list.
+   *
+   * @permission ohos.permission.ACCESS_DDK_DRIVERS
+   * @param { long } deviceId - Device ID, which can be obtained via **queryDevices()**.
+   * @param { AsyncCallback<long> } onDisconnect - Callback used to return the result. When the bound device is
+   *     disconnected, the value of **err** is **undefined** and the value of **data** is the ID of the unbound device.
+   *     Otherwise, **err** is an error object.
+   * @returns { Promise<RemoteDeviceDriver> } Promise used to return a **RemoteDeviceDriver** object.
+   * @throws { BusinessError } 201 - The permission check failed.
+   * @throws { BusinessError } 26300001 - ExternalDeviceManager service exception.
+   * @throws { BusinessError } 26300002 - The driver service does not allow any client to bind.
+   * @syscap SystemCapability.Driver.ExternalDevice
+   * @since 19 dynamic
+   * @since 23 static
+   */
   function bindDriverWithDeviceId(deviceId: long, onDisconnect: AsyncCallback<long>): Promise<RemoteDeviceDriver>;
 
-/**
-* Unbind the device based on the device information returned by queryDevices().
-*
-* @permission ohos.permission.ACCESS_DDK_DRIVERS
-* @param { long } deviceId - Device id on the device list returned by queryDevices().
-* @returns { Promise<int> } - Indicates the unbind result invoked when unbind is finished.
-* @throws { BusinessError } 201 - The permission check failed.
-* @throws { BusinessError } 26300001 - ExternalDeviceManager service exception.
-* @throws { BusinessError } 26300003 - There is no binding relationship.
-* @syscap SystemCapability.Driver.ExternalDevice
-* @since 19 dynamic
-* @since 23 static
-*/
+  /**
+   * Unbinds a peripheral device. This API uses a promise to return the result.
+   *
+   * @permission ohos.permission.ACCESS_DDK_DRIVERS
+   * @param { long } deviceId - Device ID, which can be obtained via [queryDevices]{@link deviceManager.queryDevices}.
+   * @returns { Promise<int> } Promise used to return the ID of the unbound device.
+   * @throws { BusinessError } 201 - The permission check failed.
+   * @throws { BusinessError } 26300001 - ExternalDeviceManager service exception.
+   * @throws { BusinessError } 26300003 - There is no binding relationship.
+   * @syscap SystemCapability.Driver.ExternalDevice
+   * @since 19 dynamic
+   * @since 23 static
+   */
   function unbindDriverWithDeviceId(deviceId: long): Promise<int>;
 
   /**
-   * Enumerates the bus types.
+   * Enumerates the device bus types.
    *
-   * @enum { int }
    * @syscap SystemCapability.Driver.ExternalDevice
    * @since 10 dynamic
    * @since 23 static
    */
   export enum BusType {
     /**
-     * USB device type
+     * USB bus.
      *
      * @syscap SystemCapability.Driver.ExternalDevice
      * @since 10 dynamic
      * @since 23 static
      */
-    USB = 1,
+    USB = 1
   }
 
   /**
-   * Represents a device.
+   * Represents the peripheral device information.
    *
-   * @typedef Device
    * @syscap SystemCapability.Driver.ExternalDevice
    * @since 10 dynamic
    * @since 23 static
    */
   interface Device {
     /**
-     * Bus type of the device.
+     * Bus type.
      *
-     * @type { BusType }
      * @syscap SystemCapability.Driver.ExternalDevice
      * @since 10 dynamic
      * @since 23 static
@@ -264,9 +297,8 @@ declare namespace deviceManager {
     busType: BusType;
 
     /**
-     * Device ID.
+     * ID of the peripheral device.
      *
-     * @type { long }
      * @syscap SystemCapability.Driver.ExternalDevice
      * @since 10 dynamic
      * @since 23 static
@@ -274,9 +306,8 @@ declare namespace deviceManager {
     deviceId: long;
 
     /**
-     * Description of the device.
+     * Description of the peripheral device.
      *
-     * @type { string }
      * @syscap SystemCapability.Driver.ExternalDevice
      * @since 10 dynamic
      * @since 23 static
@@ -285,19 +316,16 @@ declare namespace deviceManager {
   }
 
   /**
-   * Represents a USB device.
+   * USB device information, which is inherited from [Device]{@link deviceManager.queryDevices}.
    *
-   * @typedef USBDevice
-   * @extends Device
    * @syscap SystemCapability.Driver.ExternalDevice
    * @since 10 dynamic
    * @since 23 static
    */
   interface USBDevice extends Device {
     /**
-     * Vendor ID.
+     * Vendor ID of the USB device.
      *
-     * @type { int }
      * @syscap SystemCapability.Driver.ExternalDevice
      * @since 10 dynamic
      * @since 23 static
@@ -305,29 +333,26 @@ declare namespace deviceManager {
     vendorId: int;
 
     /**
-     * Product ID.
+     * Product ID of the USB device.
      *
-     * @type { int }
      * @syscap SystemCapability.Driver.ExternalDevice
      * @since 10 dynamic
      * @since 23 static
      */
     productId: int;
   }
-  
+
   /**
-   * Driver of the remote device bound with <b>deviceId</b>.
+   * Represents information about a remote device driver.
    *
-   * @typedef RemoteDeviceDriver
    * @syscap SystemCapability.Driver.ExternalDevice
    * @since 11 dynamic
    * @since 23 static
    */
   interface RemoteDeviceDriver {
     /**
-     * Device ID.
+     * ID of the peripheral device.
      *
-     * @type { long }
      * @syscap SystemCapability.Driver.ExternalDevice
      * @since 11 dynamic
      * @since 23 static
@@ -337,7 +362,6 @@ declare namespace deviceManager {
     /**
      * Remote driver object.
      *
-     * @type { rpc.IRemoteObject }
      * @syscap SystemCapability.Driver.ExternalDevice
      * @since 11 dynamic
      * @since 23 static
@@ -346,9 +370,8 @@ declare namespace deviceManager {
   }
 
   /**
-   * Represents information about a device interface descriptor.
+   * Defines the interface descriptor of a USB device.
    *
-   * @typedef USBInterfaceDesc
    * @syscap SystemCapability.Driver.ExternalDevice
    * @systemapi
    * @since 12 dynamic
@@ -356,9 +379,8 @@ declare namespace deviceManager {
    */
   interface USBInterfaceDesc {
     /**
-     * Interface number.
+     * Interface ID.
      *
-     * @type { int }
      * @syscap SystemCapability.Driver.ExternalDevice
      * @systemapi
      * @since 12 dynamic
@@ -367,9 +389,8 @@ declare namespace deviceManager {
     bInterfaceNumber: int;
 
     /**
-     * Interface class code.
+     * Interface class.
      *
-     * @type { int }
      * @syscap SystemCapability.Driver.ExternalDevice
      * @systemapi
      * @since 12 dynamic
@@ -378,9 +399,8 @@ declare namespace deviceManager {
     bClass: int;
 
     /**
-     * Interface subclass code.
+     * Interface subclass.
      *
-     * @type { int }
      * @syscap SystemCapability.Driver.ExternalDevice
      * @systemapi
      * @since 12 dynamic
@@ -391,7 +411,6 @@ declare namespace deviceManager {
     /**
      * Interface protocol.
      *
-     * @type { int }
      * @syscap SystemCapability.Driver.ExternalDevice
      * @systemapi
      * @since 12 dynamic
@@ -402,9 +421,8 @@ declare namespace deviceManager {
 
 
   /**
-   * Represents the device information.
+   * Defines the detailed information about a device.
    *
-   * @typedef DeviceInfo
    * @syscap SystemCapability.Driver.ExternalDevice
    * @systemapi
    * @since 12 dynamic
@@ -414,7 +432,6 @@ declare namespace deviceManager {
     /**
      * Device ID.
      *
-     * @type { long }
      * @syscap SystemCapability.Driver.ExternalDevice
      * @systemapi
      * @since 12 dynamic
@@ -423,9 +440,9 @@ declare namespace deviceManager {
     deviceId: long;
 
     /**
-     * Whether the device has a matched driver.
+     * Whether the device matches the driver. The value `true` indicates the device matches the driver, and the value
+     * `false` indicates the opposite.
      *
-     * @type { boolean }
      * @syscap SystemCapability.Driver.ExternalDevice
      * @systemapi
      * @since 12 dynamic
@@ -434,9 +451,8 @@ declare namespace deviceManager {
     isDriverMatched: boolean;
 
     /**
-     * Unique identifier of the driver.
+     * UID of the driver matching the device.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Driver.ExternalDevice
      * @systemapi
      * @since 12 dynamic
@@ -446,10 +462,9 @@ declare namespace deviceManager {
   }
 
   /**
-   * Represents the USB device information.
+   * Defines detailed information about the USB device. It is inherited from
+   * [DeviceInfo]{@link deviceManager.DeviceInfo}.
    *
-   * @typedef USBDeviceInfo
-   * @extends DeviceInfo
    * @syscap SystemCapability.Driver.ExternalDevice
    * @systemapi
    * @since 12 dynamic
@@ -457,9 +472,8 @@ declare namespace deviceManager {
    */
   interface USBDeviceInfo extends DeviceInfo {
     /**
-     * Vendor ID.
+     * Vendor ID of the USB device.
      *
-     * @type { int }
      * @syscap SystemCapability.Driver.ExternalDevice
      * @systemapi
      * @since 12 dynamic
@@ -468,9 +482,8 @@ declare namespace deviceManager {
     vendorId: int;
 
     /**
-     * Product ID.
+     * Product ID of the USB device.
      *
-     * @type { int }
      * @syscap SystemCapability.Driver.ExternalDevice
      * @systemapi
      * @since 12 dynamic
@@ -479,9 +492,8 @@ declare namespace deviceManager {
     productId: int;
 
     /**
-     * List of USB interface descriptors.
+     * List of interface descriptors of the USB device.
      *
-     * @type { Array<Readonly<USBInterfaceDesc>> }
      * @syscap SystemCapability.Driver.ExternalDevice
      * @systemapi
      * @since 12 dynamic
@@ -491,9 +503,8 @@ declare namespace deviceManager {
   }
 
   /**
-   * Represents the driver information.
+   * Defines detailed information about a driver.
    *
-   * @typedef DriverInfo
    * @syscap SystemCapability.Driver.ExternalDevice
    * @systemapi
    * @since 12 dynamic
@@ -501,9 +512,8 @@ declare namespace deviceManager {
    */
   interface DriverInfo {
     /**
-     * Bus type of the device.
+     * Bus type.
      *
-     * @type { BusType }
      * @syscap SystemCapability.Driver.ExternalDevice
      * @systemapi
      * @since 12 dynamic
@@ -512,9 +522,8 @@ declare namespace deviceManager {
     busType: BusType;
 
     /**
-     * Unique identifier of the driver.
+     * Driver UID.
      *
-     * @type { string }
      * @syscap SystemCapability.Driver.ExternalDevice
      * @systemapi
      * @since 12 dynamic
@@ -525,7 +534,6 @@ declare namespace deviceManager {
     /**
      * Driver name.
      *
-     * @type { string }
      * @syscap SystemCapability.Driver.ExternalDevice
      * @systemapi
      * @since 12 dynamic
@@ -536,7 +544,6 @@ declare namespace deviceManager {
     /**
      * Driver version.
      *
-     * @type { string }
      * @syscap SystemCapability.Driver.ExternalDevice
      * @systemapi
      * @since 12 dynamic
@@ -545,9 +552,8 @@ declare namespace deviceManager {
     driverVersion: string;
 
     /**
-     * Driver size.
+     * Driver size, in bytes.
      *
-     * @type { string }
      * @syscap SystemCapability.Driver.ExternalDevice
      * @systemapi
      * @since 12 dynamic
@@ -558,7 +564,6 @@ declare namespace deviceManager {
     /**
      * Driver description.
      *
-     * @type { string }
      * @syscap SystemCapability.Driver.ExternalDevice
      * @systemapi
      * @since 12 dynamic
@@ -568,10 +573,9 @@ declare namespace deviceManager {
   }
 
   /**
-   * Represents the USB driver information.
+   * Defines detailed information about the USB device driver. It is inherited from
+   * [DriverInfo]{@link deviceManager.DriverInfo}.
    *
-   * @typedef USBDriverInfo
-   * @extends DriverInfo
    * @syscap SystemCapability.Driver.ExternalDevice
    * @systemapi
    * @since 12 dynamic
@@ -579,9 +583,8 @@ declare namespace deviceManager {
    */
   interface USBDriverInfo extends DriverInfo {
     /**
-     * IDs of supported products.
+     * Product ID list of the USB devices supported by the driver.
      *
-     * @type { Array<int> }
      * @syscap SystemCapability.Driver.ExternalDevice
      * @systemapi
      * @since 12 dynamic
@@ -590,9 +593,8 @@ declare namespace deviceManager {
     productIdList: Array<int>;
 
     /**
-     * IDs of supported vendors.
+     * Vendor ID list of the USB devices supported by the driver.
      *
-     * @type { Array<int> }
      * @syscap SystemCapability.Driver.ExternalDevice
      * @systemapi
      * @since 12 dynamic

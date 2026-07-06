@@ -24,7 +24,7 @@ import ExtensionAbility from './@ohos.app.ability.ExtensionAbility';
 import Want from './@ohos.app.ability.Want';
 
 /**
- * The class of agent extension ability.
+ * The class of agent extension ability. This class cannot be used in Harmony Archive(HAR).
  *
  * @extends ExtensionAbility
  * @syscap SystemCapability.Ability.AgentRuntime.Core
@@ -66,6 +66,17 @@ declare class AgentExtensionAbility extends ExtensionAbility {
    * @since 24 dynamic&static
    */
   onConnect(want: Want, proxy: AgentHostProxy): void;
+
+  /**
+   * Called back when a LOW_CODE agent is invoked.
+   *
+   * @param { string } agentId - Indicates the LOW_CODE agent ID.
+   * @syscap SystemCapability.Ability.AgentRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  onAgentInvoked(agentId: string): void;
 
   /**
    * Called back when data is sent.

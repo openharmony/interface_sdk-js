@@ -18,7 +18,7 @@
  */
 import { ResourceColor } from './units';
 import { LineCapStyle } from './enums';
-import { ComponentBuilder, CustomBuilder } from './builder';
+import { ComponentBuilder, CustomBuilder, CustomBuilderT, Builder} from './builder';
 import { AttributeModifier, CommonMethod } from './common';
 
 /**
@@ -27,6 +27,7 @@ import { AttributeModifier, CommonMethod } from './common';
  * @extends CommonMethod
  * @interface DividerAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  * @noninterop
  */
@@ -38,6 +39,7 @@ export declare interface DividerAttribute extends CommonMethod {
      * @param { boolean | undefined } value
      * @returns { DividerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default vertical(value: boolean | undefined): this;
@@ -47,6 +49,7 @@ export declare interface DividerAttribute extends CommonMethod {
      * @param { ResourceColor | undefined } value
      * @returns { DividerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default color(value: ResourceColor | undefined): this;
@@ -56,6 +59,7 @@ export declare interface DividerAttribute extends CommonMethod {
      * @param { double | string | undefined } value
      * @returns { DividerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default strokeWidth(value: double | string | undefined): this;
@@ -65,15 +69,26 @@ export declare interface DividerAttribute extends CommonMethod {
      * @param { LineCapStyle | undefined } value
      * @returns { DividerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default lineCap(value: LineCapStyle | undefined): this;
+    /**
+     * Set Divider options.
+     *
+     * @returns { DividerAttribute } Returns the instance of the DividerAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    default setDividerOptions(): this;
     /**
      * Set the attribute modifier
      *
      * @param { AttributeModifier<DividerAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
      * @returns { DividerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default attributeModifier(modifier: AttributeModifier<DividerAttribute>
@@ -86,8 +101,23 @@ export declare interface DividerAttribute extends CommonMethod {
  * @returns { DividerAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 24 static
+ * @since 26.0.0 static
  * @noninterop
  */
 @ComponentBuilder
 export declare function Divider(): DividerAttribute;
+
+/**
+ * Defines Divider Component.
+ *
+ * @param { CustomBuilderT<DividerAttribute> } style - the callback to set up component's attributes.
+ * @returns { DividerAttribute }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ * @noninterop
+ */
+@Builder
+export declare function Divider(
+    style: CustomBuilderT<DividerAttribute>
+): DividerAttribute;

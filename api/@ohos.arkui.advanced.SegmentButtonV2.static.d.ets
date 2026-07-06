@@ -33,7 +33,7 @@ import {
     Direction,
     Callback,
     ComponentV2,
-    Builder,
+    Builder
 } from './@ohos.arkui.component';
 import { ObservedV2, Trace, Require, Param, Event } from './@ohos.arkui.stateManagement';
 import { ColorMetrics, LengthMetrics, SizeT } from './@ohos.arkui.node';
@@ -42,18 +42,18 @@ import uiMaterial from './@ohos.arkui.uiMaterial';
 
 /**
  * Defines the options of the segmented button item.
- * 
- * @interface SegmentButtonV2ItemOptions
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  * @noninterop
  */
 export interface SegmentButtonV2ItemOptions {
     /**
      * Sets the text of the segmented button item.
-     * 
-     * @type { ?ResourceStr }
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      * @noninterop
      */
@@ -62,9 +62,9 @@ export interface SegmentButtonV2ItemOptions {
     /**
      * Sets the image icon of the segmented button item.
      * This field will be useless if the symbol field is sets.
-     * 
-     * @type { ?ResourceStr }
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      * @noninterop
      */
@@ -72,19 +72,19 @@ export interface SegmentButtonV2ItemOptions {
 
     /**
      * Sets the symbol icon of the segmented button item.
-     * 
-     * @type { ?Resource }
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      * @noninterop
      */
     symbol?: Resource;
 
     /**
-     * Sets whether segmented button item is enabled?
-     * 
-     * @type { ?boolean }
+     * Sets whether segmented button item is enabled?.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      * @noninterop
      */
@@ -92,9 +92,9 @@ export interface SegmentButtonV2ItemOptions {
 
     /**
      * Sets modifier for the text of the segmented button item.
-     * 
-     * @type { ?TextModifier }
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      * @noninterop
      */
@@ -102,9 +102,9 @@ export interface SegmentButtonV2ItemOptions {
 
     /**
      * Sets modifier for the image icon of the segmented button item.
-     * 
-     * @type { ?ImageModifier }
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      * @noninterop
      */
@@ -112,9 +112,9 @@ export interface SegmentButtonV2ItemOptions {
 
     /**
      * Sets modifier for the symbol icon of the segmented button item.
-     * 
-     * @type { ?SymbolGlyphModifier }
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      * @noninterop
      */
@@ -122,9 +122,9 @@ export interface SegmentButtonV2ItemOptions {
 
     /**
      * Sets the accessibility text of the segmented button item.
-     * 
-     * @type { ?ResourceStr }
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      * @noninterop
      */
@@ -132,9 +132,9 @@ export interface SegmentButtonV2ItemOptions {
 
     /**
      * Sets the accessibility description of the segmented button item.
-     * 
-     * @type { ?ResourceStr }
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      * @noninterop
      */
@@ -142,9 +142,9 @@ export interface SegmentButtonV2ItemOptions {
 
     /**
      * Sets the accessibility level of the segmented button item.
-     * 
-     * @type { ?string }
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      * @noninterop
      */
@@ -153,10 +153,11 @@ export interface SegmentButtonV2ItemOptions {
 
 /**
  * The callback function that will be invoked when the selectedIndex of the segmented button is changed.
- * 
- * @typedef { function } OnSelectedIndexChange
- * @param { int } selectedIndex - the index of selected item
+ *
+ * @param { int } selectedIndex - the index of selected item.
+ *     <br>The value should be an integer.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  * @noninterop
  */
@@ -164,10 +165,10 @@ export type OnSelectedIndexChange = (selectedIndex: int) => void;
 
 /**
  * The callback function that will be invoked when the selectedIndexes of the segmented button is changed.
- * 
- * @typedef { function } OnSelectedIndexesChange
- * @param { int[] } selectedIndexes - the index of selected items
+ *
+ * @param { int[] } selectedIndexes - the index of selected items.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  * @noninterop
  */
@@ -175,9 +176,9 @@ export type OnSelectedIndexesChange = (selectedIndexes: int[]) => void;
 
 /**
  * Defines segmented button item.
- * 
- * @interface SegmentButtonV2Item
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  * @noninterop
  */
@@ -185,9 +186,9 @@ export type OnSelectedIndexesChange = (selectedIndexes: int[]) => void;
 export declare class SegmentButtonV2Item {
     /**
      * Sets the text of the segmented button item.
-     * 
-     * @type { ?ResourceStr }
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      * @noninterop
      */
@@ -196,9 +197,9 @@ export declare class SegmentButtonV2Item {
     /**
      * Sets the image icon of the segmented button item.
      * This field will be useless if the symbol field is sets.
-     * 
-     * @type { ?ResourceStr }
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      * @noninterop
      */
@@ -206,9 +207,9 @@ export declare class SegmentButtonV2Item {
 
     /**
      * Sets the symbol icon of the segmented button item.
-     * 
-     * @type { ?Resource }
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      * @noninterop
      */
@@ -216,9 +217,9 @@ export declare class SegmentButtonV2Item {
 
     /**
      * Sets whether segmented button item is enabled?
-     * 
-     * @type { boolean }
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      * @noninterop
      */
@@ -226,9 +227,9 @@ export declare class SegmentButtonV2Item {
 
     /**
      * Sets modifier for the text of the segmented button item.
-     * 
-     * @type { ?TextModifier }
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      * @noninterop
      */
@@ -236,9 +237,9 @@ export declare class SegmentButtonV2Item {
 
     /**
      * Sets modifier for the image icon of the segmented button item.
-     * 
-     * @type { ?ImageModifier }
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      * @noninterop
      */
@@ -246,9 +247,9 @@ export declare class SegmentButtonV2Item {
 
     /**
      * Sets modifier for the symbol icon of the segmented button item.
-     * 
-     * @type { ?SymbolGlyphModifier }
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      * @noninterop
      */
@@ -256,9 +257,9 @@ export declare class SegmentButtonV2Item {
 
     /**
      * Sets the accessibility text of the segmented button item.
-     * 
-     * @type { ?ResourceStr }
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      * @noninterop
      */
@@ -266,9 +267,9 @@ export declare class SegmentButtonV2Item {
 
     /**
      * Sets the accessibility description of the segmented button item.
-     * 
-     * @type { ?ResourceStr }
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      * @noninterop
      */
@@ -276,9 +277,9 @@ export declare class SegmentButtonV2Item {
 
     /**
      * Sets the accessibility level of the segmented button item.
-     * 
-     * @type { ?string }
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      * @noninterop
      */
@@ -286,9 +287,10 @@ export declare class SegmentButtonV2Item {
 
     /**
      * The constructor of SegmentedButtonItem
-     * 
+     *
      * @param { SegmentButtonV2ItemOptions } options - the options of the segmented button item
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      * @noninterop
      */
@@ -296,9 +298,10 @@ export declare class SegmentButtonV2Item {
 
     /**
      * Is the segmented button item set with both text and icon?
-     * 
+     *
      * @returns { boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      * @noninterop
      */
@@ -307,9 +310,9 @@ export declare class SegmentButtonV2Item {
 
 /**
  * Defines the items of the segmented button.
- * 
- * @extends Array<SegmentButtonV2Item>
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  * @noninterop
  */
@@ -318,8 +321,10 @@ export declare class SegmentButtonV2Items extends Array<SegmentButtonV2Item> {
     /**
      * The constructor of SegmentedButtonItems
      *
-     * @param { int } length - the length of array
+     * @param { int } length - the length of array.
+     *     <br>The value should be an integer.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      * @noninterop
      */
@@ -327,9 +332,10 @@ export declare class SegmentButtonV2Items extends Array<SegmentButtonV2Item> {
 
     /**
      * The constructor of SegmentedButtonItems
-     * 
+     *
      * @param { SegmentButtonV2ItemOptions[] } items - the options array of the segmented button items
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      * @noninterop
      */
@@ -337,9 +343,10 @@ export declare class SegmentButtonV2Items extends Array<SegmentButtonV2Item> {
 
     /**
      * Is there an option in the segmented button options that sets both text and icon?
-     * 
+     *
      * @returns { boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      * @noninterop
      */
@@ -348,9 +355,9 @@ export declare class SegmentButtonV2Items extends Array<SegmentButtonV2Item> {
 
 /**
  * Defines segmented button with tab style.
- * 
- * @struct { TabSegmentButtonV2 }
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  * @noninterop
  */
@@ -358,10 +365,9 @@ export declare class SegmentButtonV2Items extends Array<SegmentButtonV2Item> {
 export declare struct TabSegmentButtonV2 {
     /**
      * Sets the items of the segmented button.
-     * 
-     * @type { SegmentButtonV2Items }
-     * @readonly
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      * @noninterop
      */
@@ -371,10 +377,10 @@ export declare struct TabSegmentButtonV2 {
 
     /**
      * Sets the selected index of the segmented button.
-     * 
-     * @type { int }
-     * @readonly
+     * The value should be an integer.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      * @noninterop
      */
@@ -384,10 +390,9 @@ export declare struct TabSegmentButtonV2 {
 
     /**
      * Sets the callback function which will be invoked when the selected index of the segmented button is changed.
-     * 
-     * @type { ?OnSelectedIndexChange }
-     * @readonly
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      * @noninterop
      */
@@ -396,10 +401,9 @@ export declare struct TabSegmentButtonV2 {
 
     /**
      * Sets the callback function which will be invoked when the item of the segmented button is clicked.
-     * 
-     * @type { ?Callback<int> }
-     * @readonly
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      * @noninterop
      */
@@ -408,10 +412,9 @@ export declare struct TabSegmentButtonV2 {
 
     /**
      * Sets the min font scale for all items of the segmented button.
-     * 
-     * @type { ?(double | Resource) }
-     * @readonly
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      * @noninterop
      */
@@ -420,10 +423,9 @@ export declare struct TabSegmentButtonV2 {
 
     /**
      * Sets the max font scale for all items of the segmented button.
-     * 
-     * @type { ?(double | Resource) }
-     * @readonly
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      * @noninterop
      */
@@ -432,10 +434,9 @@ export declare struct TabSegmentButtonV2 {
 
     /**
      * Sets the space for all item of the segmented button.
-     * 
-     * @type { ?LengthMetrics }
-     * @readonly
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      * @noninterop
      */
@@ -444,10 +445,9 @@ export declare struct TabSegmentButtonV2 {
 
     /**
      * Sets the font size for the text of all segmented button items that are not selected.
-     * 
-     * @type { ?LengthMetrics }
-     * @readonly
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      * @noninterop
      */
@@ -456,10 +456,9 @@ export declare struct TabSegmentButtonV2 {
 
     /**
      * Sets the font size for the text of all segmented button selected items.
-     * 
-     * @type { ?LengthMetrics }
-     * @readonly
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      * @noninterop
      */
@@ -468,10 +467,9 @@ export declare struct TabSegmentButtonV2 {
 
     /**
      * Sets the font color for the text of all segmented button selected items.
-     * 
-     * @type { ?ColorMetrics }
-     * @readonly
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      * @noninterop
      */
@@ -480,10 +478,9 @@ export declare struct TabSegmentButtonV2 {
 
     /**
      * Sets the font color for the text of all segmented button selected items.
-     * 
-     * @type { ?ColorMetrics }
-     * @readonly
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      * @noninterop
      */
@@ -492,10 +489,9 @@ export declare struct TabSegmentButtonV2 {
 
     /**
      * Sets the font weight for the text of all segmented button items that are not selected.
-     * 
-     * @type { ?FontWeight }
-     * @readonly
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      * @noninterop
      */
@@ -504,10 +500,9 @@ export declare struct TabSegmentButtonV2 {
 
     /**
      * Sets the font weight for the text of all segmented button selected items.
-     * 
-     * @type { ?FontWeight }
-     * @readonly
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      * @noninterop
      */
@@ -516,10 +511,9 @@ export declare struct TabSegmentButtonV2 {
 
     /**
      * Sets the border radius for all segmented button items.
-     * 
-     * @type { ?LengthMetrics }
-     * @readonly
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      * @noninterop
      */
@@ -528,10 +522,9 @@ export declare struct TabSegmentButtonV2 {
 
     /**
      * Sets the background color for all segmented button selected items.
-     * 
-     * @type { ?ColorMetrics }
-     * @readonly
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      * @noninterop
      */
@@ -540,10 +533,9 @@ export declare struct TabSegmentButtonV2 {
 
     /**
      * Sets the size for the icon of all segmented button items.
-     * 
-     * @type { ?SizeT<LengthMetrics> }
-     * @readonly
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      * @noninterop
      */
@@ -552,10 +544,9 @@ export declare struct TabSegmentButtonV2 {
 
     /**
      * Sets the fill color for the icon of all segmented button items that are not selected.
-     * 
-     * @type { ?ColorMetrics }
-     * @readonly
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      * @noninterop
      */
@@ -564,10 +555,9 @@ export declare struct TabSegmentButtonV2 {
 
     /**
      * Sets the fill color for the icon of all segmented button selected items.
-     * 
-     * @type { ?ColorMetrics }
-     * @readonly
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      * @noninterop
      */
@@ -576,10 +566,9 @@ export declare struct TabSegmentButtonV2 {
 
     /**
      * Sets the font size for the symbol icon of all segmented button.
-     * 
-     * @type { ?LengthMetrics }
-     * @readonly
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      * @noninterop
      */
@@ -588,10 +577,9 @@ export declare struct TabSegmentButtonV2 {
 
     /**
      * Sets the font color for the symbol icon of all segmented button items that are not selected.
-     * 
-     * @type { ?ColorMetrics }
-     * @readonly
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      * @noninterop
      */
@@ -600,10 +588,9 @@ export declare struct TabSegmentButtonV2 {
 
     /**
      * Sets the font color for the symbol icon of all segmented button selected items.
-     * 
-     * @type { ?ColorMetrics }
-     * @readonly
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      * @noninterop
      */
@@ -612,10 +599,9 @@ export declare struct TabSegmentButtonV2 {
 
     /**
      * Sets the min height of all segmented button items.
-     * 
-     * @type { ?LengthMetrics }
-     * @readonly
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      * @noninterop
      */
@@ -624,10 +610,9 @@ export declare struct TabSegmentButtonV2 {
 
     /**
      * Sets the padding of all segmented button items.
-     * 
-     * @type { ?LocalizedPadding }
-     * @readonly
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      * @noninterop
      */
@@ -636,10 +621,9 @@ export declare struct TabSegmentButtonV2 {
 
     /**
      * Sets the shadow of all segmented button items.
-     * 
-     * @type { ?(ShadowOptions | ShadowStyle) }
-     * @readonly
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      * @noninterop
      */
@@ -648,10 +632,9 @@ export declare struct TabSegmentButtonV2 {
 
     /**
      * Sets the background color of the segmented button.
-     * 
-     * @type { ?ColorMetrics }
-     * @readonly
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      * @noninterop
      */
@@ -660,10 +643,9 @@ export declare struct TabSegmentButtonV2 {
 
     /**
      * Sets the background blur style of the segmented button.
-     * 
-     * @type { ?BlurStyle }
-     * @readonly
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      * @noninterop
      */
@@ -672,10 +654,9 @@ export declare struct TabSegmentButtonV2 {
 
     /**
      * Sets the background blur style options of the segmented button.
-     * 
-     * @type { ?BackgroundBlurStyleOptions }
-     * @readonly
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      * @noninterop
      */
@@ -684,10 +665,9 @@ export declare struct TabSegmentButtonV2 {
 
     /**
      * Sets the background effect of the segmented button.
-     * 
-     * @type { ?BackgroundEffectOptions }
-     * @readonly
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      * @noninterop
      */
@@ -696,10 +676,9 @@ export declare struct TabSegmentButtonV2 {
 
     /**
      * Sets the border radius of the segmented button.
-     * 
-     * @type { ?LengthMetrics }
-     * @readonly
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      * @noninterop
      */
@@ -708,10 +687,9 @@ export declare struct TabSegmentButtonV2 {
 
     /**
      * Sets the min height of the segmented button.
-     * 
-     * @type { ?LengthMetrics }
-     * @readonly
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      * @noninterop
      */
@@ -720,10 +698,9 @@ export declare struct TabSegmentButtonV2 {
 
     /**
      * Sets the padding of the segmented button.
-     * 
-     * @type { ?LengthMetrics }
-     * @readonly
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      * @noninterop
      */
@@ -732,10 +709,9 @@ export declare struct TabSegmentButtonV2 {
 
     /**
      * Sets the language direction of the segmented button.
-     * 
-     * @type { ?Direction }
-     * @readonly
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      * @noninterop
      */
@@ -746,13 +722,10 @@ export declare struct TabSegmentButtonV2 {
      * Set system-styled materials for the component. Different materials have different effects, which can influence
      * the backgroundColor, border, shadow, and other visual attributes of the component.
      *
-     * Device Behavior Differences:The effect of the same material may vary across different devices depending on
-     * their computing power.
-     *
-     * @type { ?uiMaterial.Material } material - System-styled material. 
-     * @readonly
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @systemapi
+     * @type { ?uiMaterial.Material } material - System-styled material. [since 23 - 24]
+     * @syscap SystemCapability.ArkUI.ArkUI.Full [since 23]
+     * @systemapi [since 23 - 24]
+     * @publicapi [since 26.0.0]
      * @stagemodelonly
      * @since 23 static
      */
@@ -762,8 +735,6 @@ export declare struct TabSegmentButtonV2 {
     /**
      * Enable animation when selectedIndexes change.
      *
-     * @type { ?boolean }
-     * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 24 static
@@ -773,8 +744,9 @@ export declare struct TabSegmentButtonV2 {
 
     /**
      * Sets the build function of the segmented button.
-     * 
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      * @noninterop
      */
@@ -784,9 +756,9 @@ export declare struct TabSegmentButtonV2 {
 
 /**
  * Defines the segmented button with capsule style.
- * 
- * @struct { CapsuleSegmentButtonV2 }
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  * @noninterop
  */
@@ -794,10 +766,9 @@ export declare struct TabSegmentButtonV2 {
 export declare struct CapsuleSegmentButtonV2 {
     /**
      * Sets the items of the segmented button.
-     * 
-     * @type { SegmentButtonV2Items }
-     * @readonly
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      * @noninterop
      */
@@ -807,10 +778,10 @@ export declare struct CapsuleSegmentButtonV2 {
 
     /**
      * Sets the selected index of the segmented button.
-     * 
-     * @type { int }
-     * @readonly
+     * The value should be an integer.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      * @noninterop
      */
@@ -820,10 +791,9 @@ export declare struct CapsuleSegmentButtonV2 {
 
     /**
      * Sets the callback function which will be invoked when the selected index of the segmented button is changed.
-     * 
-     * @type { ?OnSelectedIndexChange }
-     * @readonly
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      * @noninterop
      */
@@ -832,10 +802,9 @@ export declare struct CapsuleSegmentButtonV2 {
 
     /**
      * Sets the callback function which will be invoked when the item of the segmented button is clicked.
-     * 
-     * @type { ?Callback<int> }
-     * @readonly
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      * @noninterop
      */
@@ -844,10 +813,9 @@ export declare struct CapsuleSegmentButtonV2 {
 
     /**
      * Sets the min font scale for all items of the segmented button.
-     * 
-     * @type { ?(double | Resource) }
-     * @readonly
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      * @noninterop
      */
@@ -856,10 +824,9 @@ export declare struct CapsuleSegmentButtonV2 {
 
     /**
      * Sets the max font scale for all items of the segmented button.
-     * 
-     * @type { ?(double | Resource) }
-     * @readonly
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      * @noninterop
      */
@@ -868,10 +835,9 @@ export declare struct CapsuleSegmentButtonV2 {
 
     /**
      * Sets the space for all item of the segmented button.
-     * 
-     * @type { ?LengthMetrics }
-     * @readonly
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      * @noninterop
      */
@@ -880,10 +846,9 @@ export declare struct CapsuleSegmentButtonV2 {
 
     /**
      * Sets the font color for the text of all segmented button selected items.
-     * 
-     * @type { ?ColorMetrics }
-     * @readonly
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      * @noninterop
      */
@@ -892,10 +857,9 @@ export declare struct CapsuleSegmentButtonV2 {
 
     /**
      * Sets the font color for the text of all segmented button selected items.
-     * 
-     * @type { ?ColorMetrics }
-     * @readonly
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      * @noninterop
      */
@@ -904,10 +868,9 @@ export declare struct CapsuleSegmentButtonV2 {
 
     /**
      * Sets the font size for the text of all segmented button items that are not selected.
-     * 
-     * @type { ?LengthMetrics }
-     * @readonly
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      * @noninterop
      */
@@ -916,10 +879,9 @@ export declare struct CapsuleSegmentButtonV2 {
 
     /**
      * Sets the font size for the text of all segmented button selected items.
-     * 
-     * @type { ?LengthMetrics }
-     * @readonly
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      * @noninterop
      */
@@ -928,10 +890,9 @@ export declare struct CapsuleSegmentButtonV2 {
 
     /**
      * Sets the font weight for the text of all segmented button items that are not selected.
-     * 
-     * @type { ?FontWeight }
-     * @readonly
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      * @noninterop
      */
@@ -940,10 +901,9 @@ export declare struct CapsuleSegmentButtonV2 {
 
     /**
      * Sets the font weight for the text of all segmented button selected items.
-     * 
-     * @type { ?FontWeight }
-     * @readonly
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      * @noninterop
      */
@@ -952,10 +912,9 @@ export declare struct CapsuleSegmentButtonV2 {
 
     /**
      * Sets the border radius for all segmented button items.
-     * 
-     * @type { ?LengthMetrics }
-     * @readonly
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      * @noninterop
      */
@@ -964,10 +923,9 @@ export declare struct CapsuleSegmentButtonV2 {
 
     /**
      * Sets the background color for all segmented button selected items.
-     * 
-     * @type { ?ColorMetrics }
-     * @readonly
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      * @noninterop
      */
@@ -976,10 +934,9 @@ export declare struct CapsuleSegmentButtonV2 {
 
     /**
      * Sets the size for the icon of all segmented button items.
-     * 
-     * @type { ?SizeT<LengthMetrics> }
-     * @readonly
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      * @noninterop
      */
@@ -988,10 +945,9 @@ export declare struct CapsuleSegmentButtonV2 {
 
     /**
      * Sets the fill color for the icon of all segmented button items that are not selected.
-     * 
-     * @type { ?ColorMetrics }
-     * @readonly
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      * @noninterop
      */
@@ -1000,10 +956,9 @@ export declare struct CapsuleSegmentButtonV2 {
 
     /**
      * Sets the fill color for the icon of all segmented button selected items.
-     * 
-     * @type { ?ColorMetrics }
-     * @readonly
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      * @noninterop
      */
@@ -1012,10 +967,9 @@ export declare struct CapsuleSegmentButtonV2 {
 
     /**
      * Sets the font size for the symbol icon of all segmented button.
-     * 
-     * @type { ?LengthMetrics }
-     * @readonly
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      * @noninterop
      */
@@ -1024,10 +978,9 @@ export declare struct CapsuleSegmentButtonV2 {
 
     /**
      * Sets the font color for the symbol icon of all segmented button items that are not selected.
-     * 
-     * @type { ?ColorMetrics }
-     * @readonly
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      * @noninterop
      */
@@ -1036,10 +989,9 @@ export declare struct CapsuleSegmentButtonV2 {
 
     /**
      * Sets the font color for the symbol icon of all segmented button selected items.
-     * 
-     * @type { ?ColorMetrics }
-     * @readonly
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      * @noninterop
      */
@@ -1048,10 +1000,9 @@ export declare struct CapsuleSegmentButtonV2 {
 
     /**
      * Sets the min height of all segmented button items.
-     * 
-     * @type { ?LengthMetrics }
-     * @readonly
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      * @noninterop
      */
@@ -1060,10 +1011,9 @@ export declare struct CapsuleSegmentButtonV2 {
 
     /**
      * Sets the padding of all segmented button items.
-     * 
-     * @type { ?LocalizedPadding }
-     * @readonly
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      * @noninterop
      */
@@ -1072,10 +1022,9 @@ export declare struct CapsuleSegmentButtonV2 {
 
     /**
      * Sets the shadow of all segmented button items.
-     * 
-     * @type { ?(ShadowOptions | ShadowStyle) }
-     * @readonly
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      * @noninterop
      */
@@ -1084,10 +1033,9 @@ export declare struct CapsuleSegmentButtonV2 {
 
     /**
      * Sets the background color of the segmented button.
-     * 
-     * @type { ?ColorMetrics }
-     * @readonly
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      * @noninterop
      */
@@ -1096,10 +1044,9 @@ export declare struct CapsuleSegmentButtonV2 {
 
     /**
      * Sets the background blur style of the segmented button.
-     * 
-     * @type { ?BlurStyle }
-     * @readonly
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      * @noninterop
      */
@@ -1108,10 +1055,9 @@ export declare struct CapsuleSegmentButtonV2 {
 
     /**
      * Sets the background blur style options of the segmented button.
-     * 
-     * @type { ?BackgroundBlurStyleOptions }
-     * @readonly
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      * @noninterop
      */
@@ -1120,10 +1066,9 @@ export declare struct CapsuleSegmentButtonV2 {
 
     /**
      * Sets the background effect of the segmented button.
-     * 
-     * @type { ?BackgroundEffectOptions }
-     * @readonly
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      * @noninterop
      */
@@ -1132,10 +1077,9 @@ export declare struct CapsuleSegmentButtonV2 {
 
     /**
      * Sets the border radius of the segmented button.
-     * 
-     * @type { ?LengthMetrics }
-     * @readonly
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      * @noninterop
      */
@@ -1144,10 +1088,9 @@ export declare struct CapsuleSegmentButtonV2 {
 
     /**
      * Sets the min height of the segmented button.
-     * 
-     * @type { ?LengthMetrics }
-     * @readonly
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      * @noninterop
      */
@@ -1156,10 +1099,9 @@ export declare struct CapsuleSegmentButtonV2 {
 
     /**
      * Sets the padding of the segmented button.
-     * 
-     * @type { ?LengthMetrics }
-     * @readonly
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      * @noninterop
      */
@@ -1168,10 +1110,9 @@ export declare struct CapsuleSegmentButtonV2 {
 
     /**
      * Sets the language direction of the segmented button.
-     * 
-     * @type { ?Direction }
-     * @readonly
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      * @noninterop
      */
@@ -1182,13 +1123,10 @@ export declare struct CapsuleSegmentButtonV2 {
      * Set system-styled materials for the component. Different materials have different effects, which can influence
      * the backgroundColor, border, shadow, and other visual attributes of the component.
      *
-     * Device Behavior Differences:The effect of the same material may vary across different devices depending on
-     * their computing power.
-     *
-     * @type { ?uiMaterial.Material } material - System-styled material. 
-     * @readonly
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @systemapi
+     * @type { ?uiMaterial.Material } material - System-styled material. [since 23 - 24]
+     * @syscap SystemCapability.ArkUI.ArkUI.Full [since 23]
+     * @systemapi [since 23 - 24]
+     * @publicapi [since 26.0.0]
      * @stagemodelonly
      * @since 23 static
      */
@@ -1198,8 +1136,6 @@ export declare struct CapsuleSegmentButtonV2 {
     /**
      * Enable animation when selectedIndexes change.
      *
-     * @type { ?boolean }
-     * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 24 static
@@ -1209,8 +1145,9 @@ export declare struct CapsuleSegmentButtonV2 {
 
     /**
      * Sets the build function of the segmented button.
-     * 
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      * @noninterop
      */
@@ -1220,9 +1157,9 @@ export declare struct CapsuleSegmentButtonV2 {
 
 /**
  * Defines the segmented button with capsule style.
- * 
- * @struct { MultiCapsuleSegmentButtonV2 }
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  * @noninterop
  */
@@ -1230,10 +1167,9 @@ export declare struct CapsuleSegmentButtonV2 {
 export declare struct MultiCapsuleSegmentButtonV2 {
     /**
      * Sets the items of the segmented button.
-     * 
-     * @type { SegmentButtonV2Items }
-     * @readonly
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      * @noninterop
      */
@@ -1243,10 +1179,9 @@ export declare struct MultiCapsuleSegmentButtonV2 {
 
     /**
      * Sets the selection of the segmented button.
-     * 
-     * @type { int[] }
-     * @readonly
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      * @noninterop
      */
@@ -1256,10 +1191,9 @@ export declare struct MultiCapsuleSegmentButtonV2 {
 
     /**
      * Sets the callback function will be invoked when the selectedInexes field of the segmented button is changed.
-     * 
-     * @type { ?OnSelectedIndexesChange } OnSelectedIndexesChange
-     * @readonly
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      * @noninterop
      */
@@ -1268,10 +1202,9 @@ export declare struct MultiCapsuleSegmentButtonV2 {
 
     /**
      * Sets the callback function will be invoked when the item of the segmented button is clicked.
-     * 
-     * @type { ?Callback<int> }
-     * @readonly
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      * @noninterop
      */
@@ -1280,10 +1213,9 @@ export declare struct MultiCapsuleSegmentButtonV2 {
 
     /**
      * Sets the min font scale for all items of the segmented button.
-     * 
-     * @type { ?(double | Resource) }
-     * @readonly
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      * @noninterop
      */
@@ -1292,10 +1224,9 @@ export declare struct MultiCapsuleSegmentButtonV2 {
 
     /**
      * Sets the max font scale for all items of the segmented button.
-     * 
-     * @type { ?(double | Resource) }
-     * @readonly
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      * @noninterop
      */
@@ -1304,10 +1235,9 @@ export declare struct MultiCapsuleSegmentButtonV2 {
 
     /**
      * Sets the space for each item of the segmented button.
-     * 
-     * @type { ?LengthMetrics }
-     * @readonly
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      * @noninterop
      */
@@ -1316,10 +1246,9 @@ export declare struct MultiCapsuleSegmentButtonV2 {
 
     /**
      * Sets the font color for the text of all segmented button items that are not selected.
-     * 
-     * @type { ?ColorMetrics }
-     * @readonly
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      * @noninterop
      */
@@ -1328,10 +1257,9 @@ export declare struct MultiCapsuleSegmentButtonV2 {
 
     /**
      * Sets the font color for the text of all segmented button selected items.
-     * 
-     * @type { ?ColorMetrics }
-     * @readonly
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      * @noninterop
      */
@@ -1340,10 +1268,9 @@ export declare struct MultiCapsuleSegmentButtonV2 {
 
     /**
      * Sets the font size for the text of all segmented button items that are not selected.
-     * 
-     * @type { ?LengthMetrics }
-     * @readonly
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      * @noninterop
      */
@@ -1352,10 +1279,9 @@ export declare struct MultiCapsuleSegmentButtonV2 {
 
     /**
      * Sets the font size for the text of all segmented button selected items.
-     * 
-     * @type { ?LengthMetrics }
-     * @readonly
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      * @noninterop
      */
@@ -1364,10 +1290,9 @@ export declare struct MultiCapsuleSegmentButtonV2 {
 
     /**
      * Sets the font weight for the text of all segmented button items that are not selected.
-     * 
-     * @type { ?FontWeight }
-     * @readonly
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      * @noninterop
      */
@@ -1376,10 +1301,9 @@ export declare struct MultiCapsuleSegmentButtonV2 {
 
     /**
      * Sets the font weight for the text of all segmented button selected items.
-     * 
-     * @type { ?FontWeight }
-     * @readonly
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      * @noninterop
      */
@@ -1388,10 +1312,9 @@ export declare struct MultiCapsuleSegmentButtonV2 {
 
     /**
      * Sets the border radius for all segmented button items.
-     * 
-     * @type { ?LengthMetrics }
-     * @readonly
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      * @noninterop
      */
@@ -1400,10 +1323,9 @@ export declare struct MultiCapsuleSegmentButtonV2 {
 
     /**
      * Sets the background color for all segmented button items that are not selected.
-     * 
-     * @type { ?ColorMetrics }
-     * @readonly
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      * @noninterop
      */
@@ -1412,10 +1334,9 @@ export declare struct MultiCapsuleSegmentButtonV2 {
 
     /**
      * Sets the background effect of all segmented button items that are not selected.
-     * 
-     * @type { ?BackgroundEffectOptions }
-     * @readonly
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      * @noninterop
      */
@@ -1424,10 +1345,9 @@ export declare struct MultiCapsuleSegmentButtonV2 {
     
     /**
      * Sets the background blur style of all segmented button items that are not selected.
-     * 
-     * @type { ?BlurStyle }
-     * @readonly
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      * @noninterop
      */
@@ -1436,10 +1356,9 @@ export declare struct MultiCapsuleSegmentButtonV2 {
     
     /**
      * Sets the background blur style options of all segmented button items that are not selected.
-     * 
-     * @type { ?BackgroundBlurStyleOptions }
-     * @readonly
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      * @noninterop
      */
@@ -1448,10 +1367,9 @@ export declare struct MultiCapsuleSegmentButtonV2 {
 
     /**
      * Sets the background color for all segmented button selected items.
-     * 
-     * @type { ?ColorMetrics }
-     * @readonly
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      * @noninterop
      */
@@ -1460,10 +1378,9 @@ export declare struct MultiCapsuleSegmentButtonV2 {
 
     /**
      * Sets the size for the icon of all segmented button items.
-     * 
-     * @type { ?SizeT<LengthMetrics> }
-     * @readonly
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      * @noninterop
      */
@@ -1472,10 +1389,9 @@ export declare struct MultiCapsuleSegmentButtonV2 {
 
     /**
      * Sets the fill color for the icon of all segmented button items that are not selected.
-     * 
-     * @type { ?ColorMetrics }
-     * @readonly
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      * @noninterop
      */
@@ -1484,10 +1400,9 @@ export declare struct MultiCapsuleSegmentButtonV2 {
 
     /**
      * Sets the fill color for the icon of all segmented button selected items.
-     * 
-     * @type { ?ColorMetrics }
-     * @readonly
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      * @noninterop
      */
@@ -1496,10 +1411,9 @@ export declare struct MultiCapsuleSegmentButtonV2 {
 
     /**
      * Sets the font size for the symbol icon of all segmented button.
-     * 
-     * @type { ?LengthMetrics }
-     * @readonly
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      * @noninterop
      */
@@ -1508,10 +1422,9 @@ export declare struct MultiCapsuleSegmentButtonV2 {
 
     /**
      * Sets the font color for the symbol icon of all segmented button items that are not selected.
-     * 
-     * @type { ?ColorMetrics }
-     * @readonly
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      * @noninterop
      */
@@ -1520,10 +1433,9 @@ export declare struct MultiCapsuleSegmentButtonV2 {
 
     /**
      * Sets the font color for the symbol icon of all segmented button selected items.
-     * 
-     * @type { ?ColorMetrics }
-     * @readonly
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      * @noninterop
      */
@@ -1532,10 +1444,9 @@ export declare struct MultiCapsuleSegmentButtonV2 {
 
      /**
      * Sets the min height of all segmented button items.
-     * 
-     * @type { ?LengthMetrics }
-     * @readonly
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      * @noninterop
      */
@@ -1544,10 +1455,9 @@ export declare struct MultiCapsuleSegmentButtonV2 {
 
     /**
      * Sets the padding of all segmented button items.
-     * 
-     * @type { ?LocalizedPadding }
-     * @readonly
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      * @noninterop
      */
@@ -1556,10 +1466,9 @@ export declare struct MultiCapsuleSegmentButtonV2 {
 
     /**
      * Sets the language direction of the segmented button.
-     * 
-     * @type { ?Direction }
-     * @readonly
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      * @noninterop
      */
@@ -1568,8 +1477,9 @@ export declare struct MultiCapsuleSegmentButtonV2 {
 
     /**
      * Sets the build function of the segmented button.
-     * 
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      * @noninterop
      */

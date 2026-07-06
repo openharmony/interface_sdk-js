@@ -23,89 +23,59 @@ import type colorSpaceManager from './@ohos.graphics.colorSpaceManager';
 import type hdrCapability from './@ohos.graphics.hdrCapability';
 
 /**
- * Interface of display manager.
+ * The **Display** module provides APIs for managing displays, such as obtaining information about the default display,
+ * obtaining information about all displays, and listening for the addition and removal of displays.
  *
- * @namespace display
  * @syscap SystemCapability.WindowManager.WindowManager.Core
- * @since 7
- */
-/**
- * Interface of display manager.
- *
- * @namespace display
- * @syscap SystemCapability.WindowManager.WindowManager.Core
- * @crossplatform
- * @since 10
- */
-/**
- * Interface of display manager.
- *
- * @namespace display
- * @syscap SystemCapability.WindowManager.WindowManager.Core
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
  * @since 23 static
  */
 declare namespace display {
   /**
-   * Obtain the default display.
+   * Obtains the default Display object. This API uses an asynchronous callback to return the result.
    *
-   * @param { AsyncCallback<Display> } callback the result of display
+   * @param { AsyncCallback<Display> } callback - Callback used to return the default Display object.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @since 7 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.display#getDefaultDisplaySync
+   * @useinstead display.getDefaultDisplaySync
    */
   function getDefaultDisplay(callback: AsyncCallback<Display>): void;
 
   /**
-   * Obtain the default display.
+   * Obtains the default Display object. This API uses a promise to return the result.
    *
-   * @returns { Promise<Display> } the result of display
+   * @returns { Promise<Display> } Promise used to return the default Display object.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @since 7 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.display#getDefaultDisplaySync
+   * @useinstead display.getDefaultDisplaySync
    */
   function getDefaultDisplay(): Promise<Display>;
 
   /**
-   * Obtain the default display.
+   * Obtains the **Display** object of the screen where the application is located. If multiple abilities of an
+   * application are on different screens, the **Display** object of the main screen is returned. If multiple abilities
+   * of an application are on the same screen, the **Display** object of the screen is returned.
    *
-   * @returns { Display } the result of display
-   * @throws { BusinessError } 1400001 - Invalid display or screen.
-   * @syscap SystemCapability.WindowManager.WindowManager.Core
-   * @since 9
-   */
-  /**
-   * Obtain the default display.
-   *
-   * @returns { Display } the result of display
-   * @throws { BusinessError } 1400001 - Invalid display or screen.
-   * @syscap SystemCapability.WindowManager.WindowManager.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Obtain the default display.
-   *
-   * @returns { Display } the result of display
+   * @returns { Display } Default Display object.
    * @throws { BusinessError } 1400001 - Invalid display or screen. Possible cause: Display is not created or destroyed.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   function getDefaultDisplaySync(): Display;
 
   /**
-   * Obtain the primary display. For devices other than 2in1 devices, the Display object obtained is the built-in screen. 
-   * For 2in1 devices with an external screen, the Display object obtained is the primary screen.
-   * For 2in1 devices without an external screen, the Display object obtained is the built-in screen.
+   * Obtains the information about the primary display. For devices other than 2-in-1 devices, the Display object
+   * obtained is the built-in screen. For 2-in-1 devices with an external screen, the Display object obtained is the
+   * primary screen. For 2-in-1 devices without an external screen, the Display object obtained is the built-in screen.
    *
-   * @returns { Display } the result of primary display
+   * @returns { Display } Display object of the primary screen.
    * @throws { BusinessError } 1400001 - Invalid display or screen. Possible cause: Invalid display id.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @crossplatform
@@ -116,15 +86,17 @@ declare namespace display {
   function getPrimaryDisplaySync(): Display;
 
   /**
-   * Obtain the target display.
+   * Obtains a Display object based on the display ID.
    *
-   * @param { long } displayId Display id to query. This parameter should be greater than or equal to 0.
-   * @returns { Display } the result of display
+   * @param { long } displayId - Display ID. The value must be an integer greater than or equal to 0. An object can be
+   *     obtained only when the passed-in display ID is correct. You can use the value of the **displayId** property in
+   *     [WindowProperties]{@link @ohos.window:window.WindowProperties} as the input parameter.
+   * @returns { Display } Display object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *                                                                   2. Incorrect parameter types.
-   *                                                                   3. Parameter verification failed.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally. Possible causes:
-   *    Display is null, display id corresponding display does not exist.
+   *     Display is null, display id corresponding display does not exist.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @atomicservice
    * @since 12 dynamic
@@ -133,71 +105,57 @@ declare namespace display {
   function getDisplayByIdSync(displayId: long): Display;
 
   /**
-   * Obtain all displays.
+   * Obtains all Display objects. This API uses an asynchronous callback to return the result.
    *
-   * @param { AsyncCallback<Array<Display>> } callback the result of all displays
+   * @param { AsyncCallback<Array<Display>> } callback - Callback used to return all the Display objects.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @since 7 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.display#getAllDisplays
+   * @useinstead display.getAllDisplays(callback: AsyncCallback<Array<Display>>)
    */
   function getAllDisplay(callback: AsyncCallback<Array<Display>>): void;
 
   /**
-   * Obtain all displays.
+   * Obtains all Display objects. This API uses a promise to return the result.
    *
-   * @returns { Promise<Array<Display>> } the result of all displays
+   * @returns { Promise<Array<Display>> } Promise used to return all the Display objects.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @since 7 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.display#getAllDisplays
+   * @useinstead display.getAllDisplays()
    */
   function getAllDisplay(): Promise<Array<Display>>;
 
   /**
-   * Obtain all displays.
+   * Obtains all Display objects. This API uses an asynchronous callback to return the result.
    *
-   * @param { AsyncCallback<Array<Display>> } callback the result of all displays
+   * @param { AsyncCallback<Array<Display>> } callback - Callback used to return all the Display objects.
    * @throws { BusinessError } 1400001 - Invalid display or screen.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
-   * @since 9
-   */
-  /**
-   * Obtain all displays.
-   *
-   * @param { AsyncCallback<Array<Display>> } callback the result of all displays
-   * @throws { BusinessError } 1400001 - Invalid display or screen.
-   * @syscap SystemCapability.WindowManager.WindowManager.Core
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 9 dynamic
    * @since 23 static
    */
   function getAllDisplays(callback: AsyncCallback<Array<Display>>): void;
 
   /**
-   * Obtain all displays.
+   * Obtains all Display objects. This API uses a promise to return the result.
    *
-   * @returns { Promise<Array<Display>> } the result of all displays
+   * @returns { Promise<Array<Display>> } Promise used to return all the Display objects.
    * @throws { BusinessError } 1400001 - Invalid display or screen.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
-   * @since 9
-   */
-  /**
-   * Obtain all displays.
-   *
-   * @returns { Promise<Array<Display>> } the result of all displays
-   * @throws { BusinessError } 1400001 - Invalid display or screen.
-   * @syscap SystemCapability.WindowManager.WindowManager.Core
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 9 dynamic
    * @since 23 static
    */
   function getAllDisplays(): Promise<Array<Display>>;
 
   /**
-   * Obtain all display physical resolution
+   * Obtains all the display modes supported by the current device, along with the physical screen resolutions for each
+   * mode. This API uses a promise to return the result.
    *
-   * @returns { Promise<Array<DisplayPhysicalResolution>> } the result of all display physical resolution
+   * @returns { Promise<Array<DisplayPhysicalResolution>> } Promise used to return all the DisplayPhysicalResolution
+   *     objects.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @atomicservice
@@ -207,13 +165,16 @@ declare namespace display {
   function getAllDisplayPhysicalResolution(): Promise<Array<DisplayPhysicalResolution>>;
 
   /**
-   * Check whether there is a privacy window on the current display.
+   * Checks whether there is a visible privacy window on a display. The privacy window can be set by calling
+   * [setWindowPrivacyMode()]{@link @ohos.window:window.setWindowPrivacyMode(isPrivacyMode: boolean, callback: AsyncCallback<void>)}. The
+   * content in the privacy window cannot be captured or recorded.
    *
-   * @param { long } displayId Display id to query. This parameter should be greater than or equal to 0.
-   * @returns { boolean } true means there is a privacy window on the current display
+   * @param { long } displayId - ID of the display. The value must be an integer greater than or equal to 0.
+   * @returns { boolean } Whether there is a visible privacy window on the display. **true** if yes, **false**
+   *     otherwise.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
@@ -223,39 +184,37 @@ declare namespace display {
   function hasPrivateWindow(displayId: long): boolean;
 
   /**
-   * Register the callback for display changes.
+   * Subscribes to display changes.
    *
-   * @param { 'add' | 'remove' | 'change' } type the event of display change
-   * @param { Callback<long> } callback the display id of changed
+   * @param { 'add' | 'remove' | 'change' } type - Event type.<br>- **add**, indicating the display addition event.
+   *     Example: event that a display is connected.<br>- **remove**, indicating the display removal event. Example:
+   *     event that a display is disconnected.<br>- **change**, indicating the display change event. Example: event that
+   *     the display orientation is changed.
+   * @param { Callback<long> } callback - Callback used to return the ID of the display, which is an integer.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
-   * @since 7
-   */
-  /**
-   * Register the callback for display changes.
-   *
-   * @param { 'add' | 'remove' | 'change' } type the event of display change
-   * @param { Callback<long> } callback the display id of changed
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     2. Incorrect parameter types.
-   * @syscap SystemCapability.WindowManager.WindowManager.Core
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Register the callback for display changes.
-   *
-   * @param { 'add' | 'remove' | 'change' } type the event of display change
-   * @param { Callback<long> } callback the display id of changed
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     2. Incorrect parameter types.
-   * @syscap SystemCapability.WindowManager.WindowManager.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
+   * @crossplatform [since 20]
+   * @atomicservice [since 12]
+   * @since 7 dynamic
    */
   function on(type: 'add' | 'remove' | 'change', callback: Callback<long>): void;
+
+  /**
+   * Subscribes to changes of specified attributes of a display.
+   *
+   * @param { Array<string> } displayAttributeOption - Attribute names. Only attributes contained in
+   *     [Display]{@link display.Display} are supported.
+   * @param { Callback<long> } callback - Callback used to return the ID of the display, which is an integer.
+   * @throws { BusinessError } 801 - Capability not supported. Function onChangeWithAttribute can not work correctly
+   *     due to limited device capabilities.
+   * @throws { BusinessError } 1400003 - This display manager service works abnormally.
+   *     Possible causes: Internal IPC error.
+   * @syscap SystemCapability.Window.SessionManager
+   * @atomicservice
+   * @since 23 dynamic&static
+   */
+  function onChangeWithAttribute(displayAttributeOption: Array<string>, callback: Callback<long>): void;
 
   /**
    * Register the callback for display add events.
@@ -266,7 +225,7 @@ declare namespace display {
    * @since 23 static
    */
   function onAdd(callback: Callback<long>): void;
-  
+
   /**
    * Register the callback for display remove events.
    *
@@ -288,52 +247,22 @@ declare namespace display {
   function onChange(callback: Callback<long>): void;
 
   /**
-   * Register the callback for changes of display specified attributes.
+   * Unsubscribes from display changes.
    *
-   * @param { Array<string> } displayAttributeOption - The display attributes requiring callback
-   * @param { Callback<long> } callback - Callback used to return the display id of changed
-   * @throws { BusinessError } 801 - Capability not supported. Function onChangeWithAttribute can not work correctly
-   *     due to limited device capabilities.
-   * @throws { BusinessError } 1400003 - This display manager service works abnormally.
-   *     Possible causes: Internal IPC error.
-   * @syscap SystemCapability.Window.SessionManager
-   * @atomicservice
-   * @since 23 dynamic&static
-   */
-  function onChangeWithAttribute(displayAttributeOption: Array<string>, callback: Callback<long>): void;
-
-  /**
-   * Unregister the callback for display changes.
-   *
-   * @param { 'add' | 'remove' | 'change' } type the event of display change event
-   * @param { Callback<long> } callback the display id of changed
+   * @param { 'add' | 'remove' | 'change' } type - Event type.<br>- **add**, indicating the display addition event.
+   *     Example: event that a display is connected.<br>- **remove**, indicating the display removal event. Example:
+   *     event that a display is disconnected.<br>- **change**, indicating the display change event. Example: event that
+   *     the display orientation is changed.
+   * @param { Callback<long> } callback - Callback used to return the ID of the display, which is an integer. If this
+   *     parameter is not specified, all subscriptions to the specified event are canceled. [since 7 - 19]
+   * @param { Callback<long> } [callback] - Callback used to return the ID of the display, which is an integer. If this
+   *     parameter is not specified, all subscriptions to the specified event are canceled. [since 20]
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
-   * @since 7
-   */
-  /**
-   * Unregister the callback for display changes.
-   *
-   * @param { 'add' | 'remove' | 'change' } type the event of display change event
-   * @param { Callback<long> } callback the display id of changed
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     2. Incorrect parameter types.
-   * @syscap SystemCapability.WindowManager.WindowManager.Core
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Unregister the callback for display changes.
-   *
-   * @param { 'add' | 'remove' | 'change' } type the event of display change event
-   * @param { Callback<long> } [callback] the display id of changed
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     2. Incorrect parameter types.
-   * @syscap SystemCapability.WindowManager.WindowManager.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
+   * @crossplatform [since 20]
+   * @atomicservice [since 12]
+   * @since 7 dynamic
    */
   function off(type: 'add' | 'remove' | 'change', callback?: Callback<long>): void;
 
@@ -341,29 +270,29 @@ declare namespace display {
    * Unregister the callback for display add events.
    *
    * @param { Callback<long> } [callback] - Unregister the callback function.
-   *		If not provided, all callbacks for the given event type will be removed.
+   *     If not provided, all callbacks for the given event type will be removed.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @crossplatform
    * @since 23 static
    */
   function offAdd(callback?: Callback<long>): void;
-  
+
   /**
    * Unregister the callback for display remove events.
    *
    * @param { Callback<long> } [callback] - Unregister the callback function.
-   *		If not provided, all callbacks for the given event type will be removed.
+   *     If not provided, all callbacks for the given event type will be removed.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @crossplatform
    * @since 23 static
    */
   function offRemove(callback?: Callback<long>): void;
-  
+
   /**
    * Unregister the callback for display changes.
    *
    * @param { Callback<long> } [callback] - Unregister the callback function.
-   *		If not provided, all callbacks for the given event type will be removed.
+   *     If not provided, all callbacks for the given event type will be removed.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @crossplatform
    * @since 23 static
@@ -371,10 +300,13 @@ declare namespace display {
   function offChange(callback?: Callback<long>): void;
 
   /**
-   * Register the callback for private mode changes.
+   * Subscribes to privacy mode changes of this display. When there is a privacy window in the foreground of the display
+   * , the display is in privacy mode, and the content in the privacy window cannot be captured or recorded.
    *
-   * @param { 'privateModeChange' } type the event of private mode changes
-   * @param { Callback<boolean> } callback Callback used to return the result whether display is on private mode or not
+   * @param { 'privateModeChange' } type - Event type. The value is fixed at **'privateModeChange'**, indicating that
+   *     the privacy mode of the display is changed.
+   * @param { Callback<boolean> } callback - Callback used to return whether the privacy mode of the display is changed.
+   *     **true** if changed, **false** otherwise.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
@@ -396,10 +328,14 @@ declare namespace display {
   function onPrivateModeChange(callback: Callback<boolean>): void;
 
   /**
-   * Unregister the callback for private mode changes.
+   * Unsubscribes from privacy mode changes of this display. When there is a privacy window in the foreground of the
+   * display, the display is in privacy mode, and the content in the privacy window cannot be captured or recorded.
    *
-   * @param { 'privateModeChange' } type the event of private mode changes
-   * @param { Callback<boolean> } callback Callback used to return the result whether display is on private mode or not
+   * @param { 'privateModeChange' } type - Event type. The value is fixed at **'privateModeChange'**, indicating that
+   *     the privacy mode of the display is changed.
+   * @param { Callback<boolean> } callback - Callback used to return whether the privacy mode of the display is changed.
+   *     **true** if changed, **false** otherwise. If this parameter is not specified, all subscriptions to the
+   *     specified event are canceled.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
@@ -413,7 +349,7 @@ declare namespace display {
    * Unregister the callback for private mode changes.
    *
    * @param { Callback<boolean> } [callback] - Unregister the callback function.
-   *		If not provided, all callbacks for the given event type will be removed.
+   *     If not provided, all callbacks for the given event type will be removed.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
@@ -422,100 +358,58 @@ declare namespace display {
   function offPrivateModeChange(callback?: Callback<boolean>): void;
 
   /**
-   * Check whether the device is foldable.
+   * Checks whether this device is foldable.
    *
-   * @returns { boolean } true means the device is foldable.
+   * @returns { boolean } Check result for whether the device is foldable. **true** if foldable, **false** otherwise.
+   *     For small-screen foldable devices where the outer screen serves only as an auxiliary display (and cannot be
+   *     customized by applications), the return value is always **false**. For other foldable devices, the return value
+   *     is always **true**.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
-   * @since 10
-   */
-  /**
-   * Check whether the device is foldable.
-   *
-   * @returns { boolean } true means the device is foldable.
-   * @throws { BusinessError } 1400003 - This display manager service works abnormally.
-   * @syscap SystemCapability.Window.SessionManager
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Check whether the device is foldable.
-   *
-   * @returns { boolean } true means the device is foldable.
-   * @throws { BusinessError } 1400003 - This display manager service works abnormally.
-   * @syscap SystemCapability.Window.SessionManager
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
+   * @crossplatform [since 20]
+   * @atomicservice [since 12]
+   * @since 10 dynamic
    * @since 23 static
    */
   function isFoldable(): boolean;
 
   /**
-   * Get the current fold status of the foldable device.
+   * Obtains the fold status of this foldable device.
    *
-   * @returns { FoldStatus } fold status of device.
+   * @returns { FoldStatus } Fold status of the device.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
-   * @since 10
-   */
-  /**
-   * Get the current fold status of the foldable device.
-   *
-   * @returns { FoldStatus } fold status of device.
-   * @throws { BusinessError } 1400003 - This display manager service works abnormally.
-   * @syscap SystemCapability.Window.SessionManager
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Get the current fold status of the foldable device.
-   *
-   * @returns { FoldStatus } fold status of device.
-   * @throws { BusinessError } 1400003 - This display manager service works abnormally.
-   * @syscap SystemCapability.Window.SessionManager
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
+   * @crossplatform [since 20]
+   * @atomicservice [since 12]
+   * @since 10 dynamic
    * @since 23 static
    */
   function getFoldStatus(): FoldStatus;
 
   /**
-   * Register the callback for fold status changes.
+   * Subscribes to fold status change events of the foldable device.
    *
-   * @param { 'foldStatusChange' } type the event of fold status changes
-   * @param { Callback<FoldStatus> } callback Callback used to return the current fold status of device
+   * To subscribe to display mode change events of foldable devices, use
+   * [display.on('foldDisplayModeChange')]{@link display.on(type: 'foldDisplayModeChange', callback: Callback<FoldDisplayMode>)}
+   * .
+   *
+   * The two are different. In terms of timing, the fold status changes first, and the bottom layer matches the display
+   * mode status based on the fold status.
+   *
+   * To check whether the content is displayed on the inner or outer screen of the foldable device, use
+   * [display.on('foldDisplayModeChange')]{@link display.on(type: 'foldDisplayModeChange', callback: Callback<FoldDisplayMode>)}
+   * .
+   *
+   * @param { 'foldStatusChange' } type - Event type. The event **'foldStatusChange'** is triggered when the fold status
+   *     of the device changes.
+   * @param { Callback<FoldStatus> } callback - Callback used to return the fold status.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types.
+   *     <br>2. Incorrect parameter types.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
-   * @since 10
-   */
-  /**
-   * Register the callback for fold status changes.
-   *
-   * @param { 'foldStatusChange' } type the event of fold status changes
-   * @param { Callback<FoldStatus> } callback Callback used to return the current fold status of device
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types.
-   * @throws { BusinessError } 1400003 - This display manager service works abnormally.
-   * @syscap SystemCapability.Window.SessionManager
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Register the callback for fold status changes.
-   *
-   * @param { 'foldStatusChange' } type the event of fold status changes
-   * @param { Callback<FoldStatus> } callback Callback used to return the current fold status of device
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types.
-   * @throws { BusinessError } 1400003 - This display manager service works abnormally.
-   * @syscap SystemCapability.Window.SessionManager
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
+   * @crossplatform [since 20]
+   * @atomicservice [since 12]
+   * @since 10 dynamic
    */
   function on(type: 'foldStatusChange', callback: Callback<FoldStatus>): void;
 
@@ -531,40 +425,21 @@ declare namespace display {
   function onFoldStatusChange(callback: Callback<FoldStatus>): void;
 
   /**
-   * Unregister the callback for fold status changes.
+   * Unsubscribes from fold status change events of the foldable device.
    *
-   * @param { 'foldStatusChange' } type the event of fold status changes
-   * @param { Callback<FoldStatus> } callback Callback used to return the current fold status of device
+   * @param { 'foldStatusChange' } type - Event type. The event **'foldStatusChange'** is triggered when the fold status
+   *     of the device changes.
+   * @param { Callback<FoldStatus> } callback - Callback used to return the fold status. If this parameter is not
+   *     specified, all subscriptions to the specified event are canceled. [since 10 - 19]
+   * @param { Callback<FoldStatus> } [callback] - Callback used to return the fold status. If this parameter is not
+   *     specified, all subscriptions to the specified event are canceled. [since 20]
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types.
+   *     <br>2. Incorrect parameter types.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
-   * @since 10
-   */
-  /**
-   * Unregister the callback for fold status changes.
-   *
-   * @param { 'foldStatusChange' } type the event of fold status changes
-   * @param { Callback<FoldStatus> } callback Callback used to return the current fold status of device
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types.
-   * @throws { BusinessError } 1400003 - This display manager service works abnormally.
-   * @syscap SystemCapability.Window.SessionManager
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Unregister the callback for fold status changes.
-   *
-   * @param { 'foldStatusChange' } type the event of fold status changes
-   * @param { Callback<FoldStatus> } [callback] Callback used to return the current fold status of device
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types.
-   * @throws { BusinessError } 1400003 - This display manager service works abnormally.
-   * @syscap SystemCapability.Window.SessionManager
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
+   * @crossplatform [since 20]
+   * @atomicservice [since 12]
+   * @since 10 dynamic
    */
   function off(type: 'foldStatusChange', callback?: Callback<FoldStatus>): void;
 
@@ -572,7 +447,7 @@ declare namespace display {
    * Unregister the callback for fold status changes.
    *
    * @param { Callback<FoldStatus> } [callback] - Unregister the callback function.
-   *		If not provided, all callbacks for the given event type will be removed.
+   *     If not provided, all callbacks for the given event type will be removed.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
    * @crossplatform
@@ -581,29 +456,22 @@ declare namespace display {
   function offFoldStatusChange(callback?: Callback<FoldStatus>): void;
 
   /**
-   * Register the callback for fold angle changes.
+   * Subscribes to folding angle change events of the foldable device. Note that there are two folding angles for dual-
+   * fold axis devices. When oriented with the charging port at the bottom, the hinges are identified from right to left
+   * as the first and second fold axes, respectively.
    *
-   * @param { 'foldAngleChange' } type the event of fold angle changes.
-   * @param { Callback<Array<double>> } callback Callback used to return the current fold angle of device.
+   * @param { 'foldAngleChange' } type - Event type. The event **'foldAngleChange'** is triggered when the folding angle
+   *     of the device changes.
+   * @param { Callback<Array<double>> } callback - Callback used to return the folding angle (0�C180 degrees). For dual-
+   *     fold axis devices, the array contains two angles. The first value represents the folding angle of the first
+   *     fold axis, while the second value represents the folding angle of the second fold axis.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
+   * @crossplatform [since 20]
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * Register the callback for fold angle changes.
-   *
-   * @param { 'foldAngleChange' } type the event of fold angle changes.
-   * @param { Callback<Array<double>> } callback Callback used to return the current fold angle of device.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     2. Incorrect parameter types.
-   * @throws { BusinessError } 1400003 - This display manager service works abnormally.
-   * @syscap SystemCapability.Window.SessionManager
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
+   * @since 12 dynamic
    */
   function on(type: 'foldAngleChange', callback: Callback<Array<double>>): void;
 
@@ -619,29 +487,21 @@ declare namespace display {
   function onFoldAngleChange(callback: Callback<Array<double>>): void;
 
   /**
-   * Unregister the callback for fold angle changes.
+   * Unsubscribes from folding angle change events of the foldable device.
    *
-   * @param { 'foldAngleChange' } type the event of fold angle changes.
-   * @param { Callback<Array<double>> } callback Callback used to return the current fold angle of device.
+   * @param { 'foldAngleChange' } type - Event type. The event **'foldAngleChange'** is triggered when the folding angle
+   *     of the device changes.
+   * @param { Callback<Array<double>> } callback - Callback used to return the folding angle (0�C180 degrees). If this
+   *     parameter is not specified, all subscriptions to the specified event are canceled. [since 12 - 19]
+   * @param { Callback<Array<double>> } [callback] - Callback used to return the folding angle (0�C180 degrees). If this
+   *     parameter is not specified, all subscriptions to the specified event are canceled. [since 20]
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
+   * @crossplatform [since 20]
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * Unregister the callback for fold angle changes.
-   *
-   * @param { 'foldAngleChange' } type the event of fold angle changes.
-   * @param { Callback<Array<double>> } [callback] Callback used to return the current fold angle of device.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     2. Incorrect parameter types.
-   * @throws { BusinessError } 1400003 - This display manager service works abnormally.
-   * @syscap SystemCapability.Window.SessionManager
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
+   * @since 12 dynamic
    */
   function off(type: 'foldAngleChange', callback?: Callback<Array<double>>): void;
 
@@ -649,7 +509,7 @@ declare namespace display {
    * Unregister the callback for fold angle changes.
    *
    * @param { Callback<Array<double>> } [callback] - Unregister the callback function.
-   *		If not provided, all callbacks for the given event type will be removed.
+   *     If not provided, all callbacks for the given event type will be removed.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
    * @crossplatform
@@ -658,12 +518,17 @@ declare namespace display {
   function offFoldAngleChange(callback?: Callback<Array<double>>): void;
 
   /**
-   * Register the callback for device capture status changes.
+   * Subscribes to events indicating whether the device's screen content is being captured.
    *
-   * @param { 'captureStatusChange' } type the event of capture status changes.
-   * @param { Callback<boolean> } callback Callback used to return the device capture status.
+   * @param { 'captureStatusChange' } type - Event type. The event **'captureStatusChange'** is triggered when the
+   *     screen capture status changes.
+   * @param { Callback<boolean> } callback - Callback used to return the result indicating whether the device's screen
+   *     content is being captured. **true** is returned when screen content is being captured (including active screen
+   *     capture, casting, recording, or the creation of a virtual screen that could be captured). **false** is
+   *     returned when screen content is no longer being captured. In the case of screen capture, **true** is returned
+   *     only once.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types.
+   *     <br>2. Incorrect parameter types.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
@@ -682,12 +547,17 @@ declare namespace display {
   function onCaptureStatusChange(callback: Callback<boolean>): void;
 
   /**
-   * Unregister the callback for device capture status changes.
+   * Unsubscribes from events indicating whether the device's screen content is being captured.
    *
-   * @param { 'captureStatusChange' } type the event of capture status changes.
-   * @param { Callback<boolean> } callback Callback used to return the device capture status.
+   * @param { 'captureStatusChange' } type - Event type. The event **'captureStatusChange'** is triggered when the
+   *     screen capture status changes.
+   * @param { Callback<boolean> } callback - Callback used to return the result indicating whether the device's screen
+   *     content is being captured. **true** is returned when screen content is being captured (including active screen
+   *     capture, casting, recording, or the creation of a virtual screen that could be captured). **false** is returned
+   *     when screen content is no longer being captured. In the case of screen capture, **true** is returned only once.
+   *     If this parameter is not specified, all subscriptions to the specified event are canceled.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types.
+   *     <br>2. Incorrect parameter types.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
@@ -699,7 +569,7 @@ declare namespace display {
    * Unregister the callback for device capture, casting, or recording status changes.
    *
    * @param { Callback<boolean> } [callback] - Unregister the callback function.
-   *		If not provided, all callbacks for the given event type will be removed.
+   *     If not provided, all callbacks for the given event type will be removed.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
    * @since 23 static
@@ -707,9 +577,12 @@ declare namespace display {
   function offCaptureStatusChange(callback?: Callback<boolean>): void;
 
   /**
-   * Check whether the device is captured, projected, or recorded.
+   * Checks whether the device's screen content is being captured.
    *
-   * @returns { boolean } true means the device is captured, projected, or recorded.
+   * @returns { boolean } Check result for whether the device's screen content is being captured. **true** is returned
+   *     when screen content is being captured (including active screen capture, casting, recording, or the creation of
+   *     a virtual screen that could be captured). **false** is returned when screen content is no longer being
+   *     captured.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
@@ -719,42 +592,41 @@ declare namespace display {
   function isCaptured(): boolean;
 
   /**
-   * Get the display mode of the foldable device.
+   * Check whether the device is captured, projected, or recorded by any app in the bundle name list.
    *
-   * @returns { FoldDisplayMode } display mode of the foldable device.
+   * @param { Array<string> } bundleNameList - The list of application bundle names that need to be checked.
+   *     The max size of array is 100.
+   * @returns { boolean } true means the device is captured, projected, or recorded by any app in the bundle name list.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
+   * @throws { BusinessError } 1400004 - Parameter error. Possible cause:
+   *     1.The size of bundleNameList is larger than 100.
    * @syscap SystemCapability.Window.SessionManager
-   * @since 10
-   */
-  /**
-   * Get the display mode of the foldable device.
-   *
-   * @returns { FoldDisplayMode } display mode of the foldable device.
-   * @throws { BusinessError } 1400003 - This display manager service works abnormally.
-   * @syscap SystemCapability.Window.SessionManager
+   * @stagemodelonly
    * @atomicservice
-   * @since 12
+   * @since 26.0.0 dynamic&static
    */
+  function isCaptured(bundleNameList: Array<string>): boolean;
+
   /**
-   * Get the display mode of the foldable device.
+   * Obtains the display mode of this foldable device.
    *
-   * @returns { FoldDisplayMode } display mode of the foldable device.
+   * @returns { FoldDisplayMode } Display mode of the foldable device.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
+   * @crossplatform [since 20]
+   * @atomicservice [since 12]
+   * @since 10 dynamic
    * @since 23 static
    */
   function getFoldDisplayMode(): FoldDisplayMode;
 
   /**
-   * Change the display mode of the foldable device.
+   * Sets the display mode of the foldable device.
    *
-   * @param { FoldDisplayMode } mode target display mode to change.
+   * @param { FoldDisplayMode } mode - Display mode.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types.
+   *     <br>2. Incorrect parameter types.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
    * @systemapi Hide this for inner system use.
@@ -764,54 +636,24 @@ declare namespace display {
   function setFoldDisplayMode(mode: FoldDisplayMode): void;
 
   /**
-   * Change the display mode of the foldable device.
+   * Subscribes to display mode change events of the foldable device.
    *
-   * @param { FoldDisplayMode } mode target display mode to change.
-   * @param { string } reason set display mode reason.
-   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 1400003 - This display manager service works abnormally.
-   * @syscap SystemCapability.Window.SessionManager
-   * @systemapi Hide this for inner system use.
-   * @since 19 dynamic
-   * @since 23 static
-   */
-  function setFoldDisplayMode(mode: FoldDisplayMode, reason: string): void;
-
-  /**
-   * Register the callback for fold display mode changes.
+   * To subscribe to fold status change events of foldable devices, use
+   * [display.on('foldStatusChange')]{@link display.on(type: 'foldStatusChange', callback: Callback<FoldStatus>)}.
    *
-   * @param { 'foldDisplayModeChange' } type the event of fold display mode changes
-   * @param { Callback<FoldDisplayMode> } callback Callback used to return the current fold display mode
+   * The two are different. In terms of timing, the fold status changes first, and the bottom layer matches the display
+   * mode status based on the fold status.
+   *
+   * @param { 'foldDisplayModeChange' } type - Event type. The event **'foldDisplayModeChange'** is triggered when the
+   *     display mode of the device changes.
+   * @param { Callback<FoldDisplayMode> } callback - Callback used to return the display mode.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types.
+   *     <br>2. Incorrect parameter types.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
-   * @since 10
-   */
-  /**
-   * Register the callback for fold display mode changes.
-   *
-   * @param { 'foldDisplayModeChange' } type the event of fold display mode changes
-   * @param { Callback<FoldDisplayMode> } callback Callback used to return the current fold display mode
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types.
-   * @throws { BusinessError } 1400003 - This display manager service works abnormally.
-   * @syscap SystemCapability.Window.SessionManager
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Register the callback for fold display mode changes.
-   *
-   * @param { 'foldDisplayModeChange' } type the event of fold display mode changes
-   * @param { Callback<FoldDisplayMode> } callback Callback used to return the current fold display mode
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types.
-   * @throws { BusinessError } 1400003 - This display manager service works abnormally.
-   * @syscap SystemCapability.Window.SessionManager
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
+   * @crossplatform [since 20]
+   * @atomicservice [since 12]
+   * @since 10 dynamic
    */
   function on(type: 'foldDisplayModeChange', callback: Callback<FoldDisplayMode>): void;
 
@@ -827,40 +669,21 @@ declare namespace display {
   function onFoldDisplayModeChange(callback: Callback<FoldDisplayMode>): void;
 
   /**
-   * Unregister the callback for fold display mode changes.
+   * Unsubscribes from display mode change events of the foldable device.
    *
-   * @param { 'foldDisplayModeChange' } type the event of fold display mode changes
-   * @param { Callback<FoldDisplayMode> } callback Callback used to return the current fold display mode
+   * @param { 'foldDisplayModeChange' } type - Event type. The event **'foldDisplayModeChange'** is triggered when the
+   *     display mode of the device changes.
+   * @param { Callback<FoldDisplayMode> } callback - Callback used to return the display mode. If this parameter is not
+   *     specified, all subscriptions to the specified event are canceled. [since 10 - 19]
+   * @param { Callback<FoldDisplayMode> } [callback] - Callback used to return the display mode. If this parameter is
+   *     not specified, all subscriptions to the specified event are canceled. [since 20]
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types.
+   *     <br>2. Incorrect parameter types.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
-   * @since 10
-   */
-  /**
-   * Unregister the callback for fold display mode changes.
-   *
-   * @param { 'foldDisplayModeChange' } type the event of fold display mode changes
-   * @param { Callback<FoldDisplayMode> } callback Callback used to return the current fold display mode
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types.
-   * @throws { BusinessError } 1400003 - This display manager service works abnormally.
-   * @syscap SystemCapability.Window.SessionManager
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Unregister the callback for fold display mode changes.
-   *
-   * @param { 'foldDisplayModeChange' } type the event of fold display mode changes
-   * @param { Callback<FoldDisplayMode> } [callback] Callback used to return the current fold display mode
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types.
-   * @throws { BusinessError } 1400003 - This display manager service works abnormally.
-   * @syscap SystemCapability.Window.SessionManager
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
+   * @crossplatform [since 20]
+   * @atomicservice [since 12]
+   * @since 10 dynamic
    */
   function off(type: 'foldDisplayModeChange', callback?: Callback<FoldDisplayMode>): void;
 
@@ -868,7 +691,7 @@ declare namespace display {
    * Unregister the callback for fold display mode changes.
    *
    * @param { Callback<FoldDisplayMode> } [callback] - Unregister the callback function.
-   *		If not provided, all callbacks for the given event type will be removed.
+   *     If not provided, all callbacks for the given event type will be removed.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
    * @crossplatform
@@ -877,32 +700,25 @@ declare namespace display {
   function offFoldDisplayModeChange(callback?: Callback<FoldDisplayMode>): void;
 
   /**
-   * Get the fold crease region in the current display mode.
+   * Obtains the crease region of the foldable device in the current display mode.
    *
-   * @returns { FoldCreaseRegion } fold crease region in the current display mode.
+   * @returns { FoldCreaseRegion } Crease region of the device.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
-   * @since 10
-   */
-  /**
-   * Get the fold crease region in the current display mode.
-   *
-   * @returns { FoldCreaseRegion } fold crease region in the current display mode.
-   * @throws { BusinessError } 1400003 - This display manager service works abnormally.
-   * @syscap SystemCapability.Window.SessionManager
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 10 dynamic
    * @since 23 static
    */
   function getCurrentFoldCreaseRegion(): FoldCreaseRegion;
 
   /**
-   * set fold status locked or not.
+   * Sets whether to lock the current fold status of the foldable device.
    *
-   * @param { boolean } locked - fold status is locked or not.
+   * @param { boolean } locked - Whether to lock the current fold status of the foldable device. **true** to lock,
+   *     **false** otherwise.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *      2. Incorrect parameter types.
+   *     <br>2. Incorrect parameter types.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
    * @systemapi Hide this for inner system use.
@@ -911,16 +727,18 @@ declare namespace display {
    */
   function setFoldStatusLocked(locked: boolean): void;
 
-    /**
-   * Create virtual screen.
+  /**
+   * Creates a virtual screen. This API uses a promise to return the result.
    *
    * @permission ohos.permission.ACCESS_VIRTUAL_SCREEN
-   * @param { VirtualScreenConfig } config Indicates the options of the virtual screen.
-   * @returns { Promise<long> } Promise used to return the created virtual screen id
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @param { VirtualScreenConfig } config - Virtual screen parameters.
+   * @returns { Promise<long> } Promise used to return the screen ID of the created virtual screen.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *      2. Incorrect parameter types.
-   * @throws { BusinessError } 801 - Capability not supported.function createVirtualScreen can not work correctly due to limited device capabilities.
+   *     <br>2. Incorrect parameter types.
+   * @throws { BusinessError } 801 - Capability not supported.function createVirtualScreen can not work correctly due to
+   *     limited device capabilities.
    * @throws { BusinessError } 1400001 - Invalid display or screen.
    * @syscap  SystemCapability.Window.SessionManager
    * @since 16 dynamic
@@ -929,15 +747,18 @@ declare namespace display {
   function createVirtualScreen(config: VirtualScreenConfig): Promise<long>;
 
   /**
-   * Destroy virtual screen.
+   * Destroys a virtual screen. This API uses a promise to return the result.
    *
    * @permission ohos.permission.ACCESS_VIRTUAL_SCREEN
-   * @param { long } screenId Indicates the screen id of the virtual screen.
+   * @param { long } screenId - Screen ID, which must match the ID of the virtual screen created by calling the
+   *     [createVirtualScreen()]{@link display.createVirtualScreen} API. This parameter only accepts integer values.
    * @returns { Promise<void> } Promise that returns no value.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     2. Incorrect parameter types.
-   * @throws { BusinessError } 801 - Capability not supported.function destroyVirtualScreen can not work correctly due to limited device capabilities.
+   *     <br>2. Incorrect parameter types.
+   * @throws { BusinessError } 801 - Capability not supported.function destroyVirtualScreen can not work correctly due
+   *     to limited device capabilities.
    * @throws { BusinessError } 1400001 - Invalid display or screen.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap  SystemCapability.Window.SessionManager
@@ -945,18 +766,24 @@ declare namespace display {
    * @since 23 static
    */
   function destroyVirtualScreen(screenId: long): Promise<void>;
-  
+
   /**
-   * Set surface for the virtual screen.
+   * Sets a surface for a virtual screen. **surfaceId** identifies a surface, the content of which will be shown on this
+   * virtual screen. This API uses a promise to return the result.
    *
    * @permission ohos.permission.ACCESS_VIRTUAL_SCREEN
-   * @param { long } screenId Indicates the screen id of the virtual screen.
-   * @param { string } surfaceId Indicates the surface id.
-   * @returns { Promise<void> } Promise that returns no value
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @param { long } screenId - Screen ID, which must match the ID of the virtual screen created by calling the
+   *     [createVirtualScreen()]{@link display.createVirtualScreen} API. This parameter only accepts integer values.
+   * @param { string } surfaceId - ID of the surface bound to the virtual screen. You can specify the ID of an existing
+   *     surface. The maximum length for this parameter is 4096 bytes. If it goes beyond that, only the first 4096 bytes
+   *     are used.
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     2. Incorrect parameter types.
-   * @throws { BusinessError } 801 - Capability not supported.function setVirtualScreenSurface can not work correctly due to limited device capabilities.
+   *     <br>2. Incorrect parameter types.
+   * @throws { BusinessError } 801 - Capability not supported.function setVirtualScreenSurface can not work correctly
+   *     due to limited device capabilities.
    * @throws { BusinessError } 1400001 - Invalid display or screen.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap  SystemCapability.Window.SessionManager
@@ -966,15 +793,58 @@ declare namespace display {
   function setVirtualScreenSurface(screenId: long, surfaceId: string): Promise<void>;
 
   /**
-   * Make screen as unique-screen
+   * Add surface for the virtual screen.
+   *
+   * @param { long } screenId - Indicates the screen id of the virtual screen.
+   * @param { string } surfaceId - Indicates the surface id.
+   * @param { Rect } [surfaceRegion] - Rectangular area of the virtual screen used to display the surface.
+   *     Default value: the full region of the virtual screen.
+   * @returns { Promise<void> } Promise that returns no value
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 801 - Capability not supported.function addVirtualScreenSurface
+   *     can not work correctly due to limited device capabilities.
+   * @throws { BusinessError } 1400001 - Invalid display or screen.
+   * @throws { BusinessError } 1400003 - This display manager service works abnormally.
+   * @throws { BusinessError } 1400004 - Parameter error. Possible cause: 1. Invalid parameter range.
+   * @syscap SystemCapability.Window.SessionManager
+   * @systemapi Hide this for inner system use.
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function addVirtualScreenSurface(screenId: long, surfaceId: string, surfaceRegion?: Rect): Promise<void>;
+
+  /**
+   * Remove surface for the virtual screen.
+   *
+   * @param { long } screenId - Indicates the screen id of the virtual screen.
+   * @param { string } surfaceId - Indicates the surface id.
+   * @returns { Promise<void> } Promise that returns no value
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 801 - Capability not supported.function removeVirtualScreenSurface
+   *     can not work correctly due to limited device capabilities.
+   * @throws { BusinessError } 1400001 - Invalid display or screen.
+   * @throws { BusinessError } 1400003 - This display manager service works abnormally.
+   * @throws { BusinessError } 1400004 - Parameter error. Possible cause: 1. Invalid parameter range.
+   * @syscap SystemCapability.Window.SessionManager
+   * @systemapi Hide this for inner system use.
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function removeVirtualScreenSurface(screenId: long, surfaceId: string): Promise<void>;
+
+  /**
+   * Sets the screen to independent display mode. This API uses a promise to return the result.
    *
    * @permission ohos.permission.ACCESS_VIRTUAL_SCREEN
-   * @param { long } screenId Indicates the unique screen id. It's type should be int.
-   * @returns { Promise<void> } Promise that returns no value
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @param { long } screenId - ID of the screen. Each ID must be an integer greater than 0; otherwise, error code 401
+   *     is returned.
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     2. Incorrect parameter types. 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported.function makeUnique can not work correctly due to limited device capabilities.
+   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported.function makeUnique can not work correctly due to limited
+   *     device capabilities.
    * @throws { BusinessError } 1400001 - Invalid display or screen.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
@@ -984,14 +854,19 @@ declare namespace display {
   function makeUnique(screenId: long): Promise<void>;
 
   /**
-   * Add the list of window ids to the block list which won't display on the virtual screen
+   * Adds windows to the list of windows that are not allowed to be displayed during casting. This API takes effect only
+   * for the main window of an application or system windows. This API uses a promise to return the result.
    *
-   * @param { Array<int> } windowIds - The list of window ids that do not want to display on the virtual screen
-   * @returns { Promise<void> } Promise that returns no value
+   * @param { Array<int> } windowIds - List of window IDs. If a child window ID is passed in, it will not take effect.
+   *     The window ID is an integer greater than 0. You are advised to call
+   *     [getWindowProperties()]{@link @ohos.window:window.getwindowproperties} to
+   *     obtain the window ID.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types. 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported.Function addVirtualScreenBlocklist can not work correctly due to limited device capabilities.
+   * @throws { BusinessError } 801 - Capability not supported.Function addVirtualScreenBlocklist can not work correctly
+   *     due to limited device capabilities.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
    * @systemapi Hide this for inner system use.
@@ -1001,14 +876,19 @@ declare namespace display {
   function addVirtualScreenBlocklist(windowIds: Array<int>): Promise<void>;
 
   /**
-   * Remove the list of window ids from the block list which won't display on the virtual screen
+   * Removes windows from the list of windows that are not allowed to be displayed during casting. This API takes effect
+   * only for the main window of an application or system windows. This API uses a promise to return the result.
    *
-   * @param { Array<int> } windowIds - The list of window ids that want to display on the virtual screen
-   * @returns { Promise<void> } Promise that returns no value
+   * @param { Array<int> } windowIds - List of window IDs. If a child window ID is passed in, it will not take effect.
+   *     The window ID is an integer greater than 0. You are advised to call
+   *     [getWindowProperties()]{@link @ohos.window:window.getwindowproperties} to
+   *     obtain the window ID.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types. 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported.Function removeVirtualScreenBlocklist can not work correctly due to limited device capabilities.
+   * @throws { BusinessError } 801 - Capability not supported.Function removeVirtualScreenBlocklist
+   *     can not work correctly due to limited device capabilities.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
    * @systemapi Hide this for inner system use.
@@ -1018,26 +898,12 @@ declare namespace display {
   function removeVirtualScreenBlocklist(windowIds: Array<int>): Promise<void>;
 
   /**
-   * Convert global coordinates to relative coordinates.
+   * Converts relative coordinates (based on the top-left corner of the screen) into global coordinates (based on the
+   * top-left corner of the primary screen). This API supports only coordinate conversion between the primary screen and
+   * extended screen.
    *
-   * @param { Position } position - The global coordinates to be converted.
-   * @param { long } [displayId] - The optional display id indicate the display relative to. 
-   * If not specified,use the display where the coodinates are located.
-   * @returns { RelativePosition } The relative coordinates.
-   * @throws { BusinessError } 1400003 - This display manager service works abnormally.
-   * @throws { BusinessError } 1400004 - Parameter error. Possible cause: 1. Invalid parameter range.
-   * @syscap SystemCapability.Window.SessionManager
-   * @atomicservice
-   * @since 20 dynamic
-   * @since 23 static
-   */
-  function convertGlobalToRelativeCoordinate(position: Position, displayId?: long): RelativePosition;
-
-  /**
-   * Convert relative coordinates to global coordinates.
-   *
-   * @param { RelativePosition } relativePosition - The relative coordinates to be converted.
-   * @returns { Position } The global coordinates.
+   * @param { RelativePosition } relativePosition - Relative coordinates to convert.
+   * @returns { Position } Global coordinates based on the top-left corner of the primary screen.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @throws { BusinessError } 1400004 - Parameter error. Possible cause: 1. Invalid parameter range.
    * @syscap SystemCapability.Window.SessionManager
@@ -1048,10 +914,33 @@ declare namespace display {
   function convertRelativeToGlobalCoordinate(relativePosition: RelativePosition): Position;
 
   /**
-   * Obtain the display brightnessInfo.
-   * 
-   * @param { long } displayId Display id to query. This parameter should be greater than or equal to 0.
-   * @returns { BrightnessInfo } The current brightnessInfo of the display.
+   * Converts global coordinates (based on the top-left corner of the primary screen) into relative coordinates (based
+   * on the top-left corner of the screen specified by **displayId**). If **displayId** is not passed, the coordinates
+   * are converted relative to the screen where the global coordinates are located. If the global coordinates are not on
+   * any screen, the coordinates are converted relative to the primary screen by default.
+   *
+   * @param { Position } position - Global coordinates to convert.
+   * @param { long } [displayId] - Display ID for the relative coordinates. If this parameter is passed, the coordinates
+   *     are converted relative to this screen. If it is not provided, the coordinates are converted to the screen where
+   *     the global coordinates are located, or the primary screen if they are not on any screen.
+   * @returns { RelativePosition } Relative coordinates for the specified screen.
+   * @throws { BusinessError } 1400003 - This display manager service works abnormally.
+   * @throws { BusinessError } 1400004 - Parameter error. Possible cause: 1. Invalid parameter range.
+   * @syscap SystemCapability.Window.SessionManager
+   * @atomicservice
+   * @since 20 dynamic
+   * @since 23 static
+   */
+  function convertGlobalToRelativeCoordinate(position: Position, displayId?: long): RelativePosition;
+
+  /**
+   * Obtains the screen brightness information of a display. If the screen does not support HDR, the
+   * **currentHeadroom** and **maxHeadroom** fields in the returned [BrightnessInfo]{@link display.BrightnessInfo}
+   * object use the default values. For virtual screens, the **sdrNits** field in the BrightnessInfo object uses the
+   * default value.
+   *
+   * @param { long } displayId - Display ID. The value must be an integer greater than or equal to 0.
+   * @returns { BrightnessInfo } Screen brightness information.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @throws { BusinessError } 1400004 - Parameter error. Possible cause: 1. Invalid parameter range.
@@ -1063,11 +952,11 @@ declare namespace display {
   function getBrightnessInfo(displayId: long): BrightnessInfo;
 
   /**
-   * Defines the brightness callback.
+   * Defines the callback function used to listen for screen brightness information.
    *
-   * @typedef {function}
-   * @param { T1 } data1 - the data will be used in the callback.
-   * @param { T2 } data2 - the data will be used in the callback.
+   * @param { T1 } data1 - Display ID. The value is of the number type.
+   * @param { T2 } data2 - Brightness information. The value is of the [BrightnessInfo]{@link display.BrightnessInfo}
+   *     type.
    * @syscap SystemCapability.Window.SessionManager
    * @since 22 dynamic
    * @since 23 static
@@ -1075,11 +964,14 @@ declare namespace display {
   type BrightnessCallback<T1, T2> = (data1: T1, data2: T2) => void;
 
   /**
-   * Register the callback for brightness info changes.
+   * Subscribes to events related to screen brightness information changes. If the screen does not support HDR, the
+   * **currentHeadroom** and **maxHeadroom** fields in the [BrightnessInfo]{@link display.BrightnessInfo} object use the
+   * default values. For virtual screens, the **sdrNits** field in the BrightnessInfo object uses the default value.
    *
-   * @param { 'brightnessInfoChange' } type - the event of display brightness info changes.
-   * @param { BrightnessCallback<long, BrightnessInfo> } callback - Callback used to return the display corresponding
-   *     brightness info.
+   * @param { 'brightnessInfoChange' } type - Event type. The value is fixed at **'brightnessInfoChange'**, indicating
+   *     that the screen brightness information is changed.
+   * @param { BrightnessCallback<long, BrightnessInfo> } callback - Callback used to return the display ID (parameter 1)
+   *     and the corresponding screen brightness information (parameter 2).
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @throws { BusinessError } 1400004 - Parameter error. Possible cause: 1. Invalid parameter range.
@@ -1090,11 +982,13 @@ declare namespace display {
   function on(type: 'brightnessInfoChange', callback: BrightnessCallback<long, BrightnessInfo>): void;
 
   /**
-   * Unregister the callback for brightness info changes.
+   * Unsubscribes from events related to screen brightness information changes.
    *
-   * @param { 'brightnessInfoChange' } type - the event of display brightness info changes.
-   * @param { BrightnessCallback<long, BrightnessInfo> } [callback] - Callback used to return the display corresponding
-   *     brightness info. If not provided, all callbacks for the given event type will be removed.
+   * @param { 'brightnessInfoChange' } type - Event type. The value is fixed at **'brightnessInfoChange'**, indicating
+   *     that the screen brightness information is changed.
+   * @param { BrightnessCallback<long, BrightnessInfo> } [callback] - Callback used to return the brightnessInfo status
+   *     change. If this parameter is not specified, all subscriptions to the specified event are canceled. The first
+   *     parameter indicates the display ID, and the second parameter indicates the screen brightness information.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @throws { BusinessError } 1400004 - Parameter error. Possible cause: 1. Invalid parameter range.
@@ -1131,18 +1025,16 @@ declare namespace display {
   function offBrightnessInfoChange(callback?: BrightnessCallback<long, BrightnessInfo>): void;
 
   /**
-   * The parameter for creating virtual screen.
+   * Describes the virtual screen parameters.
    *
-   * @interface VirtualScreenConfig
    * @syscap SystemCapability.Window.SessionManager
    * @since 16 dynamic
    * @since 23 static
    */
   interface VirtualScreenConfig {
     /**
-     * Indicates the name of the virtual screen.
+     * Name of the virtual screen, which can be customized.
      *
-     * @type { string }
      * @syscap  SystemCapability.Window.SessionManager
      * @since 16 dynamic
      * @since 23 static
@@ -1150,9 +1042,8 @@ declare namespace display {
     name: string;
 
     /**
-     * Indicates the width of the virtual screen.
+     * Width of the virtual screen, in px. The value must be a positive integer.
      *
-     * @type { long }
      * @syscap SystemCapability.Window.SessionManager
      * @since 16 dynamic
      * @since 23 static
@@ -1160,9 +1051,8 @@ declare namespace display {
     width: long;
 
     /**
-     * Indicates the height of the virtual screen.
+     * Height of the virtual screen, in px. The value must be a positive integer.
      *
-     * @type { long }
      * @syscap SystemCapability.Window.SessionManager
      * @since 16 dynamic
      * @since 23 static
@@ -1170,9 +1060,8 @@ declare namespace display {
     height: long;
 
     /**
-     * Indicates the density of the virtual screen.
+     * Density of the virtual screen, in px. The value is a floating-point number.
      *
-     * @type { double }
      * @syscap SystemCapability.Window.SessionManager
      * @since 16 dynamic
      * @since 23 static
@@ -1180,9 +1069,9 @@ declare namespace display {
     density: double;
 
     /**
-     * Indicates the surface id of the virtual screen.
+     * Surface ID of the virtual screen, which can be customized. The maximum length for this parameter is 4096 bytes.
+     * If it goes beyond that, only the first 4096 bytes are used.
      *
-     * @type { string }
      * @syscap SystemCapability.Window.SessionManager
      * @since 16 dynamic
      * @since 23 static
@@ -1190,9 +1079,9 @@ declare namespace display {
     surfaceId: string;
 
     /**
-     * Indicates whether the virtual screen supports focus.
+     * Whether the virtual screen is focusable. **true** if focusable, **false** otherwise. The default value is
+     * **true**.
      *
-     * @type { ?boolean }
      * @syscap SystemCapability.Window.SessionManager
      * @since 22 dynamic
      * @since 23 static
@@ -1201,126 +1090,128 @@ declare namespace display {
   }
 
   /**
-   * Enumerates the fold status. For dual-fold axis devices, when oriented with the charging port at the bottom,
-   * the hinges are identified from right to left as the first and second fold axes, respectively.
+   * Describes a coordinate position. In the global coordinate system, the origin is the top-left corner of the primary
+   * screen. In the relative coordinate system, the origin is the top-left corner of the specified screen.
    *
-   * @enum { number }
    * @syscap SystemCapability.Window.SessionManager
-   * @since 10
-   */
-  /**
-   * Enumerates the fold status. For dual-fold axis devices, when oriented with the charging port at the bottom,
-   * the hinges are identified from right to left as the first and second fold axes, respectively.
-   *
-   * @enum { number }
-   * @syscap SystemCapability.Window.SessionManager
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Enumerates the fold status. For dual-fold axis devices, when oriented with the charging port at the bottom,
-   * the hinges are identified from right to left as the first and second fold axes, respectively.
-   *
-   * @enum { number }
-   * @syscap SystemCapability.Window.SessionManager
-   * @crossplatform
-   * @atomicservice
    * @since 20 dynamic
+   * @since 23 static
+   */
+  interface Position {
+    /**
+     * X coordinate relative to the origin, measured in px. The value must be a 32-bit signed integer, and floating-
+     * point numbers are rounded down.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 20 dynamic
+     * @since 23 static
+     */
+    x: long;
+
+    /**
+     * Y coordinate relative to the origin, measured in px. The value must be a 32-bit signed integer, and floating-
+     * point numbers are rounded down.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 20 dynamic
+     * @since 23 static
+     */
+    y: long;
+  }
+
+  /**
+   * Describes a coordinate position in the relative coordinate system, with the origin in the top-left corner of the
+   * screen specified by **displayId**.
+   *
+   * @syscap SystemCapability.Window.SessionManager
+   * @since 20 dynamic
+   * @since 23 static
+   */
+  interface RelativePosition {
+    /**
+     * Display ID for the relative coordinates. Only integers are supported, and the value must be greater than or equal
+     * to 0.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 20 dynamic
+     * @since 23 static
+     */
+    displayId: long;
+
+    /**
+     * Coordinates with the top-left corner of the screen specified by **displayId** as the origin.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 20 dynamic
+     * @since 23 static
+     */
+    position: Position;
+  }
+
+  /**
+   * Enumerates the fold statuses of a foldable device. For dual-fold axis devices, when oriented with the charging port
+   * at the bottom, the hinges are identified from right to left as the first and second fold axes, respectively.
+   *
+   * > **NOTE**
+   *
+   * > Devices with only one fold axis can be in the **FOLD_STATUS_EXPANDED**, **FOLD_STATUS_FOLDED**, or
+   * > **FOLD_STATUS_HALF_FOLDED** state.
+   *
+   * > Devices with two fold axes can be in any of the states provided in the table above, except for
+   * > **FOLD_STATUS_UNKNOWN**, which indicates an unusable fold status.
+   *
+   * @syscap SystemCapability.Window.SessionManager
+   * @crossplatform [since 20]
+   * @atomicservice [since 12]
+   * @since 10 dynamic
    * @since 23 static
    */
   enum FoldStatus {
     /**
-     * Fold Status Unknown.
+     * The fold status of the device is unknown or the device cannot be folded.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @since 10
-     */
-    /**
-     * Fold Status Unknown.
-     *
-     * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
-     * @since 12
-     */
-    /**
-     * Fold Status Unknown.
-     *
-     * @syscap SystemCapability.Window.SessionManager
-     * @crossplatform
-     * @atomicservice
-     * @since 20 dynamic
+     * @crossplatform [since 20]
+     * @atomicservice [since 12]
+     * @since 10 dynamic
      * @since 23 static
      */
     FOLD_STATUS_UNKNOWN = 0,
     /**
-     * Fold Status Expanded. For dual-fold axis devices, the first fold axis is fully open,
-     * and the second fold axis is folded.
+     * The device is fully open. For dual-fold axis devices, the first fold axis is fully open, and the second fold axis
+     * is folded.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @since 10
-     */
-    /**
-     * Fold Status Expanded. For dual-fold axis devices, the first fold axis is fully open,
-     * and the second fold axis is folded.
-     *
-     * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
-     * @since 12
-     */
-    /**
-     * Fold Status Expanded. For dual-fold axis devices, the first fold axis is fully open,
-     * and the second fold axis is folded.
-     *
-     * @syscap SystemCapability.Window.SessionManager
-     * @crossplatform
-     * @atomicservice
-     * @since 20 dynamic
+     * @crossplatform [since 20]
+     * @atomicservice [since 12]
+     * @since 10 dynamic
      * @since 23 static
      */
     FOLD_STATUS_EXPANDED = 1,
     /**
-     * Fold Status Folded. For dual-fold axis devices, the first fold axis is folded, and the second fold axis is folded.
+     * The device is folded (completely closed). For dual-fold axis devices, both the first and second fold axes are
+     * folded.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @since 10
-     */
-    /**
-     * Fold Status Folded. For dual-fold axis devices, the first fold axis is folded, and the second fold axis is folded.
-     *
-     * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
-     * @since 12 dynamic
+     * @atomicservice [since 12]
+     * @since 10 dynamic
      * @since 23 static
      */
     FOLD_STATUS_FOLDED = 2,
     /**
-     * Fold Status Half Folded. Somehow between fully open and completely closed.
-     * For dual-fold axis devices, the first fold axis is half-folded, and the second fold axis is folded.
+     * The device is half-folded, somehow between fully open and completely closed. For dual-fold axis devices, the
+     * first fold axis is half-folded, and the second fold axis is folded.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @since 10
-     */
-    /**
-     * Fold Status Half Folded. Somehow between fully open and completely closed.
-     * For dual-fold axis devices, the first fold axis is half-folded, and the second fold axis is folded.
-     *
-     * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
-     * @since 12
-     */
-    /**
-     * Fold Status Half Folded. Somehow between fully open and completely closed.
-     * For dual-fold axis devices, the first fold axis is half-folded, and the second fold axis is folded.
-     *
-     * @syscap SystemCapability.Window.SessionManager
-     * @crossplatform
-     * @atomicservice
-     * @since 20 dynamic
+     * @crossplatform [since 20]
+     * @atomicservice [since 12]
+     * @since 10 dynamic
      * @since 23 static
      */
     FOLD_STATUS_HALF_FOLDED = 3,
+
     /**
-     * Fold Status Expanded With Second Expanded.
+     * For dual-fold axis devices, both the first and second fold axes are fully open.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
@@ -1328,8 +1219,9 @@ declare namespace display {
      * @since 23 static
      */
     FOLD_STATUS_EXPANDED_WITH_SECOND_EXPANDED = 11,
+
     /**
-     * Fold Status Expanded With Second Half Folded.
+     * For dual-fold axis devices, the first fold axis is fully open, and the second fold axis is half-folded.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
@@ -1337,17 +1229,9 @@ declare namespace display {
      * @since 23 static
      */
     FOLD_STATUS_EXPANDED_WITH_SECOND_HALF_FOLDED = 21,
+
     /**
-     * Fold Status Folded With Second Expanded.
-     *
-     * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
-     * @since 15 dynamic
-     * @since 23 static
-     */
-    FOLD_STATUS_FOLDED_WITH_SECOND_EXPANDED = 12,
-    /**
-     * Fold Status Folded With Second Half Folded.
+     * For dual-fold axis devices, the first fold axis is folded, and the second fold axis is fully folded.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
@@ -1355,143 +1239,111 @@ declare namespace display {
      * @since 23 static
      */
     FOLD_STATUS_FOLDED_WITH_SECOND_HALF_FOLDED = 22,
+
     /**
-     * Fold Status Half Folded With Second Expanded.
+     * For dual-fold axis devices, both the first and second fold axes are half-folded.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 15 dynamic
      * @since 23 static
      */
-    FOLD_STATUS_HALF_FOLDED_WITH_SECOND_EXPANDED = 13,
+    FOLD_STATUS_HALF_FOLDED_WITH_SECOND_HALF_FOLDED = 23,
+
     /**
-     * Fold Status Half Folded With Second Half Folded.
+     * For dual-fold axis devices, the first fold axis is folded, and the second fold axis is fully open.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 15 dynamic
      * @since 23 static
      */
-    FOLD_STATUS_HALF_FOLDED_WITH_SECOND_HALF_FOLDED = 23
+    FOLD_STATUS_FOLDED_WITH_SECOND_EXPANDED = 12,
+
+    /**
+     * For dual-fold axis devices, the first fold axis is half-folded, and the second fold axis is fully open.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 15 dynamic
+     * @since 23 static
+     */
+    FOLD_STATUS_HALF_FOLDED_WITH_SECOND_EXPANDED = 13
   }
 
   /**
-   * Enumerates the fold display mode.
+   * Enumerates the display modes of a foldable device.
    *
-   * @enum { number }
-   * @syscap SystemCapability.Window.SessionManager
-   * @since 10
-   */
-  /**
-   * Enumerates the fold display mode.
+   * > **NOTE**
    *
-   * @enum { number }
-   * @syscap SystemCapability.Window.SessionManager
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Enumerates the fold display mode.
+   * > For foldable devices where both the inner and outer screens can serve as the primary screen �� like large or wide-
+   * > folding models �� the inner screen's display mode is **FOLD_DISPLAY_MODE_FULL**, and the outer screen's display
+   * > mode is **FOLD_DISPLAY_MODE_MAIN**.
    *
-   * @enum { number }
+   * > For foldable devices where the outer screen serves only as an auxiliary display �� like small-folding models �� the
+   * > inner screen's display mode is **FOLD_DISPLAY_MODE_MAIN**, and the outer screen's display mode is
+   * > **FOLD_DISPLAY_MODE_SUB**.
+   *
    * @syscap SystemCapability.Window.SessionManager
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
+   * @crossplatform [since 20]
+   * @atomicservice [since 12]
+   * @since 10 dynamic
    * @since 23 static
    */
   enum FoldDisplayMode {
     /**
-     * Unknown Display.
+     * The display mode of the device is unknown.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @since 10
-     */
-    /**
-     * Unknown Display.
-     *
-     * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
-     * @since 12 dynamic
+     * @atomicservice [since 12]
+     * @since 10 dynamic
      * @since 23 static
      */
     FOLD_DISPLAY_MODE_UNKNOWN = 0,
     /**
-     * Full Display.
+     * The device is displayed in full screen.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @since 10
-     */
-    /**
-     * Full Display.
-     *
-     * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
-     * @since 12 dynamic
+     * @atomicservice [since 12]
+     * @since 10 dynamic
      * @since 23 static
      */
     FOLD_DISPLAY_MODE_FULL = 1,
     /**
-     * Main Display.
+     * The primary screen of the device is displayed.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @since 10
-     */
-    /**
-     * Main Display.
-     *
-     * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
-     * @since 12 dynamic
+     * @atomicservice [since 12]
+     * @since 10 dynamic
      * @since 23 static
      */
-    FOLD_DISPLAY_MODE_MAIN= 2,
+    FOLD_DISPLAY_MODE_MAIN = 2,
     /**
-     * Sub Display.
+     * The secondary screen of the device is displayed.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @since 10
-     */
-    /**
-     * Sub Display.
-     *
-     * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
-     * @since 12 dynamic
+     * @atomicservice [since 12]
+     * @since 10 dynamic
      * @since 23 static
      */
-    FOLD_DISPLAY_MODE_SUB= 3,
+    FOLD_DISPLAY_MODE_SUB = 3,
     /**
-     * Coordination Display.
+     * Both screens of the device are displayed in collaborative mode.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @since 10
-     */
-    /**
-     * Coordination Display.
-     *
-     * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
-     * @since 12 dynamic
+     * @atomicservice [since 12]
+     * @since 10 dynamic
      * @since 23 static
      */
     FOLD_DISPLAY_MODE_COORDINATION
   }
 
   /**
-   * Enumerates the display states.
+   * Enumerates the states of a display.
    *
-   * @enum { number }
    * @syscap SystemCapability.WindowManager.WindowManager.Core
-   * @since 7
-   */
-  /**
-   * Enumerates the display states.
-   *
-   * @enum { number }
-   * @syscap SystemCapability.WindowManager.WindowManager.Core
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 7 dynamic
    * @since 23 static
    */
   enum DisplayState {
@@ -1499,446 +1351,155 @@ declare namespace display {
      * Unknown.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @since 7
-     */
-    /**
-     * Unknown.
-     *
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @atomicservice
-     * @since 12 dynamic
+     * @atomicservice [since 12]
+     * @since 7 dynamic
      * @since 23 static
      */
     STATE_UNKNOWN = 0,
     /**
-     * Screen off.
+     * The display is shut down.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @since 7
-     */
-    /**
-     * Screen off.
-     *
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @atomicservice
-     * @since 12 dynamic
+     * @atomicservice [since 12]
+     * @since 7 dynamic
      * @since 23 static
      */
     STATE_OFF = 1,
     /**
-     * Screen on.
+     * The display is powered on.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @since 7
-     */
-    /**
-     * Screen on.
-     *
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @atomicservice
-     * @since 12 dynamic
+     * @atomicservice [since 12]
+     * @since 7 dynamic
      * @since 23 static
      */
     STATE_ON = 2,
     /**
-     * Doze, but it will update for some important system messages.
+     * The display is in sleep mode.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @since 7
-     */
-    /**
-     * Doze, but it will update for some important system messages.
-     *
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @atomicservice
-     * @since 12 dynamic
+     * @atomicservice [since 12]
+     * @since 7 dynamic
      * @since 23 static
      */
     STATE_DOZE = 3,
     /**
-     * Doze and not update.
+     * The display is in sleep mode, and the CPU is suspended.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @since 7
-     */
-    /**
-     * Doze and not update.
-     *
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @atomicservice
-     * @since 12 dynamic
+     * @atomicservice [since 12]
+     * @since 7 dynamic
      * @since 23 static
      */
     STATE_DOZE_SUSPEND = 4,
     /**
-     * VR node.
+     * The display is in VR mode.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @since 7
-     */
-    /**
-     * VR node.
-     *
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @atomicservice
-     * @since 12 dynamic
+     * @atomicservice [since 12]
+     * @since 7 dynamic
      * @since 23 static
      */
     STATE_VR = 5,
     /**
-     * Screen on and not update.
+     * The display is powered on, and the CPU is suspended.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @since 7
-     */
-    /**
-     * Screen on and not update.
-     *
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @atomicservice
-     * @since 12 dynamic
+     * @atomicservice [since 12]
+     * @since 7 dynamic
      * @since 23 static
      */
     STATE_ON_SUSPEND = 6
   }
 
   /**
-   * Enumerates the display orientation.
+   * Enumerates the orientations of a display.
    *
-   * @enum { number }
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Enumerates the display orientation.
-   *
-   * @enum { number }
-   * @syscap SystemCapability.WindowManager.WindowManager.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 10 dynamic
    * @since 23 static
    */
   enum Orientation {
     /**
-     * Indicate that the display content is in portrait mode.
+     * The display is in portrait mode.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
-     * @since 10
-     */
-    /**
-     * Indicate that the display content is in portrait mode.
-     *
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @atomicservice [since 12]
+     * @since 10 dynamic
      * @since 23 static
      */
     PORTRAIT = 0,
 
     /**
-     * Indicate that the display content is in landscape mode.
+     * The display is in landscape mode.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
-     * @since 10
-     */
-    /**
-     * Indicate that the display content is in landscape mode.
-     *
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @atomicservice [since 12]
+     * @since 10 dynamic
      * @since 23 static
      */
     LANDSCAPE = 1,
 
     /**
-     * Indicate that the display content is in the opposite direction of the portrait mode.
+     * The display is in reverse portrait mode.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
-     * @since 10
-     */
-    /**
-     * Indicate that the display content is in the opposite direction of the portrait mode.
-     *
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @atomicservice [since 12]
+     * @since 10 dynamic
      * @since 23 static
      */
     PORTRAIT_INVERTED = 2,
 
     /**
-     * Indicate that the display content is in the opposite direction of the landscape mode.
+     * The display is in reverse landscape mode.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
-     * @since 10
-     */
-    /**
-     * Indicate that the display content is in the opposite direction of the landscape mode.
-     *
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @atomicservice [since 12]
+     * @since 10 dynamic
      * @since 23 static
      */
     LANDSCAPE_INVERTED = 3
   }
 
   /**
-   * Indicate the source mode of the display
+   * Describes the crease region of a foldable device.
    *
-   * @enum { number }
    * @syscap SystemCapability.Window.SessionManager
-   * @atomicservice
-   * @since 19 dynamic
-   * @since 23 static
-   */
-  enum DisplaySourceMode {
-    /**
-     * Indicate that the display is not in use.
-     *
-     * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
-     * @since 19 dynamic
-     * @since 23 static
-     */
-    NONE = 0,
- 
-    /**
-     * Indicate that the display is the main display.
-     *
-     * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
-     * @since 19 dynamic
-     * @since 23 static
-     */
-    MAIN = 1,
-
-    /**
-     * Indicate that the display is in mirror mode.
-     *
-     * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
-     * @since 19 dynamic
-     * @since 23 static
-     */
-    MIRROR = 2,
-
-    /**
-     * Indicate that the display is in extend mode.
-     *
-     * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
-     * @since 19 dynamic
-     * @since 23 static
-     */
-    EXTEND = 3,
-
-    /**
-     * Indicate that the display stands alone.
-     *
-     * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
-     * @since 19 dynamic
-     * @since 23 static
-     */
-    ALONE = 4
-  }
-
-  /**
-   * Enumerates the type of round corner.
-   *
-   * @enum { int }
-   * @syscap SystemCapability.Window.SessionManager
-   * @atomicservice
-   * @since 23 dynamic&static
-   */
-  enum CornerType {
-    /**
-     * The round corner in the top left.
-     *
-     * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
-     * @since 23 dynamic&static
-     */
-    TOP_LEFT = 0,
- 
-    /**
-     * The round corner in the top right.
-     *
-     * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
-     * @since 23 dynamic&static
-     */
-    TOP_RIGHT = 1,
-
-    /**
-     * The round corner in the bottom right.
-     *
-     * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
-     * @since 23 dynamic&static
-     */
-    BOTTOM_RIGHT = 2,
-
-    /**
-     * The round corner in the bottom left.
-     *
-     * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
-     * @since 23 dynamic&static
-     */
-    BOTTOM_LEFT = 3
-  }
-
-  /**
-   * Round corner information of display.
-   *
-   * @interface RoundedCorner
-   * @syscap SystemCapability.Window.SessionManager
-   * @atomicservice
-   * @since 23 dynamic&static
-   */
-  interface RoundedCorner {
-    /**
-     * The type of round corner.
-     *
-     * @type { CornerType }
-     * @readonly
-     * @syscap  SystemCapability.Window.SessionManager
-     * @stagemodelonly
-     * @atomicservice
-     * @since 23 dynamic&static
-     */
-    readonly type: CornerType;
-
-    /**
-     * The center coordinates of round corner.
-     *
-     * @type { Position }
-     * @readonly
-     * @syscap  SystemCapability.Window.SessionManager
-     * @stagemodelonly
-     * @atomicservice
-     * @since 23 dynamic&static
-     */
-    readonly position: Position;
-
-    /**
-     * The radius of round corner.
-     *
-     * @type { int }
-     * @readonly
-     * @syscap  SystemCapability.Window.SessionManager
-     * @stagemodelonly
-     * @atomicservice
-     * @since 23 dynamic&static
-     */
-    readonly radius: int;
-  }
-
-  /**
-   * Enumerates the screen shape.
-   *
-   * @enum { number }
-   * @syscap SystemCapability.WindowManager.WindowManager.Core
-   * @crossplatform
-   * @since 18 dynamic
-   * @since 23 static
-   */
-  enum ScreenShape {
-    /**
-     *The screen shape is rectangle.
-     *
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @crossplatform
-     * @since 18 dynamic
-     * @since 23 static
-     */
-    RECTANGLE = 0,
-    /**
-     *The screen shape is round.
-     *
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @crossplatform
-     * @since 18 dynamic
-     * @since 23 static
-     */
-    ROUND = 1
-  }
-
-  /**
-   * Fold Crease Region
-   *
-   * @interface FoldCreaseRegion
-   * @syscap SystemCapability.Window.SessionManager
-   * @since 10
-   */
-  /**
-   * Fold Crease Region
-   *
-   * @interface FoldCreaseRegion
-   * @syscap SystemCapability.Window.SessionManager
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 10 dynamic
    * @since 23 static
    */
   interface FoldCreaseRegion {
     /**
-     * The display ID is used to identify the screen where the crease is located.
+     * ID of the display where the crease is located.
      *
-     * @type { long }
-     * @readonly
      * @syscap SystemCapability.Window.SessionManager
-     * @since 10
-     */
-    /**
-     * The display ID is used to identify the screen where the crease is located.
-     *
-     * @type { long }
-     * @readonly
-     * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
-     * @since 12 dynamic
+     * @atomicservice [since 12]
+     * @since 10 dynamic
      * @since 23 static
      */
     readonly displayId: long;
 
     /**
-     * Crease Region.
+     * Crease region.
      *
-     * @type { Array<Rect> }
-     * @readonly
      * @syscap SystemCapability.Window.SessionManager
-     * @since 10
-     */
-    /**
-     * Crease Region.
-     *
-     * @type { Array<Rect> }
-     * @readonly
-     * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
-     * @since 12 dynamic
+     * @atomicservice [since 12]
+     * @since 10 dynamic
      * @since 23 static
      */
     readonly creaseRects: Array<Rect>;
   }
 
   /**
-   * Display Brightness Info.
+   * Describes the screen brightness information. The information comes from the underlying screen data.
    *
-   * @interface BrightnessInfo
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
    * @since 22 dynamic
@@ -1946,10 +1507,8 @@ declare namespace display {
    */
   interface BrightnessInfo {
     /**
-     * Standard Dynamic Range.
+     * Screen brightness. The value is a floating-point number greater than 0. The default value is **500.0**.
      *
-     * @type { double }
-     * @readonly
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 22 dynamic
@@ -1957,10 +1516,8 @@ declare namespace display {
      */
     readonly sdrNits: double;
     /**
-     * Current Brightness Dynamic Margin.
+     * Dynamic brightness headroom. The value is a floating-point number greater than 0. The default value is **1.0**.
      *
-     * @type { double }
-     * @readonly
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 22 dynamic
@@ -1968,268 +1525,161 @@ declare namespace display {
      */
     readonly currentHeadroom: double;
     /**
-     * Current Maximum Brightness Margin.
+     * Maximum brightness headroom. The value is a floating-point number greater than 0. The default value is **1.0**.
      *
-     * @type { double }
-     * @readonly
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 22 dynamic
      * @since 23 static
      */
     readonly maxHeadroom: double;
+    /**
+     * Position of the brightness bar corresponding to the current screen brightness.
+     * Value range: [0.0,1.0]. Default value: 0.0.
+     *
+     * @readonly
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    readonly brightnessPosition?: double;
   }
 
   /**
-   * Rectangle
+   * Describes a rectangle on the display.
    *
-   * @interface Rect
    * @syscap SystemCapability.WindowManager.WindowManager.Core
-   * @since 9
-   */
-  /**
-   * Rectangle
-   *
-   * @interface Rect
-   * @syscap SystemCapability.WindowManager.WindowManager.Core
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 9 dynamic
    * @since 23 static
    */
   interface Rect {
     /**
-     * The X-axis coordinate of the upper left vertex of the rectangle, in pixels.
+     * Left boundary of the rectangle, in px. The value is an integer.
      *
-     * @type { long }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @since 9
-     */
-    /**
-     * The X-axis coordinate of the upper left vertex of the rectangle, in pixels.
-     *
-     * @type { long }
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @atomicservice
-     * @since 12 dynamic
+     * @atomicservice [since 12]
+     * @since 9 dynamic
      * @since 23 static
      */
     left: long;
 
     /**
-     * The Y-axis coordinate of the upper left vertex of the rectangle, in pixels.
+     * Top boundary of the rectangle, in px. The value is an integer.
      *
-     * @type { long }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @since 9
-     */
-    /**
-     * The Y-axis coordinate of the upper left vertex of the rectangle, in pixels.
-     *
-     * @type { long }
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @atomicservice
-     * @since 12 dynamic
+     * @atomicservice [since 12]
+     * @since 9 dynamic
      * @since 23 static
      */
     top: long;
 
     /**
-     * Width of the rectangle, in pixels.
+     * Width of the rectangle, in px. The value is an integer.
      *
-     * @type { long }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @since 9
-     */
-    /**
-     * Width of the rectangle, in pixels.
-     *
-     * @type { long }
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @atomicservice
-     * @since 12 dynamic
+     * @atomicservice [since 12]
+     * @since 9 dynamic
      * @since 23 static
      */
     width: long;
 
     /**
-     * Height of the rectangle, in pixels.
+     * Height of the rectangle, in px. The value is an integer.
      *
-     * @type { long }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @since 9
-     */
-    /**
-     * Height of the rectangle, in pixels.
-     *
-     * @type { long }
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @atomicservice
-     * @since 12 dynamic
+     * @atomicservice [since 12]
+     * @since 9 dynamic
      * @since 23 static
      */
     height: long;
   }
 
   /**
-   * Curved area rects of the waterfall display.
+   * Describes the curved area on a waterfall display.
    *
-   * @interface WaterfallDisplayAreaRects
    * @syscap SystemCapability.WindowManager.WindowManager.Core
-   * @since 9
-   */
-  /**
-   * Curved area rects of the waterfall display.
-   *
-   * @interface WaterfallDisplayAreaRects
-   * @syscap SystemCapability.WindowManager.WindowManager.Core
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 9 dynamic
    * @since 23 static
    */
   interface WaterfallDisplayAreaRects {
     /**
-     * Indicates the size of left side curved area of the waterfall screen.
+     * Rectangle of the curved area on the left of the waterfall display.
      *
-     * @type { Rect }
-     * @readonly
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @since 9
-     */
-    /**
-     * Indicates the size of left side curved area of the waterfall screen.
-     *
-     * @type { Rect }
-     * @readonly
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @atomicservice
-     * @since 12 dynamic
+     * @atomicservice [since 12]
+     * @since 9 dynamic
      * @since 23 static
      */
     readonly left: Rect;
 
     /**
-     * Indicates the size of right side curved area of the waterfall screen.
+     * Rectangle of the curved area on the right of the waterfall display.
      *
-     * @type { Rect }
-     * @readonly
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @since 9
-     */
-    /**
-     * Indicates the size of right side curved area of the waterfall screen.
-     *
-     * @type { Rect }
-     * @readonly
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @atomicservice
-     * @since 12 dynamic
+     * @atomicservice [since 12]
+     * @since 9 dynamic
      * @since 23 static
      */
     readonly right: Rect;
 
     /**
-     * Indicates the size of top side curved area of the waterfall screen.
+     * Rectangle of the curved area on the top of the waterfall display.
      *
-     * @type { Rect }
-     * @readonly
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @since 9
-     */
-    /**
-     * Indicates the size of top side curved area of the waterfall screen.
-     *
-     * @type { Rect }
-     * @readonly
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @atomicservice
-     * @since 12 dynamic
+     * @atomicservice [since 12]
+     * @since 9 dynamic
      * @since 23 static
      */
     readonly top: Rect;
 
     /**
-     * Indicates the size of bottom side curved area of the waterfall screen.
+     * Rectangle of the curved area at the bottom of the waterfall display.
      *
-     * @type { Rect }
-     * @readonly
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @since 9
-     */
-    /**
-     * Indicates the size of bottom side curved area of the waterfall screen.
-     *
-     * @type { Rect }
-     * @readonly
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @atomicservice
-     * @since 12 dynamic
+     * @atomicservice [since 12]
+     * @since 9 dynamic
      * @since 23 static
      */
     readonly bottom: Rect;
   }
 
   /**
-   * Cutout information of the display.
+   * Describes the unusable area of a display, including punch hole, notch, and curved area of a waterfall display.
    *
-   * @interface CutoutInfo
    * @syscap SystemCapability.WindowManager.WindowManager.Core
-   * @since 9
-   */
-  /**
-   * Cutout information of the display.
-   *
-   * @interface CutoutInfo
-   * @syscap SystemCapability.WindowManager.WindowManager.Core
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 9 dynamic
    * @since 23 static
    */
   interface CutoutInfo {
     /**
-     * Bounding rectangles of the cutout areas of the display.
+     * Unusable areas (bounding rectangles) designed for punch holes and notches. If there are no punch holes or notches
+     * , an empty array is returned.
      *
-     * @type { Array<Rect> }
-     * @readonly
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @since 9
-     */
-    /**
-     * Bounding rectangles of the cutout areas of the display.
-     *
-     * @type { Array<Rect> }
-     * @readonly
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @atomicservice
-     * @since 12 dynamic
+     * @atomicservice [since 12]
+     * @since 9 dynamic
      * @since 23 static
      */
     readonly boundingRects: Array<Rect>;
 
     /**
-     * Rectangles of curved parts on each side of a waterfall display.
+     * Curved area on a waterfall display.
      *
-     * @type { WaterfallDisplayAreaRects }
-     * @readonly
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @since 9
-     */
-    /**
-     * Rectangles of curved parts on each side of a waterfall display.
-     *
-     * @type { WaterfallDisplayAreaRects }
-     * @readonly
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @atomicservice
-     * @since 12 dynamic
+     * @atomicservice [since 12]
+     * @since 9 dynamic
      * @since 23 static
      */
     readonly waterfallDisplayAreaRects: WaterfallDisplayAreaRects;
   }
 
   /**
-   * Define display physical resolution.
+   * Describes the display mode of a device and the corresponding physical screen resolution information.
    *
-   * @interface DisplayPhysicalResolution
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @crossplatform
    * @atomicservice
@@ -2238,9 +1688,8 @@ declare namespace display {
    */
   interface DisplayPhysicalResolution {
     /**
-     * fold display mode.
+     * Display mode of the device. The value is **0** for non-foldable devices.
      *
-     * @type { FoldDisplayMode }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12 dynamic
@@ -2249,9 +1698,8 @@ declare namespace display {
     foldDisplayMode: FoldDisplayMode;
 
     /**
-     * Display physical width, in pixels.
+     * Width of the device, in px. The value is an integer greater than 0.
      *
-     * @type { long }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
@@ -2261,9 +1709,8 @@ declare namespace display {
     physicalWidth: long;
 
     /**
-     * Display physical height, in pixels.
+     * Height of the device, in px. The value is an integer greater than 0.
      *
-     * @type { long }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
@@ -2274,210 +1721,116 @@ declare namespace display {
   }
 
   /**
-   * Define properties of the display. They cannot be updated automatically.
+   * Implements a Display instance, with attributes and APIs defined.
    *
-   * @interface Display
-   * @syscap SystemCapability.WindowManager.WindowManager.Core
-   * @since 7
-   */
-  /**
-   * Define properties of the display. They cannot be updated automatically.
+   * Before calling any API in Display, you must use
+   * [getAllDisplays()]{@link display.getAllDisplays(callback: AsyncCallback<Array<Display>>)} or
+   * [getDefaultDisplaySync()]{@link display.getDefaultDisplaySync} to obtain a Display instance.
    *
-   * @interface Display
    * @syscap SystemCapability.WindowManager.WindowManager.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Define properties of the display. They cannot be updated automatically.
-   *
-   * @interface Display
-   * @syscap SystemCapability.WindowManager.WindowManager.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    * @since 23 static
    */
   interface Display {
     /**
-     * Display ID.
+     * Display ID, which is an integer greater than or equal to 0.
      *
-     * @type { long }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @since 7
-     */
-    /**
-     * Display ID.
-     *
-     * @type { long }
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Display ID.
-     *
-     * @type { long }
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 12]
+     * @since 7 dynamic
      * @since 23 static
      */
     id: long;
 
     /**
-     * Display name.
+     * Name of the display.
      *
-     * @type { string }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @since 7
-     */
-    /**
-     * Display name.
-     *
-     * @type { string }
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @atomicservice
-     * @since 12 dynamic
+     * @atomicservice [since 12]
+     * @since 7 dynamic
      * @since 23 static
      */
     name: string;
 
     /**
-     * Whether the display is alive.
+     * Whether the display is alive. The value **true** indicates that the display is alive
+     * and running properly, and **false** indicates the opposite.
      *
-     * @type { boolean }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @since 7
-     */
-    /**
-     * Whether the display is alive.
-     *
-     * @type { boolean }
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @atomicservice
-     * @since 12 dynamic
+     * @atomicservice [since 12]
+     * @since 7 dynamic
      * @since 23 static
      */
     alive: boolean;
 
     /**
-     * The state of display.
+     * State of the display.
      *
-     * @type { DisplayState }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @since 7
-     */
-    /**
-     * The state of display.
-     *
-     * @type { DisplayState }
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @atomicservice
-     * @since 12 dynamic
+     * @atomicservice [since 12]
+     * @since 7 dynamic
      * @since 23 static
      */
     state: DisplayState;
 
     /**
-     * Refresh rate, in Hz.
+     * Refresh rate of the display, in Hz. The value is an integer.
      *
-     * @type { int }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @since 7
-     */
-    /**
-     * Refresh rate, in Hz.
-     *
-     * @type { int }
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @atomicservice
-     * @since 12 dynamic
+     * @atomicservice [since 12]
+     * @since 7 dynamic
      * @since 23 static
      */
     refreshRate: int;
 
     /**
-     * Rotation degrees of the display.
+     * Clockwise rotation angle of the display.
+     * The value **0** indicates that the display rotates clockwise by 0��, which is the standard display direction.
+     * The value **1** indicates that the display rotates clockwise by 90��.
+     * The value **2** indicates that the display rotates clockwise by 180��.
+     * The value **3** indicates that the display rotates clockwise by 270��.
      *
-     * @type { int }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @since 7
-     */
-    /**
-     * An enumeration value for rotation degrees of the display.
-     * The value 0 indicates that the screen of the display rotates clockwise by 0°.
-     * The value 1 indicates that the screen of the display rotates clockwise by 90°.
-     * The value 2 indicates that the screen of the display rotates clockwise by 180°.
-     * The value 3 indicates that the screen of the display rotates clockwise by 270°.
-     * 
-     * @type { int }
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @atomicservice
-     * @since 11 dynamic
+     * @atomicservice [since 11]
+     * @since 7 dynamic
      * @since 23 static
      */
     rotation: int;
 
     /**
-     * Display width, in pixels.
+     * Width of the display, in px. The value is an integer.
      *
-     * @type { long }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @since 7
-     */
-    /**
-     * Display width, in pixels.
-     *
-     * @type { long }
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Display width, in pixels.
-     *
-     * @type { long }
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 7 dynamic
      * @since 23 static
      */
     width: long;
 
     /**
-     * Display height, in pixels.
+     * Height of the display, in px. The value is an integer.
      *
-     * @type { long }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @since 7
-     */
-    /**
-     * Display height, in pixels.
-     *
-     * @type { long }
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Display height, in pixels.
-     *
-     * @type { long }
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 7 dynamic
      * @since 23 static
      */
     height: long;
 
     /**
-     * Display available width, in pixels.
+     * Width of the available area, in px. The value is an integer greater than 0.
+     * 
+     * This API can be properly called on devices running OpenHarmony 7.0.0 or later.
+     * For devices running versions earlier than OpenHarmony 7.0.0,
+     * this API can be properly called on PCs/2-in-1 devices and tablets,
+     * but does not work for other device types.
+     * To obtain the width of the available area on the current device screen, you can use the width attribute.
      *
-     * @type { long }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
@@ -2487,9 +1840,14 @@ declare namespace display {
     availableWidth: long;
 
     /**
-     * Display available height, in pixels.
+     * eight of the available area, in px. The value is an integer greater than 0.
+     * 
+     * This API can be properly called on devices running OpenHarmony 7.0.0 or later.
+     * For devices running versions earlier than OpenHarmony 7.0.0,
+     * this API can be properly called on PCs/2-in-1 devices and tablets,
+     * but does not work for other device types.
+     * To obtain the height of the available area on the current device screen, you can use the height attribute.
      *
-     * @type { long }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
@@ -2499,304 +1857,137 @@ declare namespace display {
     availableHeight: long;
 
     /**
-     * Display resolution, that is, the number of pixels per inch.
+     * Physical pixel density of the display, that is, the number of pixels per inch. The
+     * value is a floating-point number, in px. Generally, the value is **160.0** or **480.0**. The actual value depends
+     * on the optional values provided by the device in use.
      *
-     * @type { double }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @since 7
-     */
-    /**
-     * Display resolution, that is, the number of pixels per inch.
-     *
-     * @type { double }
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @crossplatform
-     * @since 11
-     */
-    /**
-     * Display resolution, that is, the number of pixels per inch.
-     *
-     * @type { double }
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 11]
+     * @atomicservice [since 12]
+     * @since 7 dynamic
      * @since 23 static
      */
     densityDPI: double;
 
     /**
-     * Display orientation.
+     * Orientation of the display.
      *
-     * @type { Orientation }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
-     * @since 10
-     */
-    /**
-     * Display orientation.
-     *
-     * @type { Orientation }
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @atomicservice [since 12]
+     * @since 10 dynamic
      * @since 23 static
      */
     orientation: Orientation;
 
     /**
-     * Display density, in pixels. which is the scaling coefficient between physical pixels and logical pixels. The value for a low-resolution display is 1.0.
+     * Logical pixel density of the display, which is the scaling coefficient between
+     * physical pixels and logical pixels. The calculation method is as follows:<br>!
+     * [densityPixels](figures/densityPixels.jpg)<br>The value is a floating-point number and is restricted by the range
+     * of **densityDPI**. The value range is [0.5, 4.0]. Generally, the value is **1.0** or **3.0**. The actual value
+     * depends on the density DPI provided by the device in use.
      *
-     * @type { double }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @since 7
-     */
-    /**
-     * Display density, in pixels. which is the scaling coefficient between physical pixels and logical pixels. The value for a low-resolution display is 1.0.
-     *
-     * @type { double }
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 11]
+     * @atomicservice [since 11]
+     * @since 7 dynamic
      * @since 23 static
      */
     densityPixels: double;
 
     /**
-     * Text scale density of the display.
+     * Scaling factor for fonts displayed on the display. The value must be a floating
+     * -point number. Generally, the value is the same as that of **densityPixels**.
      *
-     * @type { double }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @since 7
-     */
-    /**
-     * Text scale density of the display.
-     *
-     * @type { double }
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @crossplatform
-     * @since 11
-     */
-    /**
-     * Text scale density of the display.
-     *
-     * @type { double }
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 11]
+     * @atomicservice [since 12]
+     * @since 7 dynamic
      * @since 23 static
      */
     scaledDensity: double;
 
     /**
-     * DPI on the x-axis.
+     * Exact physical pixels per inch of the display in the X axis. The value must be a
+     * floating-point number.
      *
-     * @type { double }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @since 7
-     */
-    /**
-     * DPI on the x-axis.
-     *
-     * @type { double }
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @atomicservice
-     * @since 12
-     */
-    /**
-     * DPI on the x-axis.
-     *
-     * @type { double }
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 20 dynamic
+     * @crossplatform [since 20]
+     * @atomicservice [since 12]
+     * @since 7 dynamic
      * @since 23 static
      */
     xDPI: double;
 
     /**
-     * DPI on the y-axis.
+     * Exact physical pixels per inch of the display in the Y axis. The value must be a
+     * floating-point number.
      *
-     * @type { double }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @since 7
-     */
-    /**
-     * DPI on the y-axis.
-     *
-     * @type { double }
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @atomicservice
-     * @since 12
-     */
-    /**
-     * DPI on the y-axis.
-     *
-     * @type { double }
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 20 dynamic
+     * @crossplatform [since 20]
+     * @atomicservice [since 12]
+     * @since 7 dynamic
      * @since 23 static
      */
     yDPI: double;
 
     /**
-     * The shape of screen
+     * All color spaces supported by the display.
      *
-     * @type { ?ScreenShape }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @atomicservice
-     * @since 18 dynamic
-     * @since 23 static
-     */
-    screenShape?: ScreenShape;
-
-    /**
-     * All supported color spaces.
-     *
-     * @type { Array<colorSpaceManager.ColorSpace> }
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @since 11
-     */
-    /**
-     * All supported color spaces.
-     *
-     * @type { Array<colorSpaceManager.ColorSpace> }
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @atomicservice
-     * @since 12 dynamic
+     * @atomicservice [since 12]
+     * @since 11 dynamic
      * @since 23 static
      */
     colorSpaces: Array<colorSpaceManager.ColorSpace>;
 
     /**
-     * All supported HDR formats.
+     * All HDR formats supported by the display.
      *
-     * @type { Array<hdrCapability.HDRFormat> }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @since 11
-     */
-    /**
-     * All supported HDR formats.
-     *
-     * @type { Array<hdrCapability.HDRFormat> }
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @atomicservice
-     * @since 12 dynamic
+     * @atomicservice [since 12]
+     * @since 11 dynamic
      * @since 23 static
      */
     hdrFormats: Array<hdrCapability.HDRFormat>;
 
     /**
-     * The source mode of display
+     * Obtains the cutout information of the display. This API uses an asynchronous callback to return the result. You
+     * are advised not to use the cutout area during application layout.
      *
-     * @type { ?DisplaySourceMode }
-     * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
-     * @since 19 dynamic
-     * @since 23 static
-     */
-    sourceMode?: DisplaySourceMode;
- 
-    /**
-     * The X-axis coordinate of the top-left corner of the display relative to the main display.
-     *
-     * @type { ?long }
-     * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
-     * @since 19 dynamic
-     * @since 23 static
-     */
-    x?: long;
-  
-    /**
-     * The Y-axis coordinate of the top-left corner of the display relative to the main display.
-     *
-     * @type { ?long }
-     * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
-     * @since 19 dynamic
-     * @since 23 static
-     */
-    y?: long;
-
-    /**
-     * All supported refresh rates.
-     *
-     * @type { ?Array<int> }
-     * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
-     * @since 20 dynamic
-     * @since 23 static
-     */
-    supportedRefreshRates?: Array<int>;
-
-    /**
-     * Get information about all the rounded corners.
-     * 
-     * @returns { Array<RoundedCorner> } The rounded corners.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 1400001 - Invalid display or screen.
-     * @throws { BusinessError } 1400003 - This display manager service works abnormally.
-     * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
-     * @since 23 dynamic&static
-     */
-    getRoundedCorner(): Array<RoundedCorner>;
-
-    /**
-     * Obtain the cutout info of the display.
-     *
-     * @param { AsyncCallback<CutoutInfo> } callback
-     * @throws { BusinessError } 1400001 - Invalid display or screen.
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @since 9
-     */
-    /**
-     * Obtain the cutout info of the display.
-     *
-     * @param { AsyncCallback<CutoutInfo> } callback
+     * @param { AsyncCallback<CutoutInfo> } callback - Callback used to return the **CutoutInfo** object.
      * @throws { BusinessError } 1400001 - Invalid display or screen. Possible cause:
-     *      1. This display is abnormal.
-     *      2. Internal task error.
+     *     1. This display is abnormal.
+     *     2. Internal task error.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @atomicservice
-     * @since 12 dynamic
+     * @atomicservice [since 12]
+     * @since 9 dynamic
      * @since 23 static
      */
     getCutoutInfo(callback: AsyncCallback<CutoutInfo>): void;
 
     /**
-     * Obtain the cutout info of the display.
+     * Obtains the cutout information of the display. This API uses a promise to return the result. You are advised not
+     * to use the cutout area during application layout.
      *
-     * @returns { Promise<CutoutInfo> }
+     * @returns { Promise<CutoutInfo> } Promise used to return the CutoutInfo object.
      * @throws { BusinessError } 1400001 - Invalid display or screen.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @since 9
-     */
-    /**
-     * Obtain the cutout info of the display.
-     *
-     * @returns { Promise<CutoutInfo> }
-     * @throws { BusinessError } 1400001 - Invalid display or screen.
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @atomicservice
-     * @since 12 dynamic
+     * @atomicservice [since 12]
+     * @since 9 dynamic
      * @since 23 static
      */
     getCutoutInfo(): Promise<CutoutInfo>;
 
     /**
-     * Check if current display has immersive window.
+     * Checks whether this display contains an immersive window. This API uses an asynchronous callback to return the
+     * result.
      *
-     * @param { AsyncCallback<boolean> } callback
+     * @param { AsyncCallback<boolean> } callback - Callback used to return the result. **true** if the display contains
+     *     an immersive window, **false** otherwise.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
+     *     capabilities.
      * @throws { BusinessError } 1400001 - Invalid display or screen.
      * @throws { BusinessError } 1400003 - This display manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
@@ -2807,11 +1998,13 @@ declare namespace display {
     hasImmersiveWindow(callback: AsyncCallback<boolean>): void;
 
     /**
-     * Check if current display has immersive window.
+     * Checks whether this display contains an immersive window. This API uses a promise to return the result.
      *
-     * @returns { Promise<boolean> }
+     * @returns { Promise<boolean> } Promise used to return the result. **true** if the display contains an immersive
+     *     window, **false** otherwise.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
+     *     capabilities.
      * @throws { BusinessError } 1400001 - Invalid display or screen.
      * @throws { BusinessError } 1400003 - This display manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
@@ -2822,13 +2015,23 @@ declare namespace display {
     hasImmersiveWindow(): Promise<boolean>;
 
     /**
-     * Obtain the available area of the display.
+     * Obtains the available area of the display of the current device. This API uses a promise to return the result.
      *
-     * @returns { Promise<Rect> }
-     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * The available area is the space left for applications after the system UI (such as the status bar and dock bar)
+     * is accounted for.
+     * 
+     * This API can be properly called on devices running OpenHarmony 7.0.0 or later.
+     * For devices running versions earlier than OpenHarmony 7.0.0,
+     * this API can be properly called on PCs/2-in-1 devices and tablets,
+     * but does not work for other device types. To obtain the available area on the current device screen,
+     * you can use the width and height attributes in Display.
+     *
+     * @returns { Promise<Rect> } Promise used to return the available area, which is a rectangle.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
+     *     capabilities.
      * @throws { BusinessError } 1400001 - Invalid display or screen. Possible cause:
-     *      1. This display is abnormal.
-     *      2. Internal task error.
+     *     1. This display is abnormal.
+     *     2. Internal task error.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
@@ -2837,10 +2040,11 @@ declare namespace display {
     getAvailableArea(): Promise<Rect>;
 
     /**
-     * Get the live crease region in the current display mode.
+     * Obtains the live crease region of the foldable device in the current display mode.
      *
-     * @returns { FoldCreaseRegion } Fold crease region in the current display mode.
-     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @returns { FoldCreaseRegion } Live crease region of the device.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
+     *     capabilities.
      * @throws { BusinessError } 1400003 - This display manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
      * @since 20 dynamic
@@ -2849,13 +2053,20 @@ declare namespace display {
     getLiveCreaseRegion(): FoldCreaseRegion;
 
     /**
-     * Register the callback for available area changes.
+     * Subscribes to changes of the available area on the display of the current device. This callback function is
+     * triggered when the screen rotates, the freeform mode is enabled or disabled, or the visibility of system
+     * components such as the dock bar and status bar changes, and returns the available area information.
+     * 
+     * This API can be properly called on devices running OpenHarmony 7.0.0 or later.
+     * For devices running versions earlier than OpenHarmony 7.0.0,
+     * this API can be properly called on PCs/2-in-1 devices and tablets.
+     * If being called on other device types, it does not take effect and no error is reported.
      *
-     * @param { 'availableAreaChange' } type - the event of available area changes
-     * @param { Callback<Rect> } callback - Callback used to return the available area
+     * @param { 'availableAreaChange' } type - Event type. The event **'availableAreaChange'** is triggered when the
+     *     available area of the display changes.
+     * @param { Callback<Rect> } callback - Callback used to return the new available area.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types.
-     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     *     <br>2. Incorrect parameter types.
      * @throws { BusinessError } 1400003 - This display manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
@@ -2865,9 +2076,13 @@ declare namespace display {
 
     /**
      * Register the callback for available area changes.
+     * 
+     * This API can be properly called on devices running OpenHarmony 7.0.0 or later.
+     * For devices running versions earlier than OpenHarmony 7.0.0,
+     * this API can be properly called on PCs/2-in-1 devices and tablets.
+     * If being called on other device types, it does not take effect and no error is reported.
      *
      * @param { Callback<Rect> } callback - Callback used to return the available area
-     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1400003 - This display manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
      * @since 23 static
@@ -2875,13 +2090,19 @@ declare namespace display {
     onAvailableAreaChange(callback: Callback<Rect>): void;
 
     /**
-     * Unregister the callback for available area changes.
+     * Unsubscribes from changes of the available area on the display of the current device.
+     * 
+     * This API can be properly called on devices running OpenHarmony 7.0.0 or later.
+     * For devices running versions earlier than OpenHarmony 7.0.0,
+     * this API can be properly called on PCs/2-in-1 devices and tablets.
+     * If being called on other device types, it does not take effect and no error is reported.
      *
-     * @param { 'availableAreaChange' } type - the event of available area changes
-     * @param { Callback<Rect> } [callback] - Callback used to return the available area
+     * @param { 'availableAreaChange' } type - Event type. The event **'availableAreaChange'** is triggered when the
+     *     available area of the display changes.
+     * @param { Callback<Rect> } [callback] - Callback used to return the new available area. If this parameter is not
+     *     specified, all subscriptions to the specified event are canceled.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types.
-     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     *     <br>2. Incorrect parameter types.
      * @throws { BusinessError } 1400003 - This display manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
@@ -2891,10 +2112,14 @@ declare namespace display {
 
     /**
      * Unregister the callback for available area changes.
+     * 
+     * This API can be properly called on devices running OpenHarmony 7.0.0 or later.
+     * For devices running versions earlier than OpenHarmony 7.0.0,
+     * this API can be properly called on PCs/2-in-1 devices and tablets.
+     * If being called on other device types, it does not take effect and no error is reported.
      *
      * @param { Callback<Rect> } [callback] - Unregister the callback function.
-     *		If not provided, all callbacks for the given event type will be removed.
-     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     *     If not provided, all callbacks for the given event type will be removed.
      * @throws { BusinessError } 1400003 - This display manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
      * @since 23 static
@@ -2905,7 +2130,8 @@ declare namespace display {
      * Get current display capability, including foldstatus, displaymode, rotation, and orientation information.
      *
      * @returns { string } Indicates the current foldstatus, displaymode, rotation, and orientation information.
-     * @throws { BusinessError } 801 - Capability not supported.Function getDisplayCapability can not work correctly due to limited device capabilities.
+     * @throws { BusinessError } 801 - Capability not supported.Function getDisplayCapability can not work correctly due
+     *     to limited device capabilities.
      * @throws { BusinessError } 1400001 - Invalid display or screen.
      * @throws { BusinessError } 1400003 - This display manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
@@ -2915,66 +2141,269 @@ declare namespace display {
      * @test
      */
     getDisplayCapability(): string;
+
+    /**
+     * Display mode for screen content. The default value is **DisplaySourceMode.NONE**.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 19 dynamic
+     * @since 23 static
+     */
+    sourceMode?: DisplaySourceMode;
+
+    /**
+     * Screen shape of the display. The default value is **RECTANGLE**.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @atomicservice
+     * @since 18 dynamic
+     * @since 23 static
+     */
+    screenShape?: ScreenShape;
+
+    /**
+     * X coordinate of the top-left corner of the display relative to the origin,
+     * which is the top-left corner of the primary screen, measured in px. The value is an integer. The default value is
+     * **0**. The actual value is returned only when **DisplaySourceMode** is set to **MAIN** or **EXTEND**; otherwise,
+     * the default value **0** is returned.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 19 dynamic
+     * @since 23 static
+     */
+    x?: long;
+
+    /**
+     * Y coordinate of the top-left corner of the display relative to the origin,
+     * which is the top-left corner of the primary screen, measured in px. The value is an integer. The default value is
+     * **0**. The actual value is returned only when **DisplaySourceMode** is set to **MAIN** or **EXTEND**; otherwise,
+     * the default value **0** is returned.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 19 dynamic
+     * @since 23 static
+     */
+    y?: long;
+
+    /**
+     * All refresh rates supported by the display, sorted in ascending order. The refresh rate is a positive integer,
+     * in Hz. The default value is empty.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 20 dynamic
+     * @since 23 static
+     */
+    supportedRefreshRates?: Array<int>;
+
+    /**
+     * Obtains the rounded corner information of the display. The rounded corner information of the display is
+     * determined by the product configuration. Only physical screens that have a defined corner-radius value returns
+     * rounded corner information; otherwise, an empty array is returned. Virtual displays always return an empty array.
+     *
+     * @returns { Array<RoundedCorner> } Rounded corner information.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 1400001 - Invalid display or screen.
+     * @throws { BusinessError } 1400003 - This display manager service works abnormally.
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    getRoundedCorner(): Array<RoundedCorner>;
   }
 
   /**
-   * Coordinates of a point.
-   * 
-   * @interface Position
-   * @syscap SystemCapability.Window.SessionManager
-   * @since 20 dynamic
+   * Enumerates the screen shapes of a display.
+   *
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @crossplatform
+   * @since 18 dynamic
    * @since 23 static
    */
-  interface Position {
+  enum ScreenShape {
     /**
-     * Indicates the x-axis coordinates
-     * 
-     * @type { long }
-     * @syscap SystemCapability.Window.SessionManager
-     * @since 20 dynamic
+     * The screen is in the shape of a circle.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @since 18 dynamic
      * @since 23 static
      */
-    x: long;
+    ROUND = 1,
 
     /**
-     * Indicates the y-axis coordinates
-     * 
-     * @type { long }
-     * @syscap SystemCapability.Window.SessionManager
-     * @since 20 dynamic
+     * The screen is in the shape of a rectangle.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @since 18 dynamic
      * @since 23 static
      */
-    y: long;
+    RECTANGLE = 0
   }
 
   /**
-   * Coordinates of a point relative to specified display.
-   * 
-   * @interface RelativePosition
+   * Sets the display mode of the foldable device, with the reason for the change specified.
+   *
+   * @param { FoldDisplayMode } mode - Display mode.
+   * @param { string } reason - Reason for changing the display mode. If this parameter is not set, an empty string is
+   *     used by default.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
-   * @since 20 dynamic
+   * @systemapi Hide this for inner system use.
+   * @since 19 dynamic
    * @since 23 static
    */
-  interface RelativePosition {
+  function setFoldDisplayMode(mode: FoldDisplayMode, reason: string): void;
+
+  /**
+   * Enumerates the display modes for screen content.
+   *
+   * @syscap SystemCapability.Window.SessionManager
+   * @atomicservice
+   * @since 19 dynamic
+   * @since 23 static
+   */
+  enum DisplaySourceMode {
     /**
-     * Indicates the display.
-     * 
-     * @type { long }
+     * The primary screen of the device is currently in use.
+     *
      * @syscap SystemCapability.Window.SessionManager
-     * @since 20 dynamic
+     * @atomicservice
+     * @since 19 dynamic
      * @since 23 static
      */
-    displayId: long;
+    MAIN = 1,
 
     /**
-     * Indicates the coordinates relative to the display.
-     * 
-     * @type { Position }
+     * The device is currently not in use.
+     *
      * @syscap SystemCapability.Window.SessionManager
-     * @since 20 dynamic
+     * @atomicservice
+     * @since 19 dynamic
      * @since 23 static
      */
-    position: Position;
+    NONE = 0,
+
+    /**
+     * The device is currently in extended display mode.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 19 dynamic
+     * @since 23 static
+     */
+    EXTEND = 3,
+
+    /**
+     * The device is currently in mirror display mode.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 19 dynamic
+     * @since 23 static
+     */
+    MIRROR = 2,
+
+    /**
+     * The device is currently in independent display mode.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 19 dynamic
+     * @since 23 static
+     */
+    ALONE = 4
+  }
+
+  /**
+   * Enumerates the types of corners on the screen.
+   *
+   * @syscap SystemCapability.Window.SessionManager
+   * @atomicservice
+   * @since 23 dynamic&static
+   */
+  enum CornerType {
+    /**
+     * Top-left corner of the screen.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    TOP_LEFT = 0,
+
+    /**
+     * Top-right corner of the screen.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    TOP_RIGHT = 1,
+
+    /**
+     * Bottom-right corner of the screen.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    BOTTOM_RIGHT  = 2,
+
+    /**
+     * Bottom-left corner of the screen.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    BOTTOM_LEFT  = 3
+  }
+
+  /**
+   * Describes a single rounded corner on the screen.
+   *
+   * @syscap SystemCapability.Window.SessionManager
+   * @atomicservice
+   * @since 23 dynamic&static
+   */
+  interface RoundedCorner {
+    /**
+     * Type of the rounded corner.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    readonly type: CornerType;
+
+    /**
+     * Coordinates of the center point of the rounded corner.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    readonly position: Position;
+
+    /**
+     * The radius of round corner, measured in px.
+     *
+     * @type { int }
+     * @readonly
+     * @syscap  SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    readonly radius: int;
   }
 }
 

@@ -18,96 +18,51 @@
  * @kit AbilityKit
  */
 
-/*** if arkts dynamic */
 import type { AbilityResult } from '../ability/abilityResult';
-/*** endif */
-/*** if arkts static */
-import { AbilityResult } from '../ability/abilityResult';
-/*** endif */
 import { CompletionHandlerForAbilityStartCallback } from '../@ohos.app.ability.CompletionHandlerForAbilityStartCallback';
 
-
 /**
- * Defines a onResult function.
- * 
- * @typedef { function } OnResultFn
- * @param { AbilityResult } parameter - The Parameter returned if the UIExtensionAbility call terminateSelfWithResult.
- * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @since 23 static
- */
-type OnResultFn = (parameter: AbilityResult) => void;
-
-/*** if arkts dynamic */
-/**
- * The callback of UIAbility or UIExtensionAbility.
+ * The module describes the callback invoked to return the UIExtensionAbility startup result.
+ *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @stagemodelonly
  * @atomicservice
  * @since 11 dynamic
  */
 export default class AbilityStartCallback {
-/*** endif */
-
-/*** if arkts static */
-/**
- * The callback of UIAbility or UIExtensionAbility.
- *
- * @typedef AbilityStartCallback
- * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @stagemodelonly
- * @atomicservice
- * @since 23 static
- */
-declare interface AbilityStartCallback {
-/*** endif */
   /**
-   * Called when some error occurred except disconnected from UIAbility or UIExtensionAbility.
+   * Called when the UIExtensionAbility fails to start.
    *
-   * @param { int } code - The code returned if the UIAbility or UIExtensionAbility failed to start.
-   * @param { string } name - The name returned if the UIAbility or UIExtensionAbility failed to start.
-   * @param { string } message - The message returned if the UIAbility or UIExtensionAbility failed to start.
+   * @param { int } code - Result code returned when the UIExtensionAbility fails to start.
+   * @param { string } name - Name returned when the UIExtensionAbility fails to start.
+   * @param { string } message - Error information returned when the UIExtensionAbility fails to start.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
    * @since 11 dynamic
-   * @since 23 static
    */
   onError(code: int, name: string, message: string): void;
 
   /**
-   * Called when UIExtensionAbility terminate with result.
+   * Called when the UIExtensionAbility is terminated.
    *
-   * @param { AbilityResult } parameter - The parameter returned if the UIExtensionAbility call terminateSelfWithResult.
+   * @param { AbilityResult } parameter - Result returned when 
+ *     [terminateSelfWithResult]{@link ./UIExtensionContext:UIExtensionContext#terminateSelfWithResult(parameter: AbilityResult, callback: AsyncCallback<void>)}
+ *      is called to terminate the UIExtensionAbility.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
    * @since 12 dynamic
    */
   onResult?(parameter: AbilityResult): void;
-  
-  /**
-   * Called when UIExtensionAbility terminate with result.
-   *
-   * @type { ?OnResultFn }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @stagemodelonly
-   * @since 23 static
-   */
-  onResult?: OnResultFn;
 
   /**
-   * The completion handler of startAbilityByType.
+   * Callback invoked when the ability of a specified type is started.
    *
-   * @type { ?CompletionHandlerForAbilityStartCallback }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
    * @since 21 dynamic
-   * @since 23 static
    */
   completionHandler?: CompletionHandlerForAbilityStartCallback;
 }
-
-/*** if arkts static */
-export default AbilityStartCallback;
-/*** endif */

@@ -21,7 +21,7 @@ import { ImageAIOptions, ImageAnalyzerConfig } from "./imageCommon";
 import { ImageFit } from "./enums";
 import { CommonMethod, Callback, PixelMap, AttributeModifier, ContentTransitionEffect } from "./common";
 import { VoidCallback, ColorMetrics } from "./units";
-import { ComponentBuilder, CustomBuilder } from './builder';
+import { ComponentBuilder, CustomBuilder, CustomBuilderT, Builder } from './builder';
 import { ErrorCallback } from '../../@ohos.base';
 
 /**
@@ -29,6 +29,7 @@ import { ErrorCallback } from '../../@ohos.base';
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare enum SeekMode {
@@ -36,6 +37,7 @@ export declare enum SeekMode {
      * Sync to keyframes before the time point.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     PreviousKeyframe,
@@ -43,6 +45,7 @@ export declare enum SeekMode {
      * Sync to keyframes after the time point.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     NextKeyframe,
@@ -50,6 +53,7 @@ export declare enum SeekMode {
      * Sync to closest keyframes.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     ClosestKeyframe,
@@ -57,6 +61,7 @@ export declare enum SeekMode {
      * Seek to frames closest the time point.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     Accurate
@@ -158,6 +163,7 @@ export declare enum PlaybackSpeed {
  *
  * @typedef FullscreenInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export interface FullscreenInfo {
@@ -166,6 +172,7 @@ export interface FullscreenInfo {
      *
      * @type { boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     fullscreen: boolean;
@@ -176,6 +183,7 @@ export interface FullscreenInfo {
  *
  * @typedef PreparedInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export interface PreparedInfo {
@@ -184,6 +192,7 @@ export interface PreparedInfo {
      *
      * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     duration: int;
@@ -194,6 +203,7 @@ export interface PreparedInfo {
  *
  * @typedef PlaybackInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export interface PlaybackInfo {
@@ -202,6 +212,7 @@ export interface PlaybackInfo {
      *
      * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     time: int;
@@ -212,6 +223,7 @@ export interface PlaybackInfo {
  *
  * @interface PosterOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare interface PosterOptions {
@@ -221,6 +233,7 @@ export declare interface PosterOptions {
      * @type { ?boolean }
      * @default false
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     showFirstFrame?: boolean;
@@ -230,6 +243,7 @@ export declare interface PosterOptions {
      * @type { ?ContentTransitionEffect }
      * @default ContentTransitionEffect.IDENTITY
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     contentTransitionEffect?: ContentTransitionEffect;
@@ -240,6 +254,7 @@ export declare interface PosterOptions {
  *
  * @interface VideoOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare interface VideoOptions {
@@ -248,6 +263,7 @@ export declare interface VideoOptions {
      *
      * @type { ?(string | Resource) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     src?: string | Resource;
@@ -256,6 +272,7 @@ export declare interface VideoOptions {
      *
      * @type { ?(double | string | PlaybackSpeed) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     currentProgressRate?: double | string | PlaybackSpeed;
@@ -264,6 +281,7 @@ export declare interface VideoOptions {
      *
      * @type { ?(string | PixelMap | Resource) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     previewUri?: string | PixelMap | Resource;
@@ -272,14 +290,24 @@ export declare interface VideoOptions {
      *
      * @type { ?VideoController }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     controller?: VideoController;
+    /**
+     * controllerAsync of video.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    controllerAsync?: VideoControllerAsync;
     /**
      * image ai options of video.
      *
      * @type { ?ImageAIOptions }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     imageAIOptions?: ImageAIOptions;
@@ -288,6 +316,7 @@ export declare interface VideoOptions {
      *
      * @type { ?PosterOptions }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     posterOptions?: PosterOptions;
@@ -297,6 +326,7 @@ export declare interface VideoOptions {
  * Defines the video controller.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare class VideoController {
@@ -304,6 +334,7 @@ export declare class VideoController {
      * constructor.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     constructor();
@@ -311,6 +342,7 @@ export declare class VideoController {
      * Provides events to play.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     start(): void;
@@ -318,6 +350,7 @@ export declare class VideoController {
      * Provides a pause event for playback.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     pause(): void;
@@ -325,6 +358,7 @@ export declare class VideoController {
      * Provides an event to stop playback.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     stop(): void;
@@ -333,6 +367,7 @@ export declare class VideoController {
      *
      * @param { boolean } value
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     requestFullscreen(value: boolean): void;
@@ -340,6 +375,7 @@ export declare class VideoController {
      * Provides a method to exit full screen playback.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     exitFullscreen(): void;
@@ -349,6 +385,7 @@ export declare class VideoController {
      * @param { double } value
      * @param { SeekMode } [seekMode]
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     setCurrentTime(value: double, seekMode?: SeekMode): void;
@@ -356,9 +393,95 @@ export declare class VideoController {
      * Provide the reset method of video playback.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     reset(): void;
+}
+
+/**
+ * Video playback controller class for asynchronous operations.
+ * Provides methods to control video playback, timing, and display mode.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare class VideoControllerAsync {
+    /**
+     * Creates a VideoControllerAsync instance.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    constructor();
+    /**
+     * Starts video playback asynchronously.
+     *
+     * @returns { Promise<void> } Promise that returns no value.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    start(): Promise<void>;
+    /**
+     * Pauses video playback asynchronously.
+     *
+     * @returns { Promise<void> } Promise that returns no value.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    pause(): Promise<void>;
+    /**
+     * Stops video playback asynchronously.
+     *
+     * @returns { Promise<void> } Promise that returns no value.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    stop(): Promise<void>;
+    /**
+     * Requests fullscreen display for the video.
+     *
+     * @param { boolean } value
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    requestFullscreen(value: boolean): void;
+    /**
+     * Exits fullscreen display mode.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    exitFullscreen(): void;
+    /**
+     * Sets the current playback time with specified seek mode.
+     *
+     * @param { double } value - <br>Unit: Seconds, The value must be greater than or equal to 0, The value must be
+     *     greater than or equal to 0, The maximum value is the total duration of the video. If the duration exceeds the
+     *     maximum value, the system jumps to the end of the video.
+     * @param { SeekMode } [seekMode]
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    setCurrentTime(value: double, seekMode?: SeekMode): void;
+    /**
+     * Resets the video controller asynchronously.
+     * Restores the controller to its initial state.
+     *
+     * @returns { Promise<void> } Promise that returns no value.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    reset(): Promise<void>;
 }
 
 /**
@@ -367,6 +490,7 @@ export declare class VideoController {
  * @extends CommonMethod
  * @interface VideoAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare interface VideoAttribute extends CommonMethod {
@@ -376,6 +500,7 @@ export declare interface VideoAttribute extends CommonMethod {
      * @param { boolean | undefined } value
      * @returns { VideoAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default muted(value: boolean | undefined): this;
@@ -385,6 +510,7 @@ export declare interface VideoAttribute extends CommonMethod {
      * @param { boolean | undefined } value
      * @returns { VideoAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default autoPlay(value: boolean | undefined): this;
@@ -394,6 +520,7 @@ export declare interface VideoAttribute extends CommonMethod {
      * @param { boolean | undefined } value
      * @returns { VideoAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default controls(value: boolean | undefined): this;
@@ -403,6 +530,7 @@ export declare interface VideoAttribute extends CommonMethod {
      * @param { boolean | undefined } value
      * @returns { VideoAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default loop(value: boolean | undefined): this;
@@ -412,6 +540,7 @@ export declare interface VideoAttribute extends CommonMethod {
      * @param { ImageFit | undefined } value
      * @returns { VideoAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default objectFit(value: ImageFit | undefined): this;
@@ -421,6 +550,7 @@ export declare interface VideoAttribute extends CommonMethod {
      * @param { VoidCallback | undefined } event
      * @returns { VideoAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default onStart(event: VoidCallback | undefined): this;
@@ -430,6 +560,7 @@ export declare interface VideoAttribute extends CommonMethod {
      * @param { VoidCallback | undefined } event
      * @returns { VideoAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default onPause(event: VoidCallback | undefined): this;
@@ -439,6 +570,7 @@ export declare interface VideoAttribute extends CommonMethod {
      * @param { VoidCallback | undefined } event
      * @returns { VideoAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default onFinish(event: VoidCallback | undefined): this;
@@ -448,6 +580,7 @@ export declare interface VideoAttribute extends CommonMethod {
      * @param { Callback<FullscreenInfo> | undefined } callback
      * @returns { VideoAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default onFullscreenChange(callback: Callback<FullscreenInfo> | undefined): this;
@@ -457,6 +590,7 @@ export declare interface VideoAttribute extends CommonMethod {
      * @param { Callback<PreparedInfo> | undefined } callback
      * @returns { VideoAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default onPrepared(callback: Callback<PreparedInfo> | undefined): this;
@@ -466,6 +600,7 @@ export declare interface VideoAttribute extends CommonMethod {
      * @param { Callback<PlaybackInfo> | undefined } callback
      * @returns { VideoAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default onSeeking(callback: Callback<PlaybackInfo> | undefined): this;
@@ -475,6 +610,7 @@ export declare interface VideoAttribute extends CommonMethod {
      * @param { Callback<PlaybackInfo> | undefined } callback
      * @returns { VideoAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default onSeeked(callback: Callback<PlaybackInfo> | undefined): this;
@@ -484,6 +620,7 @@ export declare interface VideoAttribute extends CommonMethod {
      * @param { Callback<PlaybackInfo> | undefined } callback
      * @returns { VideoAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default onUpdate(callback: Callback<PlaybackInfo> | undefined): this;
@@ -493,6 +630,7 @@ export declare interface VideoAttribute extends CommonMethod {
      * @param { VoidCallback | ErrorCallback | undefined } event
      * @returns { VideoAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default onError(event: VoidCallback | ErrorCallback | undefined): this;
@@ -502,6 +640,7 @@ export declare interface VideoAttribute extends CommonMethod {
      * @param { VoidCallback | undefined } event
      * @returns { VideoAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default onStop(event: VoidCallback | undefined): this;
@@ -511,6 +650,7 @@ export declare interface VideoAttribute extends CommonMethod {
      * @param { boolean | undefined } enable
      * @returns { VideoAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default enableAnalyzer(enable: boolean | undefined): this;
@@ -520,6 +660,7 @@ export declare interface VideoAttribute extends CommonMethod {
      * @param { ImageAnalyzerConfig | undefined } config
      * @returns { VideoAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default analyzerConfig(config: ImageAnalyzerConfig | undefined): this;
@@ -533,6 +674,7 @@ export declare interface VideoAttribute extends CommonMethod {
      * @param { boolean | undefined } enabled
      * @returns { VideoAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default enableShortcutKey(enabled: boolean | undefined): this;
@@ -544,15 +686,27 @@ export declare interface VideoAttribute extends CommonMethod {
      * @returns { VideoAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
+     * @stagemodelonly
      * @since 23 static
      */
     default surfaceBackgroundColor(color: ColorMetrics | undefined): this;
+    /**
+     * Set Video options.
+     *
+     * @param { VideoOptions } value - Video constructor options
+     * @returns { VideoAttribute } Returns the instance of the VideoAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    default setVideoOptions(value: VideoOptions): this;
     /**
      * Call attributeModifier.
      *
      * @param { AttributeModifier<VideoAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
      * @returns { VideoAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default attributeModifier(modifier: AttributeModifier<VideoAttribute> | AttributeModifier<CommonMethod> | undefined): this;
@@ -571,4 +725,19 @@ export declare interface VideoAttribute extends CommonMethod {
 @ComponentBuilder
 export declare function Video(
     value: VideoOptions
+): VideoAttribute;
+
+/**
+ * Defines Video Component.
+ *
+ * @param { CustomBuilderT<VideoAttribute> } style - the callback to set up component's attributes.
+ * @returns { VideoAttribute }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ * @noninterop
+ */
+@Builder
+export declare function Video(
+    style: CustomBuilderT<VideoAttribute>
 ): VideoAttribute;

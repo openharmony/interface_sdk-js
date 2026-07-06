@@ -24,187 +24,103 @@ import bundleManager from './../@ohos.bundle.bundleManager';
 import { Skill } from './Skill';
 
 /**
- * Extension information about a bundle
+ * The module defines the ExtensionAbility information. An application can obtain its own ExtensionAbility information
+ * through
+ * [bundleManager.getBundleInfoForSelf]{@link ./../@ohos.bundle.bundleManager:bundleManager.getBundleInfoForSelf(bundleFlags: int)}
+ * , with **GET_BUNDLE_INFO_WITH_HAP_MODULE** and **GET_BUNDLE_INFO_WITH_EXTENSION_ABILITY** passed in to
+ * [bundleFlags]{@link ./../@ohos.bundle.bundleManager:bundleManager.BundleFlag}.
  *
- * @typedef ExtensionAbilityInfo
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
- * @since 9
- */
-/**
- * Extension information about a bundle
- *
- * @typedef ExtensionAbilityInfo
- * @syscap SystemCapability.BundleManager.BundleFramework.Core
- * @atomicservice
- * @since 11 dynamic
+ * @atomicservice [since 11]
+ * @since 9 dynamic
  * @since 23 static
  */
 export interface ExtensionAbilityInfo {
   /**
-   * Indicates the name of the bundle
+   * Bundle name.
    *
-   * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  /**
-   * Indicates the name of the bundle
-   *
-   * @type { string }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   readonly bundleName: string;
 
   /**
-   * Indicates the name of the module
+   * Name of the HAP file to which the ExtensionAbility belongs.
    *
-   * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  /**
-   * Indicates the name of the module
-   *
-   * @type { string }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   readonly moduleName: string;
 
   /**
-   * Indicates the name of the extension ability info
+   * Name of the ExtensionAbility.
    *
-   * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  /**
-   * Indicates the name of the extension ability info
-   *
-   * @type { string }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   readonly name: string;
 
   /**
-   * Indicates the label id of the extension ability info
+   * ID of the ExtensionAbility label.
    *
-   * @type { number }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  /**
-   * Indicates the label id of the extension ability info
-   *
-   * @type { long }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   readonly labelId: long;
 
   /**
-   * Indicates the description id of the extension ability info
+   * ID of the ExtensionAbility description.
    *
-   * @type { number }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  /**
-   * Indicates the description id of the extension ability info
-   *
-   * @type { long }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   readonly descriptionId: long;
 
   /**
-   * Indicates the icon id of the extension ability info
+   * ID of the ExtensionAbility icon.
    *
-   * @type { number }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  /**
-   * Indicates the icon id of the extension ability info
-   *
-   * @type { long }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   readonly iconId: long;
-
   /**
-   * Indicates whether this ability can be called by other abilities
+   * Whether the ExtensionAbility can be called by other applications. **true** if the ExtensionAbility can be called by
+   * other applications, **false** otherwise.
    *
-   * @type { boolean }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  /**
-   * Indicates whether this ability can be called by other abilities
-   *
-   * @type { boolean }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   readonly exported: boolean;
 
   /**
-   * Enumerates types of the extension ability info
+   * Type of the ExtensionAbility.
    *
-   * @type { bundleManager.ExtensionAbilityType }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  /**
-   * Enumerates types of the extension ability info
-   *
-   * @type { bundleManager.ExtensionAbilityType }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   readonly extensionAbilityType: bundleManager.ExtensionAbilityType;
 
   /**
-   * Indicates type name of the extension ability.
+   * Type of the ExtensionAbility. For details about available values, see
+   * [the type field under the extensionabilities tag](docroot://quick-start/module-configuration-file.md#extensionabilities)
+   * .
    *
-   * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11 dynamic
@@ -213,139 +129,88 @@ export interface ExtensionAbilityInfo {
   readonly extensionAbilityTypeName: string;
 
   /**
-   * The permissions that others need to use this extension ability info
+   * Permissions required for other bundles to call the ExtensionAbility.
    *
-   * @type { Array<string> }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  /**
-   * The permissions that others need to use this extension ability info
-   *
-   * @type { Array<string> }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   readonly permissions: Array<string>;
 
   /**
-   * Obtains configuration information about an application
+   * Application configuration information <!--Del-->. The information can be obtained by passing in
+   * **GET_EXTENSION_ABILITY_INFO_WITH_APPLICATION** to the **extensionAbilityFlags** parameter of
+   * [queryExtensionAbilityInfo]{@link ./../@ohos.bundle.bundleManager:bundleManager.queryExtensionAbilityInfo(want: Want, extensionAbilityType: ExtensionAbilityType, extensionAbilityFlags: int, userId: int, callback: AsyncCallback<Array<ExtensionAbilityInfo>>)}
+   * <!--DelEnd-->.
    *
-   * @type { ApplicationInfo }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  /**
-   * Obtains configuration information about an application
+   * This field is not returned when the
+   * [getBundleInfoForSelf]{@link ./../@ohos.bundle.bundleManager:bundleManager.getBundleInfoForSelf(bundleFlags: int)}
+   * or
+   * [getBundleInfo]{@link ./../@ohos.bundle.bundleManager:bundleManager.getBundleInfo(bundleName: string, bundleFlags: int, userId: int, callback: AsyncCallback<BundleInfo>)}
+   * is used to obtain ExtensionAbilityInfo information. You can obtain the related information by obtaining the
+   * [bundleInfo]{@link BundleInfo:BundleInfo}.appInfo object.
    *
-   * @type { ApplicationInfo }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   readonly applicationInfo: ApplicationInfo;
 
   /**
    * Obtains configuration information about an application
    *
-   * @type { ApplicationInfo | null }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 23 static
    */
   readonly applicationInfo: ApplicationInfo | null;
 
   /**
-   * Indicates the metadata of bundle
+   * Metadata of the ExtensionAbility. The information can be obtained by passing in **GET_BUNDLE_INFO_WITH_HAP_MODULE**
+   * , **GET_BUNDLE_INFO_WITH_EXTENSION_ABILITY**, and **GET_BUNDLE_INFO_WITH_METADATA** to the **bundleFlags**
+   * parameter of
+   * [getBundleInfoForSelf]{@link ./../@ohos.bundle.bundleManager:bundleManager.getBundleInfoForSelf(bundleFlags: int)}.
    *
-   * @type { Array<Metadata> }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  /**
-   * Indicates the metadata of bundle
-   *
-   * @type { Array<Metadata> }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   readonly metadata: Array<Metadata>;
 
   /**
-   * Indicates the src language to express extension ability info
+   * Whether the ExtensionAbility is enabled. **true** if enabled, **false** otherwise.
    *
-   * @type { boolean }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  /**
-   * Indicates the src language to express extension ability info
-   *
-   * @type { boolean }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   readonly enabled: boolean;
 
   /**
-   * Indicates the read permission extension ability info
+   * Permission required for reading data from the ExtensionAbility.
    *
-   * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  /**
-   * Indicates the read permission extension ability info
-   *
-   * @type { string }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   readonly readPermission: string;
 
   /**
-   * Indicates the write permission of extension ability info
+   * Permission required for writing data to the ExtensionAbility.
    *
-   * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  /**
-   * Indicates the write permission of extension ability info
-   *
-   * @type { string }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   readonly writePermission: string;
 
   /**
-   * Indicates skills of the extension ability
+   * Skills of the ExtensionAbility.
    *
-   * @type { Array<Skill> }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 12 dynamic
@@ -354,10 +219,8 @@ export interface ExtensionAbilityInfo {
   readonly skills: Array<Skill>;
 
   /**
-   * Indicates the appIndex of extension ability, only work in clone app mode
+   * Index of an application clone. It takes effect only for cloned applications.
    *
-   * @type { int }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 12 dynamic
    * @since 23 static

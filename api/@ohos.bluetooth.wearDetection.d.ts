@@ -23,9 +23,9 @@ import type { AsyncCallback, Callback } from './@ohos.base';
 /**
  * Provides methods to manage the wearing detection function.
  *
- * @namespace wearDetection
  * @syscap SystemCapability.Communication.Bluetooth.Core
  * @since 11 dynamic
+ * @since 26.0.0 static
  */
 declare namespace wearDetection {
   /**
@@ -37,7 +37,7 @@ declare namespace wearDetection {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
    * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2900001 - Service stopped.
    * @throws { BusinessError } 2900003 - Bluetooth disabled.
@@ -45,6 +45,7 @@ declare namespace wearDetection {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
    * @since 11 dynamic
+   * @since 26.0.0 static
    */
   function enableWearDetection(deviceId: string, callback: AsyncCallback<void>): void;
 
@@ -57,7 +58,7 @@ declare namespace wearDetection {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
    * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2900001 - Service stopped.
    * @throws { BusinessError } 2900003 - Bluetooth disabled.
@@ -65,6 +66,7 @@ declare namespace wearDetection {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
    * @since 11 dynamic
+   * @since 26.0.0 static
    */
   function enableWearDetection(deviceId: string): Promise<void>;
 
@@ -77,7 +79,7 @@ declare namespace wearDetection {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
    * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2900001 - Service stopped.
    * @throws { BusinessError } 2900003 - Bluetooth disabled.
@@ -85,6 +87,7 @@ declare namespace wearDetection {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
    * @since 11 dynamic
+   * @since 26.0.0 static
    */
   function disableWearDetection(deviceId: string, callback: AsyncCallback<void>): void;
 
@@ -97,7 +100,7 @@ declare namespace wearDetection {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
    * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2900001 - Service stopped.
    * @throws { BusinessError } 2900003 - Bluetooth disabled.
@@ -105,6 +108,7 @@ declare namespace wearDetection {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
    * @since 11 dynamic
+   * @since 26.0.0 static
    */
   function disableWearDetection(deviceId: string): Promise<void>;
 
@@ -117,7 +121,7 @@ declare namespace wearDetection {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
    * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2900001 - Service stopped.
    * @throws { BusinessError } 2900003 - Bluetooth disabled.
@@ -125,6 +129,7 @@ declare namespace wearDetection {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
    * @since 11 dynamic
+   * @since 26.0.0 static
    */
   function isWearDetectionSupported(deviceId: string, callback: AsyncCallback<boolean>): void;
 
@@ -137,7 +142,7 @@ declare namespace wearDetection {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
    * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2900001 - Service stopped.
    * @throws { BusinessError } 2900003 - Bluetooth disabled.
@@ -145,6 +150,7 @@ declare namespace wearDetection {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
    * @since 11 dynamic
+   * @since 26.0.0 static
    */
   function isWearDetectionSupported(deviceId: string): Promise<boolean>;
 
@@ -157,7 +163,7 @@ declare namespace wearDetection {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
    * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2900001 - Service stopped.
    * @throws { BusinessError } 2900003 - Bluetooth disabled.
@@ -165,6 +171,7 @@ declare namespace wearDetection {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
    * @since 11 dynamic
+   * @since 26.0.0 static
    */
   function isWearDetectionEnabled(deviceId: string, callback: AsyncCallback<boolean>): void;
 
@@ -177,7 +184,7 @@ declare namespace wearDetection {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
    * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2900001 - Service stopped.
    * @throws { BusinessError } 2900003 - Bluetooth disabled.
@@ -185,6 +192,7 @@ declare namespace wearDetection {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
    * @since 11 dynamic
+   * @since 26.0.0 static
    */
   function isWearDetectionEnabled(deviceId: string): Promise<boolean>;
 }

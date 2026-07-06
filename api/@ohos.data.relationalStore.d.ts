@@ -25,26 +25,51 @@ import dataSharePredicates from './@ohos.data.dataSharePredicates';
 import sendableRelationalStore from './@ohos.data.sendableRelationalStore';
 /*** endif */
 /**
- * Provides methods for rdbStore create and delete.
+ * The relational database (RDB) manages data based on relational models. The **relationalStore** module provides a 
+ * complete mechanism for managing local databases based on the underlying SQLite. You can use the APIs to perform 
+ * operations such as adding, deleting, modifying, and querying data, and directly run SQL statements. In addition, you 
+ * can obtain sendable data using 
+ * [ResultSet.getSendableRow]{@link @ohos.data.relationalStore:relationalStore.ResultSet.getSendableRow} and transfer 
+ * the data across threads.
+ * 
+ * To ensure successful data access, limit the size of a data record to 2 MB. If a data record exceeds 2 MB, it can be 
+ * inserted successfully but cannot be read.
+ * 
+ * Querying data from a large amount of data may take time or even cause application suspension. In this case, you can 
+ * perform batch operations. For details, see 
+ * [Batch Database Operations](docroot://arkts-utils/batch-database-operations-guide.md). Moreover, observe the 
+ * following:
+ * 
+ * - The number of data records to be queried at a time should not exceed 5000.
+ * - Use [TaskPool]{@link @ohos.taskpool:taskpool} if there is a large amount of data needs to be queried.
+ * - Keep concatenated SQL statements as concise as possible.
+ * - Query data in batches.
+ * 
+ * The **relationalStore** module provides the following functionalities:
+ * 
+ * - [RdbPredicates]{@link @ohos.data.relationalStore:relationalStore}: provides predicates indicating the nature, 
+ * feature, or relationship of a data entity in an RDB store. It is used to define the operation conditions for an RDB 
+ * store.
+ * - [RdbStore]{@link @ohos.data.relationalStore:relationalStore}: provides APIs for managing data in an RDB store.
+ * - [ResultSet]{@link @ohos.data.relationalStore:relationalStore}: provides APIs for accessing the result set obtained 
+ * from the RDB store.
+ * - [LiteResultSet]{@link @ohos.data.relationalStore:relationalStore}: provides APIs for accessing the result set 
+ * obtained from the RDB store, such as 
+ * [queryWithoutRowCount]{@link @ohos.data.relationalStore:relationalStore.RdbStore.queryWithoutRowCount} and 
+ * [querySqlWithoutRowCount]{@link @ohos.data.relationalStore:relationalStore.RdbStore.querySqlWithoutRowCount}. Unlike 
+ * [ResultSet]{@link @ohos.data.relationalStore:relationalStore}, **LiteResultSet** does not include the total number of
+ * rows in the query result.
+ * - [Transaction]{@link @ohos.data.relationalStore:relationalStore}: provides APIs for managing transaction objects.
  *
- * @namespace relationalStore
  * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
- * @since 9
- */
-/**
- * Provides methods for rdbStore create and delete.
- *
- * @namespace relationalStore
- * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
- * @crossplatform
- * @since 10 dynamic
+ * @crossplatform [since 10]
+ * @since 9 dynamic
  * @since 23 static
  */
 declare namespace relationalStore {
   /**
-   * Describes the status of asset
+   * Enumerates the asset statuses. Use the enum name rather than the enum value.
    *
-   * @enum { int }
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
    * @since 10 dynamic
@@ -52,7 +77,7 @@ declare namespace relationalStore {
    */
   enum AssetStatus {
     /**
-     * ASSET_NORMAL: means the status of asset is normal.
+     * The asset is in normal status.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
@@ -62,7 +87,7 @@ declare namespace relationalStore {
     ASSET_NORMAL,
 
     /**
-     * ASSET_ABNORMAL: means the asset needs to be inserted.
+     * The asset is to be inserted to the cloud.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
@@ -72,7 +97,7 @@ declare namespace relationalStore {
     ASSET_INSERT,
 
     /**
-     * ASSET_ABNORMAL: means the asset needs to be updated.
+     * The asset is to be updated to the cloud.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
@@ -82,7 +107,7 @@ declare namespace relationalStore {
     ASSET_UPDATE,
 
     /**
-     * ASSET_ABNORMAL: means the asset needs to be deleted.
+     * The asset is to be deleted from the cloud.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
@@ -92,7 +117,7 @@ declare namespace relationalStore {
     ASSET_DELETE,
 
     /**
-     * ASSET_ABNORMAL: means the status of asset is abnormal.
+     * The asset is in abnormal status.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
@@ -102,20 +127,28 @@ declare namespace relationalStore {
     ASSET_ABNORMAL,
 
     /**
-     * ASSET_DOWNLOADING: means the status of asset is downloading.
+     * The asset is being downloaded to a local device.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10 dynamic
      * @since 23 static
      */
-    ASSET_DOWNLOADING
+    ASSET_DOWNLOADING,
+
+    /**
+     * ASSET_TO_DOWNLOAD: means the asset will be downloaded.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    ASSET_TO_DOWNLOAD
   }
 
   /**
-   * Records information of the asset.
+   * Represents the asset (such as a document, image, or video).
    *
-   * @interface Asset
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
    * @since 10 dynamic
@@ -123,9 +156,8 @@ declare namespace relationalStore {
    */
   interface Asset {
     /**
-     * The name of asset.
+     * Asset name.
      *
-     * @type { string }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10 dynamic
@@ -134,9 +166,8 @@ declare namespace relationalStore {
     name: string;
 
     /**
-     * The uri of asset.
+     * Asset URI, which is an absolute path in the system.
      *
-     * @type { string }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10 dynamic
@@ -145,9 +176,8 @@ declare namespace relationalStore {
     uri: string;
 
     /**
-     * The path of asset.
+     * Path of an asset in the application sandbox.
      *
-     * @type { string }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10 dynamic
@@ -156,9 +186,8 @@ declare namespace relationalStore {
     path: string;
 
     /**
-     * The create time of asset.
+     * Time when an asset is created.
      *
-     * @type { string }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10 dynamic
@@ -167,9 +196,8 @@ declare namespace relationalStore {
     createTime: string;
 
     /**
-     * The modify time of asset.
+     * Time when an asset is last modified.
      *
-     * @type { string }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10 dynamic
@@ -178,9 +206,11 @@ declare namespace relationalStore {
     modifyTime: string;
 
     /**
-     * The size of asset.
+     * Asset size. In the device-cloud sync mechanism, this field is one of the key bases for determining whether an 
+     * asset is changed. Ensure that the storage format and value logic are consistent across the end-to-end link. It is
+     * recommended that all system nodes use the standard processing format (unit: byte; value: a non-negative integer) 
+     * to avoid sync exceptions or misjudgment caused by format differences.
      *
-     * @type { string }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10 dynamic
@@ -189,9 +219,10 @@ declare namespace relationalStore {
     size: string;
 
     /**
-     * The status of asset.
+     * Asset status. 
+     * 
+     * Default value: **ASSET_NORMAL**.
      *
-     * @type { ?AssetStatus }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10 dynamic
@@ -203,7 +234,6 @@ declare namespace relationalStore {
   /**
    * Indicates several assets in one column
    *
-   * @typedef { Asset[] } Assets
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
    * @since 10 dynamic
@@ -214,51 +244,30 @@ declare namespace relationalStore {
   /**
    * Indicates possible value types
    *
-   * @typedef { null | number | string | boolean | Uint8Array } ValueType
+   * @unionmember { null } The value is a null
+   * @unionmember { long } The value is a long
+   * @unionmember { double } The value is a double
+   * @unionmember { string } The value is a string
+   * @unionmember { boolean } The value is a boolean
+   * @unionmember { Uint8Array } The value is an array of the Uint8
+   * @unionmember { Asset } The value is an asset [since 10]
+   * @unionmember { Assets } The value is an array of the asset [since 10]
+   * @unionmember { Float32Array } The value is an array of the float32 [since 12]
+   * @unionmember { bigint } The value is an integer of any length [since 12]
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @since 9
-   */
-  /**
-   * Indicates possible value types
-   *
-   * @typedef { null | number | string | boolean | Uint8Array | Asset | Assets } ValueType
-   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Indicates possible value types
-   *
-   * @typedef { null | long | double | string | boolean | Uint8Array | Asset | Assets | Float32Array | bigint } ValueType
-   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @crossplatform
-   * @since 12 dynamic
+   * @crossplatform [since 10]
+   * @since 9 dynamic
    * @since 23 static
    */
+
   type ValueType = null | long | double | string | boolean | Uint8Array | Asset | Assets | Float32Array | bigint;
 
   /**
-   * Values in buckets are stored in key-value pairs
-   *
-   * @typedef { Record<string, ValueType> } ValuesBucket
-   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @since 9
-   */
-  /**
-   * Values in buckets are stored in key-value pairs, move Uint8Array add to ValueType
-   *
-   * @typedef { Record<string, ValueType> } ValuesBucket
-   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
    * Values in buckets are stored in key-value pairs, change {[key: string]: ValueType;} to Record<string, ValueType>
    *
-   * @typedef { Record<string, ValueType> } ValuesBucket
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @crossplatform
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @since 9 dynamic
    * @since 23 static
    */
   type ValuesBucket = Record<string, ValueType>;
@@ -266,18 +275,20 @@ declare namespace relationalStore {
   /**
    * The type of the priority key can be number or string
    *
-   * @typedef { long | double | string } PRIKeyType
+   * @unionmember { long } The value is a long
+   * @unionmember { double } The value is a double
+   * @unionmember { string } The value is a string
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @FaAndStageModel
    * @since 10 dynamic
    * @since 23 static
    */
+
   type PRIKeyType = long | double | string;
 
   /**
    * The time is in UTC format.
    *
-   * @typedef { Date } UTCTime
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 10 dynamic
    * @since 23 static
@@ -287,7 +298,6 @@ declare namespace relationalStore {
   /**
    * Indicates the primary key and UTC time of the modified rows.
    *
-   * @typedef { Map<PRIKeyType, UTCTime> } ModifyTime
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 10 dynamic
    * @since 23 static
@@ -297,7 +307,6 @@ declare namespace relationalStore {
   /**
    * Indicates a row of data with an array.
    *
-   * @typedef { Array<ValueType> } RowData
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @stagemodelonly
    * @crossplatform
@@ -308,7 +317,6 @@ declare namespace relationalStore {
   /**
    * Indicates multiple rows of data with an array.
    *
-   * @typedef { Array<RowData> } RowsData
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @stagemodelonly
    * @crossplatform
@@ -317,43 +325,33 @@ declare namespace relationalStore {
   type RowsData = Array<RowData>;
 
   /**
-   * Manages relational database configurations.
+   * Defines the RDB store configuration.
    *
-   * @interface StoreConfig
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @since 9
-   */
-  /**
-   * Manages relational database configurations.
-   *
-   * @interface StoreConfig
-   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @crossplatform
-   * @since 10 dynamic
+   * @crossplatform [since 10]
+   * @since 9 dynamic
    * @since 23 static
    */
   interface StoreConfig {
     /**
-     * The database name.
+     * Database file name, which is the unique identifier of the RDB store. Creating two databases with the same name in
+     * the same process is prohibited; otherwise, functions such as device-device sync, device-cloud sync, silent access
+     * , and key backup may malfunction.
+     * 
+     * SystemCapability.DistributedDataManager.RelationalStore.Core
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 9
-     */
-    /**
-     * The database name.
-     *
-     * @type { string }
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
      * @since 23 static
      */
     name: string;
 
     /**
-     * Specifies the security level of the database.
+     * Security level of the RDB store.
+     * 
+     * SystemCapability.DistributedDataManager.RelationalStore.Core
      *
-     * @type { SecurityLevel }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 9 dynamic
@@ -362,9 +360,16 @@ declare namespace relationalStore {
     securityLevel: SecurityLevel;
 
     /**
-     * Specifies whether the database is encrypted.
+     * Whether to encrypt the RDB store. After the database is created, this parameter cannot be modified directly. To 
+     * change the database encryption status, call the 
+     * [rekeyEx]{@link @ohos.data.relationalStore:relationalStore.RdbStore.rekeyEx} API.
+     * 
+     * **true**: encrypt the RDB store.
+     * 
+     * **false** (default): not encrypt the RDB store.
+     * 
+     * SystemCapability.DistributedDataManager.RelationalStore.Core
      *
-     * @type { ?boolean }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9 dynamic
      * @since 23 static
@@ -372,9 +377,17 @@ declare namespace relationalStore {
     encrypt?: boolean;
 
     /**
-     * The data group id of application.
+     * Application group ID. <!--RP1-->Currently, this parameter is not supported.<!--RP1End-->
+     * 
+     * **Model restriction**: This parameter can be used only in the stage model.
+     * 
+     * This parameter is supported since API version 10. If **dataGroupId** is specified, the **RdbStore** instance will
+     * be created in the sandbox directory of the specified **dataGroupId**. However, the encrypted RDB store in this 
+     * sandbox directory does not support multi-process access. If this parameter is left blank, the **RdbStore** 
+     * instance will be created in the sandbox directory of the application by default.
+     * 
+     * SystemCapability.DistributedDataManager.RelationalStore.Core
      *
-     * @type { ?string }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @StageModelOnly
      * @since 10 dynamic
@@ -383,9 +396,20 @@ declare namespace relationalStore {
     dataGroupId?: string;
 
     /**
-     * Specifies the directory relative to the database directory obtained from context
+     * Custom database path.
+     * 
+     * **Constraints**: The maximum length of the database path is 128 bytes. If the database path exceeds 128 bytes, 
+     * the RDB store fails to be opened and an error is returned.
+     * 
+     * This parameter is supported since API version 11. The database is created in the following directory structure: 
+     * **context.databaseDir** + **"/rdb/"** + **customDir**, where **context.databaseDir** indicates the path of the 
+     * application sandbox, **"/rdb/"** indicates the relational database created, and **customDir** indicates a user-
+     * defined path. If this parameter is left blank, the **RdbStore** instance will be created in the sandbox directory
+     * of the application by default. Since API version 18, if the **rootDir** parameter is also configured, the 
+     * database in the following path will be opened or deleted: **rootDir** + "/" + **customDir** + "/" + **name**.
+     * 
+     * SystemCapability.DistributedDataManager.RelationalStore.Core
      *
-     * @type { ?string }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 11 dynamic
@@ -394,9 +418,16 @@ declare namespace relationalStore {
     customDir?: string;
 
     /**
-     * Specifies the root directory relative to the database
+     * Root path of the database.
+     * 
+     * This parameter is supported since API version 18. The database in the **rootDir** + "/" + **customDir** directory
+     * will be opened or deleted. The database opened is read-only. Writing data to a read-only database will trigger 
+     * error 801. If this parameter is set when you want to open or delete an RDB store, ensure that the database file 
+     * exists in the corresponding path and the caller has the read permission. Otherwise, error 14800010 will be 
+     * returned.
+     * 
+     * SystemCapability.DistributedDataManager.RelationalStore.Core
      *
-     * @type { ?string }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 18 dynamic
@@ -405,10 +436,21 @@ declare namespace relationalStore {
     rootDir?: string;
 
     /**
-     * Specifies whether to clean up dirty data that is synchronized to
-     * the local but deleted in the cloud.
+     * Whether to automatically clear the dirty data (data that has been deleted from the cloud) from the local device. 
+     * The value **true** means to clear the dirty data automatically; **false** means to clear the data manually. 
+     * 
+     * Default value: **true**.
+     * 
+     * For a database with device-cloud synergy, this parameter can be used to set whether to automatically clear the 
+     * data deleted from the cloud on the device. You can manually clear the data by calling 
+     * [cleanDirtyData<sup>11+</sup>]{@link @ohos.data.relationalStore:relationalStore.RdbStore.
+     *  cleanDirtyData(table: string,cursor: long, callback: AsyncCallback<void>)}
+     * .
+     * 
+     * This parameter is supported since API version 11.
+     * 
+     * SystemCapability.DistributedDataManager.CloudSync.Client
      *
-     * @type { ?boolean }
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 11 dynamic
      * @since 23 static
@@ -416,9 +458,20 @@ declare namespace relationalStore {
     autoCleanDirtyData?: boolean;
 
     /**
+     * Specifies whether to clean up dirty data that is synchronized to
+     * the local but deleted on the remote device.
+     * <br>Default value:true.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    autoCleanDeviceDirtyData?: boolean
+
+    /**
      * Specifies whether data can be searched.
      *
-     * @type { ?boolean }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @systemapi
      * @since 11 dynamic
@@ -427,9 +480,16 @@ declare namespace relationalStore {
     isSearchable?: boolean;
 
     /**
-     * Specifies whether database allows rebuild.
+     * Whether to automatically delete the RDB store and create an empty table in the case of an exception.
+     * 
+     * **true**: delete the RDB store and create an empty table in the case of an exception.
+     * 
+     * **false** (default): not delete the RDB store in the case of an exception.
+     * 
+     * This parameter is supported since API version 12.
+     * 
+     * SystemCapability.DistributedDataManager.RelationalStore.Core
      *
-     * @type { ?boolean }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 12 dynamic
      * @since 23 static
@@ -437,9 +497,19 @@ declare namespace relationalStore {
     allowRebuild?: boolean;
 
     /**
-     * Specifies whether the vector type is supported.
+     * Whether the RDB store is a vector store. The value **true** means the RDB store is a vector store, and the value 
+     * **false** means the opposite.
+     * 
+     * Default value: **false**.
+     * 
+     * The vector store is ideal for storing and managing high-dimensional vector data, while the RDB store is optimal 
+     * for storing and processing structured data.
+     * 
+     * Before calling **deleteRdbStore**, ensure that the **RdbStore** and **ResultSet** of the vector store have been 
+     * closed.
+     * 
+     * SystemCapability.DistributedDataManager.RelationalStore.Core
      *
-     * @type { ?boolean }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 18 dynamic
      * @since 23 static
@@ -447,29 +517,30 @@ declare namespace relationalStore {
     vector?: boolean;
 
     /**
-     * Specifies whether the database opened is read-only.
-     * If isReadOnly is true, other configuration items will become invalid.
+     * Whether the RDB store is read-only.
+     * 
+     * **true**: The RDB store is read-only. Writing data to the RDB store will result in error code 801.
+     * 
+     * **false** (default): The RDB store is readable and writeable.
+     * 
+     * This parameter is supported since API version 12.
+     * 
+     * SystemCapability.DistributedDataManager.RelationalStore.Core
      *
-     * @type { ?boolean }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 12
-     */
-    /**
-     * Specifies whether the database opened is read-only.
-     * If isReadOnly is true, other configuration items will become invalid.
-     *
-     * @type { ?boolean }
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 20 dynamic
+     * @crossplatform [since 20]
+     * @since 12 dynamic
      * @since 23 static
      */
     isReadOnly?: boolean;
 
     /**
-     * Indicates the names of the shared library containing fts etc.
+     * Loads custom dynamic libraries. Multiple dynamic library names can be passed in the array. For details, see
+     * [Constraints and Examples of pluginLibs]
+     * (docroot://reference/apis-arkdata/arkts-apis-data-relationalStore-i.md#constraints-and-examples-of-pluginlibs).
+     * 
+     * SystemCapability.DistributedDataManager.RelationalStore.Core
      *
-     * @type { ?Array<string> }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 12 dynamic
      * @since 23 static
@@ -479,7 +550,6 @@ declare namespace relationalStore {
     /**
      * Enumerates the high availability modes of the RDB store.
      *
-     * @type { ?HAMode }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @systemapi
      * @since 12 dynamic
@@ -488,27 +558,36 @@ declare namespace relationalStore {
     haMode?: HAMode;
 
     /**
-     * Specifies the cryptographic parameters used when opening an encrypted database.
+     * Custom encryption parameters.
+     * 
+     * If this parameter is left empty, the default encryption parameters are used. For details, see default values of 
+     * [CryptoParam]{@link relationalStore.CryptoParam}.
+     * 
+     * This parameter is valid only when **encrypt** is set to **true** or the key is not empty.
+     * 
+     * This parameter is supported since API version 14.
+     * 
+     * SystemCapability.DistributedDataManager.RelationalStore.Core
      *
-     * @type { ?CryptoParam }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 14
-     */
-    /**
-     * Specifies the cryptographic parameters used when opening an encrypted database.
-     *
-     * @type { ?CryptoParam }
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 20 dynamic
+     * @crossplatform [since 20]
+     * @since 14 dynamic
      * @since 23 static
      */
     cryptoParam?: CryptoParam;
 
     /**
-     * Specifies the tokenizer type when using fts capability.
+     * Type of the tokenizer to be used for FTS.
+     * 
+     * If this parameter is left blank, English tokenization is supported if FTS does not support Chinese or multi-
+     * language tokenization.
+     * 
+     * If you want to use a custom tokenizer, you can configure it through the **pluginLibs** parameter. For details,
+     * see [Restrictions and Examples of pluginLibs]
+     * (docroot://reference/apis-arkdata/arkts-apis-data-relationalStore-i.md#constraints-and-examples-of-pluginlibs).
+     * 
+     * SystemCapability.DistributedDataManager.RelationalStore.Core
      *
-     * @type { ?Tokenizer }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 17 dynamic
      * @since 23 static
@@ -516,27 +595,27 @@ declare namespace relationalStore {
     tokenizer?: Tokenizer;
 
     /**
-     * Specifies whether the database need persistence.
+     * Whether to persist an RDB store. The value **true** means to persist the RDB store; **false** means the opposite 
+     * (using an in-memory database). The default value is **true**.
+     * 
+     * An in-memory database does not support encryption, backup, restore, cross-process access, and distributed 
+     * capabilities, with the **securityLevel** property ignored.
+     * 
+     * SystemCapability.DistributedDataManager.RelationalStore.Core
      *
-     * @type { ?boolean }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 18
-     */
-    /**
-     * Specifies whether the database need persistence.
-     *
-     * @type { ?boolean }
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 20 dynamic
+     * @crossplatform [since 20]
+     * @since 18 dynamic
      * @since 23 static
      */
     persist?: boolean;
 
     /**
-     * Specifies whether the database enable the capabilities for semantic indexing processing.
+     * Whether to enable the semantic index processing feature for the database. The value **true** means to enable the 
+     * semantic index processing feature; **false** means the opposite. The default value is **false**.
+     * 
+     * SystemCapability.DistributedDataManager.RelationalStore.Core
      *
-     * @type { ?boolean }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 20 dynamic
      * @since 23 static
@@ -548,7 +627,6 @@ declare namespace relationalStore {
   /**
    * Enumerates the high availability modes of the RDB store.
    *
-   * @enum { int }
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @systemapi
    * @since 12 dynamic
@@ -577,159 +655,105 @@ declare namespace relationalStore {
   }
 
   /**
-   * Specifies the cryptographic parameters used when opening an encrypted database.
+   * Represents the configuration of database encryption parameters. This configuration is valid only when **encrypt** 
+   * of **StoreConfig** is set to **true** or the key is not empty.
    *
-   * @typedef CryptoParam
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @since 14
-   */
-  /**
-   * Specifies the cryptographic parameters used when opening an encrypted database.
-   *
-   * @typedef CryptoParam
-   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @crossplatform
-   * @since 20 dynamic
+   * @crossplatform [since 20]
+   * @since 14 dynamic
    * @since 23 static
    */
   interface CryptoParam {
     /**
-     * Specifies the key used when opening an encrypted database.
-     * When finished passing the key to the database, its content should be set to all-zero.
+     * Key used for database encryption and decryption.
+     * 
+     * If this parameter is not specified, the RDB store generates a key, saves the key, and uses the key to open the 
+     * database file.
+     * 
+     * If the key is not required, you need to set the key to **0**.
      *
-     * @type { Uint8Array }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 14
-     */
-    /**
-     * Specifies the key used when opening an encrypted database.
-     * When finished passing the key to the database, its content should be set to all-zero.
-     *
-     * @type { Uint8Array }
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 20 dynamic
+     * @crossplatform [since 20]
+     * @since 14 dynamic
      * @since 23 static
      */
     encryptionKey: Uint8Array;
 
     /**
-     * Specifies the number of KDF iterations used when opening an encrypted database.
-     * Default number is 10000.
-     * When the number is set to 0, use default iteration number and encryption algorithm.
+     * Number of iterations of the PBKDF2 algorithm used in the RDB store. The value is an integer. 
+     * 
+     * Default value: **10000**.
+     * 
+     * The value must be an integer greater than 0. If it is not an integer, the value is rounded down.
+     * 
+     * If this parameter is not specified or is set to **0**, the default value **10000** and the default encryption 
+     * algorithm **AES_256_GCM** are used.
      *
-     * @type { ?number }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 14
-     */
-    /**
-     * Specifies the number of KDF iterations used when opening an encrypted database.
-     * Default number is 10000.
-     * When the number is set to 0, use default iteration number and encryption algorithm.
-     *
-     * @type { ?int }
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 20 dynamic
+     * @crossplatform [since 20]
+     * @since 14 dynamic
      * @since 23 static
      */
     iterationCount?: int;
 
     /**
-     * Specifies the encryption algorithm when opening an encrypted database.
-     * Default encryption algorithm is AES_256_GCM.
+     * Algorithm used for database encryption and decryption. 
+     * 
+     * Default value: **AES_256_GCM**.
      *
-     * @type { ?EncryptionAlgo }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 14
-     */
-    /**
-     * Specifies the encryption algorithm when opening an encrypted database.
-     * Default encryption algorithm is AES_256_GCM.
-     *
-     * @type { ?EncryptionAlgo }
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 20 dynamic
+     * @crossplatform [since 20]
+     * @since 14 dynamic
      * @since 23 static
      */
     encryptionAlgo?: EncryptionAlgo;
 
     /**
-     * Specifies the HMAC algorithm when opening an encrypted database.
-     * Default HMAC algorithm is SHA256.
+     * HMAC algorithm used for database encryption and decryption. 
+     * 
+     * Default value: **SHA256**.
      *
-     * @type { ?HmacAlgo }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 14
-     */
-    /**
-     * Specifies the HMAC algorithm when opening an encrypted database.
-     * Default HMAC algorithm is SHA256.
-     *
-     * @type { ?HmacAlgo }
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 20 dynamic
+     * @crossplatform [since 20]
+     * @since 14 dynamic
      * @since 23 static
      */
     hmacAlgo?: HmacAlgo;
 
     /**
-     * Specifies the KDF algorithm when opening an encrypted database.
-     * Default KDF SHA algorithm is the same as HMAC algorithm.
+     * PBKDF2 algorithm used for database encryption and decryption. 
+     * 
+     * Default value: the same as the HMAC algorithm used.
      *
-     * @type { ?KdfAlgo }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 14
-     */
-    /**
-     * Specifies the KDF algorithm when opening an encrypted database.
-     * Default KDF SHA algorithm is the same as HMAC algorithm.
-     *
-     * @type { ?KdfAlgo }
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 20 dynamic
+     * @crossplatform [since 20]
+     * @since 14 dynamic
      * @since 23 static
      */
     kdfAlgo?: KdfAlgo;
 
     /**
-     * Specifies the page size used when opening an encrypted database, in bytes.
-     * Default crypto page size is 1024.
+     * Page size used for database encryption and decryption. The value is an integer. Unit: byte 
+     * 
+     * Default value: **1024**.
+     * 
+     * The value must be an integer within the range of 1,024 to 65,536 and must be 2<sup>n</sup>. If the specified 
+     * value is not an integer, the value is rounded down.
      *
-     * @type { ?number }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 14
-     */
-    /**
-     * Specifies the page size used when opening an encrypted database, in bytes.
-     * Default crypto page size is 1024.
-     *
-     * @type { ?int }
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 20 dynamic
+     * @crossplatform [since 20]
+     * @since 14 dynamic
      * @since 23 static
      */
     cryptoPageSize?: int;
   }
 
   /**
-   * Enumerates the supported encryption algorithm when opening a database.
+   * Enumerates the encryption algorithms for the database. Use the enum name rather than the enum value.
    *
-   * @enum { number }
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @since 14
-   */
-  /**
-   * Enumerates the supported encryption algorithm when opening a database.
-   *
-   * @enum { int }
-   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @crossplatform
-   * @since 20 dynamic
+   * @crossplatform [since 20]
+   * @since 14 dynamic
    * @since 23 static
    */
   enum EncryptionAlgo {
@@ -737,14 +761,8 @@ declare namespace relationalStore {
      * AES_256_GCM: Database is encrypted using AES_256_GCM.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 14
-     */
-    /**
-     * AES_256_GCM: Database is encrypted using AES_256_GCM.
-     *
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 20 dynamic
+     * @crossplatform [since 20]
+     * @since 14 dynamic
      * @since 23 static
      */
     AES_256_GCM = 0,
@@ -753,14 +771,8 @@ declare namespace relationalStore {
      * AES_256_CBC: Database is encrypted using AES_256_CBC.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 14
-     */
-    /**
-     * AES_256_CBC: Database is encrypted using AES_256_CBC.
-     *
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 20 dynamic
+     * @crossplatform [since 20]
+     * @since 14 dynamic
      * @since 23 static
      */
     AES_256_CBC = 1,
@@ -777,19 +789,11 @@ declare namespace relationalStore {
   }
 
   /**
-   * Enumerates the supported HMAC algorithm when opening a database.
+   * Enumerates the HMAC algorithms for the database. Use the enum name rather than the enum value.
    *
-   * @enum { number }
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @since 14
-   */
-  /**
-   * Enumerates the supported HMAC algorithm when opening a database.
-   *
-   * @enum { int }
-   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @crossplatform
-   * @since 20 dynamic
+   * @crossplatform [since 20]
+   * @since 14 dynamic
    * @since 23 static
    */
   enum HmacAlgo {
@@ -797,14 +801,8 @@ declare namespace relationalStore {
      * SHA1: HMAC_SHA1 algorithm.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 14
-     */
-    /**
-     * SHA1: HMAC_SHA1 algorithm.
-     *
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 20 dynamic
+     * @crossplatform [since 20]
+     * @since 14 dynamic
      * @since 23 static
      */
     SHA1 = 0,
@@ -813,14 +811,8 @@ declare namespace relationalStore {
      * SHA256: HMAC_SHA256 algorithm.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 14
-     */
-    /**
-     * SHA256: HMAC_SHA256 algorithm.
-     *
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 20 dynamic
+     * @crossplatform [since 20]
+     * @since 14 dynamic
      * @since 23 static
      */
     SHA256 = 1,
@@ -829,33 +821,19 @@ declare namespace relationalStore {
      * SHA512: HMAC_SHA512 algorithm.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 14
-     */
-    /**
-     * SHA512: HMAC_SHA512 algorithm.
-     *
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 20 dynamic
+     * @crossplatform [since 20]
+     * @since 14 dynamic
      * @since 23 static
      */
     SHA512 = 2
   }
 
   /**
-   * Enumerates the supported KDF algorithm when opening a database.
+   * Enumerates the PBKDF2 algorithms for the database. Use the enum name rather than the enum value.
    *
-   * @enum { number }
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @since 14
-   */
-  /**
-   * Enumerates the supported KDF algorithm when opening a database.
-   *
-   * @enum { int }
-   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @crossplatform
-   * @since 20 dynamic
+   * @crossplatform [since 20]
+   * @since 14 dynamic
    * @since 23 static
    */
   enum KdfAlgo {
@@ -863,14 +841,8 @@ declare namespace relationalStore {
      * KDF_SHA1: PBKDF2_HMAC_SHA1 algorithm.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 14
-     */
-    /**
-     * KDF_SHA1: PBKDF2_HMAC_SHA1 algorithm.
-     *
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 20 dynamic
+     * @crossplatform [since 20]
+     * @since 14 dynamic
      * @since 23 static
      */
     KDF_SHA1 = 0,
@@ -879,14 +851,8 @@ declare namespace relationalStore {
      * KDF_SHA256: PBKDF2_HMAC_SHA256 algorithm.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 14
-     */
-    /**
-     * KDF_SHA256: PBKDF2_HMAC_SHA256 algorithm.
-     *
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 20 dynamic
+     * @crossplatform [since 20]
+     * @since 14 dynamic
      * @since 23 static
      */
     KDF_SHA256 = 1,
@@ -895,23 +861,27 @@ declare namespace relationalStore {
      * KDF_SHA512: PBKDF2_HMAC_SHA512 algorithm.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 14
-     */
-    /**
-     * KDF_SHA512: PBKDF2_HMAC_SHA512 algorithm.
-     *
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 20 dynamic
+     * @crossplatform [since 20]
+     * @since 14 dynamic
      * @since 23 static
      */
     KDF_SHA512 = 2
   }
 
   /**
-   * Enumerates the supported tokenizer when opening a database.
+   * Enumerates tokenizers that can be used for FTS. Use the enum name rather than the enum value.
+   * 
+   * The table creation statement varies with the tokenizer in use.
+   * 
+   * For details about the definition of **this.context** in the sample code, see the application 
+   * [context]{@link ./application/Context:Context} of the stage model.
+   * 
+   * The following is an example of the table creation statement when **ICU_TOKENIZER** is used:
+   * 
+   * The following is an example of the table creation statement when **CUSTOM_TOKENIZER** is used:
+   * 
+   * The following is an example of the table creation statement when **CUSTOM_TOKENIZER** is used:
    *
-   * @enum { int }
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 17 dynamic
    * @since 23 static
@@ -926,7 +896,12 @@ declare namespace relationalStore {
      */
     NONE_TOKENIZER = 0,
     /**
-     * ICU_TOKENIZER: native icu tokenizer.
+     * The ICU tokenizer is used, which supports Chinese and multiple languages. If the ICU tokenizer is used, you can 
+     * set the language to use, for example, **zh_CN** for Chinese and **tr_TR** for Turkish. For details about the 
+     * supported languages, see 
+     * [ICU tokenizer](https://gitcode.com/openharmony/third_party_icu/blob/master/icu4c/source/data/lang/en.txt). For 
+     * details about the language abbreviations, see 
+     * [locales](https://gitcode.com/openharmony/third_party_icu/tree/master/icu4c/source/data/locales).
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 17 dynamic
@@ -934,7 +909,11 @@ declare namespace relationalStore {
      */
     ICU_TOKENIZER = 1,
     /**
-     * CUSTOM_TOKENIZER: self-developed enhance tokenizer.
+     * A custom tokenizer is used. Chinese (simplified and traditional), English, and Arabic numerals are supported. 
+     * Compared with **ICU_TOKENIZER**, **CUSTOM_TOKENIZER** has advantages in tokenization accuracy and resident memory
+     * usage. The self-developed tokenizer supports two modes: default tokenization mode and short word tokenization 
+     * mode (short_words). You can use the cut_mode parameter to specify the mode. If no mode is specified, the default 
+     * mode is used.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 18 dynamic
@@ -944,9 +923,8 @@ declare namespace relationalStore {
   }
 
   /**
-   * The cloud sync progress
+   * Enumerates the stages in the device-cloud sync progress. Use the enum name rather than the enum value.
    *
-   * @enum { int }
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 10 dynamic
    * @since 23 static
@@ -981,18 +959,16 @@ declare namespace relationalStore {
   }
 
   /**
-   * Describes the statistic of the cloud sync process.
+   * Defines a struct for the device-cloud sync statistics of a database table.
    *
-   * @interface Statistic
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 10 dynamic
    * @since 23 static
    */
   interface Statistic {
     /**
-     * Describes the total number of data to sync.
+     * Total number of rows to be synced between the device and cloud in the database table.
      *
-     * @type { int }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10 dynamic
      * @since 23 static
@@ -1000,9 +976,8 @@ declare namespace relationalStore {
     total: int;
 
     /**
-     * Describes the number of successfully synced data.
+     * Number of rows that are successfully synced between the device and cloud in the database table.
      *
-     * @type { int }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10 dynamic
      * @since 23 static
@@ -1010,9 +985,8 @@ declare namespace relationalStore {
     successful: int;
 
     /**
-     * Describes the number of data failed to sync.
+     * Number of rows that failed to be synced between the device and cloud in the database table.
      *
-     * @type { int }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10 dynamic
      * @since 23 static
@@ -1020,9 +994,8 @@ declare namespace relationalStore {
     failed: int;
 
     /**
-     * Describes the number of data remained to sync.
+     * Number of rows that are not executed for device-cloud sync in the database table.
      *
-     * @type { int }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10 dynamic
      * @since 23 static
@@ -1031,9 +1004,8 @@ declare namespace relationalStore {
   }
 
   /**
-   * Describes the {@code Statistic} details of the table.
+   * Defines a struct for statistics of device-cloud upload and download tasks of a database table.
    *
-   * @interface TableDetails
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 10 dynamic
    * @since 23 static
@@ -1042,7 +1014,6 @@ declare namespace relationalStore {
     /**
      * Describes the {@code Statistic} details of the upload process.
      *
-     * @type { Statistic }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10 dynamic
      * @since 23 static
@@ -1052,7 +1023,6 @@ declare namespace relationalStore {
     /**
      * Describes the {@code Statistic} details of the download process.
      *
-     * @type { Statistic }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10 dynamic
      * @since 23 static
@@ -1063,14 +1033,13 @@ declare namespace relationalStore {
   /**
    * Describes the status of {@code Progress}.
    *
-   * @enum { int }
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 10 dynamic
    * @since 23 static
    */
   enum ProgressCode {
     /**
-     * SUCCESS: means the status of progress is success.
+     * The device-cloud sync is successful.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10 dynamic
@@ -1079,7 +1048,7 @@ declare namespace relationalStore {
     SUCCESS = 0,
 
     /**
-     * UNKNOWN_ERROR: means the progress meets unknown error.
+     * An unknown error occurs during the device-cloud sync.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10 dynamic
@@ -1088,7 +1057,7 @@ declare namespace relationalStore {
     UNKNOWN_ERROR = 1,
 
     /**
-     * NETWORK_ERROR: means the progress meets network error.
+     * A network error occurs during the device-cloud sync.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10 dynamic
@@ -1097,7 +1066,7 @@ declare namespace relationalStore {
     NETWORK_ERROR = 2,
 
     /**
-     * CLOUD_DISABLED: means cloud is disabled.
+     * The cloud is unavailable.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10 dynamic
@@ -1106,7 +1075,9 @@ declare namespace relationalStore {
     CLOUD_DISABLED = 3,
 
     /**
-     * LOCKED_BY_OTHERS: means the progress is locked by others.
+     * The device-cloud sync of another device is being performed.
+     * 
+     * The sync of the local device can be performed only when the cloud resources are available.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10 dynamic
@@ -1115,7 +1086,8 @@ declare namespace relationalStore {
     LOCKED_BY_OTHERS = 4,
 
     /**
-     * RECORD_LIMIT_EXCEEDED: means the record exceeds the limit.
+     * The number of records or size of the data to be synced exceeds the maximum. The maximum value is configured on 
+     * the cloud.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10 dynamic
@@ -1124,7 +1096,7 @@ declare namespace relationalStore {
     RECORD_LIMIT_EXCEEDED = 5,
 
     /**
-     * NO_SPACE_FOR_ASSET: means the cloud has no space for the asset.
+     * The remaining cloud space is less than the size of the data to be synced.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10 dynamic
@@ -1133,19 +1105,27 @@ declare namespace relationalStore {
     NO_SPACE_FOR_ASSET = 6,
 
     /**
-     * BLOCKED_BY_NETWORK_STRATEGY: means the sync blocked by network strategy.
+     * The device-cloud sync is blocked due to the network strategy.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 12 dynamic
      * @since 23 static
      */
-    BLOCKED_BY_NETWORK_STRATEGY = 7
+    BLOCKED_BY_NETWORK_STRATEGY = 7,
+
+    /**
+     * STOP_CLOUD_SYNC: means cloud synchronization has been stopped.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    STOP_CLOUD_SYNC = 8
   }
 
   /**
    * Describes detail of the cloud sync {@code Progress}.
    *
-   * @interface ProgressDetails
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 10 dynamic
    * @since 23 static
@@ -1154,7 +1134,6 @@ declare namespace relationalStore {
     /**
      * Describes the status of data sync progress.
      *
-     * @type { Progress }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10 dynamic
      * @since 23 static
@@ -1164,7 +1143,6 @@ declare namespace relationalStore {
     /**
      * Describes the code of data sync progress.
      *
-     * @type { ProgressCode }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10 dynamic
      * @since 23 static
@@ -1172,107 +1150,73 @@ declare namespace relationalStore {
     code: ProgressCode;
 
     /**
-     * The statistic details of the tables.
+     * Indicates the code message.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 10
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
      */
+    message?: string;
+
     /**
-     * The statistic details of the tables.
+     * Statistics of each table.
+     * 
+     * The key indicates the table name, and the value indicates the device-cloud sync statistics of the table.
      *
-     * @type { Record<string, TableDetails> }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 11 dynamic
+     * @since 10 dynamic
      * @since 23 static
      */
     details: Record<string, TableDetails>;
   }
 
   /**
-   * Defines information about the SQL statements executed.
+   * Represents statistics about SQL statements executed by the database.
    *
-   * @interface SqlExecutionInfo
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @since 12
-   */
-  /**
-   * Defines information about the SQL statements executed.
-   *
-   * @interface SqlExecutionInfo
-   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @crossplatform
-   * @since 20 dynamic
+   * @crossplatform [since 20]
+   * @since 12 dynamic
    * @since 23 static
    */
   interface SqlExecutionInfo {
     /**
-     * Array of SQL statements executed. When the args of batchInsert is too large, there may be more than one SQL.
+     * SQL statements executed. If the value of [batchInsert]
+     * {@link @ohos.data.relationalStore:relationalStore.RdbStore.batchInsert(table: string)} is too large, multiple
+     * SQL statements may be executed.
      *
-     * @type { Array<string> }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 12
-     */
-    /**
-     * Array of SQL statements executed. When the args of batchInsert is too large, there may be more than one SQL.
-     *
-     * @type { Array<string> }
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 20 dynamic
+     * @crossplatform [since 20]
+     * @since 12 dynamic
      * @since 23 static
      */
     sql: Array<string>;
 
     /**
-     * Total time used for executing the SQL statements, in μs.
+     * Total time used to execute the SQL statements, in μs.
      *
-     * @type { number }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 12
-     */
-    /**
-     * Total time used for executing the SQL statements, in μs.
-     *
-     * @type { long }
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 20 dynamic
+     * @crossplatform [since 20]
+     * @since 12 dynamic
      * @since 23 static
      */
     totalTime: long;
 
     /**
-     * Maximum time allowed to obtain the SQL file handle, in μs.
+     * Time used to obtain the handle, in μs.
      *
-     * @type { number }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 12
-     */
-    /**
-     * Maximum time allowed to obtain the SQL file handle, in μs.
-     *
-     * @type { long }
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 20 dynamic
+     * @crossplatform [since 20]
+     * @since 12 dynamic
      * @since 23 static
      */
     waitTime: long;
 
     /**
-     * Time used to prepare SQL and args, in μs.
+     * Time used to get the SQL statements ready and bind parameters, in μs.
      *
-     * @type { number }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 12
-     */
-    /**
-     * Time used to prepare SQL and args, in μs.
-     *
-     * @type { long }
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 20 dynamic
+     * @crossplatform [since 20]
+     * @since 12 dynamic
      * @since 23 static
      */
     prepareTime: long;
@@ -1280,26 +1224,17 @@ declare namespace relationalStore {
     /**
      * Time used to execute the SQL statements, in μs.
      *
-     * @type { number }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 12
-     */
-    /**
-     * Time used to execute the SQL statements, in μs.
-     *
-     * @type { long }
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 20 dynamic
+     * @crossplatform [since 20]
+     * @since 12 dynamic
      * @since 23 static
      */
     executeTime: long;
   }
 
   /**
-   * Defines an exception message.
+   * Represents an exception message about the SQL statement executed by the database.
    *
-   * @interface ExceptionMessage
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
    * @since 20 dynamic
@@ -1307,9 +1242,9 @@ declare namespace relationalStore {
    */
   interface ExceptionMessage {
     /**
-     * Error code.
+     * Error code returned by the executed SQL statement. For details about the values and meanings, see 
+     * [SQLite Error Codes](https://www.sqlite.org/rescode.html).
      *
-     * @type { int }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 20 dynamic
@@ -1318,9 +1253,8 @@ declare namespace relationalStore {
     code: int;
 
     /**
-     * Error message.
+     * Exception message returned by the executed SQL statement.
      *
-     * @type { string }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 20 dynamic
@@ -1329,9 +1263,8 @@ declare namespace relationalStore {
     message: string;
 
     /**
-     * SQL statement executed when the exception occurs.
+     * SQL statement that reports the error.
      *
-     * @type { string }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 20 dynamic
@@ -1341,9 +1274,8 @@ declare namespace relationalStore {
   }
 
   /**
-   * Defines a SQL Information.
+   * Represents details about the SQL statement executed by the database.
    *
-   * @interface SqlInfo
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
    * @since 20 dynamic
@@ -1351,9 +1283,8 @@ declare namespace relationalStore {
    */
   interface SqlInfo {
     /**
-     * SQL statement.
+     * SQL statements to be executed.
      *
-     * @type { string }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 20 dynamic
@@ -1362,9 +1293,8 @@ declare namespace relationalStore {
     sql: string;
 
     /**
-     * Parameters of the SQL statement.
+     * Parameters in the SQL statements to be executed.
      *
-     * @type { Array<ValueType> }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 20 dynamic
@@ -1374,9 +1304,15 @@ declare namespace relationalStore {
   }
 
   /**
-   * Describes the {@code RdbStore} type.
+   * Enumerates the KV store security levels. Use the enum name rather than the enum value. You cannot change the
+   * security level of an RDB store from a higher level to a lower one.
+   * 
+   * > **NOTE**
+   * >
+   * > To perform data sync operations, the RDB store security level must be lower than or equal to that of the peer
+   * > device. For details, see [Access Control Mechanism in Cross-Device Sync]
+   * > (docroot://database/sync-app-data-across-devices-overview.md#access-control-mechanism-in-cross-device-sync).
    *
-   * @enum { int }
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
    * @since 9 dynamic
@@ -1384,8 +1320,8 @@ declare namespace relationalStore {
    */
   enum SecurityLevel {
     /**
-     * S1: means the db is low level security
-     * There are some low impact, when the data is leaked.
+     * The RDB store security level is low. If data leakage occurs, minor impact will be caused on the database. An 
+     * example would be a graph store containing non-sensitive system data such as wallpapers.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
@@ -1395,8 +1331,8 @@ declare namespace relationalStore {
     S1 = 1,
 
     /**
-     * S2: means the db is middle level security
-     * There are some major impact, when the data is leaked.
+     * The RDB store security level is medium. If data leakage occurs, moderate impact will be caused on the database. 
+     * An example would be a graph store containing audio and video data created by users or call logs.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
@@ -1406,8 +1342,8 @@ declare namespace relationalStore {
     S2 = 2,
 
     /**
-     * S3: means the db is high level security
-     * There are some severity impact, when the data is leaked.
+     * The RDB store security level is high. If data leakage occurs, major impact will be caused on the database. An 
+     * example would be a graph store containing user fitness, health, and location data.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
@@ -1417,8 +1353,8 @@ declare namespace relationalStore {
     S3 = 3,
 
     /**
-     * S4: means the db is critical level security
-     * There are some critical impact, when the data is leaked.
+     * The RDB store security level is critical. If data leakage occurs, severe impact will be caused on the database. 
+     * An example would be a graph store containing authentication credentials and financial data.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
@@ -1429,16 +1365,16 @@ declare namespace relationalStore {
   }
 
   /**
-   * Indicates the database synchronization mode.
+   * Defines the database synchronization mode. Use the enum name rather than the enum value.
    *
-   * @enum { int }
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 9 dynamic
    * @since 23 static
    */
   enum SyncMode {
     /**
-     * Indicates the data is pushed to remote device from local device.
+     * Data is pushed from a local device to a remote device.
+
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9 dynamic
@@ -1447,7 +1383,8 @@ declare namespace relationalStore {
     SYNC_MODE_PUSH = 0,
 
     /**
-     * Indicates the data is pulled from remote device to local device.
+     * Data is pulled from a remote device to a local device.
+
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9 dynamic
@@ -1456,7 +1393,8 @@ declare namespace relationalStore {
     SYNC_MODE_PULL = 1,
 
     /**
-     * Indicates the data is synchronized from the more recently modified endpoint to the older one.
+     * Synchronize with the data with the latest modification time.
+
      *
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 10 dynamic
@@ -1465,7 +1403,8 @@ declare namespace relationalStore {
     SYNC_MODE_TIME_FIRST,
 
     /**
-     * Indicates force push the native data to the cloud.
+     * Synchronize data from a local device to the cloud.
+
      *
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 10 dynamic
@@ -1474,7 +1413,8 @@ declare namespace relationalStore {
     SYNC_MODE_NATIVE_FIRST,
 
     /**
-     * Indicates the data is pulled from cloud to local device.
+     * Synchronize data from the cloud to a local device.
+
      *
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 10 dynamic
@@ -1484,16 +1424,16 @@ declare namespace relationalStore {
   }
 
   /**
-   * Describes the subscription type.
+   * Enumerates the subscription types. Use the enum name rather than the enum value.
    *
-   * @enum { int }
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 9 dynamic
    * @since 23 static
    */
   enum SubscribeType {
     /**
-     * Subscription to remote data changes
+     * Subscribe to remote data changes.
+
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9 dynamic
@@ -1502,39 +1442,29 @@ declare namespace relationalStore {
     SUBSCRIBE_TYPE_REMOTE = 0,
 
     /**
-     * Subscription to cloud data changes
+     * Subscribe to cloud data changes.
      *
-     * @permission ohos.permission.DISTRIBUTED_DATASYNC
+     * @permission ohos.permission.DISTRIBUTED_DATASYNC [since 10 - 11]
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
-     * @since 10
-     */
-    /**
-     * Subscription to cloud data changes
-     *
-     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
-     * @since 12 dynamic
+     * @since 10 dynamic
      * @since 23 static
      */
     SUBSCRIBE_TYPE_CLOUD = 1,
 
     /**
-     * Subscription to cloud data changes details
+     * Subscribe to detailed information about cloud data changes.
+
      *
-     * @permission ohos.permission.DISTRIBUTED_DATASYNC
+     * @permission ohos.permission.DISTRIBUTED_DATASYNC [since 10 - 11]
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
-     * @since 10
-     */
-    /**
-     * Subscription to cloud data changes details
-     *
-     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
-     * @since 12 dynamic
+     * @since 10 dynamic
      * @since 23 static
      */
     SUBSCRIBE_TYPE_CLOUD_DETAILS = 2,
 
     /**
-     * Subscription to local data changes details
+     * Subscribe to detailed information about local data changes.
+
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 12 dynamic
@@ -1544,60 +1474,45 @@ declare namespace relationalStore {
   }
 
   /**
-   * Describes the change type.
+   * Enumerates data change types. Use the enum name rather than the enum value.
    *
-   * @enum { int }
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 10 dynamic
    * @since 23 static
    */
   enum ChangeType {
     /**
-     * Means the change type is data change.
+     * Data change.
      *
-     * @permission ohos.permission.DISTRIBUTED_DATASYNC
+     * @permission ohos.permission.DISTRIBUTED_DATASYNC [since 10 - 11]
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 10
-     */
-    /**
-     * Means the change type is data change.
-     *
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 12 dynamic
+     * @since 10 dynamic
      * @since 23 static
      */
     DATA_CHANGE = 0,
 
     /**
-     * Means the change type is asset change.
+     * Asset change.
      *
-     * @permission ohos.permission.DISTRIBUTED_DATASYNC
+     * @permission ohos.permission.DISTRIBUTED_DATASYNC [since 10 - 11]
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 10
-     */
-    /**
-     * Means the change type is asset change.
-     *
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 12 dynamic
+     * @since 10 dynamic
      * @since 23 static
      */
     ASSET_CHANGE = 1
   }
 
   /**
-   * Indicates the notify info
+   * Defines a struct for the details about the device-cloud sync process.
    *
-   * @interface ChangeInfo
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 10 dynamic
    * @since 23 static
    */
   interface ChangeInfo {
     /**
-     * Indicates the changed table
+     * Name of the table with data changes.
      *
-     * @type { string }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10 dynamic
      * @since 23 static
@@ -1605,9 +1520,8 @@ declare namespace relationalStore {
     table: string;
 
     /**
-     * Indicates the changed type
+     * Type of the data changed, which can be data or asset.
      *
-     * @type { ChangeType }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10 dynamic
      * @since 23 static
@@ -1615,10 +1529,9 @@ declare namespace relationalStore {
     type: ChangeType;
 
     /**
-     * Indicates if there is a string primary key, the inserted will keep data's primary keys
-     * otherwise it will keep the data's rowid.
+     * Location where data is inserted. If the primary key of the table is of the string type, it is the value of the 
+     * primary key. Otherwise, it is the row number of the inserted data.
      *
-     * @type { Array<string> | Array<long> }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10 dynamic
      * @since 23 static
@@ -1626,10 +1539,9 @@ declare namespace relationalStore {
     inserted: Array<string> | Array<long>;
 
     /**
-     * Indicates if there is a string primary key, the updated will keep data's primary keys
-     * otherwise it will keep the data's rowid.
+     * Location where data is updated. If the primary key of the table is of the string type, it is the value of the 
+     * primary key. Otherwise, it is the row number of the updated data.
      *
-     * @type { Array<string> | Array<long> }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10 dynamic
      * @since 23 static
@@ -1637,10 +1549,9 @@ declare namespace relationalStore {
     updated: Array<string> | Array<long>;
 
     /**
-     * Indicates if there is a string primary key, the deleted will keep data's primary keys
-     * otherwise it will keep the data's rowid.
+     * Location where data is deleted. If the primary key of the table is of the string type, it is the value of the 
+     * primary key. Otherwise, it is the row number of the deleted data.
      *
-     * @type { Array<string> | Array<long> }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10 dynamic
      * @since 23 static
@@ -1649,15 +1560,18 @@ declare namespace relationalStore {
   }
 
   /**
-   * Describes the type of the distributed tables.
+   * Enumerates the distributed table types. Use the enum name rather than the enum value. This item is a database-level
+   * configuration. If a database contains multiple distributed tables, all tables must use the same distributed table 
+   * type; switching the table type or upgrade tables is not supported.
    *
-   * @enum { int }
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 23 dynamic&static
    */
   enum DistributedTableType {
     /**
-     * Device-collaboration table, data is isolated by device id.
+     * Multi-device collaboration table. Data on each device is stored in an independent distributed table in an 
+     * isolated manner instead of being written to the local table. The name of the distributed table is formed by 
+     * prepending the peer device's device ID to the original table name.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @stagemodelonly
@@ -1666,7 +1580,8 @@ declare namespace relationalStore {
     DEVICE_COLLABORATION = 0,
 
     /**
-     * Single-version table
+     * Single version table. Data is directly written to the local table of the peer device through the distributed data
+     * management framework.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @stagemodelonly
@@ -1676,16 +1591,17 @@ declare namespace relationalStore {
   }
 
   /**
-   * Describes the distribution type of the tables.
+   * Enumerates the distributed database table types. Use the enum name rather than the enum value.
    *
-   * @enum { int }
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 10 dynamic
    * @since 23 static
    */
   enum DistributedType {
     /**
-     * Indicates the table is distributed among the devices
+     * Distributed database table synced between devices.
+     * 
+     * SystemCapability.DistributedDataManager.RelationalStore.Core
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10 dynamic
@@ -1694,26 +1610,57 @@ declare namespace relationalStore {
     DISTRIBUTED_DEVICE = 0,
 
     /**
-     * Indicates the table is distributed between the cloud and the devices.
+     * Distributed database table synced between a device and the cloud.
+     * 
+     * SystemCapability.DistributedDataManager.CloudSync.Client
      *
-     * @permission ohos.permission.DISTRIBUTED_DATASYNC
+     * @permission ohos.permission.DISTRIBUTED_DATASYNC [since 10 - 11]
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
-     * @since 10
-     */
-    /**
-     * Indicates the table is distributed between the cloud and the devices.
-     *
-     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
-     * @since 12 dynamic
+     * @since 10 dynamic
      * @since 23 static
      */
     DISTRIBUTED_CLOUD = 1
   }
 
   /**
+   * Describes the asset conflict policy.
+   *
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  enum AssetConflictPolicy {
+    /**
+     * Indicates the default conflict policy.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    CONFLICT_POLICY_DEFAULT = 0,
+
+    /**
+     * Indicates the time-first conflict policy.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    CONFLICT_POLICY_TIME_FIRST = 1,
+
+    /**
+     * Indicates the temporary path conflict policy.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    CONFLICT_POLICY_TEMP_PATH = 2
+  }
+
+  /**
    * Indicates the reference between tables.
    *
-   * @interface Reference
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @systemapi
    * @since 11 dynamic
@@ -1723,7 +1670,6 @@ declare namespace relationalStore {
     /**
      * Indicates the table that references another table.
      *
-     * @type { string }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @systemapi
      * @since 11 dynamic
@@ -1734,7 +1680,6 @@ declare namespace relationalStore {
     /**
      * Indicates the table to be referenced.
      *
-     * @type { string }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @systemapi
      * @since 11 dynamic
@@ -1745,7 +1690,6 @@ declare namespace relationalStore {
     /**
      * Indicates the reference fields.
      *
-     * @type { Record<string, string> }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @systemapi
      * @since 11 dynamic
@@ -1755,18 +1699,20 @@ declare namespace relationalStore {
   }
 
   /**
-   * Manages the distributed configuration of the table.
+   * Defines a struct for distributed configuration of a table.
    *
-   * @interface DistributedConfig
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 10 dynamic
    * @since 23 static
    */
   interface DistributedConfig {
     /**
-     * Specifies whether the database auto sync.
+     * Whether the table supports automatic device-cloud synchronization. If the value is **true**, the system can
+     * automatically trigger device-cloud sync. If the value is **false**, the system cannot automatically trigger
+     * device-cloud sync, and the [cloudSync]
+     * {@link @ohos.data.relationalStore:relationalStore.RdbStore.cloudSync(mode: SyncMode, tables: string[])}
+     * API needs to be called to trigger device-cloud sync.
      *
-     * @type { boolean }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10 dynamic
      * @since 23 static
@@ -1776,7 +1722,6 @@ declare namespace relationalStore {
     /**
      * Specifies the reference relationships between tables.
      *
-     * @type { ?Array<Reference> }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @systemapi
      * @since 11 dynamic
@@ -1785,9 +1730,12 @@ declare namespace relationalStore {
     references?: Array<Reference>;
 
     /**
-     * Specifies whether async download assets.
+     * Whether to download assets synchronously or asynchronously when device-cloud sync is being performed for the 
+     * current RDB store. The value **true** means to use an asynchronous task to download assets after all data is 
+     * downloaded; **false** means to download assets synchronously. 
+     * 
+     * Default value: **false**.
      *
-     * @type { ?boolean }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 18 dynamic
      * @since 23 static
@@ -1795,9 +1743,9 @@ declare namespace relationalStore {
     asyncDownloadAsset?: boolean;
 
     /**
-     * Specifies whether the cloud sync is enabled for the database.
+     * Whether to enable device-cloud sync for this RDB store. The value **true** means to enable device-cloud sync; 
+     * **false** means the opposite. The default value is **true**.
      *
-     * @type { ?boolean }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 18 dynamic
      * @since 23 static
@@ -1805,19 +1753,56 @@ declare namespace relationalStore {
     enableCloud?: boolean;
 
     /**
-     * Specify distributed table type.
+     * Distributed table type. **DEVICE_COLLABORATION** indicates the device collaboration table, and **SINGLE_VERSION**
+     * indicates the single version table. For cross-device data sync, the default value is **DEVICE_COLLABORATION**. 
+     * For device-cloud data sync, the default value is **SINGLE_VERSION**, and **DEVICE_COLLABORATION** is not 
+     * supported.
      *
-     * @type { ?DistributedTableType }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 23 dynamic&static
      */
     tableType?: DistributedTableType;
+
+    /**
+     * Specifies the asset conflict policy.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    assetConflictPolicy?: AssetConflictPolicy;
+
+    /**
+     * Specifies the asset temp path.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    assetTempPath?: string;
+
+    /**
+     * Specifies whether to download assets on demand.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    assetDownloadOnDemand?: boolean;
+
+    /**
+     * Specifies the auto synchronization switch.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    autoSyncSwitch?: boolean;
   }
 
   /**
    * Manages the distributed info of the table.
    *
-   * @interface DistributedInfo
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @systemapi
    * @stagemodelonly
@@ -1827,18 +1812,16 @@ declare namespace relationalStore {
     /**
      * Specifies the data origin sources.
      *
-     * @type { ?DistributedOrigin }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @systemapi
      * @stagemodelonly
      * @since 24 dynamic&static
      */
     flag?: DistributedOrigin;
-        
+
     /**
      * Specifies the data origin sources device ID.
      *
-     * @type { ?string }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @systemapi
      * @stagemodelonly
@@ -1848,9 +1831,54 @@ declare namespace relationalStore {
   }
 
   /**
+   * Cloud sync configuration.
+   *
+   * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  interface CloudSyncConfig {
+    /**
+     * Indicates the database synchronization mode.
+     *
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    mode: SyncMode;
+
+    /**
+     * Indicates whether the sync operation should be download‑only.
+     *
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    downloadOnly?: boolean;
+
+    /**
+     * Indicates the table-level synchronization switch.
+     *
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    enablePredicate?: boolean;
+
+    /**
+     * Indicates the table-level synchronization predicate.
+     *
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    predicate?: RdbPredicates;
+  }
+
+  /**
    * Enumerates the DistributedField.
    *
-   * @enum { string }
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @systemapi
    * @stagemodelonly
@@ -1875,14 +1903,35 @@ declare namespace relationalStore {
      * @stagemodelonly
      * @since 24 dynamic&static
      */
-    ORIGIN_ORIDEVICE = '#_ori_device'
+    ORIGIN_ORIDEVICE = '#_ori_device',
+
+    /**
+     * Cursor field.
+     * 
+     * This parameter can be used as the input parameter of the predicate of the query interface
+     * and as the query filter condition.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    CURSOR_FIELD = '#_cursor',
+
+    /**
+     * Indicates whether data has been deleted.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    DELETED_FLAG_FIELD = '#_deleted_flag'
   }
-  
-  
+
   /**
    * Describes the data origin sources.
    *
-   * @enum { int }
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @systemapi
    * @stagemodelonly
@@ -1921,9 +1970,9 @@ declare namespace relationalStore {
   }
 
   /**
-   * Describes the conflict resolutions to insert data into the table.
+   * Enumerates the resolutions used when a conflict occurs during data insertion or modification. Use the enum name 
+   * rather than the enum value.
    *
-   * @enum { int }
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
    * @since 10 dynamic
@@ -1931,7 +1980,7 @@ declare namespace relationalStore {
    */
   enum ConflictResolution {
     /**
-     * Implements no action when conflict occurs.
+     * No operation is performed.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
@@ -1941,7 +1990,7 @@ declare namespace relationalStore {
     ON_CONFLICT_NONE = 0,
 
     /**
-     * Implements rollback operation when conflict occurs.
+     * Abort the SQL statement and roll back the current transaction.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
@@ -1951,7 +2000,8 @@ declare namespace relationalStore {
     ON_CONFLICT_ROLLBACK = 1,
 
     /**
-     * Implements abort operation when conflict occurs.
+     * Abort the current SQL statement and revert any changes made by the current SQL statement. However, the changes 
+     * made by the previous SQL statement in the same transaction are retained and the transaction remains active.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
@@ -1961,7 +2011,8 @@ declare namespace relationalStore {
     ON_CONFLICT_ABORT = 2,
 
     /**
-     * Implements fail operation when conflict occurs.
+     * Abort the current SQL statement. The **FAIL** resolution does not revert previous changes made by the failed SQL 
+     * statement or end the transaction.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
@@ -1971,7 +2022,8 @@ declare namespace relationalStore {
     ON_CONFLICT_FAIL = 3,
 
     /**
-     * Implements ignore operation when conflict occurs.
+     * Skip the rows that contain constraint violations and continue to process the subsequent rows of the SQL 
+     * statement.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
@@ -1981,7 +2033,8 @@ declare namespace relationalStore {
     ON_CONFLICT_IGNORE = 4,
 
     /**
-     * Implements replace operation operator when conflict occurs.
+     * Delete pre-existing rows that cause the constraint violation before inserting or updating the current row, and 
+     * continue to execute the command normally.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
@@ -1992,9 +2045,8 @@ declare namespace relationalStore {
   }
 
   /**
-   * Describes the data origin sources.
+   * Enumerates the data sources. Use the enum name rather than the enum value.
    *
-   * @enum { int }
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
    * @since 11 dynamic
    * @since 23 static
@@ -2029,150 +2081,101 @@ declare namespace relationalStore {
   }
 
   /**
-   * Enumerates the field.
+   * Enumerates predicates used as query conditions. Use the enum name rather than the enum value.
    *
-   * @enum { string }
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
-   * @since 11
-   */
-  /**
-   * Enumerates the field.
-   *
-   * @enum { string }
-   * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
-   * @crossplatform
-   * @since 20 dynamic
+   * @crossplatform [since 20]
+   * @since 11 dynamic
    * @since 23 static
    */
   enum Field {
     /**
-     * Cursor field.
+     * Field name used for cursor-based search.
      *
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
-     * @since 11
-     */
-    /**
-     * Cursor field.
-     *
-     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
-     * @crossplatform
-     * @since 20 dynamic
+     * @crossplatform [since 20]
+     * @since 11 dynamic
      * @since 23 static
      */
     CURSOR_FIELD = '#_cursor',
 
     /**
-     * Origin field. For details, see {@link Origin}.
+     * Field name used to specify the data source in cursor-based search.
      *
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
-     * @since 11
-     */
-    /**
-     * Origin field. For details, see {@link Origin}.
-     *
-     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
-     * @crossplatform
-     * @since 20 dynamic
+     * @crossplatform [since 20]
+     * @since 11 dynamic
      * @since 23 static
      */
     ORIGIN_FIELD = '#_origin',
 
     /**
-     * Deleted flag field.
-     * Indicates whether data has deleted in cloud.
+     * Whether the dirty data (data deleted from the cloud) is cleared from the local device. It fills in the result set
+     * returned upon the cursor-based search.
+     * 
+     * The value **true** means the dirty data is cleared; the value **false** means the opposite.
      *
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
-     * @since 11
-     */
-    /**
-     * Deleted flag field.
-     * Indicates whether data has deleted in cloud.
-     *
-     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
-     * @crossplatform
-     * @since 20 dynamic
+     * @crossplatform [since 20]
+     * @since 11 dynamic
      * @since 23 static
      */
     DELETED_FLAG_FIELD = '#_deleted_flag',
 
     /**
-     * Data status field.
-     * Indicates data status.
+     * Data status in the cursor-based search result set. The value **0** indicates normal data status; **1** indicates 
+     * that data is retained after the account is logged out; **2** indicates that data is deleted from the cloud; **3**
+     * indicates that data is deleted after the account is logged out.
      *
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
-     * @since 12
-     */
-    /**
-     * Data status field.
-     * Indicates data status.
-     *
-     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
-     * @crossplatform
-     * @since 20 dynamic
+     * @crossplatform [since 20]
+     * @since 12 dynamic
      * @since 23 static
      */
     DATA_STATUS_FIELD = '#_data_status',
 
     /**
-     * Owner field.
+     * Party who shares the data. It fills in the result set returned when the owner of the shared data is searched.
      *
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
-     * @since 11
-     */
-    /**
-     * Owner field.
-     *
-     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
-     * @crossplatform
-     * @since 20 dynamic
+     * @crossplatform [since 20]
+     * @since 11 dynamic
      * @since 23 static
      */
     OWNER_FIELD = '#_cloud_owner',
 
     /**
-     * Privilege field.
+     * Operation permission on the shared data. It fills in the result set returned when the permission on the shared 
+     * data is searched.
      *
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
-     * @since 11
-     */
-    /**
-     * Privilege field.
-     *
-     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
-     * @crossplatform
-     * @since 20 dynamic
+     * @crossplatform [since 20]
+     * @since 11 dynamic
      * @since 23 static
      */
     PRIVILEGE_FIELD = '#_cloud_privilege',
 
     /**
-     * Sharing resource field.
+     * Resource shared. It fills in the result set returned when the shared resource is searched.
      *
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
-     * @since 11
-     */
-    /**
-     * Sharing resource field.
-     *
-     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
-     * @crossplatform
-     * @since 20 dynamic
+     * @crossplatform [since 20]
+     * @since 11 dynamic
      * @since 23 static
      */
     SHARING_RESOURCE_FIELD = '#_sharing_resource_field'
   }
 
   /**
-   * Enumerates the type of rebuild.
+   * Enumerates the RDB store rebuild types. Use the enum name rather than the enum value.
    *
-   * @enum { int }
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 12 dynamic
    * @since 23 static
    */
   enum RebuildType {
     /**
-     * The database is not rebuilt or repaired.
+     * The RDB store is not rebuilt.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 12 dynamic
@@ -2181,7 +2184,7 @@ declare namespace relationalStore {
     NONE = 0,
 
     /**
-     * The database is rebuilt.
+     * The RDB store is rebuilt and creates an empty database. You need to create tables and restore data.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 12 dynamic
@@ -2190,7 +2193,8 @@ declare namespace relationalStore {
     REBUILT = 1,
 
     /**
-     * The database is repaired.
+     * The database is repaired and the undamaged data is restored. Currently, only the 
+     * [vector store]{@link @ohos.data.relationalStore:relationalStore.StoreConfig} supports this capability.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 12 dynamic
@@ -2200,111 +2204,76 @@ declare namespace relationalStore {
   }
 
   /**
-   * Enumerates the type of transaction.
+   * Enumerates the types of transaction objects that can be created. Use the enum name rather than the enum value.
    *
-   * @enum { number }
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @since 14
-   */
-  /**
-   * Enumerates the type of transaction.
-   *
-   * @enum { int }
-   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @crossplatform
-   * @since 20 dynamic
+   * @crossplatform [since 20]
+   * @since 14 dynamic
    * @since 23 static
    */
   enum TransactionType {
     /**
-     * The DEFERRED transaction.
+     * Deferred transaction object. When a deferred transaction object is created, automatic commit is disabled and no 
+     * transaction will start. A read or write transaction starts only when the first read or write operation is 
+     * performed.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 14
-     */
-    /**
-     * The DEFERRED transaction.
-     *
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 20 dynamic
+     * @crossplatform [since 20]
+     * @since 14 dynamic
      * @since 23 static
      */
     DEFERRED = 0,
 
     /**
-     * The IMMEDIATE transaction.
+     * Immediate transaction object. When an immediate transaction object is created, a write transaction starts. If 
+     * there is any uncommitted write transaction, the transaction object cannot be created and error 14800024 is 
+     * returned.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 14
-     */
-    /**
-     * The IMMEDIATE transaction.
-     *
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 20 dynamic
+     * @crossplatform [since 20]
+     * @since 14 dynamic
      * @since 23 static
      */
     IMMEDIATE = 1,
 
     /**
-     * The EXCLUSIVE transaction.
+     * Exclusive transaction object. In WAL mode, the exclusive transaction object is the same as the immediate 
+     * transaction object. In other log modes, this type of transaction can prevent the database from being read by 
+     * other connections during the transaction.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 14
-     */
-    /**
-     * The EXCLUSIVE transaction.
-     *
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 20 dynamic
+     * @crossplatform [since 20]
+     * @since 14 dynamic
      * @since 23 static
      */
     EXCLUSIVE = 2
   }
 
   /**
-   * Create transaction options.
+   * Represents the configuration of a transaction object.
    *
-   * @interface TransactionOptions
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @since 14
-   */
-  /**
-   * Create transaction options.
-   *
-   * @interface TransactionOptions
-   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @crossplatform
-   * @since 20 dynamic
+   * @crossplatform [since 20]
+   * @since 14 dynamic
    * @since 23 static
    */
   interface TransactionOptions {
     /**
-     * The type of transaction.
+     * Transaction object type. 
+     * 
+     * Default value: **DEFERRED**.
      *
-     * @type { TransactionType }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 14
-     */
-    /**
-     * The type of transaction.
-     *
-     * @type { TransactionType }
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 20 dynamic
+     * @crossplatform [since 20]
+     * @since 14 dynamic
      * @since 23 static
      */
     transactionType?: TransactionType;
   }
 
   /**
-   * Enumerates the data types of a column.
+   * Enumerates the types of the column data. Use the enum name rather than the enum value.
    *
-   * @enum { int }
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
    * @since 18 dynamic
@@ -2322,9 +2291,12 @@ declare namespace relationalStore {
     NULL = 0,
 
     /**
-     * The value in the column is a 64-bit integer. It can be used to hold an 8-bit (including Boolean values), 16-bit,
-     * 32-bit, or 64-bit integer.if the 64-bit integer is greater than 2^53 or less than -2^53, you can use getString
-     * to convert the 64-bit integer into a string.
+     * 64-bit integer. 
+     * 
+     * The column can hold 8-bit (including Boolean values), 16-bit, 32-bit, and 64-bit integers. If the 64-bit integer 
+     * is greater than 2^53 or less than -2^53, use 
+     * [getString]{@link @ohos.data.relationalStore:relationalStore.ResultSet.getString} to convert the 64-bit integer 
+     * to a string.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
@@ -2405,8 +2377,9 @@ declare namespace relationalStore {
   }
 
   /**
-   * Configuration items for the specified returning-related interfaces.
-   * @interface ReturningConfig
+   * Specifies the list of field names to return after returning-related APIs are called and the maximum number of 
+   * records allowed in the result set.
+   *
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @stagemodelonly
    * @crossplatform
@@ -2414,8 +2387,9 @@ declare namespace relationalStore {
    */
   interface ReturningConfig {
     /**
-     * Indicates the changed fields that need to be returning.
-     * @type { Array<string> }
+     * Fields returned in the result set. One to four fields are supported for input. Note: Field names containing 
+     * spaces ( ), commas (,), or asterisks (*) are not allowed.
+     *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @stagemodelonly
      * @crossplatform
@@ -2424,9 +2398,10 @@ declare namespace relationalStore {
     columns: Array<string>;
 
     /**
-     * Indicates the maximum number of entries in the returned result set, with a default value of 1024.
+     * Maximum number of rows returned in the result set. The default value is **1024**, and the maximum value is 
+     * **32766**. Note: If the actual number of modified rows exceeds the value set for **maxReturningCount**, the 
+     * system will discard the excess data.
      *
-     * @type { ?int }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @stagemodelonly
      * @crossplatform
@@ -2436,8 +2411,8 @@ declare namespace relationalStore {
   }
 
   /**
-   * Entries recording data changes and fields that have been modified.
-   * @interface ResultSet
+   * Records the number of affected data rows and the result set.
+   *
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @stagemodelonly
    * @crossplatform
@@ -2445,8 +2420,8 @@ declare namespace relationalStore {
    */
   interface Result {
     /**
-     * Indicates the number of rows affected by this operation.
-     * @type { long }
+     * Number of affected rows.
+     *
      * @readonly
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @stagemodelonly
@@ -2456,9 +2431,9 @@ declare namespace relationalStore {
     readonly changed: long;
 
     /**
-     * The result set of data changes.
+     * Result set of the affected data. Defaults to 1,024 rows of data, with a maximum supported limit of 32,766 rows 
+     * supported; excess rows will be discarded.
      *
-     * @type { LiteResultSet }
      * @readonly
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @stagemodelonly
@@ -2469,50 +2444,195 @@ declare namespace relationalStore {
   }
 
   /**
-   * Defines the predicates for a Relational Database.
-   * This class determines whether the conditional expression for the Relational Database is true or false.
+   * Describes the status of device sync.
    *
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @since 9
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
    */
+  enum SyncResultCode {  
+    /**
+     * Indicates sync success.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    SUCCESS = 0,
+
+    /**
+     * Indicates sync fail, for detailed reasons, please refer to the message.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    FAIL = 1,
+
+    /**
+     * Indicates that the device is offline.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    OFFLINE = 2,
+
+    /**
+     * Indicates parameter is invalid.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    INVALID_ARGS = 3,
+
+    /**
+     * Indicates that a distributed table is not set.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    DISTRIBUTED_TABLE_NOT_SET = 4,
+
+    /**
+     * Indicates that the synchronization field of the peer device is inconsistent with that of the local device.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    TABLE_FIELD_MISMATCH = 5,
+
+    /**
+     * Indicates that the schema field of the peer device is inconsistent with that of the local device.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    DISTRIBUTED_SCHEMA_MISMATCH = 6,
+
+    /**
+     * Indicates that the database is busy.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    BUSY = 7,
+
+    /**
+     * Indicates that the database is corrupted.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    CORRUPTED = 8,
+
+    /**
+     * Indicates synchronization timeout.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    TIMEOUT = 9,
+
+    /**
+     * Indicates that the table structure changed during the synchronization process.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    SCHEMA_CHANGED = 10,
+
+    /**
+     * Indicates a violation of constraints when synchronizing data.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    CONSTRAINT_VIOLATION = 11,
+  }
+
   /**
-   * Defines the predicates for a Relational Database.
-   * This class determines whether the conditional expression for the Relational Database is true or false.
+   * Indicates synchronization result.
    *
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @crossplatform
-   * @since 10 dynamic
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  interface SyncResult {  
+    /**
+     * Indicates the synchronization deviceId.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    readonly device:string;
+
+    /**
+     * Indicates the synchronization result code.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    readonly code:SyncResultCode;
+
+    /**
+     * Indicates detailed information about the synchronization results.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    readonly message:string;
+  }
+
+  /**
+   * Defines the predicates for an RDB store. This class determines whether the conditional expression for the RDB store
+   * is true or false. Multiple predicates statements can be concatenated by using **and()** by default. 
+   * **RdbPredicates** cannot be passed across threads using Sendable.
+   *
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @crossplatform [since 10]
+   * @since 9 dynamic
    * @since 23 static
    */
   class RdbPredicates {
     /**
-     * A parameterized constructor used to create a RdbPredicates instance.
+     * Defines a constructor used to create an **RdbPredicates** object.
      *
-     * @param { string } name - Indicates the table name of the database.
+     * @param { string } name - Database table name.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 9
-     */
-    /**
-     * A parameterized constructor used to create a RdbPredicates instance.
-     *
-     * @param { string } name - Indicates the table name of the database.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
      * @since 23 static
      */
     constructor(name: string);
 
-    /**
-     * Specifies remote devices which connect to local device when syncing distributed database.
-     * When query database, this function should not be called.
+/**
+      * Creates an **RdbPredicates** object to specify the remote devices to connect on the network during distributed
+      * database sync.
+      * 
+      * > **NOTE**
+      * >
+      * > **devices** can be obtained by using [deviceManager.getAvailableDeviceListSync]
+      * > {@link @ohos.distributedDeviceManager:distributedDeviceManager.DeviceManager.getAvailableDeviceListSync}.
+      * > When calling **sync()**, you need to call **inDevices** to specify the devices. If **inDevices** is not used,
+      * > data will be synced to all devices on the network by default.
      *
-     * @param { Array<string> } devices - Indicates specified remote devices.
-     * @returns { RdbPredicates } - The {@link RdbPredicates} self.
+     * @param { Array<string> } devices - IDs of the remote devices to connect.
+     * @returns { RdbPredicates } **RdbPredicates** object created.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
@@ -2522,10 +2642,10 @@ declare namespace relationalStore {
     inDevices(devices: Array<string>): RdbPredicates;
 
     /**
-     * Specifies all remote devices which connect to local device when syncing distributed database.
-     * When query database, this function should not be called.
+     * Creates an **RdbPredicates** object to specify all remote devices on the network to connect during distributed 
+     * database sync.
      *
-     * @returns { RdbPredicates } - The {@link RdbPredicates} self.
+     * @returns { RdbPredicates } **RdbPredicates** object created.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9 dynamic
      * @since 23 static
@@ -2533,703 +2653,408 @@ declare namespace relationalStore {
     inAllDevices(): RdbPredicates;
 
     /**
-     * Configure the RdbPredicates to match the field whose data type is ValueType and value is equal
-     * to a specified value.
-     * This method is similar to = of the SQL statement.
+     * Creates an **RdbPredicates** object to search for the records in the specified column that are equal to the given
+     * value.
      *
-     * @param { string } field - Indicates the column name in the database table.
-     * @param { ValueType } value - Indicates the value to match with the {@link RdbPredicates}.
-     * @returns { RdbPredicates } - The {@link RdbPredicates} self.
+     * @param { string } field - Column name in the database table.
+     * @param { ValueType } value - Value to match.
+     * @returns { RdbPredicates } **RdbPredicates** object created.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 9
-     */
-    /**
-     * Configure the RdbPredicates to match the field whose data type is ValueType and value is equal
-     * to a specified value.
-     * This method is similar to = of the SQL statement.
-     *
-     * @param { string } field - Indicates the column name in the database table.
-     * @param { ValueType } value - Indicates the value to match with the {@link RdbPredicates}.
-     * @returns { RdbPredicates } - The {@link RdbPredicates} self.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
      * @since 23 static
      */
     equalTo(field: string, value: ValueType): RdbPredicates;
 
     /**
-     * Configure the RdbPredicates to match the field whose data type is ValueType and value is not equal to
-     * a specified value.
-     * This method is similar to != of the SQL statement.
+     * Creates an **RdbPredicates** object to search for the records in the specified column that are not equal to the 
+     * given value.
      *
-     * @param { string } field - Indicates the column name in the database table.
-     * @param { ValueType } value - Indicates the value to match with the {@link RdbPredicates}.
-     * @returns { RdbPredicates } - The {@link RdbPredicates} self.
+     * @param { string } field - Column name in the database table.
+     * @param { ValueType } value - Value to match.
+     * @returns { RdbPredicates } **RdbPredicates** object created.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 9
-     */
-    /**
-     * Configure the RdbPredicates to match the field whose data type is ValueType and value is not equal to
-     * a specified value.
-     * This method is similar to != of the SQL statement.
-     *
-     * @param { string } field - Indicates the column name in the database table.
-     * @param { ValueType } value - Indicates the value to match with the {@link RdbPredicates}.
-     * @returns { RdbPredicates } - The {@link RdbPredicates} self.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
      * @since 23 static
      */
     notEqualTo(field: string, value: ValueType): RdbPredicates;
 
     /**
-     * Adds a left parenthesis to the RdbPredicates.
-     * This method is similar to ( of the SQL statement and needs to be used together with endWrap().
+     * Creates an **RdbPredicates** object to add a left parenthesis.
      *
-     * @returns { RdbPredicates } - The {@link RdbPredicates} with the left parenthesis.
+     * @returns { RdbPredicates } **RdbPredicates** object created.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 9
-     */
-    /**
-     * Adds a left parenthesis to the RdbPredicates.
-     * This method is similar to ( of the SQL statement and needs to be used together with endWrap().
-     *
-     * @returns { RdbPredicates } - The {@link RdbPredicates} with the left parenthesis.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
      * @since 23 static
      */
     beginWrap(): RdbPredicates;
 
     /**
-     * Adds a right parenthesis to the RdbPredicates.
-     * This method is similar to ) of the SQL statement and needs to be used together with beginWrap().
+     * Creates an **RdbPredicates** object to add a right parenthesis.
      *
-     * @returns { RdbPredicates } - The {@link RdbPredicates} with the right parenthesis.
+     * @returns { RdbPredicates } **RdbPredicates** object created.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 9
-     */
-    /**
-     * Adds a right parenthesis to the RdbPredicates.
-     * This method is similar to ) of the SQL statement and needs to be used together with beginWrap().
-     *
-     * @returns { RdbPredicates } - The {@link RdbPredicates} with the right parenthesis.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
      * @since 23 static
      */
     endWrap(): RdbPredicates;
 
     /**
-     * Adds an or condition to the RdbPredicates.
-     * This method is similar to or of the SQL statement.
+     * Creates an **RdbPredicates** object to add the OR condition.
      *
-     * @returns { RdbPredicates } - The {@link RdbPredicates} with the or condition.
+     * @returns { RdbPredicates } **RdbPredicates** object created.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 9
-     */
-    /**
-     * Adds an or condition to the RdbPredicates.
-     * This method is similar to or of the SQL statement.
-     *
-     * @returns { RdbPredicates } - The {@link RdbPredicates} with the or condition.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
      * @since 23 static
      */
     or(): RdbPredicates;
 
     /**
-     * Adds an and condition to the RdbPredicates.
-     * This method is similar to and of the SQL statement.
+     * Creates an **RdbPredicates** object to add the AND condition.
      *
-     * @returns { RdbPredicates } - The {@link RdbPredicates} with the and condition.
+     * @returns { RdbPredicates } **RdbPredicates** object created.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 9
-     */
-    /**
-     * Adds an and condition to the RdbPredicates.
-     * This method is similar to and of the SQL statement.
-     *
-     * @returns { RdbPredicates } - The {@link RdbPredicates} with the and condition.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
      * @since 23 static
      */
     and(): RdbPredicates;
 
     /**
-     * Configure the RdbPredicates to match the field whose data type is string and value
-     * contains a specified value.
-     * This method is similar to contains of the SQL statement.
+     * Creates an **RdbPredicates** object to search for the records in the specified column that contain the given 
+     * value.
      *
-     * @param { string } field - Indicates the column name in the database table.
-     * @param { string } value - Indicates the value to match with the {@link RdbPredicates}.
-     * @returns { RdbPredicates } - The {@link RdbPredicates} self.
+     * @param { string } field - Column name in the database table.
+     * @param { string } value - Value to match.
+     * @returns { RdbPredicates } **RdbPredicates** object created.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 9
-     */
-    /**
-     * Configure the RdbPredicates to match the field whose data type is string and value
-     * contains a specified value.
-     * This method is similar to contains of the SQL statement.
-     *
-     * @param { string } field - Indicates the column name in the database table.
-     * @param { string } value - Indicates the value to match with the {@link RdbPredicates}.
-     * @returns { RdbPredicates } - The {@link RdbPredicates} self.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
      * @since 23 static
      */
     contains(field: string, value: string): RdbPredicates;
 
     /**
-     * Configure the RdbPredicates to match the field whose data type is string and value starts
-     * with a specified string.
-     * This method is similar to value% of the SQL statement.
+     * Creates an **RdbPredicates** object to search for the records in the specified column that begin with the given 
+     * value.
      *
-     * @param { string } field - Indicates the column name in the database table.
-     * @param { string } value - Indicates the value to match with the {@link RdbPredicates}.
-     * @returns { RdbPredicates } - The {@link RdbPredicates} self.
+     * @param { string } field - Column name in the database table.
+     * @param { string } value - Value to match.
+     * @returns { RdbPredicates } **RdbPredicates** object created.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 9
-     */
-    /**
-     * Configure the RdbPredicates to match the field whose data type is string and value starts
-     * with a specified string.
-     * This method is similar to value% of the SQL statement.
-     *
-     * @param { string } field - Indicates the column name in the database table.
-     * @param { string } value - Indicates the value to match with the {@link RdbPredicates}.
-     * @returns { RdbPredicates } - The {@link RdbPredicates} self.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
      * @since 23 static
      */
     beginsWith(field: string, value: string): RdbPredicates;
 
     /**
-     * Configure the RdbPredicates to match the field whose data type is string and value
-     * ends with a specified string.
-     * This method is similar to %value of the SQL statement.
+     * Creates an **RdbPredicates** object to search for the records in the specified column that end with the given 
+     * value.
      *
-     * @param { string } field - Indicates the column name in the database table.
-     * @param { string } value - Indicates the value to match with the {@link RdbPredicates}.
-     * @returns { RdbPredicates } - The {@link RdbPredicates} self.
+     * @param { string } field - Column name in the database table.
+     * @param { string } value - Value to match.
+     * @returns { RdbPredicates } **RdbPredicates** object created.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 9
-     */
-    /**
-     * Configure the RdbPredicates to match the field whose data type is string and value
-     * ends with a specified string.
-     * This method is similar to %value of the SQL statement.
-     *
-     * @param { string } field - Indicates the column name in the database table.
-     * @param { string } value - Indicates the value to match with the {@link RdbPredicates}.
-     * @returns { RdbPredicates } - The {@link RdbPredicates} self.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
      * @since 23 static
      */
     endsWith(field: string, value: string): RdbPredicates;
 
     /**
-     * Configure the RdbPredicates to match the fields whose value is null.
-     * This method is similar to is null of the SQL statement.
+     * Creates an **RdbPredicates** object to search for the records in the specified column that are **null**.
      *
-     * @param { string } field - Indicates the column name in the database table.
-     * @returns { RdbPredicates } - The {@link RdbPredicates} self.
+     * @param { string } field - Column name in the database table.
+     * @returns { RdbPredicates } **RdbPredicates** object created.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 9
-     */
-    /**
-     * Configure the RdbPredicates to match the fields whose value is null.
-     * This method is similar to is null of the SQL statement.
-     *
-     * @param { string } field - Indicates the column name in the database table.
-     * @returns { RdbPredicates } - The {@link RdbPredicates} self.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
      * @since 23 static
      */
     isNull(field: string): RdbPredicates;
 
     /**
-     * Configure the RdbPredicates to match the specified fields whose value is not null.
-     * This method is similar to is not null of the SQL statement.
+     * Creates an **RdbPredicates** object to search for the records in the specified column that are not **null**.
      *
-     * @param { string } field - Indicates the column name in the database table.
-     * @returns { RdbPredicates } - The {@link RdbPredicates} self.
+     * @param { string } field - Column name in the database table.
+     * @returns { RdbPredicates } **RdbPredicates** object created.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 9
-     */
-    /**
-     * Configure the RdbPredicates to match the specified fields whose value is not null.
-     * This method is similar to is not null of the SQL statement.
-     *
-     * @param { string } field - Indicates the column name in the database table.
-     * @returns { RdbPredicates } - The {@link RdbPredicates} self.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
      * @since 23 static
      */
     isNotNull(field: string): RdbPredicates;
 
     /**
-     * Configure the RdbPredicates to match the fields whose data type is string and value is
-     * similar to a specified string.
-     * This method is similar to like of the SQL statement.
+     * Creates an **RdbPredicates** object to search for the records in the specified column that are similar to the 
+     * given value.
      *
-     * @param { string } field - Indicates the column name in the database table.
-     * @param { string } value - Indicates the value to match with the {@link RdbPredicates}.
-     * @returns { RdbPredicates } - The {@link RdbPredicates} that match the specified field.
+     * @param { string } field - Column name in the database table.
+     * @param { string } value - Condition for fuzzy match. Generally, this parameter is used together with a wildcard.
+     *     A percent sign (%) represents any character of any length, and an underscore (_) represents a single
+     *     character.
+     * @returns { RdbPredicates } **RdbPredicates** object created.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 9
-     */
-    /**
-     * Configure the RdbPredicates to match the fields whose data type is string and value is
-     * similar to a specified string.
-     * This method is similar to like of the SQL statement.
-     *
-     * @param { string } field - Indicates the column name in the database table.
-     * @param { string } value - Indicates the value to match with the {@link RdbPredicates}.
-     * @returns { RdbPredicates } - The {@link RdbPredicates} that match the specified field.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
      * @since 23 static
      */
     like(field: string, value: string): RdbPredicates;
 
     /**
-     * Configure RdbPredicates to match the specified field whose data type is string and the value contains
-     * a wildcard.
-     * Different from like, the input parameters of this method are case-sensitive.
+     * Creates an **RdbPredicates** object to search for the records in the specified column that match the given 
+     * string.
      *
-     * @param { string } field - Indicates the column name in the database table.
-     * @param { string } value - Indicates the value to match with the {@link RdbPredicates}.
-     * @returns { RdbPredicates } - The SQL statement with the specified {@link RdbPredicates}.
+     * @param { string } field - Column name in the database table.
+     * @param { string } value - Value to match.<br>Wildcards are supported. An asterisk (*) indicates zero, one, or
+     *     multiple digits or characters, and a question mark (?) indicates a single digit or character.
+     * @returns { RdbPredicates } **RdbPredicates** object created.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 9
-     */
-    /**
-     * Configure RdbPredicates to match the specified field whose data type is string and the value contains
-     * a wildcard.
-     * Different from like, the input parameters of this method are case-sensitive.
-     *
-     * @param { string } field - Indicates the column name in the database table.
-     * @param { string } value - Indicates the value to match with the {@link RdbPredicates}.
-     * @returns { RdbPredicates } - The SQL statement with the specified {@link RdbPredicates}.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
      * @since 23 static
      */
     glob(field: string, value: string): RdbPredicates;
 
     /**
-     * Configure RdbPredicates to match the specified field whose value is within a given range.
+     * Creates an **RdbPredicates** object to search for the records that are within the given range (including the min.
+     * and max. values) in the specified column.
      *
-     * @param { string } field - Indicates the column name.
-     * @param { ValueType } low - Indicates the minimum value.
-     * @param { ValueType } high - Indicates the maximum value.
-     * @returns { RdbPredicates } - The SQL statement with the specified {@link RdbPredicates}.
+     * @param { string } field - Column name in the database table.
+     * @param { ValueType } low - Minimum value of the range to set.
+     * @param { ValueType } high - Maximum value of the range to set.
+     * @returns { RdbPredicates } **RdbPredicates** object created.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 9
-     */
-    /**
-     * Configure RdbPredicates to match the specified field whose value is within a given range.
-     *
-     * @param { string } field - Indicates the column name.
-     * @param { ValueType } low - Indicates the minimum value.
-     * @param { ValueType } high - Indicates the maximum value.
-     * @returns { RdbPredicates } - The SQL statement with the specified {@link RdbPredicates}.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
      * @since 23 static
      */
     between(field: string, low: ValueType, high: ValueType): RdbPredicates;
 
     /**
-     * Configure RdbPredicates to match the specified field whose value is out of a given range.
+     * Creates an **RdbPredicates** object to search for the records that are out of the given range (excluding the min.
+     * and max. values) in the specified column.
      *
-     * @param { string } field - Indicates the column name in the database table.
-     * @param { ValueType } low - Indicates the minimum value.
-     * @param { ValueType } high - Indicates the maximum value.
-     * @returns { RdbPredicates } - The SQL statement with the specified {@link RdbPredicates}.
+     * @param { string } field - Column name in the database table.
+     * @param { ValueType } low - Minimum value of the range to set.
+     * @param { ValueType } high - Maximum value of the range to set.
+     * @returns { RdbPredicates } **RdbPredicates** object created.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 9
-     */
-    /**
-     * Configure RdbPredicates to match the specified field whose value is out of a given range.
-     *
-     * @param { string } field - Indicates the column name in the database table.
-     * @param { ValueType } low - Indicates the minimum value.
-     * @param { ValueType } high - Indicates the maximum value.
-     * @returns { RdbPredicates } - The SQL statement with the specified {@link RdbPredicates}.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
      * @since 23 static
      */
     notBetween(field: string, low: ValueType, high: ValueType): RdbPredicates;
 
     /**
-     * Restricts the value of the field to be greater than the specified value.
+     * Creates an **RdbPredicates** object to search for the records that are greater than the given value in the 
+     * specified column.
      *
-     * @param { string } field - Indicates the column name in the database table.
-     * @param { ValueType } value - Indicates the value to match with the {@link RdbPredicates}.
-     * @returns { RdbPredicates } - The SQL query statement with the specified {@link RdbPredicates}.
+     * @param { string } field - Column name in the database table.
+     * @param { ValueType } value - Value to match.
+     * @returns { RdbPredicates } **RdbPredicates** object created.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 9
-     */
-    /**
-     * Restricts the value of the field to be greater than the specified value.
-     *
-     * @param { string } field - Indicates the column name in the database table.
-     * @param { ValueType } value - Indicates the value to match with the {@link RdbPredicates}.
-     * @returns { RdbPredicates } - The SQL query statement with the specified {@link RdbPredicates}.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
      * @since 23 static
      */
     greaterThan(field: string, value: ValueType): RdbPredicates;
 
     /**
-     * Restricts the value of the field to be smaller than the specified value.
+     * Creates an **RdbPredicates** object to search for the records that are less than the given value in the specified
+     * column.
      *
-     * @param { string } field - Indicates the column name in the database table.
-     * @param { ValueType } value - Indicates the value to match with the {@link RdbPredicates}.
-     * @returns { RdbPredicates } - The SQL query statement with the specified {@link RdbPredicates}.
+     * @param { string } field - Column name in the database table.
+     * @param { ValueType } value - Value to match.
+     * @returns { RdbPredicates } **RdbPredicates** object created.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 9
-     */
-    /**
-     * Restricts the value of the field to be smaller than the specified value.
-     *
-     * @param { string } field - Indicates the column name in the database table.
-     * @param { ValueType } value - Indicates the value to match with the {@link RdbPredicates}.
-     * @returns { RdbPredicates } - The SQL query statement with the specified {@link RdbPredicates}.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
      * @since 23 static
      */
     lessThan(field: string, value: ValueType): RdbPredicates;
 
     /**
-     * Restricts the value of the field to be greater than or equal to the specified value.
+     * Creates an **RdbPredicates** object to search for the records that are greater than or equal to the given value 
+     * in the specified column.
      *
-     * @param { string } field - Indicates the column name in the database table.
-     * @param { ValueType } value - Indicates the value to match with the {@link RdbPredicates}.
-     * @returns { RdbPredicates } - The SQL query statement with the specified {@link RdbPredicates}.
+     * @param { string } field - Column name in the database table.
+     * @param { ValueType } value - Value to match.
+     * @returns { RdbPredicates } **RdbPredicates** object created.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 9
-     */
-    /**
-     * Restricts the value of the field to be greater than or equal to the specified value.
-     *
-     * @param { string } field - Indicates the column name in the database table.
-     * @param { ValueType } value - Indicates the value to match with the {@link RdbPredicates}.
-     * @returns { RdbPredicates } - The SQL query statement with the specified {@link RdbPredicates}.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
      * @since 23 static
      */
     greaterThanOrEqualTo(field: string, value: ValueType): RdbPredicates;
 
     /**
-     * Restricts the value of the field to be smaller than or equal to the specified value.
+     * Creates an **RdbPredicates** object to search for the records that are less than or equal to the given value in 
+     * the specified column.
      *
-     * @param { string } field - Indicates the column name in the database table.
-     * @param { ValueType } value - Indicates the value to match with the {@link RdbPredicates}.
-     * @returns { RdbPredicates } - The SQL query statement with the specified {@link RdbPredicates}.
+     * @param { string } field - Column name in the database table.
+     * @param { ValueType } value - Value to match.
+     * @returns { RdbPredicates } **RdbPredicates** object created.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 9
-     */
-    /**
-     * Restricts the value of the field to be smaller than or equal to the specified value.
-     *
-     * @param { string } field - Indicates the column name in the database table.
-     * @param { ValueType } value - Indicates the value to match with the {@link RdbPredicates}.
-     * @returns { RdbPredicates } - The SQL query statement with the specified {@link RdbPredicates}.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
      * @since 23 static
      */
     lessThanOrEqualTo(field: string, value: ValueType): RdbPredicates;
 
     /**
-     * Restricts the ascending order of the return list. When there are several orders,
-     * the one close to the head has the highest priority.
+     * Creates an **RdbPredicates** object to sort the records in the specified column in ascending order.
      *
-     * @param { string } field - Indicates the column name for sorting the return list.
-     * @returns { RdbPredicates } - The SQL query statement with the specified {@link RdbPredicates}.
+     * @param { string } field - Column name in the database table.
+     * @returns { RdbPredicates } **RdbPredicates** object created.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 9
-     */
-    /**
-     * Restricts the ascending order of the return list. When there are several orders,
-     * the one close to the head has the highest priority.
-     *
-     * @param { string } field - Indicates the column name for sorting the return list.
-     * @returns { RdbPredicates } - The SQL query statement with the specified {@link RdbPredicates}.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
      * @since 23 static
      */
     orderByAsc(field: string): RdbPredicates;
 
     /**
-     * Restricts the descending order of the return list. When there are several orders,
-     * the one close to the head has the highest priority.
+     * Creates an **RdbPredicates** object to sort the records in the specified column in descending order.
      *
-     * @param { string } field - Indicates the column name for sorting the return list.
-     * @returns { RdbPredicates } - The SQL query statement with the specified {@link RdbPredicates}.
+     * @param { string } field - Column name in the database table.
+     * @returns { RdbPredicates } **RdbPredicates** object created.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 9
-     */
-    /**
-     * Restricts the descending order of the return list. When there are several orders,
-     * the one close to the head has the highest priority.
-     *
-     * @param { string } field - Indicates the column name for sorting the return list.
-     * @returns { RdbPredicates } - The SQL query statement with the specified {@link RdbPredicates}.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
      * @since 23 static
      */
     orderByDesc(field: string): RdbPredicates;
 
     /**
-     * Restricts each row of the query result to be unique.
+     * Creates an **RdbPredicates** object to filter out duplicate records.
      *
-     * @returns { RdbPredicates } - The SQL query statement with the specified {@link RdbPredicates}.
+     * @returns { RdbPredicates } **RdbPredicates** object that can filter out duplicate records.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 9
-     */
-    /**
-     * Restricts each row of the query result to be unique.
-     *
-     * @returns { RdbPredicates } - The SQL query statement with the specified {@link RdbPredicates}.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
      * @since 23 static
      */
     distinct(): RdbPredicates;
 
     /**
-     * Restricts the max number of return records.
+     * Creates a **RdbPredicates** object to limit the number of records.
      *
-     * @param { number } value - Indicates the max length of the return list.
-     * @returns { RdbPredicates } - The SQL query statement with the specified {@link RdbPredicates}.
+     * @param { int } value - Maximum number of data records. The value should be a positive integer. If a value less
+     *     than or equal to **0** is specified, the number of records is not limited.
+     * @returns { RdbPredicates } Predicates that specify the maximum number of records.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 9
-     */
-    /**
-     * Restricts the max number of return records.
-     *
-     * @param { int } value - Indicates the max length of the return list.
-     * @returns { RdbPredicates } - The SQL query statement with the specified {@link RdbPredicates}.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
      * @since 23 static
      */
     limitAs(value: int): RdbPredicates;
 
     /**
-     * Configure RdbPredicates to specify the start position of the returned result.
-     * Use this method together with limit(number).
+     * Creates an **RdbPredicates** object to set the start position of the query result. This API must be used together
+     * with **limitAs**. Otherwise, no result will be returned. To query all rows after the specified offset, pass in a 
+     * parameter less than or equal to **0** in **limitAs**.
      *
-     * @param { number } rowOffset - Indicates the start position of the returned result.
-     *     The value is a positive integer.
-     * @returns { RdbPredicates } - The SQL query statement with the specified {@link RdbPredicates}.
+     * @param { int } rowOffset - Start position of the query result. By default, the start position is the beginning of
+     *     the result set. If **rowOffset** is a negative number, the start position is the beginning of the result set.
+     *     If **rowOffset** exceeds the end of the result set, the query result is empty.
+     * @returns { RdbPredicates } Predicates that specify the start position of the returned result.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 9
-     */
-    /**
-     * Configure RdbPredicates to specify the start position of the returned result.
-     * Use this method together with limit(number).
-     *
-     * @param { int } rowOffset - Indicates the start position of the returned result.
-     *     The value is a positive integer.
-     * @returns { RdbPredicates } - The SQL query statement with the specified {@link RdbPredicates}.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
      * @since 23 static
      */
     offsetAs(rowOffset: int): RdbPredicates;
 
     /**
-     * Configure RdbPredicates to group query results by specified columns.
+     * Creates a **RdbPredicates** object to group the query results based on the specified columns.
      *
-     * @param { Array<string> } fields - Indicates the specified columns by which query results are grouped.
-     * @returns { RdbPredicates } - The SQL query statement with the specified {@link RdbPredicates}.
+     * @param { Array<string> } fields - Names of columns to group.
+     * @returns { RdbPredicates } Predicates that group rows with the same value.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 9
-     */
-    /**
-     * Configure RdbPredicates to group query results by specified columns.
-     *
-     * @param { Array<string> } fields - Indicates the specified columns by which query results are grouped.
-     * @returns { RdbPredicates } - The SQL query statement with the specified {@link RdbPredicates}.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
      * @since 23 static
      */
     groupBy(fields: Array<string>): RdbPredicates;
 
     /**
-     * Configure RdbPredicates to specify the index column.
-     * Before using this method, you need to create an index column.
+     * Creates a **RdbPredicates** object to specify the index column.
      *
-     * @param { string } field - Indicates the name of the index column.
-     * @returns { RdbPredicates } - The SQL statement with the specified {@link RdbPredicates}.
+     * @param { string } field - Name of the index column.
+     * @returns { RdbPredicates } **RdbPredicates** object created.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 9
-     */
-    /**
-     * Configure RdbPredicates to specify the index column.
-     * Before using this method, you need to create an index column.
-     *
-     * @param { string } field - Indicates the name of the index column.
-     * @returns { RdbPredicates } - The SQL statement with the specified {@link RdbPredicates}.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
      * @since 23 static
      */
     indexedBy(field: string): RdbPredicates;
 
     /**
-     * Configure RdbPredicates to match the specified field whose data type is ValueType array and values
-     * are within a given range.
+     * Creates an **RdbPredicates** object to search for the records that are in the given range in the specified 
+     * column.
+     * 
+     * > **NOTE**
+     * >
+     * > The **value** array cannot be empty; otherwise, this condition becomes invalid. As a result, the operation (
+     * > such as full query, update, or deletion) is performed on all data. Before calling this API, check whether the 
+     * > **value** array is empty to avoid misoperations.
      *
-     * @param { string } field - Indicates the column name in the database table.
-     * @param { Array<ValueType> } value - Indicates the values to match with {@link RdbPredicates}.
-     * @returns { RdbPredicates } - The SQL statement with the specified {@link RdbPredicates}.
+     * @param { string } field - Column name in the database table.
+     * @param { Array<ValueType> } value - Array of **ValueType**s to match.
+     * @returns { RdbPredicates } **RdbPredicates** object created.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 9
-     */
-    /**
-     * Configure RdbPredicates to match the specified field whose data type is ValueType array and values
-     * are within a given range.
-     *
-     * @param { string } field - Indicates the column name in the database table.
-     * @param { Array<ValueType> } value - Indicates the values to match with {@link RdbPredicates}.
-     * @returns { RdbPredicates } - The SQL statement with the specified {@link RdbPredicates}.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
      */
     in(field: string, value: Array<ValueType>): RdbPredicates;
 
@@ -3249,29 +3074,17 @@ declare namespace relationalStore {
     inValues(field: string, value: Array<ValueType>): RdbPredicates;
 
     /**
-     * Configure RdbPredicates to match the specified field whose data type is ValueType array and values
-     * are out of a given range.
+     * Creates an **RdbPredicates** object to search for the records that are out of the given range in the specified 
+     * column.
      *
-     * @param { string } field - Indicates the column name in the database table.
-     * @param { Array<ValueType> } value - Indicates the values to match with {@link RdbPredicates}.
-     * @returns { RdbPredicates } - The SQL statement with the specified {@link RdbPredicates}.
+     * @param { string } field - Column name in the database table.
+     * @param { Array<ValueType> } value - Array of **ValueType**s to match.
+     * @returns { RdbPredicates } **RdbPredicates** object created.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 9
-     */
-    /**
-     * Configure RdbPredicates to match the specified field whose data type is ValueType array and values
-     * are out of a given range.
-     *
-     * @param { string } field - Indicates the column name in the database table.
-     * @param { Array<ValueType> } value - Indicates the values to match with {@link RdbPredicates}.
-     * @returns { RdbPredicates } - The SQL statement with the specified {@link RdbPredicates}.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
      */
     notIn(field: string, value: Array<ValueType>): RdbPredicates;
 
@@ -3291,71 +3104,48 @@ declare namespace relationalStore {
     notInValues(field: string, value: Array<ValueType>): RdbPredicates;
 
     /**
-     * Sets the RdbPredicates to match the field whose data type is string and value
-     * does not contain the specified value.
-     * This method is similar to "Not like %value%" of the SQL statement.
+     * Creates an **RdbPredicates** object to search for the records that do not contain the given value in the 
+     * specified column.
      *
-     * @param { string } field - Indicates the column name in the database table.
-     * @param { string } value - Indicates the value that is not contained.
-     * @returns { RdbPredicates } - The {@Link RdbPredicates} set.
+     * @param { string } field - Column name in the database table.
+     * @param { string } value - Value to match.
+     * @returns { RdbPredicates } **RdbPredicates** object created.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 12
-     */
-    /**
-     * Sets the RdbPredicates to match the field whose data type is string and value
-     * does not contain the specified value.
-     * This method is similar to "Not like %value%" of the SQL statement.
-     *
-     * @param { string } field - Indicates the column name in the database table.
-     * @param { string } value - Indicates the value that is not contained.
-     * @returns { RdbPredicates } - The {@Link RdbPredicates} set.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 20 dynamic
+     * @crossplatform [since 20]
+     * @since 12 dynamic
      * @since 23 static
      */
     notContains(field: string, value: string): RdbPredicates;
 
     /**
-     * Sets the RdbPredicates to match the field whose data type is string and value
-     * is not like the specified value.
-     * This method is similar to "Not like" of the SQL statement.
+     * Creates an **RdbPredicates** object to search for the records in the specified column that are not similar to the
+     * given value.
      *
-     * @param { string } field - Indicates the column name in the database table.
-     * @param { string } value - Indicates the value to compare against.
-     * @returns { RdbPredicates } - The {@Link RdbPredicates} set.
+     * @param { string } field - Column name in the database table.
+     * @param { string } value - Condition for fuzzy match. Generally, this parameter is used together with a wildcard.
+     *     A percent sign (%) represents any character of any length, and an underscore (_) represents a single
+     *     character.
+     * @returns { RdbPredicates } **RdbPredicates** object created.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 12
-     */
-    /**
-     * Sets the RdbPredicates to match the field whose data type is string and value
-     * is not like the specified value.
-     * This method is similar to "Not like" of the SQL statement.
-     *
-     * @param { string } field - Indicates the column name in the database table.
-     * @param { string } value - Indicates the value to compare against.
-     * @returns { RdbPredicates } - The {@Link RdbPredicates} set.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 20 dynamic
+     * @crossplatform [since 20]
+     * @since 12 dynamic
      * @since 23 static
      */
     notLike(field: string, value: string): RdbPredicates;
 
     /**
-     * Filters the grouped data that meets the specified conditions.
+     * Filters for group data that meets the conditions.
      *
-     * @param { string } conditions - Conditions used to filter the data obtained using GROUP BY.
-     * @param { Array<ValueType> } args - Parameters to be used in the conditions.
-     * @returns { RdbPredicates } - Returns the RdbPredicates object.
+     * @param { string } conditions - Condition used to filter the data obtained using
+     *     [groupBy]{@link relationalStore.RdbPredicates.groupBy}. This parameter cannot be empty and must be used with
+     *     [groupBy]{@link relationalStore.RdbPredicates.groupBy}.
+     * @param { Array<ValueType> } args - Parameters used in **conditions**, which replace the placeholder in the
+     *     conditional statement. If this parameter is not specified, the default value is an empty array.
+     * @returns { RdbPredicates } **RdbPredicates** object created.
      * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. Parameter is out of valid range;
      *     <br>2. Missing GROUP BY clause.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
@@ -3363,197 +3153,134 @@ declare namespace relationalStore {
      * @since 20 dynamic
      * @since 23 static
      */
-    having(conditions:string, args?: Array<ValueType>): RdbPredicates;
+    having(conditions: string, args?: Array<ValueType>): RdbPredicates;
   }
 
   /**
-   * Provides methods for accessing a database result set generated by querying the database.
+   * Provides APIs to access the result set obtained by querying the RDB store. This result set is the collection of
+   * results returned with the **query()** method called.
+   * 
+   * The **ResultSet** instance is not refreshed in real time. After using the result set, if the data in the database
+   * is changed (by being added, deleted, or modified), you need to query the result set again to obtain the latest
+   * data.
+   * 
+   * For the following APIs, you should use either [query]
+   * {@link @ohos.data.relationalStore:relationalStore.RdbStore.query(predicates: RdbPredicates)},
+   * [querySql]{@link @ohos.data.relationalStore:relationalStore.RdbStore.querySqlWithoutRowCount},
+   * [remoteQuery]
+   * {@link @ohos.data.relationalStore:relationalStore.RdbStore.remoteQuery(device: string, table: string)}
+   * , or [queryLockedRow]{@link @ohos.data.relationalStore:relationalStore.RdbStore.queryLockedRow} to obtain the
+   * **ResultSet** instance first, and then use this instance to call the corresponding method.
    *
-   * @interface ResultSet
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @since 9
-   */
-  /**
-   * Provides methods for accessing a database result set generated by querying the database.
-   *
-   * @interface ResultSet
-   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @crossplatform
-   * @since 10 dynamic
+   * @crossplatform [since 10]
+   * @since 9 dynamic
    * @since 23 static
    */
   interface ResultSet {
     /**
-     * Obtains the names of all columns in a result set.
-     * The column names are returned as a string array, in which the strings are in the same order
-     * as the columns in the result set.
+     * Names of all columns in the result set. If the result set contains duplicate column names, the return values are 
+     * not as expected. You are advised to use the [getColumnNames]{@link relationalStore.ResultSet.getColumnNames} API 
+     * to obtain the column names.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 9
-     */
-    /**
-     * Obtains the names of all columns in a result set.
-     * The column names are returned as a string array, in which the strings are in the same order
-     * as the columns in the result set.
-     *
-     * @type { Array<string> }
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
      * @since 23 static
      */
     columnNames: Array<string>;
 
     /**
-     * Obtains the number of columns in the result set.
-     * The returned number is equal to the length of the string array returned by the
-     * columnNames method.
+     * Number of columns in the result set.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 9
-     */
-    /**
-     * Obtains the number of columns in the result set.
-     * The returned number is equal to the length of the string array returned by the
-     * columnNames method.
-     *
-     * @type { int }
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
      * @since 23 static
      */
     columnCount: int;
 
     /**
-     * Obtains the number of rows in the result set.
+     * Number of rows in the result set.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 9
-     */
-    /**
-     * Obtains the number of rows in the result set.
-     *
-     * @type { int }
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
      * @since 23 static
      */
     rowCount: int;
 
     /**
-     * Obtains the current index of the result set.
-     * The result set index starts from 0.
+     * Index of the current row in the result set.
+     * 
+     * Default value: **-1**. The index position starts from **0**.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 9
-     */
-    /**
-     * Obtains the current index of the result set.
-     * The result set index starts from 0.
-     *
-     * @type { int }
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
      * @since 23 static
      */
     rowIndex: int;
 
     /**
-     * Checks whether the cursor is positioned at the first row.
+     * Whether the result set pointer is in the first row (the row index is **0**). The value **true** means the result 
+     * set pointer is in the first row.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 9
-     */
-    /**
-     * Checks whether the cursor is positioned at the first row.
-     *
-     * @type { boolean }
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
      * @since 23 static
      */
     isAtFirstRow: boolean;
 
     /**
-     * Checks whether the cursor is positioned at the last row.
+     * Whether the result set pointer is in the last row. The value **true** means the pointer is in the last row.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 9
-     */
-    /**
-     * Checks whether the cursor is positioned at the last row.
-     *
-     * @type { boolean }
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
      * @since 23 static
      */
     isAtLastRow: boolean;
 
     /**
-     * Checks whether the cursor is positioned after the last row.
+     * Whether the result set pointer is after the last row. The value **true** means the pointer is after the last row.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 9
-     */
-    /**
-     * Checks whether the cursor is positioned after the last row.
-     *
-     * @type { boolean }
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
      * @since 23 static
      */
     isEnded: boolean;
 
     /**
-     * Checks whether the cursor is positioned before the first row.
+     * Whether the result set pointer is moved. The value **true** means the pointer is moved.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 9
-     */
-    /**
-     * Checks whether the cursor is positioned before the first row.
-     *
-     * @type { boolean }
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
      * @since 23 static
      */
     isStarted: boolean;
 
     /**
-     * Checks whether the current result set is closed.
-     * If the result set is closed by calling the close method, true will be returned.
+     * Whether the result set is closed. The value **true** means the result set is closed.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 9
-     */
-    /**
-     * Checks whether the current result set is closed.
-     * If the result set is closed by calling the close method, true will be returned.
-     *
-     * @type { boolean }
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
      * @since 23 static
      */
     isClosed: boolean;
 
     /**
-     * Obtains the names of all columns in a result set.
-     * The column names are returned as a string array, in which the strings are in the same order
-     * as the columns in the result set.
+     * Obtains the names of all columns in the result set.
+     * 
+     * The column names are returned in a string array. The sequence of strings in the array is the same as that of 
+     * columns in the result set.
      *
-     * @returns { Array<string> } The columnNames of the resultSet.
+     * @returns { Array<string> } Names of all columns in the result set obtained. Duplicate column names can be
+     *     obtained.
      * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. Parameter is out of valid range.
      * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
      * @throws { BusinessError } 14800014 - The target instance is already closed.
@@ -3570,130 +3297,82 @@ declare namespace relationalStore {
     getColumnNames(): Array<string>;
 
     /**
-     * Obtains the column index based on the specified column name.
-     * The column name is passed as an input parameter.
+     * Obtains the column index based on the column name.
      *
-     * @param { string } columnName - Indicates the name of the specified column in the result set.
-     * @returns { number } The index of the specified column.
+     * @param { string } columnName - Column name.
+     * @returns { int } Column index obtained. If the result set contains duplicate column names, the return value is
+     *     not as expected.
      * @throws { BusinessError } 14800013 - Column index is out of bounds.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 14800000 - Inner error. [since 12]
+     * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted. [since 12]
+     * @throws { BusinessError } 14800014 - The target instance is already closed. [since 12]
+     * @throws { BusinessError } 14800019 - The SQL must be a query statement. [since 12]
+     * @throws { BusinessError } 14800021 - SQLite: Generic error. [since 12]
+     * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort. [since 12]
+     * @throws { BusinessError } 14800023 - SQLite: Access permission denied. [since 12]
+     * @throws { BusinessError } 14800024 - SQLite: The database file is locked. [since 12]
+     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked. [since 12]
+     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory. [since 12]
+     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database. [since 12]
+     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred. [since 12]
+     * @throws { BusinessError } 14800029 - SQLite: The database is full. [since 12]
+     * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file. [since 12]
+     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit. [since 12]
+     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation. [since 12]
+     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch. [since 12]
+     * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly. [since 12]
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 9
-     */
-    /**
-     * Obtains the column index based on the specified column name.
-     * The column name is passed as an input parameter.
-     *
-     * @param { string } columnName - Indicates the name of the specified column in the result set.
-     * @returns { number } The index of the specified column.
-     * @throws { BusinessError } 14800013 - Column index is out of bounds.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Obtains the column index based on the specified column name.
-     * The column name is passed as an input parameter.
-     *
-     * @param { string } columnName - Indicates the name of the specified column in the result set.
-     * @returns { int } The index of the specified column.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
-     * @throws { BusinessError } 14800013 - Column index is out of bounds.
-     * @throws { BusinessError } 14800014 - The target instance is already closed.
-     * @throws { BusinessError } 14800019 - The SQL must be a query statement.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
-     * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
-     * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
-     * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
-     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
-     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
-     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
-     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
-     * @throws { BusinessError } 14800029 - SQLite: The database is full.
-     * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file.
-     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit.
-     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation.
-     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
-     * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
      * @since 23 static
      */
     getColumnIndex(columnName: string): int;
 
     /**
-     * Obtains the column name based on the specified column index.
-     * The column index is passed as an input parameter.
+     * Obtains the column name based on the column index.
      *
-     * @param { number } columnIndex - Indicates the index of the specified column in the result set.
-     * @returns { string } The name of the specified column.
+     * @param { int } columnIndex - Column index.
+     * @returns { string } Column name obtained. If the result set contains duplicate column names, the return value is
+     *     not as expected.
      * @throws { BusinessError } 14800013 - Column index is out of bounds.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 14800000 - Inner error. [since 12]
+     * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted. [since 12]
+     * @throws { BusinessError } 14800014 - The target instance is already closed. [since 12]
+     * @throws { BusinessError } 14800019 - The SQL must be a query statement. [since 12]
+     * @throws { BusinessError } 14800021 - SQLite: Generic error. [since 12]
+     * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort. [since 12]
+     * @throws { BusinessError } 14800023 - SQLite: Access permission denied. [since 12]
+     * @throws { BusinessError } 14800024 - SQLite: The database file is locked. [since 12]
+     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked. [since 12]
+     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory. [since 12]
+     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database. [since 12]
+     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred. [since 12]
+     * @throws { BusinessError } 14800029 - SQLite: The database is full. [since 12]
+     * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file. [since 12]
+     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit. [since 12]
+     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation. [since 12]
+     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch. [since 12]
+     * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly. [since 12]
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 9
-     */
-    /**
-     * Obtains the column name based on the specified column index.
-     * The column index is passed as an input parameter.
-     *
-     * @param { number } columnIndex - Indicates the index of the specified column in the result set.
-     * @returns { string } The name of the specified column.
-     * @throws { BusinessError } 14800013 - Column index is out of bounds.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Obtains the column name based on the specified column index.
-     * The column index is passed as an input parameter.
-     *
-     * @param { int } columnIndex - Indicates the index of the specified column in the result set.
-     * @returns { string } The name of the specified column.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
-     * @throws { BusinessError } 14800013 - Column index is out of bounds.
-     * @throws { BusinessError } 14800014 - The target instance is already closed.
-     * @throws { BusinessError } 14800019 - The SQL must be a query statement.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
-     * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
-     * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
-     * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
-     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
-     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
-     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
-     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
-     * @throws { BusinessError } 14800029 - SQLite: The database is full.
-     * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file.
-     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit.
-     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation.
-     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
-     * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
      * @since 23 static
      */
     getColumnName(columnIndex: int): string;
 
     /**
-     * Obtains the column data type based on the specified column index.
-     * The column index is passed as an input parameter.
+     * Obtains the column type based on the specified column index or column name. This API uses a promise to return the
+     * result.
      *
-     * @param { int | string } columnIdentifier - Index or name of the column.
-     * @returns { Promise<ColumnType> } Promise used to return the data type obtained,
-     *     in an {@link ColumnType} instance.
+     * @param { int | string } columnIdentifier - Index or name of column in a result set. The index must be a non-
+     *     negative integer and cannot exceed the length of **columnNames**. The column name must be a name in
+     *     **columnNames**.
+     * @returns { Promise<ColumnType> } Promise used to return the column type obtained. If the result set contains
+     *     duplicate column names, the return value is not as expected.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
@@ -3724,10 +3403,14 @@ declare namespace relationalStore {
     getColumnType(columnIdentifier: int | string): Promise<ColumnType>;
 
     /**
-     * Obtains the column data type based on the specified column index. This API returns the result synchronously.
+     * Obtains the column type based on the specified column index or column name. This API returns the result 
+     * synchronously.
      *
-     * @param { int | string } columnIdentifier - Index or name of the column.
-     * @returns { ColumnType } Column data type obtained.
+     * @param { int | string } columnIdentifier - Index or name of column in a result set. The index must be a non-
+     *     negative integer and cannot exceed the length of **columnNames**. The column name must be a name in
+     *     **columnNames**.
+     * @returns { ColumnType } Column type obtained. If the result set contains duplicate column names, the return value
+     *     is not as expected.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
@@ -3758,676 +3441,430 @@ declare namespace relationalStore {
     getColumnTypeSync(columnIdentifier: int | string): ColumnType;
 
     /**
-     * Go to the specified row of the result set forwards or backwards by an offset relative to its current position.
-     * A positive offset indicates moving backwards, and a negative offset indicates moving forwards.
+     * Moves the result set pointer based on the offset specified.
      *
-     * @param { number } offset - Indicates the offset relative to the current position.
-     * @returns { boolean } True if the result set is moved successfully and does not go beyond the range;
-     *     Returns false otherwise.
-     * @throws { BusinessError } 14800012 - The result set is empty or the specified location is invalid.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 9
-     */
-    /**
-     * Go to the specified row of the result set forwards or backwards by an offset relative to its current position.
-     * A positive offset indicates moving backwards, and a negative offset indicates moving forwards.
-     *
-     * @param { number } offset - Indicates the offset relative to the current position.
-     * @returns { boolean } True if the result set is moved successfully and does not go beyond the range;
-     *     Returns false otherwise.
-     * @throws { BusinessError } 14800012 - The result set is empty or the specified location is invalid.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Go to the specified row of the result set forwards or backwards by an offset relative to its current position.
-     * A positive offset indicates moving backwards, and a negative offset indicates moving forwards.
-     *
-     * @param { int } offset - Indicates the offset relative to the current position.
-     * @returns { boolean } True if the result set is moved successfully and does not go beyond the range;
-     *     Returns false otherwise.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
+     * @param { int } offset - Offset relative to the position of the current result set pointer. A positive value means
+     *     to move the pointer backward, and a negative value means to move the pointer forward.
+     * @returns { boolean } Returns **true** if the operation is successful; returns **false** otherwise.
      * @throws { BusinessError } 14800012 - ResultSet is empty or pointer index is out of bounds.
-     * @throws { BusinessError } 14800014 - The target instance is already closed.
-     * @throws { BusinessError } 14800019 - The SQL must be a query statement.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
-     * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
-     * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
-     * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
-     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
-     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
-     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
-     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
-     * @throws { BusinessError } 14800029 - SQLite: The database is full.
-     * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file.
-     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit.
-     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation.
-     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
-     * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 14800000 - Inner error. [since 12]
+     * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted. [since 12]
+     * @throws { BusinessError } 14800014 - The target instance is already closed. [since 12]
+     * @throws { BusinessError } 14800019 - The SQL must be a query statement. [since 12]
+     * @throws { BusinessError } 14800021 - SQLite: Generic error. [since 12]
+     * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort. [since 12]
+     * @throws { BusinessError } 14800023 - SQLite: Access permission denied. [since 12]
+     * @throws { BusinessError } 14800024 - SQLite: The database file is locked. [since 12]
+     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked. [since 12]
+     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory. [since 12]
+     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database. [since 12]
+     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred. [since 12]
+     * @throws { BusinessError } 14800029 - SQLite: The database is full. [since 12]
+     * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file. [since 12]
+     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit. [since 12]
+     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation. [since 12]
+     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch. [since 12]
+     * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly. [since 12]
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
      * @since 23 static
      */
     goTo(offset: int): boolean;
 
     /**
-     * Go to the specified row of the result set.
+     * Moves to the specified row in the result set.
      *
-     * @param { number } position - Indicates the index of the specified row, which starts from 0.
-     * @returns { boolean } True if the result set is moved successfully; Returns false otherwise.
-     * @throws { BusinessError } 14800012 - The result set is empty or the specified location is invalid.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 9
-     */
-    /**
-     * Go to the specified row of the result set.
-     *
-     * @param { number } position - Indicates the index of the specified row, which starts from 0.
-     * @returns { boolean } True if the result set is moved successfully; Returns false otherwise.
-     * @throws { BusinessError } 14800012 - The result set is empty or the specified location is invalid.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Go to the specified row of the result set.
-     *
-     * @param { int } position - Indicates the index of the specified row, which starts from 0.
-     * @returns { boolean } True if the result set is moved successfully; Returns false otherwise.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
+     * @param { int } position - Destination position to move to.
+     * @returns { boolean } Returns **true** if the operation is successful; returns **false** otherwise.
      * @throws { BusinessError } 14800012 - ResultSet is empty or pointer index is out of bounds.
-     * @throws { BusinessError } 14800014 - The target instance is already closed.
-     * @throws { BusinessError } 14800019 - The SQL must be a query statement.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
-     * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
-     * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
-     * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
-     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
-     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
-     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
-     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
-     * @throws { BusinessError } 14800029 - SQLite: The database is full.
-     * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file.
-     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit.
-     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation.
-     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
-     * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 14800000 - Inner error. [since 12]
+     * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted. [since 12]
+     * @throws { BusinessError } 14800014 - The target instance is already closed. [since 12]
+     * @throws { BusinessError } 14800019 - The SQL must be a query statement. [since 12]
+     * @throws { BusinessError } 14800021 - SQLite: Generic error. [since 12]
+     * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort. [since 12]
+     * @throws { BusinessError } 14800023 - SQLite: Access permission denied. [since 12]
+     * @throws { BusinessError } 14800024 - SQLite: The database file is locked. [since 12]
+     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked. [since 12]
+     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory. [since 12]
+     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database. [since 12]
+     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred. [since 12]
+     * @throws { BusinessError } 14800029 - SQLite: The database is full. [since 12]
+     * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file. [since 12]
+     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit. [since 12]
+     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation. [since 12]
+     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch. [since 12]
+     * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly. [since 12]
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
      * @since 23 static
      */
     goToRow(position: int): boolean;
 
     /**
-     * Go to the first row of the result set.
+     * Moves to the first row of the result set.
      *
-     * @returns { boolean } True if the result set is moved successfully;
-     *     Returns false otherwise, for example, if the result set is empty.
-     * @throws { BusinessError } 14800012 - The result set is empty or the specified location is invalid.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 9
-     */
-    /**
-     * Go to the first row of the result set.
-     *
-     * @returns { boolean } True if the result set is moved successfully;
-     *     Returns false otherwise, for example, if the result set is empty.
-     * @throws { BusinessError } 14800012 - The result set is empty or the specified location is invalid.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Go to the first row of the result set.
-     *
-     * @returns { boolean } True if the result set is moved successfully;
-     *     Returns false otherwise, for example, if the result set is empty.
-     * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
+     * @returns { boolean } Returns **true** if the operation is successful; returns **false** otherwise.
      * @throws { BusinessError } 14800012 - ResultSet is empty or pointer index is out of bounds.
-     * @throws { BusinessError } 14800014 - The target instance is already closed.
-     * @throws { BusinessError } 14800019 - The SQL must be a query statement.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
-     * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
-     * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
-     * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
-     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
-     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
-     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
-     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
-     * @throws { BusinessError } 14800029 - SQLite: The database is full.
-     * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file.
-     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit.
-     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation.
-     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
-     * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
+     * @throws { BusinessError } 14800000 - Inner error. [since 12]
+     * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted. [since 12]
+     * @throws { BusinessError } 14800014 - The target instance is already closed. [since 12]
+     * @throws { BusinessError } 14800019 - The SQL must be a query statement. [since 12]
+     * @throws { BusinessError } 14800021 - SQLite: Generic error. [since 12]
+     * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort. [since 12]
+     * @throws { BusinessError } 14800023 - SQLite: Access permission denied. [since 12]
+     * @throws { BusinessError } 14800024 - SQLite: The database file is locked. [since 12]
+     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked. [since 12]
+     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory. [since 12]
+     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database. [since 12]
+     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred. [since 12]
+     * @throws { BusinessError } 14800029 - SQLite: The database is full. [since 12]
+     * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file. [since 12]
+     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit. [since 12]
+     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation. [since 12]
+     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch. [since 12]
+     * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly. [since 12]
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
      * @since 23 static
      */
     goToFirstRow(): boolean;
 
     /**
-     * Go to the last row of the result set.
+     * Moves to the last row of the result set.
      *
-     * @returns { boolean } True if the result set is moved successfully;
-     *     Returns false otherwise, for example, if the result set is empty.
-     * @throws { BusinessError } 14800012 - The result set is empty or the specified location is invalid.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 9
-     */
-    /**
-     * Go to the last row of the result set.
-     *
-     * @returns { boolean } True if the result set is moved successfully;
-     *     Returns false otherwise, for example, if the result set is empty.
-     * @throws { BusinessError } 14800012 - The result set is empty or the specified location is invalid.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Go to the last row of the result set.
-     *
-     * @returns { boolean } True if the result set is moved successfully;
-     *     Returns false otherwise, for example, if the result set is empty.
-     * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
+     * @returns { boolean } Returns **true** if the operation is successful; returns **false** otherwise.
      * @throws { BusinessError } 14800012 - ResultSet is empty or pointer index is out of bounds.
-     * @throws { BusinessError } 14800014 - The target instance is already closed.
-     * @throws { BusinessError } 14800019 - The SQL must be a query statement.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
-     * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
-     * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
-     * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
-     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
-     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
-     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
-     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
-     * @throws { BusinessError } 14800029 - SQLite: The database is full.
-     * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file.
-     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit.
-     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation.
-     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
-     * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
+     * @throws { BusinessError } 14800000 - Inner error. [since 12]
+     * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted. [since 12]
+     * @throws { BusinessError } 14800014 - The target instance is already closed. [since 12]
+     * @throws { BusinessError } 14800019 - The SQL must be a query statement. [since 12]
+     * @throws { BusinessError } 14800021 - SQLite: Generic error. [since 12]
+     * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort. [since 12]
+     * @throws { BusinessError } 14800023 - SQLite: Access permission denied. [since 12]
+     * @throws { BusinessError } 14800024 - SQLite: The database file is locked. [since 12]
+     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked. [since 12]
+     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory. [since 12]
+     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database. [since 12]
+     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred. [since 12]
+     * @throws { BusinessError } 14800029 - SQLite: The database is full. [since 12]
+     * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file. [since 12]
+     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit. [since 12]
+     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation. [since 12]
+     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch. [since 12]
+     * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly. [since 12]
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
      * @since 23 static
      */
     goToLastRow(): boolean;
 
     /**
-     * Go to the next row of the result set.
+     * Moves to the next row in the result set.
      *
-     * @returns { boolean } True if the result set is moved successfully;
-     *     Returns false otherwise, for example, if the result set is already in the last row.
-     * @throws { BusinessError } 14800012 - The result set is empty or the specified location is invalid.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 9
-     */
-    /**
-     * Go to the next row of the result set.
-     *
-     * @returns { boolean } True if the result set is moved successfully;
-     *     Returns false otherwise, for example, if the result set is already in the last row.
-     * @throws { BusinessError } 14800012 - The result set is empty or the specified location is invalid.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Go to the next row of the result set.
-     *
-     * @returns { boolean } True if the result set is moved successfully;
-     *     Returns false otherwise, for example, if the result set is already in the last row.
-     * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
+     * @returns { boolean } Returns **true** if the operation is successful; returns **false** otherwise.
      * @throws { BusinessError } 14800012 - ResultSet is empty or pointer index is out of bounds.
-     * @throws { BusinessError } 14800014 - The target instance is already closed.
-     * @throws { BusinessError } 14800019 - The SQL must be a query statement.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
-     * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
-     * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
-     * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
-     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
-     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
-     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
-     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
-     * @throws { BusinessError } 14800029 - SQLite: The database is full.
-     * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file.
-     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit.
-     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation.
-     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
-     * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
+     * @throws { BusinessError } 14800000 - Inner error. [since 12]
+     * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted. [since 12]
+     * @throws { BusinessError } 14800014 - The target instance is already closed. [since 12]
+     * @throws { BusinessError } 14800019 - The SQL must be a query statement. [since 12]
+     * @throws { BusinessError } 14800021 - SQLite: Generic error. [since 12]
+     * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort. [since 12]
+     * @throws { BusinessError } 14800023 - SQLite: Access permission denied. [since 12]
+     * @throws { BusinessError } 14800024 - SQLite: The database file is locked. [since 12]
+     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked. [since 12]
+     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory. [since 12]
+     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database. [since 12]
+     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred. [since 12]
+     * @throws { BusinessError } 14800029 - SQLite: The database is full. [since 12]
+     * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file. [since 12]
+     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit. [since 12]
+     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation. [since 12]
+     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch. [since 12]
+     * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly. [since 12]
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
      * @since 23 static
      */
     goToNextRow(): boolean;
 
     /**
-     * Go to the previous row of the result set.
+     * Moves to the previous row in the result set.
      *
-     * @returns { boolean } True if the result set is moved successfully;
-     *     Returns false otherwise, for example, if the result set is already in the first row.
-     * @throws { BusinessError } 14800012 - The result set is empty or the specified location is invalid.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 9
-     */
-    /**
-     * Go to the previous row of the result set.
-     *
-     * @returns { boolean } True if the result set is moved successfully;
-     *     Returns false otherwise, for example, if the result set is already in the first row.
-     * @throws { BusinessError } 14800012 - The result set is empty or the specified location is invalid.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Go to the previous row of the result set.
-     *
-     * @returns { boolean } True if the result set is moved successfully;
-     *     Returns false otherwise, for example, if the result set is already in the first row.
-     * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
+     * @returns { boolean } Returns **true** if the operation is successful; returns **false** otherwise.
      * @throws { BusinessError } 14800012 - ResultSet is empty or pointer index is out of bounds.
-     * @throws { BusinessError } 14800014 - The target instance is already closed.
-     * @throws { BusinessError } 14800019 - The SQL must be a query statement.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
-     * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
-     * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
-     * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
-     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
-     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
-     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
-     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
-     * @throws { BusinessError } 14800029 - SQLite: The database is full.
-     * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file.
-     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit.
-     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation.
-     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
-     * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
+     * @throws { BusinessError } 14800000 - Inner error. [since 12]
+     * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted. [since 12]
+     * @throws { BusinessError } 14800014 - The target instance is already closed. [since 12]
+     * @throws { BusinessError } 14800019 - The SQL must be a query statement. [since 12]
+     * @throws { BusinessError } 14800021 - SQLite: Generic error. [since 12]
+     * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort. [since 12]
+     * @throws { BusinessError } 14800023 - SQLite: Access permission denied. [since 12]
+     * @throws { BusinessError } 14800024 - SQLite: The database file is locked. [since 12]
+     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked. [since 12]
+     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory. [since 12]
+     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database. [since 12]
+     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred. [since 12]
+     * @throws { BusinessError } 14800029 - SQLite: The database is full. [since 12]
+     * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file. [since 12]
+     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit. [since 12]
+     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation. [since 12]
+     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch. [since 12]
+     * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly. [since 12]
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
      * @since 23 static
      */
     goToPreviousRow(): boolean;
 
     /**
-     * Obtains the value of the specified column in the current row as a byte array.
-     * The implementation class determines whether to throw an exception if the value of the specified column
-     * in the current row is null or the specified column is not of the Blob type.
+     * Obtains the value from the specified column in the current row, and returns it in a byte array.
+     * 
+     * If the type of the value in the specified column is INTEGER, DOUBLE, TEXT, or BLOB, the value will be converted 
+     * into a byte array and returned. If the column is null/empty, an empty byte array will be returned. If the value 
+     * is of any other type, 14800000 will be returned.
      *
-     * @param { number } columnIndex - Indicates the specified column index, which starts from 0.
-     * @returns { Uint8Array } The value of the specified column as a byte array.
+     * @param { int } columnIndex - Index of the target column, starting from 0.
+     * @returns { Uint8Array } Value obtained.
      * @throws { BusinessError } 14800013 - Column index is out of bounds.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 14800000 - Inner error. [since 12]
+     * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted. [since 12]
+     * @throws { BusinessError } 14800012 - ResultSet is empty or pointer index is out of bounds. [since 12]
+     * @throws { BusinessError } 14800014 - The target instance is already closed. [since 12]
+     * @throws { BusinessError } 14800021 - SQLite: Generic error. [since 12]
+     * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort. [since 12]
+     * @throws { BusinessError } 14800023 - SQLite: Access permission denied. [since 12]
+     * @throws { BusinessError } 14800024 - SQLite: The database file is locked. [since 12]
+     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked. [since 12]
+     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory. [since 12]
+     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database. [since 12]
+     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred. [since 12]
+     * @throws { BusinessError } 14800029 - SQLite: The database is full. [since 12]
+     * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file. [since 12]
+     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit. [since 12]
+     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation. [since 12]
+     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch. [since 12]
+     * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly. [since 12]
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 9
-     */
-    /**
-     * Obtains the value of the specified column in the current row as a byte array.
-     * The implementation class determines whether to throw an exception if the value of the specified column
-     * in the current row is null or the specified column is not of the Blob type.
-     *
-     * @param { number } columnIndex - Indicates the specified column index, which starts from 0.
-     * @returns { Uint8Array } The value of the specified column as a byte array.
-     * @throws { BusinessError } 14800013 - Column index is out of bounds.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Obtains the value of the specified column in the current row as a byte array.
-     * The implementation class determines whether to throw an exception if the value of the specified column
-     * in the current row is null or the specified column is not of the Blob type.
-     *
-     * @param { int } columnIndex - Indicates the specified column index, which starts from 0.
-     * @returns { Uint8Array } The value of the specified column as a byte array.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
-     * @throws { BusinessError } 14800012 - ResultSet is empty or pointer index is out of bounds.
-     * @throws { BusinessError } 14800013 - Column index is out of bounds.
-     * @throws { BusinessError } 14800014 - The target instance is already closed.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
-     * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
-     * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
-     * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
-     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
-     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
-     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
-     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
-     * @throws { BusinessError } 14800029 - SQLite: The database is full.
-     * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file.
-     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit.
-     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation.
-     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
-     * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
      * @since 23 static
      */
     getBlob(columnIndex: int): Uint8Array;
 
     /**
-     * Obtains the value of the specified column in the current row as string.
-     * The implementation class determines whether to throw an exception if the value of the specified column
-     * in the current row is null or the specified column is not of the string type.
+     * Obtains the value from the specified column in the current row, and returns it in the form of a string.
+     * 
+     * If the type of the value in the specified column is INTEGER, DOUBLE, TEXT, or BLOB, a string will be returned. If
+     * the value type is INTEGER and the column is null/empty, an empty string **""** will be returned. If the value is 
+     * of any other type, 14800000 will be returned. If the value in the current column is of the DOUBLE type, the 
+     * precision may be lost. You are advised to use [getDouble]{@link relationalStore.ResultSet.getDouble} to obtain 
+     * the value.
      *
-     * @param { number } columnIndex - Indicates the specified column index, which starts from 0.
-     * @returns { string } The value of the specified column as a string.
+     * @param { int } columnIndex - Index of the target column, starting from 0.
+     * @returns { string } Value obtained.
      * @throws { BusinessError } 14800013 - Column index is out of bounds.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 14800000 - Inner error. [since 12]
+     * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted. [since 12]
+     * @throws { BusinessError } 14800012 - ResultSet is empty or pointer index is out of bounds. [since 12]
+     * @throws { BusinessError } 14800014 - The target instance is already closed. [since 12]
+     * @throws { BusinessError } 14800021 - SQLite: Generic error. [since 12]
+     * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort. [since 12]
+     * @throws { BusinessError } 14800023 - SQLite: Access permission denied. [since 12]
+     * @throws { BusinessError } 14800024 - SQLite: The database file is locked. [since 12]
+     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked. [since 12]
+     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory. [since 12]
+     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database. [since 12]
+     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred. [since 12]
+     * @throws { BusinessError } 14800029 - SQLite: The database is full. [since 12]
+     * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file. [since 12]
+     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit. [since 12]
+     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation. [since 12]
+     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch. [since 12]
+     * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly. [since 12]
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 9
-     */
-    /**
-     * Obtains the value of the specified column in the current row as string.
-     * The implementation class determines whether to throw an exception if the value of the specified column
-     * in the current row is null or the specified column is not of the string type.
-     *
-     * @param { number } columnIndex - Indicates the specified column index, which starts from 0.
-     * @returns { string } The value of the specified column as a string.
-     * @throws { BusinessError } 14800013 - Column index is out of bounds.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Obtains the value of the specified column in the current row as string.
-     * The implementation class determines whether to throw an exception if the value of the specified column
-     * in the current row is null or the specified column is not of the string type.
-     *
-     * @param { int } columnIndex - Indicates the specified column index, which starts from 0.
-     * @returns { string } The value of the specified column as a string.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
-     * @throws { BusinessError } 14800012 - ResultSet is empty or pointer index is out of bounds.
-     * @throws { BusinessError } 14800013 - Column index is out of bounds.
-     * @throws { BusinessError } 14800014 - The target instance is already closed.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
-     * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
-     * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
-     * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
-     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
-     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
-     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
-     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
-     * @throws { BusinessError } 14800029 - SQLite: The database is full.
-     * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file.
-     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit.
-     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation.
-     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
-     * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
      * @since 23 static
      */
     getString(columnIndex: int): string;
 
     /**
-     * Obtains the value of the specified column in the current row as long.
-     * The implementation class determines whether to throw an exception if the value of the specified column
-     * in the current row is null, the specified column is not of the integer type.
-     *
-     * @param { number } columnIndex - Indicates the specified column index, which starts from 0.
-     * @returns { number } The value of the specified column as a long.
+      * Obtains the value from the specified column in the current row, and returns a value of Long type.
+      * 
+      * If the type of the value in the specified column is INTEGER, DOUBLE, TEXT, or BLOB, a value of Long type will be
+      * returned. If the column is null/empty, **0** will be returned. If the value is of any other type, 14800000 will
+      * be returned. If the data type in the specified column is INTEGER and the value is greater than
+      * **Number.MAX_SAFE_INTEGER** or less than **Number.MIN_SAFE_INTEGER**, you are advised to use the
+      * [getString]{@link relationalStore.ResultSet.getString} API to obtain the value without losing precision. If the
+      * data type in the specified column is DOUBLE, you are advised to use the
+      * [getDouble]{@link relationalStore.ResultSet.getDouble} API to obtain the value without losing precision.
+      *
+      * @param { int } columnIndex - Index of the target column, starting from 0.
+      * @returns { long } Value obtained.
+      *     <br>The value range supported by this API is **Number.MIN_SAFE_INTEGER** to **Number.MAX_SAFE_INTEGER**. If
+      *     the value is out of this range, use [getDouble]{@link relationalStore.ResultSet.getDouble} for DOUBLE values
+      *     and [getString]{@link relationalStore.ResultSet.getString} for INTEGER values.
      * @throws { BusinessError } 14800013 - Column index is out of bounds.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 14800000 - Inner error. [since 12]
+     * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted. [since 12]
+     * @throws { BusinessError } 14800012 - ResultSet is empty or pointer index is out of bounds. [since 12]
+     * @throws { BusinessError } 14800014 - The target instance is already closed. [since 12]
+     * @throws { BusinessError } 14800021 - SQLite: Generic error. [since 12]
+     * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort. [since 12]
+     * @throws { BusinessError } 14800023 - SQLite: Access permission denied. [since 12]
+     * @throws { BusinessError } 14800024 - SQLite: The database file is locked. [since 12]
+     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked. [since 12]
+     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory. [since 12]
+     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database. [since 12]
+     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred. [since 12]
+     * @throws { BusinessError } 14800029 - SQLite: The database is full. [since 12]
+     * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file. [since 12]
+     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit. [since 12]
+     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation. [since 12]
+     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch. [since 12]
+     * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly. [since 12]
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 9
-     */
-    /**
-     * Obtains the value of the specified column in the current row as long.
-     * The implementation class determines whether to throw an exception if the value of the specified column
-     * in the current row is null, the specified column is not of the integer type.
-     *
-     * @param { number } columnIndex - Indicates the specified column index, which starts from 0.
-     * @returns { number } The value of the specified column as a long.
-     * @throws { BusinessError } 14800013 - Column index is out of bounds.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Obtains the value of the specified column in the current row as long.
-     * The implementation class determines whether to throw an exception if the value of the specified column
-     * in the current row is null, the specified column is not of the integer type.
-     *
-     * @param { int } columnIndex - Indicates the specified column index, which starts from 0.
-     * @returns { long } The value of the specified column as a long.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
-     * @throws { BusinessError } 14800012 - ResultSet is empty or pointer index is out of bounds.
-     * @throws { BusinessError } 14800013 - Column index is out of bounds.
-     * @throws { BusinessError } 14800014 - The target instance is already closed.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
-     * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
-     * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
-     * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
-     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
-     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
-     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
-     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
-     * @throws { BusinessError } 14800029 - SQLite: The database is full.
-     * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file.
-     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit.
-     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation.
-     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
-     * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
      * @since 23 static
      */
     getLong(columnIndex: int): long;
 
     /**
-     * Obtains the value of the specified column in the current row as double.
-     * The implementation class determines whether to throw an exception if the value of the specified column
-     * in the current row is null, the specified column is not of the double type.
+     * Obtains the value from the specified column in the current row, and returns a value of Double type.
+     * 
+     * If the type of the value in the specified column is INTEGER, DOUBLE, TEXT, or BLOB, a value of Double type will 
+     * be returned. If the column is null/empty, **0.0** will be returned. If the value is of any other type, 14800000 
+     * will be returned.
      *
-     * @param { number } columnIndex - Indicates the specified column index, which starts from 0.
-     * @returns { number } The value of the specified column as a double.
+     * @param { int } columnIndex - Index of the target column, starting from 0.
+     * @returns { double } Value obtained.
      * @throws { BusinessError } 14800013 - Column index is out of bounds.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 14800000 - Inner error. [since 12]
+     * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted. [since 12]
+     * @throws { BusinessError } 14800012 - ResultSet is empty or pointer index is out of bounds. [since 12]
+     * @throws { BusinessError } 14800014 - The target instance is already closed. [since 12]
+     * @throws { BusinessError } 14800021 - SQLite: Generic error. [since 12]
+     * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort. [since 12]
+     * @throws { BusinessError } 14800023 - SQLite: Access permission denied. [since 12]
+     * @throws { BusinessError } 14800024 - SQLite: The database file is locked. [since 12]
+     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked. [since 12]
+     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory. [since 12]
+     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database. [since 12]
+     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred. [since 12]
+     * @throws { BusinessError } 14800029 - SQLite: The database is full. [since 12]
+     * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file. [since 12]
+     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit. [since 12]
+     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation. [since 12]
+     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch. [since 12]
+     * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly. [since 12]
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 9
-     */
-    /**
-     * Obtains the value of the specified column in the current row as double.
-     * The implementation class determines whether to throw an exception if the value of the specified column
-     * in the current row is null, the specified column is not of the double type.
-     *
-     * @param { number } columnIndex - Indicates the specified column index, which starts from 0.
-     * @returns { number } The value of the specified column as a double.
-     * @throws { BusinessError } 14800013 - Column index is out of bounds.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Obtains the value of the specified column in the current row as double.
-     * The implementation class determines whether to throw an exception if the value of the specified column
-     * in the current row is null, the specified column is not of the double type.
-     *
-     * @param { int } columnIndex - Indicates the specified column index, which starts from 0.
-     * @returns { double } The value of the specified column as a double.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
-     * @throws { BusinessError } 14800012 - ResultSet is empty or pointer index is out of bounds.
-     * @throws { BusinessError } 14800013 - Column index is out of bounds.
-     * @throws { BusinessError } 14800014 - The target instance is already closed.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
-     * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
-     * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
-     * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
-     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
-     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
-     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
-     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
-     * @throws { BusinessError } 14800029 - SQLite: The database is full.
-     * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file.
-     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit.
-     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation.
-     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
-     * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
      * @since 23 static
      */
     getDouble(columnIndex: int): double;
 
     /**
-     * Obtains the value of the specified column in the current row as an asset.
-     * The implementation class determines whether to throw an exception if the value of the specified column
-     * in the current row is null or the specified column is not of the Asset type.
+     * Obtains the value from the specified column in the current row, and returns the value in the 
+     * [Asset]{@link @ohos.data.relationalStore:relationalStore.Asset} format. If the type of the value in the column is
+     * **Asset**, the value of the Asset type is returned. If the value in the column is null, **null** is returned. If 
+     * the value in the column is of other types, 14800000 is returned.
      *
-     * @param { number } columnIndex - Indicates the specified column index, which starts from 0.
-     * @returns { Asset } The value of the specified column as an asset.
+     * @param { int } columnIndex - Index of the target column, starting from 0.
+     * @returns { Asset } Value obtained.
      * @throws { BusinessError } 14800013 - Column index is out of bounds.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 14800000 - Inner error. [since 12]
+     * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted. [since 12]
+     * @throws { BusinessError } 14800012 - ResultSet is empty or pointer index is out of bounds. [since 12]
+     * @throws { BusinessError } 14800014 - The target instance is already closed. [since 12]
+     * @throws { BusinessError } 14800021 - SQLite: Generic error. [since 12]
+     * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort. [since 12]
+     * @throws { BusinessError } 14800023 - SQLite: Access permission denied. [since 12]
+     * @throws { BusinessError } 14800024 - SQLite: The database file is locked. [since 12]
+     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked. [since 12]
+     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory. [since 12]
+     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database. [since 12]
+     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred. [since 12]
+     * @throws { BusinessError } 14800029 - SQLite: The database is full. [since 12]
+     * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file. [since 12]
+     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit. [since 12]
+     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation. [since 12]
+     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch. [since 12]
+     * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly. [since 12]
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 10
-     */
-    /**
-     * Obtains the value of the specified column in the current row as an asset.
-     * The implementation class determines whether to throw an exception if the value of the specified column
-     * in the current row is null or the specified column is not of the Asset type.
-     *
-     * @param { int } columnIndex - Indicates the specified column index, which starts from 0.
-     * @returns { Asset } The value of the specified column as an asset.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
-     * @throws { BusinessError } 14800012 - ResultSet is empty or pointer index is out of bounds.
-     * @throws { BusinessError } 14800013 - Column index is out of bounds.
-     * @throws { BusinessError } 14800014 - The target instance is already closed.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
-     * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
-     * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
-     * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
-     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
-     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
-     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
-     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
-     * @throws { BusinessError } 14800029 - SQLite: The database is full.
-     * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file.
-     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit.
-     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation.
-     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
-     * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 12 dynamic
+     * @since 10 dynamic
      * @since 23 static
      */
     getAsset(columnIndex: int): Asset;
 
     /**
-     * Obtains the value of the specified column in the current row as assets.
-     * The implementation class determines whether to throw an exception if the value of the specified column
-     * in the current row is null or the specified column is not of the Assets type.
+     * Obtains the value from the specified column in the current row, and returns the value in the 
+     * [Assets]{@link @ohos.data.relationalStore:relationalStore.Assets} format. If the type of the value in the column 
+     * is **Assets**, the value of the Assets type is returned. If the value in the column is null, **null** is 
+     * returned. If the value in the column is of other types, 14800000 is returned.
      *
-     * @param { number } columnIndex - Indicates the specified column index, which starts from 0.
-     * @returns { Assets } The value of the specified column as assets.
+     * @param { int } columnIndex - Index of the target column, starting from 0.
+     * @returns { Assets } Value obtained.
      * @throws { BusinessError } 14800013 - Column index is out of bounds.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 14800000 - Inner error. [since 12]
+     * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted. [since 12]
+     * @throws { BusinessError } 14800012 - ResultSet is empty or pointer index is out of bounds. [since 12]
+     * @throws { BusinessError } 14800014 - The target instance is already closed. [since 12]
+     * @throws { BusinessError } 14800021 - SQLite: Generic error. [since 12]
+     * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort. [since 12]
+     * @throws { BusinessError } 14800023 - SQLite: Access permission denied. [since 12]
+     * @throws { BusinessError } 14800024 - SQLite: The database file is locked. [since 12]
+     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked. [since 12]
+     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory. [since 12]
+     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database. [since 12]
+     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred. [since 12]
+     * @throws { BusinessError } 14800029 - SQLite: The database is full. [since 12]
+     * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file. [since 12]
+     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit. [since 12]
+     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation. [since 12]
+     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch. [since 12]
+     * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly. [since 12]
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 10
-     */
-    /**
-     * Obtains the value of the specified column in the current row as assets.
-     * The implementation class determines whether to throw an exception if the value of the specified column
-     * in the current row is null or the specified column is not of the Assets type.
-     *
-     * @param { int } columnIndex - Indicates the specified column index, which starts from 0.
-     * @returns { Assets } The value of the specified column as assets.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
-     * @throws { BusinessError } 14800012 - ResultSet is empty or pointer index is out of bounds.
-     * @throws { BusinessError } 14800013 - Column index is out of bounds.
-     * @throws { BusinessError } 14800014 - The target instance is already closed.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
-     * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
-     * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
-     * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
-     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
-     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
-     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
-     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
-     * @throws { BusinessError } 14800029 - SQLite: The database is full.
-     * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file.
-     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit.
-     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation.
-     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
-     * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 12 dynamic
+     * @since 10 dynamic
      * @since 23 static
      */
     getAssets(columnIndex: int): Assets;
 
     /**
-     * Obtains the value of the specified column in the current row.
-     * The implementation class determines whether to throw an exception if the value of the specified column
-     * in the current row is null or the specified column is not of the Assets type.
+     * Obtains the value from the specified column in the current row. If the value type is any of **ValueType**, the 
+     * value of the corresponding type will be returned. Otherwise, 14800000 will be returned. If the value type is 
+     * INTEGER and the value is greater than **Number.MAX_SAFE_INTEGER** or less than **Number.MIN_SAFE_INTEGER**, you 
+     * are advised to use the [getString]{@link relationalStore.ResultSet.getString} API to obtain the value without 
+     * losing precision.
      *
-     * @param { number } columnIndex - Indicates the specified column index, which starts from 0.
-     * @returns { ValueType } The value of the specified column.
+     * @param { int } columnIndex - Index of the target column, starting from 0.
+     * @returns { ValueType } Allowed data field types.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
@@ -4450,74 +3887,8 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
      * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 12
-     */
-    /**
-     * Obtains the value of the specified column in the current row.
-     * The implementation class determines whether to throw an exception if the value of the specified column
-     * in the current row is null or the specified column is not of the Assets type.
-     * Inserting an empty blob, after API14 and API14, the obtained value is an empty blob; Before API 14,
-     * the obtained value was null.
-     *
-     * @param { number } columnIndex - Indicates the specified column index, which starts from 0.
-     * @returns { ValueType } The value of the specified column.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
-     * @throws { BusinessError } 14800012 - ResultSet is empty or pointer index is out of bounds.
-     * @throws { BusinessError } 14800013 - Column index is out of bounds.
-     * @throws { BusinessError } 14800014 - The target instance is already closed.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
-     * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
-     * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
-     * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
-     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
-     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
-     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
-     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
-     * @throws { BusinessError } 14800029 - SQLite: The database is full.
-     * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file.
-     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit.
-     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation.
-     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
-     * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 14
-     */
-    /**
-     * Obtains the value of the specified column in the current row.
-     * The implementation class determines whether to throw an exception if the value of the specified column
-     * in the current row is null or the specified column is not of the Assets type.
-     * Inserting an empty blob, after API14 and API14, the obtained value is an empty blob; Before API 14,
-     * the obtained value was null.
-     *
-     * @param { int } columnIndex - Indicates the specified column index, which starts from 0.
-     * @returns { ValueType } The value of the specified column.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
-     * @throws { BusinessError } 14800012 - ResultSet is empty or pointer index is out of bounds.
-     * @throws { BusinessError } 14800013 - Column index is out of bounds.
-     * @throws { BusinessError } 14800014 - The target instance is already closed.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
-     * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
-     * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
-     * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
-     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
-     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
-     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
-     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
-     * @throws { BusinessError } 14800029 - SQLite: The database is full.
-     * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file.
-     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit.
-     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation.
-     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
-     * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 20 dynamic
+     * @crossplatform [since 20]
+     * @since 12 dynamic
      * @since 23 static
      */
     getValue(columnIndex: int): ValueType;
@@ -4557,79 +3928,53 @@ declare namespace relationalStore {
     getFloat32Array(columnIndex: int): Float32Array;
 
     /**
-     * Obtains the values of all columns in the specified row.
+     * Obtains this row.
      *
-     * @returns { ValuesBucket } Indicates the row of data {@link ValuesBucket} to be inserted into the table.
+     * @returns { ValuesBucket } Value of the specified row. If the result set contains duplicate column names, the
+     *     return value is not as expected. You are advised to use the
+     *     [getCurrentRowData]{@link relationalStore.ResultSet.getCurrentRowData} API.
      * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted. [since 12]
+     * @throws { BusinessError } 14800012 - ResultSet is empty or pointer index is out of bounds. [since 12]
+     * @throws { BusinessError } 14800013 - Column index is out of bounds. [since 12]
+     * @throws { BusinessError } 14800014 - The target instance is already closed. [since 12]
+     * @throws { BusinessError } 14800021 - SQLite: Generic error. [since 12]
+     * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort. [since 12]
+     * @throws { BusinessError } 14800023 - SQLite: Access permission denied. [since 12]
+     * @throws { BusinessError } 14800024 - SQLite: The database file is locked. [since 12]
+     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked. [since 12]
+     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory. [since 12]
+     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database. [since 12]
+     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred. [since 12]
+     * @throws { BusinessError } 14800029 - SQLite: The database is full. [since 12]
+     * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file. [since 12]
+     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit. [since 12]
+     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation. [since 12]
+     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch. [since 12]
+     * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly. [since 12]
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 11
-     */
-    /**
-     * Obtains the values of all columns in the specified row.
-     *
-     * @returns { ValuesBucket } Indicates the row of data {@link ValuesBucket} to be inserted into the table.
-     * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
-     * @throws { BusinessError } 14800012 - ResultSet is empty or pointer index is out of bounds.
-     * @throws { BusinessError } 14800013 - Column index is out of bounds.
-     * @throws { BusinessError } 14800014 - The target instance is already closed.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
-     * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
-     * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
-     * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
-     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
-     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
-     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
-     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
-     * @throws { BusinessError } 14800029 - SQLite: The database is full.
-     * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file.
-     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit.
-     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation.
-     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
-     * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 12
-     */
-    /**
-     * Obtains the values of all columns in the specified row.
-     * Inserting an empty blob, after API14 and API14, the obtained value is an empty blob; Before API 14,
-     * the obtained value was null.
-     *
-     * @returns { ValuesBucket } Indicates the row of data {@link ValuesBucket} to be inserted into the table.
-     * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
-     * @throws { BusinessError } 14800012 - ResultSet is empty or pointer index is out of bounds.
-     * @throws { BusinessError } 14800013 - Column index is out of bounds.
-     * @throws { BusinessError } 14800014 - The target instance is already closed.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
-     * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
-     * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
-     * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
-     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
-     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
-     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
-     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
-     * @throws { BusinessError } 14800029 - SQLite: The database is full.
-     * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file.
-     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit.
-     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation.
-     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
-     * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 14 dynamic
+     * @since 11 dynamic
      * @since 23 static
      */
     getRow(): ValuesBucket;
 
     /**
-     * Obtains the values of all columns in the specified rows.
-     * @param { int } maxCount - Indicates the maximum number of rows.
-     * @param { int } [position] - Indicates the start position to obtain the values.
-     * @returns { Promise<Array<ValuesBucket>> } Promise used to return the values obtained,
-     * in an {@link Array<ValuesBucket>}.
+     * Obtains a specified amount of data from the result set. This API uses a promise to return the result. Do not call
+     * this API concurrently with other APIs of [ResultSet]{@link @ohos.data.relationalStore:relationalStore}. Otherwise
+     * , unexpected data may be obtained.
+     *
+     * @param { int } maxCount - Number of rows to obtain. The value is a positive integer. If the value is not a
+     *     positive integer, error 401 will be thrown.
+     * @param { int } [position] - Start position for obtaining data from the result set. The value is a non-negative
+     *     integer. If this parameter is not specified, data is obtained from the current row of the result set (by
+     *     default, it is the first row of the result set when data is obtained for the first time). If the value is not
+     *     a non-negative integer, error code 401 will be thrown.
+     * @returns { Promise<Array<ValuesBucket>> } Promise used to return **maxCount** rows of data obtained. If the
+     *     number of remaining records is less than **maxCount**, the remaining records are returned. Returning an empty
+     *     array indicates that the end of the result set is reached. If the result set contains duplicate column names,
+     *     the return values are not as expected. You are advised to use the
+     *     [getRowsData]{@link relationalStore.ResultSet.getRowsData} API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
@@ -4656,10 +4001,9 @@ declare namespace relationalStore {
     getRows(maxCount: int, position?: int): Promise<Array<ValuesBucket>>;
 
     /**
-     * Obtains the values of all columns in the specified row.
+     * Obtains the sendable data from the current row. The sendable data can be passed across threads.
      *
-     * @returns { sendableRelationalStore.ValuesBucket } Indicates the row of data
-     *   {@link sendableRelationalStore.ValuesBucket} to be inserted into the table.
+     * @returns { sendableRelationalStore.ValuesBucket } Sendable data obtained for cross-thread transfer.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
      * @throws { BusinessError } 14800012 - ResultSet is empty or pointer index is out of bounds.
@@ -4685,9 +4029,10 @@ declare namespace relationalStore {
     getSendableRow(): sendableRelationalStore.ValuesBucket;
 
     /**
-     * Obtains the values of all columns in the current row.
+     * Obtains the values of all columns in this row.
      *
-     * @returns { RowData } Indicates the row of data {@link RowData} to be inserted into the table.
+     * @returns { RowData } Values of all columns in this row obtained. The values of columns with the same name can be
+     *     obtained.
      * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. Parameter is out of valid range.
      * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
      * @throws { BusinessError } 14800012 - ResultSet is empty or pointer index is out of bounds.
@@ -4705,12 +4050,20 @@ declare namespace relationalStore {
     getCurrentRowData(): RowData;
 
     /**
-     * Moves sequentially from the specified position, taking up to maxCount steps,
-     * and captures the data from each encountered row.
+     * Obtains data of a specified number of rows from the specified position. This API uses a promise to return the 
+     * result. Do not call this API concurrently with other APIs of 
+     * [ResultSet]{@link @ohos.data.relationalStore:relationalStore}. Otherwise, unexpected data may be obtained.
      *
-     * @param { int } maxCount - Indicates the maximum number of rows.
-     * @param { int } [position] - Indicates the start position to obtain the values.
-     * @returns { Promise<RowsData> } Promise used to return the values obtained in an {@link RowsData}.
+     * @param { int } maxCount - Number of rows to obtain. The value is a positive integer. If the value is not a
+     *     positive integer, error 14800001 will be thrown.
+     * @param { int } [position] - Start position for obtaining data from the result set. The value is a non-negative
+     *     integer. If this parameter is not specified, data is obtained from the current row of the result set (by
+     *     default, it is the first row of the result set when data is obtained for the first time). If the value is not
+     *     a non-negative integer, error code 14800001 will be thrown.
+     * @returns { Promise<RowsData> } Promise used to return **maxCount** rows of data obtained. If the number of
+     *     remaining records is less than **maxCount**, the remaining records are returned. Returning an empty array
+     *     indicates that the end of the result set is reached. The values of columns with the same name can be
+     *     obtained.
      * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. Parameter is out of valid range.
      * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
      * @throws { BusinessError } 14800012 - ResultSet is empty or pointer index is out of bounds.
@@ -4729,97 +4082,67 @@ declare namespace relationalStore {
     getRowsData(maxCount: int, position?: int): Promise<RowsData>;
 
     /**
-     * Checks whether the value of the specified column in the current row is null.
+     * Checks whether the value in the specified column is null.
      *
-     * @param { number } columnIndex - Indicates the specified column index, which starts from 0.
-     * @returns { boolean } True if the value of the specified column in the current row is null;
-     *     Returns false otherwise.
+     * @param { int } columnIndex - Index of the target column, starting from 0.
+     * @returns { boolean } Returns **true** if the value is null; returns **false** otherwise.
      * @throws { BusinessError } 14800013 - Column index is out of bounds.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 14800000 - Inner error. [since 12]
+     * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted. [since 12]
+     * @throws { BusinessError } 14800012 - ResultSet is empty or pointer index is out of bounds. [since 12]
+     * @throws { BusinessError } 14800014 - The target instance is already closed. [since 12]
+     * @throws { BusinessError } 14800021 - SQLite: Generic error. [since 12]
+     * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort. [since 12]
+     * @throws { BusinessError } 14800023 - SQLite: Access permission denied. [since 12]
+     * @throws { BusinessError } 14800024 - SQLite: The database file is locked. [since 12]
+     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked. [since 12]
+     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory. [since 12]
+     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database. [since 12]
+     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred. [since 12]
+     * @throws { BusinessError } 14800029 - SQLite: The database is full. [since 12]
+     * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file. [since 12]
+     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit. [since 12]
+     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation. [since 12]
+     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch. [since 12]
+     * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly. [since 12]
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 9
-     */
-    /**
-     * Checks whether the value of the specified column in the current row is null.
-     *
-     * @param { number } columnIndex - Indicates the specified column index, which starts from 0.
-     * @returns { boolean } True if the value of the specified column in the current row is null;
-     *     Returns false otherwise.
-     * @throws { BusinessError } 14800013 - Column index is out of bounds.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Checks whether the value of the specified column in the current row is null.
-     *
-     * @param { int } columnIndex - Indicates the specified column index, which starts from 0.
-     * @returns { boolean } True if the value of the specified column in the current row is null;
-     *     Returns false otherwise.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
-     * @throws { BusinessError } 14800012 - ResultSet is empty or pointer index is out of bounds.
-     * @throws { BusinessError } 14800013 - Column index is out of bounds.
-     * @throws { BusinessError } 14800014 - The target instance is already closed.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
-     * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
-     * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
-     * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
-     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
-     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
-     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
-     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
-     * @throws { BusinessError } 14800029 - SQLite: The database is full.
-     * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file.
-     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit.
-     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation.
-     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
-     * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
      * @since 23 static
      */
     isColumnNull(columnIndex: int): boolean;
 
     /**
-     * Closes the result set.
-     * Calling this method on the result set will release all of its resources and makes it ineffective.
+     * Closes this **resultSet** to release memory. If the **resultSet** is not closed, FD or memory leaks may occur.
      *
-     * @throws { BusinessError } 14800012 - The result set is empty or the specified location is invalid.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 9
-     */
-    /**
-     * Closes the result set.
-     * Calling this method on the result set will release all of its resources and makes it ineffective.
-     *
-     * @throws { BusinessError } 14800012 - The result set is empty or the specified location is invalid.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Closes the result set.
-     * Calling this method on the result set will release all of its resources and makes it ineffective.
-     *
-     * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800012 - ResultSet is empty or pointer index is out of bounds.
+     * @throws { BusinessError } 14800000 - Inner error. [since 12]
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
      * @since 23 static
      */
     close(): void;
   }
 
   /**
-   * Provides methods for accessing a database result set generated by querying the database.
+   * Defines APIs to access the result set obtained by querying the RDB store. This result set is the collection of 
+   * results returned with the **query()** method called.
+   * 
+   * The **LiteResultSet** instance is not refreshed in real time. After using the result set, if the data in the 
+   * database is changed (by being added, deleted, or modified), you need to query the result set again to obtain the 
+   * latest data.
+   * 
+   * In the following API examples, you need to obtain an **LiteResultSet** instance by using a query method, such as 
+   * [queryWithoutRowCount]{@link @ohos.data.relationalStore:relationalStore.RdbStore.queryWithoutRowCount} or 
+   * [querySqlWithoutRowCount]{@link @ohos.data.relationalStore:relationalStore.RdbStore.querySqlWithoutRowCount}, and 
+   * then call the corresponding method through this instance.
+   * 
+   * > **NOTE**
+   * >
+   * > - The initial APIs of this class are supported since API version 23.
    *
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @stagemodelonly
@@ -4828,11 +4151,13 @@ declare namespace relationalStore {
    */
   class LiteResultSet {
     /**
-     * Obtains the names of all columns in a result set.
-     * The column names are returned as a string array, in which the strings are in the same order
-     * as the columns in the result set.
+     * Obtains the names of all columns in the result set.
+     * 
+     * The column names are returned in a string array. The sequence of strings in the array is the same as that of 
+     * columns in the result set.
      *
-     * @returns { Array<string> } The columnNames of the resultSet.
+     * @returns { Array<string> } Names of all columns in the result set obtained. Duplicate column names can be
+     *     obtained.
      * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. Parameter is out of valid range.
      * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
      * @throws { BusinessError } 14800014 - The target instance is already closed.
@@ -4849,11 +4174,11 @@ declare namespace relationalStore {
     getColumnNames(): Array<string>;
 
     /**
-     * Obtains the column index based on the specified column name.
-     * The column name is passed as an input parameter.
+     * Obtains the column index based on the column name.
      *
-     * @param { string } columnName - Indicates the name of the specified column in the result set.
-     * @returns { int } The index of the specified column.
+     * @param { string } columnName - Column name. If the result set contains duplicate column names, the return value
+     *     is not as expected.
+     * @returns { int } Column index obtained.
      * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. Parameter is out of valid range.
      * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
      * @throws { BusinessError } 14800014 - The target instance is already closed.
@@ -4870,11 +4195,11 @@ declare namespace relationalStore {
     getColumnIndex(columnName: string): int;
 
     /**
-     * Obtains the column name based on the specified column index.
-     * The column index is passed as an input parameter.
+     * Obtains the column name based on the column index.
      *
-     * @param { int } columnIndex - Indicates the index of the specified column in the result set.
-     * @returns { string } The name of the specified column.
+     * @param { int } columnIndex - Index of the column in the result set, starting from 0.
+     * @returns { string } Column name obtained. If the result set contains duplicate column names, the return value is
+     *     not as expected.
      * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. Parameter is out of valid range.
      * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
      * @throws { BusinessError } 14800013 - Column index is out of bounds.
@@ -4892,12 +4217,13 @@ declare namespace relationalStore {
     getColumnName(columnIndex: int): string;
 
     /**
-     * Obtains the column data type based on the specified column index.
-     * The column index is passed as an input parameter.
+     * Obtains the column type based on the specified column index or column name. This API uses a promise to return the
+     * result.
      *
-     * @param { int | string } columnIdentifier - Index or name of the column.
-     * @returns { Promise<ColumnType> } Promise used to return the data type obtained,
-     *     in an {@link ColumnType} instance.
+     * @param { int | string } columnIdentifier - Index or name of the column in the result set. The index starts from 0
+     *     .
+     * @returns { Promise<ColumnType> } Promise used to return the column type obtained. If the result set contains
+     *     duplicate column names, the return value is not as expected.
      * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. Parameter is out of valid range.
      * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
      * @throws { BusinessError } 14800012 - ResultSet is empty or pointer index is out of bounds.
@@ -4916,10 +4242,12 @@ declare namespace relationalStore {
     getColumnType(columnIdentifier: int | string): Promise<ColumnType>;
 
     /**
-     * Obtains the column data type based on the specified column index. This API returns the result synchronously.
+     * Obtains the column type based on the specified column index or column name.
      *
-     * @param { int | string } columnIdentifier - Index or name of the column.
-     * @returns { ColumnType } Column data type obtained.
+     * @param { int | string } columnIdentifier - Index or name of the column in the result set. The index starts from 0
+     *     .
+     * @returns { ColumnType } Column type obtained. If the result set contains duplicate column names, the return value
+     *     is not as expected.
      * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. Parameter is out of valid range.
      * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
      * @throws { BusinessError } 14800012 - ResultSet is empty or pointer index is out of bounds.
@@ -4938,10 +4266,10 @@ declare namespace relationalStore {
     getColumnTypeSync(columnIdentifier: int | string): ColumnType;
 
     /**
-     * Go to the next row of the result set.
+     * Moves the result set to the next row.
      *
-     * @returns { boolean } True if the result set is moved successfully;
-     *     Returns false otherwise, for example, if the result set is already in the last row.
+     * @returns { boolean } Returns **true** if the result set is successfully moved to the next row; returns **false**
+     *     otherwise.
      * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. Parameter is out of valid range.
      * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
      * @throws { BusinessError } 14800012 - ResultSet is empty or pointer index is out of bounds.
@@ -4960,12 +4288,15 @@ declare namespace relationalStore {
     goToNextRow(): boolean;
 
     /**
-     * Obtains the value of the specified column in the current row as a byte array.
-     * The implementation class determines whether to throw an exception if the value of the specified column
-     * in the current row is null or the specified column is not of the Blob type.
+     * Obtains the value in the specified column in the current row as a byte array.
+     * 
+     * If the data type of the current column is INTEGER, DOUBLE, TEXT, or BLOB, the data is converted to a byte array 
+     * and returned. If the content of the column is null/empty, an empty byte array is returned.
+     * 
+     * If the data type of the current column is ASSET, ASSETS, FLOATVECTOR, or BIGINT, 14800041 is returned.
      *
-     * @param { int } columnIndex - Indicates the specified column index, which starts from 0.
-     * @returns { Uint8Array } The value of the specified column as a byte array.
+     * @param { int } columnIndex - Index of the target column, starting from 0.
+     * @returns { Uint8Array } Value obtained.
      * @throws { BusinessError } 14800012 - ResultSet is empty or pointer index is out of bounds.
      * @throws { BusinessError } 14800013 - Column index is out of bounds.
      * @throws { BusinessError } 14800014 - The target instance is already closed.
@@ -4978,12 +4309,18 @@ declare namespace relationalStore {
     getBlob(columnIndex: int): Uint8Array;
 
     /**
-     * Obtains the value of the specified column in the current row as string.
-     * The implementation class determines whether to throw an exception if the value of the specified column
-     * in the current row is null or the specified column is not of the string type.
+     * Obtains the value in the specified column in the current row as a string.
+     * 
+     * If the data type of the current column is INTEGER, DOUBLE, TEXT, or BLOB type, the value is returned as a string.
+     * If the content of the column is null/empty, an empty string **""** is returned.
+     * 
+     * If the data type of the current column is DOUBLE, precision loss may occur. You are advised to use 
+     * [getDouble]{@link relationalStore.LiteResultSet.getDouble} API to obtain the value.
+     * 
+     * If the data type of the current column is ASSET, ASSETS, FLOATVECTOR, or BIGINT, 14800041 is returned.
      *
-     * @param { int } columnIndex - Indicates the specified column index, which starts from 0.
-     * @returns { string } The value of the specified column as a string.
+     * @param { int } columnIndex - Index of the target column, starting from 0.
+     * @returns { string } Value obtained.
      * @throws { BusinessError } 14800012 - ResultSet is empty or pointer index is out of bounds.
      * @throws { BusinessError } 14800013 - Column index is out of bounds.
      * @throws { BusinessError } 14800014 - The target instance is already closed.
@@ -4995,13 +4332,23 @@ declare namespace relationalStore {
      */
     getString(columnIndex: int): string;
 
-    /**
-     * Obtains the value of the specified column in the current row as long.
-     * The implementation class determines whether to throw an exception if the value of the specified column
-     * in the current row is null, the specified column is not of the integer type.
-     *
-     * @param { int } columnIndex - Indicates the specified column index, which starts from 0.
-     * @returns { long } The value of the specified column as a long.
+/**
+      * Obtains the value from the specified column in the current row, and returns a value of Long type.
+      * 
+      * If the data type of the current column is INTEGER, DOUBLE, TEXT, or BLOB, a value of Long type is returned. If
+      * the column is null, **0** is returned. If the data type is INTEGER and the value is greater than
+      * **Number.MAX_SAFE_INTEGER** or less than **Number.MIN_SAFE_INTEGER**, you are advised to use the
+      * [getString]{@link relationalStore.LiteResultSet.getString} API to obtain the value without losing precision. If
+      * the data type in the specified column is DOUBLE, you are advised to use the
+      * [getDouble]{@link relationalStore.LiteResultSet.getDouble} API to obtain the value without precision loss.
+      * 
+      * If the data type of the current column is ASSET, ASSETS, FLOATVECTOR, or BIGINT, 14800041 is returned.
+      *
+      * @param { int } columnIndex - Index of the target column, starting from 0.
+      * @returns { long } Value obtained.
+      *     <br>The value range supported by this API is **Number.MIN_SAFE_INTEGER** to **Number.MAX_SAFE_INTEGER**. If
+      *     the value is out of this range, use [getDouble]{@link relationalStore.LiteResultSet.getDouble} for DOUBLE
+      *     values and [getString]{@link relationalStore.LiteResultSet.getString} for INTEGER values.
      * @throws { BusinessError } 14800012 - ResultSet is empty or pointer index is out of bounds.
      * @throws { BusinessError } 14800013 - Column index is out of bounds.
      * @throws { BusinessError } 14800014 - The target instance is already closed.
@@ -5014,12 +4361,16 @@ declare namespace relationalStore {
     getLong(columnIndex: int): long;
 
     /**
-     * Obtains the value of the specified column in the current row as double.
-     * The implementation class determines whether to throw an exception if the value of the specified column
-     * in the current row is null, the specified column is not of the double type.
+     * Obtains the value in the specified column in the current row as a Double.
+     * 
+     * If the data type of the current column is INTEGER, DOUBLE, or TEXT, the value is converted to the Double type and
+     * returned. Non-numeric TEXT and BLOB types return **0.0**. If the content of the column is null/empty, **0.0** is 
+     * returned.
+     * 
+     * If the data type of the current column is ASSET, ASSETS, FLOATVECTOR, or BIGINT, 14800041 is returned.
      *
-     * @param { int } columnIndex - Indicates the specified column index, which starts from 0.
-     * @returns { double } The value of the specified column as a double.
+     * @param { int } columnIndex - Index of the target column, starting from 0.
+     * @returns { double } Value obtained.
      * @throws { BusinessError } 14800012 - ResultSet is empty or pointer index is out of bounds.
      * @throws { BusinessError } 14800013 - Column index is out of bounds.
      * @throws { BusinessError } 14800014 - The target instance is already closed.
@@ -5032,12 +4383,15 @@ declare namespace relationalStore {
     getDouble(columnIndex: int): double;
 
     /**
-     * Obtains the value of the specified column in the current row as an asset.
-     * The implementation class determines whether to throw an exception if the value of the specified column
-     * in the current row is null or the specified column is not of the Asset type.
+     * Obtains the value in the specified column in the current row as an 
+     * [Asset]{@link @ohos.data.relationalStore:relationalStore.Asset}.
+     * 
+     * If the data type of the current column is Asset, the value is returned as an Asset. If the value in the current 
+     * column is **null**, **null** is returned. If the data type of the current column is not Asset, 14800041 is 
+     * returned.
      *
-     * @param { int } columnIndex - Indicates the specified column index, which starts from 0.
-     * @returns { Asset } The value of the specified column as an asset.
+     * @param { int } columnIndex - Index of the target column, starting from 0.
+     * @returns { Asset } Value obtained.
      * @throws { BusinessError } 14800012 - ResultSet is empty or pointer index is out of bounds.
      * @throws { BusinessError } 14800013 - Column index is out of bounds.
      * @throws { BusinessError } 14800014 - The target instance is already closed.
@@ -5050,12 +4404,15 @@ declare namespace relationalStore {
     getAsset(columnIndex: int): Asset;
 
     /**
-     * Obtains the value of the specified column in the current row as assets.
-     * The implementation class determines whether to throw an exception if the value of the specified column
-     * in the current row is null or the specified column is not of the Assets type.
+     * Obtains the value in the specified column in the current row as 
+     * [Assets]{@link @ohos.data.relationalStore:relationalStore.Assets}.
+     * 
+     * If the data type of the current column is Assets, the value is returned as Assets. If the value in the current 
+     * column is **null**, **null** is returned. If the data type of the current column is not Assets, 14800041 is 
+     * returned.
      *
-     * @param { int } columnIndex - Indicates the specified column index, which starts from 0.
-     * @returns { Assets } The value of the specified column as assets.
+     * @param { int } columnIndex - Index of the target column, starting from 0.
+     * @returns { Assets } Value obtained.
      * @throws { BusinessError } 14800012 - ResultSet is empty or pointer index is out of bounds.
      * @throws { BusinessError } 14800013 - Column index is out of bounds.
      * @throws { BusinessError } 14800014 - The target instance is already closed.
@@ -5069,13 +4426,13 @@ declare namespace relationalStore {
 
     /**
      * Obtains the value of the specified column in the current row.
-     * The implementation class determines whether to throw an exception if the value of the specified column
-     * in the current row is null or the specified column is not of the Assets type.
-     * Inserting an empty blob, after API14 and API14, the obtained value is an empty blob; Before API 14,
-     * the obtained value was null.
+     * 
+     * If the value type is INTEGER and the value is greater than **Number.MAX_SAFE_INTEGER** or less than 
+     * **Number.MIN_SAFE_INTEGER**, you are advised to use the 
+     * [getString]{@link relationalStore.LiteResultSet.getString} API to obtain the value without precision loss.
      *
-     * @param { int } columnIndex - Indicates the specified column index, which starts from 0.
-     * @returns { ValueType } The value of the specified column.
+     * @param { int } columnIndex - Index of the target column, starting from 0.
+     * @returns { ValueType } Type of the data field returned.
      * @throws { BusinessError } 14800012 - ResultSet is empty or pointer index is out of bounds.
      * @throws { BusinessError } 14800013 - Column index is out of bounds.
      * @throws { BusinessError } 14800014 - The target instance is already closed.
@@ -5106,11 +4463,11 @@ declare namespace relationalStore {
     getFloat32Array(columnIndex: int): Float32Array;
 
     /**
-     * Obtains the values of all columns in the specified row.
-     * Inserting an empty blob, after API14 and API14, the obtained value is an empty blob; Before API 14,
-     * the obtained value was null.
+     * Obtains data for the current row.
      *
-     * @returns { ValuesBucket } Indicates the row of data {@link ValuesBucket} to be inserted into the table.
+     * @returns { ValuesBucket } Value of the specified row. If the result set contains duplicate column names, the
+     *     return value is not as expected. You are advised to use the
+     *     [getCurrentRowData]{@link relationalStore.LiteResultSet.getCurrentRowData} API.
      * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. Parameter is out of valid range.
      * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
      * @throws { BusinessError } 14800012 - ResultSet is empty or pointer index is out of bounds.
@@ -5128,12 +4485,19 @@ declare namespace relationalStore {
     getRow(): ValuesBucket;
 
     /**
-     * Obtains the values of all columns in the specified rows.
+     * Obtains a specified amount of data from the result set. This API uses a promise to return the result. Do not call
+     * this API concurrently with other APIs of [LiteResultSet]{@link @ohos.data.relationalStore:relationalStore}. 
+     * Otherwise, unexpected data may be obtained.
      *
-     * @param { int } maxCount - Indicates the maximum number of rows.
-     * @param { int } [position] - Indicates the start position to obtain the values.
-     * @returns { Promise<Array<ValuesBucket>> } Promise used to return the values obtained,
-     *     in an {@link Array<ValuesBucket>}.
+     * @param { int } maxCount - Number of rows to obtain. The value is a positive integer.
+     * @param { int } [position] - Start position for obtaining data from the result set. The value is a non-negative
+     *     integer. If this parameter is not specified, data is obtained from the current row of the result set (by
+     *     default, it is the first row of the result set when data is obtained for the first time).
+     * @returns { Promise<Array<ValuesBucket>> } Promise used to return **maxCount** rows of data obtained. If the
+     *     number of remaining records is less than **maxCount**, the remaining records are returned. Returning an empty
+     *     array indicates that the end of the result set is reached. If the result set contains duplicate column names,
+     *     the return values are not as expected. You are advised to use the
+     *     [getRowsData]{@link relationalStore.LiteResultSet.getRowsData} API.
      * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. Parameter is out of valid range.
      * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
      * @throws { BusinessError } 14800012 - ResultSet is empty or pointer index is out of bounds.
@@ -5152,9 +4516,10 @@ declare namespace relationalStore {
     getRows(maxCount: int, position?: int): Promise<Array<ValuesBucket>>;
 
     /**
-     * Obtains the values of all columns in the current row.
+     * Obtains the values of all columns in this row.
      *
-     * @returns { RowData } Indicates the row of data {@link RowData} to be inserted into the table.
+     * @returns { RowData } Values of all columns in this row obtained. The values of columns with the same name can be
+     *     obtained.
      * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. Parameter is out of valid range.
      * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
      * @throws { BusinessError } 14800012 - ResultSet is empty or pointer index is out of bounds.
@@ -5172,12 +4537,20 @@ declare namespace relationalStore {
     getCurrentRowData(): RowData;
 
     /**
-     * Moves sequentially from the specified position, taking up to maxCount steps,
-     * and captures the data from each encountered row.
+     * Obtains data of a specified number of rows from the specified position. This API uses a promise to return the 
+     * result. Do not call this API concurrently with other APIs of 
+     * [ResultSet]{@link @ohos.data.relationalStore:relationalStore}. Otherwise, unexpected data may be obtained.
      *
-     * @param { int } maxCount - Indicates the maximum number of rows.
-     * @param { int } [position] - Indicates the start position to obtain the values.
-     * @returns { Promise<RowsData> } Promise used to return the values obtained in an {@link RowsData}.
+     * @param { int } maxCount - Number of rows to obtain. The value is a positive integer. If the value is not a
+     *     positive integer, error 14800001 will be thrown.
+     * @param { int } [position] - Start position for obtaining data from the result set. The value is a non-negative
+     *     integer. If this parameter is not specified, data is obtained from the current row of the result set (by
+     *     default, it is the first row of the result set when data is obtained for the first time). If the value is not
+     *     a non-negative integer, error code 14800001 will be thrown.
+     * @returns { Promise<RowsData> } Promise used to return **maxCount** rows of data obtained. If the number of
+     *     remaining records is less than **maxCount**, the remaining records are returned. Returning an empty array
+     *     indicates that the end of the result set is reached. The values of columns with the same name can be
+     *     obtained.
      * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. Parameter is out of valid range.
      * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
      * @throws { BusinessError } 14800012 - ResultSet is empty or pointer index is out of bounds.
@@ -5196,11 +4569,10 @@ declare namespace relationalStore {
     getRowsData(maxCount: int, position?: int): Promise<RowsData>;
 
     /**
-     * Checks whether the value of the specified column in the current row is null.
+     * Checks whether the value in the specified column is null.
      *
-     * @param { int } columnIndex - Indicates the specified column index, which starts from 0.
-     * @returns { boolean } True if the value of the specified column in the current row is null;
-     *     Returns false otherwise.
+     * @param { int } columnIndex - Index of the target column, starting from 0.
+     * @returns { boolean } Returns **true** if the value is null; returns **false** otherwise.
      * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. Parameter is out of valid range.
      * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
      * @throws { BusinessError } 14800012 - ResultSet is empty or pointer index is out of bounds.
@@ -5219,8 +4591,7 @@ declare namespace relationalStore {
     isColumnNull(columnIndex: int): boolean;
 
     /**
-     * Closes the result set.
-     * Calling this method on the result set will release all of its resources and makes it ineffective.
+     * Closes this **resultSet** to release memory. If the **resultSet** is not closed, FD or memory leaks may occur.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @stagemodelonly
@@ -5231,21 +4602,20 @@ declare namespace relationalStore {
   }
 
   /**
-   * Provides methods for managing the relational database (RDB).
-   * This class provides methods for creating, querying, updating, and deleting RDBs.
+   * Provides APIs for managing data in an RDB store.
+   * 
+   * Before using the following APIs, you should obtain an **RdbStore** instance by calling the 
+   * [getRdbStore]{@link @ohos.data.relationalStore:relationalStore.getRdbStore(context: Context, config: StoreConfig)} 
+   * method and then call the corresponding method through the instance.
+   * 
+   * In addition, use 
+   * [execute]{@link @ohos.data.relationalStore:relationalStore.RdbStore.execute(sql: string, args?: Array<ValueType>)} 
+   * to initialize the database table structure and related data first, ensuring that the prerequisites for related API 
+   * calls are met.
    *
-   * @interface RdbStore
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @since 9
-   */
-  /**
-   * Provides methods for managing the relational database (RDB).
-   * This class provides methods for creating, querying, updating, and deleting RDBs.
-   *
-   * @interface RdbStore
-   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @crossplatform
-   * @since 10 dynamic
+   * @crossplatform [since 10]
+   * @since 9 dynamic
    * @since 23 static
    */
   interface RdbStore {
@@ -5255,33 +4625,22 @@ declare namespace relationalStore {
      *
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 801 - Capability not supported. [since 12]
+     * @throws { BusinessError } 14800000 - Inner error. [since 12]
+     * @throws { BusinessError } 14800014 - The target instance is already closed. [since 12]
+     * @throws { BusinessError } 14800015 - The database does not respond. [since 12]
+     * @throws { BusinessError } 14800021 - SQLite: Generic error. [since 12]
+     * @throws { BusinessError } 14800023 - SQLite: Access permission denied. [since 12]
+     * @throws { BusinessError } 14800024 - SQLite: The database file is locked. [since 12]
+     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked. [since 12]
+     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory. [since 12]
+     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database. [since 12]
+     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred. [since 12]
+     * @throws { BusinessError } 14800029 - SQLite: The database is full. [since 12]
+     * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file. [since 12]
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 10
-     */
-    /**
-     * Set RdbStore version. The version number must be an integer greater than 0.
-     * Obtains the RdbStore version.
-     *
-     * @type { int }
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800014 - The target instance is already closed.
-     * @throws { BusinessError } 14800015 - The database does not respond.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
-     * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
-     * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
-     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
-     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
-     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
-     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
-     * @throws { BusinessError } 14800029 - SQLite: The database is full.
-     * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 12 dynamic
+     * @since 10 dynamic
      * @since 23 static
      */
     version: int;
@@ -5289,7 +4648,6 @@ declare namespace relationalStore {
     /**
      * Set whether the database is rebuilt.
      *
-     * @type {RebuildType}
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 12 dynamic
      * @since 23 static
@@ -5301,59 +4659,33 @@ declare namespace relationalStore {
      *
      * @param { string } table - Indicates the target table.
      * @param { ValuesBucket } values - Indicates the row of data {@link ValuesBucket} to be inserted into the table.
-     * @param { AsyncCallback<number> } callback - The row ID if the operation is successful. returns -1 otherwise.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 14800000 - Inner error.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 9 dynamic
-     */
-    /**
-     * Inserts a row of data into the target table.
-     *
-     * @param { string } table - Indicates the target table.
-     * @param { ValuesBucket } values - Indicates the row of data {@link ValuesBucket} to be inserted into the table.
-     * @param { AsyncCallback<number> } callback - The row ID if the operation is successful. returns -1 otherwise.
-     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 14800000 - Inner error.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 10 dynamic
-     */
-    /**
-     * Inserts a row of data into the target table.
-     *
-     * @param { string } table - Indicates the target table.
-     * @param { ValuesBucket } values - Indicates the row of data {@link ValuesBucket} to be inserted into the table.
      * @param { AsyncCallback<long> } callback - The row ID if the operation is successful. returns -1 otherwise.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
-     * @throws { BusinessError } 14800014 - The target instance is already closed.
-     * @throws { BusinessError } 14800015 - The database does not respond.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit. [since 10]
+     * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted. [since 12]
+     * @throws { BusinessError } 14800014 - The target instance is already closed. [since 12]
+     * @throws { BusinessError } 14800015 - The database does not respond. [since 12]
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
-     *     Possible causes: Insert failed or the updated data does not exist.
-     * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
-     * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
-     * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
-     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
-     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
-     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
-     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
-     * @throws { BusinessError } 14800029 - SQLite: The database is full.
-     * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file.
-     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit.
-     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation.
-     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
-     * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
-     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
+     *     Possible causes: Insert failed or the updated data does not exist. [since 12]
+     * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort. [since 12]
+     * @throws { BusinessError } 14800023 - SQLite: Access permission denied. [since 12]
+     * @throws { BusinessError } 14800024 - SQLite: The database file is locked. [since 12]
+     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked. [since 12]
+     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory. [since 12]
+     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database. [since 12]
+     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred. [since 12]
+     * @throws { BusinessError } 14800029 - SQLite: The database is full. [since 12]
+     * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file. [since 12]
+     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit. [since 12]
+     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation. [since 12]
+     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch. [since 12]
+     * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly. [since 12]
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @FaAndStageModel
-     * @crossplatform
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
      * @since 23 static
      */
     insert(table: string, values: ValuesBucket, callback: AsyncCallback<long>): void;
@@ -5364,48 +4696,33 @@ declare namespace relationalStore {
      * @param { string } table - Indicates the target table.
      * @param { ValuesBucket } values - Indicates the row of data {@link ValuesBucket} to be inserted into the table.
      * @param { ConflictResolution } conflict - Indicates the {@link ConflictResolution} to insert data into the table.
-     * @param { AsyncCallback<number> } callback - The row ID if the operation is successful. returns -1 otherwise.
-     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 14800000 - Inner error.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 10 dynamic
-     */
-    /**
-     * Inserts a row of data into the target table.
-     *
-     * @param { string } table - Indicates the target table.
-     * @param { ValuesBucket } values - Indicates the row of data {@link ValuesBucket} to be inserted into the table.
-     * @param { ConflictResolution } conflict - Indicates the {@link ConflictResolution} to insert data into the table.
      * @param { AsyncCallback<long> } callback - The row ID if the operation is successful. returns -1 otherwise.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
-     * @throws { BusinessError } 14800014 - The target instance is already closed.
-     * @throws { BusinessError } 14800015 - The database does not respond.
+     * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted. [since 12]
+     * @throws { BusinessError } 14800014 - The target instance is already closed. [since 12]
+     * @throws { BusinessError } 14800015 - The database does not respond. [since 12]
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
-     *     Possible causes: Insert failed or the updated data does not exist.
-     * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
-     * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
-     * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
-     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
-     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
-     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
-     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
-     * @throws { BusinessError } 14800029 - SQLite: The database is full.
-     * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file.
-     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit.
-     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation.
-     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
-     * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
-     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
+     *     Possible causes: Insert failed or the updated data does not exist. [since 12]
+     * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort. [since 12]
+     * @throws { BusinessError } 14800023 - SQLite: Access permission denied. [since 12]
+     * @throws { BusinessError } 14800024 - SQLite: The database file is locked. [since 12]
+     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked. [since 12]
+     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory. [since 12]
+     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database. [since 12]
+     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred. [since 12]
+     * @throws { BusinessError } 14800029 - SQLite: The database is full. [since 12]
+     * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file. [since 12]
+     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit. [since 12]
+     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation. [since 12]
+     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch. [since 12]
+     * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly. [since 12]
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @FaAndStageModel
      * @crossplatform
-     * @since 12 dynamic
+     * @since 10 dynamic
      * @since 23 static
      */
     insert(table: string, values: ValuesBucket, conflict: ConflictResolution, callback: AsyncCallback<long>): void;
@@ -5415,58 +4732,32 @@ declare namespace relationalStore {
      *
      * @param { string } table - Indicates the target table.
      * @param { ValuesBucket } values - Indicates the row of data {@link ValuesBucket} to be inserted into the table.
-     * @returns { Promise<number> } The row ID if the operation is successful. return -1 otherwise.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 14800000 - Inner error.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 9
-     */
-    /**
-     * Inserts a row of data into the target table.
-     *
-     * @param { string } table - Indicates the target table.
-     * @param { ValuesBucket } values - Indicates the row of data {@link ValuesBucket} to be inserted into the table.
-     * @returns { Promise<number> } The row ID if the operation is successful. return -1 otherwise.
-     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 14800000 - Inner error.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Inserts a row of data into the target table.
-     *
-     * @param { string } table - Indicates the target table.
-     * @param { ValuesBucket } values - Indicates the row of data {@link ValuesBucket} to be inserted into the table.
      * @returns { Promise<long> } The row ID if the operation is successful. return -1 otherwise.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
-     * @throws { BusinessError } 14800014 - The target instance is already closed.
-     * @throws { BusinessError } 14800015 - The database does not respond.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit. [since 10]
+     * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted. [since 12]
+     * @throws { BusinessError } 14800014 - The target instance is already closed. [since 12]
+     * @throws { BusinessError } 14800015 - The database does not respond. [since 12]
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
-     * Possible causes: Insert failed or the updated data does not exist.
-     * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
-     * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
-     * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
-     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
-     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
-     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
-     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
-     * @throws { BusinessError } 14800029 - SQLite: The database is full.
-     * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file.
-     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit.
-     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation.
-     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
-     * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
-     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
+     *     Possible causes: Insert failed or the updated data does not exist. [since 12]
+     * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort. [since 12]
+     * @throws { BusinessError } 14800023 - SQLite: Access permission denied. [since 12]
+     * @throws { BusinessError } 14800024 - SQLite: The database file is locked. [since 12]
+     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked. [since 12]
+     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory. [since 12]
+     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database. [since 12]
+     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred. [since 12]
+     * @throws { BusinessError } 14800029 - SQLite: The database is full. [since 12]
+     * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file. [since 12]
+     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit. [since 12]
+     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation. [since 12]
+     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch. [since 12]
+     * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly. [since 12]
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
      * @since 23 static
      */
     insert(table: string, values: ValuesBucket): Promise<long>;
@@ -5477,47 +4768,32 @@ declare namespace relationalStore {
      * @param { string } table - Indicates the target table.
      * @param { ValuesBucket } values - Indicates the row of data {@link ValuesBucket} to be inserted into the table.
      * @param { ConflictResolution } conflict - Indicates the {@link ConflictResolution} to insert data into the table.
-     * @returns { Promise<number> } The row ID if the operation is successful. return -1 otherwise.
-     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 14800000 - Inner error.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Inserts a row of data into the target table.
-     *
-     * @param { string } table - Indicates the target table.
-     * @param { ValuesBucket } values - Indicates the row of data {@link ValuesBucket} to be inserted into the table.
-     * @param { ConflictResolution } conflict - Indicates the {@link ConflictResolution} to insert data into the table.
      * @returns { Promise<long> } The row ID if the operation is successful. return -1 otherwise.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
-     * @throws { BusinessError } 14800014 - The target instance is already closed.
-     * @throws { BusinessError } 14800015 - The database does not respond.
+     * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted. [since 12]
+     * @throws { BusinessError } 14800014 - The target instance is already closed. [since 12]
+     * @throws { BusinessError } 14800015 - The database does not respond. [since 12]
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
-     * Possible causes: Insert failed or the updated data does not exist.
-     * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
-     * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
-     * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
-     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
-     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
-     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
-     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
-     * @throws { BusinessError } 14800029 - SQLite: The database is full.
-     * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file.
-     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit.
-     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation.
-     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
-     * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
-     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
+     *     Possible causes: Insert failed or the updated data does not exist. [since 12]
+     * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort. [since 12]
+     * @throws { BusinessError } 14800023 - SQLite: Access permission denied. [since 12]
+     * @throws { BusinessError } 14800024 - SQLite: The database file is locked. [since 12]
+     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked. [since 12]
+     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory. [since 12]
+     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database. [since 12]
+     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred. [since 12]
+     * @throws { BusinessError } 14800029 - SQLite: The database is full. [since 12]
+     * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file. [since 12]
+     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit. [since 12]
+     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation. [since 12]
+     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch. [since 12]
+     * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly. [since 12]
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 12 dynamic
+     * @since 10 dynamic
      * @since 23 static
      */
     insert(table: string, values: ValuesBucket, conflict: ConflictResolution): Promise<long>;
@@ -5536,7 +4812,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800014 - The target instance is already closed.
      * @throws { BusinessError } 14800015 - The database does not respond.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
-     * Possible causes: Insert failed or the updated data does not exist.
+     *     Possible causes: Insert failed or the updated data does not exist.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
@@ -5563,7 +4839,7 @@ declare namespace relationalStore {
      *
      * @param { string } table - Indicates the target table.
      * @param { sendableRelationalStore.ValuesBucket } values - Indicates the row of data
-     *   {@link sendableRelationalStore.ValuesBucket} to be inserted into the table.
+     *     {@link sendableRelationalStore.ValuesBucket} to be inserted into the table.
      * @param { ConflictResolution } conflict - Indicates the {@link ConflictResolution} to insert data into the table.
      * @returns { number } The row ID if the operation is successful. return -1 otherwise.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -5573,7 +4849,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800014 - The target instance is already closed.
      * @throws { BusinessError } 14800015 - The database does not respond.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
-     * Possible causes: Insert failed or the updated data does not exist.
+     *     Possible causes: Insert failed or the updated data does not exist.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
@@ -5603,49 +4879,6 @@ declare namespace relationalStore {
      * equals the number of parameters. This API returns immediately upon a failure during the process.
      *
      * @param { string } table - Indicates the target table.
-     * @param { Array<ValuesBucket> } values -
-     *     Indicates the rows of data {@link ValuesBucket} to be inserted into the table.
-     * @param { AsyncCallback<number> } callback -
-     * The number of values that were inserted if the operation is successful. returns -1 otherwise.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 14800000 - Inner error.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 9 dynamic
-     */
-    /**
-     * Inserts a batch of data into the target table.
-     * 
-     * The data insertion fails if the API returns an error, or if it returns -1 without throwing an error.
-     * 
-     * Write 32766 parameters per batch using the {@link ConflictResolution.ON_CONFLICT_REPLACE} policy.
-     * The product of the number of inserted data records and the size of the union of all fields in the inserted data
-     * equals the number of parameters. This API returns immediately upon a failure during the process.
-     *
-     * @param { string } table - Indicates the target table.
-     * @param { Array<ValuesBucket> } values -
-     *     Indicates the rows of data {@link ValuesBucket} to be inserted into the table.
-     * @param { AsyncCallback<number> } callback -
-     * The number of values that were inserted if the operation is successful. returns -1 otherwise.
-     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 14800000 - Inner error.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 10 dynamic
-     */
-    /**
-     * Inserts a batch of data into the target table.
-     * 
-     * The data insertion fails if the API returns an error, or if it returns -1 without throwing an error.
-     * 
-     * Write 32766 parameters per batch using the {@link ConflictResolution.ON_CONFLICT_REPLACE} policy.
-     * The product of the number of inserted data records and the size of the union of all fields in the inserted data
-     * equals the number of parameters. This API returns immediately upon a failure during the process.
-     *
-
-     * @param { string } table - Indicates the target table.
      * @param { Array<ValuesBucket> } values - Indicates the rows of data {@link ValuesBucket}
      *     to be inserted into the table.
      * @param { AsyncCallback<long> } callback -
@@ -5653,75 +4886,33 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
-     * @throws { BusinessError } 14800014 - The target instance is already closed.
-     * @throws { BusinessError } 14800015 - The database does not respond.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit. [since 10]
+     * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted. [since 12]
+     * @throws { BusinessError } 14800014 - The target instance is already closed. [since 12]
+     * @throws { BusinessError } 14800015 - The database does not respond. [since 12]
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
-     *     Possible causes: Insert failed or the updated data does not exist.
-     * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
-     * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
-     * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
-     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
-     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
-     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
-     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
-     * @throws { BusinessError } 14800029 - SQLite: The database is full.
-     * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file.
-     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit.
-     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation.
-     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
-     * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
-     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
+     *     Possible causes: Insert failed or the updated data does not exist. [since 12]
+     * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort. [since 12]
+     * @throws { BusinessError } 14800023 - SQLite: Access permission denied. [since 12]
+     * @throws { BusinessError } 14800024 - SQLite: The database file is locked. [since 12]
+     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked. [since 12]
+     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory. [since 12]
+     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database. [since 12]
+     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred. [since 12]
+     * @throws { BusinessError } 14800029 - SQLite: The database is full. [since 12]
+     * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file. [since 12]
+     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit. [since 12]
+     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation. [since 12]
+     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch. [since 12]
+     * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly. [since 12]
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @FaAndStageModel
-     * @crossplatform
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
      * @since 23 static
      */
     batchInsert(table: string, values: Array<ValuesBucket>, callback: AsyncCallback<long>): void;
 
-    /**
-     * Inserts a batch of data into the target table.
-     * 
-     * The data insertion fails if the API returns an error, or if it returns -1 without throwing an error.
-     * 
-     * Write 32766 parameters per batch using the {@link ConflictResolution.ON_CONFLICT_REPLACE} policy.
-     * The product of the number of inserted data records and the size of the union of all fields in the inserted data
-     * equals the number of parameters. This API returns immediately upon a failure during the process.
-     *
-     * @param { string } table - Indicates the target table.
-     * @param { Array<ValuesBucket> } values -
-     *     Indicates the rows of data {@link ValuesBucket} to be inserted into the table.
-     * @returns { Promise<number> } The number of values that were inserted if the operation is successful.
-     *     Returns -1 otherwise.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 14800000 - Inner error.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 9
-     */
-    /**
-     * Inserts a batch of data into the target table.
-     * 
-     * The data insertion fails if the API returns an error, or if it returns -1 without throwing an error.
-     * 
-     * Write 32766 parameters per batch using the {@link ConflictResolution.ON_CONFLICT_REPLACE} policy.
-     * The product of the number of inserted data records and the size of the union of all fields in the inserted data
-     * equals the number of parameters. This API returns immediately upon a failure during the process.
-     * 
-     * @param { string } table - Indicates the target table.
-     * @param { Array<ValuesBucket> } values -
-     *     Indicates the rows of data {@link ValuesBucket} to be inserted into the table.
-     * @returns { Promise<number> } The number of values that were inserted if the operation is successful.
-     *     Returns -1 otherwise.
-     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 14800000 - Inner error.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 10
-     */
     /**
      * Inserts a batch of data into the target table.
      * 
@@ -5739,28 +4930,28 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
-     * @throws { BusinessError } 14800014 - The target instance is already closed.
-     * @throws { BusinessError } 14800015 - The database does not respond.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit. [since 10]
+     * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted. [since 12]
+     * @throws { BusinessError } 14800014 - The target instance is already closed. [since 12]
+     * @throws { BusinessError } 14800015 - The database does not respond. [since 12]
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
-     *     Possible causes: Insert failed or the updated data does not exist.
-     * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
-     * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
-     * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
-     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
-     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
-     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
-     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
-     * @throws { BusinessError } 14800029 - SQLite: The database is full.
-     * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file.
-     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit.
-     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation.
-     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
-     * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
-     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
+     *     Possible causes: Insert failed or the updated data does not exist. [since 12]
+     * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort. [since 12]
+     * @throws { BusinessError } 14800023 - SQLite: Access permission denied. [since 12]
+     * @throws { BusinessError } 14800024 - SQLite: The database file is locked. [since 12]
+     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked. [since 12]
+     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory. [since 12]
+     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database. [since 12]
+     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred. [since 12]
+     * @throws { BusinessError } 14800029 - SQLite: The database is full. [since 12]
+     * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file. [since 12]
+     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit. [since 12]
+     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation. [since 12]
+     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch. [since 12]
+     * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly. [since 12]
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
      * @since 23 static
      */
     batchInsert(table: string, values: Array<ValuesBucket>): Promise<long>;
@@ -5776,7 +4967,7 @@ declare namespace relationalStore {
      *
      * @param { string } table - Indicates the target table.
      * @param { Array<ValuesBucket> } values -
-     * Indicates the rows of data {@link ValuesBucket} to be inserted into the table.
+     *     Indicates the rows of data {@link ValuesBucket} to be inserted into the table.
      * @returns { long } The number of values that were inserted if the operation is successful. returns -1 otherwise.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -5818,7 +5009,7 @@ declare namespace relationalStore {
      *
      * @param { string } table - Indicates the target table.
      * @param { Array<ValuesBucket> } values -
-     * Indicates the rows of data {@link ValuesBucket} to be inserted into the table.
+     *     Indicates the rows of data {@link ValuesBucket} to be inserted into the table.
      * @param { ConflictResolution } conflict - Indicates the {@link ConflictResolution} to insert data into the table.
      * @returns { Promise<long> } The number of values that were inserted if the operation is successful.
      *     Returns -1 otherwise.
@@ -5905,7 +5096,7 @@ declare namespace relationalStore {
 
     /**
      * Inserts a batch of data into the target table and return a resultSet of changed fields.
-     *
+     * 
      * A maximum of 32766 parameters can be inserted at a time. If the number of parameters exceeds the upper limit,
      * the error code 14800001 is returned. The product of the number of inserted data records and the size of the union
      * of all fields in the inserted data equals the number of parameters. For example, if the size of the union is 10,
@@ -5913,9 +5104,11 @@ declare namespace relationalStore {
      * this constraint when calling this API to avoid errors caused by excessive parameters.
      *
      * @param { string } table - Indicates the target table.
-     * @param { Array<ValuesBucket> } values - Indicates the rows of data {@link ValuesBucket} to be inserted into the table.
+     * @param { Array<ValuesBucket> } values - Indicates the rows of data {@link ValuesBucket} to be inserted into the
+     *     table.
      * @param { ReturningConfig } config - Indicate the information that needs to be returned.
-     * @param { ConflictResolution } [conflict] - Indicates the {@link ConflictResolution} to insert data into the table.
+     * @param { ConflictResolution } [conflict] - Indicates the {@link ConflictResolution} to insert data into the
+     *     table.
      *     The default conflict resolution policy is {@link ConflictResolution.ON_CONFLICT_NONE}.
      * @returns { Promise<Result> } The {@link Result} result of the inserted field includes the number of modified
      *     rows and the result set of changed data.
@@ -5942,7 +5135,7 @@ declare namespace relationalStore {
 
     /**
      * Inserts a batch of data into the target table and return a resultSet of changed fields.
-     *
+     * 
      * A maximum of 32766 parameters can be inserted at a time. If the number of parameters exceeds the upper limit,
      * the error code 14800001 is returned. The product of the number of inserted data records and the size of the union
      * of all fields in the inserted data equals the number of parameters. For example, if the size of the union is 10,
@@ -5950,9 +5143,11 @@ declare namespace relationalStore {
      * this constraint when calling this API to avoid errors caused by excessive parameters.
      *
      * @param { string } table - Indicates the target table.
-     * @param { Array<ValuesBucket> } values - Indicates the rows of data {@link ValuesBucket} to be inserted into the table.
+     * @param { Array<ValuesBucket> } values - Indicates the rows of data {@link ValuesBucket} to be inserted into the
+     *     table.
      * @param { ReturningConfig } config - Indicate the information that needs to be returned.
-     * @param { ConflictResolution } [conflict] - Indicates the {@link ConflictResolution} to insert data into the table.
+     * @param { ConflictResolution } [conflict] - Indicates the {@link ConflictResolution} to insert data into the
+     *     table.
      *     The default conflict resolution policy is {@link ConflictResolution.ON_CONFLICT_NONE}.
      * @returns { Result } The {@link Result} result of the inserted field includes the number of modified
      *     rows and the result set of changed data.
@@ -5984,63 +5179,33 @@ declare namespace relationalStore {
      *     The key-value pairs are associated with column names of the database table.
      * @param { RdbPredicates } predicates -
      *     Indicates the specified update condition by the instance object of  {@link RdbPredicates}.
-     * @param { AsyncCallback<number> } callback - The number of affected rows.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 14800000 - Inner error.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 9 dynamic
-     */
-    /**
-     * Updates data in the database based on a specified instance object of RdbPredicates.
-     *
-     * @param { ValuesBucket } values - Indicates the row of data to be updated in the database.
-     *     The key-value pairs are associated with column names of the database table.
-     * @param { RdbPredicates } predicates -
-     *     Indicates the specified update condition by the instance object of  {@link RdbPredicates}.
-     * @param { AsyncCallback<number> } callback - The number of affected rows.
-     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 14800000 - Inner error.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 10 dynamic
-     */
-    /**
-     * Updates data in the database based on a specified instance object of RdbPredicates.
-     *
-     * @param { ValuesBucket } values - Indicates the row of data to be updated in the database.
-     *     The key-value pairs are associated with column names of the database table.
-     * @param { RdbPredicates } predicates -
-     *     Indicates the specified update condition by the instance object of  {@link RdbPredicates}.
      * @param { AsyncCallback<long> } callback - The number of affected rows.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
-     * @throws { BusinessError } 14800014 - The target instance is already closed.
-     * @throws { BusinessError } 14800015 - The database does not respond.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit. [since 10]
+     * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted. [since 12]
+     * @throws { BusinessError } 14800014 - The target instance is already closed. [since 12]
+     * @throws { BusinessError } 14800015 - The database does not respond. [since 12]
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
-     *     Possible causes: Insert failed or the updated data does not exist.
-     * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
-     * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
-     * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
-     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
-     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
-     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
-     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
-     * @throws { BusinessError } 14800029 - SQLite: The database is full.
-     * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file.
-     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit.
-     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation.
-     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
-     * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
-     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
+     *     Possible causes: Insert failed or the updated data does not exist. [since 12]
+     * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort. [since 12]
+     * @throws { BusinessError } 14800023 - SQLite: Access permission denied. [since 12]
+     * @throws { BusinessError } 14800024 - SQLite: The database file is locked. [since 12]
+     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked. [since 12]
+     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory. [since 12]
+     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database. [since 12]
+     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred. [since 12]
+     * @throws { BusinessError } 14800029 - SQLite: The database is full. [since 12]
+     * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file. [since 12]
+     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit. [since 12]
+     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation. [since 12]
+     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch. [since 12]
+     * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly. [since 12]
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @FaAndStageModel
-     * @crossplatform
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
      * @since 23 static
      */
     update(values: ValuesBucket, predicates: RdbPredicates, callback: AsyncCallback<long>): void;
@@ -6053,50 +5218,33 @@ declare namespace relationalStore {
      * @param { RdbPredicates } predicates -
      *     Indicates the specified update condition by the instance object of  {@link RdbPredicates}.
      * @param { ConflictResolution } conflict - Indicates the {@link ConflictResolution} to insert data into the table.
-     * @param { AsyncCallback<number> } callback - The number of affected rows.
-     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 14800000 - Inner error.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 10 dynamic
-     */
-    /**
-     * Updates data in the database based on a specified instance object of RdbPredicates.
-     *
-     * @param { ValuesBucket } values - Indicates the row of data to be updated in the database.
-     *     The key-value pairs are associated with column names of the database table.
-     * @param { RdbPredicates } predicates -
-     *     Indicates the specified update condition by the instance object of  {@link RdbPredicates}.
-     * @param { ConflictResolution } conflict - Indicates the {@link ConflictResolution} to insert data into the table.
      * @param { AsyncCallback<long> } callback - The number of affected rows.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
-     * @throws { BusinessError } 14800014 - The target instance is already closed.
-     * @throws { BusinessError } 14800015 - The database does not respond.
+     * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted. [since 12]
+     * @throws { BusinessError } 14800014 - The target instance is already closed. [since 12]
+     * @throws { BusinessError } 14800015 - The database does not respond. [since 12]
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
-     *     Possible causes: Insert failed or the updated data does not exist.
-     * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
-     * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
-     * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
-     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
-     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
-     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
-     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
-     * @throws { BusinessError } 14800029 - SQLite: The database is full.
-     * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file.
-     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit.
-     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation.
-     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
-     * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
-     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
+     *     Possible causes: Insert failed or the updated data does not exist. [since 12]
+     * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort. [since 12]
+     * @throws { BusinessError } 14800023 - SQLite: Access permission denied. [since 12]
+     * @throws { BusinessError } 14800024 - SQLite: The database file is locked. [since 12]
+     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked. [since 12]
+     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory. [since 12]
+     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database. [since 12]
+     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred. [since 12]
+     * @throws { BusinessError } 14800029 - SQLite: The database is full. [since 12]
+     * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file. [since 12]
+     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit. [since 12]
+     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation. [since 12]
+     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch. [since 12]
+     * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly. [since 12]
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @FaAndStageModel
      * @crossplatform
-     * @since 12 dynamic
+     * @since 10 dynamic
      * @since 23 static
      */
     update(
@@ -6113,62 +5261,32 @@ declare namespace relationalStore {
      *     The key-value pairs are associated with column names of the database table.
      * @param { RdbPredicates } predicates -
      *     Indicates the specified update condition by the instance object of  {@link RdbPredicates}.
-     * @returns { Promise<number> } The number of affected rows.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 14800000 - Inner error.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 9
-     */
-    /**
-     * Updates data in the database based on a specified instance object of RdbPredicates.
-     *
-     * @param { ValuesBucket } values - Indicates the row of data to be updated in the database.
-     *     The key-value pairs are associated with column names of the database table.
-     * @param { RdbPredicates } predicates -
-     *     Indicates the specified update condition by the instance object of  {@link RdbPredicates}.
-     * @returns { Promise<number> } The number of affected rows.
-     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 14800000 - Inner error.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Updates data in the database based on a specified instance object of RdbPredicates.
-     *
-     * @param { ValuesBucket } values - Indicates the row of data to be updated in the database.
-     *     The key-value pairs are associated with column names of the database table.
-     * @param { RdbPredicates } predicates -
-     *     Indicates the specified update condition by the instance object of  {@link RdbPredicates}.
      * @returns { Promise<long> } The number of affected rows.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
-     * @throws { BusinessError } 14800014 - The target instance is already closed.
-     * @throws { BusinessError } 14800015 - The database does not respond.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit. [since 10]
+     * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted. [since 12]
+     * @throws { BusinessError } 14800014 - The target instance is already closed. [since 12]
+     * @throws { BusinessError } 14800015 - The database does not respond. [since 12]
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
-     *     Possible causes: Insert failed or the updated data does not exist.
-     * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
-     * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
-     * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
-     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
-     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
-     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
-     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
-     * @throws { BusinessError } 14800029 - SQLite: The database is full.
-     * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file.
-     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit.
-     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation.
-     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
-     * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
-     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
+     *     Possible causes: Insert failed or the updated data does not exist. [since 12]
+     * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort. [since 12]
+     * @throws { BusinessError } 14800023 - SQLite: Access permission denied. [since 12]
+     * @throws { BusinessError } 14800024 - SQLite: The database file is locked. [since 12]
+     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked. [since 12]
+     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory. [since 12]
+     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database. [since 12]
+     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred. [since 12]
+     * @throws { BusinessError } 14800029 - SQLite: The database is full. [since 12]
+     * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file. [since 12]
+     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit. [since 12]
+     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation. [since 12]
+     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch. [since 12]
+     * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly. [since 12]
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
      * @since 23 static
      */
     update(values: ValuesBucket, predicates: RdbPredicates): Promise<long>;
@@ -6181,49 +5299,32 @@ declare namespace relationalStore {
      * @param { RdbPredicates } predicates -
      *     Indicates the specified update condition by the instance object of  {@link RdbPredicates}.
      * @param { ConflictResolution } conflict - Indicates the {@link ConflictResolution} to insert data into the table.
-     * @returns { Promise<number> } The number of affected rows.
-     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 14800000 - Inner error.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Updates data in the database based on a specified instance object of RdbPredicates.
-     *
-     * @param { ValuesBucket } values - Indicates the row of data to be updated in the database.
-     *     The key-value pairs are associated with column names of the database table.
-     * @param { RdbPredicates } predicates -
-     *     Indicates the specified update condition by the instance object of  {@link RdbPredicates}.
-     * @param { ConflictResolution } conflict - Indicates the {@link ConflictResolution} to insert data into the table.
      * @returns { Promise<long> } The number of affected rows.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
-     * @throws { BusinessError } 14800014 - The target instance is already closed.
-     * @throws { BusinessError } 14800015 - The database does not respond.
+     * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted. [since 12]
+     * @throws { BusinessError } 14800014 - The target instance is already closed. [since 12]
+     * @throws { BusinessError } 14800015 - The database does not respond. [since 12]
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
-     *     Possible causes: Insert failed or the updated data does not exist.
-     * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
-     * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
-     * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
-     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
-     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
-     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
-     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
-     * @throws { BusinessError } 14800029 - SQLite: The database is full.
-     * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file.
-     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit.
-     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation.
-     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
-     * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
-     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
+     *     Possible causes: Insert failed or the updated data does not exist. [since 12]
+     * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort. [since 12]
+     * @throws { BusinessError } 14800023 - SQLite: Access permission denied. [since 12]
+     * @throws { BusinessError } 14800024 - SQLite: The database file is locked. [since 12]
+     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked. [since 12]
+     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory. [since 12]
+     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database. [since 12]
+     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred. [since 12]
+     * @throws { BusinessError } 14800029 - SQLite: The database is full. [since 12]
+     * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file. [since 12]
+     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit. [since 12]
+     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation. [since 12]
+     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch. [since 12]
+     * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly. [since 12]
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 12 dynamic
+     * @since 10 dynamic
      * @since 23 static
      */
     update(values: ValuesBucket, predicates: RdbPredicates, conflict: ConflictResolution): Promise<long>;
@@ -6342,74 +5443,35 @@ declare namespace relationalStore {
      *     The key-value pairs are associated with column names of the database table.
      * @param { dataSharePredicates.DataSharePredicates } predicates - Indicates the specified update condition by
      *     the instance object of {@link dataSharePredicates.DataSharePredicates}.
-     * @param { AsyncCallback<number> } callback - The number of affected rows.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 202 - Permission verification failed,
-     *     application which is not a system application uses system API.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @systemapi
-     * @StageModelOnly
-     * @since 9 dynamic
-     */
-    /**
-     * Updates data in the database based on a specified instance object of RdbPredicates.
-     *
-     * @param { string } table - Indicates the target table.
-     * @param { ValuesBucket } values - Indicates the row of data to be updated in the database.
-     *     The key-value pairs are associated with column names of the database table.
-     * @param { dataSharePredicates.DataSharePredicates } predicates - Indicates the specified update condition by
-     *     the instance object of {@link dataSharePredicates.DataSharePredicates}.
-     * @param { AsyncCallback<number> } callback - The number of affected rows.
-     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 202 - Permission verification failed,
-     *     application which is not a system application uses system API.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @systemapi
-     * @StageModelOnly
-     * @since 10 dynamic
-     */
-    /**
-     * Updates data in the database based on a specified instance object of RdbPredicates.
-     *
-     * @param { string } table - Indicates the target table.
-     * @param { ValuesBucket } values - Indicates the row of data to be updated in the database.
-     *     The key-value pairs are associated with column names of the database table.
-     * @param { dataSharePredicates.DataSharePredicates } predicates - Indicates the specified update condition by
-     *     the instance object of {@link dataSharePredicates.DataSharePredicates}.
      * @param { AsyncCallback<long> } callback - The number of affected rows.
-     * @throws { BusinessError } 202 - Permission verification failed,
-     *     application which is not a system application uses system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
-     * @throws { BusinessError } 14800014 - The target instance is already closed.
-     * @throws { BusinessError } 14800015 - The database does not respond.
+     * @throws { BusinessError } 202 - Permission verification failed,
+     *     application which is not a system application uses system API.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit. [since 10]
+     * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted. [since 12]
+     * @throws { BusinessError } 14800014 - The target instance is already closed. [since 12]
+     * @throws { BusinessError } 14800015 - The database does not respond. [since 12]
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
-     *     Possible causes: Insert failed or the updated data does not exist.
-     * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
-     * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
-     * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
-     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
-     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
-     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
-     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
-     * @throws { BusinessError } 14800029 - SQLite: The database is full.
-     * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file.
-     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit.
-     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation.
-     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
-     * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
-     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
+     *     Possible causes: Insert failed or the updated data does not exist. [since 12]
+     * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort. [since 12]
+     * @throws { BusinessError } 14800023 - SQLite: Access permission denied. [since 12]
+     * @throws { BusinessError } 14800024 - SQLite: The database file is locked. [since 12]
+     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked. [since 12]
+     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory. [since 12]
+     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database. [since 12]
+     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred. [since 12]
+     * @throws { BusinessError } 14800029 - SQLite: The database is full. [since 12]
+     * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file. [since 12]
+     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit. [since 12]
+     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation. [since 12]
+     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch. [since 12]
+     * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly. [since 12]
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @systemapi
      * @stagemodelonly
-     * @since 12 dynamic
+     * @since 9 dynamic
      * @since 23 static
      */
     update(
@@ -6427,74 +5489,35 @@ declare namespace relationalStore {
      *     The key-value pairs are associated with column names of the database table.
      * @param { dataSharePredicates.DataSharePredicates } predicates - Indicates the specified update condition by
      *     the instance object of {@link dataSharePredicates.DataSharePredicates}.
-     * @returns { Promise<number> } The number of affected rows.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 202 - Permission verification failed,
-     *     application which is not a system application uses system API.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @systemapi
-     * @StageModelOnly
-     * @since 9
-     */
-    /**
-     * Updates data in the database based on a specified instance object of RdbPredicates.
-     *
-     * @param { string } table - Indicates the target table.
-     * @param { ValuesBucket } values - Indicates the row of data to be updated in the database.
-     *     The key-value pairs are associated with column names of the database table.
-     * @param { dataSharePredicates.DataSharePredicates } predicates - Indicates the specified update condition by
-     *     the instance object of {@link dataSharePredicates.DataSharePredicates}.
-     * @returns { Promise<number> } The number of affected rows.
-     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 202 - Permission verification failed,
-     *     application which is not a system application uses system API.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @systemapi
-     * @StageModelOnly
-     * @since 10
-     */
-    /**
-     * Updates data in the database based on a specified instance object of RdbPredicates.
-     *
-     * @param { string } table - Indicates the target table.
-     * @param { ValuesBucket } values - Indicates the row of data to be updated in the database.
-     *     The key-value pairs are associated with column names of the database table.
-     * @param { dataSharePredicates.DataSharePredicates } predicates - Indicates the specified update condition by
-     *     the instance object of {@link dataSharePredicates.DataSharePredicates}.
      * @returns { Promise<long> } The number of affected rows.
-     * @throws { BusinessError } 202 - Permission verification failed,
-     *     application which is not a system application uses system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
-     * @throws { BusinessError } 14800014 - The target instance is already closed.
-     * @throws { BusinessError } 14800015 - The database does not respond.
+     * @throws { BusinessError } 202 - Permission verification failed,
+     *     application which is not a system application uses system API.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit. [since 10]
+     * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted. [since 12]
+     * @throws { BusinessError } 14800014 - The target instance is already closed. [since 12]
+     * @throws { BusinessError } 14800015 - The database does not respond. [since 12]
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
-     *     Possible causes: Insert failed or the updated data does not exist.
-     * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
-     * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
-     * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
-     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
-     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
-     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
-     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
-     * @throws { BusinessError } 14800029 - SQLite: The database is full.
-     * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file.
-     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit.
-     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation.
-     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
-     * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
-     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
+     *     Possible causes: Insert failed or the updated data does not exist. [since 12]
+     * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort. [since 12]
+     * @throws { BusinessError } 14800023 - SQLite: Access permission denied. [since 12]
+     * @throws { BusinessError } 14800024 - SQLite: The database file is locked. [since 12]
+     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked. [since 12]
+     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory. [since 12]
+     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database. [since 12]
+     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred. [since 12]
+     * @throws { BusinessError } 14800029 - SQLite: The database is full. [since 12]
+     * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file. [since 12]
+     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit. [since 12]
+     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation. [since 12]
+     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch. [since 12]
+     * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly. [since 12]
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @systemapi
      * @StageModelOnly
-     * @since 12 dynamic
+     * @since 9 dynamic
      * @since 23 static
      */
     update(table: string, values: ValuesBucket, predicates: dataSharePredicates.DataSharePredicates): Promise<long>;
@@ -6504,58 +5527,32 @@ declare namespace relationalStore {
      *
      * @param { RdbPredicates } predicates -
      *     The specified delete condition by the instance object of {@link RdbPredicates}.
-     * @param { AsyncCallback<number> } callback - The number of affected rows.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 14800000 - Inner error.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 9 dynamic
-     */
-    /**
-     * Deletes data from the database based on a specified instance object of RdbPredicates.
-     *
-     * @param { RdbPredicates } predicates -
-     *     The specified delete condition by the instance object of {@link RdbPredicates}.
-     * @param { AsyncCallback<number> } callback - The number of affected rows.
-     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 14800000 - Inner error.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 10 dynamic
-     */
-    /**
-     * Deletes data from the database based on a specified instance object of RdbPredicates.
-     *
-     * @param { RdbPredicates } predicates -
-     *     The specified delete condition by the instance object of {@link RdbPredicates}.
      * @param { AsyncCallback<long> } callback - The number of affected rows.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
-     * @throws { BusinessError } 14800014 - The target instance is already closed.
-     * @throws { BusinessError } 14800015 - The database does not respond.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
-     * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
-     * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
-     * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
-     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
-     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
-     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
-     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
-     * @throws { BusinessError } 14800029 - SQLite: The database is full.
-     * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file.
-     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit.
-     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation.
-     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
-     * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
-     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit. [since 10]
+     * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted. [since 12]
+     * @throws { BusinessError } 14800014 - The target instance is already closed. [since 12]
+     * @throws { BusinessError } 14800015 - The database does not respond. [since 12]
+     * @throws { BusinessError } 14800021 - SQLite: Generic error. [since 12]
+     * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort. [since 12]
+     * @throws { BusinessError } 14800023 - SQLite: Access permission denied. [since 12]
+     * @throws { BusinessError } 14800024 - SQLite: The database file is locked. [since 12]
+     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked. [since 12]
+     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory. [since 12]
+     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database. [since 12]
+     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred. [since 12]
+     * @throws { BusinessError } 14800029 - SQLite: The database is full. [since 12]
+     * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file. [since 12]
+     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit. [since 12]
+     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation. [since 12]
+     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch. [since 12]
+     * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly. [since 12]
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @FaAndStageModel
-     * @crossplatform
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
      * @since 23 static
      */
     delete(predicates: RdbPredicates, callback: AsyncCallback<long>): void;
@@ -6565,57 +5562,31 @@ declare namespace relationalStore {
      *
      * @param { RdbPredicates } predicates -
      *     The specified delete condition by the instance object of {@link RdbPredicates}.
-     * @returns { Promise<number> } The number of affected rows.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 14800000 - Inner error.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 9
-     */
-    /**
-     * Deletes data from the database based on a specified instance object of RdbPredicates.
-     *
-     * @param { RdbPredicates } predicates -
-     *     The specified delete condition by the instance object of {@link RdbPredicates}.
-     * @returns { Promise<number> } return the number of affected rows.
-     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 14800000 - Inner error.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Deletes data from the database based on a specified instance object of RdbPredicates.
-     *
-     * @param { RdbPredicates } predicates -
-     *     The specified delete condition by the instance object of {@link RdbPredicates}.
      * @returns { Promise<long> } return the number of affected rows.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
-     * @throws { BusinessError } 14800014 - The target instance is already closed.
-     * @throws { BusinessError } 14800015 - The database does not respond.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
-     * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
-     * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
-     * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
-     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
-     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
-     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
-     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
-     * @throws { BusinessError } 14800029 - SQLite: The database is full.
-     * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file.
-     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit.
-     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation.
-     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
-     * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
-     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit. [since 10]
+     * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted. [since 12]
+     * @throws { BusinessError } 14800014 - The target instance is already closed. [since 12]
+     * @throws { BusinessError } 14800015 - The database does not respond. [since 12]
+     * @throws { BusinessError } 14800021 - SQLite: Generic error. [since 12]
+     * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort. [since 12]
+     * @throws { BusinessError } 14800023 - SQLite: Access permission denied. [since 12]
+     * @throws { BusinessError } 14800024 - SQLite: The database file is locked. [since 12]
+     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked. [since 12]
+     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory. [since 12]
+     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database. [since 12]
+     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred. [since 12]
+     * @throws { BusinessError } 14800029 - SQLite: The database is full. [since 12]
+     * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file. [since 12]
+     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit. [since 12]
+     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation. [since 12]
+     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch. [since 12]
+     * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly. [since 12]
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
      * @since 23 static
      */
     delete(predicates: RdbPredicates): Promise<long>;
@@ -6716,71 +5687,36 @@ declare namespace relationalStore {
      * Deletes data from the database based on a specified instance object of RdbPredicates.
      *
      * @param { string } table - Indicates the target table.
-     * @param { dataSharePredicates.DataSharePredicates } predicates - The specified delete condition by
-     *     the instance object of {@link dataSharePredicates.DataSharePredicates}.
-     * @param { AsyncCallback<number> } callback - The number of affected rows.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 202 - Permission verification failed,
-     *     application which is not a system application uses system API.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @systemapi
-     * @StageModelOnly
-     * @since 9 dynamic
-     */
-    /**
-     * Deletes data from the database based on a specified instance object of RdbPredicates.
-     *
-     * @param { string } table - Indicates the target table.
-     * @param { dataSharePredicates.DataSharePredicates } predicates -
-     *     The specified delete condition by the instance object of {@link dataSharePredicates.DataSharePredicates}.
-     * @param { AsyncCallback<number> } callback - The number of affected rows.
-     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 202 - Permission verification failed,
-     *     application which is not a system application uses system API.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @systemapi
-     * @StageModelOnly
-     * @since 10 dynamic
-     */
-    /**
-     * Deletes data from the database based on a specified instance object of RdbPredicates.
-     *
-     * @param { string } table - Indicates the target table.
      * @param { dataSharePredicates.DataSharePredicates } predicates -
      *     The specified delete condition by the instance object of {@link dataSharePredicates.DataSharePredicates}.
      * @param { AsyncCallback<long> } callback - The number of affected rows.
-     * @throws { BusinessError } 202 - Permission verification failed,
-     *     application which is not a system application uses system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
-     * @throws { BusinessError } 14800014 - The target instance is already closed.
-     * @throws { BusinessError } 14800015 - The database does not respond.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
-     * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
-     * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
-     * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
-     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
-     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
-     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
-     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
-     * @throws { BusinessError } 14800029 - SQLite: The database is full.
-     * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file.
-     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit.
-     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation.
-     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
-     * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
-     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
+     * @throws { BusinessError } 202 - Permission verification failed,
+     *     application which is not a system application uses system API.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit. [since 10]
+     * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted. [since 12]
+     * @throws { BusinessError } 14800014 - The target instance is already closed. [since 12]
+     * @throws { BusinessError } 14800015 - The database does not respond. [since 12]
+     * @throws { BusinessError } 14800021 - SQLite: Generic error. [since 12]
+     * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort. [since 12]
+     * @throws { BusinessError } 14800023 - SQLite: Access permission denied. [since 12]
+     * @throws { BusinessError } 14800024 - SQLite: The database file is locked. [since 12]
+     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked. [since 12]
+     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory. [since 12]
+     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database. [since 12]
+     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred. [since 12]
+     * @throws { BusinessError } 14800029 - SQLite: The database is full. [since 12]
+     * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file. [since 12]
+     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit. [since 12]
+     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation. [since 12]
+     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch. [since 12]
+     * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly. [since 12]
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @systemapi
      * @stagemodelonly
-     * @since 12 dynamic
+     * @since 9 dynamic
      * @since 23 static
      */
     delete(table: string, predicates: dataSharePredicates.DataSharePredicates, callback: AsyncCallback<long>): void;
@@ -6791,69 +5727,34 @@ declare namespace relationalStore {
      * @param { string } table - Indicates the target table.
      * @param { dataSharePredicates.DataSharePredicates } predicates -
      *     The specified delete condition by the instance object of {@link dataSharePredicates.DataSharePredicates}.
-     * @returns { Promise<number> } The number of affected rows.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 202 - Permission verification failed,
-     *     application which is not a system application uses system API.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @systemapi
-     * @StageModelOnly
-     * @since 9
-     */
-    /**
-     * Deletes data from the database based on a specified instance object of RdbPredicates.
-     *
-     * @param { string } table - Indicates the target table.
-     * @param { dataSharePredicates.DataSharePredicates } predicates -
-     *     The specified delete condition by the instance object of {@link dataSharePredicates.DataSharePredicates}.
-     * @returns { Promise<number> } The number of affected rows.
-     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 202 - Permission verification failed,
-     *     application which is not a system application uses system API.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @systemapi
-     * @StageModelOnly
-     * @since 10
-     */
-    /**
-     * Deletes data from the database based on a specified instance object of RdbPredicates.
-     *
-     * @param { string } table - Indicates the target table.
-     * @param { dataSharePredicates.DataSharePredicates } predicates -
-     *     The specified delete condition by the instance object of {@link dataSharePredicates.DataSharePredicates}.
      * @returns { Promise<long> } The number of affected rows.
-     * @throws { BusinessError } 202 - Permission verification failed,
-     *     application which is not a system application uses system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
-     * @throws { BusinessError } 14800014 - The target instance is already closed.
-     * @throws { BusinessError } 14800015 - The database does not respond.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
-     * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
-     * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
-     * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
-     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
-     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
-     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
-     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
-     * @throws { BusinessError } 14800029 - SQLite: The database is full.
-     * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file.
-     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit.
-     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation.
-     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
-     * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
-     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
+     * @throws { BusinessError } 202 - Permission verification failed,
+     *     application which is not a system application uses system API.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit. [since 10]
+     * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted. [since 12]
+     * @throws { BusinessError } 14800014 - The target instance is already closed. [since 12]
+     * @throws { BusinessError } 14800015 - The database does not respond. [since 12]
+     * @throws { BusinessError } 14800021 - SQLite: Generic error. [since 12]
+     * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort. [since 12]
+     * @throws { BusinessError } 14800023 - SQLite: Access permission denied. [since 12]
+     * @throws { BusinessError } 14800024 - SQLite: The database file is locked. [since 12]
+     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked. [since 12]
+     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory. [since 12]
+     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database. [since 12]
+     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred. [since 12]
+     * @throws { BusinessError } 14800029 - SQLite: The database is full. [since 12]
+     * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file. [since 12]
+     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit. [since 12]
+     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation. [since 12]
+     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch. [since 12]
+     * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly. [since 12]
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @systemapi
      * @StageModelOnly
-     * @since 12 dynamic
+     * @since 9 dynamic
      * @since 23 static
      */
     delete(table: string, predicates: dataSharePredicates.DataSharePredicates): Promise<long>;
@@ -6867,24 +5768,11 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800014 - The target instance is already closed. [since 12]
+     * @throws { BusinessError } 14800015 - The database does not respond. [since 12]
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 10
-     */
-    /**
-     * Queries data in the database based on specified conditions.
-     *
-     * @param { RdbPredicates } predicates -
-     *     The specified query condition by the instance object of {@link RdbPredicates}.
-     * @param { AsyncCallback<ResultSet> } callback - The {@link ResultSet} object if the operation is successful.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800014 - The target instance is already closed.
-     * @throws { BusinessError } 14800015 - The database does not respond.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 12 dynamic
+     * @since 10 dynamic
      * @since 23 static
      */
     query(predicates: RdbPredicates, callback: AsyncCallback<ResultSet>): void;
@@ -6900,40 +5788,11 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800014 - The target instance is already closed. [since 12]
+     * @throws { BusinessError } 14800015 - The database does not respond. [since 12]
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 9
-     */
-    /**
-     * Queries data in the database based on specified conditions.
-     *
-     * @param { RdbPredicates } predicates -
-     *     The specified query condition by the instance object of {@link RdbPredicates}.
-     * @param { Array<string> } columns -
-     *     The columns to query. If the value is empty array, the query applies to all columns.
-     * @param { AsyncCallback<ResultSet> } callback - The {@link ResultSet} object if the operation is successful.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 14800000 - Inner error.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Queries data in the database based on specified conditions.
-     *
-     * @param { RdbPredicates } predicates -
-     *     The specified query condition by the instance object of {@link RdbPredicates}.
-     * @param { Array<string> } columns -
-     *     The columns to query. If the value is empty array, the query applies to all columns.
-     * @param { AsyncCallback<ResultSet> } callback - The {@link ResultSet} object if the operation is successful.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800014 - The target instance is already closed.
-     * @throws { BusinessError } 14800015 - The database does not respond.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
      * @since 23 static
      */
     query(predicates: RdbPredicates, columns: Array<string>, callback: AsyncCallback<ResultSet>): void;
@@ -6948,38 +5807,11 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800014 - The target instance is already closed. [since 12]
+     * @throws { BusinessError } 14800015 - The database does not respond. [since 12]
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 9
-     */
-    /**
-     * Queries data in the database based on specified conditions.
-     *
-     * @param { RdbPredicates } predicates -
-     *     The specified query condition by the instance object of {@link RdbPredicates}.
-     * @param { Array<string> } columns - The columns to query. If the value is null, the query applies to all columns.
-     * @returns { Promise<ResultSet> } The {@link ResultSet} object if the operation is successful.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 14800000 - Inner error.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Queries data in the database based on specified conditions.
-     *
-     * @param { RdbPredicates } predicates -
-     *     The specified query condition by the instance object of {@link RdbPredicates}.
-     * @param { Array<string> } columns - The columns to query. If the value is null, the query applies to all columns.
-     * @returns { Promise<ResultSet> } The {@link ResultSet} object if the operation is successful.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800014 - The target instance is already closed.
-     * @throws { BusinessError } 14800015 - The database does not respond.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
      * @since 23 static
      */
     query(predicates: RdbPredicates, columns?: Array<string>): Promise<ResultSet>;
@@ -6996,29 +5828,12 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 202 - Permission verification failed,
      *     application which is not a system application uses system API.
+     * @throws { BusinessError } 14800014 - The target instance is already closed. [since 12]
+     * @throws { BusinessError } 14800015 - The database does not respond. [since 12]
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @systemapi
      * @StageModelOnly
-     * @since 10
-     */
-    /**
-     * Queries data in the database based on specified conditions.
-     *
-     * @param { string } table - Indicates the target table.
-     * @param { dataSharePredicates.DataSharePredicates } predicates -
-     *     The specified query condition by the instance object of {@link dataSharePredicates.DataSharePredicates}.
-     * @param { AsyncCallback<ResultSet> } callback - The {@link ResultSet} object if the operation is successful.
-     * @throws { BusinessError } 202 - Permission verification failed,
-     *     application which is not a system application uses system API.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800014 - The target instance is already closed.
-     * @throws { BusinessError } 14800015 - The database does not respond.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @systemapi
-     * @StageModelOnly
-     * @since 12 dynamic
+     * @since 10 dynamic
      * @since 23 static
      */
     query(table: string, predicates: dataSharePredicates.DataSharePredicates, callback: AsyncCallback<ResultSet>): void;
@@ -7037,31 +5852,12 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 202 - Permission verification failed,
      *     application which is not a system application uses system API.
+     * @throws { BusinessError } 14800014 - The target instance is already closed. [since 12]
+     * @throws { BusinessError } 14800015 - The database does not respond. [since 12]
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @systemapi
      * @StageModelOnly
-     * @since 9
-     */
-    /**
-     * Queries data in the database based on specified conditions.
-     *
-     * @param { string } table - Indicates the target table.
-     * @param { dataSharePredicates.DataSharePredicates } predicates -
-     *     The specified query condition by the instance object of {@link dataSharePredicates.DataSharePredicates}.
-     * @param { Array<string> } columns -
-     *     The columns to query. If the value is empty array, the query applies to all columns.
-     * @param { AsyncCallback<ResultSet> } callback - The {@link ResultSet} object if the operation is successful.
-     * @throws { BusinessError } 202 - Permission verification failed,
-     *     application which is not a system application uses system API.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800014 - The target instance is already closed.
-     * @throws { BusinessError } 14800015 - The database does not respond.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @systemapi
-     * @StageModelOnly
-     * @since 12 dynamic
+     * @since 9 dynamic
      * @since 23 static
      */
     query(
@@ -7084,30 +5880,12 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 202 - Permission verification failed,
      *     application which is not a system application uses system API.
+     * @throws { BusinessError } 14800014 - The target instance is already closed. [since 12]
+     * @throws { BusinessError } 14800015 - The database does not respond. [since 12]
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @systemapi
      * @StageModelOnly
-     * @since 9
-     */
-    /**
-     * Queries data in the database based on specified conditions.
-     *
-     * @param { string } table - Indicates the target table.
-     * @param { dataSharePredicates.DataSharePredicates } predicates -
-     *     The specified query condition by the instance object of {@link dataSharePredicates.DataSharePredicates}.
-     * @param { Array<string> } columns - The columns to query. If the value is null, the query applies to all columns.
-     * @returns { Promise<ResultSet> } The {@link ResultSet} object if the operation is successful.
-     * @throws { BusinessError } 202 - Permission verification failed,
-     *     application which is not a system application uses system API.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800014 - The target instance is already closed.
-     * @throws { BusinessError } 14800015 - The database does not respond.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @systemapi
-     * @StageModelOnly
-     * @since 12 dynamic
+     * @since 9 dynamic
      * @since 23 static
      */
     query(
@@ -7144,23 +5922,11 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800014 - The target instance is already closed. [since 12]
+     * @throws { BusinessError } 14800015 - The database does not respond. [since 12]
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 10
-     */
-    /**
-     * Queries data in the database based on SQL statement.
-     *
-     * @param { string } sql - Indicates the SQL statement to execute.
-     * @param { AsyncCallback<ResultSet> } callback - The {@link ResultSet} object if the operation is successful.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800014 - The target instance is already closed.
-     * @throws { BusinessError } 14800015 - The database does not respond.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 12 dynamic
+     * @since 10 dynamic
      * @since 23 static
      */
     querySql(sql: string, callback: AsyncCallback<ResultSet>): void;
@@ -7175,38 +5941,11 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800014 - The target instance is already closed. [since 12]
+     * @throws { BusinessError } 14800015 - The database does not respond. [since 12]
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 9
-     */
-    /**
-     * Queries data in the database based on SQL statement.
-     *
-     * @param { string } sql - Indicates the SQL statement to execute.
-     * @param { Array<ValueType> } bindArgs -
-     *     Indicates the {@link ValueType} values of the parameters in the SQL statement. The values are strings.
-     * @param { AsyncCallback<ResultSet> } callback - The {@link ResultSet} object if the operation is successful.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 14800000 - Inner error.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Queries data in the database based on SQL statement.
-     *
-     * @param { string } sql - Indicates the SQL statement to execute.
-     * @param { Array<ValueType> } bindArgs -
-     *     Indicates the {@link ValueType} values of the parameters in the SQL statement. The values are strings.
-     * @param { AsyncCallback<ResultSet> } callback - The {@link ResultSet} object if the operation is successful.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800014 - The target instance is already closed.
-     * @throws { BusinessError } 14800015 - The database does not respond.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
      * @since 23 static
      */
     querySql(sql: string, bindArgs: Array<ValueType>, callback: AsyncCallback<ResultSet>): void;
@@ -7221,38 +5960,11 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800014 - The target instance is already closed. [since 12]
+     * @throws { BusinessError } 14800015 - The database does not respond. [since 12]
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 9
-     */
-    /**
-     * Queries data in the database based on SQL statement.
-     *
-     * @param { string } sql - Indicates the SQL statement to execute.
-     * @param { Array<ValueType> } bindArgs -
-     *     Indicates the {@link ValueType} values of the parameters in the SQL statement. The values are strings.
-     * @returns { Promise<ResultSet> } The {@link ResultSet} object if the operation is successful.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 14800000 - Inner error.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Queries data in the database based on SQL statement.
-     *
-     * @param { string } sql - Indicates the SQL statement to execute.
-     * @param { Array<ValueType> } bindArgs -
-     *     Indicates the {@link ValueType} values of the parameters in the SQL statement. The values are strings.
-     * @returns { Promise<ResultSet> } The {@link ResultSet} object if the operation is successful.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800014 - The target instance is already closed.
-     * @throws { BusinessError } 14800015 - The database does not respond.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
      * @since 23 static
      */
     querySql(sql: string, bindArgs?: Array<ValueType>): Promise<ResultSet>;
@@ -7309,12 +6021,17 @@ declare namespace relationalStore {
     queryWithoutRowCountSync(predicates: RdbPredicates, columns?: Array<string>): LiteResultSet;
 
     /**
-     * Queries data without rowCount in the database based on SQL statement.
+     * Queries data from the RDB store based on specified conditions without calculating the row count. This API uses a 
+     * promise to return the result and delivers better performance than the 
+     * [querySql]{@link relationalStore.Transaction.querySql} API. The number of relational operators between 
+     * expressions and operators in the SQL statement cannot exceed 1,000.
      *
-     * @param { string } sql - Indicates the SQL statement to execute.
-     * @param { Array<ValueType> } [bindArgs] - Indicates the {@link ValueType} values of the parameters
-     *     in the SQL statement. The values are strings.
-     * @returns { Promise<LiteResultSet> } The {@link LiteResultSet} object if the operation is successful.
+     * @param { string } sql - SQL statement to run.
+     * @param { Array<ValueType> } [bindArgs] - Arguments in the SQL statement. The value corresponds to the
+     *     placeholders in the SQL parameter statement. If the SQL parameter statement is complete, leave this parameter
+     *     blank.
+     * @returns { Promise<LiteResultSet> } Promise used to return the result. If the operation is successful, a
+     *     **LiteResultSet** object will be returned.
      * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. Parameter is out of valid range.
      * @throws { BusinessError } 14800014 - The target instance is already closed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
@@ -7325,12 +6042,17 @@ declare namespace relationalStore {
     querySqlWithoutRowCount(sql: string, bindArgs?: Array<ValueType>): Promise<LiteResultSet>;
 
     /**
-     * Queries data without rowCount in the database based on SQL statement.
+     * Queries data from the RDB store based on specified SQL statements without calculating the row count. The number 
+     * of relational operators between expressions and operators in the SQL statement cannot exceed 1,000. If complex 
+     * logic and a large number of loops are involved in the operations on the **LiteResultSet** obtained by 
+     * **querySqlWithoutRowCountSync**, the freeze problem may occur. You are advised to perform this operation in the 
+     * [taskpool]{@link @ohos.taskpool:taskpool} thread.
      *
-     * @param { string } sql - Indicates the SQL statement to execute.
-     * @param { Array<ValueType> } [bindArgs] - Indicates the {@link ValueType} values of the parameters
-     *     in the SQL statement. The values are strings.
-     * @returns { LiteResultSet } The {@link LiteResultSet} object if the operation is successful.
+     * @param { string } sql - SQL statement to run.
+     * @param { Array<ValueType> } [bindArgs] - Arguments in the SQL statement. The value corresponds to the
+     *     placeholders in the SQL parameter statement. If the SQL parameter statement is complete, leave this parameter
+     *     blank. The default value is null.
+     * @returns { LiteResultSet } If the operation is successful, a **LiteResultSet** object will be returned.
      * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. Parameter is out of valid range.
      * @throws { BusinessError } 14800014 - The target instance is already closed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
@@ -7339,6 +6061,43 @@ declare namespace relationalStore {
      * @since 23 dynamic&static
      */
     querySqlWithoutRowCountSync(sql: string, bindArgs?: Array<ValueType>): LiteResultSet;
+
+    /**
+     * Query data in the database step‑by‑step based on SQL statements.
+     *
+     * @param { string } sql - Indicates the SQL statement to execute.
+     *     <br>Value range: (0, +∞)
+     *     <br>A valid SQL statement must be used. Otherwise, an error code may be thrown when ResultSet is used.
+     * @param { Array<ValueType> } [bindArgs] - Indicates the {@link ValueType} values of the parameters in
+     *     the SQL statement.
+     *     <br>Default value:The default value is an empty array.
+     *     <br>The value must be the same as the number of placeholders in the SQL statement.
+     * @returns { Promise<ResultSet> } The {@link ResultSet} object if the operation is successful.
+     * @throws { BusinessError } 14800014 - The target instance is already closed.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @stagemodelonly
+     * @crossplatform
+     * @since 26.0.0 dynamic&static
+     */
+    queryByStep(sql: string, bindArgs?: Array<ValueType>): Promise<ResultSet>;
+
+    /**
+     * Queries data in the database step‑by‑step based on specified conditions.
+     *
+     * @param { RdbPredicates } predicates - The specified query condition by the instance object
+     *     of {@link RdbPredicates}.
+     * @param { Array<string> } [columns] - The columns to query.
+     *     If the value is null, the query applies to all columns.
+     *     <br>Default value: empty array by default.
+     *     <br>If an empty array is transferred, all columns are queried.
+     * @returns { Promise<ResultSet> } The {@link ResultSet} object if the operation is successful.
+     * @throws { BusinessError } 14800014 - The target instance is already closed.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @stagemodelonly
+     * @crossplatform
+     * @since 26.0.0 dynamic&static
+     */
+    queryByStep(predicates: RdbPredicates, columns?: Array<string>): Promise<ResultSet>;
 
     /**
      * Obtains the modify time of rows corresponding to the primary keys.
@@ -7355,43 +6114,25 @@ declare namespace relationalStore {
      *     1. Need 3 - 4  parameter(s)! 2. The RdbStore must be not nullptr.
      *     3. The tablesNames must be not empty string. 4. The columnName must be not empty string.
      *     5. The PRIKey must be number or string.
+     * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted. [since 12]
+     * @throws { BusinessError } 14800014 - The target instance is already closed. [since 12]
+     * @throws { BusinessError } 14800015 - The database does not respond. [since 12]
+     * @throws { BusinessError } 14800021 - SQLite: Generic error. [since 12]
+     * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort. [since 12]
+     * @throws { BusinessError } 14800023 - SQLite: Access permission denied. [since 12]
+     * @throws { BusinessError } 14800024 - SQLite: The database file is locked. [since 12]
+     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked. [since 12]
+     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory. [since 12]
+     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database. [since 12]
+     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred. [since 12]
+     * @throws { BusinessError } 14800029 - SQLite: The database is full. [since 12]
+     * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file. [since 12]
+     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit. [since 12]
+     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation. [since 12]
+     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch. [since 12]
+     * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly. [since 12]
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 10
-     */
-    /**
-     * Obtains the modify time of rows corresponding to the primary keys.
-     *
-     * @param { string } table - Indicates the name of the table to check.
-     * @param { string } columnName - Indicates the name of the column to check.
-     * @param { PRIKeyType[] } primaryKeys - Indicates the primary keys of the rows to check.
-     * @returns { Promise<ModifyTime> } -
-     *     The promise returned by the function. ModifyTime indicates the modify time of current row.
-     *     If this table does not support cloud, the {@link ModifyTime} will be empty.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     1. Need 3 - 4  parameter(s)! 2. The RdbStore must be not nullptr.
-     *     3. The tablesNames must be not empty string. 4. The columnName must be not empty string.
-     *     5. The PRIKey must be number or string.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
-     * @throws { BusinessError } 14800014 - The target instance is already closed.
-     * @throws { BusinessError } 14800015 - The database does not respond.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
-     * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
-     * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
-     * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
-     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
-     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
-     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
-     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
-     * @throws { BusinessError } 14800029 - SQLite: The database is full.
-     * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file.
-     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit.
-     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation.
-     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
-     * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 12 dynamic
+     * @since 10 dynamic
      * @since 23 static
      */
     getModifyTime(table: string, columnName: string, primaryKeys: PRIKeyType[]): Promise<ModifyTime>;
@@ -7411,43 +6152,25 @@ declare namespace relationalStore {
      *     1. Need 3 - 4  parameter(s)! 2. The RdbStore must be not nullptr.
      *     3. The tablesNames must be not empty string. 4. The columnName must be not empty string.
      *     5. The PRIKey must be number or string.
+     * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted. [since 12]
+     * @throws { BusinessError } 14800014 - The target instance is already closed. [since 12]
+     * @throws { BusinessError } 14800015 - The database does not respond. [since 12]
+     * @throws { BusinessError } 14800021 - SQLite: Generic error. [since 12]
+     * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort. [since 12]
+     * @throws { BusinessError } 14800023 - SQLite: Access permission denied. [since 12]
+     * @throws { BusinessError } 14800024 - SQLite: The database file is locked. [since 12]
+     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked. [since 12]
+     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory. [since 12]
+     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database. [since 12]
+     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred. [since 12]
+     * @throws { BusinessError } 14800029 - SQLite: The database is full. [since 12]
+     * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file. [since 12]
+     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit. [since 12]
+     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation. [since 12]
+     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch. [since 12]
+     * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly. [since 12]
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 10
-     */
-    /**
-     * Obtains the modify time of rows corresponding to the primary keys.
-     *
-     * @param { string } table - Indicates the name of the table to check.
-     * @param { string } columnName - Indicates the name of the column to check.
-     * @param { PRIKeyType[] } primaryKeys - Indicates the primary keys of the rows to check.
-     * @param { AsyncCallback<ModifyTime> } callback -
-     *     The callback of getModifyTime. ModifyTime indicates the modify time of current row.
-     *     If this table does not support cloud, the {@link ModifyTime} will be empty.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     1. Need 3 - 4  parameter(s)! 2. The RdbStore must be not nullptr.
-     *     3. The tablesNames must be not empty string. 4. The columnName must be not empty string.
-     *     5. The PRIKey must be number or string.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
-     * @throws { BusinessError } 14800014 - The target instance is already closed.
-     * @throws { BusinessError } 14800015 - The database does not respond.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
-     * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
-     * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
-     * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
-     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
-     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
-     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
-     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
-     * @throws { BusinessError } 14800029 - SQLite: The database is full.
-     * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file.
-     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit.
-     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation.
-     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
-     * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 12 dynamic
+     * @since 10 dynamic
      * @since 23 static
      */
     getModifyTime(
@@ -7463,49 +6186,33 @@ declare namespace relationalStore {
      * Data with a cursor smaller than the specified cursor will be cleaned up.
      *
      * @param { string } table - Indicates the name of the table to check.
-     * @param { number } cursor - Indicates the position of the data to be cleaned up.
-     * @param { AsyncCallback<void> } callback - Indicates the callback invoked to return the result.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     1. Need 1 - 3  parameter(s)! 2. The RdbStore must be not nullptr.
-     *     3. The tablesNames must be not empty string. 4. The cursor must be valid cursor.
-     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
-     * @since 11 dynamic
-     */
-    /**
-     * Cleans the dirty data, which is the data deleted in the cloud.
-     *
-     * Data with a cursor smaller than the specified cursor will be cleaned up.
-     *
-     * @param { string } table - Indicates the name of the table to check.
      * @param { long } cursor - Indicates the position of the data to be cleaned up.
      * @param { AsyncCallback<void> } callback - Indicates the callback invoked to return the result.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1. Need 1 - 3  parameter(s)! 2. The RdbStore must be not nullptr.
      *     3. The tablesNames must be not empty string. 4. The cursor must be valid cursor.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
-     * @throws { BusinessError } 14800014 - The target instance is already closed.
-     * @throws { BusinessError } 14800015 - The database does not respond.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
-     * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
-     * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
-     * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
-     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
-     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
-     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
-     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
-     * @throws { BusinessError } 14800029 - SQLite: The database is full.
-     * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file.
-     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit.
-     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation.
-     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
-     * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
+     * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted. [since 12]
+     * @throws { BusinessError } 14800014 - The target instance is already closed. [since 12]
+     * @throws { BusinessError } 14800015 - The database does not respond. [since 12]
+     * @throws { BusinessError } 14800021 - SQLite: Generic error. [since 12]
+     * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort. [since 12]
+     * @throws { BusinessError } 14800023 - SQLite: Access permission denied. [since 12]
+     * @throws { BusinessError } 14800024 - SQLite: The database file is locked. [since 12]
+     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked. [since 12]
+     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory. [since 12]
+     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database. [since 12]
+     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred. [since 12]
+     * @throws { BusinessError } 14800029 - SQLite: The database is full. [since 12]
+     * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file. [since 12]
+     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit. [since 12]
+     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation. [since 12]
+     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch. [since 12]
+     * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly. [since 12]
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @FaAndStageModel
-     * @since 12 dynamic
+     * @since 11 dynamic
      * @since 23 static
      */
     cleanDirtyData(table: string, cursor: long, callback: AsyncCallback<void>): void;
@@ -7518,97 +6225,96 @@ declare namespace relationalStore {
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     1. Need 1 - 3  parameter(s)! 2. The RdbStore must be not nullptr.
-     *     3. The tablesNames must be not empty string.
-     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
-     * @since 11
-     */
-    /**
-     * Cleans all dirty data deleted in the cloud.
-     *
-     * @param { string } table - Indicates the name of the table to check.
-     * @param { AsyncCallback<void> } callback - The callback of clean.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1. Need 1 - 3  parameter(s). 2. The RdbStore must be not nullptr.
      *     3. The tablesNames must be not empty string.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
-     * @throws { BusinessError } 14800014 - The target instance is already closed.
-     * @throws { BusinessError } 14800015 - The database does not respond.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
-     * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
-     * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
-     * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
-     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
-     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
-     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
-     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
-     * @throws { BusinessError } 14800029 - SQLite: The database is full.
-     * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file.
-     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit.
-     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation.
-     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
-     * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
+     * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted. [since 12]
+     * @throws { BusinessError } 14800014 - The target instance is already closed. [since 12]
+     * @throws { BusinessError } 14800015 - The database does not respond. [since 12]
+     * @throws { BusinessError } 14800021 - SQLite: Generic error. [since 12]
+     * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort. [since 12]
+     * @throws { BusinessError } 14800023 - SQLite: Access permission denied. [since 12]
+     * @throws { BusinessError } 14800024 - SQLite: The database file is locked. [since 12]
+     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked. [since 12]
+     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory. [since 12]
+     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database. [since 12]
+     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred. [since 12]
+     * @throws { BusinessError } 14800029 - SQLite: The database is full. [since 12]
+     * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file. [since 12]
+     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit. [since 12]
+     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation. [since 12]
+     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch. [since 12]
+     * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly. [since 12]
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
-     * @since 12 dynamic
+     * @since 11 dynamic
      * @since 23 static
      */
     cleanDirtyData(table: string, callback: AsyncCallback<void>): void;
 
     /**
      * Cleans dirty data deleted in the cloud.
-     *
-     * If a cursor is specified, data with a cursor smaller than the specified cursor will be cleaned up.
-     * otherwise clean all.
-     *
-     * @param { string } table - Indicates the name of the table to check.
-     * @param { number } [cursor] - Indicates the cursor.
-     * @returns { Promise<void> } -The promise returned by the function.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     1. Need 1 - 3  parameter(s)! 2. The RdbStore must be not nullptr.
-     *     3. The tablesNames must be not empty string. 4. The cursor must be valid cursor.
-     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
-     * @since 11
-     */
-    /**
-     * Cleans dirty data deleted in the cloud.
-     *
+     * 
      * If a cursor is specified, data with a cursor smaller than the specified cursor will be cleaned up.
      * otherwise clean all.
      *
      * @param { string } table - Indicates the name of the table to check.
      * @param { long } [cursor] - Indicates the cursor.
      * @returns { Promise<void> } -The promise returned by the function.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1. Need 1 - 3  parameter(s)! 2. The RdbStore must be not nullptr.
      *     3. The tablesNames must be not empty string. 4. The cursor must be valid cursor.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted. [since 12]
+     * @throws { BusinessError } 14800014 - The target instance is already closed. [since 12]
+     * @throws { BusinessError } 14800015 - The database does not respond. [since 12]
+     * @throws { BusinessError } 14800021 - SQLite: Generic error. [since 12]
+     * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort. [since 12]
+     * @throws { BusinessError } 14800023 - SQLite: Access permission denied. [since 12]
+     * @throws { BusinessError } 14800024 - SQLite: The database file is locked. [since 12]
+     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked. [since 12]
+     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory. [since 12]
+     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database. [since 12]
+     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred. [since 12]
+     * @throws { BusinessError } 14800029 - SQLite: The database is full. [since 12]
+     * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file. [since 12]
+     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit. [since 12]
+     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation. [since 12]
+     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch. [since 12]
+     * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly. [since 12]
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @since 11 dynamic
+     * @since 23 static
+     */
+    cleanDirtyData(table: string, cursor?: long): Promise<void>;
+
+    /**
+     * Cleans dirty data deleted in the cross-device sync.
+     * If a cursor is specified, data whose cursor is smaller than the specified cursor is cleaned.
+     * Otherwise, all data is cleaned.
+     *
+     * @param { string } table - Indicates the name of the table to check.
+     *     The maximum length is 256 and cannot be empty,
+     *     Value constraint:Only letters, digits, and underscores (_) are allowed.
+     * @param { long } [cursor] - Indicates the cursor.
+     *     The value must be greater than 0. Default behavior: Clear all dirty data.
+     * @returns { Promise<void> } -The promise returned by the function.
+     * @throws { BusinessError } 202 - Permission verification failed,
+     *     application which is not a system application uses system API.
+     * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. Parameter is out of valid range.
      * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
      * @throws { BusinessError } 14800014 - The target instance is already closed.
      * @throws { BusinessError } 14800015 - The database does not respond.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
-     * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
-     * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
-     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
-     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
-     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
-     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
-     * @throws { BusinessError } 14800029 - SQLite: The database is full.
-     * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file.
-     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit.
-     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation.
-     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
-     * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
-     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
-     * @since 12 dynamic
-     * @since 23 static
+     * @throws { BusinessError } 14800043 - The database does not support this scenario.
+     *     Possible causes: 1. The database type is not support;2. The table type is not supported;
+     *     3. This is a read-only database.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
      */
-    cleanDirtyData(table: string, cursor?: long): Promise<void>;
+    cleanDeviceDirtyData(table: string, cursor?: long): Promise<void>
 
     /**
      * Obtains sharing resource of rows corresponding to the predicates.
@@ -7623,43 +6329,26 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1. Need 1 - 3  parameter(s)! 2. The RdbStore must be not nullptr.
      *     3. The predicates must be an RdbPredicates. 4. The columns must be a string array.
+     * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted. [since 12]
+     * @throws { BusinessError } 14800014 - The target instance is already closed. [since 12]
+     * @throws { BusinessError } 14800015 - The database does not respond. [since 12]
+     * @throws { BusinessError } 14800021 - SQLite: Generic error. [since 12]
+     * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort. [since 12]
+     * @throws { BusinessError } 14800023 - SQLite: Access permission denied. [since 12]
+     * @throws { BusinessError } 14800024 - SQLite: The database file is locked. [since 12]
+     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked. [since 12]
+     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory. [since 12]
+     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database. [since 12]
+     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred. [since 12]
+     * @throws { BusinessError } 14800029 - SQLite: The database is full. [since 12]
+     * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file. [since 12]
+     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit. [since 12]
+     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation. [since 12]
+     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch. [since 12]
+     * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly. [since 12]
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
-     * @since 11
-     */
-    /**
-     * Obtains sharing resource of rows corresponding to the predicates.
-     *
-     * @param { RdbPredicates } predicates -
-     *     The specified query condition by the instance object of {@link RdbPredicates}.
-     * @param { Array<string> } [columns] - The specified columns to query.
-     * @returns { Promise<ResultSet> } -The promise returned by the function.
-     *     {@link ResultSet} is query result.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     1. Need 1 - 3  parameter(s)! 2. The RdbStore must be not nullptr.
-     *     3. The predicates must be an RdbPredicates. 4. The columns must be a string array.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
-     * @throws { BusinessError } 14800014 - The target instance is already closed.
-     * @throws { BusinessError } 14800015 - The database does not respond.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
-     * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
-     * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
-     * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
-     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
-     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
-     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
-     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
-     * @throws { BusinessError } 14800029 - SQLite: The database is full.
-     * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file.
-     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit.
-     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation.
-     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
-     * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
-     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
-     * @systemapi
-     * @since 12 dynamic
+     * @since 11 dynamic
      * @since 23 static
      */
     querySharingResource(predicates: RdbPredicates, columns?: Array<string>): Promise<ResultSet>;
@@ -7676,42 +6365,26 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1. Need 1 - 3  parameter(s)! 2. The RdbStore must be not nullptr.
      *     3. The predicates must be an RdbPredicates.
+     * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted. [since 12]
+     * @throws { BusinessError } 14800014 - The target instance is already closed. [since 12]
+     * @throws { BusinessError } 14800015 - The database does not respond. [since 12]
+     * @throws { BusinessError } 14800021 - SQLite: Generic error. [since 12]
+     * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort. [since 12]
+     * @throws { BusinessError } 14800023 - SQLite: Access permission denied. [since 12]
+     * @throws { BusinessError } 14800024 - SQLite: The database file is locked. [since 12]
+     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked. [since 12]
+     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory. [since 12]
+     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database. [since 12]
+     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred. [since 12]
+     * @throws { BusinessError } 14800029 - SQLite: The database is full. [since 12]
+     * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file. [since 12]
+     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit. [since 12]
+     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation. [since 12]
+     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch. [since 12]
+     * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly. [since 12]
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
-     * @since 11
-     */
-    /**
-     * Obtains sharing resource of rows corresponding to the predicates.
-     *
-     * @param { RdbPredicates } predicates -
-     *     The specified query condition by the instance object of {@link RdbPredicates}.
-     * @param { AsyncCallback<ResultSet> } callback - The callback of querySharingResource.
-     *     {@link ResultSet} is query result.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     1. Need 1 - 3  parameter(s)! 2. The RdbStore must be not nullptr.
-     *     3. The predicates must be an RdbPredicates.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
-     * @throws { BusinessError } 14800014 - The target instance is already closed.
-     * @throws { BusinessError } 14800015 - The database does not respond.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
-     * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
-     * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
-     * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
-     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
-     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
-     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
-     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
-     * @throws { BusinessError } 14800029 - SQLite: The database is full.
-     * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file.
-     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit.
-     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation.
-     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
-     * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
-     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
-     * @systemapi
-     * @since 12 dynamic
+     * @since 11 dynamic
      * @since 23 static
      */
     querySharingResource(predicates: RdbPredicates, callback: AsyncCallback<ResultSet>): void;
@@ -7729,43 +6402,26 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1. Need 1 - 3  parameter(s)! 2. The RdbStore must be not nullptr.
      *     3. The predicates must be an RdbPredicates. 4. The columns must be a string array.
+     * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted. [since 12]
+     * @throws { BusinessError } 14800014 - The target instance is already closed. [since 12]
+     * @throws { BusinessError } 14800015 - The database does not respond. [since 12]
+     * @throws { BusinessError } 14800021 - SQLite: Generic error. [since 12]
+     * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort. [since 12]
+     * @throws { BusinessError } 14800023 - SQLite: Access permission denied. [since 12]
+     * @throws { BusinessError } 14800024 - SQLite: The database file is locked. [since 12]
+     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked. [since 12]
+     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory. [since 12]
+     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database. [since 12]
+     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred. [since 12]
+     * @throws { BusinessError } 14800029 - SQLite: The database is full. [since 12]
+     * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file. [since 12]
+     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit. [since 12]
+     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation. [since 12]
+     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch. [since 12]
+     * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly. [since 12]
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
-     * @since 11
-     */
-    /**
-     * Obtains sharing resource of rows corresponding to the predicates.
-     *
-     * @param { RdbPredicates } predicates -
-     *     The specified query condition by the instance object of {@link RdbPredicates}.
-     * @param { Array<string> } columns - The specified columns to query.
-     * @param { AsyncCallback<ResultSet> } callback - The callback of querySharingResource.
-     *     {@link ResultSet} is query result.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     1. Need 1 - 3  parameter(s)! 2. The RdbStore must be not nullptr.
-     *     3. The predicates must be an RdbPredicates. 4. The columns must be a string array.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
-     * @throws { BusinessError } 14800014 - The target instance is already closed.
-     * @throws { BusinessError } 14800015 - The database does not respond.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
-     * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
-     * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
-     * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
-     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
-     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
-     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
-     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
-     * @throws { BusinessError } 14800029 - SQLite: The database is full.
-     * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file.
-     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit.
-     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation.
-     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
-     * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
-     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
-     * @systemapi
-     * @since 12 dynamic
+     * @since 11 dynamic
      * @since 23 static
      */
     querySharingResource(predicates: RdbPredicates, columns: Array<string>, callback: AsyncCallback<ResultSet>): void;
@@ -7779,41 +6435,28 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Executes a SQL statement that contains specified parameters but returns no value.
-     *
-     * @param { string } sql - Indicates the SQL statement to execute.
-     * @param { AsyncCallback<void> } callback - The callback of executeSql.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported the sql(attach,begin,commit,rollback etc.).
-     * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
-     * @throws { BusinessError } 14800014 - The target instance is already closed.
-     * @throws { BusinessError } 14800015 - The database does not respond.
+     * @throws { BusinessError } 801 - Capability not supported the sql(attach,begin,commit,rollback etc.). [since 12]
+     * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted. [since 12]
+     * @throws { BusinessError } 14800014 - The target instance is already closed. [since 12]
+     * @throws { BusinessError } 14800015 - The database does not respond. [since 12]
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
-     *     Possible causes: Insert failed or the updated data does not exist.
-     * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
-     * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
-     * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
-     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
-     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
-     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
-     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
-     * @throws { BusinessError } 14800029 - SQLite: The database is full.
-     * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file.
-     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit.
-     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation.
-     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
-     * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
-     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
+     *     Possible causes: Insert failed or the updated data does not exist. [since 12]
+     * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort. [since 12]
+     * @throws { BusinessError } 14800023 - SQLite: Access permission denied. [since 12]
+     * @throws { BusinessError } 14800024 - SQLite: The database file is locked. [since 12]
+     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked. [since 12]
+     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory. [since 12]
+     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database. [since 12]
+     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred. [since 12]
+     * @throws { BusinessError } 14800029 - SQLite: The database is full. [since 12]
+     * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file. [since 12]
+     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit. [since 12]
+     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation. [since 12]
+     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch. [since 12]
+     * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly. [since 12]
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 12 dynamic
+     * @since 10 dynamic
      * @since 23 static
      */
     executeSql(sql: string, callback: AsyncCallback<void>): void;
@@ -7828,57 +6471,29 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 9
-     */
-    /**
-     * Executes a SQL statement that contains specified parameters but returns no value.
-     *
-     * @param { string } sql - Indicates the SQL statement to execute.
-     * @param { Array<ValueType> } bindArgs -
-     *     Indicates the {@link ValueType} values of the parameters in the SQL statement. The values are strings.
-     * @param { AsyncCallback<void> } callback - The callback of executeSql.
-     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 14800000 - Inner error.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Executes a SQL statement that contains specified parameters but returns no value.
-     *
-     * @param { string } sql - Indicates the SQL statement to execute.
-     * @param { Array<ValueType> } bindArgs -
-     *     Indicates the {@link ValueType} values of the parameters in the SQL statement. The values are strings.
-     * @param { AsyncCallback<void> } callback - The callback of executeSql.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported the sql(attach,begin,commit,rollback etc.).
-     * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
-     * @throws { BusinessError } 14800014 - The target instance is already closed.
-     * @throws { BusinessError } 14800015 - The database does not respond.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit. [since 10]
+     * @throws { BusinessError } 801 - Capability not supported the sql(attach,begin,commit,rollback etc.). [since 12]
+     * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted. [since 12]
+     * @throws { BusinessError } 14800014 - The target instance is already closed. [since 12]
+     * @throws { BusinessError } 14800015 - The database does not respond. [since 12]
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
-     *     Possible causes: Insert failed or the updated data does not exist.
-     * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
-     * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
-     * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
-     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
-     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
-     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
-     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
-     * @throws { BusinessError } 14800029 - SQLite: The database is full.
-     * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file.
-     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit.
-     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation.
-     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
-     * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
-     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
+     *     Possible causes: Insert failed or the updated data does not exist. [since 12]
+     * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort. [since 12]
+     * @throws { BusinessError } 14800023 - SQLite: Access permission denied. [since 12]
+     * @throws { BusinessError } 14800024 - SQLite: The database file is locked. [since 12]
+     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked. [since 12]
+     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory. [since 12]
+     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database. [since 12]
+     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred. [since 12]
+     * @throws { BusinessError } 14800029 - SQLite: The database is full. [since 12]
+     * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file. [since 12]
+     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit. [since 12]
+     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation. [since 12]
+     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch. [since 12]
+     * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly. [since 12]
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
      * @since 23 static
      */
     executeSql(sql: string, bindArgs: Array<ValueType>, callback: AsyncCallback<void>): void;
@@ -7893,57 +6508,29 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 9
-     */
-    /**
-     * Executes a SQL statement that contains specified parameters but returns no value.
-     *
-     * @param { string } sql - Indicates the SQL statement to execute.
-     * @param { Array<ValueType> } bindArgs -
-     *     Indicates the {@link ValueType} values of the parameters in the SQL statement. The values are strings.
-     * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 14800000 - Inner error.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Executes a SQL statement that contains specified parameters but returns no value.
-     *
-     * @param { string } sql - Indicates the SQL statement to execute.
-     * @param { Array<ValueType> } bindArgs -
-     *     Indicates the {@link ValueType} values of the parameters in the SQL statement. The values are strings.
-     * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported the sql(attach,begin,commit,rollback etc.).
-     * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
-     * @throws { BusinessError } 14800014 - The target instance is already closed.
-     * @throws { BusinessError } 14800015 - The database does not respond.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit. [since 10]
+     * @throws { BusinessError } 801 - Capability not supported the sql(attach,begin,commit,rollback etc.). [since 12]
+     * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted. [since 12]
+     * @throws { BusinessError } 14800014 - The target instance is already closed. [since 12]
+     * @throws { BusinessError } 14800015 - The database does not respond. [since 12]
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
-     *     Possible causes: Insert failed or the updated data does not exist.
-     * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
-     * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
-     * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
-     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
-     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
-     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
-     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
-     * @throws { BusinessError } 14800029 - SQLite: The database is full.
-     * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file.
-     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit.
-     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation.
-     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
-     * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
-     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
+     *     Possible causes: Insert failed or the updated data does not exist. [since 12]
+     * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort. [since 12]
+     * @throws { BusinessError } 14800023 - SQLite: Access permission denied. [since 12]
+     * @throws { BusinessError } 14800024 - SQLite: The database file is locked. [since 12]
+     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked. [since 12]
+     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory. [since 12]
+     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database. [since 12]
+     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred. [since 12]
+     * @throws { BusinessError } 14800029 - SQLite: The database is full. [since 12]
+     * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file. [since 12]
+     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit. [since 12]
+     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation. [since 12]
+     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch. [since 12]
+     * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly. [since 12]
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
      * @since 23 static
      */
     executeSql(sql: string, bindArgs?: Array<ValueType>): Promise<void>;
@@ -8063,46 +6650,28 @@ declare namespace relationalStore {
      *
      * @throws { BusinessError } 401 - Parameter error.  Possible causes: The RdbStore verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 9
-     */
-    /**
-     * BeginTransaction before execute your sql.
-     *
-     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
-     * @throws { BusinessError } 401 - Parameter error.  Possible causes: The RdbStore verification failed.
-     * @throws { BusinessError } 14800000 - Inner error.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * BeginTransaction before execute your sql.
-     *
-     * @throws { BusinessError } 401 - Parameter error.  Possible causes: The RdbStore verification failed.
-     * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
-     * @throws { BusinessError } 14800014 - The target instance is already closed.
-     * @throws { BusinessError } 14800015 - The database does not respond.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
-     * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
-     * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
-     * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
-     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
-     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
-     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
-     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
-     * @throws { BusinessError } 14800029 - SQLite: The database is full.
-     * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file.
-     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit.
-     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation.
-     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
-     * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
-     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit. [since 10]
+     * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted. [since 12]
+     * @throws { BusinessError } 14800014 - The target instance is already closed. [since 12]
+     * @throws { BusinessError } 14800015 - The database does not respond. [since 12]
+     * @throws { BusinessError } 14800021 - SQLite: Generic error. [since 12]
+     * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort. [since 12]
+     * @throws { BusinessError } 14800023 - SQLite: Access permission denied. [since 12]
+     * @throws { BusinessError } 14800024 - SQLite: The database file is locked. [since 12]
+     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked. [since 12]
+     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory. [since 12]
+     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database. [since 12]
+     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred. [since 12]
+     * @throws { BusinessError } 14800029 - SQLite: The database is full. [since 12]
+     * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file. [since 12]
+     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit. [since 12]
+     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation. [since 12]
+     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch. [since 12]
+     * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly. [since 12]
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @FaAndStageModel
-     * @crossplatform
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
      * @since 23 static
      */
     beginTransaction(): void;
@@ -8143,43 +6712,28 @@ declare namespace relationalStore {
      * Commit the the sql you have executed.
      *
      * @throws { BusinessError } 401 - Parameter error.  Possible causes: The RdbStore verification failed.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 9
-     */
-    /**
-     * Commit the the sql you have executed.
-     *
-     * @throws { BusinessError } 401 - Parameter error.  Possible causes: The RdbStore verification failed.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Commit the the sql you have executed.
-     *
-     * @throws { BusinessError } 401 - Parameter error.  Possible causes: The RdbStore verification failed.
-     * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
-     * @throws { BusinessError } 14800014 - The target instance is already closed.
-     * @throws { BusinessError } 14800015 - The database does not respond.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
-     * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
-     * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
-     * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
-     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
-     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
-     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
-     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
-     * @throws { BusinessError } 14800029 - SQLite: The database is full.
-     * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file.
-     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit.
-     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation.
-     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
-     * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
+     * @throws { BusinessError } 14800000 - Inner error. [since 12]
+     * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted. [since 12]
+     * @throws { BusinessError } 14800014 - The target instance is already closed. [since 12]
+     * @throws { BusinessError } 14800015 - The database does not respond. [since 12]
+     * @throws { BusinessError } 14800021 - SQLite: Generic error. [since 12]
+     * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort. [since 12]
+     * @throws { BusinessError } 14800023 - SQLite: Access permission denied. [since 12]
+     * @throws { BusinessError } 14800024 - SQLite: The database file is locked. [since 12]
+     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked. [since 12]
+     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory. [since 12]
+     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database. [since 12]
+     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred. [since 12]
+     * @throws { BusinessError } 14800029 - SQLite: The database is full. [since 12]
+     * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file. [since 12]
+     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit. [since 12]
+     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation. [since 12]
+     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch. [since 12]
+     * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly. [since 12]
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @FaAndStageModel
-     * @crossplatform
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
      * @since 23 static
      */
     commit(): void;
@@ -8220,43 +6774,28 @@ declare namespace relationalStore {
      * Roll back the sql you have already executed.
      *
      * @throws { BusinessError } 401 - Parameter error.  Possible causes: The RdbStore verification failed.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 9
-     */
-    /**
-     * Roll back the sql you have already executed.
-     *
-     * @throws { BusinessError } 401 - Parameter error.  Possible causes: The RdbStore verification failed.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Roll back the sql you have already executed.
-     *
-     * @throws { BusinessError } 401 - Parameter error.  Possible causes: The RdbStore verification failed.
-     * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
-     * @throws { BusinessError } 14800014 - The target instance is already closed.
-     * @throws { BusinessError } 14800015 - The database does not respond.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
-     * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
-     * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
-     * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
-     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
-     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
-     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
-     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
-     * @throws { BusinessError } 14800029 - SQLite: The database is full.
-     * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file.
-     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit.
-     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation.
-     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
-     * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
+     * @throws { BusinessError } 14800000 - Inner error. [since 12]
+     * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted. [since 12]
+     * @throws { BusinessError } 14800014 - The target instance is already closed. [since 12]
+     * @throws { BusinessError } 14800015 - The database does not respond. [since 12]
+     * @throws { BusinessError } 14800021 - SQLite: Generic error. [since 12]
+     * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort. [since 12]
+     * @throws { BusinessError } 14800023 - SQLite: Access permission denied. [since 12]
+     * @throws { BusinessError } 14800024 - SQLite: The database file is locked. [since 12]
+     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked. [since 12]
+     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory. [since 12]
+     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database. [since 12]
+     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred. [since 12]
+     * @throws { BusinessError } 14800029 - SQLite: The database is full. [since 12]
+     * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file. [since 12]
+     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit. [since 12]
+     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation. [since 12]
+     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch. [since 12]
+     * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly. [since 12]
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @FaAndStageModel
-     * @crossplatform
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
      * @since 23 static
      */
     rollBack(): void;
@@ -8301,50 +6840,28 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 9
-     */
-    /**
-     * Backs up a database in a specified name.
-     *
-     * @param { string } destName - Indicates the name that saves the database backup.
-     * @param { AsyncCallback<void> } callback - The callback of backup.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 14800000 - Inner error.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Backs up a database in a specified name.
-     *
-     * @param { string } destName - Indicates the name that saves the database backup.
-     * @param { AsyncCallback<void> } callback - The callback of backup.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800010 - Failed to open or delete the database by an invalid database path.
-     * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
-     * @throws { BusinessError } 14800014 - The target instance is already closed.
-     * @throws { BusinessError } 14800015 - The database does not respond.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
-     * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
-     * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
-     * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
-     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
-     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
-     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
-     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
-     * @throws { BusinessError } 14800029 - SQLite: The database is full.
-     * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file.
-     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit.
-     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation.
-     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
-     * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
+     *     [since 12]
+     * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted. [since 12]
+     * @throws { BusinessError } 14800014 - The target instance is already closed. [since 12]
+     * @throws { BusinessError } 14800015 - The database does not respond. [since 12]
+     * @throws { BusinessError } 14800021 - SQLite: Generic error. [since 12]
+     * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort. [since 12]
+     * @throws { BusinessError } 14800023 - SQLite: Access permission denied. [since 12]
+     * @throws { BusinessError } 14800024 - SQLite: The database file is locked. [since 12]
+     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked. [since 12]
+     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory. [since 12]
+     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database. [since 12]
+     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred. [since 12]
+     * @throws { BusinessError } 14800029 - SQLite: The database is full. [since 12]
+     * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file. [since 12]
+     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit. [since 12]
+     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation. [since 12]
+     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch. [since 12]
+     * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly. [since 12]
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
      * @since 23 static
      */
     backup(destName: string, callback: AsyncCallback<void>): void;
@@ -8357,49 +6874,26 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted. [since 12]
+     * @throws { BusinessError } 14800014 - The target instance is already closed. [since 12]
+     * @throws { BusinessError } 14800015 - The database does not respond. [since 12]
+     * @throws { BusinessError } 14800021 - SQLite: Generic error. [since 12]
+     * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort. [since 12]
+     * @throws { BusinessError } 14800023 - SQLite: Access permission denied. [since 12]
+     * @throws { BusinessError } 14800024 - SQLite: The database file is locked. [since 12]
+     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked. [since 12]
+     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory. [since 12]
+     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database. [since 12]
+     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred. [since 12]
+     * @throws { BusinessError } 14800029 - SQLite: The database is full. [since 12]
+     * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file. [since 12]
+     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit. [since 12]
+     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation. [since 12]
+     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch. [since 12]
+     * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly. [since 12]
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 9
-     */
-    /**
-     * Backs up a database in a specified name.
-     *
-     * @param { string } destName - Indicates the name that saves the database backup.
-     * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 14800000 - Inner error.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Backs up a database in a specified name.
-     *
-     * @param { string } destName - Indicates the name that saves the database backup.
-     * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
-     * @throws { BusinessError } 14800014 - The target instance is already closed.
-     * @throws { BusinessError } 14800015 - The database does not respond.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
-     * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
-     * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
-     * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
-     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
-     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
-     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
-     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
-     * @throws { BusinessError } 14800029 - SQLite: The database is full.
-     * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file.
-     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit.
-     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation.
-     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
-     * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
      * @since 23 static
      */
     backup(destName: string): Promise<void>;
@@ -8412,49 +6906,26 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted. [since 12]
+     * @throws { BusinessError } 14800014 - The target instance is already closed. [since 12]
+     * @throws { BusinessError } 14800015 - The database does not respond. [since 12]
+     * @throws { BusinessError } 14800021 - SQLite: Generic error. [since 12]
+     * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort. [since 12]
+     * @throws { BusinessError } 14800023 - SQLite: Access permission denied. [since 12]
+     * @throws { BusinessError } 14800024 - SQLite: The database file is locked. [since 12]
+     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked. [since 12]
+     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory. [since 12]
+     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database. [since 12]
+     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred. [since 12]
+     * @throws { BusinessError } 14800029 - SQLite: The database is full. [since 12]
+     * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file. [since 12]
+     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit. [since 12]
+     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation. [since 12]
+     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch. [since 12]
+     * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly. [since 12]
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 9
-     */
-    /**
-     * Restores a database from a specified database file.
-     *
-     * @param { string } srcName - Indicates the name that saves the database file.
-     * @param { AsyncCallback<void> } callback - The callback of restore.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 14800000 - Inner error.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Restores a database from a specified database file.
-     *
-     * @param { string } srcName - Indicates the name that saves the database file.
-     * @param { AsyncCallback<void> } callback - The callback of restore.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
-     * @throws { BusinessError } 14800014 - The target instance is already closed.
-     * @throws { BusinessError } 14800015 - The database does not respond.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
-     * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
-     * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
-     * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
-     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
-     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
-     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
-     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
-     * @throws { BusinessError } 14800029 - SQLite: The database is full.
-     * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file.
-     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit.
-     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation.
-     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
-     * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
      * @since 23 static
      */
     restore(srcName: string, callback: AsyncCallback<void>): void;
@@ -8467,49 +6938,26 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted. [since 12]
+     * @throws { BusinessError } 14800014 - The target instance is already closed. [since 12]
+     * @throws { BusinessError } 14800015 - The database does not respond. [since 12]
+     * @throws { BusinessError } 14800021 - SQLite: Generic error. [since 12]
+     * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort. [since 12]
+     * @throws { BusinessError } 14800023 - SQLite: Access permission denied. [since 12]
+     * @throws { BusinessError } 14800024 - SQLite: The database file is locked. [since 12]
+     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked. [since 12]
+     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory. [since 12]
+     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database. [since 12]
+     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred. [since 12]
+     * @throws { BusinessError } 14800029 - SQLite: The database is full. [since 12]
+     * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file. [since 12]
+     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit. [since 12]
+     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation. [since 12]
+     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch. [since 12]
+     * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly. [since 12]
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 9
-     */
-    /**
-     * Restores a database from a specified database file.
-     *
-     * @param { string } srcName - Indicates the name that saves the database file.
-     * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 14800000 - Inner error.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Restores a database from a specified database file.
-     *
-     * @param { string } srcName - Indicates the name that saves the database file.
-     * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
-     * @throws { BusinessError } 14800014 - The target instance is already closed.
-     * @throws { BusinessError } 14800015 - The database does not respond.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
-     * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
-     * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
-     * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
-     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
-     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
-     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
-     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
-     * @throws { BusinessError } 14800029 - SQLite: The database is full.
-     * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file.
-     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit.
-     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation.
-     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
-     * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
      * @since 23 static
      */
     restore(srcName: string): Promise<void>;
@@ -8556,22 +7004,9 @@ declare namespace relationalStore {
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 14800014 - The target instance is already closed. [since 12]
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 9
-     */
-    /**
-     * Set table to be distributed table.
-     *
-     * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @param { Array<string> } tables - Indicates the table names you want to set.
-     * @param { AsyncCallback<void> } callback - The callback of setDistributedTables.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800014 - The target instance is already closed.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 12 dynamic
+     * @since 9 dynamic
      * @since 23 static
      */
     setDistributedTables(tables: Array<string>, callback: AsyncCallback<void>): void;
@@ -8586,22 +7021,9 @@ declare namespace relationalStore {
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 14800014 - The target instance is already closed. [since 12]
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 9
-     */
-    /**
-     * Set table to be distributed table.
-     *
-     * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @param { Array<string> } tables - Indicates the table names you want to set.
-     * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800014 - The target instance is already closed.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 12 dynamic
+     * @since 9 dynamic
      * @since 23 static
      */
     setDistributedTables(tables: Array<string>): Promise<void>;
@@ -8612,32 +7034,16 @@ declare namespace relationalStore {
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @param { Array<string> } tables - Indicates the table names you want to set.
      * @param { DistributedType } type - Indicates the distributed type {@link DistributedType}.
-     *     This method only works when type equals to DistributedType.DISTRIBUTED_CLOUD
-     * @param { AsyncCallback<void> } callback - The callback of setDistributedTables.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800051 - The type of the distributed table does not match.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 10
-     */
-    /**
-     * Set table to be distributed table.
-     *
-     * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @param { Array<string> } tables - Indicates the table names you want to set.
-     * @param { DistributedType } type - Indicates the distributed type {@link DistributedType}.
      *     ohos.permission.DISTRIBUTED_DATASYNC is required only when type is DISTRIBUTED_DEVICE.
      * @param { AsyncCallback<void> } callback - The callback of setDistributedTables.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800014 - The target instance is already closed.
      * @throws { BusinessError } 14800051 - The type of the distributed table does not match.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 14800014 - The target instance is already closed. [since 12]
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 12 dynamic
+     * @since 10 dynamic
      * @since 23 static
      */
     setDistributedTables(tables: Array<string>, type: DistributedType, callback: AsyncCallback<void>): void;
@@ -8648,36 +7054,18 @@ declare namespace relationalStore {
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @param { Array<string> } tables - Indicates the table names you want to set.
      * @param { DistributedType } type - Indicates the distributed type {@link DistributedType}.
-     *     This method only works when type equals to DistributedType.DISTRIBUTED_CLOUD
-     * @param { DistributedConfig } config -
-     *     Indicates the distributed config of the tables. For details, see {@link DistributedConfig}.
-     * @param { AsyncCallback<void> } callback - The callback of setDistributedTables.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800051 - The type of the distributed table does not match.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 10
-     */
-    /**
-     * Set table to be distributed table.
-     *
-     * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @param { Array<string> } tables - Indicates the table names you want to set.
-     * @param { DistributedType } type - Indicates the distributed type {@link DistributedType}.
      *     ohos.permission.DISTRIBUTED_DATASYNC is required only when type is DISTRIBUTED_DEVICE.
      * @param { DistributedConfig } config -
      *     Indicates the distributed config of the tables. For details, see {@link DistributedConfig}.
      * @param { AsyncCallback<void> } callback - The callback of setDistributedTables.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800014 - The target instance is already closed.
      * @throws { BusinessError } 14800051 - The type of the distributed table does not match.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 14800014 - The target instance is already closed. [since 12]
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 12 dynamic
+     * @since 10 dynamic
      * @since 23 static
      */
     setDistributedTables(
@@ -8693,36 +7081,18 @@ declare namespace relationalStore {
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @param { Array<string> } tables - Indicates the table names you want to set.
      * @param { DistributedType } type - Indicates the distributed type {@link DistributedType}.
-     *     This method only works when type equals to DistributedType.DISTRIBUTED_CLOUD
-     * @param { DistributedConfig } config -
-     *     Indicates the distributed config of the tables. For details, see {@link DistributedConfig}.
-     * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800051 - The type of the distributed table does not match.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 10
-     */
-    /**
-     * Set table to be a distributed table.
-     *
-     * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @param { Array<string> } tables - Indicates the table names you want to set.
-     * @param { DistributedType } type - Indicates the distributed type {@link DistributedType}.
      *     ohos.permission.DISTRIBUTED_DATASYNC is required only when type is DISTRIBUTED_DEVICE.
      * @param { DistributedConfig } config -
      *     Indicates the distributed config of the tables. For details, see {@link DistributedConfig}.
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800014 - The target instance is already closed.
      * @throws { BusinessError } 14800051 - The type of the distributed table does not match.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 14800014 - The target instance is already closed. [since 12]
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 12 dynamic
+     * @since 10 dynamic
      * @since 23 static
      */
     setDistributedTables(tables: Array<string>, type?: DistributedType, config?: DistributedConfig): Promise<void>;
@@ -8732,7 +7102,7 @@ declare namespace relationalStore {
      *
      * @param { Record<string, Array<string>> } [retainDevices] -
      *     key is the name of the table where the data is to be deleted,
-     *     <br>value is the device ID list of cross device end needs to be retained.
+     *     value is the device ID list of cross device end needs to be retained.
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 202 - Permission verification failed,
      *     application which is not a system application uses system API.
@@ -8745,7 +7115,7 @@ declare namespace relationalStore {
      *     <br>2. The database is not created.
      * @throws { BusinessError } 14800043 - The database does not support this scenario.
      *     Possible causes: 1. The database type is not supported;2. The table type is not supported;
-     *     <br>3. This is a read-only database.
+     *     3. This is a read-only database.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @systemapi
      * @stagemodelonly
@@ -8770,7 +7140,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
      * @throws { BusinessError } 14800043 - The database does not support this scenario.
      *     Possible causes: 1. The database type is not supported;2. The table type is not supported;
-     *     <br>3. This is a read-only database.
+     *     3. This is a read-only database.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @systemapi
      * @stagemodelonly
@@ -8790,24 +7160,9 @@ declare namespace relationalStore {
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 14800014 - The target instance is already closed. [since 12]
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 9
-     */
-    /**
-     * Obtain distributed table name of specified remote device according to local table name.
-     * When query remote device database, distributed table name is needed.
-     *
-     * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @param { string } device - Indicates the remote device.
-     * @param { string } table - {string}: the distributed table name.
-     * @param { AsyncCallback<string> } callback
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800014 - The target instance is already closed.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 12 dynamic
+     * @since 9 dynamic
      * @since 23 static
      */
     obtainDistributedTableName(device: string, table: string, callback: AsyncCallback<string>): void;
@@ -8824,46 +7179,13 @@ declare namespace relationalStore {
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 14800014 - The target instance is already closed. [since 12]
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 9
-     */
-    /**
-     * Obtain distributed table name of specified remote device according to local table name.
-     * When query remote device database, distributed table name is needed.
-     *
-     * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @param { string } device - Indicates the remote device.
-     * @param { string } table
-     * @returns { Promise<string> } {string}: the distributed table name.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800014 - The target instance is already closed.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 12 dynamic
+     * @since 9 dynamic
      * @since 23 static
      */
     obtainDistributedTableName(device: string, table: string): Promise<string>;
 
-    /**
-     * Sync data between devices.
-     *
-     * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @param { SyncMode } mode - Indicates the database synchronization mode.
-     * @param { RdbPredicates } predicates -
-     *     The specified sync condition by the instance object of {@link RdbPredicates}.
-     * @param { AsyncCallback<Array<[string, number]>> } callback -
-     *     {Array<[string, number]>}: devices sync status array,
-     *     {string}: device id,
-     *     {number}: device sync status.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 9 dynamic
-     */
     /**
      * Sync data between devices.
      *
@@ -8877,12 +7199,12 @@ declare namespace relationalStore {
      *     {int}: device sync status.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800014 - The target instance is already closed.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 14800014 - The target instance is already closed. [since 12]
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @FaAndStageModel
-     * @since 12 dynamic
+     * @since 9 dynamic
      * @since 23 static
      */
     sync(mode: SyncMode, predicates: RdbPredicates, callback: AsyncCallback<Array<[string, int]>>): void;
@@ -8894,34 +7216,40 @@ declare namespace relationalStore {
      * @param { SyncMode } mode - Indicates the database synchronization mode.
      * @param { RdbPredicates } predicates -
      *     The specified sync condition by the instance object of {@link RdbPredicates}.
-     * @returns { Promise<Array<[string, number]>> }
-     *     {Array<[string, number]>}: devices sync status array, {string}: device id, {number}: device sync status.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 9
-     */
-    /**
-     * Sync data between devices.
-     *
-     * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @param { SyncMode } mode - Indicates the database synchronization mode.
-     * @param { RdbPredicates } predicates -
-     *     The specified sync condition by the instance object of {@link RdbPredicates}.
      * @returns { Promise<Array<[string, int]>> }
      *     {Array<[string, int]>}: devices sync status array, {string}: device id, {int}: device sync status.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800014 - The target instance is already closed.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 14800014 - The target instance is already closed. [since 12]
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 12 dynamic
+     * @since 9 dynamic
      * @since 23 static
      */
     sync(mode: SyncMode, predicates: RdbPredicates): Promise<Array<[string, int]>>;
+
+    /**
+     * Sync data between devices.
+     * 
+     * 1. The difference between the sync interface and the syncEx interface is that they can return more error codes,
+     * but their functionality is similar.
+     * 2. Before invoking synchronization, call setdistributedTable to set the distributed table.
+     *
+     * @permission ohos.permission.DISTRIBUTED_DATASYNC
+     * @param { SyncMode } mode - Indicates the database synchronization mode.
+     *     <br>Only SYNC_MODE_PUSH and SYNC_MODE_PULL are supported.
+     * @param { RdbPredicates } predicates - The specified sync condition by the instance object
+     *     of {@link RdbPredicates}.
+     * @returns { Promise<Array<SyncResult>> } devices sync result array, see {@link SyncResult} for details.
+     * @throws { BusinessError } 201 - the application does not have permission to call this function.
+     * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. Parameter is out of valid range.
+     * @throws { BusinessError } 14800014 - The target instance is already closed.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    syncEx(mode: SyncMode, predicates: RdbPredicates): Promise<Array<SyncResult>>;
 
     /**
      * Sync data to cloud.
@@ -8929,32 +7257,15 @@ declare namespace relationalStore {
      * @param { SyncMode } mode - indicates the database synchronization mode.
      * @param { Callback<ProgressDetails> } progress -
      *     Callback used to return the {@link ProgressDetails} result.
-     * @param { AsyncCallback<void> } callback -
-     *     {Array<[string, number]>}: devices sync status array, {string}: device id, {number}: device sync status.
+     * @param { AsyncCallback<void> } callback - The callback of cloudSync.
      * @throws { BusinessError } 401 - Parameter error.
      *     Possible causes: 1. Need 2 - 4  parameter(s). 2. The RdbStore must be not nullptr.
      *     3. The mode must be a SyncMode of cloud. 4. The progress must be a callback type.
      *     5. The callback must be a function.
      * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 14800014 - The target instance is already closed. [since 12]
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
-     * @since 10
-     */
-    /**
-     * Sync data to cloud.
-     *
-     * @param { SyncMode } mode - indicates the database synchronization mode.
-     * @param { Callback<ProgressDetails> } progress -
-     *     Callback used to return the {@link ProgressDetails} result.
-     * @param { AsyncCallback<void> } callback -
-     *     {Array<[string, int]>}: devices sync status array, {string}: device id, {int}: device sync status.
-     * @throws { BusinessError } 401 - Parameter error.
-     *     Possible causes: 1. Need 2 - 4  parameter(s). 2. The RdbStore must be not nullptr.
-     *     3. The mode must be a SyncMode of cloud. 4. The progress must be a callback type.
-     *     5. The callback must be a function.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 14800014 - The target instance is already closed.
-     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
-     * @since 12 dynamic
+     * @since 10 dynamic
      * @since 23 static
      */
     cloudSync(mode: SyncMode, progress: Callback<ProgressDetails>, callback: AsyncCallback<void>): void;
@@ -8965,28 +7276,14 @@ declare namespace relationalStore {
      * @param { SyncMode } mode - indicates the database synchronization mode.
      * @param { Callback<ProgressDetails> } progress -
      *     Callback used to return the {@link ProgressDetails} result.
-     * @returns { Promise<void> } : devices sync status array, {string}: device id, {number}: device sync status.
+     * @returns { Promise<void> } : The promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error.
      *     Possible causes: 1. Need 2 - 4  parameter(s). 2. The RdbStore must be not nullptr.
      *     3. The mode must be a SyncMode of cloud. 4. The progress must be a callback type.
      * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 14800014 - The target instance is already closed. [since 12]
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
-     * @since 10
-     */
-    /**
-     * Sync data to cloud.
-     *
-     * @param { SyncMode } mode - indicates the database synchronization mode.
-     * @param { Callback<ProgressDetails> } progress -
-     *     Callback used to return the {@link ProgressDetails} result.
-     * @returns { Promise<void> } : devices sync status array, {string}: device id, {int}: device sync status.
-     * @throws { BusinessError } 401 - Parameter error.
-     *     Possible causes: 1. Need 2 - 4  parameter(s). 2. The RdbStore must be not nullptr.
-     *     3. The mode must be a SyncMode of cloud. 4. The progress must be a callback type.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 14800014 - The target instance is already closed.
-     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
-     * @since 12 dynamic
+     * @since 10 dynamic
      * @since 23 static
      */
     cloudSync(mode: SyncMode, progress: Callback<ProgressDetails>): Promise<void>;
@@ -8998,33 +7295,15 @@ declare namespace relationalStore {
      * @param { string[] } tables - indicates the database synchronization mode.
      * @param { Callback<ProgressDetails> } progress -
      *     Callback used to return the {@link ProgressDetails} result.
-     * @param { AsyncCallback<void> } callback -
-     *     {Array<[string, number]>}: devices sync status array, {string}: device id, {number}: device sync status.
-     * @throws { BusinessError } 401 - Parameter error.
-     *     Possible causes: 1. Need 2 - 4  parameter(s). 2. The RdbStore must be not nullptr.
-     *     3. The mode must be a SyncMode of cloud. 4. The tablesNames must be not empty.
-     *     5. The progress must be a callback type. 6. The callback must be a function.
+     * @param { AsyncCallback<void> } callback - The callback of cloudSync.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+     *     <br> 1. Mandatory parameters are left unspecified.
+     *     <br> 2. Incorrect parameter types.
+     *     <br> 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 14800014 - The target instance is already closed. [since 12]
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
-     * @since 10
-     */
-    /**
-     * Sync data to cloud.
-     *
-     * @param { SyncMode } mode - indicates the database synchronization mode.
-     * @param { string[] } tables - indicates the database synchronization mode.
-     * @param { Callback<ProgressDetails> } progress -
-     *     Callback used to return the {@link ProgressDetails} result.
-     * @param { AsyncCallback<void> } callback -
-     *     {Array<[string, int]>}: devices sync status array, {string}: device id, {int}: device sync status.
-     * @throws { BusinessError } 401 - Parameter error.
-     *     Possible causes: 1. Need 2 - 4  parameter(s). 2. The RdbStore must be not nullptr.
-     *     3. The mode must be a SyncMode of cloud. 4. The tablesNames must be not empty.
-     *     5. The progress must be a callback type. 6. The callback must be a function.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 14800014 - The target instance is already closed.
-     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
-     * @since 12 dynamic
+     * @since 10 dynamic
      * @since 23 static
      */
     cloudSync(
@@ -9041,31 +7320,15 @@ declare namespace relationalStore {
      * @param { string[] } tables - indicates the database synchronization mode.
      * @param { Callback<ProgressDetails> } progress -
      *     Callback used to return the {@link ProgressDetails} result.
-     * @returns { Promise<void> } : devices sync status array, {string}: device id, {number}: device sync status.
+     * @returns { Promise<void> } : The promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error.
      *     Possible causes: 1. Need 2 - 4  parameter(s). 2. The RdbStore must be not nullptr.
      *     3. The mode must be a SyncMode of cloud. 4. The tablesNames must be not empty.
      *     5. The progress must be a callback type.
      * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 14800014 - The target instance is already closed. [since 12]
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
-     * @since 10
-     */
-    /**
-     * Sync data to cloud.
-     *
-     * @param { SyncMode } mode - indicates the database synchronization mode.
-     * @param { string[] } tables - indicates the database synchronization mode.
-     * @param { Callback<ProgressDetails> } progress -
-     *     Callback used to return the {@link ProgressDetails} result.
-     * @returns { Promise<void> } : devices sync status array, {string}: device id, {int}: device sync status.
-     * @throws { BusinessError } 401 - Parameter error.
-     *     Possible causes: 1. Need 2 - 4  parameter(s). 2. The RdbStore must be not nullptr.
-     *     3. The mode must be a SyncMode of cloud. 4. The tablesNames must be not empty.
-     *     5. The progress must be a callback type.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 14800014 - The target instance is already closed.
-     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
-     * @since 12 dynamic
+     * @since 10 dynamic
      * @since 23 static
      */
     cloudSync(mode: SyncMode, tables: string[], progress: Callback<ProgressDetails>): Promise<void>;
@@ -9086,30 +7349,10 @@ declare namespace relationalStore {
      * @throws { BusinessError } 202 -
      *     if permission verification failed, application which is not a system application uses system API.
      * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 14800014 - The target instance is already closed. [since 12]
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
-     * @since 11
-     */
-    /**
-     * Sync data to cloud.
-     *
-     * @param { SyncMode } mode - indicates the database synchronization mode.
-     * @param { RdbPredicates } predicates -
-     *     The specified sync condition by the instance object of {@link RdbPredicates}.
-     * @param { Callback<ProgressDetails> } progress -
-     *     Callback used to return the {@link ProgressDetails} result.
-     * @param { AsyncCallback<void> } callback - The callback of cloudSync.
-     * @throws { BusinessError } 202 -
-     *     if permission verification failed, application which is not a system application uses system API.
-     * @throws { BusinessError } 401 - Parameter error.
-     *     Possible causes: 1. Need 2 - 4  parameter(s). 2. The RdbStore must be not nullptr.
-     *     3. The mode must be a SyncMode of cloud. 4. The tablesNames must be not empty.
-     *     5. The progress must be a callback type. 6. The callback must be a function.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 14800014 - The target instance is already closed.
-     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
-     * @systemapi
-     * @since 12 dynamic
+     * @since 11 dynamic
      * @since 23 static
      */
     cloudSync(
@@ -9135,33 +7378,39 @@ declare namespace relationalStore {
      * @throws { BusinessError } 202 - if permission verification failed, application which is not a system
      *     application uses system API.
      * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 14800014 - The target instance is already closed. [since 12]
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
-     * @since 11
-     */
-    /**
-     * Sync data to cloud.
-     *
-     * @param { SyncMode } mode - indicates the database synchronization mode.
-     * @param { RdbPredicates } predicates -
-     *     The specified sync condition by the instance object of {@link RdbPredicates}.
-     * @param { Callback<ProgressDetails> } progress -
-     *     Callback used to return the {@link ProgressDetails} result.
-     * @returns { Promise<void> } : The promise returned by the function.
-     * @throws { BusinessError } 202 - if permission verification failed, application which is not a system
-     *     application uses system API.
-     * @throws { BusinessError } 401 - Parameter error.
-     *     Possible causes: 1. Need 2 - 4  parameter(s). 2. The RdbStore must be not nullptr.
-     *     3. The mode must be a SyncMode of cloud. 4. The tablesNames must be not empty.
-     *     5. The progress must be a callback type.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 14800014 - The target instance is already closed.
-     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
-     * @systemapi
-     * @since 12 dynamic
+     * @since 11 dynamic
      * @since 23 static
      */
     cloudSync(mode: SyncMode, predicates: RdbPredicates, progress: Callback<ProgressDetails>): Promise<void>;
+
+    /**
+     * Synchronizes data to the cloud. This API uses a promise to return the result.
+     *
+     * @param { CloudSyncConfig } config - indicates the cloud synchronization config.
+     * @param { Callback<ProgressDetails> } progress - Callback used to return the sync progress.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 14800014 - The target instance is already closed.
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    cloudSyncEx(config: CloudSyncConfig, progress: Callback<ProgressDetails>): Promise<void>;
+
+    /**
+     * Stops synchronizing data with the cloud.
+     *
+     * @returns { Promise<void> } : The promise returned by the function.
+     * @throws { BusinessError } 801 - Capability not supported
+     *     because the device does not support the cloud synchronization capability.
+     * @throws { BusinessError } 14800014 - The target instance is already closed.
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    stopCloudSync(): Promise<void>;
 
     /**
      * Queries remote data in the database based on specified conditions before Synchronizing Data.
@@ -9177,26 +7426,9 @@ declare namespace relationalStore {
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 14800014 - The target instance is already closed. [since 12]
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 9
-     */
-    /**
-     * Queries remote data in the database based on specified conditions before Synchronizing Data.
-     *
-     * @param { string } device - Indicates specified remote device.
-     * @param { string } table - Indicates the target table.
-     * @param { RdbPredicates } predicates -
-     *     The specified remote remote query condition by the instance object of {@link RdbPredicates}.
-     * @param { Array<string> } columns - The columns to remote query.
-     *     If the value is empty array, the remote query applies to all columns.
-     * @param { AsyncCallback<ResultSet> } callback - The {@link ResultSet} object if the operation is successful.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800014 - The target instance is already closed.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 12 dynamic
+     * @since 9 dynamic
      * @since 23 static
      */
     remoteQuery(
@@ -9221,45 +7453,13 @@ declare namespace relationalStore {
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 14800014 - The target instance is already closed. [since 12]
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 9
-     */
-    /**
-     * Queries remote data in the database based on specified conditions before Synchronizing Data.
-     *
-     * @param { string } device - Indicates specified remote device.
-     * @param { string } table - Indicates the target table.
-     * @param { RdbPredicates } predicates -
-     *     The specified remote remote query condition by the instance object of {@link RdbPredicates}.
-     * @param { Array<string> } columns - The columns to remote query.
-     *     If the value is empty array, the remote query applies to all columns.
-     * @returns { Promise<ResultSet> } The {@link ResultSet} object if the operation is successful.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800014 - The target instance is already closed.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 12 dynamic
+     * @since 9 dynamic
      * @since 23 static
      */
     remoteQuery(device: string, table: string, predicates: RdbPredicates, columns: Array<string>): Promise<ResultSet>;
 
-    /**
-     * Subscribes to data changes of this RDB store.
-     * The registered callback will be called when data in a distributed RDB store changes.
-     *
-     * @param { 'dataChange' } event - Indicates the event must be string 'dataChange'.
-     * @param { SubscribeType } type - Indicates the subscription type, which is defined in {@link SubscribeType}.
-     *     If its value is SUBSCRIBE_TYPE_REMOTE, ohos.permission.DISTRIBUTED_DATASYNC is required.
-     * @param { Callback<Array<string>> } observer -
-     *     {Array<string>}: the observer of data change events in the distributed database.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 9
-     */
     /**
      * Subscribes to data changes of this RDB store.
      * The registered callback will be called when data in a distributed RDB store changes.
@@ -9273,9 +7473,9 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 14800014 - The target instance is already closed.
+     * @throws { BusinessError } 14800014 - The target instance is already closed. [since 12]
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 12 dynamic
+     * @since 9 dynamic
      */
     on(event: 'dataChange', type: SubscribeType, observer: Callback<Array<string>>): void;
 
@@ -9286,37 +7486,17 @@ declare namespace relationalStore {
      * @param { 'dataChange' } event - Indicates the event must be string 'dataChange'.
      * @param { SubscribeType } type - Indicates the subscription type, which is defined in {@link SubscribeType}.
      *     If its value is SUBSCRIBE_TYPE_REMOTE, ohos.permission.DISTRIBUTED_DATASYNC is required.
-     *     If its value is SUBSCRIBE_TYPE_LOCAL_DETAILS,
-     *     the callback will be invoked for data changes in the local database.
-     * @param { Callback<Array<string>> | Callback<Array<ChangeInfo>> } observer
-     *     {Array<string>}: the observer of data change events in the distributed database.
-     *     {Array<ChangeInfo>}: The change info of data change events in the distributed database or the local database.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 202 - Permission verification failed,
-     *     application which is not a system application uses system API.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 10
-     */
-    /**
-     * Subscribes to data changes of this RDB store.
-     * The registered callback will be called when data in a distributed RDB store changes.
-     *
-     * @param { 'dataChange' } event - Indicates the event must be string 'dataChange'.
-     * @param { SubscribeType } type - Indicates the subscription type, which is defined in {@link SubscribeType}.
-     *     If its value is SUBSCRIBE_TYPE_REMOTE, ohos.permission.DISTRIBUTED_DATASYNC is required.
      * @param { Callback<Array<string>> | Callback<Array<ChangeInfo>> } observer
      *     {Array<string>}: the observer of data change events in the distributed database.
      *     {Array<ChangeInfo>}: The change info of data change events in the distributed database.
-     * @throws { BusinessError } 202 - Permission verification failed,
-     *     application which is not a system application uses system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 202 - Permission verification failed,
+     *     application which is not a system application uses system API.
      * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 14800014 - The target instance is already closed.
+     * @throws { BusinessError } 14800014 - The target instance is already closed. [since 12]
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 12 dynamic
+     * @since 10 dynamic
      */
     on(event: 'dataChange', type: SubscribeType, observer: Callback<Array<string>> | Callback<Array<ChangeInfo>>): void;
 
@@ -9326,7 +7506,7 @@ declare namespace relationalStore {
      *
      * @param { SubscribeType } type - Indicates the subscription type, which is defined in {@link SubscribeType}.
      *     If its value is SUBSCRIBE_TYPE_REMOTE, ohos.permission.DISTRIBUTED_DATASYNC is required.
-     * @param { Callback<Array<string>> | Callback<Array<ChangeInfo>> } observer - 
+     * @param { Callback<Array<string>> | Callback<Array<ChangeInfo>> } observer -
      *     {Array<string>}: The observer of data change events in the distributed database.
      *     {Array<ChangeInfo>}: The change info of data change events in the distributed database.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -9353,24 +7533,9 @@ declare namespace relationalStore {
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 14800050 - Failed to obtain the subscription service.
      * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800014 - The target instance is already closed. [since 12]
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 10
-     */
-    /**
-     * Registers an observer for the database.
-     *
-     * @param { string } event - Event type, which must match the event type in {@link emit}.
-     * @param { boolean } interProcess -
-     *     Indicates whether it is an interprocess subscription or an in-process subscription.
-     * @param { Callback<void> } observer - The observer of data change events in the database.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800014 - The target instance is already closed.
-     * @throws { BusinessError } 14800050 - Failed to obtain the subscription service.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 12 dynamic
+     * @since 10 dynamic
      * @since 23 static
      */
     on(event: string, interProcess: boolean, observer: Callback<void>): void;
@@ -9381,26 +7546,13 @@ declare namespace relationalStore {
      * @param { 'autoSyncProgress' } event - Indicates the event must be string 'autoSyncProgress'.
      * @param { Callback<ProgressDetails> } progress -
      *     Callback used to return the {@link ProgressDetails} result.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     1. Need 2 - 3  parameter(s)! 2. The RdbStore must be valid.
-     *     3. The event must be a not empty string. 4. The progress must be function.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 11
-     */
-    /**
-     * Register an automatic synchronization callback to the database.
-     *
-     * @param { 'autoSyncProgress' } event - Indicates the event must be string 'autoSyncProgress'.
-     * @param { Callback<ProgressDetails> } progress -
-     *     Callback used to return the {@link ProgressDetails} result.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed;
      *     <br>4. The event must be a not empty string; 5. The progress must be function.
      * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 14800014 - The target instance is already closed.
+     * @throws { BusinessError } 14800014 - The target instance is already closed. [since 12]
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 12 dynamic
+     * @since 11 dynamic
      */
     on(event: 'autoSyncProgress', progress: Callback<ProgressDetails>): void;
 
@@ -9417,6 +7569,7 @@ declare namespace relationalStore {
 
     /**
      * Subscribes to the SQL statistics.
+     *
      * @param { 'statistics' } event - Indicates the event type, which must be 'statistics'.
      * @param { Callback<SqlExecutionInfo> } observer -
      *     Indicates the callback used to return the SQL execution statistics {@link SqlExeInfo} in the database.
@@ -9426,28 +7579,15 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800014 - The target instance is already closed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 12
-     */
-    /**
-     * Subscribes to the SQL statistics.
-     * @param { 'statistics' } event - Indicates the event type, which must be 'statistics'.
-     * @param { Callback<SqlExecutionInfo> } observer -
-     *     Indicates the callback used to return the SQL execution statistics {@link SqlExeInfo} in the database.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800014 - The target instance is already closed.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 20 dynamic
+     * @crossplatform [since 20]
+     * @since 12 dynamic
      */
     on(event: 'statistics', observer: Callback<SqlExecutionInfo> ): void;
 
     /**
      * Subscribes to the SQL statistics.
      *
-     * @param { Callback<SqlExecutionInfo> } observer - 
+     * @param { Callback<SqlExecutionInfo> } observer -
      *     Indicates the callback used to return the SQL execution statistics {@link SqlExeInfo} in the database.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -9463,8 +7603,9 @@ declare namespace relationalStore {
 
     /**
      * Subscribes to the SQL performance statistics.
+     *
      * @param { 'perfStat' } event - Event type, which must be 'perfStat'.
-     * @param { Callback<SqlExecutionInfo> } observer - Callback used to return the SQL execution statistics 
+     * @param { Callback<SqlExecutionInfo> } observer - Callback used to return the SQL execution statistics
      *     {@link SqlExecutionInfo}.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 14800014 - The target instance is already closed.
@@ -9489,8 +7630,9 @@ declare namespace relationalStore {
 
     /**
      * Subscribes to the SQL execution error logs.
+     *
      * @param { 'sqliteErrorOccurred' } event - Event type, which must be 'sqliteErrorOccurred'.
-     * @param { Callback<ExceptionMessage> } observer - Callback used to return the SQL execution errorlog 
+     * @param { Callback<ExceptionMessage> } observer - Callback used to return the SQL execution errorlog
      *     {@link ExceptionMessage }.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 14800014 - The target instance is already closed.
@@ -9523,22 +7665,9 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 14800014 - The target instance is already closed. [since 12]
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 9
-     */
-    /**
-     * Remove specified observer of specified type from the database.
-     *
-     * @param { 'dataChange' } event - Indicates the event must be string 'dataChange'.
-     * @param { SubscribeType } type - Indicates the subscription type, which is defined in {@link SubscribeType}.
-     *     If its value is SUBSCRIBE_TYPE_REMOTE, ohos.permission.DISTRIBUTED_DATASYNC is required.
-     * @param { Callback<Array<string>> } observer - {Array<string>}: the data change observer already registered.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 14800014 - The target instance is already closed.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 12 dynamic
+     * @since 9 dynamic
      */
     off(event: 'dataChange', type: SubscribeType, observer: Callback<Array<string>>): void;
 
@@ -9556,26 +7685,9 @@ declare namespace relationalStore {
      * @throws { BusinessError } 202 - Permission verification failed,
      *     application which is not a system application uses system API.
      * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 14800014 - The target instance is already closed. [since 12]
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 10
-     */
-    /**
-     * Remove specified observer of specified type from the database.
-     *
-     * @param { 'dataChange' } event - indicates the event must be string 'dataChange'.
-     * @param { SubscribeType } type - indicates the subscription type, which is defined in {@link SubscribeType}.
-     *     If its value is SUBSCRIBE_TYPE_REMOTE, ohos.permission.DISTRIBUTED_DATASYNC is required.
-     * @param { Callback<Array<string>> | Callback<Array<ChangeInfo>> } observer -
-     *     {Array<string>}: the data change observer already registered.
-     *     {Array<ChangeInfo>}: the change info already registered.
-     * @throws { BusinessError } 202 - Permission verification failed,
-     *     application which is not a system application uses system API.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 14800014 - The target instance is already closed.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 12 dynamic
+     * @since 10 dynamic
      */
     off(
       event: 'dataChange',
@@ -9606,30 +7718,16 @@ declare namespace relationalStore {
      * @param { string } event - Indicates the subscription event.
      * @param { boolean } interProcess -
      *     Indicates whether it is an interprocess subscription or an in-process subscription.
-     * @param { Callback<void> } observer - The data change observer already registered.
+     * @param { Callback<void> } observer - The data change observer already registered. [since 10 - 11]
+     * @param { Callback<void> } [observer] - The data change observer already registered. [since 12]
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 14800050 - Failed to obtain the subscription service.
      * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800014 - The target instance is already closed. [since 12]
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 10
-     */
-    /**
-     * Remove specified observer of specified type from the database.
-     *
-     * @param { string } event - Indicates the subscription event.
-     * @param { boolean } interProcess -
-     *     Indicates whether it is an interprocess subscription or an in-process subscription.
-     * @param { Callback<void> } [observer] - The data change observer already registered.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800014 - The target instance is already closed.
-     * @throws { BusinessError } 14800050 - Failed to obtain the subscription service.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 12 dynamic
+     * @since 10 dynamic
      * @since 23 static
      */
     off(event: string, interProcess: boolean, observer?: Callback<void>): void;
@@ -9644,22 +7742,9 @@ declare namespace relationalStore {
      *     1. Need 1 - 3  parameter(s)! 2. The RdbStore must be valid.
      *     3. The event must be a not empty string. 4. The progress must be function.
      * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 14800014 - The target instance is already closed. [since 12]
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 11
-     */
-    /**
-     * Unregister the database auto synchronization callback.
-     *
-     * @param { 'autoSyncProgress' } event - indicates the event must be string 'autoSyncProgress'.
-     * @param { Callback<ProgressDetails> } progress -
-     *     Callback used to return the {@link ProgressDetails} result.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     1. Need 1 - 3  parameter(s)! 2. The RdbStore must be valid.
-     *     3. The event must be a not empty string. 4. The progress must be function.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 14800014 - The target instance is already closed.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 12 dynamic
+     * @since 11 dynamic
      */
     off(event: 'autoSyncProgress', progress?: Callback<ProgressDetails>): void;
 
@@ -9677,6 +7762,7 @@ declare namespace relationalStore {
 
     /**
      * Unsubscribes from the SQL statistics.
+     *
      * @param { 'statistics' } event - Indicates the event type, which must be 'statistics'.
      * @param { Callback<SqlExecutionInfo> } observer - Indicates the callback to unregister.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -9685,20 +7771,8 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800014 - The target instance is already closed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 12
-     */
-    /**
-     * Unsubscribes from the SQL statistics.
-     * @param { 'statistics' } event - Indicates the event type, which must be 'statistics'.
-     * @param { Callback<SqlExecutionInfo> } observer - Indicates the callback to unregister.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800014 - The target instance is already closed.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 20 dynamic
+     * @crossplatform [since 20]
+     * @since 12 dynamic
      */
     off(event: 'statistics', observer?: Callback<SqlExecutionInfo> ): void;
 
@@ -9717,6 +7791,7 @@ declare namespace relationalStore {
 
     /**
      * Unsubscribes from the SQL performance statistics.
+     *
      * @param { 'perfStat' } event - Event type, which must be 'perfStat'.
      * @param { Callback<SqlExecutionInfo> } observer - Callback to unregister.
      * @throws { BusinessError } 801 - Capability not supported.
@@ -9741,6 +7816,7 @@ declare namespace relationalStore {
 
     /**
      * Unsubscribes from the SQL execution error logs.
+     *
      * @param { 'sqliteErrorOccurred' } event - Indicates the event type, which must be 'sqliteErrorOccurred'.
      * @param { Callback<ExceptionMessage> } observer - Callback to unregister.
      * @throws { BusinessError } 801 - Capability not supported.
@@ -9772,21 +7848,9 @@ declare namespace relationalStore {
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 14800050 - Failed to obtain the subscription service.
      * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800014 - The target instance is already closed. [since 12]
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 10
-     */
-    /**
-     * Notifies the registered observers of a change to the data resource specified by Uri.
-     *
-     * @param { string } event - Indicates the subscription event.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800014 - The target instance is already closed.
-     * @throws { BusinessError } 14800050 - Failed to obtain the subscription service.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 12 dynamic
+     * @since 10 dynamic
      * @since 23 static
      */
     emit(event: string): void;
@@ -9798,17 +7862,8 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: The RdbStore verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 12
-     */
-    /**
-     * Close the RdbStore and all resultSets.
-     *
-     * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: The RdbStore verification failed.
-     * @throws { BusinessError } 14800000 - Inner error.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 20 dynamic
+     * @crossplatform [since 20]
+     * @since 12 dynamic
      * @since 23 static
      */
     close(): Promise<void>;
@@ -9997,7 +8052,8 @@ declare namespace relationalStore {
      *
      * @param { RdbPredicates } predicates -
      *     The specified query condition by the instance object of {@link RdbPredicates}.
-     * @param { Array<string> } [columns] - The columns to query. If the value is null, the query applies to all columns.
+     * @param { Array<string> } [columns] - The columns to query. If the value is null, the query applies to all
+     *     columns.
      * @returns { Promise<ResultSet> } The {@link ResultSet} object if the operation is successful.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -10102,6 +8158,7 @@ declare namespace relationalStore {
 
     /**
      * Support for collations in different languages.
+     *
      * @param { string } locale - Language related to the locale.
      *     for example, zh. The value complies with the ISO 639 standard.
      * @returns { Promise<void> } The promise returned by the function.
@@ -10142,7 +8199,33 @@ declare namespace relationalStore {
   }
 
   /**
-   * Provides transactional methods for managing the relational database (RDB).
+   * Provides APIs for managing databases in transaction mode. A transaction object is created by using 
+   * [createTransaction]{@link @ohos.data.relationalStore:relationalStore.RdbStore.createTransaction}. Operations on 
+   * different transaction objects are isolated. For details about the transaction types, see 
+   * [TransactionType]{@link @ohos.data.relationalStore:relationalStore.TransactionType}.
+   * 
+   * Currently, an RDB store supports only one write transaction at a time. If the current 
+   * [RdbStore]{@link @ohos.data.relationalStore:relationalStore} has a write transaction that is not released, creating
+   * an **IMMEDIATE** or **EXCLUSIVE** transaction object will return error 14800024. If a **DEFERRED** transaction 
+   * object is created, error 14800024 may be returned when it is used to invoke a write operation for the first time. 
+   * After a write transaction is created using **IMMEDIATE** or **EXCLUSIVE**, or a **DEFERRED** transaction is 
+   * upgraded to a write transaction, write operations in the 
+   * [RdbStore]{@link @ohos.data.relationalStore:relationalStore} will also return error 14800024.
+   * 
+   * When the number of concurrent transactions is large and the write transaction duration is long, the frequency of 
+   * returning error 14800024 may increase. You can reduce the occurrence of error 14800024 by shortening the 
+   * transaction duration or by handling the error 14800024 through retries.
+   * 
+   * Before using the following APIs, you should obtain a **Transaction** instance by calling the 
+   * [createTransaction]{@link @ohos.data.relationalStore:relationalStore.RdbStore.createTransaction} method and then 
+   * call the corresponding method through the instance.
+   * 
+   * **System capability**: SystemCapability.DistributedDataManager.RelationalStore.Core
+   * 
+   * **Example**:
+   * 
+   * For details about the definition of **this.context** in the sample code, see the application 
+   * [context]{@link ./application/Context:Context} of the stage model.
    *
    * @interface Transaction
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
@@ -10152,9 +8235,12 @@ declare namespace relationalStore {
    */
   interface Transaction {
     /**
-     * commit the transaction.
+     * Commits this executed SQL statement. This API uses a promise to return the result. When using asynchronous APIs 
+     * to execute SQL statements, ensure that **commit()** is called after the asynchronous API execution is completed. 
+     * Otherwise, the SQL operations may be lost. After **commit()** is called, the transaction object and the created 
+     * **ResultSet** object will be closed.
      *
-     * @returns { Promise<void> } Promise used to return the result.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
      * @throws { BusinessError } 14800014 - The target instance is already closed.
@@ -10172,9 +8258,10 @@ declare namespace relationalStore {
     commit(): Promise<void>;
 
     /**
-     * rollback the transaction.
+     * Rolls back this executed SQL statement. This API uses a promise to return the result. After **rollback()** is 
+     * called, the transaction object and the created **ResultSet** object will be closed.
      *
-     * @returns { Promise<void> } Promise used to return the result.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
      * @throws { BusinessError } 14800014 - The target instance is already closed.
@@ -10192,12 +8279,23 @@ declare namespace relationalStore {
     rollback(): Promise<void>;
 
     /**
-     * Inserts a row of data into the target table.
+     * Inserts a row of data into a table. This API uses a promise to return the result. Due to the limit of the shared
+     * memory, the size of a single data record cannot exceed 2 MB. Otherwise, data cannot be obtained using the **get**
+     * methods such as [getValue]{@link @ohos.data.relationalStore:relationalStore.ResultSet.getValue} and
+     * [getString]{@link @ohos.data.relationalStore:relationalStore.ResultSet.getString} after **ResultSet** is obtained
+     * through the [query]{@link @ohos.data.relationalStore:relationalStore.RdbStore.query(predicates: RdbPredicates)}
+     * or [querySql]{@link @ohos.data.relationalStore:relationalStore.RdbStore.querySqlWithoutRowCount} API of
+     * **RdbStore**. As a result, the operation may fail or an exception may be thrown.
+     * 
+     * A single string field supports a maximum of 8 MB data. If the data exceeds 8 MB, only the first 8 MB data is 
+     * retained. For data storage requirements exceeding 8 MB, the Blob type is recommended.
      *
-     * @param { string } table - Indicates the target table.
-     * @param { ValuesBucket } values - Indicates the row of data {@link ValuesBucket} to be inserted into the table.
-     * @param { ConflictResolution } conflict - Indicates the {@link ConflictResolution} to insert data into the table.
-     * @returns { Promise<long> } The row ID if the operation is successful. return -1 otherwise.
+     * @param { string } table - Name of the target table.
+     * @param { ValuesBucket } values - Row of data to insert.
+     * @param { ConflictResolution } conflict - Resolution used to resolve the conflict. <br>Default value:
+     *     **relationalStore.ConflictResolution.ON_CONFLICT_NONE**.
+     * @returns { Promise<long> } Promise used to return the result. If the operation is successful, the row ID will be
+     *     returned. Otherwise, **-1** will be returned.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
@@ -10223,13 +8321,23 @@ declare namespace relationalStore {
     insert(table: string, values: ValuesBucket, conflict?: ConflictResolution): Promise<long>;
 
     /**
-     * Inserts a row of data into the target table with sync interface, just use in TaskPool or Worker.
+     * Inserts a row of data into a table. This API returns the result synchronously. Due to the limit of the shared
+     * memory, the size of a single data record cannot exceed 2 MB. Otherwise, data cannot be obtained using the **get**
+     * methods such as [getValue]{@link @ohos.data.relationalStore:relationalStore.ResultSet.getValue} and
+     * [getString]{@link @ohos.data.relationalStore:relationalStore.ResultSet.getString} after **ResultSet** is obtained
+     * through the [query]{@link @ohos.data.relationalStore:relationalStore.RdbStore.query(predicates: RdbPredicates)}
+     * or [querySql]{@link @ohos.data.relationalStore:relationalStore.RdbStore.querySqlWithoutRowCount} API of
+     * **RdbStore**. As a result, the operation may fail or an exception may be thrown.
+     * 
+     * A single string field supports a maximum of 8 MB data. If the data exceeds 8 MB, only the first 8 MB data is 
+     * retained. For data storage requirements exceeding 8 MB, the Blob type is recommended.
      *
-     * @param { string } table - Indicates the target table.
-     * @param { ValuesBucket } values - Indicates the row of data {@link ValuesBucket} to be inserted into the table.
-     * @param { ConflictResolution } [conflict] -
-     *     Indicates the {@link ConflictResolution} to insert data into the table.
-     * @returns { number } The row ID if the operation is successful. return -1 otherwise.
+     * @param { string } table - Name of the target table.
+     * @param { ValuesBucket | sendableRelationalStore.ValuesBucket } values - Row of data to insert.
+     * @param { ConflictResolution } [conflict] - Resolution used to resolve the conflict. <br>Default value:
+     *     **relationalStore.ConflictResolution.ON_CONFLICT_NONE**.
+     * @returns { number } If the operation is successful, the row ID will be returned. Otherwise, **-1** will be
+     *     returned.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
@@ -10251,7 +8359,8 @@ declare namespace relationalStore {
      * @crossplatform
      * @since 14 dynamiconly
      */
-    insertSync(table: string, values: ValuesBucket | sendableRelationalStore.ValuesBucket, conflict?: ConflictResolution): number;
+    insertSync(table: string, values: ValuesBucket | sendableRelationalStore.ValuesBucket,
+      conflict?: ConflictResolution): number;
 
     /**
      * Inserts a row of data into the target table with sync interface, just use in TaskPool or Worker.
@@ -10285,17 +8394,20 @@ declare namespace relationalStore {
     insertSync(table: string, values: ValuesBucket, conflict?: ConflictResolution): long;
 
     /**
-     * Inserts a batch of data into the target table.
+     * Inserts data into a table in batches. This API uses a promise to return the result.
      * 
-     * Write 32766 parameters per batch using the {@link ConflictResolution.ON_CONFLICT_REPLACE} policy.
-     * The product of the number of inserted data records and the size of the union of all fields in the inserted data
-     * equals the number of parameters. This API returns immediately upon a failure during the process.
+     * Data is written in batches of up to 32,766 parameters each with the 
+     * [ConflictResolution.ON_CONFLICT_REPLACE]{@link @ohos.data.relationalStore:relationalStore.ConflictResolution} 
+     * policy. The total number of parameters is calculated as the number of inserted data records multiplied by the 
+     * size of the union set of all fields in the inserted data. If the operation fails, an error is returned.
+     * 
+     * A single string field supports a maximum of 8 MB data. If the data exceeds 8 MB, only the first 8 MB data is 
+     * retained. For data storage requirements exceeding 8 MB, the Blob type is recommended.
      *
-     * @param { string } table - Indicates the target table.
-     * @param { Array<ValuesBucket> } values -
-     *     Indicates the rows of data {@link ValuesBucket} to be inserted into the table.
-     * @returns { Promise<long> } The number of values that were inserted if the operation is successful.
-     *     Returns -1 otherwise.
+     * @param { string } table - Name of the target table.
+     * @param { Array<ValuesBucket> } values - An array of data to insert.
+     * @returns { Promise<long> } Promise used to return the result. If the operation is successful, the number of
+     *     inserted data records is returned. Otherwise, **-1** is returned.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
@@ -10321,16 +8433,20 @@ declare namespace relationalStore {
     batchInsert(table: string, values: Array<ValuesBucket>): Promise<long>;
 
     /**
-     * Inserts a batch of data into the target table.
+     * Inserts data into a table in batches. This API returns the result synchronously.
      * 
-     * Write 32766 parameters per batch using the {@link ConflictResolution.ON_CONFLICT_REPLACE} policy.
-     * The product of the number of inserted data records and the size of the union of all fields in the inserted data
-     * equals the number of parameters. This API returns immediately upon a failure during the process.
+     * Data is written in batches of up to 32,766 parameters each with the 
+     * [ConflictResolution.ON_CONFLICT_REPLACE]{@link @ohos.data.relationalStore:relationalStore.ConflictResolution} 
+     * policy. The total number of parameters is calculated as the number of inserted data records multiplied by the 
+     * size of the union set of all fields in the inserted data. If the operation fails, an error is returned.
+     * 
+     * A single string field supports a maximum of 8 MB data. If the data exceeds 8 MB, only the first 8 MB data is 
+     * retained. For data storage requirements exceeding 8 MB, the Blob type is recommended.
      *
-     * @param { string } table - Indicates the target table.
-     * @param { Array<ValuesBucket> } values -
-     *     Indicates the rows of data {@link ValuesBucket} to be inserted into the table.
-     * @returns { long } The number of values that were inserted if the operation is successful. returns -1 otherwise.
+     * @param { string } table - Name of the target table.
+     * @param { Array<ValuesBucket> } values - An array of data to insert.
+     * @returns { long } If the operation is successful, the number of inserted data records is returned. Otherwise,
+     *     **-1** is returned.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
@@ -10356,19 +8472,28 @@ declare namespace relationalStore {
     batchInsertSync(table: string, values: Array<ValuesBucket>): long;
 
     /**
-     * Inserts a batch of data into the target table.
+     * Inserts data into a table with conflict resolutions in batches. You can use the **conflict** parameter to specify
+     * [ConflictResolution]{@link @ohos.data.relationalStore:relationalStore.ConflictResolution}.
      * 
-     * A maximum of 32766 parameters can be inserted at a time. If the number of parameters exceeds the upper limit,
-     * the error code 14800000 is returned. The product of the number of inserted data records and the size of the union
-     * of all fields in the inserted data equals the number of parameters. For example, if the size of the union is 10,
-     * a maximum of 3276 data records can be inserted (3276 * 10 = 32760). Ensure that your application complies with
-     * this constraint when calling this API to avoid errors caused by excessive parameters.
+     * A maximum of 32,766 parameters can be inserted at a time. If the number of parameters exceeds this limit, the 
+     * error code 14800000 is returned. The number of inserted data records multiplied by the size of the union across 
+     * all fields in the inserted data equals the number of parameters.
+     * 
+     * For example, if the size of the union set is 10, a maximum of 3,276 data records can be inserted (3276 × 10 = 327
+     * 60).
+     * 
+     * Ensure that your application complies with this constraint when calling this API to avoid errors caused by 
+     * excessive parameters.
+     * 
+     * A single string field supports a maximum of 8 MB data. If the data exceeds 8 MB, only the first 8 MB data is 
+     * retained. For data storage requirements exceeding 8 MB, the Blob type is recommended.
      *
-     * @param { string } table - Indicates the target table.
-     * @param { Array<ValuesBucket> } values -
-     *     Indicates the rows of data {@link ValuesBucket} to be inserted into the table.
-     * @param { ConflictResolution } conflict - Indicates the {@link ConflictResolution} to insert data into the table.
-     * @returns { long } The number of values that were inserted if the operation is successful. returns -1 otherwise.
+     * @param { string } table - Name of the target table.
+     * @param { Array<ValuesBucket> } values - An array of data to insert.
+     * @param { ConflictResolution } conflict - Resolution used to resolve the conflict. If **ON_CONFLICT_ROLLBACK** is
+     *     used, the transaction will be rolled back when a conflict occurs.
+     * @returns { long } If the operation is successful, the number of inserted data records is returned. Otherwise,
+     *     **-1** is returned.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
@@ -10394,23 +8519,30 @@ declare namespace relationalStore {
      * @since 18 dynamic
      * @since 23 static
      */
-    batchInsertWithConflictResolutionSync(table: string, values: Array<ValuesBucket>, conflict: ConflictResolution): long;
+    batchInsertWithConflictResolutionSync(table: string, values: Array<ValuesBucket>,
+      conflict: ConflictResolution): long;
 
     /**
-     * Inserts a batch of data into the target table.
+     * Inserts data into a table with conflict resolutions in batches. You can use the **conflict** parameter to specify
+     * [ConflictResolution]{@link @ohos.data.relationalStore:relationalStore.ConflictResolution}. This API uses a 
+     * promise to return the result.
      * 
-     * A maximum of 32766 parameters can be inserted at a time. If the number of parameters exceeds the upper limit,
-     * the error code 14800000 is returned. The product of the number of inserted data records and the size of the union
-     * of all fields in the inserted data equals the number of parameters. For example, if the size of the union is 10,
-     * a maximum of 3276 data records can be inserted (3276 * 10 = 32760). Ensure that your application complies with
-     * this constraint when calling this API to avoid errors caused by excessive parameters.
+     * A maximum of 32,766 parameters can be inserted at a time. If the number of parameters exceeds this limit, the 
+     * error code 14800000 is returned. The number of inserted data records multiplied by the size of the union across 
+     * all fields in the inserted data equals the number of parameters.
+     * 
+     * For example, if the size of the union set is 10, a maximum of 3,276 data records can be inserted (3276 × 10 = 327
+     * 60).
+     * 
+     * Ensure that your application complies with this constraint when calling this API to avoid errors caused by 
+     * excessive parameters.
      *
-     * @param { string } table - Indicates the target table.
-     * @param { Array<ValuesBucket> } values -
-     *     Indicates the rows of data {@link ValuesBucket} to be inserted into the table.
-     * @param { ConflictResolution } conflict - Indicates the {@link ConflictResolution} to insert data into the table.
-     * @returns { Promise<long> } The number of values that were inserted if the operation is successful.
-     *     Returns -1 otherwise.
+     * @param { string } table - Name of the target table.
+     * @param { Array<ValuesBucket> } values - An array of data to insert.
+     * @param { ConflictResolution } conflict - Resolution used to resolve the conflict. If **ON_CONFLICT_ROLLBACK** is
+     *     used, the transaction will be rolled back when a conflict occurs.
+     * @returns { Promise<long> } Promise used to return the result. If the operation is successful, the number of
+     *     inserted data records is returned. Otherwise, **-1** is returned.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
@@ -10443,23 +8575,37 @@ declare namespace relationalStore {
     ): Promise<long>;
 
     /**
-     * Inserts a batch of data into the target table and return a resultSet of changed fields.
+     * Inserts data into a table in batches. You can use the **conflict** parameter to specify 
+     * [ConflictResolution]{@link @ohos.data.relationalStore:relationalStore.ConflictResolution}, and 
+     * [Result]{@link @ohos.data.relationalStore:relationalStore.Result} is returned. This API uses a promise to return 
+     * the result.
+     * 
+     * A maximum of 32,766 parameters can be inserted at a time. If the number of parameters exceeds this limit, the 
+     * error code 14800001 is returned. The number of inserted data records multiplied by the size of the union across 
+     * all fields in the inserted data equals the number of parameters.
+     * 
+     * For example, if the size of the union set is 10, a maximum of 3,276 data records can be inserted (3276 × 10 = 327
+     * 60).
+     * 
+     * Ensure that your application complies with this constraint when calling this API to avoid errors caused by 
+     * excessive parameters.
+     * 
+     * It is not recommended to use the **ON_CONFLICT_FAIL** policy for the **conflict** parameter, as this may prevent 
+     * the return of correct results.
+     * 
+     * A single string field supports a maximum of 8 MB data. If the data exceeds 8 MB, only the first 8 MB data is 
+     * retained. For data storage requirements exceeding 8 MB, the Blob type is recommended.
      *
-     * A maximum of 32766 parameters can be inserted at a time. If the number of parameters exceeds the upper limit,
-     * the error code 14800001 is returned. The product of the number of inserted data records and the size of the union
-     * of all fields in the inserted data equals the number of parameters. For example, if the size of the union is 10,
-     * a maximum of 3276 data records can be inserted (3276 * 10 = 32760). Ensure that your application complies with
-     * this constraint when calling this API to avoid errors caused by excessive parameters.
-     *
-     * @param { string } table - Indicates the target table.
-     * @param { Array<ValuesBucket> } values -
-     *     Indicates the rows of data {@link ValuesBucket} to be inserted into the table.
-     * @param { ReturningConfig } config - Indicate the information that needs to be returned.
-     * @param { ConflictResolution } [conflict] -
-     *     Indicates the {@link ConflictResolution} to insert data into the table.
-     *     The default conflict resolution policy is {@link ConflictResolution.ON_CONFLICT_NONE}.
-     * @returns { Promise<Result> } The {@link Result} result of the inserted field includes the number of modified
-     *     rows and the result set of changed data.
+     * @param { string } table - Name of the target table for data insertion. Note: A valid table name must not contain
+     *     spaces ( ), commas (,), or asterisks (*), and must not start or end with a dot (.). Otherwise, a parameter
+     *     error will be thrown.
+     * @param { Array<ValuesBucket> } values - An array of data to insert. Note: An empty array or data containing
+     *     duplicate asset records will trigger a parameter error.
+     * @param { ReturningConfig } config - Configuration information of the return value.
+     * @param { ConflictResolution } [conflict] - Resolution used to resolve the conflict. Default value:
+     *     **ON_CONFLICT_NONE**.
+     * @returns { Promise<Result> } Promise used to return the result. If the operation is successful, the affected
+     *     dataset is returned.
      * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. Parameter is out of valid range.
      * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
      * @throws { BusinessError } 14800014 - The target instance is already closed.
@@ -10481,23 +8627,35 @@ declare namespace relationalStore {
       conflict?: ConflictResolution): Promise<Result>;
 
     /**
-     * Inserts a batch of data into the target table and return a resultSet of changed fields.
+     * Inserts data into a table in batches. You can use the **conflict** parameter to specify 
+     * [ConflictResolution]{@link @ohos.data.relationalStore:relationalStore.ConflictResolution}, and 
+     * [Result]{@link @ohos.data.relationalStore:relationalStore.Result} is returned.
+     * 
+     * A maximum of 32,766 parameters can be inserted at a time. If the number of parameters exceeds this limit, the 
+     * error code 14800001 is returned. The number of inserted data records multiplied by the size of the union across 
+     * all fields in the inserted data equals the number of parameters.
+     * 
+     * For example, if the size of the union set is 10, a maximum of 3,276 data records can be inserted (3276 × 10 = 327
+     * 60).
+     * 
+     * Ensure that your application complies with this constraint when calling this API to avoid errors caused by 
+     * excessive parameters.
+     * 
+     * It is not recommended to use the **ON_CONFLICT_FAIL** policy for the **conflict** parameter, as this may prevent 
+     * the return of correct results.
+     * 
+     * A single string field supports a maximum of 8 MB data. If the data exceeds 8 MB, only the first 8 MB data is 
+     * retained. For data storage requirements exceeding 8 MB, the Blob type is recommended.
      *
-     * A maximum of 32766 parameters can be inserted at a time. If the number of parameters exceeds the upper limit,
-     * the error code 14800001 is returned. The product of the number of inserted data records and the size of the union
-     * of all fields in the inserted data equals the number of parameters. For example, if the size of the union is 10,
-     * a maximum of 3276 data records can be inserted (3276 * 10 = 32760). Ensure that your application complies with
-     * this constraint when calling this API to avoid errors caused by excessive parameters.
-     *
-     * @param { string } table - Indicates the target table.
-     * @param { Array<ValuesBucket> } values -
-     *     Indicates the rows of data {@link ValuesBucket} to be inserted into the table.
-     * @param { ReturningConfig } config - Indicate the information that needs to be returned.
-     * @param { ConflictResolution } [conflict] -
-     *     Indicates the {@link ConflictResolution} to insert data into the table.
-     *     The default conflict resolution policy is {@link ConflictResolution.ON_CONFLICT_NONE}.
-     * @returns { Result } The {@link Result} result of the inserted field includes the number of modified
-     *     rows and the result set of changed data.
+     * @param { string } table - Name of the target table for data insertion. Note: A valid table name must not contain
+     *     spaces ( ), commas (,), or asterisks (*), and must not start or end with a dot (.). Otherwise, a parameter
+     *     error will be thrown.
+     * @param { Array<ValuesBucket> } values - An array of data to insert. Note: An empty array or data containing
+     *     duplicate asset records will trigger a parameter error.
+     * @param { ReturningConfig } config - Configuration information of the return value.
+     * @param { ConflictResolution } [conflict] - Resolution used to resolve the conflict. Default value:
+     *     **ON_CONFLICT_NONE**.
+     * @returns { Result } If the operation is successful, the affected dataset is returned.
      * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. Parameter is out of valid range.
      * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
      * @throws { BusinessError } 14800014 - The target instance is already closed.
@@ -10519,14 +8677,21 @@ declare namespace relationalStore {
       conflict?: ConflictResolution): Result;
 
     /**
-     * Updates data in the database based on a specified instance object of RdbPredicates.
+     * Updates data based on the specified **RdbPredicates** object. This API uses a promise to return the result. Due
+     * to the limit of the shared memory, the size of a single data record cannot exceed 2 MB. Otherwise, data cannot be
+     * obtained using the **get** methods such as
+     * [getValue]{@link @ohos.data.relationalStore:relationalStore.ResultSet.getValue} and
+     * [getString]{@link @ohos.data.relationalStore:relationalStore.ResultSet.getString} after **ResultSet** is obtained
+     * through the [query]{@link @ohos.data.relationalStore:relationalStore.RdbStore.query(predicates: RdbPredicates)}
+     * or [querySql]{@link @ohos.data.relationalStore:relationalStore.RdbStore.querySqlWithoutRowCount} API of
+     * **RdbStore**. As a result, the operation may fail or an exception may be thrown.
      *
-     * @param { ValuesBucket } values - Indicates the row of data to be updated in the database.
-     *     The key-value pairs are associated with column names of the database table.
-     * @param { RdbPredicates } predicates -
-     *     Indicates the specified update condition by the instance object of  {@link RdbPredicates}.
-     * @param { ConflictResolution } conflict - Indicates the {@link ConflictResolution} to insert data into the table.
-     * @returns { Promise<long> } The number of affected rows.
+     * @param { ValuesBucket } values - Rows of data to update in the RDB store. The key-value pair is associated with
+     *     the column name in the target table.
+     * @param { RdbPredicates } predicates - Update conditions specified by the **RdbPredicates** object.
+     * @param { ConflictResolution } conflict - Resolution used to resolve the conflict. <br>Default value:
+     *     **relationalStore.ConflictResolution.ON_CONFLICT_NONE**.
+     * @returns { Promise<long> } Promise used to return the number of rows updated.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
@@ -10552,14 +8717,21 @@ declare namespace relationalStore {
     update(values: ValuesBucket, predicates: RdbPredicates, conflict?: ConflictResolution): Promise<long>;
 
     /**
-     * Updates data in the database based on a specified instance object of RdbPredicates with sync interface.
+     * Updates data in the RDB store based on the specified **RdbPredicates** object. This API returns the result
+     * synchronously. Due to the limit of the shared memory, the size of a single data record cannot exceed 2 MB.
+     * Otherwise, data cannot be obtained using the **get** methods such as
+     * [getValue]{@link @ohos.data.relationalStore:relationalStore.ResultSet.getValue} and
+     * [getString]{@link @ohos.data.relationalStore:relationalStore.ResultSet.getString} after **ResultSet** is obtained
+     * through the [query]{@link @ohos.data.relationalStore:relationalStore.RdbStore.query(predicates: RdbPredicates)}
+     * or [querySql]{@link @ohos.data.relationalStore:relationalStore.RdbStore.querySqlWithoutRowCount} API of
+     * **RdbStore**. As a result, the operation may fail or an exception may be thrown.
      *
-     * @param { ValuesBucket } values - Indicates the row of data to be updated in the database.
-     *     The key-value pairs are associated with column names of the database table.
-     * @param { RdbPredicates } predicates -
-     *     Indicates the specified update condition by the instance object of  {@link RdbPredicates}.
-     * @param { ConflictResolution } conflict - Indicates the {@link ConflictResolution} to insert data into the table.
-     * @returns { long } The number of affected rows.
+     * @param { ValuesBucket } values - Rows of data to update in the RDB store. The key-value pair is associated with
+     *     the column name in the target table.
+     * @param { RdbPredicates } predicates - Update conditions specified by the **RdbPredicates** object.
+     * @param { ConflictResolution } conflict - Resolution used to resolve the conflict. <br>Default value:
+     *     **relationalStore.ConflictResolution.ON_CONFLICT_NONE**.
+     * @returns { long } Number of rows updated.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
@@ -10585,18 +8757,23 @@ declare namespace relationalStore {
     updateSync(values: ValuesBucket, predicates: RdbPredicates, conflict?: ConflictResolution): long;
 
     /**
-     * Updates data in the database based on a specified instance object of RdbPredicates and return a
-     * resultSet of changed fields.
+     * Updates data in the RDB store based on the specified **RdbPredicates** instance object. You can use the 
+     * **conflict** parameter to specify 
+     * [ConflictResolution]{@link @ohos.data.relationalStore:relationalStore.ConflictResolution}, and 
+     * [Result]{@link @ohos.data.relationalStore:relationalStore.Result} is returned. This API uses a promise to return 
+     * the result.
+     * 
+     * It is not recommended to use the **ON_CONFLICT_FAIL** policy for the **conflict** parameter, as this may prevent 
+     * the return of correct results.
      *
-     * @param { ValuesBucket } values - Indicates the row of data to be updated in the database.
-     *     The key-value pairs are associated with column names of the database table.
-     * @param { RdbPredicates } predicates -
-     *     Indicates the specified update condition by the instance object of  {@link RdbPredicates}.
-     * @param { ReturningConfig } config - Indicate the information that needs to be returned.
-     * @param { ConflictResolution } [conflict] -
-     *     Indicates the {@link ConflictResolution} to update data into the table.
-     * @returns { Promise<Result> } The {@link Result} result of the updated field includes the number of modified
-     *     rows and the result set of changed data.
+     * @param { ValuesBucket } values - Rows of data to update in the RDB store. The key-value pair is associated with
+     *     the column name in the target table.
+     * @param { RdbPredicates } predicates - Update conditions specified by the **RdbPredicates** object.
+     * @param { ReturningConfig } config - Configuration information of the return value.
+     * @param { ConflictResolution } [conflict] - Resolution used to resolve the conflict. Default value:
+     *     **ON_CONFLICT_NONE**.
+     * @returns { Promise<Result> } Promise used to return the result. If the operation is successful, the affected
+     *     dataset is returned.
      * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. Parameter is out of    valid range.
      * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
      * @throws { BusinessError } 14800014 - The target instance is already closed.
@@ -10618,18 +8795,21 @@ declare namespace relationalStore {
       conflict?: ConflictResolution): Promise<Result>;
 
     /**
-     * Updates data in the database based on a specified instance object of RdbPredicates and return a
-     * resultSet of changed fields.
+     * Updates data in the RDB store based on the specified **RdbPredicates** instance object. You can use the 
+     * **conflict** parameter to specify 
+     * [ConflictResolution]{@link @ohos.data.relationalStore:relationalStore.ConflictResolution}, and 
+     * [Result]{@link @ohos.data.relationalStore:relationalStore.Result} is returned.
+     * 
+     * It is not recommended to use the **ON_CONFLICT_FAIL** policy for the **conflict** parameter, as this may prevent 
+     * the return of correct results.
      *
-     * @param { ValuesBucket } values - Indicates the row of data to be updated in the database.
-     *     The key-value pairs are associated with column names of the database table.
-     * @param { RdbPredicates } predicates -
-     *     Indicates the specified update condition by the instance object of  {@link RdbPredicates}.
-     * @param { ReturningConfig } config - Indicate the information that needs to be returned.
-     * @param { ConflictResolution } [conflict] -
-     *     Indicates the {@link ConflictResolution} to update data into the table.
-     * @returns { Result } The {@link Result} result of the updated field includes the number of modified
-     *     rows and the result set of changed data.
+     * @param { ValuesBucket } values - Rows of data to update in the RDB store. The key-value pair is associated with
+     *     the column name in the target table.
+     * @param { RdbPredicates } predicates - Update conditions specified by the **RdbPredicates** object.
+     * @param { ReturningConfig } config - Configuration information of the return value.
+     * @param { ConflictResolution } [conflict] - Resolution used to resolve the conflict. Default value:
+     *     **ON_CONFLICT_NONE**.
+     * @returns { Result } If the operation is successful, the affected dataset is returned.
      * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. Parameter is out of    valid range.
      * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
      * @throws { BusinessError } 14800014 - The target instance is already closed.
@@ -10651,11 +8831,11 @@ declare namespace relationalStore {
       conflict?: ConflictResolution): Result;
 
     /**
-     * Deletes data from the database based on a specified instance object of RdbPredicates.
+     * Deletes data from the RDB store based on the specified **RdbPredicates** object. This API uses a promise to 
+     * return the result.
      *
-     * @param { RdbPredicates } predicates -
-     *     The specified delete condition by the instance object of {@link RdbPredicates}.
-     * @returns { Promise<long> } return the number of affected rows.
+     * @param { RdbPredicates } predicates - Deletion conditions specified by the **RdbPredicates** object.
+     * @returns { Promise<long> } Promise used to return the number of rows deleted.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
@@ -10680,11 +8860,11 @@ declare namespace relationalStore {
     delete(predicates: RdbPredicates): Promise<long>;
 
     /**
-     * Deletes data from the database based on a specified instance object of RdbPredicates with sync interface.
+     * Deletes data from the RDB store based on the specified **RdbPredicates** object. This API returns the result 
+     * synchronously.
      *
-     * @param { RdbPredicates } predicates -
-     *     The specified delete condition by the instance object of {@link RdbPredicates}.
-     * @returns { long } return the number of rows deleted.
+     * @param { RdbPredicates } predicates - Deletion conditions specified by the **RdbPredicates** object.
+     * @returns { long } Number of rows deleted.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
@@ -10709,14 +8889,13 @@ declare namespace relationalStore {
     deleteSync(predicates: RdbPredicates): long;
 
     /**
-     * Deletes data from the database based on a specified instance object of RdbPredicates and return a
-     * resultSet of changed fields.
+     * Deletes data from the RDB store based on the specified **RdbPredicates** object and returns 
+     * [Result]{@link @ohos.data.relationalStore:relationalStore.Result}. This API uses a promise to return the result.
      *
-     * @param { RdbPredicates } predicates -
-     *     The specified delete condition by the instance object of {@link RdbPredicates}.
-     * @param { ReturningConfig } config - Indicate the information that needs to be returned.
-     * @returns { Promise<Result> } The {@link Result} result of the deleted field includes the number of modified
-     *     rows and the result set of changed data.
+     * @param { RdbPredicates } predicates - Deletion conditions specified by the **RdbPredicates** object.
+     * @param { ReturningConfig } config - Configuration information of the return value.
+     * @returns { Promise<Result> } Promise used to return the result. If the operation is successful, the affected
+     *     dataset is returned.
      * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. Parameter is out of    valid range.
      * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
      * @throws { BusinessError } 14800014 - The target instance is already closed.
@@ -10737,14 +8916,12 @@ declare namespace relationalStore {
     deleteWithReturning(predicates: RdbPredicates, config: ReturningConfig): Promise<Result>;
 
     /**
-     * Deletes data from the database based on a specified instance object of RdbPredicates and return a
-     * resultSet of changed fields.
+     * Deletes data from the RDB store based on the specified **RdbPredicates** object and returns 
+     * [Result]{@link @ohos.data.relationalStore:relationalStore.Result}.
      *
-     * @param { RdbPredicates } predicates -
-     *     The specified delete condition by the instance object of {@link RdbPredicates}.
-     * @param { ReturningConfig } config - Indicate the information that needs to be returned.
-     * @returns { Result } The {@link Result} result of the deleted field includes the number of modified
-     *     rows and the result set of changed data.
+     * @param { RdbPredicates } predicates - Deletion conditions specified by the **RdbPredicates** object.
+     * @param { ReturningConfig } config - Configuration information of the return value.
+     * @returns { Result } If the operation is successful, the affected dataset is returned.
      * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. Parameter is out of valid range.
      * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
      * @throws { BusinessError } 14800014 - The target instance is already closed.
@@ -10765,12 +8942,12 @@ declare namespace relationalStore {
     deleteWithReturningSync(predicates: RdbPredicates, config: ReturningConfig): Result;
 
     /**
-     * Queries data in the database based on specified conditions.
+     * Queries data from the RDB store based on specified conditions. This API uses a promise to return the result.
      *
-     * @param { RdbPredicates } predicates -
-     *     The specified query condition by the instance object of {@link RdbPredicates}.
-     * @param { Array<string> } columns - The columns to query. If the value is null, the query applies to all columns.
-     * @returns { Promise<ResultSet> } The {@link ResultSet} object if the operation is successful.
+     * @param { RdbPredicates } predicates - Query conditions specified by the **RdbPredicates** object.
+     * @param { Array<string> } columns - Columns to query. If null is passed in, all columns are queried.
+     * @returns { Promise<ResultSet> } Promise used to return the result. If the operation is successful, a
+     *     **ResultSet** object will be returned.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
@@ -10790,13 +8967,15 @@ declare namespace relationalStore {
     query(predicates: RdbPredicates, columns?: Array<string>): Promise<ResultSet>;
 
     /**
-     * Queries data in the database based on specified conditions with sync function.
+     * Queries data in a database based on specified conditions. This API returns the result synchronously. If complex 
+     * logic and a large number of loops are involved in the operations on the **resultSet** obtained by **querySync**, 
+     * the freeze problem may occur. You are advised to perform this operation in the 
+     * [taskpool]{@link @ohos.taskpool:taskpool} thread.
      *
-     * @param { RdbPredicates } predicates -
-     *     The specified query condition by the instance object of {@link RdbPredicates}.
-     * @param { Array<string> } columns -
-     *     The columns to query. If the value is empty array, the query applies to all columns.
-     * @returns { ResultSet } The {@link ResultSet} object if the operation is successful.
+     * @param { RdbPredicates } predicates - Query conditions specified by the **RdbPredicates** object.
+     * @param { Array<string> } columns - Columns to query. If null is passed in, all columns are queried. The default
+     *     value is null.
+     * @returns { ResultSet } If the operation is successful, a **ResultSet** object will be returned.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
@@ -10817,12 +8996,14 @@ declare namespace relationalStore {
     querySync(predicates: RdbPredicates, columns?: Array<string>): ResultSet;
 
     /**
-     * Queries data in the database based on SQL statement.
+     * Queries data in the RDB store using the specified SQL statement. The number of relational operators between 
+     * expressions and operators in the SQL statement cannot exceed 1,000. This API uses a promise to return the result.
      *
-     * @param { string } sql - Indicates the SQL statement to execute.
-     * @param { Array<ValueType> } args - Indicates the {@link ValueType} values of the parameters in the SQL statement.
-     *     The values are strings.
-     * @returns { Promise<ResultSet> } The {@link ResultSet} object if the operation is successful.
+     * @param { string } sql - SQL statement to run.
+     * @param { Array<ValueType> } args - Arguments in the SQL statement. The value corresponds to the placeholders in
+     *     the SQL parameter statement. If the SQL parameter statement is complete, leave this parameter blank.
+     * @returns { Promise<ResultSet> } Promise used to return the result. If the operation is successful, a
+     *     **ResultSet** object will be returned.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
@@ -10843,12 +9024,16 @@ declare namespace relationalStore {
     querySql(sql: string, args?: Array<ValueType>): Promise<ResultSet>;
 
     /**
-     * Queries data in the database based on SQL statement with sync interface.
+     * Queries data in the RDB store using the specified SQL statement. The number of relational operators between 
+     * expressions and operators in the SQL statement cannot exceed 1,000. If complex logic and a large number of loops 
+     * are involved in the operations on the **resultSet** obtained by **querySync**, the freeze problem may occur. You 
+     * are advised to perform this operation in the [taskpool]{@link @ohos.taskpool:taskpool} thread.
      *
-     * @param { string } sql - Indicates the SQL statement to execute.
-     * @param { Array<ValueType> } [args] - Indicates the {@link ValueType} values of the parameters in the SQL statement.
-     *     The values are strings.
-     * @returns { ResultSet } The {@link ResultSet} object if the operation is successful.
+     * @param { string } sql - SQL statement to run.
+     * @param { Array<ValueType> } [args] - Arguments in the SQL statement. The value corresponds to the placeholders in
+     *     the SQL parameter statement. If the SQL parameter statement is complete, leave this parameter blank. The
+     *     default value is null.
+     * @returns { ResultSet } If the operation is successful, a **ResultSet** object will be returned.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
@@ -10869,13 +9054,14 @@ declare namespace relationalStore {
     querySqlSync(sql: string, args?: Array<ValueType>): ResultSet;
 
     /**
-     * Queries data without rowCount in the database based on specified conditions.
+     * Queries data from the RDB store based on specified conditions without calculating the row count. This API 
+     * delivers better performance than the [query]{@link relationalStore.Transaction.query} API. This API uses a 
+     * promise to return the result.
      *
-     * @param { RdbPredicates } predicates -
-     *     The specified query condition by the instance object of {@link RdbPredicates}.
-     * @param { Array<string> } [columns] - The columns to query.
-     *     If the value is null, the query applies to all columns.
-     * @returns { Promise<LiteResultSet> } The {@link LiteResultSet} object if the operation is successful.
+     * @param { RdbPredicates } predicates - Query conditions specified by the **RdbPredicates** object.
+     * @param { Array<string> } [columns] - Columns to query. If null is passed in, all columns are queried. The default
+     *     value is null.
+     * @returns { Promise<LiteResultSet> } If the operation is successful, a **LiteResultSet** object will be returned.
      * @throws { BusinessError } 14800014 - The target instance is already closed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @stagemodelonly
@@ -10885,13 +9071,15 @@ declare namespace relationalStore {
     queryWithoutRowCount(predicates: RdbPredicates, columns?: Array<string>): Promise<LiteResultSet>;
 
     /**
-     * Queries data without rowCount in the database based on specified conditions with sync function.
+     * Queries data from the RDB store based on specified conditions without calculating the row count. If complex logic
+     * and a large number of loops are involved in the operations on the **LiteResultSet** obtained by 
+     * **queryWithoutRowCountSync**, the freeze problem may occur. You are advised to perform this operation in the 
+     * [taskpool]{@link @ohos.taskpool:taskpool} thread.
      *
-     * @param { RdbPredicates } predicates -
-     *     The specified query condition by the instance object of {@link RdbPredicates}.
-     * @param { Array<string> } [columns] - The columns to query.
-     *     If the value is null, the query applies to all columns.
-     * @returns { LiteResultSet } The {@link LiteResultSet} object if the operation is successful.
+     * @param { RdbPredicates } predicates - Query conditions specified by the **RdbPredicates** object.
+     * @param { Array<string> } [columns] - Columns to query. If null is passed in, all columns are queried. The default
+     *     value is null.
+     * @returns { LiteResultSet } If the operation is successful, a **LiteResultSet** object will be returned.
      * @throws { BusinessError } 14800014 - The target instance is already closed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @stagemodelonly
@@ -10901,12 +9089,17 @@ declare namespace relationalStore {
     queryWithoutRowCountSync(predicates: RdbPredicates, columns?: Array<string>): LiteResultSet;
     
     /**
-     * Queries data without rowCount in the database based on SQL statement.
+     * Queries data from the RDB store based on specified conditions without calculating the row count. This API uses a 
+     * promise to return the result and delivers better performance than the 
+     * [querySql]{@link relationalStore.Transaction.querySql} API. The number of relational operators between 
+     * expressions and operators in the SQL statement cannot exceed 1,000.
      *
-     * @param { string } sql - Indicates the SQL statement to execute.
-     * @param { Array<ValueType> } [bindArgs] - Indicates the {@link ValueType} values of the parameters
-     *     in the SQL statement. The values are strings.
-     * @returns { Promise<LiteResultSet> } The {@link LiteResultSet} object if the operation is successful.
+     * @param { string } sql - SQL statement to run.
+     * @param { Array<ValueType> } [bindArgs] - Arguments in the SQL statement. The value corresponds to the
+     *     placeholders in the SQL parameter statement. If the SQL parameter statement is complete, leave this parameter
+     *     blank.
+     * @returns { Promise<LiteResultSet> } Promise used to return the result. If the operation is successful, a
+     *     **LiteResultSet** object will be returned.
      * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. Parameter is out of valid range.
      * @throws { BusinessError } 14800014 - The target instance is already closed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
@@ -10917,12 +9110,17 @@ declare namespace relationalStore {
     querySqlWithoutRowCount(sql: string, bindArgs?: Array<ValueType>): Promise<LiteResultSet>;
         
     /**
-     * Queries data without rowCount in the database based on SQL statement.
+     * Queries data from the RDB store based on specified SQL statements without calculating the row count. The number 
+     * of relational operators between expressions and operators in the SQL statement cannot exceed 1,000. If complex 
+     * logic and a large number of loops are involved in the operations on the **LiteResultSet** obtained by 
+     * **querySqlWithoutRowCountSync**, the freeze problem may occur. You are advised to perform this operation in the 
+     * [taskpool]{@link @ohos.taskpool:taskpool} thread.
      *
-     * @param { string } sql - Indicates the SQL statement to execute.
-     * @param { Array<ValueType> } [bindArgs] - Indicates the {@link ValueType} values of the parameters
-     *     in the SQL statement. The values are strings.
-     * @returns { LiteResultSet } The {@link LiteResultSet} object if the operation is successful.
+     * @param { string } sql - SQL statement to run.
+     * @param { Array<ValueType> } [bindArgs] - Arguments in the SQL statement. The value corresponds to the
+     *     placeholders in the SQL parameter statement. If the SQL parameter statement is complete, leave this parameter
+     *     blank. The default value is null.
+     * @returns { LiteResultSet } If the operation is successful, a **LiteResultSet** object will be returned.
      * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. Parameter is out of valid range.
      * @throws { BusinessError } 14800014 - The target instance is already closed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
@@ -10932,13 +9130,29 @@ declare namespace relationalStore {
      */
     querySqlWithoutRowCountSync(sql: string, bindArgs?: Array<ValueType>): LiteResultSet;
 
-    /**
-     * Executes a SQL statement that contains specified parameters and returns a value of ValueType.
+/**
+     * Executes an SQL statement that contains parameters but does not return data. This API returns the result
+     * synchronously. The SQL statement can be used to create, delete, query, and modify a table. The type of the return
+     * value varies, depending on the execution result.
+     * 
+     * This API does not support query, database attachment, and transaction operations. You can use
+     * [querySql]{@link relationalStore.Transaction.querySql} or [query]{@link relationalStore.Transaction.query} to
+     * query data, and use [attach]
+     * {@link @ohos.data.relationalStore:relationalStore.RdbStore.attach(fullPath: string, attachName: string)} to
+     * attach a database.
+     * 
+     * Statements separated by semicolons (\;) are not supported.
+     * 
+     * Statements starting with comments are not supported.
      *
-     * @param { string } sql - Indicates the SQL statement to execute.
-     * @param { Array<ValueType> } args - 
-     *     Indicates the {@link ValueType} values of the parameters in the SQL statement.The values are strings.
-     * @returns { Promise<ValueType> } The promise returned by the function.
+     * @param { string } sql - SQL statement to run.
+     * @param { Array<ValueType> } args - Arguments in the SQL statement. The value corresponds to the placeholders in
+     *     the SQL parameter statement. If the SQL parameter statement is complete, leave this parameter
+     *     blank. [since 14 - 19]
+     * @param { Array<ValueType> } [args] - Arguments in the SQL statement. The value corresponds to the placeholders in
+     *     the SQL parameter statement. If the SQL parameter statement is complete, leave this parameter
+     *     blank. [since 20]
+     * @returns { Promise<ValueType> } Promise used to return the SQL execution result.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported the sql(attach,begin,commit,rollback etc.).
@@ -10958,47 +9172,35 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 14
-     */
-    /**
-     * Executes a SQL statement that contains specified parameters and returns a value of ValueType.
-     *
-     * @param { string } sql - Indicates the SQL statement to execute.
-     * @param { Array<ValueType> } [args] - 
-     *     Indicates the {@link ValueType} values of the parameters in the SQL statement.The values are strings.
-     * @returns { Promise<ValueType> } The promise returned by the function.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported the sql(attach,begin,commit,rollback etc.).
-     * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
-     * @throws { BusinessError } 14800014 - The target instance is already closed.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
-     *     Possible causes: Insert failed or the updated data does not exist.
-     * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
-     * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
-     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
-     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
-     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
-     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
-     * @throws { BusinessError } 14800029 - SQLite: The database is full.
-     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit.
-     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
-     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 20 dynamic
+     * @crossplatform [since 20]
+     * @since 14 dynamic
      * @since 23 static
      */
     execute(sql: string, args?: Array<ValueType>): Promise<ValueType>;
 
     /**
-     * Executes a SQL statement that contains specified parameters and returns a value of ValueType with sync interface.
+     * Executes an SQL statement that contains specified arguments. The number of relational operators between
+     * expressions and operators in the statement cannot exceed 1,000. This API returns a value of the **ValueType**
+     * type.
+     * 
+     * This API can be used to add, delete, and modify data, run SQL statements of the PRAGMA syntax, and create,
+     * delete, and modify a table. The type of the return value varies, depending on the execution result.
+     * 
+     * This API does not support query, database attachment, and transaction operations. You can use
+     * [querySql]{@link relationalStore.Transaction.querySql} or [query]{@link relationalStore.Transaction.query} to
+     * query data, and use [attach]
+     * {@link @ohos.data.relationalStore:relationalStore.RdbStore.attach(fullPath: string, attachName: string)} to
+     * attach a database.
+     * 
+     * Statements separated by semicolons (\;) are not supported.
+     * 
+     * Statements starting with comments are not supported.
      *
-     * @param { string } sql - Indicates the SQL statement to execute.
-     * @param { Array<ValueType> } [args] - Indicates the {@link ValueType} values of the parameters in the SQL statement.
-     *     The values are strings.
-     * @returns { ValueType } The promise returned by the function.
+     * @param { string } sql - SQL statement to run.
+     * @param { Array<ValueType> } [args] - Arguments in the SQL statement. The value corresponds to the placeholders in
+     *     the SQL parameter statement. If this parameter is left blank or set to **null** or **undefined**, the SQL
+     *     statement is complete. The default value is null.
+     * @returns { ValueType } SQL execution result.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported the sql(attach,begin,commit,rollback etc.).
@@ -11026,193 +9228,95 @@ declare namespace relationalStore {
   }
 
   /**
-   * Obtains a RDB store.
-   * You can set parameters of the RDB store as required. In general, this method is recommended
-   * to obtain a rdb store.
+   * Obtains an RdbStore instance. You can set the **config** parameter as required and use **RdbStore** APIs to perform
+   * data operations. This API uses an asynchronous callback to return the result.
+   * 
+   * If no database file exists in the corresponding sandbox directory, a database file is created. For details, see 
+   * [StoreConfig]{@link @ohos.data.relationalStore:relationalStore.StoreConfig}. If a database file exists in the 
+   * corresponding directory, the existing database file is opened.
+   * 
+   * When creating a database, you should consider whether to configure the 
+   * [encrypt]{@link @ohos.data.relationalStore:relationalStore.StoreConfig} parameter. Once the database is created, 
+   * you are not allowed to change this parameter.
+   * 
+   * | Encryption Type When the RDB Store Is Opened | Encryption Type When the RDB Store Is Created          | Result|
+   * | ------- | -------------------------------- | ---- |
+   * | Non-encryption| Encryption                         | The RDB store is opened in encrypted mode.  |
+   * | Encryption| Non-encryption                         | The RDB store is opened in non-encrypted mode.  |
+   * 
+   * Currently, **getRdbStore()** does not support multi-thread concurrent operations.
    *
-   * @param { Context } context - Indicates the context of an application or ability.
-   * @param { StoreConfig } config -
-   *     Indicates the {@link StoreConfig} configuration of the database related to this RDB store.
-   * @param { AsyncCallback<RdbStore> } callback - The RDB store {@link RdbStore}.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br>2. Incorrect parameter types; 3. Parameter verification failed. 
-   * @throws { BusinessError } 14800000 - Inner error.
-   * @throws { BusinessError } 14800010 - Failed to open or delete the database by an invalid database path.
-   * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
-   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @since 9
-   */
-  /**
-   * Obtains a RDB store.
-   * You can set parameters of the RDB store as required. In general, this method is recommended
-   * to obtain a rdb store.
-   *
-   * @param { Context } context - Indicates the context of an application or ability.
-   * @param { StoreConfig } config -
-   *     Indicates the {@link StoreConfig} configuration of the database related to this RDB store.
-   * @param { AsyncCallback<RdbStore> } callback - The RDB store {@link RdbStore}.
+   * @param { Context } context - Application context.<br>For details about the application context of the FA model, see
+   *     [Context]{@link ./app/context}.<br>For details about the application context of the stage model, see
+   *     [Context]{@link ./application/Context:Context}.
+   * @param { StoreConfig } config - Configuration of the RDB store.
+   * @param { AsyncCallback<RdbStore> } callback - Callback invoked to return the RDB store obtained.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14800000 - Inner error.
    * @throws { BusinessError } 14800010 - Failed to open or delete the database by an invalid database path.
    * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
-   * @throws { BusinessError } 14801001 - The operation is supported in the stage model only.
-   * @throws { BusinessError } 14801002 - Invalid data group ID.
+   * @throws { BusinessError } 14801001 - The operation is supported in the stage model only. [since 10]
+   * @throws { BusinessError } 14801002 - Invalid data group ID. [since 10]
+   * @throws { BusinessError } 14800017 - StoreConfig is changed. [since 12]
+   * @throws { BusinessError } 14800021 - SQLite: Generic error. [since 12]
+   * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort. [since 12]
+   * @throws { BusinessError } 14800023 - SQLite: Access permission denied. [since 12]
+   * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database. [since 12]
+   * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred. [since 12]
+   * @throws { BusinessError } 14800029 - SQLite: The database is full. [since 12]
+   * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file. [since 12]
+   * @throws { BusinessError } 14800020 - The secret key is corrupted or lost. [since 14]
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Obtains a RDB store.
-   * You can set parameters of the RDB store as required. In general, this method is recommended
-   * to obtain a rdb store.
-   *
-   * @param { Context } context - Indicates the context of an application or ability.
-   * @param { StoreConfig } config -
-   *     Indicates the {@link StoreConfig} configuration of the database related to this RDB store.
-   * @param { AsyncCallback<RdbStore> } callback - The RDB store {@link RdbStore}.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 14800000 - Inner error.
-   * @throws { BusinessError } 14800010 - Failed to open or delete the database by an invalid database path.
-   * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
-   * @throws { BusinessError } 14801001 - The operation is supported in the stage model only.
-   * @throws { BusinessError } 14801002 - Invalid data group ID.
-   * @throws { BusinessError } 14800017 - StoreConfig is changed.
-   * @throws { BusinessError } 14800021 - SQLite: Generic error.
-   * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
-   * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
-   * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
-   * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
-   * @throws { BusinessError } 14800029 - SQLite: The database is full.
-   * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file.
-   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @crossplatform
-   * @since 12
-   */
-  /**
-   * Obtains a RDB store.
-   * You can set parameters of the RDB store as required. In general, this method is recommended
-   * to obtain a rdb store.
-   *
-   * @param { Context } context - Indicates the context of an application or ability.
-   * @param { StoreConfig } config -
-   *     Indicates the {@link StoreConfig} configuration of the database related to this RDB store.
-   * @param { AsyncCallback<RdbStore> } callback - The RDB store {@link RdbStore}.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 14800000 - Inner error.
-   * @throws { BusinessError } 14800010 - Failed to open or delete the database by an invalid database path.
-   * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
-   * @throws { BusinessError } 14801001 - The operation is supported in the stage model only.
-   * @throws { BusinessError } 14801002 - Invalid data group ID.
-   * @throws { BusinessError } 14800017 - StoreConfig is changed.
-   * @throws { BusinessError } 14800020 - The secret key is corrupted or lost.
-   * @throws { BusinessError } 14800021 - SQLite: Generic error.
-   * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
-   * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
-   * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
-   * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
-   * @throws { BusinessError } 14800029 - SQLite: The database is full.
-   * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file.
-   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @crossplatform
-   * @since 14 dynamic
+   * @crossplatform [since 10]
+   * @since 9 dynamic
    * @since 23 static
    */
   function getRdbStore(context: Context, config: StoreConfig, callback: AsyncCallback<RdbStore>): void;
 
   /**
-   * Obtains a RDB store.
-   * You can set parameters of the RDB store as required. In general, this method is recommended
-   * to obtain a rdb store.
+   * Obtains an RdbStore instance. You can set the **config** parameter as required and use **RdbStore** APIs to perform
+   * data operations. This API uses a promise to return the result.
+   * 
+   * If no database file exists in the corresponding sandbox directory, a database file is created. For details, see 
+   * [StoreConfig]{@link @ohos.data.relationalStore:relationalStore.StoreConfig}. If a database file exists in the 
+   * corresponding directory, the existing database file is opened.
+   * 
+   * When creating a database, you should consider whether to configure the 
+   * [encrypt]{@link @ohos.data.relationalStore:relationalStore.StoreConfig} parameter. Once the database is created, 
+   * you are not allowed to change this parameter.
+   * 
+   * | Encryption Type When the RDB Store Is Opened | Encryption Type When the RDB Store Is Created          | Result|
+   * | ------- | -------------------------------- | ---- |
+   * | Non-encryption| Encryption                         | The RDB store is opened in encrypted mode.  |
+   * | Encryption| Non-encryption                         | The RDB store is opened in non-encrypted mode.  |
+   * 
+   * Currently, **getRdbStore()** does not support multi-thread concurrent operations.
    *
-   * @param { Context } context - Indicates the context of an application or ability.
-   * @param { StoreConfig } config -
-   *     Indicates the {@link StoreConfig} configuration of the database related to this RDB store.
-   * @returns { Promise<RdbStore> } The RDB store {@link RdbStore}.
+   * @param { Context } context - Application context.<br>For details about the application context of the FA model, see
+   *     [Context]{@link ./app/context}.<br>For details about the application context of the stage model, see
+   *     [Context]{@link ./application/Context:Context}.
+   * @param { StoreConfig } config - Configuration of the RDB store.
+   * @returns { Promise<RdbStore> } Promise used to return the **RdbStore** object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14800000 - Inner error.
    * @throws { BusinessError } 14800010 - Failed to open or delete the database by an invalid database path.
    * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
+   * @throws { BusinessError } 14801001 - The operation is supported in the stage model only. [since 10]
+   * @throws { BusinessError } 14801002 - Invalid data group ID. [since 10]
+   * @throws { BusinessError } 14800017 - StoreConfig is changed. [since 12]
+   * @throws { BusinessError } 14800021 - SQLite: Generic error. [since 12]
+   * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database. [since 12]
+   * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred. [since 12]
+   * @throws { BusinessError } 14800029 - SQLite: The database is full. [since 12]
+   * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file. [since 12]
+   * @throws { BusinessError } 14800020 - The secret key is corrupted or lost. [since 14]
+   * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort. [since 14]
+   * @throws { BusinessError } 14800023 - SQLite: Access permission denied. [since 14]
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @since 9
-   */
-  /**
-   * Obtains a RDB store.
-   * You can set parameters of the RDB store as required. In general, this method is recommended
-   * to obtain a rdb store.
-   *
-   * @param { Context } context - Indicates the context of an application or ability.
-   * @param { StoreConfig } config -
-   *     Indicates the {@link StoreConfig} configuration of the database related to this RDB store.
-   * @returns { Promise<RdbStore> } The RDB store {@link RdbStore}.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 14800000 - Inner error.
-   * @throws { BusinessError } 14800010 - Failed to open or delete the database by an invalid database path.
-   * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
-   * @throws { BusinessError } 14801001 - The operation is supported in the stage model only.
-   * @throws { BusinessError } 14801002 - Invalid data group ID.
-   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Obtains a RDB store.
-   * You can set parameters of the RDB store as required. In general, this method is recommended
-   * to obtain a rdb store.
-   *
-   * @param { Context } context - Indicates the context of an application or ability.
-   * @param { StoreConfig } config -
-   *     Indicates the {@link StoreConfig} configuration of the database related to this RDB store.
-   * @returns { Promise<RdbStore> } Promise used to return the **RdbStore** object obtained.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 14800000 - Inner error.
-   * @throws { BusinessError } 14800010 - Failed to open or delete the database by an invalid database path.
-   * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
-   * @throws { BusinessError } 14801001 - The operation is supported in the stage model only.
-   * @throws { BusinessError } 14801002 - Invalid data group ID.
-   * @throws { BusinessError } 14800017 - StoreConfig is changed.
-   * @throws { BusinessError } 14800021 - SQLite: Generic error.
-   * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
-   * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
-   * @throws { BusinessError } 14800029 - SQLite: The database is full.
-   * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file.
-   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @crossplatform
-   * @since 12
-   */
-  /**
-   * Obtains a RDB store.
-   * You can set parameters of the RDB store as required. In general, this method is recommended
-   * to obtain a rdb store.
-   *
-   * @param { Context } context - Indicates the context of an application or ability.
-   * @param { StoreConfig } config -
-   *     Indicates the {@link StoreConfig} configuration of the database related to this RDB store.
-   * @returns { Promise<RdbStore> } Promise used to return the **RdbStore** object obtained.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 14800000 - Inner error.
-   * @throws { BusinessError } 14800010 - Failed to open or delete the database by an invalid database path.
-   * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
-   * @throws { BusinessError } 14801001 - The operation is supported in the stage model only.
-   * @throws { BusinessError } 14801002 - Invalid data group ID.
-   * @throws { BusinessError } 14800017 - StoreConfig is changed.
-   * @throws { BusinessError } 14800020 - The secret key is corrupted or lost.
-   * @throws { BusinessError } 14800021 - SQLite: Generic error.
-   * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
-   * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
-   * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
-   * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
-   * @throws { BusinessError } 14800029 - SQLite: The database is full.
-   * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file.
-   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @crossplatform
-   * @since 14 dynamic
+   * @crossplatform [since 10]
+   * @since 9 dynamic
    * @since 23 static
    */
   function getRdbStore(context: Context, config: StoreConfig): Promise<RdbStore>;
@@ -11245,46 +9349,50 @@ declare namespace relationalStore {
    */
   function getRdbStoreSync(context: Context, config: StoreConfig): RdbStore;
 
-  /**
-   * Deletes the database with a specified name.
-   * When specify custom directory, this function should not be called.
+/**
+   * Deletes the RDB store with the specified database file name. This API uses a promise to return the result.
+   * 
+   * If **vector** is set to **true** in [StoreConfig]
+   * {@link @ohos.data.relationalStore:relationalStore.StoreConfig} when an RDB store is created, using this API cannot
+   * delete the RDB store. Use [deleteRdbStore]
+   * {@link relationalStore.deleteRdbStore(context: Context, config: StoreConfig)} instead.
+   * 
+   * Before calling **deleteRdbStore**, ensure that the **RdbStore** and **ResultSet** of the vector store have been 
+   * closed.
    *
-   * @param { Context } context - Indicates the context of application or capability.
-   * @param { string } name - Indicates the database name.
-   * @param { AsyncCallback<void> } callback - The callback of deleteRdbStore.
+   * @param { Context } context - Application context.<br>For details about the application context of the FA model, see
+   *     [Context]{@link ./app/context}.<br>For details about the application context of the stage model, see
+   *     [Context]{@link ./application/Context:Context}.
+   * @param { string } name - Name of the RDB store to delete.
+   * @param { AsyncCallback<void> } callback - Callback invoked to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14800000 - Inner error.
    * @throws { BusinessError } 14800010 - Failed to open or delete the database by an invalid database path.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @since 9
-   */
-  /**
-   * Deletes the database with a specified name.
-   * When specify custom directory, this function should not be called.
-   *
-   * @param { Context } context - Indicates the context of application or capability.
-   * @param { string } name - Indicates the database name.
-   * @param { AsyncCallback<void> } callback - The callback of deleteRdbStore.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 14800000 - Inner error.
-   * @throws { BusinessError } 14800010 - Failed to open or delete the database by an invalid database path.
-   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @crossplatform
-   * @since 10 dynamic
+   * @crossplatform [since 10]
+   * @since 9 dynamic
    * @since 23 static
    */
   function deleteRdbStore(context: Context, name: string, callback: AsyncCallback<void>): void;
 
   /**
-   * Deletes the database with a specified store config.
-   * When specify custom directory, this function should be called.
+   * Deletes an RDB store. This API uses an asynchronous callback to return the result.
+   * 
+   * After the deletion, you are advised to set the database object to null. If the database file is stored in the 
+   * sandbox directory, use this API to delete the database. If multiple processes operate the same database, other 
+   * processes should be notified about the database deletion so that they can detect and process the deletion. If a 
+   * custom path is set in [StoreConfig]{@link @ohos.data.relationalStore:relationalStore.StoreConfig} during RDB store 
+   * creation, using this API to delete the RDB store.
+   * 
+   * Before calling **deleteRdbStore**, ensure that the **RdbStore** and **ResultSet** of the vector store have been 
+   * closed.
    *
-   * @param { Context } context - Indicates the context of an application or ability.
-   * @param { StoreConfig } config -
-   *     Indicates the {@link StoreConfig} configuration of the database related to this RDB store.
-   * @param { AsyncCallback<void> } callback - The callback of deleteRdbStore.
+   * @param { Context } context - Application context.<br>For details about the application context of the FA model, see
+   *     [Context]{@link ./app/context}.<br>For details about the application context of the stage model, see
+   *     [Context]{@link ./application/Context:Context}.
+   * @param { StoreConfig } config - Configuration of the RDB store.
+   * @param { AsyncCallback<void> } callback - Callback invoked to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14800000 - Inner error.
@@ -11299,96 +9407,67 @@ declare namespace relationalStore {
   function deleteRdbStore(context: Context, config: StoreConfig, callback: AsyncCallback<void>): void;
 
   /**
-   * Deletes the database with a specified name.
-   * When specify custom directory, this function should not be called.
+   * Deletes an RDB store. This API uses a promise to return the result.
+   * 
+   * After the deletion, you are advised to set the database object to null. If a custom path is set in 
+   * [StoreConfig]{@link @ohos.data.relationalStore:relationalStore.StoreConfig} when an RDB store is created, using 
+   * this API cannot delete the RDB store. Use 
+   * [deleteRdbStore]{@link relationalStore.deleteRdbStore(context: Context, config: StoreConfig)} instead.
+   * 
+   * Before calling **deleteRdbStore**, ensure that the **RdbStore** and **ResultSet** of the vector store have been 
+   * closed.
    *
-   * @param { Context } context - Indicates the context of application or capability.
-   * @param { string } name - Indicates the database name.
-   * @returns { Promise<void> } The promise returned by the function.
+   * @param { Context } context - Application context.<br>For details about the application context of the FA model, see
+   *     [Context]{@link ./app/context}.<br>For details about the application context of the stage model, see
+   *     [Context]{@link ./application/Context:Context}.
+   * @param { string } name - Name of the RDB store to delete.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14800000 - Inner error.
    * @throws { BusinessError } 14800010 - Failed to open or delete the database by an invalid database path.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @since 9
-   */
-  /**
-   * Deletes the database with a specified name.
-   * When specify custom directory, this function should not be called.
-   *
-   * @param { Context } context - Indicates the context of application or capability.
-   * @param { string } name - Indicates the database name.
-   * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 14800000 - Inner error.
-   * @throws { BusinessError } 14800010 - Failed to open or delete the database by an invalid database path.
-   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Deletes the database with a specified name.
-   * When specify custom directory, this function should not be called.
-   *
-   * @param { Context } context - Indicates the context of application or capability.
-   * @param { string } name - Indicates the database name.
-   * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 14800000 - Inner error.
-   * @throws { BusinessError } 14800010 - Failed to open or delete the database by an invalid database path.
-   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @crossplatform
-   * @since 12 dynamic
+   * @crossplatform [since 10]
+   * @since 9 dynamic
    * @since 23 static
    */
   function deleteRdbStore(context: Context, name: string): Promise<void>;
 
   /**
-   * Deletes the database with a specified store config.
-   * When specify custom directory, this function should be called.
+   * Deletes an RDB store. This API uses a promise to return the result.
+   * 
+   * After the deletion, you are advised to set the database object to null. If the database file is stored in the 
+   * sandbox directory, use this API to delete the database. If multiple processes operate the same database, other 
+   * processes should be notified about the database deletion so that they can detect and process the deletion. If a 
+   * custom path is set in [StoreConfig]{@link @ohos.data.relationalStore:relationalStore.StoreConfig} during RDB store 
+   * creation, using this API to delete the RDB store.
+   * 
+   * Before calling **deleteRdbStore**, ensure that the **RdbStore** and **ResultSet** of the vector store have been 
+   * closed.
    *
-   * @param { Context } context - Indicates the context of an application or ability.
-   * @param { StoreConfig } config -
-   *     Indicates the {@link StoreConfig} configuration of the database related to this RDB store.
-   * @returns { Promise<void> } The promise returned by the function.
+   * @param { Context } context - Application context.<br>For details about the application context of the FA model, see
+   *     [Context]{@link ./app/context}.<br>For details about the application context of the stage model, see
+   *     [Context]{@link ./application/Context:Context}.
+   * @param { StoreConfig } config - Configuration of the RDB store.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14800000 - Inner error.
    * @throws { BusinessError } 14800010 - Failed to open or delete the database by an invalid database path.
    * @throws { BusinessError } 14801001 - The operation is supported in the stage model only.
    * @throws { BusinessError } 14801002 - Invalid data group ID.
+   * @throws { BusinessError } 801 - Capability not supported. [since 12]
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Deletes the database with a specified store config.
-   * When specify custom directory, this function should be called.
-   *
-   * @param { Context } context - Indicates the context of an application or ability.
-   * @param { StoreConfig } config -
-   *     Indicates the {@link StoreConfig} configuration of the database related to this RDB store.
-   * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 14800000 - Inner error.
-   * @throws { BusinessError } 14800010 - Failed to open or delete the database by an invalid database path.
-   * @throws { BusinessError } 14801001 - The operation is supported in the stage model only.
-   * @throws { BusinessError } 14801002 - Invalid data group ID.
-   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @crossplatform
-   * @since 12 dynamic
+   * @since 10 dynamic
    * @since 23 static
    */
   function deleteRdbStore(context: Context, config: StoreConfig): Promise<void>;
 
   /**
-   * Checks whether the vector database is supported.
+   * Checks whether the system supports vector stores.
    *
-   * @returns { boolean } Returns {@code true} if the vector database is supported; returns {@code false} otherwise.
+   * @returns { boolean } Returns **true** if the system supports vector stores; returns **false** otherwise.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 18 dynamic
    * @since 23 static
@@ -11396,9 +9475,12 @@ declare namespace relationalStore {
   function isVectorSupported(): boolean;
 
   /**
-   * check the {@link Tokenizer} tokenizer type is supported or not on current system.
-   * @param { tokenizer } type - Indicates Tokenizer which want to check.
-   * @returns { boolean } Returns {@code true} if the tokenizer is supported; returns {@code false} otherwise.
+   * Checks whether the specified tokenizer is supported. This API returns the result synchronously.
+   * 
+   * This API returns **true** if the specified tokenizer is supported; returns **false** otherwise.
+   *
+   * @param { Tokenizer } tokenizer - Tokenizer to check.
+   * @returns { boolean } Returns **true** if the specified tokenizer is supported; returns **false** otherwise.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
@@ -11408,12 +9490,15 @@ declare namespace relationalStore {
   function isTokenizerSupported(tokenizer: Tokenizer): boolean;
 
   /**
-   * Obtains a SQL statement used for inserting data.
+   * Obtains the SQL statement used to insert data. This API returns the result synchronously.
    *
-   * @param { string } table - Name of the target table.
-   * @param { ValuesBucket } values - Row of data {@link ValuesBucket} to be inserted into the table.
-   * @param { ConflictResolution } conflict - {@link ConflictResolution} to be used if conflicts occur.
-   * @returns { SqlInfo } - Returns a SQL insert statement including parameters.
+   * @param { string } table - Name of the database table to which data is to be written.
+   * @param { ValuesBucket } values - Field information and corresponding values of the data to be written to the
+   *     database.
+   * @param { ConflictResolution } conflict - Resolution used to resolve the conflict. <br>Default value:
+   *     **relationalStore.ConflictResolution.ON_CONFLICT_NONE**.
+   * @returns { SqlInfo } **SqlInfo** object. **sql** indicates the returned SQL statement, and **args** indicates the
+   *     parameters in the executed SQL statement.
    * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. Parameter is out of valid range.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
@@ -11423,12 +9508,15 @@ declare namespace relationalStore {
   function getInsertSqlInfo(table: string, values: ValuesBucket, conflict?: ConflictResolution):SqlInfo;
 
   /**
-   * Obtains a SQL statement used for updating data.
+   * Obtains the SQL statement used to update data. This API returns the result synchronously.
    *
-   * @param { RdbPredicates } predicates - Conditions for updating data. For details, see {@link RdbPredicates}.
-   * @param { ValuesBucket } values - Row of data to be updated in the database.
-   * @param { ConflictResolution } conflict - {@link ConflictResolution} to be used if conflicts occur.
-   * @returns { SqlInfo } - Returns a SQL update statement including parameters.
+   * @param { RdbPredicates } predicates - **RdbPredicates** object that matches the specified field.
+   * @param { ValuesBucket } values - Field information and corresponding values of the data to be written to the
+   *     database.
+   * @param { ConflictResolution } conflict - Resolution used to resolve the conflict. <br>Default value:
+   *     **relationalStore.ConflictResolution.ON_CONFLICT_NONE**.
+   * @returns { SqlInfo } **SqlInfo** object. **sql** indicates the returned SQL statement, and **args** indicates the
+   *     parameters in the executed SQL statement.
    * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. Parameter is out of valid range.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
@@ -11438,10 +9526,11 @@ declare namespace relationalStore {
   function getUpdateSqlInfo(predicates: RdbPredicates, values: ValuesBucket, conflict?: ConflictResolution):SqlInfo;
 
   /**
-   * Obtains a SQL statement used for deleting data.
+   * Obtains the SQL statement used to delete data. This API returns the result synchronously.
    *
-   * @param { RdbPredicates } predicates - Conditions for deleting data. For details, see {@link RdbPredicates}.
-   * @returns { SqlInfo } - Returns a SQL delete statement including parameters.
+   * @param { RdbPredicates } predicates - **RdbPredicates** object that matches the specified field.
+   * @returns { SqlInfo } **SqlInfo** object. **sql** indicates the returned SQL statement, and **args** indicates the
+   *     parameters in the executed SQL statement.
    * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. Parameter is out of valid range.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
@@ -11451,12 +9540,13 @@ declare namespace relationalStore {
   function getDeleteSqlInfo(predicates: RdbPredicates):SqlInfo;
 
   /**
-   * Obtains a SQL statement used for querying data.
+   * Obtains the SQL statement used to query data. This API returns the result synchronously.
    *
-   * @param { RdbPredicates } predicates - Conditions for querying data. For details, see {@link RdbPredicates}.
-   * @param { Array<string> } columns -
-   *     Columns to query. If this parameter is not specified, the query applies to all columns.
-   * @returns { SqlInfo } - Returns a SQL query statement including parameters.
+   * @param { RdbPredicates } predicates - **RdbPredicates** object that matches the specified field.
+   * @param { Array<string> } columns - Columns to be queried. If this parameter is not specified, all columns are
+   *     queried.
+   * @returns { SqlInfo } **SqlInfo** object. **sql** indicates the returned SQL statement, and **args** indicates the
+   *     parameters in the executed SQL statement.
    * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. Parameter is out of valid range.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform

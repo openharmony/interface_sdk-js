@@ -24,11 +24,13 @@ import { SymbolGlyphModifier } from './arkui/SymbolGlyphModifier';
 import { Builder, CustomBuilder } from '@ohos.arkui.component';
 import { RichEditorSelection, RichEditorController } from '@ohos.arkui.component';
 import { MenuItemOptions } from '@ohos.arkui.component';
+import uiMaterial from './@ohos.arkui.uiMaterial';
 
 /**
  * Construct parameter types for EditorMenuOptions.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  * @noninterop
  */
@@ -38,6 +40,7 @@ export interface EditorMenuOptions {
    *
    * @type { ResourceStr | undefined }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   icon: ResourceStr | undefined;
@@ -46,6 +49,7 @@ export interface EditorMenuOptions {
    * Symbol style of menu icon.
    * @type { ?SymbolGlyphModifier }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   symbolStyle?: SymbolGlyphModifier;
@@ -55,6 +59,7 @@ export interface EditorMenuOptions {
    * 
    * @type { ?VoidCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   action?: VoidCallback;
@@ -64,6 +69,7 @@ export interface EditorMenuOptions {
    * 
    * @type { ?CustomBuilder }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   builder?: CustomBuilder;
@@ -74,6 +80,7 @@ export interface EditorMenuOptions {
  *
  * @extends MenuItemOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  * @noninterop
  */
@@ -83,6 +90,7 @@ export interface ExpandedMenuOptions extends MenuItemOptions {
    * 
    * @type { ?VoidCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   action?: VoidCallback;
@@ -93,6 +101,7 @@ export interface ExpandedMenuOptions extends MenuItemOptions {
  *
  * @interface EditorEventInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  * @noninterop
  */
@@ -102,6 +111,7 @@ export interface EditorEventInfo {
    *
    * @type { ?RichEditorSelection }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   content?: RichEditorSelection;
@@ -113,6 +123,7 @@ export interface EditorEventInfo {
  * @typedef { function } SelectionMenuOnPasteCallback
  * @param { ?EditorEventInfo } [event] - the event info.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export type SelectionMenuOnPasteCallback = (event?: EditorEventInfo) => void;
@@ -123,6 +134,7 @@ export type SelectionMenuOnPasteCallback = (event?: EditorEventInfo) => void;
  * @typedef { function } SelectionMenuOnCopyCallback
  * @param { ?EditorEventInfo } [event] - the event info.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export type SelectionMenuOnCopyCallback = (event?: EditorEventInfo) => void;
@@ -133,6 +145,7 @@ export type SelectionMenuOnCopyCallback = (event?: EditorEventInfo) => void;
  * @typedef { function } SelectionMenuOnCutCallback
  * @param { ?EditorEventInfo } [event] - the event info.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export type SelectionMenuOnCutCallback = (event?: EditorEventInfo) => void;
@@ -143,6 +156,7 @@ export type SelectionMenuOnCutCallback = (event?: EditorEventInfo) => void;
  * @typedef { function } SelectionMenuOnSelectAllCallback
  * @param { ?EditorEventInfo } [event] - the event info.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export type SelectionMenuOnSelectAllCallback = (event?: EditorEventInfo) => void;
@@ -152,6 +166,7 @@ export type SelectionMenuOnSelectAllCallback = (event?: EditorEventInfo) => void
  *
  * @extends MenuItemOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  * @noninterop
  */
@@ -161,6 +176,7 @@ export interface SelectionMenuOptions {
    *
    * @type { ?Array<EditorMenuOptions> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   editorMenuOptions?: Array<EditorMenuOptions>;
@@ -170,6 +186,7 @@ export interface SelectionMenuOptions {
    *
    * @type { ?Array<ExpendMenuOptions> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   expandedMenuOptions?: Array<ExpandedMenuOptions>;
@@ -179,6 +196,7 @@ export interface SelectionMenuOptions {
    *
    * @type { ?RichEditorController }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   controller?: RichEditorController;
@@ -188,6 +206,7 @@ export interface SelectionMenuOptions {
    *
    * @type { ?SelectionMenuOnPasteCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   onPaste?: SelectionMenuOnPasteCallback;
@@ -197,6 +216,7 @@ export interface SelectionMenuOptions {
    *
    * @type { ?SelectionMenuOnCopyCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   onCopy?: SelectionMenuOnCopyCallback;
@@ -206,6 +226,7 @@ export interface SelectionMenuOptions {
    *
    * @type { ?SelectionMenuOnCutCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   onCut?: SelectionMenuOnCutCallback;
@@ -215,9 +236,21 @@ export interface SelectionMenuOptions {
    *
    * @type { ?SelectionMenuOnSelectAllCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   onSelectAll?: SelectionMenuOnSelectAllCallback;
+
+  /**
+   * Set system-styled materials for the component. Different materials have different effects,
+   * which can influence the backgroundColor, border, shadow, and other visual attributes.
+   *
+   * @type { ?uiMaterial.Material }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  backgroundSystemMaterial?: uiMaterial.Material;
 }
 
 /**
@@ -225,6 +258,7 @@ export interface SelectionMenuOptions {
  *
  * @param { SelectionMenuOptions } options - Selection menu options.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  * @noninterop
  */

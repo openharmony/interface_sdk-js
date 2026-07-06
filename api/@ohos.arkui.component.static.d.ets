@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2025 Huawei Device Co., Ltd.
+ * Copyright (C) 2025-2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the 'License');
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -47,6 +47,7 @@ export * from './arkui/component/customComponent';
 export * from './arkui/component/customDialogController';
 export * from './arkui/component/dataPanel';
 export * from './arkui/component/datePicker';
+export * from './arkui/component/depthComponent';
 export * from './arkui/component/divider';
 export * from './arkui/component/effectComponent';
 export * from './arkui/component/ellipse';
@@ -59,7 +60,6 @@ export * from './arkui/component/focus';
 export * from './arkui/component/folderStack';
 export * from './arkui/component/forEach';
 export * from './arkui/component/formComponent';
-export * from './arkui/component/formLink';
 export * from './arkui/component/gauge';
 export * from './arkui/component/gesture';
 export * from './arkui/component/grid';
@@ -138,6 +138,7 @@ export * from './arkui/component/textPicker';
 export * from './arkui/component/textTimer';
 export * from './arkui/component/timePicker';
 export * from './arkui/component/toggle';
+export * from './arkui/component/toolbar';
 export * from './arkui/component/uiExtensionComponent';
 export * from './arkui/component/units';
 export * from './arkui/component/video';
@@ -152,6 +153,16 @@ export * from './arkui/component/pageTransition';
 export * from './arkui/component/component3d';
 export * from './arkui/component/unionEffectContainer';
 export * from './arkui/component/uiPickerComponent';
+export * from './arkui/component/dynamicComponent';
+export * from './arkui/component/securityUIExtensionComponent';
+export {
+ 	     SecurityDpiFollowStrategy,
+ 	     SecurityUIExtensionOptions,
+ 	     SecurityUIExtensionProxy,
+ 	     SecurityUIExtensionComponentAttribute,
+ 	     SecurityUIExtensionComponent
+ 	 } from './arkui/component/securityUIExtensionComponent';
+export { ReceiveCallback } from './arkui/component/uiExtensionComponent';
 
 // Many xts-acts tests rely on the following bindings from 'component': 
 export * from './arkui/ComponentContent';

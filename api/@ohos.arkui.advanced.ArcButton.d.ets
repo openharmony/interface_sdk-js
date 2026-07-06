@@ -14,16 +14,15 @@
  */
 
  /**
- * @file Defines the arc button component
- * @kit ArkUI
- */
+  * @file Defines the arc button component
+  * @kit ArkUI
+  */
 
 import { ColorMetrics, LengthMetrics } from '@ohos.arkui.node';
 
  /**
- * Describes the Position of arc button.
+ * Enumerates the types of arc buttons that can be set for **ArcButton**.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @crossplatform
  * @atomicservice
@@ -31,7 +30,7 @@ import { ColorMetrics, LengthMetrics } from '@ohos.arkui.node';
  */
 export declare enum ArcButtonPosition {
     /**
-     * The top edge button is located above the circular screen.
+     * Upper arc button located at the top of the circular screen.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
@@ -40,7 +39,7 @@ export declare enum ArcButtonPosition {
      */
     TOP_EDGE = 0,
     /**
-     * The bottom edge button is located below the circular screen.
+     * Lower arc button located at the bottom of the circular screen.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
@@ -51,9 +50,8 @@ export declare enum ArcButtonPosition {
 }
 
 /**
- * Provides an arc button style.
+ * Enumerates the style modes that can be set for **ArcButton**.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @crossplatform
  * @atomicservice
@@ -61,7 +59,7 @@ export declare enum ArcButtonPosition {
  */
 export declare enum ArcButtonStyleMode {
     /**
-     * Emphasis status, light style.
+     * Emphasized style in light color mode. Displayed as a blue background with white text.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
@@ -70,7 +68,7 @@ export declare enum ArcButtonStyleMode {
      */
     EMPHASIZED_LIGHT = 0,
     /**
-     * Emphasis status, dark style.
+     * Warning style in dark color mode. Displayed as a red background with white text.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
@@ -79,7 +77,7 @@ export declare enum ArcButtonStyleMode {
      */
     EMPHASIZED_DARK = 1,
     /**
-     * Normal status, light style.
+     * Normal style in light color mode. Displayed as a dark blue background with blue text.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
@@ -88,7 +86,7 @@ export declare enum ArcButtonStyleMode {
      */
     NORMAL_LIGHT = 2,
     /**
-     * Normal status, dark style.
+     * Normal style in dark color mode. Displayed as a dark gray background with blue text.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
@@ -98,7 +96,7 @@ export declare enum ArcButtonStyleMode {
     NORMAL_DARK = 3,
     
     /**
-     * Custom status, custom style.
+     * Custom button color and font color.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
@@ -109,9 +107,8 @@ export declare enum ArcButtonStyleMode {
 }
 
 /**
- * Defines an arc button status.
+ * Enumerates the states that can be set for **ArcButton**.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @crossplatform
  * @atomicservice
@@ -148,7 +145,7 @@ export declare enum ArcButtonStatus {
 }
 
 /**
- * The class used for configuring ArcButton to support progress bar display.
+ * Defines the progress indicator configuration options of the **ArcButton** component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @stagemodelonly
@@ -158,11 +155,13 @@ export declare enum ArcButtonStatus {
  */
 export declare class ArcButtonProgressConfig {
   /**
-   * Sets the value of Progress.
+   * Current progress value. Values less than 0 are adjusted to **0**, and values greater than the **total** value are 
+   * capped at the **total** value.
+   * 
+   * Default value: **0**.
+   * 
+   * Value range: [0, total]
    *
-   * Range value: [0, total].
-   *
-   * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @stagemodelonly
    * @crossplatform
@@ -171,11 +170,12 @@ export declare class ArcButtonProgressConfig {
    */
   value: number;
   /**
-   * Sets the total of Progress.
+   * Maximum progress value.
+   * 
+   * Default value: **100**
+   * 
+   * Value range: [0, 2147483647]. If the value is 0 or out of the range, the default value 100 is used.
    *
-   * Range value: [0, 2147483647].
-   *
-   * @type { ?number }
    * @default 100
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @stagemodelonly
@@ -185,9 +185,14 @@ export declare class ArcButtonProgressConfig {
    */
   total?: number;
   /**
-   * Sets the foreground color of Progress.
+   * Foreground color of the progress indicator. If the component's background color (
+   * [backgroundColor]{@link ArcButtonOptions}) is set, it is used as the default foreground color of the progress 
+   * indicator. The foreground color of the progress indicator is not affected by the button style (
+   * [ArcButtonStyleMode]{@link ArcButtonStyleMode}). The progress indicator's background color is derived solely from 
+   * its foreground color, with an opacity value of 25%.
+   * 
+   * Default value: **"#1F71FF"**, which is blue.
    *
-   * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @stagemodelonly
    * @crossplatform
@@ -198,9 +203,8 @@ export declare class ArcButtonProgressConfig {
 }
 
 /**
- * Defines the arc button options.
+ * Defines the default or custom style parameters for the **ArcButton** component.
  *
- * @interface CommonArcButtonOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @crossplatform
  * @atomicservice
@@ -208,9 +212,10 @@ export declare class ArcButtonProgressConfig {
  */
 interface CommonArcButtonOptions {
     /**
-     * Describes the arc button position.
+     * Type of the arc button.
+     * 
+     * Default value: **ArcButtonPosition.BOTTOM_EDGE**
      *
-     * @type { ? ArcButtonPosition}
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
      * @atomicservice
@@ -218,9 +223,11 @@ interface CommonArcButtonOptions {
      */
     position?: ArcButtonPosition;
     /**
-     * Describes the arc button style mode.
+     * Style mode for the arc button. This style cannot be used together with the 
+     * [ArcButtonProgressConfig]{@link ArcButtonProgressConfig} style.
+     * 
+     * Default value: **ArcButtonStyleMode.EMPHASIZED_LIGHT**
      *
-     * @type { ?ArcButtonStyleMode }
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
      * @atomicservice
@@ -228,9 +235,10 @@ interface CommonArcButtonOptions {
      */
     styleMode?: ArcButtonStyleMode;
     /**
-     * Describes the arc button status.
+     * Status of the arc button.
+     * 
+     * Default value: **ArcButtonStatus.NORMAL**
      *
-     * @type { ?ArcButtonStatus }
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
      * @atomicservice
@@ -238,9 +246,8 @@ interface CommonArcButtonOptions {
      */
     status?: ArcButtonStatus;
     /**
-     * Describes the arc button displays text.
+     * Text displayed on the arc button.
      *
-     * @type { ?ResourceStr }
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
      * @atomicservice
@@ -248,9 +255,10 @@ interface CommonArcButtonOptions {
      */
     label?: ResourceStr;
     /**
-     * Describe the blurred background style of the arc-shaped button.
+     * Background blur style of the arc button.
+     * 
+     * Default value: **BlurStyle.NONE**
      *
-     * @type { ?BlurStyle }
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
      * @atomicservice
@@ -258,9 +266,12 @@ interface CommonArcButtonOptions {
      */
     backgroundBlurStyle?: BlurStyle;
     /**
-     * Describes the arc button background color.
+     * Background color of the arc button.
+     * 
+     * This property takes effect only when **ArcButtonStyleMode** is set to **CUSTOM**.
+     * 
+     * Default value: **Color.Black**
      *
-     * @type { ?ColorMetrics }
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
      * @atomicservice
@@ -268,9 +279,10 @@ interface CommonArcButtonOptions {
      */
     backgroundColor?: ColorMetrics;
     /**
-     * Describes the arc button shadow color.
+     * Shadow color of the arc button.
+     * 
+     * Default value: **Color.Black**
      *
-     * @type { ?ColorMetrics }
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
      * @atomicservice
@@ -278,9 +290,12 @@ interface CommonArcButtonOptions {
      */
     shadowColor?: ColorMetrics;
     /**
-     * Describes the arc button shadow switch.
+     * Whether to enable the shadow for the arc button.
+     * 
+     * Default value: **false**
+     * 
+     * The value **true** means to enable the shadow, and **false** means the opposite.
      *
-     * @type { ?boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
      * @atomicservice
@@ -288,9 +303,10 @@ interface CommonArcButtonOptions {
      */
     shadowEnabled?: boolean;
     /**
-     * Describes the arc button text size.
+     * Font size of the arc button.
+     * 
+     * Default value: **19fp**
      *
-     * @type { ?LengthMetrics }
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
      * @atomicservice
@@ -298,9 +314,12 @@ interface CommonArcButtonOptions {
      */
     fontSize?: LengthMetrics;
     /**
-     * Describes the arc button text color.
+     * Font color of the arc button.
+     * 
+     * This property takes effect only when **ArcButtonStyleMode** is set to **CUSTOM**.
+     * 
+     * Default value: **Color.White**
      *
-     * @type { ?ColorMetrics }
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
      * @atomicservice
@@ -308,9 +327,12 @@ interface CommonArcButtonOptions {
      */
     fontColor?: ColorMetrics;
     /**
-     * Describes the arc button pressed text color.
+     * Font color of the arc button when pressed.
+     * 
+     * This property takes effect only when **ArcButtonStyleMode** is set to **CUSTOM**.
+     * 
+     * Default value: **Color.White**
      *
-     * @type { ?ColorMetrics }
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
      * @atomicservice
@@ -318,9 +340,10 @@ interface CommonArcButtonOptions {
      */
     pressedFontColor?: ColorMetrics;
     /**
-     * Describes the arc button text style.
+     * Font style of the arc button.
+     * 
+     * Default value: **FontStyle.Normal**
      *
-     * @type { ?FontStyle }
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
      * @atomicservice
@@ -328,9 +351,8 @@ interface CommonArcButtonOptions {
      */
     fontStyle?: FontStyle;
     /**
-     * Describes the arc button text family.
+     * Font family of the arc button.
      *
-     * @type { ?(string | Resource) }
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
      * @atomicservice
@@ -338,9 +360,10 @@ interface CommonArcButtonOptions {
      */
     fontFamily?: string | Resource;
     /**
-     * Describes the arc button text margin.
+     * Margin of the arc button text.
+     * 
+     * Default value: **{start:24vp, top: 10vp,end: 24vp, bottom:16vp }**
      *
-     * @type { ?LocalizedMargin }
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
      * @atomicservice
@@ -349,11 +372,16 @@ interface CommonArcButtonOptions {
     fontMargin?: LocalizedMargin;
     
     /**
-     * Sets the ArcButton progress bar parameters.
-     * When not set, the button style is used.
-     * When set, the progress style is used.
+     * Parameters for the progress indicator of the **ArcButton** component. If this property is not set, the 
+     * **ArcButton** component is displayed as a button (see 
+     * [Example 1](docroot://reference/apis-arkui/arkui-ts/ohos-arkui-advanced-ArcButton.md#example-1-setting-an-arc-button)
+     * ). If this property is set, the component is displayed as a progress indicator (see 
+     * [Example 2](docroot://reference/apis-arkui/arkui-ts/ohos-arkui-advanced-ArcButton.md#example-2-setting-a-device-progress-indicator-button)
+     * ). The progress indicator style is not affected by the settings of the 
+     * [ArcButtonStyleMode]{@link ArcButtonStyleMode} attribute.
+     * 
+     * Default value: default values of all properties of [ArcButtonProgressConfig]{@link ArcButtonProgressConfig}
      *
-     * @type { ?ArcButtonProgressConfig }
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @stagemodelonly
      * @crossplatform
@@ -363,9 +391,8 @@ interface CommonArcButtonOptions {
     progressConfig?: ArcButtonProgressConfig;
     
     /**
-     * Describes the arc button touch event.
+     * Callback triggered by touch actions on the arc button.
      *
-     * @type { ?Callback<TouchEvent> }
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
      * @atomicservice
@@ -374,9 +401,8 @@ interface CommonArcButtonOptions {
     onTouch?: Callback<TouchEvent>;
     
     /**
-     * Describes the arc button click event.
+     * Callback triggered by click actions on the arc button.
      *
-     * @type { ?Callback<ClickEvent> }
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
      * @atomicservice
@@ -385,7 +411,7 @@ interface CommonArcButtonOptions {
     onClick?: Callback<ClickEvent>;
 }
 /**
- * The class for ArcButtonOptions.
+ * Defines the default or custom style parameters for the **ArcButton** component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @crossplatform
@@ -394,9 +420,10 @@ interface CommonArcButtonOptions {
  */
 export declare class ArcButtonOptions {
     /**
-     * Describes the position of button on screen.
+     * Type of the arc button.
+     * 
+     * Default value: **ArcButtonPosition.BOTTOM_EDGE**
      *
-     * @type { ArcButtonPosition }
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
      * @atomicservice
@@ -404,9 +431,11 @@ export declare class ArcButtonOptions {
      */
     position: ArcButtonPosition;
     /**
-     * Describes the controller for scrollable container.
+     * Style mode for the arc button. This style cannot be used together with the 
+     * [ArcButtonProgressConfig]{@link ArcButtonProgressConfig} style.
+     * 
+     * Default value: **ArcButtonStyleMode.EMPHASIZED_LIGHT**
      *
-     * @type { ArcButtonStyleMode }
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
      * @atomicservice
@@ -414,9 +443,10 @@ export declare class ArcButtonOptions {
      */
     styleMode: ArcButtonStyleMode;
     /**
-     * Describes the arc button status.
+     * Status of the arc button.
+     * 
+     * Default value: **ArcButtonStatus.NORMAL**
      *
-     * @type { ArcButtonStatus }
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
      * @atomicservice
@@ -424,9 +454,8 @@ export declare class ArcButtonOptions {
      */
     status: ArcButtonStatus;
     /**
-     * Describes the arc button displays text.
+     * Text displayed on the arc button.
      *
-     * @type { ResourceStr }
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
      * @atomicservice
@@ -434,9 +463,10 @@ export declare class ArcButtonOptions {
      */
     label: ResourceStr;
     /**
-     * Describe the blurred background style of the arc-shaped button.
+     * Background blur style of the arc button.
+     * 
+     * Default value: **BlurStyle.NONE**
      *
-     * @type { BlurStyle }
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
      * @atomicservice
@@ -444,9 +474,12 @@ export declare class ArcButtonOptions {
      */
     backgroundBlurStyle: BlurStyle;
     /**
-     * Describes the arc button background color.
+     * Background color of the arc button.
+     * 
+     * This property takes effect only when **ArcButtonStyleMode** is set to **CUSTOM**.
+     * 
+     * Default value: **Color.Black**
      *
-     * @type { ColorMetrics }
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
      * @atomicservice
@@ -454,9 +487,10 @@ export declare class ArcButtonOptions {
      */
     backgroundColor: ColorMetrics;
     /**
-     * Describes the arc button shadow color.
+     * Shadow color of the arc button.
+     * 
+     * Default value: **Color.Black**
      *
-     * @type { ColorMetrics }
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
      * @atomicservice
@@ -464,9 +498,12 @@ export declare class ArcButtonOptions {
      */
     shadowColor: ColorMetrics;
     /**
-     * Describes the arc button shadow switch.
+     * Whether to enable the shadow for the arc button.
+     * 
+     * Default value: **false**
+     * 
+     * The value **true** means to enable the shadow, and **false** means the opposite.
      *
-     * @type { boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
      * @atomicservice
@@ -474,9 +511,10 @@ export declare class ArcButtonOptions {
      */
     shadowEnabled: boolean;
     /**
-     * Describes the arc button text size.
+     * Font size of the arc button.
+     * 
+     * Default value: **19fp**
      *
-     * @type { LengthMetrics }
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
      * @atomicservice
@@ -484,9 +522,12 @@ export declare class ArcButtonOptions {
      */
     fontSize: LengthMetrics;
     /**
-     * Describes the arc button text color.
+     * Font color of the arc button.
+     * 
+     * This property takes effect only when **ArcButtonStyleMode** is set to **CUSTOM**.
+     * 
+     * Default value: **Color.White**
      *
-     * @type { ColorMetrics }
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
      * @atomicservice
@@ -494,9 +535,12 @@ export declare class ArcButtonOptions {
      */
     fontColor: ColorMetrics;
     /**
-     * Describes the arc button pressed text color.
+     * Font color of the arc button when pressed.
+     * 
+     * This property takes effect only when **ArcButtonStyleMode** is set to **CUSTOM**.
+     * 
+     * Default value: **Color.White**
      *
-     * @type { ColorMetrics }
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
      * @atomicservice
@@ -504,9 +548,10 @@ export declare class ArcButtonOptions {
      */
     pressedFontColor: ColorMetrics;
     /**
-     * Describes the arc button text style.
+     * Font style of the arc button.
+     * 
+     * Default value: **FontStyle.Normal**
      *
-     * @type { FontStyle }
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
      * @atomicservice
@@ -514,9 +559,8 @@ export declare class ArcButtonOptions {
      */
     fontStyle: FontStyle;
     /**
-     * Describes the arc button text family.
+     * Font family of the arc button.
      *
-     * @type { (string | Resource) }
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
      * @atomicservice
@@ -524,9 +568,10 @@ export declare class ArcButtonOptions {
      */
     fontFamily: string | Resource;
     /**
-     * Describes the arc button text margin.
+     * Margin of the arc button text.
+     * 
+     * Default value: **{start:24vp, top: 10vp,end: 24vp, bottom:16vp }**
      *
-     * @type { LocalizedMargin }
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
      * @atomicservice
@@ -535,11 +580,16 @@ export declare class ArcButtonOptions {
     fontMargin: LocalizedMargin;
 
     /**
-     * Set the ArcButton progress bar parameters.
-     * When not set, the button style is used.
-     * When set, the progress style is used.
+     * Parameters for the progress indicator of the **ArcButton** component. If this property is not set, the 
+     * **ArcButton** component is displayed as a button (see 
+     * [Example 1](docroot://reference/apis-arkui/arkui-ts/ohos-arkui-advanced-ArcButton.md#example-1-setting-an-arc-button)
+     * ). If this property is set, the component is displayed as a progress indicator (see 
+     * [Example 2](docroot://reference/apis-arkui/arkui-ts/ohos-arkui-advanced-ArcButton.md#example-2-setting-a-device-progress-indicator-button)
+     * ). The progress indicator style is not affected by the settings of the 
+     * [ArcButtonStyleMode]{@link ArcButtonStyleMode} attribute.
+     * 
+     * Default value: default values of all properties of [ArcButtonProgressConfig]{@link ArcButtonProgressConfig}
      *
-     * @type { ?ArcButtonProgressConfig }
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @stagemodelonly
      * @crossplatform
@@ -549,9 +599,8 @@ export declare class ArcButtonOptions {
     progressConfig?: ArcButtonProgressConfig;
     
     /**
-     * Describes the arc button touch event.
+     * Callback triggered by touch actions on the arc button.
      *
-     * @type { ?Callback<TouchEvent> }
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
      * @atomicservice
@@ -560,9 +609,8 @@ export declare class ArcButtonOptions {
     onTouch?: Callback<TouchEvent>;
     
     /**
-     * Describes the arc button click event.
+     * Callback triggered by click actions on the arc button.
      *
-     * @type { ?Callback<ClickEvent> }
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
      * @atomicservice
@@ -571,9 +619,10 @@ export declare class ArcButtonOptions {
     onClick?: Callback<ClickEvent>;
     
     /**
-     * Constructor of the CommonArcButtonOptions.
+     * A constructor used to create an **ArcButton** component.
      *
-     * @param { CommonArcButtonOptions } options
+     * @param { CommonArcButtonOptions } options - Text, background color, shadow, and other parameters of the
+     *     **ArcButton** component.
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
      * @atomicservice
@@ -582,7 +631,14 @@ export declare class ArcButtonOptions {
     constructor(options: CommonArcButtonOptions);
 }
 /**
- * Declare Component ArcButton
+ * The **ArcButton** component offers various button styles, such as emphasized, normal, and warning. It is recommended 
+ * for devices with circular screens.
+ * 
+ * > **NOTE**
+ * 
+ * > - This component can be used on phones, PCs, 2-in-1 devices, tablets, TVs, and wearables. In API version 22 and 
+ * > earlier versions, a compilation warning will be reported when this component is used on phones, PCs, 2-in-1 
+ * > devices, tablets, and TVs, but the component can still run properly.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @crossplatform
@@ -592,9 +648,8 @@ export declare class ArcButtonOptions {
 @Component
 export declare struct ArcButton {
     /**
-     * Describes the arc button options.
+     * Text, background color, shadow, and other parameters of the **ArcButton** component.
      *
-     * @type { ArcButtonOptions }
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
      * @atomicservice

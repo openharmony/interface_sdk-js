@@ -19,76 +19,79 @@
  */
 
 /**
- * Defines the Interface of NodeContainer. To display the node build by an associated NodeController.
+ * ## Child Components
  *
- * @interface NodeContainerInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 11
+ * No child component can be set.
  */
 /**
  * Defines the Interface of NodeContainer. To display the node build by an associated NodeController.
  *
- * @interface NodeContainerInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
- * @atomicservice
- * @since 12 dynamic
+ * @atomicservice [since 12]
+ * @since 11 dynamic
+ * @noninterop
  */
 interface NodeContainerInterface {
+
   /**
-  * Constructor parameters
-  *
-  * @param { import('../api/@ohos.arkui.node').NodeController } controller - Indicates the controller of the NodeContainer.
-  * @returns { NodeContainerAttribute }
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @since 11
-  */
- /**
-  * Constructor parameters
-  *
-  * @param { import('../api/@ohos.arkui.node').NodeController } controller - Indicates the controller of the NodeContainer.
-  * @returns { NodeContainerAttribute }
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @atomicservice
-  * @since 12 dynamic
-  */
+   * Creates a **NodeContainer** component.
+   *
+   * @param { import('../api/@ohos.arkui.node').NodeController } controller - **NodeController** instance used to
+   *     control the upper and lower tree nodes in the **NodeContainer**.
+   *     It represents the lifecycle of the **NodeContainer**.
+   * @returns { NodeContainerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice [since 12]
+   * @since 11 dynamic
+   */
   (controller: import('../api/@ohos.arkui.node').NodeController): NodeContainerAttribute;
 }
 
 /**
- * Defines the attribute of NodeContainer, extends from CommonMethod.
- * @extends CommonMethod<NodeContainerAttribute>
+ * The [universal attributes](docroot://reference/apis-arkui/arkui-ts/ts-component-general-attributes.md) are supported.
+ *
+ * The [universal events](docroot://reference/apis-arkui/arkui-ts/ts-component-general-events.md) are supported.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
- * @since 11
- */
-/**
- * Defines the attribute of NodeContainer, extends from CommonMethod.
- * @extends CommonMethod<NodeContainerAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 12 dynamic
+ * @atomicservice [since 12]
+ * @since 11 dynamic
+ * @noninterop
  */
 declare class NodeContainerAttribute extends CommonMethod<NodeContainerAttribute> {}
 
 /**
- * Defines NodeContainer Component.
+ * **NodeContainer** is a basic component for mounting custom nodes (such as [FrameNode]{@link FrameNode} or
+ * [BuilderNode]{@link BuilderNode}) and dynamically managing node attachment and detachment through
+ * [NodeController]{@link NodeController:NodeController}. This component does not support adding trailing child
+ * components and requires a [NodeController]{@link NodeController:NodeController} instance for operation. It must be
+ * used in combination with **NodeController**.
+ * > **NOTE**
+ * > Only custom [FrameNodes]{@link FrameNode} or the root FrameNode obtained from a [BuilderNode]{@link BuilderNode}
+ * > can be attached to this component.
+ * > [Proxy nodes]{@link FrameNode:FrameNode#isModifiable} of built-in system components obtained through querying
+ * > cannot be attached to this component.
+ * >
+ * > This component does not work with the [attribute modifier]{@link common}.
+ * >
+ * > A [UIContext]{@link @ohos.arkui.UIContext} instance is used to construct the node tree for this component. During
+ * > instance switching, the input parameter of the [makeNode]{@link NodeController:NodeController#makeNode} callback
+ * > method of the bound [NodeController]{@link NodeController:NodeController} may be **undefined** due to instance
+ * > mismatch. Therefore, this component does not support cross-instance node reuse.
+ * >
+ * > When this component is not destroyed, the unmounting of its mounted child nodes will not be triggered.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
- * @since 11
- */
-/**
- * Defines NodeContainer Component.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 12 dynamic
+ * @atomicservice [since 12]
+ * @since 11 dynamic
+ * @noninterop
  */
 declare const NodeContainer: NodeContainerInterface;
 
@@ -96,15 +99,10 @@ declare const NodeContainer: NodeContainerInterface;
  * Defines NodeContainer Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
- * @since 11
- */
-/**
- * Defines NodeContainer Component instance.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 12 dynamic
+ * @atomicservice [since 12]
+ * @since 11 dynamic
+ * @noninterop
  */
 declare const NodeContainerInstance: NodeContainerAttribute;

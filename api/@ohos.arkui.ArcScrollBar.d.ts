@@ -19,19 +19,23 @@
  */
 
 /**
- * Defines the arc scroll bar options.
+ * Represents the parameters used to construct an **ArcScrollBar** component.
  *
- * @interface ArcScrollBarOptions
+ * > **NOTE**
+ * >
+ * > **ArcScrollBar** must be bound to a scrollable component through **scroller** to achieve synchronization. Only a
+ * > one-to-one binding is allowed between **ArcScrollBar** and a scrollable component.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @crossplatform
  * @atomicservice
  * @since 18 dynamic
  */
 declare interface ArcScrollBarOptions {
+
   /**
-   * Describes the controller for scrollable container.
+   * Scroller, which can be bound to scrollable components for scrolling control.
    *
-   * @type { ?Scroller }
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
@@ -40,9 +44,8 @@ declare interface ArcScrollBarOptions {
   scroller: Scroller;
 
   /**
-   * Sets the state of scroll bar.
+   * State of the scrollbar.<br/>Default value: **BarState.Auto**
    *
-   * @type { ?BarState }
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
@@ -52,19 +55,40 @@ declare interface ArcScrollBarOptions {
 }
 
 /**
- * Defines the arc scroll bar component.
+ * The **ArcScrollBar** component is designed to be used together with scrollable components such as
+ * [ArcList]{@link @ohos.arkui.ArcList}, [List]{@link list},
+ * [Grid]{@link grid}, [Scroll]{@link scroll}, and
+ * [WaterFlow]{@link water_flow}.
  *
- * @interface ArcScrollBarInterface
+ * > **NOTE**
+ * >
+ * > - This component is supported since API version 18. Updates will be marked with a superscript to indicate their
+ * > earliest API version.
+ * >
+ * > - When the width and height of the **ArcScrollBar** component are not set, the **maxSize** value specified in its
+ * > parent component [LayoutConstraint]{@link FrameNode:LayoutConstraint} is used as the width and height. If
+ * > the parent component of the **ArcScrollBar** component contains scrollable components, such as
+ * > [ArcList]{@link @ohos.arkui.ArcList}, [List]{@link list},
+ * > [Grid]{@link grid}, [Scroll]{@link scroll}, or
+ * > [WaterFlow]{@link water_flow}, you are advised to set the width and height of the
+ * > **ArcScrollBar** component. Otherwise, the width and height of the component may be infinite.
+ * >
+ * > - This component can be used on phones, PCs, 2-in-1 devices, tablets, TVs, and wearables. In API version 22 and
+ * > earlier versions, a compilation warning will be reported when this component is used on phones, PCs, 2-in-1 devices
+ * > , tablets, and TVs, but the component can still run properly.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @crossplatform
  * @atomicservice
  * @since 18 dynamic
+ * @noninterop
  */
 export interface ArcScrollBarInterface {
+
   /**
-   * Creates the arc scroll bar component.
+   * A constructor used to create an **ArcScrollBar** instance.
    *
-   * @param { ArcScrollBarOptions } options
+   * @param { ArcScrollBarOptions } options - Parameters of the **ArcScrollBar** component.
    * @returns { ArcScrollBarAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
@@ -76,15 +100,14 @@ export interface ArcScrollBarInterface {
 
 /**
  * Defines the arc scroll bar attribute functions.
- * 
- * @extends CommonMethod<ArcScrollBarAttribute>
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @crossplatform
  * @atomicservice
  * @since 18 dynamic
+ * @noninterop
  */
-export declare class ArcScrollBarAttribute extends CommonMethod<ArcScrollBarAttribute> {
-}
+export declare class ArcScrollBarAttribute extends CommonMethod<ArcScrollBarAttribute> {}
 
 /**
  * Defines ArcScrollBar Component instance.
@@ -93,16 +116,42 @@ export declare class ArcScrollBarAttribute extends CommonMethod<ArcScrollBarAttr
  * @crossplatform
  * @atomicservice
  * @since 18 dynamic
+ * @noninterop
  */
 export declare const ArcScrollBarInstance: ArcScrollBarAttribute;
 
 /**
- * Defines ArcScrollBar Component.
+ * The **ArcScrollBar** component is designed to be used together with scrollable components such as
+ * [ArcList]{@link @ohos.arkui.ArcList}, [List]{@link list},
+ * [Grid]{@link grid}, [Scroll]{@link scroll}, and
+ * [WaterFlow]{@link water_flow}.
+ *
+ * > **NOTE**
+ * >
+ * > - This component is supported since API version 18. Updates will be marked with a superscript to indicate their
+ * > earliest API version.
+ * >
+ * > - When the width and height of the **ArcScrollBar** component are not set, the **maxSize** value specified in its
+ * > parent component [LayoutConstraint]{@link FrameNode:LayoutConstraint} is used as the width and height. If
+ * > the parent component of the **ArcScrollBar** component contains scrollable components, such as
+ * > [ArcList]{@link @ohos.arkui.ArcList}, [List]{@link list},
+ * > [Grid]{@link grid}, [Scroll]{@link scroll}, or
+ * > [WaterFlow]{@link water_flow}, you are advised to set the width and height of the
+ * > **ArcScrollBar** component. Otherwise, the width and height of the component may be infinite.
+ * >
+ * > - This component can be used on phones, PCs, 2-in-1 devices, tablets, TVs, and wearables. In API version 22 and
+ * > earlier versions, a compilation warning will be reported when this component is used on phones, PCs, 2-in-1 devices
+ * > , tablets, and TVs, but the component can still run properly.
+ *
+ * ###### Child Components
+ *
+ * Not supported
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @crossplatform
  * @atomicservice
  * @uicomponent
  * @since 18 dynamic
+ * @noninterop
  */
 export declare const ArcScrollBar: ArcScrollBarInterface;

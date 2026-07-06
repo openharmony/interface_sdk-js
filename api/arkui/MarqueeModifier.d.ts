@@ -18,35 +18,24 @@
  * @kit ArkUI
  */
 
-
-
-
 /**
  * Defines Marquee Modifier
  *
- * @extends MarqueeAttribute
- * @implements AttributeModifier<MarqueeAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform [since 20]
  * @atomicservice
- * @since 12
-*/
-/**
- * Defines Marquee Modifier
- *
- * @extends MarqueeAttribute
- * @implements AttributeModifier<MarqueeAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20 dynamic
+ * @since 12 dynamic
+ * @noninterop
  */
 export declare class MarqueeModifier extends MarqueeAttribute implements AttributeModifier<MarqueeAttribute> {
 
   /**
    * Defines the normal update attribute function.
-   * 
+   *
    * @param { MarqueeAttribute } instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic

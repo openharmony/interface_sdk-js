@@ -19,10 +19,16 @@
  */
 
 /**
- * Ellipse constructor options.
+ * Describes the options of the ellipse.
  *
- * @interface EllipseOptions
+ * > **NOTE**
+ * >
+ * > To standardize anonymous object definitions, the element definitions here have been revised in API version 18.
+ * > While historical version information is preserved for anonymous objects, there may be cases where the outer
+ * > element's @since version number is higher than inner elements'. This does not affect interface usability.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @form
  * @atomicservice
@@ -30,128 +36,36 @@
  */
 interface EllipseOptions {
   /**
-   * Set width.
+   * Width.
+   * Unit: vp, The value must be greater than or equal to 0. The **undefined**, **null**, **NaN**, and
+   * **Infinity** values are invalid and treated as the default value.
+   * The Resource type is supported since API version 20. Default value: **0**.
    *
-   * @type { ?(string | number) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * Set width.
-   *
-   * @type { ?(string | number) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Set width.
-   *
-   * @type { ?(string | number) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Set width.
-   *
-   * @type { ?(string | number) }
+   * @type { ?(string | number) } [since 18 - 19]
+   * @type { ?Length } [since 20]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
-   */
-/**
-   * Set width.
-   * Anonymous Object Rectification.
-   *
-   * @type { ?(string | number) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 18
-   */
-  /**
-   * Set width.
-   *
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20 dynamic
+   * @since 18 dynamic
    */
   width?: Length;
 
   /**
-   * Set height.
+   * Height.
+   * Unit: vp, The value must be greater than or equal to 0. The **undefined**, **null**, **NaN**, and **Infinity**
+   * values are invalid and treated as the default value.
+   * The Resource type is supported since API version 20. Default value: **0**.
    *
-   * @type { ?(string | number) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * Set height.
-   *
-   * @type { ?(string | number) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Set height.
-   *
-   * @type { ?(string | number) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Set height.
-   *
-   * @type { ?(string | number) }
+   * @type { ?(string | number) } [since 18 - 19]
+   * @type { ?Length } [since 20]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
-   */
-/**
-   * Set height.
-   * Anonymous Object Rectification.
-   *
-   * @type { ?(string | number) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 18
-   */
-  /**
-   * Set height.
-   *
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20 dynamic
+   * @since 18 dynamic
    */
   height?: Length;
 }
@@ -159,222 +73,74 @@ interface EllipseOptions {
 /**
  * Ellipse drawing.
  *
- * @interface EllipseInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @since 7
- */
-/**
- * Ellipse drawing.
- *
- * @interface EllipseInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @form
- * @since 9
- */
-/**
- * Ellipse drawing.
- *
- * @interface EllipseInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Ellipse drawing.
- *
- * @interface EllipseInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
+ * @noninterop [since 11]
  */
 interface EllipseInterface {
   /**
    * use new function to set the value.
-   * 
-   * @param { object } value
-   * @returns { EllipseAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * use new function to set the value.
-   * 
-   * @param { object } value
-   * @returns { EllipseAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * use new function to set the value.
-   * 
-   * @param { object } value
-   * @returns { EllipseAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * use new function to set the value.
-   * 
-   * @param { object } value
-   * @returns { EllipseAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * use new function to set the value.
    * Anonymous Object Rectification.
    *
-   * @param { EllipseOptions } [options] - ellipse options
+   * @param { object } value [since 7 - 17]
+   * @param { EllipseOptions } [options] - ellipse options [since 18]
    * @returns { EllipseAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   new (options?: EllipseOptions): EllipseAttribute;
 
   /**
    * Set the value.
-   *
-   * @param { object } value
+   * 
+   * @param { object } value [since 7 - 17]
+   * @param { EllipseOptions } [options] - Options of the ellipse.<br>The **undefined** and **null** values are treated
+   *     as invalid and will not take effect. [since 18]
    * @returns { EllipseAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * Set the value.
-   *
-   * @param { object } value
-   * @returns { EllipseAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Set the value.
-   *
-   * @param { object } value
-   * @returns { EllipseAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Set the value.
-   *
-   * @param { object } value
-   * @returns { EllipseAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Set the value.
-   * Anonymous Object Rectification.
-   *
-   * @param { EllipseOptions } [options] - ellipse options
-   * @returns { EllipseAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   (options?: EllipseOptions): EllipseAttribute;
 }
 
 /**
- * @extends CommonShapeMethod<EllipseAttribute>
+ * In addition to the [universal attributes]{@link CommonMethod}, the following attributes are supported.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @since 7
- */
-/**
- * @extends CommonShapeMethod<EllipseAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @form
- * @since 9
- */
-/**
- * @extends CommonShapeMethod<EllipseAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * @extends CommonShapeMethod<EllipseAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
+ * @noninterop [since 11]
  */
 declare class EllipseAttribute extends CommonShapeMethod<EllipseAttribute> {}
 
 /**
- * Defines Ellipse Component.
+ * The **Ellipse** component is used to draw an ellipse.
+ * > **Child Components**
+ * >
+ * > None
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @since 7
- */
-/**
- * Defines Ellipse Component.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @form
- * @since 9
- */
-/**
- * Defines Ellipse Component.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Defines Ellipse Component.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
+ * @noninterop [since 11]
  */
 declare const Ellipse: EllipseInterface;
 
@@ -383,33 +149,10 @@ declare const Ellipse: EllipseInterface;
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @since 7
- */
-/**
- * Defines Ellipse Component instance.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @form
- * @since 9
- */
-/**
- * Defines Ellipse Component instance.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Defines Ellipse Component instance.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
+ * @noninterop [since 11]
  */
 declare const EllipseInstance: EllipseAttribute;

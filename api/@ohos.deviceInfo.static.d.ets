@@ -20,7 +20,15 @@
  */
 
 /**
- * A static class pertaining to the product information.
+ * The **deviceInfo** module provides terminal device information query, which cannot be configured by developers.
+ * 
+ * > **NOTE**
+ * >
+ * > The initial APIs of this module are supported since API version 6. Newly added APIs
+ * > will be marked with a superscript to indicate their earliest API version.
+ * > Some parameters whose return value is the default value are not yet available.
+ * > The APIs of this module return information about device getants. You are not expected to call these APIs 
+ * > frequently.
  *
  * @syscap SystemCapability.Startup.SystemInfo
  * @stagemodelonly
@@ -29,7 +37,7 @@
 declare namespace deviceInfo {
     
     /**
-     * Enumerates thedevice types.
+     * Enumerates device types, which can be used to verify the return value of **deviceType**.
      *
      * @syscap SystemCapability.Startup.SystemInfo
      * @stagemodelonly
@@ -37,73 +45,73 @@ declare namespace deviceInfo {
      */
     enum DeviceTypes {
         /**
-        * Default device for phones
-        * 
-        * @syscap SystemCapability.Startup.SystemInfo
-        * @stagemodelonly
-        * @since 24 static
-        */
+         * Default device
+         *
+         * @syscap SystemCapability.Startup.SystemInfo
+         * @stagemodelonly
+         * @since 24 static
+         */
         TYPE_DEFAULT = 'default',
 
         /**
-        * Phone device
-        * 
-        * @syscap SystemCapability.Startup.SystemInfo
-        * @stagemodelonly
-        * @since 24 static
-        */
+         * Smartphone
+         *
+         * @syscap SystemCapability.Startup.SystemInfo
+         * @stagemodelonly
+         * @since 24 static
+         */
         TYPE_PHONE = 'phone',
 
         /**
-        * Tablet device
-        * 
-        * @syscap SystemCapability.Startup.SystemInfo
-        * @stagemodelonly
-        * @since 24 static
-        */
+         * Tablet
+         *
+         * @syscap SystemCapability.Startup.SystemInfo
+         * @stagemodelonly
+         * @since 24 static
+         */
         TYPE_TABLET = 'tablet',
 
         /**
-        * 2in1 device
-        * 
-        * @syscap SystemCapability.Startup.SystemInfo
-        * @stagemodelonly
-        * @since 24 static
-        */
+         * PC/2-in-1 device
+         *
+         * @syscap SystemCapability.Startup.SystemInfo
+         * @stagemodelonly
+         * @since 24 static
+         */
         TYPE_2IN1 = '2in1',
 
         /**
-        * Tv device
-        * 
-        * @syscap SystemCapability.Startup.SystemInfo
-        * @stagemodelonly
-        * @since 24 static
-        */
+         * Smart TV
+         *
+         * @syscap SystemCapability.Startup.SystemInfo
+         * @stagemodelonly
+         * @since 24 static
+         */
         TYPE_TV = 'tv',
 
         /**
-        * Wearable device
-        * 
-        * @syscap SystemCapability.Startup.SystemInfo
-        * @stagemodelonly
-        * @since 24 static
-        */
+         * Wearable
+         *
+         * @syscap SystemCapability.Startup.SystemInfo
+         * @stagemodelonly
+         * @since 24 static
+         */
         TYPE_WEARABLE = 'wearable',
 
         /**
-        * Car device
-        * 
-        * @syscap SystemCapability.Startup.SystemInfo
-        * @stagemodelonly
-        * @since 24 static
-        */
+         * Head unit
+         *
+         * @syscap SystemCapability.Startup.SystemInfo
+         * @stagemodelonly
+         * @since 24 static
+         */
         TYPE_CAR = 'car'
     }
 
     /**
-     * Obtains the device type represented by a string,
-     * which can be {@code phone} (or {@code default} for phones), {@code wearable}, {@code liteWearable},
-     * {@code tablet}, {@code tv}, {@code car}, or {@code smartVision}.
+     * Device type. For details, see [deviceTypes tag](docroot://quick-start/module-configuration-file.md#devicetypes).
+     * 
+     * Example: <!--RP1-->wearable<!--RP1End-->
      *
      * @returns { string }
      * @syscap SystemCapability.Startup.SystemInfo
@@ -113,7 +121,9 @@ declare namespace deviceInfo {
     get deviceType(): string;
     
     /**
-     * Obtains the device manufacturer represented by a string.
+     * Device manufacturer.
+     * 
+     * Example: HUAWEI
      *
      * @returns { string }
      * @syscap SystemCapability.Startup.SystemInfo
@@ -123,7 +133,9 @@ declare namespace deviceInfo {
     get manufacture(): string;
     
     /**
-     * Obtains the external product series represented by a string.
+     * Device brand.
+     * 
+     * Example: HUAWEI
      *
      * @returns { string }
      * @syscap SystemCapability.Startup.SystemInfo
@@ -133,7 +145,9 @@ declare namespace deviceInfo {
     get brand(): string;
 
     /**
-     * Obtains the external product series represented by a string.
+     * Device brand.
+     * 
+     * Example: HUAWEI
      *
      * @returns { string }
      * @syscap SystemCapability.Startup.SystemInfo
@@ -143,7 +157,9 @@ declare namespace deviceInfo {
     get marketName(): string;
     
     /**
-     * Obtains the product series represented by a string.
+     * Product series.
+     * 
+     * Example: <!--RP3-->TAS<!--RP3End-->
      *
      * @returns { string }
      * @syscap SystemCapability.Startup.SystemInfo
@@ -154,7 +170,9 @@ declare namespace deviceInfo {
     
     
     /**
-     * Obtains the product model represented by a string.
+     * Product model.
+     * 
+     * Example: <!--RP4-->TAS-AL00<!--RP4End-->
      *
      * @returns { string }
      * @syscap SystemCapability.Startup.SystemInfo
@@ -164,7 +182,9 @@ declare namespace deviceInfo {
     get productModel(): string;
 
     /**
-     * Obtains the product model alias represented by a string.
+     * Product model alias.
+     * 
+     * Example: TAS-AL00
      *
      * @returns { string }
      * @syscap SystemCapability.Startup.SystemInfo
@@ -174,7 +194,9 @@ declare namespace deviceInfo {
     get productModelAlias(): string;
     
     /**
-     * Obtains the software model represented by a string.
+     * Software model.
+     * 
+     * Example: <!--RP5-->TAS-AL00<!--RP5End-->
      *
      * @returns { string }
      * @syscap SystemCapability.Startup.SystemInfo
@@ -184,7 +206,9 @@ declare namespace deviceInfo {
     get softwareModel(): string;
     
     /**
-     * Obtains the hardware model represented by a string.
+     * Hardware model.
+     * 
+     * Example: <!--RP6-->TASA00CVN1<!--RP6End-->
      *
      * @returns { string }
      * @syscap SystemCapability.Startup.SystemInfo
@@ -194,7 +218,9 @@ declare namespace deviceInfo {
     get hardwareModel(): string;
 
     /**
-     * Obtains the hardware model represented by a string.
+     * Hardware model.
+     * 
+     * Example: <!--RP6-->TASA00CVN1<!--RP6End-->
      *
      * @returns { string }
      * @syscap SystemCapability.Startup.SystemInfo
@@ -204,7 +230,16 @@ declare namespace deviceInfo {
     get hardwareProfile(): string;
 
     /**
-     * Obtains the device serial number represented by a string.
+     * Device serial number (SN).
+     * 
+     * **NOTE**
+     * 
+     * The device SN can be used as the unique identifier of a device.
+     * 
+     * **Required permission**: ohos.permission.sec.ACCESS_UDID (for system applications and enterprise applications 
+     * only)
+     * 
+     * Example: The SN varies with the device.
      *
      * @permission ohos.permission.sec.ACCESS_UDID
      * @returns { string }
@@ -216,7 +251,9 @@ declare namespace deviceInfo {
     get serial(): string;
     
     /**
-     * Obtains the bootloader version number represented by a string.
+     * Bootloader version.
+     * 
+     * Example: bootloader
      *
      * @returns { string }
      * @syscap SystemCapability.Startup.SystemInfo
@@ -226,7 +263,9 @@ declare namespace deviceInfo {
     get bootloaderVersion(): string;
     
     /**
-     * Obtains the application binary interface (Abi) list represented by a string.
+     * Application binary interface (Abi) list.
+     * 
+     * Example: arm64-v8a
      *
      * @returns { string }
      * @syscap SystemCapability.Startup.SystemInfo
@@ -236,7 +275,9 @@ declare namespace deviceInfo {
     get abiList(): string;
     
     /**
-     * Obtains the security patch level represented by a string.
+     * Security patch tag.
+     * 
+     * Example: <!--RP7-->2021/01/01<!--RP7End-->
      *
      * @returns { string }
      * @syscap SystemCapability.Startup.SystemInfo
@@ -246,7 +287,9 @@ declare namespace deviceInfo {
     get securityPatchTag(): string;
     
     /**
-     * Obtains the product version represented by a string.
+     * Product version.
+     * 
+     * Example: <!--RP8-->XXX X.X.X.X<!--RP8End-->
      *
      * @returns { string }
      * @syscap SystemCapability.Startup.SystemInfo
@@ -256,7 +299,9 @@ declare namespace deviceInfo {
     get displayVersion(): string;
     
     /**
-     * Obtains the incremental version represented by a string.
+     * Incremental version.
+     * 
+     * Example: default
      *
      * @returns { string }
      * @syscap SystemCapability.Startup.SystemInfo
@@ -266,9 +311,15 @@ declare namespace deviceInfo {
     get incrementalVersion(): string;
     
     /**
-     * Obtains the OS release type represented by a string.
-     * <p>The OS release category can be {@code Release}, {@code Beta}, or {@code Canary}.
-     * The specific release type may be {@code Release}, {@code Beta1}, or others alike.
+     * OS release type. The options are as follows:
+     * 
+     * - **Canary**: Preliminary release open only to specific developers. This release does not promise API stability 
+     * and may require tolerance of instability.
+     * - **Beta**: Release open to all developers. This release does not promise API stability and may require
+     * tolerance of instability.
+     * - **Release**: Official release open to all developers. This release promises that all APIs are stable.
+     * 
+     * Example: <!--RP9-->Canary/Beta/Release<!--RP9End-->
      *
      * @returns { string }
      * @syscap SystemCapability.Startup.SystemInfo
@@ -279,7 +330,9 @@ declare namespace deviceInfo {
     
     
     /**
-     * Obtains the OS version represented by a string.
+     * System version. The version number is in the format of **OpenHarmony-x.x.x.x**, where **x** is a digit.
+     * 
+     * Example: <!--RP10-->Openharmony-5.0.0.1<!--RP10End-->
      *
      * @returns { string }
      * @syscap SystemCapability.Startup.SystemInfo
@@ -289,8 +342,11 @@ declare namespace deviceInfo {
     get osFullName(): string;
     
     /**
-     * Obtains the major (M) version number, which increases with any updates to the overall architecture.
-     * <p>The M version number monotonically increases from 1 to 99.
+     * Major version number, which increments with the main version. The value is the first digit in **osFullName**.
+     * You are advised to use **deviceInfo.majorVersion** instead of parsing **osFullName** to obtain the value, 
+     * facilitating efficiency improvement.
+     * 
+     * Example: 5
      *
      * @returns { int }
      * @syscap SystemCapability.Startup.SystemInfo
@@ -300,9 +356,11 @@ declare namespace deviceInfo {
     get majorVersion(): int;
     
     /**
-     * Obtains the senior (S) version number, which increases with any updates to the partial
-     * architecture or major features.
-     * <p>The S version number monotonically increases from 0 to 99.
+     * Senior version number, which increments with architecture and feature updates. The value is the second digit in 
+     * **osFullName**. You are advised to use **deviceInfo.seniorVersion** instead of parsing **osFullName** to obtain 
+     * the value, facilitating efficiency improvement.
+     * 
+     * Example: 0
      *
      * @returns { int }
      * @syscap SystemCapability.Startup.SystemInfo
@@ -312,8 +370,11 @@ declare namespace deviceInfo {
     get seniorVersion(): int;
     
     /**
-     * Obtains the feature (F) version number, which increases with any planned new features.
-     * <p>The F version number monotonically increases from 0 or 1 to 99.
+     * Feature version number. The value is the third digit in **osFullName**. You are advised to use 
+     * **deviceInfo.featureVersion** instead of parsing **osFullName** to obtain the value, facilitating efficiency 
+     * improvement.
+     * 
+     * Example: 0
      *
      * @returns { int }
      * @syscap SystemCapability.Startup.SystemInfo
@@ -323,8 +384,11 @@ declare namespace deviceInfo {
     get featureVersion(): int;
     
     /**
-     * Obtains the build (B) version number, which increases with each new development build.
-     * <p>The B version number monotonically increases from 0 or 1 to 999.
+     * Build version number. The value is the fourth digit in **osFullName**. You are advised to use 
+     * **deviceInfo.buildVersion** instead of parsing **osFullName** to obtain the value, facilitating efficiency 
+     * improvement.
+     * 
+     * Example: 1
      *
      * @returns { int }
      * @syscap SystemCapability.Startup.SystemInfo
@@ -335,7 +399,9 @@ declare namespace deviceInfo {
     
     
     /**
-     * Obtains the SDK API version number.
+     * SDK API version.
+     * 
+     * Example: 12
      *
      * @returns { int }
      * @syscap SystemCapability.Startup.SystemInfo
@@ -345,7 +411,9 @@ declare namespace deviceInfo {
     get sdkApiVersion(): int;
     
     /**
-     * Obtains the first API version number.
+     * First API version.
+     * 
+     * Example: 3
      *
      * @returns { int }
      * @syscap SystemCapability.Startup.SystemInfo
@@ -355,7 +423,11 @@ declare namespace deviceInfo {
     get firstApiVersion(): int;
     
     /**
-     * Obtains the version ID by a string.
+     * Version ID. It consists of the following fields: **deviceType**, **manufacture**, **brand**, **productSeries**,
+     * **osFullName**, **productModel**, **softwareModel**, **sdkApiVersion**, **incrementalVersion**, and 
+     * **buildType**.
+     * 
+     * Example: wearable/HUAWEI/HUAWEI/TAS/OpenHarmony-5.0.0.1/TAS-AL00/TAS-AL00/12/default/release:nolog
      *
      * @returns { string }
      * @syscap SystemCapability.Startup.SystemInfo
@@ -365,7 +437,9 @@ declare namespace deviceInfo {
     get versionId(): string;
     
     /**
-     * Obtains the build types of the same baseline code.
+     * Build type.
+     * 
+     * Example: default
      *
      * @returns { string }
      * @syscap SystemCapability.Startup.SystemInfo
@@ -375,7 +449,9 @@ declare namespace deviceInfo {
     get buildType(): string;
     
     /**
-     * Obtains the different build user of the same baseline code.
+     * Build user.
+     * 
+     * Example: default
      *
      * @returns { string }
      * @syscap SystemCapability.Startup.SystemInfo
@@ -385,7 +461,9 @@ declare namespace deviceInfo {
     get buildUser(): string;
     
     /**
-     * Obtains the different build host of the same baseline code.
+     * Build host.
+     * 
+     * Example: default
      *
      * @returns { string }
      * @syscap SystemCapability.Startup.SystemInfo
@@ -395,7 +473,9 @@ declare namespace deviceInfo {
     get buildHost(): string;
     
     /**
-     * Obtains the build time.
+     * Build time.
+     * 
+     * Example: default
      *
      * @returns { string }
      * @syscap SystemCapability.Startup.SystemInfo
@@ -405,7 +485,9 @@ declare namespace deviceInfo {
     get buildTime(): string;
     
     /**
-     * Obtains the version hash.
+     * Build root hash.
+     * 
+     * Example: default
      *
      * @returns { string }
      * @syscap SystemCapability.Startup.SystemInfo
@@ -415,7 +497,16 @@ declare namespace deviceInfo {
     get buildRootHash(): string;
 
     /**
-     * Obtains the device udid.
+     * Device UDID.
+     * 
+     * **NOTE**
+     * 
+     * The data length is 65 bytes. The UDID can be used as the unique identifier of a device.
+     * 
+     * **Required permission**: ohos.permission.sec.ACCESS_UDID (for system applications and enterprise applications 
+     * only)
+     * 
+     * Example: 9D6AABD147XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXE5536412
      *
      * @permission ohos.permission.sec.ACCESS_UDID
      * @returns { string }
@@ -427,10 +518,9 @@ declare namespace deviceInfo {
     get udid(): string;
 
     /**
-     * Obtains the Distribution OS name.
-     * <p>Independent Software Vendor (ISV) may distribute OHOS with their own OS name.
-     * distributionOsName will return the ISV OS name
-     * If ISV not specified, it will return an empty string
+     * Distribution OS name.<!--Del--> It is defined by the issuer.<!--DelEnd-->
+     * 
+     * Example: OpenHarmony
      *
      * @returns { string }
      * @syscap SystemCapability.Startup.SystemInfo
@@ -440,10 +530,9 @@ declare namespace deviceInfo {
     get distributionOSName(): string;
 
     /**
-     * Obtains the Distribution OS version.
-     * <p>Independent Software Vendor (ISV) may distribute OHOS with their own OS version.
-     * distributionOSVersion will return the ISV OS version
-     * If ISV not specified, it will return the same value as osFullName
+     * Distribution OS version.<!--Del--> It is defined by the issuer.<!--DelEnd--><!--RP11--><!--RP11End-->
+     * 
+     * Example: 5.0.0
      *
      * @returns { string }
      * @syscap SystemCapability.Startup.SystemInfo
@@ -453,10 +542,9 @@ declare namespace deviceInfo {
     get distributionOSVersion(): string;
 
     /**
-     * Obtains the Distribution OS version.
-     * <p>Independent Software Vendor (ISV) may distribute OHOS with their own OS api version.
-     * distributionOSVersion will return the ISV OS api version
-     * If ISV not specified, it will return the same value as sdkApiVersion
+     * Distribution OS API version.<!--Del--> It is defined by the issuer.<!--DelEnd-->
+     * 
+     * Example: 50001
      *
      * @returns { int }
      * @syscap SystemCapability.Startup.SystemInfo
@@ -466,9 +554,7 @@ declare namespace deviceInfo {
     get distributionOSApiVersion(): int;
 
     /**
-     * Obtains the Distribution OS api name.
-     * <p>Independent Software Vendor (ISV) may distribute OHOS with their own OS api name.
-     * distributionOSApiName will return the ISV OS api name
+     * Distribution OS API name.<!--Del--> It is defined by the issuer.<!--DelEnd-->
      *
      * @returns { string }
      * @syscap SystemCapability.Startup.SystemInfo
@@ -478,10 +564,9 @@ declare namespace deviceInfo {
     get distributionOSApiName(): string;
 
     /**
-     * Obtains the Distribution OS release type.
-     * <p>Independent Software Vendor (ISV) may distribute OHOS with their own OS release type.
-     * distributionOSVersion will return the ISV OS release type
-     * If ISV not specified, it will return the same value as osReleaseType
+     * Distribution OS release type.<!--Del--> It is defined by the issuer.<!--DelEnd-->
+     * 
+     * Example: Release
      *
      * @returns { string }
      * @syscap SystemCapability.Startup.SystemInfo
@@ -491,19 +576,32 @@ declare namespace deviceInfo {
     get distributionOSReleaseType(): string;
 
     /**
-     * Open Device Identifier (ODID): a developer-level non-permanent device identifier.
-     * A developer can be an enterprise or individual developer.
-     * Example: dff3cdfd-7beb-1e7d-fdf7-1dbfddd7d30c
-     *
-     * An ODID will be regenerate in the following scenarios:
+     * Open device identifier.
+     * 
+     * An ODID will be regenerated in the following scenarios:
+     * 
      * Restore a phone to its factory settings.
-     * Uninstall and reinstall all apps of one developer on one device.
-     *
+     * 
+     * Uninstall and reinstall all applications with the same **developerId** on one device.
+     * 
      * An ODID is generated based on the following rules:
-     * For apps from the same developer, which are running on the same device, they have the same ODID.
-     * For apps from different developers, which are running on the same device, each of them has its own ODID.
-     * For apps from the same developer, which are running on different devices, each of them has its own ODID.
-     * For apps from different developers, which are running on different devices, each of them has its own ODID.
+     * 
+     * The value is generated based on the **groupId** parsed from the **developerId** in the signature information. As
+     * **groupId.developerId** is the rule, if no **groupId** exists, the **developerId** is used as the **groupId**.
+     * 
+     * Applications with the same **developerId** use the same ODID on one device.
+     * 
+     * Applications with different **developerId**s use different ODIDs on one device.
+     * 
+     * Applications with the same **developerId** use different ODIDs on different devices.
+     * 
+     * Applications with different **developerId**s use different ODIDs on different devices.
+     * 
+     * **NOTE**
+     * 
+     * The data length is 37 bytes.
+     * 
+     * Example: 1234a567-XXXX-XXXX-XXXX-XXXXXXXXXXXX
      *
      * @returns { string }
      * @syscap SystemCapability.Startup.SystemInfo
@@ -513,7 +611,15 @@ declare namespace deviceInfo {
     get ODID(): string;
     
     /**
-     * Obtaining the hard drive serial number.
+     * Disk SN.
+     * 
+     * **NOTE**
+     * 
+     * This field can be queried only on the 2-in-1 device. For other devices, the query result is empty.
+     * 
+     * ohos.permission.ACCESS_DISK_PHY_INFO
+     * 
+     * Example: 2502EM400567
      *
      * @permission ohos.permission.ACCESS_DISK_PHY_INFO
      * @returns { string }
@@ -525,47 +631,47 @@ declare namespace deviceInfo {
     get diskSN(): string;
 
     /**
-    * Performance Class level of a device.
-    *
-    * @syscap SystemCapability.Startup.SystemInfo
-    * @stagemodelonly
-    * @since 24 static
-    */
+     * Enumerates the device capability levels.
+     *
+     * @syscap SystemCapability.Startup.SystemInfo
+     * @stagemodelonly
+     * @since 24 static
+     */
     enum PerformanceClassLevel {
         /**
-        * Device Capability Level is high.
-        * 
-        * @syscap SystemCapability.Startup.SystemInfo
-        * @stagemodelonly
-        * @since 24 static
-        */
+         * High
+         *
+         * @syscap SystemCapability.Startup.SystemInfo
+         * @stagemodelonly
+         * @since 24 static
+         */
         CLASS_LEVEL_HIGH,
         /**
-        * Device Capability Level is medium.
-        * 
-        * @syscap SystemCapability.Startup.SystemInfo
-        * @stagemodelonly
-        * @since 24 static
-        */
+         * Medium
+         *
+         * @syscap SystemCapability.Startup.SystemInfo
+         * @stagemodelonly
+         * @since 24 static
+         */
         CLASS_LEVEL_MEDIUM,
         /**
-        * Device Capability Level is low.
-        * 
-        * @syscap SystemCapability.Startup.SystemInfo
-        * @stagemodelonly
-        * @since 24 static
-        */
+         * Low
+         *
+         * @syscap SystemCapability.Startup.SystemInfo
+         * @stagemodelonly
+         * @since 24 static
+         */
         CLASS_LEVEL_LOW
     }
 
     /**
-    * Obtaining the performance class.
-    *
-    * @returns { PerformanceClassLevel }
-    * @syscap SystemCapability.Startup.SystemInfo
-    * @stagemodelonly
-    * @since 24 static
-    */
+     * Device capability level.
+     *
+     * @returns { PerformanceClassLevel }
+     * @syscap SystemCapability.Startup.SystemInfo
+     * @stagemodelonly
+     * @since 24 static
+     */
     get performanceClass(): PerformanceClassLevel;
 
     /**
@@ -588,5 +694,15 @@ declare namespace deviceInfo {
      * @since 24 static
      */
     get bootCount(): int;
+
+    /**
+     * Obtain the device color represented by a string. If it cannot be obtained, return an empty string
+     *
+     * @returns { string }
+     * @syscap SystemCapability.Startup.SystemInfo
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    get deviceColor(): string;
 }
 export default deviceInfo;

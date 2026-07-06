@@ -19,10 +19,11 @@
  */
 
 /**
- * Import the drawing canvas type object for Canvas.
+ * Defines a canvas object for drawing content on the **XComponent** component.
  *
  * @typedef { import('../api/@ohos.graphics.drawing').default.Canvas } DrawingCanvas
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -30,422 +31,137 @@
 declare type DrawingCanvas = import('../api/@ohos.graphics.drawing').default.Canvas;
 
 /**
- * Filling style algorithm, which determines whether a point is within or outside the path. The following
- *    two configurations are supported:
- * "evenodd": odd and even round rule
- * "nonzero": (Default) Non-zero Wrap Rules
+ * Defines the fill pattern algorithm used to determine whether a point is inside or outside a path. The value type is a
+ * union of the types listed in the table below.
  *
- * @typedef { "evenodd" | "nonzero" } CanvasFillRule
+ * @unionmember { "evenodd" } The inside part of a shape is determined based on whether the counting result is an odd
+ *     number or not. This rule determines whether a point is inside a shape by casting a ray from the point on the
+ *     canvas in any direction and counting the number of intersections between the ray and the shape path. If the
+ *     number of intersections is odd, the point is inside the shape.
+ *     Otherwise, the point is outside the shape.
+ * @unionmember { "nonzero" } The inside part of a shape is determined based on whether the counting result
+ *     is zero or not. This rule determines whether a point is inside a shape by casting a ray from the
+ *     point on the canvas in any direction and checking the intersections between the ray and the shape
+ *     path. The initial count is **0**: assign a direction value to each segment of the path, add 1 each
+ *     time the path crosses the ray from left to right, and subtract 1 each time it crosses the ray from
+ *     right to left. If the final result is **0**, the point is outside the shape. Otherwise, the point
+ *     is inside the shape.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @since 8
- */
-/**
- * Filling style algorithm, which determines whether a point is within or outside the path. The following
- *    two configurations are supported:
- * "evenodd": odd and even round rule
- * "nonzero": (Default) Non-zero Wrap Rules
- *
- * @typedef { "evenodd" | "nonzero" } CanvasFillRule
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @form
- * @since 9
- */
-/**
- * Filling style algorithm, which determines whether a point is within or outside the path. The following
- *    two configurations are supported:
- * "evenodd": odd and even round rule
- * "nonzero": (Default) Non-zero Wrap Rules
- *
- * @typedef { "evenodd" | "nonzero" } CanvasFillRule
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Filling style algorithm, which determines whether a point is within or outside the path. The following
- *    two configurations are supported:
- * "evenodd": odd and even round rule
- * "nonzero": (Default) Non-zero Wrap Rules
- *
- * @typedef { "evenodd" | "nonzero" } CanvasFillRule
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 8 dynamic
  */
 declare type CanvasFillRule = "evenodd" | "nonzero";
 
 /**
- * Specifies the attribute of drawing the end of each line segment. The following configurations are supported:
- * "butt": (Default) Segment Ends in Square
- * "round": Segment ends in a circle
- * "square": The end of the segment ends in a square, but a rectangular area is added that is the same width
- *    as the segment and is half the thickness of the segment.
+ * Specifies the attribute of drawing the end of each line segment.
  *
- * @typedef { "butt" | "round" | "square" } CanvasLineCap
+ * @unionmember { "butt" } The ends of the line are squared off, and the line does not extend beyond
+ *     its two endpoints.
+ * @unionmember { "round" } The line is extended at the endpoints by a half circle whose diameter is
+ *     equal to the line width.
+ * @unionmember { "square" } The line is extended at the endpoints by a rectangle whose width is equal
+ *     to half the line width and height equal to the line width.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @since 8
- */
-/**
- * Specifies the attribute of drawing the end of each line segment. The following configurations are supported:
- * "butt": (Default) Segment Ends in Square
- * "round": Segment ends in a circle
- * "square": The end of the segment ends in a square, but a rectangular area is added that is the same width
- *    as the segment and is half the thickness of the segment.
- *
- * @typedef { "butt" | "round" | "square" } CanvasLineCap
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @form
- * @since 9
- */
-/**
- * Specifies the attribute of drawing the end of each line segment. The following configurations are supported:
- * "butt": (Default) Segment Ends in Square
- * "round": Segment ends in a circle
- * "square": The end of the segment ends in a square, but a rectangular area is added that is the same width
- *    as the segment and is half the thickness of the segment.
- *
- * @typedef { "butt" | "round" | "square" } CanvasLineCap
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Specifies the attribute of drawing the end of each line segment. The following configurations are supported:
- * "butt": (Default) Segment Ends in Square
- * "round": Segment ends in a circle
- * "square": The end of the segment ends in a square, but a rectangular area is added that is the same width
- *    as the segment and is half the thickness of the segment.
- *
- * @typedef { "butt" | "round" | "square" } CanvasLineCap
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 8 dynamic
  */
 declare type CanvasLineCap = "butt" | "round" | "square";
 
 /**
- * Sets the attribute of how two connected parts (line segments, arcs, and curves) whose length is not 0
- *    are connected together. The following three configurations are supported:
- * "bevel": Fill the ends of the connected sections with an additional triangle-base area,
- *    each with its own independent rectangular corner.
- * "miter": (Default) An additional diamond region is formed by extending the outer edges of the connected portions
- *    so that they intersect at a point.
- * "round": Draw the shape of the corner by filling in an additional sector with the center at the end of the
- *    connected section. The radius of the fillet is the width of the segment.
+ * Defines the type of join between two non-zero-length segments (lines, arcs, and curves). The value type is a union of
+ * the types listed in the table below.
  *
- * @typedef { "bevel" | "miter" | "round" } CanvasLineJoin
+ * @unionmember { "bevel" } The intersection is a triangle. The rectangular corner of each line
+ *     is independent.
+ * @unionmember { "miter" } The intersection has a miter corner by extending the outside edges
+ *     of the lines until they meet. You can view the effect of this attribute in **miterLimit**.
+ * @unionmember { "round" } The intersection is a sector, whose radius at the rounded corner is
+ *     equal to the line width.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @since 8
- */
-/**
- * Sets the attribute of how two connected parts (line segments, arcs, and curves) whose length is not 0
- *    are connected together. The following three configurations are supported:
- * "bevel": Fill the ends of the connected sections with an additional triangle-base area,
- *    each with its own independent rectangular corner.
- * "miter": (Default) An additional diamond region is formed by extending the outer edges of the connected portions
- *    so that they intersect at a point.
- * "round": Draw the shape of the corner by filling in an additional sector with the center at the end of the
- *    connected section. The radius of the fillet is the width of the segment.
- *
- * @typedef { "bevel" | "miter" | "round" } CanvasLineJoin
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @form
- * @since 9
- */
-/**
- * Sets the attribute of how two connected parts (line segments, arcs, and curves) whose length is not 0
- *    are connected together. The following three configurations are supported:
- * "bevel": Fill the ends of the connected sections with an additional triangle-base area,
- *    each with its own independent rectangular corner.
- * "miter": (Default) An additional diamond region is formed by extending the outer edges of the connected portions
- *    so that they intersect at a point.
- * "round": Draw the shape of the corner by filling in an additional sector with the center at the end of the
- *    connected section. The radius of the fillet is the width of the segment.
- *
- * @typedef { "bevel" | "miter" | "round" } CanvasLineJoin
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Sets the attribute of how two connected parts (line segments, arcs, and curves) whose length is not 0
- *    are connected together. The following three configurations are supported:
- * "bevel": Fill the ends of the connected sections with an additional triangle-base area,
- *    each with its own independent rectangular corner.
- * "miter": (Default) An additional diamond region is formed by extending the outer edges of the connected portions
- *    so that they intersect at a point.
- * "round": Draw the shape of the corner by filling in an additional sector with the center at the end of the
- *    connected section. The radius of the fillet is the width of the segment.
- *
- * @typedef { "bevel" | "miter" | "round" } CanvasLineJoin
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 8 dynamic
  */
 declare type CanvasLineJoin = "bevel" | "miter" | "round";
 
 /**
- * Indicates the attribute of the current text direction. The options are as follows:
- * "inherit": (Default) Inherit current Canvas component settings
- * "ltr": The text direction is left to right.
- * "rtl": The text direction is from right to left.
+ * Defines the current text direction. The value type is a union of the types listed in the table below.
  *
- * @typedef { "inherit" | "ltr" | "rtl" } CanvasDirection
+ * @unionmember { "inherit" } Inherits the text direction set in the general attributes of the canvas
+ *     component. If the **direction** attribute is not set on the canvas component, the system text
+ *     direction is used.
+ * @unionmember { "ltr" } The text direction is from left to right.
+ * @unionmember { "rtl" } The text direction is from right to left.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @since 8
- */
-/**
- * Indicates the attribute of the current text direction. The options are as follows:
- * "inherit": (Default) Inherit current Canvas component settings
- * "ltr": The text direction is left to right.
- * "rtl": The text direction is from right to left.
- *
- * @typedef { "inherit" | "ltr" | "rtl" } CanvasDirection
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @form
- * @since 9
- */
-/**
- * Indicates the attribute of the current text direction. The options are as follows:
- * "inherit": (Default) Inherit current Canvas component settings
- * "ltr": The text direction is left to right.
- * "rtl": The text direction is from right to left.
- *
- * @typedef { "inherit" | "ltr" | "rtl" } CanvasDirection
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Indicates the attribute of the current text direction. The options are as follows:
- * "inherit": (Default) Inherit current Canvas component settings
- * "ltr": The text direction is left to right.
- * "rtl": The text direction is from right to left.
- *
- * @typedef { "inherit" | "ltr" | "rtl" } CanvasDirection
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 8 dynamic
  */
 declare type CanvasDirection = "inherit" | "ltr" | "rtl";
 
 /**
- * Describes the alignment mode for drawing text. The options are as follows:
- * "center": The text is centered.
- * "end": Where text aligns lines end (Left alignment refers to the local from left to right,
- *    and right alignment refers to the local from right to left)
- * "left": (Default) The text is left-aligned.
- * "right": The text is right-aligned.
- * "start": Where the text snap line begins (Left alignment refers to the local from left to right,
- *    and right alignment refers to the local from right to left)
+ * Defines the type of text alignment. The value type is a union of the types listed in the table below.
  *
- * @typedef { "center" | "end" | "left" | "right" | "start" } CanvasTextAlign
+ * @unionmember { "center" } The text is center-aligned.
+ * @unionmember { "end" } The text is aligned with the end bound (left alignment refers to the local
+ *     from left to right, and right alignment refers to the local from right to left).
+ * @unionmember { "left" } The text is left-aligned.
+ * @unionmember { "right" } The text is right-aligned.
+ * @unionmember { "start" } The text is aligned with the start bound (left alignment refers to the
+ *     local from left to right, and right alignment refers to the local from right to left).
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @since 8
- */
-/**
- * Describes the alignment mode for drawing text. The options are as follows:
- * "center": The text is centered.
- * "end": Where text aligns lines end (Left alignment refers to the local from left to right,
- *    and right alignment refers to the local from right to left)
- * "left": (Default) The text is left-aligned.
- * "right": The text is right-aligned.
- * "start": Where the text snap line begins (Left alignment refers to the local from left to right,
- *    and right alignment refers to the local from right to left)
- *
- * @typedef { "center" | "end" | "left" | "right" | "start" } CanvasTextAlign
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @form
- * @since 9
- */
-/**
- * Describes the alignment mode for drawing text. The options are as follows:
- * "center": The text is centered.
- * "end": Where text aligns lines end (Left alignment refers to the local from left to right,
- *    and right alignment refers to the local from right to left)
- * "left": (Default) The text is left-aligned.
- * "right": The text is right-aligned.
- * "start": Where the text snap line begins (Left alignment refers to the local from left to right,
- *    and right alignment refers to the local from right to left)
- *
- * @typedef { "center" | "end" | "left" | "right" | "start" } CanvasTextAlign
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Describes the alignment mode for drawing text. The options are as follows:
- * "center": The text is centered.
- * "end": Where text aligns lines end (Left alignment refers to the local from left to right,
- *    and right alignment refers to the local from right to left)
- * "left": (Default) The text is left-aligned.
- * "right": The text is right-aligned.
- * "start": Where the text snap line begins (Left alignment refers to the local from left to right,
- *    and right alignment refers to the local from right to left)
- *
- * @typedef { "center" | "end" | "left" | "right" | "start" } CanvasTextAlign
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 8 dynamic
  */
 declare type CanvasTextAlign = "center" | "end" | "left" | "right" | "start";
 
 /**
- * Text baseline, which supports the following configurations:
- * "alphabetic": (Default) The text baseline is the standard letter baseline.
- * "bottom": The text baseline is at the bottom of the text block. The difference between the ideographic baseline
- *    and the ideographic baseline is that the ideographic baseline does not need to consider downlink letters.
- * "hanging": The text baseline is a hanging baseline.
- * "ideographic": The text baseline is the ideographic baseline; If the character itself exceeds the alphabetic
- *    baseline, the ideographic baseline is at the bottom of the character itself.
- * "middle": The text baseline is in the middle of the text block.
- * "top": The text baseline is at the top of the text block.
+ * Defines the text baseline type. The value type is a union of the types listed in the table below.
  *
- * @typedef { "alphabetic" | "bottom" | "hanging" | "ideographic" | "middle" | "top" } CanvasTextBaseline
+ * @unionmember { "alphabetic" } The text baseline is the normal alphabetic baseline.
+ * @unionmember { "bottom" } The text baseline is at the bottom of the text bounding box. Its difference
+ *     from the ideographic baseline is that the ideographic baseline does not consider letters in the
+ *     next line.
+ * @unionmember { "hanging" } The text baseline is a hanging baseline over the text.
+ * @unionmember { "ideographic" } The text baseline is the ideographic baseline. If a character exceeds
+ *     the alphabetic baseline, the ideographic baseline is located at the bottom of the excessive
+ *     character.
+ * @unionmember { "middle" } The text baseline is in the middle of the text bounding box.
+ * @unionmember { "top" } The text baseline is on the top of the text bounding box.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @since 8
- */
-/**
- * Text baseline, which supports the following configurations:
- * "alphabetic": (Default) The text baseline is the standard letter baseline.
- * "bottom": The text baseline is at the bottom of the text block. The difference between the ideographic baseline
- *    and the ideographic baseline is that the ideographic baseline does not need to consider downlink letters.
- * "hanging": The text baseline is a hanging baseline.
- * "ideographic": The text baseline is the ideographic baseline; If the character itself exceeds the alphabetic
- *    baseline, the ideographic baseline is at the bottom of the character itself.
- * "middle": The text baseline is in the middle of the text block.
- * "top": The text baseline is at the top of the text block.
- *
- * @typedef { "alphabetic" | "bottom" | "hanging" | "ideographic" | "middle" | "top" } CanvasTextBaseline
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @form
- * @since 9
- */
-/**
- * Text baseline, which supports the following configurations:
- * "alphabetic": (Default) The text baseline is the standard letter baseline.
- * "bottom": The text baseline is at the bottom of the text block. The difference between the ideographic baseline
- *    and the ideographic baseline is that the ideographic baseline does not need to consider downlink letters.
- * "hanging": The text baseline is a hanging baseline.
- * "ideographic": The text baseline is the ideographic baseline; If the character itself exceeds the alphabetic
- *    baseline, the ideographic baseline is at the bottom of the character itself.
- * "middle": The text baseline is in the middle of the text block.
- * "top": The text baseline is at the top of the text block.
- *
- * @typedef { "alphabetic" | "bottom" | "hanging" | "ideographic" | "middle" | "top" } CanvasTextBaseline
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Text baseline, which supports the following configurations:
- * "alphabetic": (Default) The text baseline is the standard letter baseline.
- * "bottom": The text baseline is at the bottom of the text block. The difference between the ideographic baseline
- *    and the ideographic baseline is that the ideographic baseline does not need to consider downlink letters.
- * "hanging": The text baseline is a hanging baseline.
- * "ideographic": The text baseline is the ideographic baseline; If the character itself exceeds the alphabetic
- *    baseline, the ideographic baseline is at the bottom of the character itself.
- * "middle": The text baseline is in the middle of the text block.
- * "top": The text baseline is at the top of the text block.
- *
- * @typedef { "alphabetic" | "bottom" | "hanging" | "ideographic" | "middle" | "top" } CanvasTextBaseline
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 8 dynamic
  */
 declare type CanvasTextBaseline = "alphabetic" | "bottom" | "hanging" | "ideographic" | "middle" | "top";
 
 /**
- * Sets the image smoothness attribute. The options are as follows:
- * "high": height
- * "low": (default)low
- * "medium": medium
+ * Sets the image smoothness attribute.
  *
- * @typedef { "high" | "low" | "medium" } ImageSmoothingQuality
+ * @unionmember { "high" } High quality.
+ * @unionmember { "low" } Low quality.
+ * @unionmember { "medium" } Medium quality.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @since 8
- */
-/**
- * Sets the image smoothness attribute. The options are as follows:
- * "high": height
- * "low": (default)low
- * "medium": medium
- *
- * @typedef { "high" | "low" | "medium" } ImageSmoothingQuality
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @form
- * @since 9
- */
-/**
- * Sets the image smoothness attribute. The options are as follows:
- * "high": height
- * "low": (default)low
- * "medium": medium
- *
- * @typedef { "high" | "low" | "medium" } ImageSmoothingQuality
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Sets the image smoothness attribute. The options are as follows:
- * "high": height
- * "low": (default)low
- * "medium": medium
- *
- * @typedef { "high" | "low" | "medium" } ImageSmoothingQuality
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 8 dynamic
  */
 declare type ImageSmoothingQuality = "high" | "low" | "medium";
 
@@ -454,6 +170,7 @@ declare type ImageSmoothingQuality = "high" | "low" | "medium";
  *
  * @typedef { import('../api/arkui/FrameNode').FrameNode } FrameNode
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 13 dynamic
@@ -461,95 +178,80 @@ declare type ImageSmoothingQuality = "high" | "low" | "medium";
 declare type FrameNode = import('../api/arkui/FrameNode').FrameNode;
 
 /**
- * Opaque objects that describe gradients, created by createLinearGradient() or createRadialGradient()
+ * **CanvasGradient** provides a canvas gradient object.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @since 8
- */
-/**
- * Opaque objects that describe gradients, created by createLinearGradient() or createRadialGradient()
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @form
- * @since 9
- */
-/**
- * Opaque objects that describe gradients, created by createLinearGradient() or createRadialGradient()
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Opaque objects that describe gradients, created by createLinearGradient() or createRadialGradient()
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 8 dynamic
  */
 declare class CanvasGradient {
   /**
-   * Add a breakpoint defined by offset and color to the gradient
+   * Adds a color stop for the **CanvasGradient** object based on the specified offset
+   * and gradient color.
    *
-   * @param { number } offset - Value between 0 and 1, out of range throws INDEX_SIZE_ERR error
-   * @param { string } color - CSS color value <color>. If the color value cannot be resolved to a valid CSS color value <color>
-   *    a SYNTAX_ERR error is thrown.
+   * @param { number } offset - Relative position of the gradient stop along the gradient vector,
+   *    represented by the ratio of the distance between the gradient stop and the start point
+   *    to the total length. The value ranges from 0 to 1.<br>
+   *    If the value of **offset** is less than 0 or greater than 1, there is no gradient effect.<br>
+   *    **undefined** and **null** are treated as invalid values, and the current stop is ignored.
+   *    **NaN** causes a **CanvasGradient** exception, and **Infinity** causes **CanvasGradient**
+   *    to be invalid.
+   * @param { string } color - Gradient color to set. For details about the color notation,
+   *    see the description of the string type in
+   *    [ResourceColor]{@link ResourceColor}.<br>
+   *    Invalid values result in no gradient effect being displayed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 8
-   */
-  /**
-   * Add a breakpoint defined by offset and color to the gradient
-   *
-   * @param { number } offset - Value between 0 and 1, out of range throws INDEX_SIZE_ERR error
-   * @param { string } color - CSS color value <color>. If the color value cannot be resolved to a valid CSS color value <color>
-   *    a SYNTAX_ERR error is thrown.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Add a breakpoint defined by offset and color to the gradient
-   *
-   * @param { number } offset - Value between 0 and 1, out of range throws INDEX_SIZE_ERR error
-   * @param { string } color - Set the gradient color.
-   *    a SYNTAX_ERR error is thrown.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Add a breakpoint defined by offset and color to the gradient
-   *
-   * @param { number } offset - Value between 0 and 1, out of range throws INDEX_SIZE_ERR error
-   * @param { string } color - Set the gradient color.
-   *    a SYNTAX_ERR error is thrown.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   addColorStop(offset: number, color: string): void;
 
   /**
-   * Add a breakpoint defined by offset and color to the gradient
+   * Adds a color stop for the **CanvasGradient** object based on the specified offset
+   * and gradient color. Colors in RGB or ARGB format can be set. You can set P3 color
+   * gamut values by passing in the
+   * [ColorMetrics]{@link ColorMetrics}
+   * type, which can achieve richer color reproduction on devices that support high color gamut.
    *
-   * @param { number } offset - Value between 0 and 1.
-   * @param { string | ColorMetrics } color - Set the gradient color.
+   * > **NOTE**
+   * >
+   * > Only the
+   * > [fillStyle]{@link CanvasRenderingContext2D#fillStyle}
+   * > and
+   * > [strokeStyle]{@link CanvasRenderingContext2D#strokeStyle}
+   * > attributes of the
+   * > [CanvasRenderingContext2D]{@link CanvasRenderingContext2D}
+   * > object support the **CanvasGradient** object with the P3 wide color gamut. In addition,
+   * > the color gamut mode of the window where the **Canvas** component is located must be set
+   * > to wide color gamut mode **WIDE_GAMUT** via the
+   * > [setWindowColorSpace]{@link Window#setWindowColorSpace}
+   * > method.
+   *
+   * @param { number } offset - Relative position of the gradient stop along the gradient vector,
+   *     represented by the ratio of the distance between the gradient stop and the start point
+   *     to the total length. The value ranges from 0 to 1.<br>
+   *     If the value of **offset** is less than 0 or greater than 1, there is no gradient effect.<br>
+   *     **undefined** and **null** are treated as invalid values and are not applied.
+   *     **NaN** causes a **CanvasGradient** exception, and **Infinity** causes **CanvasGradient**
+   *     to be invalid.
+   * @param { string | ColorMetrics } color - Color of the gradient fill.<br>
+   *     You can use the
+   *     [colorWithSpace]{@link ColorMetrics#colorWithSpace}
+   *     method to construct a color with the color gamut attribute
+   *     [ColorSpace]{@link ColorSpace}
+   *     set to **SRGB** or **DISPLAY_P3**. The color gamut attributes of each gradient ColorMetrics
+   *     must be the same. If different color gamut attributes are set, an exception is thrown,
+   *     and the error code is 103701.<br>
+   *     **undefined** and **null** are treated as invalid values, and the current stop is ignored.
    * @throws { BusinessError } 103701 - The color's ColorSpace is not the same as the last color's.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice
@@ -559,329 +261,197 @@ declare class CanvasGradient {
 }
 
 /**
- * Path object, which provides basic methods for drawing paths.
+ * Path object, which provides basic methods for drawing paths. For details about the path-related APIs,
+ * see the description in **CanvasRenderingContext2D**.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @since 8
- */
-/**
- * Path object, which provides basic methods for drawing paths.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @form
- * @since 9
- */
-/**
- * Path object, which provides basic methods for drawing paths.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Path object, which provides basic methods for drawing paths.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 8 dynamic
  */
 declare class CanvasPath {
   /**
-   * Draw an arc path
+   * Draws an arc on the canvas.
    *
-   * @param { number } x - The x-axis coordinate of the center (center of the circle) of the arc.
-   * @param { number } y - The y-axis coordinate of the center (center of the circle) of the arc.
-   * @param { number } radius - Radius of the arc.
-   * @param { number } startAngle - Start point of an arc, which starts to be calculated in the x-axis direction. The unit is radian.
-   * @param { number } endAngle - The end point of the arc, in radians.
-   * @param { boolean } [counterclockwise] - If the value is true, the arc is drawn counterclockwise. Otherwise,
-   *    the arc is drawn clockwise. The default value is false.
+   * @param { number } x - X-coordinate of the center point of the arc.<br>In versions earlier than API
+   *    version 18, **NaN** or **Infinity** value prevents the entire path from rendering, and **null** or
+   *    **undefined** value causes the current API to have no effect. Since API version 18, **NaN**,
+   *    **Infinity**, **null**, or **undefined** causes the current API to have no effect, and other path
+   *    APIs with valid arguments continue to render correctly.<br>Default unit: vp
+   * @param { number } y - Y-coordinate of the center point of the arc.<br>In versions earlier than API
+   *    version 18, **NaN** or **Infinity** value prevents the entire path from rendering, and **null** or
+   *    **undefined** value causes the current API to have no effect. Since API version 18, **NaN**,
+   *    **Infinity**, **null**, or **undefined** causes the current API to have no effect, and other path
+   *    APIs with valid arguments continue to render correctly.<br>Default unit: vp
+   * @param { number } radius - Radius of the arc.<br>In versions earlier than API version 18, **NaN** or
+   *    **Infinity** value prevents the entire path from rendering, and **null** or **undefined** value
+   *    causes the current API to have no effect. Since API version 18, **NaN**, **Infinity**, **null**, or
+   *    **undefined** causes the current API to have no effect, and other path APIs with valid arguments
+   *    continue to render correctly.<br>Default unit: vp
+   * @param { number } startAngle - Start radian of the arc.<br>In versions earlier than API version 18,
+   *    **NaN** or **Infinity** value prevents the entire path from rendering, and **null** or **undefined**
+   *    value causes the current API to have no effect. Since API version 18, **NaN**, **Infinity**,
+   *    **null**, or **undefined** causes the current API to have no effect, and other path APIs with valid
+   *    arguments continue to render correctly.<br>Unit: radian
+   * @param { number } endAngle - End radian of the arc.<br>In versions earlier than API version 18, **NaN**
+   *    or **Infinity** value prevents the entire path from rendering, and **null** or **undefined** value
+   *    causes the current API to have no effect. Since API version 18, **NaN**, **Infinity**, **null**, or
+   *    **undefined** causes the current API to have no effect, and other path APIs with valid arguments
+   *    continue to render correctly.<br>Unit: radian
+   * @param { boolean } [counterclockwise] - Whether to draw the arc counterclockwise.<br>**true**: Draw the
+   *    arc counterclockwise.<br>**false**: Draw the arc clockwise.<br>The default value is **false**. If
+   *    this parameter is set to **null** or **undefined**, the default value is used.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 8
-   */
-  /**
-   * Draw an arc path
-   *
-   * @param { number } x - The x-axis coordinate of the center (center of the circle) of the arc.
-   * @param { number } y - The y-axis coordinate of the center (center of the circle) of the arc.
-   * @param { number } radius - Radius of the arc.
-   * @param { number } startAngle - Start point of an arc, which starts to be calculated in the x-axis direction. The unit is radian.
-   * @param { number } endAngle - The end point of the arc, in radians.
-   * @param { boolean } [counterclockwise] - If the value is true, the arc is drawn counterclockwise. Otherwise,
-   *    the arc is drawn clockwise. The default value is false.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Draw an arc path
-   *
-   * @param { number } x - The x-axis coordinate of the center (center of the circle) of the arc.
-   * @param { number } y - The y-axis coordinate of the center (center of the circle) of the arc.
-   * @param { number } radius - Radius of the arc.
-   * @param { number } startAngle - Start point of an arc, which starts to be calculated in the x-axis direction. The unit is radian.
-   * @param { number } endAngle - The end point of the arc, in radians.
-   * @param { boolean } [counterclockwise] - If the value is true, the arc is drawn counterclockwise. Otherwise,
-   *    the arc is drawn clockwise. The default value is false.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Draw an arc path
-   *
-   * @param { number } x - The x-axis coordinate of the center (center of the circle) of the arc.
-   * @param { number } y - The y-axis coordinate of the center (center of the circle) of the arc.
-   * @param { number } radius - Radius of the arc.
-   * @param { number } startAngle - Start point of an arc, which starts to be calculated in the x-axis direction. The unit is radian.
-   * @param { number } endAngle - The end point of the arc, in radians.
-   * @param { boolean } [counterclockwise] - If the value is true, the arc is drawn counterclockwise. Otherwise,
-   *    the arc is drawn clockwise. The default value is false.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   arc(x: number, y: number, radius: number, startAngle: number, endAngle: number, counterclockwise?: boolean): void;
 
   /**
-   * Draw arc paths based on control points and radius
+   * Creates a circular arc using the given control points and radius.
    *
-   * @param { number } x1 - The x-axis coordinate of the first control point.
-   * @param { number } y1 - The y-axis coordinate of the first control point.
-   * @param { number } x2 - The x-axis coordinate of the second control point.
-   * @param { number } y2 - The y-axis coordinate of the second control point.
-   * @param { number } radius - Radius of the arc.
+   * @param { number } x1 - X-coordinate of the first control point.<br>In versions earlier than API version
+   *     18, **NaN** or **Infinity** value prevents the entire path from rendering, and **null** or **undefined**
+   *     value causes the current API to have no effect. Since API version 18, **NaN**, **Infinity**, **null**,
+   *     or **undefined** causes the current API to have no effect, and other path APIs with valid arguments
+   *     continue to render correctly.<br>Default unit: vp
+   * @param { number } y1 - Y-coordinate of the first control point.<br>In versions earlier than API version
+   *     18, **NaN** or **Infinity** value prevents the entire path from rendering, and **null** or **undefined**
+   *     value causes the current API to have no effect. Since API version 18, **NaN**, **Infinity**, **null**,
+   *     or **undefined** causes the current API to have no effect, and other path APIs with valid arguments
+   *     continue to render correctly.<br>Default unit: vp
+   * @param { number } x2 - X-coordinate of the second control point.<br>In versions earlier than API version
+   *     18, **NaN** or **Infinity** value prevents the entire path from rendering, and **null** or **undefined**
+   *     value causes the current API to have no effect. Since API version 18, **NaN**, **Infinity**, **null**,
+   *     or **undefined** causes the current API to have no effect, and other path APIs with valid arguments
+   *     continue to render correctly.<br>Default unit: vp
+   * @param { number } y2 - Y-coordinate of the second control point.<br>In versions earlier than API version
+   *     18, **NaN** or **Infinity** value prevents the entire path from rendering, and **null** or **undefined**
+   *     value causes the current API to have no effect. Since API version 18, **NaN**, **Infinity**, **null**,
+   *     or **undefined** causes the current API to have no effect, and other path APIs with valid arguments
+   *     continue to render correctly.<br>Default unit: vp
+   * @param { number } radius - Radius of the arc.<br>In versions earlier than API version 18, **NaN** or
+   *     **Infinity** value prevents the entire path from rendering, and **null** or **undefined** value
+   *     causes the current API to have no effect. Since API version 18, **NaN**, **Infinity**, **null**, or
+   *     **undefined** causes the current API to have no effect, and other path APIs with valid arguments
+   *     continue to render correctly.<br>Default unit: vp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 8
-   */
-  /**
-   * Draw arc paths based on control points and radius
-   *
-   * @param { number } x1 - The x-axis coordinate of the first control point.
-   * @param { number } y1 - The y-axis coordinate of the first control point.
-   * @param { number } x2 - The x-axis coordinate of the second control point.
-   * @param { number } y2 - The y-axis coordinate of the second control point.
-   * @param { number } radius - Radius of the arc.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Draw arc paths based on control points and radius
-   *
-   * @param { number } x1 - The x-axis coordinate of the first control point.
-   * @param { number } y1 - The y-axis coordinate of the first control point.
-   * @param { number } x2 - The x-axis coordinate of the second control point.
-   * @param { number } y2 - The y-axis coordinate of the second control point.
-   * @param { number } radius - Radius of the arc.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Draw arc paths based on control points and radius
-   *
-   * @param { number } x1 - The x-axis coordinate of the first control point.
-   * @param { number } y1 - The y-axis coordinate of the first control point.
-   * @param { number } x2 - The x-axis coordinate of the second control point.
-   * @param { number } y2 - The y-axis coordinate of the second control point.
-   * @param { number } radius - Radius of the arc.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   arcTo(x1: number, y1: number, x2: number, y2: number, radius: number): void;
 
   /**
-   * Drawing Cubic Bessel Curve Paths
+   * Draws a cubic Bezier curve on the canvas.
    *
-   * @param { number } cp1x - The x-axis coordinate of the first control point.
-   * @param { number } cp1y - The y-axis coordinate of the first control point.
-   * @param { number } cp2x - The x-axis coordinate of the second control point.
-   * @param { number } cp2y - The y-axis coordinate of the second control point.
-   * @param { number } x - x-axis coordinate of the end point.
-   * @param { number } y - y-axis coordinate of the end point.
+   * @param { number } cp1x - X-coordinate of the first parameter of the Bezier curve.<br>In versions
+   *     earlier than API version 18, **NaN** or **Infinity** value prevents the entire path from rendering,
+   *     and **null** or **undefined** value causes the current API to have no effect. Since API version 18,
+   *     **NaN**, **Infinity**, **null**, or **undefined** causes the current API to have no effect, and other
+   *     path APIs with valid arguments continue to render correctly.<br>Default unit: vp
+   * @param { number } cp1y - Y-coordinate of the first parameter of the Bezier curve.<br>In versions
+   *     earlier than API version 18, **NaN** or **Infinity** value prevents the entire path from rendering,
+   *     and **null** or **undefined** value causes the current API to have no effect. Since API version 18,
+   *     **NaN**, **Infinity**, **null**, or **undefined** causes the current API to have no effect, and other
+   *     path APIs with valid arguments continue to render correctly.<br>Default unit: vp
+   * @param { number } cp2x - X-coordinate of the second parameter of the Bezier curve.<br>In versions
+   *     earlier than API version 18, **NaN** or **Infinity** value prevents the entire path from rendering,
+   *     and **null** or **undefined** value causes the current API to have no effect. Since API version 18,
+   *     **NaN**, **Infinity**, **null**, or **undefined** causes the current API to have no effect, and other
+   *     path APIs with valid arguments continue to render correctly.<br>Default unit: vp
+   * @param { number } cp2y - Y-coordinate of the second parameter of the Bezier curve.<br>In versions
+   *     earlier than API version 18, **NaN** or **Infinity** value prevents the entire path from rendering,
+   *     and **null** or **undefined** value causes the current API to have no effect. Since API version 18,
+   *     **NaN**, **Infinity**, **null**, or **undefined** causes the current API to have no effect, and other
+   *     path APIs with valid arguments continue to render correctly.<br>Default unit: vp
+   * @param { number } x - X-coordinate of the end point on the Bezier curve.<br>In versions earlier than
+   *     API version 18, **NaN** or **Infinity** value prevents the entire path from rendering, and **null**
+   *     or **undefined** value causes the current API to have no effect. Since API version 18, **NaN**,
+   *     **Infinity**, **null**, or **undefined** causes the current API to have no effect, and other path
+   *     APIs with valid arguments continue to render correctly.<br>Default unit: vp
+   * @param { number } y - Y-coordinate of the end point on the Bezier curve.<br>In versions earlier than
+   *     API version 18, **NaN** or **Infinity** value prevents the entire path from rendering, and **null**
+   *     or **undefined** value causes the current API to have no effect. Since API version 18, **NaN**,
+   *     **Infinity**, **null**, or **undefined** causes the current API to have no effect, and other path
+   *     APIs with valid arguments continue to render correctly.<br>Default unit: vp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 8
-   */
-  /**
-   * Drawing Cubic Bessel Curve Paths
-   *
-   * @param { number } cp1x - The x-axis coordinate of the first control point.
-   * @param { number } cp1y - The y-axis coordinate of the first control point.
-   * @param { number } cp2x - The x-axis coordinate of the second control point.
-   * @param { number } cp2y - The y-axis coordinate of the second control point.
-   * @param { number } x - x-axis coordinate of the end point.
-   * @param { number } y - y-axis coordinate of the end point.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Drawing Cubic Bessel Curve Paths
-   *
-   * @param { number } cp1x - The x-axis coordinate of the first control point.
-   * @param { number } cp1y - The y-axis coordinate of the first control point.
-   * @param { number } cp2x - The x-axis coordinate of the second control point.
-   * @param { number } cp2y - The y-axis coordinate of the second control point.
-   * @param { number } x - x-axis coordinate of the end point.
-   * @param { number } y - y-axis coordinate of the end point.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Drawing Cubic Bessel Curve Paths
-   *
-   * @param { number } cp1x - The x-axis coordinate of the first control point.
-   * @param { number } cp1y - The y-axis coordinate of the first control point.
-   * @param { number } cp2x - The x-axis coordinate of the second control point.
-   * @param { number } cp2y - The y-axis coordinate of the second control point.
-   * @param { number } x - x-axis coordinate of the end point.
-   * @param { number } y - y-axis coordinate of the end point.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   bezierCurveTo(cp1x: number, cp1y: number, cp2x: number, cp2y: number, x: number, y: number): void;
 
   /**
-   * Returns the pen point to the start point of the current sub-path
+   * Moves the current point of the path back to the start point of the path, and draws a straight line between the
+   * current point and the start point. If the shape has already been closed or has only one point, this method does
+   * nothing.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 8
-   */
-  /**
-   * Returns the pen point to the start point of the current sub-path
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Returns the pen point to the start point of the current sub-path
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Returns the pen point to the start point of the current sub-path
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   closePath(): void;
 
   /**
-   * Draw an Elliptic Path
+   * Draws an ellipse in the specified rectangular region on the canvas.
    *
-   * @param { number } x - x-axis coordinate of the center of the ellipse.
-   * @param { number } y - y-axis coordinate of the center of the ellipse.
-   * @param { number } radiusX - Radius of the major axis of the ellipse.
-   * @param { number } radiusY - Radius of the minor axis of the ellipse.
-   * @param { number } rotation - The rotation angle of the ellipse, in radians (not angular degrees).
-   * @param { number } startAngle - The angle of the starting point to be drawn, measured from the x-axis in radians
-   *    (not angular degrees).
-   * @param { number } endAngle - The angle, in radians, at which the ellipse is to be drawn (not angular degrees).
-   * @param { boolean } counterclockwise - If the value is true, the ellipse is drawn counterclockwise. Otherwise,
-   *    the ellipse is drawn clockwise. The default value is false.
+   * @param { number } x - X-coordinate of the ellipse center.<br>In versions earlier than API version 18,
+   *     **NaN** or **Infinity** value prevents the entire path from rendering, and **null** or **undefined**
+   *     value causes the current API to have no effect. Since API version 18, **NaN**, **Infinity**,
+   *     **null**, or **undefined** causes the current API to have no effect, and other path APIs with valid
+   *     arguments continue to render correctly.<br>Default unit: vp
+   * @param { number } y - Y-coordinate of the ellipse center.<br>In versions earlier than API version 18,
+   *     **NaN** or **Infinity** value prevents the entire path from rendering, and **null** or **undefined**
+   *     value causes the current API to have no effect. Since API version 18, **NaN**, **Infinity**,
+   *     **null**, or **undefined** causes the current API to have no effect, and other path APIs with valid
+   *     arguments continue to render correctly.<br>Default unit: vp
+   * @param { number } radiusX - Radius of the ellipse on the x-axis.<br>In versions earlier than API
+   *     version 18, **NaN** or **Infinity** value prevents the entire path from rendering, and **null** or
+   *     **undefined** value causes the current API to have no effect. Since API version 18, **NaN**,
+   *     **Infinity**, **null**, or **undefined** causes the current API to have no effect, and other path
+   *     APIs with valid arguments continue to render correctly.<br>Default unit: vp
+   * @param { number } radiusY - Radius of the ellipse on the y-axis.<br>In versions earlier than API
+   *     version 18, **NaN** or **Infinity** value prevents the entire path from rendering, and **null** or
+   *     **undefined** value causes the current API to have no effect. Since API version 18, **NaN**,
+   *     **Infinity**, **null**, or **undefined** causes the current API to have no effect, and other path
+   *     APIs with valid arguments continue to render correctly.<br>Default unit: vp
+   * @param { number } rotation - Rotation angle of the ellipse.<br>In versions earlier than API version 18,
+   *     **NaN** or **Infinity** value prevents the entire path from rendering, and **null** or **undefined**
+   *     value causes the current API to have no effect. Since API version 18, **NaN**, **Infinity**,
+   *     **null**, or **undefined** causes the current API to have no effect, and other path APIs with valid
+   *     arguments continue to render correctly.<br>Unit: radian
+   * @param { number } startAngle - Angle of the start point for drawing the ellipse.<br>In versions earlier
+   *     than API version 18, **NaN** or **Infinity** value prevents the entire path from rendering, and
+   *     **null** or **undefined** value causes the current API to have no effect. Since API version 18,
+   *     **NaN**, **Infinity**, **null**, or **undefined** causes the current API to have no effect, and other
+   *     path APIs with valid arguments continue to render correctly.<br>Unit: radian
+   * @param { number } endAngle - Angle of the end point for drawing the ellipse.<br>In versions earlier than
+   *     API version 18, **NaN** or **Infinity** value prevents the entire path from rendering, and **null** or
+   *     **undefined** value causes the current API to have no effect. Since API version 18, **NaN**,
+   *     **Infinity**, **null**, or **undefined** causes the current API to have no effect, and other path APIs
+   *     with valid arguments continue to render correctly.<br>Unit: radian
+   * @param { boolean } [counterclockwise] - Whether to draw the ellipse counterclockwise.<br>**true**: Draw
+   *     the ellipse counterclockwise.<br>**false**: Draw the ellipse clockwise.<br>The default value is
+   *     **false**. If this parameter is set to **null** or **undefined**, the default value is used.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 8
-   */
-  /**
-   * Draw an Elliptic Path
-   *
-   * @param { number } x - x-axis coordinate of the center of the ellipse.
-   * @param { number } y - y-axis coordinate of the center of the ellipse.
-   * @param { number } radiusX - Radius of the major axis of the ellipse.
-   * @param { number } radiusY - Radius of the minor axis of the ellipse.
-   * @param { number } rotation - The rotation angle of the ellipse, in radians (not angular degrees).
-   * @param { number } startAngle - The angle of the starting point to be drawn, measured from the x-axis in radians
-   *    (not angular degrees).
-   * @param { number } endAngle - The angle, in radians, at which the ellipse is to be drawn (not angular degrees).
-   * @param { boolean } counterclockwise - If the value is true, the ellipse is drawn counterclockwise. Otherwise,
-   *    the ellipse is drawn clockwise. The default value is false.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Draw an Elliptic Path
-   *
-   * @param { number } x - x-axis coordinate of the center of the ellipse.
-   * @param { number } y - y-axis coordinate of the center of the ellipse.
-   * @param { number } radiusX - Radius of the major axis of the ellipse.
-   * @param { number } radiusY - Radius of the minor axis of the ellipse.
-   * @param { number } rotation - The rotation angle of the ellipse, in radians (not angular degrees).
-   * @param { number } startAngle - The angle of the starting point to be drawn, measured from the x-axis in radians
-   *    (not angular degrees).
-   * @param { number } endAngle - The angle, in radians, at which the ellipse is to be drawn (not angular degrees).
-   * @param { boolean } counterclockwise - If the value is true, the ellipse is drawn counterclockwise. Otherwise,
-   *    the ellipse is drawn clockwise. The default value is false.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Draw an Elliptic Path
-   *
-   * @param { number } x - x-axis coordinate of the center of the ellipse.
-   * @param { number } y - y-axis coordinate of the center of the ellipse.
-   * @param { number } radiusX - Radius of the major axis of the ellipse.
-   * @param { number } radiusY - Radius of the minor axis of the ellipse.
-   * @param { number } rotation - The rotation angle of the ellipse, in radians (not angular degrees).
-   * @param { number } startAngle - The angle of the starting point to be drawn, measured from the x-axis in radians
-   *    (not angular degrees).
-   * @param { number } endAngle - The angle, in radians, at which the ellipse is to be drawn (not angular degrees).
-   * @param { boolean } counterclockwise - If the value is true, the ellipse is drawn counterclockwise. Otherwise,
-   *    the ellipse is drawn clockwise. The default value is false.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   ellipse(
     x: number,
@@ -895,210 +465,157 @@ declare class CanvasPath {
   ): void;
 
   /**
-   * Connect sub-path using straight lines
+   * Connects the current point to a target position using a line.
    *
-   * @param { number } x - The x-axis coordinate of the end point of the line.
-   * @param { number } y - The y-axis coordinate of the end point of the line.
+   * @param { number } x - X-coordinate of the target position.<br>In versions earlier than API version 18,
+   *     **NaN** or **Infinity** value prevents the entire path from rendering, and **null** or **undefined**
+   *     value causes the current API to have no effect. Since API version 18, **NaN**, **Infinity**, **null**,
+   *     or **undefined** causes the current API to have no effect, and other path APIs with valid arguments
+   *     continue to render correctly.<br>Default unit: vp
+   * @param { number } y - Y-coordinate of the target position.<br>In versions earlier than API version 18,
+   *     **NaN** or **Infinity** value prevents the entire path from rendering, and **null** or **undefined**
+   *     value causes the current API to have no effect. Since API version 18, **NaN**, **Infinity**, **null**,
+   *     or **undefined** causes the current API to have no effect, and other path APIs with valid arguments
+   *     continue to render correctly.<br>Default unit: vp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 8
-   */
-  /**
-   * Connect sub-path using straight lines
-   *
-   * @param { number } x - The x-axis coordinate of the end point of the line.
-   * @param { number } y - The y-axis coordinate of the end point of the line.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Connect sub-path using straight lines
-   *
-   * @param { number } x - The x-axis coordinate of the end point of the line.
-   * @param { number } y - The y-axis coordinate of the end point of the line.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Connect sub-path using straight lines
-   *
-   * @param { number } x - The x-axis coordinate of the end point of the line.
-   * @param { number } y - The y-axis coordinate of the end point of the line.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   lineTo(x: number, y: number): void;
 
   /**
-   * Moves the start point of a new sub-path to the (x, y) coordinate.
+   * Moves a drawing path from the current position to a target position on the canvas.
+   * > **NOTE**
+   * >
+   * > In versions earlier than API version 18, if the **moveTo** API is not called or invalid arguments
+   * > are passed to it, the path starts from (0,0).
+   * >
+   * > Starting from API version 18, if the **moveTo** API is not executed or invalid arguments are passed
+   * > to it, the path will begin at the start point of the first valid call to **lineTo**, **arcTo**,
+   * > **bezierCurveTo**, or **quadraticCurveTo**.
    *
-   * @param { number } x - The x-axis coordinate of the point.
-   * @param { number } y - The y-axis coordinate of the point.
+   * @param { number } x - X-coordinate of the target position.<br>In versions earlier than API version 18,
+   *     **NaN** or **Infinity** value prevents the entire path from rendering, and **null** or **undefined**
+   *     value causes the current API to have no effect. Since API version 18, **NaN**, **Infinity**, **null**,
+   *     or **undefined** causes the current API to have no effect, and other path APIs with valid arguments
+   *     continue to render correctly.<br>Default unit: vp
+   * @param { number } y - Y-coordinate of the target position.<br>In versions earlier than API version 18,
+   *     **NaN** or **Infinity** value prevents the entire path from rendering, and **null** or **undefined**
+   *     value causes the current API to have no effect. Since API version 18, **NaN**, **Infinity**, **null**,
+   *     or **undefined** causes the current API to have no effect, and other path APIs with valid arguments
+   *     continue to render correctly.<br>Default unit: vp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 8
-   */
-  /**
-   * Moves the start point of a new sub-path to the (x, y) coordinate.
-   *
-   * @param { number } x - The x-axis coordinate of the point.
-   * @param { number } y - The y-axis coordinate of the point.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Moves the start point of a new sub-path to the (x, y) coordinate.
-   *
-   * @param { number } x - The x-axis coordinate of the point.
-   * @param { number } y - The y-axis coordinate of the point.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Moves the start point of a new sub-path to the (x, y) coordinate.
-   *
-   * @param { number } x - The x-axis coordinate of the point.
-   * @param { number } y - The y-axis coordinate of the point.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   moveTo(x: number, y: number): void;
 
   /**
-   * Draw quadratic Bezier curve paths
+   * Creates a path for a quadratic Bezier curve.
    *
-   * @param { number } cpx - The x-axis coordinate of the control point.
-   * @param { number } cpy - The y-axis coordinate of the control point.
-   * @param { number } x - x-axis coordinate of the end point.
-   * @param { number } y - y-axis coordinate of the end point.
+   * @param { number } cpx - X-coordinate of the Bezier curve parameter.<br>In versions earlier than
+   *     API version 18, **NaN** or **Infinity** value prevents the entire path from rendering, and **null**
+   *     or **undefined** value causes the current API to have no effect. Since API version 18, **NaN**,
+   *     **Infinity**, **null**, or **undefined** causes the current API to have no effect, and other path
+   *     APIs with valid arguments continue to render correctly.<br>Default unit: vp
+   * @param { number } cpy - Y-coordinate of the Bezier curve parameter.<br>In versions earlier than API
+   *     version 18, **NaN** or **Infinity** value prevents the entire path from rendering, and **null** or
+   *     **undefined** value causes the current API to have no effect. Since API version 18, **NaN**,
+   *     **Infinity**, **null**, or **undefined** causes the current API to have no effect, and other path
+   *     APIs with valid arguments continue to render correctly.<br>Default unit: vp
+   * @param { number } x - X-coordinate of the end point on the Bezier curve.<br>In versions earlier than
+   *     API version 18, **NaN** or **Infinity** value prevents the entire path from rendering, and **null**
+   *     or **undefined** value causes the current API to have no effect. Since API version 18, **NaN**,
+   *     **Infinity**, **null**, or **undefined** causes the current API to have no effect, and other path
+   *     APIs with valid arguments continue to render correctly.<br>Default unit: vp
+   * @param { number } y - Y-coordinate of the end point on the Bezier curve.<br>In versions earlier than
+   *     API version 18, **NaN** or **Infinity** value prevents the entire path from rendering, and **null**
+   *     or **undefined** value causes the current API to have no effect. Since API version 18, **NaN**,
+   *     **Infinity**, **null**, or **undefined** causes the current API to have no effect, and other path
+   *     APIs with valid arguments continue to render correctly.<br>Default unit: vp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 8
-   */
-  /**
-   * Draw quadratic Bezier curve paths
-   *
-   * @param { number } cpx - The x-axis coordinate of the control point.
-   * @param { number } cpy - The y-axis coordinate of the control point.
-   * @param { number } x - x-axis coordinate of the end point.
-   * @param { number } y - y-axis coordinate of the end point.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Draw quadratic Bezier curve paths
-   *
-   * @param { number } cpx - The x-axis coordinate of the control point.
-   * @param { number } cpy - The y-axis coordinate of the control point.
-   * @param { number } x - x-axis coordinate of the end point.
-   * @param { number } y - y-axis coordinate of the end point.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Draw quadratic Bezier curve paths
-   *
-   * @param { number } cpx - The x-axis coordinate of the control point.
-   * @param { number } cpy - The y-axis coordinate of the control point.
-   * @param { number } x - x-axis coordinate of the end point.
-   * @param { number } y - y-axis coordinate of the end point.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   quadraticCurveTo(cpx: number, cpy: number, x: number, y: number): void;
 
   /**
-   * Draw Rectangular Paths
+   * Creates a rectangle on the canvas.
    *
-   * @param { number } x - The x-axis coordinate of the start point of the rectangle.
-   * @param { number } y - The y-axis coordinate of the start point of the rectangle.
-   * @param { number } w - Width of the rectangle.
-   * @param { number } h - Height of the rectangle.
+   * @param { number } x - X-coordinate of the rectangle's top-left corner.<br>In versions earlier than
+   *     API version 18, **NaN** or **Infinity** value prevents the entire path from rendering, and **null**
+   *     or **undefined** value causes the current API to have no effect. Since API version 18, **NaN**,
+   *     **Infinity**, **null**, or **undefined** causes the current API to have no effect, and other path
+   *     APIs with valid arguments continue to render correctly.<br>Default unit: vp
+   * @param { number } y - Y-coordinate of the rectangle's top-left corner.<br>In versions earlier than
+   *     API version 18, **NaN** or **Infinity** value prevents the entire path from rendering, and **null**
+   *     or **undefined** value causes the current API to have no effect. Since API version 18, **NaN**,
+   *     **Infinity**, **null**, or **undefined** causes the current API to have no effect, and other path
+   *     APIs with valid arguments continue to render correctly.<br>Default unit: vp
+   * @param { number } w - Width of the rectangle.<br>In versions earlier than API version 18, **NaN** or
+   *     **Infinity** value prevents the entire path from rendering, and **null** or **undefined** value
+   *     causes the current API to have no effect. Since API version 18, **NaN**, **Infinity**, **null**, or
+   *     **undefined** causes the current API to have no effect, and other path APIs with valid arguments
+   *     continue to render correctly.<br>Default unit: vp
+   * @param { number } h - Height of the rectangle.<br>In versions earlier than API version 18, **NaN** or
+   *     **Infinity** value prevents the entire path from rendering, and **null** or **undefined** value
+   *     causes the current API to have no effect. Since API version 18, **NaN**, **Infinity**, **null**, or
+   *     **undefined** causes the current API to have no effect, and other path APIs with valid arguments
+   *     continue to render correctly.<br>Default unit: vp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 8
-   */
-  /**
-   * Draw Rectangular Paths
-   *
-   * @param { number } x - The x-axis coordinate of the start point of the rectangle.
-   * @param { number } y - The y-axis coordinate of the start point of the rectangle.
-   * @param { number } w - Width of the rectangle.
-   * @param { number } h - Height of the rectangle.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Draw Rectangular Paths
-   *
-   * @param { number } x - The x-axis coordinate of the start point of the rectangle.
-   * @param { number } y - The y-axis coordinate of the start point of the rectangle.
-   * @param { number } w - Width of the rectangle.
-   * @param { number } h - Height of the rectangle.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Draw Rectangular Paths
-   *
-   * @param { number } x - The x-axis coordinate of the start point of the rectangle.
-   * @param { number } y - The y-axis coordinate of the start point of the rectangle.
-   * @param { number } w - Width of the rectangle.
-   * @param { number } h - Height of the rectangle.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   rect(x: number, y: number, w: number, h: number): void;
 
   /**
-   * Draw rounded Rectangular Paths
+   * Creates a rounded rectangle path. This API does not directly render content. To draw the rounded
+   * rectangle on the canvas, use **fill** or **stroke**.
    *
-   * @param { number } x - The x-axis coordinate of the start point of the rectangle.
-   * @param { number } y - The y-axis coordinate of the start point of the rectangle.
-   * @param { number } w - Width of the rectangle.
-   * @param { number } h - Height of the rectangle.
-   * @param { number | Array<number> } [radii] - A number or list specifying the radii of the circular arc to be used for the corners of the rectangle.
-   *     The default value is 0.
-   * @throws { BusinessError } 103701 - Parameter error. Possible causes: 
+   * @param { number } x - X-coordinate of the rectangle's top-left corner.<br>The value **null** is
+   *     treated as **0**, and **undefined** is treated as an invalid value, indicating no rendering.<br>
+   *     To draw a complete rectangle, the value range is [0, Canvas width).<br>Default unit: vp
+   * @param { number } y - Y-coordinate of the rectangle's top-left corner.<br>The value **null** is treated
+   *     as **0**, and **undefined** is treated as an invalid value, indicating no rendering.<br>To draw a
+   *     complete rectangle, the value range is [0, Canvas height).<br>Default unit: vp
+   * @param { number } w - Width of the rectangle. A negative value indicates that the rectangle is drawn
+   *     from right to left.<br>The value **null** is treated as **0**, and **undefined** is treated as an
+   *     invalid value, indicating no rendering.<br>To draw a complete rectangle, the value range is
+   *     [-x, Canvas width - x].<br>Default unit: vp
+   * @param { number } h - Height of the rectangle. A negative value indicates upward drawing.<br>The value
+   *     **null** is treated as **0**, and **undefined** is treated as an invalid value, indicating no
+   *     rendering.<br>To draw a complete rectangle, the value range is [-y, Canvas height - y].<br>
+   *     Default unit: vp
+   * @param { number | Array<number> } [radii] - Number or list of arc radii used for the rectangle corners.
+   *     <br>If the parameter type is number, it applies to the arc radius of all rectangle corners.
+   *     <br>If the parameter type is Array<number>, the array contains 1 to 4 numbers, interpreted as
+   *     follows:<br>[Arc radius of all rectangle corners]<br>[Arc radius of the top-left and bottom-right
+   *     rectangle corners, and arc radius of the top-right and bottom-left rectangle corners]<br>[Arc radius
+   *     of the top-left rectangle corner, arc radius of the top-right and bottom-left rectangle corners, and
+   *     arc radius of the bottom-right rectangle corner]<br>[Arc radius of the top-left rectangle corner, arc
+   *     radius of the top-right rectangle corner, arc radius of the bottom-right rectangle corner, and arc
+   *     radius of the bottom-left rectangle corner]<br>If **radii** contains a negative number or the number
+   *     of items in the list is not within [1,4], error code 103701 is reported.<br>Default value: **0**.
+   *     **null** and **undefined** are treated as the default value.<br>If the arc radius exceeds the width
+   *     and height of the rectangle, it will be proportionally scaled down to match the corresponding
+   *     dimensions.<br>Default unit: vp
+   * @throws { BusinessError } 103701 - Parameter error. Possible causes:
    * <br> 1. The param radii is a list that has zero or more than four elements.
    * <br> 2. The param radii contains negative value.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice
@@ -1108,129 +625,69 @@ declare class CanvasPath {
 }
 
 /**
- * 2D path object for path drawing
+ * **Path2D** allows you to describe a path through an existing path. This path can be drawn
+ * through the **stroke** or **fill** API of **Canvas**.
+ *
+ * > **NOTE**
+ * >
+ * > The Path2D object does not support the resetting of an existing path. If a new path
+ * > is required, you can create an empty Path2D object.
+ * >
+ * > The methods of the Path2D object do not take effect for the paths set in the
+ * > [CanvasRenderingContext2D]{@link CanvasRenderingContext2D}
+ * > and
+ * > [OffscreenCanvasRenderingContext2D]{@link OffscreenCanvasRenderingContext2D}
+ * > objects.
  *
  * @extends CanvasPath
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @since 8
- */
-/**
- * 2D path object for path drawing
- *
- * @extends CanvasPath
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @form
- * @since 9
- */
-/**
- * 2D path object for path drawing
- *
- * @extends CanvasPath
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * 2D path object for path drawing
- *
- * @extends CanvasPath
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 8 dynamic
  */
 declare class Path2D extends CanvasPath {
   /**
-   * Adds a path according to the specified path variable.
+   * Adds a path to this path.
    *
-   * @param { Path2D } path - Indicates the path object to be added.
-   * @param { Matrix2D } transform - Transformation matrix of the new trail. The default value is null.
+   * @param { Path2D } path - Path to be added to this path. Unit: px.<br>
+   *     The **undefined** and **null** values are treated as invalid.
+   * @param { Matrix2D } transform - Transformation matrix of the new path.<br>
+   *     The **undefined** and **null** values are treated as invalid.<br>
+   *     Default value: **null**.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 8
-   */
-  /**
-   * Adds a path according to the specified path variable.
-   *
-   * @param { Path2D } path - Indicates the path object to be added.
-   * @param { Matrix2D } transform - Transformation matrix of the new trail. The default value is null.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Adds a path according to the specified path variable.
-   *
-   * @param { Path2D } path - Indicates the path object to be added.
-   * @param { Matrix2D } transform - Transformation matrix of the new trail. The default value is null.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Adds a path according to the specified path variable.
-   *
-   * @param { Path2D } path - Indicates the path object to be added.
-   * @param { Matrix2D } transform - Transformation matrix of the new trail. The default value is null.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   addPath(path: Path2D, transform?: Matrix2D): void;
 
   /**
-   * Create an empty path object.
+   * Constructs an empty **Path2D** object.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 8
-   */
-  /**
-   * Create an empty path object.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Create an empty path object.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Create an empty path object.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   constructor();
 
   /**
-   * Create an empty path object.
+   * Constructs an empty Path2D object. The unit mode of the Path2D object can be configured.
    *
-   * @param { LengthMetricsUnit } [unit] - the unit mode
+   * @param { LengthMetricsUnit } [unit] - Unit mode of the Path2D object.
+   *     The value cannot be dynamically changed once set. The configuration method is the same
+   *     as that of
+   *     [CanvasRenderingContext2D]{@link CanvasRenderingContext2D}.<br>
+   *     Invalid values **NaN** and **Infinity** are treated as the default value.<br>
+   *     Default value: **DEFAULT**
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice
@@ -1239,51 +696,31 @@ declare class Path2D extends CanvasPath {
   constructor(unit: LengthMetricsUnit);
 
   /**
-   * Create a copy of a path object
+   * Constructs a Path2D object using a path object.
    *
-   * @param { Path2D } path - Path object to be copied
+   * @param { Path2D } path - **Path** object.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 8
-   */
-  /**
-   * Create a copy of a path object
-   *
-   * @param { Path2D } path - Path object to be copied
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Create a copy of a path object
-   *
-   * @param { Path2D } path - Path object to be copied
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Create a copy of a path object
-   *
-   * @param { Path2D } path - Path object to be copied
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   constructor(path: Path2D);
 
   /**
-   * Create a copy of a path object
+   * When a path object is used to construct a Path2D object, the unit mode of the Path2D
+   * object can be configured.
    *
-   * @param { Path2D } path - Path object to be copied
-   * @param { LengthMetricsUnit } [unit] - the unit mode
+   * @param { Path2D } path - **Path** object.
+   * @param { LengthMetricsUnit } [unit] - Unit mode of the Path2D object.
+   *     The value cannot be dynamically changed once set. The configuration method is the same
+   *     as that of
+   *     [CanvasRenderingContext2D]{@link CanvasRenderingContext2D}.<br>
+   *     Invalid values **NaN** and **Infinity** are treated as the default value.<br>
+   *     Default value: **DEFAULT**
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice
@@ -1292,51 +729,36 @@ declare class Path2D extends CanvasPath {
   constructor(path: Path2D, unit: LengthMetricsUnit);
 
   /**
-   * Create a new path according to the description.
+   * Constructs a Path2D object using a path string that complies with the SVG path
+   * description specifications.
    *
-   * @param { string } d - Indicates the path string that compiles with the SVG path description specifications.
+   * @param { string } d - Path that complies with the
+   *     [SVG path syntax]{@link Path2D}.
+   *     Invalid values are treated as invalid inputs.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 8
-   */
-  /**
-   * Create a new path according to the description.
-   *
-   * @param { string } d - Indicates the path string that compiles with the SVG path description specifications.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Create a new path according to the description.
-   *
-   * @param { string } d - Indicates the path string that compiles with the SVG path description specifications.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Create a new path according to the description.
-   *
-   * @param { string } d - Indicates the path string that compiles with the SVG path description specifications.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   constructor(d: string);
 
   /**
-   * Create a new path according to the description.
+   * Constructs a Path2D object using a path string that complies with the SVG path
+   * specifications. The unit mode of the Path2D object can be configured.
    *
-   * @param { string } description - Indicates the path string that compiles with the SVG path description specifications.
-   * @param { LengthMetricsUnit } [unit] - the unit mode
+   * @param { string } description - Path that complies with the
+   *     [SVG path syntax]{@link Path2D}.
+   *     Invalid values are treated as invalid inputs.
+   * @param { LengthMetricsUnit } [unit] - Unit mode of the Path2D object.
+   *     The value cannot be dynamically changed once set. The configuration method is the same
+   *     as that of
+   *     [CanvasRenderingContext2D]{@link CanvasRenderingContext2D}.<br>
+   *     Invalid values **NaN** and **Infinity** are treated as the default value.<br>
+   *     Default value: **DEFAULT**
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice
@@ -1346,946 +768,339 @@ declare class Path2D extends CanvasPath {
 }
 
 /**
- * Describes an opaque object of a template, which is created using the createPattern() method.
+ * **CanvasPattern** represents an object, created by the
+ * [createPattern]{@link CanvasRenderingContext2D#createPattern}
+ * API, describing an image filling pattern based on the image and repetition mode.
  *
- * @interface CanvasPattern
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @since 8
- */
-/**
- * Describes an opaque object of a template, which is created using the createPattern() method.
- *
- * @interface CanvasPattern
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @form
- * @since 9
- */
-/**
- * Describes an opaque object of a template, which is created using the createPattern() method.
- *
- * @interface CanvasPattern
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Describes an opaque object of a template, which is created using the createPattern() method.
- *
- * @interface CanvasPattern
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 8 dynamic
  */
 declare interface CanvasPattern {
   /**
-   * Adds the matrix transformation effect to the current template.
+   * Uses a **Matrix2D** object as a parameter to perform matrix transformation on the current
+   * **CanvasPattern** object.
    *
-   * @param { Matrix2D } transform - transformation matrix. The default value is null.
+   * @param { Matrix2D } transform - Transformation matrix.<br>The **undefined** and **null**
+   *     values are treated as invalid.<br>Default value: **null**.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 8
-   */
-  /**
-   * Adds the matrix transformation effect to the current template.
-   *
-   * @param { Matrix2D } transform - transformation matrix. The default value is null.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Adds the matrix transformation effect to the current template.
-   *
-   * @param { Matrix2D } transform - transformation matrix. The default value is null.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Adds the matrix transformation effect to the current template.
-   *
-   * @param { Matrix2D } transform - transformation matrix. The default value is null.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   setTransform(transform?: Matrix2D): void;
 }
 
 /**
- * Size information of the text
+ * Size information of the text.
  *
- * @interface TextMetrics
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @since 8
- */
-/**
- * Size information of the text
- *
- * @interface TextMetrics
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @form
- * @since 9
- */
-/**
- * Size information of the text
- *
- * @interface TextMetrics
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Size information of the text
- *
- * @interface TextMetrics
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 8 dynamic
  */
 declare interface TextMetrics {
   /**
-   * Double, the distance from the horizontal line indicated by the textBaseline property to the top of
-   *    the rectangular boundary of the rendered text.
+   * Distance from the horizontal line specified by the
+   * [CanvasRenderingContext2D.textBaseline](#canvastextbaseline) attribute to the top
+   * of the bounding rectangle used to render the text. Read-only.
    *
    * @type { number }
    * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 8
-   */
-  /**
-   * Double, the distance from the horizontal line indicated by the textBaseline property to the top of
-   *    the rectangular boundary of the rendered text.
-   *
-   * @type { number }
-   * @readonly
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Double, the distance from the horizontal line indicated by the textBaseline property to the top of
-   *    the rectangular boundary of the rendered text.
-   *
-   * @type { number }
-   * @readonly
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Double, the distance from the horizontal line indicated by the textBaseline property to the top of
-   *    the rectangular boundary of the rendered text.
-   *
-   * @type { number }
-   * @readonly
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   readonly actualBoundingBoxAscent: number;
 
   /**
-   * Double, the distance from the horizontal line indicated by the textBaseline property to the bottom of
-   *    the rectangular boundary of the rendered text.
+   * Distance from the horizontal line specified by the
+   * [CanvasRenderingContext2D.textBaseline](#canvastextbaseline) attribute to the bottom
+   * of the bounding rectangle used to render the text. Read-only.
    *
-   * @type { number }
-   * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 8
-   */
-  /**
-   * Double, the distance from the horizontal line indicated by the textBaseline property to the bottom of
-   *    the rectangular boundary of the rendered text.
-   *
-   * @type { number }
-   * @readonly
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Double, the distance from the horizontal line indicated by the textBaseline property to the bottom of
-   *    the rectangular boundary of the rendered text.
-   *
-   * @type { number }
-   * @readonly
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Double, the distance from the horizontal line indicated by the textBaseline property to the bottom of
-   *    the rectangular boundary of the rendered text.
-   *
-   * @type { number }
-   * @readonly
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   readonly actualBoundingBoxDescent: number;
 
   /**
-   * Double, parallel to the baseline, distance from the alignment point determined by the textAlign property to
-   *    the left of the text rectangle boundary.
+   * Distance parallel to the baseline from the alignment point determined by the
+   * [CanvasRenderingContext2D.textAlign](#canvastextalign) attribute to the left side
+   * of the bounding rectangle of the text. Read-only.
    *
-   * @type { number }
-   * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 8
-   */
-  /**
-   * Double, parallel to the baseline, distance from the alignment point determined by the textAlign property to
-   *    the left of the text rectangle boundary.
-   *
-   * @type { number }
-   * @readonly
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Double, parallel to the baseline, distance from the alignment point determined by the textAlign property to
-   *    the left of the text rectangle boundary.
-   *
-   * @type { number }
-   * @readonly
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Double, parallel to the baseline, distance from the alignment point determined by the textAlign property to
-   *    the left of the text rectangle boundary.
-   *
-   * @type { number }
-   * @readonly
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   readonly actualBoundingBoxLeft: number;
 
   /**
-   * Double, parallel to the baseline, distance from the alignment point determined by the textAlign property to
-   *    the right of the text rectangle boundary.
+   * Distance parallel to the baseline from the alignment point determined by the
+   * [CanvasRenderingContext2D.textAlign](#canvastextalign) attribute to the right side
+   * of the bounding rectangle of the text. Read-only.
    *
-   * @type { number }
-   * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 8
-   */
-  /**
-   * Double, parallel to the baseline, distance from the alignment point determined by the textAlign property to
-   *    the right of the text rectangle boundary.
-   *
-   * @type { number }
-   * @readonly
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Double, parallel to the baseline, distance from the alignment point determined by the textAlign property to
-   *    the right of the text rectangle boundary.
-   *
-   * @type { number }
-   * @readonly
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Double, parallel to the baseline, distance from the alignment point determined by the textAlign property to
-   *    the right of the text rectangle boundary.
-   *
-   * @type { number }
-   * @readonly
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   readonly actualBoundingBoxRight: number;
 
   /**
-   * Double, the distance from the horizontal line indicated by the textBaseline property to the alphabetic baseline of
-   *    the wireframe.
+   * Distance from the horizontal line specified by the
+   * [CanvasRenderingContext2D.textBaseline](#canvastextbaseline) attribute to the alphabetic
+   * baseline of the line box. Read-only.
    *
-   * @type { number }
-   * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 8
-   */
-  /**
-   * Double, the distance from the horizontal line indicated by the textBaseline property to the alphabetic baseline of
-   *    the wireframe.
-   *
-   * @type { number }
-   * @readonly
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Double, the distance from the horizontal line indicated by the textBaseline property to the alphabetic baseline of
-   *    the wireframe.
-   *
-   * @type { number }
-   * @readonly
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Double, the distance from the horizontal line indicated by the textBaseline property to the alphabetic baseline of
-   *    the wireframe.
-   *
-   * @type { number }
-   * @readonly
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   readonly alphabeticBaseline: number;
 
   /**
-   * Double, the distance from the horizontal line indicated by the textBaseline property to the top of the
-   *    em square in the wireframe.
+   * Distance from the horizontal line specified by the
+   * [CanvasRenderingContext2D.textBaseline](#canvastextbaseline) attribute to the top of the
+   * em square in the line box. Read-only.
    *
-   * @type { number }
-   * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 8
-   */
-  /**
-   * Double, the distance from the horizontal line indicated by the textBaseline property to the top of the
-   *    em square in the wireframe.
-   *
-   * @type { number }
-   * @readonly
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Double, the distance from the horizontal line indicated by the textBaseline property to the top of the
-   *    em square in the wireframe.
-   *
-   * @type { number }
-   * @readonly
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Double, the distance from the horizontal line indicated by the textBaseline property to the top of the
-   *    em square in the wireframe.
-   *
-   * @type { number }
-   * @readonly
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   readonly emHeightAscent: number;
 
   /**
-   * Double, distance from the horizontal line indicated by the textBaseline property to the bottom of the
-   *    em box in the wireframe.
+   * Distance from the horizontal line specified by the
+   * [CanvasRenderingContext2D.textBaseline](#canvastextbaseline) attribute to the bottom of the
+   * em square in the line box. Read-only.
    *
-   * @type { number }
-   * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 8
-   */
-  /**
-   * Double, distance from the horizontal line indicated by the textBaseline property to the bottom of the
-   *    em box in the wireframe.
-   *
-   * @type { number }
-   * @readonly
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Double, distance from the horizontal line indicated by the textBaseline property to the bottom of the
-   *    em box in the wireframe.
-   *
-   * @type { number }
-   * @readonly
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Double, distance from the horizontal line indicated by the textBaseline property to the bottom of the
-   *    em box in the wireframe.
-   *
-   * @type { number }
-   * @readonly
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   readonly emHeightDescent: number;
 
   /**
-   * Double, distance from the horizontal line indicated by the textBaseline property to the top of the
-   *    highest rectangle boundary of all fonts rendering text.
+   * Distance from the horizontal line specified by the
+   * [CanvasRenderingContext2D.textBaseline](#canvastextbaseline) attribute to the top of the
+   * bounding rectangle of all the fonts used to render the text. Read-only.
    *
-   * @type { number }
-   * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 8
-   */
-  /**
-   * Double, distance from the horizontal line indicated by the textBaseline property to the top of the
-   *    highest rectangle boundary of all fonts rendering text.
-   *
-   * @type { number }
-   * @readonly
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Double, distance from the horizontal line indicated by the textBaseline property to the top of the
-   *    highest rectangle boundary of all fonts rendering text.
-   *
-   * @type { number }
-   * @readonly
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Double, distance from the horizontal line indicated by the textBaseline property to the top of the
-   *    highest rectangle boundary of all fonts rendering text.
-   *
-   * @type { number }
-   * @readonly
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   readonly fontBoundingBoxAscent: number;
 
   /**
-   * Double, distance from the horizontal line indicated by the textBaseline property to the bottom of the
-   *   rectangular boundary of all fonts rendering text.
+   * Distance from the horizontal line specified by the
+   * [CanvasRenderingContext2D.textBaseline](#canvastextbaseline) attribute to the bottom of the
+   * bounding rectangle of all the fonts used to render the text. Read-only.
    *
-   * @type { number }
-   * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 8
-   */
-  /**
-   * Double, distance from the horizontal line indicated by the textBaseline property to the bottom of the
-   *   rectangular boundary of all fonts rendering text.
-   *
-   * @type { number }
-   * @readonly
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Double, distance from the horizontal line indicated by the textBaseline property to the bottom of the
-   *   rectangular boundary of all fonts rendering text.
-   *
-   * @type { number }
-   * @readonly
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Double, distance from the horizontal line indicated by the textBaseline property to the bottom of the
-   *   rectangular boundary of all fonts rendering text.
-   *
-   * @type { number }
-   * @readonly
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   readonly fontBoundingBoxDescent: number;
 
   /**
-   * Double, distance from the horizontal line indicated by the textBaseline property to
-   *    the hanging baseline of the wireframe.
+   * Distance from the horizontal line specified by the
+   * [CanvasRenderingContext2D.textBaseline](#canvastextbaseline) attribute to the hanging
+   * baseline of the line box. Read-only.
    *
-   * @type { number }
-   * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 8
-   */
-  /**
-   * Double, distance from the horizontal line indicated by the textBaseline property to
-   *    the hanging baseline of the wireframe.
-   *
-   * @type { number }
-   * @readonly
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Double, distance from the horizontal line indicated by the textBaseline property to
-   *    the hanging baseline of the wireframe.
-   *
-   * @type { number }
-   * @readonly
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Double, distance from the horizontal line indicated by the textBaseline property to
-   *    the hanging baseline of the wireframe.
-   *
-   * @type { number }
-   * @readonly
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   readonly hangingBaseline: number;
 
   /**
-   * Double, distance from the horizontal line indicated by the textBaseline property to
-   *    the ideographic baseline of the wireframe.
+   * Distance from the horizontal line specified by the
+   * [CanvasRenderingContext2D.textBaseline](#canvastextbaseline) attribute to the ideographic
+   * baseline of the line box. Read-only.
    *
-   * @type { number }
-   * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 8
-   */
-  /**
-   * Double, distance from the horizontal line indicated by the textBaseline property to
-   *    the ideographic baseline of the wireframe.
-   *
-   * @type { number }
-   * @readonly
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Double, distance from the horizontal line indicated by the textBaseline property to
-   *    the ideographic baseline of the wireframe.
-   *
-   * @type { number }
-   * @readonly
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Double, distance from the horizontal line indicated by the textBaseline property to
-   *    the ideographic baseline of the wireframe.
-   *
-   * @type { number }
-   * @readonly
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   readonly ideographicBaseline: number;
 
   /**
-   * Indicates the width of a character string. The value is of the double type.
+   * Width of the text. Read-only.
    *
-   * @type { number }
-   * @readonly
+   * Default unit: vp.
+   *
+   * If the unit mode of the **CanvasRenderingContext2D** object is set to px, the unit is px.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 8
-   */
-  /**
-   * Indicates the width of a character string. The value is of the double type.
-   *
-   * @type { number }
-   * @readonly
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Indicates the width of a character string. The value is of the double type.
-   *
-   * @type { number }
-   * @readonly
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Indicates the width of a character string. The value is of the double type.
-   *
-   * @type { number }
-   * @readonly
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   readonly width: number;
 
   /**
-   * Indicates the height of a character string. The value is of the double type.
+   * Height of the text. Read-only.
    *
-   * @type { number }
-   * @readonly
+   * Default unit: vp.
+   *
+   * If the unit mode of the **CanvasRenderingContext2D** object is set to px, the unit is px.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 8
-   */
-  /**
-   * Indicates the height of a character string. The value is of the double type.
-   *
-   * @type { number }
-   * @readonly
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Indicates the height of a character string. The value is of the double type.
-   *
-   * @type { number }
-   * @readonly
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Indicates the height of a character string. The value is of the double type.
-   *
-   * @type { number }
-   * @readonly
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   readonly height: number;
 }
 
 /**
- * Bitmap image object that can be drawn onto the current Canvas
+ * An **ImageBitmap** object stores pixel data rendered on a canvas. Since API version 11,
+ * when an application creates a
+ * [worker thread](docroot://arkts-utils/worker-introduction.md), it can use **postMessage**
+ * to transfer the **ImageBitmap** instance to the worker thread for drawing, and use
+ * **onmessage** to receive the drawing results sent by the worker thread for display.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @since 8
- */
-/**
- * Bitmap image object that can be drawn onto the current Canvas
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @form
- * @since 9
- */
-/**
- * Bitmap image object that can be drawn onto the current Canvas
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Bitmap image object that can be drawn onto the current Canvas
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 8 dynamic
  */
 declare class ImageBitmap {
   /**
-   * Indicates the height of the CSS pixel unit of ImageData.
+   * Pixel height of the **ImageBitmap** object.
    *
-   * @type { number }
-   * @readonly
+   * Default unit: vp
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 8
-   */
-  /**
-   * Indicates the height of the CSS pixel unit of ImageData.
-   *
-   * @type { number }
-   * @readonly
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Indicates the height of the CSS pixel unit of ImageData.
-   *
-   * @type { number }
-   * @readonly
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Indicates the height of the CSS pixel unit of ImageData.
-   *
-   * @type { number }
-   * @readonly
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   readonly height: number;
 
   /**
-   * Indicates the width of the CSS pixel unit of ImageData.
+   * Pixel width of the **ImageBitmap** object.
    *
-   * @type { number }
-   * @readonly
+   * Default unit: vp
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 8
-   */
-  /**
-   * Indicates the width of the CSS pixel unit of ImageData.
-   *
-   * @type { number }
-   * @readonly
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Indicates the width of the CSS pixel unit of ImageData.
-   *
-   * @type { number }
-   * @readonly
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Indicates the width of the CSS pixel unit of ImageData.
-   *
-   * @type { number }
-   * @readonly
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   readonly width: number;
 
   /**
-   * Releases all graphics resources associated with an ImageBitmap.
+   * Releases all graphics resources associated with this **ImageBitmap** object and sets
+   * its width and height to **0**.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 8
-   */
-  /**
-   * Releases all graphics resources associated with an ImageBitmap.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Releases all graphics resources associated with an ImageBitmap.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Releases all graphics resources associated with an ImageBitmap.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   close(): void;
 
   /**
-   * Create an ImageBitmap object based on the transferred image path.
+   * Creates an **ImageBitmap** object using an **ImageSrc** object.
    *
-   * @param { string } src - Path of the image object.
+   * @param { string } src - Image source. Local images are supported.<br>
+   *     1. The string format is used to load local images, for example,
+   *     **ImageBitmap("common/images/example.jpg")**. For entry and feature modules,
+   *     the start point of the image path for loading is the **ets** folder of the module.
+   *     For HAR and shared modules, the start point is the **ets** folder of the entry or
+   *     feature module into which they are built.<br>
+   *     For modules whose **type** is **"har"** or **"shared"**, you are advised to use
+   *     [ImageSource](docroot://media/image/image-decoding.md) to decode resource images
+   *     into a unified **PixelMap** object for loading and use.<br>
+   *     2. Supported image formats: BMP, JPG, PNG, SVG, and WEBP.<br>
+   *     **NOTE**<br>
+   *     - ArkTS widgets do not support the strings with the **http://**, **datashare://**,
+   *     or **file://data/storage**.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 8
-   */
-  /**
-   * Create an ImageBitmap object based on the transferred image path.
-   *
-   * @param { string } src - Path of the image object.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Create an ImageBitmap object based on the transferred image path.
-   *
-   * @param { string } src - Path of the image object.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Create an ImageBitmap object based on the transferred image path.
-   *
-   * @param { string } src - Path of the image object.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   constructor(src: string);
 
   /**
-   * Create an ImageBitmap object based on the transferred image path.
+   * Creates an **ImageBitmap** object using an **ImageSrc** object. The unit mode of the
+   * Path2D object can be configured using **unit**.
    *
-   * @param { string } src - Path of the image object.
-   * @param { LengthMetricsUnit } [unit] - the unit mode
+   * @param { string } src - Image source. Local images are supported.<br>
+   *     1. The string format is used to load local images, for example,
+   *     **ImageBitmap("common/images/example.jpg")**. For entry and feature modules,
+   *     the start point of the image path for loading is the **ets** folder of the module.
+   *     For HAR and shared modules, the start point is the **ets** folder of the entry or
+   *     feature module into which they are built.<br>
+   *     For modules whose **type** is **"har"** or **"shared"**, you are advised to use
+   *     [ImageSource](docroot://media/image/image-decoding.md) to decode resource images
+   *     into a unified **PixelMap** object for loading and use.<br>
+   *     2. Supported image formats: BMP, JPG, PNG, SVG, and WEBP.<br>
+   *     **NOTE**<br>
+   *     - ArkTS widgets do not support the strings with the **http://**, **datashare://**,
+   *     or **file://data/storage**.
+   * @param { LengthMetricsUnit } [unit] - Unit mode of the **ImageBitmap** object.
+   *     The value cannot be dynamically changed once set. The configuration method is the
+   *     same as that of
+   *     [CanvasRenderingContext2D]{@link CanvasRenderingContext2D}.<br>
+   *     If the value is **undefined**, **NaN**, or **Infinity**, the default value will be used.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice
@@ -2294,270 +1109,154 @@ declare class ImageBitmap {
   constructor(src: string, unit: LengthMetricsUnit);
 
   /**
-   * Transfer a PixelMap object to construct an ImageBitmap object.
+   * Creates an **ImageBitmap** object using a **PixelMap** object.
    *
-   * @param { PixelMap } data - PixelMap object
+   * @param { PixelMap } data - Image data source, which supports **PixelMap** objects.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 8
-   */
-  /**
-   * Transfer a PixelMap object to construct an ImageBitmap object.
-   *
-   * @param { PixelMap } data - PixelMap object
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Transfer a PixelMap object to construct an ImageBitmap object.
-   *
-   * @param { PixelMap } data - PixelMap object
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   constructor(data: PixelMap);
 
   /**
-   * Transfer a PixelMap object to construct an ImageBitmap object.
+   * Creates an **ImageBitmap** object using a **PixelMap** object. The unit mode of the
+   * Path2D object can be configured using **unit**.
    *
-   * @param { PixelMap } data - PixelMap object
-   * @param { LengthMetricsUnit } [unit] - the unit mode
+   * @param { PixelMap } data - Image data source, which supports **PixelMap** objects.
+   * @param { LengthMetricsUnit } [unit] - Unit mode of the **ImageBitmap** object.
+   *     The value cannot be dynamically changed once set. The configuration method is the
+   *     same as that of
+   *     [CanvasRenderingContext2D]{@link CanvasRenderingContext2D}.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
    */
   constructor(data: PixelMap, unit: LengthMetricsUnit);
-}
 
-/**
- * Image data object
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @since 8
- */
-/**
- * Image data object
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @form
- * @since 9
- */
-/**
- * Image data object
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Image data object
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
- */
-declare class ImageData {
   /**
-   * Array containing image pixel data
+   * Transfer a Resource object to construct an ImageBitmap object.
    *
-   * @type { Uint8ClampedArray }
-   * @readonly
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @since 8
-   */
-  /**
-   * Array containing image pixel data
-   *
-   * @type { Uint8ClampedArray }
-   * @readonly
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Array containing image pixel data
-   *
-   * @type { Uint8ClampedArray }
-   * @readonly
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Array containing image pixel data
-   *
-   * @type { Uint8ClampedArray }
-   * @readonly
+   * @param { Resource } data - Resource object
+   * @param { LengthMetricsUnit } [unit] - the unit mode
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11 dynamic
+   * @since 26.0.0 dynamic
+   */
+  constructor(data: Resource, unit?: LengthMetricsUnit);
+}
+
+/**
+ * An **ImageData** object stores pixel data rendered on a canvas.
+ *
+ * > **NOTE**
+ * >
+ * > A constructor used to create an **ImageData** object. To ensure successful drawing,
+ * > make sure the object's area does not exceed 16000 x 16000, with its width and height
+ * > not greater than 16384 px. If the created area exceeds 536870911 px, the returned
+ * > width and height are both 0 px, and **data** is **undefined**.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 8 dynamic
+ */
+declare class ImageData {
+  /**
+   * A one-dimensional array of color values. The values range from 0 to 255.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   readonly data: Uint8ClampedArray;
 
   /**
-   * Width of the image.
+   * Actual height of the rectangle on the canvas.
    *
-   * @type { number }
-   * @readonly
+   * The unit is px.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 8
-   */
-  /**
-   * Width of the image.
-   *
-   * @type { number }
-   * @readonly
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Width of the image.
-   *
-   * @type { number }
-   * @readonly
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Width of the image.
-   *
-   * @type { number }
-   * @readonly
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   readonly height: number;
 
   /**
-   * Height of the image.
+   * Actual width of the rectangle on the canvas.
    *
-   * @type { number }
-   * @readonly
+   * The unit is px.
+   *
+   * > **NOTE**
+   * >
+   * > The [px2vp]{@link UIContext#px2vp}
+   * > API can be used for unit conversion.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 8
-   */
-  /**
-   * Height of the image.
-   *
-   * @type { number }
-   * @readonly
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Height of the image.
-   *
-   * @type { number }
-   * @readonly
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Height of the image.
-   *
-   * @type { number }
-   * @readonly
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   readonly width: number;
 
   /**
-   * Create an ImageData object based on the input parameters.
+   * Creates an **ImageData** object with the specified width, height, and color.
+   * If data is not defined, it is populated with a one-dimensional array of 0s.
    *
-   * @param { number } width - Width of the image.
-   * @param { number } height - Height of the image.
-   * @param { Uint8ClampedArray } data - Data of the image. If this parameter is not specified, the default value is a black rectangular image.
+   * @param { number } width - Width of the rectangle.<br>Default unit: vp<br>
+   *     Invalid values **NaN** and **Infinity** are treated as **0**.
+   * @param { number } height - Height of the rectangle.<br>Default unit: vp<br>
+   *     Invalid values **NaN** and **Infinity** are treated as **0**.
+   * @param { Uint8ClampedArray } data - A one-dimensional array of color values.
+   *     The values range from 0 to 255.<br>
+   *     If the value specified is **undefined**, **data** is **undefined**.<br>
+   *     Default value: a one-dimensional array of all 0s
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 8
-   */
-  /**
-   * Create an ImageData object based on the input parameters.
-   *
-   * @param { number } width - Width of the image.
-   * @param { number } height - Height of the image.
-   * @param { Uint8ClampedArray } data - Data of the image. If this parameter is not specified, the default value is a black rectangular image.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Create an ImageData object based on the input parameters.
-   *
-   * @param { number } width - Width of the image.
-   * @param { number } height - Height of the image.
-   * @param { Uint8ClampedArray } data - Data of the image. If this parameter is not specified, the default value is a black rectangular image.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Create an ImageData object based on the input parameters.
-   *
-   * @param { number } width - Width of the image.
-   * @param { number } height - Height of the image.
-   * @param { Uint8ClampedArray } data - Data of the image. If this parameter is not specified, the default value is a black rectangular image.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   constructor(width: number, height: number, data?: Uint8ClampedArray);
 
   /**
-   * Create an ImageData object based on the input parameters.
+   * Creates an **ImageData** object with the specified width, height, and color.
+   * If data is not defined, it is populated with a one-dimensional array of 0s.
+   * The unit of the **ImageData** object can be configured using **unit**.
    *
-   * @param { number } width - Width of the image.
-   * @param { number } height - Height of the image.
-   * @param { Uint8ClampedArray } data - Data of the image. If this parameter is not specified, the default value is a black rectangular image.
-   * @param { LengthMetricsUnit } [unit] - the unit mode
+   * @param { number } width - Width of the rectangle.<br>Default unit: vp<br>
+   *     Invalid values **NaN** and **Infinity** are treated as **0**.
+   * @param { number } height - Height of the rectangle.<br>Default unit: vp<br>
+   *     Invalid values **NaN** and **Infinity** are treated as **0**.
+   * @param { Uint8ClampedArray } data - A one-dimensional array of color values.
+   *     The values range from 0 to 255.<br>
+   *     If the value specified is **undefined**, **data** is **undefined**.<br>
+   *     Default value: a one-dimensional array of all 0s
+   * @param { LengthMetricsUnit } [unit] - Unit mode of the **ImageData** object.
+   *     The value cannot be dynamically changed once set. The configuration method is
+   *     the same as that of
+   *     [CanvasRenderingContext2D]{@link CanvasRenderingContext2D}.<br>
+   *     Invalid values **undefined**, **NaN** and **Infinity** are treated as the default value.<br>
+   *     Default value: **DEFAULT**.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice
@@ -2567,125 +1266,60 @@ declare class ImageData {
 }
 
 /**
- * This object allows you to set properties when creating a rendering context
+ * Configures the settings of a **CanvasRenderingContext2D** object, including whether to enable
+ * anti-aliasing.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @since 8
- */
-/**
- * This object allows you to set properties when creating a rendering context
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @form
- * @since 9
- */
-/**
- * This object allows you to set properties when creating a rendering context
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * This object allows you to set properties when creating a rendering context
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 8 dynamic
  */
 declare class RenderingContextSettings {
   /**
-   * Indicates whether anti-aliasing is enabled for canvas. The default value is false.
+   * Indicates whether anti-aliasing is enabled for canvas.
+   * <br>A value of **undefined** is treated as the default value.
+   * <br>**false**: Disable anti-aliasing. **true**: Enable anti-aliasing.
+   * <br>Default value: **false**
+   * <br>**NOTE**<br>
+   * Anti-aliasing is enabled by default for text drawing. The **antialias** attribute of
+   * **RenderingContextSettings** does not affect the anti-aliasing effect of the drawn text.
+   * To adjust the anti-aliasing effect for text, use the
+   * [antialias](#antialias24) API.
    *
-   * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 8
-   */
-  /**
-   * Indicates whether anti-aliasing is enabled for canvas. The default value is false.
-   *
-   * @type { ?boolean }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Indicates whether anti-aliasing is enabled for canvas. The default value is false.
-   *
-   * @type { ?boolean }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Indicates whether anti-aliasing is enabled for canvas. The default value is false.
-   *
-   * @type { ?boolean }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   antialias?: boolean;
 
   /**
-   * Create an RenderingContextSettings object based on the antialias and alpha.
+   * Constructs a **CanvasRenderingContext2D** object. Anti-aliasing can be enabled.
    *
-   * @param { boolean } antialias - Indicates whether anti-aliasing is enabled for canvas
+   * @param { boolean } antialias - Whether to enable anti-aliasing.
+   *     <br>A value of **undefined** is treated as the default value.
+   *     <br>**false**: Disable anti-aliasing. **true**: Enable anti-aliasing.
+   *     <br>Default value: **false**
+   *     <br>**NOTE**<br>
+   *     Anti-aliasing is enabled by default for text drawing. The **antialias** attribute of
+   *     **RenderingContextSettings** does not affect the anti-aliasing effect of the drawn text.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 8
-   */
-  /**
-   * Create an RenderingContextSettings object based on the antialias and alpha.
-   *
-   * @param { boolean } antialias - Indicates whether anti-aliasing is enabled for canvas
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Create an RenderingContextSettings object based on the antialias and alpha.
-   *
-   * @param { boolean } antialias - Indicates whether anti-aliasing is enabled for canvas
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Create an RenderingContextSettings object based on the antialias and alpha.
-   *
-   * @param { boolean } antialias - Indicates whether anti-aliasing is enabled for canvas
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   constructor(antialias?: boolean);
 }
 
 /**
- * Defines the options for rendering context.
+ * Defines the specific configuration parameters for the rendering context.
  *
- * @interface RenderingContextOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -2694,8 +1328,10 @@ declare class RenderingContextSettings {
  */
 declare interface RenderingContextOptions {
   /**
-   * Indicates whether anti-aliasing is enabled for rendering context.
-   * Default value is false, undefined means setting to default value.
+   * Indicates whether to enable anti-aliasing for the **RenderingContext**.
+   * <br>A value of **undefined** is treated as the default value.
+   * <br>**true**: Enable anti-aliasing. **false**: Disable anti-aliasing.
+   * <br>Default value: **false**
    *
    * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2708,50 +1344,74 @@ declare interface RenderingContextOptions {
 }
 
 /**
- * Canvas renderer for drawing shapes, text, images and other objects
+ * After the **CanvasRenderingContext2D** object is bound to the **Canvas** component, you can draw shapes,
+ * texts, and images on the **Canvas** component.
+ *
+ * > **NOTE**
+ * >
+ * > * It is recommended that the **CanvasRenderingContext2D** object and the **Canvas** component be
+ * > encapsulated into the same custom component, ensuring a one-to-one correspondence and consistent
+ * > lifecycle between them.
+ * >
+ * > * When you call drawing APIs in this module, the commands are stored in the associated **Canvas**
+ * > component's command queue. These commands are only executed when the current frame enters the rendering
+ * > phase and the associated **Canvas** component is visible. Therefore, when the **Canvas** component is
+ * > invisible (for example, off-screen or hidden), avoid frequent drawing calls to prevent command queue
+ * > buildup and excessive memory usage.
+ * >
+ * > * When the width or height of the **Canvas** component exceeds 8000 px, rendering via the CPU causes
+ * > significant performance degradation.
  *
  * @extends CanvasPath
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @since 8
- */
-/**
- * Canvas renderer for drawing shapes, text, images and other objects
- *
- * @extends CanvasPath
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @form
- * @since 9
- */
-/**
- * Canvas renderer for drawing shapes, text, images and other objects
- *
- * @extends CanvasPath
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Canvas renderer for drawing shapes, text, images and other objects
- *
- * @extends CanvasPath
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 8 dynamic
  */
 declare class CanvasRenderer extends CanvasPath {
   /**
-   * Set spacing for letter.
+   * Sets the letter spacing. This attribute is write-only. You can set its value through an
+   * assignment statement, but cannot obtain its current value through a read operation. If you
+   * attempt to read its current value, **undefined** will be returned.
+   *
+   * Spacing between characters.
+   *
+   * When the LengthMetrics type is used:
+   *
+   * The spacing is set according to the specified unit.
+   *
+   * The FP, PERCENT, and LPX units are not supported and will be treated as invalid values.
+   *
+   * Negative and fractional values are supported. When set to a fraction, the spacing is not
+   * rounded.
+   *
+   * When the string type is used:
+   *
+   * Percentage values are not supported and will be treated as invalid.
+   *
+   * Negative and decimal values are supported. When set to a decimal value, the spacing is not
+   * rounded.
+   *
+   * If no unit is specified (for example, **letterSpacing = '10'**) and **LengthMetricsUnit**
+   * is not set, the default unit is vp.
+   *
+   * If **LengthMetricsUnit** is set to px, the default unit is px.
+   *
+   * If the value of **letterSpacing** is specified with a unit (for example,
+   * **letterSpacing='10vp'**), the letter spacing is set based on the specified unit.
+   *
+   * Default value: **0** (Invalid values are treated as the default value.)
+   *
+   * > **NOTE**
+   * >
+   * > The LengthMetrics type is recommended for better performance.
    *
    * @type { LengthMetrics | string }
    * @default 0vp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -2759,326 +1419,159 @@ declare class CanvasRenderer extends CanvasPath {
   letterSpacing: LengthMetrics | string;
 
   /**
-   * Transparency. The value ranges from 0.0 (completely transparent) to 1.0 (completely opaque).
-   *    If the value is out of range, the assignment is invalid.
+   * Sets the opacity. This attribute is write-only. You can set its value through an assignment
+   * statement, but cannot obtain its current value through a read operation. If you attempt to read
+   * its current value, **undefined** will be returned.
    *
-   * @type { number }
-   * @default 1.0
+   * The value range is [0.0, 1.0]. **0.0** indicates completely transparent, and **1.0** indicates
+   * completely opaque. If the set value is less than 0.0, **0.0** will be used. If the set value is
+   * greater than 1.0, **1.0** will be used.
+   *
+   * In versions earlier than API version 18, if **NaN** or **Infinity** is set, rendering APIs cannot
+   * be called for rendering after this API. In API version 18 and later versions, if **NaN** or
+   * **Infinity** is set, the current API does not take effect, and other rendering APIs with valid
+   * arguments can be called normally.
+   *
+   * Default value: **1.0**
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 8
-   */
-  /**
-   * Transparency. The value ranges from 0.0 (completely transparent) to 1.0 (completely opaque).
-   *    If the value is out of range, the assignment is invalid.
-   *
-   * @type { number }
-   * @default 1.0
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Transparency. The value ranges from 0.0 (completely transparent) to 1.0 (completely opaque).
-   *    If the value is out of range, the assignment is invalid.
-   *
-   * @type { number }
-   * @default 1.0
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Transparency. The value ranges from 0.0 (completely transparent) to 1.0 (completely opaque).
-   *    If the value is out of range, the assignment is invalid.
-   *
-   * @type { number }
-   * @default 1.0
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   globalAlpha: number;
 
   /**
-   * Type of composition operation applied when drawing a new shape. The following types are supported:
-   * source-over: (Default) Draws a new drawing on top of an existing canvas context.
-   * source-in: The new drawing is drawn only where the new drawing overlaps the target canvas.
-   *    Everything else is transparent.
-   * source-out: Draws a new drawing where it does not overlap with the existing canvas content.
-   * source-atop: The new drawing is drawn only where it overlaps the content of the existing canvas.
-   * destination-over: Draws a new graphic behind the existing canvas content.
-   * destination-in: Existing canvas content remains where the new drawing overlaps the existing canvas content.
-   *    Everything else is transparent.
-   * destination-out: Existing content remains where the new drawing does not overlap.
-   * destination-atop: The existing canvas retains only the part that overlaps with the new drawing,
-   *    which is drawn behind the canvas content.
-   * lighter: The color of two overlapping shapes is determined by adding the color values.
-   * copy: Only new graphics are displayed.
-   * xor: In the image, those overlaps and other places outside of the normal drawing are transparent.
+   * Sets the composite operation. This attribute is write-only. You can set its value through an
+   * assignment statement, but cannot obtain its current value through a read operation. If you
+   * attempt to read its current value, **undefined** will be returned.
    *
-   * @type { string }
+   * Available values are as follows:
+   *
+   * | Name | Description |
+   * | ------ | ------ |
+   * | source-over | Displays the new drawing above the existing drawing. Default value. |
+   * | source-atop | Displays the new drawing on the top of the existing drawing. |
+   * | source-in | Displays the new drawing inside the existing drawing. |
+   * | source-out | Displays part of the new drawing that is outside of the existing drawing. |
+   * | destination-over | Displays the existing drawing above the new drawing. |
+   * | destination-atop | Displays the existing drawing on the top of the new drawing. |
+   * | destination-in | Displays the existing drawing inside the new drawing. |
+   * | destination-out | Displays the existing drawing outside the new drawing. |
+   * | lighter | Displays both the new and existing drawing. |
+   * | copy | Displays the new drawing and neglects the existing drawing. |
+   * | xor | Combines the new drawing and existing drawing using the XOR operation. |
+   *
+   * Default value: **'source-over'**
+   *
    * @default source-over
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 8
-   */
-  /**
-   * Type of composition operation applied when drawing a new shape. The following types are supported:
-   * source-over: (Default) Draws a new drawing on top of an existing canvas context.
-   * source-in: The new drawing is drawn only where the new drawing overlaps the target canvas.
-   *    Everything else is transparent.
-   * source-out: Draws a new drawing where it does not overlap with the existing canvas content.
-   * source-atop: The new drawing is drawn only where it overlaps the content of the existing canvas.
-   * destination-over: Draws a new graphic behind the existing canvas content.
-   * destination-in: Existing canvas content remains where the new drawing overlaps the existing canvas content.
-   *    Everything else is transparent.
-   * destination-out: Existing content remains where the new drawing does not overlap.
-   * destination-atop: The existing canvas retains only the part that overlaps with the new drawing,
-   *    which is drawn behind the canvas content.
-   * lighter: The color of two overlapping shapes is determined by adding the color values.
-   * copy: Only new graphics are displayed.
-   * xor: In the image, those overlaps and other places outside of the normal drawing are transparent.
-   *
-   * @type { string }
-   * @default source-over
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Type of composition operation applied when drawing a new shape. The following types are supported:
-   * source-over: (Default) Draws a new drawing on top of an existing canvas context.
-   * source-in: The new drawing is drawn only where the new drawing overlaps the target canvas.
-   *    Everything else is transparent.
-   * source-out: Draws a new drawing where it does not overlap with the existing canvas content.
-   * source-atop: The new drawing is drawn only where it overlaps the content of the existing canvas.
-   * destination-over: Draws a new graphic behind the existing canvas content.
-   * destination-in: Existing canvas content remains where the new drawing overlaps the existing canvas content.
-   *    Everything else is transparent.
-   * destination-out: Existing content remains where the new drawing does not overlap.
-   * destination-atop: The existing canvas retains only the part that overlaps with the new drawing,
-   *    which is drawn behind the canvas content.
-   * lighter: The color of two overlapping shapes is determined by adding the color values.
-   * copy: Only new graphics are displayed.
-   * xor: In the image, those overlaps and other places outside of the normal drawing are transparent.
-   *
-   * @type { string }
-   * @default source-over
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Type of composition operation applied when drawing a new shape. The following types are supported:
-   * source-over: (Default) Draws a new drawing on top of an existing canvas context.
-   * source-in: The new drawing is drawn only where the new drawing overlaps the target canvas.
-   *    Everything else is transparent.
-   * source-out: Draws a new drawing where it does not overlap with the existing canvas content.
-   * source-atop: The new drawing is drawn only where it overlaps the content of the existing canvas.
-   * destination-over: Draws a new graphic behind the existing canvas content.
-   * destination-in: Existing canvas content remains where the new drawing overlaps the existing canvas content.
-   *    Everything else is transparent.
-   * destination-out: Existing content remains where the new drawing does not overlap.
-   * destination-atop: The existing canvas retains only the part that overlaps with the new drawing,
-   *    which is drawn behind the canvas content.
-   * lighter: The color of two overlapping shapes is determined by adding the color values.
-   * copy: Only new graphics are displayed.
-   * xor: In the image, those overlaps and other places outside of the normal drawing are transparent.
-   *
-   * @type { string }
-   * @default source-over
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   globalCompositeOperation: string;
 
   /**
-   * Draw an image on a canvas
+   * Draws an image on the canvas.
    *
-   * @param { ImageBitmap | PixelMap } image - Picture objects drawn to the canvas.
-   * @param { number } dx - x-axis coordinate of the upper left corner of the image on the target canvas.
-   * @param { number } dy - y-axis coordinate of the upper left corner of the image on the target canvas.
+   * @param { ImageBitmap | PixelMap } image - Image resource. For details, see **ImageBitmap** or
+   *     **PixelMap**.<br>**undefined** and **null** are treated as invalid values and no rendering will
+   *     be performed.
+   * @param { number } dx - X-coordinate of the top-left corner of the drawing area on the canvas.<br>
+   *     Invalid values **undefined** and **null** are treated as **0**. **NaN** and **Infinity** are
+   *     treated as invalid and no rendering will be performed.<br>Default unit: vp
+   * @param { number } dy - Y-coordinate of the top-left corner of the drawing area on the canvas.<br>
+   *     Invalid values **undefined** and **null** are treated as **0**. **NaN** and **Infinity** are
+   *     treated as invalid and no rendering will be performed.<br>Default unit: vp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 8
-   */
-  /**
-   * Draw an image on a canvas
-   *
-   * @param { ImageBitmap | PixelMap } image - Picture objects drawn to the canvas.
-   * @param { number } dx - x-axis coordinate of the upper left corner of the image on the target canvas.
-   * @param { number } dy - y-axis coordinate of the upper left corner of the image on the target canvas.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Draw an image on a canvas
-   *
-   * @param { ImageBitmap | PixelMap } image - Picture objects drawn to the canvas.
-   * @param { number } dx - x-axis coordinate of the upper left corner of the image on the target canvas.
-   * @param { number } dy - y-axis coordinate of the upper left corner of the image on the target canvas.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Draw an image on a canvas
-   *
-   * @param { ImageBitmap | PixelMap } image - Picture objects drawn to the canvas.
-   * @param { number } dx - x-axis coordinate of the upper left corner of the image on the target canvas.
-   * @param { number } dy - y-axis coordinate of the upper left corner of the image on the target canvas.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   drawImage(image: ImageBitmap | PixelMap, dx: number, dy: number): void;
 
   /**
-   * Draw an image on a canvas
+   * Draws an image by stretching or compressing it to the specified dimensions.
    *
-   * @param { ImageBitmap | PixelMap } image - Picture objects drawn to the canvas.
-   * @param { number } dx - x-axis coordinate of the upper left corner of the image on the target canvas.
-   * @param { number } dy - y-axis coordinate of the upper left corner of the image on the target canvas.
-   * @param { number } dw - Specifies the drawing width of the image on the target canvas. The width of the drawn image will be scaled.
-   * @param { number } dh - Specifies the drawing height of the image on the target canvas. The height of the drawn image will be scaled.
+   * @param { ImageBitmap | PixelMap } image - Image resource. For details, see **ImageBitmap** or
+   *     **PixelMap**.<br>**undefined** and **null** are treated as invalid values and no rendering will
+   *     be performed.
+   * @param { number } dx - X-coordinate of the top-left corner of the drawing area on the canvas.<br>
+   *     Invalid values **undefined** and **null** are treated as **0**. **NaN** and **Infinity** are
+   *     treated as invalid and no rendering will be performed.<br>Default unit: vp
+   * @param { number } dy - Y-coordinate of the top-left corner of the drawing area on the canvas.<br>
+   *     Invalid values **undefined** and **null** are treated as **0**. **NaN** and **Infinity** are
+   *     treated as invalid and no rendering will be performed.<br>Default unit: vp
+   * @param { number } dw - Width of the drawing area. If the width of the drawing area is different from
+   *     that of the cropped image, the latter will be stretched or compressed to the former.<br>Negative
+   *     values, **undefined**, and **null** are treated as **0**. **NaN** and **Infinity** are treated as
+   *     invalid and no rendering will be performed.<br>Default unit: vp
+   * @param { number } dh - Height of the drawing area. If the height of the drawing area is different from
+   *     that of the cropped image, the latter will be stretched or compressed to the former.<br>Negative
+   *     values, **undefined**, and **null** are treated as **0**. **NaN** and **Infinity** are treated as
+   *     invalid and no rendering will be performed.<br>Default unit: vp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 8
-   */
-  /**
-   * Draw an image on a canvas
-   *
-   * @param { ImageBitmap | PixelMap } image - Picture objects drawn to the canvas.
-   * @param { number } dx - x-axis coordinate of the upper left corner of the image on the target canvas.
-   * @param { number } dy - y-axis coordinate of the upper left corner of the image on the target canvas.
-   * @param { number } dw - Specifies the drawing width of the image on the target canvas. The width of the drawn image will be scaled.
-   * @param { number } dh - Specifies the drawing height of the image on the target canvas. The height of the drawn image will be scaled.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Draw an image on a canvas
-   *
-   * @param { ImageBitmap | PixelMap } image - Picture objects drawn to the canvas.
-   * @param { number } dx - x-axis coordinate of the upper left corner of the image on the target canvas.
-   * @param { number } dy - y-axis coordinate of the upper left corner of the image on the target canvas.
-   * @param { number } dw - Specifies the drawing width of the image on the target canvas. The width of the drawn image will be scaled.
-   * @param { number } dh - Specifies the drawing height of the image on the target canvas. The height of the drawn image will be scaled.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Draw an image on a canvas
-   *
-   * @param { ImageBitmap | PixelMap } image - Picture objects drawn to the canvas.
-   * @param { number } dx - x-axis coordinate of the upper left corner of the image on the target canvas.
-   * @param { number } dy - y-axis coordinate of the upper left corner of the image on the target canvas.
-   * @param { number } dw - Specifies the drawing width of the image on the target canvas. The width of the drawn image will be scaled.
-   * @param { number } dh - Specifies the drawing height of the image on the target canvas. The height of the drawn image will be scaled.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   drawImage(image: ImageBitmap | PixelMap, dx: number, dy: number, dw: number, dh: number): void;
 
   /**
-   *Draw an image on a canvas
+   * Draws a cropped portion of an image by stretching or compressing it to the specified dimensions.
    *
-   * @param { ImageBitmap | PixelMap } image - Picture objects drawn to the canvas.
-   * @param { number } sx - x coordinate of the upper left corner of the rectangle (cropping) selection box of the image.
-   * @param { number } sy - y coordinate of the upper left corner of the rectangle (cropping) selection box of the image.
-   * @param { number } sw - Width of the rectangle (cropping) selection box of the image.
-   * @param { number } sh - Height of the rectangle (cropping) selection box of the image.
-   * @param { number } dx - x-axis coordinate of the upper left corner of the image on the target canvas.
-   * @param { number } dy - y-axis coordinate of the upper left corner of the image on the target canvas.
-   * @param { number } dw - Specifies the drawing width of the image on the target canvas. The width of the drawn image will be scaled.
-   * @param { number } dh - Specifies the drawing height of the image on the target canvas. The height of the drawn image will be scaled.
+   * @param { ImageBitmap | PixelMap } image - Image resource. For details, see **ImageBitmap** or
+   *     **PixelMap**.<br>**undefined** and **null** are treated as invalid values and no rendering will
+   *     be performed.
+   * @param { number } sx - X-coordinate of the top-left corner of the rectangle used to crop the source
+   *     image.<br>Invalid values **undefined** and **null** are treated as **0**. **NaN** and **Infinity**
+   *     are treated as invalid and no rendering will be performed.<br>If the type of **image** is
+   *     **ImageBitmap**, the default unit is vp.<br>If the type of **image** is **PixelMap**, the default
+   *     unit is px in versions earlier than API version 18 and vp in API version 18 and later.
+   * @param { number } sy - Y-coordinate of the top-left corner of the rectangle used to crop the source
+   *     image.<br>Invalid values **undefined** and **null** are treated as **0**. **NaN** and **Infinity**
+   *     are treated as invalid and no rendering will be performed.<br>If the type of **image** is
+   *     **ImageBitmap**, the default unit is vp.<br>If the type of **image** is **PixelMap**, the default
+   *     unit is px in versions earlier than API version 18 and vp in API version 18 and later.
+   * @param { number } sw - Target width to crop the source image.<br>Negative values, **undefined**, and
+   *     **null** are treated as **0**. **NaN** and **Infinity** are treated as invalid and no rendering
+   *     will be performed.<br>If the type of **image** is **ImageBitmap**, the default unit is vp.<br>If
+   *     the type of **image** is **PixelMap**, the default unit is px in versions earlier than API version
+   *     18 and vp in API version 18 and later.
+   * @param { number } sh - Target height to crop the source image.<br>Negative values, **undefined**, and
+   *     **null** are treated as **0**. **NaN** and **Infinity** are treated as invalid and no rendering
+   *     will be performed.<br>If the type of **image** is **ImageBitmap**, the default unit is vp.<br>If
+   *     the type of **image** is **PixelMap**, the default unit is px in versions earlier than API version
+   *     18 and vp in API version 18 and later.
+   * @param { number } dx - X-coordinate of the top-left corner of the drawing area on the canvas.<br>
+   *     Invalid values **undefined** and **null** are treated as **0**. **NaN** and **Infinity** are
+   *     treated as invalid and no rendering will be performed.<br>Default unit: vp
+   * @param { number } dy - Y-coordinate of the top-left corner of the drawing area on the canvas.<br>
+   *     Invalid values **undefined** and **null** are treated as **0**. **NaN** and **Infinity** are
+   *     treated as invalid and no rendering will be performed.<br>Default unit: vp
+   * @param { number } dw - Width of the drawing area.<br>Negative values, **undefined**, and **null**
+   *     are treated as **0**. **NaN** and **Infinity** are treated as invalid and no rendering will be
+   *     performed. If the width of the drawing area is different from that of the cropped image, the
+   *     latter will be stretched or compressed to the former.<br>Default unit: vp
+   * @param { number } dh - Height of the drawing area.<br>Negative values, **undefined**, and **null**
+   *     are treated as **0**. **NaN** and **Infinity** are treated as invalid and no rendering will be
+   *     performed. If the height of the drawing area is different from that of the cropped image, the
+   *     latter will be stretched or compressed to the former.<br>Default unit: vp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 8
-   */
-  /**
-   *Draw an image on a canvas
-   *
-   * @param { ImageBitmap | PixelMap } image - Picture objects drawn to the canvas.
-   * @param { number } sx - x coordinate of the upper left corner of the rectangle (cropping) selection box of the image.
-   * @param { number } sy - y coordinate of the upper left corner of the rectangle (cropping) selection box of the image.
-   * @param { number } sw - Width of the rectangle (cropping) selection box of the image.
-   * @param { number } sh - Height of the rectangle (cropping) selection box of the image.
-   * @param { number } dx - x-axis coordinate of the upper left corner of the image on the target canvas.
-   * @param { number } dy - y-axis coordinate of the upper left corner of the image on the target canvas.
-   * @param { number } dw - Specifies the drawing width of the image on the target canvas. The width of the drawn image will be scaled.
-   * @param { number } dh - Specifies the drawing height of the image on the target canvas. The height of the drawn image will be scaled.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   *Draw an image on a canvas
-   *
-   * @param { ImageBitmap | PixelMap } image - Picture objects drawn to the canvas.
-   * @param { number } sx - x coordinate of the upper left corner of the rectangle (cropping) selection box of the image.
-   * @param { number } sy - y coordinate of the upper left corner of the rectangle (cropping) selection box of the image.
-   * @param { number } sw - Width of the rectangle (cropping) selection box of the image.
-   * @param { number } sh - Height of the rectangle (cropping) selection box of the image.
-   * @param { number } dx - x-axis coordinate of the upper left corner of the image on the target canvas.
-   * @param { number } dy - y-axis coordinate of the upper left corner of the image on the target canvas.
-   * @param { number } dw - Specifies the drawing width of the image on the target canvas. The width of the drawn image will be scaled.
-   * @param { number } dh - Specifies the drawing height of the image on the target canvas. The height of the drawn image will be scaled.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   *Draw an image on a canvas
-   *
-   * @param { ImageBitmap | PixelMap } image - Picture objects drawn to the canvas.
-   * @param { number } sx - x coordinate of the upper left corner of the rectangle (cropping) selection box of the image.
-   * @param { number } sy - y coordinate of the upper left corner of the rectangle (cropping) selection box of the image.
-   * @param { number } sw - Width of the rectangle (cropping) selection box of the image.
-   * @param { number } sh - Height of the rectangle (cropping) selection box of the image.
-   * @param { number } dx - x-axis coordinate of the upper left corner of the image on the target canvas.
-   * @param { number } dy - y-axis coordinate of the upper left corner of the image on the target canvas.
-   * @param { number } dw - Specifies the drawing width of the image on the target canvas. The width of the drawn image will be scaled.
-   * @param { number } dh - Specifies the drawing height of the image on the target canvas. The height of the drawn image will be scaled.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   drawImage(
     image: ImageBitmap | PixelMap,
@@ -3093,613 +1586,271 @@ declare class CanvasRenderer extends CanvasPath {
   ): void;
 
   /**
-   * Clear the sub-path list and start a new path.
+   * Creates a drawing path.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 8
-   */
-  /**
-   * Clear the sub-path list and start a new path.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Clear the sub-path list and start a new path.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Clear the sub-path list and start a new path.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   beginPath(): void;
 
   /**
-   * Sets the currently created path as the current clipping path
+   * Sets the current path to a clipping path.
    *
-   * @param { CanvasFillRule } fillRule - Algorithm rule. For details, see {@link CanvasFillRule}.
+   * @param { CanvasFillRule } fillRule - Rule by which to determine whether a point is inside or outside
+   *     the area to clip.<br>The options are **"nonzero"** and **"evenodd"**.<br>Invalid values
+   *     **undefined** and **null** are treated as the default value.<br>Default value: **"nonzero"**
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 8
-   */
-  /**
-   * Sets the currently created path as the current clipping path
-   *
-   * @param { CanvasFillRule } fillRule - Algorithm rule. For details, see {@link CanvasFillRule}.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Sets the currently created path as the current clipping path
-   *
-   * @param { CanvasFillRule } fillRule - Algorithm rule. For details, see {@link CanvasFillRule}.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Sets the currently created path as the current clipping path
-   *
-   * @param { CanvasFillRule } fillRule - Algorithm rule. For details, see {@link CanvasFillRule}.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   clip(fillRule?: CanvasFillRule): void;
 
   /**
-   * Tailoring according to the specified path
+   * Sets a specified path as the clipping path.
    *
-   * @param { Path2D } path - Path to be cut.
-   * @param { CanvasFillRule } fillRule - Algorithm rule. For details, see {@link CanvasFillRule}.
+   * @param { Path2D } path - **Path2D** path to clip.<br>**undefined** and **null** are treated as
+   *     invalid values.
+   * @param { CanvasFillRule } fillRule - Rule by which to determine whether a point is inside or outside
+   *     the area to clip.<br>The options are **"nonzero"** and **"evenodd"**.<br>Invalid values
+   *     **undefined** and **null** are treated as the default value.<br>Default value: **"nonzero"**
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 8
-   */
-  /**
-   * Tailoring according to the specified path
-   *
-   * @param { Path2D } path - Path to be cut.
-   * @param { CanvasFillRule } fillRule - Algorithm rule. For details, see {@link CanvasFillRule}.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Tailoring according to the specified path
-   *
-   * @param { Path2D } path - Path to be cut.
-   * @param { CanvasFillRule } fillRule - Algorithm rule. For details, see {@link CanvasFillRule}.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Tailoring according to the specified path
-   *
-   * @param { Path2D } path - Path to be cut.
-   * @param { CanvasFillRule } fillRule - Algorithm rule. For details, see {@link CanvasFillRule}.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   clip(path: Path2D, fillRule?: CanvasFillRule): void;
 
   /**
-   * Fills existing paths according to the current fill style.
+   * Fills the current path.
    *
-   * @param { CanvasFillRule } fillRule - Algorithm rule. For details, see {@link CanvasFillRule}.
+   * @param { CanvasFillRule } fillRule - Rule by which to determine whether a point is inside or outside
+   *     the area to fill.<br>The options are **"nonzero"** and **"evenodd"**.<br>Invalid values
+   *     **undefined** and **null** are treated as the default value.<br>Default value: **"nonzero"**
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 8
-   */
-  /**
-   * Fills existing paths according to the current fill style.
-   *
-   * @param { CanvasFillRule } fillRule - Algorithm rule. For details, see {@link CanvasFillRule}.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Fills existing paths according to the current fill style.
-   *
-   * @param { CanvasFillRule } fillRule - Algorithm rule. For details, see {@link CanvasFillRule}.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Fills existing paths according to the current fill style.
-   *
-   * @param { CanvasFillRule } fillRule - Algorithm rule. For details, see {@link CanvasFillRule}.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   fill(fillRule?: CanvasFillRule): void;
 
   /**
-   * Fills the specified path according to the current fill style
+   * Fills a specified path.
    *
-   * @param { Path2D } path - Path to be filled.
-   * @param { CanvasFillRule } fillRule - Algorithm rule. For details, see {@link CanvasFillRule}.
+   * @param { Path2D } path - **Path2D** path to fill.<br>**undefined** and **null** are treated as
+   *     invalid values.
+   * @param { CanvasFillRule } fillRule - Rule by which to determine whether a point is inside or outside
+   *     the area to fill.<br>The options are **"nonzero"** and **"evenodd"**.<br>Invalid values
+   *     **undefined** and **null** are treated as the default value.<br>Default value: **"nonzero"**
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 8
-   */
-  /**
-   * Fills the specified path according to the current fill style
-   *
-   * @param { Path2D } path - Path to be filled.
-   * @param { CanvasFillRule } fillRule - Algorithm rule. For details, see {@link CanvasFillRule}.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Fills the specified path according to the current fill style
-   *
-   * @param { Path2D } path - Path to be filled.
-   * @param { CanvasFillRule } fillRule - Algorithm rule. For details, see {@link CanvasFillRule}.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Fills the specified path according to the current fill style
-   *
-   * @param { Path2D } path - Path to be filled.
-   * @param { CanvasFillRule } fillRule - Algorithm rule. For details, see {@link CanvasFillRule}.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   fill(path: Path2D, fillRule?: CanvasFillRule): void;
 
   /**
-   * Draws an existing path according to the current stroke style.
+   * Strokes (outlines) this path.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 8
-   */
-  /**
-   * Draws an existing path according to the current stroke style.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Draws an existing path according to the current stroke style.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Draws an existing path according to the current stroke style.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   stroke(): void;
 
   /**
-   * Draws the specified path according to the current stroke style
+   * Strokes (outlines) a specified path.
    *
    * @param { Path2D } path - Specified stroke path object
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 8
-   */
-  /**
-   * Draws the specified path according to the current stroke style
-   *
-   * @param { Path2D } path - Specified stroke path object
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Draws the specified path according to the current stroke style
-   *
-   * @param { Path2D } path - Specified stroke path object
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Draws the specified path according to the current stroke style
-   *
-   * @param { Path2D } path - Specified stroke path object
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   stroke(path: Path2D): void;
 
   /**
-   * Attributes that describe the fill color and style. The options are as follows:
-   * color: Color String
-   * CanvasGradient: Color gradient object. For details, see {@link CanvasGradient}.
-   * CanvasPattern: Template object. For details, see {@link CanvasPattern}.
+   * Sets the fill color for rendering. This attribute is write-only. You can set its value through an
+   * assignment statement, but cannot obtain its current value through a read operation. If you attempt
+   * to read its current value, **undefined** will be returned.
    *
-   * @type { string | CanvasGradient | CanvasPattern }
-   * @default #000000 (black)
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @since 8
-   */
-  /**
-   * Attributes that describe the fill color and style. The options are as follows:
-   * color: Color String
-   * CanvasGradient: Color gradient object. For details, see {@link CanvasGradient}.
-   * CanvasPattern: Template object. For details, see {@link CanvasPattern}.
+   * - When the type is string, this attribute indicates the color of the fill area. For details about
+   *   the color format, see the description for the string type in
+   *   [ResourceColor]{@link ResourceColor}.
    *
-   * @type { string | CanvasGradient | CanvasPattern }
-   * @default #000000 (black)
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Attributes that describe the fill color and style. The options are as follows:
+   * - When the type is number, this attribute indicates the color of the fill area. Fully transparent
+   *   colors are not supported. For details about the color format, see the description for the number
+   *   type in [ResourceColor]{@link ResourceColor}.
+   *
+   * - When the type is **CanvasGradient**, this attribute indicates a gradient object, which is created
+   *   via the [createLinearGradient](#createlineargradient) API.
+   *
+   * - When the type is **CanvasPattern**, this attribute indicates a pattern, which is created via the
+   *   [createPattern](#createpattern) API.
+   *
+   *   Default value: **'#000000'** (black)
+   *
+   *   Invalid values do not take effect. The effect before the setting is retained.
    *
    * @type { string | number | CanvasGradient | CanvasPattern }
-   * string: Color String.
-   * number: Indicates the color with number.
-   * CanvasGradient: Color gradient object. For details, see {@link CanvasGradient}.
-   * CanvasPattern: Template object. For details, see {@link CanvasPattern}.
    * @default #000000 (black)
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Attributes that describe the fill color and style. The options are as follows:
-   *
-   * @type { string | number | CanvasGradient | CanvasPattern }
-   * string: Color String.
-   * number: Indicates the color with number.
-   * CanvasGradient: Color gradient object. For details, see {@link CanvasGradient}.
-   * CanvasPattern: Template object. For details, see {@link CanvasPattern}.
-   * @default #000000 (black)
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   fillStyle: string | number | CanvasGradient | CanvasPattern;
 
   /**
-   * Attributes of the stroke color and style. The options are as follows:
-   * color: Color String
-   * CanvasGradient: Color gradient object. For details, see {@link CanvasGradient}.
-   * CanvasPattern: Template object. For details, see {@link CanvasPattern}.
+   * Sets the stroke color. This attribute is write-only. You can set its value through an
+   * assignment statement, but cannot obtain its current value through a read operation.
+   * If you attempt to read its current value, **undefined** will be returned.
    *
-   * @type { string | CanvasGradient | CanvasPattern }
-   * @default #000000 (black)
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @since 8
-   */
-  /**
-   * Attributes of the stroke color and style. The options are as follows:
-   * color: Color String
-   * CanvasGradient: Color gradient object. For details, see {@link CanvasGradient}.
-   * CanvasPattern: Template object. For details, see {@link CanvasPattern}.
+   * - When the type is string, this attribute indicates the stroke color. For details about
+   *   the color format, see the description for the string type in
+   *   [ResourceColor]{@link ResourceColor}.
    *
-   * @type { string | CanvasGradient | CanvasPattern }
-   * @default #000000 (black)
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Attributes of the stroke color and style. The options are as follows:
+   * - When the type is number, this attribute indicates the stroke color. Fully transparent
+   *   colors are not supported. For details about the color format, see the description for
+   *   the number type in
+   *   [ResourceColor]{@link ResourceColor}.
+   *
+   * - When the type is **CanvasGradient**, this attribute indicates a gradient object, which is
+   *   created via the [createLinearGradient](#createlineargradient) API.
+   *
+   * - When the type is **CanvasPattern**, this attribute indicates a pattern, which is created
+   *   via the [createPattern]{@link CanvasRenderingContext2D#createPattern} API.
+   *
+   *   Default value: **'#000000'** (black)
+   *
+   *   Invalid values do not take effect. The effect before the setting is retained.
    *
    * @type { string | number | CanvasGradient | CanvasPattern }
-   * string: Color String.
-   * number: Indicates the color with number.
-   * CanvasGradient: Color gradient object. For details, see {@link CanvasGradient}.
-   * CanvasPattern: Template object. For details, see {@link CanvasPattern}.
    * @default #000000 (black)
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Attributes of the stroke color and style. The options are as follows:
-   *
-   * @type { string | number | CanvasGradient | CanvasPattern }
-   * string: Color String.
-   * number: Indicates the color with number.
-   * CanvasGradient: Color gradient object. For details, see {@link CanvasGradient}.
-   * CanvasPattern: Template object. For details, see {@link CanvasPattern}.
-   * @default #000000 (black)
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   strokeStyle: string | number | CanvasGradient | CanvasPattern;
 
   /**
-   * Creates a linear gradient object that is specified along the parameter coordinates
+   * Creates a linear gradient.
    *
-   * @param { number } x0 - The x-axis coordinate of the start point.
-   * @param { number } y0 - The y-axis coordinate of the start point.
-   * @param { number } x1 - x-axis coordinate of the end point.
-   * @param { number } y1 - y-axis coordinate of the end point.
-   * @returns { CanvasGradient }
+   * @param { number } x0 - X-coordinate of the start point.<br>If the value is **undefined** or **null**,
+   *     this API returns **undefined**. **NaN** and **Infinity** are treated as invalid values.<br>
+   *     Default unit: vp
+   * @param { number } y0 - Y-coordinate of the start point.<br>If the value is **undefined** or **null**,
+   *     this API returns **undefined**. **NaN** and **Infinity** are treated as invalid values.<br>
+   *     Default unit: vp
+   * @param { number } x1 - X-coordinate of the end point.<br>If the value is **undefined** or **null**,
+   *     this API returns **undefined**. **NaN** and **Infinity** are treated as invalid values.<br>
+   *     Default unit: vp
+   * @param { number } y1 - Y-coordinate of the end point.<br>If the value is **undefined** or **null**,
+   *     this API returns **undefined**. **NaN** and **Infinity** are treated as invalid values.<br>
+   *     Default unit: vp
+   * @returns { CanvasGradient } New **CanvasGradient** object used to create a gradient on the canvas.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 8
-   */
-  /**
-   * Creates a linear gradient object that is specified along the parameter coordinates
-   *
-   * @param { number } x0 - The x-axis coordinate of the start point.
-   * @param { number } y0 - The y-axis coordinate of the start point.
-   * @param { number } x1 - x-axis coordinate of the end point.
-   * @param { number } y1 - y-axis coordinate of the end point.
-   * @returns { CanvasGradient }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Creates a linear gradient object that is specified along the parameter coordinates
-   *
-   * @param { number } x0 - The x-axis coordinate of the start point.
-   * @param { number } y0 - The y-axis coordinate of the start point.
-   * @param { number } x1 - x-axis coordinate of the end point.
-   * @param { number } y1 - y-axis coordinate of the end point.
-   * @returns { CanvasGradient }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Creates a linear gradient object that is specified along the parameter coordinates
-   *
-   * @param { number } x0 - The x-axis coordinate of the start point.
-   * @param { number } y0 - The y-axis coordinate of the start point.
-   * @param { number } x1 - x-axis coordinate of the end point.
-   * @param { number } y1 - y-axis coordinate of the end point.
-   * @returns { CanvasGradient }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   createLinearGradient(x0: number, y0: number, x1: number, y1: number): CanvasGradient;
 
   /**
-   * Creates a template object using the specified image
+   * Creates a pattern for image filling based on a specified source image and repetition mode.
    *
-   * @param { ImageBitmap } image - Objects as duplicate image sources
-   * @param { string | null } repetition - Specifies how to repeat images. The following four modes are supported:
-   * "repeat": Repeated images in both X and Y directions
-   * "repeat-x": Repeated images in the X-axis direction but not in the Y-axis direction
-   * "repeat-y": The image is repeated in the Y axis direction, and the image is not repeated in the X axis direction.
-   * "no-repeat": Non-repeating images in both X and Y directions
-   * @returns { CanvasPattern | null }
+   * @param { ImageBitmap } image - Source image. For details, see **ImageBitmap**.<br>**undefined** and
+   *     **null** are treated as invalid values.
+   * @param { string | null } repetition - Repetition mode.<br>**'repeat'**: The image is repeated along
+   *     both the x-axis and y-axis.<br>**'repeat-x'**: The image is repeated along the x-axis.<br>
+   *     **'repeat-y'**: The image is repeated along the y-axis.<br>**'no-repeat'**: The image is not
+   *     repeated.<br>**'clamp'**: Coordinates outside the original bounds are clamped to the edge of the
+   *     image.<br>**'mirror'**: The image is mirrored with each repetition along the x-axis and y-axis.<br>
+   *     **undefined** and **null** are treated as invalid values.
+   * @returns { CanvasPattern | null } Pattern for image filling based on a specified source image and
+   *     repetition mode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 8
-   */
-  /**
-   * Creates a template object using the specified image
-   *
-   * @param { ImageBitmap } image - Objects as duplicate image sources
-   * @param { string | null } repetition - Specifies how to repeat images. The following four modes are supported:
-   * "repeat": Repeated images in both X and Y directions
-   * "repeat-x": Repeated images in the X-axis direction but not in the Y-axis direction
-   * "repeat-y": The image is repeated in the Y axis direction, and the image is not repeated in the X axis direction.
-   * "no-repeat": Non-repeating images in both X and Y directions
-   * @returns { CanvasPattern | null }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Creates a template object using the specified image
-   *
-   * @param { ImageBitmap } image - Objects as duplicate image sources
-   * @param { string | null } repetition - Specifies how to repeat images. The following four modes are supported:
-   * "repeat": Repeated images in both X and Y directions
-   * "repeat-x": Repeated images in the X-axis direction but not in the Y-axis direction
-   * "repeat-y": The image is repeated in the Y axis direction, and the image is not repeated in the X axis direction.
-   * "no-repeat": Non-repeating images in both X and Y directions
-   * "clamp": Replicate the edge color if the shader draws outside of its original bounds.
-   * "mirror": Repeat the shader's image horizontally and vertically, alternating mirror images so that adjacent images always seam.
-   * @returns { CanvasPattern | null }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Creates a template object using the specified image
-   *
-   * @param { ImageBitmap } image - Objects as duplicate image sources
-   * @param { string | null } repetition - Specifies how to repeat images. The following four modes are supported:
-   * "repeat": Repeated images in both X and Y directions
-   * "repeat-x": Repeated images in the X-axis direction but not in the Y-axis direction
-   * "repeat-y": The image is repeated in the Y axis direction, and the image is not repeated in the X axis direction.
-   * "no-repeat": Non-repeating images in both X and Y directions
-   * "clamp": Replicate the edge color if the shader draws outside of its original bounds.
-   * "mirror": Repeat the shader's image horizontally and vertically, alternating mirror images so that adjacent images always seam.
-   * @returns { CanvasPattern | null }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   createPattern(image: ImageBitmap, repetition: string | null): CanvasPattern | null;
 
   /**
-   * Creates a radioactive gradient object based on parameters that determine the coordinates of two circles
+   * Creates a radial gradient.
    *
-   * @param { number } x0 - The x-axis coordinate of the start circle.
-   * @param { number } y0 - The y-axis coordinate of the start circle.
-   * @param { number } r0 - Radius of the starting circle.
-   * @param { number } x1 - The x-axis coordinate of the end circle.
-   * @param { number } y1 - The y-axis coordinate of the end circle.
-   * @param { number } r1 - Radius of the end circle.
-   * @returns { CanvasGradient }
+   * @param { number } x0 - X-coordinate of the center of the start circle.<br>If the value is **undefined**
+   *     or **null**, this API returns **undefined**. **NaN** and **Infinity** are treated as invalid values.
+   *     <br>Default unit: vp
+   * @param { number } y0 - Y-coordinate of the center of the start circle.<br>If the value is **undefined**
+   *     or **null**, this API returns **undefined**. **NaN** and **Infinity** are treated as invalid values.
+   *     <br>Default unit: vp
+   * @param { number } r0 - Radius of the start circle, which must be a non-negative finite number.<br>
+   *     If the value is **undefined** or **null**, this API returns **undefined**. **NaN** and **Infinity**
+   *     are treated as invalid values.<br>Default unit: vp
+   * @param { number } x1 - X-coordinate of the center of the end circle.<br>If the value is **undefined**
+   *     or **null**, this API returns **undefined**. **NaN** and **Infinity** are treated as invalid values.
+   *     <br>Default unit: vp
+   * @param { number } y1 - Y-coordinate of the center of the end circle.<br>If the value is **undefined**
+   *     or **null**, this API returns **undefined**. **NaN** and **Infinity** are treated as invalid values.
+   *     <br>Default unit: vp
+   * @param { number } r1 - Radius of the end circle, which must be a non-negative finite number.<br>
+   *     If the value is **undefined** or **null**, this API returns **undefined**. **NaN** and **Infinity**
+   *     are treated as invalid values.<br>Default unit: vp
+   * @returns { CanvasGradient } New **CanvasGradient** object used to create a gradient on the canvas.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 8
-   */
-  /**
-   * Creates a radioactive gradient object based on parameters that determine the coordinates of two circles
-   *
-   * @param { number } x0 - The x-axis coordinate of the start circle.
-   * @param { number } y0 - The y-axis coordinate of the start circle.
-   * @param { number } r0 - Radius of the starting circle.
-   * @param { number } x1 - The x-axis coordinate of the end circle.
-   * @param { number } y1 - The y-axis coordinate of the end circle.
-   * @param { number } r1 - Radius of the end circle.
-   * @returns { CanvasGradient }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Creates a radioactive gradient object based on parameters that determine the coordinates of two circles
-   *
-   * @param { number } x0 - The x-axis coordinate of the start circle.
-   * @param { number } y0 - The y-axis coordinate of the start circle.
-   * @param { number } r0 - Radius of the starting circle.
-   * @param { number } x1 - The x-axis coordinate of the end circle.
-   * @param { number } y1 - The y-axis coordinate of the end circle.
-   * @param { number } r1 - Radius of the end circle.
-   * @returns { CanvasGradient }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Creates a radioactive gradient object based on parameters that determine the coordinates of two circles
-   *
-   * @param { number } x0 - The x-axis coordinate of the start circle.
-   * @param { number } y0 - The y-axis coordinate of the start circle.
-   * @param { number } r0 - Radius of the starting circle.
-   * @param { number } x1 - The x-axis coordinate of the end circle.
-   * @param { number } y1 - The y-axis coordinate of the end circle.
-   * @param { number } r1 - Radius of the end circle.
-   * @returns { CanvasGradient }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   createRadialGradient(x0: number, y0: number, r0: number, x1: number, y1: number, r1: number): CanvasGradient;
 
   /**
-   * Creates a gradient around a point with given coordinates.
+   * Creates a conic gradient.
    *
-   * @param { number } startAngle - The angle at which to begin the gradient, in radians.
-   *                   Angle measurements start horizontally the right of the center and move around clockwise.
-   * @param { number } x - The x-axis coordinate of the center of the gradient.
-   * @param { number } y - The y-axis coordinate of the center of the gradient.
-   * @returns { CanvasGradient } A CanvasGradient object that draws a conic gradient around the given coordinates.
+   * @param { number } startAngle - Angle at which the gradient starts. The angle measurement starts
+   *     horizontally from the right side of the center and moves clockwise.<br>Invalid values **undefined**
+   *     and **null** are treated as **0**. **NaN** and **Infinity** are treated as invalid.<br>Unit: radian
+   * @param { number } x - X-coordinate of the center of the conic gradient.<br>Invalid values **undefined**
+   *     and **null** are treated as **0**. **NaN** and **Infinity** are treated as invalid.<br>
+   *     Default unit: vp
+   * @param { number } y - Y-coordinate of the center of the conic gradient.<br>Invalid values **undefined**
+   *     and **null** are treated as **0**. **NaN** and **Infinity** are treated as invalid.<br>
+   *     Default unit: vp
+   * @returns { CanvasGradient } New **CanvasGradient** object used to create a gradient on the canvas.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Creates a gradient around a point with given coordinates.
-   *
-   * @param { number } startAngle - The angle at which to begin the gradient, in radians.
-   *                   Angle measurements start horizontally the right of the center and move around clockwise.
-   * @param { number } x - The x-axis coordinate of the center of the gradient.
-   * @param { number } y - The y-axis coordinate of the center of the gradient.
-   * @returns { CanvasGradient } A CanvasGradient object that draws a conic gradient around the given coordinates.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   createConicGradient(
     startAngle: number,
@@ -3708,431 +1859,189 @@ declare class CanvasRenderer extends CanvasPath {
   ): CanvasGradient;
 
   /**
-   * Provides filter effects such as blur and grayscale. You can set the following filter effects:
-   * blur(<length>): Adds a Gaussian blur effect to the drawing
-   * brightness(<percentage>): Provides a linear multiplication for the drawing and adjusts the brightness level.
-   * contrast(<percentage>): Adjusts the contrast of the image. When the value is 0%, the image is completely black.
-   *    When the value is 100%, there is no change in the image.
-   * grayscale(<percentage>): Converts the image to a gray image. When the value is 100%, the image is completely gray.
-   *    When the value is 0%, there is no change in the image.
-   * hue-rotate(<degree>): Perform color rotation on an image. When the value is 0 degrees, there is no change in the image.
-   * invert(<percentage>): Inverted image (representing the effect of a photographic negative). When the value is 100%,
-   *    the image is completely inverted. When the value is 0%, there is no change in the image.
-   * opacity(<percentage>): Transparency of the image. At 0%, the image is completely transparent.
-   *    When the value is 100%, there is no change in the image.
-   * saturate(<percentage>): Perform saturation processing on the image. At 0%, the image is completely un-saturated.
-   *    When the value is 100%, there is no change in the image.
-   * sepia(<percentage>): The image is sepia (nostalgic style). At 100%, the image turns completely sepia.
-   *    When the value is 0%, there is no change in the image.
-   * none: Turn off filter effects
+   * Sets the filter for an image. Any number of filters can be combined. This attribute is
+   * write-only. You can set its value through an assignment statement, but cannot obtain its
+   * current value through a read operation. If you attempt to read its current value,
+   * **undefined** will be returned.
+   * 
+   * > **NOTE**
+   * >
+   * > The resources used in this example are not located in the **src** > **main** > **resource** directory. Starting
+   * > from DevEco Studio 6.0.0 Beta2, the resources that are located outside the **resources** directory are not
+   * > packaged by default when a project or module is created. To package these resources, go to **buildOption** in the
+   * > module's **build-profile.json5** file > **resOptions** > **copyCodeResource**, and set **enable** to **true**.
+   * > For details, see the description of copyCodeResource.
+   *
+   * Available values are as follows:
+   *
+   * - **'none'**: no filter effect.
+   * - **'blur(`<length>`)'**: applies the Gaussian blur to the image. The value must be greater
+   *   than or equal to 0. The unit can be px, vp, or rem. The default value is **blur(0px)**.
+   * - **'brightness([`<number>`\|`<percentage>`])'**: applies a linear multiplier to the image to
+   *   adjust its brightness. The value can be a number or a percentage, and must be greater than
+   *   or equal to 0. The default value is **brightness(1)**.
+   * - **'contrast([`<number>`\|`<percentage>`])'**: adjusts the contrast of the image. The value
+   *   can be a number or a percentage, and must be greater than or equal to 0. The default value
+   *   is **contrast(1)**.
+   * - **'grayscale([`<number>`\|`<percentage>`])'**: converts the image to grayscale. The value can
+   *   be a number or a percentage, and must be within the range of [0, 1]. The default value is
+   *   **grayscale(0)**.
+   * - **'hue-rotate(`<angle>`)'**: applies hue rotation to the image. The value ranges from
+   *   **0deg** to **360deg**. The default value is **hue-rotate(0deg)**.
+   * - **'invert([`<number>`\|`<percentage>`])'**: inverts the input image. The value can be a number
+   *   or a percentage, and must be within the range of [0, 1]. The default value is
+   *   **invert(0)**.
+   * - **'opacity([`<number>`\|`<percentage>`])'**: adjusts the opacity of the image. The value can be
+   *   a number or a percentage, and must be within the range of [0, 1]. The default value is
+   *   **opacity(1)**.
+   * - **'saturate([`<number>`\|`<percentage>`])'**: adjusts the saturation of the image. The value
+   *   can be a number or a percentage, and must be greater than or equal to 0. The default value
+   *   is **saturate(1)**.
+   * - **'sepia([`<number>`\|`<percentage>`])'**: converts the image to sepia. The value can be a
+   *   number or a percentage, and must be within the range of [0, 1]. The default value is
+   *   **sepia(0)**.
    *
    * @type { string }
    * @default none
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 8
-   */
-  /**
-   * Provides filter effects such as blur and grayscale. You can set the following filter effects:
-   * blur(<length>): Adds a Gaussian blur effect to the drawing
-   * brightness(<percentage>): Provides a linear multiplication for the drawing and adjusts the brightness level.
-   * contrast(<percentage>): Adjusts the contrast of the image. When the value is 0%, the image is completely black.
-   *    When the value is 100%, there is no change in the image.
-   * grayscale(<percentage>): Converts the image to a gray image. When the value is 100%, the image is completely gray.
-   *    When the value is 0%, there is no change in the image.
-   * hue-rotate(<degree>): Perform color rotation on an image. When the value is 0 degrees, there is no change in the image.
-   * invert(<percentage>): Inverted image (representing the effect of a photographic negative). When the value is 100%,
-   *    the image is completely inverted. When the value is 0%, there is no change in the image.
-   * opacity(<percentage>): Transparency of the image. At 0%, the image is completely transparent.
-   *    When the value is 100%, there is no change in the image.
-   * saturate(<percentage>): Perform saturation processing on the image. At 0%, the image is completely un-saturated.
-   *    When the value is 100%, there is no change in the image.
-   * sepia(<percentage>): The image is sepia (nostalgic style). At 100%, the image turns completely sepia.
-   *    When the value is 0%, there is no change in the image.
-   * none: Turn off filter effects
-   *
-   * @type { string }
-   * @default none
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Provides filter effects such as blur and grayscale. You can set the following filter effects:
-   * blur(<length>): Adds a Gaussian blur effect to the drawing
-   * brightness(<percentage>): Provides a linear multiplication for the drawing and adjusts the brightness level.
-   * contrast(<percentage>): Adjusts the contrast of the image. When the value is 0%, the image is completely black.
-   *    When the value is 100%, there is no change in the image.
-   * grayscale(<percentage>): Converts the image to a gray image. When the value is 100%, the image is completely gray.
-   *    When the value is 0%, there is no change in the image.
-   * hue-rotate(<degree>): Perform color rotation on an image. When the value is 0 degrees, there is no change in the image.
-   * invert(<percentage>): Inverted image (representing the effect of a photographic negative). When the value is 100%,
-   *    the image is completely inverted. When the value is 0%, there is no change in the image.
-   * opacity(<percentage>): Transparency of the image. At 0%, the image is completely transparent.
-   *    When the value is 100%, there is no change in the image.
-   * saturate(<percentage>): Perform saturation processing on the image. At 0%, the image is completely un-saturated.
-   *    When the value is 100%, there is no change in the image.
-   * sepia(<percentage>): The image is sepia (nostalgic style). At 100%, the image turns completely sepia.
-   *    When the value is 0%, there is no change in the image.
-   * none: Turn off filter effects
-   *
-   * @type { string }
-   * @default none
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Provides filter effects such as blur and grayscale. You can set the following filter effects:
-   * blur(<length>): Adds a Gaussian blur effect to the drawing
-   * brightness(<percentage>): Provides a linear multiplication for the drawing and adjusts the brightness level.
-   * contrast(<percentage>): Adjusts the contrast of the image. When the value is 0%, the image is completely black.
-   *    When the value is 100%, there is no change in the image.
-   * grayscale(<percentage>): Converts the image to a gray image. When the value is 100%, the image is completely gray.
-   *    When the value is 0%, there is no change in the image.
-   * hue-rotate(<degree>): Perform color rotation on an image. When the value is 0 degrees, there is no change in the image.
-   * invert(<percentage>): Inverted image (representing the effect of a photographic negative). When the value is 100%,
-   *    the image is completely inverted. When the value is 0%, there is no change in the image.
-   * opacity(<percentage>): Transparency of the image. At 0%, the image is completely transparent.
-   *    When the value is 100%, there is no change in the image.
-   * saturate(<percentage>): Perform saturation processing on the image. At 0%, the image is completely un-saturated.
-   *    When the value is 100%, there is no change in the image.
-   * sepia(<percentage>): The image is sepia (nostalgic style). At 100%, the image turns completely sepia.
-   *    When the value is 0%, there is no change in the image.
-   * none: Turn off filter effects
-   *
-   * @type { string }
-   * @default none
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   filter: string;
 
   /**
-   * Creates a new, empty ImageData object of the specified size
+   * Creates a blank ImageData object of a specified size. This API involves time-consuming memory copy. Therefore,
+   * avoid frequent calls to it. The createImageData example is identical to the putImageData example.
    *
-   * @param { number } sw - Width of the ImageData object.
-   * @param { number } sh - Height of the ImageData object.
-   * @returns { ImageData }
+   * @param { number } sw - Width of the **ImageData** object.<br>Invalid values **undefined**,
+   *     **null**, **NaN**, and **Infinity** are treated as **0**.<br>Default unit: vp
+   * @param { number } sh - Height of the **ImageData** object.<br>Invalid values **undefined**,
+   *     **null**, **NaN**, and **Infinity** are treated as **0**.<br>Default unit: vp
+   * @returns { ImageData } New **ImageData** object.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 8
-   */
-  /**
-   * Creates a new, empty ImageData object of the specified size
-   *
-   * @param { number } sw - Width of the ImageData object.
-   * @param { number } sh - Height of the ImageData object.
-   * @returns { ImageData }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Creates a new, empty ImageData object of the specified size
-   *
-   * @param { number } sw - Width of the ImageData object.
-   * @param { number } sh - Height of the ImageData object.
-   * @returns { ImageData }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Creates a new, empty ImageData object of the specified size
-   *
-   * @param { number } sw - Width of the ImageData object.
-   * @param { number } sh - Height of the ImageData object.
-   * @returns { ImageData }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   createImageData(sw: number, sh: number): ImageData;
 
   /**
-   * From an existing ImageData object, copy an object with the same width and height as the image.
-   *    The image content is not copied.
+   * Creates an **ImageData** object with the same width and height of an existing **ImageData**
+   * object. This API involves time-consuming memory copy. Therefore, avoid frequent calls to it.
    *
-   * @param { ImageData } imageData - ImageData object to be copied.
-   * @returns { ImageData }
+   * @param { ImageData } imageData - Existing **ImageData** object.<br>Values **undefined** and
+   *     **null** are treated as **ImageData** with its width and height set to **0**.
+   * @returns { ImageData } New **ImageData** object.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 8
-   */
-  /**
-   * From an existing ImageData object, copy an object with the same width and height as the image.
-   *    The image content is not copied.
-   *
-   * @param { ImageData } imageData - ImageData object to be copied.
-   * @returns { ImageData }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * From an existing ImageData object, copy an object with the same width and height as the image.
-   *    The image content is not copied.
-   *
-   * @param { ImageData } imageData - ImageData object to be copied.
-   * @returns { ImageData }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * From an existing ImageData object, copy an object with the same width and height as the image.
-   *    The image content is not copied.
-   *
-   * @param { ImageData } imageData - ImageData object to be copied.
-   * @returns { ImageData }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   createImageData(imageData: ImageData): ImageData;
 
   /**
-   * Obtains the pixel data of a specified area on the current canvas.
+   * Obtains the **ImageData** object created with the pixels within the specified area on the
+   * canvas. This API involves time-consuming memory copy. Therefore, avoid frequent calls to it.
    *
-   * @param { number } sx - x coordinate of the upper left corner of the rectangular area of the image data to be extracted.
-   * @param { number } sy - y coordinate of the upper left corner of the rectangular area of the image data to be extracted.
-   * @param { number } sw - The width of the rectangular area of the image data to be extracted.
-   * @param { number } sh - The height of the rectangular area of the image data to be extracted.
-   * @returns { ImageData }
+   * @param { number } sx - X-coordinate of the top-left corner of the output area.<br>
+   *     Invalid values **undefined**, **null**, **NaN**, and **Infinity** are treated as **0**.<br>
+   *     Default unit: vp
+   * @param { number } sy - Y-coordinate of the top-left corner of the output area.<br>
+   *     Invalid values **undefined**, **null**, **NaN**, and **Infinity** are treated as **0**.<br>
+   *     Default unit: vp
+   * @param { number } sw - Width of the output area.<br>Invalid values **undefined**, **null**,
+   *     **NaN**, and **Infinity** are treated as **0**.<br>Default unit: vp
+   * @param { number } sh - Height of the output area.<br>Invalid values **undefined**, **null**,
+   *     **NaN**, and **Infinity** are treated as **0**.<br>Default unit: vp
+   * @returns { ImageData } New **ImageData** object.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 8
-   */
-  /**
-   * Obtains the pixel data of a specified area on the current canvas.
-   *
-   * @param { number } sx - x coordinate of the upper left corner of the rectangular area of the image data to be extracted.
-   * @param { number } sy - y coordinate of the upper left corner of the rectangular area of the image data to be extracted.
-   * @param { number } sw - The width of the rectangular area of the image data to be extracted.
-   * @param { number } sh - The height of the rectangular area of the image data to be extracted.
-   * @returns { ImageData }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Obtains the pixel data of a specified area on the current canvas.
-   *
-   * @param { number } sx - x coordinate of the upper left corner of the rectangular area of the image data to be extracted.
-   * @param { number } sy - y coordinate of the upper left corner of the rectangular area of the image data to be extracted.
-   * @param { number } sw - The width of the rectangular area of the image data to be extracted.
-   * @param { number } sh - The height of the rectangular area of the image data to be extracted.
-   * @returns { ImageData }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Obtains the pixel data of a specified area on the current canvas.
-   *
-   * @param { number } sx - x coordinate of the upper left corner of the rectangular area of the image data to be extracted.
-   * @param { number } sy - y coordinate of the upper left corner of the rectangular area of the image data to be extracted.
-   * @param { number } sw - The width of the rectangular area of the image data to be extracted.
-   * @param { number } sh - The height of the rectangular area of the image data to be extracted.
-   * @returns { ImageData }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   getImageData(sx: number, sy: number, sw: number, sh: number): ImageData;
 
   /**
-   * Obtains the PixelMap of a specified area on the current canvas.
+   * Obtains the **PixelMap** object created with the pixels within the specified area on the
+   * canvas. This API involves time-consuming memory copy. Therefore, avoid frequent calls to it.
    *
-   * @param { number } sx - x coordinate of the upper left corner of the rectangular area of the PixelMap to be extracted.
-   * @param { number } sy - y coordinate of the upper left corner of the rectangular area of the PixelMap to be extracted.
-   * @param { number } sw - The width of the rectangular area of the PixelMap to be extracted.
-   * @param { number } sh - The height of the rectangular area of the PixelMap to be extracted.
-   * @returns { PixelMap }
+   * @param { number } sx - X-coordinate of the top-left corner of the output area.<br>
+   *     Invalid values **undefined**, **null**, **NaN**, and **Infinity** are treated as **0**.<br>
+   *     Default unit: vp
+   * @param { number } sy - Y-coordinate of the top-left corner of the output area.<br>
+   *     Invalid values **undefined**, **null**, **NaN**, and **Infinity** are treated as **0**.<br>
+   *     Default unit: vp
+   * @param { number } sw - Width of the output area.<br>Invalid values **undefined**, **null**,
+   *     **NaN**, and **Infinity** are treated as **0**.<br>Default unit: vp
+   * @param { number } sh - Height of the output area.<br>Invalid values **undefined**, **null**,
+   *     **NaN**, and **Infinity** are treated as **0**.<br>Default unit: vp
+   * @returns { PixelMap } **PixelMap** object.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 8
-   */
-  /**
-   * Obtains the PixelMap of a specified area on the current canvas.
-   *
-   * @param { number } sx - x coordinate of the upper left corner of the rectangular area of the PixelMap to be extracted.
-   * @param { number } sy - y coordinate of the upper left corner of the rectangular area of the PixelMap to be extracted.
-   * @param { number } sw - The width of the rectangular area of the PixelMap to be extracted.
-   * @param { number } sh - The height of the rectangular area of the PixelMap to be extracted.
-   * @returns { PixelMap }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Obtains the PixelMap of a specified area on the current canvas.
-   *
-   * @param { number } sx - x coordinate of the upper left corner of the rectangular area of the PixelMap to be extracted.
-   * @param { number } sy - y coordinate of the upper left corner of the rectangular area of the PixelMap to be extracted.
-   * @param { number } sw - The width of the rectangular area of the PixelMap to be extracted.
-   * @param { number } sh - The height of the rectangular area of the PixelMap to be extracted.
-   * @returns { PixelMap }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   getPixelMap(sx: number, sy: number, sw: number, sh: number): PixelMap;
 
   /**
-   * Draws the specified ImageData object onto the canvas
+   * Puts an **ImageData** object onto a rectangular area on the canvas.
    *
-   * @param { ImageData } imageData - ImageData object to be drawn.
-   * @param { number } dx - Position offset of the source image data in the target canvas (the offset in the x-axis direction).
-   * @param { number } dy - Position offset of the source image data in the target canvas (the offset in the y-axis direction).
+   * @param { ImageData } imageData - **ImageData** object with pixels to put onto the canvas.<br>
+   *     **undefined** and **null** are treated as invalid values and no rendering will be performed.
+   * @param { number | string } dx - X-axis offset of the rectangular area on the canvas.<br>
+   *     Invalid values **undefined**, **null**, **NaN**, and **Infinity** are treated as **0**.<br>
+   *     Default unit: vp
+   * @param { number | string } dy - Y-axis offset of the rectangular area on the canvas.<br>
+   *     Invalid values **undefined**, **null**, **NaN**, and **Infinity** are treated as **0**.<br>
+   *     Default unit: vp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 8
-   */
-  /**
-   * Draws the specified ImageData object onto the canvas
-   *
-   * @param { ImageData } imageData - ImageData object to be drawn.
-   * @param { number } dx - Position offset of the source image data in the target canvas (the offset in the x-axis direction).
-   * @param { number } dy - Position offset of the source image data in the target canvas (the offset in the y-axis direction).
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Draws the specified ImageData object onto the canvas
-   *
-   * @param { ImageData } imageData - ImageData object to be drawn.
-   * @param { number | string } dx - Position offset of the source image data in the target canvas (the offset in the x-axis direction).
-   * @param { number | string } dy - Position offset of the source image data in the target canvas (the offset in the y-axis direction).
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Draws the specified ImageData object onto the canvas
-   *
-   * @param { ImageData } imageData - ImageData object to be drawn.
-   * @param { number | string } dx - Position offset of the source image data in the target canvas (the offset in the x-axis direction).
-   * @param { number | string } dy - Position offset of the source image data in the target canvas (the offset in the y-axis direction).
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   putImageData(imageData: ImageData, dx: number | string, dy: number | string): void;
 
   /**
-   * Draws the specified ImageData object onto the canvas
+   * Fills the new rectangular area with the **ImageData** data after cropping.
    *
-   * @param { ImageData } imageData - ImageData object to be drawn.
-   * @param { number } dx - Position offset of the source image data in the target canvas (the offset in the x-axis direction).
-   * @param { number } dy - Position offset of the source image data in the target canvas (the offset in the y-axis direction).
-   * @param { number } dirtyX - Position of the upper left corner of the rectangular area in the source image data.
-   *    The default is the upper left corner (x coordinate) of the entire image data.
-   * @param { number } dirtyY - Position of the upper left corner of the rectangular area in the source image data.
-   *    The default is the upper left corner (y coordinate) of the entire image data.
-   * @param { number } dirtyWidth - Width of the rectangular area in the source image data.
-   *    The default is the width of the image data.
-   * @param { number } dirtyHeight - Height of the rectangular area in the source image data.
-   *    The default is the height of the image data.
+   * @param { ImageData } imageData - **ImageData** object with pixels to put onto the canvas.<br>
+   *     **undefined** and **null** are treated as invalid values and no rendering will be performed.
+   * @param { number | string } dx - X-axis offset of the rectangular area on the canvas.<br>
+   *     Invalid values **undefined**, **null**, **NaN**, and **Infinity** are treated as **0**.<br>
+   *     Default unit: vp
+   * @param { number | string } dy - Y-axis offset of the rectangular area on the canvas.<br>
+   *     Invalid values **undefined**, **null**, **NaN**, and **Infinity** are treated as **0**.<br>
+   *     Default unit: vp
+   * @param { number | string } dirtyX - X-axis offset of the upper left corner of the rectangular
+   *     area relative to that of the source image.<br>Invalid values **undefined**, **null**, **NaN**,
+   *     and **Infinity** are treated as **0**.<br>Default unit: vp
+   * @param { number | string } dirtyY - Y-axis offset of the upper left corner of the rectangular
+   *     area relative to that of the source image.<br>Invalid values **undefined**, **null**, **NaN**,
+   *     and **Infinity** are treated as **0**.<br>Default unit: vp
+   * @param { number | string } dirtyWidth - Width of the rectangular area to crop the source image.<br>
+   *     Invalid values **undefined**, **null**, **NaN**, and **Infinity** are treated as **0**.<br>
+   *     Default unit: vp
+   * @param { number | string } dirtyHeight - Height of the rectangular area to crop the source image.<br>
+   *     Invalid values **undefined**, **null**, **NaN**, and **Infinity** are treated as **0**.<br>
+   *     Default unit: vp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 8
-   */
-  /**
-   * Draws the specified ImageData object onto the canvas
-   *
-   * @param { ImageData } imageData - ImageData object to be drawn.
-   * @param { number } dx - Position offset of the source image data in the target canvas (the offset in the x-axis direction).
-   * @param { number } dy - Position offset of the source image data in the target canvas (the offset in the y-axis direction).
-   * @param { number } dirtyX - Position of the upper left corner of the rectangular area in the source image data.
-   *    The default is the upper left corner (x coordinate) of the entire image data.
-   * @param { number } dirtyY - Position of the upper left corner of the rectangular area in the source image data.
-   *    The default is the upper left corner (y coordinate) of the entire image data.
-   * @param { number } dirtyWidth - Width of the rectangular area in the source image data.
-   *    The default is the width of the image data.
-   * @param { number } dirtyHeight - Height of the rectangular area in the source image data.
-   *    The default is the height of the image data.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Draws the specified ImageData object onto the canvas
-   *
-   * @param { ImageData } imageData - ImageData object to be drawn.
-   * @param { number | string } dx - Position offset of the source image data in the target canvas (the offset in the x-axis direction).
-   * @param { number | string } dy - Position offset of the source image data in the target canvas (the offset in the y-axis direction).
-   * @param { number | string } dirtyX - Position of the upper left corner of the rectangular area in the source image data.
-   *    The default is the upper left corner (x coordinate) of the entire image data.
-   * @param { number | string } dirtyY - Position of the upper left corner of the rectangular area in the source image data.
-   *    The default is the upper left corner (y coordinate) of the entire image data.
-   * @param { number | string } dirtyWidth - Width of the rectangular area in the source image data.
-   *    The default is the width of the image data.
-   * @param { number | string } dirtyHeight - Height of the rectangular area in the source image data.
-   *    The default is the height of the image data.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Draws the specified ImageData object onto the canvas
-   *
-   * @param { ImageData } imageData - ImageData object to be drawn.
-   * @param { number | string } dx - Position offset of the source image data in the target canvas (the offset in the x-axis direction).
-   * @param { number | string } dy - Position offset of the source image data in the target canvas (the offset in the y-axis direction).
-   * @param { number | string } dirtyX - Position of the upper left corner of the rectangular area in the source image data.
-   *    The default is the upper left corner (x coordinate) of the entire image data.
-   * @param { number | string } dirtyY - Position of the upper left corner of the rectangular area in the source image data.
-   *    The default is the upper left corner (y coordinate) of the entire image data.
-   * @param { number | string } dirtyWidth - Width of the rectangular area in the source image data.
-   *    The default is the width of the image data.
-   * @param { number | string } dirtyHeight - Height of the rectangular area in the source image data.
-   *    The default is the height of the image data.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   putImageData(
     imageData: ImageData,
@@ -4145,1582 +2054,804 @@ declare class CanvasRenderer extends CanvasPath {
   ): void;
 
   /**
-   * Specifies whether to smooth the image. The value true indicates that the image is smooth.
-   *    The value false indicates that the image is not smooth.
+   * Indicates whether to apply image smoothing adjustments when drawing images. The value
+   * **true** means to enable smoothing, and **false** means to disable it. This attribute is
+   * write-only. You can set its value through an assignment statement, but cannot obtain its
+   * current value through a read operation. If you attempt to read its current value,
+   * **undefined** will be returned. Default value: **true**.
+   * > **NOTE**
+   * >
+   * > The resources used in this example are not located in the **src** > **main** > **resource** directory. Starting
+   * > from DevEco Studio 6.0.0 Beta2, the resources that are located outside the **resources** directory are not
+   * > packaged by default when a project or module is created. To package these resources, go to **buildOption** in the
+   * > module's **build-profile.json5** file > **resOptions** > **copyCodeResource**, and set **enable** to **true**.
+   * > For details, see the description of copyCodeResource in **resOptions**.
    *
-   * @type { boolean }
    * @default true
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 8
-   */
-  /**
-   * Specifies whether to smooth the image. The value true indicates that the image is smooth.
-   *    The value false indicates that the image is not smooth.
-   *
-   * @type { boolean }
-   * @default true
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Specifies whether to smooth the image. The value true indicates that the image is smooth.
-   *    The value false indicates that the image is not smooth.
-   *
-   * @type { boolean }
-   * @default true
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Specifies whether to smooth the image. The value true indicates that the image is smooth.
-   *    The value false indicates that the image is not smooth.
-   *
-   * @type { boolean }
-   * @default true
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   imageSmoothingEnabled: boolean;
 
   /**
-   * Smoothness level of the current image. For details, see {@link ImageSmoothingQuality}.
-   *
-   * @type { ImageSmoothingQuality }
+   * Sets the image smoothing quality when **imageSmoothingEnabled** is set to **true**.
+   * This attribute is write-only. You can set its value through an assignment statement, but
+   * cannot obtain its current value through a read operation. If you attempt to read its
+   * current value, **undefined** will be returned. For details, see
+   * {@link ImageSmoothingQuality}. Default value: **"low"**
+   * > **NOTE**
+   * >
+   * > The resources used in this example are not located in the **src** > **main** > **resource** directory. Starting
+   * > from DevEco Studio 6.0.0 Beta2, the resources that are located outside the **resources** directory are not
+   * > packaged by default when a project or module is created. To package these resources, go to **buildOption** in the
+   * > module's **build-profile.json5** file > **resOptions** > **copyCodeResource**, and set **enable** to **true**.
+   * > For details, see the description of copyCodeResource in **resOptions**.
+   * 
    * @default low
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 8
-   */
-  /**
-   * Smoothness level of the current image. For details, see {@link ImageSmoothingQuality}.
-   *
-   * @type { ImageSmoothingQuality }
-   * @default low
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Smoothness level of the current image. For details, see {@link ImageSmoothingQuality}.
-   *
-   * @type { ImageSmoothingQuality }
-   * @default low
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Smoothness level of the current image. For details, see {@link ImageSmoothingQuality}.
-   *
-   * @type { ImageSmoothingQuality }
-   * @default low
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   imageSmoothingQuality: ImageSmoothingQuality;
 
   /**
-   * Line segment endpoint attribute. For details, see {@link CanvasLineCap}.
-   *
-   * @type { CanvasLineCap }
+   * Sets the line caps. This attribute is write-only. You can set its value through an assignment statement, but cannot
+   * obtain its current value through a read operation. If you attempt to read its current value, undefined will be
+   * returned.
    * @default butt
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 8
-   */
-  /**
-   * Line segment endpoint attribute. For details, see {@link CanvasLineCap}.
-   *
-   * @type { CanvasLineCap }
-   * @default butt
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Line segment endpoint attribute. For details, see {@link CanvasLineCap}.
-   *
-   * @type { CanvasLineCap }
-   * @default butt
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Line segment endpoint attribute. For details, see {@link CanvasLineCap}.
-   *
-   * @type { CanvasLineCap }
-   * @default butt
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   lineCap: CanvasLineCap;
 
   /**
-   * Dotted line offset attribute.
+   * Sets the dashed line offset of the canvas. The value is of the float type. This attribute
+   * takes effect only when **setLineDash** is set. This attribute is write-only. You can set
+   * its value through an assignment statement, but cannot obtain its current value through a
+   * read operation. If you attempt to read its current value, **undefined** will be returned.
    *
-   * @type { number }
+   * Default value: **0.0**
+   *
+   * Default unit: vp
+   *
+   * Invalid values **NaN** and **Infinity** are treated as the default value.
+   *
    * @default 0.0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 8
-   */
-  /**
-   * Dotted line offset attribute.
-   *
-   * @type { number }
-   * @default 0.0
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Dotted line offset attribute.
-   *
-   * @type { number }
-   * @default 0.0
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Dotted line offset attribute.
-   *
-   * @type { number }
-   * @default 0.0
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   lineDashOffset: number;
 
   /**
-   * Line segment connection point attribute. For details, see {@link CanvasLineJoin}.
+   * Sets the line join. This attribute is write-only. You can set its value through an assignment
+   * statement, but cannot obtain its current value through a read operation. If you attempt to read
+   * its current value, **undefined** will be returned. For details, see {@link CanvasLineJoin}.
+   * <br>Available values are as follows:
+   * <br>- **'round'**: The shape used to join line segments is a sector, whose radius at the rounded
+   * corner is equal to the line width.
+   * <br>- **'bevel'**: The shape used to join line segments is a triangle. The rectangular corner
+   * of each line is independent.
+   * <br>- **'miter'**: The shape used to join line segments has a mitered corner by extending the
+   * outside edges of the lines until they meet. You can view the effect of this attribute in
+   * **miterLimit**.
+   * <br>Default value: **'miter'**
    *
-   * @type { CanvasLineJoin }
    * @default miter
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 8
-   */
-  /**
-   * Line segment connection point attribute. For details, see {@link CanvasLineJoin}.
-   *
-   * @type { CanvasLineJoin }
-   * @default miter
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Line segment connection point attribute. For details, see {@link CanvasLineJoin}.
-   *
-   * @type { CanvasLineJoin }
-   * @default miter
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Line segment connection point attribute. For details, see {@link CanvasLineJoin}.
-   *
-   * @type { CanvasLineJoin }
-   * @default miter
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   lineJoin: CanvasLineJoin;
 
   /**
-   * Line thickness attribute. The value cannot be 0 or a negative number.
+   * Sets the line width. This attribute is write-only. You can set its value through an assignment
+   * statement, but cannot obtain its current value through a read operation. If you attempt to read
+   * its current value, **undefined** will be returned.
    *
-   * @type { number }
+   * Default value: **1** (px)
+   *
+   * Default unit: vp
+   *
+   * The value does not support **0** or negative numbers. **0**, negative numbers,
+   * and **NaN** are handled as the default value. The value **Infinity** is invalid and
+   * no drawing is performed.
+   *
    * @default 1(px)
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 8
-   */
-  /**
-   * Line thickness attribute. The value cannot be 0 or a negative number.
-   *
-   * @type { number }
-   * @default 1(px)
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Line thickness attribute. The value cannot be 0 or a negative number.
-   *
-   * @type { number }
-   * @default 1(px)
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Line thickness attribute. The value cannot be 0 or a negative number.
-   *
-   * @type { number }
-   * @default 1(px)
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   lineWidth: number;
 
   /**
-   * The value of this parameter cannot be 0 or a negative number.
+   * Sets the miter limit, which specifies the distance between the inner and outer angles
+   * at line joins. This attribute takes effect only when **lineJoin** is set to **miter**.
+   * This attribute is write-only. You can set its value through an assignment statement,
+   * but cannot obtain its current value through a read operation. If you attempt to read
+   * its current value, **undefined** will be returned.
    *
-   * @type { number }
+   * Default value: **10px**
+   *
+   * Unit: px
+   *
+   * The value of **miterLimit** cannot be **0** or a negative number. Values of **0**,
+   * negative numbers, and **NaN** are handled with the default value. **Infinity** will
+   * cause an exception on the **miterLimit** attribute.
+   *
    * @default 10(px)
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 8
-   */
-  /**
-   * The value of this parameter cannot be 0 or a negative number.
-   *
-   * @type { number }
-   * @default 10(px)
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * The value of this parameter cannot be 0 or a negative number.
-   *
-   * @type { number }
-   * @default 10(px)
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * The value of this parameter cannot be 0 or a negative number.
-   *
-   * @type { number }
-   * @default 10(px)
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   miterLimit: number;
 
   /**
-   * Gets the current segment style.
+   * Obtains the dash line style.
    *
-   * @returns { number[] }
+   * @returns { number[] } Interval of alternate line segments and the length of spacing.<br>Values undefined and null
+   *     are treated as invalid.<br>Default unit: vp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 8
-   */
-  /**
-   * Gets the current segment style.
-   *
-   * @returns { number[] }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Gets the current segment style.
-   *
-   * @returns { number[] }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Gets the current segment style.
-   *
-   * @returns { number[] }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   getLineDash(): number[];
 
   /**
-   * Sets the dashed line mode for line drawing.
+   * Sets the dash line style.
    *
-   * @param { number[] } segments - A set of numbers that describe the length of alternating drawn lines segments and
-   *    spacing (coordinate space units).
+   * @param { number[] } segments - An array of numbers that specify distances to alternately draw
+   *     a line and a gap.<br>**undefined** and **null** are treated as invalid values.<br>
+   *     Default unit: vp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 8
-   */
-  /**
-   * Sets the dashed line mode for line drawing.
-   *
-   * @param { number[] } segments - A set of numbers that describe the length of alternating drawn lines segments and
-   *    spacing (coordinate space units).
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Sets the dashed line mode for line drawing.
-   *
-   * @param { number[] } segments - A set of numbers that describe the length of alternating drawn lines segments and
-   *    spacing (coordinate space units).
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Sets the dashed line mode for line drawing.
-   *
-   * @param { number[] } segments - A set of numbers that describe the length of alternating drawn lines segments and
-   *    spacing (coordinate space units).
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   setLineDash(segments: number[]): void;
 
   /**
-   * Clears the drawing content of a rectangular area.
+   * Clears the content in a rectangle on the canvas.
    *
-   * @param { number } x - The x-axis coordinate of the start point of the rectangle.
-   * @param { number } y - The y-axis coordinate of the start point of the rectangle.
-   * @param { number } w - Width of the rectangle.
-   * @param { number } h - Height of the rectangle.
+   * @param { number } x - X-coordinate of the rectangle's top-left corner.<br>**undefined**, **null**,
+   *     **NaN**, and **Infinity** are treated as invalid values and no rendering will be performed.<br>
+   *     Default unit: vp
+   * @param { number } y - Y-coordinate of the rectangle's top-left corner.<br>**undefined**, **null**,
+   *     **NaN**, and **Infinity** are treated as invalid values and no rendering will be performed.<br>
+   *     Default unit: vp
+   * @param { number } w - Width of the rectangle.<br>**undefined**, **null**, **NaN**, and **Infinity**
+   *     are treated as invalid values and no rendering will be performed.<br>Default unit: vp
+   * @param { number } h - Height of the rectangle.<br>**undefined**, **null**, **NaN**, and **Infinity**
+   *     are treated as invalid values and no rendering will be performed.<br>Default unit: vp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 8
-   */
-  /**
-   * Clears the drawing content of a rectangular area.
-   *
-   * @param { number } x - The x-axis coordinate of the start point of the rectangle.
-   * @param { number } y - The y-axis coordinate of the start point of the rectangle.
-   * @param { number } w - Width of the rectangle.
-   * @param { number } h - Height of the rectangle.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Clears the drawing content of a rectangular area.
-   *
-   * @param { number } x - The x-axis coordinate of the start point of the rectangle.
-   * @param { number } y - The y-axis coordinate of the start point of the rectangle.
-   * @param { number } w - Width of the rectangle.
-   * @param { number } h - Height of the rectangle.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Clears the drawing content of a rectangular area.
-   *
-   * @param { number } x - The x-axis coordinate of the start point of the rectangle.
-   * @param { number } y - The y-axis coordinate of the start point of the rectangle.
-   * @param { number } w - Width of the rectangle.
-   * @param { number } h - Height of the rectangle.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   clearRect(x: number, y: number, w: number, h: number): void;
 
   /**
-   * Fills a specified rectangular area
+   * Fills a rectangle on the canvas.
    *
-   * @param { number } x - The x-axis coordinate of the start point of the rectangle.
-   * @param { number } y - The y-axis coordinate of the start point of the rectangle.
-   * @param { number } w - Width of the rectangle.
-   * @param { number } h - Height of the rectangle.
+   * @param { number } x - X-coordinate of the rectangle's top-left corner.<br>**undefined**, **null**,
+   *     **NaN**, and **Infinity** are treated as invalid values and no rendering will be performed.<br>
+   *     Default unit: vp
+   * @param { number } y - Y-coordinate of the rectangle's top-left corner.<br>**undefined**, **null**,
+   *     **NaN**, and **Infinity** are treated as invalid values and no rendering will be performed.<br>
+   *     Default unit: vp
+   * @param { number } w - Width of the rectangle.<br>**undefined**, **null**, **NaN**, and **Infinity**
+   *     are treated as invalid values and no rendering will be performed.<br>Default unit: vp
+   * @param { number } h - Height of the rectangle.<br>**undefined**, **null**, **NaN**, and **Infinity**
+   *     are treated as invalid values and no rendering will be performed.<br>Default unit: vp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 8
-   */
-  /**
-   * Fills a specified rectangular area
-   *
-   * @param { number } x - The x-axis coordinate of the start point of the rectangle.
-   * @param { number } y - The y-axis coordinate of the start point of the rectangle.
-   * @param { number } w - Width of the rectangle.
-   * @param { number } h - Height of the rectangle.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Fills a specified rectangular area
-   *
-   * @param { number } x - The x-axis coordinate of the start point of the rectangle.
-   * @param { number } y - The y-axis coordinate of the start point of the rectangle.
-   * @param { number } w - Width of the rectangle.
-   * @param { number } h - Height of the rectangle.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Fills a specified rectangular area
-   *
-   * @param { number } x - The x-axis coordinate of the start point of the rectangle.
-   * @param { number } y - The y-axis coordinate of the start point of the rectangle.
-   * @param { number } w - Width of the rectangle.
-   * @param { number } h - Height of the rectangle.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   fillRect(x: number, y: number, w: number, h: number): void;
 
   /**
-   * Stroke Specify Rectangular Area
+   * Draws an outlined rectangle on the canvas without filling its interior.
    *
-   * @param { number } x - The x-axis coordinate of the start point of the rectangle.
-   * @param { number } y - The y-axis coordinate of the start point of the rectangle.
-   * @param { number } w - Width of the rectangle.
-   * @param { number } h - Height of the rectangle.
+   * @param { number } x - X-coordinate of the rectangle's top-left corner.<br>**undefined**, **null**,
+   *     **NaN**, and **Infinity** are treated as invalid values and no rendering will be performed.<br>
+   *     Default unit: vp
+   * @param { number } y - Y-coordinate of the rectangle's top-left corner.<br>**undefined**, **null**,
+   *     **NaN**, and **Infinity** are treated as invalid values and no rendering will be performed.<br>
+   *     Default unit: vp
+   * @param { number } w - Width of the rectangle.<br>**undefined**, **null**, **NaN**, and **Infinity**
+   *     are treated as invalid values and no rendering will be performed.<br>Default unit: vp
+   * @param { number } h - Height of the rectangle.<br>**undefined**, **null**, **NaN**, and **Infinity**
+   *     are treated as invalid values and no rendering will be performed.<br>Default unit: vp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 8
-   */
-  /**
-   * Stroke Specify Rectangular Area
-   *
-   * @param { number } x - The x-axis coordinate of the start point of the rectangle.
-   * @param { number } y - The y-axis coordinate of the start point of the rectangle.
-   * @param { number } w - Width of the rectangle.
-   * @param { number } h - Height of the rectangle.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Stroke Specify Rectangular Area
-   *
-   * @param { number } x - The x-axis coordinate of the start point of the rectangle.
-   * @param { number } y - The y-axis coordinate of the start point of the rectangle.
-   * @param { number } w - Width of the rectangle.
-   * @param { number } h - Height of the rectangle.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Stroke Specify Rectangular Area
-   *
-   * @param { number } x - The x-axis coordinate of the start point of the rectangle.
-   * @param { number } y - The y-axis coordinate of the start point of the rectangle.
-   * @param { number } w - Width of the rectangle.
-   * @param { number } h - Height of the rectangle.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   strokeRect(x: number, y: number, w: number, h: number): void;
 
   /**
-   * Shadow blur radius. The value cannot be a negative number.
+   * Sets the blur level for drawing shadows. This attribute is write-only. You can set its
+   * value through an assignment statement, but cannot obtain its current value through a read
+   * operation. If you attempt to read its current value, **undefined** will be returned.
+   *
+   * Blur level. A larger value produces a greater blur effect. The value is of float type and
+   * must be greater than or equal to 0.
+   *
+   * Default value: **0.0**
+   *
+   * Unit: px
+   *
+   * The value of **shadowBlur** cannot be a negative number. A negative number, **NaN**, and
+   * **Infinity** are treated as the default value.
    *
    * @type { number }
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 8
-   */
-  /**
-   * Shadow blur radius. The value cannot be a negative number.
-   *
-   * @type { number }
-   * @default 0
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Shadow blur radius. The value cannot be a negative number.
-   *
-   * @type { number }
-   * @default 0
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Shadow blur radius. The value cannot be a negative number.
-   *
-   * @type { number }
-   * @default 0
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   shadowBlur: number;
 
   /**
-   * Shadow color.
+   * Sets the shadow color. This attribute is write-only. You can set its value through an
+   * assignment statement, but cannot obtain its current value through a read operation. If you
+   * attempt to read its current value, **undefined** will be returned.
    *
-   * @type { string }
+   * For details about the color format, see the description for the string type in
+   * [ResourceColor]{@link ResourceColor}.
+   *
+   * Default value: **'#00000000'** (transparent black)
+   *
    * @default transparent black
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 8
-   */
-  /**
-   * Shadow color.
-   *
-   * @type { string }
-   * @default transparent black
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Shadow color.
-   *
-   * @type { string }
-   * @default transparent black
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Shadow color.
-   *
-   * @type { string }
-   * @default transparent black
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   shadowColor: string;
 
   /**
-   * Horizontal offset distance of the shadow.
+   * Sets the horizontal offset between the drawn shadow and the original object. This
+   * attribute is write-only. You can set its value through an assignment statement, but cannot
+   * obtain its current value through a read operation. If you attempt to read its current
+   * value, **undefined** will be returned.
    *
-   * @type { number }
+   * Default value: **0.0**
+   *
+   * Default unit: vp
+   *
+   * Invalid values **NaN** and **Infinity** are treated as the default value.
+   *
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 8
-   */
-  /**
-   * Horizontal offset distance of the shadow.
-   *
-   * @type { number }
-   * @default 0
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Horizontal offset distance of the shadow.
-   *
-   * @type { number }
-   * @default 0
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Horizontal offset distance of the shadow.
-   *
-   * @type { number }
-   * @default 0
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   shadowOffsetX: number;
 
   /**
-   * Vertical offset distance of the shadow.
+   * Sets the vertical offset between the drawn shadow and the original object. This attribute
+   * is write-only. You can set its value through an assignment statement, but cannot obtain its
+   * current value through a read operation. If you attempt to read its current value,
+   * **undefined** will be returned.
    *
-   * @type { number }
+   * Default value: **0.0**
+   *
+   * Default unit: vp
+   *
+   * Invalid values **NaN** and **Infinity** are treated as the default value.
+   *
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 8
-   */
-  /**
-   * Vertical offset distance of the shadow.
-   *
-   * @type { number }
-   * @default 0
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Vertical offset distance of the shadow.
-   *
-   * @type { number }
-   * @default 0
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Vertical offset distance of the shadow.
-   *
-   * @type { number }
-   * @default 0
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   shadowOffsetY: number;
 
   /**
-   * Top of the stack pop-up state in the drawing state stack
+   * Restores the saved drawing context.
+   *
+   * > **NOTE**
+   * >
+   * > When the number of calls to **restore()** does not exceed the number of calls to **save()**,
+   * > this API pops the saved drawing state from the stack and restores the attributes, clipping
+   * > path, and transformation matrix of the **CanvasRenderingContext2D** object.<br>
+   * > If the number of calls to **restore()** exceeds the number of calls to **save()**, this API
+   * > does nothing.<br>
+   * > If there is no saved state, this API does nothing.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 8
-   */
-  /**
-   * Top of the stack pop-up state in the drawing state stack
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Top of the stack pop-up state in the drawing state stack
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Top of the stack pop-up state in the drawing state stack
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   restore(): void;
 
   /**
-   * Saves the current drawing state to the drawing state stack
+   * Saves the current drawing context.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 8
-   */
-  /**
-   * Saves the current drawing state to the drawing state stack
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Saves the current drawing state to the drawing state stack
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Saves the current drawing state to the drawing state stack
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   save(): void;
 
   /**
-   * Fills the specified text at the specified location
+   * Draws filled text on the canvas.
    *
-   * @param { string } text - Text string to be drawn.
-   * @param { number } x - The x-axis coordinate of the start point of the text.
-   * @param { number } y - The y-axis coordinate of the start point of the text.
-   * @param { number } maxWidth - Maximum width of the drawing.
+   * @param { string } text - Text to draw.<br>**undefined** and **null** are treated as invalid values
+   *     and no rendering will be performed.
+   * @param { number } x - X-coordinate of the start point for text rendering.<br>**undefined**, **null**,
+   *     **NaN**, and **Infinity** are treated as invalid values and no rendering will be performed.<br>
+   *     Default unit: vp
+   * @param { number } y - Y-coordinate of the start point for text rendering.<br>**undefined**, **null**,
+   *     **NaN**, and **Infinity** are treated as invalid values and no rendering will be performed.<br>
+   *     Default unit: vp
+   * @param { number } [maxWidth] - Maximum width allowed for the text.<br>**null** is treated as an
+   *     invalid value and no rendering will be performed. **undefined**, **NaN**, or **Infinity** is treated
+   *     as the default value.<br>Default value: no width restriction<br>Default unit: vp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 8
-   */
-  /**
-   * Fills the specified text at the specified location
-   *
-   * @param { string } text - Text string to be drawn.
-   * @param { number } x - The x-axis coordinate of the start point of the text.
-   * @param { number } y - The y-axis coordinate of the start point of the text.
-   * @param { number } maxWidth - Maximum width of the drawing.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Fills the specified text at the specified location
-   *
-   * @param { string } text - Text string to be drawn.
-   * @param { number } x - The x-axis coordinate of the start point of the text.
-   * @param { number } y - The y-axis coordinate of the start point of the text.
-   * @param { number } maxWidth - Maximum width of the drawing.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Fills the specified text at the specified location
-   *
-   * @param { string } text - Text string to be drawn.
-   * @param { number } x - The x-axis coordinate of the start point of the text.
-   * @param { number } y - The y-axis coordinate of the start point of the text.
-   * @param { number } maxWidth - Maximum width of the drawing.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   fillText(text: string, x: number, y: number, maxWidth?: number): void;
 
   /**
-   * Measure the size of a specified text. For details about the return value, see {@link TextMetrics}.
+   * Returns a **TextMetrics** object used to obtain the width of specified text. Note that the width
+   * obtained may vary by device.
    *
-   * @param { string } text - Text string to be measured.
-   * @returns { TextMetrics }
+   * @param { string } text - Text to measure.
+   * @returns { TextMetrics } **TextMetrics** object.<br>If the input value is **undefined** or **null**, the
+   *     value is calculated based on "undefined" or "null".
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 8
-   */
-  /**
-   * Measure the size of a specified text. For details about the return value, see {@link TextMetrics}.
-   *
-   * @param { string } text - Text string to be measured.
-   * @returns { TextMetrics }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Measure the size of a specified text. For details about the return value, see {@link TextMetrics}.
-   *
-   * @param { string } text - Text string to be measured.
-   * @returns { TextMetrics }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Measure the size of a specified text. For details about the return value, see {@link TextMetrics}.
-   *
-   * @param { string } text - Text string to be measured.
-   * @returns { TextMetrics }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   measureText(text: string): TextMetrics;
 
   /**
-   * Stroke specified text at specified position
+   * Draws stroked text on the canvas.
    *
-   * @param { string } text - Text string to be stroked.
-   * @param { number } x - The x-axis coordinate of the start point of the text.
-   * @param { number } y - The y-axis-axis coordinate of the start point of the text.
-   * @param { number } maxWidth - Maximum width of the stroke.
+   * @param { string } text - Text to draw.<br>**undefined** and **null** are treated as invalid values
+   *     and no rendering will be performed.
+   * @param { number } x - X-coordinate of the start point for text rendering.<br>**undefined**, **null**,
+   *     **NaN**, and **Infinity** are treated as invalid values and no rendering will be performed.<br>
+   *     Default unit: vp
+   * @param { number } y - Y-coordinate of the start point for text rendering.<br>**undefined**, **null**,
+   *     **NaN**, and **Infinity** are treated as invalid values and no rendering will be performed.<br>
+   *     Default unit: vp
+   * @param { number } [maxWidth] - Maximum width of the text.<br>**null** is treated as an invalid value
+   *     and no rendering will be performed. **undefined**, **NaN**, or **Infinity** is treated as the
+   *     default value.<br>Default unit: vp<br>Default value: no width restriction
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 8
-   */
-  /**
-   * Stroke specified text at specified position
-   *
-   * @param { string } text - Text string to be stroked.
-   * @param { number } x - The x-axis coordinate of the start point of the text.
-   * @param { number } y - The y-axis-axis coordinate of the start point of the text.
-   * @param { number } maxWidth - Maximum width of the stroke.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Stroke specified text at specified position
-   *
-   * @param { string } text - Text string to be stroked.
-   * @param { number } x - The x-axis coordinate of the start point of the text.
-   * @param { number } y - The y-axis-axis coordinate of the start point of the text.
-   * @param { number } maxWidth - Maximum width of the stroke.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Stroke specified text at specified position
-   *
-   * @param { string } text - Text string to be stroked.
-   * @param { number } x - The x-axis coordinate of the start point of the text.
-   * @param { number } y - The y-axis-axis coordinate of the start point of the text.
-   * @param { number } maxWidth - Maximum width of the stroke.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   strokeText(text: string, x: number, y: number, maxWidth?: number): void;
 
   /**
-   * Text drawing direction. For details, see {@link CanvasDirection}.
+   * Sets the text direction. This attribute is write-only. You can set its value through an
+   * assignment statement, but cannot obtain its current value through a read operation. If you
+   * attempt to read its current value, **undefined** will be returned.
    *
-   * @type { CanvasDirection }
+   * For details, see {@link CanvasDirection}.
+   *
+   * Default value: **"inherit"**
    * @default inherit
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 8
-   */
-  /**
-   * Text drawing direction. For details, see {@link CanvasDirection}.
-   *
-   * @type { CanvasDirection }
-   * @default inherit
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Text drawing direction. For details, see {@link CanvasDirection}.
-   *
-   * @type { CanvasDirection }
-   * @default inherit
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Text drawing direction. For details, see {@link CanvasDirection}.
-   *
-   * @type { CanvasDirection }
-   * @default inherit
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   direction: CanvasDirection;
 
   /**
-   * Font style.
+   * Sets the text font. This attribute is write-only. You can set its value through an
+   * assignment statement, but cannot obtain its current value through a read operation.
+   * If you attempt to read its current value, **undefined** will be returned.
    *
-   * @type { string }
+   * Syntax: ctx.font = 'font-style font-weight font-size font-family'
+   *
+   * - (Optional) **font-style**: font style. Available values are **normal** and **italic**.
+   *
+   * - (Optional) **font-weight**: font weight. Available values are as follows: **normal**,
+   *   **bold**, **bolder**, **lighter**, **100**, **200**, **300**, **400**, **500**, **600**,
+   *   **700**, **800**, **900**.
+   *
+   * - (Optional) **font-size**: font size and line height. The unit can be px or vp and must
+   *   be specified.
+   *
+   * - (Optional) **font-family**: font family. Available values are **sans-serif**,
+   *   **serif**, and **monospace**.
+   *
+   * Starting from API version 20, this API is used to set registered custom fonts (the DevEco
+   * Studio Previewer does not support custom fonts). You can register a custom font in either
+   * of the following ways:
+   *
+   * Register a custom font by calling the asynchronous API
+   * this.uiContext.getFont().[registerFont]{@link Font#registerFont}
+   * of ArkUI. Immediate rendering after calling this API may result in the custom font not
+   * taking effect.
+   *
+   * Directly call the fontCollection.[loadFontSync](docroot://reference/apis-arkgraphics2d/js-apis-graphics-text.md#loadfontsync)
+   * API of the font engine to register the custom font. In this case, the **fontCollection**
+   * instance must be **text.FontCollection.getGlobalInstance()** because the component loads
+   * fonts from this instance by default. If you use another instance, the custom font may not
+   * take effect.
+   *
    * @default normal normal 14px sans-serif
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 8
-   */
-  /**
-   * Font style.
-   *
-   * @type { string }
-   * @default normal normal 14px sans-serif
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Font style.
-   *
-   * @type { string }
-   * @default normal normal 14px sans-serif
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Font style.
-   *
-   * @type { string }
-   * @default normal normal 14px sans-serif
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   font: string;
 
   /**
-   * Text alignment mode. For details, see {@link CanvasTextAlign}.
+   * Sets the text alignment type. This attribute is write-only. You can set its value through
+   * an assignment statement, but cannot obtain its current value through a read operation.
+   * If you attempt to read its current value, **undefined** will be returned.
    *
-   * @type { CanvasTextAlign }
+   * In the **ltr** layout mode, the value **'start'** equals **'left'**. In the **rtl** layout
+   * mode, the value **'start'** equals **'right'**.
+   *
+   * Default value: **'left'**
+   *
    * @default left
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 8
-   */
-  /**
-   * Text alignment mode. For details, see {@link CanvasTextAlign}.
-   *
-   * @type { CanvasTextAlign }
-   * @default left
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Text alignment mode. For details, see {@link CanvasTextAlign}.
-   *
-   * @type { CanvasTextAlign }
-   * @default left
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Text alignment mode. For details, see {@link CanvasTextAlign}.
-   *
-   * @type { CanvasTextAlign }
-   * @default left
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   textAlign: CanvasTextAlign;
 
   /**
-   * Text baseline. For details, see {@link CanvasTextBaseline}.
+   * Sets the horizontal alignment baseline for text rendering. This attribute is write-only.
+   * You can set its value through an assignment statement, but cannot obtain its current value
+   * through a read operation. If you attempt to read its current value, **undefined** will be
+   * returned.
    *
-   * @type { CanvasTextBaseline }
+   * Default value: **'alphabetic'**
+   *
    * @default alphabetic
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 8
-   */
-  /**
-   * Text baseline. For details, see {@link CanvasTextBaseline}.
-   *
-   * @type { CanvasTextBaseline }
-   * @default alphabetic
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Text baseline. For details, see {@link CanvasTextBaseline}.
-   *
-   * @type { CanvasTextBaseline }
-   * @default alphabetic
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Text baseline. For details, see {@link CanvasTextBaseline}.
-   *
-   * @type { CanvasTextBaseline }
-   * @default alphabetic
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   textBaseline: CanvasTextBaseline;
 
   /**
-   * Obtains the currently applied transformation matrix.
+   * Obtains the current transformation matrix being applied to the context.
    *
-   * @returns { Matrix2D }
+   * @returns { Matrix2D } Current transformation matrix applied to the context.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 8
-   */
-  /**
-   * Obtains the currently applied transformation matrix.
-   *
-   * @returns { Matrix2D }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Obtains the currently applied transformation matrix.
-   *
-   * @returns { Matrix2D }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Obtains the currently applied transformation matrix.
-   *
-   * @returns { Matrix2D }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   getTransform(): Matrix2D;
 
   /**
-   * Resets the current transformation matrix using the identity matrix
+   * Resets the current transform to the identity matrix.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 8
-   */
-  /**
-   * Resets the current transformation matrix using the identity matrix
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Resets the current transformation matrix using the identity matrix
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Resets the current transformation matrix using the identity matrix
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   resetTransform(): void;
 
   /**
-   * Adds the effect of a rotation
+   * Rotates a canvas clockwise around its coordinate axes.
    *
-   * @param { number } angle - The radian of clockwise rotation, which can be converted to an angle value using the formula:
-   *    degree * Math.PI / 180
+   * @param { number } angle - Clockwise rotation angle. You can convert degrees to radians using the
+   *    following formula: degree * Math.PI/180.<br>In versions earlier than API version 18, values
+   *    **NaN** and **Infinity** cause the failure to call the drawing APIs following this API for
+   *    rendering. Values **null** and **undefined** cause the current API to have no effect. Since API
+   *    version 18, **NaN**, **Infinity**, **null**, or **undefined** causes the current API to have no
+   *    effect, and other drawing APIs with valid arguments continue to render correctly.<br>Unit: radian
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 8
-   */
-  /**
-   * Adds the effect of a rotation
-   *
-   * @param { number } angle - The radian of clockwise rotation, which can be converted to an angle value using the formula:
-   *    degree * Math.PI / 180
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Adds the effect of a rotation
-   *
-   * @param { number } angle - The radian of clockwise rotation, which can be converted to an angle value using the formula:
-   *    degree * Math.PI / 180
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Adds the effect of a rotation
-   *
-   * @param { number } angle - The radian of clockwise rotation, which can be converted to an angle value using the formula:
-   *    degree * Math.PI / 180
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   rotate(angle: number): void;
 
   /**
-   * Increases the scaling effect of the X and Y axes.
+   * Scales the canvas based on the given scale factors.
    *
-   * @param { number } x - Horizontal scaling factor
-   * @param { number } y - Vertical scaling factor
+   * @param { number } x - Horizontal scale factor.<br>In versions earlier than API version 18,
+   *     values **NaN** and **Infinity** cause the failure to call the drawing APIs following this API
+   *     for rendering. Values **0**, **null**, **undefined**, and negative numbers cause the current
+   *     API to have no effect. Since API version 18, **NaN**, **Infinity**, **0**, **null**,
+   *     **undefined**, and negative numbers cause the current API to have no effect, and other drawing
+   *     APIs with valid arguments continue to render correctly.
+   * @param { number } y - Vertical scaling factor. Negative numbers are not supported.<br>
+   *     In versions earlier than API version 18, values **NaN** and **Infinity** cause the failure to
+   *     call the drawing APIs following this API for rendering. Values **0**, **null**, **undefined**,
+   *     and negative numbers cause the current API to have no effect. Since API version 18, **NaN**,
+   *     **Infinity**, **0**, **null**, **undefined**, and negative numbers cause the current API to
+   *     have no effect, and other drawing APIs with valid arguments continue to render correctly.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 8
-   */
-  /**
-   * Increases the scaling effect of the X and Y axes.
-   *
-   * @param { number } x - Horizontal scaling factor
-   * @param { number } y - Vertical scaling factor
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Increases the scaling effect of the X and Y axes.
-   *
-   * @param { number } x - Horizontal scaling factor
-   * @param { number } y - Vertical scaling factor
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Increases the scaling effect of the X and Y axes.
-   *
-   * @param { number } x - Horizontal scaling factor
-   * @param { number } y - Vertical scaling factor
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   scale(x: number, y: number): void;
 
   /**
-   * Adds 2D transformation effects, including rotation, translation, and scaling.
-   *    The current transformation matrix will not be overwritten. Multiple transformations will be superimposed.
+   * Resets the existing transformation matrix and creates a new transformation matrix by
+   * using the same parameters as the **transform()** API.
    *
-   * @param { number } a - Horizontal Zoom
-   * @param { number } b - Vertical Tilt
-   * @param { number } c - Horizontal Tilt
-   * @param { number } d - Vertical Zoom
-   * @param { number } e - Horizontal movement
-   * @param { number } f - Vertical movement
+   * > **NOTE**
+   * >
+   * > The coordinates of each point in the graph after transformation can be calculated
+   * > using the following formula:
+   * >
+   * > **x** and **y** represent coordinates before transformation, and **x'** and **y'**
+   * > represent coordinates after transformation.
+   * >
+   * > - x' = `a * x + c * y + e`
+   * >
+   * > - y' = `b * x + d * y + f`
+   *
+   * @param { number } a - **scaleX**: horizontal scaling value. A negative value is supported.<br>
+   *     In versions earlier than API version 18, values **NaN** and **Infinity** cause the failure
+   *     to call the drawing APIs following this API for rendering. Values **null** and **undefined**
+   *     cause the current API to have no effect. Since API version 18, **NaN**, **Infinity**,
+   *     **null**, or **undefined** causes the current API to have no effect, and other drawing APIs
+   *     with valid arguments continue to render correctly.
+   * @param { number } b - **skewY**: vertical skewing value. A negative value is supported.<br>
+   *     In versions earlier than API version 18, values **NaN** and **Infinity** cause the failure
+   *     to call the drawing APIs following this API for rendering. Values **null** and **undefined**
+   *     cause the current API to have no effect. Since API version 18, **NaN**, **Infinity**,
+   *     **null**, or **undefined** causes the current API to have no effect, and other drawing APIs
+   *     with valid arguments continue to render correctly.
+   * @param { number } c - **skewX**: horizontal skewing value. A negative value is supported.<br>
+   *     In versions earlier than API version 18, values **NaN** and **Infinity** cause the failure
+   *     to call the drawing APIs following this API for rendering. Values **null** and **undefined**
+   *     cause the current API to have no effect. Since API version 18, **NaN**, **Infinity**,
+   *     **null**, or **undefined** causes the current API to have no effect, and other drawing APIs
+   *     with valid arguments continue to render correctly.
+   * @param { number } d - **scaleY**: vertical scaling value. A negative value is supported.<br>
+   *     In versions earlier than API version 18, values **NaN** and **Infinity** cause the failure
+   *     to call the drawing APIs following this API for rendering. Values **null** and **undefined**
+   *     cause the current API to have no effect. Since API version 18, **NaN**, **Infinity**,
+   *     **null**, or **undefined** causes the current API to have no effect, and other drawing APIs
+   *     with valid arguments continue to render correctly.
+   * @param { number } e - **translateX**: horizontal translation distance. A negative value is
+   *     supported.<br>In versions earlier than API version 18, values **NaN** and **Infinity** cause
+   *     the failure to call the drawing APIs following this API for rendering. Values **null** and
+   *     **undefined** cause the current API to have no effect. Since API version 18, **NaN**,
+   *     **Infinity**, **null**, or **undefined** causes the current API to have no effect, and other
+   *     drawing APIs with valid arguments continue to render correctly.<br>Default unit: vp
+   * @param { number } f - **translateY**: vertical translation distance. A negative value is
+   *     supported.<br>In versions earlier than API version 18, values **NaN** and **Infinity** cause
+   *     the failure to call the drawing APIs following this API for rendering. Values **null** and
+   *     **undefined** cause the current API to have no effect. Since API version 18, **NaN**,
+   *     **Infinity**, **null**, or **undefined** causes the current API to have no effect, and other
+   *     drawing APIs with valid arguments continue to render correctly.<br>Default unit: vp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 8
-   */
-  /**
-   * Adds 2D transformation effects, including rotation, translation, and scaling.
-   *    The current transformation matrix will not be overwritten. Multiple transformations will be superimposed.
-   *
-   * @param { number } a - Horizontal Zoom
-   * @param { number } b - Vertical Tilt
-   * @param { number } c - Horizontal Tilt
-   * @param { number } d - Vertical Zoom
-   * @param { number } e - Horizontal movement
-   * @param { number } f - Vertical movement
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Adds 2D transformation effects, including rotation, translation, and scaling.
-   *    The current transformation matrix will not be overwritten. Multiple transformations will be superimposed.
-   *
-   * @param { number } a - Horizontal Zoom
-   * @param { number } b - Vertical Tilt
-   * @param { number } c - Horizontal Tilt
-   * @param { number } d - Vertical Zoom
-   * @param { number } e - Horizontal movement
-   * @param { number } f - Vertical movement
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Adds 2D transformation effects, including rotation, translation, and scaling.
-   *    The current transformation matrix will not be overwritten. Multiple transformations will be superimposed.
-   *
-   * @param { number } a - Horizontal Zoom
-   * @param { number } b - Vertical Tilt
-   * @param { number } c - Horizontal Tilt
-   * @param { number } d - Vertical Zoom
-   * @param { number } e - Horizontal movement
-   * @param { number } f - Vertical movement
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   setTransform(a: number, b: number, c: number, d: number, e: number, f: number): void;
 
   /**
-   * The 2D transformation effect is added. The current transformation matrix is not overwritten and
-   *    the transformations are superimposed for multiple times.
+   * Resets the current transformation to the identity matrix, and then creates a new
+   * transformation matrix based on the specified **Matrix2D** object.
    *
-   * @param { Matrix2D } transform - 2D transformation matrix. For details, see {@link Matrix2D}.
+   * @param { Matrix2D } [transform] - Transformation matrix.<br>**undefined** and **null**
+   *     are treated as invalid values.<br>Default value: **null**
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 8
-   */
-  /**
-   * The 2D transformation effect is added. The current transformation matrix is not overwritten and
-   *    the transformations are superimposed for multiple times.
-   *
-   * @param { Matrix2D } transform - 2D transformation matrix. For details, see {@link Matrix2D}.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * The 2D transformation effect is added. The current transformation matrix is not overwritten and
-   *    the transformations are superimposed for multiple times.
-   *
-   * @param { Matrix2D } transform - 2D transformation matrix. For details, see {@link Matrix2D}.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * The 2D transformation effect is added. The current transformation matrix is not overwritten and
-   *    the transformations are superimposed for multiple times.
-   *
-   * @param { Matrix2D } transform - 2D transformation matrix. For details, see {@link Matrix2D}.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   setTransform(transform?: Matrix2D): void;
 
   /**
-   * Adds the 2D transformation effect, including rotation, translation, and scaling,
-   *    and overwrites the current transformation matrix.
+   * Defines a transformation matrix. To transform a graph, you only need to set parameters of
+   * the matrix. The coordinates of the graph are multiplied by the matrix values to obtain new
+   * coordinates of the transformed graph. You can use the matrix to implement multiple transform
+   * effects.
    *
-   * @param { number } a - Horizontal Zoom
-   * @param { number } b - Vertical Tilt
-   * @param { number } c - Horizontal Tilt
-   * @param { number } d - Vertical Zoom
-   * @param { number } e - Horizontal movement
-   * @param { number } f - Vertical movement
+   * > **NOTE**
+   * >
+   * > The coordinates of each point in the graph after transformation can be calculated
+   * > using the following formula:
+   * >
+   * > **x** and **y** represent coordinates before transformation, and **x'** and **y'**
+   * > represent coordinates after transformation.
+   * >
+   * > - x' = `a * x + c * y + e`
+   * >
+   * > - y' = `b * x + d * y + f`
+   *
+   * @param { number } a - Cell at row 1, column 1 of the transformation matrix. **scaleX**:
+   *     horizontal scaling value. A negative value is supported.<br>In versions earlier than API version 18,
+   *     values **NaN** and **Infinity** cause the failure to call the drawing APIs following this API for
+   *     rendering. Values **null** and **undefined** cause the current API to have no effect. Since API
+   *     version 18, **NaN**, **Infinity**, **null**, or **undefined** causes the current API to have no
+   *     effect, and other drawing APIs with valid arguments continue to render correctly.
+   * @param { number } b - Cell at row 2, column 1 of the transformation matrix. **skewY**:
+   *     vertical skewing value. A negative value is supported.<br>In versions earlier than API version 18,
+   *     values **NaN** and **Infinity** cause the failure to call the drawing APIs following this API for
+   *     rendering. Values **null** and **undefined** cause the current API to have no effect. Since API
+   *     version 18, **NaN**, **Infinity**, **null**, or **undefined** causes the current API to have no
+   *     effect, and other drawing APIs with valid arguments continue to render correctly.
+   * @param { number } c - Cell at row 1, column 2 of the transformation matrix. **skewX**:
+   *     horizontal skewing value. A negative value is supported.<br>In versions earlier than API version 18,
+   *     values **NaN** and **Infinity** cause the failure to call the drawing APIs following this API for
+   *     rendering. Values **null** and **undefined** cause the current API to have no effect. Since API
+   *     version 18, **NaN**, **Infinity**, **null**, or **undefined** causes the current API to have no
+   *     effect, and other drawing APIs with valid arguments continue to render correctly.
+   * @param { number } d - Cell at row 2, column 2 of the transformation matrix. **scaleY**:
+   *     vertical scaling value. A negative value is supported.<br>In versions earlier than API version 18,
+   *     values **NaN** and **Infinity** cause the failure to call the drawing APIs following this API for
+   *     rendering. Values **null** and **undefined** cause the current API to have no effect. Since API
+   *     version 18, **NaN**, **Infinity**, **null**, or **undefined** causes the current API to have no
+   *     effect, and other drawing APIs with valid arguments continue to render correctly.
+   * @param { number } e - Cell at row 1, column 3 of the transformation matrix. **translateX**:
+   *     horizontal translation distance. A negative value is supported.<br>In versions earlier than API
+   *     version 18, values **NaN** and **Infinity** cause the failure to call the drawing APIs following
+   *     this API for rendering. Values **null** and **undefined** cause the current API to have no effect.
+   *     Since API version 18, **NaN**, **Infinity**, **null**, or **undefined** causes the current API to
+   *     have no effect, and other drawing APIs with valid arguments continue to render correctly.<br>
+   *     Default unit: vp
+   * @param { number } f - Cell at row 2, column 3 of the transformation matrix. **translateY**:
+   *     vertical translation distance. A negative value is supported.<br>In versions earlier than API
+   *     version 18, values **NaN** and **Infinity** cause the failure to call the drawing APIs following
+   *     this API for rendering. Values **null** and **undefined** cause the current API to have no effect.
+   *     Since API version 18, **NaN**, **Infinity**, **null**, or **undefined** causes the current API to
+   *     have no effect, and other drawing APIs with valid arguments continue to render correctly.<br>
+   *     Default unit: vp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 8
-   */
-  /**
-   * Adds the 2D transformation effect, including rotation, translation, and scaling,
-   *    and overwrites the current transformation matrix.
-   *
-   * @param { number } a - Horizontal Zoom
-   * @param { number } b - Vertical Tilt
-   * @param { number } c - Horizontal Tilt
-   * @param { number } d - Vertical Zoom
-   * @param { number } e - Horizontal movement
-   * @param { number } f - Vertical movement
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Adds the 2D transformation effect, including rotation, translation, and scaling,
-   *    and overwrites the current transformation matrix.
-   *
-   * @param { number } a - Horizontal Zoom
-   * @param { number } b - Vertical Tilt
-   * @param { number } c - Horizontal Tilt
-   * @param { number } d - Vertical Zoom
-   * @param { number } e - Horizontal movement
-   * @param { number } f - Vertical movement
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Adds the 2D transformation effect, including rotation, translation, and scaling,
-   *    and overwrites the current transformation matrix.
-   *
-   * @param { number } a - Horizontal Zoom
-   * @param { number } b - Vertical Tilt
-   * @param { number } c - Horizontal Tilt
-   * @param { number } d - Vertical Zoom
-   * @param { number } e - Horizontal movement
-   * @param { number } f - Vertical movement
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   transform(a: number, b: number, c: number, d: number, e: number, f: number): void;
 
   /**
-   * Increases the translation effect of the X and Y axes
+   * Moves the origin of the coordinate system.
    *
-   * @param { number } x - Horizontal movement distance
-   * @param { number } y - Vertical travel distance
+   * @param { number } x - Distance to translate on the x-axis.<br>In versions earlier than API version 18,
+   *     values **NaN** and **Infinity** cause the failure to call the drawing APIs following this API for
+   *     rendering. Values **null** and **undefined** cause the current API to have no effect. Since API
+   *     version 18, **NaN**, **Infinity**, **null**, or **undefined** causes the current API to have no
+   *     effect, and other drawing APIs with valid arguments continue to render correctly.<br>Default unit: vp
+   * @param { number } y - Distance to translate on the y-axis.<br>In versions earlier than API version 18,
+   *     values **NaN** and **Infinity** cause the failure to call the drawing APIs following this API for
+   *     rendering. Values **null** and **undefined** cause the current API to have no effect. Since API
+   *     version 18, **NaN**, **Infinity**, **null**, or **undefined** causes the current API to have no
+   *     effect, and other drawing APIs with valid arguments continue to render correctly.<br>Default unit: vp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 8
-   */
-  /**
-   * Increases the translation effect of the X and Y axes
-   *
-   * @param { number } x - Horizontal movement distance
-   * @param { number } y - Vertical travel distance
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Increases the translation effect of the X and Y axes
-   *
-   * @param { number } x - Horizontal movement distance
-   * @param { number } y - Vertical travel distance
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Increases the translation effect of the X and Y axes
-   *
-   * @param { number } x - Horizontal movement distance
-   * @param { number } y - Vertical travel distance
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   translate(x: number, y: number): void;
 
   /**
-   * Set a PixelMap to the current context. The drawing content is synchronized to the PixelMap.
+   * Draws the input **PixelMap** object on the canvas.
+   * The example is the same as that of **getPixelMap**.
    *
-   * @param { PixelMap } value - PixelMap object
+   * @param { PixelMap } [value] - **PixelMap** object that contains pixel values.<br>
+   *     **undefined** and **null** are treated as invalid values and no rendering will be
+   *     performed.<br>Default value: **null**
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 8
-   */
-  /**
-   * Set a PixelMap to the current context. The drawing content is synchronized to the PixelMap.
-   *
-   * @param { PixelMap } value - PixelMap object
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Set a PixelMap to the current context. The drawing content is synchronized to the PixelMap.
-   *
-   * @param { PixelMap } value - PixelMap object
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   setPixelMap(value?: PixelMap): void;
 
   /**
-   * transfer ImageBitmap to content.
+   * Displays the specified **ImageBitmap** object.
    *
-   * @param { ImageBitmap } bitmap
+   * @param { ImageBitmap } bitmap - **ImageBitmap** object to display.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 8
-   */
-  /**
-   * transfer ImageBitmap to content.
-   *
-   * @param { ImageBitmap } bitmap
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * transfer ImageBitmap to content.
-   *
-   * @param { ImageBitmap } bitmap
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * transfer ImageBitmap to content.
-   *
-   * @param { ImageBitmap } bitmap
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   transferFromImageBitmap(bitmap: ImageBitmap): void;
 
   /**
-   * Allocate a layer for subsequent drawing.
+   * Saves this layer.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -5728,9 +2859,11 @@ declare class CanvasRenderer extends CanvasPath {
   saveLayer(): void;
 
   /**
-   * Remove changes to transform and clip since saveLayer was last called and draw the layer on canvas.
+   * Restores the image transformation and cropping state to the state before **saveLayer**,
+   * and then draws the layer onto the canvas. For the sample code, see the code for **saveLayer**.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -5738,9 +2871,11 @@ declare class CanvasRenderer extends CanvasPath {
   restoreLayer(): void;
 
   /**
-   * Clear the backing buffer, drawing state stack, any defined paths, and styles.
+   * Resets this **CanvasRenderingContext2D** object to its default state and clears the background buffer,
+   * drawing state stack, defined paths, and styles.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -5748,9 +2883,17 @@ declare class CanvasRenderer extends CanvasPath {
   reset(): void;
 
   /**
-   * Indicates whether anti-aliasing is enabled for canvas. The value true indicates that anti-aliasing is enabled.
-   * The value false indicates that anti-aliasing is disabled. The value undefined indicates that anti-aliasing
-   * is determined by the RenderingContextSettings#antialias property. The default value is undefined.
+   * Sets whether to enable anti-aliasing for drawing graphics and text. Setting this API
+   * overrides the anti-aliasing effect in [RenderingContextSettings](#renderingcontextsettings).
+   * If this API is not specified, the default value is **undefined** and the anti-aliasing effect
+   * in [RenderingContextSettings](#renderingcontextsettings) is used.
+   *
+   * Whether to enable anti-aliasing for drawing graphics and text.
+   *
+   * **true**: Anti-aliasing is enabled. **false**: Anti-aliasing is disabled.
+   *
+   * When the value is **undefined**, the anti-aliasing effect in
+   * [RenderingContextSettings](#renderingcontextsettings) is used.
    *
    * @default undefined
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -5763,138 +2906,77 @@ declare class CanvasRenderer extends CanvasPath {
 }
 
 /**
- * Draw context object for the Canvas component.
+ * After the **CanvasRenderingContext2D** object is bound to the **Canvas** component, you can draw
+ * shapes, texts, and images on the **Canvas** component.
  *
- * @extends CanvasRenderer
+ * > **NOTE**
+ * >
+ * > * It is recommended that the **CanvasRenderingContext2D** object and the **Canvas** component be
+ * > encapsulated into the same custom component, ensuring a one-to-one correspondence and consistent
+ * > lifecycle between them.
+ * >
+ * > * When you call drawing APIs in this module, the commands are stored in the associated **Canvas**
+ * > component's command queue. These commands are only executed when the current frame enters the
+ * > rendering phase and the associated **Canvas** component is visible. Therefore, when the **Canvas**
+ * > component is invisible (for example, off-screen or hidden), avoid frequent drawing calls to prevent
+ * > command queue buildup and excessive memory usage. For best practices, see
+ * > [Controlling Canvas Rendering Based on Component Visibility](docroot://ui/arkts-drawing-customization-on-canvas.md#controlling-canvas-rendering-based-on-component-visibility).
+ * >
+ * > * The following path-related APIs apply only to paths created within **CanvasRenderingContext2D**
+ * > and do not affect paths defined in
+ * > [OffscreenCanvasRenderingContext2D]{@link OffscreenCanvasRenderingContext2D}
+ * > or [Path2D]{@link Path2D}:
+ * > [beginPath](#beginpath), [moveTo](#moveto), [lineTo](#lineto), [closePath](#closepath),
+ * > [bezierCurveTo](#beziercurveto), [quadraticCurveTo](#quadraticcurveto), [arc](#arc),
+ * > [arcTo](#arcto), [ellipse](#ellipse), [rect](#rect), and [roundRect](#roundrect20).
+ * >
+ * > * When the width or height of the **Canvas** component exceeds 8000 px, rendering via the CPU
+ * > causes significant performance degradation.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @since 8
- */
-/**
- * Draw context object for the Canvas component.
- *
- * @extends CanvasRenderer
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @form
- * @since 9
- */
-/**
- * Draw context object for the Canvas component.
- *
- * @extends CanvasRenderer
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Draw context object for the Canvas component.
- *
- * @extends CanvasRenderer
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 8 dynamic
  */
 declare class CanvasRenderingContext2D extends CanvasRenderer {
   /**
-   * The default value is 0, which is bound to the height of the specified canvas. The value is read-only.
+   * Component height.
    *
-   * @type { number }
-   * @readonly
+   * Default unit: vp
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 8
-   */
-  /**
-   * The default value is 0, which is bound to the height of the specified canvas. The value is read-only.
-   *
-   * @type { number }
-   * @readonly
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * The default value is 0, which is bound to the height of the specified canvas. The value is read-only.
-   *
-   * @type { number }
-   * @readonly
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * The default value is 0, which is bound to the height of the specified canvas. The value is read-only.
-   *
-   * @type { number }
-   * @readonly
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   readonly height: number;
 
   /**
-   * The default value is 0, which is bound to the width of the specified canvas. The value is read-only.
+   * Component width.
    *
-   * @type { number }
-   * @readonly
+   * Default unit: vp
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 8
-   */
-  /**
-   * The default value is 0, which is bound to the width of the specified canvas. The value is read-only.
-   *
-   * @type { number }
-   * @readonly
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * The default value is 0, which is bound to the width of the specified canvas. The value is read-only.
-   *
-   * @type { number }
-   * @readonly
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * The default value is 0, which is bound to the width of the specified canvas. The value is read-only.
-   *
-   * @type { number }
-   * @readonly
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   readonly width: number;
 
   /**
-   * Frame node of the canvas. The default value is null.
+   * FrameNode instance of the **Canvas** component associated with **CanvasRenderingContext2D**.
+   * It can be used to listen for the visibility status of the associated **Canvas** component.
    *
-   * @type { FrameNode }
-   * @readonly
+   * Default value: **null**
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 13 dynamic
@@ -5902,125 +2984,105 @@ declare class CanvasRenderingContext2D extends CanvasRenderer {
   readonly canvas: FrameNode;
 
   /**
-   * Generate a character string in the data url format.
+   * Creates a data URL that contains a representation of an image. This API involves
+   * time-consuming memory copy. Therefore, avoid frequent calls to it.
    *
-   * @param { string } type - Image format. The default value is image/png.
-   * @param { any } quality - If the image format is image/jpeg or image/webp, you can select the image quality from 0 to 1.
-   *    If the value is out of the range, the default value 0.92 is used.
-   * @returns { string }
+   * @param { string } type - Image format.
+   *     <br>The options are **image/png**, **image/jpeg**, and **image/webp**.
+   *     <br>Invalid values **undefined** and **null** are treated as the default value.
+   *     <br>Default value: **image/png**
+   * @param { any } quality - Image quality, which ranges from 0 to 1, when the image format
+   *     is **image/jpeg** or **image/webp**. If the set value is beyond the value range,
+   *     the default value **0.92** is used.
+   *     <br>Invalid values **undefined**, **null**, **NaN**, and **Infinity** are treated
+   *     as the default value.
+   *     <br>Default value: **0.92**
+   * @returns { string } Image URL.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 8
-   */
-  /**
-   * Generate a character string in the data url format.
-   *
-   * @param { string } type - Image format. The default value is image/png.
-   * @param { any } quality - If the image format is image/jpeg or image/webp, you can select the image quality from 0 to 1.
-   *    If the value is out of the range, the default value 0.92 is used.
-   * @returns { string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Generate a character string in the data url format.
-   *
-   * @param { string } type - Image format. The default value is image/png.
-   * @param { any } quality - If the image format is image/jpeg or image/webp, you can select the image quality from 0 to 1.
-   *    If the value is out of the range, the default value 0.92 is used.
-   * @returns { string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Generate a character string in the data url format.
-   *
-   * @param { string } type - Image format. The default value is image/png.
-   * @param { any } quality - If the image format is image/jpeg or image/webp, you can select the image quality from 0 to 1.
-   *    If the value is out of the range, the default value 0.92 is used.
-   * @returns { string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   toDataURL(type?: string, quality?: any): string;
 
   /**
-   * Start image analyzer.
+   * Configures and starts the AI analyzer. This API uses a promise to return the result.
+   * Before use, set [enableAnalyzer]{@link CanvasAttribute#enableAnalyzer}
+   * to **true** to enable the image AI analyzer.<br>Because the image frame used for analysis is
+   * the one captured when this API is called, pay attention to the invoking time of this API.<br>
+   * Repeated calls to this method before completion trigger an error callback. For the sample code,
+   * see the code for **stopImageAnalyzer**.
    *
-   * @param { ImageAnalyzerConfig } config - Image analyzer config.
-   * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 110001 - Image analysis feature is not supported.
+   * > **NOTE**
+   * >
+   * > The image analysis type cannot be dynamically modified.
+   * > When image changes are detected, the analysis result is automatically destroyed. You can
+   * > call this API again to start analysis.
+   * > This API depends on device capabilities. If it is called on an incompatible device, an
+   * > error code is returned.
+   *
+   * @param { ImageAnalyzerConfig } config - Settings of the AI analyzer.<br>**undefined** and
+   *     **null** are treated as invalid values.
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 110001 - Image analysis feature is unsupported.
    * @throws { BusinessError } 110002 - Image analysis is currently being executed.
    * @throws { BusinessError } 110003 - Image analysis is stopped.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 12 dynamic
    */
   startImageAnalyzer(config: ImageAnalyzerConfig): Promise<void>;
 
   /**
-   * Stop image analyzer.
+   * Stops AI image analysis. The content displayed by the AI image analyzer will be destroyed.
+   *
+   * > **NOTE**
+   * >
+   * > If this API is called when the **startImageAnalyzer** API has not yet returned any result,
+   * > an error is reported.
+   * > This feature depends on device capabilities.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 12 dynamic
    */
   stopImageAnalyzer(): void;
 
   /**
-   * Constructor of the canvas drawing context object, which is used to create a drawing context object.
+   * Constructs a canvas object, which supports configuration of parameters for the
+   * **CanvasRenderingContext2D** object.
    *
-   * @param { RenderingContextSettings } settings - Drawing attribute. For details, see {@link RenderingContextSettings}.
+   * @param { RenderingContextSettings } settings - Settings of the **CanvasRenderingContext2D**
+   *      object. For details, see [RenderingContextSettings](#renderingcontextsettings).
+   *      <br>If the value is **undefined** or **null**, the default value of
+   *      [RenderingContextSettings](#renderingcontextsettings) is used.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 8
-   */
-  /**
-   * Constructor of the canvas drawing context object, which is used to create a drawing context object.
-   *
-   * @param { RenderingContextSettings } settings - Drawing attribute. For details, see {@link RenderingContextSettings}.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Constructor of the canvas drawing context object, which is used to create a drawing context object.
-   *
-   * @param { RenderingContextSettings } settings - Drawing attribute. For details, see {@link RenderingContextSettings}.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Constructor of the canvas drawing context object, which is used to create a drawing context object.
-   *
-   * @param { RenderingContextSettings } settings - Drawing attribute. For details, see {@link RenderingContextSettings}.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   constructor(settings?: RenderingContextSettings);
 
   /**
-   * Constructor of the canvas drawing context object, which is used to create a drawing context object.
+   * Creates a **CanvasRenderingContext2D** object, allowing for initial configuration of rendering
+   * parameters and unit mode.
    *
-   * @param { RenderingContextSettings } settings - Drawing attribute. For details, see {@link RenderingContextSettings}.
-   * @param { LengthMetricsUnit } [unit] - the unit mode
+   * @param { RenderingContextSettings } settings - Settings of the **CanvasRenderingContext2D**
+   *      object. For details, see [RenderingContextSettings](#renderingcontextsettings).
+   *      <br>If the value is **undefined** or **null**, the default value of
+   *      [RenderingContextSettings](#renderingcontextsettings) is used.
+   * @param { LengthMetricsUnit } [unit] - Unit mode of the **CanvasRenderingContext2D** object.
+   *      The value cannot be dynamically changed once set.
+   *      <br>Invalid values **undefined**, **NaN** and **Infinity** are treated as the default value.
+   *      <br>Default value: **DEFAULT**.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice
@@ -6029,15 +3091,37 @@ declare class CanvasRenderingContext2D extends CanvasRenderer {
   constructor(settings?: RenderingContextSettings, unit?: LengthMetricsUnit);
 
   /**
-   * Register the listener that watches if the canvasrenderingcontext2d attached to the Canvas frameNode.
+   * Subscribes to the event when a **CanvasRenderingContext2D** object is bound to
+   * a **Canvas** component.
    *
-   * @param { 'onAttach' } type Indicates the type of event.
-   * @param { Callback<void> } callback Indicates the listener.
+   * > **NOTE**
+   * >
+   * > A **CanvasRenderingContext2D** object can only be bound to one **Canvas** component
+   * > at a time.<br>
+   * > When a **CanvasRenderingContext2D** object is bound to a **Canvas** component, the
+   * > **onAttach** callback is triggered, indicating that the
+   * > [canvas]{@link CanvasRenderingContext2D#canvas}
+   * > object is accessible.<br>
+   * > Avoid performing drawing operations in the **onAttach** callback. Make sure the
+   * > **Canvas** component has completed its
+   * > [onReady]{@link CanvasAttribute#onReady}
+   * > event before performing any drawing.<br>
+   * > The **onAttach** callback is triggered when:<br>
+   * > 1. A **Canvas** component is created and bound to a **CanvasRenderingContext2D**
+   * > object.<br>
+   * > 2. A **CanvasRenderingContext2D** object is bound to a new **Canvas** component.
+   *
+   * @param { 'onAttach' } type - Event type, which is **'onAttach'** in this case.<br>
+   *     **undefined** and **null** are treated as invalid values.
+   * @param { Callback<void> } callback - Callback triggered when the **CanvasRenderingContext2D**
+   *     object is bound to the **Canvas** component.<br>**undefined** and **null** are treated as
+   *     invalid values.
    * @throws { BusinessError } 401 - Input parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 13 dynamic
@@ -6045,15 +3129,22 @@ declare class CanvasRenderingContext2D extends CanvasRenderer {
   on(type: 'onAttach', callback: Callback<void>): void;
 
   /**
-   * Unregister the listener that watches if the canvasrenderingcontext2d attached to the Canvas frameNode.
+   * Unsubscribes from the event when a **CanvasRenderingContext2D** object is bound to
+   * a **Canvas** component.
    *
-   * @param { 'onAttach' } type Indicates the type of event.
-   * @param { Callback<void> } [callback] Indicates the listener.
+   * @param { 'onAttach' } type - Event type, which is **'onAttach'** in this case.<br>
+   *     **undefined** and **null** are treated as invalid values.
+   * @param { Callback<void> } [callback] - If this parameter is left empty, all callbacks
+   *     triggered after the **CanvasRenderingContext2D** object is bound to the **Canvas**
+   *     component are unsubscribed.<br>If this parameter is not left empty, the callback
+   *     corresponding to the bind event is unsubscribed.<br>**undefined** and **null** are
+   *     treated as invalid values.
    * @throws { BusinessError } 401 - Input parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 13 dynamic
@@ -6061,15 +3152,30 @@ declare class CanvasRenderingContext2D extends CanvasRenderer {
   off(type: 'onAttach', callback?: Callback<void>): void;
 
   /**
-   * Register the listener that watches if the canvasrenderingcontext2d detached from the Canvas frameNode.
+   * Subscribes to the event when a **CanvasRenderingContext2D** object is unbound from
+   * a **Canvas** component.
    *
-   * @param { 'onDetach' } type Indicates the type of event.
-   * @param { Callback<void> } callback Indicates the listener.
+   * > **NOTE**
+   * >
+   * > When a **CanvasRenderingContext2D** object is unbound from a **Canvas** component,
+   * > the **onDetach** callback is triggered. In this case, cease any drawing operations.<br>
+   * > The **onDetach** callback is triggered when:<br>
+   * > 1. A **Canvas** component is destroyed and unbound from a **CanvasRenderingContext2D**
+   * > object.<br>
+   * > 2. A **CanvasRenderingContext2D** object is bound to a different **Canvas** component,
+   * > causing the existing binding to be released.
+   *
+   * @param { 'onDetach' } type - Event type, which is **'onDetach'** in this case.<br>
+   *     **undefined** and **null** are treated as invalid values.
+   * @param { Callback<void> } callback - Callback triggered when the **CanvasRenderingContext2D**
+   *     object is unbound from the **Canvas** component.<br>**undefined** and **null** are treated
+   *     as invalid values.
    * @throws { BusinessError } 401 - Input parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 13 dynamic
@@ -6077,15 +3183,22 @@ declare class CanvasRenderingContext2D extends CanvasRenderer {
   on(type: 'onDetach', callback: Callback<void>): void;
 
   /**
-   * Unregister the listener that watches if the canvasrenderingcontext2d detached from the Canvas frameNode.
+   * Unsubscribes from the event when a **CanvasRenderingContext2D** object is unbound from
+   * a **Canvas** component.
    *
-   * @param { 'onDetach' } type Indicates the type of event.
-   * @param { Callback<void> } [callback] Indicates the listener.
+   * @param { 'onDetach' } type - Event type, which is **'onDetach'** in this case.<br>
+   *     **undefined** and **null** are treated as invalid values.
+   * @param { Callback<void> } [callback] - If this parameter is left empty, all callbacks
+   *     triggered after the **CanvasRenderingContext2D** object is unbound from the **Canvas**
+   *     component are unsubscribed.<br>If this parameter is not left empty, the callback
+   *     corresponding to the unbind event is unsubscribed.<br>**undefined** and **null** are
+   *     treated as invalid values.
    * @throws { BusinessError } 401 - Input parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 13 dynamic
@@ -6093,14 +3206,26 @@ declare class CanvasRenderingContext2D extends CanvasRenderer {
   off(type: 'onDetach', callback?: Callback<void>): void;
 
   /**
-   * Retrieves a 2D rendering context from the specified drawing context.
+   * Obtains a **CanvasRenderingContext2D** object from a **DrawingRenderingContext** object.
+   * This **CanvasRenderingContext2D** object is bound to the same **Canvas** component as the
+   * input **DrawingRenderingContext** object.
    *
-   * @param { DrawingRenderingContext } drawingContext - A DrawingRenderingContext object.
-   * @param { RenderingContextOptions } [options] - options for the 2D rendering context.
-   * @returns { CanvasRenderingContext2D } - Returns a 2D rendering context that is bound to
-   *     the same canvas component as the input drawingContext.
+   * > **NOTE**
+   * >
+   * > - The **CanvasRenderingContext2D** object obtained via this API cannot be used as a
+   * > parameter to create a [Canvas]{@link Canvas}
+   * > component. Otherwise, the application crashes.
+   * >
+   * > - If the input **DrawingRenderingContext** object is not bound to a **Canvas** component,
+   * > an error code is returned.
+   *
+   * @param { DrawingRenderingContext } drawingContext - An object of the **DrawingRenderingContext**
+   *     type.<br>**undefined** and **null** are treated as invalid values.
+   * @param { RenderingContextOptions } [options] - Configuration options of the rendering context.
+   *     <br>Default value: **{ antialias: false }**
+   * @returns { CanvasRenderingContext2D } - Returns a **CanvasRenderingContext2D** object that is
+   *     bound to the same **Canvas** component as the input **DrawingRenderingContext**.
    * @throws { BusinessError } 103702 - The drawingContext is not bound to a canvas component.
-   * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -6111,192 +3236,111 @@ declare class CanvasRenderingContext2D extends CanvasRenderer {
 }
 
 /**
- * Draw context object for the OffscreenCanvas component.
+ * Use **OffscreenCanvasRenderingContext2D** to draw shapes, images, and text offscreen onto
+ * a canvas. Rendering offscreen onto a canvas is a process where content to draw onto the canvas
+ * is first drawn in the buffer, and then converted into a picture, and finally the picture is drawn
+ * on the canvas. Since off-screen rendering utilizes the CPU, its performance is relatively slow.
+ * Therefore, it should be avoided in scenarios where drawing speed is a critical requirement.
  *
- * @extends CanvasRenderer
+ * > **NOTE**
+ * >
+ * > **OffscreenCanvasRenderingContext2D** cannot be used in **ServiceExtensionAbility**. It is
+ * > recommended that you use the
+ * > [drawing module](docroot://reference/apis-arkgraphics2d/arkts-apis-graphics-drawing.md)
+ * > for offscreen rendering in **ServiceExtensionAbility**.
+ * >
+ * > The following path-related APIs apply only to paths created within
+ * > **OffscreenCanvasRenderingContext2D** and do not affect paths defined in
+ * > [CanvasRenderingContext2D]{@link CanvasRenderingContext2D}
+ * > or [Path2D]{@link Path2D}:
+ * > [beginPath](#beginpath), [moveTo](#moveto), [lineTo](#lineto), [closePath](#closepath),
+ * > [bezierCurveTo](#beziercurveto), [quadraticCurveTo](#quadraticcurveto), [arc](#arc),
+ * > [arcTo](#arcto), [ellipse](#ellipse), [rect](#rect), and [roundRect](#roundrect20).
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @since 8
- */
-/**
- * Draw context object for the OffscreenCanvas component.
- *
- * @extends CanvasRenderer
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @form
- * @since 9
- */
-/**
- * Draw context object for the OffscreenCanvas component.
- *
- * @extends CanvasRenderer
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Draw context object for the OffscreenCanvas component.
- *
- * @extends CanvasRenderer
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 8 dynamic
  */
 declare class OffscreenCanvasRenderingContext2D extends CanvasRenderer {
   /**
-   * Generate a character string in the data url format.
+   * Creates a data URL that contains a representation of an image. This API involves
+   * time-consuming memory copy. Therefore, avoid frequent calls to it.
    *
-   * @param { string } type - Image format. The default value is image/png.
-   * @param { any } quality - If the image format is image/jpeg or image/webp, you can select the image quality from 0 to 1.
-   *    If the value is out of the range, the default value 0.92 is used.
-   * @returns { string }
+   * @param { string } type - Image format.
+   *     <br>The options are **image/png**, **image/jpeg**, and **image/webp**.
+   *     <br>Invalid values **undefined** and **null** are treated as the default value.
+   *     <br>Default value: **image/png**
+   * @param { any } quality - Image quality, which ranges from 0 to 1, when the image format
+   *     is **image/jpeg** or **image/webp**. If the set value is beyond the value range,
+   *     the default value **0.92** is used.
+   *     <br>Invalid values **undefined**, **null**, **NaN**, and **Infinity** are treated
+   *     as the default value.
+   *     <br>Default value: **0.92**
+   * @returns { string } Image URL.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 8
-   */
-  /**
-   * Generate a character string in the data url format.
-   *
-   * @param { string } type - Image format. The default value is image/png.
-   * @param { any } quality - If the image format is image/jpeg or image/webp, you can select the image quality from 0 to 1.
-   *    If the value is out of the range, the default value 0.92 is used.
-   * @returns { string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Generate a character string in the data url format.
-   *
-   * @param { string } type - Image format. The default value is image/png.
-   * @param { any } quality - If the image format is image/jpeg or image/webp, you can select the image quality from 0 to 1.
-   *    If the value is out of the range, the default value 0.92 is used.
-   * @returns { string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Generate a character string in the data url format.
-   *
-   * @param { string } type - Image format. The default value is image/png.
-   * @param { any } quality - If the image format is image/jpeg or image/webp, you can select the image quality from 0 to 1.
-   *    If the value is out of the range, the default value 0.92 is used.
-   * @returns { string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   toDataURL(type?: string, quality?: any): string;
 
   /**
-   * transfer the content to ImageBitmap
+   * Creates an **ImageBitmap** object from the most recently rendered image of the offscreen canvas.
    *
-   * @returns { ImageBitmap }
+   * @returns { ImageBitmap } Pixel data rendered on the offscreen canvas.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 8
-   */
-  /**
-   * transfer the content to ImageBitmap
-   *
-   * @returns { ImageBitmap }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * transfer the content to ImageBitmap
-   *
-   * @returns { ImageBitmap }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * transfer the content to ImageBitmap
-   *
-   * @returns { ImageBitmap }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   transferToImageBitmap(): ImageBitmap;
 
   /**
-   * Constructor of the canvas drawing context object, which is used to create a drawing context object.
+   * Creates an offscreen canvas object. You can configure the canvas width, canvas height, and
+   * parameters of the **OffscreenCanvasRenderingContext2D** object.
    *
-   * @param { number } width - the width of the OffscreenCanvas
-   * @param { number } height - the height of the OffscreenCanvas
-   * @param { RenderingContextSettings } settings - Drawing attribute. For details, see {@link RenderingContextSettings}.
+   * @param { number } width - Width of the offscreen canvas.<br>Default unit: vp<br>
+   *     Invalid values **NaN** and **Infinity** are treated as invalid.
+   * @param { number } height - Height of the offscreen canvas.<br>Default unit: vp<br>
+   *     Invalid values **NaN** and **Infinity** are treated as invalid.
+   * @param { RenderingContextSettings } settings - Settings of the
+   *     **OffscreenCanvasRenderingContext2D** object.<br>The value **undefined** is treated as
+   *     the default value of [RenderingContextSettings](#renderingcontextsettings).<br>
+   *     Default value: **null**
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 8
-   */
-  /**
-   * Constructor of the canvas drawing context object, which is used to create a drawing context object.
-   *
-   * @param { number } width - the width of the OffscreenCanvas
-   * @param { number } height - the height of the OffscreenCanvas
-   * @param { RenderingContextSettings } settings - Drawing attribute. For details, see {@link RenderingContextSettings}.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Constructor of the canvas drawing context object, which is used to create a drawing context object.
-   *
-   * @param { number } width - the width of the OffscreenCanvas
-   * @param { number } height - the height of the OffscreenCanvas
-   * @param { RenderingContextSettings } settings - Drawing attribute. For details, see {@link RenderingContextSettings}.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Constructor of the canvas drawing context object, which is used to create a drawing context object.
-   *
-   * @param { number } width - the width of the OffscreenCanvas
-   * @param { number } height - the height of the OffscreenCanvas
-   * @param { RenderingContextSettings } settings - Drawing attribute. For details, see {@link RenderingContextSettings}.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   constructor(width: number, height: number, settings?: RenderingContextSettings);
 
   /**
-   * Constructor of the canvas drawing context object, which is used to create a drawing context object.
+   * Creates an offscreen canvas object. You can configure the canvas width, canvas height, and
+   * parameters and their unit of the **OffscreenCanvasRenderingContext2D** object.
    *
-   * @param { number } width - the width of the OffscreenCanvas
-   * @param { number } height - the height of the OffscreenCanvas
-   * @param { RenderingContextSettings } settings - Drawing attribute. For details, see {@link RenderingContextSettings}.
-   * @param { LengthMetricsUnit } [unit] - the unit mode
+   * @param { number } width - Width of the offscreen canvas.<br>Default unit: vp<br>
+   *     Invalid values **NaN** and **Infinity** are treated as invalid.
+   * @param { number } height - Height of the offscreen canvas.<br>Default unit: vp<br>
+   *     Invalid values **NaN** and **Infinity** are treated as invalid.
+   * @param { RenderingContextSettings } settings - Settings of the
+   *     **OffscreenCanvasRenderingContext2D** object.<br>The value **undefined** is treated as
+   *     the default value of [RenderingContextSettings](#renderingcontextsettings).<br>
+   *     Default value: **null**
+   * @param { LengthMetricsUnit } [unit] - Unit of the **OffscreenCanvasRenderingContext2D** object.
+   *     The value cannot be dynamically changed once set.<br>
+   *     Invalid values **undefined**, **NaN** and **Infinity** are treated as the default value.<br>
+   *     Default value: **DEFAULT**
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice
@@ -6306,239 +3350,133 @@ declare class OffscreenCanvasRenderingContext2D extends CanvasRenderer {
 }
 
 /**
- * Draw an object off the screen. The drawing content is not directly displayed on the screen.
+ * The **OffscreenCanvas** component is used to draw custom graphics.
  *
- * @extends CanvasRenderer
+ * When the
+ * [Canvas]{@link Canvas}
+ * component or **CanvasRenderingContext2D** object is used, rendering, animation,
+ * and user interaction usually occur on the main thread of the application.
+ * Calculations related to canvas animation and rendering may affect application
+ * performance. **OffscreenCanvas** allows for rendering off the screen. This means
+ * that some tasks can be run in a separate thread to reduce the load on the main thread.
+ *
+ * > **NOTE**
+ * >
+ * > **OffscreenCanvas** cannot be used in ServiceExtensionAbility. It is recommended
+ * > that you use the
+ * > [drawing module](docroot://reference/apis-arkgraphics2d/arkts-apis-graphics-drawing.md)
+ * > for offscreen drawing in ServiceExtensionAbility.
+ *
+ * @extends CanvasRenderer [since 8 - 10]
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @since 8
- */
-/**
- * Draw an object off the screen. The drawing content is not directly displayed on the screen.
- *
- * @extends CanvasRenderer
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @form
- * @since 9
- */
-/**
- * Draw an object off the screen. The drawing content is not directly displayed on the screen.
- *
- * @extends CanvasRenderer
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Draw an object off the screen. The drawing content is not directly displayed on the screen.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 8 dynamic
  */
 declare class OffscreenCanvas {
   /**
-   * Height of the off-screen canvas.
+   * Height of the offscreen canvas.
    *
-   * @type { number }
+   * Default unit: vp
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 8
-   */
-  /**
-   * Height of the off-screen canvas.
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Height of the off-screen canvas.
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Height of the off-screen canvas.
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   height: number;
 
   /**
-   * Width of the off-screen canvas.
+   * Width of the offscreen canvas.
    *
-   * @type { number }
+   * Default unit: vp
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 8
-   */
-  /**
-   * Width of the off-screen canvas.
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Width of the off-screen canvas.
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Width of the off-screen canvas.
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   width: number;
 
   /**
-   * Exports rendered content as an ImageBitmap object
+   * Creates an **ImageBitmap** object from the most recently rendered image of the
+   * offscreen canvas.
    *
-   * @returns { ImageBitmap }
+   * @returns { ImageBitmap } **ImageBitmap** object created.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 8
-   */
-  /**
-   * Exports rendered content as an ImageBitmap object
-   *
-   * @returns { ImageBitmap }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Exports rendered content as an ImageBitmap object
-   *
-   * @returns { ImageBitmap }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Exports rendered content as an ImageBitmap object
-   *
-   * @returns { ImageBitmap }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   transferToImageBitmap(): ImageBitmap;
 
   /**
-   * Creates the context from the current OffscreenCanvas.
+   * Obtains the drawing context of the offscreen canvas.
    *
-   * @param { "2d" } contextType - The context type, only "2d" be supported now.
-   *  "2d": Creates a {@link OffscreenCanvasRenderingContext2D} object representing a two-dimensional rendering context.
-   * @param { RenderingContextSettings } options - Drawing attribute. For details, see {@link RenderingContextSettings}.
-   * @returns { OffscreenCanvasRenderingContext2D } The rendering context of offscreen canvas, see {@link OffscreenCanvasRenderingContext2D}.
+   * @param { "2d" } contextType - Type of the drawing context of the offscreen canvas.
+   *     The value can only be **"2d"**.<br>
+   *     **"2d"**: creates an **OffscreenCanvasRenderingContext2D** object that represents
+   *     a two-dimensional rendering context.<br>
+   *     The values **undefined** and **null** are considered as invalid values,
+   *     and **undefined** is returned.
+   * @param { RenderingContextSettings } options - Parameters of the
+   *     **OffscreenCanvasRenderingContext2D** object. For details, see
+   *     [RenderingContextSettings](#renderingcontextsettings).<br>
+   *     **undefined** and **null** values are processed based on the default value of
+   *     [RenderingContextSettings](#renderingcontextsettings).<br>
+   *     Default value: **null**.
+   * @returns { OffscreenCanvasRenderingContext2D } Drawing context of the offscreen canvas.
+   *     If the input parameter contextType of the **getContext** method is not **"2d"**
+   *     (including null or undefined), **undefined** will be returned. Before using the method,
+   *     check whether the return value is **undefined**.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Creates the context from the current OffscreenCanvas.
-   *
-   * @param { "2d" } contextType - The context type, only "2d" be supported now.
-   *  "2d": Creates a {@link OffscreenCanvasRenderingContext2D} object representing a two-dimensional rendering context.
-   * @param { RenderingContextSettings } options - Drawing attribute. For details, see {@link RenderingContextSettings}.
-   * @returns { OffscreenCanvasRenderingContext2D } The rendering context of offscreen canvas, see {@link OffscreenCanvasRenderingContext2D}.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   getContext(contextType: "2d", options?: RenderingContextSettings): OffscreenCanvasRenderingContext2D;
 
   /**
-   * Constructor of the off-screen canvas, which is used to create an off-screen canvas object.
+   * Constructs an OffscreenCanvas for creating an offscreen canvas object.
    *
-   * @param { number } width - Width of the off-screen canvas.
-   * @param { number } height - Height of the off-screen canvas.
+   * @param { number } width - Width of the offscreen canvas.<br>
+   *     **NaN** and **Infinity** are treated as invalid values.<br>Default unit: vp
+   * @param { number } height - Height of the offscreen canvas.<br>
+   *     **NaN** and **Infinity** are treated as invalid values.<br>Default unit: vp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 8
-   */
-  /**
-   * Constructor of the off-screen canvas, which is used to create an off-screen canvas object.
-   *
-   * @param { number } width - Width of the off-screen canvas.
-   * @param { number } height - Height of the off-screen canvas.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Constructor of the off-screen canvas, which is used to create an off-screen canvas object.
-   *
-   * @param { number } width - Width of the off-screen canvas.
-   * @param { number } height - Height of the off-screen canvas.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Constructor of the off-screen canvas, which is used to create an off-screen canvas object.
-   *
-   * @param { number } width - Width of the off-screen canvas.
-   * @param { number } height - Height of the off-screen canvas.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   constructor(width: number, height: number);
 
   /**
-   * Constructor of the off-screen canvas, which is used to create an off-screen canvas object.
+   * Constructs an **OffscreenCanvas** object for creating an offscreen canvas object.
+   * The unit mode is configurable for the **OffscreenCanvas** object.
    *
-   * @param { number } width - Width of the off-screen canvas.
-   * @param { number } height - Height of the off-screen canvas.
-   * @param { LengthMetricsUnit } [unit] - the unit mode
+   * @param { number } width - Width of the offscreen canvas.<br>
+   *     **NaN** and **Infinity** are treated as invalid values.<br>Default unit: vp
+   * @param { number } height - Height of the offscreen canvas.<br>
+   *     **NaN** and **Infinity** are treated as invalid values.<br>Default unit: vp
+   * @param { LengthMetricsUnit } [unit] - Unit mode of the OffscreenCanvas object.
+   *     The value cannot be dynamically changed once set. The configuration method is the same
+   *     as that of
+   *     [CanvasRenderingContext2D]{@link CanvasRenderingContext2D}.<br>
+   *     Invalid values **NaN** and **Infinity** are treated as the default value.<br>
+   *     Default value: **DEFAULT**.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice
@@ -6548,20 +3486,25 @@ declare class OffscreenCanvas {
 }
 
 /**
- * Size info.
+ * Provides size information of the **DrawingRenderingContext** object.
  *
- * @interface Size
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
  */
 declare interface Size {
   /**
-   * Defines the width property.
+   * Width of the **DrawingRenderingContext** object, which corresponds to the width of the
+   * associated **Canvas** component.
    *
-   * @type { number }
+   * Default unit: vp.
+   *
+   * If the unit mode of the **DrawingRenderingContext** object is set to px, the unit is px.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -6569,10 +3512,15 @@ declare interface Size {
   width: number;
 
   /**
-   * Defines the height property.
+   * Height of the **DrawingRenderingContext** object, which corresponds to the height of the
+   * associated **Canvas** component.
+   *    
+   * Default unit: vp.
    *
-   * @type { number }
+   * If the unit mode of the **DrawingRenderingContext** object is set to px, the unit is px.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -6581,9 +3529,11 @@ declare interface Size {
 }
 
 /**
- * Defines DrawingRenderingContext.
+ * **DrawingRenderingContext** provides a rendering context for drawing rectangles, text, images, and
+ * other objects on a canvas.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -6591,10 +3541,11 @@ declare interface Size {
 declare class DrawingRenderingContext {
 
   /**
-   * Get size of the DrawingRenderingContext.
+   * Obtains the size of the **DrawingRenderingContext** object.
    *
    * @returns { Size } The size of the DrawingRenderingContext.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -6602,10 +3553,11 @@ declare class DrawingRenderingContext {
   get size(): Size;
 
   /**
-   * Get canvas of the DrawingRenderingContext.
+   * Obtains the canvas object for drawing content.
    *
    * @returns { DrawingCanvas } The canvas of the DrawingRenderingContext.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -6613,9 +3565,10 @@ declare class DrawingRenderingContext {
   get canvas(): DrawingCanvas;
 
   /**
-   * Invalidate the component, which will cause a re-render of the component.
+   * Invalidates the component and triggers re-rendering of the component.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -6623,10 +3576,16 @@ declare class DrawingRenderingContext {
   invalidate(): void;
 
   /**
-   * Create DrawingRenderingContext with setting LengthMetricsUnit.
+   * Creates a **Canvas** object for drawing operations using the drawing API. Configuration of the
+   * unit mode for the **DrawingRenderingContext** object is supported.
    *
-   * @param { LengthMetricsUnit } [unit] - the unit mode
+   * @param { LengthMetricsUnit } [unit] - Unit mode of the **DrawingRenderingContext** object.
+   *     The value cannot be changed once set. The configuration method is the same as that of
+   *     [CanvasRenderingContext2D]{@link CanvasRenderingContext2D}.
+   *     <br>Invalid values **undefined**, **NaN** and **Infinity** are treated as the default value.
+   *     <br>Default value: **DEFAULT**.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -6635,9 +3594,8 @@ declare class DrawingRenderingContext {
 }
 
 /**
- * Defines the parameters for creating Canvas.
+ * Defines the parameters of the **Canvas** component.
  *
- * @interface CanvasParams
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -6647,9 +3605,9 @@ declare class DrawingRenderingContext {
 declare interface CanvasParams {
   /**
    * Indicates the unit mode employed by Canvas during drawing.
-   * Default value is LengthMetricsUnit.DEFAULT, undefined means setting to default value.
+   * <br>It can only be set when creating the **Canvas** component and cannot be modified afterwards.
+   * <br>Default value: **LengthMetricsUnit.DEFAULT**
    *
-   * @type { ?LengthMetricsUnit }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -6659,10 +3617,9 @@ declare interface CanvasParams {
   unit?: LengthMetricsUnit;
 
   /**
-   * AI image analysis options.
-   * You can configure the analysis type or bind an analyzer controller through this parameter.
+   * AI image analysis options. You can configure the analysis type or bind an analyzer controller
+   * through this parameter.
    *
-   * @type { ?ImageAIOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
@@ -6672,118 +3629,77 @@ declare interface CanvasParams {
 }
 
 /**
- *TextTimer component, which provides the text timer capability.
+ * The **Canvas** component can be used to customize drawings.
  *
- * @interface CanvasInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @since 8
- */
-/**
- *TextTimer component, which provides the text timer capability.
- *
- * @interface CanvasInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @form
- * @since 9
- */
-/**
- *TextTimer component, which provides the text timer capability.
- *
- * @interface CanvasInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- *TextTimer component, which provides the text timer capability.
- *
- * @interface CanvasInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 8 dynamic
+ * @noninterop [since 11]
  */
 interface CanvasInterface {
   /**
-   * Construct a canvas component.
+   * Creates a **Canvas** component. The maximum allowed size cannot exceed 10000 px × 10000 px.
+   * If the size exceeds this limit, the **Canvas** component will fail to be created.
    *
-   * @param { CanvasRenderingContext2D } context - Canvas context object. For details, see {@link CanvasRenderingContext2D}.
+   * @param { CanvasRenderingContext2D | DrawingRenderingContext } context - 2D rendering context
+   *     for a canvas.
+   *     <br>**CanvasRenderingContext2D**: Canvases cannot share one **CanvasRenderingContext2D** object.
+   *     **DrawingRenderingContext**: Canvases cannot share one **DrawingRenderingContext** object.
+   *     <br>If the value is **null** or **undefined**, **context** is considered unset.
    * @returns { CanvasAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 8
-   */
-  /**
-   * Construct a canvas component.
-   *
-   * @param { CanvasRenderingContext2D } context - Canvas context object. For details, see {@link CanvasRenderingContext2D}.
-   * @returns { CanvasAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Construct a canvas component.
-   *
-   * @param { CanvasRenderingContext2D } context - Canvas context object. For details, see {@link CanvasRenderingContext2D}.
-   * @returns { CanvasAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Construct a canvas component.
-   *
-   * @param { CanvasRenderingContext2D } context - Canvas context object. For details, see {@link CanvasRenderingContext2D}.
-   * @returns { CanvasAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Construct a canvas component.
-   *
-   * @param { CanvasRenderingContext2D | DrawingRenderingContext } context - Canvas context object.
-   * @returns { CanvasAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   (context?: CanvasRenderingContext2D | DrawingRenderingContext): CanvasAttribute;
 
   /**
-   * Construct a canvas component.
+   * Creates a **Canvas** component. You can specify a **CanvasRenderingContext2D** or
+   * **DrawingRenderingContext** object, along with AI image analysis options.
    *
-   * @param { CanvasRenderingContext2D | DrawingRenderingContext } context - Canvas context object.
-   * @param { ImageAIOptions } imageAIOptions
+   * @param { CanvasRenderingContext2D | DrawingRenderingContext } context - 2D rendering context
+   *     for a canvas.
+   *     <br>**CanvasRenderingContext2D**: Canvases cannot share one **CanvasRenderingContext2D** object.
+   *     **DrawingRenderingContext**: Canvases cannot share one **DrawingRenderingContext** object.
+   *     <br>If the value is **null** or **undefined**, **context** is considered unset.
+   * @param { ImageAIOptions } imageAIOptions - AI image analysis options. You can configure the
+   *     analysis type or bind an analyzer controller through this parameter.
+   *     <br>If the value is **null** or **undefined**, the default value of **ImageAIOptions** is used.
    * @returns { CanvasAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 12 dynamic
    */
   (context: CanvasRenderingContext2D | DrawingRenderingContext, imageAIOptions: ImageAIOptions): CanvasAttribute;
 
   /**
-   * Create a canvas component using { @link CanvasParams }.
-   * This canvas component will not respond to drawing commands when invisible for memory optimization.
-   * You can get a rendering context in { @link onReady }.
+   * Creates a **Canvas** component that does not cache commands using **CanvasParams**.
+   * The maximum allowed size cannot exceed 10000 px × 10000 px. If the size exceeds this limit,
+   * the **Canvas** component will fail to be created.
    *
-   * @param { CanvasParams } params - Parameters for creating Canvas.
+   * > **NOTE**
+   * >
+   * > * The **Canvas** component created using this API will return a DrawingRenderingContext
+   * > object in the input parameter of the onReady callback, which can be used for drawing on the
+   * > **Canvas** component.
+   * >
+   * > * The **Canvas** component created using this API will not respond to drawing commands
+   * > when it is not visible.
+   * >
+   * > * Scenarios where the component is not visible mainly include: the page containing the
+   * > component moves to the background, the component slides outside the window, or the
+   * > [visibility]{@link CommonMethod#visibility}
+   * > attribute is set to hidden. This does not include scenarios where the component is obscured
+   * > by other components or windows.
+   *
+   * @param { CanvasParams } params - Construction parameters of the **Canvas** component.
    * @returns { CanvasAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -6795,107 +3711,62 @@ interface CanvasInterface {
 }
 
 /**
- * Provides attribute for Canvas.
+ * In addition to the
+ * [universal attributes]{@link common},
+ * the following attributes are supported.
  *
- * @extends CommonMethod<CanvasAttribute>
+ * The [universal events]{@link common} are supported.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @since 8
- */
-/**
- * Provides attribute for Canvas.
- *
- * @extends CommonMethod<CanvasAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @form
- * @since 9
- */
-/**
- * Provides attribute for Canvas.
- *
- * @extends CommonMethod<CanvasAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Provides attribute for Canvas.
- *
- * @extends CommonMethod<CanvasAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 8 dynamic
+ * @noninterop [since 11]
  */
 declare class CanvasAttribute extends CommonMethod<CanvasAttribute> {
   /**
-   * Event notification after the canvas component is constructed. You can draw the canvas at this time.
+   * Triggered when the **Canvas** component is initialized or when its size changes.
    *
-   * @param { function } event
+   * When this event is triggered, the canvas is cleared. The width and height of the **Canvas**
+   * component are then determined and can be obtained, allowing you to use APIs related to the
+   * **Canvas** component for drawing. If only the position of the canvas changes, only the
+   * [onAreaChange]{@link CommonMethod#onAreaChange}
+   * event is triggered, not the **onReady** event. The
+   * [onAreaChange]{@link CommonMethod#onAreaChange}
+   * event is triggered after the **onReady** event.
+   *
+   * @param { VoidCallback } event - Triggered when the **Canvas** component is initialized or
+   *     when its size changes.
    * @returns { CanvasAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 8
-   */
-  /**
-   * Event notification after the canvas component is constructed. You can draw the canvas at this time.
-   *
-   * @param { function } event
-   * @returns { CanvasAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Event notification after the canvas component is constructed. You can draw the canvas at this time.
-   *
-   * @param { function } event
-   * @returns { CanvasAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Event notification after the canvas component is constructed. You can draw the canvas at this time.
-   *
-   * @param { function } event
-   * @returns { CanvasAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Event notification after the canvas component is constructed. You can draw the canvas at this time.
-   *
-   * @param { VoidCallback } event
-   * @returns { CanvasAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   onReady(event: VoidCallback): CanvasAttribute;
 
   /**
-   * Event notification after the canvas component is constructed. You can draw the canvas at this time.
+   * Triggered when the **Canvas** component is initialized or when its size changes.
    *
-   * @param { Callback<DrawingRenderingContext | undefined> | undefined } event - Passing undefined
-   *     means unbinding the callback.Returns a { @link DrawingRenderingContext } object
-   *     if the canvas is constructed by { @link CanvasParams },
-   *     otherwise returns undefined.
+   * When this event is triggered, the canvas is cleared. The width and height of the **Canvas**
+   * component are then determined and can be obtained, allowing you to use APIs related to the
+   * **Canvas** component for drawing. If only the position of the canvas changes, only the
+   * [onAreaChange]{@link CommonMethod#onAreaChange}
+   * event is triggered, not the **onReady** event. The
+   * [onAreaChange]{@link CommonMethod#onAreaChange}
+   * event is triggered after the **onReady** event.
+   *
+   * @param { Callback<DrawingRenderingContext | undefined> | undefined } event - Triggered when
+   *     the **Canvas** component is initialized or when its size changes.
+   *     <br>Constraints on input parameters of the Callback<DrawingRenderingContext | undefined> type:
+   *     <br>1. Only **Canvas** components created using [CanvasParams]{@link CanvasParams} will return
+   *     a **DrawingRenderingContext** object in this callback; otherwise, **undefined** is returned.
+   *     <br>2. The **DrawingRenderingContext** object returned by this callback must not be used as
+   *     a parameter to create **Canvas** components, as doing so will cause the application to crash.
    * @returns { CanvasAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -6907,11 +3778,32 @@ declare class CanvasAttribute extends CommonMethod<CanvasAttribute> {
   onReady(event: Callback<DrawingRenderingContext | undefined> | undefined): CanvasAttribute;
 
   /**
-   * Enable image analyzer for Canvas.
+   * Sets whether to enable the AI image analyzer, which supports subject recognition, text recognition,
+   * and object lookup.
    *
-   * @param { boolean } enable - If enable image analyzer for Canvas. The default value is false.
+   * For the settings to take effect, this attribute must be used together with
+   * [startImageAnalyzer]{@link startImageAnalyzer} and
+   * [stopImageAnalyzer]{@link stopImageAnalyzer} of CanvasRenderingContext2D.
+   *
+   * This attribute cannot be used together with the
+   * [overlay]{@link CommonMethod#overlay} attribute.
+   * If they are set at the same time, the **CustomBuilder** attribute in **overlay** has no effect.
+   * This feature depends on device capabilities.
+   *
+   * > **NOTE**
+   * >
+   * > This API can be called within
+   * > [attributeModifier]{@link CommonMethod#attributeModifier}
+   * > since API version 20.
+   *
+   * @param { boolean } enable - Whether to enable the AI image analyzer for subject recognition,
+   *     text recognition, and object lookup within the component content.
+   *     <br>**true**: Enable the AI image analyzer. **false**: Disable the AI analyzer.
+   *     <br>The **null** and **undefined** values are handled as the default value.
+   *     <br>Default value: **false**
    * @returns { CanvasAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 12 dynamic
    */
@@ -6919,73 +3811,27 @@ declare class CanvasAttribute extends CommonMethod<CanvasAttribute> {
 }
 
 /**
- * Defines Canvas Component.
+ * The **Canvas** component can be used to customize drawings.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @since 8
- */
-/**
- * Defines Canvas Component.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @form
- * @since 9
- */
-/**
- * Defines Canvas Component.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Defines Canvas Component.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 8 dynamic
+ * @noninterop [since 11]
  */
 declare const Canvas: CanvasInterface;
 
 /**
- * Defines Canvas Component instance.
+ * The **Canvas** component can be used to customize drawings.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @since 8
- */
-/**
- * Defines Canvas Component instance.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @form
- * @since 9
- */
-/**
- * Defines Canvas Component instance.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Defines Canvas Component instance.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 8 dynamic
+ * @noninterop [since 11]
  */
 declare const CanvasInstance: CanvasAttribute;

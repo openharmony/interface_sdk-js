@@ -14,24 +14,26 @@
  */
 
 /**
- * @file
+ * The **gestureEvent** module provides APIs for gesture events reported by devices.
+ *
+ * @file Gesture Event
  * @kit InputKit
  */
 
 import { Touch } from './@ohos.multimodalInput.touchEvent';
 
 /**
- * Pinch event on touchPad
+ * Defines a pinch event.
  *
- * @interface Pinch
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @since 10 dynamic
  * @since 23 static
  */
 export declare interface Pinch {
+
   /**
-   * Action type
-   * @type { ActionType }
+   * Gesture event type, for example, gesture start, gesture update, or gesture end.
+   *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 10 dynamic
    * @since 23 static
@@ -39,8 +41,8 @@ export declare interface Pinch {
   type: ActionType;
 
   /**
-   * scale
-   * @type { double }
+   * Pinch scale factor. The value is greater than or equal to 0.
+   *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 10 dynamic
    * @since 23 static
@@ -49,18 +51,17 @@ export declare interface Pinch {
 }
 
 /**
- * Rotate event on touchPad
+ * Defines a rotation gesture event.
  *
- * @interface Rotate
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @since 11 dynamic
  * @since 23 static
  */
 export declare interface Rotate {
+
   /**
-   * Action type
+   * Gesture event type, for example, gesture start, gesture update, or gesture end.
    *
-   * @type { ActionType }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 11 dynamic
    * @since 23 static
@@ -68,9 +69,8 @@ export declare interface Rotate {
   type: ActionType;
 
   /**
-   * Rotate angle
+   * Rotation angle, in degrees.
    *
-   * @type { double }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 11 dynamic
    * @since 23 static
@@ -79,17 +79,17 @@ export declare interface Rotate {
 }
 
 /**
- * Three fingers swipe event on touchPad
+ * Defines a three-finger swipe gesture event.
  *
- * @interface ThreeFingersSwipe
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @since 10 dynamic
  * @since 23 static
  */
 export declare interface ThreeFingersSwipe {
+
   /**
-   * Action type
-   * @type { ActionType }
+   * Gesture event type, for example, gesture start, gesture update, or gesture end.
+   *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 10 dynamic
    * @since 23 static
@@ -97,8 +97,8 @@ export declare interface ThreeFingersSwipe {
   type: ActionType;
 
   /**
-   * Coordinate x
-   * @type { int }
+   * X coordinate, in px.
+   *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 10 dynamic
    * @since 23 static
@@ -106,8 +106,8 @@ export declare interface ThreeFingersSwipe {
   x: int;
 
   /**
-   * Coordinate y
-   * @type { int }
+   * Y coordinate, in px.
+   *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 10 dynamic
    * @since 23 static
@@ -116,17 +116,17 @@ export declare interface ThreeFingersSwipe {
 }
 
 /**
- * Four fingers swipe event on touchPad
+ * Defines a four-finger swipe gesture event.
  *
- * @interface FourFingersSwipe
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @since 10 dynamic
  * @since 23 static
  */
 export declare interface FourFingersSwipe {
+
   /**
-   * Action type
-   * @type { ActionType }
+   * Gesture event type, for example, gesture start, gesture update, or gesture end.
+   *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 10 dynamic
    * @since 23 static
@@ -134,8 +134,8 @@ export declare interface FourFingersSwipe {
   type: ActionType;
 
   /**
-   * Coordinate x
-   * @type { int }
+   * X coordinate, in px.
+   *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 10 dynamic
    * @since 23 static
@@ -143,8 +143,8 @@ export declare interface FourFingersSwipe {
   x: int;
 
   /**
-   * Coordinate y
-   * @type { int }
+   * Y coordinate, in px.
+   *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 10 dynamic
    * @since 23 static
@@ -153,18 +153,18 @@ export declare interface FourFingersSwipe {
 }
 
 /**
- * Swipe Inward event on touchPad
+ * Defines an inward swipe event.
  *
- * @interface SwipeInward
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @systemapi hide for inner use
  * @since 12 dynamic
  * @since 23 static
  */
 export declare interface SwipeInward {
+
   /**
-   * Action type
-   * @type { ActionType }
+   * Type of the inward swipe event. The value is fixed at **SwipeInward**.
+   *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi hide for inner use
    * @since 12 dynamic
@@ -173,8 +173,8 @@ export declare interface SwipeInward {
   type: ActionType;
 
   /**
-   * Coordinate x
-   * @type { int }
+   * X-coordinate of the swipe event trigger point, in pixels.
+   *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi hide for inner use
    * @since 12 dynamic
@@ -183,8 +183,8 @@ export declare interface SwipeInward {
   x: int;
 
   /**
-   * Coordinate y
-   * @type { int }
+   * Y-coordinate of the swipe event trigger point, in pixels.
+   *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi hide for inner use
    * @since 12 dynamic
@@ -194,18 +194,17 @@ export declare interface SwipeInward {
 }
 
 /**
- * Three fingers tap event on touchPad
+ * Defines a three-finger tap gesture event.
  *
- * @interface ThreeFingersTap
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @since 11 dynamic
  * @since 23 static
  */
 export declare interface ThreeFingersTap {
+
   /**
-   * Action type
+   * Gesture event type, for example, gesture start, gesture update, or gesture end.
    *
-   * @type { ActionType }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 11 dynamic
    * @since 23 static
@@ -216,27 +215,26 @@ export declare interface ThreeFingersTap {
 /**
  * Defines a touchscreen gesture event.
  *
- * @interface TouchGestureEvent
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @systemapi hide for inner use
  * @since 18 dynamic
  * @since 23 static
  */
 export declare interface TouchGestureEvent {
+
   /**
-   * Gesture action type.
+   * Enumerates touchscreen gesture types.
    *
-   * @type { TouchGestureAction }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi hide for inner use
    * @since 18 dynamic
    * @since 23 static
    */
   action: TouchGestureAction;
+
   /**
-   * Collection of all touch points upon completion of the gesture.
+   * Touch point information.
    *
-   * @type { Touch[] }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi hide for inner use
    * @since 18 dynamic
@@ -246,17 +244,17 @@ export declare interface TouchGestureEvent {
 }
 
 /**
- * Enumerates touchscreen gesture action types.
+ * Enumerates touchscreen gesture types.
  *
- * @enum { number }
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @systemapi hide for inner use
  * @since 18 dynamic
  * @since 23 static
  */
 export declare enum TouchGestureAction {
+
   /**
-   * Swiping down with multiple fingers.
+   * Multi-finger downward swipe.
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi hide for inner use
@@ -264,73 +262,79 @@ export declare enum TouchGestureAction {
    * @since 23 static
    */
   SWIPE_DOWN = 0,
+
   /**
-   * Swiping up with multiple fingers.
+   * Multi-finger upward swipe.
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi hide for inner use
    * @since 18 dynamic
    * @since 23 static
    */
-  SWIPE_UP,
+  SWIPE_UP = 1,
+
   /**
-   * Swiping left with multiple fingers.
+   * Multi-finger leftward swipe.
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi hide for inner use
    * @since 18 dynamic
    * @since 23 static
    */
-  SWIPE_LEFT,
+  SWIPE_LEFT = 2,
+
   /**
-   * Swiping right with multiple fingers.
+   * Multi-finger rightward swipe.
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi hide for inner use
    * @since 18 dynamic
    * @since 23 static
    */
-  SWIPE_RIGHT,
+  SWIPE_RIGHT = 3,
+
   /**
-   * Multi-finger pinching closed.
+   * Multi-finger pinch closed.
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi hide for inner use
    * @since 18 dynamic
    * @since 23 static
    */
-  PINCH_CLOSED,
+  PINCH_CLOSED = 4,
+
   /**
-   * Multi-finger pinching opened.
+   * Multi-finger pinch opened.
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi hide for inner use
    * @since 18 dynamic
    * @since 23 static
    */
-  PINCH_OPENED,
+  PINCH_OPENED = 5,
+
   /**
-   * The gesture ends.
+   * Gesture ended.
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi hide for inner use
    * @since 18 dynamic
    * @since 23 static
    */
-  GESTURE_END
+  GESTURE_END = 6
 }
-  
+
 /**
- * Gesture action type
+ * Enumerates gesture event types.
  *
- * @enum { number }
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @since 10 dynamic
  * @since 23 static
  */
 export declare enum ActionType {
+
   /**
-   * Cancel of the gesture
+   * Canceled.
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 10 dynamic
@@ -339,7 +343,7 @@ export declare enum ActionType {
   CANCEL = 0,
 
   /**
-   * Begin of the gesture
+   * Started.
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 10 dynamic
@@ -348,7 +352,7 @@ export declare enum ActionType {
   BEGIN = 1,
 
   /**
-   * Update of the gesture
+   * Updated.
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 10 dynamic
@@ -357,7 +361,7 @@ export declare enum ActionType {
   UPDATE = 2,
 
   /**
-   * End of the gesture
+   * Ended.
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 10 dynamic

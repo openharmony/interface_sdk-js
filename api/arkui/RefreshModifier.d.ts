@@ -27,6 +27,7 @@
  * @extends RefreshAttribute
  * @implements AttributeModifier<RefreshAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -38,6 +39,7 @@ export declare class RefreshModifier extends RefreshAttribute implements Attribu
      * 
      * @param { RefreshAttribute } instance
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic

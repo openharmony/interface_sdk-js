@@ -23,26 +23,10 @@ import type { AsyncCallback, Callback } from './@ohos.base';
 /**
  * Provides methods for enabling/disabling bluetooth or monitoring bluetooth state.
  *
- * @namespace access
  * @syscap SystemCapability.Communication.Bluetooth.Core
- * @since 10
- */
-/**
- * Provides methods for enabling/disabling bluetooth or monitoring bluetooth state.
- *
- * @namespace access
- * @syscap SystemCapability.Communication.Bluetooth.Core
- * @atomicservice
- * @since 11
- */
-/**
- * Provides methods for enabling/disabling bluetooth or monitoring bluetooth state.
- *
- * @namespace access
- * @syscap SystemCapability.Communication.Bluetooth.Core
- * @crossplatform
- * @atomicservice
- * @since 13 dynamic
+ * @crossplatform [since 13]
+ * @atomicservice [since 11]
+ * @since 10 dynamic
  * @since 23 static
  */
 declare namespace access {
@@ -55,32 +39,9 @@ declare namespace access {
    * @throws { BusinessError } 2900001 - Service stopped.
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 10
-   */
-  /**
-   * Enables Bluetooth on a device.
-   *
-   * @permission ohos.permission.ACCESS_BLUETOOTH
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 2900001 - Service stopped.
-   * @throws { BusinessError } 2900099 - Operation failed.
-   * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Enables Bluetooth on a device.
-   *
-   * @permission ohos.permission.ACCESS_BLUETOOTH
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 2900001 - Service stopped.
-   * @throws { BusinessError } 2900099 - Operation failed.
-   * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 13 dynamic
+   * @crossplatform [since 13]
+   * @atomicservice [since 12]
+   * @since 10 dynamic
    * @since 23 static
    */
   function enableBluetooth(): void;
@@ -94,32 +55,9 @@ declare namespace access {
    * @throws { BusinessError } 2900001 - Service stopped.
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 10
-   */
-  /**
-   * Disables Bluetooth on a device.
-   *
-   * @permission ohos.permission.ACCESS_BLUETOOTH
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 2900001 - Service stopped.
-   * @throws { BusinessError } 2900099 - Operation failed.
-   * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Disables Bluetooth on a device.
-   *
-   * @permission ohos.permission.ACCESS_BLUETOOTH
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 2900001 - Service stopped.
-   * @throws { BusinessError } 2900099 - Operation failed.
-   * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 13 dynamic
+   * @crossplatform [since 13]
+   * @atomicservice [since 12]
+   * @since 10 dynamic
    * @since 23 static
    */
   function disableBluetooth(): void;
@@ -200,39 +138,16 @@ declare namespace access {
   /**
    * Obtains the Bluetooth status of a device.
    *
-   * @permission ohos.permission.ACCESS_BLUETOOTH
+   * @permission ohos.permission.ACCESS_BLUETOOTH [since 10 - 12]
    * @returns { BluetoothState } Returns the Bluetooth status.
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permission denied. [since 10 - 12]
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2900001 - Service stopped.
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 10
-   */
-  /**
-   * Obtains the Bluetooth status of a device.
-   *
-   * @permission ohos.permission.ACCESS_BLUETOOTH
-   * @returns { BluetoothState } Returns the Bluetooth status.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 2900001 - Service stopped.
-   * @throws { BusinessError } 2900099 - Operation failed.
-   * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Obtains the Bluetooth status of a device.
-   *
-   * @returns { BluetoothState } Returns the Bluetooth status.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 2900001 - Service stopped.
-   * @throws { BusinessError } 2900099 - Operation failed.
-   * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 13 dynamic
+   * @crossplatform [since 13]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    * @since 23 static
    */
   function getState(): BluetoothState;
@@ -245,7 +160,7 @@ declare namespace access {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
    * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types.
+   *     2. Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2900001 - Service stopped.
    * @throws { BusinessError } 2900099 - Operation failed.
@@ -291,63 +206,31 @@ declare namespace access {
   function getLocalAddress(): string;
 
   /**
-   * Subscribe the event reported when the Bluetooth state changes.
+   * Check whether Bluetooth is available.
    *
-   * @permission ohos.permission.ACCESS_BLUETOOTH
-   * @param { 'stateChange' } type - Type of the Bluetooth state changes event to listen for.
-   * @param { Callback<BluetoothState> } callback - Callback used to listen for the Bluetooth state event.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported.
+   * @returns { boolean } Returns {@code true} if Bluetooth is available, returns {@code false} otherwise.
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 10
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
    */
+  function isBluetoothSupported(): boolean;
+
   /**
    * Subscribe the event reported when the Bluetooth state changes.
    *
-   * @permission ohos.permission.ACCESS_BLUETOOTH
+   * @permission ohos.permission.ACCESS_BLUETOOTH [since 10 - 17]
    * @param { 'stateChange' } type - Type of the Bluetooth state changes event to listen for.
    * @param { Callback<BluetoothState> } callback - Callback used to listen for the Bluetooth state event.
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permission denied. [since 10 - 17]
    * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Subscribe the event reported when the Bluetooth state changes.
-   *
-   * @permission ohos.permission.ACCESS_BLUETOOTH
-   * @param { 'stateChange' } type - Type of the Bluetooth state changes event to listen for.
-   * @param { Callback<BluetoothState> } callback - Callback used to listen for the Bluetooth state event.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 2900099 - Operation failed.
-   * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 13
-   */
-  /**
-   * Subscribe the event reported when the Bluetooth state changes.
-   *
-   * @param { 'stateChange' } type - Type of the Bluetooth state changes event to listen for.
-   * @param { Callback<BluetoothState> } callback - Callback used to listen for the Bluetooth state event.
-   * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 2900099 - Operation failed.
-   * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 13]
+   * @atomicservice [since 12]
+   * @since 10 dynamic
    */
   function on(type: 'stateChange', callback: Callback<BluetoothState>): void;
 
@@ -366,61 +249,18 @@ declare namespace access {
   /**
    * Unsubscribe the event reported when the Bluetooth state changes.
    *
-   * @permission ohos.permission.ACCESS_BLUETOOTH
+   * @permission ohos.permission.ACCESS_BLUETOOTH [since 10 - 17]
    * @param { 'stateChange' } type - Type of the Bluetooth state changes event to listen for.
    * @param { Callback<BluetoothState> } callback - Callback used to listen for the Bluetooth state event.
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permission denied. [since 10 - 17]
    * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 10
-   */
-  /**
-   * Unsubscribe the event reported when the Bluetooth state changes.
-   *
-   * @permission ohos.permission.ACCESS_BLUETOOTH
-   * @param { 'stateChange' } type - Type of the Bluetooth state changes event to listen for.
-   * @param { Callback<BluetoothState> } callback - Callback used to listen for the Bluetooth state event.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 2900099 - Operation failed.
-   * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Unsubscribe the event reported when the Bluetooth state changes.
-   *
-   * @permission ohos.permission.ACCESS_BLUETOOTH
-   * @param { 'stateChange' } type - Type of the Bluetooth state changes event to listen for.
-   * @param { Callback<BluetoothState> } callback - Callback used to listen for the Bluetooth state event.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 2900099 - Operation failed.
-   * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 13
-   */
-  /**
-   * Unsubscribe the event reported when the Bluetooth state changes.
-   *
-   * @param { 'stateChange' } type - Type of the Bluetooth state changes event to listen for.
-   * @param { Callback<BluetoothState> } callback - Callback used to listen for the Bluetooth state event.
-   * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 2900099 - Operation failed.
-   * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 13]
+   * @atomicservice [since 12]
+   * @since 10 dynamic
    */
   function off(type: 'stateChange', callback?: Callback<BluetoothState>): void;
 
@@ -445,7 +285,7 @@ declare namespace access {
    * @returns { Promise<void> } Returns the promise object.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * 2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2900003 - Bluetooth disabled.
    * @throws { BusinessError } 2900010 - The number of supported device addresses has reached the upper limit.
@@ -465,7 +305,7 @@ declare namespace access {
    * @returns { Promise<void> } Returns the promise object.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * 2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2900003 - Bluetooth disabled.
    * @throws { BusinessError } 2900099 - delete persistent device address failed.
@@ -500,7 +340,7 @@ declare namespace access {
    * @returns { boolean } Returns whether the randomized device address is valid.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * 2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2900003 - Bluetooth disabled.
    * @throws { BusinessError } 2900099 - Check persistent device address failed.
@@ -524,26 +364,10 @@ declare namespace access {
   /**
    * The enum of bluetooth state.
    *
-   * @enum { number }
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 10
-   */
-  /**
-   * The enum of bluetooth state.
-   *
-   * @enum { number }
-   * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * The enum of bluetooth state.
-   *
-   * @enum { int }
-   * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 13 dynamic
+   * @crossplatform [since 13]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    * @since 23 static
    */
   export enum BluetoothState {
@@ -551,22 +375,9 @@ declare namespace access {
      * Indicates the local Bluetooth is off
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 10
-     */
-    /**
-     * Indicates the local Bluetooth is off
-     *
-     * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Indicates the local Bluetooth is off
-     *
-     * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 13 dynamic
+     * @crossplatform [since 13]
+     * @atomicservice [since 11]
+     * @since 10 dynamic
      * @since 23 static
      */
     STATE_OFF = 0,
@@ -574,22 +385,9 @@ declare namespace access {
      * Indicates the local Bluetooth is turning on
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 10
-     */
-    /**
-     * Indicates the local Bluetooth is turning on
-     *
-     * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Indicates the local Bluetooth is turning on
-     *
-     * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 13 dynamic
+     * @crossplatform [since 13]
+     * @atomicservice [since 11]
+     * @since 10 dynamic
      * @since 23 static
      */
     STATE_TURNING_ON = 1,
@@ -597,22 +395,9 @@ declare namespace access {
      * Indicates the local Bluetooth is on, and ready for use
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 10
-     */
-    /**
-     * Indicates the local Bluetooth is on, and ready for use
-     *
-     * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Indicates the local Bluetooth is on, and ready for use
-     *
-     * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 13 dynamic
+     * @crossplatform [since 13]
+     * @atomicservice [since 11]
+     * @since 10 dynamic
      * @since 23 static
      */
     STATE_ON = 2,
@@ -620,22 +405,9 @@ declare namespace access {
      * Indicates the local Bluetooth is turning off
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 10
-     */
-    /**
-     * Indicates the local Bluetooth is turning off
-     *
-     * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Indicates the local Bluetooth is turning off
-     *
-     * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 13 dynamic
+     * @crossplatform [since 13]
+     * @atomicservice [since 11]
+     * @since 10 dynamic
      * @since 23 static
      */
     STATE_TURNING_OFF = 3,
@@ -643,14 +415,8 @@ declare namespace access {
      * Indicates the local Bluetooth is turning LE mode on
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 10
-     */
-    /**
-     * Indicates the local Bluetooth is turning LE mode on
-     *
-     * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @atomicservice
-     * @since 11 dynamic
+     * @atomicservice [since 11]
+     * @since 10 dynamic
      * @since 23 static
      */
     STATE_BLE_TURNING_ON = 4,
@@ -658,14 +424,8 @@ declare namespace access {
      * Indicates the local Bluetooth is in LE only mode
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 10
-     */
-    /**
-     * Indicates the local Bluetooth is in LE only mode
-     *
-     * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @atomicservice
-     * @since 11 dynamic
+     * @atomicservice [since 11]
+     * @since 10 dynamic
      * @since 23 static
      */
     STATE_BLE_ON = 5,
@@ -673,14 +433,8 @@ declare namespace access {
      * Indicates the local Bluetooth is turning off LE only mode
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 10
-     */
-    /**
-     * Indicates the local Bluetooth is turning off LE only mode
-     *
-     * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @atomicservice
-     * @since 11 dynamic
+     * @atomicservice [since 11]
+     * @since 10 dynamic
      * @since 23 static
      */
     STATE_BLE_TURNING_OFF = 6
@@ -689,7 +443,6 @@ declare namespace access {
   /**
    * Describes the result of bluetooth dialog.
    *
-   * @typedef NotifyDialogResultParams
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
    * @since 20 dynamic
@@ -699,7 +452,6 @@ declare namespace access {
     /**
      * The type of bluetooth dialog.
      *
-     * @type { DialogType }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
      * @since 20 dynamic
@@ -710,7 +462,6 @@ declare namespace access {
      * The result of bluetooth dialog. The value true indicates that the user approves the request,
      * and the value false indicates that the user rejects the request.
      *
-     * @type { boolean }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
      * @since 20 dynamic
@@ -722,7 +473,6 @@ declare namespace access {
   /**
    * The enum of bluetooth dialog type.
    *
-   * @enum { int }
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
    * @since 20 dynamic

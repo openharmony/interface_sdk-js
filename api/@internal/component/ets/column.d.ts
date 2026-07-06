@@ -19,10 +19,15 @@
  */
 
 /**
- * Defines the space property with string, number and resource unit.
+ * Describes the supported data types for the **space** parameter in the constructors of the **Column** component. The
+ * type is a union of the following types.
  *
- * @typedef { string | number | Resource } SpaceType
+ * @unionmember { string } Represents a string value. It can take any string value.
+ * @unionmember { number } Represents a numeric value. It can take any numerical value.
+ * @unionmember { Resource } Represents a resource reference type. It can take values from system resources or
+ *      application resources.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @form
  * @atomicservice
@@ -31,10 +36,16 @@
 declare type SpaceType = string | number | Resource;
 
 /**
- * Column constructor options.
+ * Sets the spacing between child components of the **Column** component.
+ * 
+ * > **NOTE**
+ * >
+ * > To standardize anonymous object definitions, the element definitions here have been revised in API version 18. 
+ * > While historical version information is preserved for anonymous objects, there may be cases where the outer element
+ * > 's @since version number is higher than inner elements'. This does not affect interface usability.
  *
- * @interface ColumnOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @form
  * @atomicservice
@@ -42,44 +53,15 @@ declare type SpaceType = string | number | Resource;
  */
 interface ColumnOptions {
   /**
-   * Vertical layout element spacing
+   * Vertical spacing between two adjacent child components.
+   * This parameter has no effect if the value specified is a negative number, or if
+   * [justifyContent](@ColumnAttribute#justifyContent) is set to
+   * **FlexAlign.SpaceBetween**, **FlexAlign.SpaceAround**, or **FlexAlign.SpaceEvenly**
+   * Unit: vp, Invalid values are treated as the default value.
+   * **NOTE**
+   * The value of **space** can be a number greater than or equal to 0 or a string that can be converted to a number.
+   * Default value: **0**.
    *
-   * @type { ?(string | number) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Vertical layout element spacing.
-   *
-   * @type { ?(string | number) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Vertical layout element spacing.
-   *
-   * @type { ?(string | number) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Vertical layout element spacing.
-   *
-   * @type { ?(string | number) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Vertical layout element spacing.
-   *
-   * Anonymous Object Rectification
-   * @type { ?(string | number) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -90,10 +72,16 @@ interface ColumnOptions {
 }
 
 /**
- * Column constructor options.
+ * Sets the spacing between child components of the **Column** component.
+ * 
+ * > **NOTE**
+ * >
+ * > To standardize anonymous object definitions, the element definitions here have been revised in API version 18. 
+ * > While historical version information is preserved for anonymous objects, there may be cases where the outer element
+ * > 's @since version number is higher than inner elements'. This does not affect interface usability.
  *
- * @interface ColumnOptionsV2
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @form
  * @atomicservice
@@ -101,10 +89,16 @@ interface ColumnOptions {
  */
 interface ColumnOptionsV2 {
   /**
-   * Vertical layout element spacing.
+   * Vertical spacing between two adjacent child components.
+   * This parameter has no effect if the value specified is a negative number, or if **justifyContent** is set to
+   * **FlexAlign.SpaceBetween**, **FlexAlign.SpaceAround**, or **FlexAlign.SpaceEvenly**.
+   * Unit: vp, Invalid values are treated as the default value.
+   * **NOTE**
+   * The value of **space** can be a number greater than or equal to 0, a string that can be converted to a number, or a
+   * Resource type that can be converted to a number. Default value: **0**.
    *
-   * @type { ?SpaceType }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice
@@ -116,104 +110,46 @@ interface ColumnOptionsV2 {
 /**
  * Defines the Column Component.
  *
- * @interface ColumnInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * Defines the Column Component.
- *
- * @interface ColumnInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @since 9
- */
-/**
- * Defines the Column Component.
- *
- * @interface ColumnInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Defines the Column Component.
- *
- * @interface ColumnInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
+ * @noninterop [since 11]
  */
 interface ColumnInterface {
   /**
-   * Set the value.
-   * useAlign:Use a custom alignment.
-   * space: Vertical layout element spacing.
+   * Creates a vertical linear layout container. You can set the spacing between child components.
+   * 
+   * > **NOTE**
+   * >
+   * > Excessive component nesting (either too deep a hierarchy or too many nested components) incurs significant 
+   * > performance overhead. For performance purposes, you are advised to remove redundant nodes to simplify the 
+   * > component tree, use layout boundaries to reduce redundant layout calculations, properly apply rendering control 
+   * > syntax and layout component methods to minimize unnecessary re-renders and computations. For details about the 
+   * > best practices, see 
+   * > [Layout Optimization](https://developer.huawei.com/consumer/en/doc/best-practices/bpta-improve-layout-performance)
+   * > .
    *
-   * @param { object } value
+   * @param { object } value [since 7 - 17]
+   * @param { ColumnOptions } [options] - Vertical spacing between two adjacent child components. The value can be of
+   *     the number or string type. [since 18]
    * @returns { ColumnAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Set the value.
-   * useAlign:Use a custom alignment.
-   * space: Vertical layout element spacing.
-   *
-   * @param { object } value
-   * @returns { ColumnAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Set the value.
-   * useAlign:Use a custom alignment.
-   * space: Vertical layout element spacing.
-   *
-   * @param { object } value
-   * @returns { ColumnAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Set the value.
-   * useAlign:Use a custom alignment.
-   * space: Vertical layout element spacing.
-   *
-   * @param { object } value
-   * @returns { ColumnAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Set the options.
-   *
-   * Anonymous Object Rectification
-   * @param { ColumnOptions } [options] - column options
-   * @returns { ColumnAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   (options?: ColumnOptions): ColumnAttribute;
   /**
-   * Set the options.
+   * Creates a vertical linear layout container. You can set the spacing between child components.
    *
-   * Anonymous Object Rectification
-   * @param { ColumnOptions | ColumnOptionsV2 } [options] - column options
+   * @param { ColumnOptions | ColumnOptionsV2 } [options] - Vertical spacing between two adjacent child components. The
+   *     value can be of the number, string, or Resource type.
    * @returns { ColumnAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice
@@ -223,117 +159,43 @@ interface ColumnInterface {
 }
 
 /**
- * Defines the Column component attribute functions.
+ * In addition to the [universal attributes]{@link CommonMethod}, the following attributes are supported.
+ * 
+ * The [universal events]{@link CommonMethod} are supported.
  *
- * @extends CommonMethod<ColumnAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * Defines the Column component attribute functions.
- *
- * @extends CommonMethod<ColumnAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @since 9
- */
-/**
- * Defines the Column component attribute functions.
- *
- * @extends CommonMethod<ColumnAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Defines the Column component attribute functions.
- *
- * @extends CommonMethod<ColumnAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
+ * @noninterop [since 11]
  */
 declare class ColumnAttribute extends CommonMethod<ColumnAttribute> {
   /**
-   * Sets the alignment format of the subassembly in the horizontal direction.
+   * Alignment mode of the child components in the horizontal direction.
    *
-   * @param { HorizontalAlign } value
+   * @param { HorizontalAlign } value - Alignment mode of child components in the horizontal direction.<br>Default value
+   *     : **HorizontalAlign.Center**
    * @returns { ColumnAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Sets the alignment format of the subassembly in the horizontal direction.
-   *
-   * @param { HorizontalAlign } value
-   * @returns { ColumnAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Sets the alignment format of the subassembly in the horizontal direction.
-   *
-   * @param { HorizontalAlign } value
-   * @returns { ColumnAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Sets the alignment format of the subassembly in the horizontal direction.
-   *
-   * @param { HorizontalAlign } value
-   * @returns { ColumnAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   alignItems(value: HorizontalAlign): ColumnAttribute;
 
   /**
-   * Sets the alignment format of the subassembly in the vertical direction.
+   * Alignment mode of the child components in the vertical direction.
    *
-   * @param { FlexAlign } value
+   * @param { FlexAlign } value - Alignment mode of child components in the vertical direction.<br>Default value:
+   *     **FlexAlign.Start**
    * @returns { ColumnAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Sets the alignment format of the subassembly in the vertical direction.
-   *
-   * @param { FlexAlign } value
-   * @returns { ColumnAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Sets the alignment format of the subassembly in the vertical direction.
-   *
-   * @param { FlexAlign } value
-   * @returns { ColumnAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Sets the alignment format of the subassembly in the vertical direction.
-   *
-   * @param { FlexAlign } value
-   * @returns { ColumnAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   justifyContent(value: FlexAlign): ColumnAttribute;
   /**
@@ -343,15 +205,19 @@ declare class ColumnAttribute extends CommonMethod<ColumnAttribute> {
    * @returns { ColumnAttribute } The attribute of the column.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @stagemodelonly
    * @since 11 dynamic
    */
   pointLight(value: PointLightStyle): ColumnAttribute;
   /**
-   * Called when the Main-Axis's direction is set reversed or not
+   * Sets whether to reverse the vertical arrangement of child components.
    *
-   * @param { Optional<boolean> } isReversed - If the main axis is reversed.
+   * @param { Optional<boolean> } isReversed - Whether to reverse the vertical arrangement of child components.<br>
+   *     Default value: **true**. **true**: Child components are arranged in reverse order vertically. **false**: Child
+   *     components are arranged in normal order vertically.
    * @returns { ColumnAttribute } The attribute of the column.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice
@@ -361,34 +227,22 @@ declare class ColumnAttribute extends CommonMethod<ColumnAttribute> {
 }
 
 /**
- * Defines Column Component.
+ * The **Column** component lays out child components vertically.
+ * > **NOTE**
+ * >
+ * > If no height or width is set for the **Column** component, the component automatically adapts to the size of its
+ * > child components in the main axis and cross axis respectively.
+ * >
+ * > **Child Components**
+ * >
+ * > Supported
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * Defines Column Component.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @since 9
- */
-/**
- * Defines Column Component.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Defines Column Component.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
+ * @noninterop [since 11]
  */
 declare const Column: ColumnInterface;
 
@@ -396,30 +250,10 @@ declare const Column: ColumnInterface;
  * Defines Column Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * Defines Column Component instance.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @since 9
- */
-/**
- * Defines Column Component instance.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Defines Column Component instance.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
+ * @noninterop [since 11]
  */
 declare const ColumnInstance: ColumnAttribute;

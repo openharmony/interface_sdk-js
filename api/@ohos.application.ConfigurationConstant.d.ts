@@ -15,12 +15,12 @@
 
 /**
  * @file
+ * @kit API10LessDeprecatedModules
  */
 
 /**
- * The definition of ConfigurationConstant.
+ * The ConfigurationConstant module provides the enumerated values of the environment configuration information.
  *
- * @namespace ConfigurationConstant
  * @syscap SystemCapability.Ability.AbilityBase
  * @since 8
  * @deprecated since 9
@@ -28,9 +28,8 @@
  */
 declare namespace ConfigurationConstant {
   /**
-   * Color mode.
+   * Enumerates the color modes.
    *
-   * @enum { number }
    * @syscap SystemCapability.Ability.AbilityBase
    * @since 8
    * @deprecated since 9
@@ -38,7 +37,7 @@ declare namespace ConfigurationConstant {
    */
   export enum ColorMode {
     /**
-     * No color mode set.
+     * Unspecified color mode.
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 8

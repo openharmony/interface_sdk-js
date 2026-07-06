@@ -24,607 +24,389 @@ import { Position, Size } from '@ohos.arkui.node';
 import { Callback } from '@ohos.base';
 
 /**
- * Position enum of the extra region
+ * Provides the position information of the extra region.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform [since 22]
  * @atomicservice
  * @since 12 dynamic
  */
-/**
- * Position enum of the extra region
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 22 dynamic
- */
 export declare enum ExtraRegionPosition {
     /**
-     * The extra region position is in the top.
+     * The extra region is in the upper half of the component.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform [since 22]
      * @atomicservice
      * @since 12 dynamic
-     */
-    /**
-     * The extra region position is in the top.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic
      */
     TOP = 1,
     /**
-     * The extra region position is in the bottom.
+     * The extra region is in the lower half of the component.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform [since 22]
      * @atomicservice
      * @since 12 dynamic
-     */
-    /**
-     * The extra region position is in the bottom.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic
      */
     BOTTOM = 2
 }
 /**
- * The layout options for the container when the foldable screen is expanded.
+ * Layout information for the expanded state.
  *
- * @interface ExpandedRegionLayoutOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform [since 22]
  * @atomicservice
  * @since 12 dynamic
- */
-/**
- * The layout options for the container when the foldable screen is expanded.
- *
- * @interface ExpandedRegionLayoutOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 22 dynamic
  */
 export interface ExpandedRegionLayoutOptions {
     /**
-     * The ratio of the widths of two areas in the horizontal direction.
+     * Width ratio between the primary and extra regions. This setting takes effect only when **extra**
+     * is effective.
+     * The value should be an integer. Default value: {@link.PresetSplitRatio}.LAYOUT_3V2.
      *
-     * @type { ?number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform [since 22]
      * @atomicservice
      * @since 12 dynamic
-     */
-    /**
-     * The ratio of the widths of two areas in the horizontal direction.
-     *
-     * @type { ?number }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic
      */
     horizontalSplitRatio?: number;
     /**
-     * The ratio of the heights of two areas in the vertical direction.
+     * Height ratio between the primary and extra regions.
+     * The value range is all integers. Default value: {@link.PresetSplitRatio}.LAYOUT_1V1.
      *
-     * @type { ?number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform [since 22]
      * @atomicservice
      * @since 12 dynamic
-     */
-    /**
-     * The ratio of the heights of two areas in the vertical direction.
-     *
-     * @type { ?number }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic
      */
     verticalSplitRatio?: number;
     /**
-     * Does the extended area span from top to bottom within the container?
+     * Whether the extra region extends perpendicularly through the entire component from top to bottom.
+     * The value **true** means that the extra region extends perpendicularly through the entire component
+     * from top to bottom, and **false** means the opposite. This setting takes effect only when **extra**
+     * is effective.
      *
-     * @type { ?boolean }
+     * Default value: **true**.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform [since 22]
      * @atomicservice
      * @since 12 dynamic
-     */
-    /**
-     * Does the extended area span from top to bottom within the container?
-     *
-     * @type { ?boolean }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic
      */
     isExtraRegionPerpendicular?: boolean;
     /**
-     * Specify the position of the extra area when the extra area does not vertically span the container.
+     * Position information of the extra region. This setting takes effect only when
+     * **isExtraRegionPerpendicular** is set to **false**.
      *
-     * @type { ?ExtraRegionPosition }
+     * Default value: **ExtraRegionPosition.top**.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform [since 22]
      * @atomicservice
      * @since 12 dynamic
-     */
-    /**
-     * Specify the position of the extra area when the extra area does not vertically span the container.
-     *
-     * @type { ?ExtraRegionPosition }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic
      */
     extraRegionPosition?: ExtraRegionPosition;
 }
 /**
- * The layout options for the container when the foldable screen is in hover mode.
+ * Layout information for the semi-folded state.
  *
- * @typedef HoverModeRegionLayoutOptions
+ * > **NOTE**
+ * >
+ * > 1. In semi-folded state, the device contains an avoidance area, and layout calculations must account for
+ * > the impact of this avoidance area on the overall layout.
+ * > 2. In semi-folded mode, the upper screen is dedicated to content display, and the lower screen is
+ * > reserved for interaction.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform [since 22]
  * @atomicservice
  * @since 12 dynamic
- */
-/**
- * The layout options for the container when the foldable screen is in hover mode.
- *
- * @typedef HoverModeRegionLayoutOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 22 dynamic
  */
 export interface HoverModeRegionLayoutOptions {
     /**
-     * The ratio of the widths of two areas in the horizontal direction.
+     * Width ratio between the primary and extra regions. This setting takes effect only when **extra**
+     * is effective.
+     * The value range is all integers. Default value: {@link.PresetSplitRatio}.LAYOUT_3V2.
      *
-     * @type { ?number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform [since 22]
      * @atomicservice
      * @since 12 dynamic
-     */
-    /**
-     * The ratio of the widths of two areas in the horizontal direction.
-     *
-     * @type { ?number }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic
      */
     horizontalSplitRatio?: number;
     /**
-     * Does the foldable screen display an extra area when it's in the half-folded state?
+     * Whether to display the extra region in the half-folded state. The value **true** means to display
+     * the extra region in the half-folded state, and **false** means the opposite.
      *
-     * @type { ?boolean }
+     * Default value: **false**.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform [since 22]
      * @atomicservice
      * @since 12 dynamic
-     */
-    /**
-     * Does the foldable screen display an extra area when it's in the half-folded state?
-     *
-     * @type { ?boolean }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic
      */
     showExtraRegion?: boolean;
     /**
-     * Specify the position of the extra area when the foldable screen is in the half-folded state.
+     * Position information of the extra region. This setting takes effect only when **showExtraRegion**
+     * is set to **true**.
      *
-     * @type { ?ExtraRegionPosition }
+     * Default value: **ExtraRegionPosition.top**.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform [since 22]
      * @atomicservice
      * @since 12 dynamic
-     */
-    /**
-     * Specify the position of the extra area when the foldable screen is in the half-folded state.
-     *
-     * @type { ?ExtraRegionPosition }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic
      */
     extraRegionPosition?: ExtraRegionPosition;
 }
 /**
- * The layout options for the container when the foldable screen is folded.
+ * Provides the layout information of the folded state.
  *
- * @interface FoldedRegionLayoutOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform [since 22]
  * @atomicservice
  * @since 12 dynamic
  */
-/**
- * The layout options for the container when the foldable screen is folded.
- *
- * @interface FoldedRegionLayoutOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 22 dynamic
- */
 export interface FoldedRegionLayoutOptions {
     /**
-     * The ratio of the heights of two areas in the vertical direction.
+     * Height ratio between the primary and extra regions.
+     * The value range is all integers. Default value: {@link.PresetSplitRatio}.LAYOUT_1V1.
      *
-     * @type { ?number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform [since 22]
      * @atomicservice
      * @since 12 dynamic
-     */
-    /**
-     * The ratio of the heights of two areas in the vertical direction.
-     *
-     * @type { ?number }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic
      */
     verticalSplitRatio?: number;
 }
 /**
- * Preset split ratio.
+ * Enumerates the split ratios.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform [since 22]
  * @atomicservice
  * @since 12 dynamic
  */
-/**
- * Preset split ratio.
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 22 dynamic
- */
 export declare enum PresetSplitRatio {
     /**
-     * 1:1
+     * 1:1.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform [since 22]
      * @atomicservice
      * @since 12 dynamic
-     */
-    /**
-     * 1:1
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic
      */
     LAYOUT_1V1 = 1,
     /**
-     * 2:3
+     * 2:3.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform [since 22]
      * @atomicservice
      * @since 12 dynamic
-     */
-    /**
-     * 2:3
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic
      */
     LAYOUT_2V3 = 0.6666666666666666,
     /**
-     * 3:2
+     * 3:2.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform [since 22]
      * @atomicservice
      * @since 12 dynamic
-     */
-    /**
-     * 3:2
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic
      */
     LAYOUT_3V2 = 1.5
 }
 /**
- * The status of hover mode.
+ * Provides information about the device or application's folding, rotation, and window state.
  *
- * @interface HoverStatus
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform [since 22]
  * @atomicservice
  * @since 12 dynamic
  */
-/**
- * The status of hover mode.
- *
- * @interface HoverStatus
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 22 dynamic
- */
 export interface HoverModeStatus {
     /**
-     * The fold status of devices.
+     * Fold status of the device.
      *
-     * @type { display.FoldStatus }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform [since 22]
      * @atomicservice
      * @since 12 dynamic
-     */
-    /**
-     * The fold status of devices.
-     *
-     * @type { display.FoldStatus }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic
      */
     foldStatus: display.FoldStatus;
     /**
-     * Is the app currently in hover mode?
-     * In hover mode, the upper half of the screen is used for display, and the lower half is used for operation.
+     * Whether the application is in the hover state. The value **true** means that the application
+     * is in the hover state, and **false** means the opposite.
      *
-     * @type { boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform [since 22]
      * @atomicservice
      * @since 12 dynamic
-     */
-    /**
-     * Is the app currently in hover mode?
-     * In hover mode, the upper half of the screen is used for display, and the lower half is used for operation.
-     *
-     * @type { boolean }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic
      */
     isHoverMode: boolean;
     /**
-     * The angle of rotation applied.
+     * Rotation angle of the application.
      *
-     * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform [since 22]
      * @atomicservice
      * @since 12 dynamic
-     */
-    /**
-     * The angle of rotation applied.
-     *
-     * @type { number }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic
      */
     appRotation: number;
     /**
-     * The status of window.
+     * Window mode.
      *
-     * @type { window.WindowStatusType }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform [since 22]
      * @atomicservice
      * @since 12 dynamic
-     */
-    /**
-     * The status of window.
-     *
-     * @type { window.WindowStatusType }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic
      */
     windowStatusType: window.WindowStatusType;
 }
 /**
- * The handler of onHoverStatusChange event
+ * Implements a handler for the **onHoverStatusChange** event.
  *
- * @typedef { function } OnHoverStatusChangeHandler
- * @param { HoverModeStatus } status - The status of hover mode
+ * @param { HoverModeStatus } status - Callback function triggered when the foldable device enters or exits
+ *     the semi-folded state.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform [since 22]
  * @atomicservice
  * @since 12 dynamic
- */
-/**
- * The handler of onHoverStatusChange event
- *
- * @typedef { function } OnHoverStatusChangeHandler
- * @param { HoverModeStatus } status - The status of hover mode
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 22 dynamic
  */
 export type OnHoverStatusChangeHandler = (status: HoverModeStatus) => void;
 /**
- * Defines FoldSplitContainer container.
+ * **FoldSplitContainer** is a layout container designed to manage regions for two-panel and three-panel
+ * arrangements on a foldable device across various states, including the expanded state, the semi-folded state,
+ * and the folded state.
  *
- * @struct { FoldSplitContainer }
+ * > **NOTE**
+ * >
+ * > By default, a two-panel layout is used when the window width is less than or equal to 600 vp.
+ * > When the window width exceeds 600 vp, an extended area is supported alongside the top-bottom split layout.
+ * > A semi-folded state layout can be triggered when the window width is greater than 600 vp and the device
+ * > is in a horizontal, half-folded posture. In the semi-folded layout, visual avoidance for the screen
+ * > crease area is applied, and the extended area cannot span across the crease. The extended area can also
+ * > be configured not to display in the semi-folded state.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform [since 22]
  * @atomicservice
  * @since 12 dynamic
- */
-/**
- * Defines FoldSplitContainer container.
- *
- * @struct { FoldSplitContainer }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 22 dynamic
  */
 @Component
 export declare struct FoldSplitContainer {
     /**
-     * The builder function which will be rendered in the major region of container.
+     * Callback function for the primary region.
      *
-     * @type { Callback<void> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform [since 22]
      * @atomicservice
      * @since 12 dynamic
-     */
-    /**
-     * The builder function which will be rendered in the major region of container.
-     *
-     * @type { Callback<void> }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic
      */
     @BuilderParam
     primary: Callback<void>;
     /**
-     * The builder function which will be rendered in the minor region of container.
+     * Callback function for the extra region.
      *
-     * @type { Callback<void> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform [since 22]
      * @atomicservice
      * @since 12 dynamic
-     */
-    /**
-     * The builder function which will be rendered in the minor region of container.
-     *
-     * @type { Callback<void> }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic
      */
     @BuilderParam
     secondary: Callback<void>;
     /**
-     * The builder function which will be rendered in the extra region of container.
+     * Callback function for the extra region. If this parameter is not provided,
+     * there is no corresponding region.
      *
-     * @type { ?Callback<void> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform [since 22]
      * @atomicservice
      * @since 12 dynamic
-     */
-    /**
-     * The builder function which will be rendered in the extra region of container.
-     *
-     * @type { ?Callback<void> }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic
      */
     @BuilderParam
     extra?: Callback<void>;
     /**
-     * The layout options for the container when the foldable screen is expanded.
+     * Layout information for the expanded state.
      *
-     * @type { ExpandedRegionLayoutOptions }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform [since 22]
      * @atomicservice
      * @since 12 dynamic
-     */
-    /**
-     * The layout options for the container when the foldable screen is expanded.
-     *
-     * @type { ExpandedRegionLayoutOptions }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic
      */
     @Prop
     expandedLayoutOptions: ExpandedRegionLayoutOptions;
     /**
-     * The layout options for the container when the foldable screen is in hover mode.
+     * Layout information for the semi-folded state.
      *
-     * @type { HoverModeRegionLayoutOptions }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform [since 22]
      * @atomicservice
      * @since 12 dynamic
-     */
-    /**
-     * The layout options for the container when the foldable screen is in hover mode.
-     *
-     * @type { HoverModeRegionLayoutOptions }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic
      */
     @Prop
     hoverModeLayoutOptions: HoverModeRegionLayoutOptions;
     /**
-     * The layout options for the container when the foldable screen is folded.
+     * Layout information for the folded state.
      *
-     * @type { FoldedRegionLayoutOptions }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform [since 22]
      * @atomicservice
      * @since 12 dynamic
-     */
-    /**
-     * The layout options for the container when the foldable screen is folded.
-     *
-     * @type { FoldedRegionLayoutOptions }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic
      */
     @Prop
     foldedLayoutOptions: FoldedRegionLayoutOptions;
     /**
-     * The animation options of layout
+     * Animation settings. The value **null** indicates that the animation is disabled.
      *
-     * @type { ?(AnimateParam | null) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform [since 22]
      * @atomicservice
      * @since 12 dynamic
-     */
-    /**
-     * The animation options of layout
-     *
-     * @type { ?(AnimateParam | null) }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic
      */
     @Prop
     animationOptions?: AnimateParam | null;
     /**
-     * The callback function that is triggered when the foldable screen enters or exits hover mode.
-     * In hover mode, the upper half of the screen is used for display, and the lower half is used for operation.
+     * Callback function triggered when the foldable device enters or exits the semi-folded state.
      *
-     * @type { ?OnHoverStatusChangeHandler }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform [since 22]
      * @atomicservice
      * @since 12 dynamic
-     */
-    /**
-     * The callback function that is triggered when the foldable screen enters or exits hover mode.
-     * In hover mode, the upper half of the screen is used for display, and the lower half is used for operation.
-     *
-     * @type { ?OnHoverStatusChangeHandler }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic
      */
     onHoverStatusChange?: OnHoverStatusChangeHandler;
 }

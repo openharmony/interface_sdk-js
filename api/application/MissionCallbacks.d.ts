@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -14,6 +14,10 @@
  */
 
 /**
+ * The module defines the callbacks invoked after synchronization starts. These callbacks can be used as input 
+ * parameters in 
+ * [registerMissionListener]{@link @ohos.distributedMissionManager:distributedMissionManager.registerMissionListener(parameter: MissionDeviceInfo, options: MissionCallback)}
+ * 
  * @file
  * @kit AbilityKit
  */
@@ -74,7 +78,6 @@ export interface MissionCallback {
    * Called by system when mission changed.
    *
    * @permission ohos.permission.MANAGE_MISSIONS
-   * @type { NotifyMissionsChangedCallback }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @stagemodelonly
@@ -87,7 +90,6 @@ export interface MissionCallback {
    * Called by system when snapshot changed.
    *
    * @permission ohos.permission.MANAGE_MISSIONS
-   * @type { NotifySnapshotCallback }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @stagemodelonly
@@ -100,7 +102,6 @@ export interface MissionCallback {
    * Called by system when network disconnect.
    *
    * @permission ohos.permission.MANAGE_MISSIONS
-   * @type { NotifyNetDisconnectCallback }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @stagemodelonly

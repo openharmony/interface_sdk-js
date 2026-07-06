@@ -18,35 +18,24 @@
  * @kit ArkUI
  */
 
-
-
-
 /**
  * Defines TextTimer Modifier
  *
- * @extends TextTimerAttribute
- * @implements AttributeModifier<TextTimerAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform [since 20]
  * @atomicservice
- * @since 12
-*/
-/**
- * Defines TextTimer Modifier
- *
- * @extends TextTimerAttribute
- * @implements AttributeModifier<TextTimerAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20 dynamic
+ * @since 12 dynamic
+ * @noninterop
  */
 export declare class TextTimerModifier extends TextTimerAttribute implements AttributeModifier<TextTimerAttribute> {
 
   /**
    * Defines the normal update attribute function.
-   * 
+   *
    * @param { TextTimerAttribute } instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic

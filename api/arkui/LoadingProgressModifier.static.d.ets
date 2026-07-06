@@ -24,8 +24,9 @@ import { LoadingProgressAttribute } from '@ohos.arkui.component';
 /**
  * Defines LoadingProgress Modifier
  *
- * @implements { LoadingProgressAttribute, AttributeModifier<LoadingProgressAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
+ * @noninterop
  */
 export declare class LoadingProgressModifier implements LoadingProgressAttribute, AttributeModifier<LoadingProgressAttribute> {}

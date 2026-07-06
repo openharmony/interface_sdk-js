@@ -21,25 +21,31 @@
 import type Want from './@ohos.app.ability.Want';
 
 /**
- * This module provides the capability to manage the location of the enterprise devices.
+ * The **locationManager** module provides location service management capabilities for devices, including setting and
+ * obtaining the location service policy.
  *
- * @namespace locationManager
+ * > **NOTE**
+ * >
+ * > The APIs of this module can be used only in the stage model.
+ * >
+ * > The APIs of this module can be called only by a device administrator application that is enabled. For details, see
+ * > [MDM Kit Development](docroot://mdm/mdm-kit-guide.md).
+ *
  * @syscap SystemCapability.Customization.EnterpriseDeviceManager
  * @stagemodelonly
  * @since 11
  */
 declare namespace locationManager {
   /**
-   * The location policy.
+   * Enumerates the location service policies.
    *
-   * @enum { number }
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
    * @since 12
    */
   export enum LocationPolicy {
     /**
-     * Default location service.
+     * Default policy.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
@@ -48,7 +54,7 @@ declare namespace locationManager {
     DEFAULT_LOCATION_SERVICE = 0,
 
     /**
-     * Disallows open location service.
+     * The location service is disabled.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
@@ -57,28 +63,30 @@ declare namespace locationManager {
     DISALLOW_LOCATION_SERVICE = 1,
 
     /**
-     * Force open the location service.
+     * The location service is forcibly enabled.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 12
      */
-    FORCE_OPEN_LOCATION_SERVICE = 2,
+    FORCE_OPEN_LOCATION_SERVICE = 2
   }
 
   /**
-   * Sets the policy of location service.
-   * This function can be called by a super administrator.
+   * Sets a location service policy.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_LOCATION
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @param { LocationPolicy } policy - the policy of location service.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { LocationPolicy } policy - Location service policy to set. The value can be any of the following:<br>-
+   *     **0**: The default policy is used.<br>- **1**: The location service is disabled.<br>- **2**: The location
+   *     service is forcibly enabled.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
    * @since 12
@@ -86,23 +94,28 @@ declare namespace locationManager {
   function setLocationPolicy(admin: Want, policy: LocationPolicy): void;
 
   /**
-   * Gets device location service policy.
-   * This function can be called by a super administrator.
+   * Queries the location service policy.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_LOCATION
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         If the admin is not empty, it must have the corresponding permission.
-   * @returns { LocationPolicy } the policy of location service.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application. [since 12 - 24]
+   * @param { Want | null } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.<br>If the device has multiple MDM
+   *     applications, you can pass **admin** to query the corresponding policies. If **null** is passed, the policies
+   *     that actually take effect on the device are returned. [since 26.0.0]
+   * @returns { LocationPolicy } Enumerated value of the location service policy. **0**: The default policy is used.
+   *     **1**: The location service is disabled. **2**: The location service is forcibly enabled.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
    * @since 12
    */
-  function getLocationPolicy(admin: Want): LocationPolicy;
+  function getLocationPolicy(admin: Want | null): LocationPolicy;
 }
 
 export default locationManager;

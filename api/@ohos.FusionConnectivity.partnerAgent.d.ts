@@ -25,7 +25,8 @@ import type common from './@ohos.bluetooth.common';
  * @namespace partnerAgent
  * @syscap SystemCapability.Communication.FusionConnectivity.Core
  * @stagemodelonly
- * @since 23 dynamic&static
+ * @since 23 dynamic
+ * @since 26.0.0 static
  */
 declare namespace partnerAgent {
   /**
@@ -34,7 +35,8 @@ declare namespace partnerAgent {
    * @returns { boolean } Check result for the support of the partner agent feature.
    * @syscap SystemCapability.Communication.FusionConnectivity.Core
    * @stagemodelonly
-   * @since 23 dynamic&static
+   * @since 23 dynamic
+   * @since 26.0.0 static
    */
   function isPartnerAgentSupported(): boolean;
 
@@ -44,7 +46,7 @@ declare namespace partnerAgent {
    * the {@link PartnerAgentExtensionAbility} of the application will be launched.
    * - If the {@link DeviceCapability.supportBR} in the capability variable is set to true,
    *   the application's ability will be launched when the device is connected via Bluetooth.
-   * - If the {@link DeviceCapability.supportBLEAdv} in the capability variable is set to true,
+   * - If the {@link DeviceCapability.supportBleAdvertiser} in the capability variable is set to true,
    *   the application's ability will be launched when the device is detected via Bluetooth scanning.
    *
    * Note: The device must be paired first.
@@ -63,7 +65,8 @@ declare namespace partnerAgent {
    * @throws { BusinessError } 34900099 - Internal error.
    * @syscap SystemCapability.Communication.FusionConnectivity.Core
    * @stagemodelonly
-   * @since 23 dynamic&static
+   * @since 23 dynamic
+   * @since 26.0.0 static
    */
   function bindDevice(deviceAddress: PartnerDeviceAddress, deviceCapability: DeviceCapability,
     businessCapability: BusinessCapability, partnerAgentExtensionAbilityName: string): Promise<void>;
@@ -80,7 +83,8 @@ declare namespace partnerAgent {
    * @throws { BusinessError } 34900099 - Internal error.
    * @syscap SystemCapability.Communication.FusionConnectivity.Core
    * @stagemodelonly
-   * @since 23 dynamic&static
+   * @since 23 dynamic
+   * @since 26.0.0 static
    */
   function unbindDevice(deviceAddress: PartnerDeviceAddress): Promise<void>;
 
@@ -95,7 +99,8 @@ declare namespace partnerAgent {
    * @throws { BusinessError } 34900099 - Internal error.
    * @syscap SystemCapability.Communication.FusionConnectivity.Core
    * @stagemodelonly
-   * @since 23 dynamic&static
+   * @since 23 dynamic
+   * @since 26.0.0 static
    */
   function isDeviceBound(deviceAddress: PartnerDeviceAddress): boolean;
 
@@ -109,7 +114,8 @@ declare namespace partnerAgent {
    * @throws { BusinessError } 34900099 - Internal error.
    * @syscap SystemCapability.Communication.FusionConnectivity.Core
    * @stagemodelonly
-   * @since 23 dynamic&static
+   * @since 23 dynamic
+   * @since 26.0.0 static
    */
   function getBoundDevices(): PartnerDeviceAddress[];
 
@@ -127,7 +133,8 @@ declare namespace partnerAgent {
    * @syscap SystemCapability.Communication.FusionConnectivity.Core
    * @systemapi
    * @stagemodelonly
-   * @since 23 dynamic&static
+   * @since 23 dynamic
+   * @since 26.0.0 static
    */
   function enableDeviceControl(deviceAddress: PartnerDeviceAddress): Promise<void>;
 
@@ -145,7 +152,8 @@ declare namespace partnerAgent {
    * @syscap SystemCapability.Communication.FusionConnectivity.Core
    * @systemapi
    * @stagemodelonly
-   * @since 23 dynamic&static
+   * @since 23 dynamic
+   * @since 26.0.0 static
    */
   function disableDeviceControl(deviceAddress: PartnerDeviceAddress): Promise<void>;
 
@@ -160,7 +168,8 @@ declare namespace partnerAgent {
    * @throws { BusinessError } 34900099 - Internal error.
    * @syscap SystemCapability.Communication.FusionConnectivity.Core
    * @stagemodelonly
-   * @since 23 dynamic&static
+   * @since 23 dynamic
+   * @since 26.0.0 static
    */
   function isDeviceControlEnabled(deviceAddress: PartnerDeviceAddress): boolean;
 
@@ -170,7 +179,8 @@ declare namespace partnerAgent {
    * @typedef DeviceCapability
    * @syscap SystemCapability.Communication.FusionConnectivity.Core
    * @stagemodelonly
-   * @since 23 dynamic&static
+   * @since 23 dynamic
+   * @since 26.0.0 static
    */
   interface DeviceCapability {
     /**
@@ -179,7 +189,8 @@ declare namespace partnerAgent {
      * @type { ?boolean }
      * @syscap SystemCapability.Communication.FusionConnectivity.Core
      * @stagemodelonly
-     * @since 23 dynamic&static
+     * @since 23 dynamic
+     * @since 26.0.0 static
      */
     supportBR?: boolean;
 
@@ -189,7 +200,8 @@ declare namespace partnerAgent {
      * @type { ?boolean }
      * @syscap SystemCapability.Communication.FusionConnectivity.Core
      * @stagemodelonly
-     * @since 23 dynamic&static
+     * @since 23 dynamic
+     * @since 26.0.0 static
      */
     supportBleAdvertiser?: boolean;
   }
@@ -200,7 +212,8 @@ declare namespace partnerAgent {
    * @typedef BusinessCapability
    * @syscap SystemCapability.Communication.FusionConnectivity.Core
    * @stagemodelonly
-   * @since 23 dynamic&static
+   * @since 23 dynamic
+   * @since 26.0.0 static
    */
   interface BusinessCapability {  
     /**
@@ -209,7 +222,8 @@ declare namespace partnerAgent {
      * @type { ?boolean }
      * @syscap SystemCapability.Communication.FusionConnectivity.Core
      * @stagemodelonly
-     * @since 23 dynamic&static
+     * @since 23 dynamic
+     * @since 26.0.0 static
      */
     supportMediaControl?: boolean;
     /**
@@ -218,7 +232,8 @@ declare namespace partnerAgent {
      * @type { ?boolean }
      * @syscap SystemCapability.Communication.FusionConnectivity.Core
      * @stagemodelonly
-     * @since 23 dynamic&static
+     * @since 23 dynamic
+     * @since 26.0.0 static
      */
     supportTelephonyControl?: boolean;
   }
@@ -228,7 +243,8 @@ declare namespace partnerAgent {
    * @typedef PartnerDeviceAddress
    * @syscap SystemCapability.Communication.FusionConnectivity.Core
    * @stagemodelonly
-   * @since 23 dynamic&static
+   * @since 23 dynamic
+   * @since 26.0.0 static
    */
   export interface PartnerDeviceAddress {  
     /**
@@ -237,7 +253,8 @@ declare namespace partnerAgent {
      * @type { ?common.BluetoothAddress }
      * @syscap SystemCapability.Communication.FusionConnectivity.Core
      * @stagemodelonly
-     * @since 23 dynamic&static
+     * @since 23 dynamic
+     * @since 26.0.0 static
      */
     bluetoothAddress?: common.BluetoothAddress;
   }
@@ -248,7 +265,8 @@ declare namespace partnerAgent {
    * @enum { int }
    * @syscap SystemCapability.Communication.FusionConnectivity.Core
    * @stagemodelonly
-   * @since 23 dynamic&static
+   * @since 23 dynamic
+   * @since 26.0.0 static
    */
   export enum PartnerAgentExtensionAbilityDestroyReason {  
 
@@ -257,7 +275,8 @@ declare namespace partnerAgent {
      *
      * @syscap SystemCapability.Communication.FusionConnectivity.Core
      * @stagemodelonly
-     * @since 23 dynamic&static
+     * @since 23 dynamic
+     * @since 26.0.0 static
      */
     UNKNOWN_REASON = 0,
     /**
@@ -265,7 +284,8 @@ declare namespace partnerAgent {
      *
      * @syscap SystemCapability.Communication.FusionConnectivity.Core
      * @stagemodelonly
-     * @since 23 dynamic&static
+     * @since 23 dynamic
+     * @since 26.0.0 static
      */
     USER_CLOSED_ABILITY = 1,
     /**
@@ -273,7 +293,8 @@ declare namespace partnerAgent {
      *
      * @syscap SystemCapability.Communication.FusionConnectivity.Core
      * @stagemodelonly
-     * @since 23 dynamic&static
+     * @since 23 dynamic
+     * @since 26.0.0 static
      */
     DEVICE_UNPAIRED = 2,
     /**
@@ -281,7 +302,8 @@ declare namespace partnerAgent {
      *
      * @syscap SystemCapability.Communication.FusionConnectivity.Core
      * @stagemodelonly
-     * @since 23 dynamic&static
+     * @since 23 dynamic
+     * @since 26.0.0 static
      */
     DEVICE_LOST = 3,
     /**
@@ -289,7 +311,8 @@ declare namespace partnerAgent {
      *
      * @syscap SystemCapability.Communication.FusionConnectivity.Core
      * @stagemodelonly
-     * @since 23 dynamic&static
+     * @since 23 dynamic
+     * @since 26.0.0 static
      */
     BLUETOOTH_DISABLED = 4
   }

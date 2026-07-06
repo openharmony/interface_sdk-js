@@ -1,7 +1,8 @@
 'use static'
+
 /*
- * Copyright (C) 2025 Huawei Device Co., Ltd.
- * Licensed under the Apache License, Version 2.0 (the "License");
+ * Copyright (c) 2025 Huawei Device Co., Ltd.
+ * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
@@ -13,6 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 /**
  * @file
  * @kit ArkUI
@@ -23,16 +25,15 @@ import { Builder } from '../component/builder';
 /**
  * Mutable state variable declared with rememberVariable.
  *
- * @interface MutableVariable<T>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  */
 export declare interface MutableVariable<T> {
+
   /**
    * Mutable variable value.
    *
-   * @type { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -43,7 +44,6 @@ export declare interface MutableVariable<T> {
 /**
  * Type of initial value for rememberVariable.
  *
- * @typedef { (() => T) | T } RememberInitialType
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static

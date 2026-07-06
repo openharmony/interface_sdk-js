@@ -242,7 +242,7 @@ export declare class EditableTitleBarMenuItem {
 }
 
 /**
- * Declaration of the image item .
+ * Declaration of the image item.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -481,7 +481,7 @@ export declare struct EditableTitleBar {
   subtitle?: ResourceStr;
 
   /**
-   * Whether to required the save icon.
+   * Whether to require the save icon.
    * @type { boolean }
    * @default true
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -571,7 +571,7 @@ export declare struct EditableTitleBar {
   onCancel?: () => void;
   
   /**
-   * Indicates the options of titlebar.
+   * Indicates the options of the title bar.
    * @type { EditableTitleBarOptions }
    * @default {expandSafeAreaTypes: SafeAreaType.SYSTEM, expandSafeAreaEdges: SafeAreaEdge.TOP}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -583,7 +583,7 @@ export declare struct EditableTitleBar {
   options: EditableTitleBarOptions;
 
   /**
-   * Sets the content margin.
+   * Sets the content margins.
    * @type { ?LocalizedMargin }
    * @default {start: LengthMetrics.resource($r('sys.float.margin_left')),
    * <br> end: LengthMetrics.resource($r('sys.float.margin_right'))}

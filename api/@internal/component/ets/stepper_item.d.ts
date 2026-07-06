@@ -19,183 +19,117 @@
  */
 
 /**
- * ItemState
+ * Display status of **nextLabel** in the stepper.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 8
- */
-/**
- * ItemState
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 10
- */
-/**
- * ItemState
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 11 dynamiconly
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 8 dynamiconly
  * @deprecated since 22
  * @useinstead Swiper
  */
 declare enum ItemState {
+
   /**
-   * Default State
+   * The button on the right is clickable and can navigate users to the next **StepperItem** when it is clicked.
+   *
+   * **NOTE**
+   *
+   * This API is supported since API version 8 and deprecated since API version 22. You are advised to use
+   * [index]{@link SwiperAttribute#index} instead.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Default State
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Default State
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamiconly
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamiconly
    * @deprecated since 22
    * @useinstead Swiper.SwiperAttribute#index
    */
-  Normal,
+  Normal = 0,
 
   /**
-   * Disabled State
+   * The button on the right is disabled.
+   *
+   * **NOTE**
+   *
+   * This API is supported since API version 8 and deprecated since API version 22. You are advised to use
+   * [indicatorInteractive]{@link SwiperAttribute#indicatorInteractive} instead.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Disabled State
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Disabled State
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamiconly
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamiconly
    * @deprecated since 22
    * @useinstead Swiper.SwiperAttribute#indicatorInteractive
    */
-  Disabled,
+  Disabled = 1,
 
   /**
-   * Waiting State
+   * The button on the right is not displayed, and a progress bar is displayed instead.
+   *
+   * **NOTE**
+   *
+   * This API is supported since API version 8 and deprecated since API version 22. You are advised to use
+   * [Swiper]{@link swiper} instead.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Waiting State
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Waiting State
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamiconly
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamiconly
    * @deprecated since 22
    * @useinstead Swiper
    */
-  Waiting,
+  Waiting = 2,
 
   /**
-   * Skip State
+   * The button on the right reads "Skip" by default. You can define the processing logic for this state in the
+   * **onSkip** callback of the stepper.
+   *
+   * **NOTE**
+   *
+   * This API is supported since API version 8 and deprecated since API version 22. You are advised to use
+   * [index]{@link SwiperAttribute#index} instead.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Skip State
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Skip State
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamiconly
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamiconly
    * @deprecated since 22
    * @useinstead Swiper.SwiperAttribute#index
    */
-  Skip,
+  Skip = 3
 }
 
 /**
- * Provides an interface for switching the stepperItem view on stepper container.
+ * The **StepperItem** component represents a page component used within a [Stepper]{@link stepper} container.
  *
- * @interface StepperItemInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 8
- */
-/**
- * Provides an interface for switching the stepperItem view on stepper container.
+ * > **NOTE**
  *
- * @interface StepperItemInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 10
- */
-/**
- * Provides an interface for switching the stepperItem view on stepper container.
+ * > - This component is supported since API version 8 and deprecated since API version 22. You are advised to use
+ * > [Swiper]{@link swiper} instead.
  *
- * @interface StepperItemInterface
+ * > Updates will be marked with a superscript to indicate their
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 11 dynamiconly
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 8 dynamiconly
  * @deprecated since 22
  * @useinstead Swiper#SwiperInterface
+ * @noninterop
  */
 interface StepperItemInterface {
+
   /**
-   * Called when the stepperItem component is used.
+   * Creates a page component for the [Stepper]{@link stepper} container.
+   *
+   * > **NOTE**
    *
    * @returns { StepperItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Called when the stepperItem component is used.
-   *
-   * @returns { StepperItemAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Called when the stepperItem component is used.
-   *
-   * @returns { StepperItemAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamiconly
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamiconly
    * @deprecated since 22
    * @useinstead Swiper#SwiperAttribute
    */
@@ -203,120 +137,65 @@ interface StepperItemInterface {
 }
 
 /**
- * Defines the stepper item attribute functions.
+ * Defines StepperItem Component instance.
  *
- * @extends CommonMethod<StepperItemAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 8
- */
-/**
- * Defines the stepper item attribute functions.
- *
- * @extends CommonMethod<StepperItemAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 10
- */
-/**
- * Defines the stepper item attribute functions.
- *
- * @extends CommonMethod<StepperItemAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 11 dynamiconly
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 8 dynamiconly
  * @deprecated since 22
  * @useinstead Swiper#SwiperAttribute
+ * @noninterop
  */
 declare class StepperItemAttribute extends CommonMethod<StepperItemAttribute> {
+
   /**
-   * Called when the value of stepperItem prevLabel is set
+   * Sets the text label of the button on the left, which is not displayed on the first page. When the **Stepper**
+   * contains more than one page, the default value for all pages except the first page is **Back**.
    *
-   * @param { string } value
+   * > **NOTE**
+   *
+   * @param { string } value - Text label of the button on the left. When the string is too long, it is scaled down,
+   *     wrapped in two lines, and then clipped.
    * @returns { StepperItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Called when the value of stepperItem prevLabel is set
-   *
-   * @param { string } value
-   * @returns { StepperItemAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Called when the value of stepperItem prevLabel is set
-   *
-   * @param { string } value
-   * @returns { StepperItemAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamiconly
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamiconly
    * @deprecated since 22
    * @useinstead Swiper.SwiperController#showPrevious
    */
   prevLabel(value: string): StepperItemAttribute;
 
   /**
-   * Called when the value of stepperItem nextLabel is set
+   * Sets the text label of the button on the right. The default value is **Start** for the last page and **Next** for
+   * the other pages.
    *
-   * @param { string } value
+   * > **NOTE**
+   *
+   * @param { string } value - Text label of the button on the right. When the string is too long, it is scaled down,
+   *     wrapped in two lines, and then clipped.
    * @returns { StepperItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Called when the value of stepperItem nextLabel is set
-   *
-   * @param { string } value
-   * @returns { StepperItemAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Called when the value of stepperItem nextLabel is set
-   *
-   * @param { string } value
-   * @returns { StepperItemAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamiconly
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamiconly
    * @deprecated since 22
    * @useinstead Swiper.SwiperController#showNext
    */
   nextLabel(value: string): StepperItemAttribute;
 
   /**
-   * Called when the value of stepperItem status is set
+   * Sets the display status of **nextLabel** in the stepper.
    *
-   * @param { ItemState } value
+   * > **NOTE**
+   *
+   * @param { ItemState } value - Display status of **nextLabel** in the stepper.<br>Default value: **ItemState.Normal**
    * @returns { StepperItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Called when the value of stepperItem status is set
-   *
-   * @param { ItemState } value
-   * @returns { StepperItemAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Called when the value of stepperItem status is set
-   *
-   * @param { ItemState } value
-   * @returns { StepperItemAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamiconly
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamiconly
    * @deprecated since 22
    * @useinstead Swiper.SwiperAttribute#indicatorInteractive
    */
@@ -327,48 +206,35 @@ declare class StepperItemAttribute extends CommonMethod<StepperItemAttribute> {
  * Defines StepperItem Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 8
- */
-/**
- * Defines StepperItem Component instance.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 10
- */
-/**
- * Defines StepperItem Component instance.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 11 dynamiconly
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 8 dynamiconly
  * @deprecated since 22
  * @useinstead Swiper
+ * @noninterop
  */
 declare const StepperItemInstance: StepperItemAttribute;
 
 /**
- * Defines StepperItem Component.
+ * The **StepperItem** component represents a page component used within a [Stepper]{@link stepper} container.
  *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 8
- */
-/**
- * Defines StepperItem Component.
+ * > **NOTE**
  *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 10
- */
-/**
- * Defines StepperItem Component.
+ * > - This component is supported since API version 8 and deprecated since API version 22. You are advised to use
+ * > [Swiper]{@link swiper} instead.
  *
+ * > Updates will be marked with a superscript to indicate their
+ *
+ * ###### Child Components
+ *
+ * This component supports only one child component.
+ * 
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 11 dynamiconly
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 8 dynamiconly
  * @deprecated since 22
  * @useinstead Swiper
+ * @noninterop
  */
 declare const StepperItem: StepperItemInterface;

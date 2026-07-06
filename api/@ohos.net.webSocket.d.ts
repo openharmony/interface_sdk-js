@@ -155,18 +155,18 @@ declare namespace webSocket {
     caPath?: string;
 
     /**
-     * Wheter or not to skip the verification of the server's certification.
+     * Whether or not to skip the verification of the server's certification.
      * @type { ?boolean }
      * @syscap SystemCapability.Communication.NetStack
      * @since 20 dynamic
-     * @since 23 static
      */
     /**
-     * Wheter or not to skip the verification of the server's certification.
+     * Whether or not to skip the verification of the server's certification.
      * @type { ?boolean }
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
-     * @since 24 dynamic&static
+     * @since 24 dynamic
+     * @since 26.0.0 static
      */
     skipServerCertVerification?: boolean;
 
@@ -187,14 +187,14 @@ declare namespace webSocket {
     clientCert?: ClientCert;
 
     /**
-     * HTTP proxy configuration. Use 'system' if this filed is not set.
+     * HTTP proxy configuration. Use 'system' if this field is not set.
      * @type {?ProxyConfiguration}
      * @syscap SystemCapability.Communication.NetStack
      * @since 12 dynamic
      * @since 23 static
      */
     /**
-     * HTTP proxy configuration. Use 'system' if this filed is not set.
+     * HTTP proxy configuration. Use 'system' if this field is not set.
      * @type {?ProxyConfiguration}
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
@@ -225,7 +225,6 @@ declare namespace webSocket {
      * @type {?int}
      * @syscap SystemCapability.Communication.NetStack
      * @since 21 dynamic
-     * @since 23 static
      */
     /**
      * Self defined interval of ping frame.
@@ -235,7 +234,8 @@ declare namespace webSocket {
      * @type {?int}
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
-     * @since 24 dynamic&static
+     * @since 24 dynamic
+     * @since 26.0.0 static
      */
     pingInterval?: int;
 
@@ -246,7 +246,6 @@ declare namespace webSocket {
      * @type {?int}
      * @syscap SystemCapability.Communication.NetStack
      * @since 21 dynamic
-     * @since 23 static
      */
     /**
      * Self defined timeout of pong frame.
@@ -256,7 +255,8 @@ declare namespace webSocket {
      * @type {?int}
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
-     * @since 24 dynamic&static
+     * @since 24 dynamic
+     * @since 26.0.0 static
      */
     pongTimeout?: int;
 
@@ -268,6 +268,15 @@ declare namespace webSocket {
      * @since 26.0.0 dynamic&static
      */
     minSupportTlsProtocol?: TlsProtocol;
+
+    /**
+     * The option of supporting origin port.
+     *
+     * @syscap SystemCapability.Communication.NetStack
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    supportOriginPort?: boolean;    
   }
 
   /**
@@ -363,7 +372,6 @@ declare namespace webSocket {
   /**
    * Enumerates TLS protocols.
    *
-   * @interface ClientCert
    * @syscap SystemCapability.Communication.NetStack
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
@@ -553,6 +561,43 @@ declare namespace webSocket {
      */
     message: string;
   }
+
+  /**
+   * The result for open info of a WebSocket connection.
+   * @interface WebSocketOpenInfo
+   * @syscap SystemCapability.Communication.NetStack
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  export interface WebSocketOpenInfo {
+    /**
+     * result status.
+     * @type {int}
+     * @syscap SystemCapability.Communication.NetStack
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    status: int;
+
+    /**
+     * result message.
+     * @type {string}
+     * @syscap SystemCapability.Communication.NetStack
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    message: string;
+
+    /**
+     * Negotiated protocol.
+     * @type {?string}
+     * @syscap SystemCapability.Communication.NetStack
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    protocol?: string;
+  }
+
 
   /**
    * HTTP response headers.
@@ -1026,6 +1071,44 @@ declare namespace webSocket {
      * @since 23 static
      */
     offOpen(callback?: Callback<OpenResult>): void;
+
+    /**
+     * Enables listening for the open info events of a WebSocket connection.
+     * @param { 'openInfo' } type - event indicating that the open info of a WebSocket connection is returned.
+     * @param { AsyncCallback<WebSocketOpenInfo> } callback - the callback used to return the result.
+     * @syscap SystemCapability.Communication.NetStack
+     * @stagemodelonly
+     * @since 26.0.0 dynamic
+     */
+    on(type: 'openInfo', callback: AsyncCallback<WebSocketOpenInfo>): void;
+
+    /**
+     * Enables listening for the open info events of a WebSocket connection.
+     * @param { Callback<WebSocketOpenInfo> } callback - the callback used to return the result.
+     * @syscap SystemCapability.Communication.NetStack
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    onOpenInfo(callback: Callback<WebSocketOpenInfo>): void;
+
+    /**
+     * Cancels listening for the open info events of a WebSocket connection.
+     * @param { 'openInfo' } type - event indicating that the open info of a WebSocket connection is returned.
+     * @param { AsyncCallback<WebSocketOpenInfo> } [callback] - the callback used to return the result.
+     * @syscap SystemCapability.Communication.NetStack
+     * @stagemodelonly
+     * @since 26.0.0 dynamic
+     */
+    off(type: 'openInfo', callback?: AsyncCallback<WebSocketOpenInfo>): void;
+
+    /**
+     * Cancels listening for the open info events of a WebSocket connection.
+     * @param { Callback<WebSocketOpenInfo> } [callback] - the callback used to return the result.
+     * @syscap SystemCapability.Communication.NetStack
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    offOpenInfo(callback?: Callback<WebSocketOpenInfo>): void;
 
     /**
      * Enables listening for the message events of a WebSocket connection.
@@ -1601,14 +1684,14 @@ declare namespace webSocket {
    */
   export interface WebSocketMessage {
     /**
-     * Contend of the message.
+     * Content of the message.
      * @type {string | ArrayBuffer}
      * @syscap SystemCapability.Communication.NetStack
      * @since 19 dynamic
      * @since 23 static
      */
     /**
-     * Contend of the message.
+     * Content of the message.
      * @type {string | ArrayBuffer}
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
@@ -1956,7 +2039,8 @@ declare namespace webSocket {
      * Enables listening for events that a connection from a given client has been closed.
      * @param { ClientConnectionCloseCallback } callback - the callback function when a client connection is closed.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 23 static
+     * @crossplatform
+     * @since 26.0.0 static
      */
     onWebSocketServerClose(callback: ClientConnectionCloseCallback): void;
 
@@ -1980,7 +2064,8 @@ declare namespace webSocket {
      * Cancels listening for events that a connection from a given client has been closed.
      * @param { ClientConnectionCloseCallback } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 23 static
+     * @crossplatform
+     * @since 26.0.0 static
      */
     offWebSocketServerClose(callback?: ClientConnectionCloseCallback): void;
     

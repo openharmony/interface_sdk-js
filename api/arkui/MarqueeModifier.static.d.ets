@@ -1,4 +1,5 @@
-'use static'
+
+'use static';
 /*
  * Copyright (c) 2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -19,16 +20,19 @@
  * @kit ArkUI
  */
 
-
 import { AttributeModifier } from '@ohos.arkui.component';
+
 import { MarqueeAttribute } from '@ohos.arkui.component';
 
+import { AttributeModifier } from './component/common';
+
+import { MarqueeAttribute } from './component/marquee';
 
 /**
  * Defines Marquee Modifier
  *
- * @implements { MarqueeAttribute, AttributeModifier<MarqueeAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  * @noninterop
  */

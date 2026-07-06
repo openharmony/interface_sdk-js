@@ -1,6 +1,6 @@
 'use static'
 /*
- * Copyright (c) 2025 Huawei Device Co., Ltd.
+ * Copyright (c) 2025-2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -26,7 +26,13 @@ import display from '@ohos.display';
 import screen from '@ohos.screen';
 import screenshot from '@ohos.screenshot';
 import uiExtensionHost from '@ohos.uiExtensionHost';
-import { ComponentContent } from '@ohos.arkui.node';
+import { ComponentContent,
+    NodeRenderType, RenderOptions, BuilderNode, ReactiveBuilderNode, BuildOptions, NodeController,
+    Size, NodeOffset, NodePosition, Pivot, Scale, Translation, Matrix4, Rotation, Frame, RoundRect,
+    CommandPath, ShapeMask, ShapeClip, NodeBorderRadiuses, CornerRadius, NodeEdges, edgeColors,
+    edgeWidths, borderStyles, borderRadiuses, LengthUnit, SizeT, PositionT, RenderNode, Content,
+    NodeContent
+} from '@ohos.arkui.node';
 import componentSnapshot from '@ohos.arkui.componentSnapshot';
 import componentUtils from '@ohos.arkui.componentUtils';
 import dragController from '@ohos.arkui.dragController';
@@ -34,15 +40,29 @@ import floatingBall from '@ohos.window.floatingBall';
 import PiPWindow from '@ohos.PiPWindow';
 import { sendTouchEvent, sendKeyEvent, sendMouseEvent } from '@ohos.arkui.Test';
 import uiMaterial from '@ohos.arkui.uiMaterial';
-export { promptAction, LevelOrder, ComponentContent };
+export { promptAction, LevelOrder, ComponentContent,
+    NodeRenderType, RenderOptions, BuilderNode, ReactiveBuilderNode, BuildOptions, NodeController,
+    Size, NodeOffset, NodePosition, Pivot, Scale, Translation, Matrix4, Rotation, Frame, RoundRect,
+    CommandPath, ShapeMask, ShapeClip, NodeBorderRadiuses, CornerRadius, NodeEdges, edgeColors,
+    edgeWidths, borderStyles, borderRadiuses, LengthUnit, SizeT, PositionT, RenderNode, Content,
+    NodeContent
+};
 
 export * from '@ohos.arkui.component';
+export * from '@ohos.arkui.components.SelectionContainer';
 export * from '@ohos.arkui.stateManagement';
 export * from '@ohos.arkui.advanced.Counter';
+export * from '@ohos.arkui.advanced.CounterV2';
 export * from '@ohos.arkui.advanced.SegmentButton';
 export * from '@ohos.arkui.advanced.Chip';
 export * from '@ohos.arkui.advanced.ChipGroup';
+export * from '@ohos.arkui.advanced.ChipV2';
+export * from '@ohos.arkui.advanced.ChipGroupV2';
 export * from '@ohos.arkui.advanced.SegmentButtonV2';
+export * from '@ohos.arkui.components.ArkLazyWaterFlowLayout';
+export * from '@ohos.arkui.components.ArkLazyColumnLayout';
+export { AccessibilityOptions, IconOptions } from '@ohos.arkui.component';
+
 export { GETINSPECTORBYKEY as getInspectorByKey, GETINSPECTORTREE as getInspectorTree , SENDEVENTBYKEY as sendEventByKey } from '@ohos.arkui.inspector';
 
 export { window, display, screen, screenshot, uiExtensionHost };
@@ -50,3 +70,5 @@ export { window, display, screen, screenshot, uiExtensionHost };
 export { componentSnapshot, componentUtils, dragController, sendTouchEvent, sendKeyEvent, sendMouseEvent };
 
 export { floatingBall, uiMaterial, PiPWindow };
+
+export { DatePickerComponent, DatePickerComponentOptions, DisplayMode, DateMode, TimeFormat, DatePickerComponentResult } from '@ohos.arkui.advanced.DatePickerComponent';

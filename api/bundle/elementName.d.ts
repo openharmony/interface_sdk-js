@@ -19,21 +19,22 @@
  */
 
 /**
- * Contains basic Ability information, which uniquely identifies an ability.
- * You can use this class to obtain values of the fields set in an element,
- * such as the device ID, bundle name, and ability name.
+ * The module provides element name information, which can be obtained through
+ * [Context.getElementName]{@link ./../app/context}.
  *
- * Contains basic Ability information, which uniquely identifies an ability
+ * > **NOTE**
+ * >
+ * > The APIs of this module have been deprecated since API version 9. You are advised to use
+ * > [bundleManager-ElementName]{@link elementName:ElementName} instead.
  *
- * @typedef ElementName
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @since 7 dynamiconly
  * @deprecated since 9
- * @useinstead ohos.bundle.bundleManager/bundleManager.ElementName
+ * @useinstead elementName:ElementName
  */
 export interface ElementName {
   /**
-   * device id
+   * Device ID.
    *
    * @default -
    * @syscap SystemCapability.BundleManager.BundleFramework
@@ -44,7 +45,7 @@ export interface ElementName {
   deviceId?: string;
 
   /**
-   * bundle name
+   * Bundle name.
    *
    * @default -
    * @syscap SystemCapability.BundleManager.BundleFramework
@@ -55,7 +56,7 @@ export interface ElementName {
   bundleName: string;
 
   /**
-   * ability name
+   * Ability name.
    *
    * @default ability class name.
    * @syscap SystemCapability.BundleManager.BundleFramework
@@ -66,7 +67,7 @@ export interface ElementName {
   abilityName: string;
 
   /**
-   * uri
+   * Resource ID.
    *
    * @default -
    * @syscap SystemCapability.BundleManager.BundleFramework
@@ -77,7 +78,7 @@ export interface ElementName {
   uri?: string;
 
   /**
-   * shortName
+   * Short name of the ability.
    *
    * @default -
    * @syscap SystemCapability.BundleManager.BundleFramework

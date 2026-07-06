@@ -18,35 +18,24 @@
  * @kit ArkUI
  */
 
-
-
-
 /**
  * Defines ImageSpan Modifier
  *
- * @extends ImageSpanAttribute
- * @implements AttributeModifier<ImageSpanAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform [since 20]
  * @atomicservice
- * @since 12
-*/
-/**
- * Defines ImageSpan Modifier
- *
- * @extends ImageSpanAttribute
- * @implements AttributeModifier<ImageSpanAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20 dynamic
+ * @since 12 dynamic
+ * @noninterop
  */
 export declare class ImageSpanModifier extends ImageSpanAttribute implements AttributeModifier<ImageSpanAttribute> {
 
   /**
    * Defines the normal update attribute function.
-   * 
+   *
    * @param { ImageSpanAttribute } instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2023-2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -14,97 +14,65 @@
  */
 
 /**
- * @file Defines the auto ad component
+ * @file Carousel Ad Component
  * @kit AdsKit
  */
 
 import advertising from './@ohos.advertising';
 
 /**
- * Defines the auto ad component.
+ * The AutoAdComponent module provides the capability of displaying carousel ads.
+ *
  * @syscap SystemCapability.Advertising.Ads
+ * @atomicservice [since 12]
  * @since 11
- */
-/**
- * Defines the auto ad component.
- * @syscap SystemCapability.Advertising.Ads
- * @atomicservice
- * @since 12
  */
 @Component
 declare struct AutoAdComponent {
-    /**
-     * The parameters in the request for loading ads.
-     * @type { AdRequestParams }
-     * @syscap SystemCapability.Advertising.Ads
-     * @since 11
-     */
-    /**
-     * The parameters in the request for loading ads.
-     * @type { AdRequestParams }
-     * @syscap SystemCapability.Advertising.Ads
-     * @atomicservice
-     * @since 12
-     */
-    adParam: advertising.AdRequestParams;
+  /**
+   * Ad request parameters.
+   *
+   * @syscap SystemCapability.Advertising.Ads
+   * @atomicservice [since 12]
+   * @since 11
+   */
+  adParam: advertising.AdRequestParams;
 
-    /**
-     * The ad options of loading ads.
-     * @type { AdOptions }
-     * @syscap SystemCapability.Advertising.Ads
-     * @since 11
-     */
-    /**
-     * The ad options of loading ads.
-     * @type { AdOptions }
-     * @syscap SystemCapability.Advertising.Ads
-     * @atomicservice
-     * @since 12
-     */
-    adOptions: advertising.AdOptions;
+  /**
+   * Ad configuration options.
+   *
+   * @syscap SystemCapability.Advertising.Ads
+   * @atomicservice [since 12]
+   * @since 11
+   */
+  adOptions: advertising.AdOptions;
 
-    /**
-     * The interaction options info for displaying ads.
-     * @type { AdDisplayOptions }
-     * @syscap SystemCapability.Advertising.Ads
-     * @since 11
-     */
-    /**
-     * The interaction options info for displaying ads.
-     * @type { AdDisplayOptions }
-     * @syscap SystemCapability.Advertising.Ads
-     * @atomicservice
-     * @since 12
-     */
-    displayOptions: advertising.AdDisplayOptions;
+  /**
+   * Ad display parameters.
+   *
+   * @syscap SystemCapability.Advertising.Ads
+   * @atomicservice [since 12]
+   * @since 11
+   */
+  displayOptions: advertising.AdDisplayOptions;
 
-    /**
-     * The interaction listener to be registered that use to show ads.
-     * @type { AdInteractionListener }
-     * @syscap SystemCapability.Advertising.Ads
-     * @since 11
-     */
-    /**
-     * The interaction listener to be registered that use to show ads.
-     * @type { AdInteractionListener }
-     * @syscap SystemCapability.Advertising.Ads
-     * @atomicservice
-     * @since 12
-     */
-    interactionListener: advertising.AdInteractionListener;
+  /**
+   * Ad status change callback.
+   *
+   * @syscap SystemCapability.Advertising.Ads
+   * @atomicservice [since 12]
+   * @since 11
+   */
+  interactionListener: advertising.AdInteractionListener;
 
-    /**
-     * The method to build auto ad component.
-     * @syscap SystemCapability.Advertising.Ads
-     * @since 11
-     */
-    /**
-     * The method to build auto ad component.
-     * @syscap SystemCapability.Advertising.Ads
-     * @atomicservice
-     * @since 12
-     */
-    build(): void;
+  /**
+   * A constructor used to create an **AutoAdComponent** object.
+   *
+   * @syscap SystemCapability.Advertising.Ads
+   * @atomicservice [since 12]
+   * @since 11
+   */
+  build(): void;
 }
 
 export { AutoAdComponent };

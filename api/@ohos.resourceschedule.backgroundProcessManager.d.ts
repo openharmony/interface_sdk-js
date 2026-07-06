@@ -14,30 +14,34 @@
  */
 
 /**
- * @file
+ * @file Background Child Process Management
  * @kit BackgroundTasksKit
  */
 
 /**
- * Declares the BackgroundProcessManager interfaces.
+ * The **backgroundProcessManager** module provides APIs for background child process management. You can use these APIs
+ * to suppress and unsuppress child processes to prevent child processes from occupying too many system resources and 
+ * causing system stuttering. The APIs take effect only for the child processes created through 
+ * [OH_Ability_StartNativeChildProcess](docroot://reference/apis-ability-kit/capi-native-child-process-h.md#oh_ability_startnativechildprocess)
+ * .
  *
- * @namespace backgroundProcessManager
  * @syscap SystemCapability.Resourceschedule.BackgroundProcessManager
  * @since 17 dynamic
  * @since 23 static
  */
 declare namespace backgroundProcessManager {
     /**
-     * Describes the level of BackgroundProcessManager priority.
+     * Specifies the child process priority.
      *
-     * @enum { int }
      * @syscap SystemCapability.Resourceschedule.BackgroundProcessManager
      * @since 17 dynamic
      * @since 23 static
      */
     export enum ProcessPriority {
         /**
-         * Means the process has stopped working and in the background
+         * Compared with **PROCESS_INACTIVE**, **PROCESS_LOWER** has a more significant suppression effect and obtains 
+         * fewer CPU resources. You are advised to set this priority when executing background child processes that 
+         * cannot be perceived by users, such as background image-text pages.
          *
          * @syscap SystemCapability.Resourceschedule.BackgroundProcessManager
          * @since 17 dynamic
@@ -46,7 +50,8 @@ declare namespace backgroundProcessManager {
         PROCESS_BACKGROUND = 1,
 
         /**
-         * Means the process is working in the background
+         * You are advised to set this priority when executing background child processes that can be perceived by users
+         * , such as audio playback and navigation.
          *
          * @syscap SystemCapability.Resourceschedule.BackgroundProcessManager
          * @since 17 dynamic
@@ -56,17 +61,16 @@ declare namespace backgroundProcessManager {
     }
 
     /**
-     * Description the status of the power saving mode.
+     * Specifies the power saving mode.
      *
-     * @enum { int }
      * @syscap SystemCapability.Resourceschedule.BackgroundProcessManager
      * @since 20 dynamic
      * @since 23 static
      */
     export enum PowerSaveMode {
         /**
-         * Means the process request not to enter power saving mode
-         * This setting may be overridden by settings in Task Manager
+         * Efficiency mode. Applications set to this mode will not enter the power saving mode, where fewer CPU 
+         * resources are available.
          *
          * @syscap SystemCapability.Resourceschedule.BackgroundProcessManager
          * @since 20 dynamic
@@ -74,8 +78,8 @@ declare namespace backgroundProcessManager {
          */
         EFFICIENCY_MODE = 1,
 
-        /** 
-         * Means the process operating mode follows the system and may enter power saving mode
+        /**
+         * Default mode. Applications set to this mode may follow the system to enter the power saving mode.
          *
          * @syscap SystemCapability.Resourceschedule.BackgroundProcessManager
          * @since 20 dynamic
@@ -85,11 +89,16 @@ declare namespace backgroundProcessManager {
     }
 
     /**
-     * Set the priority of process.
+     * Sets the child process priority. After a child process is suppressed, the CPU resources that can be obtained will
+     * be limited. If the scheduling policy of the main process changes, for example, from the background to the 
+     * foreground, the child process changes with the main process. To suppress the child process, call this API again.
      *
-     * @param { int } pid - Indicates the pid of the process to be set.
-     * @param { ProcessPriority } priority - Indicates the priority to set. Specific priority can be referenced ProcessPriority
-     * @returns { Promise<void> } The promise returned by the function.
+     * @param { int } pid - ID of the child process to be suppressed, which is the **pid** parameter after the child
+     *     process is created through the
+     *     [OH_Ability_StartNativeChildProcess](docroot://reference/apis-ability-kit/capi-native-child-process-h.md#oh_ability_startnativechildprocess)
+     *     API.
+     * @param { ProcessPriority } priority - Suppression priority.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: priority is out of range.
      * @syscap SystemCapability.Resourceschedule.BackgroundProcessManager
      * @since 17 dynamic
@@ -98,10 +107,14 @@ declare namespace backgroundProcessManager {
     function setProcessPriority(pid: int, priority: ProcessPriority): Promise<void>;
 
     /**
-     * Reset the priority of process.
+     * Unsuppresses the child process. In this case, the child process follows the scheduling policy of the main 
+     * process. If the scheduling policy of the main process changes, for example, from the background to the foreground
+     * , the child process changes with the main process. The effect is the same as calling **resetProcessPriority**.
      *
-     * @param { int } pid - Indicates the pid of the process to be reset.
-     * @returns { Promise<void> } The promise returned by the function.
+     * @param { int } pid - ID of the child process, which is the **pid** parameter of the
+     *     [OH_Ability_StartNativeChildProcess](docroot://reference/apis-ability-kit/capi-native-child-process-h.md#oh_ability_startnativechildprocess)
+     *     API.
+     * @returns { Promise<void> } Promise that returns no value.
      * @syscap SystemCapability.Resourceschedule.BackgroundProcessManager
      * @since 17 dynamic
      * @since 23 static
@@ -109,17 +122,24 @@ declare namespace backgroundProcessManager {
     function resetProcessPriority(pid: int): Promise<void>;
 
     /**
-     * Set the power saving mode of process. The setting may fail due to user setting reasons or
-     * <br>  system scheduling reasons.
+     * Sets the power saving mode for a process. This API uses a promise to return the result.
+     * 
+     * You can set to enter the power saving mode when:
+     * 
+     * - The application is not focused, and there are no audio operations or UI updates.
+     * - The application cannot obtain the power lock through the system framework.
+     * - The application needs to perform time-consuming computing tasks, such as compression, decompression, and 
+     * compilation, which are significantly restricted by CPU resources. (In this case, the power saving mode will be 
+     * enabled forcibly.)
+     *
      * @permission ohos.permission.BACKGROUND_MANAGER_POWER_SAVE_MODE
-     * @param { int } pid - Indicates the pid of the power saving mode to be set.
-     * @param { PowerSaveMode } powerSaveMode - Indicates the power saving mode that needs to be set.
-     * <br> For details, please refer to PowerSaveModeStatus.
-     * @returns { Promise<void> } The promise returned by the function.
+     * @param { int } pid - Process ID.
+     * @param { PowerSaveMode } powerSaveMode - Power saving mode.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 31800002 - Parameter error. Possible causes:
-     * <br>  1. Mandatory parameters are left unspecified;
-     * <br>  2. Incorrect parameter types; 3. PowerSaveMode status is out of range.
+     *     <br>  1. Mandatory parameters are left unspecified;
+     *     <br>  2. Incorrect parameter types; 3. PowerSaveMode status is out of range.
      * @throws { BusinessError } 31800003 - Setup error, This setting is overridden by settings in Task Manager
      * @throws { BusinessError } 31800004 - The setting failed due to system scheduling reasons.
      * @throws { BusinessError } 801 - Capability not supported.
@@ -130,14 +150,15 @@ declare namespace backgroundProcessManager {
     function setPowerSaveMode(pid: int, powerSaveMode: PowerSaveMode): Promise<void>;
 
     /**
-     * Check if the process is in power saving mode.
+     * Queries whether the process is in power saving mode. This API uses a promise to return the result.
      *
      * @permission ohos.permission.BACKGROUND_MANAGER_POWER_SAVE_MODE
-     * @param { int } pid - Indicates the process to be checked is the pid of the power saving mode.
-     * @returns { Promise<boolean> } The promise returns whether it is in power saving mode.
+     * @param { int } pid - Process ID.
+     * @returns { Promise<boolean> } Promise used to return the query result. The value **true** means that the process
+     *     is in power saving mode; the value **false** means the opposite.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 31800002 - Parameter error. Possible causes:
-     * <br> 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types;
+     *     <br> 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types;
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Resourceschedule.BackgroundProcessManager
      * @since 20 dynamic
@@ -146,11 +167,11 @@ declare namespace backgroundProcessManager {
     function isPowerSaveMode(pid: int): Promise<boolean>;
 
     /**
-     * Get the power saving mode of the process.
+     * Obtains the power saving mode of a process. This API uses a promise to return the result.
      *
      * @permission ohos.permission.BACKGROUND_MANAGER_POWER_SAVE_MODE
-     * @param { int } pid - Indicates the process to be checked is the pid of the power saving mode.
-     * @returns { Promise<PowerSaveMode> } The promise returns the power saving mode of the process.
+     * @param { int } pid - Process ID.<br>Value range: any integer greater than 0.
+     * @returns { Promise<PowerSaveMode> } Promise that returns the power saving mode of a process.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 31800002 - Parameter error. Possible causes:
      *     1. Mandatory parameters are left unspecified; 2. Incorrect parameter types;

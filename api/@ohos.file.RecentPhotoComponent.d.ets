@@ -116,12 +116,12 @@ export declare class RecentPhotoOptions {
   /**
    * Support set period time
    *
-   * @type { ?int }
+   * @type { ?number }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
    * @since 12 dynamic
    */
-  period?: int;
+  period?: number;
 
   /**
    * The Type of the file in the recent photo window.
@@ -175,12 +175,12 @@ export declare class RecentPhotoInfo {
   /**
    * The dateTaken of photos or videos
    *
-   * @type { ?long }
+   * @type { ?number }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
    * @since 13 dynamic
    */
-  dateTaken?: long;
+  dateTaken?: number;
 
   /**
    * The identifier of photos or videos
@@ -196,7 +196,7 @@ export declare class RecentPhotoInfo {
 /**
  * Enumeration of PhotoSource type
  *
- * @enum { int } PhotoSource
+ * @enum { number } PhotoSource
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @atomicservice
  * @since 12 dynamic

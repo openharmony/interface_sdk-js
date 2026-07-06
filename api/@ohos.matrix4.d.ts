@@ -19,523 +19,289 @@
  */
 
 /**
- * Used to do matrix operations
+ * Provides matrix transformation capabilities for components, including translation, rotation, and scaling. For 
+ * details, see [Transformation]{@link common}.
+ * 
+ * **Matrix4** can be used in the following scenarios:
+ * 
+ * In [Transformation]{@link common}, the [transform]{@link CommonMethod#transform(transform: Optional<object>)} API 
+ * uses the **Matrix4** object to display the matrix transformation in two-dimensional transformation, and the 
+ * [transform3D]{@link CommonMethod#transform3D} API uses the **Matrix4** object to set the three-dimensional 
+ * transformation matrix for a component.
  *
- * @namespace matrix4
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * Used to do matrix operations
- *
- * @namespace matrix4
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 10
- */
-/**
- * Used to do matrix operations
- *
- * @namespace matrix4
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
  */
 declare namespace matrix4 {
   /**
-   * Set translation parameters
+   * Describes the translation parameters.
    *
-   * @interface TranslateOption
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Set translation parameters
-   *
-   * @interface TranslateOption
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Set translation parameters
-   *
-   * @interface TranslateOption
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   interface TranslateOption {
     /**
-     * Indicates the translation distance of the x-axis, in px.
-     *
-     * @type { ?number }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 7
-     */
-    /**
-     * Indicates the translation distance of the x-axis, in px.
-     *
-     * @type { ?number }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @since 10
-     */
-    /**
      * Translation distance along the x-axis.
-     * <br>Unit: px.
-     * <br>Default value: **0**.
-     * <br>Value range: (-∞, +∞).
+     * 
+     * Unit: px
+     * 
+     * Default value: **0**
+     * 
+     * Value range: (-∞, +∞)
      *
-     * @type { ?number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 7 dynamic
      */
     x?: number;
 
     /**
-     * Indicates the translation distance of the y-axis, in px.
-     *
-     * @type { ?number }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 7
-     */
-    /**
-     * Indicates the translation distance of the y-axis, in px.
-     *
-     * @type { ?number }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @since 10
-     */
-    /**
      * Translation distance along the y-axis.
-     * <br>Unit: px.
-     * <br>Default value: **0**.
-     * <br>Value range: (-∞, +∞).
+     * 
+     * Unit: px
+     * 
+     * Default value: **0**
+     * 
+     * Value range: (-∞, +∞)
      *
-     * @type { ?number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 7 dynamic
      */
     y?: number;
 
     /**
-     * Indicates the translation distance of the z-axis, in px.
-     *
-     * @type { ?number }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 7
-     */
-    /**
-     * Indicates the translation distance of the z-axis, in px.
-     *
-     * @type { ?number }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @since 10
-     */
-    /**
      * Translation distance along the z-axis.
-     * <br>Unit: px.
-     * <br>Default value: **0**.
-     * <br>Value range: (-∞, +∞).
+     * 
+     * Unit: px
+     * 
+     * Default value: **0**
+     * 
+     * Value range: (-∞, +∞)
      *
-     * @type { ?number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 7 dynamic
      */
     z?: number;
   }
 
   /**
-   * Set scaling parameters
+   * Describes the scale parameters.
    *
-   * @interface ScaleOption
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Set scaling parameters
-   *
-   * @interface ScaleOption
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Set scaling parameters
-   *
-   * @interface ScaleOption
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   interface ScaleOption {
     /**
-     * Zoom factor of the x-axis.
-     *
-     * @type { ?number }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 7
-     */
-    /**
-     * Zoom factor of the x-axis.
-     *
-     * @type { ?number }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @since 10
-     */
-    /**
      * Scaling multiple along the x-axis. x > 1: The image is scaled up along the x-axis.
-     * <br>0 < x < 1: The image is scaled down along the x-axis.
-     * <br>x < 0: The image is scaled in the reverse direction of the x-axis.
-     * <br>Default value: **1**.
-     * <br>Value range: (-∞, +∞).
+     * 
+     * 0 < x < 1: The image is scaled down along the x-axis.
+     * 
+     * x < 0: The image is scaled in the reverse direction along the x-axis.
+     * 
+     * Default value: **1**
+     * 
+     * Value range: (-∞, +∞)
      *
-     * @type { ?number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 7 dynamic
      */
     x?: number;
 
     /**
-     * Zoom factor of the y-axis.
-     *
-     * @type { ?number }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 7
-     */
-    /**
-     * Zoom factor of the y-axis.
-     *
-     * @type { ?number }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @since 10
-     */
-    /**
      * Scaling multiple along the y-axis. y > 1: The image is scaled up along the y-axis.
-     * <br>0 < y < 1: The image is scaled down along the y-axis.
-     * <br>y < 0: The image is scaled in the reverse direction of the y-axis.
-     * <br>Default value: **1**.
-     * <br>Value range: (-∞, +∞).
+     * 
+     * 0 < y < 1: The image is scaled down along the y-axis.
+     * 
+     * y < 0: The image is scaled in the reverse direction along the y-axis.
+     * 
+     * Default value: **1**
+     * 
+     * Value range: (-∞, +∞)
      *
-     * @type { ?number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 7 dynamic
      */
     y?: number;
 
     /**
-     * Zoom factor of the z-axis.
-     *
-     * @type { ?number }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 7
-     */
-    /**
-     * Zoom factor of the z-axis.
-     *
-     * @type { ?number }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @since 10
-     */
-    /**
      * Scaling multiple along the z-axis. z > 1: The image is scaled up along the z-axis.
-     * <br>0 < z < 1: The image is scaled down along the z-axis.
-     * <br>z < 0: The image is scaled in the reverse direction of the z-axis.
-     * <br>Default value: **1**.
-     * <br>Value range: (-∞, +∞).
+     * 
+     * 0 < z < 1: The image is scaled down along the z-axis.
+     * 
+     * z < 0: The image is scaled in the reverse direction along the z-axis.
+     * 
+     * Default value: **1**
+     * 
+     * Value range: (-∞, +∞)
      *
-     * @type { ?number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 7 dynamic
      */
     z?: number;
 
     /**
-     * Transform the x-axis coordinate of the center point.
+     * X-coordinate of the center point.
+     * 
+     * Unit: px
+     * 
+     * Default value: X-coordinate of the component center
+     * 
+     * Value range: (-∞, +∞)
      *
-     * @type { ?number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 7
-     */
-    /**
-     * Transform the x-axis coordinate of the center point.
-     *
-     * @type { ?number }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * X coordinate of the center point.
-     * <br>Unit: px.
-     * <br>Default value: X-coordinate of the component center.
-     * <br>Value range: (-∞, +∞).
-     *
-     * @type { ?number }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 7 dynamic
      */
     centerX?: number;
 
     /**
-     * Transform the y-axis coordinate of the center point.
+     * Y-coordinate of the center point.
+     * 
+     * Unit: px
+     * 
+     * Default value: Y-coordinate of the component center
+     * 
+     * Value range: (-∞, +∞)
      *
-     * @type { ?number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 7
-     */
-    /**
-     * Transform the y-axis coordinate of the center point.
-     *
-     * @type { ?number }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Y coordinate of the center point.
-     * <br>Unit: px.
-     * <br>Default value: Y-coordinate of the component center.
-     * <br>Value range: (-∞, +∞).
-     *
-     * @type { ?number }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 7 dynamic
      */
     centerY?: number;
   }
 
   /**
-   * Set Rotation Parameters.
+   * Describes the rotation parameters.
    *
-   * @interface RotateOption
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Set Rotation Parameters.
-   *
-   * @interface RotateOption
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Set Rotation Parameters.
-   *
-   * @interface RotateOption
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   interface RotateOption {
     /**
-     * Axis of rotation vector x coordinate.
+     * X-coordinate of the rotation axis vector.
+     * 
+     * Default value: **0**
+     * 
+     * Value range: (-∞, +∞)
      *
-     * @type { ?number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 7
-     */
-    /**
-     * Axis of rotation vector x coordinate.
-     *
-     * @type { ?number }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * X coordinate of the rotation axis vector.
-     * <br>Default value: **0**.
-     * <br>Value range: (-∞, +∞).
-     *
-     * @type { ?number }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 7 dynamic
      */
     x?: number;
 
     /**
-     * Axis of rotation vector y coordinate.
+     * Y-coordinate of the rotation axis vector.
+     * 
+     * Default value: **0**
+     * 
+     * Value range: (-∞, +∞)
      *
-     * @type { ?number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 7
-     */
-    /**
-     * Axis of rotation vector y coordinate.
-     *
-     * @type { ?number }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Y coordinate of the rotation axis vector.
-     * <br>Default value: **0**.
-     * <br>Value range: (-∞, +∞).
-     *
-     * @type { ?number }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 7 dynamic
      */
     y?: number;
 
     /**
-     * Axis of rotation vector z coordinate.
+     * Z-coordinate of the rotation axis vector.
+     * 
+     * Default value: **0**
+     * 
+     * Value range: (-∞, +∞)
+     * 
+     * **NOTE**
+     * 
+     * The rotation axis vector is valid only when at least one of **x**, **y**, and **z** is not 0.
      *
-     * @type { ?number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 7
-     */
-    /**
-     * Axis of rotation vector z coordinate.
-     *
-     * @type { ?number }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Z coordinate of the rotation axis vector.
-     * <br>Default value: **0**.
-     * <br>Value range: (-∞, +∞).
-     * <br>**NOTE**<br>The rotation axis vector is valid only when at least one of **x**, **y**, and **z** is not 0.
-     *
-     * @type { ?number }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 7 dynamic
      */
     z?: number;
 
     /**
-     * Transform the x-axis coordinate of the center point.
-     *
-     * @type { ?number }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 7
-     */
-    /**
-     * Transform the x-axis coordinate of the center point.
-     *
-     * @type { ?number }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @since 10
-     */
-    /**
      * Additional x-axis offset of the transformation center relative to the component's anchor.
-     * <br>Unit: px.
-     * <br>Default value: **0**.
-     * <p>**NOTE**:
-     * <br>The value **0** indicates that the transformation center coincides with the component's x-axis anchor. 
-     * </p>
+     * 
+     * Unit: px
+     * 
+     * Default value: **0**
+     * 
+     * **NOTE**
+     * 
+     * The value **0** indicates that the transformation center coincides with the component's x-axis anchor. For 
+     * details about the implementation, see 
+     * [Example 3: Implementing Rotation Around a Center Point](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-transformation.md#example-3-implementing-rotation-around-a-center-point).
      *
-     * @type { ?number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 7 dynamic
      */
     centerX?: number;
 
     /**
-     * Transform the y-axis coordinate of the center point.
-     *
-     * @type { ?number }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 7
-     */
-    /**
-     * Transform the y-axis coordinate of the center point.
-     *
-     * @type { ?number }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @since 10
-     */
-    /**
      * Additional y-axis offset of the transformation center relative to the component's anchor.
-     * <br>Unit: px.
-     * <br>Default value: **0**.
-     * <p>**NOTE**
-     * <br>The value **0** indicates that the transformation center coincides with the component's y-axis anchor.
-     * </p>
+     * 
+     * Unit: px
+     * 
+     * Default value: **0**
+     * 
+     * **NOTE**
+     * 
+     * The value **0** indicates that the transformation center coincides with the component's y-axis anchor. For 
+     * details about the implementation, see 
+     * [Example 3: Implementing Rotation Around a Center Point](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-transformation.md#example-3-implementing-rotation-around-a-center-point).
      *
-     * @type { ?number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 7 dynamic
      */
     centerY?: number;
 
     /**
      * Rotation angle.
+     * 
+     * Default value: **0**
      *
-     * @type { ?number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 7
-     */
-    /**
-     * Rotation angle.
-     *
-     * @type { ?number }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Rotation angle.
-     * <br>Default value: **0**.
-     *
-     * @type { ?number }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 7 dynamic
      */
     angle?: number;
   }
 
-
   /**
-   * Set poly to poly point.
+   * Defines the data structure of a coordinate point.
    *
-   * @interface Point
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -543,10 +309,12 @@ declare namespace matrix4 {
   export interface Point {
 
     /**
-     * Point x.
+     * X-coordinate.
+     * 
+     * Value range: (-∞, +∞)
      *
-     * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
@@ -554,10 +322,12 @@ declare namespace matrix4 {
     x: number;
 
     /**
-     * Point y.
+     * Y-coordinate.
+     * 
+     * Value range: (-∞, +∞)
      *
-     * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
@@ -566,10 +336,10 @@ declare namespace matrix4 {
   }
 
   /**
-   * Set poly to poly point options.
+   * Describes the configuration options for polygon-to-polygon transformation mapping.
    *
-   * @interface PolyToPolyOptions
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -577,10 +347,10 @@ declare namespace matrix4 {
   export interface PolyToPolyOptions {
 
     /**
-     * Array of point coordinates for the source polygon.
+     * Coordinates of the source point.
      *
-     * @type { Array<Point> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
@@ -588,10 +358,15 @@ declare namespace matrix4 {
     src: Array<Point>;
 
     /**
-     * Start point index of the source polygon, which defaults to 0.
-     * @type { ?number }
+     * Start index of the source point coordinates.
+     * 
+     * Default value: **0**.
+     * 
+     * Value range: [0, +∞).
+     *
      * @default 0
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
@@ -599,10 +374,10 @@ declare namespace matrix4 {
     srcIndex?: number;
 
     /**
-     * Array of point coordinates for the target polygon.
+     * Coordinates of the destination point.
      *
-     * @type { Array<Point> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
@@ -610,11 +385,15 @@ declare namespace matrix4 {
     dst:Array<Point>;
 
     /**
-     * Start index of the target polygon, which defaults to 0.
+     * Start index of the destination point coordinates.
+     * 
+     * Default value: **src.length/2**.
+     * 
+     * Value range: [0, +∞).
      *
-     * @type { ?number }
      * @default src.Length/2
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
@@ -622,193 +401,98 @@ declare namespace matrix4 {
     dstIndex?: number;
 
     /**
-     * The number of points to be used.
-     * If it is 0, it returns the identity matrix.
-     * If it is 1, it returns a translation matrix that changed before two points.
-     * If it is 2-4, it returns a transformation matrix.
-     * @type { ?number }
+     * Number of used points. **0**: returns an identity matrix. **1**: returns a translation matrix. 2-4: returns a 
+     * transformation matrix.
+     * 
+     * Default value: **0**.
+     * 
+     * Value range: [0, +∞).
+     *
      * @default 0
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
      */
     pointCount?:number;
-
   }
   /**
-   * Matrix4Transit.
+   * Implements a **Matrix4Transit** object.
    *
-   * @interface Matrix4Transit
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Matrix4Transit.
-   *
-   * @interface Matrix4Transit
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Matrix4Transit.
-   *
-   * @interface Matrix4Transit
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   interface Matrix4Transit {
     /**
-     * Copy function of Matrix, which can copy a copy of the current matrix object.
+     * Copies this matrix object.
      *
-     * @returns { Matrix4Transit } Return to Matrix4Transit
+     * @returns { Matrix4Transit } Copy object of the current matrix.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 7
-     */
-    /**
-     * Copy function of Matrix, which can copy a copy of the current matrix object.
-     *
-     * @returns { Matrix4Transit } Return to Matrix4Transit
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Copy function of Matrix, which can copy a copy of the current matrix object.
-     *
-     * @returns { Matrix4Transit } Return to Matrix4Transit
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 7 dynamic
      */
     copy(): Matrix4Transit;
 
     /**
-     * The inverse function of Matrix returns an inverse matrix of the current matrix object, that is, the effect is exactly the opposite.
+     * Inverts this matrix object. The matrix that calls this API will be changed.
      *
-     * @returns { Matrix4Transit } Return to Matrix4Transit
+     * @returns { Matrix4Transit } Inverse matrix object of the current matrix.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 7
-     */
-    /**
-     * The inverse function of Matrix returns an inverse matrix of the current matrix object, that is, the effect is exactly the opposite.
-     *
-     * @returns { Matrix4Transit } Return to Matrix4Transit
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * The inverse function of Matrix returns an inverse matrix of the current matrix object, that is, the effect is exactly the opposite.
-     *
-     * @returns { Matrix4Transit } Return to Matrix4Transit
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 7 dynamic
      */
     invert(): Matrix4Transit;
 
     /**
-     * Matrix superposition function, which can superpose the effects of two matrices to generate a new matrix object.
+     * Combines the effects of two matrices to generate a new matrix object. The matrix that calls this API will be 
+     * changed.
      *
-     * @param { Matrix4Transit } options
-     * @returns { Matrix4Transit } Return to Matrix4Transit
+     * @param { Matrix4Transit } options - Matrix object to be combined.
+     * @returns { Matrix4Transit } Object after matrix combination.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 7
-     */
-    /**
-     * Matrix superposition function, which can superpose the effects of two matrices to generate a new matrix object.
-     *
-     * @param { Matrix4Transit } options
-     * @returns { Matrix4Transit } Return to Matrix4Transit
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Matrix superposition function, which can superpose the effects of two matrices to generate a new matrix object.
-     *
-     * @param { Matrix4Transit } options
-     * @returns { Matrix4Transit } Return to Matrix4Transit
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 7 dynamic
      */
     combine(options: Matrix4Transit): Matrix4Transit;
 
     /**
-     * Matrix translation function, which can add the x-axis, Y-axis, or Z-axis translation effect to the current matrix.
+     * Translates this matrix object along the x, y, and z axes. The matrix that calls this API will be changed.
      *
-     * @param { TranslateOption } options
-     * @returns { Matrix4Transit } Return to Matrix4Transit
+     * @param { TranslateOption } options - Translation configuration.
+     * @returns { Matrix4Transit } Matrix object after the translation.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 7
-     */
-    /**
-     * Matrix translation function, which can add the x-axis, Y-axis, or Z-axis translation effect to the current matrix.
-     *
-     * @param { TranslateOption } options
-     * @returns { Matrix4Transit } Return to Matrix4Transit
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Matrix translation function, which can add the x-axis, Y-axis, or Z-axis translation effect to the current matrix.
-     *
-     * @param { TranslateOption } options
-     * @returns { Matrix4Transit } Return to Matrix4Transit
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 7 dynamic
      */
     translate(options: TranslateOption): Matrix4Transit;
 
     /**
-     * Scaling function of the Matrix, which can add the x-axis, Y-axis, or Z-axis scaling effect to the current matrix.
+     * Scales this matrix object along the x, y, and z axes. The matrix that calls this API will be changed.
      *
-     * @param { ScaleOption } options
-     * @returns { Matrix4Transit } Return to Matrix4Transit
+     * @param { ScaleOption } options - Scaling configuration.
+     * @returns { Matrix4Transit } Matrix object after the scaling.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 7
-     */
-    /**
-     * Scaling function of the Matrix, which can add the x-axis, Y-axis, or Z-axis scaling effect to the current matrix.
-     *
-     * @param { ScaleOption } options
-     * @returns { Matrix4Transit } Return to Matrix4Transit
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Scaling function of the Matrix, which can add the x-axis, Y-axis, or Z-axis scaling effect to the current matrix.
-     *
-     * @param { ScaleOption } options
-     * @returns { Matrix4Transit } Return to Matrix4Transit
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 7 dynamic
      */
     scale(options: ScaleOption): Matrix4Transit;
 
     /**
-     * Skew function of the Matrix, which can add the x-axis, y-axis skew effect to the current matrix.
-     * Skew function takes a generic point with coordinates (x0, y0, z0) to the point (x0 + x*y0, y0 + y*x0, z0),
-     * where x, y are fixed parameters, called the shear factors.
+     * Skews this matrix object along the x and y axes. The matrix that calls this API will be changed.
      *
-     * @param { number } x - the shear factor of x-axis.
-     * @param { number } y - the shear factor of y-axis.
-     * @returns { Matrix4Transit } Return to Matrix4Transit
+     * @param { number } x - Amount of skewing on the x-axis.
+     * @param { number } y - Amount of skewing on the y-axis.
+     * @returns { Matrix4Transit } Matrix object after the skewing.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
@@ -816,69 +500,36 @@ declare namespace matrix4 {
     skew(x: number, y: number): Matrix4Transit;
 
     /**
-     * Rotation function of the Matrix. You can add the x-axis, Y-axis, or Z-axis rotation effect to the current matrix.
+     * Rotates this matrix object along the x, y, and z axes. The matrix that calls this API will be changed.
      *
-     * @param { RotateOption } options
-     * @returns { Matrix4Transit } Return to Matrix4Transit
+     * @param { RotateOption } options - Rotation configuration.
+     * @returns { Matrix4Transit } Matrix object after the rotation.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 7
-     */
-    /**
-     * Rotation function of the Matrix. You can add the x-axis, Y-axis, or Z-axis rotation effect to the current matrix.
-     *
-     * @param { RotateOption } options
-     * @returns { Matrix4Transit } Return to Matrix4Transit
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Rotation function of the Matrix. You can add the x-axis, Y-axis, or Z-axis rotation effect to the current matrix.
-     *
-     * @param { RotateOption } options
-     * @returns { Matrix4Transit } Return to Matrix4Transit
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 7 dynamic
      */
     rotate(options: RotateOption): Matrix4Transit;
 
     /**
-     * Matrix coordinate point conversion function, which can apply the current transformation effect to a coordinate point.
+     * Applies the current transformation effect to a coordinate point.
      *
-     * @param { [number, number] } options
-     * @returns { [number, number] } Return to Matrix4Transit
+     * @param { [number, number] } options - Point to be transformed.
+     * @returns { [number, number] } Point object after matrix transformation
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 7
-     */
-    /**
-     * Matrix coordinate point conversion function, which can apply the current transformation effect to a coordinate point.
-     *
-     * @param { [number, number] } options
-     * @returns { [number, number] } Return to Matrix4Transit
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Matrix coordinate point conversion function, which can apply the current transformation effect to a coordinate point.
-     *
-     * @param { [number, number] } options
-     * @returns { [number, number] } Return to Matrix4Transit
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 7 dynamic
      */
     transformPoint(options: [number, number]): [number, number];
 
     /**
-     * Sets matrix to map src to dst.
+     * Maps the vertex coordinates of a polygon to those of another polygon.
      *
-     * @param { PolyToPolyOptions } options - polyToPoly options
-     * @returns { Matrix4Transit } Return to Matrix4Transit
+     * @param { PolyToPolyOptions } options - Parameters for mapping.
+     * @returns { Matrix4Transit } Matrix object after the mapping.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
@@ -887,96 +538,18 @@ declare namespace matrix4 {
   }
 
   /**
-   * Constructor of Matrix, which can create a fourth-order matrix based on the input parameters. The matrix is column-first.
-   *
-   * @param { [number,number,number,number,number,number,number,number,number,number,number,number,number,number,number,number] } options
-   * options indicates a fourth-order matrix
-   * The default value：
-   * [1, 0, 0, 0,
-   * 0, 1, 0, 0,
-   * 0, 0, 1, 0,
-   * 0, 0, 0, 1]
-   * @returns { Matrix4Transit } Return to Matrix4Transit
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Constructor of Matrix, which can create a fourth-order matrix based on the input parameters. The matrix is column-first.
-   *
-   * @param { [number,number,number,number,number,number,number,number,number,number,number,number,number,number,number,number] } options
-   * options indicates a fourth-order matrix
-   * The default value：
-   * [1, 0, 0, 0,
-   * 0, 1, 0, 0,
-   * 0, 0, 1, 0,
-   * 0, 0, 0, 1]
-   * @returns { Matrix4Transit } Return to Matrix4Transit
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Constructor of Matrix, which can create a fourth-order matrix based on the input parameters. The matrix is column-first.
-   *
-   * @param { [number,number,number,number,number,number,number,number,number,number,number,number,number,number,number,number] } options
-   * options indicates a fourth-order matrix
-   * The default value：
-   * [1, 0, 0, 0,
-   * 0, 1, 0, 0,
-   * 0, 0, 1, 0,
-   * 0, 0, 0, 1]
-   * Fourth-order matrix notes:
-   * m00 { number } -The x-axis scale value, the identity matrix defaults to 1.
-   * m01 { number } -The second value, the rotation of the xyz axis affects this value.
-   * m02 { number } -The third value, the rotation of the xyz axis affects this value.
-   * m03 { number } -Meaningless.
-   * m10 { number } -The fifth value, the rotation of the xyz axis affects this value.
-   * m11 { number } -The y-axis scales the value, and the identity matrix defaults to 1.
-   * m12 { number } -The 7th value, the rotation of the xyz axis affects this value.
-   * m13 { number } -Meaningless.
-   * m20 { number } -The 9th value, the rotation of the xyz axis affects this value.
-   * m21 { number } -The 10th value, xyz axis rotation affects this value.
-   * m22 { number } -The z-axis scale value, the identity matrix defaults to 1.
-   * m23 { number } -Meaningless.
-   * m30 { number } -The x-axis translation value in px, the identity matrix defaults to 0.
-   * m31 { number } -Y-axis translation value, in px, the identity matrix defaults to 0.
-   * m32 { number } -The z-axis translation value in px, the identity matrix defaults to 0.
-   * m33 { number } -It takes effect in homogeneous coordinates to produce a perspective projection effect.
-   * @returns { Matrix4Transit } Return to Matrix4Transit
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
    * Matrix constructor, which is used to create a 4 x 4 matrix with the input parameters. Column-major order is used.
    *
-   * @param { [number,number,number,number,number,number,number,number,number,number,number,number,number,number,number,number] } options
-   * A number array whose length is 16 (4 x 4). For details, see **4 x 4 matrix description**.
-   * <br>Value range of each number: (-∞, +∞).
-   * <br>Default value:<br>[1, 0, 0, 0,<br>0, 1, 0, 0,<br>0, 0, 1, 0,<br>0, 0, 0, 1].
-   * Fourth-order matrix notes:
-   * m00 { number } -Scaling value of the x-axis. The default value is **1** for the identity matrix.
-   * m01 { number } -The second value, which is affected by the rotation or tilt of the x, y, and z axes.
-   * m02 { number } -The third value, which is affected by the rotation of the x, y, and z axes.
-   * m03 { number } -The fourth value, which is affected by perspective projection.
-   * m10 { number } -The fifth value, which is affected by the rotation or tilt of the x, y, and z axes.
-   * m11 { number } -Scaling value of the y-axis. The default value is **1** for the identity matrix.
-   * m12 { number } -The seventh value, which is affected by the rotation of the x, y, and z axes.
-   * m13 { number } -The eighth value, which is affected by perspective projection.
-   * m20 { number } -The ninth value, which is affected by the rotation of the x, y, and z axes.
-   * m21 { number } -The tenth value, which is affected by the rotation of the x, y, and z axes.
-   * m22 { number } -Scaling value of the z-axis. The default value is **1** for the identity matrix.
-   * m23 { number } -The 12th value, which is affected by perspective projection.
-   * m30 { number } -Translation value of the x-axis, in px. The default value is **0** for the identity matrix.
-   * m31 { number } -Translation value of the y-axis, in px. The default value is **0** for the identity matrix.
-   * m32 { number } -Translation value of the z-axis, in px. The default value is **0** for the identity matrix.
-   * m33 { number } -Valid in homogeneous coordinates, presenting the perspective projection effect.
-   * @returns { Matrix4Transit } Return to Matrix4Transit
+   * @param {
+   *
+   *     [number,number,number,number,number,number,number,number,number,number,number,number,number,number,number,number]
+   *     } options - A number array whose length is 16 (4 x 4). For details, see **4 x 4 matrix description**.<br>Value
+   *     range of each number: (-∞, +∞)<br>Default value:<br>[1, 0, 0, 0,<br>0, 1, 0, 0,<br>0, 0, 1, 0,<br>0, 0, 0, 1]
+   * @returns { Matrix4Transit } 4 x 4 matrix object created based on the input parameters.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   function init(
     options: [
@@ -1000,35 +573,20 @@ declare namespace matrix4 {
   ): Matrix4Transit;
 
   /**
-   * Matrix initialization function, which can return an identity matrix object.
-   *
-   * @returns { Matrix4Transit } Return to Matrix4Transit
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Matrix initialization function, which can return an identity matrix object.
-   *
-   * @returns { Matrix4Transit } Return to Matrix4Transit
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
    * Constructs an identity matrix.
    *
    * @returns { Matrix4Transit } Identity matrix object.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   function identity(): Matrix4Transit;
 
   /**
-   * Copy function of Matrix, which can copy a copy of the current matrix object.
+   * Copies this matrix object.
    *
-   * @returns { Matrix4Transit } Return to Matrix4Transit
+   * @returns { Matrix4Transit } Copy object of the current matrix.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7 dynamiconly
    * @deprecated since 10
@@ -1037,9 +595,9 @@ declare namespace matrix4 {
   function copy(): Matrix4Transit;
 
   /**
-   * The inverse function of Matrix returns an inverse matrix of the current matrix object, that is, the effect is exactly the opposite.
+   * Inverts this matrix object.
    *
-   * @returns { Matrix4Transit } Return to Matrix4Transit
+   * @returns { Matrix4Transit } Inverse matrix object of the current matrix.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7 dynamiconly
    * @deprecated since 10
@@ -1048,10 +606,10 @@ declare namespace matrix4 {
   function invert(): Matrix4Transit;
 
   /**
-   * Matrix superposition function, which can superpose the effects of two matrices to generate a new matrix object.
+   * Combines the effects of two matrices to generate a new matrix object.
    *
-   * @param { Matrix4Transit } options
-   * @returns { Matrix4Transit } Return to Matrix4Transit
+   * @param { Matrix4Transit } options - Matrix object to be combined.
+   * @returns { Matrix4Transit } Matrix object after combination.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7 dynamiconly
    * @deprecated since 10
@@ -1060,10 +618,10 @@ declare namespace matrix4 {
   function combine(options: Matrix4Transit): Matrix4Transit;
 
   /**
-   * Matrix translation function, which can add the x-axis, Y-axis, or Z-axis translation effect to the current matrix.
+   * Translates this matrix object along the x, y, and z axes.
    *
-   * @param { TranslateOption } options
-   * @returns { Matrix4Transit } Return to Matrix4Transit
+   * @param { TranslateOption } options - Translation configuration.
+   * @returns { Matrix4Transit } Matrix object after translation.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7 dynamiconly
    * @deprecated since 10
@@ -1072,10 +630,10 @@ declare namespace matrix4 {
   function translate(options: TranslateOption): Matrix4Transit;
 
   /**
-   * Scaling function of the Matrix, which can add the x-axis, Y-axis, or Z-axis scaling effect to the current matrix.
+   * Scales this matrix object along the x, y, and z axes.
    *
-   * @param { ScaleOption } options
-   * @returns { Matrix4Transit } Return to Matrix4Transit
+   * @param { ScaleOption } options - Scaling configuration.
+   * @returns { Matrix4Transit } Matrix object after scaling.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7 dynamiconly
    * @deprecated since 10
@@ -1084,10 +642,10 @@ declare namespace matrix4 {
   function scale(options: ScaleOption): Matrix4Transit;
 
   /**
-   * Rotation function of the Matrix. You can add the x-axis, Y-axis, or Z-axis rotation effect to the current matrix.
+   * Rotates this matrix object along the x, y, and z axes.
    *
-   * @param { RotateOption } options
-   * @returns { Matrix4Transit } Return to Matrix4Transit
+   * @param { RotateOption } options - Rotation configuration.
+   * @returns { Matrix4Transit } Matrix object after rotation.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7 dynamiconly
    * @deprecated since 10
@@ -1096,10 +654,10 @@ declare namespace matrix4 {
   function rotate(options: RotateOption): Matrix4Transit;
 
   /**
-   * Matrix coordinate point conversion function, which can apply the current transformation effect to a coordinate point.
+   * Applies the current transformation effect to a coordinate point.
    *
-   * @param { [number, number] } options
-   * @returns { [number, number] } Return to Matrix4Transit
+   * @param { [number, number] } options - Point to be transformed.
+   * @returns { [number, number] } Point object after matrix transformation
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7 dynamiconly
    * @deprecated since 10

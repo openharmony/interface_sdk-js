@@ -19,28 +19,39 @@
  */
 import { AsyncCallback } from './@ohos.base';
 /**
- * Define the display mode of all kind of dialog
+ * Enumerates the display level modes of the dialog box.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 15 dynamic
  */
 export enum LevelMode {
     /**
-     * Display above all page levels.
+     * The dialog box is displayed at the root node level of the application window and remains visible during navigation.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 15 dynamic
      */
     OVERLAY = 0,
     /**
-     * Display within the current page.
+     * The dialog box is a child of the page's route/navigation and is hidden when the page is hidden.
+     * <br>**NOTE**
+     * <br>1. Currently, the dialog box can only be mounted to a **Page** or 
+     * [NavDestination](./arkui-ts/ts-basic-components-navdestination.md) node, with **Page** nodes taking precedence. 
+     * The dialog box is displayed only on top of these two page types.
+     * <br>2. In this mode, new pages can be displayed over the dialog box. When users return to the previous page, 
+     * the dialog box remains visible and its content is preserved.
+     * <br>3. In this mode, you must ensure that the target page node, such as the **Page** node, has been attached to 
+     * the tree before bringing up the dialog box; otherwise, the dialog box will not be able to be attached to the 
+     * corresponding page node.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 15 dynamic
@@ -49,28 +60,30 @@ export enum LevelMode {
 }
 
 /**
- * Define the immersive mode of all kind of dialog
+ * Enumerates the display area modes of the dialog box overlay within a page.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 15 dynamic
  */
 export enum ImmersiveMode {
     /**
-     * Mask covering the parent node.
+     * The dialog box overlay follows the layout constraints of its parent node.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 15 dynamic
      */
     DEFAULT = 0,
     /**
-     * Mask extend safe area includes status bar and navigation bar.
+     * The dialog box overlay can extend to cover the status bar and navigation bar for a more immersive look.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 15 dynamic
@@ -79,31 +92,34 @@ export enum ImmersiveMode {
 }
 
 /**
- * Defines level order.
+ * Defines the display order of a dialog box.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 18 dynamic
  */
 export class LevelOrder {
     /**
-     * Generate valid level order.
+     * Creates a dialog box level with the specified order.
      *
-     * @param { number } order - Clamp order with mininum number -100000 and maximum number 100000.
-     * @returns { LevelOrder } the order object.
-     * @static
+     * @param { number } order - Display order of the dialog box. The value range is [-100000.0, +100000.0]. 
+     *      Values outside this range are clamped to the nearest limit.
+     * @returns { LevelOrder } Current instance.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
      */
     static clamp(order: number): LevelOrder;
     /**
-     * Get the order from LevelOrder object.
+     * Obtains the display order of this dialog box.
      *
-     * @returns { number } the order number.
+     * @returns { number } Display order of the dialog box.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
@@ -112,364 +128,288 @@ export class LevelOrder {
 }
 
 /**
- * @namespace promptAction
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 9
- */
-/**
- * @namespace promptAction
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 10
- */
-/**
- * @namespace promptAction
+ * This module provides API for creating and displaying toasts, dialog boxes, and action menus.
+ * 
+ * > **NOTE**
+ * >
+ * > - This module cannot be used in the file declaration of the [UIAbility]{@link @ohos.app.ability.UIAbility}. In 
+ * > other words, the APIs of this module can be used only after a component instance is created; they cannot be called 
+ * > in the lifecycle of the UIAbility.
+ * >
+ * > - The functionality of this module depends on UI context. This means that the APIs of this module cannot be used 
+ * > where [the UI context is ambiguous](docroot://ui/arkts-global-interface.md#ambiguous-ui-context). For details, see 
+ * > [UIContext]{@link @ohos.arkui.UIContext}. It is recommended that you use the dialog box APIs provided by 
+ * > **UIContext**<!--Del-->, except for UI-less scenarios such as 
+ * > [ServiceExtensionAbility](docroot://application-models/serviceextensionability-sys.md)<!--DelEnd-->.
+ * 
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 9 dynamic
  */
 declare namespace promptAction {
     /**
-     * @typedef ShowToastOptions
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 9
-     */
-    /**
-     * @typedef ShowToastOptions
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * @typedef ShowToastOptions
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @FaAndStageModel
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      */
     interface ShowToastOptions {
         /**
          * Text to display.
+         * <br>**NOTE**
+         * <br>The default font is **'Harmony Sans'**. Other fonts are not supported.<br>
          *
-         * @type { string | Resource }
-         * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 9
-         */
-        /**
-         * Text to display.
-         *
-         * @type { string | Resource }
-         * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @crossplatform
-         * @since 10
-         */
-        /**
-         * Text to display.
-         *
-         * @type { string | Resource }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @FaAndStageModel
-         * @crossplatform
-         * @atomicservice
-         * @since 11 dynamic
+         * @crossplatform [since 10]
+         * @atomicservice [since 11]
+         * @since 9 dynamic
          */
         message: string | Resource;
         /**
-         * Duration of toast dialog box. The default value is 1500.
-         * The recommended value ranges from 1500ms to 10000ms.
-         * NOTE: A value less than 1500 is automatically changed to 1500. The maximum value is 10000ms.
+         * Duration that the toast will remain on the screen.<br>Default value: 1500 ms.<br>
+         * Value range: [1500, 10000].<br>
+         * If a value less than 1500 ms is set, the default value is used. If the value greater than 10000 ms is set, 
+         * the upper limit 10000 ms is used.
          *
-         * @type { ?number }
-         * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 9
-         */
-        /**
-         * Duration of toast dialog box. The default value is 1500.
-         * The recommended value ranges from 1500ms to 10000ms.
-         * NOTE: A value less than 1500 is automatically changed to 1500. The maximum value is 10000ms.
-         *
-         * @type { ?number }
-         * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @crossplatform
-         * @since 10
-         */
-        /**
-         * Duration of toast dialog box. The default value is 1500.
-         * The recommended value ranges from 1500ms to 10000ms.
-         * NOTE: A value less than 1500 is automatically changed to 1500. The maximum value is 10000ms.
-         *
-         * @type { ?number }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @FaAndStageModel
-         * @crossplatform
-         * @atomicservice
-         * @since 11 dynamic
+         * @crossplatform [since 10]
+         * @atomicservice [since 11]
+         * @since 9 dynamic
          */
         duration?: number;
         /**
-         * The distance between toast dialog box and the bottom of screen.
+         * Distance from the bottom of the toast to the navigation bar. If the soft keyboard is raised and 
+         * the **bottom** value is too small, the toast will automatically avoid being blocked by the soft keyboard by 
+         * moving up 80 vp above it.<br>
+         * Default value: **80vp**<br>
+         * **NOTE**<br>
+         * When there is no navigation bar at the bottom, **bottom** sets the distance from the bottom of the toast to 
+         * the bottom of the window.<br>If the **alignment** property is set, **bottom** will not take effect.
          *
-         * @type { ?(string | number) }
-         * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 9
-         */
-        /**
-         * The distance between toast dialog box and the bottom of screen.
-         *
-         * @type { ?(string | number) }
-         * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @crossplatform
-         * @since 10
-         */
-        /**
-         * The distance between toast dialog box and the bottom of screen.
-         *
-         * @type { ?(string | number) }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @FaAndStageModel
-         * @crossplatform
-         * @atomicservice
-         * @since 11 dynamic
+         * @crossplatform [since 10]
+         * @atomicservice [since 11]
+         * @since 9 dynamic
          */
         bottom?: string | number;
         /**
-         * Determine the show mode of the toast.
+         * Display level mode of the toast.<br>
+         * Default value: **ToastShowMode.DEFAULT**, which means to show the toast in the application.
          *
-         * @type { ?ToastShowMode }
          * @default ToastShowMode.DEFAULT
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 11
-         */
-        /**
-         * Determine the show mode of the toast.
-         *
-         * @type { ?ToastShowMode }
-         * @default ToastShowMode.DEFAULT
-         * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @crossplatform
-         * @atomicservice
-         * @since 12 dynamic
+         * @stagemodelonly
+         * @crossplatform [since 12]
+         * @atomicservice [since 12]
+         * @since 11 dynamic
          */
         showMode?: ToastShowMode;
         /**
-         * Defines the toast alignment of the screen.
+         * Alignment mode.<br>
+         * Default value: **undefined**. If **alignment** is not set and a navigation bar or soft keyboard is present, 
+         * the toast is automatically adjusted according to the position of the navigation bar or soft keyboard. 
+         * For details, see the description of **bottom**.<br>
+         * **NOTE**<br>
+         * The figure below shows the position of the toast in different alignment modes.<br>
+         * ![en-us_image_0001](figures/toast_alignment.PNG)<br>
+         * The text display of the toast is always left-aligned; other alignment modes are not supported.
          *
-         * @type { ?Alignment }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @crossplatform
          * @atomicservice
          * @since 12 dynamic
          */
         alignment?: Alignment;
         /**
-         * Defines the toast offset.
+         * Offset in the specified alignment mode.<br>
+         * Default value: **{ dx: 0, dy: 0 }**, indicating no offset<br>
+         * **NOTE**<br>
+         * Only values in units of px are supported. Values in other units must be converted to units of px before being 
+         * passed in. For example, to set a value in vp, convert it to px first and then pass the converted value.
          *
-         * @type { ?Offset }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @crossplatform
          * @atomicservice
          * @since 12 dynamic
          */
         offset?: Offset;
         /**
-         * Background color of toast.
+         * Background color of the toast.<br>
+         * Default value: **Color.Transparent**.<br>
+         * **NOTE**<br>
+         * The background color will be visually combined with the blur effect when both properties are set. 
+         * If the resulting effect does not match your design requirements, you can disable the blur effect entirely 
+         * by explicitly setting the **backgroundBlurStyle** property to **BlurStyle.NONE**.
          *
-         * @type { ?ResourceColor }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @crossplatform
          * @atomicservice
          * @since 12 dynamic
          */
         backgroundColor?: ResourceColor;
         /**
-         * Text color of toast.
+         * Text color of the toast.<br>Default value: **Color.Black**.
          *
-         * @type { ?ResourceColor }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @crossplatform
          * @atomicservice
          * @since 12 dynamic
          */
         textColor?: ResourceColor;
         /**
-         * Background blur Style of toast.
+         * Background blur style of the toast.<br>
+         * Default value: **BlurStyle.COMPONENT_ULTRA_THICK**<br>
+         * **NOTE**<br>
+         * Setting this parameter to **BlurStyle.NONE** disables the background blur. When **backgroundBlurStyle** is set
+         *  to a value other than **NONE**, do not set **backgroundColor**. If you do, the color display may not produce
+         *  the expected visual effect.
          *
-         * @type { ?BlurStyle }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @crossplatform
          * @atomicservice
          * @since 12 dynamic
          */
         backgroundBlurStyle?: BlurStyle;
         /**
-         * Shadow of toast.
+         * Shadow of the toast background.<br>
+         * Default value: **ShadowStyle.OUTER_DEFAULT_MD**
          *
-         * @type { ?(ShadowOptions | ShadowStyle) }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @crossplatform
          * @atomicservice
          * @since 12 dynamic
          */
         shadow?: ShadowOptions | ShadowStyle;
         /**
-         * Define whether to respond to the hover mode.
+         * Whether to respond when the device is in semi-folded mode. The value **true** means to respond when the device
+         *  is in semi-folded mode.<br>
+         * Default value: **false**, meaning not to respond when the device is in semi-folded mode.
          *
-         * @type { ?boolean }
          * @default false
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @crossplatform
          * @atomicservice
          * @since 14 dynamic
          */
         enableHoverMode?: boolean;
         /**
-         * Defines the toast's display area in hover mode.
+         * Display area of the toast in the hover state.<br>
+         * Default value: **HoverModeAreaType.BOTTOM_SCREEN**, indicating that the toast is displayed in the lower half screen
          *
-         * @type { ?HoverModeAreaType }
          * @default HoverModeAreaType.BOTTOM_SCREEN
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @crossplatform
          * @atomicservice
          * @since 14 dynamic
          */
         hoverModeArea?: HoverModeAreaType;
+        /**
+ 	     * Set system-styled materials for toast. Different materials have different effects, which can influence
+ 	     * backgroundColor, border, shadow, and other visual attributes of toast.
+ 	     *
+ 	     * @type { ?SystemUiMaterial }
+ 	     * @syscap SystemCapability.ArkUI.ArkUI.Full
+ 	     * @stagemodelonly
+ 	     * @atomicservice
+ 	     * @since 26.0.0 dynamic
+ 	     */
+ 	    systemMaterial?: SystemUiMaterial;
     }
     /**
-     * Enum for the toast showMode.
+     * Enumerates display modes for toasts. By default, the toast is displayed within the application and supports display in subwindows.
      *
      * @enum { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 11
-     */
-    /**
-     * Enum for the toast showMode.
-     *
-     * @enum { number }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @stagemodelonly
+     * @crossplatform [since 12]
+     * @atomicservice [since 12]
+     * @since 11 dynamic
      */
     export enum ToastShowMode {
         /**
-         * Toast shows in app.
+         * The toast is displayed within the application.
          *
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 11
-         */
-        /**
-         * Toast shows in app.
-         *
-         * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @crossplatform
-         * @atomicservice
-         * @since 12 dynamic
+         * @stagemodelonly
+         * @crossplatform [since 12]
+         * @atomicservice [since 12]
+         * @since 11 dynamic
          */
         DEFAULT = 0,
         /**
-         * Toast shows at the top.
+         * The toast is displayed in a subwindow.
          *
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 11
+         * @stagemodelonly
+         * @crossplatform [since 12]
+         * @atomicservice [since 12]
+         * @since 11 dynamic
           */
-        /**
-         * Toast shows at the top.
-         *
-         * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @crossplatform
-         * @atomicservice
-         * @since 12 dynamic
-         */
         TOP_MOST = 1,
         /**
          * Toast shows in SYSTEM_TOAST window.
          *
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @systemapi
+         * @stagemodelonly
          * @since 12 dynamic
          */
         SYSTEM_TOP_MOST = 2
     }
     /**
-     * @typedef Button
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 9
-     */
-    /**
-     * @typedef Button
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * @typedef Button
+     * Describes the menu item button in the action menu.
+     * 
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @FaAndStageModel
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      */
     interface Button {
         /**
-         * The text displayed in the button.
+         * Button text.
          *
-         * @type { string | Resource }
-         * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 9
-         */
-        /**
-         * The text displayed in the button.
-         *
-         * @type { string | Resource }
-         * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @crossplatform
-         * @since 10
-         */
-        /**
-         * The text displayed in the button.
-         *
-         * @type { string | Resource }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @FaAndStageModel
-         * @crossplatform
-         * @atomicservice
-         * @since 11 dynamic
+         * @crossplatform [since 10]
+         * @atomicservice [since 11]
+         * @since 9 dynamic
          */
         text: string | Resource;
         /**
-         * The foreground color of button.
+         * Text color of the button.
          *
-         * @type { string | Resource }
-         * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 9
-         */
-        /**
-         * The foreground color of button.
-         *
-         * @type { string | Resource }
-         * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @crossplatform
-         * @since 10
-         */
-        /**
-         * The foreground color of button.
-         *
-         * @type { string | Resource }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @FaAndStageModel
-         * @crossplatform
-         * @atomicservice
-         * @since 11 dynamic
+         * @crossplatform [since 10]
+         * @atomicservice [since 11]
+         * @since 9 dynamic
          */
         color: string | Resource;
         /**
-         * Define whether the button responds to Enter/Space key by default.
+         * Whether the button responds to the **Enter** key by default when the dialog box has focus and the **Tab** key
+         *  is not pressed for sequential focus navigation. If there are multiple buttons, set this parameter to **true** 
+         * for only one button. Otherwise, no button will respond. Multiple dialog boxes can automatically gain focus and
+         *  respond to user interactions in a sequential manner. **true**: The button responds to the **Enter** key by default.
+         *  **false**: The button does not respond to the **Enter** key by default.<br>Default value: **false**.
          *
-         * @type { ?boolean }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @crossplatform
          * @atomicservice
          * @since 12 dynamic
@@ -477,466 +417,439 @@ declare namespace promptAction {
         primary?: boolean;
     }
     /**
-     * @typedef ShowDialogSuccessResponse
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 9
-     */
-    /**
-     * @typedef ShowDialogSuccessResponse
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * @typedef ShowDialogSuccessResponse
+     * Describes the dialog box response result.
+     * 
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @FaAndStageModel
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      */
     interface ShowDialogSuccessResponse {
         /**
-         * Index of the selected button, starting from 0.
+         * Index of the selected button in the **buttons** array, starting from **0**.
          *
-         * @type { number }
-         * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 9
-         */
-        /**
-         * Index of the selected button, starting from 0.
-         *
-         * @type { number }
-         * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @crossplatform
-         * @since 10
-         */
-        /**
-         * Index of the selected button, starting from 0.
-         *
-         * @type { number }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @FaAndStageModel
-         * @crossplatform
-         * @atomicservice
-         * @since 11 dynamic
+         * @crossplatform [since 10]
+         * @atomicservice [since 11]
+         * @since 9 dynamic
          */
         index: number;
     }
     /**
-     * @typedef ShowDialogOptions
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 9
-     */
-    /**
-     * @typedef ShowDialogOptions
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * @typedef ShowDialogOptions
+     * Describes the options for showing the dialog box.
+     * 
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @FaAndStageModel
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      */
     interface ShowDialogOptions {
         /**
-         * Title of the text to display.
+         * Title of the dialog box.<br>Default value: **undefined**, which indicates that no title is not displayed by default.
          *
-         * @type { ?(string | Resource) }
-         * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 9
-         */
-        /**
-         * Title of the text to display.
-         *
-         * @type { ?(string | Resource) }
-         * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @crossplatform
-         * @since 10
-         */
-        /**
-         * Title of the text to display.
-         *
-         * @type { ?(string | Resource) }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @FaAndStageModel
-         * @crossplatform
-         * @atomicservice
-         * @since 11 dynamic
+         * @crossplatform [since 10]
+         * @atomicservice [since 11]
+         * @since 9 dynamic
          */
         title?: string | Resource;
         /**
-         * Text body.
+         * Text body.<br>Default value: **undefined**, which indicates that no content is displayed by default.
          *
-         * @type { ?(string | Resource) }
-         * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 9
-         */
-        /**
-         * Text body.
-         *
-         * @type { ?(string | Resource) }
-         * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @crossplatform
-         * @since 10
-         */
-        /**
-         * Text body.
-         *
-         * @type { ?(string | Resource) }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @FaAndStageModel
-         * @crossplatform
-         * @atomicservice
-         * @since 11 dynamic
+         * @crossplatform [since 10]
+         * @atomicservice [since 11]
+         * @since 9 dynamic
          */
         message?: string | Resource;
         /**
-         * Array of buttons in the dialog box.
-         * The array structure is {text:'button', color: '#666666'}.
-         * One to three buttons are supported.
-         * The first button is of the positiveButton type, the second is of the negativeButton type, and the third is of the neutralButton type.
+         * Array of buttons in the dialog box. 
+         * The array structure is {text:'button',&nbsp;color:&nbsp;'\#666666'}. More than one button is supported.
          *
-         * @type { ?Array<Button> }
-         * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 9
-         */
-        /**
-         * Array of buttons in the dialog box.
-         * The array structure is {text:'button', color: '#666666'}.
-         * More than one buttons are supported.
-         *
-         * @type { ?Array<Button> }
-         * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @crossplatform
-         * @since 10
-         */
-        /**
-         * Array of buttons in the dialog box.
-         * The array structure is {text:'button', color: '#666666'}.
-         * More than one buttons are supported.
-         *
-         * @type { ?Array<Button> }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @FaAndStageModel
-         * @crossplatform
-         * @atomicservice
-         * @since 11 dynamic
+         * @crossplatform [since 10]
+         * @atomicservice [since 11]
+         * @since 9 dynamic
          */
         buttons?: Array<Button>;
         /**
-         * Mask Region of dialog. The size can't exceed the main window.
+         * Mask area of the dialog box. Events within the mask area are blocked, while events outside the mask area are 
+         * transmitted.<br>
+         * Default value: **{ x: 0, y: 0, width: '100%', height: '100%' }**<br>
+         * **NOTE**<br>
+         * **maskRect** does not take effect when **showInSubWindow** is set to **true**.<br>
+         * If only some properties in [Rectangle](arkui-ts/ts-methods-alert-dialog-box.md#rectangle8) are set, the unset 
+         * properties default to 0.
          *
-         * @type { ?Rectangle }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @crossplatform
-         * @since 10
-         */
-        /**
-         * Mask Region of dialog. The size can't exceed the main window.
-         *
-         * @type { ?Rectangle }
-         * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @crossplatform
-         * @atomicservice
-         * @since 11 dynamic
+         * @atomicservice [since 11]
+         * @since 10 dynamic
          */
         maskRect?: Rectangle;
         /**
-         * Defines the dialog alignment of the screen.
+         * Alignment mode of the dialog box in the vertical direction.<br>
+         * Default value: **DialogAlignment.Default**<br>
+         * **NOTE**<br>
+         * If **showInSubWindow** is set to **true** in **UIExtension**, the dialog box is aligned with the host window 
+         * based on **UIExtension**.
          *
-         * @type { ?DialogAlignment }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @crossplatform
-         * @since 10
-         */
-        /**
-         * Defines the dialog alignment of the screen.
-         *
-         * @type { ?DialogAlignment }
-         * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @crossplatform
-         * @atomicservice
-         * @since 11 dynamic
+         * @atomicservice [since 11]
+         * @since 10 dynamic
          */
         alignment?: DialogAlignment;
         /**
-         * Defines the dialog offset.
+         * Offset of the dialog box relative to the alignment position.<br>
+         * Default value: **{&nbsp;dx:&nbsp;0&nbsp;,&nbsp;dy:&nbsp;0&nbsp;}**
          *
-         * @type { ?Offset }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @crossplatform
-         * @since 10
-         */
-        /**
-         * Defines the dialog offset.
-         *
-         * @type { ?Offset }
-         * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @crossplatform
-         * @atomicservice
-         * @since 11 dynamic
+         * @atomicservice [since 11]
+         * @since 10 dynamic
          */
         offset?: Offset;
         /**
-         * Whether to display in the sub window.
+         * Whether to show the dialog box in a subwindow when the dialog box needs to be displayed outside the main window. 
+         * <br>**true**: The dialog box is shown in a subwindow.
+         * <br>**false** (default): The dialog box is displayed within the application, not in a separate subwindow.
+         * <br>Note: A dialog box whose **showInSubWindow** attribute is **true** cannot trigger the display of another 
+         * dialog box whose **showInSubWindow** attribute is also **true**.
          *
-         * @type { ?boolean }
          * @default false
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @crossplatform
-         * @since 11
-         */
-        /**
-         * Whether to display in the sub window.
-         *
-         * @type { ?boolean }
-         * @default false
-         * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @crossplatform
-         * @atomicservice
-         * @since 12 dynamic
+         * @atomicservice [since 12]
+         * @since 11 dynamic
          */
         showInSubWindow?: boolean;
         /**
-         * Whether it is a modal dialog
-         * @type { ?boolean }
+         * Whether the dialog box is a modal, which has a mask applied and does not allow for interaction with other 
+         * components around the dialog box. 
+         * <br>**true**: The dialog box is a modal. 
+         * <br>**false**: The dialog box is not a modal.
+         * <br>Default value: **true**.
+         *
          * @default true
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @crossplatform
-         * @since 11
-         */
-        /**
-         * Whether it is a modal dialog
-         * @type { ?boolean }
-         * @default true
-         * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @crossplatform
-         * @atomicservice
-         * @since 12 dynamic
+         * @atomicservice [since 12]
+         * @since 11 dynamic
          */
         isModal?: boolean;
         /**
-         * Defines the dialog's background color.
+         * Background color of the dialog box.
+         * <br>Default value: **Color.Transparent**.
+         * <br>**NOTE**
+         * <br>The background color will be visually combined with the blur effect when both properties are set. 
+         * If the resulting effect does not match your design requirements, you can disable the blur effect entirely 
+         * by explicitly setting the **backgroundBlurStyle** property to **BlurStyle.NONE**.
          *
-         * @type { ?ResourceColor }
          * @default Color.Transparent
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @crossplatform
          * @atomicservice
          * @since 12 dynamic
          */
         backgroundColor?: ResourceColor;
         /**
-         * Defines the dialog's background blur Style
+         * Background blur style of the dialog box.
+         * <br>Default value: **BlurStyle.COMPONENT_ULTRA_THICK**
+         * <br>**NOTE**
+         * <br>Setting this parameter to **BlurStyle.NONE** disables the background blur. 
+         * When **backgroundBlurStyle** is set to a value other than **NONE**, do not set **backgroundColor**. 
+         * If you do, the color display may not produce the expected visual effect.
          *
-         * @type { ?BlurStyle }
          * @default BlurStyle.COMPONENT_ULTRA_THICK
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @crossplatform
          * @atomicservice
          * @since 12 dynamic
          */
         backgroundBlurStyle?: BlurStyle;
         /**
-         * Defines the dialog's background blur style with options
+         * Options for customizing the background blur style. For details about the default value, see **BackgroundBlurStyleOptions**.
          *
-         * @type { ?BackgroundBlurStyleOptions }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @crossplatform
          * @atomicservice
          * @since 19 dynamic
          */
         backgroundBlurStyleOptions?: BackgroundBlurStyleOptions;
         /**
-         * Defines the dialog's background effect with options
+         * Options for customizing the background effect. For details about the default value, see **BackgroundEffectOptions**.
          *
-         * @type { ?BackgroundEffectOptions }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @crossplatform
          * @atomicservice
          * @since 19 dynamic
          */
         backgroundEffect?: BackgroundEffectOptions;
         /**
-         * Defines the dialog's shadow.
+         * Shadow of the dialog box.
+         * <br> Default value on 2-in-1 devices: **ShadowStyle.OUTER_FLOATING_MD** when the dialog box is focused 
+         * and **ShadowStyle.OUTER_FLOATING_SM** otherwise On other devices, the dialog box has no shadow by default.
          *
-         * @type { ?(ShadowOptions | ShadowStyle) }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @crossplatform
          * @atomicservice
          * @since 12 dynamic
          */
         shadow?: ShadowOptions | ShadowStyle;
         /**
-         * Defines whether to respond to the hover mode.
+         * Whether to respond when the device is in semi-folded mode. The value **true** means to respond when the device
+         *  is in semi-folded mode.
+         * <br>Default value: **false**, meaning not to respond when the device is in semi-folded mode.
+         * <br>**NOTE**
+         * <br>For a PC or 2-in-1 device, the prompt is displayed on the upper half of the screen by default 
+         * when **enableHoverMode** is set to **true**. You can set **hoverModeArea** to display the prompt on the lower 
+         * half of the screen. For other devices, the prompt is displayed on the lower half of the screen by default 
+         * when **enableHoverMode** is set to **true**. You can set **hoverModeArea** to display the prompt on the upper 
+         * half of the screen.
          *
-         * @type { ?boolean }
          * @default false
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @crossplatform
          * @atomicservice
          * @since 14 dynamic
          */
         enableHoverMode?: boolean;
         /**
-         * Defines the dialog's display area in hover mode.
+         * Default display area of the dialog box in semi-folded mode.
+         * <br>Default value: **HoverModeAreaType.BOTTOM_SCREEN**
          *
-         * @type { ?HoverModeAreaType }
          * @default HoverModeAreaType.BOTTOM_SCREEN
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @crossplatform
          * @atomicservice
          * @since 14 dynamic
          */
         hoverModeArea?: HoverModeAreaType;
         /**
-         * Callback function when the dialog appears.
+         * Callback invoked after the dialog box appears.
+         * <br>**NOTE**
+         * <br>1. The normal timing sequence is as follows: onWillAppear > onDidAppear > onWillDisappear > onDidDisappear.
+         * <br>2. You can set the callback event for changing the dialog box display effect in **onDidAppear**. 
+         * The settings take effect next time the dialog box appears.
+         * <br>3. When a dialog box is dismissed immediately after being shown, **onWillDisappear** may be triggered before **onDidAppear**.
+         * <br>4. If the dialog box is dismissed before its appearance animation is finished, the animation will be 
+         * interrupted, and **onDidAppear** will not be invoked.
          *
-         * @type { ?Callback<void> }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @crossplatform
          * @atomicservice
          * @since 19 dynamic
          */
         onDidAppear?: Callback<void>;
         /**
-         * Callback function when the dialog disappears.
+         * Callback invoked after the dialog box disappears.
+         * <br>**NOTE**
+         * <br>1. The normal timing sequence is as follows: onWillAppear > onDidAppear > onWillDisappear > onDidDisappear.
          *
-         * @type { ?Callback<void> }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @crossplatform
          * @atomicservice
          * @since 19 dynamic
          */
         onDidDisappear?: Callback<void>;
         /**
-         * Callback function before the dialog openAnimation starts.
+         * Callback invoked before the dialog box appearance animation.
+         * <br>**NOTE**
+         * <br>1. The normal timing sequence is as follows: onWillAppear > onDidAppear > onWillDisappear > onDidDisappear.
+         * <br>2. You can set the callback event for changing the dialog box display effect in **onWillAppear**. 
+         * The settings take effect next time the dialog box appears.
          *
-         * @type { ?Callback<void> }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @crossplatform
          * @atomicservice
          * @since 19 dynamic
          */
         onWillAppear?: Callback<void>;
         /**
-         * Callback function before the dialog closeAnimation starts.
+         * Callback invoked before the dialog box disappearance animation.
+         * <br>**NOTE**
+         * <br>1. The normal timing sequence is as follows: onWillAppear > onDidAppear > onWillDisappear > onDidDisappear.
          *
-         * @type { ?Callback<void> }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @crossplatform
          * @atomicservice
          * @since 19 dynamic
          */
         onWillDisappear?: Callback<void>;
         /**
-         * Determine the display level of the dialog.
+         * Display level of the dialog box.
+         * <br>**NOTE**
+         * <br>- Default value: **LevelMode.OVERLAY**
+         * <br>- This parameter takes effect only when **showInSubWindow** is set to **false**.
          *
-         * @type { ?LevelMode }
          * @default LevelMode.OVERLAY
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @crossplatform
          * @atomicservice
          * @since 15 dynamic
          */
         levelMode?: LevelMode;
         /**
-         * The uniqueId of any node in the router or navigation page.
+         * [Unique ID](js-apis-arkui-frameNode.md#getuniqueid12) of the node under the display level for the page-level dialog box.
+         * <br>Value range: a number no less than 0<br>**NOTE**
+         * <br>- This parameter takes effect only when **levelMode** is set to **LevelMode.EMBEDDED**.
          *
-         * @type { ?number }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @crossplatform
          * @atomicservice
          * @since 15 dynamic
          */
         levelUniqueId?: number;
         /**
-         * Determine the immersive mode of the dialog.
+         * Overlay effect for the page-level dialog box.
+         * <br>**NOTE**
+         * <br>- Default value: **ImmersiveMode.DEFAULT**
+         * <br>- This parameter takes effect only when **levelMode** is set to **LevelMode.EMBEDDED**.
          *
-         * @type { ?ImmersiveMode }
          * @default ImmersiveMode.DEFAULT
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @crossplatform
          * @atomicservice
          * @since 15 dynamic
          */
         immersiveMode?: ImmersiveMode;
         /**
-         * Determine the display order of the dialog.
+         * Display order of the dialog box.
+         * <br>**NOTE**
+         * <br>- Default value: **LevelOrder.clamp(0)**
+         * <br>- Dynamic updating is not supported.
          *
-         * @type { ?LevelOrder }
-         * @default The value returns by LevelOrder.clamp(0)
+         * @default The value returned by LevelOrder.clamp(0)
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @crossplatform
          * @atomicservice
          * @since 18 dynamic
          */
         levelOrder?: LevelOrder;
+        /**
+         * System material of the dialog box. Different materials have different effects and can affect visual attributes
+         *  such as the background color, border, and shadow of the dialog box.
+         *
+         * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
+         * @crossplatform
+         * @atomicservice
+         * @since 26.0.0 dynamic
+         */
+        systemMaterial?: SystemUiMaterial;
+        /**
+         * Sets the distortion animation Mode of the dialog.
+         *
+         * @default DistortionMode.DISTORTION_AUTO
+         * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @systemapi
+         * @stagemodelonly
+         * @since 26.0.0 dynamic
+         */
+        distortionMode?: DistortionMode;
+        /**
+         * Sets the edgeLight animation Mode of the dialog.
+         *
+         * @default EdgeLightMode.EDGELIGHT_DISABLED
+         * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @systemapi
+         * @stagemodelonly
+         * @since 26.0.0 dynamic
+         */
+        edgeLightMode?: EdgeLightMode;
     }
     /**
-     * Enum for state.
+     * Enumerates states of the custom dialog box.
      *
-     * @enum { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
      */
     enum CommonState {
         /**
-         * Indicates it is uninitialized.
+         * State before the controller is bound to the dialog box.
          *
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @crossplatform
          * @atomicservice
          * @since 20 dynamic
          */
         UNINITIALIZED = 0,
         /**
-         * Indicates it is initialized.
+         * State after the controller is bound to the dialog box. 
          *
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @crossplatform
          * @atomicservice
          * @since 20 dynamic
          */
         INITIALIZED = 1,
         /**
-         * Indicates it is appearing.
+         * State during the dialog box appearance animation.
          *
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @crossplatform
          * @atomicservice
          * @since 20 dynamic
          */
         APPEARING = 2,
         /**
-         * Indicates it is appeared.
+         * State after the dialog display appearance ends.
          *
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @crossplatform
          * @atomicservice
          * @since 20 dynamic
          */
         APPEARED = 3,
         /**
-         * Indicates it is disappearing.
+         * State during the dialog box disappearance animation.
          *
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @crossplatform
          * @atomicservice
          * @since 20 dynamic
          */
         DISAPPEARING = 4,
         /**
-         * Indicates it is disappeared.
+         * State after the dialog box disappearance animation ends.
          *
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @crossplatform
          * @atomicservice
          * @since 20 dynamic
@@ -944,37 +857,41 @@ declare namespace promptAction {
         DISAPPEARED = 5
     }
     /**
-     * The class used to control common dialog.
+     * Implements a common controller for managing components related to **promptAction**.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
      */
     class CommonController {
         /**
-         * The constructor.
+         * A constructor used to create a controller instance.
          *
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @crossplatform
          * @atomicservice
          * @since 18 dynamic
          */
         constructor();
         /**
-         * Close the corresponding common dialog.
+         * Closes the custom dialog box. If the dialog box is already closed, this API has no effect.
          *
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @crossplatform
          * @atomicservice
          * @since 18 dynamic
          */
         close(): void;
         /**
-         * Get the state.
+         * Obtains the state of the custom dialog box.
          *
-         * @returns { CommonState } return the state.
+         * @returns { CommonState } State of the custom dialog box.
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @crossplatform
          * @atomicservice
          * @since 20 dynamic
@@ -982,10 +899,14 @@ declare namespace promptAction {
         getState(): CommonState;
     }
     /**
-     * The class used to control dialog.
+     * Implements a custom dialog controller that inherits from [CommonController](#commoncontroller18).
      *
-     * @extends CommonController
+     * It can be used as a member variable of **UIContext** to display custom dialog boxes. For specific usage, 
+     * see the examples for [openCustomDialogWithController](arkts-apis-uicontext-promptaction.md#opencustomdialogwithcontroller18) 
+     * and [presentCustomDialog](arkts-apis-uicontext-promptaction.md#presentcustomdialog18).
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
@@ -993,458 +914,553 @@ declare namespace promptAction {
     class DialogController extends CommonController {
     }
     /**
-     * Dialog base options
+     * Defines the options of the dialog box.
      *
-     * @typedef BaseDialogOptions
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
-     * @since 11
-     */
-    /**
-     * Dialog base options
-     *
-     * @typedef BaseDialogOptions
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @atomicservice [since 12]
+     * @since 11 dynamic
      */
     interface BaseDialogOptions {
         /**
-         * Mask Region of dialog. The size can't exceed the main window.
+         * Mask area.
+         * <br>Default value: **{ x: 0, y: 0, width: '100%', height: '100%' }**
+         * <br>**NOTE**
+         * <br>**maskRect** does not take effect when **showInSubWindow** is set to **true**.
+         * <br>If only some properties in [Rectangle](arkui-ts/ts-methods-alert-dialog-box.md#rectangle8) are set, 
+         * the unset properties default to 0.
          *
-         * @type { ?Rectangle }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @crossplatform
-         * @since 11
-         */
-        /**
-         * Mask Region of dialog. The size can't exceed the main window.
-         *
-         * @type { ?Rectangle }
-         * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @crossplatform
-         * @atomicservice
-         * @since 12 dynamic
+         * @atomicservice [since 12]
+         * @since 11 dynamic
          */
         maskRect?: Rectangle;
         /**
-         * Defines the dialog alignment of the screen.
+         * Alignment mode of the dialog box in the vertical direction.
+         * <br>Default value: **DialogAlignment.Default**
+         * <br>**NOTE**
+         * <br>If **showInSubWindow** is set to **true** in **UIExtension**, the dialog box is aligned with the host window based on **UIExtension**.
          *
-         * @type { ?DialogAlignment }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @crossplatform
-         * @since 11
-         */
-        /**
-         * Defines the dialog alignment of the screen.
-         *
-         * @type { ?DialogAlignment }
-         * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @crossplatform
-         * @atomicservice
-         * @since 12 dynamic
+         * @atomicservice [since 12]
+         * @since 11 dynamic
          */
         alignment?: DialogAlignment;
         /**
-         * Defines the dialog offset.
+         * Offset of the dialog box based on the **alignment** settings.
+         * <br>Default value: **{&nbsp;dx:&nbsp;0&nbsp;,&nbsp;dy:&nbsp;0&nbsp;}**
          *
-         * @type { ?Offset }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @crossplatform
-         * @since 11
-         */
-        /**
-         * Defines the dialog offset.
-         *
-         * @type { ?Offset }
-         * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @crossplatform
-         * @atomicservice
-         * @since 12 dynamic
+         * @atomicservice [since 12]
+         * @since 11 dynamic
          */
         offset?: Offset;
         /**
-         * Whether to display in the sub window.
+         * Whether to show the dialog box in a subwindow when the dialog box needs to be displayed outside the main window. 
+         * <br>**true**: The dialog box is shown in a subwindow.
+         * <br>Default value: **false**, meaning the dialog box is displayed within the application, not in a separate subwindow
          *
-         * @type { ?boolean }
          * @default false
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @crossplatform
-         * @since 11
-         */
-        /**
-         * Whether to display in the sub window.
-         *
-         * @type { ?boolean }
-         * @default false
-         * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @crossplatform
-         * @atomicservice
-         * @since 12 dynamic
+         * @atomicservice [since 12]
+         * @since 11 dynamic
          */
         showInSubWindow?: boolean;
         /**
-         * Whether it is a modal dialog
-         * @type { ?boolean }
-         * @default true
+         * Defines the dialog display mode when show in subwindow.
+         *
+         * @default DialogDisplayMode.SCREEN_BASED
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @crossplatform
-         * @since 11
-         */
-        /**
-         * Whether it is a modal dialog
-         * @type { ?boolean }
-         * @default true
-         * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @crossplatform
          * @atomicservice
-         * @since 12 dynamic
+         * @since 26.0.0 dynamic
+         */
+        displayModeInSubWindow?: DialogDisplayMode;
+        /**
+         * Whether the dialog box is a modal, which has a mask applied and does not allow for interaction with other 
+         * components around the dialog box. 
+         * <br>**true**: The dialog box is a modal. 
+         * <br>**false**: The dialog box is not a modal.
+         * <br>Default value: **true**.
+         *
+         * @default true
+         * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
+         * @crossplatform
+         * @atomicservice [since 12]
+         * @since 11 dynamic
          */
         isModal?: boolean;
         /**
-         * Allows users to click the mask layer to exit.
+         * Whether to dismiss the dialog box when the mask is touched. The value **true** means to dismiss the dialog 
+         * box when the mask is touched, and **false** means the opposite.<br>Default value: **true**.
          *
-         * @type { ?boolean }
          * @default true
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @crossplatform
          * @atomicservice
          * @since 12 dynamic
          */
         autoCancel?: boolean;
         /**
-         * Transition parameters of opening/closing custom dialog.
+         * Transition effect for the appearance and disappearance of the dialog box.<br>**NOTE**
+         * <br> 1. If this parameter is not set, the default effect is used.
+         * <br> 2. Touching the Back button during the appearance animation pauses the appearance animation and starts
+         *  the disappearance animation. The final effect is one obtained after the curves of the appearance and 
+         * disappearance animations are combined.
+         * <br> 3. Touching the Back button during the exit animation does not affect the animation playback. 
+         * Touching the Back button again closes the application.
          *
-         * @type { ?TransitionEffect }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @crossplatform
          * @atomicservice
          * @since 12 dynamic
          */
         transition?: TransitionEffect;
         /**
-         * Dialog transition parameters of opening/closing custom dialog.
+         * Transition effect for the dialog box content. By default, there is no transition effect.
          *
-         * @type { ?TransitionEffect }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @crossplatform
          * @atomicservice
          * @since 19 dynamic
          */
         dialogTransition?: TransitionEffect;
         /**
-         * Mask transition parameters of opening/closing custom dialog.
+         * Transition effect for the mask. By default, there is no transition effect.
          *
-         * @type { ?TransitionEffect }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @crossplatform
          * @atomicservice
          * @since 19 dynamic
          */
         maskTransition?: TransitionEffect;
         /**
-         * Defines custom dialog maskColor
+         * Mask color.
+         * <br>Default value: **0x33000000**
          *
-         * @type { ?ResourceColor }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @crossplatform
          * @atomicservice
          * @since 12 dynamic
          */
         maskColor?: ResourceColor;
         /**
-        * Callback function when the CustomDialog interactive dismiss.
-        *
-        * @type { ?Callback<DismissDialogAction> }
-        * @syscap SystemCapability.ArkUI.ArkUI.Full
-        * @crossplatform
-        * @atomicservice
-        * @since 12 dynamic
-        */
+         * Callback for interactive dismissal of the dialog box.
+         * <br>**NOTE**
+         * <br>1. If this callback is registered, the dialog box will not be dismissed immediately after the user touches 
+         * the mask or the Back button, presses the Esc key, or swipes left or right on the screen. 
+         * The **reason** parameter in the callback is used to determine whether the dialog box can be dismissed. 
+         * The reason returned by the component does not support the value **CLOSE_BUTTON**.
+         * <br>2. In the **onWillDismiss** callback, another **onWillDismiss** callback is not allowed.
+         *
+         * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
+         * @crossplatform
+         * @atomicservice
+         * @since 12 dynamic
+         */
         onWillDismiss?: Callback<DismissDialogAction>;
         /**
-         * Callback function when the dialog appears.
+         * Event callback after the dialog box appears.
+         * <br>**NOTE**
+         * <br>1. The normal timing sequence is as follows: onWillAppear > onDidAppear > (onDateAccept/onCancel/onDateChange) 
+         * > onWillDisappear > onDidDisappear.
+         * <br>2. You can set the callback event for changing the dialog box display effect in **onDidAppear**. 
+         * The settings take effect next time the dialog box appears.
+         * <br>3. If the user dismisses the dialog box immediately after it appears, **onWillDisappear** is invoked before **onDidAppear**.
+         * <br>4. If the dialog box is dismissed before its appearance animation is finished, this callback is not invoked.
          *
-         * @type { ?function }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @crossplatform
          * @atomicservice
          * @since 12 dynamic
          */
         onDidAppear?: () => void;
         /**
-         * Callback function when the dialog disappears.
+         * Event callback after the dialog box disappears.
+         * <br>**NOTE**
+         * <br>The normal timing sequence is as follows: onWillAppear > onDidAppear > (onDateAccept/onCancel/onDateChange)
+         *  > onWillDisappear > onDidDisappear.
+         * <br>This callback is not triggered if the dialog box disappearance animation is interrupted (for example, by page navigation).
          *
-         * @type { ?function }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @crossplatform
          * @atomicservice
          * @since 12 dynamic
          */
         onDidDisappear?: () => void;
         /**
-         * Callback function before the dialog openAnimation starts.
+         * Event callback when the dialog box is about to appear.
+         * <br>**NOTE**
+         * <br>1. The normal timing sequence is as follows: onWillAppear > onDidAppear > (onDateAccept/onCancel/onDateChange)
+         *  > onWillDisappear > onDidDisappear.
+         * <br>2. You can set the callback event for changing the dialog box display effect in **onWillAppear**. 
+         * The settings take effect next time the dialog box appears.
          *
-         * @type { ?function }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @crossplatform
          * @atomicservice
          * @since 12 dynamic
          */
         onWillAppear?: () => void;
         /**
-         * Callback function before the dialog closeAnimation starts.
+         * Event callback when the dialog box is about to disappear.
+         * <br>**NOTE**
+         * <br>1. The normal timing sequence is as follows: onWillAppear > onDidAppear > (onDateAccept/onCancel/onDateChange)
+         *  > onWillDisappear > onDidDisappear.
+         * <br>2. If the user dismisses the dialog box immediately after it appears, **onWillDisappear** is invoked before **onDidAppear**.
          *
-         * @type { ?function }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @crossplatform
          * @atomicservice
          * @since 12 dynamic
          */
         onWillDisappear?: () => void;
         /**
-         * Defines the customDialog's keyboard avoid mode
+         * How the dialog box avoids the soft keyboard when it is brought up.
+         * <br>Default value: **KeyboardAvoidMode.DEFAULT**
          *
-         * @type { ?KeyboardAvoidMode }
          * @default KeyboardAvoidMode.DEFAULT
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @crossplatform
          * @atomicservice
          * @since 12 dynamic
          */
         keyboardAvoidMode?: KeyboardAvoidMode;
         /**
-         * Defines whether to respond to the hover mode.
+         * Whether to respond when the device is in semi-folded mode. The value **true** means to respond when the device 
+         * is in semi-folded mode.
+         * <br>Default value: **false**, meaning not to respond when the device is in semi-folded mode.
+         * <br>**NOTE**
+         * <br>For a PC or 2-in-1 device, the prompt is displayed on the upper half of the screen by default 
+         * when **enableHoverMode** is set to **true**. You can set **hoverModeArea** to display the prompt on 
+         * the lower half of the screen. For other devices, the prompt is displayed on the lower half of the screen 
+         * by default when **enableHoverMode** is set to **true**. You can set **hoverModeArea** to display 
+         * the prompt on the upper half of the screen.
          *
-         * @type { ?boolean }
          * @default false
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @crossplatform
          * @atomicservice
          * @since 14 dynamic
          */
         enableHoverMode?: boolean;
         /**
-         * Defines the dialog's display area in hover mode.
+         * Display area of the dialog box in the hover state.
+         * <br>Default value: **HoverModeAreaType.BOTTOM_SCREEN**
          *
-         * @type { ?HoverModeAreaType }
          * @default HoverModeAreaType.BOTTOM_SCREEN
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @crossplatform
          * @atomicservice
          * @since 14 dynamic
          */
         hoverModeArea?: HoverModeAreaType;
         /**
-         * Defines the customDialog's background blur style with options
+         * Options for customizing the background blur style. For details about the default value, see **BackgroundBlurStyleOptions**.
          *
-         * @type { ?BackgroundBlurStyleOptions }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @crossplatform
          * @atomicservice
          * @since 19 dynamic
          */
         backgroundBlurStyleOptions?: BackgroundBlurStyleOptions;
         /**
-         * Defines the customDialog's background effect with options
+         * Options for customizing the background effect. For details about the default value, see **BackgroundEffectOptions**.
          *
-         * @type { ?BackgroundEffectOptions }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @crossplatform
          * @atomicservice
          * @since 19 dynamic
          */
         backgroundEffect?: BackgroundEffectOptions;
         /**
-         * Defines the distance between the customDialog and system keyboard.
+         * Distance between the dialog box and the keyboard after keyboard avoidance is applied.
+         * <br>**NOTE**
+         * <br>- Default value: **16vp**
+         * <br>- Default unit: vp
+         * <br>- This parameter takes effect only when **keyboardAvoidMode** is set to **DEFAULT**.
          *
-         * @type { ?LengthMetrics }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @crossplatform
          * @atomicservice
          * @since 15 dynamic
          */
         keyboardAvoidDistance?: LengthMetrics;
         /**
-         * Determine the display level of the dialog.
+         * Display level of the dialog box.
+         * <br>**NOTE**
+         * <br>- Default value: **LevelMode.OVERLAY**
+         * <br>- This parameter takes effect only when **showInSubWindow** is set to **false**.
          *
-         * @type { ?LevelMode }
          * @default LevelMode.OVERLAY
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @crossplatform
          * @atomicservice
          * @since 15 dynamic
          */
         levelMode?: LevelMode;
         /**
-         * The uniqueId of any node in the router or navigation page.
+         * [Unique ID](js-apis-arkui-frameNode.md#getuniqueid12) of the node under the display level for the page-level dialog box.
+         * <br>Value range: a number no less than 0
+         * <br>**NOTE**
+         * <br>- This parameter takes effect only when **levelMode** is set to **LevelMode.EMBEDDED**.
          *
-         * @type { ?number }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @crossplatform
          * @atomicservice
          * @since 15 dynamic
          */
         levelUniqueId?: number;
         /**
-         * Determine the immersive mode of the dialog.
+         * Overlay effect for the page-level dialog box.
+         * <br>**NOTE**
+         * <br>- Default value: **ImmersiveMode.DEFAULT**
+         * <br>- This parameter takes effect only when **levelMode** is set to **LevelMode.EMBEDDED**.
          *
-         * @type { ?ImmersiveMode }
          * @default ImmersiveMode.DEFAULT
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @crossplatform
          * @atomicservice
          * @since 15 dynamic
          */
         immersiveMode?: ImmersiveMode;
         /**
-         * Determine the display order of the dialog.
+         * Display order of the dialog box.
+         * <br>**NOTE**
+         * <br>- Default value: **LevelOrder.clamp(0)**
+         * <br>- Dynamic updating is not supported.
          *
-         * @type { ?LevelOrder }
-         * @default The value returns by LevelOrder.clamp(0)
+         * @default The value returned by LevelOrder.clamp(0)
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @crossplatform
          * @atomicservice
          * @since 18 dynamic
          */
         levelOrder?: LevelOrder;
         /**
-         * Specifies whether to get focus when the custom dialog is displayed.
+         * Whether the dialog box can gain focus. 
+         * <br>**true**: The dialog box can gain focus.
+         * <br>**false**: The dialog box cannot gain focus.
+         * <br>Default value: **true**.
+         * <br>**NOTE**
+         * <br>Only dialog boxes that are displayed on top of the current window can gain focus.
          *
-         * @type { ?boolean }
          * @default true
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @crossplatform
          * @atomicservice
          * @since 19 dynamic
          */
         focusable?: boolean;
+        /**
+         * System material of the dialog box. Different materials have different effects and can affect visual attributes
+         *  such as the background color, border, and shadow of the dialog box.
+         *
+         * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
+         * @crossplatform
+         * @atomicservice
+         * @since 26.0.0 dynamic
+         */
+        systemMaterial?: SystemUiMaterial;
+        /**
+         * Sets the distortion animation Mode of the dialog.
+         *
+         * @default DistortionMode.DISTORTION_AUTO
+         * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @systemapi
+         * @stagemodelonly
+         * @since 26.0.0 dynamic
+         */
+        distortionMode?: DistortionMode;
+        /**
+         * Sets the edgeLight animation Mode of the dialog.
+         *
+         * @default EdgeLightMode.EDGELIGHT_DISABLED
+         * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @systemapi
+         * @stagemodelonly
+         * @since 26.0.0 dynamic
+         */
+        edgeLightMode?: EdgeLightMode;
     }
     /**
-     * Dialog's custom content options
+     * Extends [BaseDialogOptions](#basedialogoptions11) to provide enhanced customization capabilities for the dialog box.
      *
-     * @extends BaseDialogOptions
-     * @interface CustomDialogOptions
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
-     * @since 11
-     */
-    /**
-     * Dialog's custom content options
-     *
-     * @extends BaseDialogOptions
-     * @interface CustomDialogOptions
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @atomicservice [since 12]
+     * @since 11 dynamic
      */
     interface CustomDialogOptions extends BaseDialogOptions {
         /**
-         * Allow developer custom dialog's content.
+         * Custom content of the dialog box.
+         * <br>**NOTE**
+         * <br>The builder needs to be assigned an arrow function in the following format: () => { this.XXX() }, 
+         * where XXX indicates the internal builder name.
+         * <br>Global builders must be created inside the component and called within the internal builder.
+         * <br>The width and height percentages of the builder's root node are relative to the size of the dialog box container.
+         * <br>The width and height percentages of non-root nodes are relative to the size of their parent node.
          *
-         * @type { CustomBuilder }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @crossplatform
-         * @since 11
-         */
-        /**
-         * Allow developer custom dialog's content.
-         *
-         * @type { CustomBuilder }
-         * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @crossplatform
-         * @atomicservice
-         * @since 12 dynamic
+         * @atomicservice [since 12]
+         * @since 11 dynamic
          */
         builder: CustomBuilder;
         /**
-         * Defines the custom dialog's background color.
+         * Background color of the dialog box.<br>Default value: **Color.Transparent**.
+         * <br>**NOTE**
+         * <br>When **backgroundColor** is set to a non-transparent color, **backgroundBlurStyle** must be set to **BlurStyle.NONE**; 
+         * otherwise, the color display may not meet the expected effect.
          *
-         * @type { ?ResourceColor }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @crossplatform
          * @atomicservice
          * @since 12 dynamic
          */
         backgroundColor?: ResourceColor;
         /**
-         * Defines the custom dialog's corner radius.
+         * Corner radius of the background.
+         * <br>You can set separate radii for the four corners.
+         * <br>Default value: **{ topLeft: '32vp', topRight: '32vp', bottomLeft: '32vp', bottomRight: '32vp' }**
+         * <br> The radius of the rounded corners is subject to the component size. Its maximum value is half of the 
+         * component width or height. If the value is negative, the default value is used.
+         * <br> When set to a percentage, the value defines the radius as a percentage of the parent dialog box's width or height.
          *
-         * @type { ?(Dimension | BorderRadiuses) }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @crossplatform
          * @atomicservice
          * @since 12 dynamic
          */
         cornerRadius?: Dimension | BorderRadiuses;
         /**
-         * Defines the custom dialog's width.
+         * Width of the dialog box.
+         * <br>**NOTE**
+         * <br>- Default maximum width of the dialog box: 400 vp
+         * <br>- Percentage-based configuration: The reference width of the dialog box is adjusted based on the width 
+         * of the window where the dialog box is located.
          *
-         * @type { ?Dimension }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @crossplatform
          * @atomicservice
          * @since 12 dynamic
          */
         width?: Dimension;
         /**
-         * Defines the custom dialog's height.
+         * Height of the dialog box.
+         * <br>**NOTE**
+         * <br>- Default maximum height of the dialog box: 0.9 x (Window height – Safe area)
+         * <br>- When this parameter is set to a percentage, the reference height of the dialog box is the height of 
+         * the window where the dialog box is located minus the safe area. You can decrease or increase the height as needed.
          *
-         * @type { ?Dimension }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @crossplatform
          * @atomicservice
          * @since 12 dynamic
          */
         height?: Dimension;
         /**
-         * Defines the custom dialog's border width.
+         * Border width of the dialog box.
+         * <br>You can set the width for all four sides or set separate widths for individual sides.
+         * <br>Default value: **0**.
+         * <br>Unit: vp.
+         * <br> When set to a percentage, the value defines the border width as a percentage of the parent dialog box's width.
+         * <br>If the left and right borders are greater than its width, or the top and bottom borders are greater than its height, 
+         * the dialog box may not display as expected.
          *
-         * @type { ?(Dimension | EdgeWidths) }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @crossplatform
          * @atomicservice
          * @since 12 dynamic
          */
         borderWidth?: Dimension | EdgeWidths;
         /**
-         * Defines the custom dialog's border color.
+         * Border color of the dialog box.
+         * <br>Default value: **Color.Black**.
+         * <br> **borderColor** must be used with **borderWidth** in pairs.
          *
-         * @type { ?(ResourceColor | EdgeColors) }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @crossplatform
          * @atomicservice
          * @since 12 dynamic
          */
         borderColor?: ResourceColor | EdgeColors;
         /**
-         * Defines the custom dialog's border style.
+         * Border style of the dialog box.
+         * <br>Default value: **BorderStyle.Solid**.
+         * <br> **borderStyle** must be used with **borderWidth** in pairs.
          *
-         * @type { ?(BorderStyle | EdgeStyles) }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @crossplatform
          * @atomicservice
          * @since 12 dynamic
          */
         borderStyle?: BorderStyle | EdgeStyles;
         /**
-         * Defines the custom dialog's shadow.
+         * Shadow of the dialog box.
+         * <br>Default value on 2-in-1 devices: **ShadowStyle.OUTER_FLOATING_MD** when the dialog box is focused 
+         * and **ShadowStyle.OUTER_FLOATING_SM** otherwise On other devices, the dialog box has no shadow by default.
          *
-         * @type { ?(ShadowOptions | ShadowStyle) }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @crossplatform
          * @atomicservice
          * @since 12 dynamic
          */
         shadow?: ShadowOptions | ShadowStyle;
         /**
-         * Defines the customDialog's background blur Style
+         * Background blur style of the dialog box.
+         * <br>Default value: **BlurStyle.COMPONENT_ULTRA_THICK**
+         * <br>**NOTE**
+         * <br>Setting this parameter to **BlurStyle.NONE** disables the background blur. 
+         * When **backgroundBlurStyle** is set to a value other than **NONE**, do not set **backgroundColor**. 
+         * If you do, the color display may not produce the expected visual effect.
          *
-         * @type { ?BlurStyle }
          * @default BlurStyle.COMPONENT_ULTRA_THICK
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @crossplatform
          * @atomicservice
          * @since 12 dynamic
@@ -1452,152 +1468,189 @@ declare namespace promptAction {
         backgroundBlurStyle?: BlurStyle;
     }
     /**
-     * Corner radius type of DialogOptions.
+     * Defines the allowed data types for specifying the background corner radius of a dialog box.
      *
      * @typedef { Dimension | BorderRadiuses } DialogOptionsCornerRadius
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
      */
     declare type DialogOptionsCornerRadius = Dimension | BorderRadiuses;
     /**
-     * Border width type of DialogOptions.
+     * Defines the allowed data types for specifying the background border width of a dialog box.
      *
      * @typedef { Dimension | EdgeWidths } DialogOptionsBorderWidth
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
      */
     declare type DialogOptionsBorderWidth = Dimension | EdgeWidths;
     /**
-     * Border color type of DialogOptions.
+     * Defines the allowed data types for specifying the background border color of a dialog box.
      *
      * @typedef { ResourceColor | EdgeColors } DialogOptionsBorderColor
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
      */
     declare type DialogOptionsBorderColor = ResourceColor | EdgeColors;
     /**
-     * Border style type of DialogOptions.
+     * Defines the allowed data types for specifying the background border style of a dialog box.
      *
      * @typedef { BorderStyle | EdgeStyles } DialogOptionsBorderStyle
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
      */
     declare type DialogOptionsBorderStyle = BorderStyle | EdgeStyles;
     /**
-     * Shadow type of DialogOptions.
+     * Defines the allowed data types for specifying the background shadow of a dialog box.
      *
      * @typedef { ShadowOptions | ShadowStyle } DialogOptionsShadow
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
      */
     declare type DialogOptionsShadow = ShadowOptions | ShadowStyle;
     /**
-     * Dialog options
+     * Extends [BaseDialogOptions](#basedialogoptions11) to provide enhanced customization capabilities for the dialog box.
      *
-     * @extends BaseDialogOptions
-     * @typedef DialogOptions
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
      */
     interface DialogOptions extends BaseDialogOptions {
         /**
-         * Defines the dialog's background color.
+         * Background color of the dialog box.<br>Default value: **Color.Transparent**.
+         * <br>**NOTE**
+         * <br>The background color will be visually combined with the blur effect when both properties are set. 
+         * If the resulting effect does not match your design requirements, you can disable the blur effect entirely by 
+         * explicitly setting the **backgroundBlurStyle** property to **BlurStyle.NONE**.
          *
-         * @type { ?ResourceColor }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @crossplatform
          * @atomicservice
          * @since 18 dynamic
          */
         backgroundColor?: ResourceColor;
         /**
-         * Defines the dialog's corner radius.
+         * Background corner radius of the dialog box.<br>You can set separate radii for the four corners.
+         * <br>Default value: **{ topLeft: '32vp', topRight: '32vp', bottomLeft: '32vp', bottomRight: '32vp' }**
+         * <br> The radius of the rounded corners is subject to the component size. Its maximum value is half of the 
+         * component width or height. If the value is negative, the default value is used.
+         * <br> When set to a percentage, the value defines the radius as a percentage of the parent dialog box's width or height.
          *
-         * @type { ?DialogOptionsCornerRadius }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @crossplatform
          * @atomicservice
          * @since 18 dynamic
          */
         cornerRadius?: DialogOptionsCornerRadius;
         /**
-         * Defines the dialog's width.
+         * Width of the dialog box.
+         * <br>**NOTE**
+         * <br>- Default maximum value: 400vp
+         * <br>- Percentage-based configuration: The reference width of the dialog box is adjusted based on the width of 
+         * the window where the dialog box is located.
          *
-         * @type { ?Dimension }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @crossplatform
          * @atomicservice
          * @since 18 dynamic
          */
         width?: Dimension;
         /**
-         * Defines the dialog's height.
+         * Height of the dialog box.
+         * <br>**NOTE**
+         * <br>- Default maximum value: 0.9 x (Window height – Safe area)
+         * <br>- When this parameter is set to a percentage, the reference height of the dialog box is the height of 
+         * the window where the dialog box is located minus the safe area. You can decrease or increase the height as needed.
          *
-         * @type { ?Dimension }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @crossplatform
          * @atomicservice
          * @since 18 dynamic
          */
         height?: Dimension;
         /**
-         * Defines the dialog's border width.
+         * Border width of the dialog box.
+         * <br>You can set the width for all four sides or set separate widths for individual sides.
+         * <br>Default value: **0**.
+         * <br>Unit: vp.
+         * <br> When set to a percentage, the value defines the border width as a percentage of the parent dialog box's width.
+         * <br>If the left and right borders are greater than its width, or the top and bottom borders are greater than 
+         * its height, the dialog box may not display as expected.
          *
-         * @type { ?DialogOptionsBorderWidth }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @crossplatform
          * @atomicservice
          * @since 18 dynamic
          */
         borderWidth?: DialogOptionsBorderWidth;
         /**
-         * Defines the dialog's border color.
+         * Border color of the dialog box.
+         * <br>Default value: **Color.Black**.
+         * <br> **borderColor** must be used with **borderWidth** in pairs.
          *
-         * @type { ?DialogOptionsBorderColor }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @crossplatform
          * @atomicservice
          * @since 18 dynamic
          */
         borderColor?: DialogOptionsBorderColor;
         /**
-         * Defines the dialog's border style.
+         * Border style of the dialog box.
+         * <br>Default value: **BorderStyle.Solid**.
+         * <br> **borderStyle** must be used with **borderWidth** in pairs.
          *
-         * @type { ?DialogOptionsBorderStyle }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @crossplatform
          * @atomicservice
          * @since 18 dynamic
          */
         borderStyle?: DialogOptionsBorderStyle;
         /**
-         * Defines the dialog's shadow.
+         * Shadow of the dialog box.
+         * <br>Default value on 2-in-1 devices: **ShadowStyle.OUTER_FLOATING_MD** when the dialog box is focused 
+         * and **ShadowStyle.OUTER_FLOATING_SM** otherwise On other devices, the dialog box has no shadow by default.
          *
-         * @type { ?DialogOptionsShadow }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @crossplatform
          * @atomicservice
          * @since 18 dynamic
          */
         shadow?: DialogOptionsShadow;
         /**
-         * Defines the dialog's background blur Style
+         * Background blur style of the dialog box.
+         * <br>Default value: **BlurStyle.COMPONENT_ULTRA_THICK**
+         * <br>**NOTE**
+         * <br>Setting this parameter to **BlurStyle.NONE** disables the background blur. When **backgroundBlurStyle** 
+         * is set to a value other than **NONE**, do not set **backgroundColor**. 
+         * If you do, the color display may not produce the expected visual effect.
          *
-         * @type { ?BlurStyle }
          * @default BlurStyle.COMPONENT_ULTRA_THICK
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @crossplatform
          * @atomicservice
          * @since 18 dynamic
@@ -1605,128 +1658,56 @@ declare namespace promptAction {
         backgroundBlurStyle?: BlurStyle;
     }
     /**
-     * @typedef ActionMenuSuccessResponse
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 9
-     */
-    /**
-     * @typedef ActionMenuSuccessResponse
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * @typedef ActionMenuSuccessResponse
+     * Describes the action menu response result.
+     * 
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @FaAndStageModel
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      */
     interface ActionMenuSuccessResponse {
         /**
-         * Index of the selected button, starting from 0.
+         * Index of the selected button in the **buttons** array, starting from **0**.
          *
-         * @type { number }
-         * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 9
-         */
-        /**
-         * Index of the selected button, starting from 0.
-         *
-         * @type { number }
-         * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @crossplatform
-         * @since 10
-         */
-        /**
-         * Index of the selected button, starting from 0.
-         *
-         * @type { number }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @FaAndStageModel
-         * @crossplatform
-         * @atomicservice
-         * @since 11 dynamic
+         * @crossplatform [since 10]
+         * @atomicservice [since 11]
+         * @since 9 dynamic
          */
         index: number;
     }
     /**
-     * @typedef ActionMenuOptions
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 9
-     */
-    /**
-     * @typedef ActionMenuOptions
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * @typedef ActionMenuOptions
+     * Describes the options for showing the action menu.
+     * 
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @FaAndStageModel
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      */
     interface ActionMenuOptions {
         /**
-         * Title of the text to display.
+         * Title of the dialog box.<br>Default value: **undefined**, which indicates that no title is not displayed by default.
          *
-         * @type { ?(string | Resource) }
-         * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 9
-         */
-        /**
-         * Title of the text to display.
-         *
-         * @type { ?(string | Resource) }
-         * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @crossplatform
-         * @since 10
-         */
-        /**
-         * Title of the text to display.
-         *
-         * @type { ?(string | Resource) }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @FaAndStageModel
-         * @crossplatform
-         * @atomicservice
-         * @since 11 dynamic
+         * @crossplatform [since 10]
+         * @atomicservice [since 11]
+         * @since 9 dynamic
          */
         title?: string | Resource;
         /**
-         * Array of buttons in the dialog box.
-         * The array structure is {text:'button', color: '#666666'}.
-         * One to six buttons are supported.
+         * Array of menu item buttons. 
+         * The array structure is **{text:'button', color: '\#666666'}**. 
+         * Up to six buttons are supported. If there are more than six buttons, only the first six buttons will be displayed.
          *
-         * @type { [Button, Button?, Button?, Button?, Button?, Button?] }
-         * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 9
-         */
-        /**
-         * Array of buttons in the dialog box.
-         * The array structure is {text:'button', color: '#666666'}.
-         * One to six buttons are supported.
-         *
-         * @type { [Button, Button?, Button?, Button?, Button?, Button?] }
-         * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @crossplatform
-         * @since 10
-         */
-        /**
-         * Array of buttons in the dialog box.
-         * The array structure is {text:'button', color: '#666666'}.
-         * One to six buttons are supported.
-         *
-         * @type { [Button, Button?, Button?, Button?, Button?, Button?] }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @FaAndStageModel
-         * @crossplatform
-         * @atomicservice
-         * @since 11 dynamic
+         * @crossplatform [since 10]
+         * @atomicservice [since 11]
+         * @since 9 dynamic
          */
         buttons: [
             Button,
@@ -1737,463 +1718,470 @@ declare namespace promptAction {
             Button?
         ];
         /**
-         * Whether to display in the sub window.
+         * Whether to show the menu in a subwindow when the menu needs to be displayed outside the main window. 
+         * <br>**true**: The menu is shown in a subwindow.
+         * <br>Default value: **false**, indicating that the dialog box is not displayed in a subwindow.<br>**NOTE**
+         * <br> - A menu whose **showInSubWindow** attribute is **true** cannot trigger the display of another menu 
+         * whose **showInSubWindow** attribute is also **true**.
+         * <br> - If **showInSubWindow** is set to **true** in **UIExtension**, the menu is aligned with the host window 
+         * based on **UIExtension**.
          *
-         * @type { ?boolean }
          * @default false
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @crossplatform
-         * @since 11
-         */
-        /**
-         * Whether to display in the sub window.
-         *
-         * @type { ?boolean }
-         * @default false
-         * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @crossplatform
-         * @atomicservice
-         * @since 12 dynamic
+         * @atomicservice [since 12]
+         * @since 11 dynamic
          */
         showInSubWindow?: boolean;
         /**
-         * Whether it is a modal dialog
-         * @type { ?boolean }
+         * Whether the menu is a modal, which has a mask applied and does not allow for interaction with other components 
+         * around the menu. <br>**true**: The menu is a modal. 
+         * <br>**false**: The menu is not a modal.
+         * <br>Default value: **true**.
+         *
          * @default true
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @crossplatform
-         * @since 11
-         */
-        /**
-         * Whether it is a modal dialog
-         * @type { ?boolean }
-         * @default true
-         * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @crossplatform
-         * @atomicservice
-         * @since 12 dynamic
+         * @atomicservice [since 12]
+         * @since 11 dynamic
          */
         isModal?: boolean;
         /**
-         * Determine the display level of the dialog.
+         * Display level mode of the menu.
+         * <br>**NOTE**
+         * <br>- Default value: **LevelMode.OVERLAY**
+         * <br>- This parameter takes effect only when **showInSubWindow** is set to **false**.
          *
-         * @type { ?LevelMode }
          * @default LevelMode.OVERLAY
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @crossplatform
          * @atomicservice
          * @since 15 dynamic
          */
         levelMode?: LevelMode;
         /**
-         * The uniqueId of any node in the router or navigation page.
+         * [Unique ID](js-apis-arkui-frameNode.md#getuniqueid12) of the node under the display level for the page-level menu.
+         * <br>Value range: a number no less than 0
+         * <br>**NOTE**
+         * <br>- This parameter takes effect only when **levelMode** is set to **LevelMode.EMBEDDED**.
          *
-         * @type { ?number }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @crossplatform
          * @atomicservice
          * @since 15 dynamic
          */
         levelUniqueId?: number;
         /**
-         * Determine the immersive mode of the dialog.
+         * Overlay effect for the page-level menu.
+         * <br>**NOTE**
+         * <br>- Default value: **ImmersiveMode.DEFAULT**
+         * <br>- This parameter takes effect only when **levelMode** is set to **LevelMode.EMBEDDED**.
          *
-         * @type { ?ImmersiveMode }
          * @default ImmersiveMode.DEFAULT
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @crossplatform
          * @atomicservice
          * @since 15 dynamic
          */
         immersiveMode?: ImmersiveMode;
         /**
-         * Callback function when the menu appears.
+         * Callback invoked after the menu appears.
+         * <br>**NOTE**
+         * <br>1. The normal timing sequence is as follows: onWillAppear > onDidAppear > onWillDisappear > onDidDisappear.
+         * <br>2. When a menu is dismissed immediately after being shown, **onWillDisappear** may be triggered before **onDidAppear**.
          *
-         * @type { ?Callback<void> }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @crossplatform
          * @atomicservice
          * @since 20 dynamic
          */
         onDidAppear?: Callback<void>;
         /**
-         * Callback function when the menu disappears.
+         * Callback invoked after the menu disappears.
+         * <br>**NOTE**
+         * <br>1. The normal timing sequence is as follows: onWillAppear > onDidAppear > onWillDisappear > onDidDisappear.
          *
-         * @type { ?Callback<void> }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @crossplatform
          * @atomicservice
          * @since 20 dynamic
          */
         onDidDisappear?: Callback<void>;
         /**
-         * Callback function before the menu openAnimation starts.
+         * Callback invoked before the menu appearance animation.<br>**NOTE**
+         * <br>1. The normal timing sequence is as follows: onWillAppear > onDidAppear > onWillDisappear > onDidDisappear.
          *
-         * @type { ?Callback<void> }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @crossplatform
          * @atomicservice
          * @since 20 dynamic
          */
         onWillAppear?: Callback<void>;
         /**
-         * Callback function before the menu closeAnimation starts.
+         * Callback invoked before the menu disappearance animation.
+         * <br>**NOTE**
+         * <br>1. The normal timing sequence is as follows: onWillAppear > onDidAppear > onWillDisappear > onDidDisappear.
          *
-         * @type { ?Callback<void> }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @crossplatform
          * @atomicservice
          * @since 20 dynamic
          */
         onWillDisappear?: Callback<void>;
+        /**
+         * System material of the dialog box. Different materials have different effects and can affect visual attributes
+         *  such as the background color, border, and shadow of the dialog box.
+         *
+         * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
+         * @crossplatform
+         * @atomicservice
+         * @since 26.0.0 dynamic
+         */
+        systemMaterial?: SystemUiMaterial;
+        /**
+         * Sets the distortion animation Mode of the dialog.
+         *
+         * @default DistortionMode.DISTORTION_AUTO
+         * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @systemapi
+         * @stagemodelonly
+         * @since 26.0.0 dynamic
+         */
+        distortionMode?: DistortionMode;
+        /**
+         * Sets the edgeLight animation Mode of the dialog.
+         *
+         * @default EdgeLightMode.EDGELIGHT_DISABLED
+         * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @systemapi
+         * @stagemodelonly
+         * @since 26.0.0 dynamic
+         */
+        edgeLightMode?: EdgeLightMode;
     }
     /**
-     * Displays the notification text.
+     * Creates and displays a toast.
+     * 
+     * > **NOTE**
+     * >
+     * > - This API is supported since API version 9 and deprecated since API version 18. You are advised to use 
+     * [showToast](arkts-apis-uicontext-promptaction.md#showtoast) instead. 
+     * Before calling this API, you need to obtain the [PromptAction](arkts-apis-uicontext-promptaction.md) object 
+     * using the [getPromptAction](arkts-apis-uicontext-uicontext.md#getpromptaction) method in 
+     * [UIContext](arkts-apis-uicontext-uicontext.md). Directly using **showToast** can lead to the issue of 
+     * [ambiguous UI context](../../ui/arkts-global-interface.md#ambiguous-ui-context).
+     * >
+     * > - Since API version 10, you can use the [getPromptAction](arkts-apis-uicontext-uicontext.md#getpromptaction) API 
+     * in [UIContext](arkts-apis-uicontext-uicontext.md) to obtain the [PromptAction](arkts-apis-uicontext-promptaction.md) 
+     * object associated with the current UI context.
+     * >
+     * > - The toast has a fixed style and does not support content customization. For specific supported capabilities, 
+     * see [ShowToastOptions](#showtoastoptions).
      *
-     * @param { ShowToastOptions } options - Options.
+     * @param { ShowToastOptions } options - Toast configuration options.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * <br> 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameters types.
-     * <br> 3. Parameter verification failed.
-     * @throws { BusinessError } 100001 - Internal error.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 9
-     */
-    /**
-     * Displays the notification text.
-     *
-     * @param { ShowToastOptions } options - Options.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * <br> 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameters types.
-     * <br> 3. Parameter verification failed.
-     * @throws { BusinessError } 100001 - Internal error.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Displays the notification text.
-     *
-     * @param { ShowToastOptions } options - Options.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * <br> 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameters types.
-     * <br> 3. Parameter verification failed.
+     *     <br> 1. Mandatory parameters are left unspecified.
+     *     <br> 2. Incorrect parameters types.
+     *     <br> 3. Parameter verification failed.
      * @throws { BusinessError } 100001 - Internal error.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @FaAndStageModel
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamiconly
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 9 dynamiconly
      * @deprecated since 18
      * @useinstead ohos.arkui.UIContext.PromptAction#showToast
      */
     function showToast(options: ShowToastOptions): void;
     /**
-     * Displays the notification text.
+     * Shows a toast. This API uses a promise to return the toast ID.
+     * 
+     * > **NOTE**
+     * >
+     * > - Subwindows with **showMode** set to **TOP_MOST** or **SYSTEM_TOP_MOST** do not support **openToast** in input 
+     * > method type windows. For details, see the constraints in the input method framework 
+     * > [createPanel]{@link @ohos.inputMethodEngine:inputMethodEngine.InputMethodAbility.createPanel(ctx: BaseContext, info: PanelInfo)}
+     * > .
+     * >
+     * > - Directly using **openToast** can lead to the issue of 
+     * > [ambiguous UI context](docroot://ui/arkts-global-interface.md#ambiguous-ui-context). To avoid this, obtain the 
+     * > **PromptAction** object using the **getPromptAction** API in **UIContext** and then call the 
+     * > [openToast]{@link @ohos.arkui.UIContext:PromptAction.openToast} API through this object.
      *
-     * @param { ShowToastOptions } options - Options.
-     * @returns { Promise<number> } return the toast id that will be used by closeToast.
+     * @param { ShowToastOptions } options - Toast configuration options.
+     * @returns { Promise<number> } Promise that returns the toast ID for use with **closeToast**.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * <br> 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameters types.
-     * <br> 3. Parameter verification failed.
+     *     <br> 1. Mandatory parameters are left unspecified.
+     *     <br> 2. Incorrect parameters types.
+     *     <br> 3. Parameter verification failed.
      * @throws { BusinessError } 100001 - Internal error.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
      */
     function openToast(options: ShowToastOptions): Promise<number>;
     /**
-     * Close the notification text.
+     * Closes the specified toast.
+     * 
+     * > **NOTE**
+     * >
+     * > Directly using **closeToast** can lead to the issue of 
+     * > [ambiguous UI context](docroot://ui/arkts-global-interface.md#ambiguous-ui-context). To avoid this, obtain the 
+     * > **PromptAction** object using the **getPromptAction** API in **UIContext** and then call the 
+     * > [closeToast]{@link @ohos.arkui.UIContext:PromptAction.closeToast} API through this object.
      *
-     * @param { number } toastId - the toast id that returned by openToast.
+     * @param { number } toastId - Toast ID returned from **openToast**.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * <br> 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameters types.
-     * <br> 3. Parameter verification failed.
+     *     <br> 1. Mandatory parameters are left unspecified.
+     *     <br> 2. Incorrect parameters types.
+     *     <br> 3. Parameter verification failed.
      * @throws { BusinessError } 100001 - Internal error.
      * @throws { BusinessError } 103401 - Cannot find the toast.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
      */
     function closeToast(toastId: number): void;
     /**
-     * Displays the dialog box.
+     * Creates and displays a dialog box. This API uses an asynchronous callback to return the result.
+     * 
+     * > **NOTE**
+     * >
+     * > - This API is supported since API version 9 and deprecated since API version 18. 
+     * You are advised to use [showDialog](arkts-apis-uicontext-promptaction.md#showdialog) instead. 
+     * Before calling this API, you need to obtain the [PromptAction](arkts-apis-uicontext-promptaction.md) object 
+     * using the [getPromptAction](arkts-apis-uicontext-uicontext.md#getpromptaction) method 
+     * in [UIContext](arkts-apis-uicontext-uicontext.md). Directly using **showDialog** can lead to the issue 
+     * of [ambiguous UI context](../../ui/arkts-global-interface.md#ambiguous-ui-context).
+     * >
+     * > - Since API version 10, you can use the [getPromptAction](arkts-apis-uicontext-uicontext.md#getpromptaction) API 
+     * in [UIContext](arkts-apis-uicontext-uicontext.md) to obtain the [PromptAction](arkts-apis-uicontext-promptaction.md) 
+     * object associated with the current UI context.
      *
-     * @param { ShowDialogOptions } options - Options.
-     * @param { AsyncCallback<ShowDialogSuccessResponse> } callback - the callback of showDialog.
+     * @param { ShowDialogOptions } options - Dialog box configuration options.
+     * @param { AsyncCallback<ShowDialogSuccessResponse> } callback - Callback used to return the result. 
+     *      On success, **err** is **undefined** and **data** contains the dialog box response. 
+     *      On failure, **err** provides error details.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * <br> 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameters types.
-     * <br> 3. Parameter verification failed.
-     * @throws { BusinessError } 100001 - Internal error.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 9
-     */
-    /**
-     * Displays the dialog box.
-     *
-     * @param { ShowDialogOptions } options - Options.
-     * @param { AsyncCallback<ShowDialogSuccessResponse> } callback - the callback of showDialog.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * <br> 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameters types.
-     * <br> 3. Parameter verification failed.
-     * @throws { BusinessError } 100001 - Internal error.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Displays the dialog box.
-     *
-     * @param { ShowDialogOptions } options - Options.
-     * @param { AsyncCallback<ShowDialogSuccessResponse> } callback - the callback of showDialog.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * <br> 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameters types.
-     * <br> 3. Parameter verification failed.
+     *     <br> 1. Mandatory parameters are left unspecified.
+     *     <br> 2. Incorrect parameters types.
+     *     <br> 3. Parameter verification failed.
      * @throws { BusinessError } 100001 - Internal error.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @FaAndStageModel
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamiconly
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 9 dynamiconly
      * @deprecated since 18
      * @useinstead ohos.arkui.UIContext.PromptAction#showDialog
      */
     function showDialog(options: ShowDialogOptions, callback: AsyncCallback<ShowDialogSuccessResponse>): void;
     /**
-     * Displays the dialog box.
+     * Creates and displays a dialog box in the given settings. This API uses a promise to return the result.
+     * 
+     * > **NOTE**
+     * >
+     * > - This API is supported since API version 9 and deprecated since API version 18. 
+     * You are advised to use [showDialog](arkts-apis-uicontext-promptaction.md#showdialog-1) instead. 
+     * Before calling this API, you need to obtain the [PromptAction](arkts-apis-uicontext-promptaction.md) object 
+     * using the [getPromptAction](arkts-apis-uicontext-uicontext.md#getpromptaction) method in [UIContext](arkts-apis-uicontext-uicontext.md). 
+     * Directly using **showDialog** can lead to the issue of [ambiguous UI context](../../ui/arkts-global-interface.md#ambiguous-ui-context).
+     * >
+     * > - Since API version 10, you can use the [getPromptAction](arkts-apis-uicontext-uicontext.md#getpromptaction) API 
+     * in [UIContext](arkts-apis-uicontext-uicontext.md) to obtain the [PromptAction](arkts-apis-uicontext-promptaction.md) 
+     * object associated with the current UI context.
      *
-     * @param { ShowDialogOptions } options - Options.
-     * @returns { Promise<ShowDialogSuccessResponse> } the promise returned by the function.
+     * @param { ShowDialogOptions } options - Dialog box configuration options.
+     * @returns { Promise<ShowDialogSuccessResponse> } Promise that returns the dialog box response.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * <br> 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameters types.
-     * <br> 3. Parameter verification failed.
-     * @throws { BusinessError } 100001 - Internal error.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 9
-     */
-    /**
-     * Displays the dialog box.
-     *
-     * @param { ShowDialogOptions } options - Options.
-     * @returns { Promise<ShowDialogSuccessResponse> } the promise returned by the function.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * <br> 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameters types.
-     * <br> 3. Parameter verification failed.
-     * @throws { BusinessError } 100001 - Internal error.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Displays the dialog box.
-     *
-     * @param { ShowDialogOptions } options - Options.
-     * @returns { Promise<ShowDialogSuccessResponse> } the promise returned by the function.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * <br> 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameters types.
-     * <br> 3. Parameter verification failed.
+     *     <br> 1. Mandatory parameters are left unspecified.
+     *     <br> 2. Incorrect parameters types.
+     *     <br> 3. Parameter verification failed.
      * @throws { BusinessError } 100001 - Internal error.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @FaAndStageModel
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamiconly
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 9 dynamiconly
      * @deprecated since 18
      * @useinstead ohos.arkui.UIContext.PromptAction#showDialog
      */
     function showDialog(options: ShowDialogOptions): Promise<ShowDialogSuccessResponse>;
     /**
-     * Open the custom dialog.
+     * Opens a custom dialog box. This API uses a promise to return the result.
+     * 
+     * <!--Del-->This API cannot be used in **ServiceExtension**.<!--DelEnd-->
+     * 
+     * 
+     * By default, the width of the dialog box in portrait mode is the width of the window where it is located minus the 
+     * left and right margins (40 vp for 2-in-1 devices and 16 vp for other devices), and the maximum width is 400 vp.
+     * 
+     * > **NOTE**
+     * >
+     * > - This API is supported since API version 11 and deprecated since API version 18. 
+     * You are advised to use [openCustomDialog](arkts-apis-uicontext-promptaction.md#opencustomdialog12-1) instead. 
+     * Before calling this API, you need to obtain the [PromptAction](arkts-apis-uicontext-promptaction.md) object 
+     * using the [getPromptAction](arkts-apis-uicontext-uicontext.md#getpromptaction) method in [UIContext](arkts-apis-uicontext-uicontext.md). 
+     * Directly using **openCustomDialog** can lead to the issue of [ambiguous UI context](../../ui/arkts-global-interface.md#ambiguous-ui-context).
+     * >
+     * > - Since API version 12, you can use the [getPromptAction](arkts-apis-uicontext-uicontext.md#getpromptaction) API 
+     * in [UIContext](arkts-apis-uicontext-uicontext.md) to obtain the [PromptAction](arkts-apis-uicontext-promptaction.md) 
+     * object associated with the current UI context.
      *
-     * @param { CustomDialogOptions } options - Options.
-     * @returns { Promise<number> } return the dialog id that will be used by closeCustomDialog.
+     * @param { CustomDialogOptions } options - Content of the custom dialog box.
+     *      <br>Note: If both [isModal](js-apis-promptAction.md#basedialogoptions11) and 
+     *      [showInSubWindow](js-apis-promptAction.md#basedialogoptions11) in **BaseDialogOptions** are set to **true**, 
+     *      only **showInSubWindow** takes effect. In this case, the non-modal dialog box is displayed 
+     *      without mask in the subwindow.
+     * @returns { Promise<number> } ID of the custom dialog box, which can be used in **closeCustomDialog**.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * <br> 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameters types.
-     * <br> 3. Parameter verification failed.
+     *     <br> 1. Mandatory parameters are left unspecified.
+     *     <br> 2. Incorrect parameters types.
+     *     <br> 3. Parameter verification failed.
      * @throws { BusinessError } 100001 - Internal error.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
-     * @since 11
-     */
-    /**
-     * Open the custom dialog.
-     *
-     * @param { CustomDialogOptions } options - Options.
-     * @returns { Promise<number> } return the dialog id that will be used by closeCustomDialog.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * <br> 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameters types.
-     * <br> 3. Parameter verification failed.
-     * @throws { BusinessError } 100001 - Internal error.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamiconly
+     * @atomicservice [since 12]
+     * @since 11 dynamiconly
      * @deprecated since 18
      * @useinstead ohos.arkui.UIContext.PromptAction#openCustomDialog
      */
     function openCustomDialog(options: CustomDialogOptions): Promise<number>;
     /**
-     * Close the custom dialog.
+     * Closes the specified custom dialog box.
+     * 
+     * > **NOTE**
+     * >
+     * > - This API is supported since API version 11 and deprecated since API version 18. 
+     * You are advised to use [closeCustomDialog](arkts-apis-uicontext-promptaction.md#closecustomdialog12-1) instead. 
+     * Before calling this API, you need to obtain the [PromptAction](arkts-apis-uicontext-promptaction.md) object 
+     * using the [getPromptAction](arkts-apis-uicontext-uicontext.md#getpromptaction) method in [UIContext](arkts-apis-uicontext-uicontext.md). 
+     * Directly using **closeCustomDialog** can lead to the issue of [ambiguous UI context](../../ui/arkts-global-interface.md#ambiguous-ui-context).
+     * >
+     * > - Since API version 12, you can use the [getPromptAction](arkts-apis-uicontext-uicontext.md#getpromptaction) API 
+     * in [UIContext](arkts-apis-uicontext-uicontext.md) to obtain the [PromptAction](arkts-apis-uicontext-promptaction.md) 
+     * object associated with the current UI context.
      *
-     * @param { number } dialogId - the dialog id that returned by openCustomDialog.
+     * @param { number } dialogId - ID of the custom dialog box to close. It is returned from **openCustomDialog**.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * <br> 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameters types.
-     * <br> 3. Parameter verification failed.
+     *     <br> 1. Mandatory parameters are left unspecified.
+     *     <br> 2. Incorrect parameters types.
+     *     <br> 3. Parameter verification failed.
      * @throws { BusinessError } 100001 - Internal error.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
-     * @since 11
-     */
-    /**
-     * Close the custom dialog.
-     *
-     * @param { number } dialogId - the dialog id that returned by openCustomDialog.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * <br> 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameters types.
-     * <br> 3. Parameter verification failed.
-     * @throws { BusinessError } 100001 - Internal error.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamiconly
+     * @atomicservice [since 12]
+     * @since 11 dynamiconly
      * @deprecated since 18
      * @useinstead ohos.arkui.UIContext.PromptAction#closeCustomDialog
      */
     function closeCustomDialog(dialogId: number): void;
     /**
-     * Displays the menu.
+     * Creates and displays an action menu. This API uses an asynchronous callback to return the result.
+     * 
+     * > **NOTE**
+     * >
+     * > - This API is supported since API version 9 and deprecated since API version 18. 
+     * You are advised to use [showActionMenu](arkts-apis-uicontext-promptaction.md#showactionmenu11) instead. 
+     * Before calling this API, you need to obtain the [PromptAction](arkts-apis-uicontext-promptaction.md) object
+     *  using the [getPromptAction](arkts-apis-uicontext-uicontext.md#getpromptaction) method in [UIContext](arkts-apis-uicontext-uicontext.md). 
+     * Directly using **showActionMenu** can lead to the issue of [ambiguous UI context](../../ui/arkts-global-interface.md#ambiguous-ui-context).
+     * >
+     * > - Since API version 11, you can use the [getPromptAction](arkts-apis-uicontext-uicontext.md#getpromptaction) API 
+     * in [UIContext](arkts-apis-uicontext-uicontext.md) to obtain the [PromptAction](arkts-apis-uicontext-promptaction.md) object
+     *  associated with the current UI context.
      *
-     * @param { ActionMenuOptions } options - Options.
-     * @param { AsyncCallback<ActionMenuSuccessResponse> } callback - the callback of showActionMenu.
+     * @param { ActionMenuOptions } options - Action menu options.
+     * @param { AsyncCallback<ActionMenuSuccessResponse> } callback - Callback used to return the result. 
+     *      On success, **err** is **undefined** and **data** contains the action menu response. 
+     *      On failure, **err** provides error details.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * <br> 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameters types.
-     * <br> 3. Parameter verification failed.
-     * @throws { BusinessError } 100001 - Internal error.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 9
-     */
-    /**
-     * Displays the menu.
-     *
-     * @param { ActionMenuOptions } options - Options.
-     * @param { AsyncCallback<ActionMenuSuccessResponse> } callback - the callback of showActionMenu.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * <br> 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameters types.
-     * <br> 3. Parameter verification failed.
-     * @throws { BusinessError } 100001 - Internal error.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Displays the menu.
-     *
-     * @param { ActionMenuOptions } options - Options.
-     * @param { AsyncCallback<ActionMenuSuccessResponse> } callback - the callback of showActionMenu.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * <br> 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameters types.
-     * <br> 3. Parameter verification failed.
+     *     <br> 1. Mandatory parameters are left unspecified.
+     *     <br> 2. Incorrect parameters types.
+     *     <br> 3. Parameter verification failed.
      * @throws { BusinessError } 100001 - Internal error.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @FaAndStageModel
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamiconly
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 9 dynamiconly
      * @deprecated since 18
      * @useinstead ohos.arkui.UIContext.PromptAction#showActionMenu
      */
     function showActionMenu(options: ActionMenuOptions, callback: AsyncCallback<ActionMenuSuccessResponse>): void;
     /**
-     * Displays the dialog box.
+     * Creates and displays an action menu in the given settings. This API uses a promise to return the result.
+     * 
+     * > **NOTE**
+     * >
+     * > - This API is supported since API version 9 and deprecated since API version 18. 
+     * You are advised to use [showActionMenu](arkts-apis-uicontext-promptaction.md#showactionmenu) instead.
+     *  Before calling this API, you need to obtain the [PromptAction](arkts-apis-uicontext-promptaction.md) object 
+     * using the [getPromptAction](arkts-apis-uicontext-uicontext.md#getpromptaction) method in [UIContext](arkts-apis-uicontext-uicontext.md). 
+     * Directly using **showActionMenu** can lead to the issue of [ambiguous UI context](../../ui/arkts-global-interface.md#ambiguous-ui-context).
+     * >
+     * > - Since API version 10, you can use the [getPromptAction](arkts-apis-uicontext-uicontext.md#getpromptaction) 
+     * API in [UIContext](arkts-apis-uicontext-uicontext.md) to obtain the [PromptAction](arkts-apis-uicontext-promptaction.md) 
+     * object associated with the current UI context.
      *
-     * @param { ActionMenuOptions } options - Options.
-     * @returns { Promise<ActionMenuSuccessResponse> } the promise returned by the function.
+     * @param { ActionMenuOptions } options - Promise that returns the action menu response.
+     * @returns { Promise<ActionMenuSuccessResponse> } Promise that returns the action menu response.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * <br> 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameters types.
-     * <br> 3. Parameter verification failed.
-     * @throws { BusinessError } 100001 - Internal error.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 9
-     */
-    /**
-     * Displays the dialog box.
-     *
-     * @param { ActionMenuOptions } options - Options.
-     * @returns { Promise<ActionMenuSuccessResponse> } the promise returned by the function.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * <br> 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameters types.
-     * <br> 3. Parameter verification failed.
-     * @throws { BusinessError } 100001 - Internal error.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Displays the dialog box.
-     *
-     * @param { ActionMenuOptions } options - Options.
-     * @returns { Promise<ActionMenuSuccessResponse> } the promise returned by the function.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * <br> 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameters types.
-     * <br> 3. Parameter verification failed.
+     *     <br> 1. Mandatory parameters are left unspecified.
+     *     <br> 2. Incorrect parameters types.
+     *     <br> 3. Parameter verification failed.
      * @throws { BusinessError } 100001 - Internal error.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @FaAndStageModel
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamiconly
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 9 dynamiconly
      * @deprecated since 18
      * @useinstead ohos.arkui.UIContext.PromptAction#showActionMenu
      */
     function showActionMenu(options: ActionMenuOptions): Promise<ActionMenuSuccessResponse>;
 }
 /**
- * Component dialog dismiss action.
+ * Provides information about the action to dismiss the dialog box.
  *
- * @interface DismissDialogAction
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
  */
 declare interface DismissDialogAction {
     /**
-     * Defines dialog dismiss function.
+     * Callback for dismissing the dialog box. This API is called only when the dialog box needs to be exited.
      *
-     * @type { Callback<void> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
      */
     dismiss: Callback<void>;
     /**
-     * Dismiss reason type.
+     * Reason why the dialog box cannot be dismissed. You must specify whether to close the dialog box for each of the listed actions.
      *
-     * @type { DismissReason }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic

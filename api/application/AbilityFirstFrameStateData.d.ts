@@ -19,9 +19,13 @@
  */
 
 /**
- * The ability first frame state data.
+ * The module defines the struct reported by the callback when the first frame of an ability is rendered. After
+ * registering the first frame rendering completion event of an ability by using
+ * [on]{@link ./../@ohos.app.ability.appManager:appManager.on(type: 'abilityFirstFrameState', observer: AbilityFirstFrameStateObserver, bundleName?: string)}
+ * , you can obtain the reported struct through the
+ * [onAbilityFirstFrameDrawn]{@link AbilityFirstFrameStateObserver:AbilityFirstFrameStateObserver.onAbilityFirstFrameDrawn}
+ * callback of [AbilityFirstFrameStateObserver]{@link AbilityFirstFrameStateObserver:AbilityFirstFrameStateObserver}.
  *
- * @typedef AbilityFirstFrameStateData
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @systemapi
  * @since 12 dynamic
@@ -31,7 +35,6 @@ export interface AbilityFirstFrameStateData {
   /**
    * The bundle name.
    *
-   * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 12 dynamic
@@ -42,7 +45,6 @@ export interface AbilityFirstFrameStateData {
   /**
    * The module name.
    *
-   * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 12 dynamic
@@ -53,7 +55,6 @@ export interface AbilityFirstFrameStateData {
   /**
    * The ability name.
    *
-   * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 12 dynamic
@@ -64,7 +65,6 @@ export interface AbilityFirstFrameStateData {
   /**
    * The index of DLP sandbox.
    *
-   * @type { int }
    * @default 0
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
@@ -76,7 +76,6 @@ export interface AbilityFirstFrameStateData {
   /**
    * The entry ability of application is cold-start return true, others false.
    *
-   * @type { boolean }
    * @default false
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi

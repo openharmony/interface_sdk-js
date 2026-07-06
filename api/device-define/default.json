@@ -71,6 +71,7 @@
     "SystemCapability.Multimedia.AVSession.Core",
     "SystemCapability.Multimedia.AVSession.Manager",
     "SystemCapability.Multimedia.AVSession.AVCast",
+    "SystemCapability.Multimedia.AVSession.AVInputCast",
     "SystemCapability.Multimedia.Audio.Core",
     "SystemCapability.Multimedia.Audio.Renderer",
     "SystemCapability.Multimedia.Audio.Capturer",
@@ -113,6 +114,7 @@
     "SystemCapability.HiviewDFX.HiChecker",
     "SystemCapability.HiviewDFX.HiAppEvent",
     "SystemCapability.HiviewDFX.HiSysEvent",
+    "SystemCapability.HiviewDFX.HiRetrieval",
     "SystemCapability.HiviewDFX.HiProfiler.HiDebug",
     "SystemCapability.HiviewDFX.HiCollie",
     "SystemCapability.Update.UpdateService",
@@ -140,7 +142,9 @@
     "SystemCapability.FileManagement.File.FileIO",
     "SystemCapability.FileManagement.File.Environment",
     "SystemCapability.FileManagement.AppFileService",
+    "SystemCapability.FileManagement.AppFileService.FolderAuthorization",
     "SystemCapability.FileManagement.UserFileService",
+    "SystemCapability.FileManagement.UserFileService.FolderSelection",
     "SystemCapability.FileManagement.UserFileManager.Core",
     "SystemCapability.FileManagement.PhotoAccessHelper.Core",
     "SystemCapability.FileManagement.DistributedFileService.CloudSyncManager",
@@ -179,6 +183,7 @@
     "SystemCapability.Advertising.Ads",
     "SystemCapability.Security.CertificateManager",
     "SystemCapability.Security.CertificateManagerDialog",
+    "SystemCapability.Security.Cipher",
     "SystemCapability.Security.CryptoFramework",
     "SystemCapability.Security.CryptoFramework.Key",
     "SystemCapability.Security.CryptoFramework.Key.SymKey",
@@ -227,6 +232,6 @@
     "SystemCapability.Resourceschedule.BackgroundProcessManager",
     "SystemCapability.Test.PerfTest",
     "SystemCapability.ResourceSchedule.SystemLoad",
-    "SystemCapability.Communication.FusionConnectivity.Core"
+    "SystemCapability.Communication.SoftBus.Core"
   ]
 }

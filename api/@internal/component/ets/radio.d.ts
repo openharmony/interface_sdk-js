@@ -19,10 +19,10 @@
  */
 
 /**
- * Defines the IndicatorType of Radio component
+ * Radio button style.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @form
  * @atomicservice
@@ -30,9 +30,10 @@
  */
 declare enum RadioIndicatorType {
   /**
-   * Tick shape.
+   * Default tick icon.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice
@@ -40,9 +41,10 @@ declare enum RadioIndicatorType {
    */
   TICK = 0,
   /**
-   * Dot shape.
+   * Default dot icon.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice
@@ -50,9 +52,10 @@ declare enum RadioIndicatorType {
    */
   DOT = 1,
     /**
-   * custom shape.
+   * Custom component.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice
@@ -62,119 +65,45 @@ declare enum RadioIndicatorType {
 }
 
 /**
- * Input parameter for creating a radio box.
+ * Radio button information.
  *
- * @interface RadioOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 8
- */
-/**
- * Input parameter for creating a radio box.
- *
- * @interface RadioOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @since 9
- */
-/**
- * Input parameter for creating a radio box.
- *
- * @interface RadioOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Input parameter for creating a radio box.
- *
- * @interface RadioOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 8 dynamic
  */
 declare interface RadioOptions {
   /**
-   * Radio group name.
+   * Name of the group to which the radio button belongs. Only one radio button in a given group can be selected at a 
+   * time.
    *
-   * @type { string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Radio group name.
-   *
-   * @type { string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Radio group name.
-   *
-   * @type { string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Radio group name.
-   *
-   * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   group: string;
 
   /**
-   * Radio name.
+   * Current value of the radio button.
    *
-   * @type { string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Radio name.
-   *
-   * @type { string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Radio name.
-   *
-   * @type { string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Radio name.
-   *
-   * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   value: string;
   /**
-   * Indicator Type.
+   * Indicator type of the radio button. If no value is specified, the value of **RadioIndicatorType.TICK** is used.
    *
-   * @type { ?RadioIndicatorType }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice
@@ -182,10 +111,12 @@ declare interface RadioOptions {
    */
   indicatorType?: RadioIndicatorType;
   /**
-   * builder for IndicatorType.CUSTOM
+   * Custom component to indicate that the radio button is selected. This custom component is center aligned with the 
+   * radio button. If this parameter is set to **undefined**, the value of **RadioIndicatorType.TICK** is used as the 
+   * indicator type.
    *
-   * @type { ?CustomBuilder }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice
@@ -195,171 +126,96 @@ declare interface RadioOptions {
 }
 
 /**
- * Set radio Style.
+ * Radio button color.
  *
- * @interface RadioStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
- * @since 10
- */
-/**
- * Set radio Style.
- *
- * @interface RadioStyle
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @atomicservice [since 11]
+ * @since 10 dynamic
  */
 declare interface RadioStyle {
   /**
-   * Set the background color when the radio box is checked.
+   * Color of the background when the radio button is selected.
+   * 
+   * Default value: **$r('sys.color.ohos_id_color_text_primary_activated')**
    *
-   * @type { ?ResourceColor } checkedBackgroundColor - the background color when the radio box is checked.
    * @default #007DFF
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Set the background color when the radio box is checked.
-   *
-   * @type { ?ResourceColor } checkedBackgroundColor - the background color when the radio box is checked.
-   * @default #007DFF
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   checkedBackgroundColor?: ResourceColor;
 
   /**
-   * Set the bolder color when the radio box is unchecked.
+   * Color of the border when the radio button is deselected.
+   * 
+   * Default value: **$r('sys.color.ohos_id_color_switch_outline_off')**
    *
-   * @type { ?ResourceColor } uncheckedBorderColor - the bolder color when the radio box is unchecked.
    * @default #182431
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Set the bolder color when the radio box is unchecked.
-   *
-   * @type { ?ResourceColor } uncheckedBorderColor - the bolder color when the radio box is unchecked.
-   * @default #182431
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   uncheckedBorderColor?: ResourceColor;
 
   /**
-   * Set the indicator color when the radio box is checked.
+   * Color of the indicator when the radio button is selected. Since API version 12, this parameter takes effect only 
+   * when **indicatorType** is set to **RadioIndicatorType.TICK** or **RadioIndicatorType.DOT**.  
+   * 
+   * Default value: **$r('sys.color.ohos_id_color_foreground_contrary')**
    *
-   * @type { ?ResourceColor } indicatorColor - the indicator color when the radio box is checked.
    * @default #FFFFFF
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Set the indicator color when the radio box is checked.
-   *
-   * @type { ?ResourceColor } indicatorColor - the indicator color when the radio box is checked.
-   * @default #FFFFFF
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   indicatorColor?: ResourceColor;
 }
 
 /**
- * Provides an interface for creating a radio box.
+ * The **Radio** component allows users to select from a set of mutually exclusive options.
+ * 
+ * > **NOTE**
+ * >
+ * > Since API version 12, the default indicator type for the **Radio** component changes from 
+ * > **RadioIndicatorType.DOT** to **RadioIndicatorType.TICK**.
  *
- * @interface RadioInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 8
- */
-/**
- * Provides an interface for creating a radio box.
- *
- * @interface RadioInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @since 9
- */
-/**
- * Provides an interface for creating a radio box.
- *
- * @interface RadioInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Provides an interface for creating a radio box.
- *
- * @interface RadioInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 8 dynamic
  * @noninterop
  */
 interface RadioInterface {
   /**
-   * Called when a radio box is created.
+   * Creates a radio button.
    *
-   * @param { RadioOptions } options
-   * @returns { RadioAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Called when a radio box is created.
-   *
-   * @param { RadioOptions } options
-   * @returns { RadioAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Called when a radio box is created.
-   *
-   * @param { RadioOptions } options
-   * @returns { RadioAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Called when a radio box is created.
-   *
-   * @param { RadioOptions } options
+   * @param { RadioOptions } options - Parameters of the radio button.
    * @returns { RadioAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   (options: RadioOptions): RadioAttribute;
 }
 
 /**
- * Callback of radio box selection status changes event.
- * 
- * @typedef {function} OnRadioChangeCallback
+ * Defines the callback type for radio button selected state changes.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 18 dynamic
@@ -367,89 +223,53 @@ interface RadioInterface {
 declare type OnRadioChangeCallback = (isChecked: boolean) => void;
 
 /**
- * Provides methods for radio method component.
+ * In addition to the [universal attributes]{@link common}, the following attributes are supported.
+ * 
+ * In addition to the [universal events]{@link common}, the following events are supported.
  *
- * @extends CommonMethod<RadioAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 8
- */
-/**
- * Provides methods for radio method component.
- *
- * @extends CommonMethod<RadioAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @since 9
- */
-/**
- * Provides methods for radio method component.
- *
- * @extends CommonMethod<RadioAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Provides methods for radio method component.
- *
- * @extends CommonMethod<RadioAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 8 dynamic
  * @noninterop
  */
 declare class RadioAttribute extends CommonMethod<RadioAttribute> {
   /**
-   * Called when the radio box is selected.
+   * Sets whether the radio button is selected.
+   * 
+   * Since API version 10, this attribute supports two-way binding through 
+   * [$$](docroot://ui/state-management/arkts-two-way-sync.md).
+   * 
+   * Since API version 18, this attribute supports two-way binding through 
+   * [!!](docroot://ui/state-management/arkts-new-binding.md#two-way-binding-between-built-in-component-parameters).
    *
-   * @param { boolean } value
-   * @returns { RadioAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Called when the radio box is selected.
-   *
-   * @param { boolean } value
-   * @returns { RadioAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Called when the radio box is selected.
-   *
-   * @param { boolean } value
-   * @returns { RadioAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Called when the radio box is selected.
-   *
-   * @param { boolean } value
+   * @param { boolean } value - Whether the radio button is selected.<br>Default value: **false**<br>**true**: The radio
+   *     button is selected. **false**: The radio button is not selected.
    * @returns { RadioAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   checked(value: boolean): RadioAttribute;
 
   /**
-   * Called when the radio box is selected.
+   * Sets whether the radio button is selected. Compared with [checked]{@link RadioAttribute#checked(value: boolean)}, 
+   * this API supports the **undefined** type for the **isChecked** parameter.
+   * 
+   * This attribute supports two-way binding through [$$](docroot://ui/state-management/arkts-two-way-sync.md) and 
+   * [!!](docroot://ui/state-management/arkts-new-binding.md#two-way-binding-between-built-in-component-parameters).
    *
-   * @param { Optional<boolean> } isChecked
+   * @param { Optional<boolean> } isChecked - Whether the radio button is selected.<br>If **isChecked** is set to
+   *     **undefined**, the default value **false** is used.<br>**true**: The radio button is selected. **false**: The
+   *     radio button is not selected.
    * @returns { RadioAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice
@@ -458,52 +278,31 @@ declare class RadioAttribute extends CommonMethod<RadioAttribute> {
   checked(isChecked: Optional<boolean>): RadioAttribute;
 
   /**
-   * Called when the radio box selection status changes.
+   * Triggered when the selected state of the radio button changes.
    *
-   * @param { function } callback
-   * @returns { RadioAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Called when the radio box selection status changes.
-   *
-   * @param { function } callback
-   * @returns { RadioAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Called when the radio box selection status changes.
-   *
-   * @param { function } callback
-   * @returns { RadioAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Called when the radio box selection status changes.
-   *
-   * @param { function } callback
+   * @param { function } callback - Selected state of the radio button.<br>The value **true** means that the radio
+   *     button changes from unselected to selected, and **false** means that the radio button changes from selected to
+   *     unselected.
    * @returns { RadioAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   onChange(callback: (isChecked: boolean) => void): RadioAttribute;
 
   /**
-   * Called when the radio box selection status changes.
+   * Triggered when the selected state of the radio button changes. Compared with 
+   * [onChange]{@link RadioAttribute#onChange(callback: (isChecked: boolean) => void)}, this API supports the 
+   * **undefined** type for the **callback** parameter.
    *
-   * @param { Optional<OnRadioChangeCallback> } callback
+   * @param { Optional<OnRadioChangeCallback> } callback - Callback for radio button selection state changes.<br>If
+   *     **callback** is set to **undefined**, the callback function is not used.
    * @returns { RadioAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice
@@ -512,32 +311,28 @@ declare class RadioAttribute extends CommonMethod<RadioAttribute> {
   onChange(callback: Optional<OnRadioChangeCallback>): RadioAttribute;
 
   /**
-   * Set the radio style.
+   * Sets the style of the radio button in selected or deselected state.
+   * 
+   * Since API version 10, this API is supported in ArkTS widgets.
    *
-   * @param { RadioStyle } value - the radio style.
+   * @param { RadioStyle } value - Style of the radio button in selected or deselected state.
    * @returns { RadioAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Set the radio style.
-   *
-   * @param { RadioStyle } value - the radio style.
-   * @returns { RadioAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   radioStyle(value?: RadioStyle): RadioAttribute;
 
     /**
-   * Set the Configuration of radio.
+   * Creates a content modifier.
    *
-   * @param { ContentModifier<RadioConfiguration> } modifier - The contentModifier of radio.
+   * @param { ContentModifier<RadioConfiguration> } modifier - Content modifier to apply to the current component.<br>
+   *     **modifier**: content modifier. You need a custom class to implement the **ContentModifier** API.
    * @returns { RadioAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -545,11 +340,16 @@ declare class RadioAttribute extends CommonMethod<RadioAttribute> {
   contentModifier(modifier: ContentModifier<RadioConfiguration>): RadioAttribute;
 
     /**
-   * Set the Configuration of radio.
+   * Creates a content modifier. Compared with 
+   * [contentModifier]{@link RadioAttribute#contentModifier(modifier: ContentModifier<RadioConfiguration>)}<sup>12+</sup
+   * >, this API supports the **undefined** type for the **modifier** parameter.
    *
-   * @param { Optional<ContentModifier<RadioConfiguration>> } modifier - The contentModifier of radio.
+   * @param { Optional<ContentModifier<RadioConfiguration>> } modifier - Content modifier to apply to the current
+   *     component.<br>**modifier**: content modifier. You need a custom class to implement the **ContentModifier** API.
+   *     <br>If **modifier** is set to **undefined**, no content modifier is used.
    * @returns { RadioAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -558,21 +358,21 @@ declare class RadioAttribute extends CommonMethod<RadioAttribute> {
 }
 
 /**
- * RadioConfiguration used by radio Configuration
+ * You need a custom class to implement the **ContentModifier** API. Inherits from 
+ * [CommonConfiguration]{@link CommonConfiguration}.
  *
- * @extends CommonConfiguration<RadioConfiguration>
- * @interface RadioConfiguration
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
  */
 declare interface RadioConfiguration extends CommonConfiguration<RadioConfiguration> {
     /**
-   * Radio name.
+   * Current value of the radio button.
    *
-   * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -580,10 +380,14 @@ declare interface RadioConfiguration extends CommonConfiguration<RadioConfigurat
   value: string;
   
     /**
-   * Called when the radio box is selected.
+   * Whether the radio button is selected.
+   * 
+   * Default value: **false**
+   * 
+   * **true**: The radio button is selected. **false**: The radio button is not selected.
    *
-   * @type { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -591,10 +395,13 @@ declare interface RadioConfiguration extends CommonConfiguration<RadioConfigurat
   checked: boolean;
 
   /**
-   * Called when the radio box selection status changes.
+   * Changes the selected state of the radio button.
+   * 
+   * The value **true** means that the radio button changes from unselected to selected, and **false** means that the 
+   * radio button changes from selected to unselected.
    *
-   * @type { Callback<boolean> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -603,35 +410,23 @@ declare interface RadioConfiguration extends CommonConfiguration<RadioConfigurat
 }
 
 /**
- * Defines Radio Component.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 8
- */
-/**
- * Defines Radio Component.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @since 9
- */
-/**
- * Defines Radio Component.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Defines Radio Component.
+ * The **Radio** component allows users to select from a set of mutually exclusive options.
+ * 
+ * > **NOTE**
+ * >
+ * > Since API version 12, the default indicator type for the **Radio** component changes from 
+ * > **RadioIndicatorType.DOT** to **RadioIndicatorType.TICK**.
+ * 
+ * ###### Child Components
+ * 
+ * Not supported
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 8 dynamic
  */
 declare const Radio: RadioInterface;
 
@@ -639,31 +434,10 @@ declare const Radio: RadioInterface;
  * Defines Radio Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 8
- */
-/**
- * Defines Radio Component instance.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @since 9
- */
-/**
- * Defines Radio Component instance.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Defines Radio Component instance.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 8 dynamic
  */
 declare const RadioInstance: RadioAttribute;

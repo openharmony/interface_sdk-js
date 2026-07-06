@@ -17,6 +17,7 @@
  * @file
  * @kit AbilityKit
  */
+import type agentConstant from '../@ohos.app.agent.agentConstant';
 
 /**
  * AgentCard describes the basic information and capabilities provided by an Agent.
@@ -60,6 +61,18 @@ export interface AgentCard {
    * @since 24 dynamic&static
    */
   description: string;
+
+  /**
+   * The type of the AgentCard.
+   * When `type` is `agentConstant.AgentCardType.LOW_CODE`, the corresponding application must be a system application.
+   * Otherwise, the agent card cannot be registered, installed, or updated.
+   *
+   * @syscap SystemCapability.Ability.AgentRuntime.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   */
+  type?: agentConstant.AgentCardType;
 
   /**
    * Service provider information for the Agent.
@@ -142,13 +155,12 @@ export interface AgentCard {
   /**
    * A url to an icon for the agent.
    *
-   * @type { ?string }
    * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @stagemodelonly
    * @atomicservice
    * @since 24 dynamic&static
    */
-  iconUrl?: string;
+  iconUrl: string;
 
   /**
    * The category of this agent.

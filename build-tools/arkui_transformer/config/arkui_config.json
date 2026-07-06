@@ -129,6 +129,8 @@
         "ArcSwiper",
         "ArcScrollBar",
         "ArcAlphabetIndexer",
-        "UnionEffectContainer"
+        "UnionEffectContainer",
+        "DistortionComponent",
+        "SelectionContainer"
     ]
 }

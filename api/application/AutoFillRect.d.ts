@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2024 Huawei Device Co., Ltd.
+ * Copyright (c) 2024-2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -19,61 +19,61 @@
  */
 
 /**
- * Auto fill rectangle.
+ * AutoFillRect describes the rectangle used for auto-fill.
  *
- * @interface AutoFillRect
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
- * @systemapi
+ * @systemapi [since 12 - 24]
+ * @publicapi [since 26.0.0]
  * @stagemodelonly
- * @since 12 dynamic
- * @since 23 static
+ * @atomicservice
+ * @since 26.0.0 dynamic&static
  */
 export default interface AutoFillRect {
   /**
-   * The left of the rect.
+   * Distance between the AutoFill form or page node and the left boundary of the page.
    *
-   * @type { double }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @systemapi
+   * @systemapi [since 12 - 24]
+   * @publicapi [since 26.0.0]
    * @stagemodelonly
-   * @since 12 dynamic
-   * @since 23 static
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
    */
   left: double;
 
   /**
-   * The top of the rect.
+   * Distance between the AutoFill form or page node and the upper boundary of the page.
    *
-   * @type { double }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @systemapi
+   * @systemapi [since 12 - 24]
+   * @publicapi [since 26.0.0]
    * @stagemodelonly
-   * @since 12 dynamic
-   * @since 23 static
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
    */
   top: double;
 
   /**
-   * The width of the rect.
+   * Width of the AutoFill form or page node.
    *
-   * @type { double }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @systemapi
+   * @systemapi [since 12 - 24]
+   * @publicapi [since 26.0.0]
    * @stagemodelonly
-   * @since 12 dynamic
-   * @since 23 static
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
    */
   width: double;
 
   /**
-   * The height of the rect.
+   * Height of the AutoFill form or page node.
    *
-   * @type { double }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @systemapi
+   * @systemapi [since 12 - 24]
+   * @publicapi [since 26.0.0]
    * @stagemodelonly
-   * @since 12 dynamic
-   * @since 23 static
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
    */
   height: double;
 }
