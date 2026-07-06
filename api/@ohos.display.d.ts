@@ -800,9 +800,9 @@ declare namespace display {
    * @param { Rect } [surfaceRegion] - Rectangular area for displaying the surface in the virtual screen.
    *     If the virtual screen has not bound any surface via
    *     [setVirtualScreenSurface()]{@link display.setVirtualScreenSurface} or 
-   *     [addVirtualScreenSurface()]{@link display.addVirtualScreenSurface}, the
-   *     rect is invalid and defaults to full screen. In mirror mode, the rect is invalid and defaults to full screen.
-   *     In independent display mode, the rect is valid.
+   *     [addVirtualScreenSurface()]{@link display.addVirtualScreenSurface}, the surfaceRegion is invalid
+   *     and defaults to full screen. In mirror mode, the surfaceRegion is invalid and defaults to full screen.
+   *     In independent display mode, the surfaceRegion is valid.
    * @returns { Promise<void> } Promise that returns no value
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 801 - Capability not supported.function addVirtualScreenSurface
