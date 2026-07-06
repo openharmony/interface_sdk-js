@@ -27,7 +27,7 @@ import { FunctionInfo } from './application/FunctionInfo';
  * @syscap SystemCapability.Ability.AgentRuntime.Core
  * @systemapi
  * @stagemodelonly
- * @since 26.1.0 dynamiconly
+ * @since 26.0.0 dynamiconly
  */
 declare namespace functionManager {
 
@@ -37,7 +37,7 @@ declare namespace functionManager {
    * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.1.0 dynamiconly
+   * @since 26.0.0 dynamiconly
    */
   interface InvokeOptions {
     /**
@@ -46,7 +46,7 @@ declare namespace functionManager {
      * @syscap SystemCapability.Ability.AgentRuntime.Core
      * @systemapi
      * @stagemodelonly
-     * @since 26.1.0 dynamiconly
+     * @since 26.0.0 dynamiconly
      */
     context?: Context;
   }
@@ -57,7 +57,7 @@ declare namespace functionManager {
    * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.1.0 dynamiconly
+   * @since 26.0.0 dynamiconly
    */
   interface InvokeResult {
     /**
@@ -68,7 +68,7 @@ declare namespace functionManager {
      * @syscap SystemCapability.Ability.AgentRuntime.Core
      * @systemapi
      * @stagemodelonly
-     * @since 26.1.0 dynamiconly
+     * @since 26.0.0 dynamiconly
      */
     success: boolean;
 
@@ -79,7 +79,7 @@ declare namespace functionManager {
      * @syscap SystemCapability.Ability.AgentRuntime.Core
      * @systemapi
      * @stagemodelonly
-     * @since 26.1.0 dynamiconly
+     * @since 26.0.0 dynamiconly
      */
     data?: any;
 
@@ -90,7 +90,7 @@ declare namespace functionManager {
      * @syscap SystemCapability.Ability.AgentRuntime.Core
      * @systemapi
      * @stagemodelonly
-     * @since 26.1.0 dynamiconly
+     * @since 26.0.0 dynamiconly
      */
     errorCode?: number;
 
@@ -101,7 +101,7 @@ declare namespace functionManager {
      * @syscap SystemCapability.Ability.AgentRuntime.Core
      * @systemapi
      * @stagemodelonly
-     * @since 26.1.0 dynamiconly
+     * @since 26.0.0 dynamiconly
      */
     errorMsg?: string;
   }
@@ -119,7 +119,7 @@ declare namespace functionManager {
    * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.1.0 dynamiconly
+   * @since 26.0.0 dynamiconly
    */
   function queryFunctions(): Promise<Array<FunctionInfo>>;
 
@@ -142,7 +142,7 @@ declare namespace functionManager {
    * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.1.0 dynamiconly
+   * @since 26.0.0 dynamiconly
    */
   function invokeFunction(functionNamespace: string, functionName: string,
     args: Record<string, Object>, options?: InvokeOptions): Promise<InvokeResult>;

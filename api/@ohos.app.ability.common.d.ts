@@ -750,7 +750,7 @@ declare namespace common {
    * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.1.0 dynamiconly
+   * @since 26.0.0 dynamiconly
    */
   export type FunctionInfo = _FunctionInfo;
 }
