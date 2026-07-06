@@ -27,7 +27,7 @@ import { VoidCallback } from '@ohos.arkui.component';
 import { Callback } from './@ohos.base';
 
 /**
-* Used to do observer layout and draw event for component.
+* 用于观察组件的布局和绘制事件。
 *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -36,7 +36,7 @@ import { Callback } from './@ohos.base';
 declare namespace inspector {
 
   /**
-   * The ComponentObserver is used to listen for layout, draw and drawChildren events.
+   * ComponentObserver用于监听布局、绘制和绘制子节点事件。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -45,10 +45,10 @@ declare namespace inspector {
   interface ComponentObserver {
 
     /**
-     * Registers a callback with the corresponding query condition by using the handle.
-     * This callback is triggered when the component layout complete.
+     * 使用句柄注册具有相应查询条件的回调。
+     * 当组件布局完成时会触发此回调。
      *
-     * @param { VoidCallback } callback - callback of the listened event.
+     * @param { VoidCallback } callback - 监听事件的回调。
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -56,10 +56,10 @@ declare namespace inspector {
     onLayout(callback: VoidCallback): void;
 
     /**
-     * Deregisters a callback with the corresponding query condition by using the handle.
-     * This callback is not triggered when the component layout complete.
+     * 使用句柄注销具有相应查询条件的回调。
+     * 当组件布局完成时不再触发此回调。
      *
-     * @param { VoidCallback } [callback] - callback of the listened event.
+     * @param { VoidCallback } [callback] - 监听事件的回调。
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -67,10 +67,10 @@ declare namespace inspector {
     offLayout(callback?: VoidCallback): void;
 
     /**
-     * Registers a callback with the corresponding query condition by using the handle.
-     * This callback is triggered when the component draw complete.
+     * 使用句柄注册具有相应查询条件的回调。
+     * 当组件绘制完成时会触发此回调。
      *
-     * @param { VoidCallback } callback - callback of the listened event.
+     * @param { VoidCallback } callback - 监听事件的回调。
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -78,10 +78,10 @@ declare namespace inspector {
     onDraw(callback: VoidCallback): void;
 
     /**
-     * Deregisters a callback with the corresponding query condition by using the handle.
-     * This callback is not triggered when the component draw complete.
+     * 使用句柄注销具有相应查询条件的回调。
+     * 当组件绘制完成时不再触发此回调。
      *
-     * @param { VoidCallback } [callback] - callback of the listened event.
+     * @param { VoidCallback } [callback] - 监听事件的回调。
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -89,10 +89,10 @@ declare namespace inspector {
     offDraw(callback?: VoidCallback): void;
 
     /**
-     * Registers a callback with the corresponding query condition by using the handle.
-     * This callback is triggered when the child of component draw complete.
+     * 使用句柄注册具有相应查询条件的回调。
+     * 当组件的子级绘制完成时会触发此回调。
      *
-     * @param { VoidCallback } callback - callback of the listened event.
+     * @param { VoidCallback } callback - 监听事件的回调。
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -100,10 +100,10 @@ declare namespace inspector {
     onDrawChildren(callback: VoidCallback): void;
 
     /**
-     * Deregisters a callback with the corresponding query condition by using the handle.
-     * This callback is not triggered when the child of component draw complete.
+     * 使用句柄注销具有相应查询条件的回调。
+     * 当组件的子级绘制完成时不再触发此回调。
      *
-     * @param { VoidCallback } [callback] - callback of the listened event.
+     * @param { VoidCallback } [callback] - 监听事件的回调。
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -155,47 +155,47 @@ declare namespace inspector {
   }
 
   /**
-     * Obtains all attributes of the component with the specified ID.
-     *
-   * @param { string } id - ID of the component whose attributes are to be obtained.
-   * @returns { string }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 23 static
-   * @test
-   */
+      * 获取指定ID的组件的所有属性。
+      *
+    * @param { string } id - 要获取属性的组件的ID。
+    * @returns { string }
+       * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
+    * @since 23 static
+    * @test
+    */
   function getInspectorByKey(id: string): string;
 
   /**
-     * Get components tree.
-     *
-   * @returns { RecordData }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 23 static
-   * @test
-   */
+      * 获取组件树。
+      *
+    * @returns { RecordData }
+       * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
+    * @since 23 static
+    * @test
+    */
   function getInspectorTree(): RecordData;
 
   /**
-     * Sends an event to the component with the specified ID.
-     *
-   * @param { string } id - ID of the component for which the event is to be sent.
-   * @param { int } action - Type of the event to be sent. The options are as follows: Click event: 10 LongClick: 11.
-   * @param { string } params - Event parameters. If there is no parameter, pass an empty string "".
-   * @returns { boolean }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 23 static
-   * @test
-   */
+      * 向指定ID的组件发送事件。
+      *
+    * @param { string } id - 要发送事件的组件的ID。
+    * @param { int } action - 要发送的事件类型。取值如下：点击事件：10 长按事件：11。
+    * @param { string } params - 事件参数。如果没有参数，传入空字符串""。
+    * @returns { boolean }
+       * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
+    * @since 23 static
+    * @test
+    */
   function sendEventByKey(id: string, action: int, params: string): boolean;
 }
 
 export default inspector;
 
 /**
- * export function getInspectorByKey from inspector namespace and provide it for kit ArkUI.
+ * 从inspector命名空间导出getInspectorByKey函数，并由ArkUI kit提供。
  * @constant
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -204,7 +204,7 @@ export default inspector;
 export declare const GETINSPECTORBYKEY: (id: string) => string;
 
 /**
- * export function getInspectorTree from inspector namespace and provide it for kit ArkUI.
+ * 从inspector命名空间导出getInspectorTree函数，并由ArkUI kit提供。
  * @constant
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -212,7 +212,7 @@ export declare const GETINSPECTORBYKEY: (id: string) => string;
  */
 export declare const GETINSPECTORTREE: () => RecordData;
 /** 
- * export function sendEventByKey from inspector namespace and provide it for kit ArkUI. 
+ * 从inspector命名空间导出sendEventByKey函数，并由ArkUI kit提供。 
  * @constant 
  * @syscap SystemCapability.ArkUI.ArkUI.Full 
  * @stagemodelonly 
