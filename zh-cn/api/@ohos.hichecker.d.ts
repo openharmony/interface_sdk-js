@@ -79,8 +79,6 @@ declare namespace hichecker {
 
   /**
    * 检测规则，检测线程是否调用网络耗时接口。
-   * 
-   * 26.0.0
    *
    * @syscap SystemCapability.HiviewDFX.HiChecker
    * @FaAndStageModel
