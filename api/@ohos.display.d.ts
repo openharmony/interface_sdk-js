@@ -793,8 +793,8 @@ declare namespace display {
   function setVirtualScreenSurface(screenId: long, surfaceId: string): Promise<void>;
 
   /**
-   * Add surface for the virtual screen. This API can only be used when the virtual screen is in independent display
-   * mode and supports multiple surfaces.
+   * Add surface for the virtual screen. This API can only be used when the virtual screen is an independent display
+   * screen and needs to bind multiple surfaces.
    *
    * @param { long } screenId - Indicates the screen id of the virtual screen.
    * @param { string } surfaceId - Indicates the surface id.
@@ -817,8 +817,8 @@ declare namespace display {
   function addVirtualScreenSurface(screenId: long, surfaceId: string, surfaceRegion?: Rect): Promise<void>;
 
   /**
-   * Remove surface for the virtual screen. This API can only be used when the virtual screen is in independent display
-   * mode and supports multiple surfaces.
+   * Remove surface for the virtual screen. This API can only be used when the virtual screen is an independent display
+   * screen and needs to bind multiple surfaces.
    *
    * @param { long } screenId - Indicates the screen id of the virtual screen.
    * @param { string } surfaceId - Indicates the surface id.
