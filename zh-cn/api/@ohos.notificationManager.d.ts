@@ -2422,6 +2422,7 @@ declare namespace notificationManager {
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { Array<BundleOption> } bundles - 应用包信息数组。
+   *     <br>最大长度为1000且不能为空。
    * @param { SlotType } type - 渠道类型。所有应用共享同一个渠道类型。
    * @returns { Promise<Map<BundleOption, boolean>> } 以Promise形式返回批量查询结果，key为应用包信息，value为渠道使能状态
    *     （true：使能，false：禁止）。未创建渠道的应用不会出现在返回结果中。
