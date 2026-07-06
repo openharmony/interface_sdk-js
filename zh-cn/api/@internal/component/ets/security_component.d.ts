@@ -155,13 +155,10 @@ declare class SecurityComponentMethod<T> {
   /**
    * 设置安全控件相对于自身布局位置的坐标偏移。
    *
-   * @param { Position } value - Coordinate offset of the security component relative to its own layout position. This
-   *     attribute does not affect the layout in the parent container. The offset is used only during drawing.
-   *     <br>When the unit is not explicitly specified, the unit is vp.
-   *     <br>No default value.
-   *     <br>This attribute does not take effect when it is set to an invalid value. [since 10 - 11]
+   * @param { Position } value - 安全控件相对于自身布局位置的坐标偏移。设置后不会影响父容器布局，仅在绘制阶段调整控件显示位置。
+   *     <br>未显式指定单位时，单位为vp。<br>无默认值。<br>当入参异常时，该属性不生效。[since 10 - 11]
    * @param { Position | Edges | LocalizedEdges } value - 安全控件相对于自身布局位置的坐标偏移。设置后不会影响父容器布局，仅在绘制阶段调整控件显示位置。
-   *     <br>未显式指定单位时，单位为vp。<br/>无默认值。<br/>当入参异常时，该属性不生效。 [since 10 - 11]。
+   *     <br>未显式指定单位时，单位为vp。<br/>无默认值。<br>当入参异常时，该属性不生效。 [since 12]
    * @returns { T } 安全控件的属性。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -174,9 +171,8 @@ declare class SecurityComponentMethod<T> {
    * 设置安全控件文字的尺寸。
    *
    * @param { Dimension } value - 安全控件上文字的尺寸。
-   *     <br>
-   *     未显式指定单位时，单位为fp。<br>默认值：$r('sys.float.ohos_id_text_size_button1')。<br>该参数不
-   *     支持百分比字符串。<br>设置异常值时该属性不生效。<br>**说明：** 安全控件文本未完全显示时，点击不授权。fontSize的设置会影响文本是否能完整显示，进而影响安全控件的授权行为。
+   *     <br>未显式指定单位时，单位为fp。<br>默认值：$r('sys.float.ohos_id_text_size_button1')。<br>该参数不支持百分比字符串。
+   *     <br>设置异常值时该属性不生效。<br>**说明：** 安全控件文本未完全显示时，点击不授权。fontSize的设置会影响文本是否能完整显示，进而影响安全控件的授权行为。
    * @returns { T } 安全控件的属性。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -344,8 +340,8 @@ declare class SecurityComponentMethod<T> {
    * 设置安全控件中图标和文字的间距。
    *
    * @param { Dimension } value - 安全控件中图标和文字的间距。
-   *     <br>默认值：**4vp**<br/>。
-   *     <br>未显式指定单位时，单位为vp。<br/>默认值：4vp。<br/>**说明：** 本参数不支持设置百分比字符串数据类型，若设置百分比字符串，则图标和文字的间距显示为0；
+   *     <br>默认值：**4vp**<br/>
+   *     <br>未显式指定单位时，单位为vp。<br/>**说明：** 本参数不支持设置百分比字符串数据类型，若设置百分比字符串，则图标和文字的间距显示为0；
    *     从API version 14开始，若设置值为负值，则使用默认值。
    * @returns { T } 安全控件的属性。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
