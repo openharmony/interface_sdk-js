@@ -496,7 +496,7 @@ declare enum BorderStyle {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Dotted = 0,
+  Dotted,
 
   /**
    * Shows as a series of short square dashed lines.
@@ -507,7 +507,7 @@ declare enum BorderStyle {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Dashed = 1,
+  Dashed,
 
   /**
    * Shows as a solid line.
@@ -518,7 +518,7 @@ declare enum BorderStyle {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Solid = 2
+  Solid
 }
 
 /**
@@ -592,7 +592,7 @@ declare enum LineJoinStyle {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Miter = 0,
+  Miter,
 
   /**
    * Connect path segments using sharp corners.
@@ -603,7 +603,7 @@ declare enum LineJoinStyle {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Round = 1,
+  Round,
 
   /**
    * Connect path segments using fillets.
@@ -614,7 +614,7 @@ declare enum LineJoinStyle {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Bevel = 2,
+  Bevel,
 }
 
 /**
@@ -1538,7 +1538,7 @@ declare enum Direction {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Ltr = 0,
+  Ltr,
 
   /**
    * Elements are laid out from right to left.
@@ -1550,7 +1550,7 @@ declare enum Direction {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Rtl = 1,
+  Rtl,
 
   /**
    * Use the default layout direction.
@@ -1562,7 +1562,7 @@ declare enum Direction {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Auto = 2,
+  Auto,
 }
 
 /**
@@ -1680,7 +1680,7 @@ declare enum Alignment {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  TopStart = 0,
+  TopStart,
 
   /**
    * The top is centered horizontally.
@@ -1692,7 +1692,7 @@ declare enum Alignment {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Top = 1,
+  Top,
 
   /**
    * Top tail end.
@@ -1704,7 +1704,7 @@ declare enum Alignment {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  TopEnd = 2,
+  TopEnd,
 
   /**
    * The starting end is centered longitudinally.
@@ -1716,7 +1716,7 @@ declare enum Alignment {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Start = 3,
+  Start,
 
   /**
    * Center horizontal and vertical.
@@ -1728,7 +1728,7 @@ declare enum Alignment {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Center = 4,
+  Center,
 
   /**
    * The tail end is centered longitudinally.
@@ -1740,7 +1740,7 @@ declare enum Alignment {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  End = 5,
+  End,
 
   /**
    * Bottom starting end.
@@ -1752,7 +1752,7 @@ declare enum Alignment {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  BottomStart = 6,
+  BottomStart,
 
   /**
    * The bottom is centered horizontally.
@@ -1764,7 +1764,7 @@ declare enum Alignment {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Bottom = 7,
+  Bottom,
 
   /**
    * Bottom end.
@@ -1776,7 +1776,7 @@ declare enum Alignment {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  BottomEnd = 8,
+  BottomEnd,
 }
 
 /**
@@ -2032,7 +2032,7 @@ declare enum LineCapStyle {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Butt = 0,
+  Butt,
 
   /**
    * The two ends of the dividing line are semicircles.
@@ -2043,7 +2043,7 @@ declare enum LineCapStyle {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Round = 1,
+  Round,
 
   /**
    * Extends half a circle at the end of the path with a width equal to half the line width and a height equal to the 
@@ -2055,7 +2055,7 @@ declare enum LineCapStyle {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Square = 2,
+  Square,
 }
 
 /**
@@ -2112,7 +2112,7 @@ declare enum HorizontalAlign {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Start = 0,
+  Start,
 
   /**
    * Center alignment. The default alignment mode is used.
@@ -2124,7 +2124,7 @@ declare enum HorizontalAlign {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Center = 1,
+  Center,
 
   /**
    * Aligns the ends in the language direction.
@@ -2136,7 +2136,7 @@ declare enum HorizontalAlign {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  End = 2,
+  End,
 }
 
 /**
@@ -2159,7 +2159,7 @@ declare enum FlexAlign {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Start = 0,
+  Start,
 
   /**
    * The elements are centered in the direction of the principal axis,
@@ -2172,7 +2172,7 @@ declare enum FlexAlign {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Center = 1,
+  Center,
 
   /**
    * The element is aligned at the tail of the principal axis,
@@ -2184,7 +2184,7 @@ declare enum FlexAlign {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  End = 2,
+  End,
 
   /**
    * Elastic elements are evenly distributed in the direction of the Flex principal axis,
@@ -2197,7 +2197,7 @@ declare enum FlexAlign {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  SpaceBetween = 3,
+  SpaceBetween,
 
   /**
    * Elastic elements are evenly distributed in the direction of the Flex principal axis,
@@ -2211,7 +2211,7 @@ declare enum FlexAlign {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  SpaceAround = 4,
+  SpaceAround,
 
   /**
    * Elements in the Flex axis direction are evenly spaced.
@@ -2224,7 +2224,7 @@ declare enum FlexAlign {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  SpaceEvenly = 5,
+  SpaceEvenly,
 }
 
 /**
@@ -2248,7 +2248,7 @@ declare enum ItemAlign {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Auto = 0,
+  Auto,
 
   /**
    * The element is in the Flex container with the cross-axis direction head aligned.
@@ -2260,7 +2260,7 @@ declare enum ItemAlign {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Start = 1,
+  Start,
 
   /**
    * The element is centered in the Flex container with the cross axis direction aligned.
@@ -2272,7 +2272,7 @@ declare enum ItemAlign {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Center = 2,
+  Center,
 
   /**
    * The element is bottom aligned in the Flex container with the cross axis direction.
@@ -2284,7 +2284,7 @@ declare enum ItemAlign {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  End = 3,
+  End,
 
   /**
    * Element In the Flex container, the cross-axis direction text baseline is aligned.
@@ -2296,7 +2296,7 @@ declare enum ItemAlign {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Baseline = 4,
+  Baseline,
 
   /**
    * Element In a Flex container, the fill is stretched across the axis and, when no dimension is set, to the container 
@@ -2309,7 +2309,7 @@ declare enum ItemAlign {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Stretch = 5,
+  Stretch,
 }
 
 /**
@@ -2331,7 +2331,7 @@ declare enum FlexDirection {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Row = 0,
+  Row,
 
   /**
    * The main axis is consistent with the column direction as the layout mode.
@@ -2342,7 +2342,7 @@ declare enum FlexDirection {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Column = 1,
+  Column,
 
   /**
    * The layout is in the opposite direction to the Row direction.
@@ -2353,7 +2353,7 @@ declare enum FlexDirection {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  RowReverse = 2,
+  RowReverse,
 
   /**
    * Layout in the opposite direction to the column.
@@ -2364,7 +2364,7 @@ declare enum FlexDirection {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  ColumnReverse = 3,
+  ColumnReverse,
 }
 
 /**
@@ -2469,7 +2469,7 @@ declare enum FlexWrap {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  NoWrap = 0,
+  NoWrap,
 
   /**
    * The elements of the Flex container are arranged in multiple rows or columns, and the sub-items are allowed to 
@@ -2481,7 +2481,7 @@ declare enum FlexWrap {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Wrap = 1,
+  Wrap,
 
   /**
    * The elements of the Flex container are arranged in reverse multiple rows/columns, and children are allowed to 
@@ -2493,7 +2493,7 @@ declare enum FlexWrap {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  WrapReverse = 2,
+  WrapReverse,
 }
 
 /**
@@ -2517,7 +2517,7 @@ declare enum VerticalAlign {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Top = 0,
+  Top,
 
   /**
    * Center alignment. The default alignment mode is used.
@@ -2529,7 +2529,7 @@ declare enum VerticalAlign {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Center = 1,
+  Center,
 
   /**
    * Bottom alignment.
@@ -2541,7 +2541,7 @@ declare enum VerticalAlign {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Bottom = 2,
+  Bottom,
 }
 
 /**
