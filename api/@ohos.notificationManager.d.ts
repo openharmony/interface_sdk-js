@@ -2549,6 +2549,7 @@ declare namespace notificationManager {
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { Array<BundleOption> } bundles - Array of bundle information of the applications.
+   *     <br>The maximum length is 1000 and cannot be empty.
    * @param { SlotType } type - Notification slot type. All bundles share the same slot type.
    * @returns { Promise<Map<BundleOption, boolean>> } Promise used to return the result. The key is the bundle
    *     information, and the value **true** means that the notification slot type is enabled, and **false** means the
