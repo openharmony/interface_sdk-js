@@ -793,12 +793,11 @@ declare namespace display {
   function setVirtualScreenSurface(screenId: long, surfaceId: string): Promise<void>;
 
   /**
-   * Add surface for the virtual screen. This API can only be used when the virtual screen is an independent display
-   * screen and needs to bind multiple surfaces.
+   * Add surface for the virtual screen.
    *
    * @param { long } screenId - Indicates the screen id of the virtual screen.
    * @param { string } surfaceId - Indicates the surface id.
-   * @param { Rect } [surfaceRegion] - Rectangular area of the virtual screen used to display the surface.
+   * @param { Rect } [surfaceRegion] - Rectangular area for displaying the surface in the virtual screen.
    *     If no surface has been bound via setVirtualScreenSurface or addVirtualScreenSurface, the rect is invalid
    *     and defaults to full screen. In mirror mode, the rect is invalid and defaults to full screen.
    *     In independent display mode, the rect is valid.
@@ -837,7 +836,7 @@ declare namespace display {
   function removeVirtualScreenSurface(screenId: long, surfaceId: string): Promise<void>;
 
   /**
-   * Sets the screen to independent display mode. This API uses a promise to return the result.
+   * Sets the screen to independent display mode.
    *
    * @permission ohos.permission.ACCESS_VIRTUAL_SCREEN
    * @param { long } screenId - ID of the screen. Each ID must be an integer greater than 0; otherwise, error code 401
