@@ -669,11 +669,8 @@ declare namespace deviceInfo {
    * 检查指定的API版本在当前设备上是否可用。
    * 此方法提供跨不同OpenHarmony/分布式操作系统版本的兼容性检查。它会根据输入格式和API版本范围自动选择合适的版本检查方法。
    *
-   * @param { string | number } version -    * 此方法提供跨不同OpenHarmony/分布式操作系统版本的兼容性检查。它会根据输入格式和API版本范围自动选择合适的版本检查方法。
-   *     -带点的字符串格式（例如，“26.0.0”、“5.0.1”）：
-   *     -对于API 26+（版本>= 26.0.0）：表示OpenHarmetric和Distribution OS API版本
-   *     -对于API 26-（版本< 26.0.0）：表示分发操作系统API版本
-   *     -数字格式（例如13）：表示OpenHar笔SDK API版本（仅API 26）
+   * @param { string | number } version -  需要校验的API版本号，支持整数版本号和点分版本号。整数版本号范围：0<x<26。OpenHarmony点分版本号格式为M.S.F（如26.0.0），
+   *     M>=26,0<=S<=99,0<=F<=99。传入无效值时报错。
    * @returns { boolean } 布尔值。返回true表示当前设备API版本大于等于入参版本号；返回false则表示当前设备API版本小于入参版本号
    * @syscap SystemCapability.Startup.SystemInfo
    * @FaAndStageModel
