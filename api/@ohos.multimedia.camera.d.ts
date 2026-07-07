@@ -6874,7 +6874,7 @@ declare namespace camera {
    * @since 11 dynamic
    * @since 23 static
    */
-  interface PhotoSessionForSys extends PhotoSession, Beauty, ColorEffect, ColorManagement, Macro, SceneDetection, EffectSuggestion, DepthFusion{
+  interface PhotoSessionForSys extends PhotoSession, Beauty, ColorEffect, ColorManagement, Macro, SceneDetection, EffectSuggestion, DepthFusion {
   }
 
   /**
@@ -7547,7 +7547,7 @@ declare namespace camera {
    *     AutoDeviceSwitch, Macro [since 19 - 19]
    * @extends Session, Flash, AutoExposure, WhiteBalance, Focus, Zoom, Stabilization, ColorManagement, ControlCenter,
    *     AutoDeviceSwitch, Macro [since 20 - 24]
- * @extends Session, Flash, AutoExposure, WhiteBalance, Focus, Zoom, Stabilization, ColorManagement, ControlCenter,
+   * @extends Session, Flash, AutoExposure, WhiteBalance, Focus, Zoom, Stabilization, ColorManagement, ControlCenter,
    *     AutoDeviceSwitch, Macro, ManualExposure, ManualFocus, ManualIso, OIS, Aperture [since 26.0.0]
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice [since 19]
@@ -7555,8 +7555,8 @@ declare namespace camera {
    * @since 23 static
    */
   interface VideoSession extends Session, Flash, AutoExposure, WhiteBalance, Focus, Zoom, Stabilization,
-      ColorManagement, ControlCenter, AutoDeviceSwitch, Macro, ManualExposure, ManualFocus, ManualIso, OIS,
-      Aperture {
+    ColorManagement, ControlCenter, AutoDeviceSwitch, Macro, ManualExposure, ManualFocus, ManualIso, OIS,
+    Aperture {
     /**
      * Checks whether this session supports a preconfigured resolution.
      *
@@ -10836,7 +10836,7 @@ declare namespace camera {
    * [CameraInput]{@link camera.CameraInput} and [CameraOutput]{@link camera.CameraOutput}
    * instances required to run the camera. It inherits from [Session]{@link camera.Session}.
    *
-* @extends Session, Flash, AutoExposure, Focus, Zoom, ColorEffect, ManualFocus [since 12 - 17]
+   * @extends Session, Flash, AutoExposure, Focus, Zoom, ColorEffect, ManualFocus [since 12 - 17]
    * @extends Session, Flash, AutoExposure, Focus, Zoom, ColorEffect, ManualFocus, ColorManagement [since 18]
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
