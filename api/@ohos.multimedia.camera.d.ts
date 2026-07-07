@@ -6868,16 +6868,13 @@ declare namespace camera {
    *
    * @extends PhotoSession, Beauty, ColorEffect, ColorManagement, Macro, SceneDetection, EffectSuggestion [since 11 - 13]
    * @extends PhotoSession, Beauty, ColorEffect, ColorManagement, Macro, SceneDetection, EffectSuggestion,
-   *     DepthFusion [since 14 - 24]
-   * @extends PhotoSession, Beauty, ColorEffect, ColorManagement, Macro, SceneDetection, EffectSuggestion, DepthFusion,
-   *     ImagingMode [since 26.0.0]
+   *     DepthFusion [since 14]
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 11 dynamic
    * @since 23 static
    */
-  interface PhotoSessionForSys extends PhotoSession, Beauty, ColorEffect, ColorManagement,
-      Macro, SceneDetection, EffectSuggestion, DepthFusion, ImagingMode{
+  interface PhotoSessionForSys extends PhotoSession, Beauty, ColorEffect, ColorManagement, Macro, SceneDetection, EffectSuggestion, DepthFusion {
   }
 
   /**
@@ -7499,16 +7496,13 @@ declare namespace camera {
    * @extends VideoSession, Beauty, ColorEffect, ColorManagement, Macro [since 11 - 14]
    * @extends VideoSession, Beauty, ColorEffect, ColorManagement, Macro, Aperture, ColorReservation [since 15 - 17]
    * @extends VideoSession, Beauty, ColorEffect, ColorManagement, Macro, Aperture, ColorReservation,
-   *     EffectSuggestion [since 18 - 24]
-   * @extends VideoSession, Beauty, ColorEffect, ColorManagement, Macro, Aperture, ColorReservation, EffectSuggestion,
-   *     ImagingMode [since 26.0.0]
+   *     EffectSuggestion [since 18]
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 11 dynamic
    * @since 23 static
    */
-  interface VideoSessionForSys extends VideoSession, Beauty, ColorEffect, ColorManagement,
-      Macro, Aperture, ColorReservation, EffectSuggestion, ImagingMode {
+  interface VideoSessionForSys extends VideoSession, Beauty, ColorEffect, ColorManagement, Macro, Aperture, ColorReservation, EffectSuggestion {
   }
 
   /**
