@@ -8299,23 +8299,27 @@ declare namespace photoAccessHelper {
     getClonedAssetUris(oldUris: Array<string>): Promise<Map<string, string>>;
 
     /**
-     * This interface is used to obtain the current uris by post-cloning album URI list.
+     * Start medialibrary database backup and wait for returning with backup information which only works on beta 
+     * device.
      *
-     * @permission ohos.permission.READ_IMAGEVIDEO
-     * @param { Array<string> } oldUris - The old album uris before cloning.
-     * @returns { Promise<Map<string, string>> } A list of Maps consisting of the corresponding post-clone album URIs.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 202 - Called by non-system application.
-     * @throws { BusinessError } 23800151 - The scenario parameter verification fails.
-     *     Possible causes: The size of input parameter exceeds 100 or is 0.
-     * @throws { BusinessError } 23800301 - Internal system error.
-     *     It is recommended to retry and check the logs. Possible causes:
-     *     1. Database corrupted;
-     *     2. The file system is abnormal;
-     *     3. The IPC request timed out.
+     * @param { string } betaIssueId - The beta issue id.
+     * @param { string } betaScenario - The beta scenario.
+     * @returns { Promise<Map<string, string>> } - The  returning with backup information,
+     *     which includes FILE_FD, FILE_NAME and FILE_SIZE.
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 23800151 - The scenario parameter verification fails. Possible causes:
+     *     <br>1. The betaIssueId parameter is invalid, such as null, undefined or empty string.
+     *     <br>2. The betaScenario parameter is invalid, such as null, undefined or empty string.
+     *     <br>3. The same betaIssueId task is processing.
+     * @throws { BusinessError } 23800201 - Unsupported operation type, this api only works on beta device.
+     * @throws { BusinessError } 23800301 - Internal system error. You are advised to retry and check the logs.
+     *     Possible causes: 
+     *     <br>1. The database is corrupted. 
+     *     <br>2. The file system is abnormal. 
+     *     <br>3. The IPC request timed out.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 22 dynamic
+     * @since 23 dynamic&static
      */
     getClonedAlbumUris(oldUris: Array<string>): Promise<Map<string, string>>;
 
@@ -8606,7 +8610,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.1.0 dynamic&static
      */
     moveAssetsToDir(assets: string[], target: string, option?: BatchOperationOptions): Promise<string[]>;
 
@@ -8629,7 +8633,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.1.0 dynamic&static
      */
     moveAssetsByPath(assets: string[], target: Album, option?: BatchOperationOptions): Promise<string[]>;
 
@@ -10779,15 +10783,14 @@ declare namespace photoAccessHelper {
    */
   export class RequestReadPermissionResult {
     /**
-    * The list of authorized URI.
-    *
-    * @type { ?Array<string> }
-    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-    * @stagemodelonly
-    * @atomicservice
-    * @since 23 dynamic
-    * @since 26.0.0 static
-    */
+     * URIs that have been created and granted the save permission.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 23 dynamic
+     * @since 26.0.0 static
+     */
     authorizedUris?: Array<string>;
 
     /**
@@ -15510,14 +15513,14 @@ declare namespace photoAccessHelper {
    */
   export enum GridPinchModeType {
     /**
-    * FULL_FUNCTION_GRID indicates that the grid supports selection and other operations after pinch-to-zoom gesture.
-    *
-    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-    * @stagemodelonly
-    * @atomicservice
-    * @since 23 dynamic
-    * @since 26.0.0 static
-    */
+     * Users are allowed to pinch the grid, and then select it or click it to operate the large image.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 23 dynamic
+     * @since 26.0.0 static
+     */
     FULL_FUNCTION_GRID = 0
   }
   
