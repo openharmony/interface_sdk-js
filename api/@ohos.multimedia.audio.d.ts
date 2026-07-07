@@ -3528,9 +3528,7 @@ declare namespace audio {
      * Obtains a recording manager instance. Provides recording strategy management, including collaborative recording and recording control capabilities.
      *
      * @returns { AudioRecordingManager } Returns an instance of audio record manager.
-     * @throws { BusinessError } 202 - Caller is not a system application.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
-     * @systemapi
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
