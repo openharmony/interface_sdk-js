@@ -768,8 +768,7 @@ declare namespace display {
   function destroyVirtualScreen(screenId: long): Promise<void>;
 
   /**
-   * Sets a surface for a virtual screen. **surfaceId** identifies a surface, the content of which will be shown on this
-   * virtual screen. This API uses a promise to return the result.
+   * Sets a surface for a virtual screen. This API uses a promise to return the result.
    *
    * @permission ohos.permission.ACCESS_VIRTUAL_SCREEN
    * @param { long } screenId - Screen ID, which must match the ID of the virtual screen created by calling the
@@ -796,8 +795,10 @@ declare namespace display {
    * Add surface for the virtual screen.
    *
    * @param { long } screenId - Indicates the screen id of the virtual screen.
-   * @param { string } surfaceId - Indicates the surface id.
-   * @param { Rect } [surfaceRegion] - Rectangular area for displaying the surface in the virtual screen.
+   * @param { string } surfaceId - ID of the surface bound to the virtual screen. You can specify the ID of an existing
+   *     surface. The maximum length for this parameter is 4096 bytes. If it goes beyond that, only the first 4096 bytes
+   *     are used.
+   * @param { Rect } [surfaceRegion] - Rectangular area of the virtual screen displayed by the surface.
    *     If the virtual screen has not bound any surface via
    *     [setVirtualScreenSurface()]{@link display.setVirtualScreenSurface} or 
    *     [addVirtualScreenSurface()]{@link display.addVirtualScreenSurface}, the surfaceRegion is invalid
@@ -821,7 +822,9 @@ declare namespace display {
    * Remove surface for the virtual screen.
    *
    * @param { long } screenId - Indicates the screen id of the virtual screen.
-   * @param { string } surfaceId - Indicates the surface id.
+   * @param { string } surfaceId - ID of the surface bound to the virtual screen. You can specify the ID of an existing
+   *     surface. The maximum length for this parameter is 4096 bytes. If it goes beyond that, only the first 4096 bytes
+   *     are used.
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 801 - Capability not supported. Function removeVirtualScreenSurface

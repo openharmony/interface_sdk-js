@@ -719,7 +719,7 @@ declare namespace display {
   function destroyVirtualScreen(screenId: long): Promise<void>;
 
   /**
-   * 设置虚拟屏幕的surfaceId，surfaceId用于标识一个surface，表示当前虚拟屏用于显示对应surface中的内容。使用Promise异步回调。
+   * 设置虚拟屏幕的surfaceId。使用Promise异步回调。
    *
    * @permission ohos.permission.ACCESS_VIRTUAL_SCREEN
    * @param { long } screenId - 屏幕ID，与创建的虚拟屏幕ID保持一致，即使用[createVirtualScreen()]{@link display.createVirtualScreen}接口成功创建对
@@ -744,8 +744,9 @@ declare namespace display {
    * 为虚拟屏幕添加surface。
    *
    * @param { long } screenId - 虚拟屏幕的屏幕ID。
-   * @param { string } surfaceId - surface的id。
-   * @param { Rect } [surfaceRegion] - 虚拟屏中显示的surface的矩形区域。
+   * @param { string } surfaceId - 代表虚拟屏幕绑定的surfaceId，由用户指定某一实际存在的surface对应的surfaceId，
+   *     该参数最大长度为4096个字节，超出最大长度时则取前4096个字节。
+   * @param { Rect } [surfaceRegion] - surface显示的虚拟屏的矩形区域。
    *     如果虚拟屏幕未通过[setVirtualScreenSurface()]{@link display.setVirtualScreenSurface} 或
    *     [addVirtualScreenSurface()]{@link display.addVirtualScreenSurface}绑定过surface，surfaceRegion无效，默认全屏。
    *     在镜像模式下，surfaceRegion无效，默认全屏。在异源模式下，surfaceRegion有效。
@@ -767,7 +768,8 @@ declare namespace display {
    * 删除虚拟屏的surface。
    *
    * @param { long } screenId - 虚拟屏幕的屏幕ID。
-   * @param { string } surfaceId - surface的id。
+   * @param { string } surfaceId - 代表虚拟屏幕绑定的surfaceId，由用户指定某一实际存在的surface对应的surfaceId，
+   *     该参数最大长度为4096个字节，超出最大长度时则取前4096个字节。
    * @returns { Promise<void> } 无返回结果的Promise对象。
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 801 - Capability not supported. Function removeVirtualScreenSurface
