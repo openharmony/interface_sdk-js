@@ -3558,7 +3558,7 @@ declare enum HitTestMode {
    * @atomicservice [since 11]
    * @since 9 dynamic
    */
-  Default = 0,
+  Default,
 
   /**
    * The node itself responds to the hit test and blocks the hit test of child nodes, sibling nodes, and ancestor nodes.
@@ -3570,7 +3570,7 @@ declare enum HitTestMode {
    * @atomicservice [since 11]
    * @since 9 dynamic
    */
-  Block = 1,
+  Block,
 
   /**
    * Both the node itself and its child nodes respond to the hit test and do not block the hit test of sibling nodes and
@@ -3583,7 +3583,7 @@ declare enum HitTestMode {
    * @atomicservice [since 11]
    * @since 9 dynamic
    */
-  Transparent = 2,
+  Transparent,
 
   /**
    * The node itself does not respond to the hit test and does not block the hit test of child nodes, sibling nodes, and
@@ -3596,7 +3596,7 @@ declare enum HitTestMode {
    * @atomicservice [since 11]
    * @since 9 dynamic
    */
-  None = 3,
+  None,
   /**
    * The node itself and its child nodes respond to the hit test, preventing all sibling nodes and parent nodes with 
    * lower priority from participating in the hit test.
@@ -3608,7 +3608,7 @@ declare enum HitTestMode {
    * @atomicservice
    * @since 20 dynamic
    */
-  BLOCK_HIERARCHY = 4,
+  BLOCK_HIERARCHY,
   /**
    * The node itself does not respond to the hit test, and all its descendants (children, grandchildren, and more) also 
    * do not respond to the hit test. It does not affect the hit test of ancestor nodes.
@@ -3620,7 +3620,7 @@ declare enum HitTestMode {
    * @atomicservice
    * @since 20 dynamic
    */
-  BLOCK_DESCENDANTS = 5
+  BLOCK_DESCENDANTS,
 }
 
 /**
