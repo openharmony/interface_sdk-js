@@ -14,19 +14,18 @@
  */
 
 /**
- * The **Router** module provides APIs to access pages through URIs.
+ * 通过不同的uri访问不同的页面。
  * 
- * > **NOTE**
+ * > **说明：**
  * >
- * > - The APIs of this module are no longer maintained since API version 8. You are advised to use 
- * > [@ohos.router]{@link @ohos.router:router} instead.
+ * > - 从API version 8 开始，该接口不再维护，推荐使用新接口[@ohos.router](docroot://reference/apis-arkui/js-apis-md)。
  *
- * @file Page Routing
+ * @file 页面路由
  * @kit ArkUI
  */
 
 /**
- * Defines the page routing parameters.
+ * 定义路由器的选项。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Lite
  * @since 3 dynamiconly
@@ -36,14 +35,14 @@
  */
 export interface RouterOptions {
   /**
-   * URI of the target page, in either of the following formats:
-   *
-   * 1. Absolute path, which is provided by the page list in the **config.json** file. Examples:
-   *
+   * 目标页面的uri，可以是以下的两种格式：
+   * 
+   * 1. 页面的绝对路径，由config.json文件中的页面列表提供。例如：
+   * 
    * - pages/index/index
    * - pages/detail/detail
-   *
-   * 2. Specific path. If the URI is a slash (/), the home page is displayed.
+   * 
+   * 2. 特定路径。如果URI为斜杠（/），则显示主页。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @since 3 dynamiconly
@@ -54,10 +53,8 @@ export interface RouterOptions {
   uri: string;
 
   /**
-   * Data that needs to be passed to the target page during redirection. The target page can use **router.getParams()**
-   * to obtain the passed parameters, for example, **this.keyValue** (**keyValue** is the value of a key in **params**).
-   * In the web-like paradigm, these parameters can be directly used on the target page. If the field specified by
-   * **key** already exists on the target page, the passed value of the key will be displayed.
+   * 表示路由跳转时要同时传递到目标页面的数据。跳转到目标页面后，使用getParams()获取传递的参数，此外，在类web范式中，参数也可以在页面中直接使用，如this.keyValue(keyValue为跳转时params参数中的
+   * key值)，如果目标页面中已有该字段，则其值会被传入的字段值覆盖。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @since 3 dynamiconly
@@ -69,7 +66,7 @@ export interface RouterOptions {
 }
 
 /**
- * Defines the parameters for routing back.
+ * 定义路由器返回的选项。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7 dynamiconly
@@ -78,8 +75,7 @@ export interface RouterOptions {
  */
 export interface BackRouterOptions {
   /**
-   * URI of the page to return to. If the specified page does not exist in the page stack, the application does not
-   * respond. If this parameter is not set, the application returns to the previous page.
+   * 返回到指定uri的界面，如果页面栈上没有uri页面，则不响应该情况。如果uri未设置，则返回上一页。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7 dynamiconly
@@ -89,7 +85,7 @@ export interface BackRouterOptions {
   uri?: string;
 
   /**
-   * Data that needs to be passed to the target page during redirection.
+   * 返回时要同时传递到目标页面的数据。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @since 7 dynamiconly
@@ -101,7 +97,7 @@ export interface BackRouterOptions {
 }
 
 /**
- * Defines the routing state.
+ * 定义路由器的状态。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 3 dynamiconly
@@ -110,7 +106,7 @@ export interface BackRouterOptions {
  */
 export interface RouterState {
   /**
-   * Index of the current page in the stack. The index starts from 1 from the bottom to the top of the stack.
+   * 表示当前页面在页面栈中的索引。从栈底到栈顶，index从1开始递增。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 3 dynamiconly
@@ -120,7 +116,7 @@ export interface RouterState {
   index: number;
 
   /**
-   * Name of the current page, that is, the file name.
+   * 表示当前页面的名称，即对应文件名。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 3 dynamiconly
@@ -130,7 +126,7 @@ export interface RouterState {
   name: string;
 
   /**
-   * Path of the current page.
+   * 表示当前页面的路径。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 3 dynamiconly
@@ -141,7 +137,7 @@ export interface RouterState {
 }
 
 /**
- * Defines the **EnableAlertBeforeBackPage** parameter.
+ * 定义EnableAlertBeforeBackPage选项。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 6 dynamiconly
@@ -150,7 +146,7 @@ export interface RouterState {
  */
 export interface EnableAlertBeforeBackPageOptions {
   /**
-   * Content displayed in the confirm dialog box.
+   * 询问对话框内容。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6 dynamiconly
@@ -160,7 +156,7 @@ export interface EnableAlertBeforeBackPageOptions {
   message: string;
 
   /**
-   * Called when the **OK** button in the confirm dialog box is clicked. **errMsg** indicates the returned information.
+   * 用户选择对话框确认按钮时触发，errMsg表示返回信息。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6 dynamiconly
@@ -170,8 +166,7 @@ export interface EnableAlertBeforeBackPageOptions {
   success?: (errMsg: string) => void;
 
   /**
-   * Called when the **Cancel** button in the confirm dialog box is clicked. **errMsg** indicates the returned
-   * information.
+   * 用户选择对话框取消按钮时触发，errMsg表示返回信息。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6 dynamiconly
@@ -181,7 +176,7 @@ export interface EnableAlertBeforeBackPageOptions {
   cancel?: (errMsg: string) => void;
 
   /**
-   * Called when the dialog box is closed.
+   * 当对话框关闭时触发该回调。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6 dynamiconly
@@ -192,7 +187,7 @@ export interface EnableAlertBeforeBackPageOptions {
 }
 
 /**
- * Defines the **DisableAlertBeforeBackPage** parameter.
+ * 定义DisableAlertBeforeBackPage参数选项。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 6 dynamiconly
@@ -201,7 +196,7 @@ export interface EnableAlertBeforeBackPageOptions {
  */
 export interface DisableAlertBeforeBackPageOptions {
   /**
-   * Called when the dialog box is closed. **errMsg** indicates the returned information.
+   * 关闭询问对话框成功时触发，errMsg表示返回信息。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6 dynamiconly
@@ -211,7 +206,7 @@ export interface DisableAlertBeforeBackPageOptions {
   success?: (errMsg: string) => void;
 
   /**
-   * Called when the dialog box fails to be closed. **errMsg** indicates the returned information.
+   * 关闭询问对话框失败时触发，errMsg表示返回信息。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6 dynamiconly
@@ -221,7 +216,7 @@ export interface DisableAlertBeforeBackPageOptions {
   cancel?: (errMsg: string) => void;
 
   /**
-   * Called when the dialog box is closed.
+   * 当对话框关闭时触发该回调。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6 dynamiconly
@@ -232,7 +227,7 @@ export interface DisableAlertBeforeBackPageOptions {
 }
 
 /**
- * List of routing parameters.
+ * 路由参数列表。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7 dynamiconly
  * @deprecated since 8
@@ -243,7 +238,7 @@ type ParamsInterface = {
 };
 
 /**
- * The **Router** module provides APIs to access pages through URIs.
+ * 通过不同的uri访问不同的页面。
  * @syscap SystemCapability.ArkUI.ArkUI.Lite
  * @since 3 dynamiconly
  * @deprecated since 8
@@ -251,13 +246,13 @@ type ParamsInterface = {
  */
 export default class Router {
   /**
-   * Navigates to a specified page in the application.
-   *
-   * > **NOTE**
+   * 跳转到应用内的指定页面。
+   * 
+   * > **说明：**
    * >
-   * > The page routing stack supports a maximum of 32 pages.
+   * > 页面路由栈支持的最大Page数量为32。
    *
-   * @param { RouterOptions } options - Page routing parameters. For details, see **RouterOptions**.
+   * @param { RouterOptions } options - 页面路由参数，详细请参考RouterOptions。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 3 dynamiconly
    * @deprecated since 8
@@ -266,9 +261,9 @@ export default class Router {
   static push(options: RouterOptions): void;
 
   /**
-   * Replaces the current page with another one in the application and destroys the current page.
+   * 用应用内的某个页面替换当前页面，并销毁被替换的页面。
    *
-   * @param { RouterOptions } options - Page routing parameters. For details, see **RouterOptions**.
+   * @param { RouterOptions } options - 页面路由参数，详细请参考RouterOptions。
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @since 3 dynamiconly
    * @deprecated since 8
@@ -278,14 +273,9 @@ export default class Router {
   static replace(options: RouterOptions): void;
 
   /**
-   * Returns to the previous or a specified page.
+   * 返回上一页面或指定的页面。
    *
-   * > **NOTE**
-   * >
-   * > In the example, the **uri** field indicates the page route, which is specified by the **pages** list in the
-   * > configuration file.
-   *
-   * @param { BackRouterOptions } options - For details, see **BackRouterOptions**.
+   * @param { BackRouterOptions } options - 详细请参考BackRouterOptions。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 3 dynamiconly
    * @deprecated since 8
@@ -294,9 +284,9 @@ export default class Router {
   static back(options?: BackRouterOptions): void;
 
   /**
-   * Obtains parameter information about the current page.
+   * 获取当前页面的参数信息。
    *
-   * @returns { ParamsInterface } For details, see **ParamsInterface**.
+   * @returns { ParamsInterface } 详细请参见ParamsInterface。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7 dynamiconly
    * @deprecated since 8
@@ -305,7 +295,7 @@ export default class Router {
   static getParams(): ParamsInterface;
 
   /**
-   * Clears all historical pages in the stack and retains only the current page at the top of the stack.
+   * 清空页面栈中的所有历史页面，仅保留当前页面作为栈顶页面。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 3 dynamiconly
@@ -315,9 +305,9 @@ export default class Router {
   static clear(): void;
 
   /**
-   * Obtains the number of pages in the current stack.
+   * 获取当前在页面栈内的页面数量。
    *
-   * @returns { string } Number of pages in the stack. The maximum value is **32**.
+   * @returns { string } 页面数量，页面栈支持最大数值是32。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 3 dynamiconly
    * @deprecated since 8
@@ -326,9 +316,9 @@ export default class Router {
   static getLength(): string;
 
   /**
-   * Obtains state information about the current page.
+   * 获取当前页面的状态信息。
    *
-   * @returns { RouterState } For details, see **RouterState**.
+   * @returns { RouterState } 详细请参见RouterState。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 3 dynamiconly
    * @deprecated since 8
@@ -337,9 +327,9 @@ export default class Router {
   static getState(): RouterState;
 
   /**
-   * Enables the display of a confirm dialog box before returning to the previous page.
+   * 开启页面返回询问对话框。
    *
-   * @param { EnableAlertBeforeBackPageOptions } options - For details, see **EnableAlertBeforeBackPageOptions**.
+   * @param { EnableAlertBeforeBackPageOptions } options - 详细请参见EnableAlertBeforeBackPageOptions。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6 dynamiconly
    * @deprecated since 8
@@ -348,9 +338,9 @@ export default class Router {
   static enableAlertBeforeBackPage(options: EnableAlertBeforeBackPageOptions): void;
 
   /**
-   * Disables the display of a confirm dialog box before returning to the previous page.
+   * 禁用页面返回询问对话框。
    *
-   * @param { DisableAlertBeforeBackPageOptions } options - For details, see **DisableAlertBeforeBackPageOptions**.
+   * @param { DisableAlertBeforeBackPageOptions } options - 详细请参见DisableAlertBeforeBackPageOptions。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6 dynamiconly
    * @deprecated since 8

@@ -16,14 +16,22 @@
  */
 
 /**
+ 用户界面外观
  * @file
+ 用户界面外观
  * @kit ArkUI
  */
 
 import type { AsyncCallback } from './@ohos.base';
 
 /**
- * Provide APIs to set system uiAppearance.
+ * 用户界面外观提供管理系统外观的一些基础能力，目前仅包括深浅色模式配置。
+ * 
+ * > **说明：**
+ * >
+ * > 从API version 10开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。
+ * >
+ * > 当前页面仅包含本模块的系统接口，其他公开接口参见[@ohos.uiAppearance (用户界面外观)]{@link @ohos.uiAppearance:uiAppearance}。
  *
  * @syscap SystemCapability.ArkUI.UiAppearance
  * @since 23 static
@@ -54,7 +62,7 @@ declare namespace uiAppearance {
   }
 
   /**
-   * Set the system dark-mode.
+   * 设置系统深色模式。使用callback异步回调。
    *
    * @permission ohos.permission.UPDATE_CONFIGURATION
    * @param { DarkMode } mode - indicates the dark-mode to set
@@ -72,11 +80,11 @@ declare namespace uiAppearance {
   function setDarkMode(mode: DarkMode, callback: AsyncCallback<void>): void;
 
   /**
-   * Set the system dark-mode.
+   * 设置系统深色模式。使用Promise异步回调。
    *
    * @permission ohos.permission.UPDATE_CONFIGURATION
    * @param { DarkMode } mode - indicates the dark-mode to set
-   * @returns { Promise<void> } the promise returned by the function
+   * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
@@ -100,7 +108,7 @@ declare namespace uiAppearance {
   function getDarkMode(): DarkMode;
 
   /**
-   * Set the system font-scale.
+   * 设置系统字体大小。
    *
    * @permission ohos.permission.UPDATE_CONFIGURATION
    * @param { double } fontScale - indicates the font-scale to set
@@ -125,7 +133,7 @@ declare namespace uiAppearance {
   function getFontScale(): double;
 
   /**
-   * Set the system font-weight-scale.
+   * 设置系统字体粗细。
    *
    * @permission ohos.permission.UPDATE_CONFIGURATION
    * @param { double } fontWeightScale - indicates the font-weight-scale to set

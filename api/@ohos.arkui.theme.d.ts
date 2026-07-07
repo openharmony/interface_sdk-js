@@ -1,4 +1,3 @@
-
 /*
  * Copyright (c) 2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -21,7 +20,6 @@
 /**
  * Defines the struct of Theme.
  *
- * @interface Theme
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -29,23 +27,21 @@
  * @since 12 dynamic
  */
 export declare interface Theme {
-    /**
-    *  Define tokens associated with color resources.
-    *
-    * @type { Colors }
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @crossplatform
-    * @atomicservice
-    * @since 12 dynamic
-    */
-    colors: Colors;
-}
+  /**
+   * Define tokens associated with color resources.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  colors: Colors;
+  }
 
 /**
  * Defines the struct of Colors.
  *
- * @interface Colors
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -54,659 +50,604 @@ export declare interface Theme {
  */
 export declare interface Colors {
 
-    /**
-    * System brand Color.
-    *
-    * @type { ResourceColor }
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @crossplatform
-    * @atomicservice
-    * @since 12 dynamic
-    */
-    brand: ResourceColor;
+  /**
+   * System brand Color.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  brand: ResourceColor;
 
-    /**
-    * System primary Color.
-    *
-    * @type { ?ResourceColor }
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @crossplatform
-    * @atomicservice
-    * @since 26.0.0 dynamic
-    */
-    primary?: ResourceColor;
+  /**
+   * System primary Color.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  primary?: ResourceColor;
 
-    /**
-    * System onPrimary Color.
-    *
-    * @type { ?ResourceColor }
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @crossplatform
-    * @atomicservice
-    * @since 26.0.0 dynamic
-    */
-    onPrimary?: ResourceColor;
+  /**
+   * System onPrimary Color.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  onPrimary?: ResourceColor;
 
-    /**
-    * System container Color.
-    *
-    * @type { ?ResourceColor }
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @crossplatform
-    * @atomicservice
-    * @since 26.0.0 dynamic
-    */
-    container?: ResourceColor;
-    
-    /**
-    * System warning Color.
-    *
-    * @type { ResourceColor }
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @crossplatform
-    * @atomicservice
-    * @since 12 dynamic
-    */
-    warning: ResourceColor;
+  /**
+   * System container Color.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  container?: ResourceColor;
 
-    /**
-    * System alert Color.
-    *
-    * @type { ResourceColor }
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @crossplatform
-    * @atomicservice
-    * @since 12 dynamic
-    */
-    alert: ResourceColor;
+  /**
+   * System warning Color.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  warning: ResourceColor;
 
-    /**
-    * System confirm Color.
-    *
-    * @type { ResourceColor }
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @crossplatform
-    * @atomicservice
-    * @since 12 dynamic
-    */
-    confirm: ResourceColor;
+  /**
+   * System alert Color.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  alert: ResourceColor;
 
-    /**
-    * First level text color.
-    *
-    * @type { ResourceColor }
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @crossplatform
-    * @atomicservice
-    * @since 12 dynamic
-    */
-    fontPrimary: ResourceColor;
+  /**
+   * System confirm Color.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  confirm: ResourceColor;
 
-    /**
-    * Secondary text color.
-    *
-    * @type { ResourceColor }
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @crossplatform
-    * @atomicservice
-    * @since 12 dynamic
-    */
-    fontSecondary: ResourceColor;
+  /**
+   * First level text color.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  fontPrimary: ResourceColor;
 
-    /**
-    * Tertiary text color.
-    *
-    * @type { ResourceColor }
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @crossplatform
-    * @atomicservice
-    * @since 12 dynamic
-    */
-    fontTertiary: ResourceColor;
+  /**
+   * Secondary text color.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  fontSecondary: ResourceColor;
 
-    /**
-    * Fourth text color.
-    *
-    * @type { ResourceColor }
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @crossplatform
-    * @atomicservice
-    * @since 12 dynamic
-    */
-    fontFourth: ResourceColor;
+  /**
+   * Tertiary text color.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  fontTertiary: ResourceColor;
 
-    /**
-    * Emphasize text color.
-    *
-    * @type { ResourceColor }
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @crossplatform
-    * @atomicservice
-    * @since 12 dynamic
-    */
-    fontEmphasize: ResourceColor;
+  /**
+   * Fourth text color.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  fontFourth: ResourceColor;
 
-    /**
-    * First level text inversion, used on colored backgrounds.
-    *
-    * @type { ResourceColor }
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @crossplatform
-    * @atomicservice
-    * @since 12 dynamic
-    */
-    fontOnPrimary: ResourceColor;
+  /**
+   * Emphasize text color.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  fontEmphasize: ResourceColor;
 
-    /**
-    * Secondary level text inversion, used on colored backgrounds.
-    *
-    * @type { ResourceColor }
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @crossplatform
-    * @atomicservice
-    * @since 12 dynamic
-    */
-    fontOnSecondary: ResourceColor;
+  /**
+   * First level text inversion, used on colored backgrounds.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  fontOnPrimary: ResourceColor;
 
-    /**
-    * Tertiary level text inversion, used on colored backgrounds.
-    *
-    * @type { ResourceColor }
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @crossplatform
-    * @atomicservice
-    * @since 12 dynamic
-    */
-    fontOnTertiary: ResourceColor;
+  /**
+   * Secondary level text inversion, used on colored backgrounds.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  fontOnSecondary: ResourceColor;
 
-    /**
-    * Fourth level text inversion, used on colored backgrounds.
-    *
-    * @type { ResourceColor }
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @crossplatform
-    * @atomicservice
-    * @since 12 dynamic
-    */
-    fontOnFourth: ResourceColor;
+  /**
+   * Tertiary level text inversion, used on colored backgrounds.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  fontOnTertiary: ResourceColor;
 
-    /**
-    * First level icon color.
-    *
-    * @type { ResourceColor }
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @crossplatform
-    * @atomicservice
-    * @since 12 dynamic
-    */
-    iconPrimary: ResourceColor;
+  /**
+   * Fourth level text inversion, used on colored backgrounds.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  fontOnFourth: ResourceColor;
 
-    /**
-    * Secondary level icon color.
-    *
-    * @type { ResourceColor }
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @crossplatform
-    * @atomicservice
-    * @since 12 dynamic
-    */
-    iconSecondary: ResourceColor;
+  /**
+   * First level icon color.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  iconPrimary: ResourceColor;
 
-    /**
-    * Tertiary level icon color.
-    *
-    * @type { ResourceColor }
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @crossplatform
-    * @atomicservice
-    * @since 12 dynamic
-    */
-    iconTertiary: ResourceColor;
+  /**
+   * Secondary level icon color.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  iconSecondary: ResourceColor;
 
-    /**
-    * Fourth level icon color.
-    *
-    * @type { ResourceColor }
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @crossplatform
-    * @atomicservice
-    * @since 12 dynamic
-    */
-    iconFourth: ResourceColor;
+  /**
+   * Tertiary level icon color.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  iconTertiary: ResourceColor;
 
-    /**
-    * Emphasize level icon color.
-    *
-    * @type { ResourceColor }
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @crossplatform
-    * @atomicservice
-    * @since 12 dynamic
-    */
-    iconEmphasize: ResourceColor;
+  /**
+   * Fourth level icon color.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  iconFourth: ResourceColor;
 
-    /**
-    * Secondary emphasize level icon color.
-    *
-    * @type { ResourceColor }
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @crossplatform
-    * @atomicservice
-    * @since 12 dynamic
-    */
-    iconSubEmphasize: ResourceColor;
+  /**
+   * Emphasize level icon color.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  iconEmphasize: ResourceColor;
 
-    /**
-    * First level icon reversed, used on a colored background.
-    *
-    * @type { ResourceColor }
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @crossplatform
-    * @atomicservice
-    * @since 12 dynamic
-    */
-    iconOnPrimary: ResourceColor;
+  /**
+   * Secondary emphasize level icon color.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  iconSubEmphasize: ResourceColor;
 
-    /**
-    * Secondary level icon reversed, used on a colored background.
-    *
-    * @type { ResourceColor }
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @crossplatform
-    * @atomicservice
-    * @since 12 dynamic
-    */
-    iconOnSecondary: ResourceColor;
+  /**
+   * First level icon reversed, used on a colored background.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  iconOnPrimary: ResourceColor;
 
-    /**
-    * Tertiary level icon reversed, used on a colored background.
-    *
-    * @type { ResourceColor }
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @crossplatform
-    * @atomicservice
-    * @since 12 dynamic
-    */
-    iconOnTertiary: ResourceColor;
+  /**
+   * Secondary level icon reversed, used on a colored background.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  iconOnSecondary: ResourceColor;
 
-    /**
-    * Fourth level icon reversed, used on a colored background.
-    *
-    * @type { ResourceColor }
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @crossplatform
-    * @atomicservice
-    * @since 12 dynamic
-    */
-    iconOnFourth: ResourceColor;
+  /**
+   * Tertiary level icon reversed, used on a colored background.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  iconOnTertiary: ResourceColor;
 
-    /**
-    * System Primary level background color.
-    *
-    * @type { ResourceColor }
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @crossplatform
-    * @atomicservice
-    * @since 12 dynamic
-    */
-    backgroundPrimary: ResourceColor;
+  /**
+   * Fourth level icon reversed, used on a colored background.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  iconOnFourth: ResourceColor;
 
-    /**
-    * System Secondary level background color.
-    *
-    * @type { ResourceColor }
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @crossplatform
-    * @atomicservice
-    * @since 12 dynamic
-    */
-    backgroundSecondary: ResourceColor;
+  /**
+   * System Primary level background color.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  backgroundPrimary: ResourceColor;
 
-    /**
-    * System tertiary level background color.
-    *
-    * @type { ResourceColor }
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @crossplatform
-    * @atomicservice
-    * @since 12 dynamic
-    */
-    backgroundTertiary: ResourceColor;
+  /**
+   * System Secondary level background color.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  backgroundSecondary: ResourceColor;
 
-    /**
-    * System fourth level background color.
-    *
-    * @type { ResourceColor }
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @crossplatform
-    * @atomicservice
-    * @since 12 dynamic
-    */
-    backgroundFourth: ResourceColor;
+  /**
+   * System tertiary level background color.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  backgroundTertiary: ResourceColor;
 
-    /**
-    * System emphasize level background color.
-    *
-    * @type { ResourceColor }
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @crossplatform
-    * @atomicservice
-    * @since 12 dynamic
-    */
-    backgroundEmphasize: ResourceColor;
+  /**
+   * System fourth level background color.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  backgroundFourth: ResourceColor;
 
-    /**
-    * CompForegroundPrimary color.
-    *
-    * @type { ResourceColor }
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @crossplatform
-    * @atomicservice
-    * @since 12 dynamic
-    */
-    compForegroundPrimary: ResourceColor;
+  /**
+   * System emphasize level background color.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  backgroundEmphasize: ResourceColor;
 
-    /**
-    * CompBackgroundPrimary color.
-    *
-    * @type { ResourceColor }
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @crossplatform
-    * @atomicservice
-    * @since 12 dynamic
-    */
-    compBackgroundPrimary: ResourceColor;
+  /**
+   * CompForegroundPrimary color.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  compForegroundPrimary: ResourceColor;
 
-    /**
-    * CompBackgroundPrimaryTran color.
-    *
-    * @type { ResourceColor }
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @crossplatform
-    * @atomicservice
-    * @since 12 dynamic
-    */
-    compBackgroundPrimaryTran: ResourceColor;
+  /**
+   * CompBackgroundPrimary color.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  compBackgroundPrimary: ResourceColor;
 
-    /**
-    * CompBackgroundPrimaryContrary color.
-    *
-    * @type { ResourceColor }
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @crossplatform
-    * @atomicservice
-    * @since 12 dynamic
-    */
-    compBackgroundPrimaryContrary: ResourceColor;
+  /**
+   * CompBackgroundPrimaryTran color.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  compBackgroundPrimaryTran: ResourceColor;
 
-    /**
-    * CompBackgroundGray color.
-    *
-    * @type { ResourceColor }
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @crossplatform
-    * @atomicservice
-    * @since 12 dynamic
-    */
-    compBackgroundGray: ResourceColor;
+  /**
+   * CompBackgroundPrimaryContrary color.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  compBackgroundPrimaryContrary: ResourceColor;
 
-    /**
-    * 10% black universal control background.
-    *
-    * @type { ResourceColor }
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @crossplatform
-    * @atomicservice
-    * @since 12 dynamic
-    */
-    compBackgroundSecondary: ResourceColor;
+  /**
+   * CompBackgroundGray color.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  compBackgroundGray: ResourceColor;
 
-    /**
-    * 5% black universal control background.
-    *
-    * @type { ResourceColor }
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @crossplatform
-    * @atomicservice
-    * @since 12 dynamic
-    */
-    compBackgroundTertiary: ResourceColor;
+  /**
+   * 10% black universal control background.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  compBackgroundSecondary: ResourceColor;
 
-    /**
-    * 100% bright brand background color.
-    *
-    * @type { ResourceColor }
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @crossplatform
-    * @atomicservice
-    * @since 12 dynamic
-    */
-    compBackgroundEmphasize: ResourceColor;
+  /**
+   * 5% black universal control background.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  compBackgroundTertiary: ResourceColor;
 
-    /**
-    * Black neutral high gloss color.
-    *
-    * @type { ResourceColor }
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @crossplatform
-    * @atomicservice
-    * @since 12 dynamic
-    */
-    compBackgroundNeutral: ResourceColor;
-    
-    /**
-    * 20% High gloss brand background color.
-    *
-    * @type { ResourceColor }
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @crossplatform
-    * @atomicservice
-    * @since 12 dynamic
-    */
-    compEmphasizeSecondary: ResourceColor;
+  /**
+   * 100% bright brand background color.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  compBackgroundEmphasize: ResourceColor;
 
-    /**
-    * 10% High gloss brand background color.
-    *
-    * @type { ResourceColor }
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @crossplatform
-    * @atomicservice
-    * @since 12 dynamic
-    */
-    compEmphasizeTertiary: ResourceColor;
+  /**
+   * Black neutral high gloss color.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  compBackgroundNeutral: ResourceColor;
 
-    /**
-    * Universal Division Line Color
-    *
-    * @type { ResourceColor }
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @crossplatform
-    * @atomicservice
-    * @since 12 dynamic
-    */
-    compDivider: ResourceColor;
+  /**
+   * 20% High gloss brand background color.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  compEmphasizeSecondary: ResourceColor;
 
-    /**
-    * CompCommonContrary Color
-    *
-    * @type { ResourceColor }
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @crossplatform
-    * @atomicservice
-    * @since 12 dynamic
-    */
-    compCommonContrary: ResourceColor;
+  /**
+   * 10% High gloss brand background color.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  compEmphasizeTertiary: ResourceColor;
 
-    /**
-    * CompBackgroundFocus Color
-    *
-    * @type { ResourceColor }
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @crossplatform
-    * @atomicservice
-    * @since 12 dynamic
-    */
-    compBackgroundFocus: ResourceColor;
+  /**
+   * Universal Division Line Color
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  compDivider: ResourceColor;
 
-    /**
-    * CompFocusedPrimary Color
-    *
-    * @type { ResourceColor }
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @crossplatform
-    * @atomicservice
-    * @since 12 dynamic
-    */
-    compFocusedPrimary: ResourceColor;
+  /**
+   * CompCommonContrary Color
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  compCommonContrary: ResourceColor;
 
-    /**
-    * CompFocusedSecondary Color
-    *
-    * @type { ResourceColor }
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @crossplatform
-    * @atomicservice
-    * @since 12 dynamic
-    */
-    compFocusedSecondary: ResourceColor;
+  /**
+   * CompBackgroundFocus Color
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  compBackgroundFocus: ResourceColor;
 
-    /**
-    * CompFocusedTertiary Color
-    *
-    * @type { ResourceColor }
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @crossplatform
-    * @atomicservice
-    * @since 12 dynamic
-    */
-    compFocusedTertiary: ResourceColor;
+  /**
+   * CompFocusedPrimary Color
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  compFocusedPrimary: ResourceColor;
 
-    /**
-    *  Hover interactive color.
-    *
-    * @type { ResourceColor }
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @crossplatform
-    * @atomicservice
-    * @since 12 dynamic
-    */
-    interactiveHover: ResourceColor;
+  /**
+   * CompFocusedSecondary Color
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  compFocusedSecondary: ResourceColor;
 
-    /**
-    * Pressed interactive color.
-    *
-    * @type { ResourceColor }
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @crossplatform
-    * @atomicservice
-    * @since 12 dynamic
-    */
-    interactivePressed: ResourceColor;
+  /**
+   * CompFocusedTertiary Color
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  compFocusedTertiary: ResourceColor;
 
-    /**
-    * Focus interactive color.
-    *
-    * @type { ResourceColor }
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @crossplatform
-    * @atomicservice
-    * @since 12 dynamic
-    */
-    interactiveFocus: ResourceColor;
+  /**
+   * Hover interactive color.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  interactiveHover: ResourceColor;
 
-    /**
-    * Active interactive color.
-    *
-    * @type { ResourceColor }
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @crossplatform
-    * @atomicservice
-    * @since 12 dynamic
-    */
-    interactiveActive: ResourceColor;
+  /**
+   * Pressed interactive color.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  interactivePressed: ResourceColor;
 
-    /**
-    * Select interactive color.
-    *
-    * @type { ResourceColor }
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @crossplatform
-    * @atomicservice
-    * @since 12 dynamic
-    */
-    interactiveSelect: ResourceColor;
+  /**
+   * Focus interactive color.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  interactiveFocus: ResourceColor;
 
-    /**
-    * Click interactive color.
-    *
-    * @type { ResourceColor }
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @crossplatform
-    * @atomicservice
-    * @since 12 dynamic
-    */
-    interactiveClick: ResourceColor;
-}
+  /**
+   * Active interactive color.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  interactiveActive: ResourceColor;
+
+  /**
+   * Select interactive color.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  interactiveSelect: ResourceColor;
+
+  /**
+   * Click interactive color.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  interactiveClick: ResourceColor;
+  }
 
 /**
  * Defines the struct of CustomTheme.
  *
- * @interface CustomTheme
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -714,37 +655,34 @@ export declare interface Colors {
  * @since 12 dynamic
  */
 export declare interface CustomTheme {
-    /**
-    * Define tokens associated with color resources..
-    *
-    * @type { ?CustomColors }
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @crossplatform
-    * @atomicservice
-    * @since 12 dynamic
-    */
-    colors?: CustomColors;
+  /**
+   * Define tokens associated with color resources..
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  colors?: CustomColors;
 
-    /**
-    * Define tokens associated with dark mode color resources.
-    *
-    * @type { ?CustomDarkColors }
-    * @default If not set darkColors, color value will same as colors under light mode and will not change with color
-    * mode, unless the color is setted by resource in dark directory.
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @crossplatform
-    * @atomicservice
-    * @since 20 dynamic
-    */
-    darkColors?: CustomDarkColors;
-}
+  /**
+   * Define tokens associated with dark mode color resources.
+   *
+   * @default If not set darkColors, color value will same as colors under light mode and will not change with color
+   *     mode, unless the color is setted by resource in dark directory.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 20 dynamic
+   */
+  darkColors?: CustomDarkColors;
+  }
 
 /**
  * Defines the struct of CustomColors.
  *
- * @typedef { Partial<Colors> } CustomColors
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -756,7 +694,6 @@ export declare type CustomColors = Partial<Colors>;
 /**
  * Defines the struct of CustomDarkColors.
  *
- * @typedef { Partial<Colors> } CustomDarkColors
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -775,17 +712,18 @@ export declare type CustomDarkColors = Partial<Colors>;
  * @since 12 dynamic
  */
 export declare class ThemeControl {
-    /**
-    * Sets the default Theme:
-    * - for whole Ability when invoked from the Ability level code.
-    * - for the ArkUI page and for later opened pages when invoked at the ArkUI page level.
-    *
-    * @param { CustomTheme } theme
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @crossplatform
-    * @atomicservice
-    * @since 12 dynamic
-    */
-    static setDefaultTheme(theme: CustomTheme): void;
-}
+  /**
+   * Sets the default Theme:
+   *
+   * - for whole Ability when invoked from the Ability level code.
+   * - for the ArkUI page and for later opened pages when invoked at the ArkUI page level.
+   *
+   * @param { CustomTheme } theme
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  static setDefaultTheme(theme: CustomTheme): void;
+  }
