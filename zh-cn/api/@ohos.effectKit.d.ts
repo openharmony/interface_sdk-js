@@ -290,7 +290,7 @@ declare namespace effectKit {
      * 读取图像占比靠前的颜色值，个数由`colorCount`指定，结果写入[Color]{@link effectKit.Color}的数组里，使用同步方式返回。
      * 常用于提取图片中占比最高的多个颜色，如多色调配色方案生成、图片色彩分布分析等场景。
      *
-     * @param { int } colorCount - 需要取主色的个数，向下取整。在OpenHarmony 6.1之前，取值范围为[1, 10]，取色个数大于10视为取前10个；从OpenHarmony 6.1开始，取值范围为[1, 20]，取色个数大于20视为取前20个。
+     * @param { int } colorCount - 需要获取的颜色个数，向下取整。在OpenHarmony 6.1之前，取值范围为[1, 10]，取色个数大于10视为取前10个；从OpenHarmony 6.1开始，取值范围为[1, 20]，取色个数大于20视为取前20个。
      * @returns { Array<Color | null> } Color数组，即图像占比前`colorCount`的颜色值数组，按占比排序。
      *     - 当实际读取的特征色个数小于`colorCount`时，数组大小为实际特征色个数。
      *     - 取色失败或取色个数小于1返回`[null]`。
@@ -306,7 +306,7 @@ declare namespace effectKit {
     /**
      * 同步返回图像占比靠前的颜色值及其对应比例，个数由`colorCount`指定。
      *
-     * @param { int } colorCount - 需要取主色及对应比例的个数，向下取整。在OpenHarmony 6.1之前，取值范围为[1, 10]，取色个数大于10视为取前10个；从OpenHarmony 6.1开始，取值范围为[1, 20]，取色个数大于20视为取前20个。
+     * @param { int } colorCount - 颜色值及对应比例的个数，向下取整。在OpenHarmony 6.1之前，取值范围为[1, 10]，取色个数大于10视为取前10个；从OpenHarmony 6.1开始，取值范围为[1, 20]，取色个数大于20视为取前20个。
      * @returns { Map<Color | null, double | null> } 图像占比前`colorCount`的颜色值与对应比例的字典，比例的取值范围为[0,1]。
      *     - 当实际读取的特征色个数小于`colorCount`时，字典大小为实际特征色个数。
      *     - 取色失败或取色个数小于1返回`Map()`。
@@ -322,7 +322,7 @@ declare namespace effectKit {
     /**
      * 获取图像中完全透明的像素占比。
      *
-     * @returns { double } 完全透明的像素占比，比例的取值范围为[0,1]。
+     * @returns { double } 完全透明的像素占比，比例的取值范围为[0, 1]。
      * @throws { BusinessError } 202 - 权限校验失败，非系统应用调用系统接口。
      * @syscap SystemCapability.Multimedia.Image.Core
      * @systemapi
@@ -403,7 +403,7 @@ declare namespace effectKit {
     /**
      * 从图像的主色中获取莫兰迪阴影色，并将结果写入[Color]{@link effectKit.Color}。该接口通过特定的颜色转换算法，将主色调转换为具有莫兰迪风格的阴影色调。
      *
-     * @returns { Color } - Color实例，即图像莫兰迪阴影色对应的颜色值，失败时返回null。
+     * @returns { Color } - Color实例，即图像莫兰迪阴影色对应的颜色值。当图像处理失败或无法获取莫兰迪阴影色时返回null。
      * @syscap SystemCapability.Multimedia.Image.Core
      * @systemapi
      * @stagemodelonly
@@ -415,7 +415,7 @@ declare namespace effectKit {
     /**
      * 生成与背景色融合且比背景色更深的强沉浸感颜色，并将结果写入[Color]{@link effectKit.Color}里。该接口通过颜色混合算法，创建一种既与背景色协调又具有更强沉浸感的颜色效果。
      *
-     * @returns { Color } - Color实例，即图像强沉浸色对应的颜色值，失败时返回null。
+     * @returns { Color } - Color实例，即图像强沉浸色对应的颜色值。当图像处理失败或无法生成沉浸色时返回null。
      * @syscap SystemCapability.Multimedia.Image.Core
      * @systemapi
      * @stagemodelonly
@@ -427,7 +427,7 @@ declare namespace effectKit {
     /**
      * 生成能够创造沉浸式视觉效果的沉浸式背景色，并将结果写入[Color]{@link effectKit.Color}里。该接口基于主色生成适合作为沉浸式背景的颜色值。
      *
-     * @returns { Color } - Color实例，即图像沉浸式背景色对应的颜色值，失败时返回null。
+     * @returns { Color } - Color实例，即图像沉浸式背景色对应的颜色值。当图像处理失败或无法生成沉浸式背景色时返回null。
      * @syscap SystemCapability.Multimedia.Image.Core
      * @systemapi
      * @stagemodelonly
@@ -439,7 +439,7 @@ declare namespace effectKit {
     /**
      * 生成能够创造沉浸式视觉效果的沉浸式前景色，并将结果写入[Color]{@link effectKit.Color}里。该接口基于主色生成适合作为沉浸式前景的颜色值。
      *
-     * @returns { Color } - Color实例，即图像沉浸式前景色对应的颜色值，失败时返回null。
+     * @returns { Color } - Color实例，即图像沉浸式前景色对应的颜色值。当图像处理失败或无法生成沉浸式前景色时返回null。
      * @syscap SystemCapability.Multimedia.Image.Core
      * @systemapi
      * @stagemodelonly
@@ -465,7 +465,7 @@ declare namespace effectKit {
      * [discriminatePictureLightDegree]{@link effectKit.ColorPicker.discriminatePictureLightDegree}接口获取的图片明亮类型得到一个反色，
      * 仅极亮色图片（EXTREMELY_LIGHT_COLOR_PICTURE）类型返回黑色，其他类型返回白色。用于界面主题或对比度计算。
      *
-     * @returns { Color } - Color实例，即图像反向颜色对应的颜色值，失败时返回null。
+     * @returns { Color } - Color实例，即图像反向颜色对应的颜色值。当图像处理失败或无法生成反向颜色时返回null。
      * @syscap SystemCapability.Multimedia.Image.Core
      * @systemapi
      * @stagemodelonly
@@ -578,7 +578,7 @@ declare namespace effectKit {
   interface Color {
 
     /**
-     * 红色分量值，取值范围[0x0, 0xFF]。
+     * 红色分量值，取值范围为[0x0, 0xFF]。
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform [since 14]
@@ -590,7 +590,7 @@ declare namespace effectKit {
     red: int;
 
     /**
-     * 绿色分量值，取值范围[0x0, 0xFF]。
+     * 绿色分量值，取值范围为[0x0, 0xFF]。
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform [since 14]
@@ -602,7 +602,7 @@ declare namespace effectKit {
     green: int;
 
     /**
-     * 蓝色分量值，取值范围[0x0, 0xFF]。
+     * 蓝色分量值，取值范围为[0x0, 0xFF]。
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform [since 14]
@@ -614,7 +614,7 @@ declare namespace effectKit {
     blue: int;
 
     /**
-     * 透明通道分量值，取值范围[0x0, 0xFF]。
+     * 透明通道分量值，取值范围为[0x0, 0xFF]。
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform [since 14]
@@ -749,6 +749,10 @@ declare namespace effectKit {
      */
     DECAL = 3,
   }
+
+  /**
+   * CPU渲染下，着色器平铺模式仅支持DECAL。GPU渲染下，DECAL、CLAMP、REPEAT、MIRROR模式均支持。
+   */
 
   /**
    * 图片颜色深浅度的枚举。
