@@ -803,7 +803,7 @@ declare namespace display {
    *     [addVirtualScreenSurface()]{@link display.addVirtualScreenSurface}, the surfaceRegion is invalid
    *     and defaults to full screen. In mirror mode, the surfaceRegion is invalid and defaults to full screen.
    *     In independent display mode, the surfaceRegion is valid.
-   * @returns { Promise<void> } Promise that returns no value
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 801 - Capability not supported.function addVirtualScreenSurface
    *     can not work correctly due to limited device capabilities.
@@ -822,7 +822,7 @@ declare namespace display {
    *
    * @param { long } screenId - Indicates the screen id of the virtual screen.
    * @param { string } surfaceId - Indicates the surface id.
-   * @returns { Promise<void> } Promise that returns no value
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 801 - Capability not supported.function removeVirtualScreenSurface
    *     can not work correctly due to limited device capabilities.

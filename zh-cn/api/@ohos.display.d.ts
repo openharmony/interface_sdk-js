@@ -749,7 +749,7 @@ declare namespace display {
    *     如果虚拟屏幕未通过[setVirtualScreenSurface()]{@link display.setVirtualScreenSurface} 或
    *     [addVirtualScreenSurface()]{@link display.addVirtualScreenSurface}绑定过surface，surfaceRegion无效，默认全屏。
    *     在镜像模式下，surfaceRegion无效，默认全屏。在异源模式下，surfaceRegion有效。
-   * @returns { Promise<void> } 不返回任何值的Promise
+   * @returns { Promise<void> } 无返回结果的Promise对象。
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 801 - Capability not supported.function addVirtualScreenSurface
    *     can not work correctly due to limited device capabilities.
@@ -768,7 +768,7 @@ declare namespace display {
    *
    * @param { long } screenId - 虚拟屏幕的屏幕ID。
    * @param { string } surfaceId - surface的id。
-   * @returns { Promise<void> } 不返回任何值的Promise
+   * @returns { Promise<void> } 无返回结果的Promise对象。
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 801 - Capability not supported.function removeVirtualScreenSurface
    *     can not work correctly due to limited device capabilities.
