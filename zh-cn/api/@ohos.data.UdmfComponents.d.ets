@@ -14,7 +14,7 @@
  */
 
 /**
- * @file 分布式数据对象
+ * @file 内容卡片
  * @kit ArkData
  */
 
@@ -22,26 +22,12 @@ import uniformDataStruct from '@ohos.data.uniformDataStruct';
 /**
  * 针对[ContentForm]{@link @ohos.data.uniformDataStruct:uniformDataStruct.ContentForm}标准数据结构的内容卡片，支持设置标题（必选）、描述、应用图标、应用名称、
  * 跳转链接、内容图片。用户点击卡片时，执行传入的回调事件函数，若设置的跳转链接不为空，则跳转到指定的页面。
- * 
+ *
  * **使用场景：**
- * 
+ *
  * - 社交应用分享内容展示
  * - 即时通讯消息卡片
  * - 内容推荐卡片
- * 
- * ###### 子组件
- * 
- * 无
- * 
- * ###### 效果呈现
- * 
- * 本例效果如下：
- * <br/>
-
- * ![showContentFormCard](../../ui/figures/showContentFormCard.jpeg)
- *
- * @file 内容卡片
- * @kit ArkData
  */
 /**
  * 内容卡片类型枚举，提供了大、中、小三种尺寸。
@@ -80,9 +66,6 @@ declare enum FormType {
 }
 
 /**
- * ContentFormCard({contentFormData: uniformDataStruct.ContentForm, formType: FormType, formWidth?: number, formHeight?:
- * number, handleOnClick?: Function})
- * 
  * 内容卡片控件，用于在应用内展示标题、描述、内容图片、应用信息等。适用于内容分发、社交动态、消息通知等场景。
  *
  * @syscap SystemCapability.DistributedDataManager.UDMF.Core

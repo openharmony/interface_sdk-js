@@ -29,10 +29,10 @@ import { RecordData } from './@ohos.base';
 /**
  * 本模块为统一数据管理框架（Unified Data Management Framework，UDMF）的组成部分，针对多对多跨应用数据共享的不同业务场景提供了标准化的数据通路，提供了标准化的数据接入与读取接口。同时对文本、图片等数据
  * 类型提供了标准化定义，方便不同应用间进行数据交互，减少数据类型适配的工作量。
- * 
+ *
  * **设计逻辑：** UDMF采用统一数据模型，将不同类型的数据封装为UnifiedData对象，通过Intention标识不同的数据通路类型（如DATA_HUB、DRAG等），实现跨应用数据共享。数据写入时生成唯一标识符key，数据读
  * 取时通过key或intention查询获取。
- * 
+ *
  * UDMF处理数据时，不会解析用户数据的内容，存储路径安全性较低，不建议传输个人敏感数据和隐私数据。
  *
  * @syscap SystemCapability.DistributedDataManager.UDMF.Core
@@ -79,8 +79,8 @@ declare namespace unifiedDataChannel {
    * 对UnifiedData的延迟封装，支持延迟获取数据。当数据接收方请求特定类型数据时，系统会触发此回调函数，数据发送方可在回调中动态生成数据，而非提前准备所有数据。当前只支持同设备剪贴板场景。
    *
    * @param { string } type - 作为延迟数据类型的标识，用于区分不同类型的数据。取值见
-   *     [UniformDataType]{@link @ohos.data.uniformTypeDescriptor:uniformTypeDescriptor.UniformDataType}，如'general.plain
-   *     -text'表示纯文本类型。
+   * [UniformDataType]{@link @ohos.data.uniformTypeDescriptor:uniformTypeDescriptor.UniformDataType}，
+   * 如'general.plain-text'表示纯文本类型。
    * @returns { UnifiedData } 当延迟回调触发时，返回包含相应类型数据的UnifiedData对象，可用于跨应用数据共享和传输。
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @stagemodelonly
@@ -93,14 +93,13 @@ declare namespace unifiedDataChannel {
     /**
    * 用于表示统一数据记录允许的数据字段类型。
    *
-   * @unionmember { int } Int.
-   * @unionmember { long } Long.
-   * @unionmember { double } Double.
+   * @unionmember { int } 表示Int的类型。
+   * @unionmember { long } 表示Long的类型。
+   * @unionmember { double } 表示Double的类型。
    * @unionmember { string } 表示string的类型。
    * @unionmember { boolean } 表示boolean的类型。
-   * @unionmember { image.PixelMap } The value is of the [image.PixelMap]{@link @ohos.multimedia.image:image } 表示
-   *     [image.PixelMap]{@link @ohos.multimedia.image:image.PixelMap}的类型。
-   * @unionmember { Want } [Want]{@link @ohos.app.ability.Want:Want } 表示[Want]{@link @ohos.app.ability.Want:Want}的类型。
+   * @unionmember { image.PixelMap } 表示[image.PixelMap]{@link @ohos.multimedia.image:image.PixelMap}的类型。
+   * @unionmember { Want } 表示[Want]{@link @ohos.app.ability.Want:Want}的类型。
    * @unionmember { ArrayBuffer } 表示ArrayBuffer的类型。
    * @unionmember { object } 表示object的类型。
    * @unionmember { null } 表示null。
@@ -114,19 +113,19 @@ declare namespace unifiedDataChannel {
   type ValueType = int | long | double | string | boolean | image.PixelMap | Want | ArrayBuffer | object | null | undefined;
 
   /**
-   * Indicates type of value.
+   * 用于表示统一数据记录允许的数据字段类型。
    *
-   * @unionmember { int } Int.
-   * @unionmember { long } Long.
-   * @unionmember { double } Double.
-   * @unionmember { string } String.
-   * @unionmember { boolean } Boolean.
-   * @unionmember { image.PixelMap } The value is of the [image.PixelMap]{@link @ohos.multimedia.image:image} type.
-   * @unionmember { Want } [Want]{@link @ohos.app.ability.Want:Want}.
-   * @unionmember { ArrayBuffer } ArrayBuffer.
-   * @unionmember { RecordData } RecordData.
-   * @unionmember { null } Null.
-   * @unionmember { undefined } Undefined.
+   * @unionmember { int } Int类型.
+   * @unionmember { long } Long类型。
+   * @unionmember { double } Double类型。
+   * @unionmember { string } tring类型。
+   * @unionmember { boolean } boolean类型。
+   * @unionmember { image.PixelMap } [image.PixelMap]{@link @ohos.multimedia.image:image.PixelMap}类型。
+   * @unionmember { Want } [Want]{@link @ohos.app.ability.Want:Want}类型。
+   * @unionmember { ArrayBuffer } ArrayBuffer类型。
+   * @unionmember { RecordData } RecordData类型.
+   * @unionmember { null } null类型.
+   * @unionmember { undefined } 表示无初始值。
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @stagemodelonly
    * @since 23 static
@@ -141,9 +140,9 @@ declare namespace unifiedDataChannel {
    * > 此授权策略仅在拖拽场景下生效，其他场景不生效。
    * > **实现机制：** 系统在拖拽数据传输时，根据UriPermission配置对目标URI进行临时授权。授权生命周期与拖拽会话绑定，拖拽完成后自动清理临时授权。接收方应用访问URI时，系统验证权限配置决定是否允许访问。
    * > PERSIST权限会将临时授权转换为持久化授权。
-   * 
+   *
    * 支持不授权、读、写、持久化四种权限策略，可组合使用，仅以下组合生效：
-   * 
+   *
    * - 仅使用NONE：不做任何文件授权。
    * - 仅使用READ：仅做单次只读授权。
    * - 仅使用WRITE：做单次读、写授权（写授权包含读授权）。
@@ -151,9 +150,9 @@ declare namespace unifiedDataChannel {
    * - READ+PERSIST：做持久化读授权。
    * - WRITE+PERSIST：做持久化读写授权。
    * - READ+WRITE+PERSIST：做持久化读写授权。
-   * 
+   *
    * 拖拽授权策略应用规则（按优先级从高到低）：
-   * 
+   *
    * - 单个数据级别：FileUri、HTML两个统一数据结构（UDS）以及File、Image、Video、Audio、Folder、HTML六个统一数据内容（UDC）数据结构支持配置授权策略参数，仅对单个record单次生效，优先
    * 级最高。
    * - UnifiedData级别：UnifiedDataProperties中提供的授权参数对单次拖拽有效。若某个数据中配置了授权策略，则优先按照该数据的配置进行，优先级次之。
@@ -230,7 +229,7 @@ declare namespace unifiedDataChannel {
     extras?: Record<string, object>;
 
     /**
-     * extra property data. key-value pairs.
+     * 是一个字典类型对象，用于设置其他附加属性数据。非必填字段，默认值为空字典对象。
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @stagemodelonly
@@ -360,7 +359,7 @@ declare namespace unifiedDataChannel {
 
     /**
      * 检查当前统一数据对象中是否有指定的数据类型，检查范围包括使用[addEntry]{@link unifiedDataChannel.UnifiedRecord#addEntry}函数添加的数据类型。
-     * 
+     *
      * 针对文件类型，若UnifiedData的类型集合中包含"general.jpeg"，在调用hasType接口判断是否包括"general.image"类型时，结果返回true（类型"general.jpeg"归属于类型"
      * general.image"）。
      *
@@ -395,9 +394,9 @@ declare namespace unifiedDataChannel {
     getTypes(): Array<string>;
 
     /**
-     * UnifiedData properties.
+     * 当前统一数据对象中所有数据记录的属性，包含时间戳、标签、粘贴范围以及一些附加数据等。
      *
-     * @returns { UnifiedDataProperties } Properties of all data records in a unified data. [since 23]
+     * @returns { UnifiedDataProperties } 统一数据对象中所有数据记录的属性。 [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @stagemodelonly
      * @atomicservice
@@ -407,9 +406,9 @@ declare namespace unifiedDataChannel {
     get properties(): UnifiedDataProperties;
 
     /**
-     * UnifiedData properties.
+     * 当前统一数据对象中所有数据记录的属性，包含时间戳、标签、粘贴范围以及一些附加数据等。
      *
-     * @param { UnifiedDataProperties } Properties of all data records in a unified data. [since 23]
+     * @param { UnifiedDataProperties } 统一数据对象中所有数据记录的属性。 [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @stagemodelonly
      * @atomicservice
@@ -434,7 +433,7 @@ declare namespace unifiedDataChannel {
      * [UniformDataType]{@link @ohos.data.uniformTypeDescriptor:uniformTypeDescriptor.UniformDataType}），value为统一数据对象中该类型
      * 记录大小总和（单位：Byte）。
      *
-     * @returns { Record<string, long> } Type and size information of data [since 23]
+     * @returns { Record<string, long> } 数据的类型和大小信息。 [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @stagemodelonly
      * @atomicservice [since 11]
@@ -444,9 +443,11 @@ declare namespace unifiedDataChannel {
     get summary(): Record<string, long>;
 
     /**
-     * A map for each type and data size, key is data type, value is the corresponding data size
+     * 是一个字典类型对象，key表示数据类型（见
+     * [UniformDataType]{@link @ohos.data.uniformTypeDescriptor:uniformTypeDescriptor.UniformDataType}），value为统一数据对象中该类型
+     * 记录大小总和（单位：Byte）。
      *
-     * @param { Record<string, long> } Type and size information of data [since 23]
+     * @param { Record<string, long> } 数据的类型和大小信息。 [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @stagemodelonly
      * @atomicservice [since 11]
@@ -458,7 +459,7 @@ declare namespace unifiedDataChannel {
     /**
      * 统一数据对象内记录总大小（单位：Byte）。
      *
-     * @returns { long } Total size information of data [since 23]
+     * @returns { long } 数据总大小信息。 [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @stagemodelonly
      * @atomicservice [since 11]
@@ -468,9 +469,9 @@ declare namespace unifiedDataChannel {
     get totalSize(): long;
 
     /**
-     * Total data size of data in Bytes
+     * 统一数据对象内记录总大小（单位：Byte）。
      *
-     * @param { long } Total size information of data [since 23]
+     * @param { long } 数据总大小信息。 [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @stagemodelonly
      * @atomicservice [since 11]
@@ -482,8 +483,7 @@ declare namespace unifiedDataChannel {
     /**
      * 统一数据对象中所有类型与该类型数据记录大小的映射关系，其中数据大小单位为Byte。当获取到的统一数据对象为空时，此overview属性值为空。
      *
-     * @returns { Record<string, long> } Key represents the data type, and value represents the corresponding data
-     *     size. [since 23]
+     * @returns { Record<string, long> } Key表示数据类型，value表示对应的数据大小。
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @stagemodelonly
      * @atomicservice
@@ -534,18 +534,18 @@ declare namespace unifiedDataChannel {
 
     /**
      * 用于创建指定类型和值的数据记录。调用成功后，返回包含指定类型和值的UnifiedRecord对象。
-     * 
+     *
      * 当参数value为[image.PixelMap]{@link @ohos.multimedia.image:image.PixelMap}类型时，参数type必须对应为
      * [UniformDataType]{@link @ohos.data.uniformTypeDescriptor:uniformTypeDescriptor.UniformDataType}中
      * OPENHARMONY_PIXEL_MAP的值；
-     * 
+     *
      * 当参数value为[Want]{@link @ohos.app.ability.Want:Want}类型时，参数type必须对应为
      * [UniformDataType]{@link @ohos.data.uniformTypeDescriptor:uniformTypeDescriptor.UniformDataType}中OPENHARMONY_WANT的
      * 值。
      *
      * @param { string } type - 要创建的数据记录的类型，用于标识数据记录的具体类型。取值见
-     *     [UniformDataType]{@link @ohos.data.uniformTypeDescriptor:uniformTypeDescriptor.UniformDataType}，如'
-     *     general.plain-text'、'general.hyperlink'等。
+     *     [UniformDataType]{@link @ohos.data.uniformTypeDescriptor:uniformTypeDescriptor.UniformDataType}，如
+     *     'general.plain-text'、'general.hyperlink'等。
      * @param { ValueType } value - 要创建的数据记录的值。
      * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
      *     <br>2.Incorrect parameter types;
@@ -649,15 +649,15 @@ declare namespace unifiedDataChannel {
   class Text extends UnifiedRecord {
     /**
      * 是一个字典类型对象，key和value都是string类型，用于描述文本内容。例如，可生成一个details内容为
-     * 
+     *
      * {
-     * 
+     *
      * "title":"标题",
-     * 
+     *
      * "content":"内容"
-     * 
+     *
      * }
-     * 
+     *
      * 的数据对象，用于描述一篇文章。非必填字段，默认值为空字典对象。
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
@@ -669,18 +669,38 @@ declare namespace unifiedDataChannel {
     details?: Record<string, string>;
 
     /**
-     * Indicates the details of unified text
+     * 是一个字典类型对象，key和value都是string类型，用于描述文本内容。例如，可生成一个details内容为
      *
-     * @returns { Record<string, string> | undefined } the details of unified text [since 23]
+     * {
+     *
+     * "title":"标题",
+     *
+     * "content":"内容"
+     *
+     * }
+     *
+     * 的数据对象，用于描述一篇文章。非必填字段，默认值为空字典对象。
+     *
+     * @returns { Record<string, string> | undefined } 统一文本的details。 [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 23 static
      */
     get details(): Record<string, string> | undefined;
 
     /**
-     * Indicates the details of unified text
+     * 是一个字典类型对象，key和value都是string类型，用于描述文本内容。例如，可生成一个details内容为
      *
-     * @param { Record<string, string> | undefined } the details of unified text [since 23]
+     * {
+     *
+     * "title":"标题",
+     *
+     * "content":"内容"
+     *
+     * }
+     *
+     * 的数据对象，用于描述一篇文章。非必填字段，默认值为空字典对象。
+     *
+     * @param { Record<string, string> | undefined } 统一文本的details。 [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 23 static
      */
@@ -701,7 +721,7 @@ declare namespace unifiedDataChannel {
     /**
      * 纯文本内容。
      *
-     * @returns { string } the content of text [since 23]
+     * @returns { string } 文本内容。 [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @stagemodelonly
      * @crossplatform [since 14]
@@ -712,9 +732,9 @@ declare namespace unifiedDataChannel {
     get textContent(): string;
 
     /**
-     * Indicates the content of text
+     * 纯文本内容。
      *
-     * @param { string } the content of text [since 23]
+     * @param { string } 文本内容。 [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @stagemodelonly
      * @crossplatform [since 14]
@@ -736,9 +756,9 @@ declare namespace unifiedDataChannel {
     abstract?: string;
 
     /**
-     * Indicates the abstract of text
+     * 表示文本摘要。
      *
-     * @returns { string | undefined } the abstract of text
+     * @returns { string | undefined } 文本摘要。
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @stagemodelonly
      * @since 23 static
@@ -746,9 +766,9 @@ declare namespace unifiedDataChannel {
     get textAbstract(): string | undefined;
 
     /**
-     * Indicates the abstract of text
+     * 表示文本摘要。
      *
-     * @param { string | undefined } the abstract of text
+     * @param { string | undefined } 文本摘要。
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @stagemodelonly
      * @since 23 static
@@ -770,7 +790,7 @@ declare namespace unifiedDataChannel {
     /**
      * 链接url。
      *
-     * @returns { string } the url of a link [since 23]
+     * @returns { string } 链接url。 [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @stagemodelonly
      * @crossplatform [since 14]
@@ -781,9 +801,9 @@ declare namespace unifiedDataChannel {
     get url(): string;
 
     /**
-     * Indicates the url of a link
+     * 链接url。
      *
-     * @param { string } the url of a link [since 23]
+     * @param { string } 链接url。 [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @stagemodelonly
      * @crossplatform [since 14]
@@ -805,18 +825,18 @@ declare namespace unifiedDataChannel {
     description?: string;
 
     /**
-     * Indicates the description of a link
+     * 链接内容描述，非必填字段，默认值为空字符串。
      *
-     * @returns { string | undefined } the description of a link. [since 23]
+     * @returns { string | undefined } 链接的描述。 [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 23 static
      */
     get description(): string | undefined;
 
     /**
-     * Indicates the description of a link
+     * 链接内容描述，非必填字段，默认值为空字符串。
      *
-     * @param { string | undefined } the description of a link [since 23]
+     * @param { string | undefined }  链接的描述。 [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 23 static
      */
@@ -837,7 +857,7 @@ declare namespace unifiedDataChannel {
     /**
      * html格式内容。
      *
-     * @returns { string } the content of html. [since 23]
+     * @returns { string } html内容。 [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @stagemodelonly
      * @crossplatform [since 14]
@@ -848,9 +868,9 @@ declare namespace unifiedDataChannel {
     get htmlContent(): string;
 
     /**
-     * Indicates the content of html, with html tags
+     * html格式内容。
      *
-     * @param { string } the content of html. [since 23]
+     * @param { string } html内容。 [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @stagemodelonly
      * @crossplatform [since 14]
@@ -872,18 +892,18 @@ declare namespace unifiedDataChannel {
     plainContent?: string;
 
     /**
-     * Indicates the plain content of html
+     * 去除html标签后的纯文本内容，非必填字段，默认值为空字符串。
      *
-     * @returns { string | undefined } the plain content of html [since 23]
+     * @returns { string | undefined } html的纯文本内容。 [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 23 static
      */
     get plainContent(): string | undefined;
 
     /**
-     * Indicates the plain content of html
+     * 去除html标签后的纯文本内容，非必填字段，默认值为空字符串。
      *
-     * @param { string | undefined} the plain content of html [since 23]
+     * @param { string | undefined} html的纯文本内容。 [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 23 static
      */
@@ -893,7 +913,7 @@ declare namespace unifiedDataChannel {
      * 用于拖拽场景的URI授权策略。默认值为READ（仅读授权），仅在img标签等场景下生效。只针对单个record使用，优先级最高，具体策略见
      * [UriPermission]{@link unifiedDataChannel.UriPermission}。
      *
-     * @param { Array<UriPermission> | undefined } value - URI authorization policies.
+     * @param { Array<UriPermission> | undefined } value - URI授权策略。
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @stagemodelonly
      * @atomicservice
@@ -917,15 +937,15 @@ declare namespace unifiedDataChannel {
   class File extends UnifiedRecord {
     /**
      * 是一个字典类型对象，key和value都是string类型，用于描述文件相关信息。例如，可生成一个details内容为
-     * 
+     *
      * {
-     * 
+     *
      * "name":"文件名",
-     * 
+     *
      * "type":"文件类型"
-     * 
+     *
      * }
-     * 
+     *
      * 的数据对象，用于描述一个文件。非必填字段，默认值为空字典对象。
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
@@ -937,18 +957,18 @@ declare namespace unifiedDataChannel {
     details?: Record<string, string>;
 
     /**
-     * Indicates the details of unified File
+     * 表示统一文件的详细信息。
      *
-     * @returns { Record<string, string> | undefined } the details of unified File [since 23]
+     * @returns { Record<string, string> | undefined } 统一文件的details。 [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 23 static
      */
     get details(): Record<string, string> | undefined;
 
     /**
-     * Indicates the details of unified File
+     * 表示统一文件的详细信息。
      *
-     * @param { Record<string, string> } the details of unified File. [since 23]
+     * @param { Record<string, string> } 统一文件的details。 [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 23 static
      */
@@ -957,7 +977,7 @@ declare namespace unifiedDataChannel {
     /**
      * 本地文件数据uri或网络文件uri，本地文件数据uri可通过[getUriFromPath]{@link @ohos.file.fileuri:fileUri.getUriFromPath}函数获取。
      *
-     * @returns { string } the uri of file. [since 23]
+     * @returns { string } 文件的uri。 [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @stagemodelonly
      * @crossplatform [since 14]
@@ -968,9 +988,9 @@ declare namespace unifiedDataChannel {
     get uri(): string;
 
     /**
-     * Indicates the uri of file
+     * 表示统一文件的详细信息。
      *
-     * @param { string } the uri of file. [since 23]
+     * @param { string } 文件的uri。 [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @stagemodelonly
      * @crossplatform [since 14]
@@ -984,7 +1004,7 @@ declare namespace unifiedDataChannel {
      * 用于拖拽场景的URI授权策略。默认值为READ+WRITE+PERSIST（读+写+持久化授权），只针对单个record使用，优先级最高，具体策略见
      * [UriPermission]{@link unifiedDataChannel.UriPermission}。
      *
-     * @param { Array<UriPermission> | undefined } value - URI authorization policies.
+     * @param { Array<UriPermission> | undefined } value - URI授权策略。
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @stagemodelonly
      * @atomicservice
@@ -1007,7 +1027,7 @@ declare namespace unifiedDataChannel {
     /**
      * 本地图片数据uri或网络图片uri，本地图片数据uri可通过[getUriFromPath]{@link @ohos.file.fileuri:fileUri.getUriFromPath}函数获取。
      *
-     * @returns { string } the uri of image. [since 23]
+     * @returns { string } 图片的uri。 [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @stagemodelonly
      * @crossplatform [since 14]
@@ -1018,9 +1038,9 @@ declare namespace unifiedDataChannel {
     get imageUri(): string;
 
     /**
-     * Indicates the uri of image
+     * 本地图片数据uri或网络图片uri，本地图片数据uri可通过[getUriFromPath]{@link @ohos.file.fileuri:fileUri.getUriFromPath}函数获取。
      *
-     * @param { string } the uri of image. [since 23]
+     * @param { string } 图片的uri。 [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @stagemodelonly
      * @crossplatform [since 14]
@@ -1045,7 +1065,7 @@ declare namespace unifiedDataChannel {
     /**
      * 本地视频数据uri或网络视频uri，本地视频数据uri可通过[getUriFromPath]{@link @ohos.file.fileuri:fileUri.getUriFromPath}函数获取。
      *
-     * @returns { string } the uri of video. [since 23]
+     * @returns { string } 视频的uri。 [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @stagemodelonly
      * @crossplatform [since 14]
@@ -1056,9 +1076,9 @@ declare namespace unifiedDataChannel {
     get videoUri(): string;
 
     /**
-     * Indicates the uri of video
+     * 本地视频数据uri或网络视频uri，本地视频数据uri可通过[getUriFromPath]{@link @ohos.file.fileuri:fileUri.getUriFromPath}函数获取。
      *
-     * @param { string } the uri of video. [since 23]
+     * @param { string } 视频的uri。 [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @stagemodelonly
      * @crossplatform [since 14]
@@ -1083,7 +1103,7 @@ declare namespace unifiedDataChannel {
     /**
      * 本地音频数据uri或网络音频uri，本地音频数据uri可通过[getUriFromPath]{@link @ohos.file.fileuri:fileUri.getUriFromPath}函数获取。
      *
-     * @returns { string } the uri of audio. [since 23]
+     * @returns { string } 音频的uri。 [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @stagemodelonly
      * @crossplatform [since 14]
@@ -1094,9 +1114,9 @@ declare namespace unifiedDataChannel {
     get audioUri(): string;
 
     /**
-     * Indicates the uri of audio
+     * 本地音频数据uri或网络音频uri，本地音频数据uri可通过[getUriFromPath]{@link @ohos.file.fileuri:fileUri.getUriFromPath}函数获取。
      *
-     * @param { string } the uri of audio. [since 23]
+     * @param { string } 音频的uri。[since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @stagemodelonly
      * @crossplatform [since 14]
@@ -1121,7 +1141,7 @@ declare namespace unifiedDataChannel {
     /**
      * 本地文件夹数据uri或网络文件夹uri，本地文件夹数据uri可通过[getUriFromPath]{@link @ohos.file.fileuri:fileUri.getUriFromPath}函数获取。
      *
-     * @returns { string } the uri of folder [since 23]
+     * @returns { string } 文件夹的uri。 [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @stagemodelonly
      * @crossplatform [since 14]
@@ -1132,9 +1152,9 @@ declare namespace unifiedDataChannel {
     get folderUri(): string;
 
     /**
-     * Indicates the uri of folder
+     * 表示文件夹的uri。
      *
-     * @param { string } the uri of folder [since 23]
+     * @param { string } 文件夹的uri。[since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @stagemodelonly
      * @crossplatform [since 14]
@@ -1170,20 +1190,20 @@ declare namespace unifiedDataChannel {
     details?: Record<string, int | long | double | string | Uint8Array>;
 
     /**
-     * Indicates the details of system defined data
+     * 表示系统定义数据的详细信息。
      *
-     * @returns { Record<string, int | long | double | string | Uint8Array> | undefined } the details of system defined
-     *     data [since 23]
+     * @returns { Record<string, int | long | double | string | Uint8Array> | undefined } 系统定义数据的details。
+     *     [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 23 static
      */
     get details(): Record<string, int | long | double | string | Uint8Array> | undefined;
 
     /**
-     * Indicates the details of system defined data
+     * 表示系统定义数据的详细信息。
      *
-     * @param { Record<string, int | long | double | string | Uint8Array> | undefined } the details of system defined
-     *     data [since 23]
+     * @param { Record<string, int | long | double | string | Uint8Array> | undefined } 系统定义数据的details。
+     *     [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 23 static
      */
@@ -1203,7 +1223,7 @@ declare namespace unifiedDataChannel {
     /**
      * 卡片id。
      *
-     * @returns { int } the id of form. [since 23]
+     * @returns { int } 卡片id。 [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @stagemodelonly
      * @atomicservice [since 11]
@@ -1213,9 +1233,9 @@ declare namespace unifiedDataChannel {
     get formId(): int;
 
     /**
-     * Indicates the id of form
+     * 卡片id。
      *
-     * @param { int } the id of form. [since 23]
+     * @param { int } 卡片id。 [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @stagemodelonly
      * @atomicservice [since 11]
@@ -1227,7 +1247,7 @@ declare namespace unifiedDataChannel {
     /**
      * 卡片名称。
      *
-     * @returns { string } the name of form. [since 23]
+     * @returns { string } 卡片名称。 [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @stagemodelonly
      * @atomicservice [since 11]
@@ -1237,9 +1257,9 @@ declare namespace unifiedDataChannel {
     get formName(): string;
 
     /**
-     * Indicates the name of form
+     * 卡片名称。
      *
-     * @param { string } the name of form. [since 23]
+     * @param { string } 卡片名称。 [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @stagemodelonly
      * @atomicservice [since 11]
@@ -1251,7 +1271,7 @@ declare namespace unifiedDataChannel {
     /**
      * 卡片所属的bundle名。
      *
-     * @returns { string } the bundle name of form. [since 23]
+     * @returns { string } 卡片所属的bundle名。 [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @stagemodelonly
      * @atomicservice [since 11]
@@ -1261,9 +1281,9 @@ declare namespace unifiedDataChannel {
     get bundleName(): string;
 
     /**
-     * Indicates the bundle name of form
+     * 卡片所属的bundle名。
      *
-     * @param { string } the bundle name of form. [since 23]
+     * @param { string } 卡片所属的bundle名。 [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @stagemodelonly
      * @atomicservice [since 11]
@@ -1275,7 +1295,7 @@ declare namespace unifiedDataChannel {
     /**
      * 卡片对应的ability名。
      *
-     * @returns { string } the ability name of form. [since 23]
+     * @returns { string } 卡片对应的ability名。 [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @stagemodelonly
      * @atomicservice [since 11]
@@ -1285,9 +1305,9 @@ declare namespace unifiedDataChannel {
     get abilityName(): string;
 
     /**
-     * Indicates the ability name of form.
+     * 卡片对应的ability名。
      *
-     * @param { string } the ability name of form [since 23]
+     * @param { string } 卡片对应的ability名。 [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @stagemodelonly
      * @atomicservice [since 11]
@@ -1299,7 +1319,7 @@ declare namespace unifiedDataChannel {
     /**
      * 卡片所属的module名。
      *
-     * @returns { string } the module of form. [since 23]
+     * @returns { string } 卡片所属的module名。 [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @stagemodelonly
      * @atomicservice [since 11]
@@ -1309,9 +1329,9 @@ declare namespace unifiedDataChannel {
     get module(): string;
 
     /**
-     * Indicates the module of form
+     * 卡片所属的module名。
      *
-     * @param { string } the module of form. [since 23]
+     * @param { string } 卡片所属的module名。 [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @stagemodelonly
      * @atomicservice [since 11]
@@ -1334,7 +1354,7 @@ declare namespace unifiedDataChannel {
     /**
      * 图标对应的应用id。
      *
-     * @returns { string } the app id. [since 23]
+     * @returns { string } 图标对应的应用id。 [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @stagemodelonly
      * @atomicservice [since 11]
@@ -1344,9 +1364,9 @@ declare namespace unifiedDataChannel {
     get appId(): string;
 
     /**
-     * Indicates the app id
+     * 图标对应的应用id。
      *
-     * @param { string } the app id. [since 23]
+     * @param { string } 图标对应的应用id。 [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @stagemodelonly
      * @atomicservice [since 11]
@@ -1358,7 +1378,7 @@ declare namespace unifiedDataChannel {
     /**
      * 图标对应的应用名。
      *
-     * @returns { string } the app name. [since 23]
+     * @returns { string } 图标对应的应用名。 [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @stagemodelonly
      * @atomicservice [since 11]
@@ -1368,9 +1388,9 @@ declare namespace unifiedDataChannel {
     get appName(): string;
 
     /**
-     * Indicates the app name
+     * 图标对应的应用名。
      *
-     * @param { string } the app name. [since 23]
+     * @param { string } 图标对应的应用名。 [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @stagemodelonly
      * @atomicservice [since 11]
@@ -1382,7 +1402,7 @@ declare namespace unifiedDataChannel {
     /**
      * 图标的图片id。
      *
-     * @returns { string } the id of app icon [since 23]
+     * @returns { string } 图标的图片id。 [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @stagemodelonly
      * @atomicservice [since 11]
@@ -1392,10 +1412,10 @@ declare namespace unifiedDataChannel {
     get appIconId(): string;
 
     /**
-     * Indicates the id of app icon.
+     * 图标的图片id。
      * This field can be sourced from BMS or customized as needed.
      *
-     * @param { string } the id of app icon [since 23]
+     * @param { string } 图标的图片id。 [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @stagemodelonly
      * @atomicservice [since 11]
@@ -1407,7 +1427,7 @@ declare namespace unifiedDataChannel {
     /**
      * 图标名称对应的标签id。
      *
-     * @returns { string } the id of app label [since 23]
+     * @returns { string } 图标名称对应的标签id。[since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @stagemodelonly
      * @atomicservice [since 11]
@@ -1417,10 +1437,9 @@ declare namespace unifiedDataChannel {
     get appLabelId(): string;
 
     /**
-     * Indicates the id of app label.
-     * This field can be sourced from BMS or customized as needed.
+     * 图标名称对应的标签id。
      *
-     * @param { string } the id of app label [since 23]
+     * @param { string } 图标名称对应的标签id。 [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @stagemodelonly
      * @atomicservice [since 11]
@@ -1432,7 +1451,7 @@ declare namespace unifiedDataChannel {
     /**
      * 图标对应的应用bundle名。
      *
-     * @returns { string } the bundle name of app. [since 23]
+     * @returns { string } 图标对应的应用bundle名。 [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @stagemodelonly
      * @atomicservice [since 11]
@@ -1442,9 +1461,9 @@ declare namespace unifiedDataChannel {
     get bundleName(): string;
 
     /**
-     * Indicates the bundle name of app
+     * 图标对应的应用bundle名。
      *
-     * @param { string } the bundle name of app. [since 23]
+     * @param { string } 图标对应的应用bundle名。 [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @stagemodelonly
      * @atomicservice [since 11]
@@ -1456,7 +1475,7 @@ declare namespace unifiedDataChannel {
     /**
      * 图标对应的应用ability名。
      *
-     * @returns { string } the ability name of app. [since 23]
+     * @returns { string } 图标对应的应用ability名。 [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @stagemodelonly
      * @atomicservice [since 11]
@@ -1466,9 +1485,9 @@ declare namespace unifiedDataChannel {
     get abilityName(): string;
 
     /**
-     * Indicates the ability name of app
+     * 图标对应的应用ability名。
      *
-     * @param { string } the ability name of app. [since 23]
+     * @param { string } 图标对应的应用ability名。 [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @stagemodelonly
      * @atomicservice [since 11]
@@ -1492,7 +1511,7 @@ declare namespace unifiedDataChannel {
     /**
      * PixelMap对象的二进制数据。
      *
-     * @returns { Uint8Array } the raw data of pixel map. [since 23]
+     * @returns { Uint8Array } PixelMap对象的二进制数据。 [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @stagemodelonly
      * @atomicservice [since 11]
@@ -1502,9 +1521,9 @@ declare namespace unifiedDataChannel {
     get rawData(): Uint8Array;
 
     /**
-     * Indicates the raw data of pixel map
+     * PixelMap对象的二进制数据。
      *
-     * @param { Uint8Array } the raw data of pixel map. [since 23]
+     * @param { Uint8Array } PixelMap对象的二进制数据。 [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @stagemodelonly
      * @atomicservice [since 11]
@@ -1528,7 +1547,7 @@ declare namespace unifiedDataChannel {
     /**
      * 应用自定义类型标识符，必须以'ApplicationDefined'开头。
      *
-     * @returns { string } the type of data [since 23]
+     * @returns { string } 数据类型。 [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @stagemodelonly
      * @atomicservice [since 11]
@@ -1538,10 +1557,9 @@ declare namespace unifiedDataChannel {
     get applicationDefinedType(): string;
 
     /**
-     * Indicates the type of data, should always be started with 'ApplicationDefined.', will
-     * return error otherwise
+     * 应用自定义类型标识符，必须以'ApplicationDefined'开头。
      *
-     * @param { string } the type of data [since 23]
+     * @param { string } 数据类型。 [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @stagemodelonly
      * @atomicservice [since 11]
@@ -1553,7 +1571,7 @@ declare namespace unifiedDataChannel {
     /**
      * 应用自定义数据类型的二进制数据。
      *
-     * @returns { Uint8Array } the raw data [since 23]
+     * @returns { Uint8Array } 二进制数据。 [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @stagemodelonly
      * @atomicservice [since 11]
@@ -1563,9 +1581,9 @@ declare namespace unifiedDataChannel {
     get rawData(): Uint8Array;
 
     /**
-     * Indicates the raw data of application defined data
+     * 应用自定义数据类型的二进制数据。
      *
-     * @param { Uint8Array } the raw data [since 23]
+     * @param { Uint8Array } 二进制数据。 [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @stagemodelonly
      * @atomicservice [since 11]
@@ -1587,7 +1605,7 @@ declare namespace unifiedDataChannel {
   enum Intention {
     /**
      * 公共数据通路。
-     * 
+     *
      * **适用场景：** 适用于在公共数据共享场景下使用UDMF来跨应用数据共享。
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
@@ -1600,7 +1618,7 @@ declare namespace unifiedDataChannel {
 
     /**
      * 拖拽类型数据通道。
-     * 
+     *
      * **适用场景：** 适用于在拖拽场景下使用UDMF来跨应用数据共享。
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
@@ -1614,7 +1632,7 @@ declare namespace unifiedDataChannel {
 
     /**
      * 系统分享类型数据通道。
-     * 
+     *
      * **适用场景：** 适用于在系统分享场景下使用UDMF来跨应用数据共享。
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
@@ -1626,7 +1644,7 @@ declare namespace unifiedDataChannel {
 
     /**
      * Picker类型数据通道。
-     * 
+     *
      * **适用场景：** 适用于在Picker选择器场景下使用UDMF来跨应用数据共享。
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
@@ -1638,7 +1656,7 @@ declare namespace unifiedDataChannel {
 
     /**
      * 菜单类型数据通道。
-     * 
+     *
      * **适用场景：** 适用于在右键菜单场景下使用UDMF来跨应用数据共享。
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
@@ -1704,9 +1722,9 @@ declare namespace unifiedDataChannel {
 
     /**
      * UDMF中数据对象的唯一标识符，可通过[insertData]{@link unifiedDataChannel.insertData}接口的返回值获取。不填写时默认无值，具体是否必填请参阅具体接口的参数说明。
-     * 
+     *
      * 由udmf:/、intention、bundleName和groupId四部分组成，以'/'连接，比如：udmf://DataHub/com.ohos.test/0123456789。
-     * 
+     *
      * 其中udmf:/固定，DataHub为对应枚举的取值，com.ohos.test为包名，0123456789为随机生成的groupId。
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
@@ -1944,8 +1962,8 @@ declare namespace unifiedDataChannel {
 
   /**
    * 表示从UDMF获取数据时的参数，包含目标路径、文件冲突选项、进度条类型等。
-   * 
-   * 具体使用示例可见[拖拽异步获取数据](docroot://reference/apis-arkui/arkui-ts/ts-universal-events-drag-drop.md#示例3拖拽异步获取数据)。
+   *
+   * 具体使用示例可见[拖拽异步获取数据]。
    *
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @stagemodelonly
@@ -1999,7 +2017,7 @@ declare namespace unifiedDataChannel {
      */
     fileConflictOptions?: FileConflictOptions;
 
-        /**
+    /**
      * 定义接收方对数据类型和数据记录数量的接收能力。延迟加载场景下，发送方可根据此信息生成并返回更合适的数据内容。默认为空，不提供接收方数据接收能力。
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
@@ -2013,7 +2031,7 @@ declare namespace unifiedDataChannel {
 
   /**
    * 用于描述被加载数据的类型与数量。
-   * 
+   *
    * - 在**数据发送方**中使用，表示实际可提供的数据范围，必须设置该字段。
    * - 在**数据接收方**中使用，表示期望加载的数据类型与数量，可根据需要设置该字段。
    *
@@ -2036,8 +2054,8 @@ declare namespace unifiedDataChannel {
     types?: Set<string>;
 
     /**
-     * 表示期望或可提供的最大数据记录数，默认值为0，取值范围为[0, 2<sup>32</sup>-1]。超过取值范围时会按默认值处理。设置为浮点数时，仅使用整数部分。当用于拖拽时，会作为角标数量显示，最大支持2<sup>31</
-     * sup>-1，超过此数值时不显示角标。作为角标数量时，优先级低于[DragPreviewOptions]{@link DragPreviewOptions}中的numberBadge方法。
+     * 表示期望或可提供的最大数据记录数，默认值为0，取值范围为[0, 2<sup>32</sup>-1]。超过取值范围时会按默认值处理。设置为浮点数时，仅使用整数部分。当用于拖拽时，会作为角标数量显示，最大支持
+     * 2<sup>31</sup>-1，超过此数值时不显示角标。作为角标数量时，优先级低于[DragPreviewOptions]{@link DragPreviewOptions}中的numberBadge方法。
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @stagemodelonly
@@ -2050,7 +2068,7 @@ declare namespace unifiedDataChannel {
 
   /**
    * 用于延迟加载数据的处理函数。支持数据发送方根据接收方传入的信息，动态生成数据，实现更灵活、精准的数据交互策略。
-   * 
+   *
    * 该处理函数为同步函数，适用于处理简单业务逻辑，若函数业务逻辑较复杂、执行时间较长（3s以上），推荐使用异步处理函数
    * [DelayedDataLoadHandler]{@link unifiedDataChannel.DelayedDataLoadHandler}。
    *
@@ -2066,7 +2084,7 @@ declare namespace unifiedDataChannel {
 
   /**
    * 用于延迟加载数据的处理函数。支持数据发送方根据接收方传入的信息，动态生成数据，实现更灵活、精准的数据交互策略。
-   * 
+   *
    * 该处理函数为异步函数，返回Promise对象，不阻塞主线程，可处理复杂业务逻辑、执行长耗时任务。
    *
    * @param { DataLoadInfo } [acceptableInfo] - 表示数据接收方可以接收的数据类型和数量，默认为空。
@@ -2081,7 +2099,7 @@ declare namespace unifiedDataChannel {
 
   /**
    * 用于在延迟加载场景下描述发送方的数据加载策略。
-   * 
+   *
    * 当同时传入loadHandler和delayedDataLoadHandler时，优先使用delayedDataLoadHandler，loadHandler不生效。
    *
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
@@ -2128,7 +2146,7 @@ declare namespace unifiedDataChannel {
 
   /**
    * 将数据写入UDMF的公共数据通路中，并生成数据的唯一标识符，使用callback异步回调。
-   * 
+   *
    * **实现机制：** 系统接收UnifiedData对象后，验证数据完整性并序列化存储。根据intention值路由到对应存储空间，生成唯一标识符key。数据在公共数据通路中由系统管理有效期，默认策略为应用退出后自动清理。
    *
    * @param { Options } options - 配置项参数，参数中intention字段必填，且不支持DRAG，不填时会返回401错误码；其他字段是否填写均不影响接口的使用。
@@ -2149,7 +2167,7 @@ declare namespace unifiedDataChannel {
    * 将数据写入UDMF的公共数据通路中，并生成数据的唯一标识符，使用Promise异步回调。
    *
    * @param { Options } options - 配置项参数，参数中intention字段必填，且不支持DRAG，不填时会返回401错误码；其他字段是否填写均不影响接口的使用。
-   * @param { UnifiedData } data - 目标数据。
+   * @param { UnifiedData } data - 要写入或更新的统一数据对象，用于存储数据记录及其属性信息。
    * @returns { Promise<string> } Promise对象，返回写入UDMF的数据的唯一标识符key的值。
    * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
    *     <br>2.Incorrect parameter types;
