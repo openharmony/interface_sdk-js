@@ -1110,7 +1110,6 @@ declare namespace adminManager {
    * @param { Want } admin - admin indicates the enterprise admin extension ability information.
    *     The admin must have the corresponding permission.
    * @param { string } credential - credential indicates the credential for activating self as an administrator.
-   * @returns { Promise<void> } the promise returned by the enableSelfDeviceAdmin.
    * @throws { BusinessError } 9200003 - The administrator ability component is invalid.
    * @throws { BusinessError } 9200004 - Failed to activate the administrator application of the device.
    * @throws { BusinessError } 9200012 - Parameter verification failed.
