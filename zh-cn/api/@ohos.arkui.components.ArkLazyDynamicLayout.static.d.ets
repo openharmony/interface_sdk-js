@@ -1,4 +1,4 @@
-'use static'
+'use static';
 /*
  * Copyright (c) 2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
@@ -24,7 +24,7 @@ import { AttributeModifier, CommonMethod, Callback } from './arkui/component/com
 import { LazyLayoutAlgorithm } from './arkui/LazyLayoutAlgorithm';
 
 /**
- * The LazyDynamicLayoutAttribute
+ * LazyDynamicLayout属性
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -33,7 +33,7 @@ import { LazyLayoutAlgorithm } from './arkui/LazyLayoutAlgorithm';
  */
 export declare interface LazyDynamicLayoutAttribute extends CommonMethod {
   /**
-   * Called attributeModifier.
+   * 调用了AttributeModifier。
    *
    * @param { AttributeModifier<LazyDynamicLayoutAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
    * @returns { this }
@@ -44,11 +44,10 @@ export declare interface LazyDynamicLayoutAttribute extends CommonMethod {
   default attributeModifier(
       modifier: AttributeModifier<LazyDynamicLayoutAttribute> | AttributeModifier<CommonMethod> | undefined): this;
   /**
-   * Called when visible indexes change.
+   * 当可见索引更改时调用。
    *
-   * @param { Callback<int[]> | undefined } callback - The callback function to be called when
-   *     visible indexes change.
-   *     <br>Passing undefined will unregister the callback.
+   * @param { Callback<int[]> | undefined } callback - 可见索引变化时要回调的回调函数。
+   *     <br>传递undefined将取消注册回调。
    * @returns { this }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -56,10 +55,10 @@ export declare interface LazyDynamicLayoutAttribute extends CommonMethod {
    */
   default onVisibleIndexesChange(callback: Callback<int[]> | undefined): this;
   /**
-   * Set LazyDynamicLayout options.
+   * 设置LazyDynamicLayout选项。
    *
-   * @param { LazyLayoutAlgorithm } algorithm - Lazy layout algorithm.
-   * @returns { this } Returns the instance of the LazyDynamicLayoutAttribute.
+   * @param { LazyLayoutAlgorithm } algorithm - 懒布局算法。
+   * @returns { this } 返回LazyDynamicLayoutAttribute的实例。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.0.0 staticonly
@@ -67,9 +66,9 @@ export declare interface LazyDynamicLayoutAttribute extends CommonMethod {
   default setLazyDynamicLayoutOptions(algorithm: LazyLayoutAlgorithm): this;
 }
 /**
- * Defines LazyDynamicLayout Component.
+ * 定义LazyDynamicLayout组件。
  *
- * @param { LazyLayoutAlgorithm } algorithm - Lazy layout algorithm.
+ * @param { LazyLayoutAlgorithm } algorithm - 懒布局算法。
  * @param { CustomBuilder } content_
  * @returns { LazyDynamicLayoutAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -84,11 +83,11 @@ export declare function LazyDynamicLayout (
 ): LazyDynamicLayoutAttribute;
 
 /**
- * Defines LazyDynamicLayout Component.
+ * 定义LazyDynamicLayout组件。
  *
  * @param { CustomBuilderT<LazyDynamicLayoutAttribute> } style_ - The style to create a LazyDynamicLayout.
- * @param { CustomBuilder } [content_] - content
- * @returns { LazyDynamicLayoutAttribute } The attribute of the LazyDynamicLayout.
+ * @param { CustomBuilder } [content_]
+ * @returns { LazyDynamicLayoutAttribute } LazyDynamicLayout的属性。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 26.0.0 staticonly
