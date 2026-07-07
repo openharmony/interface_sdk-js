@@ -16584,62 +16584,6 @@ declare namespace photoAccessHelper {
   }
 
   /**
-   * Enumerates the 4d livephoto status.
-   *
-   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-   * @systemapi
-   * @stagemodelonly
-   * @since 26.0.0 dynamic&static
-   */
-  enum LivePhoto4dStatus {  
-    /**
-     * The livephoto has not been identified.
-     *
-     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @systemapi
-     * @stagemodelonly
-     * @since 24 dynamic&static
-     */
-    UNIDENTIFIED = 0,
-    /**
-     * The livephoto does not support 4d livephoto.
-     *
-     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @systemapi
-     * @stagemodelonly
-     * @since 24 dynamic&static
-     */
-    UNSUPPORTED = 1,
-    /**
-     * The livephoto supports 4d livephoto.
-     *
-     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @systemapi
-     * @stagemodelonly
-     * @since 24 dynamic&static
-     */
-    SUPPORTED = 2,
-    /**
-     * The livephoto has generated 4d livephoto.
-     *
-     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @systemapi
-     * @stagemodelonly
-     * @since 24 dynamic&static
-     */
-    USED = 3,
-    /**
-     * The livephoto is 4d livephoto.
-     *
-     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @systemapi
-     * @stagemodelonly
-     * @since 24 dynamic&static
-     */
-    LIVEPHOTO_4D = 4
-  }
-
-  /**
    * Enumeration of permission level for an application to access asset.
    *
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
