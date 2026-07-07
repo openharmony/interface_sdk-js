@@ -32,6 +32,8 @@ import { FractionStop } from './arkui/component/common';
  * This module provides basic image processing capabilities,
  * including brightness adjustment, blurring, grayscale adjustment, and color picker.
  * The effectKit module processes images (such as PixelMap, PNG, and JPEG) offline to obtain visual effects.
+ * The uiEffect module connects to the rendering service in real time and process the screen frame buffer to
+ * obtain dynamic visual effects.
  * @syscap SystemCapability.Multimedia.Image.Core
  * @crossplatform [since 14]
  * @form [since 12]
@@ -178,8 +180,8 @@ declare namespace effectKit {
     getPixelMap(): image.PixelMap;
 
     /**
-     * Obtains image.PixelMap of the source image to which the filter linked list is added. This API uses a promise to
-     * return the result.
+     * Obtains image.PixelMap of the source image to which the filter linked list is added. This API uses a CPU for
+     * rendering and a promise to return the result.
      *
      * @returns { Promise<image.PixelMap> } - Promise used to return image.PixelMap of the source image.
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -192,10 +194,11 @@ declare namespace effectKit {
     getEffectPixelMap(): Promise<image.PixelMap>;
 
     /**
-     * Gets the PixelMap where all filter effects have been added to the image.
+     * Obtains the image.PixelMap of the source image with the linked list effect. The rendering mode (CPU rendering
+     * or GPU rendering) can be specified. This API uses a promise to return the result.
      *
-     * @param { boolean } useCpuRender -  Whether to use cpu render.
-     * @returns { Promise<image.PixelMap> } - returns the PixelMap generated.
+     * @param { boolean } useCpuRender -  Rendering mode. true: CPU rendering. false: GPU rendering.
+     * @returns { Promise<image.PixelMap> } - Promise used to return image.PixelMap of the source image.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @form
@@ -221,7 +224,8 @@ declare namespace effectKit {
 
     /**
      * Obtains the main color from the image and writes the result to a Color instance. This API uses a promise to
-     * return the result.
+     * return the result. This API uses the image scaling algorithm to calculate the weighted average of surrounding
+     * pixels and reduces the original image to one pixel to obtain the main color.
      *
      * @returns { Promise<Color> } Promise used to return the color value of the main color. If the operation fails, an
      *     error message is returned.
@@ -236,7 +240,8 @@ declare namespace effectKit {
 
     /**
      * Obtains the main color from the image and writes the result to a Color instance. This API returns the result
-     * synchronously.
+     * synchronously. This API uses the image scaling algorithm to calculate the weighted average of surrounding
+     * pixels and reduces the original image to one pixel to obtain the main color.
      *
      * @returns { Color } Color value of the main color. If the operation fails, null is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -250,7 +255,8 @@ declare namespace effectKit {
 
     /**
      * Obtains the color with the largest proportion from the image and writes the result to a Color instance. This API
-     * returns the result synchronously.
+     * returns the result synchronously. This API uses the median split algorithm to divide the color space and obtain
+     * the average color of the color space with the largest proportion.
      *
      * @returns { Color } Color value of the color with the largest proportion. If the operation fails, null is
      *     returned.
@@ -267,14 +273,14 @@ declare namespace effectKit {
      * Obtains a given number of colors with the top proportions in the image. This API returns the result
      * synchronously.
      *
-     * @param { int } colorCount - Number of colors to obtain. The value range is [1, 10]. If a non-integer is passed in
-     *     , the value will be rounded down.
+     * @param { int } colorCount - Number of colors to be obtained. The value is rounded down.
+     *     For versions earlier than OpenHarmony 6.1, the value range is [1, 10]. If the number of colors to be obtained
+     *     exceeds 10, only the top 10 colors are retained. Starting from OpenHarmony 6.1, the value range is [1, 20].
+     *     If the number of colors to be obtained exceeds 20, only the top 20 colors are retained.
      * @returns { Array<Color | null> } Array of colors, sorted by proportion.
      *     - If the number of colors obtained is less than the value of colorCount, the array size is the actual number
      *     obtained.
      *     - If the colors fail to be obtained or the number of colors obtained is less than 1, [null] is returned.
-     *     - If the value of colorCount is greater than 10, an array holding the first 10 colors with the top
-     *     proportions is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform [since 14]
      * @form
@@ -285,15 +291,20 @@ declare namespace effectKit {
     getTopProportionColors(colorCount: int): Array<Color | null>;
 
     /**
-     * Get top proportion colors and percentages of an image
+     * Reads the color values with the top proportions in an image and their corresponding proportions. The number of
+     * colors to obtain is specified by **colorCount**, and the results are stored in a dictionary mapping **Color**
+     * values to their respective proportions, returned synchronously.
      *
-     * @param { int } colorCount - The number of colors to require, the value is 1 to 10.
-     * @returns { Map<Color | null, double | null> } Map of colors and percentages, sorted by proportion.
-     *     - If the number of colors obtained is less than the value of colorCount, the map size is
-     *     the actual number obtained.
-     *     - If the colors fail to be obtained or the number of colors obtained is less than 1, Map() is returned.
-     *     - If the value of colorCount is greater than 10, a map holding the first 10 colors with
-     *     the top proportions is returned.
+     * @param { int } colorCount - Number of colors and their proportions to be obtained. The value is rounded down.
+     * For versions earlier than OpenHarmony 6.1, the value range is [1, 10]. If the number of colors to be obtained
+     * exceeds 10, only the top 10 colors are retained. Starting from OpenHarmony 6.1, the value range is [1, 20].
+     * If the number of colors to be obtained exceeds 20, only the top 20 colors are retained.
+     * @returns { Map<Color | null, double | null> } Dictionary containing the top-proportion colors in the image and
+     * their corresponding proportions, with the number of colors specified by **colorCount**. The proportion value
+     * range is [0, 1].
+     *     - If the number of colors obtained is less than the value of **colorCount**, the size of the dictionary
+     *     matches the actual number of colors.
+     *     - If the colors fail to be obtained or the number of colors obtained is less than 1, **Map()** is returned.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @systemapi
@@ -304,9 +315,9 @@ declare namespace effectKit {
     getTopProportionColorsAndPercentage(colorCount: int): Map<Color | null, double | null>;
 
     /**
-     * Get the proportion of transparent pixels with alpha=0 in the image
+     * Obtains the proportion of completely transparent pixels in an image.
      *
-     * @returns { double } proportion of transparent pixels with alpha=0
+     * @returns { double } Proportion of completely transparent pixels in an image. The value range is [0, 1].
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @systemapi
@@ -316,9 +327,9 @@ declare namespace effectKit {
     getAlphaZeroTransparentProportion(): double;
 
     /**
-     * Get shade degree of an image
+     * Obtains the color shade level of an image.
      *
-     * @returns { PictureShadeDegree } shade degree of an image
+     * @returns { PictureShadeDegree } Image color shade level.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @systemapi
@@ -329,9 +340,9 @@ declare namespace effectKit {
     getShadeDegree(): PictureShadeDegree;
 
     /**
-     * Get complexity degree of an image
+     * Obtains the image content complexity.
      *
-     * @returns { PictureComplexityDegree } complexity degree of an image
+     * @returns { PictureComplexityDegree } Image content complexity.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @systemapi
@@ -371,7 +382,7 @@ declare namespace effectKit {
     getAverageColor(): Color;
 
     /**
-     * Determine whether the color is black or white or gray
+     * Checks whether a color is black, white, and gray.
      *
      * @param { long } color - The 32 bit ARGB color to discriminate.
      * @returns { boolean } Result of judging black, white and gray.

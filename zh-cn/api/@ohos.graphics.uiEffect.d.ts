@@ -26,7 +26,12 @@ import { LinearGradientBlurOptions } from '@ohos.arkui.component';
 /*** endif */
 
 /**
+ * 本模块提供组件效果的一些基础能力，包括模糊、提亮等。效果被分为Filter和VisualEffect大类，同类效果可以级联在一个效果大类的实例下。
+ * 使用该模块可以快速实现复杂的视觉效果，无需开发者掌握底层的图像处理算法，降低了开发复杂度，提升了用户体验。
+ * 在实际开发中，模糊可用于背景虚化，提亮可用于亮屏显示等。
  *
+ * - [Filter]{@link uiEffect.Filter}：用于添加指定Filter效果到组件上。
+ * - [VisualEffect]{@link uiEffect.VisualEffect}：用于添加指定VisualEffect效果到组件上。
  * @syscap SystemCapability.Graphics.Drawing
  * @form [since 22]
  * @since 12 dynamic
@@ -35,14 +40,14 @@ import { LinearGradientBlurOptions } from '@ohos.arkui.component';
 declare namespace uiEffect {
 
   /**
+   * Filter效果类，用于将模糊、边缘像素扩展、水波纹等效果添加到组件上。在调用Filter的方法前，需要先通过[createFilter]{@link uiEffect.createFilter}创建一个Filter实例。
    *
    * @syscap SystemCapability.Graphics.Drawing
    * @since 12 dynamic
    * @since 23 static
    */
-  
   interface Filter {
-    /**
+     /**
      * 将边缘像素扩展效果添加至组件上。
      *
      * @param { Array<double> } stretchSizes - 上下左右四个方向边缘像素扩展的百分比比例，取值范围为[-1, 1]。
@@ -62,8 +67,8 @@ declare namespace uiEffect {
      *
      * @param { double } blurRadius - 模糊半径，单位为px。
      *     取值需大于等于0，模糊半径越大，模糊效果越强。
-     *     模糊半径为0时无模糊效果。
-     * @returns { Filter } - 返回挂载了模糊效果的Filter。
+     *     模糊半径为0时无模糊效果。传入负数时自动修正为0。
+     * @returns { Filter } - 返回挂载了模糊效果的Filter，支持链式调用继续添加其他效果。
           * @syscap SystemCapability.Graphics.Drawing
      * @since 12 dynamic
      * @since 23 static
@@ -95,7 +100,7 @@ declare namespace uiEffect {
     waterRipple(progress: double, waveCount: int, x: double, y: double, rippleMode: WaterRippleMode): Filter;
 
     /**
-     * 将飞入飞出形变效果添加至组件上。
+     * 将飞入飞出形变效果添加至组件上。典型应用场景包括页面切换动画、窗口进出动画、对话框弹出动画、列表项进出动画等。
      *
      * @param { double } degree - 表示控制飞入飞出形变的程度，取值范围为[0, 1]。
      *     越靠近1，变形程度越明显。
@@ -146,7 +151,7 @@ declare namespace uiEffect {
 
     /**
      * 将贝塞尔曲线变形的效果添加至组件上。该效果通过在图层边界上创建封闭的贝塞尔曲线，实现对图像的精准扭曲和形状调整。
-     * 贝塞尔曲线共有四段，首尾顺次相连，每段包含一个顶点和两个切点。
+     * 贝塞尔曲线共有四段，首尾顺次相连，每段包含一个顶点和两个切点。典型应用场景包括人脸形变特效、卡片透视变形等。
      *
      * @param { Array<common2D.Point> } controlPoints - 12个贝塞尔形变控制点，更改控制点的位置可改变形成边缘的曲线的形状，
      *     从而扭曲图像。控制点坐标为0-1坐标系，且坐标值可大于1或小于0。
@@ -199,7 +204,7 @@ declare namespace uiEffect {
         alphaMask?: Mask): Filter;
 
     /**
-     * 为组件内容检测边缘，并添加边缘高亮效果。
+     * 为组件内容检测边缘，并添加边缘高亮效果。该效果自动检测组件内容的边缘轮廓并叠加高亮描边。
      *
      * @param { double } alpha - 指定描边高光透明度，越大描边越明显。取值范围为[0, 1]。
      *     设置为0时无描边；设置小于0的值时，按值为0处理；设置大于1的值时，按值为1处理。
@@ -233,7 +238,7 @@ declare namespace uiEffect {
     displacementDistort(displacementMap: Mask, factor?: [double, double]): Filter;
 
     /**
-     * 为组件内容添加由置换贴图控制的色散效果。
+     * 为组件内容添加由置换贴图控制的色散效果，模拟光线通过棱镜时的色散现象。典型应用场景包括炫彩特效、棱镜折射模拟等。
      *
      * @param { Mask } dispersionMap - 置换贴图，用于控制色散的强度、方向和透明度。建议使用PixelMapMask类型的置换贴图。
      * @param { double } alpha - 色散整体透明度，透明度越小效果越透明。取值范围为[0, 1.0]。
@@ -255,11 +260,19 @@ declare namespace uiEffect {
     /**
      * 为组件内容添加HDR（高动态范围成像）提亮效果。不建议嵌套使用，强行嵌套使用可能造成过曝现象。
      *
+     * 提亮效果需要开启HDR渲染管线才能生效，某些场景下即使尝试触发HDR渲染管线也无法开启HDR，例如：设备硬件规格不支持HDR。
+     *
+     * 设备当前支持最大提亮倍数为设备当前的最大亮度除以设备SDR参考白亮度得到的值。
+     *
+     * > **说明：**
+     * >
+     * > 使用HDR提亮效果会带来一定的性能功耗开销，建议在已有HDR图片或视频的场景使用。
+     *
      * @permission ohos.permission.HDR_BRIGHTNESS [since 24]
      * @param { double } ratio - 提亮倍数，取值范围为[1.0, 设备当前支持最大提亮倍数]。
      *     设置小于1.0的值时，按值为1.0处理；当值等于1.0时，不做任何处理；
      *     当值大于1.0时，会尝试触发HDR渲染管线，设置大于设备当前支持最大提亮倍数的值时，按值为设备当前支持最大提亮倍数处理。
-     * @returns { Filter } - 返回挂载了HDR提亮效果的Filter。
+     * @returns { Filter } - 返回挂载了HDR提亮效果的Filter，支持链式调用继续添加其他效果。
      * @throws { BusinessError } 202 - 权限校验失败，非系统应用调用系统接口。
      *     [since 20 - 23]
      * @throws { BusinessError } 201 - 权限校验失败，应用无权限使用该API，需要申请权限。
@@ -288,15 +301,16 @@ declare namespace uiEffect {
     variableRadiusBlur(radius: double, radiusMap: Mask): Filter;
 
     /**
-     * 为组件内容提供基于Mask和平行光的光照效果。
+     * 为组件内容提供基于Mask和平行光的光照效果。平行光从统一方向照射组件平面，所有光线方向一致，不因距离衰减，光照强度在组件各处均匀分布，适合模拟太阳光等远距离光源场景。与contentLight的点光源不同，平行光无需指定光源具体位置。通过Mask可控制光照细节，通过factor可结合高度图增强浮雕效果。
      *
      * @param { common2D.Point3d } direction - 方向光的入射方向。
      * @param { Color } color - 光照颜色。
      * @param { double } intensity - 光照强度，非负数。
-     * @param { Mask } [mask] - 置换贴图，用于描述二维图像表面的三维细节，通过法线或高度图增强局部细节和光照反射效果，
-     *     若输入为高度图，须与factor参数配合使用。默认为空，表现为全局无细节的平面光照效果。
-     * @param { double } [factor] - 采样缩放系数。默认值为null，mask作为法线图采样；非默认值时，mask作为高度图采样，
-     *     实际高度值为mask的采样值与factor的乘积。
+     * @param { Mask } [mask] - 置换贴图，用于描述二维图像表面的三维细节。可通过Mask类的创建方法（如createRippleMask、createRadialGradientMask等）创建Mask实例。
+     *     当需要增强局部细节和光照反射效果（如浮雕、凹凸纹理）时传入此参数。通过法线或高度图实现，若输入为高度图需与factor参数配合使用。
+     *     不设置时默认为空，表现为全局无细节的平面光照效果。
+     * @param { double } [factor] - 采样缩放系数。当使用高度图作为mask且需要控制高度缩放时传入此参数。不设置时mask作为法线图采样直接使用；
+     *     设置了值时mask作为高度图采样，实际高度值为mask采样值与factor的乘积。
      * @returns { Filter } - 返回挂载了由置换贴图控制的光照效果的Filter。
      * @throws { BusinessError } 202 - 权限校验失败，非系统应用调用系统接口。
      * @syscap SystemCapability.Graphics.Drawing
@@ -307,7 +321,9 @@ declare namespace uiEffect {
     directionLight(direction: common2D.Point3d, color: Color, intensity: double, mask?: Mask, factor?: double): Filter;
 
     /**
-     * 为组件内容提供基于Mask的转场效果。
+     * 为组件内容提供基于Mask的转场效果，可用于页面切换动画、场景过渡效果等场景。
+     *
+     * 不建议在屏幕尺寸发生改变的过程中使用此效果，如：旋转屏幕，折叠屏开合屏幕等。
      *
      * @param { Mask } alphaMask - 通过遮罩指定转场效果的作用区域。
      * @param { double } [factor] - 转场过渡系数，取值范围为[0.0, 1.0]，默认值为1.0。
@@ -479,8 +495,8 @@ declare namespace uiEffect {
   }
 
   /**
-   * VisualEffect效果类，用于将相应的效果添加到指定的组件上。
-   * 在调用VisualEffect的方法前，需要先通过createEffect创建一个VisualEffect实例。
+   * VisualEffect效果类，用于将背景颜色混合、边框光照、颜色渐变等效果添加到组件上。
+   * 在调用VisualEffect的方法前，需要先通过[createEffect]{@link uiEffect.createEffect}创建一个VisualEffect实例。
    *
    * @syscap SystemCapability.Graphics.Drawing
    * @form [since 22]
@@ -490,7 +506,7 @@ declare namespace uiEffect {
   interface VisualEffect {
 
     /**
-     * 将混合器添加至组件上以改变组件背景颜色，具体的更改效果由输入决定，目前仅支持提亮混合器。
+     * 用于改变组件背景颜色的blender，目前仅支持提亮混合器。
      *
      * @param { BrightnessBlender } blender - 用于混合背景颜色的blender。
      * @returns { VisualEffect } 返回添加了背景颜色更改效果的VisualEffect。
@@ -543,15 +559,16 @@ declare namespace uiEffect {
       alphaMask?: Mask): VisualEffect;
 
     /**
-     * 设置液态材质效果
+     * 此方法为组件添加材质效果。材质效果通过模拟物理材质的光学特性（折射、反射）和动态扰动效果，实现玻璃、金属等材质的视觉呈现。可用于模拟玻璃质感UI、流体材质动画、磨砂玻璃效果等场景。
      *
      * @param { LiquidMaterialEffectParam } param - 材质所需相关变量，用于控制材质显示，包含材质开关、折射系数、反射系数和扰动系数。
-     * @param { Mask } useEffectMask - 声明是否使用模糊缓存。使用createUseEffectMask(true)创建的Mask实例使用模糊缓存；
-     *     使用createUseEffectMask(false)创建的Mask实例不使用模糊缓存。
-     * @param { Mask } [distortMask] - 材质扰动效果需要的扰动纹理，由使用pixelMap创建Mask实例时的图片纹理决定。
-     *     当材质的扰动系数不为0时，需要为材质扰动预先设置一张纹理，否则无扰动效果。
-     *     当材质的扰动系数为0或者此参数不填时，无扰动效果。
-     * @param { BrightnessParam } [brightnessParam] - 为材质增加提亮效果。默认不添加提亮效果。
+     * @param { Mask } useEffectMask - 声明是否使用模糊缓存。使用createUseEffectMask(true)创建的Mask实例使用模糊缓存，适用于需要复用模糊结果的场景以提升性能；
+     *     使用createUseEffectMask(false)创建的Mask实例不使用模糊缓存，适用于模糊效果频繁变化的场景。
+     * @param { Mask } [distortMask] - 材质扰动效果需要的扰动纹理，由pixelMap创建的Mask实例的图片纹理决定扰动效果的图案和方向。
+     *     可通过createPixelMapMask方法创建Mask实例。当材质的扰动系数（distortFactor）不为0时，需要设置此参数否则无扰动效果；
+     *     当材质的扰动系数为0或此参数不设置时，无扰动效果。默认不设置。
+     * @param { BrightnessParam } [brightnessParam] - 为材质增加提亮效果。当需要增强材质的视觉亮度（如高亮显示、发光效果）时传入此参数。
+     *     不设置时默认不添加提亮效果，材质保持原始亮度。
      * @returns { VisualEffect } - 返回具有材质效果的VisualEffect。
      * @throws { BusinessError } 202 - 权限校验失败，非系统应用调用系统接口。
      * @syscap SystemCapability.Graphics.Drawing
@@ -563,7 +580,7 @@ declare namespace uiEffect {
       brightnessParam?: BrightnessParam): VisualEffect;
 
     /**
-     * 此方法为组件添加非线性形变效果。
+     * 此方法为组件添加非线性形变效果。典型应用场景包括页面坍塌动画、窗口关闭特效、卡片翻转动画、场景过渡效果等。
      *
      * 1. 该视效支持控件范围外的绘制，但仍会受到父控件Clip的影响。
      * 2. 因包含前景Filter，未与EffectComponent组合使用时不兼容组件自身及子组件的部分视效（如BrightnessBlender或systemMaterial）。
@@ -1048,8 +1065,8 @@ declare namespace uiEffect {
     hdrBrightnessRatio: double;
 
     /**
-     * 将RGB颜色转换为灰度值，该公式可根据色域切换。三个分量均无边界限制。
-     * 默认值为标准灰度权重[0.299, 0.587, 0.114]。
+     * 将RGB颜色转换为灰度值。灰度转换公式的权重可随当前色域自动调整，不同色域下使用不同的权重计算方式；适用于sRGB等标准色域场景。
+     * 当需要根据特定色域或视觉效果自定义灰度转换权重时传入此参数。三个分量均无边界限制。默认值为标准灰度权重[0.299, 0.587, 0.114]。
      *
      * @property { ?[double, double, double] }
      * @default [0.299, 0.587, 0.114]
@@ -1113,7 +1130,7 @@ declare namespace uiEffect {
   }
 
   /**
-   * Mask效果类，作为Filter以及VisualEffect的输入使用。
+   * Mask效果类，作为Filter以及VisualEffect的输入使用。不同类型的Mask提供不同的灰度分布模式，如波环遮罩、径向渐变、像素图遮罩等。
    *
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
@@ -1223,10 +1240,10 @@ declare namespace uiEffect {
       blurRadius: double, turbulenceStrength?: double): Mask;
 
     /**
-     * 创建并设置Mask实例是否使用模糊缓存。
+     * 创建并设置Mask实例是否使用模糊缓存。此Mask实例专为liquidMaterial方法的useEffectMask参数设计，用于声明材质效果是否使用模糊缓存以提升性能。将此Mask实例用于其他Filter或VisualEffect方法时，useEffect属性可能不生效。
      *
      * @param { boolean } useEffect - 标记是否使用模糊缓存。值为true，表示使用，会正常显示模糊效果；值为false，表示不使用，不显示模糊效果。
-     * @returns { Mask } - 返回是否使用模糊缓存标记的Mask。
+     * @returns { Mask } - 返回标记是否使用模糊缓存的Mask实例。
      * @throws { BusinessError } 202 - 权限校验失败，非系统应用调用系统接口。
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
@@ -1237,9 +1254,9 @@ declare namespace uiEffect {
   }
 
   /**
-   * 创建Filter实例用于给组件添加多种filter效果。
+   * 创建Filter实例用于给组件添加多种Filter效果。
    *
-   * @returns { Filter } 返回Filter的头节点。
+   * @returns { Filter } 返回Filter实例，支持添加多种Filter效果。
    * @syscap SystemCapability.Graphics.Drawing
    * @since 12 dynamic
    * @since 23 static
@@ -1247,9 +1264,9 @@ declare namespace uiEffect {
   function createFilter(): Filter;
 
   /**
-   * 创建VisualEffect实例用于给组件添加多种effect效果。
+   * 创建VisualEffect实例用于给组件添加多种VisualEffect效果。
    *
-   * @returns { VisualEffect } 返回VisualEffect的头节点。
+   * @returns { VisualEffect } 返回VisualEffect实例，支持添加多种VisualEffect效果。
    * @syscap SystemCapability.Graphics.Drawing
    * @form [since 24]
    * @since 12 dynamic
@@ -1260,8 +1277,8 @@ declare namespace uiEffect {
   /**
    * 创建BrightnessBlender实例用于给组件添加提亮效果。
    *
-   * @param { BrightnessBlenderParam } param - 实现提亮效果的参数。
-   * @returns { BrightnessBlender } 返回设置了提亮效果参数的BrightnessBlender。
+   * @param { BrightnessBlenderParam } param - 实现提亮效果的参数，包含灰度调整系数、饱和度、混合比例等配置项。
+   * @returns { BrightnessBlender } 返回提亮效果的BrightnessBlender混合器。
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
    * @form [since 22]
@@ -1273,7 +1290,7 @@ declare namespace uiEffect {
   /**
    * 创建HdrBrightnessBlender实例用于给组件添加支持HDR的提亮效果。
    *
-   * @param { BrightnessBlenderParam } param - 实现提亮效果的参数。
+   * @param { BrightnessBlenderParam } param - 实现提亮效果的参数，包含灰度调整系数、饱和度、混合比例等配置项，用于配置提亮效果。
    * @returns { HdrBrightnessBlender } 返回具有提亮效果的混合器（支持HDR）。
    * @throws { BusinessError } 202 - 权限校验失败，非系统应用调用系统接口。
    * @syscap SystemCapability.Graphics.Drawing
@@ -1290,8 +1307,8 @@ declare namespace uiEffect {
     *     设置小于1.0的值时，按值为1.0处理；当值等于1.0时，为组件原本亮度；
     *     设置大于设备当前支持最大提亮倍数的值时，按值为设备当前支持最大提亮倍数处理，
     *     支持最大提亮倍数 = 设备最大亮度 / 设备默认亮度。
-    * @param { [double, double, double] } [grayscaleFactor] - 将RGB颜色转换为灰度值，该公式可根据色域切换。
-    *     三个分量均无边界限制。默认值为标准灰度权重[0.299, 0.587, 0.114]。
+     * @param { [double, double, double] } [grayscaleFactor] - 将RGB颜色转换为灰度值。灰度转换公式的权重可随当前色域自动调整，不同色域下使用不同的权重计算方式；
+     *     适用于sRGB等标准色域场景。当需要根据特定色域或视觉效果自定义灰度转换权重时传入此参数。三个分量均无边界限制。默认值为标准灰度权重[0.299, 0.587, 0.114]。
     * @returns { HdrDarkenBlender } 返回HDR压暗混合器，用于将压暗效果添加到指定的组件上。
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
@@ -1303,7 +1320,7 @@ declare namespace uiEffect {
 }
 
 /**
- * BrightnessBlender参数列表。
+ * BrightnessBlender的参数列表，用于配置提亮效果的各项属性，包括灰度调整系数、饱和度和混合比例等参数。
  *
  * @syscap SystemCapability.Graphics.Drawing
  * @systemapi
