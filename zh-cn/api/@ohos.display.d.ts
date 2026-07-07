@@ -751,7 +751,7 @@ declare namespace display {
    *     在镜像模式下，surfaceRegion无效，默认全屏。在异源模式下，surfaceRegion有效。
    * @returns { Promise<void> } 无返回结果的Promise对象。
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 801 - Capability not supported.function addVirtualScreenSurface
+   * @throws { BusinessError } 801 - Capability not supported. Function addVirtualScreenSurface
    *     can not work correctly due to limited device capabilities.
    * @throws { BusinessError } 1400001 - Invalid display or screen.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
@@ -770,7 +770,7 @@ declare namespace display {
    * @param { string } surfaceId - surface的id。
    * @returns { Promise<void> } 无返回结果的Promise对象。
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 801 - Capability not supported.function removeVirtualScreenSurface
+   * @throws { BusinessError } 801 - Capability not supported. Function removeVirtualScreenSurface
    *     can not work correctly due to limited device capabilities.
    * @throws { BusinessError } 1400001 - Invalid display or screen.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.

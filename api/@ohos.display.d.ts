@@ -805,7 +805,7 @@ declare namespace display {
    *     In independent display mode, the surfaceRegion is valid.
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 801 - Capability not supported.function addVirtualScreenSurface
+   * @throws { BusinessError } 801 - Capability not supported. Function addVirtualScreenSurface
    *     can not work correctly due to limited device capabilities.
    * @throws { BusinessError } 1400001 - Invalid display or screen.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
@@ -824,7 +824,7 @@ declare namespace display {
    * @param { string } surfaceId - Indicates the surface id.
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 801 - Capability not supported.function removeVirtualScreenSurface
+   * @throws { BusinessError } 801 - Capability not supported. Function removeVirtualScreenSurface
    *     can not work correctly due to limited device capabilities.
    * @throws { BusinessError } 1400001 - Invalid display or screen.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
