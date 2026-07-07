@@ -32,7 +32,7 @@
 declare namespace uniformTypeDescriptor {
   /**
    * 标准化数据类型之间存在归属关系，例如JPEG图片类型归属于IMAGE类型。更多预置数据类型参考[UTD预置列表](docroot://database/uniform-data-type-list.md)。
-   * 
+   *
    * 下表以枚举形式，列举了常用的标准化数据类型定义。
    *
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
@@ -997,7 +997,7 @@ declare namespace uniformTypeDescriptor {
      */
     PCM = 'general.pcm',
 
-        /**
+    /**
      * WINDOWS WMA音频类型，归属类型为AUDIO。
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
@@ -1848,10 +1848,10 @@ declare namespace uniformTypeDescriptor {
    */
   class TypeDescriptor {
     /**
-     * Type ID of the uniform data type, which corresponds to the enum string in the {@code UniformDataType}.
+     * 标准化数据类型的ID（即{@code UniformDataType}中各类型对应的UTD-ID），也可以是自定义UTD。自定义UTD建议使用反向域名格式（如'com.example.mytype'）。
      *
      * @type { string } [since 11 - 22]
-     * @returns { string } Type ID of the uniform data type. [since 23]
+     * @returns { string } 标准化数据类型的ID。 [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @stagemodelonly
      * @crossplatform [since 20]
@@ -1861,10 +1861,10 @@ declare namespace uniformTypeDescriptor {
     get typeId(): string;
 
     /**
-     * Type ID of the uniform data type, which corresponds to the enum string in the {@code UniformDataType}.
+     * 标准化数据类型的ID（即{@code UniformDataType}中各类型对应的UTD-ID），也可以是自定义UTD。自定义UTD建议使用反向域名格式（如'com.example.mytype'）。
      *
      * @type { string } [since 11 - 22]
-     * @param { string } value - Type ID of the uniform data type. [since 23]
+     * @param { string } value - 标准化数据类型的ID。 [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @stagemodelonly
      * @crossplatform [since 20]
@@ -1874,10 +1874,10 @@ declare namespace uniformTypeDescriptor {
     set typeId(value: string);
 
     /**
-     * Uniform data type IDs that the uniform data type belongs to.
+     * 标准化数据类型所归属的类型typeId列表。
      *
      * @type { Array<string> } [since 11 - 22]
-     * @returns { Array<string> } Uniform data type IDs [since 23]
+     * @returns { Array<string> } 标准化数据类型ID。 [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @stagemodelonly
      * @crossplatform [since 20]
@@ -1887,10 +1887,10 @@ declare namespace uniformTypeDescriptor {
     get belongingToTypes(): Array<string>;
 
     /**
-     * Uniform data type IDs that the uniform data type belongs to.
+     * 标准化数据类型所归属的类型typeId列表。
      *
      * @type { Array<string> } [since 11 - 22]
-     * @param { Array<string> } value - Uniform data type IDs [since 23]
+     * @param { Array<string> } value - 标准化数据类型ID。 [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @stagemodelonly
      * @crossplatform [since 20]
@@ -1900,10 +1900,10 @@ declare namespace uniformTypeDescriptor {
     set belongingToTypes(value: Array<string>);
 
     /**
-     * A textual description for the uniform data type.
+     * 标准化数据类型的简要说明。
      *
      * @type { string } [since 11 - 22]
-     * @returns { string } A textual description [since 23]
+     * @returns { string } 简要说明。 [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @stagemodelonly
      * @crossplatform [since 20]
@@ -1913,10 +1913,10 @@ declare namespace uniformTypeDescriptor {
     get description(): string;
 
     /**
-     * A textual description for the uniform data type.
+     * 标准化数据类型的简要说明。
      *
      * @type { string } [since 11 - 22]
-     * @param { string } value - A textual description [since 23]
+     * @param { string } value - 简要说明。 [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @stagemodelonly
      * @crossplatform [since 20]
@@ -1926,10 +1926,10 @@ declare namespace uniformTypeDescriptor {
     set description(value: string);
 
     /**
-     * Reference URL for the uniform data type, which describes the detail information of the type.
+     * 标准化数据类型的参考链接URL，用于描述类型的详细信息。
      *
      * @type { string } [since 11 - 22]
-     * @returns { string } Reference URL [since 23]
+     * @returns { string } 参考链接URL。 [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @stagemodelonly
      * @crossplatform [since 20]
@@ -1939,10 +1939,10 @@ declare namespace uniformTypeDescriptor {
     get referenceURL(): string;
 
     /**
-     * Reference URL for the uniform data type, which describes the detail information of the type.
+     * 标准化数据类型的参考链接URL，用于描述类型的详细信息。
      *
      * @type { string } [since 11 - 22]
-     * @param { string } value - Reference URL [since 23]
+     * @param { string } value - 参考链接URL。 [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @stagemodelonly
      * @crossplatform [since 20]
@@ -1952,9 +1952,9 @@ declare namespace uniformTypeDescriptor {
     set referenceURL(value: string);
 
     /**
-     * Default icon file path for the uniform data type.
+     * 标准化数据类型的默认图标文件路径，可能为空字符串（即没有默认图标），应用可以自行决定是否使用该默认图标。
      *
-     * @type { string } Default icon file path [since 11 - 22]
+     * @type { string } 默认图标文件路径。 [since 11 - 22]
      * @returns { string } Default icon file path [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @stagemodelonly
@@ -1965,10 +1965,10 @@ declare namespace uniformTypeDescriptor {
     get iconFile(): string;
 
     /**
-     * Default icon file path for the uniform data type.
+     * 标准化数据类型的默认图标文件路径，可能为空字符串（即没有默认图标），应用可以自行决定是否使用该默认图标。
      *
      * @type { string } [since 11 - 22]
-     * @param { string } value - Default icon file path [since 23]
+     * @param { string } value - 默认图标文件路径。 [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @stagemodelonly
      * @crossplatform [since 20]
@@ -1978,10 +1978,10 @@ declare namespace uniformTypeDescriptor {
     set iconFile(value: string);
 
     /**
-     * File name extensions for the uniform data type.
+     * 标准化数据类型所关联的文件名后缀列表。
      *
      * @type { Array<string> } [since 12 - 22]
-     * @returns { Array<string> } File name extensions [since 23]
+     * @returns { Array<string> } 文件名后缀列表。 [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @stagemodelonly
      * @crossplatform [since 20]
@@ -1991,10 +1991,10 @@ declare namespace uniformTypeDescriptor {
     get filenameExtensions(): Array<string>;
 
     /**
-     * File name extensions for the uniform data type.
+     * 标准化数据类型所关联的文件名后缀列表。
      *
      * @type { Array<string> } [since 12 - 22]
-     * @param { Array<string> } value - File name extensions [since 23]
+     * @param { Array<string> } value - 文件名后缀列表。 [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @stagemodelonly
      * @crossplatform [since 20]
@@ -2003,11 +2003,11 @@ declare namespace uniformTypeDescriptor {
      */
     set filenameExtensions(value: Array<string>);
 
-        /**
-     * MIMETypes of the uniform data type.
+    /**
+     * 标准化数据类型所关联的多用途互联网邮件扩展类型列表。
      *
      * @type { Array<string> } [since 12 - 22]
-     * @returns { Array<string> } MIMETypes [since 23]
+     * @returns { Array<string> } 多用途互联网邮件扩展类型列表。 [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @stagemodelonly
      * @crossplatform [since 20]
@@ -2017,10 +2017,10 @@ declare namespace uniformTypeDescriptor {
     get mimeTypes(): Array<string>;
 
     /**
-     * MIMETypes of the uniform data type.
+     * 标准化数据类型所关联的多用途互联网邮件扩展类型列表。
      *
      * @type { Array<string> } [since 12 - 22]
-     * @param { Array<string> } value - MIMETypes [since 23]
+     * @param { Array<string> } value - 多用途互联网邮件扩展类型列表。 [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @stagemodelonly
      * @crossplatform [since 20]
@@ -2032,8 +2032,7 @@ declare namespace uniformTypeDescriptor {
     /**
      * 判断当前标准化数据类型是否归属于指定的标准化数据类型。
      *
-     * @param { string } type - 所指定的标准化数据类型（即[UTD预置列表](docroot://database/uniform-data-type-list.md)中各类型对应的UTD-ID或自定义UTD
-     *     -ID）。
+     * @param { string } type - 所指定的标准化数据类型（即[UTD预置列表](docroot://database/uniform-data-type-list.md)中各类型对应的UTD-ID或自定义UTD-ID）。
      * @returns { boolean } 返回true表示当前的标准化数据类型归属于所指定的标准化数据类型，包括所指定类型与当前类型相同的情况；返回false则表示无归属关系。
      * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
      *     <br>2.Incorrect parameter types;
@@ -2049,8 +2048,7 @@ declare namespace uniformTypeDescriptor {
     /**
      * 判断当前标准化数据类型是否是指定标准化数据类型的低层级类型。例如TYPE_SCRIPT为SOURCE_CODE的低层级类型，TYPE_SCRIPT和SOURCE_CODE为TEXT的低层级类型。
      *
-     * @param { string } type - 所指定的标准化数据类型（即[UTD预置列表](docroot://database/uniform-data-type-list.md)中各类型对应的UTD-ID或自定义UTD
-     *     -ID）。
+     * @param { string } type - 所指定的标准化数据类型（即[UTD预置列表](docroot://database/uniform-data-type-list.md)中各类型对应的UTD-ID或自定义UTD-ID）。
      * @returns { boolean } 返回true表示当前的标准化数据类型是所指定标准化数据类型的低层级类型，否则返回false。
      * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
      *     <br>2.Incorrect parameter types;
@@ -2066,8 +2064,7 @@ declare namespace uniformTypeDescriptor {
     /**
      * 判断当前标准化数据类型是否是指定标准化数据类型的高层级类型。例如SOURCE_CODE为TYPE_SCRIPT的高层级类型，TEXT为SOURCE_CODE和TYPE_SCRIPT的高层级类型。
      *
-     * @param { string } type - 所指定的标准化数据类型（即[UTD预置列表](docroot://database/uniform-data-type-list.md)中各类型对应的UTD-ID或自定义UTD
-     *     -ID）。
+     * @param { string } type - 所指定的标准化数据类型（即[UTD预置列表](docroot://database/uniform-data-type-list.md)中各类型对应的UTD-ID或自定义UTD-ID）。
      * @returns { boolean } 返回true表示当前的标准化数据类型是所指定标准化数据类型的高层级类型，否则返回false。
      * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
      *     <br>2.Incorrect parameter types;
@@ -2101,7 +2098,7 @@ declare namespace uniformTypeDescriptor {
   /**
    * 按给定的标准化数据类型ID查询并返回对应的标准化数据类型描述类对象。
    *
-   * @param { string } typeId - [标准化数据类型ID](docroot://database/uniform-data-type-descriptors.md)。
+   * @param { string } typeId - [标准化数据类型ID]。
    * @returns { TypeDescriptor } 返回标准化数据类型描述类对象。如果要查询的标准化数据类型不存在，则返回null。
    * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
    *     <br>2.Incorrect parameter types;
@@ -2114,11 +2111,10 @@ declare namespace uniformTypeDescriptor {
   function getTypeDescriptor(typeId: string): TypeDescriptor;
 
   /**
-   * Queries and returns the uniform type descriptor by the given uniform data type ID.
+   * 按给定的标准化数据类型ID查询并返回对应的标准化数据类型描述类对象。
    *
-   * @param { string } typeId - Uniform data type ID.
-   * @returns { TypeDescriptor | null } Returns the uniform type descriptor corresponding to the uniform data type ID
-   *     or null if the uniform data type does not exist.
+   * @param { string } typeId - [标准化数据类型ID]。
+   * @returns { TypeDescriptor | null } 返回标准化数据类型描述类对象。如果要查询的标准化数据类型不存在，则返回null。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2.Incorrect parameter types;
    *     <br>3. Parameter verification failed.
@@ -2132,8 +2128,7 @@ declare namespace uniformTypeDescriptor {
    * 根据给定的文件后缀名和所归属的标准化数据类型查询标准化数据类型ID，若有多个符合条件的标准化数据类型ID，则返回第一个。
    *
    * @param { string } filenameExtension - 文件后缀名称，需要包含点号，如'.ts'、'.jpg'等。
-   * @param { string } [belongsTo] - 要查询的标准化数据类型所归属类型ID，用于限定查询范围。当需要查询特定归属类型下的数据类型时传入此参数，无默认值，若不传入此参数则只按照文件后缀名称查询
-   *     [标准化数据类型ID](docroot://database/uniform-data-type-descriptors.md)。
+   * @param { string } [belongsTo] - 要查询的标准化数据类型所归属类型ID，用于限定查询范围。当需要查询特定归属类型下的数据类型时传入此参数，无默认值，若不传入此参数则只按照文件后缀名称查询[标准化数据类型ID]。
    * @returns { string } 返回与给定文件后缀名以及归属类型ID（如果设置了belongsTo参数）匹配的标准化数据类型ID。如果要查询的标准化数据类型不存在，则返回根据入参按指定规则生成的动态类型（动态类型是系统动态
    *     生成的类型标识，以'flex.'为前缀，用于表示未预定义的数据类型）。
    * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
@@ -2151,8 +2146,7 @@ declare namespace uniformTypeDescriptor {
    * 根据给定的MIME类型和所归属的标准化数据类型查询标准化数据类型ID，若有多个符合条件的标准化数据类型ID，则返回第一个。
    *
    * @param { string } mimeType - MIME类型名称，格式为'type/subtype'，如'image/jpeg'、'text/plain'等。
-   * @param { string } [belongsTo] - 要查询的标准化数据类型所归属类型ID。无默认值，若不传入此参数则只按照MIME类型名称查询
-   *     [标准化数据类型ID](docroot://database/uniform-data-type-descriptors.md)。
+   * @param { string } [belongsTo] - 要查询的标准化数据类型所归属类型ID。无默认值，若不传入此参数则只按照MIME类型名称查询[标准化数据类型ID]。
    * @returns { string } 返回与MIME类型名称以及归属类型ID（如果设置了belongsTo参数）匹配的标准化数据类型ID，如果要查询的标准化数据类型不存在则返回根据入参按指定规则生成的动态类型。
    * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
    *     <br>2.Incorrect parameter types;
@@ -2169,10 +2163,8 @@ declare namespace uniformTypeDescriptor {
    * 根据给定的文件后缀名和所归属的标准化数据类型查询标准化数据类型ID列表。
    *
    * @param { string } filenameExtension - 文件后缀名称。
-   * @param { string } [belongsTo] - 要查询的标准化数据类型所归属类型ID，无默认值，若不传入此参数则只按照文件后缀名称查询
-   *     [标准化数据类型ID](docroot://database/uniform-data-type-descriptors.md)。
-   * @returns { Array<string> } 返回与给定文件后缀名以及归属类型ID（如果设置了belongsTo参数）匹配的标准化数据类型ID列表，如果要查询的标准化数据类型不存在则返回根据入参按指定规则生成的动态类型列
-   *     表。
+   * @param { string } [belongsTo] - 要查询的标准化数据类型所归属类型ID，无默认值，若不传入此参数则只按照文件后缀名称查询[标准化数据类型ID]。
+   * @returns { Array<string> } 返回与给定文件后缀名以及归属类型ID（如果设置了belongsTo参数）匹配的标准化数据类型ID列表，如果要查询的标准化数据类型不存在则返回根据入参按指定规则生成的动态类型列表。
    * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
    *     <br>2.Incorrect parameter types;
    *     <br>3. Parameter verification failed.
@@ -2188,10 +2180,8 @@ declare namespace uniformTypeDescriptor {
    * 根据给定的MIME类型和所归属的标准化数据类型查询标准化数据类型ID列表。
    *
    * @param { string } mimeType - MIME类型名称，格式为'type/subtype'，如'image/jpeg'、'text/plain'等。
-   * @param { string } [belongsTo] - 要查询的标准化数据类型所归属类型ID。无默认值，若不传入此参数则只按照MIME类型名称查询
-   *     [标准化数据类型ID](docroot://database/uniform-data-type-descriptors.md)。
-   * @returns { Array<string> } 返回与MIME类型名称以及归属类型ID（如果设置了belongsTo参数）匹配的标准化数据类型ID列表，如果要查询的标准化数据类型不存在则返回根据入参按指定规则生成的动态类型列
-   *     表。
+   * @param { string } [belongsTo] - 要查询的标准化数据类型所归属类型ID。无默认值，若不传入此参数则只按照MIME类型名称查询[标准化数据类型ID]。
+   * @returns { Array<string> } 返回与MIME类型名称以及归属类型ID（如果设置了belongsTo参数）匹配的标准化数据类型ID列表，如果要查询的标准化数据类型不存在则返回根据入参按指定规则生成的动态类型列表。
    * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
    *     <br>2.Incorrect parameter types;
    *     <br>3. Parameter verification failed.
@@ -2204,11 +2194,11 @@ declare namespace uniformTypeDescriptor {
   function getUniformDataTypesByMIMEType(mimeType: string, belongsTo?: string): Array<string>;
 
   /**
-   * Register type descriptors into the system.
+   * 注册一组标准化数据类型到系统中。使用Promise异步回调。注册成功后，标准化数据类型将被系统管理，可通过UDMF框架在其他应用或设备间共享和识别。
    *
    * @permission ohos.permission.MANAGE_DYNAMIC_UTD_TYPE
-   * @param { Array<TypeDescriptor> } typeDescriptors - The list of type descriptors to be registered.
-   * @returns { Promise<void> } The promise returned by the function.
+   * @param { Array<TypeDescriptor> } typeDescriptors - 待注册的标准化数据类型描述符列表。TypeDescriptor用于描述自定义数据类型的属性，包括类型标识、所属类型、文件扩展名、MIME类型等。列表不可为空，其中元素个数不超过50。单个应用注册的标准化数据类型描述符数量总计不超过200。
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
    *     required to call the API.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
@@ -2224,11 +2214,11 @@ declare namespace uniformTypeDescriptor {
   function registerTypeDescriptors(typeDescriptors: Array<TypeDescriptor>): Promise<void>;
 
   /**
-   * Unregister one or more type descriptors from the system by the given type IDs.
+   * 从系统中注销一个或多个标准化数据类型。使用Promise异步回调。注销后，该数据类型将不再被系统识别，依赖该数据类型的数据可能无法正常处理，请确保在注销前已清理相关数据依赖。
    *
    * @permission ohos.permission.MANAGE_DYNAMIC_UTD_TYPE
-   * @param { Array<string> } typeIds - The list of type IDs to be unregistered.
-   * @returns { Promise<void> } The promise returned by the function.
+   * @param { Array<string> } typeIds - 待注销的typeId列表。列表不可为空，其中元素个数不超过50。每项长度不超过127。
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
    *     required to call the API.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.

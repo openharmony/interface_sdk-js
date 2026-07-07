@@ -70,7 +70,7 @@ declare namespace uniformDataStruct {
     abstract?: string;
 
     /**
-     * Indicates the abstract of the PlainText.
+     * 表示PlainText摘要.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @stagemodelonly
@@ -80,15 +80,15 @@ declare namespace uniformDataStruct {
     
     /**
      * 字典类型对象，key和value均为string类型，用于描述文本内容详细属性。非必填字段，默认值为空字典对象。例如，可生成一个details内容为
-     * 
+     *
      * {
-     * 
+     *
      * "title":"标题",
-     * 
+     *
      * "content":"内容"
-     * 
+     *
      * }
-     * 
+     *
      * 的数据对象。当需要存储额外的文本属性信息时传入此参数，不传入时默认值为空字典对象，不提供额外属性。
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
@@ -138,15 +138,15 @@ declare namespace uniformDataStruct {
     description?: string;
     /**
      * 字典类型对象，key和value均为string类型，用于描述Hyperlink的详细属性内容。非必填字段，默认值为空字典对象。例如，可生成一个details内容为
-     * 
+     *
      * {
-     * 
+     *
      * "title":"标题",
-     * 
+     *
      * "content":"内容"
-     * 
+     *
      * }
-     * 
+     *
      * 的数据对象。当需要存储额外的超链接属性信息时传入此参数，不传入时默认值为空字典对象，不提供额外属性。
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
@@ -178,9 +178,8 @@ declare namespace uniformDataStruct {
     readonly uniformDataType: 'general.html';
 
     /**
-     * HTML格式的内容文本，支持标准HTML标签。可以是完整的HTML文档或HTML片段。长度限制为20MB。建议使用UTF-8编码。例如：<div>标题
-     * 
-     * </div>。
+     * HTML格式的内容文本，支持标准HTML标签。可以是完整的HTML文档或HTML片段。长度限制为20MB。建议使用UTF-8编码。
+     * 例如：<div>标题</div>。
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @stagemodelonly
@@ -199,15 +198,15 @@ declare namespace uniformDataStruct {
     plainContent?: string;
     /**
      * 字典类型对象，key和value均为string类型，用于描述HTML的详细属性内容。非必填字段，默认值为空字典对象。例如，可生成一个details内容为
-     * 
+     *
      * {
-     * 
+     *
      * "title":"标题",
-     * 
+     *
      * "content":"内容"
-     * 
+     *
      * }
-     * 
+     *
      * 的数据对象。
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
@@ -220,8 +219,6 @@ declare namespace uniformDataStruct {
     /**
      * 用于拖拽场景的URI授权策略。默认值为READ（仅读授权），仅在img标签等场景下生效。只针对单个record使用，优先级最高，具体策略见
      * [UriPermission]{@link @ohos.data.unifiedDataChannel:unifiedDataChannel.UriPermission}。
-     * 
-     * **起始版本**：26.0.0
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @stagemodelonly
@@ -532,8 +529,6 @@ declare namespace uniformDataStruct {
     /**
      * 用于拖拽场景的URI授权策略。默认值为READ+WRITE+PERSIST（读+写+持久化授权）。只针对单个record使用，优先级最高，具体策略见
      * [UriPermission]{@link @ohos.data.unifiedDataChannel:unifiedDataChannel.UriPermission}。
-     * 
-     * **起始版本**：26.0.0
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @stagemodelonly
