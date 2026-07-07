@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file 输入法服务
  * @kit IMEKit
  */
 import type { AsyncCallback, BusinessError, Callback } from './@ohos.base';
@@ -28,17 +28,37 @@ import { LocalStorage } from '@ohos.arkui.stateManagement';
 
 import { InputMethodExtraConfig } from './@ohos.inputMethod.ExtraConfig';
 /**
- * The **inputMethodEngine** module is oriented to input method applications (including system and third-party input 
- * method applications). With the APIs of this module, input method applications are able to create soft keyboard 
- * windows, insert or delete characters, select text, and listen for physical keyboard events.
- *
+ * **@ohos.inputMethodEngine**模块是面向输入法应用（包括系统输入法和第三方输入法）的服务端API模块，提供了输入法应用与系统输入法框架之间的交互能力。
+ * 
+ * 本模块是输入法应用的服务端接口，定义了输入法应用在运行期间所需的全部开放能力，包括输入法生命周期管理、软键盘面板的创建与控制、文本编辑操作（插入、删除、选中文本）、光标控制、物理键盘事件监听、安全模式管理、私有数据通信等。
+ * 
+ * 输入法应用通过本模块可以：1）订阅输入法绑定/解绑事件，感知编辑框的连接与断开；2）创建和管理软键盘面板（固定态、悬浮态、候选态）及状态栏面板，控制面板的显示、隐藏、大小调整、位置移动、沉浸模式等；3）通过InputClient对编辑
+ * 框进行文本插入、删除、选中文本、移动光标、发送功能键和扩展编辑动作等操作；4）通过KeyboardDelegate监听物理键盘按键事件、光标位置变化、文本选择变化、文本内容变化、编辑框属性变化等；5）管理安全模式（基础模式/完全访问模
+ * 式），支持隐私面板设置；6）与编辑框应用进行私有数据通信和自定义消息通信。
+ * 
+ * 当开发输入法应用时使用本模块。本模块需在InputMethodExtensionAbility中使用，适用于系统输入法开发、第三方输入法开发、自定义键盘布局等场景。
+ * 
+ * 本模块的核心开放能力由以下关键Interface承载：
+ * 
+ * | Interface/Class | 说明 |
+ * |---|---|
+ * | **InputMethodAbility** | 输入法能力对象，是输入法应用的核心入口。提供输入法生命周期事件订阅（绑定/解绑/键盘显示隐藏/子类型切换/安全模式变化等）、面板创建与销毁、安全模式获取等能力。通过`getInputMethodAbility()`获取实例。 |
+ * | **KeyboardDelegate** | 键盘代理对象，提供物理键盘按键事件监听、光标位置变化监听、文本选择变化监听、文本内容变化监听、编辑框属性变化监听等能力。通过`getKeyboardDelegate()`获取实例。 |
+ * | **InputClient** | 输入客户端对象，提供对编辑框的文本操作能力，包括插入文本、删除文本（前删/后删）、获取光标前后文本、移动光标、选中文本、发送功能键和扩展编辑动作、设置预览文本、发送私有数据、自定义消息通信等。通过订阅`inputStart`事件在回调中获取实例。 |
+ * | **KeyboardController** | 键盘控制器对象，提供隐藏键盘、退出当前输入类型等能力。通过订阅`inputStart`事件在回调中获取实例。 |
+ * | **Panel** | 输入法面板对象，提供面板页面内容加载、大小调整、位置移动、显示/隐藏、面板状态切换、隐私模式设置、沉浸模式与效果设置、面板矩形区域预设置、热区更新等能力。通过`createPanel()`获取实例。 |
+ * | **MessageHandler** | 自定义通信对象，用于接收编辑框应用发送的自定义通信数据，并提供终止通知回调。通过`InputClient.recvMessage()`注册。 |
+ * 
+ * 输入法应用的典型使用流程涉及多个API的组合调用，核心流程为：获取InputMethodAbility实例 -> 订阅inputStart事件 -> 在回调中获取KeyboardController和InputClient -> 创建
+ * Panel -> 加载面板页面内容 -> 通过InputClient操作编辑框文本 -> 通过KeyboardController控制键盘显隐。
+ * 
  * @syscap SystemCapability.MiscServices.InputMethodFramework
  * @since 8 dynamic
  * @since 23 static
  */
 declare namespace inputMethodEngine {
   /**
-   * 按键功能未指定。
+   * 无功能键。
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 8 dynamic
@@ -47,7 +67,7 @@ declare namespace inputMethodEngine {
   const ENTER_KEY_TYPE_UNSPECIFIED: int;
 
   /**
-   * 执行命令或导航到特定位置的功能键。
+   * “前往”功能键。
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 8 dynamic
@@ -56,7 +76,7 @@ declare namespace inputMethodEngine {
   const ENTER_KEY_TYPE_GO: int;
 
   /**
-   * 发起搜索操作的功能键。
+   * “搜索”功能键。
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 8 dynamic
@@ -65,7 +85,7 @@ declare namespace inputMethodEngine {
   const ENTER_KEY_TYPE_SEARCH: int;
 
   /**
-   * 发送文本到目标的功能键。
+   * “发送”功能键。
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 8 dynamic
@@ -74,7 +94,7 @@ declare namespace inputMethodEngine {
   const ENTER_KEY_TYPE_SEND: int;
 
   /**
-   * 将焦点移动到序列中下一项的功能键。
+   * “下一个”功能键。
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 8 dynamic
@@ -83,7 +103,7 @@ declare namespace inputMethodEngine {
   const ENTER_KEY_TYPE_NEXT: int;
 
   /**
-   * 表示任务或输入已完成的功能键。
+   * “回车”功能键。
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 8 dynamic
@@ -92,7 +112,7 @@ declare namespace inputMethodEngine {
   const ENTER_KEY_TYPE_DONE: int;
 
   /**
-   * 将焦点移动到序列中上一项的功能键。
+   * “前一个”功能键。
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 8 dynamic
@@ -101,7 +121,7 @@ declare namespace inputMethodEngine {
   const ENTER_KEY_TYPE_PREVIOUS: int;
 
   /**
-   * 插入新行的功能键。
+   * “换行”功能键。
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 12 dynamic
@@ -110,7 +130,7 @@ declare namespace inputMethodEngine {
   const ENTER_KEY_TYPE_NEWLINE: int;
 
   /**
-   * 任意类型的编辑框。
+   * 无特殊性编辑框。
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 8 dynamic
@@ -155,7 +175,7 @@ declare namespace inputMethodEngine {
   const PATTERN_DATETIME: int;
 
   /**
-   * 邮箱编辑框。
+   * 邮件编辑框。
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 8 dynamic
@@ -164,7 +184,7 @@ declare namespace inputMethodEngine {
   const PATTERN_EMAIL: int;
 
   /**
-   * URI编辑框。
+   * 超链接编辑框。
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 8 dynamic
@@ -191,7 +211,7 @@ declare namespace inputMethodEngine {
   const PATTERN_PASSWORD_SCREEN_LOCK: int;
 
   /**
-   * 纯数字密码编辑框。
+   * 数字密码编辑框。
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 11 dynamic
@@ -200,7 +220,7 @@ declare namespace inputMethodEngine {
   const PATTERN_PASSWORD_NUMBER: int;
 
   /**
-   * User name edit box.
+   * 用户名编辑框。
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @stagemodelonly
@@ -209,7 +229,7 @@ declare namespace inputMethodEngine {
   const PATTERN_USER_NAME = 10;
 
   /**
-   * User name edit box.
+   * 用户名编辑框。
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @stagemodelonly
@@ -218,7 +238,7 @@ declare namespace inputMethodEngine {
   const PATTERN_USER_NAME: int;
 
   /**
-   * New password edit box.
+   * 新密码编辑框。
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @stagemodelonly
@@ -227,7 +247,7 @@ declare namespace inputMethodEngine {
   const PATTERN_NEW_PASSWORD = 11;
 
   /**
-   * New password edit box.
+   * 新密码编辑框。
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @stagemodelonly
@@ -236,7 +256,7 @@ declare namespace inputMethodEngine {
   const PATTERN_NEW_PASSWORD: int;
 
   /**
-   * 带小数的数字编辑框。
+   * 带小数点的数字编辑框。
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @stagemodelonly
@@ -245,7 +265,7 @@ declare namespace inputMethodEngine {
   const PATTERN_NUMBER_DECIMAL = 12;
 
   /**
-   * 带小数的数字编辑框。
+   * 带小数点的数字编辑框。
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @stagemodelonly
@@ -272,7 +292,7 @@ declare namespace inputMethodEngine {
   const PATTERN_ONE_TIME_CODE: int;
 
   /**
-   * 正在选择编辑框。
+   * 编辑框处于选择状态。
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 8 dynamic
@@ -281,7 +301,7 @@ declare namespace inputMethodEngine {
   const FLAG_SELECTING: int;
 
   /**
-   * 编辑框仅允许单行输入。
+   * 编辑框为单行。
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 8 dynamic
@@ -290,7 +310,7 @@ declare namespace inputMethodEngine {
   const FLAG_SINGLE_LINE: int;
 
   /**
-   * 编辑框以半屏模式显示。
+   * 编辑框显示为半屏。
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 8 dynamic
@@ -299,7 +319,7 @@ declare namespace inputMethodEngine {
   const DISPLAY_MODE_PART: int;
 
   /**
-   * 编辑框以全屏模式显示。
+   * 编辑框显示为全屏。
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 8 dynamic
@@ -308,7 +328,7 @@ declare namespace inputMethodEngine {
   const DISPLAY_MODE_FULL: int;
 
   /**
-   * 允许ASCII值。
+   * 允许输入ASCII值。
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 8 dynamic
@@ -317,7 +337,7 @@ declare namespace inputMethodEngine {
   const OPTION_ASCII: int;
 
   /**
-   * 未指定输入属性。
+   * 不指定编辑框输入属性。
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 8 dynamic
@@ -353,7 +373,7 @@ declare namespace inputMethodEngine {
   const OPTION_AUTO_WORDS: int;
 
   /**
-   * 允许多行输入。
+   * 允许输入多行。
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 8 dynamic
@@ -371,7 +391,7 @@ declare namespace inputMethodEngine {
   const OPTION_NO_FULLSCREEN: int;
 
   /**
-   * 光标向上移动。
+   * 光标上移。
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 9 dynamic
@@ -380,7 +400,7 @@ declare namespace inputMethodEngine {
   const CURSOR_UP: int;
 
   /**
-   * 光标向下移动。
+   * 光标下移。
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 9 dynamic
@@ -389,7 +409,7 @@ declare namespace inputMethodEngine {
   const CURSOR_DOWN: int;
 
   /**
-   * 光标向左移动。
+   * 光标左移。
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 9 dynamic
@@ -398,7 +418,7 @@ declare namespace inputMethodEngine {
   const CURSOR_LEFT: int;
 
   /**
-   * 光标向右移动。
+   * 光标右移。
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 9 dynamic
@@ -407,7 +427,7 @@ declare namespace inputMethodEngine {
   const CURSOR_RIGHT: int;
 
   /**
-   * 输入法以悬浮窗形式显示。
+   * 输入法应用窗口风格标识。
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 9 dynamic
@@ -416,33 +436,31 @@ declare namespace inputMethodEngine {
   const WINDOW_TYPE_INPUT_METHOD_FLOAT: int;
 
   /**
-   * Obtains an [InputMethodAbility]{@link inputMethodEngine.InputMethodAbility} instance for the input method. This API
-   * can be called only by an input method.
+   * 获取输入法应用客户端实例[InputMethodAbility]{@link inputMethodEngine.InputMethodAbility}（输入法能力对象），仅支持输入法应用调用。
    * 
-   * The input method can use the obtained instance to subscribe to a soft keyboard display/hide request event, create/
-   * destroy an input method panel, and the like.
+   * 输入法应用获取该实例后，可订阅软键盘显示/隐藏请求事件、创建/销毁输入法面板等。
    *
-   * @returns { InputMethodAbility } **InputMethodAbility** instance.
+   * @returns { InputMethodAbility } 输入法应用客户端。
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 9 dynamic
    */
   function getInputMethodAbility(): InputMethodAbility;
 
   /**
-   * 获取输入法对应的InputMethodAbility对象，用于订阅输入法相关事件。
+   * 获取输入法应用客户端实例[InputMethodAbility]{@link inputMethodEngine.InputMethodAbility}（输入法能力对象），仅支持输入法应用调用。
    *
-   * @returns { InputMethodAbility | null } the object of the InputMethodAbility.
+   * @returns { InputMethodAbility | null } 输入法应用客户端。
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 23 static
    */
   function getInputMethodAbility(): InputMethodAbility | null;
 
   /**
-   * 获取输入法对应的[InputMethodEngine]{@link inputMethodEngine.InputMethodEngine}实例。
+   * 获取输入法应用客户端实例[InputMethodEngine]{@link inputMethodEngine.InputMethodEngine}（输入法引擎）。
    * 
-   * 输入法可以使用获得的实例订阅软键盘显示/隐藏请求事件。
+   * 输入法应用获取该实例后，可订阅软键盘显示/隐藏请求事件等。
    *
-   * @returns { InputMethodEngine } **InputMethodAbility** instance.
+   * @returns { InputMethodEngine } 输入法应用客户端。
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -451,32 +469,30 @@ declare namespace inputMethodEngine {
   function getInputMethodEngine(): InputMethodEngine;
 
   /**
-   * 获取输入法对应的[KeyboardDelegate]{@link inputMethodEngine.KeyboardDelegate}实例。
+   * 获取客户端编辑事件监听代理实例[KeyboardDelegate]{@link inputMethodEngine.KeyboardDelegate}（键盘代理对象）。
    * 
-   * The input method can use the obtained instance to subscribe to a physical keyboard event, text selection change 
-   * event, and more.
+   * 输入法应用获取该实例后，可订阅物理键盘按键事件、选中文本变化事件等。
    *
-   * @returns { KeyboardDelegate } **KeyboardDelegate** instance.
+   * @returns { KeyboardDelegate } 客户端编辑事件监听代理。
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 9 dynamic
    */
   function getKeyboardDelegate(): KeyboardDelegate;
 
   /**
-   * 获取KeyboardDelegate对象，用于订阅按键事件或编辑器相关事件。
+   * 获取客户端编辑事件监听代理实例[KeyboardDelegate]{@link inputMethodEngine.KeyboardDelegate}（键盘代理对象）。
+   * 输入法应用获取该实例后，可订阅物理键盘按键事件、选中文本变化事件等。
    *
-   * @returns { KeyboardDelegate | null } the object of KeyboardDelegate.
+   * @returns { KeyboardDelegate | null } 客户端编辑事件监听代理。
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 23 static
    */
   function getKeyboardDelegate(): KeyboardDelegate | null;
 
   /**
-   * 获取输入法对应的[KeyboardDelegate]{@link inputMethodEngine.KeyboardDelegate}实例。 The input 
-   * method can use the obtained instance to subscribe to a physical keyboard event, text selection change event, and 
-   * more.
+   * 获取客户端编辑事件监听代理实例[KeyboardDelegate]{@link inputMethodEngine.KeyboardDelegate}。输入法应用获取该实例后，可订阅物理键盘按键事件、选中文本变化事件等。
    *
-   * @returns { KeyboardDelegate } **KeyboardDelegate** instance.
+   * @returns { KeyboardDelegate } 客户端编辑事件监听代理。
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -485,11 +501,11 @@ declare namespace inputMethodEngine {
   function createKeyboardDelegate(): KeyboardDelegate;
 
   /**
-   * 定义私有数据类型，具体类型取决于其功能。
+   * 表示私有数据类型，接口参数具体类型根据其功能而定。
    *
-   * @unionmember { int } 数字。
-   * @unionmember { string } 字符串。
-   * @unionmember { boolean } 布尔值。
+   * @unionmember { int } 表示值类型为数字。
+   * @unionmember { string } 表示值类型为字符串。
+   * @unionmember { boolean } 表示值类型为布尔值。
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 12 dynamic
    * @since 23 static
@@ -497,10 +513,10 @@ declare namespace inputMethodEngine {
   type CommandDataType = int | string | boolean;
 
   /**
-   * 'inputStart'事件的回调。
+   * 输入法绑定成功事件的回调函数类型，用于定义inputStart事件触发时执行的回调函数格式。
    *
-   * @param { KeyboardController } kbController - keyboard controller.
-   * @param { InputClient } inputClient - input client.
+   * @param { KeyboardController } kbController - 回调函数，返回输入法操作相关实例。
+   * @param { InputClient } inputClient - 输入法操作相关实例。
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @stagemodelonly
    * @since 23 static
@@ -508,53 +524,53 @@ declare namespace inputMethodEngine {
   export type IMAInputStartCallback = (kbController: KeyboardController, inputClient: InputClient) => void;
 
   /**
-   * 'keyDown'或'keyUp'事件的回调。
+   * 按键按下（keyDown）或按键抬起（keyUp）事件的回调函数类型，用于定义这两类按键事件触发时执行的回调函数格式。
    *
-   * @param { KeyEvent } event - the key event.
-   * @returns { boolean } whether to consume this key event.
+   * @param { KeyEvent } event - 按键事件对象，包含按键码、按键类型、事件时间等按键相关信息。
+   * @returns { boolean } 是否消费该按键事件：返回true表示消费，系统不再向下传递该事件；返回false表示不消费，系统继续处理该事件。
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 23 static
    */
   export type KeyEventCallback = (event: KeyEvent) => boolean;
 
   /**
-   * 'keyEvent'事件的回调。
+   * 按键事件（keyEvent）的回调函数类型，用于定义keyEvent事件触发时执行的回调函数格式。
    *
-   * @param { InputKeyEvent } event - the key event.
-   * @returns { boolean } whether to consume this key event.
+   * @param { InputKeyEvent } event - 输入按键事件对象，包含按键编码、事件类型、触发时间等按键事件相关信息。
+   * @returns { boolean } 是否消费该按键事件：返回true表示消费此事件，系统不再向下传递该事件；返回false表示不消费此事件，系统将继续处理该事件。
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 23 static
    */
   export type InputKeyEventCallback = (event: InputKeyEvent) => boolean;
 
   /**
-   * 'cursorContextChange'事件的回调。
+   * 光标上下文变化（cursorContextChange）事件的回调函数类型，用于定义该事件触发时执行的回调函数格式。
    *
-   * @param { double } x - the left point of the cursor, unit is px.
-   * @param { double } y - the top point of the cursor, unit is px.
-   * @param { double } height - the height of the cursor, unit is px.
+   * @param { double } x - x为光标上端的x坐标值，单位为px
+   * @param { double } y - y为光标上端的y坐标值，单位为px。
+   * @param { double } height - height为光标的高度值，单位为px。
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 23 static
    */
   export type CursorContextChangeCallback = (x: double, y: double, height: double) => void;
 
   /**
-   * 'selectionChange'事件的回调。
+   * 文本选择范围变化（selectionChange）事件的回调函数类型，用于定义该事件触发时执行的回调函数格式。
    *
-   * @param { int } oldBegin - the old begin of the selected text.
-   * @param { int } oldEnd - the old end of the selected text.
-   * @param { int } newBegin - the new begin of the selected text.
-   * @param { int } newEnd - the new end of the selected text.
+   * @param { int } oldBegin - oldBegin为变化前被选中文本的起始下标。
+   * @param { int } oldEnd - oldEnd为变化前被选中文本的终止下标。
+   * @param { int } newBegin - newBegin为变化后被选中文本的起始下标。
+   * @param { int } newEnd - newEnd为变化后被选中文本的终止下标。
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 23 static
    */
   export type SelectionChangeCallback = (oldBegin: int, oldEnd: int, newBegin: int, newEnd: int) => void;
 
   /**
-   * 输入法面板大小变更时的回调。
+   * 当输入法面板大小变化时触发的回调。
    *
-   * @param { window.Size } size - Panel size.
-   * @param { KeyboardArea } keyboardArea - Size of the keyboard area.
+   * @param { window.Size } size - 当前面板大小，包含宽度和高度。
+   * @param { KeyboardArea } keyboardArea - 当前面板的键盘区域大小。
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @systemapi
    * @since 14 dynamic
@@ -563,10 +579,10 @@ declare namespace inputMethodEngine {
   export type SizeUpdateCallback = (size: window.Size, keyboardArea: KeyboardArea) => void;
 
   /**
-   * 输入法面板大小变更时的回调。
+   * 当输入法面板大小变化时触发的回调。
    *
-   * @param { window.Size } size - Panel size.
-   * @param { KeyboardArea } keyboardArea - Size of the keyboard area.
+   * @param { window.Size } size - 当前面板大小。
+   * @param { KeyboardArea } keyboardArea - 当前面板中可作为键盘区域的大小。当需要获取或监听键盘区域变化时传入此参数，不传入时默认为undefined（不返回键盘区域信息）。
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 15 dynamic
    * @since 23 static
@@ -574,9 +590,9 @@ declare namespace inputMethodEngine {
   export type SizeChangeCallback = (size: window.Size, keyboardArea?: KeyboardArea) => void;
 
   /**
-   * In the following API examples, you must first use 
-   * [getKeyboardDelegate]{@link inputMethodEngine.getKeyboardDelegate()} to obtain a **KeyboardDelegate** instance, and
-   * then call the APIs using the obtained instance.
+   * 下列API均需使用
+   * [on('inputStart')]{@link inputMethodEngine.InputMethodAbility.on(type: 'inputStart', callback: (kbController: KeyboardController, inputClient: InputClient) => void)}
+   * 获取到KeyboardController实例后，通过实例调用。
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 8 dynamic
@@ -584,13 +600,12 @@ declare namespace inputMethodEngine {
    */
   interface KeyboardController {
     /**
-     * 隐藏键盘。此API使用异步回调返回结果。
+     * 隐藏输入法。使用callback异步回调。
      *
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
-     *     **err** is **undefined**. Otherwise, **err** is an error object.
-     * @throws { BusinessError } 12800003 - 输入法客户端错误. Possible causes:
-     *     1.编辑框未获焦. 2.当前输入法应用未绑定编辑框.
-     *     3.因数据传输量大或其他原因导致IPC失败.
+     * @param { AsyncCallback<void> } callback - 回调函数。当输入法隐藏成功，err为undefined，否则为错误对象。
+     * @throws { BusinessError } 12800003 - input method client error. Possible causes:
+     *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     *     3.ipc failed due to the large amount of data transferred or other reasons.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9 dynamic
      * @since 23 static
@@ -598,12 +613,12 @@ declare namespace inputMethodEngine {
     hide(callback: AsyncCallback<void>): void;
 
     /**
-     * 隐藏键盘。此API使用promise返回结果。
+     * 隐藏输入法。使用promise异步回调。
      *
-     * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 12800003 - 输入法客户端错误. Possible causes:
-     *     1.编辑框未获焦. 2.当前输入法应用未绑定编辑框.
-     *     3.因数据传输量大或其他原因导致IPC失败.
+     * @returns { Promise<void> } 无返回结果的Promise对象。
+     * @throws { BusinessError } 12800003 - input method client error. Possible causes:
+     *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     *     3.ipc failed due to the large amount of data transferred or other reasons.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9 dynamic
      * @since 23 static
@@ -611,10 +626,9 @@ declare namespace inputMethodEngine {
     hide(): Promise<void>;
 
     /**
-     * 隐藏键盘。此API使用异步回调返回结果。
+     * 隐藏输入法。使用callback异步回调。
      *
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
-     *     **err** is **undefined**. Otherwise, **err** is an error object.
+     * @param { AsyncCallback<void> } callback - 回调函数。当输入法隐藏成功，err为undefined，否则为错误对象。
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -623,9 +637,9 @@ declare namespace inputMethodEngine {
     hideKeyboard(callback: AsyncCallback<void>): void;
 
     /**
-     * 隐藏键盘。此API使用promise返回结果。
+     * 隐藏输入法。使用promise异步回调。
      *
-     * @returns { Promise<void> } Promise that returns no value.
+     * @returns { Promise<void> } 无返回结果的Promise对象。
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -634,14 +648,12 @@ declare namespace inputMethodEngine {
     hideKeyboard(): Promise<void>;
 
     /**
-     * Exits this input type. This API can be called only by the preconfigured default input method. This API uses an 
-     * asynchronous callback to return the result.
+     * 退出当前输入类型，仅支持系统配置的默认输入法应用调用。使用callback异步回调。
      *
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
-     *     **err** is **undefined**. Otherwise, **err** is an error object.
-     * @throws { BusinessError } 12800008 - 输入法管理服务错误. Possible cause:
-     *     系统错误，例如空指针、IPC异常.
-     * @throws { BusinessError } 12800010 - 非预配置的系统默认输入法.
+     * @param { AsyncCallback<void> } callback - 回调函数。当退出当前输入类型成功，err为undefined，否则为错误对象。
+     * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
+     *     a system error, such as null pointer, IPC exception.
+     * @throws { BusinessError } 12800010 - not the preconfigured default input method.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 11 dynamic
      * @since 23 static
@@ -649,13 +661,12 @@ declare namespace inputMethodEngine {
     exitCurrentInputType(callback: AsyncCallback<void>): void;
 
     /**
-     * Exits this input type. This API can be called only by the preconfigured default input method. This API uses a 
-     * promise to return the result.
+     * 退出当前输入类型，仅支持系统配置的默认输入法应用调用。使用promise异步回调。
      *
-     * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 12800008 - 输入法管理服务错误. Possible cause:
-     *     系统错误，例如空指针、IPC异常.
-     * @throws { BusinessError } 12800010 - 非预配置的系统默认输入法.
+     * @returns { Promise<void> } 无返回结果的Promise对象。
+     * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
+     *     a system error, such as null pointer, IPC exception.
+     * @throws { BusinessError } 12800010 - not the preconfigured default input method.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 11 dynamic
      * @since 23 static
@@ -664,9 +675,7 @@ declare namespace inputMethodEngine {
   }
 
   /**
-   * In the following API examples, you must first use 
-   * [getInputMethodEngine]{@link inputMethodEngine.getInputMethodEngine} to obtain an **InputMethodEngine** instance, 
-   * and then call the APIs using the obtained instance.
+   * 下列API均需使用[getInputMethodEngine]{@link inputMethodEngine.getInputMethodEngine}获取到InputMethodEngine实例后，通过实例调用。
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 8 dynamiconly
@@ -675,12 +684,10 @@ declare namespace inputMethodEngine {
    */
   interface InputMethodEngine {
     /**
-     * Enables listening for the input method binding event. This API uses an asynchronous callback to return the 
-     * result.
+     * 订阅输入法绑定成功事件。使用callback异步回调。
      *
-     * @param { 'inputStart' } type - Event type, which is **'inputStart'**.
-     * @param { function } callback - Callback used to return the **KeyboardController** and **TextInputClient**
-     *     instances.
+     * @param { 'inputStart' } type - 设置监听类型，固定取值为'inputStart'。
+     * @param { function } callback - 回调函数，返回订阅输入法的KeyboardController和TextInputClient实例。
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8 dynamiconly
      * @deprecated since 23
@@ -692,11 +699,10 @@ declare namespace inputMethodEngine {
     ): void;
 
     /**
-     * 禁用输入法绑定事件的监听。
+     * 取消订阅输入法绑定成功事件。
      *
-     * @param { 'inputStart' } type - Event type, which is **'inputStart'**.
-     * @param { function } callback - Callback to unregister. If this parameter is not specified, this API unregisters
-     *     all callbacks for the specified type.
+     * @param { 'inputStart' } type - 设置监听类型，固定取值为'inputStart'。
+     * @param { function } callback - 取消订阅的回调函数。参数不填写时，取消订阅type对应的所有回调事件。
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8 dynamiconly
      * @deprecated since 23
@@ -708,12 +714,11 @@ declare namespace inputMethodEngine {
     ): void;
 
     /**
-     * 启用键盘可见性事件的监听。此API使用异步回调返回结果。
+     * 订阅输入法软键盘显示或隐藏事件。使用callback异步回调。
      *
-     * @param { 'keyboardShow' | 'keyboardHide' } type - Event type.
-     *     <br>- The value **'keyboardShow'** indicates the keyboard display event.
-     *     <br>- The value **'keyboardHide'** indicates the keyboard hiding event.
-     * @param { function } callback - Callback used to return the result.
+     * @param { 'keyboardShow' | 'keyboardHide' } type - 设置监听类型。<br/>-'keyboardShow'表示显示输入法软键盘。<br/>-'keyboardHide'表示隐藏输
+     *     入法软键盘。
+     * @param { function } callback - 回调函数。
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8 dynamiconly
      * @deprecated since 23
@@ -722,13 +727,11 @@ declare namespace inputMethodEngine {
     on(type: 'keyboardShow' | 'keyboardHide', callback: () => void): void;
 
     /**
-     * Disables listening for a keyboard visibility event. This API uses an asynchronous callback to return the result.
+     * 取消订阅输入法软键盘显示或隐藏事件。使用callback异步回调。
      *
-     * @param { 'keyboardShow' | 'keyboardHide' } type - Event type.
-     *     <br>- The value **'keyboardShow'** indicates the keyboard display event.
-     *     <br>- The value **'keyboardHide'** indicates the keyboard hiding event.
-     * @param { function } [callback] - Callback to unregister. If this parameter is not specified, this API unregisters
-     *     all callbacks for the specified type.
+     * @param { 'keyboardShow' | 'keyboardHide' } type - 要取消监听的输入法软键盘事件类型。<br/>-'keyboardShow'表示显示输入法软键盘。<br/>-'
+     *     keyboardHide'表示隐藏输入法软键盘。
+     * @param { function } [callback] - 取消订阅的回调函数。参数不填写时，取消订阅type对应的所有回调事件。
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8 dynamiconly
      * @deprecated since 23
@@ -738,9 +741,10 @@ declare namespace inputMethodEngine {
   }
 
   /**
-   * In the following API examples, you must first use 
-   * [getInputMethodAbility]{@link inputMethodEngine.getInputMethodAbility()} to obtain an **InputMethodAbility** 
-   * instance, and then call the APIs using the obtained instance.
+   * InputMethodAbility是输入法应用的核心能力对象，提供输入法生命周期管理、面板创建与销毁、事件订阅等功能。输入法应用通过
+   * [getInputMethodAbility]{@link inputMethodEngine.getInputMethodAbility}获取该实例。
+   * 
+   * 下列API均需使用[getInputMethodAbility]{@link inputMethodEngine.getInputMethodAbility}获取到InputMethodAbility实例后，通过实例调用。
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 9 dynamic
@@ -748,227 +752,239 @@ declare namespace inputMethodEngine {
    */
   interface InputMethodAbility {
     /**
-     * Enables listening for the input method binding event. This API uses an asynchronous callback to return the 
-     * result.
+     * 订阅输入法绑定成功事件。使用callback异步回调。
+     * 
+     * **使用场景：** 输入法应用需要在编辑框获得焦点并绑定输入法时，获取KeyboardController和InputClient实例以进行后续的键盘操作和文本交互。
+     * 
+     * **使用后效果：** 当编辑框绑定到输入法应用时，触发回调并返回KeyboardController和InputClient实例。输入法应用可在回调中创建面板、加载键盘页面、订阅KeyboardDelegate事件等。
      *
-     * @param { 'inputStart' } type - Event type, which is **'inputStart'**.
-     * @param { function } callback - Callback used to return instances related to input method operations.
+     * @param { 'inputStart' } type - 设置监听类型，固定取值为'inputStart'。
+     * @param { function } callback - 回调函数，返回输入法操作相关实例。kbController为键盘控制器实例，用于控制键盘显示/隐藏；inputClient为输入客户端实例，用于与编辑框进行文本交
+     *     互。
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9 dynamic
      */
     on(type: 'inputStart', callback: (kbController: KeyboardController, inputClient: InputClient) => void): void;
 
     /**
-     * 禁用输入法绑定事件的监听。 This API uses an asynchronous callback to return the 
-     * result.
+     * 取消订阅输入法绑定成功事件。使用callback异步回调。
      *
-     * @param { 'inputStart' } type - Event type, which is **'inputStart'**.
-     * @param { function } [callback] - Callback to unregister. If this parameter is not specified, this API unregisters
-     *     all callbacks for the specified type.
+     * @param { 'inputStart' } type - 设置监听类型，固定取值为'inputStart'。
+     * @param { function } [callback] - 取消订阅的回调函数。参数不填写时，取消订阅type对应的所有回调事件。
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9 dynamic
      */
     off(type: 'inputStart', callback?: (kbController: KeyboardController, inputClient: InputClient) => void): void;
 
     /**
-     * Enables listening for the input method unbinding event. This API uses an asynchronous callback to return the 
-     * result.
+     * 订阅停止输入法应用事件。使用callback异步回调。
+     * 
+     * **使用场景：** 输入法应用需要在编辑框失去焦点或用户切换输入法时，执行清理操作（如隐藏面板、释放资源）。
+     * 
+     * **使用后效果：** 当输入法应用被停止绑定时触发回调。输入法应用应在回调中隐藏面板、取消事件订阅、释放InputClient相关资源。
      *
-     * @param { 'inputStop' } type - Event type, which is **'inputStop'**.
-     * @param { function } callback - Callback used to return the result.
+     * @param { 'inputStop' } type - 设置监听类型，固定取值为'inputStop'。
+     * @param { function } callback - 回调函数，无返回参数。
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9 dynamic
      */
     on(type: 'inputStop', callback: () => void): void;
 
     /**
-     * 禁用输入法停止事件的监听。此API使用异步回调返回结果。
+     * 取消订阅停止输入法应用事件。使用callback异步回调。
      *
-     * @param { 'inputStop' } type - Event type, which is **'inputStop'**.
-     * @param { function } callback - Callback to unregister. If this parameter is not specified, this API unregisters
-     *     all callbacks for the specified type.
+     * @param { 'inputStop' } type - 设置监听类型，固定取值为'inputStop'。
+     * @param { function } callback - 取消订阅的回调函数，用于取消特定的键盘显示/隐藏事件订阅。传入callback时取消指定回调的订阅，不传入时取消type对应的所有回调事件。
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9 dynamic
      */
     off(type: 'inputStop', callback: () => void): void;
 
     /**
-     * Enables listening for the window invocation setting event. This API uses an asynchronous callback to return the 
-     * result.
+     * 订阅设置调用窗口事件。使用callback异步回调。
+     * 
+     * **使用场景：** 输入法应用需要在绑定应用的窗口发生变化时（如应用切换窗口、多窗口场景），调整面板位置或重新定位。
+     * 
+     * **使用后效果：** 当调用方窗口发生变化时触发回调，返回新的窗口ID。输入法应用可根据窗口ID调整面板位置。
      *
-     * @param { 'setCallingWindow' } type - Event type, which is **'setCallingWindow'**.
-     * @param { function } callback - Callback used to return the window ID of the caller.
+     * @param { 'setCallingWindow' } type - 设置监听类型，固定取值为'setCallingWindow'。
+     * @param { function } callback - 回调函数，参数为调用方窗口的Id。
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9 dynamic
      */
     on(type: 'setCallingWindow', callback: (wid: number) => void): void;
 
     /**
-     * Disables listening for the window invocation setting event. This API uses an asynchronous callback to return the 
-     * result.
+     * 取消订阅设置调用窗口事件。使用callback异步回调。
      *
-     * @param { 'setCallingWindow' } type - Event type, which is **'setCallingWindow'**.
-     * @param { function } callback - Callback to unregister. If this parameter is not specified, this API unregisters
-     *     all callbacks for the specified type.
+     * @param { 'setCallingWindow' } type - 设置监听类型，固定取值为'setCallingWindow'。
+     * @param { function } callback - 取消订阅的回调函数。参数不填写时，取消订阅type对应的所有回调事件。
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9 dynamic
      */
     off(type: 'setCallingWindow', callback: (wid: number) => void): void;
 
     /**
-     * 启用键盘可见性事件的监听。此API使用异步回调返回结果。
+     * 订阅输入法软键盘显示或隐藏事件。使用callback异步回调。
+     * 
+     * **使用场景：** 输入法应用需要在软键盘显示/隐藏时，执行相应的界面更新操作（如调整面板布局、更新候选词区域）。
+     * 
+     * **使用后效果：** 当软键盘显示请求触发时，'keyboardShow'回调被调用，输入法应用应在回调中调用panel.show()显示面板；当软键盘隐藏请求触发时，'keyboardHide'回调被调用，输入法应用应在回调
+     * 中调用panel.hide()隐藏面板。
      *
-     * @param { 'keyboardShow' | 'keyboardHide' } type - Event type.
-     *     <br>- The value **'keyboardShow'** indicates the keyboard display event.
-     *     <br>- The value **'keyboardHide'** indicates the keyboard hiding event.
-     * @param { function } callback - Callback used to return the result.
+     * @param { 'keyboardShow' | 'keyboardHide' } type - 设置监听类型。<br/>- 'keyboardShow'表示显示输入法软键盘。<br/>- 'keyboardHide'表示隐
+     *     藏输入法软键盘。
+     * @param { function } callback - 回调函数。
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9 dynamic
      */
     on(type: 'keyboardShow' | 'keyboardHide', callback: () => void): void;
 
     /**
-     * Disables listening for a keyboard visibility event. This API uses an asynchronous callback to return the result.
+     * 取消订阅输入法软键盘显示或隐藏事件。使用callback异步回调。
      *
-     * @param { 'keyboardShow' | 'keyboardHide' } type - Event type.
-     *     <br>- The value **'keyboardShow'** indicates the keyboard display event.
-     *     <br>- The value **'keyboardHide'** indicates the keyboard hiding event.
-     * @param { function } [callback] - Callback used to return the result.
+     * @param { 'keyboardShow' | 'keyboardHide' } type - 设置监听类型。<br/>- 'keyboardShow'表示显示输入法软键盘。<br/>- 'keyboardHide'表示隐
+     *     藏输入法软键盘。
+     * @param { function } [callback] - 取消订阅的回调函数。参数不填写时，取消订阅type对应的所有回调事件。
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9 dynamic
      */
     off(type: 'keyboardShow' | 'keyboardHide', callback?: () => void): void;
 
     /**
-     * Enables listening for the input method subtype setting event. This API uses an asynchronous callback to return 
-     * the result.
+     * 订阅设置输入法子类型事件。使用callback异步回调。
+     * 
+     * **使用场景：** 输入法应用需要在子类型（如语言、输入模式）发生变化时，切换到对应的键盘布局或输入逻辑。
+     * 
+     * **使用后效果：** 当输入法子类型变化时触发回调，返回新的输入法子类型信息。
      *
-     * @param { 'setSubtype' } type - Event type, which is **'setSubtype'**.
-     * @param { function } callback - Callback used to return the input method subtype.
+     * @param { 'setSubtype' } type - 设置监听类型，固定取值为'setSubtype'。
+     * @param { function } callback - 回调函数，返回设置的输入法子类型（InputMethodSubtype，输入法子类型）。
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9 dynamic
      */
     on(type: 'setSubtype', callback: (inputMethodSubtype: InputMethodSubtype) => void): void;
 
     /**
-     * Disables listening for the input method subtype setting event. This API uses an asynchronous callback to return 
-     * the result.
+     * 取消订阅设置输入法子类型事件。使用callback异步回调。
      *
-     * @param { 'setSubtype' } type - Event type, which is **'setSubtype'**.
-     * @param { function } [callback] - Callback to unregister. If this parameter is not specified, this API unregisters
-     *     all callbacks for the specified type.
+     * @param { 'setSubtype' } type - 设置监听类型，固定取值为'setSubtype'。
+     * @param { function } [callback] - 取消订阅的回调函数。参数不填写时，取消订阅type对应的所有回调事件。
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9 dynamic
      */
     off(type: 'setSubtype', callback?: (inputMethodSubtype: InputMethodSubtype) => void): void;
 
     /**
-     * Enables listening for the security mode changes of the input method. This API uses an asynchronous callback to 
-     * return the result.
+     * 订阅输入法安全模式改变类型事件。使用callback异步回调。
+     * 
+     * **使用场景：** 输入法应用需要在安全模式发生变化时（如编辑框切换到密码输入模式、隐私模式等），调整键盘行为（如禁止截图、切换到安全键盘布局等）。
+     * 
+     * **使用后效果：** 当安全模式变化时触发回调，返回当前的安全模式值。
      *
-     * @param { 'securityModeChange' } type - Event type, which is **'securityModeChange'**.
-     * @param { Callback<SecurityMode> } callback - Callback used to return the current security mode.
+     * @param { 'securityModeChange' } type - 设置监听类型，固定取值为'securityModeChange'。
+     * @param { Callback<SecurityMode> } callback - 回调函数，返回当前输入法应用的安全模式。
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 11 dynamic
      */
     on(type: 'securityModeChange', callback: Callback<SecurityMode>): void;
 
     /**
-     * Disables listening for the security mode changes of the input method. This API uses an asynchronous callback to 
-     * return the result.
+     * 取消订阅输入法安全模式改变类型事件。使用callback异步回调。
      *
-     * @param { 'securityModeChange' } type - Event type, which is **'securityModeChange'**.
-     * @param { Callback<SecurityMode> } [callback] - Callback to unregister. If this parameter is not specified, this
-     *     API unregisters all callbacks for the specified type.
+     * @param { 'securityModeChange' } type - 设置监听类型，固定取值为'securityModeChange'。
+     * @param { Callback<SecurityMode> } [callback] - 取消订阅的回调函数。参数不填写时，取消订阅type对应的所有回调事件。
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 11 dynamic
      */
     off(type: 'securityModeChange', callback?: Callback<SecurityMode>): void;
 
     /**
-     * Enables listening for the private data event of the input method. This API uses an asynchronous callback to 
-     * return the result.
+     * 订阅输入法私有数据事件。使用callback异步回调。
+     * 
+     * **使用场景：** 应用与输入法之间需要传递私有数据（如自定义命令、配置信息等）时使用。仅系统默认输入法应用可订阅此事件。
+     * 
+     * **使用后效果：** 当绑定应用向输入法发送私有数据时触发回调，返回私有数据记录。
      *
-     * @param { 'privateCommand' } type - Event type, which is **'privateCommand'**.
-     * @param { Callback<Record<string, CommandDataType>> } callback - Callback used to return the private data sent to
-     *     the input method application.
-     * @throws { BusinessError } 12800010 - 非预配置的系统默认输入法.
+     * @param { 'privateCommand' } type - 设置监听类型，固定取值为'privateCommand'。
+     * @param { Callback<Record<string, CommandDataType>> } callback - 回调函数，返回向输入法应用发送的私有数据。
+     * @throws { BusinessError } 12800010 - not the preconfigured default input method.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 12 dynamic
      */
     on(type: 'privateCommand', callback: Callback<Record<string, CommandDataType>>): void;
 
     /**
-     * Disables listening for the private data event of the input method. This API uses an asynchronous callback to 
-     * return the result.
+     * 取消订阅输入法私有数据事件。使用callback异步回调。
      *
-     * @param { 'privateCommand' } type - Event type, which is **'privateCommand'**.
-     * @param { Callback<Record<string, CommandDataType>> } [callback] - Callback to unregister. If this parameter is
-     *     not specified, this API unregisters all callbacks for the specified type.
-     * @throws { BusinessError } 12800010 - 非预配置的系统默认输入法.
+     * @param { 'privateCommand' } type - 设置监听类型，固定取值为'privateCommand'。
+     * @param { Callback<Record<string, CommandDataType>> } [callback] - 取消订阅的回调函数。参数不填写时，取消订阅type对应的所有回调事件。
+     * @throws { BusinessError } 12800010 - not the preconfigured default input method.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 12 dynamic
      */
     off(type: 'privateCommand', callback?: Callback<Record<string, CommandDataType>>): void;
 
     /**
-     * Enables listening for changes of the screen ID of the window associated with the edit box. This API uses an 
-     * asynchronous callback to return the result.
+     * 订阅编辑框对应窗口所在屏幕ID变化事件。使用callback异步回调。
+     * 
+     * **使用场景：** 多屏幕设备场景下，编辑框在不同屏幕间切换时，输入法应用需根据新的屏幕ID调整面板位置和大小。
+     * 
+     * **使用后效果：** 当编辑框所在屏幕ID发生变化时触发回调，返回新的屏幕ID。
      *
-     * @param { 'callingDisplayDidChange' } type - Event type, which is **'callingDisplayDidChange'**.
-     * @param { Callback<number> } callback - Callback used to return the screen ID of the window corresponding to the
-     *     edit box.
-     * @throws { BusinessError } 801 - 不支持该能力.
+     * @param { 'callingDisplayDidChange' } type - 设置监听类型，固定取值为'callingDisplayDidChange'。
+     * @param { Callback<number> } callback - 回调函数，返回编辑框设置对应窗口屏幕ID。
+     * @throws { BusinessError } 801 - capability not supported.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 18 dynamic
      */
     on(type: 'callingDisplayDidChange', callback: Callback<number>): void;
 
     /**
-     * Disables listening for changes of the screen ID of the window associated with the edit box. This API uses an 
-     * asynchronous callback to return the result.
+     * 取消订阅编辑框对应窗口所在屏幕ID变化事件。使用callback异步回调。
      *
-     * @param { 'callingDisplayDidChange' } type - Event type, which is **'callingDisplayDidChange'**.
-     * @param { Callback<number> } [callback] - Callback to unregister. If this parameter is not specified, this API
-     *     unregisters all callbacks for the specified type.
+     * @param { 'callingDisplayDidChange' } type - 设置监听类型，固定取值为'callingDisplayDidChange'。
+     * @param { Callback<number> } [callback] - 取消订阅的回调函数。参数不填写时，取消订阅type对应的所有回调事件。
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 18 dynamic
      */
     off(type: 'callingDisplayDidChange', callback?: Callback<number>): void;
 
     /**
-     * Subscribes to the event of discarding candidate words and sends the event to the input method. This API uses an 
-     * asynchronous callback to return the result.
+     * 订阅编辑框应用发送\u201c清空候选词\u201d事件到输入法。使用callback异步回调。
+     * 
+     * **使用场景：** 编辑框应用需要通知输入法清空当前候选词列表时使用（如用户切换输入框、提交表单后等场景）。
+     * 
+     * **使用后效果：** 当编辑框应用发送清空候选词请求时触发回调，输入法应用应在回调中清空候选词列表和预输入文本。
      *
-     * @param { 'discardTypingText' } type - Event type, which is **'discardTypingText'**.
-     *     <br> - **'discardTypingText'**
-     *     : indicates subscribing to the event of discarding candidate words and sending the event to the input method.
-     * @param { Callback<void> } callback - Callback used to return the result. If the operation is successful, **err**
-     *     is **undefined**. Otherwise, **err** is an error object.
+     * @param { 'discardTypingText' } type - 设置监听类型，固定取值为'discardTypingText'。<br/> - 'discardTypingText'：表示订阅编辑框应用发送“清空候
+     *     选词”事件到输入法。
+     * @param { Callback<void> } callback - 回调函数。
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 20 dynamic
      */
     on(type: 'discardTypingText', callback: Callback<void>): void;
 
     /**
-     * Unsubscribes from the event of discarding candidate words and sends the event to the input method. This API uses 
-     * an asynchronous callback to return the result.
+     * 取消订阅编辑框应用发送\u201c清空候选词\u201d事件到输入法。使用callback异步回调。
+     * 
+     * **使用场景：** 编辑框应用需要通知输入法清空当前候选词列表时使用（如用户切换输入框、提交表单后等场景）。
+     * 
+     * **使用后效果：** 当编辑框应用发送清空候选词请求时触发回调，输入法应用应在回调中清空候选词列表和预输入文本。
      *
-     * @param { 'discardTypingText' } type - Event type, which is **'discardTypingText'**.
-     *     <br> - **'discardTypingText'**: indicates unsubscribing from the event of discarding candidate words and
-     *     sending the event to the input method.
-     * @param { Callback<void> } [callback] - Callback to unregister. If this parameter is not specified, this API
-     *     unregisters all callbacks for the specified type.
+     * @param { 'discardTypingText' } type - 设置监听类型，固定取值为'discardTypingText'。<br/> - 'discardTypingText'：表示取消订阅编辑框应用发送“清
+     *     空候选词”事件到输入法。
+     * @param { Callback<void> } [callback] - 取消订阅的回调函数。参数不填写时，取消订阅type对应的所有回调事件。
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 20 dynamic
      */
     off(type: 'discardTypingText', callback?: Callback<void>): void;
 
     /**
-     * 获取输入法当前的 安全模式。
+     * 获取输入法应用的当前安全模式。
      *
-     * @returns { SecurityMode } Security mode.
-     * @throws { BusinessError } 12800004 - 非输入法应用.
+     * @returns { SecurityMode } 安全模式。
+     * @throws { BusinessError } 12800004 - not an input method application.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 11 dynamic
      * @since 23 static
@@ -976,31 +992,16 @@ declare namespace inputMethodEngine {
     getSecurityMode(): SecurityMode;
 
     /**
-     * Creates an input method panel. This API can be called only by the input method application in the 
-     * [InputMethodExtensionAbility]{@link @ohos.InputMethodExtensionAbility:InputMethodExtensionAbility} class. This 
-     * API uses an asynchronous callback to return the result.
-     * 
-     * > **NOTE**
-     * >
-     * > Only one [SOFT_KEYBOARD]{@link inputMethodEngine.PanelType} panel and one 
-     * > [STATUS_BAR]{@link inputMethodEngine.PanelType} panel can be created for a single input method.
-     * 
-     * > The input method panel does not support subwindows. For example, subwindows cannot be created using APIs such 
-     * > as 
-     * > [window.createWindow]{@link window.createWindow}
-     * > , [bindContextMenu]{@link CommonMethod<T>.bindContextMenu}, 
-     * > and [CustomDialog]{@link ./@internal/component/ets/custom_dialog_controller}. You are advised to adopt 
-     * > alternative solutions to sub-windows, such as using a [dialog box]{@link @ohos.arkui.advanced.Dialog} or 
-     * > [bindMenu]{@link CommonMethod<T>.bindMenu}, or set 
-     * > **showInSubwindow** to **false**.
+     * 创建输入法面板，仅支持输入法应用在
+     * [InputMethodExtensionAbility]{@link @ohos.InputMethodExtensionAbility:InputMethodExtensionAbility}（输入法扩展能力）类中调用。使
+     * 用callback异步回调。
      *
-     * @param { BaseContext } ctx - Current context of the input method.
-     * @param { PanelInfo } info - Information about the input method panel.
-     * @param { AsyncCallback<Panel> } callback - Callback used to return the result. If the operation is successful,
-     *     the created input method panel is returned.
-     * @throws { BusinessError } 401 - 参数错误. Possible causes:
-     *     1.必填参数未指定; 2.参数类型不正确.
-     * @throws { BusinessError } 12800004 - 非输入法应用.
+     * @param { BaseContext } ctx - 当前输入法应用上下文信息。
+     * @param { PanelInfo } info - 输入法面板信息。
+     * @param { AsyncCallback<Panel> } callback - 回调函数。当输入法面板创建成功，返回当前创建的输入法面板对象。
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+     * @throws { BusinessError } 12800004 - not an input method application.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
      * @since 23 static
@@ -1008,30 +1009,16 @@ declare namespace inputMethodEngine {
     createPanel(ctx: BaseContext, info: PanelInfo, callback: AsyncCallback<Panel>): void;
 
     /**
-     * Creates an input method panel. This API can be called only by the input method application in the 
-     * [InputMethodExtensionAbility]{@link @ohos.InputMethodExtensionAbility:InputMethodExtensionAbility} class. This 
-     * API uses a promise to return the result.
-     * 
-     * > **NOTE**
-     * >
-     * > Only one [SOFT_KEYBOARD]{@link inputMethodEngine.PanelType} panel and one 
-     * > [STATUS_BAR]{@link inputMethodEngine.PanelType} panel can be created for a single input method.
-     * 
-     * > The input method panel does not support subwindows. For example, subwindows cannot be created using APIs such 
-     * > as 
-     * > [window.createWindow](docroot://windowmanager/application-window-fa.md#setting-the-child-window-of-an-application)
-     * > , [bindContextMenu]{@link CommonMethod<T>.bindContextMenu}, 
-     * > and [CustomDialog]{@link ./@internal/component/ets/custom_dialog_controller}. You are advised to adopt 
-     * > alternative solutions to sub-windows, such as using a [dialog box]{@link @ohos.arkui.advanced.Dialog} or 
-     * > [bindMenu]{@link CommonMethod<T>.bindMenu}, or set 
-     * > **showInSubwindow** to **false**.
+     * 创建输入法面板，仅支持输入法应用在
+     * [InputMethodExtensionAbility]{@link @ohos.InputMethodExtensionAbility:InputMethodExtensionAbility}类中调用。使用promise异
+     * 步回调。
      *
-     * @param { BaseContext } ctx - Current context of the input method.
-     * @param { PanelInfo } info - Information about the input method panel.
+     * @param { BaseContext } ctx - 当前输入法应用上下文信息。
+     * @param { PanelInfo } info - 输入法面板信息。
      * @returns { Promise<Panel> } the promise returned by the function.
-     * @throws { BusinessError } 401 - 参数错误. Possible causes:
-     *     1.必填参数未指定; 2.参数类型不正确.
-     * @throws { BusinessError } 12800004 - 非输入法应用.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+     * @throws { BusinessError } 12800004 - not an input method application.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
      * @since 23 static
@@ -1039,13 +1026,12 @@ declare namespace inputMethodEngine {
     createPanel(ctx: BaseContext, info: PanelInfo): Promise<Panel>;
 
     /**
-     * 销毁指定的输入法面板。此API使用异步回调返回结果。
+     * 销毁输入法面板。需先通过 createPanel 创建面板后调用。使用callback异步回调。
      *
-     * @param { Panel } panel - Input method panel to destroy.
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
-     *     **err** is **undefined**. Otherwise, **err** is an error object.
-     * @throws { BusinessError } 401 - 参数错误. Possible causes:
-     *     1.必填参数未指定; 2.参数类型不正确; 3.参数校验失败.
+     * @param { Panel } panel - 要销毁的面板对象。
+     * @param { AsyncCallback<void> } callback - 回调函数。当输入法面板销毁成功，err为undefined，否则为错误对象。
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
      * @since 23 static
@@ -1053,12 +1039,12 @@ declare namespace inputMethodEngine {
     destroyPanel(panel: Panel, callback: AsyncCallback<void>): void;
 
     /**
-     * 销毁指定的输入法面板。此API使用promise返回结果。
+     * 销毁输入法面板。使用promise异步回调。
      *
-     * @param { Panel } panel - Input method panel to destroy.
+     * @param { Panel } panel - 要销毁的面板对象。
      * @returns { Promise<void> } the promise returned by the function.
-     * @throws { BusinessError } 401 - 参数错误. Possible causes:
-     *     1.必填参数未指定; 2.参数类型不正确; 3.参数校验失败.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
      * @since 23 static
@@ -1066,35 +1052,35 @@ declare namespace inputMethodEngine {
     destroyPanel(panel: Panel): Promise<void>;
 
     /**
-     * 订阅'inputStart'事件。
+     * 订阅输入法绑定成功事件。使用callback异步回调。
      *
-     * @param { IMAInputStartCallback } callback - the callback called when edit box requests keyboard.
+     * @param { IMAInputStartCallback } callback - 回调函数，返回订阅输入法的KeyboardController和TextInputClient实例。
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 23 static
      */
     onInputStart(callback: IMAInputStartCallback): void;
     /**
-     * 取消订阅'inputStart'事件。
+     * 取消订阅输入法绑定成功事件。
      *
-     * @param { IMAInputStartCallback } [callback] - optional, the callback called when edit box requests keyboard.
+     * @param { IMAInputStartCallback } [callback] - 取消订阅的回调函数。参数不填写时，取消订阅type对应的所有回调事件。
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 23 static
      */
     offInputStart(callback?: IMAInputStartCallback): void;
 
     /**
-     * 订阅'inputStop'。
+     * 订阅停止输入法应用事件。使用callback异步回调。
      *
-     * @param { Callback<void> } callback - the callback called when the system needs input method application
+     * @param { Callback<void> } callback - 系统要求输入法终止输入流程时触发的回调函数，无入参，用于执行输入停止后的清理逻辑（如隐藏键盘、释放资源等）。
      *     to terminate itself.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 23 static
      */
     onInputStop(callback: Callback<void>): void;
     /**
-     * 取消订阅'inputStop'。
+     * 取消订阅输入法输入停止（inputStop）事件，停止监听系统要求输入法终止输入流程的触发动作。
      *
-     * @param { Callback<void> } callback - the callback called when the system needs input method application
+     * @param { Callback<void> } callback - 取消订阅的回调函数。参数不填写时，取消订阅type对应的所有回调事件。
      *     to terminate itself.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 23 static
@@ -1102,69 +1088,69 @@ declare namespace inputMethodEngine {
     offInputStop(callback: Callback<void>): void;
 
     /**
-     * 订阅'setCallingWindow'。
+     * 订阅设置调用窗口事件。使用callback异步回调。
      *
-     * @param { Callback<int> } callback - the callback called when the edit box sets calling window id.
+     * @param { Callback<int> } callback - 回调函数，返回调用方窗口的Id。
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 23 static
      */
     onSetCallingWindow(callback: Callback<int>): void;
     /**
-     * 取消订阅'setCallingWindow'。
+     * 取消订阅编辑框设置调用窗口 ID（setCallingWindow）事件，停止监听编辑框设置调用窗口标识的触发动作。
      *
-     * @param { Callback<int> } callback - the callback called when the edit box sets calling window id.
+     * @param { Callback<int> } callback - 取消订阅的回调函数。参数不填写时，取消订阅type对应的所有回调事件。
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 23 static
      */
     offSetCallingWindow(callback: Callback<int>): void;
 
     /**
-     * 订阅'keyboardShow'。
+     * 订阅输入法软键盘显示或隐藏事件。使用callback异步回调。
      *
-     * @param { Callback<void> } callback - the callback called when showing keyboard.
+     * @param { Callback<void> } callback - 回调函数。
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 23 static
      */
     onKeyboardShow(callback: Callback<void>): void;
     /**
-     * 取消订阅'keyboardShow'。
+     * 取消订阅输入法事件。使用callback异步回调。
      *
-     * @param { Callback<void> } [callback] - optional, the callback called when showing keyboard.
+     * @param { Callback<void> } [callback] - 回调函数。
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 23 static
      */
     offKeyboardShow(callback?: Callback<void>): void;
 
     /**
-     * 订阅'keyboardHide'。
+     * 订阅输入法软键盘显示或隐藏事件。使用callback异步回调。
      *
-     * @param { Callback<void> } callback - the callback called when hiding keyboard.
+     * @param { Callback<void> } callback - 回调函数。
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 23 static
      */
     onKeyboardHide(callback: Callback<void>): void;
     /**
-     * 取消订阅'keyboardHide'。
+     * 取消订阅输入法键盘隐藏（keyboardHide）事件，停止监听输入法键盘隐藏的触发动作。
      *
-     * @param { Callback<void> } [callback] - optional, the callback called when hiding keyboard.
+     * @param { Callback<void> } [callback] - 回调函数。
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 23 static
      */
     offKeyboardHide(callback?: Callback<void>): void;
 
     /**
-     * 订阅'setSubtype'。
+     * 订阅设置输入法子类型事件。使用callback异步回调。
      *
-     * @param { Callback<InputMethodSubtype> } callback - the callback called when the system notify
+     * @param { Callback<InputMethodSubtype> } callback - 回调函数，返回设置的输入法子类型。
      *     to switch subtype.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 23 static
      */
     onSetSubtype(callback: Callback<InputMethodSubtype>): void;
     /**
-     * 取消订阅'setSubtype'。
+     * 取消订阅输入法软键盘显示或隐藏事件。使用callback异步回调。
      *
-     * @param { Callback<InputMethodSubtype> } [callback] - optional, the callback called when the system notify
+     * @param { Callback<InputMethodSubtype> } [callback] - 取消订阅的回调函数。参数不填写时，取消订阅type对应的所有回调事件。
      *     to switch subtype.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 23 static
@@ -1172,74 +1158,73 @@ declare namespace inputMethodEngine {
     offSetSubtype(callback?: Callback<InputMethodSubtype>): void;
 
     /**
-     * 订阅'securityModeChange'事件。
+     * 订阅输入法安全模式改变类型事件。使用callback异步回调。
      *
-     * @param { Callback<SecurityMode> } callback - the callback called when the security mode changes.
+     * @param { Callback<SecurityMode> } callback - 回调函数，返回当前输入法应用的安全模式。
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 23 static
      */
     onSecurityModeChange(callback: Callback<SecurityMode>): void;
     /**
-     * 取消订阅'securityModeChange'事件。
+     * 取消订阅输入法安全模式改变类型事件。使用callback异步回调。
      *
-     * @param { Callback<SecurityMode> } [callback] - optional, the callback called when the security mode changes.
+     * @param { Callback<SecurityMode> } [callback] - 取消订阅的回调函数。参数不填写时，取消订阅type对应的所有回调事件。
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 23 static
      */
     offSecurityModeChange(callback?: Callback<SecurityMode>): void;
 
     /**
-     * 订阅'privateCommand'。此函数只能由系统配置的默认输入法调用。
+     * 订阅输入法私有数据事件。使用callback异步回调。该接口只能被系统预置输入法调用。
      *
-     * @param { Callback<Record<string, CommandDataType>> } callback - the callback called when receiving
-     *     private command.
-     * @throws { BusinessError } 12800010 - 非预配置的系统默认输入法.
+     * @param { Callback<Record<string, CommandDataType>> } callback - 回调函数，返回向输入法应用发送的私有数据。
+     * @throws { BusinessError } 12800010 - not the preconfigured default input method.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 23 static
      */
     onPrivateCommand(callback: Callback<Record<string, CommandDataType>>): void;
     /**
-     * 取消订阅'privateCommand'。此函数只能由系统配置的默认输入法调用。
+     * 取消订阅输入法私有数据事件。使用callback异步回调。该接口只能被系统预置输入法调用。
      *
-     * @param { Callback<Record<string, CommandDataType>> } [callback] - optional,
-     *     the callback called when receiving private command.
-     * @throws { BusinessError } 12800010 - 非预配置的系统默认输入法.
+     * @param { Callback<Record<string, CommandDataType>> } [callback] - 回调函数，返回向输入法应用发送的私有数据。
+     *     参数不填写时，取消订阅type对应的所有回调事件。
+     * @throws { BusinessError } 12800010 - not the preconfigured default input method.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 23 static
      */
     offPrivateCommand(callback?: Callback<Record<string, CommandDataType>>): void;
 
     /**
-     * 订阅'callingDisplayDidChange'事件。
+     * 订阅编辑框对应窗口所在屏幕ID变化。使用callback异步回调。
      *
-     * @param { Callback<int> } callback - the callback called when calling display id changed.
-     * @throws { BusinessError } 801 - 不支持该能力.
+     * @param { Callback<int> } callback - 回调函数，返回编辑框设置对应窗口屏幕ID。
+     * @throws { BusinessError } 801 - capability not supported.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 23 static
      */
     onCallingDisplayDidChange(callback: Callback<int>): void;
     /**
-     * 取消订阅'callingDisplayDidChange'事件。
+     * 取消编辑框对应窗口所在屏幕ID变化。使用callback异步回调。
      *
-     * @param { Callback<int> } [callback] - optional, the callback called when calling display id changed.
+     * @param { Callback<int> } [callback] - 取消订阅的回调函数。
+     *     参数不填写时，取消订阅type对应的所有回调事件。
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 23 static
      */
     offCallingDisplayDidChange(callback?: Callback<int>): void;
 
     /**
-     * 订阅'discardTypingText'事件。
+     * 订阅编辑框应用发送“清空候选词”事件到输入法。使用callback异步回调。
      *
-     * @param { Callback<void> } callback - the callback called when the edit box requests to discard typing text.
+     * @param { Callback<void> } callback - 回调函数。
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 23 static
      */
     onDiscardTypingText(callback: Callback<void>): void;
     /**
-     * 取消订阅'discardTypingText'事件。
+     * 取消订阅编辑框应用发送“清空候选词”事件到输入法。使用callback异步回调。
      *
-     * @param { Callback<void> } [callback] - optional, the callback called when the edit box requests to
-     *     discard typing text.
+     * @param { Callback<void> } [callback] - 取消订阅的回调函数。参数不填写时，取消订阅type对应的所有回调事件。
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 23 static
      */
@@ -1247,11 +1232,9 @@ declare namespace inputMethodEngine {
   }
 
   /**
-   * In the following API examples, you must first use 
-   * [on('inputStart')]{@link inputMethodEngine.InputMethodEngine.on(type: 'inputStart',
-   * callback: (kbController: KeyboardController, textInputClient: TextInputClient) => void): void;}
-   * to obtain a **TextInputClient** 
-   * instance, and then call the APIs using the obtained instance.
+   * 下列API示例中都需使用
+   * [on('inputStart')]{@link inputMethodEngine.InputMethodEngine.on( type: 'inputStart', callback: (kbController: KeyboardController, textInputClient: TextInputClient) => void )}
+   * 回调获取到TextInputClient实例，再通过此实例调用对应方法。
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 8 dynamiconly
@@ -1260,13 +1243,11 @@ declare namespace inputMethodEngine {
    */
   interface TextInputClient {
     /**
-     * 发送功能键。此API使用异步回调返回结果。
+     * 发送功能键。使用callback异步回调。
      *
-     * @param { number } action - Action of the function key.
-     *     <br>- **0**: invalid key.
-     *     <br>- **1**: confirm key (Enter key).
-     * @param { AsyncCallback<boolean> } callback - Callback used to return the result. If the operation is successful,
-     *     **err** is **undefined** and **data** is **true**. Otherwise, **err** is an error object.
+     * @param { number } action - 功能键键值。<br/>- 当值为0时，表示无效按键；<br/>- 当值为1时，表示确认键（即回车键）。
+     * @param { AsyncCallback<boolean> } callback - 回调函数。当功能键发送成功，err为undefined，data为true；当功能键发送失败，err为undefined，data为
+     *     false；否则为错误对象。
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -1275,13 +1256,10 @@ declare namespace inputMethodEngine {
     sendKeyFunction(action: number, callback: AsyncCallback<boolean>): void;
 
     /**
-     * 发送功能键。此API使用promise返回结果。
+     * 发送功能键。使用promise异步回调。
      *
-     * @param { number } action - Action of the function key.
-     *     <br>**0**: invalid key.
-     *     <br>**1**: confirm key (Enter key).
-     * @returns { Promise<boolean> } Promise used to return the result. The value **true** means that the setting is
-     *     successful, and **false** means the opposite.
+     * @param { number } action - 功能键键值。<br/>当值为0时，表示无效按键；<br/>当值为1时，表示确认键（即回车键）。
+     * @returns { Promise<boolean> } Promise对象。返回true表示发送功能键成功；返回false表示发送功能键失败。
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -1290,11 +1268,15 @@ declare namespace inputMethodEngine {
     sendKeyFunction(action: number): Promise<boolean>;
 
     /**
-     * 删除光标前指定长度的文本。此API使用异步回调返回结果。
+     * 删除光标前固定长度的文本。使用callback异步回调。
+     * 
+     * **使用场景：** 实现退格键功能、逐字删除输入、删除错误的输入、实现自定义删除逻辑等。
+     * 
+     * **使用后效果：** 成功时返回true，编辑框中光标前指定长度的文本被删除。
      *
-     * @param { number } length - Text length, which cannot be less than 0.
-     * @param { AsyncCallback<boolean> } callback - Callback used to return the result. If the operation is successful,
-     *     **err** is **undefined** and **data** is **true**. Otherwise, **err** is an error object.
+     * @param { number } length - 文本长度。不能小于0。
+     * @param { AsyncCallback<boolean> } callback - 回调函数。当光标前固定长度的文本删除成功，err为undefined，data为true；当光标前固定长度的文本删除失败，err为
+     *     undefined，data为false；否则为错误对象。
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -1303,11 +1285,11 @@ declare namespace inputMethodEngine {
     deleteForward(length: number, callback: AsyncCallback<boolean>): void;
 
     /**
-     * 删除光标前指定长度的文本。此API使用promise返回结果。
+     * 删除光标前固定长度的文本。使用promise异步回调。
      *
-     * @param { number } length - Text length, which cannot be less than 0.
-     * @returns { Promise<boolean> } Promise used to return the result. The value **true** means that the deletion is
-     *     successful, and **false** means the opposite.
+     * @param { number } length - 文本长度。不能小于0。
+     * @returns { Promise<boolean> } Promise对象。resolve返回true表示删除光标前固定长度的文本成功；resolve返回false表示删除光标前固定长度的文本失败；reject时抛出错误对
+     *     象，表示执行过程中发生错误。
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -1316,11 +1298,14 @@ declare namespace inputMethodEngine {
     deleteForward(length: number): Promise<boolean>;
 
     /**
-     * 删除光标后指定长度的文本。此API使用异步回调返回结果。
+     * 删除光标后固定长度的文本。使用callback异步回调。
+     * 
+     * **使用场景：** 实现删除键功能、删除光标后的字符、快速修正输入、实现自定义删除逻辑等。
+     * 
+     * **使用后效果：** 成功时返回true，编辑框中光标后指定长度的文本被删除。
      *
-     * @param { number } length - Text length, which cannot be less than 0.
-     * @param { AsyncCallback<boolean> } callback - Callback used to return the result. If the operation is successful,
-     *     **err** is **undefined** and **data** is **true**. Otherwise, **err** is an error object.
+     * @param { number } length - 文本长度。不能小于0。
+     * @param { AsyncCallback<boolean> } callback - 回调函数。当光标后固定长度的文本删除成功，err为undefined，data为true；否则为错误对象。
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -1329,11 +1314,10 @@ declare namespace inputMethodEngine {
     deleteBackward(length: number, callback: AsyncCallback<boolean>): void;
 
     /**
-     * 删除光标后指定长度的文本。此API使用promise返回结果。
+     * 删除光标后固定长度的文本。使用promise异步回调。
      *
-     * @param { number } length - Text length, which cannot be less than 0.
-     * @returns { Promise<boolean> } Promise used to return the result. The value **true** means that the deletion is
-     *     successful, and **false** means the opposite.
+     * @param { number } length - 文本长度。不能小于0。
+     * @returns { Promise<boolean> } Promise对象。返回true表示删除光标后固定长度的文本成功；返回false表示删除光标后固定长度的文本失败。
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -1342,11 +1326,14 @@ declare namespace inputMethodEngine {
     deleteBackward(length: number): Promise<boolean>;
 
     /**
-     * 插入文本。此API使用异步回调返回结果。
+     * 插入文本。使用callback异步回调。
+     * 
+     * **使用场景：** 插入候选词、插入特殊符号、实现文本自动补全、快速插入常用短语等。
+     * 
+     * **使用后效果：** 成功时返回true，文本已插入到编辑框光标位置。
      *
-     * @param { string } text - Text to insert.
-     * @param { AsyncCallback<boolean> } callback - Callback used to return the result. If the operation is successful,
-     *     **err** is **undefined** and **data** is **true**. Otherwise, **err** is an error object.
+     * @param { string } text - 文本。
+     * @param { AsyncCallback<boolean> } callback - 回调函数。当文本插入成功，err为undefined，data为true；否则为错误对象。
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -1355,11 +1342,10 @@ declare namespace inputMethodEngine {
     insertText(text: string, callback: AsyncCallback<boolean>): void;
 
     /**
-     * 插入文本。此API使用promise返回结果。
+     * 插入文本。使用promise异步回调。
      *
-     * @param { string } text - Text to insert.
-     * @returns { Promise<boolean> } Promise used to return the result. The value **true** means that the insertion is
-     *     successful, and **false** means the opposite.
+     * @param { string } text - 文本。
+     * @returns { Promise<boolean> } Promise对象。返回true表示插入文本成功；返回false表示插入文本失败。
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -1368,11 +1354,14 @@ declare namespace inputMethodEngine {
     insertText(text: string): Promise<boolean>;
 
     /**
-     * 获取光标前指定长度的文本。此API使用异步回调返回结果。
+     * 获取光标前固定长度的文本。使用callback异步回调。
+     * 
+     * **使用场景：** 分析已输入文本内容以提供智能补全建议、检查文本格式、实现文本预测功能、实现文本语义分析等。
+     * 
+     * **使用后效果：** 成功时返回光标前指定长度的文本字符串，输入法应用可据此更新候选词或输入建议。
      *
-     * @param { number } length - Text length, which cannot be less than 0.
-     * @param { AsyncCallback<string> } callback - Callback used to return the result. If the operation is successful,
-     *     **err** is **undefined** and **data** is the obtained text. Otherwise, **err** is an error object.
+     * @param { number } length - 文本长度。不能小于0。
+     * @param { AsyncCallback<string> } callback - 回调函数。当光标前固定长度的文本获取成功，err为undefined，data为获取到的文本；否则为错误对象。
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -1381,10 +1370,10 @@ declare namespace inputMethodEngine {
     getForward(length: number, callback: AsyncCallback<string>): void;
 
     /**
-     * 获取光标前指定长度的文本。此API使用promise返回结果。
+     * 获取光标前固定长度的文本。使用promise异步回调。
      *
-     * @param { number } length - Text length, which cannot be less than 0.
-     * @returns { Promise<string> } Promise used to return the specific-length text before the cursor.
+     * @param { number } length - 文本长度。不能小于0。
+     * @returns { Promise<string> } Promise对象，返回光标前固定长度的文本。
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -1393,11 +1382,10 @@ declare namespace inputMethodEngine {
     getForward(length: number): Promise<string>;
 
     /**
-     * 获取光标后指定长度的文本。此API使用异步回调返回结果。
+     * 获取光标后固定长度的文本。使用callback异步回调。
      *
-     * @param { number } length - Text length, which cannot be less than 0.
-     * @param { AsyncCallback<string> } callback - Callback used to return the result. If the operation is successful,
-     *     **err** is **undefined** and **data** is the obtained text. Otherwise, **err** is an error object.
+     * @param { number } length - 文本长度。不能小于0。
+     * @param { AsyncCallback<string> } callback - 回调函数。当光标后固定长度的文本获取成功，err为undefined，data为获取到的文本；否则为错误对象。
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -1406,10 +1394,10 @@ declare namespace inputMethodEngine {
     getBackward(length: number, callback: AsyncCallback<string>): void;
 
     /**
-     * 获取光标后指定长度的文本。此API使用promise返回结果。
+     * 获取光标后固定长度的文本。使用promise异步回调。
      *
-     * @param { number } length - Text length, which cannot be less than 0.
-     * @returns { Promise<string> } Promise used to return the specific-length text after the cursor.
+     * @param { number } length - 文本长度。不能小于0。
+     * @returns { Promise<string> } Promise对象，返回光标后固定长度的文本。
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -1418,11 +1406,13 @@ declare namespace inputMethodEngine {
     getBackward(length: number): Promise<string>;
 
     /**
-     * 获取编辑框属性。此API使用异步回调返回结果。
+     * 获取编辑框属性值。使用callback异步回调。
+     * 
+     * **使用场景：** 根据编辑框类型调整输入法界面、根据编辑框配置提供不同的输入建议、实现特定输入逻辑、适配不同类型的输入框等。
+     * 
+     * **使用后效果：** 返回编辑框属性信息（包括inputPattern输入类型和enterKeyType回车键类型），输入法应用据此调整键盘布局。
      *
-     * @param { AsyncCallback<EditorAttribute> } callback - Callback used to return the result. If the operation is
-     *     successful, **err** is **undefined** and **data** is the attribute of the edit box. Otherwise, **err** is an
-     *     error object.
+     * @param { AsyncCallback<EditorAttribute> } callback - 回调函数。当编辑框的属性值获取成功，err为undefined，data为编辑框属性值；否则为错误对象。
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -1431,9 +1421,9 @@ declare namespace inputMethodEngine {
     getEditorAttribute(callback: AsyncCallback<EditorAttribute>): void;
 
     /**
-     * 获取编辑框属性。此API使用promise返回结果。
+     * 获取编辑框属性值。使用promise异步回调。
      *
-     * @returns { Promise<EditorAttribute> } Promise used to return the attribute of the edit box.
+     * @returns { Promise<EditorAttribute> } Promise对象，返回编辑框属性值。
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -1443,9 +1433,48 @@ declare namespace inputMethodEngine {
   }
 
   /**
-   * You must first use [on('inputStart')]{@link inputMethodEngine.InputMethodAbility. on(type: 'inputStart', callback:
-   * (kbController: KeyboardController, inputClient: InputClient) => void): void;} to obtain a 
-   * **InputClient** instance, and then use this instance to call the following APIs.
+   * InputClient是输入法客户端对象，代表当前绑定到输入法应用的编辑框客户端。InputClient实例通过InputMethodAbility的
+   * [on('inputStart')]{@link inputMethodEngine.InputMethodAbility.on(type: 'inputStart', callback: (kbController: KeyboardController, inputClient: InputClient) => void)}
+   * 事件回调获取，每个绑定事件对应一个InputClient实例，输入法应用通过该实例与编辑框进行文本交互。
+   * **核心功能概述：**
+   * 
+   * - **文本获取**：通过
+   * [getForward]{@link inputMethodEngine.InputClient.getForward(length: int, callback: AsyncCallback<string>)}/
+   * [getForwardSync]{@link inputMethodEngine.InputClient.getForwardSync}获取光标前的文本，通过
+   * [getBackward]{@link inputMethodEngine.InputClient.getBackward(length: int, callback: AsyncCallback<string>)}/
+   * [getBackwardSync]{@link inputMethodEngine.InputClient.getBackwardSync}获取光标后的文本，用于分析已输入内容并提供智能补全。
+   * - **文本编辑**：通过
+   * [insertText]{@link inputMethodEngine.InputClient.insertText(text: string, callback: AsyncCallback<boolean>)}/
+   * [insertTextSync]{@link inputMethodEngine.InputClient.insertTextSync}插入文本，通过
+   * [deleteForward]{@link inputMethodEngine.InputClient.deleteForward(length: int, callback: AsyncCallback<boolean>)}/
+   * [deleteForwardSync]{@link inputMethodEngine.InputClient.deleteForwardSync}删除光标前的文本，通过
+   * [deleteBackward]{@link inputMethodEngine.InputClient.deleteBackward(length: int, callback: AsyncCallback<boolean>)}
+   * /[deleteBackwardSync]{@link inputMethodEngine.InputClient.deleteBackwardSync}删除光标后的文本。
+   * - **功能键与光标**：通过
+   * [sendKeyFunction]{@link inputMethodEngine.InputClient.sendKeyFunction(action: int, callback: AsyncCallback<boolean>)}
+   * 发送功能键（如回车键），通过
+   * [moveCursor]{@link inputMethodEngine.InputClient.moveCursor(direction: int, callback: AsyncCallback<void>)}/
+   * [moveCursorSync]{@link inputMethodEngine.InputClient.moveCursorSync}移动光标。
+   * - **选区操作**：通过
+   * [selectByRange]{@link inputMethodEngine.InputClient.selectByRange(range: Range, callback: AsyncCallback<void>)}/
+   * [selectByRangeSync]{@link inputMethodEngine.InputClient.selectByRangeSync}按范围选中文本，通过
+   * [selectByMovement]{@link inputMethodEngine.InputClient.selectByMovement(movement: Movement, callback: AsyncCallback<void>)}
+   * /[selectByMovementSync]{@link inputMethodEngine.InputClient.selectByMovementSync}按方向选中文本。
+   * - **编辑框属性**：通过
+   * [getEditorAttribute]{@link inputMethodEngine.InputClient.getEditorAttribute(callback: AsyncCallback<EditorAttribute>)}
+   * /[getEditorAttributeSync]{@link inputMethodEngine.InputClient.getEditorAttributeSync()}获取编辑框属性信息（输入类型、回车键类型等），据此调整键
+   * 盘布局。
+   * - **文本预览**：通过[setPreviewText]{@link inputMethodEngine.InputClient.setPreviewText}/
+   * [setPreviewTextSync]{@link inputMethodEngine.InputClient.setPreviewTextSync}设置预览文本，通过
+   * [finishTextPreview]{@link inputMethodEngine.InputClient.finishTextPreview}/
+   * [finishTextPreviewSync]{@link inputMethodEngine.InputClient.finishTextPreviewSync}结束文本预览。
+   * - **私有通信**：通过[sendPrivateCommand]{@link inputMethodEngine.InputClient.sendPrivateCommand}向应用发送私有命令，通过
+   * [sendMessage]{@link inputMethodEngine.InputClient.sendMessage}/
+   * [recvMessage]{@link inputMethodEngine.InputClient.recvMessage}进行消息通信。
+   * 
+   * 下列API均需使用
+   * [on('inputStart')]{@link inputMethodEngine.InputMethodAbility.on(type: 'inputStart', callback: (kbController: KeyboardController, inputClient: InputClient) => void)}
+   * 获取到InputClient实例后，通过实例调用。
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 9 dynamic
@@ -1453,18 +1482,16 @@ declare namespace inputMethodEngine {
    */
   interface InputClient {
     /**
-     * 发送功能键。此API使用异步回调返回结果。
+     * 发送功能键。使用callback异步回调。
      *
-     * @param { int } action - Action of the function key.
-     *     <br>- **0**: invalid key.
-     *     <br>- **1**: confirm key (Enter key).
-     * @param { AsyncCallback<boolean> } callback - Callback used to return the result. If the operation is successful,
-     *     **err** is **undefined** and **data** is **true**. Otherwise, **err** is an error object.
-     * @throws { BusinessError } 401 - 参数错误. Possible causes:
-     *     1.必填参数未指定; 2.参数类型不正确.
-     * @throws { BusinessError } 12800003 - 输入法客户端错误. Possible causes:
-     *     1.编辑框未获焦. 2.当前输入法应用未绑定编辑框.
-     *     3.因数据传输量大或其他原因导致IPC失败.
+     * @param { int } action - 功能键键值。<br/>- 当值为0时，表示无效按键。<br/>- 当值为1时，表示确认键（即回车键）。
+     * @param { AsyncCallback<boolean> } callback - 回调函数。当功能键发送成功，err为undefined，data为true；当功能键发送失败，err为undefined，data为
+     *     false；否则为错误对象。
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+     * @throws { BusinessError } 12800003 - input method client error. Possible causes:
+     *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     *     3.ipc failed due to the large amount of data transferred or other reasons.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9 dynamic
      * @since 23 static
@@ -1472,18 +1499,15 @@ declare namespace inputMethodEngine {
     sendKeyFunction(action: int, callback: AsyncCallback<boolean>): void;
 
     /**
-     * 发送功能键。此API使用promise返回结果。
+     * 发送功能键。使用promise异步回调。
      *
-     * @param { int } action - Action of the function key.
-     *     <br>**0**: invalid key.
-     *     <br>**1**: confirm key (Enter key).
-     * @returns { Promise<boolean> } Promise used to return the result. The value **true** means that the operation is
-     *     successful, and **false** means the opposite.
-     * @throws { BusinessError } 401 - 参数错误. Possible causes:
-     *     1.必填参数未指定; 2.参数类型不正确.
-     * @throws { BusinessError } 12800003 - 输入法客户端错误. Possible causes:
-     *     1.编辑框未获焦. 2.当前输入法应用未绑定编辑框.
-     *     3.因数据传输量大或其他原因导致IPC失败.
+     * @param { int } action - 功能键键值。<br/>当值为0时，表示无效按键；<br/>当值为1时，表示确认键（即回车键）。
+     * @returns { Promise<boolean> } Promise对象。resolve返回true表示功能键发送成功；resolve返回false表示功能键发送失败；reject时抛出错误对象，表示执行过程中发生错误。
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+     * @throws { BusinessError } 12800003 - input method client error. Possible causes:
+     *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     *     3.ipc failed due to the large amount of data transferred or other reasons.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9 dynamic
      * @since 23 static
@@ -1491,18 +1515,22 @@ declare namespace inputMethodEngine {
     sendKeyFunction(action: int): Promise<boolean>;
 
     /**
-     * 删除光标前指定长度的文本。此API使用异步回调返回结果。
+     * 删除光标前固定长度的文本。使用callback异步回调。
+     * 
+     * **使用场景：** 实现退格键功能、逐字删除输入、删除错误的输入、实现自定义删除逻辑等。
+     * 
+     * **使用后效果：** 成功时返回true，编辑框中光标前指定长度的文本被删除。
      *
-     * @param { int } length - Text length, which cannot be less than 0.
-     * @param { AsyncCallback<boolean> } callback - Callback used to return the result. If the operation is successful,
-     *     **err** is **undefined** and **data** is **true**. Otherwise, **err** is an error object.
-     * @throws { BusinessError } 401 - 参数错误. Possible causes:
-     *     1.必填参数未指定; 2.参数类型不正确.
-     * @throws { BusinessError } 12800002 - 输入法引擎错误. Possible causes:
-     *     1.输入法面板未创建. 2.输入法应用未订阅相关事件.
-     * @throws { BusinessError } 12800003 - 输入法客户端错误. Possible causes:
-     *     1.编辑框未获焦. 2.当前输入法应用未绑定编辑框.
-     *     3.因数据传输量大或其他原因导致IPC失败.
+     * @param { int } length - 文本长度。不能小于0。
+     * @param { AsyncCallback<boolean> } callback - 回调函数。当光标前固定长度的文本删除成功，err为undefined，data为true；当光标前固定长度的文本删除失败，err为
+     *     undefined，data为false；否则为错误对象。
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+     * @throws { BusinessError } 12800002 - input method engine error. Possible causes:
+     *     1.input method panel not created. 2.the input method application does not subscribe to related events.
+     * @throws { BusinessError } 12800003 - input method client error. Possible causes:
+     *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     *     3.ipc failed due to the large amount of data transferred or other reasons.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9 dynamic
      * @since 23 static
@@ -1510,18 +1538,18 @@ declare namespace inputMethodEngine {
     deleteForward(length: int, callback: AsyncCallback<boolean>): void;
 
     /**
-     * 删除光标前指定长度的文本。此API使用promise返回结果。
+     * 删除光标前固定长度的文本。使用promise异步回调。
      *
-     * @param { int } length - Text length, which cannot be less than 0.
-     * @returns { Promise<boolean> } Promise used to return the result. The value **true** means that the deletion is
-     *     successful, and **false** means the opposite.
-     * @throws { BusinessError } 401 - 参数错误. Possible causes:
-     *     1.必填参数未指定; 2.参数类型不正确.
-     * @throws { BusinessError } 12800002 - 输入法引擎错误. Possible causes:
-     *     1.输入法面板未创建. 2.输入法应用未订阅相关事件.
-     * @throws { BusinessError } 12800003 - 输入法客户端错误. Possible causes:
-     *     1.编辑框未获焦. 2.当前输入法应用未绑定编辑框.
-     *     3.因数据传输量大或其他原因导致IPC失败.
+     * @param { int } length - 文本长度。不能小于0。
+     * @returns { Promise<boolean> } Promise对象。resolve返回true表示删除光标前固定长度的文本成功；resolve返回false表示删除光标前固定长度的文本失败；reject时抛出错误对
+     *     象，表示执行过程中发生错误。
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+     * @throws { BusinessError } 12800002 - input method engine error. Possible causes:
+     *     1.input method panel not created. 2.the input method application does not subscribe to related events.
+     * @throws { BusinessError } 12800003 - input method client error. Possible causes:
+     *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     *     3.ipc failed due to the large amount of data transferred or other reasons.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9 dynamic
      * @since 23 static
@@ -1529,16 +1557,16 @@ declare namespace inputMethodEngine {
     deleteForward(length: int): Promise<boolean>;
 
     /**
-     * Deletes the fixed-length text before the cursor.
+     * 删除光标前固定长度的文本。
      *
-     * @param { int } length - Text length, which cannot be less than 0.
-     * @throws { BusinessError } 401 - 参数错误. Possible causes:
-     *     1.必填参数未指定; 2.参数类型不正确; 3.参数校验失败.
-     * @throws { BusinessError } 12800002 - 输入法引擎错误. Possible causes:
-     *     1.输入法面板未创建. 2.输入法应用未订阅相关事件.
-     * @throws { BusinessError } 12800003 - 输入法客户端错误. Possible causes:
-     *     1.编辑框未获焦. 2.当前输入法应用未绑定编辑框.
-     *     3.因数据传输量大或其他原因导致IPC失败.
+     * @param { int } length - 文本长度。不能小于0。
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+     * @throws { BusinessError } 12800002 - input method engine error. Possible causes:
+     *     1.input method panel not created. 2.the input method application does not subscribe to related events.
+     * @throws { BusinessError } 12800003 - input method client error. Possible causes:
+     *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     *     3.ipc failed due to the large amount of data transferred or other reasons.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
      * @since 23 static
@@ -1546,18 +1574,21 @@ declare namespace inputMethodEngine {
     deleteForwardSync(length: int): void;
 
     /**
-     * 删除光标后指定长度的文本。此API使用异步回调返回结果。
+     * 删除光标后固定长度的文本。使用callback异步回调。
+     * 
+     * **使用场景：** 实现删除键功能、删除光标后的字符、快速修正输入、实现自定义删除逻辑等。
+     * 
+     * **使用后效果：** 成功时返回true，编辑框中光标后指定长度的文本被删除。
      *
-     * @param { int } length - Text length, which cannot be less than 0.
-     * @param { AsyncCallback<boolean> } callback - Callback used to return the result. If the operation is successful,
-     *     **err** is **undefined** and **data** is **true**. Otherwise, **err** is an error object.
-     * @throws { BusinessError } 401 - 参数错误. Possible causes:
-     *     1.必填参数未指定; 2.参数类型不正确.
-     * @throws { BusinessError } 12800002 - 输入法引擎错误. Possible causes:
-     *     1.输入法面板未创建. 2.输入法应用未订阅相关事件.
-     * @throws { BusinessError } 12800003 - 输入法客户端错误. Possible causes:
-     *     1.编辑框未获焦. 2.当前输入法应用未绑定编辑框.
-     *     3.因数据传输量大或其他原因导致IPC失败.
+     * @param { int } length - 文本长度。不能小于0。
+     * @param { AsyncCallback<boolean> } callback - 回调函数。当光标后固定长度的文本删除成功，err为undefined，data为true；否则为错误对象。
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+     * @throws { BusinessError } 12800002 - input method engine error. Possible causes:
+     *     1.input method panel not created. 2.the input method application does not subscribe to related events.
+     * @throws { BusinessError } 12800003 - input method client error. Possible causes:
+     *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     *     3.ipc failed due to the large amount of data transferred or other reasons.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9 dynamic
      * @since 23 static
@@ -1565,18 +1596,18 @@ declare namespace inputMethodEngine {
     deleteBackward(length: int, callback: AsyncCallback<boolean>): void;
 
     /**
-     * 删除光标后指定长度的文本。此API使用promise返回结果。
+     * 删除光标后固定长度的文本。使用promise异步回调。
      *
-     * @param { int } length - Text length, which cannot be less than 0.
-     * @returns { Promise<boolean> } Promise used to return the result. The value **true** means that the deletion is
-     *     successful, and **false** means the opposite.
-     * @throws { BusinessError } 401 - 参数错误. Possible causes:
-     *     1.必填参数未指定; 2.参数类型不正确.
-     * @throws { BusinessError } 12800002 - 输入法引擎错误. Possible causes:
-     *     1.输入法面板未创建. 2.输入法应用未订阅相关事件.
-     * @throws { BusinessError } 12800003 - 输入法客户端错误. Possible causes:
-     *     1.编辑框未获焦. 2.当前输入法应用未绑定编辑框.
-     *     3.因数据传输量大或其他原因导致IPC失败.
+     * @param { int } length - 文本长度。不能小于0。
+     * @returns { Promise<boolean> } Promise对象。resolve返回true表示删除光标后固定长度的文本成功；resolve返回false表示删除光标后固定长度的文本失败；reject时抛出错误对
+     *     象，表示执行过程中发生错误。
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+     * @throws { BusinessError } 12800002 - input method engine error. Possible causes:
+     *     1.input method panel not created. 2.the input method application does not subscribe to related events.
+     * @throws { BusinessError } 12800003 - input method client error. Possible causes:
+     *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     *     3.ipc failed due to the large amount of data transferred or other reasons.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9 dynamic
      * @since 23 static
@@ -1584,16 +1615,16 @@ declare namespace inputMethodEngine {
     deleteBackward(length: int): Promise<boolean>;
 
     /**
-     * Deletes the fixed-length text after the cursor.
+     * 删除光标后固定长度的文本。
      *
-     * @param { int } length - Text length, which cannot be less than 0.
-     * @throws { BusinessError } 401 - 参数错误. Possible causes:
-     *     1.必填参数未指定; 2.参数类型不正确; 3.参数校验失败.
-     * @throws { BusinessError } 12800002 - 输入法引擎错误. Possible causes:
-     *     1.输入法面板未创建. 2.输入法应用未订阅相关事件.
-     * @throws { BusinessError } 12800003 - 输入法客户端错误. Possible causes:
-     *     1.编辑框未获焦. 2.当前输入法应用未绑定编辑框.
-     *     3.因数据传输量大或其他原因导致IPC失败.
+     * @param { int } length - 文本长度。不能小于0。
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+     * @throws { BusinessError } 12800002 - input method engine error. Possible causes:
+     *     1.input method panel not created. 2.the input method application does not subscribe to related events.
+     * @throws { BusinessError } 12800003 - input method client error. Possible causes:
+     *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     *     3.ipc failed due to the large amount of data transferred or other reasons.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
      * @since 23 static
@@ -1601,18 +1632,21 @@ declare namespace inputMethodEngine {
     deleteBackwardSync(length: int): void;
 
     /**
-     * 插入文本。此API使用异步回调返回结果。
+     * 插入文本。使用callback异步回调。
+     * 
+     * **使用场景：** 插入候选词、插入特殊符号、实现文本自动补全、快速插入常用短语等。
+     * 
+     * **使用后效果：** 成功时返回true，文本已插入到编辑框光标位置。
      *
-     * @param { string } text - Text to insert.
-     * @param { AsyncCallback<boolean> } callback - Callback used to return the result. If the operation is successful,
-     *     **err** is **undefined** and **data** is **true**. Otherwise, **err** is an error object.
-     * @throws { BusinessError } 401 - 参数错误. Possible causes:
-     *     1.必填参数未指定; 2.参数类型不正确.
-     * @throws { BusinessError } 12800002 - 输入法引擎错误. Possible causes:
-     *     1.输入法面板未创建. 2.输入法应用未订阅相关事件.
-     * @throws { BusinessError } 12800003 - 输入法客户端错误. Possible causes:
-     *     1.编辑框未获焦. 2.当前输入法应用未绑定编辑框.
-     *     3.因数据传输量大或其他原因导致IPC失败.
+     * @param { string } text - 文本内容。建议长度不超过1KB。
+     * @param { AsyncCallback<boolean> } callback - 回调函数。当文本插入成功，err为undefined，data为true；否则为错误对象。
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+     * @throws { BusinessError } 12800002 - input method engine error. Possible causes:
+     *     1.input method panel not created. 2.the input method application does not subscribe to related events.
+     * @throws { BusinessError } 12800003 - input method client error. Possible causes:
+     *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     *     3.ipc failed due to the large amount of data transferred or other reasons.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9 dynamic
      * @since 23 static
@@ -1620,18 +1654,17 @@ declare namespace inputMethodEngine {
     insertText(text: string, callback: AsyncCallback<boolean>): void;
 
     /**
-     * 插入文本。此API使用promise返回结果。
+     * 插入文本。使用promise异步回调。
      *
-     * @param { string } text - Text to insert.
-     * @returns { Promise<boolean> } Promise used to return the result. The value **true** means that the insertion is
-     *     successful, and **false** means the opposite.
-     * @throws { BusinessError } 401 - 参数错误. Possible causes:
-     *     1.必填参数未指定; 2.参数类型不正确.
-     * @throws { BusinessError } 12800002 - 输入法引擎错误. Possible causes:
-     *     1.输入法面板未创建. 2.输入法应用未订阅相关事件.
-     * @throws { BusinessError } 12800003 - 输入法客户端错误. Possible causes:
-     *     1.编辑框未获焦. 2.当前输入法应用未绑定编辑框.
-     *     3.因数据传输量大或其他原因导致IPC失败.
+     * @param { string } text - 文本。
+     * @returns { Promise<boolean> } Promise对象。resolve返回true表示插入文本成功；resolve返回false表示插入文本失败；reject时抛出错误对象，表示执行过程中发生错误。
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+     * @throws { BusinessError } 12800002 - input method engine error. Possible causes:
+     *     1.input method panel not created. 2.the input method application does not subscribe to related events.
+     * @throws { BusinessError } 12800003 - input method client error. Possible causes:
+     *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     *     3.ipc failed due to the large amount of data transferred or other reasons.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9 dynamic
      * @since 23 static
@@ -1639,16 +1672,16 @@ declare namespace inputMethodEngine {
     insertText(text: string): Promise<boolean>;
 
     /**
-     * Inserts text.
+     * 插入文本。
      *
-     * @param { string } text - Text to insert.
-     * @throws { BusinessError } 401 - 参数错误. Possible causes:
-     *     1.必填参数未指定; 2.参数类型不正确.
-     * @throws { BusinessError } 12800002 - 输入法引擎错误. Possible causes:
-     *     1.输入法面板未创建. 2.输入法应用未订阅相关事件.
-     * @throws { BusinessError } 12800003 - 输入法客户端错误. Possible causes:
-     *     1.编辑框未获焦. 2.当前输入法应用未绑定编辑框.
-     *     3.因数据传输量大或其他原因导致IPC失败.
+     * @param { string } text - 文本内容。建议长度不超过1KB。建议长度不超过1KB。
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+     * @throws { BusinessError } 12800002 - input method engine error. Possible causes:
+     *     1.input method panel not created. 2.the input method application does not subscribe to related events.
+     * @throws { BusinessError } 12800003 - input method client error. Possible causes:
+     *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     *     3.ipc failed due to the large amount of data transferred or other reasons.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
      * @since 23 static
@@ -1656,18 +1689,19 @@ declare namespace inputMethodEngine {
     insertTextSync(text: string): void;
 
     /**
-     * 获取光标前指定长度的文本。此API使用异步回调返回结果。
+     * 获取光标前固定长度的文本。使用callback异步回调。
+     * **使用场景：** 分析已输入文本内容以提供智能补全建议、检查文本格式、实现文本预测功能、实现文本语义分析等。
+     * **使用后效果：** 成功时返回光标前指定长度的文本字符串，输入法应用可据此更新候选词或输入建议。
      *
-     * @param { int } length - Text length, which cannot be less than 0.
-     * @param { AsyncCallback<string> } callback - Callback used to return the result. If the operation is successful,
-     *     **err** is **undefined** and **data** is the obtained text. Otherwise, **err** is an error object.
-     * @throws { BusinessError } 401 - 参数错误. Possible causes:
-     *     1.必填参数未指定; 2.参数类型不正确.
-     * @throws { BusinessError } 12800003 - 输入法客户端错误. Possible causes:
-     *     1.编辑框未获焦. 2.当前输入法应用未绑定编辑框.
-     *     3.因数据传输量大或其他原因导致IPC失败.
-     * @throws { BusinessError } 12800006 - 输入法控制器错误. Possible cause:
-     *     创建InputMethodController对象失败.
+     * @param { int } length - 文本长度。不能小于0。
+     * @param { AsyncCallback<string> } callback - 回调函数。当光标前固定长度的文本获取成功，err为undefined，data为获取到的文本；否则为错误对象。
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+     * @throws { BusinessError } 12800003 - input method client error. Possible causes:
+     *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     *     3.ipc failed due to the large amount of data transferred or other reasons.
+     * @throws { BusinessError } 12800006 - input method controller error. Possible cause:
+     *     create InputMethodController object failed.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9 dynamic
      * @since 23 static
@@ -1675,17 +1709,17 @@ declare namespace inputMethodEngine {
     getForward(length: int, callback: AsyncCallback<string>): void;
 
     /**
-     * 获取光标前指定长度的文本。此API使用promise返回结果。
+     * 获取光标前固定长度的文本。使用promise异步回调。
      *
-     * @param { int } length - Text length, which cannot be less than 0.
-     * @returns { Promise<string> } Promise used to return the specific-length text before the cursor.
-     * @throws { BusinessError } 401 - 参数错误. Possible causes:
-     *     1.必填参数未指定; 2.参数类型不正确.
-     * @throws { BusinessError } 12800003 - 输入法客户端错误. Possible causes:
-     *     1.编辑框未获焦. 2.当前输入法应用未绑定编辑框.
-     *     3.因数据传输量大或其他原因导致IPC失败.
-     * @throws { BusinessError } 12800006 - 输入法控制器错误. Possible cause:
-     *     创建InputMethodController对象失败.
+     * @param { int } length - 文本长度。不能小于0
+     * @returns { Promise<string> } Promise对象，返回光标前固定长度的文本。
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+     * @throws { BusinessError } 12800003 - input method client error. Possible causes:
+     *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     *     3.ipc failed due to the large amount of data transferred or other reasons.
+     * @throws { BusinessError } 12800006 - input method controller error. Possible cause:
+     *     create InputMethodController object failed.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9 dynamic
      * @since 23 static
@@ -1693,17 +1727,17 @@ declare namespace inputMethodEngine {
     getForward(length: int): Promise<string>;
 
     /**
-     * Obtains the specific-length text before the cursor.
+     * 获取光标前固定长度的文本。
      *
-     * @param { int } length - Text length, which cannot be less than 0.
-     * @returns { string } Specific-length text before the cursor.
-     * @throws { BusinessError } 401 - 参数错误. Possible causes:
-     *     1.必填参数未指定; 2.参数类型不正确; 3.参数校验失败.
-     * @throws { BusinessError } 12800003 - 输入法客户端错误. Possible causes:
-     *     1.编辑框未获焦. 2.当前输入法应用未绑定编辑框.
-     *     3.因数据传输量大或其他原因导致IPC失败.
-     * @throws { BusinessError } 12800006 - 输入法控制器错误. Possible cause:
-     *     创建InputMethodController对象失败.
+     * @param { int } length - 文本长度。不能小于0。
+     * @returns { string } 返回光标前固定长度的文本。
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+     * @throws { BusinessError } 12800003 - input method client error. Possible causes:
+     *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     *     3.ipc failed due to the large amount of data transferred or other reasons.
+     * @throws { BusinessError } 12800006 - input method controller error. Possible cause:
+     *     create InputMethodController object failed.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
      * @since 23 static
@@ -1711,18 +1745,17 @@ declare namespace inputMethodEngine {
     getForwardSync(length: int): string;
 
     /**
-     * 获取光标后指定长度的文本。此API使用异步回调返回结果。
+     * 获取光标后固定长度的文本。使用callback异步回调。
      *
-     * @param { int } length - Text length, which cannot be less than 0.
-     * @param { AsyncCallback<string> } callback - Callback used to return the result. If the operation is successful,
-     *     **err** is **undefined** and **data** is the obtained text. Otherwise, **err** is an error object.
-     * @throws { BusinessError } 401 - 参数错误. Possible causes:
-     *     1.必填参数未指定; 2.参数类型不正确.
-     * @throws { BusinessError } 12800003 - 输入法客户端错误. Possible causes:
-     *     1.编辑框未获焦. 2.当前输入法应用未绑定编辑框.
-     *     3.因数据传输量大或其他原因导致IPC失败.
-     * @throws { BusinessError } 12800006 - 输入法控制器错误. Possible cause:
-     *     创建InputMethodController对象失败.
+     * @param { int } length - 文本长度。不能小于0。
+     * @param { AsyncCallback<string> } callback - 回调函数。当光标后固定长度的文本获取成功，err为undefined，data为获取到的文本；否则为错误对象。
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+     * @throws { BusinessError } 12800003 - input method client error. Possible causes:
+     *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     *     3.ipc failed due to the large amount of data transferred or other reasons.
+     * @throws { BusinessError } 12800006 - input method controller error. Possible cause:
+     *     create InputMethodController object failed.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9 dynamic
      * @since 23 static
@@ -1730,17 +1763,17 @@ declare namespace inputMethodEngine {
     getBackward(length: int, callback: AsyncCallback<string>): void;
 
     /**
-     * 获取光标后指定长度的文本。此API使用promise返回结果。
+     * 获取光标后固定长度的文本。使用promise异步回调。
      *
-     * @param { int } length - Text length, which cannot be less than 0.
-     * @returns { Promise<string> } Promise used to return the specific-length text after the cursor.
-     * @throws { BusinessError } 401 - 参数错误. Possible causes:
-     *     1.必填参数未指定; 2.参数类型不正确.
-     * @throws { BusinessError } 12800003 - 输入法客户端错误. Possible causes:
-     *     1.编辑框未获焦. 2.当前输入法应用未绑定编辑框.
-     *     3.因数据传输量大或其他原因导致IPC失败.
-     * @throws { BusinessError } 12800006 - 输入法控制器错误. Possible cause:
-     *     创建InputMethodController对象失败.
+     * @param { int } length - 文本长度。不能小于0。
+     * @returns { Promise<string> } Promise对象，返回光标后固定长度的文本。
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+     * @throws { BusinessError } 12800003 - input method client error. Possible causes:
+     *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     *     3.ipc failed due to the large amount of data transferred or other reasons.
+     * @throws { BusinessError } 12800006 - input method controller error. Possible cause:
+     *     create InputMethodController object failed.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9 dynamic
      * @since 23 static
@@ -1748,17 +1781,17 @@ declare namespace inputMethodEngine {
     getBackward(length: int): Promise<string>;
 
     /**
-     * Obtains the specific-length text after the cursor.
+     * 获取光标后固定长度的文本。
      *
-     * @param { int } length - Text length, which cannot be less than 0.
-     * @returns { string } Specific-length text after the cursor.
-     * @throws { BusinessError } 401 - 参数错误. Possible causes:
-     *     1.必填参数未指定; 2.参数类型不正确; 3.参数校验失败.
-     * @throws { BusinessError } 12800003 - 输入法客户端错误. Possible causes:
-     *     1.编辑框未获焦. 2.当前输入法应用未绑定编辑框.
-     *     3.因数据传输量大或其他原因导致IPC失败.
-     * @throws { BusinessError } 12800006 - 输入法控制器错误. Possible cause:
-     *     创建InputMethodController对象失败.
+     * @param { int } length - 文本长度。不能小于0。
+     * @returns { string } 返回光标后固定长度的文本。
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+     * @throws { BusinessError } 12800003 - input method client error. Possible causes:
+     *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     *     3.ipc failed due to the large amount of data transferred or other reasons.
+     * @throws { BusinessError } 12800006 - input method controller error. Possible cause:
+     *     create InputMethodController object failed.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
      * @since 23 static
@@ -1766,94 +1799,97 @@ declare namespace inputMethodEngine {
     getBackwardSync(length: int): string;
 
     /**
-     * 获取编辑框属性。此API使用异步回调返回结果。
+     * 获取编辑框属性值。使用callback异步回调。
+     * 
+     * **使用场景：** 根据编辑框类型调整输入法界面、根据编辑框配置提供不同的输入建议、实现特定输入逻辑、适配不同类型的输入框等。
+     * 
+     * **使用后效果：** 返回编辑框属性信息（包括inputPattern输入类型和enterKeyType回车键类型），输入法应用据此调整键盘布局。
      *
-     * @param { AsyncCallback<EditorAttribute> } callback - Callback used to return the result. If the operation is
-     *     successful, **err** is **undefined** and **data** is the attribute of the edit box. Otherwise, **err** is an
-     *     error object.
-     * @throws { BusinessError } 12800003 - 输入法客户端错误. Possible causes:
-     *     1.编辑框未获焦. 2.当前输入法应用未绑定编辑框.
-     *     3.因数据传输量大或其他原因导致IPC失败.
+     * @param { AsyncCallback<EditorAttribute> } callback - 回调函数。当编辑框属性值获取成功，err为undefined，data为编辑框属性值；否则为错误对象。
+     * @throws { BusinessError } 12800003 - input method client error. Possible causes:
+     *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     *     3.ipc failed due to the large amount of data transferred or other reasons.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9 dynamic
      */
     getEditorAttribute(callback: AsyncCallback<EditorAttribute>): void;
 
     /**
-     * Get attribute about editor.
+     * 获取编辑框属性值。使用callback异步回调。
      *
-     * @param { AsyncCallback<EditorAttribute | null> } callback - the callback of getEditorAttribute.
-     * @throws { BusinessError } 12800003 - 输入法客户端错误. Possible causes:
-     *     1.编辑框未获焦. 2.当前输入法应用未绑定编辑框.
-     *     3.因数据传输量大或其他原因导致IPC失败.
+     * @param { AsyncCallback<EditorAttribute | null> } 回调函数。当编辑框属性值获取成功，err为undefined，data为编辑框属性值；否则为错误对象。
+     * @throws { BusinessError } 12800003 - input method client error. Possible causes:
+     *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     *     3.ipc failed due to the large amount of data transferred or other reasons.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 23 static
      */
     getEditorAttribute(callback: AsyncCallback<EditorAttribute | null>): void;
 
     /**
-     * 获取编辑框属性。此API使用promise返回结果。
+     * 获取编辑框属性值。使用promise异步回调。
      *
-     * @returns { Promise<EditorAttribute> } Promise used to return the attribute of the edit box.
-     * @throws { BusinessError } 12800003 - 输入法客户端错误. Possible causes:
-     *     1.编辑框未获焦. 2.当前输入法应用未绑定编辑框.
-     *     3.因数据传输量大或其他原因导致IPC失败.
+     * @returns { Promise<EditorAttribute> } Promise对象，返回编辑框属性值。
+     * @throws { BusinessError } 12800003 - input method client error. Possible causes:
+     *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     *     3.ipc failed due to the large amount of data transferred or other reasons.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9 dynamic
      */
     getEditorAttribute(): Promise<EditorAttribute>;
 
     /**
-     * Get attribute about editor.
+     * 获取编辑框属性值。使用promise异步回调。
      *
-     * @returns { Promise<EditorAttribute | null> } the promise returned by the function.
-     * @throws { BusinessError } 12800003 - 输入法客户端错误. Possible causes:
-     *     1.编辑框未获焦. 2.当前输入法应用未绑定编辑框.
-     *     3.因数据传输量大或其他原因导致IPC失败.
+     * @returns { Promise<EditorAttribute | null> } Promise对象，返回编辑框属性值。
+     * @throws { BusinessError } 12800003 - input method client error. Possible causes:
+     *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     *     3.ipc failed due to the large amount of data transferred or other reasons.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 23 static
      */
     getEditorAttribute(): Promise<EditorAttribute | null>;
 
     /**
-     * Obtains the attribute of the edit box.
+     * 获取编辑框属性值。
      *
-     * @returns { EditorAttribute } Attribute information.
-     * @throws { BusinessError } 12800003 - 输入法客户端错误. Possible causes:
-     *     1.编辑框未获焦. 2.当前输入法应用未绑定编辑框.
-     *     3.因数据传输量大或其他原因导致IPC失败.
+     * @returns { EditorAttribute } 编辑框属性对象。
+     * @throws { BusinessError } 12800003 - input method client error. Possible causes:
+     *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     *     3.ipc failed due to the large amount of data transferred or other reasons.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
      */
     getEditorAttributeSync(): EditorAttribute;
 
     /**
-     * Get attribute about editor.
+     * 获取编辑框属性值。
      *
-     * @returns { EditorAttribute | null } the attribute of editor.
-     * @throws { BusinessError } 12800003 - 输入法客户端错误. Possible causes:
-     *     1.编辑框未获焦. 2.当前输入法应用未绑定编辑框.
-     *     3.因数据传输量大或其他原因导致IPC失败.
+     * @returns { EditorAttribute | null } 编辑框属性对象。
+     * @throws { BusinessError } 12800003 - input method client error. Possible causes:
+     *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     *     3.ipc failed due to the large amount of data transferred or other reasons.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 23 static
      */
     getEditorAttributeSync(): EditorAttribute | null;
 
     /**
-     * 移动光标。此API使用异步回调返回结果。
+     * 移动光标。使用callback异步回调。
+     * 
+     * **使用场景：** 实现光标移动到特定位置、实现上下左右移动光标功能、实现快速定位、实现自定义光标控制等。
+     * 
+     * **使用后效果：** 成功时编辑框中的光标按指定方向移动一步。direction取值参见
+     * [光标常量](docroot://reference/apis-ime-kit/js-apis-inputmethodengine.md#工具不太能识别具体链接到的是哪个常量。让人工处理。咨询黄山）)，1为上移，2为下移，3为
+     * 左移，4为右移。
      *
-     * @param { int } direction - Direction in which the cursor moves.
-     *     <br>- **1**: upward.
-     *     <br>- **2**: downward.
-     *     <br>- **3**: leftward.
-     *     <br>- **4**: rightward. which cannot be less than 0.
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
-     *     **err** is **undefined**. Otherwise, **err** is an error object.
-     * @throws { BusinessError } 401 - 参数错误. Possible causes:
-     *     1.必填参数未指定; 2.参数类型不正确; 3.参数校验失败.
-     * @throws { BusinessError } 12800003 - 输入法客户端错误. Possible causes:
-     *     1.编辑框未获焦. 2.当前输入法应用未绑定编辑框.
-     *     3.因数据传输量大或其他原因导致IPC失败.
+     * @param { int } direction - 光标移动方向。<br/>- 当值为1时，表示向上。<br/>- 当值为2时，表示向下。<br/>- 当值为3时，表示向左。<br/>- 当值为4时，表示向右。不能小于0。
+     * @param { AsyncCallback<void> } callback - 回调函数。当光标移动成功，err为undefined，否则为错误对象。
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+     * @throws { BusinessError } 12800003 - input method client error. Possible causes:
+     *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     *     3.ipc failed due to the large amount of data transferred or other reasons.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9 dynamic
      * @since 23 static
@@ -1861,19 +1897,15 @@ declare namespace inputMethodEngine {
     moveCursor(direction: int, callback: AsyncCallback<void>): void;
 
     /**
-     * 移动光标。此API使用promise返回结果。
+     * 移动光标。使用promise异步回调。
      *
-     * @param { int } direction - Direction in which the cursor moves.
-     *     <br>- **1**: upward.
-     *     <br>- **2**: downward.
-     *     <br>- **3**: leftward.
-     *     <br>- **4**: rightward. which cannot be less than 0.
-     * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 401 - 参数错误. Possible causes:
-     *     1.必填参数未指定; 2.参数类型不正确; 3.参数校验失败.
-     * @throws { BusinessError } 12800003 - 输入法客户端错误. Possible causes:
-     *     1.编辑框未获焦. 2.当前输入法应用未绑定编辑框.
-     *     3.因数据传输量大或其他原因导致IPC失败.
+     * @param { int } direction - 光标移动方向。<br/>- 当值为1时，表示向上。<br/>- 当值为2时，表示向下。<br/>- 当值为3时，表示向左。<br/>- 当值为4时，表示向右。不能小于0。
+     * @returns { Promise<void> } 无返回结果的Promise对象。
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+     * @throws { BusinessError } 12800003 - input method client error. Possible causes:
+     *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     *     3.ipc failed due to the large amount of data transferred or other reasons.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9 dynamic
      * @since 23 static
@@ -1881,18 +1913,14 @@ declare namespace inputMethodEngine {
     moveCursor(direction: int): Promise<void>;
 
     /**
-     * Moves the cursor.
+     * 移动光标。 
      *
-     * @param { int } direction - Direction in which the cursor moves.
-     *     <br>- **1**: upward.
-     *     <br>- **2**: downward.
-     *     <br>- **3**: leftward.
-     *     <br>- **4**: rightward. which cannot be less than 0.
-     * @throws { BusinessError } 401 - 参数错误. Possible causes:
-     *     1.必填参数未指定; 2.参数类型不正确; 3.参数校验失败.
-     * @throws { BusinessError } 12800003 - 输入法客户端错误. Possible causes:
-     *     1.编辑框未获焦. 2.当前输入法应用未绑定编辑框.
-     *     3.因数据传输量大或其他原因导致IPC失败.
+     * @param { int } direction - 光标移动方向。<br/>- 当值为1时，表示向上。<br/>- 当值为2时，表示向下。<br/>- 当值为3时，表示向左。<br/>- 当值为4时，表示向右。不能小于0。
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+     * @throws { BusinessError } 12800003 - input method client error. Possible causes:
+     *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     *     3.ipc failed due to the large amount of data transferred or other reasons.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
      * @since 23 static
@@ -1900,16 +1928,15 @@ declare namespace inputMethodEngine {
     moveCursorSync(direction: int): void;
 
     /**
-     * 根据指定范围选择文本。此API使用异步回调返回结果。
+     * 根据索引范围选中文本。使用callback异步回调。
      *
-     * @param { Range } range - Range of the selected text.
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the selection event is sent,
-     *     **err** is **undefined**; otherwise, **err** is an error object.
-     * @throws { BusinessError } 401 - 参数错误. Possible causes:
-     *     1.必填参数未指定; 2.参数类型不正确; 3.参数校验失败.
-     * @throws { BusinessError } 12800003 - 输入法客户端错误. Possible causes:
-     *     1.编辑框未获焦. 2.当前输入法应用未绑定编辑框.
-     *     3.因数据传输量大或其他原因导致IPC失败.
+     * @param { Range } range - 选中文本的范围。
+     * @param { AsyncCallback<void> } callback - 回调函数。当成功发送选中事件后，err为undefined，否则为错误对象。
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+     * @throws { BusinessError } 12800003 - input method client error. Possible causes:
+     *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     *     3.ipc failed due to the large amount of data transferred or other reasons.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
      * @since 23 static
@@ -1917,15 +1944,15 @@ declare namespace inputMethodEngine {
     selectByRange(range: Range, callback: AsyncCallback<void>): void;
 
     /**
-     * 根据指定范围选择文本。此API使用promise返回结果。
+     * 根据索引范围选中文本。使用promise异步回调。
      *
-     * @param { Range } range - Range of the selected text.
-     * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 401 - 参数错误. Possible causes:
-     *     1.必填参数未指定; 2.参数类型不正确; 3.参数校验失败.
-     * @throws { BusinessError } 12800003 - 输入法客户端错误. Possible causes:
-     *     1.编辑框未获焦. 2.当前输入法应用未绑定编辑框.
-     *     3.因数据传输量大或其他原因导致IPC失败.
+     * @param { Range } range - 选中文本的范围。
+     * @returns { Promise<void> } 无返回结果的Promise对象。
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+     * @throws { BusinessError } 12800003 - input method client error. Possible causes:
+     *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     *     3.ipc failed due to the large amount of data transferred or other reasons.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
      * @since 23 static
@@ -1933,14 +1960,14 @@ declare namespace inputMethodEngine {
     selectByRange(range: Range): Promise<void>;
 
     /**
-     * Selects text based on the specified range.
+     * 根据索引范围选中文本。
      *
-     * @param { Range } range - Range of the selected text.
-     * @throws { BusinessError } 401 - 参数错误. Possible causes:
-     *     1.必填参数未指定; 2.参数类型不正确; 3.参数校验失败.
-     * @throws { BusinessError } 12800003 - 输入法客户端错误. Possible causes:
-     *     1.编辑框未获焦. 2.当前输入法应用未绑定编辑框.
-     *     3.因数据传输量大或其他原因导致IPC失败.
+     * @param { Range } range - 选中文本的范围。
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+     * @throws { BusinessError } 12800003 - input method client error. Possible causes:
+     *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     *     3.ipc failed due to the large amount of data transferred or other reasons.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
      * @since 23 static
@@ -1948,16 +1975,15 @@ declare namespace inputMethodEngine {
     selectByRangeSync(range: Range): void;
 
     /**
-     * 根据光标移动方向选择文本。此API使用异步回调返回结果。
+     * 根据光标移动方向选中文本。使用callback异步回调。
      *
-     * @param { Movement } movement - 选择文本时光标移动的方向。
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the selection event is sent,
-     *     **err** is **undefined**; otherwise, **err** is an error object.
-     * @throws { BusinessError } 401 - 参数错误. Possible causes:
-     *     1.必填参数未指定; 2.参数类型不正确; 3.参数校验失败.
-     * @throws { BusinessError } 12800003 - 输入法客户端错误. Possible causes:
-     *     1.编辑框未获焦. 2.当前输入法应用未绑定编辑框.
-     *     3.因数据传输量大或其他原因导致IPC失败.
+     * @param { Movement } movement - 选中时光标移动的方向。
+     * @param { AsyncCallback<void> } callback - 回调函数。当成功发送选中事件后，err为undefined，否则为错误对象。
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+     * @throws { BusinessError } 12800003 - input method client error. Possible causes:
+     *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     *     3.ipc failed due to the large amount of data transferred or other reasons.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
      * @since 23 static
@@ -1965,15 +1991,15 @@ declare namespace inputMethodEngine {
     selectByMovement(movement: Movement, callback: AsyncCallback<void>): void;
 
     /**
-     * 根据光标移动方向选择文本。此API使用promise返回结果。
+     * 根据光标移动方向选中文本。使用promise异步回调。
      *
-     * @param { Movement } movement - 选择文本时光标移动的方向。
-     * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 401 - 参数错误. Possible causes:
-     *     1.必填参数未指定; 2.参数类型不正确; 3.参数校验失败.
-     * @throws { BusinessError } 12800003 - 输入法客户端错误. Possible causes:
-     *     1.编辑框未获焦. 2.当前输入法应用未绑定编辑框.
-     *     3.因数据传输量大或其他原因导致IPC失败.
+     * @param { Movement } movement - 选中时光标移动的方向。
+     * @returns { Promise<void> } 无返回结果的Promise对象。
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+     * @throws { BusinessError } 12800003 - input method client error. Possible causes:
+     *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     *     3.ipc failed due to the large amount of data transferred or other reasons.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
      * @since 23 static
@@ -1981,14 +2007,14 @@ declare namespace inputMethodEngine {
     selectByMovement(movement: Movement): Promise<void>;
 
     /**
-     * Selects text based on the cursor movement direction.
+     * 根据光标移动方向选中文本。
      *
-     * @param { Movement } movement - 选择文本时光标移动的方向。
-     * @throws { BusinessError } 401 - 参数错误. Possible causes:
-     *     1.必填参数未指定; 2.参数类型不正确.
-     * @throws { BusinessError } 12800003 - 输入法客户端错误. Possible causes:
-     *     1.编辑框未获焦. 2.当前输入法应用未绑定编辑框.
-     *     3.因数据传输量大或其他原因导致IPC失败.
+     * @param { Movement } movement - 选中时光标移动的方向。
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+     * @throws { BusinessError } 12800003 - input method client error. Possible causes:
+     *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     *     3.ipc failed due to the large amount of data transferred or other reasons.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
      * @since 23 static
@@ -1996,16 +2022,15 @@ declare namespace inputMethodEngine {
     selectByMovementSync(movement: Movement): void;
 
     /**
-     * Obtains the index of the text where the cursor is located. This API uses an asynchronous callback to return the 
-     * result.
+     * 获取光标所在处的文本索引。使用callback异步回调。
      *
-     * @param { AsyncCallback<int> } callback - Callback used to return the result. If the text index is obtained,
-     *     **err** is **undefined**; otherwise, **err** is an error object.
-     * @throws { BusinessError } 12800003 - 输入法客户端错误. Possible causes:
-     *     1.编辑框未获焦. 2.当前输入法应用未绑定编辑框.
-     *     3.因数据传输量大或其他原因导致IPC失败.
-     * @throws { BusinessError } 12800006 - 输入法控制器错误. Possible cause:
-     *     创建InputMethodController对象失败.
+     * @param { AsyncCallback<int> } callback - 回调函数。当文本索引获取成功，err为undefined，index为光标所在处的文本索引；否则err为错误对象，index为
+     *     undefined。
+     * @throws { BusinessError } 12800003 - input method client error. Possible causes:
+     *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     *     3.ipc failed due to the large amount of data transferred or other reasons.
+     * @throws { BusinessError } 12800006 - input method controller error. Possible cause:
+     *     create InputMethodController object failed.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
      * @since 23 static
@@ -2013,14 +2038,14 @@ declare namespace inputMethodEngine {
     getTextIndexAtCursor(callback: AsyncCallback<int>): void;
 
     /**
-     * 获取光标所在文本的索引。此API使用promise返回结果。
+     * 获取光标所在处的文本索引。使用promise异步回调。
      *
-     * @returns { Promise<int> } Promise used to return the result.
-     * @throws { BusinessError } 12800003 - 输入法客户端错误. Possible causes:
-     *     1.编辑框未获焦. 2.当前输入法应用未绑定编辑框.
-     *     3.因数据传输量大或其他原因导致IPC失败.
-     * @throws { BusinessError } 12800006 - 输入法控制器错误. Possible cause:
-     *     创建InputMethodController对象失败.
+     * @returns { Promise<int> } Promise对象，返回光标所在处的文本索引。
+     * @throws { BusinessError } 12800003 - input method client error. Possible causes:
+     *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     *     3.ipc failed due to the large amount of data transferred or other reasons.
+     * @throws { BusinessError } 12800006 - input method controller error. Possible cause:
+     *     create InputMethodController object failed.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
      * @since 23 static
@@ -2028,14 +2053,14 @@ declare namespace inputMethodEngine {
     getTextIndexAtCursor(): Promise<int>;
 
     /**
-     * Obtains the index of the text where the cursor is located.
+     * 获取光标所在处的文本索引。
      *
-     * @returns { int } Index of the text where the cursor is located.
-     * @throws { BusinessError } 12800003 - 输入法客户端错误. Possible causes:
-     *     1.编辑框未获焦. 2.当前输入法应用未绑定编辑框.
-     *     3.因数据传输量大或其他原因导致IPC失败.
-     * @throws { BusinessError } 12800006 - 输入法控制器错误. Possible cause:
-     *     创建InputMethodController对象失败.
+     * @returns { int } 返回光标所在处的文本索引。
+     * @throws { BusinessError } 12800003 - input method client error. Possible causes:
+     *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     *     3.ipc failed due to the large amount of data transferred or other reasons.
+     * @throws { BusinessError } 12800006 - input method controller error. Possible cause:
+     *     create InputMethodController object failed.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
      * @since 23 static
@@ -2043,30 +2068,17 @@ declare namespace inputMethodEngine {
     getTextIndexAtCursorSync(): int;
 
     /**
-     * 发送扩展编辑操作。此API使用异步回调返回结果。
-     * 
-     * > **NOTE**
-     * >
-     * > The input method applications call this API to send extended edit actions to the edit box. The edit box listens
-     * > for the corresponding event using 
-     * > [on('handleExtendAction')]{@link @ohos.inputMethod:inputMethod.InputMethodController.on(type: 'handleExtendAction',
-     *  callback: (action: ExtendAction) => void): void} for further processing.
-     * >
-     * > When the edit box responds to the **PASTE** command of [ExtendAction]{@link inputMethodEngine.ExtendAction}, 
-     * > the edit box application needs to apply for the 
-     * > [ohos.permission.READ_PASTEBOARD](docroot://security/AccessToken/restricted-permissions.md#ohospermissionread_pasteboard)
-     * > permission.
+     * 发送扩展编辑操作。使用callback异步回调。
      *
-     * @param { ExtendAction } action - Extended edit action to send.
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
-     *     **err** is **undefined**. Otherwise, **err** is an error object.
-     * @throws { BusinessError } 401 - 参数错误. Possible causes:
-     *     1.必填参数未指定; 2.参数类型不正确
-     * @throws { BusinessError } 12800003 - 输入法客户端错误. Possible causes:
-     *     1.编辑框未获焦. 2.当前输入法应用未绑定编辑框.
-     *     3.因数据传输量大或其他原因导致IPC失败.
-     * @throws { BusinessError } 12800006 - 输入法控制器错误. Possible cause:
-     *     创建InputMethodController对象失败.
+     * @param { ExtendAction } action - 要发送的扩展操作。
+     * @param { AsyncCallback<void> } callback - 回调函数。发送成功，err为undefined，否则为错误对象。
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types
+     * @throws { BusinessError } 12800003 - input method client error. Possible causes:
+     *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     *     3.ipc failed due to the large amount of data transferred or other reasons.
+     * @throws { BusinessError } 12800006 - input method controller error. Possible cause:
+     *     create InputMethodController object failed.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
      * @since 23 static
@@ -2074,30 +2086,17 @@ declare namespace inputMethodEngine {
     sendExtendAction(action: ExtendAction, callback: AsyncCallback<void>): void;
 
     /**
-     * 发送扩展编辑操作。此API使用promise返回结果。
-     * 
-     * > **NOTE**
-     * >
-     * > The input method applications call this API to send extended edit actions to the edit box. The edit box listens
-     * > for the corresponding event using 
-     * > [on('handleExtendAction')]{@link @ohos.inputMethod:inputMethod.InputMethodController.on(type: 'handleExtendAction',
-     *  callback: (action: ExtendAction) => void): void;} for
-     * > further processing.
-     * >
-     * > When the edit box responds to the **PASTE** command of [ExtendAction]{@link inputMethodEngine.ExtendAction}, 
-     * > the edit box application needs to apply for the 
-     * > [ohos.permission.READ_PASTEBOARD](docroot://security/AccessToken/restricted-permissions.md#ohospermissionread_pasteboard)
-     * > permission.
+     * 发送扩展编辑操作。使用promise异步回调。
      *
-     * @param { ExtendAction } action - Extended edit action to send.
-     * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 401 - 参数错误. Possible causes:
-     *     1.必填参数未指定; 2.参数类型不正确
-     * @throws { BusinessError } 12800003 - 输入法客户端错误. Possible causes:
-     *     1.编辑框未获焦. 2.当前输入法应用未绑定编辑框.
-     *     3.因数据传输量大或其他原因导致IPC失败.
-     * @throws { BusinessError } 12800006 - 输入法控制器错误. Possible cause:
-     *     创建InputMethodController对象失败.
+     * @param { ExtendAction } action - 要发送的扩展操作。
+     * @returns { Promise<void> } 无返回结果的Promise对象。
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types
+     * @throws { BusinessError } 12800003 - input method client error. Possible causes:
+     *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     *     3.ipc failed due to the large amount of data transferred or other reasons.
+     * @throws { BusinessError } 12800006 - input method controller error. Possible cause:
+     *     create InputMethodController object failed.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
      * @since 23 static
@@ -2105,25 +2104,16 @@ declare namespace inputMethodEngine {
     sendExtendAction(action: ExtendAction): Promise<void>;
 
     /**
-     * Sends private data to the system component that needs to communicate with the input method application. This API 
-     * uses a promise to return the result.
-     * 
-     * > **NOTE**
-     * >
-     * > - The private data channel allows communication between the system preset input method application and specific
-     * > system components (such as a text box or a home screen application). It is usually used to implement custom 
-     * > input on a specific device.
-     * >
-     * > - 私有数据的总大小为32KB，私有数据记录的最大数量为5。
+     * 发送私有数据至需要与输入法应用通信的系统其他部分。使用promise异步回调。
      *
-     * @param { Record<string, CommandDataType> } commandData - Private data to send.
-     * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 401 - 参数错误. Possible causes:
-     *     1.必填参数未指定; 2.参数类型不正确; 3.参数校验失败.
-     * @throws { BusinessError } 12800003 - 输入法客户端错误. Possible causes:
-     *     1.编辑框未获焦. 2.当前输入法应用未绑定编辑框.
-     *     3.因数据传输量大或其他原因导致IPC失败.
-     * @throws { BusinessError } 12800010 - 非预配置的系统默认输入法.
+     * @param { Record<string, CommandDataType> } commandData - 私有数据。
+     * @returns { Promise<void> } 无返回结果的Promise对象。
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+     * @throws { BusinessError } 12800003 - input method client error. Possible causes:
+     *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     *     3.ipc failed due to the large amount of data transferred or other reasons.
+     * @throws { BusinessError } 12800010 - not the preconfigured default input method.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 12 dynamic
      * @since 23 static
@@ -2131,61 +2121,47 @@ declare namespace inputMethodEngine {
     sendPrivateCommand(commandData: Record<string, CommandDataType>): Promise<void>;
 
     /**
-     * Obtains information about the application window, in which the input box that starts an input method is located. 
-     * This API uses a promise to return the result.
-     * 
-     * > **NOTE**
-     * >
-     * > This API applies only to the input method applications that use [Panel]{@link inputMethodEngine.Panel} as the 
-     * > soft keyboard window.
+     * 获取当前拉起输入法的输入框所在应用窗口信息。使用promise异步回调。
      *
-     * @returns { Promise<WindowInfo> } Promise used to return the information obtained.
-     * @throws { BusinessError } 12800003 - 输入法客户端错误. Possible causes:
-     *     1.编辑框未获焦. 2.当前输入法应用未绑定编辑框.
-     *     3.因数据传输量大或其他原因导致IPC失败.
-     * @throws { BusinessError } 12800012 - the 输入法面板不存在.
-     * @throws { BusinessError } 12800013 - 窗口管理服务错误.
+     * @returns { Promise<WindowInfo> } Promise对象，返回拉起输入法的输入框所在应用窗口信息。
+     * @throws { BusinessError } 12800003 - input method client error. Possible causes:
+     *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     *     3.ipc failed due to the large amount of data transferred or other reasons.
+     * @throws { BusinessError } 12800012 - the input method panel does not exist.
+     * @throws { BusinessError } 12800013 - window manager service error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 12 dynamic
      */
     getCallingWindowInfo(): Promise<WindowInfo>;
 
     /**
-     * Get info of the calling window.
+     * 获取当前拉起输入法的输入框所在应用窗口信息。使用promise异步回调。
      *
-     * @returns { Promise<WindowInfo | null> } the promise returned by the function.
-     * @throws { BusinessError } 12800003 - 输入法客户端错误. Possible causes:
-     *     1.编辑框未获焦. 2.当前输入法应用未绑定编辑框.
-     *     3.因数据传输量大或其他原因导致IPC失败.
-     * @throws { BusinessError } 12800012 - the 输入法面板不存在.
-     * @throws { BusinessError } 12800013 - 窗口管理服务错误.
+     * @returns { Promise<WindowInfo | null> } Promise对象，返回拉起输入法的输入框所在应用窗口信息。
+     * @throws { BusinessError } 12800003 - input method client error. Possible causes:
+     *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     *     3.ipc failed due to the large amount of data transferred or other reasons.
+     * @throws { BusinessError } 12800012 - the input method panel does not exist.
+     * @throws { BusinessError } 12800013 - window manager service error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 23 static
      */
     getCallingWindowInfo(): Promise<WindowInfo | null>;
 
     /**
-     * 设置预览文本。此API使用promise返回结果。
+     * 设置预上屏文本。使用promise异步回调。
      *
-     * @param { string } text - Preview text to set.
-     * @param { Range } range - Range of the preview text.
-     *     <br>- If the value is { start: -1, end: -1 }, **text**
-     *     replaces the entire text in the current preview area by default.
-     *     <br>- If **start** is equal to **end**,
-     *     **text** is inserted into the cursor position specified by **start**.
-     *     <br>- If **start** is not equal to **end**, **text** replaces the text of the specified range.
-     *     <br>- If the values of **start** and **end** are negative values, a parameter error is returned.
-     *     <br>- If there is preview text in the text box, the value of
-     *     **range** cannot exceed the range of the preview text. Otherwise, a parameter error is returned.
-     *     <br>- If there is no preview text in the text box, the value of **range** cannot exceed the text range of
-     *     the text box. Otherwise, a parameter error is returned.
-     * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 401 - 参数错误. Possible causes:
-     *     1.必填参数未指定; 2.参数类型不正确; 3.参数校验失败.
-     * @throws { BusinessError } 12800003 - 输入法客户端错误. Possible causes:
-     *     1.编辑框未获焦. 2.当前输入法应用未绑定编辑框.
-     *     3.因数据传输量大或其他原因导致IPC失败.
-     * @throws { BusinessError } 12800011 - 不支持文本预览.
+     * @param { string } text - 预上屏的文本。建议长度不超过1KB。
+     * @param { Range } range - 替换的文本范围。<br/>- 当值为{ start: -1, end: -1 }时，默认将参数text替换当前预上屏区域全部文本。<br/>- 当start等于end，默认将参
+     *     数text插入start对应的光标位置。<br/>- 当start不等于end，将参数text替换range对应区域的文本。<br/>- 当start与end为其他含有负数值的组合，按照参数错误返回。<br/>- 当输
+     *     入框已有预上屏文本，参数range不得超过预上屏文本范围，否则按照参数错误返回。<br/>- 当输入框无预上屏文本，参数range不得超过输入框文本范围，否则按照参数错误返回。
+     * @returns { Promise<void> } 无返回结果的Promise对象。
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+     * @throws { BusinessError } 12800003 - input method client error. Possible causes:
+     *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     *     3.ipc failed due to the large amount of data transferred or other reasons.
+     * @throws { BusinessError } 12800011 - text preview not supported.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 12 dynamic
      * @since 23 static
@@ -2193,27 +2169,18 @@ declare namespace inputMethodEngine {
     setPreviewText(text: string, range: Range): Promise<void>;
 
     /**
-     * Sets the preview text.
+     * 设置预上屏文本。
      *
-     * @param { string } text - Preview text to set.
-     * @param { Range } range - Range of the preview text.
-     *     <br>- If the value is { start: -1, end: -1 }, **text**
-     *     replaces the entire text in the current preview area by default.
-     *     <br>- If **start** is equal to **end**,
-     *     **text** is inserted into the cursor position specified by **start**.
-     *     <br>- If **start** is not equal to
-     *     **end**, **text** replaces the text of the specified range.
-     *     <br>- If the values of **start** and **end** are negative values, a parameter error is returned.
-     *     <br>- If there is preview text in the text box, the value of
-     *     **range** cannot exceed the range of the preview text. Otherwise, a parameter error is returned.
-     *     <br>- If there is no preview text in the text box, the value of **range** cannot exceed the text range of
-     *     the text box. Otherwise, a parameter error is returned.
-     * @throws { BusinessError } 401 - 参数错误. Possible causes:
-     *     1.必填参数未指定; 2.参数类型不正确; 3.参数校验失败.
-     * @throws { BusinessError } 12800003 - 输入法客户端错误. Possible causes:
-     *     1.编辑框未获焦. 2.当前输入法应用未绑定编辑框.
-     *     3.因数据传输量大或其他原因导致IPC失败.
-     * @throws { BusinessError } 12800011 - 不支持文本预览.
+     * @param { string } text - 预上屏的文本。建议长度不超过1KB。
+     * @param { Range } range - 替换的文本范围。<br/>- 当值为{ start: -1, end: -1 }时，默认将参数text替换当前预上屏区域全部文本。<br/>- 当start等于end，默认将参
+     *     数text插入start对应的光标位置。<br/>- 当start不等于end，将参数text替换range对应区域的文本。<br/>- 当start与end为其他含有负数值的组合，按照参数错误返回。<br/>- 当输
+     *     入框已有预上屏文本，参数range不得超过预上屏文本范围，否则按照参数错误返回。<br/>- 当输入框无预上屏文本，参数range不得超过输入框文本范围，否则按照参数错误返回。
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+     * @throws { BusinessError } 12800003 - input method client error. Possible causes:
+     *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     *     3.ipc failed due to the large amount of data transferred or other reasons.
+     * @throws { BusinessError } 12800011 - text preview not supported.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 12 dynamic
      * @since 23 static
@@ -2221,17 +2188,13 @@ declare namespace inputMethodEngine {
     setPreviewTextSync(text: string, range: Range): void;
 
     /**
-     * 结束文本预览。此API使用promise返回结果。
-     * 
-     * > **NOTE**
-     * >
-     * > 如果当前文本框中有预览文本，调用此API会将预览文本显示在屏幕上。
+     * 结束预上屏。使用promise异步回调。
      *
-     * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 12800003 - 输入法客户端错误. Possible causes:
-     *     1.编辑框未获焦. 2.当前输入法应用未绑定编辑框.
-     *     3.因数据传输量大或其他原因导致IPC失败.
-     * @throws { BusinessError } 12800011 - 不支持文本预览.
+     * @returns { Promise<void> } 无返回结果的Promise对象。
+     * @throws { BusinessError } 12800003 - input method client error. Possible causes:
+     *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     *     3.ipc failed due to the large amount of data transferred or other reasons.
+     * @throws { BusinessError } 12800011 - text preview not supported.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 12 dynamic
      * @since 23 static
@@ -2239,16 +2202,12 @@ declare namespace inputMethodEngine {
     finishTextPreview(): Promise<void>;
 
     /**
-     * Finishes the text preview.
-     * 
-     * > **NOTE**
-     * >
-     * > 如果当前文本框中有预览文本，调用此API会将预览文本显示在屏幕上。
+     * 结束预上屏。
      *
-     * @throws { BusinessError } 12800003 - 输入法客户端错误. Possible causes:
-     *     1.编辑框未获焦. 2.当前输入法应用未绑定编辑框.
-     *     3.因数据传输量大或其他原因导致IPC失败.
-     * @throws { BusinessError } 12800011 - 不支持文本预览.
+     * @throws { BusinessError } 12800003 - input method client error. Possible causes:
+     *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     *     3.ipc failed due to the large amount of data transferred or other reasons.
+     * @throws { BusinessError } 12800011 - text preview not supported.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 12 dynamic
      * @since 23 static
@@ -2256,30 +2215,20 @@ declare namespace inputMethodEngine {
     finishTextPreviewSync(): void;
 
     /**
-     * Sends the custom communication to the edit box application attached to the input method application. This API 
-     * uses a promise to return the result.
-     * 
-     * > **NOTE**
-     * >
-     * > This API can be called only when the edit box is attached to the input method and enter the edit mode, and the 
-     * > input method application is in full experience mode.
-     * >
-     * > **msgId**的最大长度为256B，**msgParam**的最大长度为128KB。
+     * 发送自定义通信至已绑定当前输入法应用的编辑框应用。使用Promise异步回调。
      *
-     * @param { string } msgId - Identifier of the custom data to be sent to the edit box application attached to the
-     *     input method application.
-     * @param { ?ArrayBuffer } [msgParam] - Message body of the custom data to be sent to the edit box application
-     *     attached to the input method application.
-     * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 401 - 参数错误. Possible causes:
-     *     1. 参数类型不正确. 2. Incorrect parameter length.
-     * @throws { BusinessError } 12800003 - 输入法客户端错误. Possible causes:
-     *     1.编辑框未获焦. 2.当前输入法应用未绑定编辑框.
-     *     3.因数据传输量大或其他原因导致IPC失败.
-     * @throws { BusinessError } 12800009 - 输入法客户端已分离.
-     * @throws { BusinessError } 12800014 - 输入法处于基本模式.
-     * @throws { BusinessError } 12800015 - 对方不接受请求.
-     * @throws { BusinessError } 12800016 - 输入法客户端不可编辑.
+     * @param { string } msgId - 需要发送至已绑定当前输入法应用的编辑框应用的自定义数据的标识符。最大长度256字节。最大长度256字节。
+     * @param { ?ArrayBuffer } [msgParam] - 需要发送至已绑定当前输入法应用的编辑框应用的自定义数据的消息体。
+     * @returns { Promise<void> } 无返回结果的Promise对象。
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1. Incorrect parameter types. 2. Incorrect parameter length.
+     * @throws { BusinessError } 12800003 - input method client error. Possible causes:
+     *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     *     3.ipc failed due to the large amount of data transferred or other reasons.
+     * @throws { BusinessError } 12800009 - input method client detached.
+     * @throws { BusinessError } 12800014 - the input method is in basic mode.
+     * @throws { BusinessError } 12800015 - the other side does not accept the request.
+     * @throws { BusinessError } 12800016 - input method client is not editable.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 15 dynamic
      * @since 23 static
@@ -2287,36 +2236,23 @@ declare namespace inputMethodEngine {
     sendMessage(msgId: string, msgParam?: ArrayBuffer): Promise<void>;
 
     /**
-     * 注册或注销MessageHandler。
-     * 
-     * > **NOTE**
-     * >
-     * > The [MessageHandler]{@link inputMethodEngine.MessageHandler} object is globally unique. After multiple 
-     * > registrations, only the last registered object is valid and retained, and the 
-     * > [onTerminated]{@link inputMethodEngine.MessageHandler.onTerminated()} callback of the penultimate registered 
-     * > object is triggered.
-     * >
-     * > If no parameter is set, unregister [MessageHandler]{@link inputMethodEngine.MessageHandler}. Its 
-     * > [onTerminated]{@link inputMethodEngine.MessageHandler.onTerminated()} callback will be triggered.
+     * 注册或取消注册Messagehandler。
      *
-     * @param { ?MessageHandler } [msgHandler] - This object receives custom communication data from the edit box
-     *     application attached to the input method application through
-     *     [onMessage]{@link inputMethodEngine.MessageHandler.onMessage(msgId: string, msgParam?: ArrayBuffer)} and
-     *     receives a message for terminating the subscription to this object through
-     *     [onTerminated]{@link inputMethodEngine.MessageHandler.onTerminated()}.
-     *     <br>If no parameter is set, unregister
-     *     [MessageHandler]{@link inputMethodEngine.MessageHandler}. Its
-     *     [onTerminated]{@link inputMethodEngine.MessageHandler.onTerminated()} callback will be triggered.
-     * @throws { BusinessError } 401 - 参数错误. Possible causes: 1. 参数类型不正确.
+     * @param { ?MessageHandler } [msgHandler] - 该对象将通过
+     *     [onMessage]{@link inputMethodEngine.MessageHandler.onMessage(msgId: string, msgParam?: ArrayBuffer)}接收来自已绑定当前
+     *     输入法应用的编辑框应用所发送的自定义通信数据，并通过[onTerminated]{@link inputMethodEngine.MessageHandler.onTerminated()}接收终止此对象订阅的消息。
+     *     <br>若不填写此参数，则取消全局已注册的[MessageHandler]{@link inputMethodEngine.MessageHandler}对象，同时触发其
+     *     [onTerminated]{@link inputMethodEngine.MessageHandler.onTerminated()}回调函数。
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 15 dynamic
      * @since 23 static
      */
     recvMessage(msgHandler?: MessageHandler): void;
     /**
-     * 获取绑定输入法的附加选项。
+     * 获取绑定输入法时的附加选项。
      *
-     * @returns { AttachOptions } Additional options for binding an input method.
+     * @returns { AttachOptions } 返回绑定输入法时的附加选项内容。
      * @throws { BusinessError } 801 - Capability not supported. [since 19 - 19]
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 19 dynamic
@@ -2324,52 +2260,47 @@ declare namespace inputMethodEngine {
     getAttachOptions(): AttachOptions;
 
     /**
-     * Get input attachOptions.
+     * 获取绑定输入法时的附加选项。
      *
-     * @returns { AttachOptions | null } return attach options.
+     * @returns { AttachOptions | null } 返回绑定输入法时的附加选项内容。
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 23 static
      */
     getAttachOptions(): AttachOptions | null;
 
     /**
-     * Subscribes to the event indicating that the additional options for binding an input method are changed. This API 
-     * uses an asynchronous callback to return the result.
+     * 订阅绑定输入法时的附加选项变更事件。使用callback异步回调。
      *
-     * @param { 'attachOptionsDidChange' } type - Additional option change event when the input method is bound. The
-     *     value is fixed to **'attachOptionsDidChange'**.
-     * @param { Callback<AttachOptions> } callback - Callback used to return the additional options for binding an input
-     *     method.
+     * @param { 'attachOptionsDidChange' } type - 绑定输入法时的附加选项变更事件，固定取值为'attachOptionsDidChange'。
+     * @param { Callback<AttachOptions> } callback - 回调函数，返回绑定输入法时的附加选项。
      * @throws { BusinessError } 801 - Capability not supported. [since 19 - 19]
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 19 dynamic
      */
     on(type: 'attachOptionsDidChange', callback: Callback<AttachOptions>): void;
     /**
-     * Unsubscribes from the event indicating that additional options for binding an input method are changed. This API 
-     * uses an asynchronous callback to return the result.
+     * 取消订阅绑定输入法时的附加选项变更事件。使用callback异步回调。
      *
-     * @param { 'attachOptionsDidChange' } type - Additional option change event when the input method is bound. The
-     *     value is fixed to **'attachOptionsDidChange'**.
-     * @param { Callback<AttachOptions> } [callback] - Callback to unregister. If this parameter is not specified, this
-     *     API unregisters all callbacks for the specified type by default.
+     * @param { 'attachOptionsDidChange' } type - 绑定输入法时的附加选项变更事件，固定取值为'attachOptionsDidChange'。
+     * @param { Callback<AttachOptions> } [callback] - 取消订阅的回调函数。参数不填写时，默认取消订阅type对应的所有回调事件。
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 19 dynamic
      */
     off(type: 'attachOptionsDidChange', callback?: Callback<AttachOptions>): void;
 
     /**
-     * Subscribe 'attachOptionsDidChange' event.
+     * 订阅绑定输入法时的附加选项变更事件。使用callback异步回调。
      *
-     * @param { Callback<AttachOptions> } callback - the callback called when the attach options changed.
+     * @param { Callback<AttachOptions> } callback - 回调函数，返回绑定输入法时的附加选项。
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 23 static
      */
     onAttachOptionsDidChange(callback: Callback<AttachOptions>): void;
     /**
-     * Unsubscribe 'attachOptionsDidChange' event.
+     * 取消订阅附加选项变更（attachOptionsDidChange）事件，停止监听输入法附加配置项的变更动作。
      *
-     * @param { Callback<AttachOptions> } [callback] - optional, the callback called when the attach options changed.
+     * @param { Callback<AttachOptions> } [callback] - 回调函数。
+     *     可选参数，需取消的目标回调函数：传入指定回调函数实例时，仅取消该回调的订阅；不传入时，取消所有attachOptionsDidChange事件的订阅。
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 23 static
      */
@@ -2377,9 +2308,20 @@ declare namespace inputMethodEngine {
   }
 
   /**
-   * In the following API examples, you must first use 
-   * [getKeyboardDelegate]{@link inputMethodEngine.getKeyboardDelegate()} to obtain a **KeyboardDelegate** instance, and
-   * then call the APIs using the obtained instance.
+   * KeyboardDelegate是键盘事件监听代理对象，用于输入法应用监听物理键盘按键事件和编辑框文本/光标/选区变化事件。输入法应用通过
+   * [getKeyboardDelegate]{@link inputMethodEngine.getKeyboardDelegate}获取该实例。
+   * **核心功能概述：**
+   * 
+   * - **物理键盘按键事件**：通过on('keyDown'|'keyUp')订阅物理按键的按下/抬起事件，通过on('keyEvent')订阅更完整的按键事件（含组合键信息）。callback返回true表示按键事件被消费，返回
+   * false表示不消费。
+   * - **光标与选区变化事件**：通过on('cursorContextChange')订阅光标位置变化事件，通过on('selectionChange')订阅文本选区变化事件。输入法应用可根据这些事件调整候选词位置或输入策略。
+   * - **文本变化事件**：通过on('textChange')订阅编辑框文本内容变化事件，输入法应用可据此更新候选词或输入建议。
+   * - **编辑框属性变化事件**：通过on('editorAttributeChanged')订阅编辑框属性变化事件，输入法应用可根据编辑框属性变化动态调整键盘布局。
+   * **使用场景：**
+   * - 开发物理键盘快捷键处理功能时，订阅on('keyDown'|'keyUp')或on('keyEvent')事件拦截特定按键。
+   * - 需要根据编辑框实时状态（光标、选区、文本、属性）调整输入法行为时，订阅对应的on事件。
+   * 
+   * 下列API均需使用[getKeyboardDelegate]{@link inputMethodEngine.getKeyboardDelegate}获取到KeyboardDelegate实例后，通过实例调用。
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 8 dynamic
@@ -2387,90 +2329,91 @@ declare namespace inputMethodEngine {
    */
   interface KeyboardDelegate {
     /**
-     * 启用物理键盘事件的监听。此API使用异步回调返回结果。
+     * 订阅硬键盘（即物理键盘）上物理按键的按下或抬起事件。使用callback异步回调。
+     * 
+     * **使用场景：** 实现快捷键功能、拦截特殊按键、处理功能键（如删除、回车等）等。
+     * 
+     * **使用后效果：** 当物理按键按下/抬起时触发回调，回调函数返回按键信息。若按键事件被事件订阅者消费，则callback应返回true，否则返回false。返回true时按键事件不再向编辑框传递，返回false时按键事件继续
+     * 向编辑框传递。
      *
-     * @param { 'keyDown' | 'keyUp' } type - Event type.
-     *     <br>- The value **'keyDown'** indicates the keydown event.
-     *     <br>- The value **'keyUp'** indicates the keyup event.
-     * @param { function } callback - Callback used to return the key information. If the event is consumed by the event
-     *     subscriber, **true** is returned. Otherwise, **false** is returned.
+     * @param { 'keyDown' | 'keyUp' } type - 设置监听类型。<br/>- 'keyDown'表示键盘按下。<br/>- 'keyUp'表示键盘抬起。
+     * @param { function } callback - 回调函数，返回按键信息。 若按键事件被事件订阅者消费，则callback应返回true，否则返回false。
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8 dynamic
      */
     on(type: 'keyDown' | 'keyUp', callback: (event: KeyEvent) => boolean): void;
 
     /**
-     * 禁用物理键盘事件的监听。此API使用异步回调返回结果。
+     * 取消订阅硬键盘（即物理键盘）上物理按键的按下或抬起事件。
      *
-     * @param { 'keyDown' | 'keyUp' } type - Event type.
-     *     <br>- The value **'keyDown'** indicates the keydown event.
-     *     <br>- The value **'keyUp'** indicates the keyup event.
-     * @param { function } [callback] - Callback to unregister. If this parameter is not specified, this API unregisters
-     *     all callbacks for the specified type.
+     * @param { 'keyDown' | 'keyUp' } type - 设置监听类型。<br/>- 'keyDown'表示键盘按下。<br/>- 'keyUp'表示键盘抬起。
+     * @param { function } [callback] - 取消订阅的回调函数，用于取消特定的键盘按键事件订阅。传入callback时取消指定回调的订阅，参数不填写时，取消订阅type对应的所有回调事件。
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8 dynamic
      */
     off(type: 'keyDown' | 'keyUp', callback?: (event: KeyEvent) => boolean): void;
 
     /**
-     * 启用键盘事件的监听。此API使用异步回调返回结果。
+     * 订阅硬键盘（即物理键盘）事件。使用callback异步回调。与on('keyDown'|'keyUp')相比，on('keyEvent')提供更完整的按键事件信息（包含组合键Ctrl/Shift/Alt状态、
+     * unicodeChar等），适用于需要处理组合键或获取更丰富按键信息的场景。
+     * 
+     * **使用场景：** 需要处理组合键（如Ctrl+C、Shift+Enter等）或获取更完整按键信息（如unicodeChar、ctrlKey等）的场景。
+     * 
+     * **使用后效果：** 当物理按键事件触发时回调被调用。若按键事件被事件订阅者消费，则callback应返回true，否则返回false。
      *
-     * @param { 'keyEvent' } type - Event type, which is **'keyEvent'**.
-     * @param { function } callback - Callback used to return the result. The input parameter is the key event
-     *     information and the return value is of the Boolean type.
-     *     <br>- Input parameter: [InputKeyEvent]{@link @ohos.multimodalInput.keyEvent:KeyEvent}.
-     *     <br>- If the event is consumed by the event
-     *     subscriber, **true** is returned. Otherwise, **false** is returned.
+     * @param { 'keyEvent' } type - 设置监听类型，固定取值为'keyEvent'。
+     * @param { function } callback - 回调函数，入参为按键事件信息，返回值类型为布尔类型。<br/>- 入参按键事件信息的数据类型为
+     *     [InputKeyEvent]{@link @ohos.multimodalInput.keyEvent:KeyEvent}。<br/>- 若按键事件被事件订阅者消费，则callback应返回true，否则返回
+     *     false。
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
      */
     on(type: 'keyEvent', callback: (event: InputKeyEvent) => boolean): void;
 
     /**
-     * Disables listening for a keyboard event. This API uses an asynchronous callback to return the result.
+     * 取消订阅硬键盘（即物理键盘）事件。使用callback异步回调。
      *
-     * @param { 'keyEvent' } type - Event type, which is **'keyEvent'**.
-     * @param { function } [callback] - Callback to unregister. If this parameter is not specified, this API unregisters
-     *     all callbacks for the specified type.
+     * @param { 'keyEvent' } type - 设置监听类型，固定取值为'keyEvent'。
+     * @param { function } [callback] - 取消订阅的回调函数，用于取消特定的键盘事件订阅。传入callback时取消指定回调的订阅，参数不填写时，取消订阅type对应的所有回调事件。
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
      */
     off(type: 'keyEvent', callback?: (event: InputKeyEvent) => boolean): void;
 
     /**
-     * 启用光标变更事件的监听。此API使用异步回调返回结果。
+     * 订阅光标变化事件。使用callback异步回调。
+     * 
+     * **使用场景：** 实时更新候选词显示位置、根据光标位置调整输入法界面、实现跟随光标的浮动菜单等。
+     * 
+     * **使用后效果：** 当编辑框光标位置发生变化时触发回调，返回光标的x坐标、y坐标和高度信息，输入法应用可据此调整候选词窗口或面板的定位。
      *
-     * @param { 'cursorContextChange' } type - Event type, which is **'cursorContextChange'**.
-     * @param { function } callback - Callback used to return the cursor information.
-     *     <br>- **x**: x coordinate of the top of the cursor.
-     *     <br>- **y**: y coordinate of the bottom of the cursor.
-     *     <br>- **height**: height of the cursor.
+     * @param { 'cursorContextChange' } type - 光标变化事件，固定取值为'cursorContextChange'。
+     * @param { function } callback - 回调函数，返回光标信息。<br/>- x为光标上端的x坐标值，单位：px，y为光标上端的y坐标值，单位：px，height为光标的高度值，单位：px。
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8 dynamic
      */
     on(type: 'cursorContextChange', callback: (x: number, y: number, height: number) => void): void;
 
     /**
-     * Disables listening for cursor context changes. This API uses an asynchronous callback to return the result.
+     * 取消订阅光标变化事件。
      *
-     * @param { 'cursorContextChange' } type - Event type, which is **'cursorContextChange'**.
-     * @param { function } [callback] - Callback to unregister. If this parameter is not specified, this API unregisters
-     *     all callbacks for the specified type.
+     * @param { 'cursorContextChange' } type - 光标变化事件，固定取值为'cursorContextChange'。
+     * @param { function } [callback] - 取消订阅的回调函数。参数不填写时，取消订阅type对应的所有回调事件。
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8 dynamic
      */
     off(type: 'cursorContextChange', callback?: (x: number, y: number, height: number) => void): void;
 
     /**
-     * Enables listening for the text selection change event. This API uses an asynchronous callback to return the 
-     * result.
+     * 订阅文本选择范围变化事件。使用callback异步回调。
+     * 
+     * **使用场景：** 监听用户选中文本以提供剪切、复制、粘贴等快捷操作、根据选择文本显示相关建议、实现文本编辑辅助功能等。
+     * 
+     * **使用后效果：** 当编辑框中文本选择范围发生变化时触发回调，返回变化前后的选区起始和终止下标。
      *
-     * @param { 'selectionChange' } type - Event type, which is **'selectionChange'**.
-     * @param { function } callback - Callback used to return the text selection information.
-     *     <br>- **oldBegin**: start of the selected text before the change.
-     *     <br>- **oldEnd**: end of the selected text before the change.
-     *     <br>- **newBegin**: start of the selected text after the change.
-     *     <br>- **newEnd**: end of the selected text after the change.
+     * @param { 'selectionChange' } type - 文本选择变化事件，固定取值为'selectionChange'。
+     * @param { function } callback - 回调函数，返回文本选择信息。<br/>- oldBegin为变化前被选中文本的起始下标，oldEnd为变化前被选中文本的终止下标。<br/>- newBegin为变
+     *     化后被选中文本的起始下标，newEnd为变化后被选中文本的终止下标。
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8 dynamic
      */
@@ -2480,12 +2423,10 @@ declare namespace inputMethodEngine {
     ): void;
 
     /**
-     * Disables listening for the text selection change event. This API uses an asynchronous callback to return the 
-     * result.
+     * 取消订阅文本选择范围变化事件。
      *
-     * @param { 'selectionChange' } type - Event type, which is **'selectionChange'**.
-     * @param { function } [callback] - Callback to unregister. If this parameter is not specified, this API unregisters
-     *     all callbacks for the specified type.
+     * @param { 'selectionChange' } type - 文本选择变化事件，固定取值为'selectionChange'。
+     * @param { function } [callback] - 取消订阅的回调函数。参数不填写时，取消订阅type对应的所有回调事件。
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8 dynamic
      */
@@ -2495,115 +2436,125 @@ declare namespace inputMethodEngine {
     ): void;
 
     /**
-     * 启用文本变更事件的监听。此API使用异步回调返回结果。
+     * 订阅文本内容变化事件。使用callback异步回调。
+     * 
+     * **使用场景：** 输入法应用需要根据编辑框文本内容变化更新候选词、提供智能输入建议、实现联想输入等。
+     * 
+     * **使用后效果：** 当编辑框文本内容发生变化时触发回调，返回当前编辑框的完整文本内容。
      *
-     * @param { 'textChange' } type - Event type, which is **'textChange'**.
-     * @param { function } callback - Callback used to return the text content.
+     * @param { 'textChange' } type - 文本变化事件，固定取值为'textChange'。
+     * @param { function } callback - 回调函数，返回订阅的文本内容。
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8 dynamic
      */
     on(type: 'textChange', callback: (text: string) => void): void;
 
     /**
-     * Disables listening for the text change event. This API uses an asynchronous callback to return the result.
+     * 取消订阅文本内容变化事件。使用callback异步回调。
      *
-     * @param { 'textChange' } type - Event type, which is **'textChange'**.
-     * @param { function } [callback] - Callback to unregister. If this parameter is not specified, this API unregisters
-     *     all callbacks for the specified type.
+     * @param { 'textChange' } type - 文本变化事件，固定取值为'textChange'。
+     * @param { function } [callback] - 取消订阅的回调函数。参数不填写时，取消订阅type对应的所有回调事件。
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8 dynamic
      */
     off(type: 'textChange', callback?: (text: string) => void): void;
 
     /**
-     * Enables listening for the edit box attribute change event. This API uses an asynchronous callback to return the 
-     * result.
+     * 订阅编辑框属性变化事件。使用callback异步回调。
+     * 
+     * **使用场景：** 输入法应用需要根据编辑框属性变化（如输入类型从文本切换到数字、回车键类型从"搜索"切换到"发送"等）动态调整键盘布局。
+     * 
+     * **使用后效果：** 当编辑框属性发生变化时触发回调，返回变化后的编辑框属性信息（包括inputPattern和enterKeyType），输入法应用可据此重新调整键盘布局。
      *
-     * @param { 'editorAttributeChanged' } type - Event type, which is **'editorAttributeChanged'**.
-     * @param { function } callback - Callback used to return the changed edit box attribute.
+     * @param { 'editorAttributeChanged' } type - 编辑框属性变化事件，固定取值为'editorAttributeChanged'。
+     * @param { function } callback - 回调函数，返回变化的编辑框属性。
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
      */
     on(type: 'editorAttributeChanged', callback: (attr: EditorAttribute) => void): void;
 
     /**
-     * Disables listening for the edit box attribute change event. This API uses an asynchronous callback to return the 
-     * result.
+     * 取消订阅编辑框属性变化事件。使用callback异步回调。
      *
-     * @param { 'editorAttributeChanged' } type - Event type, which is **'editorAttributeChanged'**.
-     * @param { function } [callback] - Callback used for unsubscription. If this parameter is not specified, this API
-     *     unregisters all callbacks for the specified type by default.
+     * @param { 'editorAttributeChanged' } type - 编辑框属性变化事件，固定取值为'editorAttributeChanged'。
+     * @param { function } [callback] - 所要取消订阅的回调处理函数。参数不填写时，默认取消订阅type对应的所有回调事件。
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
      */
     off(type: 'editorAttributeChanged', callback?: (attr: EditorAttribute) => void): void;
 
     /**
-     * 订阅按键按下事件
+     * 订阅硬键盘（即物理键盘）上物理按键的按下或抬起事件。使用callback异步回调。
      *
-     * @param { KeyEventCallback } callback - the callback called when a key down event occurs.
-     *     If the key is processed by event subscriber, callback should be return true, else return false.
+     * @param { KeyEventCallback } callback - 回调函数，返回按键信息。
+     *     若按键事件被事件订阅者消费，则callback应返回true，否则返回false。
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 23 static
      */
     onKeyDown(callback: KeyEventCallback): void;
     /**
-     * 取消订阅按键按下事件
+     * 取消订阅硬键盘（即物理键盘）上物理按键的按下或抬起事件。使用callback异步回调。
      *
-     * @param { KeyEventCallback } [callback] - optional, the callback called when a key down event occurs.
+     * @param { KeyEventCallback } [callback] - 取消订阅的回调函数。
+     *     参数不填写时，取消订阅type对应的所有回调事件。
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 23 static
      */
     offKeyDown(callback?: KeyEventCallback): void;
 
     /**
-     * 订阅按键释放事件
+     * 订阅硬键盘（即物理键盘）上物理按键的按下或抬起事件。使用callback异步回调。
      *
-     * @param { KeyEventCallback } callback - the callback called when a key up event occurs.
-     *     If the key is processed by event subscriber, callback should be return true, else return false.
+     * @param { KeyEventCallback } callback - 回调函数，返回按键信息。 
+     *     若按键事件被事件订阅者消费，则callback应返回true，否则返回false。
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 23 static
      */
     onKeyUp(callback: KeyEventCallback): void;
     /**
-     * 取消订阅按键释放事件
+     * 取消订阅硬键盘（即物理键盘）上物理按键的按下或抬起事件。使用callback异步回调。
      *
-     * @param { KeyEventCallback } [callback] - optional, the callback called when a key up event occurs.
+     * @param { KeyEventCallback } [callback] - 取消订阅的回调函数。
+     *     参数不填写时，取消订阅type对应的所有回调事件。
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 23 static
      */
     offKeyUp(callback?: KeyEventCallback): void;
 
     /**
-     * 订阅按键事件。
+     * 订阅硬键盘（即物理键盘）事件。使用callback异步回调。
      *
-     * @param { InputKeyEventCallback } callback - the callback called when a key event event occurs.
-     *     If the key is processed by event subscriber, callback should be return true, else return false.
+     * @param { InputKeyEventCallback } callback - 回调函数，入参为按键事件信息，返回值类型为布尔类型。
+     *     入参按键事件信息的数据类型为InputKeyEvent。
+     *     若按键事件被事件订阅者消费，则callback应返回true，否则返回false。
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 23 static
      */
     onKeyEvent(callback: InputKeyEventCallback): void;
     /**
-     * 取消订阅按键事件。
+     * 取消订阅硬键盘（即物理键盘）事件。使用callback异步回调。
      *
-     * @param { InputKeyEventCallback } [callback] - optional, the callback called when a key event event occurs.
+     * @param { InputKeyEventCallback } [callback] - 取消订阅的回调函数。
+     *     参数不填写时，取消订阅type对应的所有回调事件。
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 23 static
      */
     offKeyEvent(callback?: InputKeyEventCallback): void;
 
     /**
-     * 订阅光标上下文变更。
+     * 订阅光标变化事件。使用callback异步回调。
      *
-     * @param { CursorContextChangeCallback } callback - the callback called when cursor information changes.
+     * @param { CursorContextChangeCallback } callback - 回调函数，返回光标信息。
+     *     x为光标上端的的x坐标值，单位为px。y为光标上端的y坐标值，单位为px。height为光标的高度值，单位为px。
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 23 static
      */
     onCursorContextChange(callback: CursorContextChangeCallback): void;
     /**
-     * 取消订阅光标上下文变更。
+     * 取消订阅光标上下文变更cursorcontextchange事件，停止监听编辑框中光标位置及上下文文本的变更动作。
      *
-     * @param { CursorContextChangeCallback } [callback] - optional, the callback called when cursor information
+     * @param { CursorContextChangeCallback } [callback] - 取消订阅的回调函数。
+     *     参数不填写时，取消订阅type对应的所有回调事件。
      *     changes.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 23 static
@@ -2611,51 +2562,56 @@ declare namespace inputMethodEngine {
     offCursorContextChange(callback?: CursorContextChangeCallback): void;
 
     /**
-     * 订阅选择变更。
+     * 订阅文本选择范围变化事件。使用callback异步回调。
      *
-     * @param { SelectionChangeCallback } callback - the callback called when the text selection changes.
+     * @param { SelectionChangeCallback } callback - 回调函数，返回文本选择信息。
+     *     oldBegin为变化前被选中文本的起始下标，oldEnd为变化前被选中文本的终止下标。
+     *     newBegin为变化后被选中文本的起始下标，newEnd为变化后被选中文本的终止下标。
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 23 static
      */
     onSelectionChange(callback: SelectionChangeCallback): void;
     /**
-     * 取消订阅选择变更。
+     * 取消订阅文本选择范围变化事件。使用callback异步回调。
      *
-     * @param { SelectionChangeCallback } [callback] - optional, the callback called when the text selection changes.
+     * @param { SelectionChangeCallback } [callback] - 取消订阅的回调函数。
+     *     参数不填写时，取消订阅type对应的所有回调事件。
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 23 static
      */
     offSelectionChange(callback?: SelectionChangeCallback): void;
 
     /**
-     * 订阅文本变更。
+     * 订阅文本内容变化事件。使用callback异步回调。
      *
-     * @param { Callback<string> } callback - the callback called when the text changes.
+     * @param { Callback<string> } callback - 回调函数，返回订阅的文本内容。
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 23 static
      */
     onTextChange(callback: Callback<string>): void;
     /**
-     * 取消订阅文本变更。
+     * 取消订阅文本内容变化事件。使用callback异步回调。
      *
-     * @param { Callback<string> } [callback] - optional, the callback called when the text changes.
+     * @param { Callback<string> } [callback] - 取消订阅的回调函数。
+     *     参数不填写时，取消订阅type对应的所有回调事件。
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 23 static
      */
     offTextChange(callback?: Callback<string>): void;
 
     /**
-     * 订阅输入文本属性变更。
+     * 订阅编辑框属性变化事件。使用callback异步回调。
      *
-     * @param { Callback<EditorAttribute> } callback - the callback called when editor's attribute changes.
+     * @param { Callback<EditorAttribute> } callback - 回调函数，返回变化的编辑框属性。
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 23 static
      */
     onEditorAttributeChanged(callback: Callback<EditorAttribute>): void;
     /**
-     * 取消订阅输入文本属性变更。
+     * 取消订阅编辑框属性变化事件。使用callback异步回调。
      *
-     * @param { Callback<EditorAttribute> } [callback] - optional, the callback called when editor's attribute changes.
+     * @param { Callback<EditorAttribute> } [callback] - 所要取消订阅的回调处理函数。
+     *     参数不填写时，取消订阅type对应的所有回调事件。
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 23 static
      */
@@ -2663,7 +2619,14 @@ declare namespace inputMethodEngine {
   }
 
   /**
-   * 枚举输入法的沉浸模式。
+   * 枚举，输入法沉浸模式。
+   * 
+   * | 名称         | 值 | 说明               |
+   * | ------------ | -- | ------------------ |
+   * | NONE_IMMERSIVE | 0 | 不使用沉浸模式。 |
+   * | IMMERSIVE      | 1 | 沉浸模式，由输入法应用确定沉浸模式类型。 |
+   * | LIGHT_IMMERSIVE  | 2 | 浅色沉浸模式。 |
+   * | DARK_IMMERSIVE   | 3 | 深色沉浸模式。 |
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 15 dynamic
@@ -2671,7 +2634,7 @@ declare namespace inputMethodEngine {
    */
   export enum ImmersiveMode {
     /**
-     * 默认沉浸模式，面板不处于沉浸模式。
+     * 不使用沉浸模式。
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 15 dynamic
@@ -2680,7 +2643,7 @@ declare namespace inputMethodEngine {
     NONE_IMMERSIVE = 0,
 
     /**
-     * 输入法的沉浸模式。
+     * 沉浸模式，由输入法应用确定沉浸模式类型。
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 15 dynamic
@@ -2689,7 +2652,7 @@ declare namespace inputMethodEngine {
     IMMERSIVE,
 
     /**
-     * 轻度沉浸模式。
+     * 浅色沉浸模式。
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 15 dynamic
@@ -2698,7 +2661,7 @@ declare namespace inputMethodEngine {
     LIGHT_IMMERSIVE,
 
     /**
-     * 重度沉浸模式。
+     * 深色沉浸模式。
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 15 dynamic
@@ -2708,7 +2671,12 @@ declare namespace inputMethodEngine {
   }
 
   /**
-   * 枚举输入法的渐变模式。
+   * 枚举，输入法渐变模式。
+   * 
+   * | 名称         | 值 | 说明               |
+   * | ------------ | -- | ------------------ |
+   * | NONE | 0 | 不使用渐变模式。 |
+   * | LINEAR_GRADIENT | 1 | 线性渐变。 |
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 20 dynamic
@@ -2716,7 +2684,7 @@ declare namespace inputMethodEngine {
    */
   export enum GradientMode {
     /**
-     * 禁用渐变模式。
+     * 不使用渐变模式。
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 20 dynamic
@@ -2724,7 +2692,7 @@ declare namespace inputMethodEngine {
      */
     NONE = 0,
     /**
-     * 线性渐变模式。
+     * 	线性渐变。
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 20 dynamic
@@ -2734,7 +2702,12 @@ declare namespace inputMethodEngine {
   }
 
   /**
-   * 枚举输入法的流光模式。
+   * 枚举，输入法流光模式。
+   * 
+   * | 名称         | 值 | 说明               |
+   * | ------------ | -- | ------------------ |
+   * | NONE | 0 | 不使用流光模式。 |
+   * | BACKGROUND_FLUID_LIGHT  | 1 | 开启背景流光模式。系统面板变为透明，流光效果由编辑框宿主应用实现。 |
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @systemapi
@@ -2743,7 +2716,7 @@ declare namespace inputMethodEngine {
    */
   export enum FluidLightMode {
     /**
-     * 禁用流光模式。
+     * 不使用流光模式。
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @systemapi
@@ -2753,8 +2726,7 @@ declare namespace inputMethodEngine {
     NONE = 0,
 
     /**
-     * When the background fluid light mode is enabled, the system panel turns transparent. The fluid light effect must 
-     * be implemented by the application.
+     * 开启背景流光模式。此时系统面板会变为透明，流光效果需要由编辑框宿主应用实现。
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @systemapi
@@ -2765,7 +2737,7 @@ declare namespace inputMethodEngine {
   }
 
   /**
-   * 描述沉浸效果。
+   * 沉浸效果。
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 20 dynamic
@@ -2783,8 +2755,7 @@ declare namespace inputMethodEngine {
     gradientHeight: int;
 
     /**
-     * Gradient mode. If this attribute is not specified or is set to an invalid value, the gradient mode is not used by
-     * default.
+     * 渐变模式。
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 20 dynamic
@@ -2793,10 +2764,9 @@ declare namespace inputMethodEngine {
     gradientMode: GradientMode;
 
     /**
-     * Fluid light mode. If this attribute is not specified or is set to an invalid value, the fluid light mode is not 
-     * used by default.
+     * 流光模式，未填充时默认为NONE。
      * 
-     * 此属性仅对系统应用可用。
+     * 该属性仅系统应用可以使用。
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @systemapi
@@ -2807,7 +2777,14 @@ declare namespace inputMethodEngine {
   }
 
   /**
-   * 枚举请求键盘输入的原因。
+   * 枚举，请求键盘输入的原因。
+   * 
+   * | 名称         | 值 | 说明               |
+   * | ------------ | -- | ------------------ |
+   * | NONE  | 0 | 表示没有特定的原因触发键盘请求。 |
+   * | MOUSE | 1 | 表示键盘请求是由鼠标操作触发的。 |
+   * | TOUCH | 2 | 表示键盘请求是由触摸操作触发的。 |
+   * | OTHER | 20 | 表示键盘请求是由其他原因触发的。 |
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 19 dynamic
@@ -2815,7 +2792,7 @@ declare namespace inputMethodEngine {
    */
   export enum RequestKeyboardReason {
     /**
-     * 请求键盘原因为NONE。
+     * 表示没有特定的原因触发键盘请求。
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 19 dynamic
@@ -2823,7 +2800,7 @@ declare namespace inputMethodEngine {
      */
     NONE = 0,
     /**
-     * 请求键盘原因为MOUSE。
+     * 表示键盘请求是由鼠标操作触发的。
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 19 dynamic
@@ -2831,7 +2808,7 @@ declare namespace inputMethodEngine {
      */
     MOUSE = 1,
     /**
-     * 请求键盘原因为TOUCH。
+     * 表示键盘请求是由触摸操作触发的。
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 19 dynamic
@@ -2839,7 +2816,7 @@ declare namespace inputMethodEngine {
      */
     TOUCH = 2,
     /**
-     * 请求键盘原因为OTHER。
+     * 表示键盘请求是由其他原因触发的。
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 19 dynamic
@@ -2849,9 +2826,42 @@ declare namespace inputMethodEngine {
   }
 
   /**
-   * In the following API examples, you must first use 
+   * Panel是输入法面板对象，提供面板页面加载、显示/隐藏、尺寸调整、位置移动、模式切换等功能。Panel实例通过InputMethodAbility的
    * [createPanel]{@link inputMethodEngine.InputMethodAbility.createPanel(ctx: BaseContext, info: PanelInfo, callback: AsyncCallback<Panel>)}
-   * to obtain a **Panel** instance, and then call the APIs using the obtained instance.
+   * 接口获取，使用完毕后需调用
+   * [destroyPanel]{@link inputMethodEngine.InputMethodAbility.destroyPanel(panel: Panel, callback: AsyncCallback<void>)}
+   * 销毁以释放资源。createPanel与destroyPanel必须配对调用。
+   * **核心功能概述：**
+   * 
+   * - **页面加载**：通过
+   * [setUiContent]{@link inputMethodEngine.Panel.setUiContent(path: string, callback: AsyncCallback<void>)}为面板加载键盘页面内容，
+   * 支持加载普通页面和与LocalStorage关联的页面。
+   * - **显示与隐藏**：通过[show]{@link inputMethodEngine.Panel.show(callback: AsyncCallback<void>)}显示面板，通过
+   * [hide]{@link inputMethodEngine.Panel.hide(callback: AsyncCallback<void>)}隐藏面板。面板的显示/隐藏也可通过订阅on('show')/on('hide')事件
+   * 监听状态变化。
+   * - **尺寸与位置调整**：通过
+   * [resize]{@link inputMethodEngine.Panel.resize(width: long, height: long, callback: AsyncCallback<void>)}调整面板尺寸，通过
+   * [moveTo]{@link inputMethodEngine.Panel.moveTo(x: int, y: int, callback: AsyncCallback<void>)}移动面板位置，通过
+   * [startMoving]{@link inputMethodEngine.Panel.startMoving}拖拽移动面板，通过
+   * [adjustPanelRect]{@link inputMethodEngine.Panel.adjustPanelRect(flag: PanelFlag, rect: PanelRect)}/
+   * [updatePanelRect]{@link inputMethodEngine.Panel.updatePanelRect(flag: PanelFlag, rect: PanelRect)}/
+   * [updateRegion]{@link inputMethodEngine.Panel.updateRegion}调整面板区域。
+   * - **模式设置**：通过[changeFlag]{@link inputMethodEngine.Panel.changeFlag}切换面板固定态/浮动态，通过
+   * [setPrivacyMode]{@link inputMethodEngine.Panel.setPrivacyMode}设置隐私模式，通过
+   * [setImmersiveMode]{@link inputMethodEngine.Panel.setImmersiveMode}/
+   * [getImmersiveMode]{@link inputMethodEngine.Panel.getImmersiveMode}设置/获取沉浸模式。
+   * - **事件监听**：通过on('show')/on('hide')/on('sizeChange')监听面板状态变化事件。
+   * **面板生命周期：**
+   * 
+   * 1. 在InputMethodAbility的[createPanel]{@link inputMethodEngine.InputMethodAbility.createPanel(ctx: BaseContext, info: PanelInfo, callback: AsyncCallback<Panel>)}中创建Panel实例并指定面板类型和标志位。
+   * 2. 调用[setUiContent]{@link inputMethodEngine.Panel.setUiContent(path: string, callback: AsyncCallback<void>)}加载键盘页面内容。
+   * 3. 调用[show]{@link inputMethodEngine.Panel.show(callback: AsyncCallback<void>)}显示面板，用户可交互。
+   * 4. 根据需要调用resize、moveTo、changeFlag等接口动态调整面板。
+   * 5. 使用完毕后调用[destroyPanel]{@link inputMethodEngine.InputMethodAbility.destroyPanel(panel: Panel, callback: AsyncCallback<void>)}销毁面板，释放资源。
+   * 
+   * 下列API均需使用
+   * [createPanel]{@link inputMethodEngine.InputMethodAbility.createPanel(ctx: BaseContext, info: PanelInfo, callback: AsyncCallback<Panel>)}
+   * 获取到Panel实例后，通过实例调用。
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 10 dynamic
@@ -2859,14 +2869,12 @@ declare namespace inputMethodEngine {
    */
   interface Panel {
     /**
-     * Loads content from a page to this input method panel. This API uses an asynchronous callback to return the 
-     * result.
+     * 为当前的输入法面板加载具体页面内容，使用callback异步回调。
      *
-     * @param { string } path - Path of the page from which the content will be loaded.
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
-     *     **err** is **undefined**. Otherwise, **err** is an error object.
-     * @throws { BusinessError } 401 - 参数错误. Possible causes:
-     *     1.必填参数未指定; 2.参数类型不正确; 3.参数校验失败.
+     * @param { string } path - 具体页面的路径。路径长度建议不超过1024字符。
+     * @param { AsyncCallback<void> } callback - 回调函数。当面板页面内容加载成功，err为undefined，否则err为错误对象。
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
      * @since 23 static
@@ -2874,12 +2882,12 @@ declare namespace inputMethodEngine {
     setUiContent(path: string, callback: AsyncCallback<void>): void;
 
     /**
-     * 从页面加载内容到此输入法面板。此API使用promise返回结果。
+     * 为当前的输入法面板加载具体页面内容，使用Promise异步回调。
      *
-     * @param { string } path - Path of the page from which the content will be loaded.
-     * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 401 - 参数错误. Possible causes:
-     *     1.必填参数未指定; 2.参数类型不正确; 3.参数校验失败.
+     * @param { string } path - 具体页面的路径。路径长度建议不超过1024字符。
+     * @returns { Promise<void> } 无返回结果的Promise对象。
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
      * @since 23 static
@@ -2887,16 +2895,13 @@ declare namespace inputMethodEngine {
     setUiContent(path: string): Promise<void>;
 
     /**
-     * Loads content from a page linked to LocalStorage to this input method panel. This API uses an asynchronous 
-     * callback to return the result.
+     * 为当前的输入法面板加载与LocalStorage相关联的具体页面内容，使用callback异步回调。
      *
-     * @param { string } path - Path of the page linked to LocalStorage.
-     * @param { LocalStorage } storage - Storage unit that provides storage for mutable and immutable state variables in
-     *     the application.
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
-     *     **err** is **undefined**. Otherwise, **err** is an error object.
-     * @throws { BusinessError } 401 - 参数错误. Possible causes:
-     *     1.必填参数未指定; 2.参数类型不正确; 3.参数校验失败.
+     * @param { string } path - LocalStorage相关联的具体页面的路径。路径长度建议不超过1024字符。
+     * @param { LocalStorage } storage - 存储单元，为应用程序范围内的可变和不可变状态属性提供存储。
+     * @param { AsyncCallback<void> } callback - 回调函数。当面板页面内容加载成功，err为undefined，否则err为错误对象。
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
      * @since 23 static
@@ -2904,14 +2909,13 @@ declare namespace inputMethodEngine {
     setUiContent(path: string, storage: LocalStorage, callback: AsyncCallback<void>): void;
 
     /**
-     * 从链接到LocalStorage的页面加载内容到此面板。此API使用promise返回结果。
+     * 为当前面板加载与LocalStorage相关联的具体页面内容，使用Promise异步回调。
      *
-     * @param { string } path - Path of the page from which the content will be loaded.
-     * @param { LocalStorage } storage - Storage unit that provides storage for mutable and immutable state variables in
-     *     the application.
-     * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 401 - 参数错误. Possible causes:
-     *     1.必填参数未指定; 2.参数类型不正确; 3.参数校验失败.
+     * @param { string } path - 具体页面的路径。路径长度建议不超过1024字符。
+     * @param { LocalStorage } storage - 存储单元，为应用程序范围内的可变状态属性和非可变状态属性提供存储。
+     * @returns { Promise<void> } 无返回结果的Promise对象。
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
      * @since 23 static
@@ -2919,25 +2923,13 @@ declare namespace inputMethodEngine {
     setUiContent(path: string, storage: LocalStorage): Promise<void>;
 
     /**
-     * 调整此输入法面板的大小。此API使用异步回调返回结果。
-     * 
-     * > **NOTE**
-     * >
-     * > The panel width cannot exceed the screen width, and the panel height cannot be 0.7 times higher than the screen
-     * > height.
-     * >
-     * > When the **PanelFlag** of a smartphone is **FLG_FLOATING** and the panel width is between 0 and 288 vp, the 
-     * > function buttons at the bottom of the panel will dynamically adjust their size according to the panel width. To
-     * > ensure the optimal user experience, it is recommended that the panel width be no less than 90 vp.
+     * 改变当前输入法面板的大小，使用callback异步回调。
      *
-     * @param { long } width - Target width of the panel, in px. The value is an integer greater than or equal to 0, and
-     *     cannot be greater than the screen width.
-     * @param { long } height - Target height of the panel, in px. The value is an integer greater than or equal to 0,
-     *     and cannot be greater than 0.7 times the screen height.
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
-     *     **err** is **undefined**. Otherwise, **err** is an error object.
-     * @throws { BusinessError } 401 - 参数错误. Possible causes:
-     *     1.必填参数未指定; 2.参数类型不正确; 3.参数校验失败.
+     * @param { long } width - 目标面板的宽度，单位为vp。该参数应为大于或等于0的整数，不超出屏幕宽度。超出范围时返回错误码401。
+     * @param { long } height - 目标面板的高度，单位为vp。该参数应为大于或等于0的整数，不高于屏幕高度的0.7倍。超出范围时返回错误码401。
+     * @param { AsyncCallback<void> } callback - 回调函数。当面板大小改变成功，err为undefined，否则err为错误对象。
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
      * @since 23 static
@@ -2945,24 +2937,13 @@ declare namespace inputMethodEngine {
     resize(width: long, height: long, callback: AsyncCallback<void>): void;
 
     /**
-     * 调整此输入法面板的大小。此API使用promise返回结果。
-     * 
-     * > **NOTE**
-     * >
-     * > The panel width cannot exceed the screen width, and the panel height cannot be 0.7 times higher than the screen
-     * > height.
-     * >
-     * > When the **PanelFlag** of a smartphone is **FLG_FLOATING** and the panel width is between 0 and 288 vp, the 
-     * > function buttons at the bottom of the panel will dynamically adjust their size according to the panel width. To
-     * > ensure the optimal user experience, it is recommended that the panel width be no less than 90 vp.
+     * 改变当前输入法面板的大小，使用Promise异步回调。
      *
-     * @param { long } width - Target width of the panel, in px. The value is an integer greater than or equal to 0, and
-     *     cannot be greater than the screen width.
-     * @param { long } height - Target height of the panel, in px. The value is an integer greater than or equal to 0,
-     *     and cannot be greater than 0.7 times the screen height.
-     * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 401 - 参数错误. Possible causes:
-     *     1.必填参数未指定; 2.参数类型不正确; 3.参数校验失败.
+     * @param { long } width - 目标面板的宽度，单位为vp。该参数应为大于或等于0的整数，不超出屏幕宽度。超出范围时返回错误码401。
+     * @param { long } height - 目标面板的高度，单位为vp。该参数应为大于或等于0的整数，不高于屏幕高度的0.7倍。超出范围时返回错误码401。
+     * @returns { Promise<void> } 无返回结果的Promise对象。
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
      * @since 23 static
@@ -2970,17 +2951,13 @@ declare namespace inputMethodEngine {
     resize(width: long, height: long): Promise<void>;
 
     /**
-     * Moves this input method panel to the specified position. This API uses an asynchronous callback to return the 
-     * result. This API does not work on panels in the [FLG_FIXED]{@link inputMethodEngine.PanelFlag} state.
+     * 移动面板位置，使用callback异步回调。[面板状态]{@link inputMethodEngine.PanelFlag}为固定态时，不产生实际移动效果。
      *
-     * @param { int } x - Distance to move along the horizontal axis, in px. A positive value indicates moving
-     *     rightwards. The value must be an integer.
-     * @param { int } y - Distance to move along the vertical axis, in px. A positive value indicates moving downwards.
-     *     The value must be an integer.
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
-     *     **err** is **undefined**. Otherwise, **err** is an error object.
-     * @throws { BusinessError } 401 - 参数错误. Possible causes:
-     *     1.必填参数未指定; 2.参数类型不正确.
+     * @param { int } x - 横轴方向移动的值，单位为px。该参数应为整数。值大于0表示右移，小于0表示左移。超出屏幕范围时返回错误码401。
+     * @param { int } y - 纵轴方向移动的值，单位为px。该参数应为整数。值大于0表示下移，小于0表示上移。超出屏幕范围时返回错误码401。
+     * @param { AsyncCallback<void> } callback - 回调函数。当面板位置移动成功，err为undefined，否则err为错误对象。
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
      * @since 23 static
@@ -2988,16 +2965,13 @@ declare namespace inputMethodEngine {
     moveTo(x: int, y: int, callback: AsyncCallback<void>): void;
 
     /**
-     * Moves this input method panel to the specified position. This API uses a promise to return the result. This API 
-     * does not work on panels in the [FLG_FIXED]{@link inputMethodEngine.PanelFlag} state.
+     * 移动面板位置，使用promise异步回调。[面板状态]{@link inputMethodEngine.PanelFlag}为固定态时，不产生实际移动效果。
      *
-     * @param { int } x - Distance to move along the horizontal axis, in px. A positive value indicates moving
-     *     rightwards. The value must be an integer.
-     * @param { int } y - Distance to move along the vertical axis, in px. A positive value indicates moving downwards.
-     *     The value must be an integer.
-     * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 401 - 参数错误. Possible causes:
-     *     1.必填参数未指定; 2.参数类型不正确.
+     * @param { int } x - 横轴方向移动的值，值大于0表示右移，单位为px。该参数应为整数。
+     * @param { int } y - 纵轴方向移动的值，值大于0表示下移，单位为px。该参数应为整数。
+     * @returns { Promise<void> } 无返回结果的Promise对象。
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
      * @since 23 static
@@ -3005,13 +2979,13 @@ declare namespace inputMethodEngine {
     moveTo(x: int, y: int): Promise<void>;
 
     /**
-     * 发送开始移动窗口的命令。只有在鼠标点击时才能移动窗口。
+     * 发送移动命令给窗口，不产生实际移动效果（仅在鼠标点击作用才可以移动）。
      *
-     * @throws { BusinessError } 12800002 - 输入法引擎错误. Possible causes:
-     *     1.输入法面板未创建. 2.输入法应用未订阅相关事件.
-     * @throws { BusinessError } 12800013 - 窗口管理服务错误.
-     * @throws { BusinessError } 12800017 - 无效的面板类型或面板标志.
-     * @throws { BusinessError } 801 - 不支持该能力. [since 18]
+     * @throws { BusinessError } 12800002 - input method engine error. Possible causes:
+     *     1.input method panel not created. 2.the input method application does not subscribe to related events.
+     * @throws { BusinessError } 12800013 - window manager service error.
+     * @throws { BusinessError } 12800017 - invalid panel type or panel flag.
+     * @throws { BusinessError } 801 - capability not supported. [since 18]
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 15 dynamic
      * @since 23 static
@@ -3019,12 +2993,12 @@ declare namespace inputMethodEngine {
     startMoving(): void;
 
     /**
-     * 获取窗口ID。此API使用promise返回结果。
+     * 获取当前窗口的所在id，使用Promise异步回调。
      *
-     * @returns { Promise<long> } Promise used to return the result. It returns **displayId** of the window.
-     * @throws { BusinessError } 12800002 - 输入法引擎错误. Possible causes:
-     *     1.输入法面板未创建. 2.输入法应用未订阅相关事件.
-     * @throws { BusinessError } 12800013 - 窗口管理服务错误.
+     * @returns { Promise<long> } Promise对象。返回窗口的displayId。
+     * @throws { BusinessError } 12800002 - input method engine error. Possible causes:
+     *     1.input method panel not created. 2.the input method application does not subscribe to related events.
+     * @throws { BusinessError } 12800013 - window manager service error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 15 dynamic
      * @since 23 static
@@ -3032,11 +3006,9 @@ declare namespace inputMethodEngine {
     getDisplayId(): Promise<long>;
 
     /**
-     * Shows this input method panel. This API uses an asynchronous callback to return the result. It can be called when
-     * the input method is bound to the edit box.
+     * 显示当前输入法面板，使用callback异步回调。输入法应用与编辑框绑定成功后可正常调用。
      *
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
-     *     **err** is **undefined**. Otherwise, **err** is an error object.
+     * @param { AsyncCallback<void> } callback - 回调函数。当面板显示成功，err为undefined，否则err为错误对象。
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
      * @since 23 static
@@ -3044,10 +3016,9 @@ declare namespace inputMethodEngine {
     show(callback: AsyncCallback<void>): void;
 
     /**
-     * Shows this input method panel. This API uses a promise to return the result. It can be called when the input 
-     * method is bound to the edit box.
+     * 显示当前输入法面板，使用promise异步回调。输入法应用与编辑框绑定成功后可正常调用。
      *
-     * @returns { Promise<void> } Promise that returns no value.
+     * @returns { Promise<void> } 无返回结果的Promise对象。
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
      * @since 23 static
@@ -3055,10 +3026,9 @@ declare namespace inputMethodEngine {
     show(): Promise<void>;
 
     /**
-     * 隐藏此面板。此API使用异步回调返回结果。
+     * 隐藏当前输入法面板，使用callback异步回调。
      *
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
-     *     **err** is **undefined**. Otherwise, **err** is an error object.
+     * @param { AsyncCallback<void> } callback - 回调函数。当面板隐藏成功，err为undefined，否则err为错误对象。
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
      * @since 23 static
@@ -3066,9 +3036,9 @@ declare namespace inputMethodEngine {
     hide(callback: AsyncCallback<void>): void;
 
     /**
-     * 隐藏此面板。此API使用promise返回结果。
+     * 隐藏当前输入法面板，使用promise异步回调。
      *
-     * @returns { Promise<void> } Promise that returns no value.
+     * @returns { Promise<void> } 无返回结果的Promise对象。
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
      * @since 23 static
@@ -3076,58 +3046,56 @@ declare namespace inputMethodEngine {
     hide(): Promise<void>;
 
     /**
-     * 启用此面板显示事件的监听。此API使用异步回调返回结果。
+     * 监听当前面板显示状态，使用 callback 异步回调。
      *
-     * @param { 'show' } type - Event type, which is **'show'**.
-     * @param { function } callback - Callback used to return the result.
+     * @param { 'show' } type - 监听当前面板的状态类型，固定取值为'show'。
+     * @param { function } callback - 回调函数。
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
      */
     on(type: 'show', callback: () => void): void;
 
     /**
-     * 禁用此面板显示事件的监听。此API使用异步回调返回结果。
+     * 取消监听当前面板的显示状态，使用callback异步回调。
      *
-     * @param { 'show' } type - Event type, which is **'show'**.
-     * @param { function } [callback] - Callback to unregister. If this parameter is not specified, this API unregisters
-     *     all callbacks for the specified type.
-     * @throws { BusinessError } 401 - 参数错误. Possible causes:
-     *     1.必填参数未指定; 2.参数类型不正确; 3.参数校验失败.
+     * @param { 'show' } type - 取消监听当前面板的状态类型，固定取值为'show'。
+     * @param { function } [callback] - 取消订阅的回调函数。参数不填写时，取消订阅type对应的所有回调事件。
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
      */
     off(type: 'show', callback?: () => void): void;
 
     /**
-     * 启用此面板隐藏事件的监听。此API使用异步回调返回结果。
+     * 监听当前面板隐藏状态，使用callback异步回调。
      *
-     * @param { 'hide' } type - Event type, which is **'hide'**.
-     * @param { function } callback - Callback used to return the result.
+     * @param { 'hide' } type - 监听当前面板的状态类型，固定取值为'hide'。
+     * @param { function } callback - 回调函数。
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
      */
     on(type: 'hide', callback: () => void): void;
 
     /**
-     * 禁用此面板隐藏事件的监听。此API使用异步回调返回结果。
+     * 取消监听当前面板的隐藏状态，使用callback异步回调。
      *
-     * @param { 'hide' } type - Event type, which is **'hide'**.
-     * @param { function } [callback] - Callback to unregister. If this parameter is not specified, this API unregisters
-     *     all callbacks for the specified type.
-     * @throws { BusinessError } 401 - 参数错误. Possible causes:
-     *     1.必填参数未指定; 2.参数类型不正确; 3.参数校验失败.
+     * @param { 'hide' } type - 要取消监听的当前面板状态类型，固定取值为'hide'。
+     * @param { function } [callback] - 取消订阅的回调函数。参数不填写时，取消订阅type对应的所有回调事件。
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
      */
     off(type: 'hide', callback?: () => void): void;
 
     /**
-     * Changes the state type ([PanelFlag]{@link inputMethodEngine.PanelFlag}) of this input method panel. This API only
-     * works for [SOFT_KEYBOARD]{@link inputMethodEngine.PanelType} panels.
+     * 将输入法应用的面板状态改变为其他[PanelFlag]{@link inputMethodEngine.PanelFlag}形态，仅对
+     * [SOFT_KEYBOARD]{@link inputMethodEngine.PanelType}生效。
      *
-     * @param { PanelFlag } flag - Type of the state of the target panel.
-     * @throws { BusinessError } 401 - 参数错误. Possible causes:
-     *     1.必填参数未指定; 2.参数类型不正确; 3.参数校验失败.
+     * @param { PanelFlag } flag - 目标面板状态类型。
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
      * @since 23 static
@@ -3135,15 +3103,13 @@ declare namespace inputMethodEngine {
     changeFlag(flag: PanelFlag): void;
 
     /**
-     * 将输入法面板设置为隐私模式。在隐私模式下，截图和屏幕录制被阻止。
+     * 将输入法应用的面板设置为隐私模式，隐私模式不可被录屏、截屏。
      *
      * @permission ohos.permission.PRIVACY_WINDOW
-     * @param { boolean } isPrivacyMode - Whether to set the input method panel to privacy mode.
-     *     <br>- **true**: privacy mode.
-     *     <br>- **false**: non-privacy mode.
-     * @throws { BusinessError } 201 - 权限检查失败.
-     * @throws { BusinessError } 401 - 参数错误. Possible causes:
-     *     1.必填参数未指定; 2.参数类型不正确.
+     * @param { boolean } isPrivacyMode - 是否设置隐私模式。<br/>- 值为true，表示将设置为隐私模式。<br/>- 值为false，表示将设置为非隐私模式。
+     * @throws { BusinessError } 201 - permissions check fails.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 11 dynamic
      * @since 23 static
@@ -3151,29 +3117,14 @@ declare namespace inputMethodEngine {
     setPrivacyMode(isPrivacyMode: boolean): void;
 
     /**
-     * Adjusts the panel rectangle. After the API is called, the adjust request is submitted to the input method 
-     * framework, but the execution is not complete.
-     * 
-     * > **NOTE**
-     * >
-     * > This API applies only to the panels of the **SOFT_KEYBOARD** type in the **FLG_FIXED** or **FLG_FLOATING** 
-     * > state.
-     * >
-     * > This API returns the result synchronously. The return only indicates that the system receives the setting 
-     * > request, not that the setting is complete.
-     * >
-     * > When the **PanelFlag** of a smartphone is **FLG_FLOATING** and the panel width is between 0 and 288 vp, the 
-     * > function buttons at the bottom of the panel will dynamically adjust their size according to the panel width. To
-     * > ensure the optimal user experience, it is recommended that the panel width be no less than 90 vp.
+     * 预设置输入法应用横竖屏大小。接口调用完毕表示adjust请求已提交到输入法框架，不表示执行完毕。
      *
-     * @param { PanelFlag } flag - Type of the state of the target panel. It can be **FLG_FIXED** or **FLG_FLOATING**.
-     * @param { PanelRect } rect - Landscape rectangle and portrait rectangle of the target panel. For the panel of the
-     *     fixed state, the height cannot exceed 70% of the screen height, and the width cannot exceed the screen width.
-     *     For the panel of the floating state, the height cannot exceed the screen height, and the width cannot exceed
-     *     the screen width.
-     * @throws { BusinessError } 401 - 参数错误. Possible causes:
-     *     1.必填参数未指定; 2.参数类型不正确; 3.参数校验失败.
-     * @throws { BusinessError } 12800013 - 窗口管理服务错误.
+     * @param { PanelFlag } flag - 目标面板状态类型。类型为FLG_FIXED或FLG_FLOATING。
+     * @param { PanelRect } rect - 目标面板横屏状态及竖屏状态的横坐标，纵坐标，宽度以及高度。固定态：高度不能超过屏幕高度的70%，宽度不能超过屏幕宽度；悬浮态：高度不能超过屏幕高度，宽度不能超过屏幕宽度。
+     *     超出范围时返回错误码401。
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+     * @throws { BusinessError } 12800013 - window manager service error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 12 dynamic
      * @since 23 static
@@ -3181,30 +3132,14 @@ declare namespace inputMethodEngine {
     adjustPanelRect(flag: PanelFlag, rect: PanelRect): void;
 
     /**
-     * Adjusts the panel rectangle, and customizes the avoid area and touch area.
-     * 
-     * > **NOTE**
-     * >
-     * > This API applies only to the panels of the **SOFT_KEYBOARD** type in the **FLG_FIXED** or **FLG_FLOATING** 
-     * > state. This API is compatible with 
-     * > [adjustPanelRect]{@link inputMethodEngine.Panel.adjustPanelRect(flag: PanelFlag, rect: PanelRect)}. If the 
-     * > input parameter **rect** contains only the **landscapeRect** and **portraitRect** attributes, 
-     * > [adjustPanelRect]{@link inputMethodEngine.Panel.adjustPanelRect(flag: PanelFlag, rect: PanelRect)} is called by
-     * > default.
-     * >
-     * > This API returns the result synchronously. The return only indicates that the system receives the setting 
-     * > request, not that the setting is complete.
-     * >
-     * > When the **PanelFlag** of a smartphone is **FLG_FLOATING** and the panel width is between 0 and 288 vp, the 
-     * > function buttons at the bottom of the panel will dynamically adjust their size according to the panel width. To
-     * > ensure the optimal user experience, it is recommended that the panel width be no less than 90 vp.
+     * 预设置输入法应用横竖屏大小、位置、自定义避让区域以及热区。
      *
-     * @param { PanelFlag } flag - Type of the state of the target panel. It can be **FLG_FIXED** or **FLG_FLOATING**.
-     * @param { EnhancedPanelRect } rect - The target panel rectangle, avoid area, and touch area.
-     * @throws { BusinessError } 401 - 参数错误. Possible causes:
-     *     1.必填参数未指定; 2.参数类型不正确; 3.参数校验失败.
-     * @throws { BusinessError } 12800013 - 窗口管理服务错误.
-     * @throws { BusinessError } 12800017 - 无效的面板类型或面板标志.
+     * @param { PanelFlag } flag - 目标面板状态类型。类型为FLG_FIXED或FLG_FLOATING。
+     * @param { EnhancedPanelRect } rect - 目标面板横屏状态及竖屏状态的位置、大小、避让区域以及热区。
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+     * @throws { BusinessError } 12800013 - window manager service error.
+     * @throws { BusinessError } 12800017 - invalid panel type or panel flag.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 15 dynamic
      * @since 23 static
@@ -3212,23 +3147,13 @@ declare namespace inputMethodEngine {
     adjustPanelRect(flag: PanelFlag, rect: EnhancedPanelRect): void;
 
     /**
-     * 更新面板矩形。此API使用promise返回结果。
-     * > **NOTE**
-     * >
-     * > This API applies only to the panels of the **SOFT_KEYBOARD** type in the **FLG_FIXED** or **FLG_FLOATING**
-     * > state.
-     * >
-     * > When the **PanelFlag** of a smartphone is **FLG_FLOATING** and the panel width is between 0 and 288 vp, the
-     * > function buttons at the bottom of the panel will dynamically update their size according to the panel width. To
-     * > ensure the optimal user experience, it is recommended that the panel width be no less than 90 vp.
+     * 预设置输入法应用横竖屏大小。使用Promise异步回调。
      *
-     * @param { PanelFlag } flag - Type of the state of the target panel. It can be **FLG_FIXED** or **FLG_FLOATING**.
-     * @param { PanelRect } rect - Landscape rectangle and portrait rectangle of the target panel. For the panel of the
-     * fixed state, the height cannot exceed 70% of the screen height, and the width cannot exceed the screen width.
-     * For the panel of the floating state, the height cannot exceed the screen height, and the width cannot exceed
-     * the screen width.
-     * @returns { Promise<void>> } Promise that returns no value.
-     * @throws { BusinessError } 12800013 - 窗口管理服务错误.
+     * @param { PanelFlag } flag - 目标面板状态类型。类型为FLG_FIXED或FLG_FLOATING。
+     * @param { PanelRect } rect - 目标面板横屏状态及竖屏状态的横坐标，纵坐标，宽度以及高度。固定态：高度不能超过屏幕高度的70%，宽度不能超过屏幕宽度；悬浮态：高度不能超过屏幕高度，宽度不能超过屏幕宽度。
+     *     超出范围时返回错误码401。
+     * @returns { Promise<void>> } Promise对象，无返回结果。
+     * @throws { BusinessError } 12800013 - window manager service error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
@@ -3236,26 +3161,13 @@ declare namespace inputMethodEngine {
     updatePanelRect(flag: PanelFlag, rect: PanelRect): Promise<void>;
 
     /**
-     * Update the panel rectangle, and customizes the avoid area and touch area. This API
-     * uses a promise to return the result.
-     * > **NOTE**
-     * >
-     * > This API applies only to the panels of the **SOFT_KEYBOARD** type in the **FLG_FIXED** or **FLG_FLOATING**
-     * > state. This API is compatible with
-     * > [updatePanelRect]{@link inputMethodEngine.Panel.updatePanelRect(flag: PanelFlag, rect: PanelRect)}.
-     * > If the input parameter **rect** contains only the **landscapeRect** and **portraitRect** attributes,
-     * > [updatePanelRect]{@link inputMethodEngine.Panel.updatePanelRect(flag: PanelFlag, rect: PanelRect)}
-     * > is called by default.
-     * >
-     * > When the **PanelFlag** of a smartphone is **FLG_FLOATING** and the panel width is between 0 and 288 vp, the
-     * > function buttons at the bottom of the panel will dynamically update their size according to the panel width. To
-     * > ensure the optimal user experience, it is recommended that the panel width be no less than 90 vp.
+     * 预设置输入法应用横竖屏大小、位置、自定义避让区域以及热区。使用Promise异步回调。
      *
-     * @param { PanelFlag } flag - Type of the state of the target panel. It can be **FLG_FIXED** or **FLG_FLOATING**.
-     * @param { EnhancedPanelRect } rect - The target panel rectangle, avoid area, and touch area.
-     * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 12800013 - 窗口管理服务错误.
-     * @throws { BusinessError } 12800017 - 无效的面板类型或面板标志.
+     * @param { PanelFlag } flag - 目标面板状态类型。类型为FLG_FIXED或FLG_FLOATING。
+     * @param { EnhancedPanelRect } rect - 目标面板横屏状态及竖屏状态的位置、大小、避让区域以及热区。
+     * @returns { Promise<void> } Promise对象，无返回结果。
+     * @throws { BusinessError } 12800013 - window manager service error.
+     * @throws { BusinessError } 12800017 - invalid panel type or panel flag.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
@@ -3263,22 +3175,12 @@ declare namespace inputMethodEngine {
     updatePanelRect(flag: PanelFlag, rect: EnhancedPanelRect): Promise<void>;
 
     /**
-     * Update the panel rectangle.
-     * > **NOTE**
-     * >
-     * > This API applies only to the panels of the **SOFT_KEYBOARD** type in the **FLG_FIXED** or **FLG_FLOATING**
-     * > state.
-     * >
-     * > When the **PanelFlag** of a smartphone is **FLG_FLOATING** and the panel width is between 0 and 288 vp, the
-     * > function buttons at the bottom of the panel will dynamically update their size according to the panel width. To
-     * > ensure the optimal user experience, it is recommended that the panel width be no less than 90 vp.
+     * 预设置输入法应用横竖屏大小。
      *
-     * @param { PanelFlag } flag - Type of the state of the target panel. It can be **FLG_FIXED** or **FLG_FLOATING**.
-     * @param { PanelRect } rect - Landscape rectangle and portrait rectangle of the target panel. For the panel of the
-     *     fixed state, the height cannot exceed 70% of the screen height, and the width cannot exceed the screen width.
-     *     For the panel of the floating state, the height cannot exceed the screen height, and the width cannot exceed
-     *     the screen width.
-     * @throws { BusinessError } 12800013 - 窗口管理服务错误.
+     * @param { PanelFlag } flag - 目标面板状态类型。类型为FLG_FIXED或FLG_FLOATING。
+     * @param { PanelRect } rect - 目标面板横屏状态及竖屏状态的横坐标，纵坐标，宽度以及高度。固定态：高度不能超过屏幕高度的70%，宽度不能超过屏幕宽度；悬浮态：高度不能超过屏幕高度，宽度不能超过屏幕宽度。
+     *     超出范围时返回错误码401。
+     * @throws { BusinessError } 12800013 - window manager service error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
@@ -3286,24 +3188,12 @@ declare namespace inputMethodEngine {
     updatePanelRectSync(flag: PanelFlag, rect: PanelRect): void;
 
     /**
-     * Update the panel rectangle, and customizes the avoid area and touch area.
-     * > **NOTE**
-     * >
-     * > This API applies only to the panels of the **SOFT_KEYBOARD** type in the **FLG_FIXED** or **FLG_FLOATING**
-     * > state. This API is compatible with
-     * > [updatePanelRectSync]{@link inputMethodEngine.Panel.updatePanelRectSync(flag: PanelFlag, rect: PanelRect)}.
-     * > If the input parameter **rect** contains only the **landscapeRect** and **portraitRect** attributes,
-     * > [updatePanelRectSync]{@link inputMethodEngine.Panel.updatePanelRectSync(flag: PanelFlag, rect: PanelRect)}
-     * > is called by default.
-     * >
-     * > When the **PanelFlag** of a smartphone is **FLG_FLOATING** and the panel width is between 0 and 288 vp, the
-     * > function buttons at the bottom of the panel will dynamically update their size according to the panel width. To
-     * > ensure the optimal user experience, it is recommended that the panel width be no less than 90 vp.
+     * 预设置输入法应用横竖屏大小、位置、自定义避让区域以及热区。
      *
-     * @param { PanelFlag } flag - Type of the state of the target panel. It can be **FLG_FIXED** or **FLG_FLOATING**.
-     * @param { EnhancedPanelRect } rect - The target panel rectangle, avoid area, and touch area.
-     * @throws { BusinessError } 12800013 - 窗口管理服务错误.
-     * @throws { BusinessError } 12800017 - 无效的面板类型或面板标志.
+     * @param { PanelFlag } flag - 目标面板状态类型。类型为FLG_FIXED或FLG_FLOATING。
+     * @param { EnhancedPanelRect } rect - 目标面板横屏状态及竖屏状态的位置、大小、避让区域以及热区。
+     * @throws { BusinessError } 12800013 - window manager service error.
+     * @throws { BusinessError } 12800017 - invalid panel type or panel flag.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
@@ -3311,23 +3201,13 @@ declare namespace inputMethodEngine {
     updatePanelRectSync(flag: PanelFlag, rect: EnhancedPanelRect): void;
 
     /**
-     * 更新当前状态下输入法面板上的热点区域。
-     * 
-     * > **NOTE**
-     * >
-     * > This API applies only to the panels of the **SOFT_KEYBOARD** type in the **FLG_FIXED** or **FLG_FLOATING** 
-     * > state.
-     * >
-     * > This API returns the result synchronously. The return only indicates that the system has received the request 
-     * > for updating the hot zone, not that the hot zone has been updated.
+     * 更新当前状态下输入法面板内的热区。
      *
-     * @param { Array<window.Rect> } inputRegion - Region for receiving input events.
-     *     <br>- The array size is limited to [1, 4].
-     *     <br>- 输入热点区域相对于输入法面板窗口的左顶点。
-     * @throws { BusinessError } 401 - 参数错误. Possible causes:
-     *     1.必填参数未指定; 2.参数类型不正确; 3.参数校验失败.
-     * @throws { BusinessError } 12800013 - 窗口管理服务错误.
-     * @throws { BusinessError } 12800017 - 无效的面板类型或面板标志.
+     * @param { Array<window.Rect> } inputRegion - 面板内接收输入事件的区域。<br/>- 数组大小限制为[1, 4]。<br/>- 传入的热区位置是相对于输入法面板窗口左顶点的位置。
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+     * @throws { BusinessError } 12800013 - window manager service error.
+     * @throws { BusinessError } 12800017 - invalid panel type or panel flag.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 15 dynamic
      * @since 23 static
@@ -3335,76 +3215,33 @@ declare namespace inputMethodEngine {
     updateRegion(inputRegion: Array<window.Rect>): void;
 
     /**
-     * 启用面板大小变更的监听。此API使用异步回调返回结果。
-     * 
-     * > **NOTE**
-     * >
-     * > This API applies only to the panels of the **SOFT_KEYBOARD** type in the **FLG_FIXED** or **FLG_FLOATING** 
-     * > state. When you call **adjustPanelRect** to adjust the panel size, the system calculates the final value based 
-     * > on certain rules (for example, whether the panel size exceeds the screen). This callback can be used to obtain 
-     * > the actual panel size to refresh the panel layout.
-     * >
-     * > -  This API is supported from API version 12 to 14. The callback function of this API contains only mandatory 
-     * > parameters of the [window.Size]{@link window.Size} type.
-     * >
-     * > -  Since API version 15, after the 
-     * > [adjustPanelRect]{@link inputMethodEngine.Panel.adjustPanelRect(flag: PanelFlag, rect: EnhancedPanelRect)} API 
-     * > is called, an optional parameter of the [KeyboardArea]{@link inputMethodEngine.KeyboardArea} type is added to 
-     * > the callback function of this API.
+     * 监听当前面板大小变化，使用callback异步回调。
      *
-     * @param { 'sizeChange' } type - Event type, which is **'sizeChange'**.
-     * @param { Callback<window.Size> } callback - Callback used to return the size of the soft keyboard panel,
-     *     including the width and height. [since 12 - 14]
-     * @param { SizeChangeCallback } callback - Callback used to return the size of the soft keyboard panel, including
-     *     the width and height. [since 15]
+     * @param { 'sizeChange' } type - 监听当前面板的大小是否产生变化，固定值为'sizeChange'。
+     * @param { Callback<window.Size> } callback - 回调函数。返回当前软键盘面板的大小，包含宽度和高度值。 [since 12 - 14]
+     * @param { SizeChangeCallback } callback - 回调函数。返回当前软键盘面板的大小，包含宽度和高度值。 [since 15]
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 12 dynamic
      */
     on(type: 'sizeChange', callback: SizeChangeCallback): void;
 
     /**
-     * 禁用面板大小变更的监听。此API使用异步回调返回结果。
-     * 
-     * > **NOTE**
-     * >
-     * > This API applies only to the panels of the **SOFT_KEYBOARD** type in the **FLG_FIXED** or **FLG_FLOATING** 
-     * > state. When you call **adjustPanelRect** to adjust the panel size, the system calculates the final value based 
-     * > on certain rules (for example, whether the panel size exceeds the screen). This callback can be used to obtain 
-     * > the actual panel size to refresh the panel layout.
-     * >
-     * > -  This API is supported from API version 12 to 14. The callback function of this API contains only mandatory 
-     * > parameters of the [window.Size]{@link window.Size} type.
-     * >
-     * > -  Since API version 15, after the 
-     * > [adjustPanelRect]{@link inputMethodEngine.Panel.adjustPanelRect(flag: PanelFlag, rect: EnhancedPanelRect)} API 
-     * > is called, an optional parameter of the [KeyboardArea]{@link inputMethodEngine.KeyboardArea} type is added to 
-     * > the callback function of this API.
+     * 取消监听当前面板大小变化，使用callback异步回调。
      *
-     * @param { 'sizeChange' } type - Event type, which is **'sizeChange'**.
-     * @param { ?Callback<window.Size> } [callback] - Callback used to return the size of the soft keyboard panel,
-     *     including the width and height. [since 12 - 14]
-     * @param { ?SizeChangeCallback } [callback] - Callback used to return the size of the soft keyboard panel,
-     *     including the width and height. [since 15]
+     * @param { 'sizeChange' } type - 监听当前面板的大小是否产生变化，固定取值为'sizeChange'。
+     * @param { ?Callback<window.Size> } [callback] - 回调函数。返回当前软键盘面板的大小，包含宽度和高度值。参数不填写时，取消订阅type对应的所有回调事
+     *     件。 [since 12 - 14]
+     * @param { ?SizeChangeCallback } [callback] - 回调函数。返回当前软键盘面板的大小，包含宽度和高度值。参数不填写时，取消订阅type对应的所有回调事件。 [since 15]
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 12 dynamic
      */
     off(type: 'sizeChange', callback?: SizeChangeCallback): void;
 
     /**
-     * 监听面板大小变更。此API使用异步回调返回结果。
-     * 
-     * > **NOTE**
-     * >
-     * > This API applies only to the panels of the **SOFT_KEYBOARD** type in the **FLG_FIXED** or **FLG_FLOATING** 
-     * > state. When you call 
-     * > [adjustPanelRect]{@link @ohos.inputMethodEngine:inputMethodEngine.Panel.adjustPanelRect(flag: PanelFlag, rect: EnhancedPanelRect)}
-     * > to adjust the panel size, the system calculates the final value based on certain rules (for example, whether 
-     * > the panel size exceeds the screen). This callback can be used to obtain the actual panel size to refresh the 
-     * > panel layout.
+     * 通过Panel实例监听当前面板大小变化，在变化发生时通过callback异步回调。
      *
-     * @param { 'sizeUpdate' } type - Event type, which is **'sizeUpdate'**.
-     * @param { SizeUpdateCallback } callback - Callback used to return the size of the soft keyboard panel, including
-     *     the width and height.
+     * @param { 'sizeUpdate' } type - 监听当前面板的大小是否产生变化，固定取值为'sizeUpdate'。
+     * @param { SizeUpdateCallback } callback - 面板大小变化时的回调，参数包含当前软键盘面板的宽度和高度。
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @systemapi
      * @since 14 dynamic
@@ -3412,20 +3249,10 @@ declare namespace inputMethodEngine {
     on(type: 'sizeUpdate', callback: SizeUpdateCallback): void;
 
     /**
-     * 禁用面板大小变更的监听。此API使用异步回调返回结果。
-     * 
-     * > **NOTE**
-     * >
-     * > This API applies only to the panels of the **SOFT_KEYBOARD** type in the **FLG_FIXED** or **FLG_FLOATING** 
-     * > state. When you call 
-     * > [adjustPanelRect]{@link @ohos.inputMethodEngine:inputMethodEngine.Panel.adjustPanelRect(flag: PanelFlag, rect: EnhancedPanelRect)}
-     * > to adjust the panel size, the system calculates the final value based on certain rules (for example, whether 
-     * > the panel size exceeds the screen). This callback can be used to obtain the actual panel size to refresh the 
-     * > panel layout.
+     * 通过Panel实例取消监听当前面板大小变化，停止callback异步回调。
      *
-     * @param { 'sizeUpdate' } type - Event type, which is **'sizeUpdate'**.
-     * @param { ?SizeUpdateCallback } [callback] - Callback used to return the size of the soft keyboard panel,
-     *     including the width and height.
+     * @param { 'sizeUpdate' } type - 监听当前面板的大小是否产生变化，固定值为'sizeUpdate'。
+     * @param { ?SizeUpdateCallback } [callback] - 回调函数。用于指定要取消监听的回调函数，如果不填则取消所有sizeUpdate监听。
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @systemapi
      * @since 14 dynamic
@@ -3433,15 +3260,14 @@ declare namespace inputMethodEngine {
     off(type: 'sizeUpdate', callback?: SizeUpdateCallback): void;
 
     /**
-     * Sets the immersive mode of the input method application. You can only set the immersion mode to 
-     * **NONE_IMMERSIVE**, **LIGHT_IMMERSIVE**, or **DARK_IMMERSIVE**. **IMMERSIVE** cannot be set.
+     * 设置输入法应用的沉浸模式。只能设置为不使用沉浸模式(NONE_IMMERSIVE)、浅色沉浸模式(LIGHT_IMMERSIVE)或深色沉浸模式(DARK_IMMERSIVE)。
      *
-     * @param { ImmersiveMode } mode - Immersive mode.
-     * @throws { BusinessError } 401 - 参数错误. Possible causes:
-     *     1.参数类型不正确; 2.参数校验失败.
-     * @throws { BusinessError } 12800002 - 输入法引擎错误. Possible causes:
-     *     1.输入法面板未创建. 2.输入法应用未订阅相关事件.
-     * @throws { BusinessError } 12800013 - 窗口管理服务错误.
+     * @param { ImmersiveMode } mode - 沉浸模式。
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.Incorrect parameter types; 2.Parameter verification failed.
+     * @throws { BusinessError } 12800002 - input method engine error. Possible causes:
+     *     1.input method panel not created. 2.the input method application does not subscribe to related events.
+     * @throws { BusinessError } 12800013 - window manager service error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 15 dynamic
      * @since 23 static
@@ -3451,7 +3277,7 @@ declare namespace inputMethodEngine {
     /**
      * 获取输入法应用的沉浸模式。
      *
-     * @returns { ImmersiveMode } Immersive mode.
+     * @returns { ImmersiveMode } 沉浸模式。
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 15 dynamic
      * @since 23 static
@@ -3461,49 +3287,39 @@ declare namespace inputMethodEngine {
     /**
      * 设置输入法应用的沉浸效果。
      * 
-     * - Gradient mode and fluid light mode can be used only when the 
-     * [immersive mode]{@link inputMethodEngine.Panel.setImmersiveMode} is enabled.
-     * - 流光模式只能在启用渐变模式时使用。
-     * - 如果禁用渐变模式，则渐变高度必须为0 px。
+     * - 只有在[启用沉浸式模式]{@link inputMethodEngine.Panel.setImmersiveMode}时，才能使用渐变模式和流光模式。
+     * - 只有在启用渐变模式时，才能使用流光模式。
+     * - 未启用渐变模式时，渐变高度必须为0px。
      * - 只有系统应用才能设置流光模式。
-     * - 只能在调用以下任一API后调用此API：
-     *  - [adjustPanelRect]{@link inputMethodEngine.Panel.adjustPanelRect(flag: PanelFlag, rect: PanelRect)} (available 
-     * since API version 12)
-     *  - [adjustPanelRect]{@link inputMethodEngine.Panel.adjustPanelRect(flag: PanelFlag, rect: EnhancedPanelRect)} (
-     * available since API version 15)
-     *  - [resize]{@link inputMethodEngine.Panel.resize(width: long, height: long, callback: AsyncCallback<void>)} (
-     * available since API version 10)
+     * - 必须先调用以下任一接口，才能调用当前接口：
+     *  - [adjustPanelRect]{@link inputMethodEngine.Panel.adjustPanelRect(flag: PanelFlag, rect: PanelRect)}(支持API 
+     * version 12)
+     *  - [adjustPanelRect]{@link inputMethodEngine.Panel.adjustPanelRect(flag: PanelFlag, rect: EnhancedPanelRect)}(支持
+     * API version 15)
+     *  - [resize]{@link inputMethodEngine.Panel.resize(width: long, height: long, callback: AsyncCallback<void>)}(支持API
+     * version 10)
      *
-     * @param { ImmersiveEffect } effect - Immersive effect.
-     * @throws { BusinessError } 801 - 不支持该能力.
-     * @throws { BusinessError } 12800002 - 输入法引擎错误. Possible causes:
-     *     1. 输入法面板未创建. 2. 输入法应用未订阅相关事件.
-     * @throws { BusinessError } 12800013 - 窗口管理服务错误.
-     * @throws { BusinessError } 12800020 - 无效的沉浸效果.
+     * @param { ImmersiveEffect } effect - 沉浸效果。
+     * @throws { BusinessError } 801 - capability not supported.
+     * @throws { BusinessError } 12800002 - input method engine error. Possible causes:
+     *     1. input method panel not created. 2. the input method application does not subscribe to related events.
+     * @throws { BusinessError } 12800013 - window manager service error.
+     * @throws { BusinessError } 12800020 - invalid immersive effect.
      *     1. The gradient mode and the fluid light mode can only be used when the immersive mode is enabled.
      *     2. The fluid light mode can only be used when the gradient mode is enabled.
      *     3. When the gradient mode is not enabled, the gradient height can only be 0.
-     * @throws { BusinessError } 12800021 - 只能在调用adjustPanelRect或resize后执行此操作.
+     * @throws { BusinessError } 12800021 - this operation is allowed only after adjustPanelRect or resize is called.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 20 dynamic
      * @since 23 static
      */
     setImmersiveEffect(effect: ImmersiveEffect): void;
     /**
-     * 设置保持屏幕常亮。此API使用promise返回结果。
-     * 
-     * > **NOTE**
-     * >
-     * > - 当键盘显示时，屏幕保持常亮；当键盘隐藏时，屏幕关闭。
-     * >
-     * > - You need to use this API properly. Set the attribute to **true** in necessary scenarios (for example, voice 
-     * > input) and reset this attribute to **false** after exiting necessary scenarios. In other scenarios, do not use 
-     * > this API.
+     * 设置屏幕常亮。使用Promise异步回调。
      *
-     * @param { boolean } isKeepScreenOn - Whether to keep the screen always on. The value **true** means that the
-     *     screen is always on; the value **false** means the opposite.
-     * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 12800013 - 窗口管理服务错误.
+     * @param { boolean } isKeepScreenOn - 是否设置屏幕常亮。true表示打开屏幕常亮，false表示关闭屏幕常亮。
+     * @returns { Promise<void> } 无返回结果的Promise对象。
+     * @throws { BusinessError } 12800013 - window manager service error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 20 dynamic
      * @since 23 static
@@ -3511,62 +3327,48 @@ declare namespace inputMethodEngine {
     setKeepScreenOn(isKeepScreenOn: boolean): Promise<void>;
 
     /**
-     * Obtains the offset area of the soft keyboard relative to the system panel under the current state of the 
-     * specified screen (for example, folded or unfolded) and the current state of the input method keyboard (for 
-     * example, floating or fixed). This API uses a promise to return the result.
+     * 获取指定屏幕当前状态（例如：折叠或展开）下，当前输入法键盘状态（例如：悬浮或固定）下输入法软键盘相对系统面板的偏移区域。使用Promise异步回调。
      *
-     * @param { number } displayId - Display ID of the screen where the input method keyboard is located. It can be
-     *     obtained by calling [getDisplayId]{@link inputMethodEngine.Panel.getDisplayId}.
-     * @returns { Promise<SystemPanelInsets> } Promise used to return the offset area between the input method keyboard
-     *     and the system panel.
-     * @throws { BusinessError } 12800013 - 窗口管理服务错误.
-     * @throws { BusinessError } 12800017 - 无效的面板类型或面板标志. Possible causes:
+     * @param { number } displayId - 输入法键盘所在屏幕的displayId，可通过[getDisplayId]{@link inputMethodEngine.Panel.getDisplayId}获取
+     * @returns { Promise<SystemPanelInsets> } Promise对象。输入法键盘与系统面板的偏移区域。
+     * @throws { BusinessError } 12800013 - window manager service error.
+     * @throws { BusinessError } 12800017 - invalid panel type or panel flag. Possible causes:
      *     1. Current panel's type is not SOFT_KEYBOARD.  2. Panel's flag is not FLG_FIXED or FLG_FLOATING.
-     * @throws { BusinessError } 12800022 - 无效的displayId.
+     * @throws { BusinessError } 12800022 - invalid displayId.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 21 dynamic
      */
     getSystemPanelCurrentInsets(displayId: number): Promise<SystemPanelInsets>;
 
     /**
-     * 获取指定显示屏的系统面板的当前内嵌值。
+     * 获取指定屏幕当前状态（例如：折叠或展开）下，当前输入法键盘状态（例如：悬浮或固定）下输入法软键盘相对系统面板的偏移区域。使用Promise异步回调。
      * 
-     * <p>仅适用于SOFT_KEYBOARD面板（FLG_FIXED或FLG_FLOATING）。</p>
-     * <p>This interface only supports obtaining the current insets values of a display.
-     * When the display undergoes orientation changes, or is folded or unfolded, it is necessary to
-     * reinvoke this interface to get the latest values.</p>
+     * <p>仅支持悬浮或固定键盘.</p>
+     * <p>获取指定屏幕当前状态（例如：折叠或展开）下，当前输入法键盘状态（例如：悬浮或固定）下输入法软键盘相对系统面板的偏移区域。</p>
+     * <p>当屏幕状态发生变化，需要重新获取偏移区域。</p>
      *
      * @param { long } displayId - specify which display's system panel insets.
      * @returns { Promise<SystemPanelInsets | null> } the promise returned by the function.
-     * @throws { BusinessError } 12800013 - 窗口管理服务错误.
-     * @throws { BusinessError } 12800017 - 无效的面板类型或面板标志. Possible causes:
+     * @throws { BusinessError } 12800013 - window manager service error.
+     * @throws { BusinessError } 12800017 - invalid panel type or panel flag. Possible causes:
      *     1. Current panel's type is not SOFT_KEYBOARD.  2. Panel's flag is not FLG_FIXED or FLG_FLOATING.
-     * @throws { BusinessError } 12800022 - 无效的displayId.
+     * @throws { BusinessError } 12800022 - invalid displayId.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 23 static
      */
     getSystemPanelCurrentInsets(displayId: long): Promise<SystemPanelInsets | null>;
 
     /**
-     * 设置输入法窗口的阴影效果。
-     * 
-     * > **NOTE**
-     * >
-     * > Panels whose [PanelType]{@link @ohos.inputMethodEngine:inputMethodEngine.PanelType} is **SOFT_KEYBOARD** and 
-     * > [PanelFlag]{@link @ohos.inputMethodEngine:inputMethodEngine.PanelFlag} is **FLG_FIXED** are not supported.
+     * 通过Panel实例设置输入法窗口阴影效果。
      *
-     * @param { double } radius - Radius of the shadow. The value is a floating-point number greater than or equal to 0.
-     *     0, in px. The value **0.0** means that the shadow is disabled for the window borders.
-     * @param { string } color - Color of the shadow. The value is a hexadecimal RGB or ARGB color code and is case
-     *     insensitive, for example, `#000000` or `#FF000000`.
-     * @param { double } offsetX - Offset of the shadow along the x-axis, in pixels. The value is a floating-point
-     *     number.
-     * @param { double } offsetY - Offset of the shadow along the y-axis, in pixels. The value is a floating-point
-     *     number.
-     * @throws { BusinessError } 202 - 非系统应用.
-     * @throws { BusinessError } 12800013 - 窗口管理服务错误.
-     * @throws { BusinessError } 12800017 - 无效的面板类型或面板标志.
-     *     Possible causes: 面板标志为FLG_FIXED.
+     * @param { double } radius - 窗口边缘阴影的模糊半径，单位px，取值范围[0.0, +∞)，0.0时关闭窗口边缘阴影。
+     * @param { string } color - 窗口边缘阴影的颜色，十六进制RGB或ARGB格式，不区分大小写，例如`#000000`或`#FF000000`。
+     * @param { double } offsetX - 窗口边缘阴影X轴的偏移量，单位px。正值向右偏移，负值向左偏移。
+     * @param { double } offsetY - 窗口边缘阴影Y轴的偏移量，单位px。正值向下偏移，负值向上偏移。
+     * @throws { BusinessError } 202 - not system application.
+     * @throws { BusinessError } 12800013 - window manager service error.
+     * @throws { BusinessError } 12800017 - invalid panel type or panel flag.
+     *     Possible causes: Panel's flag is FLG_FIXED.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @systemapi
      * @since 22 dynamic
@@ -3575,15 +3377,13 @@ declare namespace inputMethodEngine {
     setShadow(radius: double, color: string, offsetX: double, offsetY: double): void;
 
     /**
-     * Sets the color of the function buttons and their background color on the current panel. This API uses a promise 
-     * to return the result.
+     * 设置当前面板功能键颜色和功能键的背景颜色。使用Promise异步回调。
      *
-     * @param { string | undefined } fillColor - Color of the function buttons. The value can be [#01000000, #FFFFFFFF]
-     *     or [#000000, #FFFFFF]. The value of the fully transparent alpha channel (**#00xxxxxx**) is not supported.
-     * @param { string | undefined } backgroundColor - Background color of the function buttons. The value can be
-     *     [#01000000, #FFFFFFFF] or [#000000, #FFFFFF]. The value of the fully transparent alpha channel (#00xxxxxx) is
-     *     not supported.
-     * @returns { Promise<void> } Promise that returns no result.
+     * @param { string | undefined } fillColor - 功能键的颜色，取值范围为[#01000000, #FFFFFFFF] 或 [#000000, #FFFFFF]，不支持具有完全透明Alpha通
+     *     道（#00xxxxxx）的值。
+     * @param { string | undefined } backgroundColor - 功能键的背景颜色，取值范围为[#01000000, #FFFFFFFF] 或 [#000000, #FFFFFF]，不支持具有完全
+     *     透明Alpha通道（#00xxxxxx）的值。
+     * @returns { Promise<void> } Promise对象。无返回结果。
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 22 dynamic
      * @since 23 static
@@ -3591,60 +3391,63 @@ declare namespace inputMethodEngine {
     setSystemPanelButtonColor(fillColor: string | undefined, backgroundColor: string | undefined): Promise<void>;
 
     /**
-     * 注册面板显示事件。
+     * 监听当前面板显示状态，使用callback异步回调。
      * 
-     * <p>The "show" events are triggered when the panel is shown.</p>
+     * <p>“show”事件在面板显示时触发。</p>
      *
-     * @param { Callback<void> } callback - the callback called when the panel shows.
+     * @param { Callback<void> } callback - 回调函数。
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 23 static
      */
     onShow(callback: Callback<void>): void;
     /**
-     * 注销面板显示事件。
+     * 取消监听当前输入法面板的隐藏状态，使用callback异步回调。
      *
-     * @param { Callback<void> } [callback] - optional, the callback called when the panel shows.
+     * @param { Callback<void> } [callback] - 取消订阅的回调函数。
+     *    参数不填写时，取消订阅type对应的所有回调事件。
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 23 static
      */
     offShow(callback?: Callback<void>): void;
 
     /**
-     * 注册面板隐藏事件。
+     * 监听当前面板隐藏状态，使用callback异步回调。
      * 
-     * <p>The "hide" events are triggered when the panel is hidden.</p>
+     * <p>“hide”事件在面板隐藏时触发。</p>
      *
-     * @param { Callback<void> } callback - the callback called when the panel hides.
+     * @param { Callback<void> } callback - 回调函数。
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 23 static
      */
     onHide(callback: Callback<void>): void;
     /**
-     * 注销面板隐藏事件。
+     * 取消监听当前面板隐藏状态，使用callback异步回调。
      *
-     * @param { Callback<void> } [callback] - the callback to Unregister.
+     * @param { Callback<void> } [callback] -  取消订阅的回调函数。
+     *    参数不填写时，取消订阅type对应的所有回调事件。
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 23 static
      */
     offHide(callback?: Callback<void>): void;
 
     /**
-     * 订阅'sizeUpdate'事件。
+     * 订阅面板尺寸更新（sizeUpdate）事件，当输入法面板尺寸发生变更时触发该事件，并执行指定的回调函数, 使用callback异步回调。
      * 
-     * <p>It's only used for SOFT_KEYBOARD panel with FLG_FIXED and FLG_FLOATING.</p>
+     * <p>此接口仅支持固定或悬浮态的软键盘类型Panel。</p>
      *
-     * @param { SizeUpdateCallback } callback - the callback called when the panel size updates.
+     * @param { SizeUpdateCallback } callback - 面板尺寸更新时触发的回调函数，入参为面板尺寸信息对象。
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @systemapi
      * @since 23 static
      */
     onSizeUpdate(callback: SizeUpdateCallback): void;
     /**
-     * 取消订阅'sizeUpdate'事件。
+     * 取消订阅面板尺寸更新（sizeUpdate）事件，停止监听输入法面板尺寸的变更动作, 使用callback异步回调。
      * 
-     * <p>It's only used for SOFT_KEYBOARD panel with FLG_FIXED and FLG_FLOATING.</p>
+     * <p>此接口仅支持固定或悬浮态的软键盘类型Panel。</p>
      *
-     * @param { SizeUpdateCallback } [callback] - optional, the callback called when the panel size updates.
+     * @param { SizeUpdateCallback } [callback] - 回调函数。
+     *    可选参数，需取消的目标回调函数：传入指定回调函数实例时，仅取消该回调的订阅；不传入时，取消所有sizeUpdate事件的订阅。
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @systemapi
      * @since 23 static
@@ -3652,21 +3455,22 @@ declare namespace inputMethodEngine {
     offSizeUpdate(callback?: SizeUpdateCallback): void;
 
     /**
-     * 订阅'sizeChange'事件。
+     * 监听当前面板大小变化，使用callback异步回调。
      * 
-     * <p>It's only used for SOFT_KEYBOARD panel with FLG_FIXED and FLG_FLOATING.</p>
+     * <p>此接口仅支持固定或悬浮态的软键盘类型Panel。</p>
      *
-     * @param { SizeChangeCallback } callback - the callback called when the panel size changes.
+     * @param { SizeChangeCallback } callback - 回调函数。返回当前软键盘面板的大小，包含宽度和高度值。
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 23 static
      */
     onSizeChange(callback: SizeChangeCallback): void;
     /**
-     * 取消订阅'sizeChange'事件。
+     * 取消监听当前面板大小变化，使用callback异步回调。
      * 
-     * <p>It's only used for SOFT_KEYBOARD panel with FLG_FIXED and FLG_FLOATING.</p>
+     * <p>此接口仅支持固定或悬浮态的软键盘类型Panel。</p>
      *
-     * @param { SizeChangeCallback } [callback] - optional, the callback called when the panel size changes.
+     * @param { SizeChangeCallback } [callback] - 回调函数。返回当前软键盘面板的大小，包含宽度和高度值。
+     *    参数不填写时，取消订阅type对应的所有回调事件。
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 23 static
      */
@@ -3674,7 +3478,7 @@ declare namespace inputMethodEngine {
   }
 
   /**
-   * 定义输入法软键盘与系统面板之间的偏移区域。
+   * 输入法软键盘相对系统面板的偏移区域。
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 21 dynamic
@@ -3682,8 +3486,7 @@ declare namespace inputMethodEngine {
    */
   interface SystemPanelInsets {
     /**
-     * Distance between the left border of the keyboard area and the left border of the system panel area, in px. The 
-     * value is an integer.
+     * 键盘区域的左边界到系统面板区域左边界的距离，单位为px，该参数为整数。
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 21 dynamic
@@ -3691,8 +3494,7 @@ declare namespace inputMethodEngine {
      */
     readonly left: int;
     /**
-     * Distance between the right border of the keyboard area and the right border of the system panel area, in px. The 
-     * value is an integer.
+     * 键盘区域的右边界到系统面板区域右边界的距离，单位为px，该参数为整数。
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 21 dynamic
@@ -3700,8 +3502,7 @@ declare namespace inputMethodEngine {
      */
     readonly right: int;
     /**
-     * Distance between the bottom border of the keyboard area and the bottom border of the system panel area, in px. 
-     * The value is an integer.
+     * 键盘区域的下边界到系统面板区域下边界的距离，单位为px，该参数为整数。
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 21 dynamic
@@ -3711,9 +3512,7 @@ declare namespace inputMethodEngine {
   }
 
   /**
-   * In the following API examples, you must first use 
-   * [getKeyboardDelegate]{@link inputMethodEngine.getKeyboardDelegate()} to obtain a **KeyboardDelegate** instance, and
-   * then call the APIs using the obtained instance.
+   * 编辑框属性值。
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 8 dynamic
@@ -3721,8 +3520,8 @@ declare namespace inputMethodEngine {
    */
   interface EditorAttribute {
     /**
-     * Text attribute of the edit box. For details, see 
-     * [edit box definitions in constants](docroot://reference/apis-ime-kit/js-apis-inputmethodengine.md#Constants).
+     * 编辑框的文本属性，详见
+     * [常量中的编辑框定义](docroot://reference/apis-ime-kit/js-apis-inputmethodengine.md#工具不太能识别具体链接到的是哪个常量。让人工处理。咨询黄山）)。
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8 dynamic
@@ -3731,8 +3530,8 @@ declare namespace inputMethodEngine {
     readonly inputPattern: int;
 
     /**
-     * Function attributes of the edit box. For details, see 
-     * [function key definitions in constants](docroot://reference/apis-ime-kit/js-apis-inputmethodengine.md#Constants).
+     * 编辑框的功能属性，详见
+     * [常量中的功能键定义](docroot://reference/apis-ime-kit/js-apis-inputmethodengine.md#工具不太能识别具体链接到的是哪个常量。让人工处理。咨询黄山）)。
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8 dynamic
@@ -3741,10 +3540,10 @@ declare namespace inputMethodEngine {
     readonly enterKeyType: int;
 
     /**
-     * 是否支持文本预览。
+     * 编辑框是否支持预上屏。
      * 
-     * - **true**: Supported.
-     * - **false**: Unsupported.
+     * - 值为true，表示支持。
+     * - 值为false，表示不支持。
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 12 dynamic
@@ -3753,8 +3552,7 @@ declare namespace inputMethodEngine {
     isTextPreviewSupported: boolean;
 
     /**
-     * Name of the application package to which the edit box belongs. The value may be **""**. Handle this scenario when
-     * using the attribute.
+     * 编辑框所属应用包名；该值可能为""，使用该属性时需要考虑为""的场景。
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 14 dynamic
@@ -3763,7 +3561,7 @@ declare namespace inputMethodEngine {
     readonly bundleName?: string;
 
     /**
-     * 输入法的沉浸模式。
+     * 输入法沉浸模式。
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 15 dynamic
@@ -3772,7 +3570,7 @@ declare namespace inputMethodEngine {
     readonly immersiveMode?: ImmersiveMode;
 
     /**
-     * 编辑框所在窗口的ID。
+     * 编辑框设置所属窗口ID。
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 18 dynamic
@@ -3781,8 +3579,7 @@ declare namespace inputMethodEngine {
     readonly windowId?: int;
 
     /**
-     * Screen ID of the window corresponding to the edit box. If window ID is not set, the screen ID of the focused 
-     * window is used.
+     * 编辑框设置窗口对应的屏幕ID。如果没有设置windowId，取当前焦点窗口屏幕ID。
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 18 dynamic
@@ -3791,7 +3588,7 @@ declare namespace inputMethodEngine {
     readonly displayId?: long;
 
     /**
-     * 为编辑框设置的占位符信息。
+     * 编辑框设置的占位符信息。
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 20 dynamic
@@ -3800,7 +3597,7 @@ declare namespace inputMethodEngine {
     readonly placeholder?: string;
 
     /**
-     * 为编辑框设置的能力名称。
+     * 编辑框设置的ability名称。
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 20 dynamic
@@ -3809,8 +3606,7 @@ declare namespace inputMethodEngine {
     readonly abilityName?: string;
 
     /**
-     * Whether to capitalize the first letter in the edit box. If it is not set or is set to an invalid value, the first
-     * letter is not capitalized by default.
+     * 编辑框设置大小写模式。如果没有设置或设置非法值，默认不进行任何首字母大写处理。
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 20 dynamic
@@ -3819,8 +3615,7 @@ declare namespace inputMethodEngine {
     readonly capitalizeMode?: CapitalizeMode;
 
     /**
-     * Gradient mode. If this attribute is not specified or is set to an invalid value, the gradient mode is not used by
-     * default.
+     * 渐变模式。如果没有设置或设置非法值，默认不使用渐变模式。
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 20 dynamic
@@ -3829,10 +3624,9 @@ declare namespace inputMethodEngine {
     readonly gradientMode?: GradientMode;
 
     /**
-     * Fluid light mode. If this attribute is not specified or is set to an invalid value, the fluid light mode is not 
-     * used by default.
+     * 流光模式。未设置或设置非法值时，默认不使用流光模式。
      * 
-     * 此属性仅对系统应用可用。
+     * 该属性仅系统应用可以使用。
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @systemapi
@@ -3842,7 +3636,7 @@ declare namespace inputMethodEngine {
     readonly fluidLightMode?: FluidLightMode;
 
     /**
-     * 输入法的额外信息。
+     * 输入法扩展信息。
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 22 dynamic
@@ -3851,7 +3645,10 @@ declare namespace inputMethodEngine {
     readonly extraConfig?: InputMethodExtraConfig;
 
     /**
-     * 编辑器是否支持消费按键事件。
+     * 编辑框是否具有完整处理字母、字符、功能等按键的能力。
+     * 
+     * - 值为true，表示具备此能力。
+     * - 值为false，表示不具备此能力。
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @stagemodelonly
@@ -3861,9 +3658,7 @@ declare namespace inputMethodEngine {
   }
 
   /**
-   * In the following API examples, you must first use 
-   * [getKeyboardDelegate]{@link inputMethodEngine.getKeyboardDelegate()} to obtain a **KeyboardDelegate** instance, and
-   * then call the APIs using the obtained instance.
+   * 按键属性值。
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 8 dynamic
@@ -3871,7 +3666,7 @@ declare namespace inputMethodEngine {
    */
   interface KeyEvent {
     /**
-     * 键值。详情请参阅[KeyCode]{@link @ohos.multimodalInput.keyCode:KeyCode}。
+     * 按键的键值。键码值说明参考[KeyCode]{@link @ohos.multimodalInput.keyCode:KeyCode}。
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8 dynamic
@@ -3882,8 +3677,8 @@ declare namespace inputMethodEngine {
     /**
      * 按键事件类型。
      * 
-     * - **2**: keydown event.
-     * - **3**: keyup event.
+     * - 当值为2时，表示按下事件；
+     * - 当值为3时，表示抬起事件。
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8 dynamic
@@ -3893,7 +3688,13 @@ declare namespace inputMethodEngine {
   }
 
   /**
-   * 枚举输入法面板的状态类型。
+   * 输入法面板状态类型枚举。
+   * 
+   * | 名称         | 值 | 说明               |
+   * | ------------ | -- | ------------------ |
+   * | FLG_FIXED  | 0 | 固定态面板类型。 |
+   * | FLG_FLOATING | 1 | 悬浮态面板类型。 |
+   * | FLAG_CANDIDATE<sup>15+</sup> | 2 | 候选词态面板类型。 |
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 10 dynamic
@@ -3901,10 +3702,9 @@ declare namespace inputMethodEngine {
    */
   export enum PanelFlag {
     /**
-     * 固定样式。
+     * 固定态面板类型。
      * 
-     * <p>It's provided for the panel with type of SOFT_KEYBOARD.
-     * When the flag is set, the soft keyboard is fixed at the bottom of the screen.</p>
+     * <p>该功能是为SOFT_KEYBOARD类型的面板提供的。当该标志被设置时，软键盘将固定在屏幕底部。</p>
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
@@ -3913,10 +3713,9 @@ declare namespace inputMethodEngine {
     FLG_FIXED = 0,
 
     /**
-     * 浮动样式。
+     * 悬浮态面板类型。
      * 
-     * <p>It's provided for the panel with type of SOFT_KEYBOARD.
-     * When the flag is set, the soft keyboard is floating.</p>
+     * <p>该功能是为SOFT_KEYBOARD类型的面板提供的。当该标志被设置时，软键盘将是悬浮态的。</p>
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
@@ -3925,12 +3724,12 @@ declare namespace inputMethodEngine {
     FLG_FLOATING,
 
     /**
-     * 候选样式。
+     * 候选词态面板类型。
      * 
-     * <p>It's provided for the panel with type of SOFT_KEYBOARD.
-     * When the flag is set, the soft keyboard is a candidate window which will show the possible characters when user types a input code.
-     * Panel with candidate style will not be automatically shown or hidden by input method service.
-     * Input method application developers are supposed to control the panel status on their own.</p>
+     * <p>它为类型为SOFT_KEYBOARD的面板提供支持。
+     * 当该标志被设置时，软键盘将作为一个候选窗口，当用户输入代码时，该窗口会显示可能的字符。
+     * 具有候选样式的面板不会由输入法服务自动显示或隐藏。
+     * 输入法应用程序开发者应自行控制面板的状态。</p>
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 15 dynamic
@@ -3940,7 +3739,12 @@ declare namespace inputMethodEngine {
   }
 
   /**
-   * 枚举输入法面板的类型。
+   * 输入法面板类型枚举。
+   * 
+   * | 名称         | 值 | 说明               |
+   * | ------------ | -- | ------------------ |
+   * | SOFT_KEYBOARD | 0 | 软键盘类型。 |
+   * | STATUS_BAR   | 1 | 状态栏类型。 |
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 10 dynamic
@@ -3948,7 +3752,7 @@ declare namespace inputMethodEngine {
    */
   export enum PanelType {
     /**
-     * 用于显示虚拟软键盘的面板。
+     * 软键盘类型。
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
@@ -3957,7 +3761,7 @@ declare namespace inputMethodEngine {
     SOFT_KEYBOARD = 0,
 
     /**
-     * 用于显示状态栏的面板。
+     * 状态栏类型。
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
@@ -3967,7 +3771,7 @@ declare namespace inputMethodEngine {
   }
 
   /**
-   * 描述输入法面板的属性。
+   * 输入法面板属性。
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 10 dynamic
@@ -3975,7 +3779,7 @@ declare namespace inputMethodEngine {
    */
   export interface PanelInfo {
     /**
-     * 面板类型。
+     * 面板的类型。
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
@@ -3995,7 +3799,7 @@ declare namespace inputMethodEngine {
   }
 
   /**
-   * 枚举输入法光标移动的方向。
+   * 光标的移动方向。
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 10 dynamic
@@ -4040,7 +3844,7 @@ declare namespace inputMethodEngine {
   }
 
   /**
-   * 描述安全模式。
+   * 输入法的安全模式，如BASIC或FULL。
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 11 dynamic
@@ -4048,7 +3852,7 @@ declare namespace inputMethodEngine {
    */
   export enum SecurityMode {
     /**
-     * 基本访问模式，限制网络访问。
+     * 基础访问模式，基础打字模式，会限制网络访问。
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 11 dynamic
@@ -4056,7 +3860,7 @@ declare namespace inputMethodEngine {
      */
     BASIC = 0,
     /**
-     * 完全访问模式，不限制网络访问。
+     * 完全访问模式，不做限制，可以访问网络。
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 11 dynamic
@@ -4066,7 +3870,7 @@ declare namespace inputMethodEngine {
   }
 
   /**
-   * 描述选中文本的范围。
+   * 选中的文本范围。
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 10 dynamic
@@ -4074,7 +3878,7 @@ declare namespace inputMethodEngine {
    */
   export interface Range {
     /**
-     * 文本框中第一个选中字符的索引。
+     * 选中文本的首字符在编辑框的索引值。
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
@@ -4083,7 +3887,7 @@ declare namespace inputMethodEngine {
     start: int;
 
     /**
-     * 文本框中最后一个选中字符的索引。
+     * 选中文本的末字符在编辑框的索引值。
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
@@ -4093,7 +3897,7 @@ declare namespace inputMethodEngine {
   }
 
   /**
-   * 描述选择文本时光标移动的方向。
+   * 选中文本时，光标移动的方向
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 10 dynamic
@@ -4101,7 +3905,7 @@ declare namespace inputMethodEngine {
    */
   export interface Movement {
     /**
-     * 选择文本时光标移动的方向。
+     * 选中文本时，光标的移动方向。
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
@@ -4111,7 +3915,7 @@ declare namespace inputMethodEngine {
   }
 
   /**
-   * 描述文本框上扩展编辑操作的类型。
+   * 编辑框中文本的扩展编辑操作类型，如剪切、复制等。
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 10 dynamic
@@ -4156,7 +3960,7 @@ declare namespace inputMethodEngine {
   }
 
   /**
-   * 表示窗口信息。
+   * 窗口信息。
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 12 dynamic
@@ -4164,7 +3968,7 @@ declare namespace inputMethodEngine {
    */
   export interface WindowInfo {
     /**
-     * 窗口的矩形区域。
+     * 窗口矩形区域。
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 12 dynamic
@@ -4173,7 +3977,7 @@ declare namespace inputMethodEngine {
     rect: window.Rect;
 
     /**
-     * 窗口状态类型。
+     * 窗口模式类型。
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 12 dynamic
@@ -4183,7 +3987,7 @@ declare namespace inputMethodEngine {
   }
 
   /**
-   * 表示输入法面板的大小。
+   * 输入法面板位置大小信息。
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 12 dynamic
@@ -4191,7 +3995,7 @@ declare namespace inputMethodEngine {
    */
   export interface PanelRect {
     /**
-     * 横屏模式下输入法面板窗口的大小。
+     * 横屏状态时输入法面板窗口的位置大小。
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 12 dynamic
@@ -4200,7 +4004,7 @@ declare namespace inputMethodEngine {
     landscapeRect: window.Rect;
 
     /**
-     * 竖屏模式下输入法面板窗口的大小。
+     * 竖屏状态时输入法面板窗口的位置大小。
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 12 dynamic
@@ -4210,31 +4014,17 @@ declare namespace inputMethodEngine {
   }
 
   /**
-   * 接收自定义消息时的回调函数。
+   * 当输入法框架需要显示预览文本时触发的回调。
    *
-   * @param { string } msgId - the identifier of the message.
-   * @param { ArrayBuffer } [msgParam] - the parameter of the custom message.
+   * @param { string } msgId - 接收到的自定义通信数据的标识符。
+   * @param { ArrayBuffer } [msgParam] - 接收到的自定义通信数据的消息体。
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 23 static
    */
   type OnMessageCallback = (msgId: string, msgParam?: ArrayBuffer) => void;
 
   /**
-   * 表示自定义通信对象。
-   * 
-   * > **NOTE**
-   * >
-   * > You can register this object to receive custom communication data sent by the edit box application attached to 
-   * > the input method application. When the custom communication data is received, the 
-   * > [onMessage]{@link inputMethodEngine.MessageHandler.onMessage(msgId: string, msgParam?: ArrayBuffer)} callback in 
-   * > this object is triggered.
-   * >
-   * > This object is globally unique. After multiple registrations, only the last registered object is valid and 
-   * > retained, and the [onTerminated]{@link inputMethodEngine.MessageHandler.onTerminated()} callback of the 
-   * > penultimate registered object is triggered.
-   * >
-   * > If this object is unregistered, its [onTerminated]{@link inputMethodEngine.MessageHandler.onTerminated()} 
-   * > callback will be triggered.
+   * 自定义通信对象。
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 15 dynamic
@@ -4242,14 +4032,18 @@ declare namespace inputMethodEngine {
    */
   interface MessageHandler {
     /**
-     * 当收到自定义消息时调用此方法。
+     * onMessage(msgId: string, msgParam?: ArrayBuffer): void
+     *
+     * 接收已绑定当前输入法应用的编辑框应用发送的自定义数据回调函数。
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 23 static
      */
     onMessage: OnMessageCallback;
     /**
-     * 当设置新的消息处理器时调用此方法。
+     * onTerminated(): void
+     *
+     * 监听对象终止回调函数。
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 23 static
@@ -4257,35 +4051,23 @@ declare namespace inputMethodEngine {
     onTerminated: Callback<void>;
 
     /**
-     * 接收绑定到输入法应用的编辑框应用发送的自定义数据回调。
-     * 
-     * > **NOTE**
-     * >
-     * > This callback is triggered when the registered [MessageHandler]{@link inputMethodEngine.MessageHandler} 
-     * > receives custom communication data sent by the edit box application attached to the input method application.
-     * >
-     * > The **msgId** parameter is mandatory, and the **msgParam** parameter is optional. If only the custom **msgId** 
-     * > data is received, confirm it with the data sender.
+     * 接收已绑定当前输入法应用的编辑框应用发送的自定义数据回调函数。
      *
-     * @param { string } msgId - Identifier of the received custom communication data.
-     * @param { ArrayBuffer } [msgParam] - Message body of the received custom communication data.
+     * <p>当已注册的MessageHandler接收到来自已绑定当前输入法应用的编辑框应用所发送的自定义通信数据时，会触发该回调函数。</p>
+     * <p>msgId为必选参数，msgParam为可选参数。存在收到仅有msgId自定义数据的可能，需与数据发送方确认自定义数据。</p>
+     *
+     * @param { string } msgId - 接收到的自定义通信数据的标识符。
+     * @param { ArrayBuffer } [msgParam] - 接收到的自定义通信数据的消息体。
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 15 dynamic
      */
     onMessage(msgId: string, msgParam?: ArrayBuffer): void;
 
     /**
-     * 监听MessageHandler终止。
+     * 监听对象终止回调函数。
      * 
-     * > **NOTE**
-     * >
-     * > When an application registers a new [MessageHandler]{@link inputMethodEngine.MessageHandler} object, the 
-     * > [onTerminated]{@link inputMethodEngine.MessageHandler.onTerminated()} callback of the penultimate registered 
-     * > [MessageHandler]{@link inputMethodEngine.MessageHandler} object is triggered.
-     * >
-     * > When an application unregisters a new [MessageHandler]{@link inputMethodEngine.MessageHandler} object, the 
-     * > [onTerminated]{@link inputMethodEngine.MessageHandler.onTerminated()} callback of the registered 
-     * > [MessageHandler]{@link inputMethodEngine.MessageHandler} object is triggered.
+     * <p>当应用注册新的MessageHandler对象时，会触发上一个已注册MessageHandler对象的onTerminated回调函数。</p>
+     * <p>当应用取消注册时，会触发当前已注册MessageHandler对象的onTerminated回调函数。</p>
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 15 dynamic
@@ -4294,7 +4076,7 @@ declare namespace inputMethodEngine {
   }
 
   /**
-   * 表示增强输入法面板的大小，包括自定义避让区域和触摸区域。
+   * 增强的输入法面板位置、大小信息，包含自定义避让区域、自定义热区。
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 15 dynamic
@@ -4302,9 +4084,9 @@ declare namespace inputMethodEngine {
    */
   export interface EnhancedPanelRect {
     /**
-     * 横屏模式下输入法面板窗口的大小。
+     * 横屏状态时输入法面板窗口的位置大小。
      * 
-     * - 当**fullScreenMode**未设置或设置为**false**时，此属性是必填的。
+     * - 当fullScreenMode不填写或值为false时，此属性为必选。
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 15 dynamic
@@ -4312,9 +4094,9 @@ declare namespace inputMethodEngine {
      */
     landscapeRect?: window.Rect;
     /**
-     * 竖屏模式下输入法面板窗口的大小。
+     * 竖屏状态时，输入法面板窗口的位置大小。
      * 
-     * - 当**fullScreenMode**未设置或设置为**false**时，此属性是必填的。
+     * - 当fullScreenMode不填写或值为false时，此属性为必选。
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 15 dynamic
@@ -4322,11 +4104,10 @@ declare namespace inputMethodEngine {
      */
     portraitRect?: window.Rect;
     /**
-     * 横屏模式下避让线与面板顶部的距离，单位为px。默认值为**0**。
+     * 横屏状态时，面板中的避让线距离面板顶部的距离，单位px。默认值为0。
      * 
-     * - 应用中的其他系统组件避让避让线以下的输入法面板区域。
-     * - When the panel is fixed, the distance between the avoid line and the bottom of the screen cannot exceed 70% of 
-     * the screen height.
+     * - 应用内其他系统组件会对避让线以下的输入法面板区域进行避让。
+     * - 面板为固定态时，避让线到屏幕底部的高度不能超过屏幕高度的70%。当面板高度大于屏幕高度70%时，取默认值0将无法通过此校验，需要开发者手动设置，使得避让线到屏幕底部的高度不超过屏幕高度的70%。
      *
      * @default 0
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -4335,10 +4116,10 @@ declare namespace inputMethodEngine {
      */
     landscapeAvoidY?: int;
     /**
-     * 横屏模式下面板接收输入事件的区域。
+     * 横屏状态时，面板接收输入事件的区域。
      * 
-     * - 数组大小限制为[1, 4]。默认值为横屏模式下的面板大小。
-     * - 输入热点区域相对于输入法面板窗口的左顶点。
+     * - 数组大小限制为[1, 4]。默认值为横屏时的面板大小。
+     * - 传入的热区位置是相对于输入法面板窗口左顶点的位置。
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 15 dynamic
@@ -4346,11 +4127,10 @@ declare namespace inputMethodEngine {
      */
     landscapeInputRegion?: Array<window.Rect>;
     /**
-     * 竖屏模式下避让线与面板顶部的距离，单位为px。默认值为**0**。
+     * 竖屏状态时，面板中的避让线距离面板顶部的距离，单位px。默认值为0。
      * 
-     * - 应用中的其他系统组件避让避让线以下的输入法面板区域。
-     * - When the panel is fixed, the distance between the avoid line and the bottom of the screen cannot exceed 70% of 
-     * the screen height.
+     * - 应用内其他系统组件会对避让线以下的输入法面板区域进行避让。
+     * - 面板为固定态时，避让线到屏幕底部的高度不能超过屏幕高度的70%。当面板高度大于屏幕高度70%时，取默认值0将无法通过此校验，需要开发者手动设置，使得避让线到屏幕底部的高度不超过屏幕高度的70%。
      *
      * @default 0
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -4359,10 +4139,10 @@ declare namespace inputMethodEngine {
      */
     portraitAvoidY?: int;
     /**
-     * 竖屏模式下面板接收输入事件的区域。
+     * 竖屏状态时，面板接收输入事件的区域。
      * 
-     * - The array size is limited to [1, 4]. 默认值为竖屏模式下的面板大小。
-     * - 输入热点区域相对于输入法面板窗口的左顶点。
+     * - 数组大小限制为[1, 4]。默认值为竖屏时的面板大小。
+     * - 传入的热区位置是相对于输入法面板窗口左顶点的位置。
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 15 dynamic
@@ -4370,10 +4150,10 @@ declare namespace inputMethodEngine {
      */
     portraitInputRegion?: Array<window.Rect>;
     /**
-     * 表示是否启用全屏模式。默认值为**false**。
+     * 是否开启全屏模式。默认值为false。
      * 
-     * - 如果值为**true**，则**landscapeRect**和**portraitRect**是可选的。
-     * - 如果值为**false**，则**landscapeRect**和**portraitRect**是必填的。
+     * - 值为true，landscapeRect和portraitRect可不填写。
+     * - 值为false，landscapeRect和portraitRect为必选属性。
      *
      * @default false
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -4384,7 +4164,7 @@ declare namespace inputMethodEngine {
   }
 
   /**
-   * 表示面板上的键盘区域。
+   * 面板中的键盘区域。
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 15 dynamic
@@ -4392,8 +4172,7 @@ declare namespace inputMethodEngine {
    */
   export interface KeyboardArea {
     /**
-     * Distance between the upper boundary of the keyboard area and the upper boundary of the panel area, in pixels. The
-     * value is an integer.
+     * 键盘区域的上边界到面板区域上边界的距离，单位为px，该参数为整数。
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 15 dynamic
@@ -4401,8 +4180,7 @@ declare namespace inputMethodEngine {
      */
     top: int;
     /**
-     * Distance between the lower boundary of the keyboard area and the lower boundary of the panel area, in pixels. The
-     * value is an integer.
+     * 键盘区域的下边界到面板区域下边界的距离，单位为px，该参数为整数。
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 15 dynamic
@@ -4410,8 +4188,7 @@ declare namespace inputMethodEngine {
      */
     bottom: int;
     /**
-     * Distance between the left boundary of the keyboard area and the left boundary of the panel area, in pixels. The 
-     * value is an integer.
+     * 键盘区域的左边界到面板区域左边界的距离，单位为px，该参数为整数。
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 15 dynamic
@@ -4419,8 +4196,7 @@ declare namespace inputMethodEngine {
      */
     left: int;
     /**
-     * Distance between the right border of the keyboard area and the right border of the panel area, in pixels. The 
-     * value is an integer.
+     * 键盘区域的右边界到面板区域右边界的距离，单位为px，该参数为整数。
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 15 dynamic
@@ -4429,7 +4205,7 @@ declare namespace inputMethodEngine {
     right: int;
   }
   /**
-   * 定义绑定输入法的附加选项。
+   * 绑定输入法时的附加选项。
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 19 dynamic
@@ -4437,8 +4213,7 @@ declare namespace inputMethodEngine {
    */
   export interface AttachOptions {
     /**
-     * Reason for requesting the keyboard. This attribute is set by the edit box application. If this attribute is not 
-     * set or is set to an invalid value, the keyboard will not be triggered by default.
+     * 该属性由编辑框应用设置，如果没有设置或设置非法值，则默认没有特定的原因触发键盘请求。
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 19 dynamic
@@ -4447,10 +4222,9 @@ declare namespace inputMethodEngine {
     requestKeyboardReason?: RequestKeyboardReason;
 
     /**
-     * Whether to enable the simple keyboard. This attribute is set by the edit box application. The value **true** 
-     * means that the simple keyboard is enabled, and the value **false** means the opposite.
+     * 是否使能简单键盘，该属性由编辑框应用设置，true表示使能简单键盘，false表示不使能简单键盘。
      * 
-     * 如果未设置此属性或将其设置为无效值，则默认禁用简易键盘。
+     * 如果没有设置或设置非法值，则默认不使能简单键盘。
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 20 dynamic
@@ -4460,7 +4234,14 @@ declare namespace inputMethodEngine {
   }
 
   /**
-   * 枚举文本首字母大写的模式。
+   * 枚举，定义了文本首字母大写的不同模式。
+   * 
+   * | 名称 | 值 | 说明 |
+   * | -------- | -- | -------- |
+   * | NONE | 0 | 不进行任何首字母大写处理。|
+   * | SENTENCES | 1 | 每个句子的首字母大写。|
+   * | WORDS | 2 | 每个单词的首字母大写。|
+   * | CHARACTERS | 3 | 每个字母都大写。|
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 20 dynamic
@@ -4468,7 +4249,7 @@ declare namespace inputMethodEngine {
    */
   export enum CapitalizeMode {
     /**
-     * 不大写。
+     * 不进行任何首字母大写处理。
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 20 dynamic
@@ -4495,7 +4276,7 @@ declare namespace inputMethodEngine {
     WORDS,
 
     /**
-     * 每个字母大写。
+     * 每个字母都大写。
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 20 dynamic
