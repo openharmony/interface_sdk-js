@@ -24,7 +24,8 @@ import {
   AVAILABLE_VERSION_FORMAT_ERROR_PREFIX,
   RUNTIME_OS_OH,
   VersionValidationResult,
-  ERROR_CODE_INFO
+  ERROR_CODE_INFO,
+  DISTINGUISH_FUNCTION_NAME
 } from '../api_check_plugin_define';
 import {
   parseVersionString,
@@ -114,8 +115,10 @@ export function getValidAnnotationFromNode(
     annotationArray.push(...node.annotations);
   }
 
-  if (arkts.isMethodDefinition(node) && !!node.function) {
-    annotationArray.push(...node.function.annotations);
+  if (arkts.isMethodDefinition(node) && node.parent?.ident?.name === DISTINGUISH_FUNCTION_NAME) {
+    if (node.function && node.function.annotations && Array.isArray(node.function.annotations)) {
+      annotationArray.push(...node.function.annotations);
+    }
   }
 
   const validAnnotation = annotationArray.find(annotation => predicate(annotation));
