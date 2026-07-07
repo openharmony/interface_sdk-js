@@ -13253,6 +13253,59 @@ declare namespace window {
     offFreeWindowModeChange(callback?: Callback<boolean>): void;
 
     /**
+     * Checks whether this window is in the specified window posture mode.
+     *
+     * @param { WindowPostureMode } mode - The window posture mode.
+     * @returns { boolean } Check result for whether this window is in the specified window posture mode.
+     *     **true** if the window is in the specified window posture mode.
+     *     **false** otherwise.
+     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause: The window is not
+     *     created or destroyed.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally. Possible cause: The internal
+     *     services of the window are not started normally.
+     * @throws { BusinessError } 1300016 - Parameter error. Possible cause: Invalid parameter range.
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    isInWindowPostureMode(mode: WindowPostureMode): boolean;
+
+    /**
+     * Registers a callback that is invoked when the window changes to the specified window posture mode.
+     *
+     * @param { WindowPostureMode } mode - The window posture mode to monitor.
+     * @param { Callback<boolean> } callback - Callback invoked when the window change into the specified window
+     *     posture mode.
+     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause: The window is not
+     *     created or destroyed.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally. Possible cause: The internal
+     *     services of the window are not started normally.
+     * @throws { BusinessError } 1300016 - Parameter error. Possible cause: Invalid parameter range.
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    onWindowPostureModeChange(mode: WindowPostureMode, callback: Callback<boolean>): void;
+
+    /**
+     * Unregisters a callback that is invoked when he window changes to the specified window posture mode.
+     *
+     * @param { WindowPostureMode } mode - The window posture mode to monitor.
+     * @param { Callback<boolean> } [callback] - Callback function. Callback when the window changes to the specified
+     *     window pose mode. If a parameter is transferred, the listener is disabled. If no parameter is specified, all
+     *     callbacks for changing the current window to the specified window posture mode are closed.
+     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause: The window is not
+     *     created or destroyed.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally. Possible cause: The internal
+     *     services of the window are not started normally.
+     * @throws { BusinessError } 1300016 - Parameter error. Possible cause: Invalid parameter range.
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    offWindowPostureModeChange(mode: WindowPostureMode, callback?: Callback<boolean>): void;
+
+    /**
      * Adds a transition animation to windows in specific scenarios.
      *
      * Currently, this API can be used only on the main window of an application.
@@ -14529,6 +14582,27 @@ declare namespace window {
      * @since 23 static
      */
     SUB_WINDOW = 1
+  }
+  
+  /**
+   * Enumerates of window posture mode.
+   *
+   * @syscap SystemCapability.Window.SessionManager
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  enum WindowPostureMode {
+    /**
+     * Desktop mode, when the following conditions are met:
+     * 1. The fold status of screen is half folded status (FoldStatus.FOLD_STATUS_HALF_FOLDED).
+     * 2. The width of creaseRects obtained via display.getLiveCreaseRegion is greater than its height.
+     * 3. The size of the window is the same as that of the screen.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    DESKTOP_MODE = 0
   }
 
   /**
