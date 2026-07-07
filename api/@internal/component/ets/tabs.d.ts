@@ -169,7 +169,7 @@ declare enum BarPosition {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Start = 0,
+  Start,
 
   /**
    * If the **vertical** attribute is set to **true**, the tab is on the right of the container. If the **vertical**
@@ -180,7 +180,7 @@ declare enum BarPosition {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  End = 1
+  End
 }
 
 /**

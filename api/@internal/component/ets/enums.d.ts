@@ -3641,7 +3641,7 @@ declare enum TitleHeight {
    * @atomicservice [since 11]
    * @since 9 dynamic
    */
-  MainOnly = 0,
+  MainOnly,
 
   /**
    * Title height when main title and subtitle are both available.
@@ -3651,7 +3651,7 @@ declare enum TitleHeight {
    * @atomicservice [since 11]
    * @since 9 dynamic
    */
-  MainWithSub = 1,
+  MainWithSub,
 }
 
 /**
