@@ -9165,7 +9165,8 @@ declare namespace camera {
     setExposure(exposure: int): void;
 
     /**
-     * Sets Exposure duration value, units: microseconds.
+     * Sets Exposure duration value, units: microseconds.This control is only effective if
+     * ExposureMode is set to EXPOSURE_MODE_MANUAL.
      *
      * @param { int } exposureDuration - Exposure duration value
      * @throws { BusinessError } 7400103 - Session not config.
