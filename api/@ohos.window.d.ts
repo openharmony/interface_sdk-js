@@ -11959,7 +11959,7 @@ declare namespace window {
      *     capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause: The window is not created or destroyed.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally. [since 20]
-     * @throws { BusinessError } 1300004 - Unauthorized operation. Possible cause:Invalid window type. Only subwindows are supported.
+     * @throws { BusinessError } 1300004 - Unauthorized operation. Possible cause: Invalid window type. Only subwindows are supported.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 14 dynamic
