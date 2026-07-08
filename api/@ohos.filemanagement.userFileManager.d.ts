@@ -1307,7 +1307,7 @@ declare namespace userFileManager {
      * @systemapi
      * @since 10 dynamiconly
      * @deprecated since 26.0.0
-     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.AlbumSubType.USER_GENERIC
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.AlbumSubtype.USER_GENERIC
      */
     USER_GENERIC = 1,
     /**
