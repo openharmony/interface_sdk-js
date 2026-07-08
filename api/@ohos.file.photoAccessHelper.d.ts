@@ -8038,28 +8038,27 @@ declare namespace photoAccessHelper {
     getClonedAssetUris(oldUris: Array<string>): Promise<Map<string, string>>;
   
     /**
-     * Start medialibrary database backup and wait for returning with backup information which only works on beta 
-     * device.
+     * Obtains the current URIs of cloned albums. This API uses a promise to return the result.
+     * 
+     * To control the size of the database table space, the system automatically deletes the previously stored clone 
+     * data during each clone operation. As a result, this API only keeps the mapping between the user's new and old 
+     * device URIs from the latest clone operation.
      *
-     * @param { string } betaIssueId - The beta issue id.
-     * @param { string } betaScenario - The beta scenario.
-     * @returns { Promise<Map<string, string>> } - The  returning with backup information,
-     *     which includes FILE_FD, FILE_NAME and FILE_SIZE.
-     * @throws { BusinessError } 202 - Called by non-system application
-     * @throws { BusinessError } 23800151 - The scenario parameter verification fails. Possible causes:
-     *     <br>1. The betaIssueId parameter is invalid, such as null, undefined or empty string.
-     *     <br>2. The betaScenario parameter is invalid, such as null, undefined or empty string.
-     *     <br>3. The same betaIssueId task is processing.
-     * @throws { BusinessError } 23800201 - Unsupported operation type, this api only works on beta device.
-     * @throws { BusinessError } 23800301 - Internal system error. You are advised to retry and check the logs.
-     *     Possible causes: 
-     *     <br>1. The database is corrupted. 
-     *     <br>2. The file system is abnormal. 
+     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @param { Array<string> } oldUris - Array of old URIs before cloning.
+     * @returns { Promise<Map<string, string>> } Promise used to return a map of URIs.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Called by non-system application.
+     * @throws { BusinessError } 23800151 - The scenario parameter verification fails.
+     *     Possible causes: The size of input parameter exceeds 100 or is 0.
+     * @throws { BusinessError } 23800301 - Internal system error.
+     *     It is recommended to retry and check the logs. Possible causes:
+     *     <br>1. Database corrupted;
+     *     <br>2. The file system is abnormal;
      *     <br>3. The IPC request timed out.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 22 dynamic
-     * @since 26.0.0 static
      */
     getClonedAlbumUris(oldUris: Array<string>): Promise<Map<string, string>>;
 
