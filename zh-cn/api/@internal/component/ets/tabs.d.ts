@@ -161,7 +161,7 @@ declare enum BarPosition {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Start = 0,
+  Start,
 
   /**
    * vertical属性方法设置为true时，页签位于容器右侧；vertical属性方法设置为false时，页签位于容器底部。
@@ -171,7 +171,7 @@ declare enum BarPosition {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  End = 1
+  End
 }
 
 /**
@@ -1467,7 +1467,6 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @form [since 11 - 17]
    * @atomicservice [since 12]
    * @since 11 dynamic
    */

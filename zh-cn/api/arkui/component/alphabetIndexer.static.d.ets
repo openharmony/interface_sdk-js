@@ -46,7 +46,7 @@ export declare enum IndexerAlign {
    * @stagemodelonly
    * @since 23 static
    */
-  Left = 0,
+  Left,
 
   /**
      * A dialog box is displayed on the left of the index bar.
@@ -55,7 +55,7 @@ export declare enum IndexerAlign {
    * @stagemodelonly
    * @since 23 static
    */
-  Right = 1,
+  Right,
 
   /**
      * A dialog box is displayed on the start of the index bar.
@@ -64,7 +64,7 @@ export declare enum IndexerAlign {
    * @stagemodelonly
    * @since 23 static
    */
-  START = 2,
+  START,
 
   /**
      * A dialog box is displayed on the end of the index bar.
@@ -73,7 +73,7 @@ export declare enum IndexerAlign {
    * @stagemodelonly
    * @since 23 static
    */
-  END = 3
+  END
 }
 
 /**

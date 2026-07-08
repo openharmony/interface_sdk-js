@@ -103,7 +103,7 @@ export declare enum SideBarPosition {
    * @stagemodelonly
    * @since 23 static
    */
-  Start = 0,
+  Start,
 
   /**
    * The sidebar is on the End of the container
@@ -112,7 +112,7 @@ export declare enum SideBarPosition {
    * @stagemodelonly
    * @since 23 static
    */
-  End = 1
+  End
 }
 
 /**

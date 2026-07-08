@@ -30,7 +30,6 @@ import { Builder, ComponentBuilder, CommonMethod, Optional, ColorMetrics, Font, 
  * @since 26.0.0 static
  */
 export declare interface ArcAlphabetIndexerInitInfo {
-
   /**
    * Array of alphabetic indexed strings, cannot be set to empty.
    *
@@ -39,7 +38,6 @@ export declare interface ArcAlphabetIndexerInitInfo {
    * @since 26.0.0 static
    */
   arrayValue: string[];
-
   /**
    * The index value of the initial selected item.If it is out of the index range, the default value is 0
    *

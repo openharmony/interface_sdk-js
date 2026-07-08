@@ -123,7 +123,7 @@ declare enum ImageRenderMode {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Original = 0,
+  Original,
 
   /**
    * Render image pixels to create a monochrome template image.
@@ -135,7 +135,7 @@ declare enum ImageRenderMode {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Template = 1
+  Template
 }
 
 /**
@@ -226,7 +226,7 @@ declare enum ImageInterpolation {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  None = 0,
+  None,
 
   /**
    * Bilinear interpolation.
@@ -238,7 +238,7 @@ declare enum ImageInterpolation {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Low = 1,
+  Low,
 
   /**
    * MipMap interpolation.
@@ -250,7 +250,7 @@ declare enum ImageInterpolation {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Medium = 2,
+  Medium,
 
   /**
    * Cubic interpolation. This mode produces scaled images of the highest possible quality, but may require more image
@@ -263,7 +263,7 @@ declare enum ImageInterpolation {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  High = 3
+  High
 }
 
 /**

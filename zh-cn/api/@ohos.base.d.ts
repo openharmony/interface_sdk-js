@@ -42,7 +42,7 @@ export interface Callback<T> {
 
   /**
    *
-   * @param { T } data - 接口调用时的公共回调信息。类型由开发者自定义，回调将返回对应类型的数据。
+   * @param { T } data - 接口调用时的公共回调信息。类型由开发者自定义，回调成功时将返回对应类型的数据。失败则不返回数据。
    * @syscap SystemCapability.Base
    * @crossplatform [since 10]
    * @form [since 12]
@@ -91,8 +91,8 @@ export interface AsyncCallback<T, E = void> {
 
   /**
    *
-   * @param { BusinessError<E> } err - 接口调用失败的公共错误信息。接口调用成功时，此参数返回null
-   * @param { T } data - 接口调用成功时的异步返回数据，类型由开发者自定义。接口调用失败时，此参数不可用。
+   * @param { BusinessError<E> } err - 接口调用失败的公共错误信息。接口调用成功时，此参数返回null。
+   * @param { T } data - 接口调用成功时的异步返回数据，类型由开发者自定义。接口调用失败时，此参数不返回。
    * @syscap SystemCapability.Base
    * @crossplatform [since 10]
    * @form [since 12]

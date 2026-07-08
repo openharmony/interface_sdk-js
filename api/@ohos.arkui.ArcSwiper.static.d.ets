@@ -19,19 +19,12 @@
  * @file
  * @kit ArkUI
  */
-
 import { SwiperAnimationEvent } from '@ohos.arkui.component';
-
 import { CrownSensitivity, EdgeEffect } from '@ohos.arkui.component';
-
 import { LinearGradient } from '@ohos.arkui.component';
-
 import { ResourceColor } from '@ohos.arkui.component';
-
 import { CommonMethod, Callback } from '@ohos.arkui.component';
-
 import { Builder, ComponentBuilder, CustomBuilder, CustomBuilderT } from '@ohos.arkui.component';
-
 /**
  * Handler of swiper controller, used in finishAnimation.
  *

@@ -176,7 +176,7 @@ declare enum ProgressStatus {
    * @atomicservice [since 11]
    * @since 10 dynamic
    */
-  LOADING = 0,
+  LOADING,
 
   /**
    * Progressing.
@@ -626,7 +626,7 @@ declare enum ProgressStyle {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Linear = 0,
+  Linear,
 
   /**
    * The ring is gradually displayed until completely filled.

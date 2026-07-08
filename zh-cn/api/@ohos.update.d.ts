@@ -612,6 +612,7 @@ declare namespace update {
      * @param { AsyncCallback<void> } callback - 回调函数。当恢复出厂执行成功时，err为undefined，否则为错误对象。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 203 - This function is prohibited by enterprise management policies.
      * @throws { BusinessError } 11500104 - IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -627,6 +628,7 @@ declare namespace update {
      * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 203 - This function is prohibited by enterprise management policies.
      * @throws { BusinessError } 11500104 - IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -642,6 +644,7 @@ declare namespace update {
      * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 203 - This function is prohibited by enterprise management policies.
      * @throws { BusinessError } 11500104 - IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -657,6 +660,7 @@ declare namespace update {
      * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 203 - This function is prohibited by enterprise management policies.
      * @throws { BusinessError } 11500104 - IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.

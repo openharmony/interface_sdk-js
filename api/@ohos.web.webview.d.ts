@@ -1019,7 +1019,7 @@ declare namespace webview {
      *     **undefined** is passed in, the value is **false**. [since 11]
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     <br>2. Incorrect parameter types. 3.Parameter verification failed.
-     * @throws { BusinessError } 17100011 - Invalid origin.
+     * @throws { BusinessError } 17100011 - Invalid origin. The origin format must follow defined in RFC 6454.
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform [since 18]
      * @atomicservice [since 11]
@@ -1037,7 +1037,7 @@ declare namespace webview {
      *     **undefined** is passed in, the value is **false**. [since 11]
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     <br>2. Incorrect parameter types. 3.Parameter verification failed.
-     * @throws { BusinessError } 17100011 - Invalid origin.
+     * @throws { BusinessError } 17100011 - Invalid origin. The origin format must follow defined in RFC 6454.
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform [since 18]
      * @atomicservice [since 11]
@@ -1073,7 +1073,7 @@ declare namespace webview {
      *     <br>If the operation fails, the geolocation permission status of the specified origin is not found.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     <br>2. Incorrect parameter types. 3.Parameter verification failed.
-     * @throws { BusinessError } 17100011 - Invalid origin.
+     * @throws { BusinessError } 17100011 - Invalid origin. The origin format must follow defined in RFC 6454.
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform [since 18]
      * @atomicservice [since 11]
@@ -1096,7 +1096,7 @@ declare namespace webview {
      *     **undefined** is passed, error code **401** is thrown. [since 11]
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     <br>2. Incorrect parameter types. 3.Parameter verification failed.
-     * @throws { BusinessError } 17100011 - Invalid origin.
+     * @throws { BusinessError } 17100011 - Invalid origin. The origin format must follow defined in RFC 6454.
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform [since 18]
      * @atomicservice [since 11]
@@ -7187,28 +7187,28 @@ declare namespace webview {
   }
 
   /**
-   * The scenarios for suspending the media player.
+   * Enumerates the suspension types of the player.
    * @enum {number}
    * @syscap SystemCapability.Web.Webview.Core
    * @since 12 dynamic
    */
   enum SuspendType {
     /**
-     * Page enters the BackForwardCache.
+     * The page enters the BFCache.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 12 dynamic
      */
     ENTER_BACK_FORWARD_CACHE = 0,
 
     /**
-     * Page enters background.
+     * The page is displayed in the background.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 12 dynamic
      */
     ENTER_BACKGROUND,
 
     /**
-     * Cleanup when the number of paused media player over limit.
+     * The page is automatically cleaned up by the system.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 12 dynamic
      */

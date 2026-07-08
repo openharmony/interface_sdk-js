@@ -121,6 +121,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600016 - The notification version for this update is too low. [since 11]
    * @throws { BusinessError } 1600020 - The application is not allowed to send notifications due to permission
    *     settings. [since 12]
+   * @throws { BusinessError } 1600029 - The system failed to find the ExtensionAbility instance for the
+   *     custom Live View widget template. [since 26.0.0]
    * @throws { BusinessError } 2300007 - Network unreachable. [since 11]
    * @syscap SystemCapability.Notification.Notification
    * @crossplatform [since 12]
@@ -153,6 +155,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600016 - The notification version for this update is too low. [since 11]
    * @throws { BusinessError } 1600020 - The application is not allowed to send notifications due to permission
    *     settings. [since 12]
+   * @throws { BusinessError } 1600029 - The system failed to find the ExtensionAbility instance for the
+   *     custom Live View widget template. [since 26.0.0]
    * @throws { BusinessError } 2300007 - Network unreachable. [since 11]
    * @syscap SystemCapability.Notification.Notification
    * @crossplatform [since 12]
@@ -193,6 +197,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600026 - The location switch is off. [since 23]
    * @throws { BusinessError } 1600027 - The "Awareness & suggestions" switch of the location-based service is
    *     off. [since 23]
+   * @throws { BusinessError } 1600029 - The system failed to find the ExtensionAbility instance for the
+   *     custom Live View widget template. [since 26.0.0]
    * @throws { BusinessError } 2300007 - Network unreachable. [since 11]
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -233,6 +239,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600026 - The location switch is off. [since 23]
    * @throws { BusinessError } 1600027 - The "Awareness & suggestions" switch of the location-based service is
    *     off. [since 23]
+   * @throws { BusinessError } 1600029 - The system failed to find the ExtensionAbility instance for the
+   *     custom Live View widget template. [since 26.0.0]
    * @throws { BusinessError } 2300007 - Network unreachable. [since 11]
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -263,6 +271,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600008 - The user does not exist.
    * @throws { BusinessError } 1600009 - The notification sending frequency reaches the upper limit.
    * @throws { BusinessError } 1600012 - No memory space.
+   * @throws { BusinessError } 1600014 - The right of liveView is not enabled. [since 26.0.0]
    * @throws { BusinessError } 1600015 - The current notification status does not support duplicate configurations.
    * @throws { BusinessError } 1600016 - The notification version for this update is too low.
    * @throws { BusinessError } 1600020 - The application is not allowed to send notifications due to permission
@@ -271,6 +280,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600026 - The location switch is off. [since 23]
    * @throws { BusinessError } 1600027 - The "Awareness & suggestions" switch of the location-based service is
    *     off. [since 23]
+   * @throws { BusinessError } 1600029 - The system failed to find the ExtensionAbility instance for the
+   *     custom Live View widget template. [since 26.0.0]
    * @throws { BusinessError } 2300007 - Network unreachable.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -306,6 +317,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600008 - The user does not exist.
    * @throws { BusinessError } 1600009 - The notification sending frequency reaches the upper limit.
    * @throws { BusinessError } 1600012 - No memory space.
+   * @throws { BusinessError } 1600014 - The right of liveView is not enabled. [since 26.0.0]
    * @throws { BusinessError } 1600015 - The current notification status does not support duplicate configurations.
    * @throws { BusinessError } 1600016 - The notification version for this update is too low.
    * @throws { BusinessError } 1600020 - The application is not allowed to send notifications due to permission
@@ -314,6 +326,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600026 - The location switch is off. [since 23]
    * @throws { BusinessError } 1600027 - The "Awareness & suggestions" switch of the location-based service is
    *     off. [since 23]
+   * @throws { BusinessError } 1600029 - The system failed to find the ExtensionAbility instance for the
+   *     custom Live View widget template. [since 26.0.0]
    * @throws { BusinessError } 2300007 - Network unreachable.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -343,6 +357,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600008 - The user does not exist.
    * @throws { BusinessError } 1600009 - The notification sending frequency reaches the upper limit.
    * @throws { BusinessError } 1600012 - No memory space.
+   * @throws { BusinessError } 1600014 - The right of liveView is not enabled. [since 26.0.0]
    * @throws { BusinessError } 1600015 - The current notification status does not support duplicate configurations.
    * @throws { BusinessError } 1600016 - The notification version for this update is too low.
    * @throws { BusinessError } 1600020 - The application is not allowed to send notifications due to permission
@@ -351,6 +366,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600026 - The location switch is off. [since 23]
    * @throws { BusinessError } 1600027 - The "Awareness & suggestions" switch of the location-based service is
    *     off. [since 23]
+   * @throws { BusinessError } 1600029 - The system failed to find the ExtensionAbility instance for the
+   *     custom Live View widget template. [since 26.0.0]
    * @throws { BusinessError } 2300007 - Network unreachable.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -2509,6 +2526,7 @@ declare namespace notificationManager {
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { Array<BundleOption> } bundles - 应用包信息数组。
+   *     <br>最大长度为1000且不能为空。
    * @param { SlotType } type - 渠道类型。所有应用共享同一个渠道类型。
    * @returns { Promise<Map<BundleOption, boolean>> } 以Promise形式返回批量查询结果，key为应用包信息，value为渠道使能状态
    *     （true：使能，false：禁止）。未创建渠道的应用不会出现在返回结果中。

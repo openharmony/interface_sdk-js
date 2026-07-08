@@ -39,7 +39,7 @@ declare enum PanDirection {
   None,
 
   /**
-   * Sliding horizontally.
+   * 水平方向。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -49,7 +49,7 @@ declare enum PanDirection {
   Horizontal,
 
   /**
-   * Sliding left.
+   * 向左滑动。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -59,7 +59,7 @@ declare enum PanDirection {
   Left,
 
   /**
-   * Sliding right.
+   * 向右滑动。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -69,7 +69,7 @@ declare enum PanDirection {
   Right,
 
   /**
-   * 垂直滑动
+   * 竖直方向。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -79,7 +79,7 @@ declare enum PanDirection {
   Vertical,
 
   /**
-   * Sliding up.
+   * 向上滑动。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -89,7 +89,7 @@ declare enum PanDirection {
   Up,
 
   /**
-   * Sliding Down.
+   * 向下滑动。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -99,7 +99,7 @@ declare enum PanDirection {
   Down,
 
   /**
-   * Sliding in all directions.
+   * 所有方向。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -130,7 +130,7 @@ declare enum SwipeDirection {
   None,
 
   /**
-   * Sliding horizontally.
+   * 水平方向，手指滑动方向与x轴夹角小于45度时触发。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -140,7 +140,7 @@ declare enum SwipeDirection {
   Horizontal,
 
   /**
-   * 垂直滑动
+   * 竖直方向，手指滑动方向与y轴夹角小于45度时触发。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -150,7 +150,7 @@ declare enum SwipeDirection {
   Vertical,
 
   /**
-   * Sliding in all directions.
+   * 所有方向。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -183,7 +183,7 @@ declare enum GestureMode {
   Sequence,
 
   /**
-   * Simultaneous recognition. Registration gestures participate in recognition. Everything can be triggered.
+   * 并行识别，注册的手势同时识别，直到所有手势识别结束，手势识别互相不影响。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -193,7 +193,7 @@ declare enum GestureMode {
   Parallel,
 
   /**
-   * Mutually exclusive recognition. Only one gesture is successfully recognized.
+   * 互斥识别，注册的手势同时识别，若有一个手势识别成功，则结束手势识别，其他手势识别均失败。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -224,7 +224,7 @@ declare enum GestureMask {
   Normal,
 
   /**
-   * Ignore internal gestures and recognize the current gesture first.
+   * 屏蔽子组件的手势，包括子组件上系统内置的手势，如子组件为List组件时，内置的滑动手势同样会被屏蔽。 若父子组件区域存在部分重叠，则只会屏蔽父子组件重叠的部分。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]

@@ -174,7 +174,7 @@ declare namespace cert {
     ERR_KEYUSAGE_NO_DIGITAL_SIGNATURE = 19030007,
 
     /**
-     * 私钥密码错误。
+     * 私钥密码可能不正确。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -588,7 +588,7 @@ declare namespace cert {
   }
 
   /**
-   * 带编码格式的证书二进制数组。
+   * 定义编码格式的二进制数据数组。
    *
    * @syscap SystemCapability.Security.Cert
    * @crossplatform [since 11]
@@ -598,7 +598,7 @@ declare namespace cert {
    */
   interface EncodingBlob {
     /**
-     * 传入的证书数据。
+     * 编码数据。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform [since 11]
@@ -608,7 +608,7 @@ declare namespace cert {
      */
     data: Uint8Array;
     /**
-     * 指明证书编码格式。
+     * 编码格式。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform [since 11]
@@ -630,7 +630,7 @@ declare namespace cert {
    */
   interface CertChainData {
     /**
-     * 传入的证书数据。
+     * 证书数据。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform [since 11]
@@ -650,7 +650,7 @@ declare namespace cert {
      */
     count: int;
     /**
-     * 指明证书编码格式。
+     * 编码格式。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform [since 11]
@@ -877,7 +877,7 @@ declare namespace cert {
      * 表示根据编码类型获取X509证书颁发者名称。
      *
      * @param { EncodingType } encodingType - 表示编码类型。
-     * @returns { string } 表示X509证书颁发者名称，以逗号(,)分隔。
+     * @returns { string } 表示X509证书颁发者名称，以逗号（,）分隔。
      * @throws { BusinessError } 19020001 - 内存错误。
      * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
      *     <br>1. 内存拷贝失败；
@@ -903,8 +903,8 @@ declare namespace cert {
      *
      * @param { EncodingType } [encodingType] - 表示编码类型。设置该参数时，获取UTF-8格式的主体名称；
      *     不设置时，默认获取ASCII编码格式的主体名称。<br>该参数从API version 12开始可用。[since 12]
-     * @returns { DataBlob } 表示X509证书主体名称。不设置encodingType参数，数据转换为字符串后以斜杠(/)分隔相对可辨别名称，设置
-     *     encodingType参数为EncodingType.ENCODING_UTF8时，数据转换为字符串后以逗号(,)分隔相对可辨别名称。
+     * @returns { DataBlob } 表示X509证书主体名称。不设置encodingType参数，数据转换为字符串后以斜杠（/）分隔相对可分辨名称，设置
+     *     encodingType参数为EncodingType.ENCODING_UTF8时，数据转换为字符串后以逗号（,）分隔相对可分辨名称。
      * @throws { BusinessError } 19020001 - 内存错误。
      * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
      *     <br>1. 内存拷贝失败；
@@ -995,9 +995,9 @@ declare namespace cert {
     getSignatureAlgName(): string;
 
     /**
-     * 表示获取X509证书签名算法的对象标识符(OID)。OID由国际标准化组织(ISO)分配。
+     * 表示获取X509证书签名算法的对象标识符（OID）。OID由国际标准化组织（ISO）分配。
      *
-     * @returns { string } 表示签名算法OID。当长度超过128字节时会被截断。
+     * @returns { string } 表示签名算法OID。当长度超过127字节时会被截断。
      * @throws { BusinessError } 19020001 - 内存错误。
      * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
      *     <br>1. 内存拷贝失败；
@@ -1180,9 +1180,9 @@ declare namespace cert {
     getCRLDistributionPoint(): DataArray;
 
     /**
-     * 获取颁发者的X509可分辨名称。
+     * 获取X.509证书颁发者的X.500可分辨名称。
      *
-     * @returns { X500DistinguishedName } X509的可分辨对象。
+     * @returns { X500DistinguishedName } X.500可分辨对象。
      * @throws { BusinessError } 19020001 - 内存错误。
      * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
      *     <br>1. 内存拷贝失败；
@@ -1198,9 +1198,9 @@ declare namespace cert {
     getIssuerX500DistinguishedName(): X500DistinguishedName;
 
     /**
-     * 获取证书主题的X509可分辨名称。
+     * 获取X.509证书主体的X.500可分辨名称。
      *
-     * @returns { X500DistinguishedName } X509的可分辨对象。
+     * @returns { X500DistinguishedName } X.500可分辨对象。
      * @throws { BusinessError } 19020001 - 内存错误。
      * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
      *     <br>1. 内存拷贝失败；
@@ -1410,7 +1410,7 @@ declare namespace cert {
     /**
      * 表示校验证书是否为CA证书。
      *
-     * @returns { int } 当证书扩展域段中密钥用途包含签名用途，并且基本约束中cA字段为true时，表示证书为CA证书。
+     * @returns { int } 当证书扩展域段中密钥用途扩展包含keyCertSign位，并且基本约束中cA字段为true时，表示证书为CA证书。
      *     如果证书不是CA证书，则返回-1；否则返回基本约束中的路径长度。
      *     如果证书是CA证书，但是基本约束中未给定路径长度，则返回-2，表示无路径长度限制。
      * @throws { BusinessError } 19020001 - 内存错误。
@@ -1449,7 +1449,7 @@ declare namespace cert {
   /**
    * 表示创建证书扩展域段的对象。使用Callback异步回调。
    *
-   * @param { EncodingBlob } inStream - 表示证书扩展域段序列化数据。
+   * @param { EncodingBlob } inStream - 表示序列化的证书扩展数据。
    * @param { AsyncCallback<CertExtension> } callback - 回调函数。当创建证书扩展域段对象成功时，err为undefined，data为获取
    *     到的CertExtension实例；否则为错误对象。
    * @throws { BusinessError } 401 - 参数错误。可能的原因：
@@ -1470,7 +1470,7 @@ declare namespace cert {
   /**
    * 表示创建证书扩展域段的对象。使用Promise方式返回结果。
    *
-   * @param { EncodingBlob } inStream - 表示证书扩展域段序列化数据。
+   * @param { EncodingBlob } inStream - 表示序列化的证书扩展数据。
    * @returns { Promise<CertExtension> } Promise对象，返回创建的CertExtension实例。
    * @throws { BusinessError } 401 - 参数错误。可能的原因：
    *     <br>1. 必填参数未指定；
@@ -1488,7 +1488,7 @@ declare namespace cert {
   function createCertExtension(inStream: EncodingBlob): Promise<CertExtension>;
 
   /**
-   * 被吊销证书对象。
+   * 证书吊销条目。
    *
    * > **说明：**
    * >
@@ -1501,15 +1501,15 @@ declare namespace cert {
    */
   interface X509CrlEntry {
     /**
-     * 表示获取被吊销证书的序列化数据。使用Callback异步回调。
+     * 表示获取证书吊销条目的序列化数据。使用Callback异步回调。
      *
      * > **说明：**
      * >
      * > 从API version 9开始支持，从API version 11开始废弃，建议使用
      * > [X509CRLEntry.getEncoded()]{@link cert.X509CRLEntry.getEncoded(callback: AsyncCallback<EncodingBlob>)}替代。
      *
-     * @param { AsyncCallback<EncodingBlob> } callback - 回调函数。当获取被吊销证书序列化数据成功时，err为undefined，
-     *     data为获取到的被吊销证书序列化数据；否则为错误对象。
+     * @param { AsyncCallback<EncodingBlob> } callback - 回调函数。当获取证书吊销条目序列化数据成功时，err为undefined，
+     *     data为获取到的证书吊销条目序列化数据；否则为错误对象。
      * @throws { BusinessError } 401 - 参数错误。可能的原因：
      *     <br>1. 必填参数未指定；
      *     <br>2. 参数类型不正确；
@@ -1527,13 +1527,13 @@ declare namespace cert {
     getEncoded(callback: AsyncCallback<EncodingBlob>): void;
 
     /**
-     * 表示获取被吊销证书的序列化数据。使用Promise方式返回结果。
+     * 表示获取证书吊销条目的序列化数据。使用Promise方式返回结果。
      *
      * > **说明：**
      * >
      * > 从API version 9开始支持，从API version 11开始废弃，建议使用[X509CRLEntry.getEncoded()]{@link cert.X509CRLEntry.getEncoded()}替代。
      *
-     * @returns { Promise<EncodingBlob> } Promise对象，返回被吊销证书的序列化数据。
+     * @returns { Promise<EncodingBlob> } Promise对象，返回证书吊销条目的序列化数据。
      * @throws { BusinessError } 401 - 参数错误。可能的原因：
      *     <br>1. 必填参数未指定；
      *     <br>2. 参数类型不正确；
@@ -1551,14 +1551,14 @@ declare namespace cert {
     getEncoded(): Promise<EncodingBlob>;
 
     /**
-     * 表示获取被吊销证书的序列号。
+     * 表示获取被吊销的证书的序列号。
      *
      * > **说明：**
      * >
      * > 从API version 9开始支持，从API version 11开始废弃，建议使用
      * > [X509CRLEntry.getSerialNumber()]{@link cert.X509CRLEntry.getSerialNumber}替代。
      *
-     * @returns { number } 表示被吊销证书的序列号。
+     * @returns { number } 表示被吊销的证书的序列号。
      * @syscap SystemCapability.Security.Cert
      * @since 9 dynamiconly
      * @deprecated since 11
@@ -1567,14 +1567,14 @@ declare namespace cert {
     getSerialNumber(): number;
 
     /**
-     * 表示获取被吊销证书的颁发者信息。
+     * 表示获取被吊销的证书的颁发者名称。
      *
      * > **说明：**
      * >
      * > 从API version 9开始支持，从API version 11开始废弃，建议使用
      * > [X509CRLEntry.getCertIssuer()]{@link cert.X509CRLEntry.getCertIssuer()}替代。
      *
-     * @returns { DataBlob } 表示被吊销证书的颁发者信息。
+     * @returns { DataBlob } 被吊销的证书的颁发者名称。
      * @throws { BusinessError } 801 - 不支持该操作。
      * @throws { BusinessError } 19020001 - 内存错误。
      * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
@@ -1589,7 +1589,7 @@ declare namespace cert {
     getCertIssuer(): DataBlob;
 
     /**
-     * 表示获取证书被吊销的日期，日期为ASN.1时间格式。
+     * 获取证书的吊销日期。
      *
      * > **说明：**
      * >
@@ -1612,7 +1612,7 @@ declare namespace cert {
   }
 
   /**
-   * 被吊销证书对象。
+   * 证书吊销条目。
    *
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
@@ -1622,10 +1622,10 @@ declare namespace cert {
    */
   interface X509CRLEntry {
     /**
-     * 表示获取被吊销证书的序列化数据。使用Callback异步回调。
+     * 表示获取证书吊销条目的序列化数据。使用Callback异步回调。
      *
-     * @param { AsyncCallback<EncodingBlob> } callback - 回调函数。当获取被吊销证书序列化数据成功时，err为undefined，
-     *     data为获取到的被吊销证书序列化数据；否则为错误对象。
+     * @param { AsyncCallback<EncodingBlob> } callback - 回调函数。当获取证书吊销条目序列化数据成功时，err为undefined，
+     *     data为获取到的证书吊销条目序列化数据；否则为错误对象。
      * @throws { BusinessError } 401 - 参数错误。可能的原因：
      *     <br>1. 必填参数未指定；
      *     <br>2. 参数类型不正确；
@@ -1644,9 +1644,9 @@ declare namespace cert {
     getEncoded(callback: AsyncCallback<EncodingBlob>): void;
 
     /**
-     * 表示获取被吊销证书的序列化数据。使用Promise方式返回结果。
+     * 表示获取证书吊销条目的序列化数据。使用Promise方式返回结果。
      *
-     * @returns { Promise<EncodingBlob> } Promise对象，返回被吊销证书的序列化数据。
+     * @returns { Promise<EncodingBlob> } Promise对象，返回证书吊销条目的序列化数据。
      * @throws { BusinessError } 401 - 参数错误。可能的原因：
      *     <br>1. 必填参数未指定；
      *     <br>2. 参数类型不正确；
@@ -1665,9 +1665,9 @@ declare namespace cert {
     getEncoded(): Promise<EncodingBlob>;
 
     /**
-     * 表示获取被吊销证书的序列号。
+     * 表示获取被吊销的证书的序列号。
      *
-     * @returns { bigint } 表示被吊销证书的序列号。
+     * @returns { bigint } 表示证书吊销条目的序列号。
      * @throws { BusinessError } 19020001 - 内存错误。
      * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
      *     <br>1. 内存拷贝失败；
@@ -1683,13 +1683,13 @@ declare namespace cert {
     getSerialNumber(): bigint;
 
     /**
-     * 表示获取被吊销证书的颁发者信息。
+     * 表示获取被吊销证书的颁发者名称。
      *
      * > **说明：**
      * >
-     * > 获取到的被吊销证书的颁发者信息数据带字符串结束符。
+     * > 获取到的被吊销证书的颁发者名称数据带字符串结束符。
      *
-     * @returns { DataBlob } 表示被吊销证书的颁发者信息。
+     * @returns { DataBlob } 表示被吊销证书的颁发者名称。
      * @throws { BusinessError } 801 - 不支持该操作。
      * @throws { BusinessError } 19020001 - 内存错误。
      * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
@@ -1706,10 +1706,10 @@ declare namespace cert {
     getCertIssuer(): DataBlob;
 
     /**
-     * 根据编码类型获取被吊销证书的颁发者信息。
+     * 根据编码类型获取被吊销证书的颁发者名称。
      *
      * @param { EncodingType } encodingType - 表示编码类型。
-     * @returns { string } 表示被吊销证书的颁发者信息，使用逗号分隔相对可分辨名称。
+     * @returns { string } 表示被吊销证书的颁发者名称，使用逗号分隔相对可分辨名称。
      * @throws { BusinessError } 801 - 不支持该操作。
      * @throws { BusinessError } 19020001 - 内存错误。
      * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
@@ -1746,9 +1746,9 @@ declare namespace cert {
     getRevocationDate(): string;
 
     /**
-     * 表示获取CRL的扩展。
+     * 表示获取DER格式的CRL条目的扩展数据。
      *
-     * @returns { DataBlob } 表示X509CRL扩展用途。
+     * @returns { DataBlob } 表示CRL条目的扩展数据。
      * @throws { BusinessError } 19020001 - 内存错误。
      * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
      *     <br>1. 内存拷贝失败；
@@ -1764,9 +1764,9 @@ declare namespace cert {
     getExtensions(): DataBlob;
 
     /**
-     * 表示判断CRL Entry是否有扩展。
+     * 表示判断CRL条目是否有扩展。
      *
-     * @returns { boolean } 返回true则表示CRL Entry有扩展，返回false则表示无扩展。
+     * @returns { boolean } 返回true则表示CRL条目有扩展，返回false则表示无扩展。
      * @throws { BusinessError } 19020001 - 内存错误。
      * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
      *     <br>1. 内存拷贝失败；
@@ -1782,9 +1782,9 @@ declare namespace cert {
     hasExtensions(): boolean;
 
     /**
-     * 获取颁发者的X509可分辨名称。
+     * 获取被吊销证书的颁发者的X.500可分辨名称对象。
      *
-     * @returns { X500DistinguishedName } X509的可分辨对象。
+     * @returns { X500DistinguishedName } X.500可分辨名称对象。
      * @throws { BusinessError } 19020001 - 内存错误。
      * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
      *     <br>1. 内存拷贝失败；
@@ -1836,9 +1836,9 @@ declare namespace cert {
     hashCode(): Uint8Array;
 
     /**
-     * 获取对应实体的扩展域DER格式数据。
+     * 获取CRL条目的扩展对象。
      *
-     * @returns { CertExtension } 证书扩展域段类对象。
+     * @returns { CertExtension } CRL条目的扩展对象。
      * @throws { BusinessError } 19020001 - 内存错误。
      * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
      *     <br>1. 内存拷贝失败；
@@ -1855,7 +1855,7 @@ declare namespace cert {
   }
 
   /**
-   * X509证书吊销列表对象。
+   * X.509 CRL操作。
    *
    * > **说明：**
    * >
@@ -2075,14 +2075,14 @@ declare namespace cert {
     getNextUpdate(): string;
 
     /**
-     * 表示通过指定证书序列号获取被吊销X509证书对象。
+     * 表示通过指定证书序列号获取证书吊销条目。
      *
      * > **说明：**
      * >
      * > 从API version 9开始支持，从API version 11开始废弃，建议使用[X509CRL.getRevokedCert()]{@link cert.X509CRL.getRevokedCert}替代。
      *
      * @param { number } serialNumber - 表示证书序列号。
-     * @returns { X509CrlEntry } 表示被吊销X509证书对象。
+     * @returns { X509CrlEntry } 表示证书吊销条目。
      * @throws { BusinessError } 401 - 参数错误。可能的原因：
      *     <br>1. 必填参数未指定；
      *     <br>2. 参数类型不正确；
@@ -2097,7 +2097,7 @@ declare namespace cert {
     getRevokedCert(serialNumber: number): X509CrlEntry;
 
     /**
-     * 表示通过指定证书对象获取被吊销X509证书对象。
+     * 表示通过指定证书对象获取证书吊销条目。
      *
      * > **说明：**
      * >
@@ -2105,7 +2105,7 @@ declare namespace cert {
      * > [X509CRL.getRevokedCertWithCert()]{@link cert.X509CRL.getRevokedCertWithCert}替代。
      *
      * @param { X509Cert } cert - 表示证书对象。
-     * @returns { X509CrlEntry } 表示被吊销X509证书对象。
+     * @returns { X509CrlEntry } 表示证书吊销条目。
      * @throws { BusinessError } 401 - 参数错误。可能的原因：
      *     <br>1. 必填参数未指定；
      *     <br>2. 参数类型不正确；
@@ -2120,15 +2120,15 @@ declare namespace cert {
     getRevokedCertWithCert(cert: X509Cert): X509CrlEntry;
 
     /**
-     * 表示获取被吊销X509证书列表。使用Callback异步回调。
+     * 表示获取证书吊销条目列表。使用Callback异步回调。
      *
      * > **说明：**
      * >
      * > 从API version 9开始支持，从API version 11开始废弃，建议使用
      * > [X509CRL.getRevokedCerts()]{@link cert.X509CRL.getRevokedCerts(callback: AsyncCallback<Array<X509CRLEntry>>)}替代。
      *
-     * @param { AsyncCallback<Array<X509CrlEntry>> } callback - 回调函数。当获取被吊销X509证书列表成功时，err为undefined，
-     *     data为获取到的被吊销X509证书列表；否则为错误对象。
+     * @param { AsyncCallback<Array<X509CrlEntry>> } callback - 回调函数。当获取证书吊销条目列表成功时，err为undefined，
+     *     data为获取到的证书吊销条目列表；否则为错误对象。
      * @throws { BusinessError } 401 - 参数错误。可能的原因：
      *     <br>1. 必填参数未指定；
      *     <br>2. 参数类型不正确；
@@ -2142,13 +2142,13 @@ declare namespace cert {
     getRevokedCerts(callback: AsyncCallback<Array<X509CrlEntry>>): void;
 
     /**
-     * 表示获取被吊销X509证书列表。使用Promise方式返回结果。
+     * 表示获取证书吊销条目列表。使用Promise方式返回结果。
      *
      * > **说明：**
      * >
      * > 从API version 9开始支持，从API version 11开始废弃，建议使用[X509CRL.getRevokedCerts()]{@link cert.X509CRL.getRevokedCerts()}替代。
      *
-     * @returns { Promise<Array<X509CrlEntry>> } Promise对象，返回被吊销X509证书列表。
+     * @returns { Promise<Array<X509CrlEntry>> } Promise对象，返回证书吊销条目列表。
      * @throws { BusinessError } 401 - 参数错误。可能的原因：
      *     <br>1. 必填参数未指定；
      *     <br>2. 参数类型不正确；
@@ -2187,7 +2187,8 @@ declare namespace cert {
      *
      * > **说明：**
      * >
-     * > 从API version 9开始支持，从API version 11开始废弃，建议使用[X509CRL.getSignature()]{@link cert.X509CRL.getSignature}替代。
+     * > 从API version 9开始支持，从API version 11开始废弃，建议使用
+     * > [X509CRL.getSignature()]{@link cert.X509CRL.getSignature}替代。
      *
      * @returns { DataBlob } 表示X509证书吊销列表的签名数据。
      * @throws { BusinessError } 19020001 - 内存错误。
@@ -2226,14 +2227,14 @@ declare namespace cert {
     getSignatureAlgName(): string;
 
     /**
-     * 表示获取X509证书吊销列表签名算法的对象标志符OID(Object Identifier)。OID是由国际标准组织(ISO)的名称注册机构分配。
+     * 表示获取X509证书吊销列表签名算法的对象标识符OID（Object Identifier）。OID是由国际标准化组织（ISO）的名称注册机构分配。
      *
      * > **说明：**
      * >
      * > 从API version 9开始支持，从API version 11开始废弃，建议使用
      * > [X509CRL.getSignatureAlgOid()]{@link cert.X509CRL.getSignatureAlgOid}替代。
      *
-     * @returns { string } 表示X509证书吊销列表签名算法的对象标志符OID。
+     * @returns { string } 表示X509证书吊销列表签名算法的对象标识符OID。
      * @throws { BusinessError } 19020001 - 内存错误。
      * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
      *     <br>1. 内存拷贝失败；
@@ -2300,8 +2301,8 @@ declare namespace cert {
    *
    * > **说明：**
    * >
-   * > 从API version 9开始支持，从API version 11开始废弃，建议使用[cert.createX509CRL()]{@link cert.createX509CRL(inStream: EncodingBlob)}
-   * > 替代。
+   * > 从API version 9开始支持，从API version 11开始废弃，建议使用
+   * > [cert.createX509CRL()]{@link cert.createX509CRL(inStream: EncodingBlob)}替代。
    *
    * @param { EncodingBlob } inStream - 表示证书吊销列表序列化数据。
    * @returns { Promise<X509Crl> } Promise对象，返回创建的X509Crl实例。
@@ -2319,7 +2320,7 @@ declare namespace cert {
   function createX509Crl(inStream: EncodingBlob): Promise<X509Crl>;
 
   /**
-   * 被吊销证书列表对象。
+   * X.509 CRL操作。
    *
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
@@ -2528,10 +2529,10 @@ declare namespace cert {
     getNextUpdate(): string;
 
     /**
-     * 表示通过指定证书序列号获取被吊销X509证书对象。
+     * 表示通过指定证书序列号获取证书吊销条目。
      *
      * @param { bigint } serialNumber - 表示证书序列号。
-     * @returns { X509CRLEntry } 表示被吊销X509证书对象。
+     * @returns { X509CRLEntry } 表示证书吊销条目。
      * @throws { BusinessError } 401 - 参数错误。可能的原因：
      *     <br>1. 必填参数未指定；
      *     <br>2. 参数类型不正确；
@@ -2547,10 +2548,10 @@ declare namespace cert {
     getRevokedCert(serialNumber: bigint): X509CRLEntry;
 
     /**
-     * 表示通过指定证书对象获取被吊销X509证书对象。
+     * 表示通过指定证书对象获取证书吊销条目。
      *
      * @param { X509Cert } cert - 表示证书对象。
-     * @returns { X509CRLEntry } 表示被吊销X509证书对象。
+     * @returns { X509CRLEntry } 表示证书吊销条目。
      * @throws { BusinessError } 401 - 参数错误。可能的原因：
      *     <br>1. 必填参数未指定；
      *     <br>2. 参数类型不正确；
@@ -2566,10 +2567,10 @@ declare namespace cert {
     getRevokedCertWithCert(cert: X509Cert): X509CRLEntry;
 
     /**
-     * 表示获取被吊销X509证书列表。使用Callback异步回调。
+     * 表示获取证书吊销条目列表。使用Callback异步回调。
      *
-     * @param { AsyncCallback<Array<X509CRLEntry>> } callback - 回调函数。当获取被吊销X509证书列表成功时，err为undefined，
-     *     data为获取到的被吊销X509证书列表；否则为错误对象。
+     * @param { AsyncCallback<Array<X509CRLEntry>> } callback - 回调函数。当获取证书吊销条目列表成功时，err为undefined，
+     *     data为获取到的证书吊销条目列表；否则为错误对象。
      * @throws { BusinessError } 401 - 参数错误。可能的原因：
      *     <br>1. 必填参数未指定；
      *     <br>2. 参数类型不正确；
@@ -2584,9 +2585,9 @@ declare namespace cert {
     getRevokedCerts(callback: AsyncCallback<Array<X509CRLEntry>>): void;
 
     /**
-     * 表示获取被吊销X509证书列表。使用Promise方式返回结果。
+     * 表示获取证书吊销条目列表。使用Promise方式返回结果。
      *
-     * @returns { Promise<Array<X509CRLEntry>> } Promise对象，返回被吊销X509证书列表。
+     * @returns { Promise<Array<X509CRLEntry>> } Promise对象，返回证书吊销条目列表。
      * @throws { BusinessError } 401 - 参数错误。可能的原因：
      *     <br>1. 必填参数未指定；
      *     <br>2. 参数类型不正确；
@@ -2655,9 +2656,9 @@ declare namespace cert {
     getSignatureAlgName(): string;
 
     /**
-     * 表示获取X509证书吊销列表签名算法的对象标志符OID(Object Identifier)。OID是由国际标准组织(ISO)的名称注册机构分配。
+     * 表示获取X509证书吊销列表签名算法的对象标识符OID（Object Identifier）。OID是由国际标准化组织（ISO）的名称注册机构分配。
      *
-     * @returns { string } 表示X509证书吊销列表签名算法的对象标志符OID。
+     * @returns { string } 表示X509证书吊销列表签名算法的对象标识符OID。
      * @throws { BusinessError } 19020001 - 内存错误。
      * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
      *     <br>1. 内存拷贝失败；
@@ -2692,9 +2693,9 @@ declare namespace cert {
     getSignatureAlgParams(): DataBlob;
 
     /**
-     * 表示获取CRL的扩展。
+     * 表示获取CRL扩展的DER格式数据。
      *
-     * @returns { DataBlob } 表示X509CRL扩展用途。
+     * @returns { DataBlob } 表示CRL扩展的DER格式数据。
      * @throws { BusinessError } 19020001 - 内存错误。
      * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
      *     <br>1. 内存拷贝失败；
@@ -2729,9 +2730,9 @@ declare namespace cert {
     match(param: X509CRLMatchParameters): boolean;
 
     /**
-     * 获取颁发者的X509可分辨名称。
+     * 获取CRL颁发者的X.500可分辨名称对象。
      *
-     * @returns { X500DistinguishedName } X509的可分辨对象。
+     * @returns { X500DistinguishedName } X.500可分辨名称对象。
      * @throws { BusinessError } 19020001 - 内存错误。
      * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
      *     <br>1. 内存拷贝失败；
@@ -2804,9 +2805,9 @@ declare namespace cert {
     hashCode(): Uint8Array;
 
     /**
-     * 获取对应实体的扩展域DER格式数据。
+     * 获取CRL扩展对象。
      *
-     * @returns { CertExtension } 证书扩展域段类对象。
+     * @returns { CertExtension } CRL扩展对象。
      * @throws { BusinessError } 19020001 - 内存错误。
      * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
      *     <br>1. 内存拷贝失败；
@@ -2888,7 +2889,7 @@ declare namespace cert {
      *
      * 首先使用[X509CertRevokedParams]{@link cert.X509CertRevokedParams}的crls参数，未匹配到CRL且
      * [X509CertRevokedParams]{@link cert.X509CertRevokedParams}的allowDownloadCrl参数设置为true时则尝试使用证书的CDP扩展
-     * 下载CRL
+     * 下载CRL。
      *
      * @syscap SystemCapability.Security.Cert
      * @stagemodelonly
@@ -2902,7 +2903,12 @@ declare namespace cert {
      *
      * 首先使用[X509CertRevokedParams]{@link cert.X509CertRevokedParams}的ocspResponses参数，未匹配到响应且
      * [X509CertRevokedParams]{@link cert.X509CertRevokedParams}的allowOcspCheckOnline参数设置为true则尝试从证书AIA扩展
-     * 获取OCSP URL并发送请求获取响应
+     * 获取OCSP URL并发送请求获取响应。
+     *
+     * > **说明：**
+     * >
+     * > - 始终使系统当前时间校验ocsp响应的有效期，并允许前后5分钟的时间容差。
+     * > - 允许ocsp响应缺少nonce和nextUpdate。
      *
      * @syscap SystemCapability.Security.Cert
      * @stagemodelonly
@@ -3016,8 +3022,10 @@ declare namespace cert {
 
     /**
      * 是否允许下载CRL，默认值为false。true：尝试使用证书的CDP扩展下载CRL；false：不尝试下载CRL。
-     * **说明**
-     * - 如果crls中存在匹配的CRL，则跳过下载
+     *
+     * > **说明：**
+     * >
+     * > 如果crls中存在匹配的CRL，则跳过下载。
      *
      * @default false
      * @syscap SystemCapability.Security.Cert
@@ -3042,8 +3050,9 @@ declare namespace cert {
      * true：执行在线OCSP检查，即尝试从证书AIA扩展获取OCSP URL并发送请求获取响应；
      * false：不执行在线OCSP检查。
      *
-     * **说明**
-     * - 如果在ocspResponses中找到匹配的OCSP响应，则跳过在线OCSP检查。
+     * > **说明：**
+     * >
+     * > 如果在ocspResponses中找到匹配的OCSP响应，则跳过在线OCSP检查。
      *
      * @default false
      * @syscap SystemCapability.Security.Cert
@@ -3131,7 +3140,7 @@ declare namespace cert {
     allowDownloadIntermediateCa?: boolean;
 
     /**
-     * 验证日期。格式为YYMMDDHHMMSSZ或YYYYMMDDHHMMSSZ，默认使用当前系统时间。
+     * 校验日期。格式为YYMMDDHHMMSSZ或YYYYMMDDHHMMSSZ，默认使用当前系统时间。
      * 支持自定义验证时间，适用于离线验证历史签名等场景。
      *
      * @syscap SystemCapability.Security.Cert
@@ -3142,7 +3151,7 @@ declare namespace cert {
     date?: string;
 
     /**
-     * 是否验证日期。true：验证证书和CRL有效期；false：不验证证书和CRL有效期。
+     * 是否校验日期。true：校验证书和CRL有效期；false：不校验证书和CRL有效期。
      *
      * @default true
      * @syscap SystemCapability.Security.Cert
@@ -3165,7 +3174,7 @@ declare namespace cert {
     ignoreErrs?: Array<CertResult>;
 
     /**
-     * 主机名列表。验证证书的主题备用名（SAN）或通用名（CN）是否包含指定的主机名。最大个数：100，每个主机名最大长度：128。
+     * 主机名列表。验证证书的主体备用名（SAN）或通用名（CN）是否包含指定的主机名。最大个数：100，每个主机名最大长度：128。
      * 只要匹配其中一个主机名即校验成功。
      *
      * @syscap SystemCapability.Security.Cert
@@ -3176,7 +3185,7 @@ declare namespace cert {
     hostnames?: Array<string>;
 
     /**
-     * 邮箱地址。验证证书是否包含指定的邮箱地址。最大个数：1，邮箱地址最大长度：128
+     * 邮箱地址。验证证书是否包含指定的邮箱地址。最大个数：1，邮箱地址最大长度：128。
      *
      * @syscap SystemCapability.Security.Cert
      * @stagemodelonly
@@ -3199,7 +3208,7 @@ declare namespace cert {
     /**
      * 用户ID。用于验证国密SM2证书时设置签名验证所需的用户标识符。最大长度：128。
      * 国密证书场景最常用的值为
-     * `[0x31, 0x32, 0x33, 0x34, 0x35, 0x36, 0x37, 0x38, 0x31, 0x32, 0x33, 0x34, 0x35, 0x36, 0x37,0x38]`
+     * `[0x31, 0x32, 0x33, 0x34, 0x35, 0x36, 0x37, 0x38, 0x31, 0x32, 0x33, 0x34, 0x35, 0x36, 0x37, 0x38]`
      * （对应ASCII字符串为"1234567812345678"，16字节）。
      * 设置userId后不支持证书吊销检查。
      *
@@ -3405,7 +3414,7 @@ declare namespace cert {
   function createCertChainValidator(algorithm: string): CertChainValidator;
 
   /**
-   * 表示证书主体用途的枚举。
+   * X.509中定义的GeneralName类型的枚举，这些类型可出现在“使用者备用名称”（Subject Alternative Name）及其他扩展项中。
    *
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
@@ -3515,7 +3524,7 @@ declare namespace cert {
   }
 
   /**
-   * 用于表示证书主体信息对象。
+   * 用于表示GeneralName。
    *
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
@@ -3525,7 +3534,7 @@ declare namespace cert {
    */
   interface GeneralName {
     /**
-     * 指定具体的证书主体类型。
+     * GeneralName类型。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -3536,7 +3545,7 @@ declare namespace cert {
     type: GeneralNameType;
 
     /**
-     * 指定具体的证书主体DER格式内容。
+     * 指定GeneralName的DER编码值。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -3701,7 +3710,7 @@ declare namespace cert {
     serialNumber?: bigint;
 
     /**
-     * 指定证书主题，DER编码格式。
+     * 指定证书主体名称，DER编码格式。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -3766,7 +3775,7 @@ declare namespace cert {
    */
   interface X509CRLMatchParameters {
     /**
-     * 指定证书颁发者，为DER编码格式。
+     * 指定CRL颁发者，为DER编码格式。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -3788,7 +3797,7 @@ declare namespace cert {
     x509Cert?: X509Cert;
 
     /**
-     * 指定证书更新时间。
+     * 指定CRL更新时间。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -4143,7 +4152,7 @@ declare namespace cert {
   function buildX509CertChain(param: CertChainBuildParameters): Promise<CertChainBuildResult>;
 
   /**
-   * 表示生成CSR的编码格式的枚举。
+   * 表示生成证书相关数据的编码格式的枚举。
    *
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
@@ -4176,7 +4185,7 @@ declare namespace cert {
   }
 
   /**
-   * 表示返回P12文件的解析后的证书、私钥及其他证书合集。
+   * P12（PKCS #12）数据，包含私钥、证书和其他证书。
    *
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
@@ -4186,7 +4195,7 @@ declare namespace cert {
    */
   interface Pkcs12Data {
     /**
-     * 表示P12文件解析后的私钥。
+     * 私钥。**string**对应PEM格式，**Uint8Array**对应DER格式。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -4197,7 +4206,7 @@ declare namespace cert {
     privateKey?: string | Uint8Array;
 
     /**
-     * 表示P12文件解析后的证书。
+     * 和私钥匹配的证书。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -4208,7 +4217,7 @@ declare namespace cert {
     cert?: X509Cert;
 
     /**
-     * 表示P12文件解析后的其他证书合集。
+     * 其他证书。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -4220,7 +4229,7 @@ declare namespace cert {
   }
 
   /**
-   * 表示解析P12文件的配置。
+   * 表示解析P12的配置。
    *
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
@@ -4230,7 +4239,7 @@ declare namespace cert {
    */
   interface Pkcs12ParsingConfig {
     /**
-     * 表示P12文件的密码。
+     * 密码。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -4257,7 +4266,9 @@ declare namespace cert {
     /**
      * 表示获取私钥的格式，当前支持PEM和DER格式。参数缺省时，默认为PEM格式。
      *
-     * **说明：**当needsPrivateKey值为true时，该参数生效。
+     * > **说明：**
+     * >
+     * > 当needsPrivateKey值为true时，该参数生效。
      *
      * @default EncodingBaseFormat.PEM
      * @syscap SystemCapability.Security.Cert
@@ -4281,7 +4292,7 @@ declare namespace cert {
     needsCert?: boolean;
 
     /**
-     * 表示是否获取其他证书合集。默认为false。true为获取，false为不获取。
+     * 表示是否获取其他证书。默认为false。true为获取，false为不获取。
      *
      * @default false
      * @syscap SystemCapability.Security.Cert
@@ -4294,11 +4305,11 @@ declare namespace cert {
   }
 
   /**
-   * 表示从P12文件中解析证书、私钥及其他证书合集，并返回结果。
+   * 解析P12。
    *
-   * @param { Uint8Array } data - P12文件，DER格式。
+   * @param { Uint8Array } data - DER格式的P12文件原始数据。
    * @param { Pkcs12ParsingConfig } config - P12文件的解析配置。
-   * @returns { Pkcs12Data } 表示P12文件解析后的证书、私钥及其他证书合集。
+   * @returns { Pkcs12Data } 表示解析后的P12数据。
    * @throws { BusinessError } 401 - 参数错误。可能的原因：
    *     <br>1. 必填参数未指定；
    *     <br>2. 参数类型不正确；
@@ -4319,12 +4330,11 @@ declare namespace cert {
   function parsePkcs12(data: Uint8Array, config: Pkcs12ParsingConfig): Pkcs12Data;
 
   /**
-   * 表示从Pkcs12文件中解析证书、私钥及其他证书合集。使用Promise方式返回结果。
+   * 解析P12。使用Promise方式返回结果。
    *
-   * @param { Uint8Array } data - Pkcs12文件，DER格式。
-   * @param { string } password - Pkcs12的密码。
-   * @returns { Promise<Pkcs12Data> } Promise对象，返回Pkcs12文件解析后的证书、私钥及其他证书合集。返回的Pkcs12Data中的私钥
-   *      采用PEM格式编码。
+   * @param { Uint8Array } data - DER格式的P12文件原始数据。
+   * @param { string } password - 密码。
+   * @returns { Promise<Pkcs12Data> } Promise对象，返回解析后的P12数据。返回的Pkcs12Data中的私钥采用PEM编码。
    * @throws { BusinessError } 19020001 - 内存错误。
    * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
    *     <br>1. 内存拷贝失败；
@@ -4344,10 +4354,10 @@ declare namespace cert {
   function parsePkcs12(data: Uint8Array, password: string): Promise<Pkcs12Data>;
 
   /**
-   * 表示从P12文件中读取ca证书来构造[TrustAnchor]{@link cert.X509TrustAnchor}对象数组。使用Promise方式返回结果。
+   * 表示从P12中读取ca证书来构造[TrustAnchor]{@link cert.X509TrustAnchor}对象数组。使用Promise方式返回结果。
    *
-   * @param { Uint8Array } keystore - P12文件，DER格式。
-   * @param { string } pwd - P12文件的密码。
+   * @param { Uint8Array } keystore - DER格式的P12文件原始数据。
+   * @param { string } pwd - 密码。
    * @returns { Promise<Array<X509TrustAnchor>> } Promise对象，返回X509TrustAnchor对象数组。
    * @throws { BusinessError } 401 - 参数错误。可能的原因：
    *     <br>1. 必填参数未指定；
@@ -4376,7 +4386,7 @@ declare namespace cert {
   /**
    * 表示使用字符串格式的名称创建X500DistinguishedName对象。使用Promise方式返回结果。
    *
-   * @param { string } nameStr - X509定义的Name字符串格式，使用斜杠'/'进行分割可分辨名称，每个可分辨名称为“属性=值”形式，
+   * @param { string } nameStr - 使用斜杠'/'分隔的可分辨名称字符串格式，每个相对可分辨名称为“属性=值”形式，
    *     常用属性包括CN（通用名）、O（组织名）、OU（组织单位）、C（国家/地区）、ST（省/州）、L（市/区）。
    *     例如：/CN=example.com/O=Example/C=CN。
    * @returns { Promise<X500DistinguishedName> } Promise对象，返回X500DistinguishedName实例。
@@ -4407,7 +4417,7 @@ declare namespace cert {
   /**
    * 表示使用DER格式的名称创建X500DistinguishedName对象。使用Promise方式返回结果。
    *
-   * @param { Uint8Array } nameDer - X509定义的Uint8Array类型的DER格式数据。
+   * @param { Uint8Array } nameDer - DER格式的X.500可分辨名称。
    * @returns { Promise<X500DistinguishedName> } Promise对象，返回X500DistinguishedName实例。
    * @throws { BusinessError } 401 - 参数错误。可能的原因：
    *     <br>1. 必填参数未指定；
@@ -4527,9 +4537,9 @@ declare namespace cert {
     getName(type: string, encodingType: EncodingType): Array<string>;
 
     /**
-     * 获取X509证书扩展域的数据。
+     * 获取X.500可分辨名称的DER编码数据。
      *
-     * @returns { EncodingBlob } X509证书序列化数据。
+     * @returns { EncodingBlob } X.500可分辨名称的DER编码数据。
      * @throws { BusinessError } 19020001 - 内存错误。
      * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
      *     <br>1. 内存拷贝失败；
@@ -4578,7 +4588,7 @@ declare namespace cert {
     CAPubKey?: Uint8Array;
 
     /**
-     * 信任的CA证书主题，DER格式。仅在配置了CAPubKey时生效。校验对象根据CAPubKey类型（自签或上级）决定是校验根证书的主题还是颁发者。
+     * 信任CA证书的DER格式主体名称。仅在配置了CAPubKey时生效。校验对象根据CAPubKey类型（自签或上级）决定是校验根证书的主体还是颁发者名称。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -4660,7 +4670,9 @@ declare namespace cert {
      * 当ACCESS_NETWORK选项打开时有效。如果开启了该能力，对终端实体证书OCSP或CRL校验成功，则会继续校验中间证书的吊销情况。默认
      * 关闭。
      *
-     * **说明：**当前能力与REVOCATION_CHECK_OPTION_LOCAL_CRL_ONLY_CHECK_END_ENTITY_CERT不能同时开启。
+     * > **说明：**
+     * >
+     * > 当前能力与REVOCATION_CHECK_OPTION_LOCAL_CRL_ONLY_CHECK_END_ENTITY_CERT不能同时开启。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -4673,7 +4685,9 @@ declare namespace cert {
     /**
      * 如果开启了该能力，则会拿本地吊销列表校验终端实体证书的吊销情况。默认关闭。
      *
-     * **说明：**当前能力与REVOCATION_CHECK_OPTION_CHECK_INTERMEDIATE_CA_ONLINE不能同时开启。
+     * > **说明：**
+     * >
+     * > 当前能力与REVOCATION_CHECK_OPTION_CHECK_INTERMEDIATE_CA_ONLINE不能同时开启。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -4692,7 +4706,7 @@ declare namespace cert {
      * @atomicservice
      * @since 23 dynamic&static
      */
-    REVOCATION_CHECK_OPTION_IGNORE_NETWORK_ERROR = 6,
+    REVOCATION_CHECK_OPTION_IGNORE_NETWORK_ERROR = 6
   }
 
   /**
@@ -4862,7 +4876,9 @@ declare namespace cert {
     /**
      * 表示用于OCSP请求的备选服务器URI地址，支持HTTP/HTTPS，具体配置由与服务器协商决定。
      *
-     * **说明：**当前URI只针对实体证书生效。
+     * > **说明：**
+     * >
+     * > 当前URI只针对实体证书生效。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -4897,7 +4913,9 @@ declare namespace cert {
     /**
      * 表示用于CRL请求的备选下载地址。
      *
-     * **说明：**当前URI只针对实体证书生效。
+     * > **说明：**
+     * >
+     * > 当前URI只针对实体证书生效。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -4942,7 +4960,7 @@ declare namespace cert {
    */
   interface CertChainValidationParameters {
     /**
-     * 表示需要校验证书的有效期。
+     * 用于检查证书有效性的日期。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -4990,7 +5008,7 @@ declare namespace cert {
     allowDownloadIntermediateCa?: boolean;
 
     /**
-     * 表示需要校验证书是否在证书吊销列表中。
+     * 用于检查证书是否被吊销的CRL集合。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -5001,7 +5019,7 @@ declare namespace cert {
     certCRLs?: Array<CertCRLCollection>;
 
     /**
-     * 表示需要在线校验证证书吊销状态的参数对象。
+     * 表示需要校验证书吊销状态的参数对象。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -5100,7 +5118,7 @@ declare namespace cert {
     certMatchParameters: X509CertMatchParameters;
 
     /**
-     * 指定最终证书链中CA证书的最大长度。
+     * 指定CA证书的最大数量。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -5144,7 +5162,7 @@ declare namespace cert {
     readonly certChain: X509CertChain;
 
     /**
-     * 指定最终证书链的最大长度。
+     * 证书链校验结果。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -5222,7 +5240,7 @@ declare namespace cert {
   }
 
   /**
-   * 表示Cms签名格式的枚举。
+   * 表示CMS编码格式的枚举。
    *
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
@@ -5344,7 +5362,10 @@ declare namespace cert {
     /**
      * RSA 签名填充方式。默认值为：PKCS1_PADDING。
      * 当设置为 PKCS1_PSS_PADDING 时，mdName 必须为 "SHA256"、"SHA384" 或 "SHA512"。
-     * **说明：**仅当签名者私钥类型为RSA时有效。
+     *
+     * > **说明：**
+     * >
+     * > 仅当签名者私钥类型为RSA时有效。
      *
      * @default CmsRsaSignaturePadding.PKCS1_PADDING
      * @syscap SystemCapability.Security.Cert
@@ -5403,7 +5424,7 @@ declare namespace cert {
    */
   enum CmsKeyAgreeRecipientDigestAlgorithm {
     /**
-     * SHA256 算法
+     * SHA256算法。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -5414,7 +5435,7 @@ declare namespace cert {
     SHA256 = 0,
 
     /**
-     * SHA384 算法
+     * SHA384算法。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -5425,7 +5446,7 @@ declare namespace cert {
     SHA384 = 1,
 
     /**
-     * SHA512 算法
+     * SHA512算法。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -5437,7 +5458,7 @@ declare namespace cert {
   }
 
   /**
-   * CMS接收者对称算法的枚举。
+   * CMS封装数据的内容加密算法的枚举。
    *
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
@@ -5447,7 +5468,7 @@ declare namespace cert {
    */
   enum CmsRecipientEncryptionAlgorithm {
     /**
-     * AES_128_CBC 算法
+     * AES_128_CBC算法。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -5458,7 +5479,7 @@ declare namespace cert {
     AES_128_CBC = 0,
 
     /**
-     * AES_192_CBC 算法
+     * AES_192_CBC算法。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -5469,7 +5490,7 @@ declare namespace cert {
     AES_192_CBC = 1,
 
     /**
-     * AES_256_CBC 算法
+     * AES_256_CBC算法。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -5480,7 +5501,7 @@ declare namespace cert {
     AES_256_CBC = 2,
 
     /**
-     * AES_128_GCM 算法
+     * AES_128_GCM算法。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -5491,7 +5512,7 @@ declare namespace cert {
     AES_128_GCM = 3,
 
     /**
-     * AES_192_GCM 算法
+     * AES_192_GCM算法。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -5502,7 +5523,7 @@ declare namespace cert {
     AES_192_GCM = 4,
 
     /**
-     * AES_256_GCM 算法
+     * AES_256_GCM算法。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -5606,7 +5627,7 @@ declare namespace cert {
   }
 
   /**
-   * 表示生成Cms签名结果的配置选项。
+   * 表示生成CMS消息的配置选项。
    *
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
@@ -5657,8 +5678,8 @@ declare namespace cert {
    *
    * > **说明：**
    * >
-   * > PKCS#7是用于存储签名或加密数据的标准语法。注意CMS是PKCS#7的扩展，PKCS#7支持的数据类型包括数据、签名数据、信封数据、
-   * > 签名和信封数据、摘要数据、加密数据。常用于保护数据的完整性和机密性。
+   * > PKCS #7是用于存储签名或加密数据的标准语法。注意CMS是PKCS #7的扩展，PKCS #7支持的数据类型包括数据、签名数据、封装数据、
+   * > 签名和封装数据、摘要数据、加密数据。常用于保护数据的完整性和机密性。
    *
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
@@ -5768,7 +5789,7 @@ declare namespace cert {
      *
      * @param { Uint8Array } data - Cms操作的内容。
      * @param { CmsGeneratorOptions } [options] - Cms操作的配置选项。
-     * @returns { Promise<Uint8Array | string> } Promise对象，返回CMS数据。
+     * @returns { Promise<Uint8Array | string> } Promise对象，返回CMS消息。
      * @throws { BusinessError } 401 - 参数错误。可能的原因：
      *     <br>1. 必填参数未指定；
      *     <br>2. 参数类型不正确；
@@ -5788,11 +5809,11 @@ declare namespace cert {
     doFinal(data: Uint8Array, options?: CmsGeneratorOptions): Promise<Uint8Array | string>;
 
     /**
-     * 用于获取CMS最终数据，例如CMS签名数据或CMS封装数据。（同步方法）。
+     * 用于获取CMS消息，例如CMS签名数据或CMS封装数据。
      *
      * @param { Uint8Array } data - Cms操作的内容。
      * @param { CmsGeneratorOptions } [options] - Cms操作的配置选项。
-     * @returns { Uint8Array | string } 生成的CMS数据。
+     * @returns { Uint8Array | string } 生成的CMS消息。
      * @throws { BusinessError } 401 - 参数错误。可能的原因：
      *     <br>1. 必填参数未指定；
      *     <br>2. 参数类型不正确；
@@ -5856,7 +5877,7 @@ declare namespace cert {
   function createCmsGenerator(contentType: CmsContentType): CmsGenerator;
 
   /**
-   * CMS验证的配置。
+   * CMS验签的配置。
    *
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
@@ -5867,7 +5888,10 @@ declare namespace cert {
   interface CmsVerificationConfig {
     /**
      * 信任证书。
-     * **说明：**需要配置所有签名者的信任证书。
+     *
+     * > **说明：**
+     * >
+     * > 需要配置所有签名者的信任证书。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -5878,7 +5902,7 @@ declare namespace cert {
     trustCerts: Array<X509Cert>;
 
     /**
-     * 签名证书。默认为空。
+     * 签名者证书。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -5945,7 +5969,7 @@ declare namespace cert {
     cert?: X509Cert;
 
     /**
-     * 加密的内容数据，如果CMS不包含指定数据。默认为空。
+     * 加密的内容数据，如果CMS不包含指定数据。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -5956,7 +5980,7 @@ declare namespace cert {
     encryptedContentData?: Uint8Array;
 
     /**
-     * 内容数据的格式。默认为CmsContentDataFormat.BINARY。
+     * 内容数据的格式。
      *
      * @default CmsContentDataFormat.BINARY
      * @syscap SystemCapability.Security.Cert
@@ -5979,7 +6003,7 @@ declare namespace cert {
    */
   enum CmsCertType {
     /**
-     * 签名者证书
+     * 签名者证书。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -5990,7 +6014,7 @@ declare namespace cert {
     SIGNER_CERTS = 0,
 
     /**
-     * 全部证书
+     * 全部证书。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -6002,12 +6026,12 @@ declare namespace cert {
   }
 
   /**
-   * CmsParser对象用于对已签名跟封装的CMS（Cryptographic Message Syntax）格式的消息进行验签和解封装。
+   * CmsParser对象用于对CMS签名或封装数据进行验签或解封装。
    *
    * > **说明：**
    * >
-   * > PKCS#7是用于存储签名或加密数据的标准语法。注意CMS是PKCS#7的扩展，PKCS#7支持的数据类型包括数据、签名数据、信封数据、
-   * > 签名和信封数据、摘要数据、加密数据。常用于保护数据的完整性和机密性。
+   * > PKCS #7是用于存储签名或加密数据的标准语法。注意CMS是PKCS #7的扩展，PKCS #7支持的数据类型包括数据、签名数据、封装数据、
+   * > 签名和封装数据、摘要数据、加密数据。常用于保护数据的完整性和机密性。
    *
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
@@ -6021,9 +6045,9 @@ declare namespace cert {
      *
      * > **说明：**
      * >
-     * > 支持PEM和DER格式的CMS数据。**string**对应PEM格式，**Uint8Array**对应DER格式。
+     * > 支持PEM和DER格式的CMS消息。**string**对应PEM格式，**Uint8Array**对应DER格式。
      *
-     * @param { Uint8Array | string } data - CMS数据内容。
+     * @param { Uint8Array | string } data - CMS消息内容。
      * @param { CmsFormat } cmsFormat - 指定输入的CMS格式。
      * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 19020001 - 内存错误。
@@ -6044,9 +6068,9 @@ declare namespace cert {
     setRawData(data: Uint8Array | string, cmsFormat: CmsFormat): Promise<void>;
 
     /**
-     * 用于获取CMS的数据类型。当前支持获取签名数据、解封装数据两种类型。
+     * 用于获取CMS内容类型。
      *
-     * @returns { CmsContentType } 返回CMS数据类型。
+     * @returns { CmsContentType } 返回CMS内容类型。
      * @throws { BusinessError } 19020001 - 内存错误。
      * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
      *     <br>1. 内存拷贝失败；
@@ -6062,7 +6086,7 @@ declare namespace cert {
     getContentType(): CmsContentType;
 
     /**
-     * 用于验证SIGNED_DATA内容类型的CMS。使用Promise方式返回结果。
+     * 用于验证签名数据类型的CMS消息。使用Promise方式返回结果。
      *
      * @param { CmsVerificationConfig } config - CMS验签配置内容。
      * @returns { Promise<void> } Promise对象，无返回结果。
@@ -6088,9 +6112,9 @@ declare namespace cert {
     verifySignedData(config: CmsVerificationConfig): Promise<void>;
 
     /**
-     * 用于从签名类型的CMS数据中获取明文数据。使用Promise方式返回结果。
+     * 用于从签名数据类型的CMS消息中获取内容数据。使用Promise方式返回结果。
      *
-     * @returns { Promise<Uint8Array> } Promise对象，返回CMS原始数据。
+     * @returns { Promise<Uint8Array> } Promise对象，返回CMS内容数据。
      * @throws { BusinessError } 19020001 - 内存错误。
      * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
      *     <br>1. 内存拷贝失败；
@@ -6106,7 +6130,7 @@ declare namespace cert {
     getContentData(): Promise<Uint8Array>;
 
     /**
-     * 传入枚举值，用于从签名类型的CMS数据中获取证书。当前支持获取签名者证书或全部证书。使用Promise方式返回结果。
+     * 传入枚举值，用于从签名数据类型的CMS消息中获取证书。当前支持获取签名者证书或全部证书。使用Promise方式返回结果。
      *
      * @param { CmsCertType } type - 从cms中获取证书的类型。
      * @returns { Promise<Array<X509Cert>> } Promise对象，返回证书集合。
@@ -6127,9 +6151,9 @@ declare namespace cert {
     getCerts(type: CmsCertType): Promise<Array<X509Cert>>;
 
     /**
-     * 用于验证ENVELOPED_DATA内容类型的CMS。使用Promise方式返回结果。
+     * 用于解密封装数据类型的CMS消息。使用Promise方式返回结果。
      *
-     * @param { CmsEnvelopedDecryptionConfig } config - CMS解封装配置内容。
+     * @param { CmsEnvelopedDecryptionConfig } config - CMS解封装的配置。
      * @returns { Promise<Uint8Array> } Promise对象，返回解封装结果。
      * @throws { BusinessError } 19020001 - 内存错误。
      * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
@@ -6203,7 +6227,7 @@ declare namespace cert {
   }
 
   /**
-   * RSA私钥生成CSR时的配置参数，包含主体、扩展、摘要算法、输出格式等。
+   * 用于生成CSR的配置参数，包含主体名称、扩展、摘要算法、输出格式等。
    *
    * > **说明：**
    * >
@@ -6223,7 +6247,7 @@ declare namespace cert {
    */
   interface CsrGenerationConfig {
     /**
-     * X509定义的Name类型的对象。
+     * 主体名称。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -6269,7 +6293,7 @@ declare namespace cert {
   }
 
   /**
-   * 表示使用指定的RSA私钥，传入主体、扩展、摘要算法、输出格式等配置参数去生成CSR。
+   * 表示使用指定的私钥，传入主体、扩展、摘要算法、输出格式等配置参数去生成CSR。
    *
    * @param { PrivateKeyInfo } keyInfo - 包含私钥跟口令的配置参数。
    * @param { CsrGenerationConfig } config - 包含生成CSR的配置参数。
@@ -6387,7 +6411,7 @@ declare namespace cert {
   }
 
   /**
-   * 表示PKCS12 MAC摘要算法枚举。
+   * 表示P12的MAC摘要算法枚举。
    *
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
@@ -6431,7 +6455,7 @@ declare namespace cert {
   }
 
   /**
-   * 表示创建P12文件的配置。
+   * 表示创建P12的配置。
    *
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
@@ -6441,7 +6465,7 @@ declare namespace cert {
    */
   interface Pkcs12CreationConfig {
     /**
-     * 表示P12文件的密码。最小长度为4。
+     * 表示P12的密码。最小长度为4。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -6486,7 +6510,7 @@ declare namespace cert {
     certEncParams?: PbesParams;
 
     /**
-     * 表示P12 MAC的盐值长度。最小值为8，默认为16。
+     * 表示P12的MAC的盐值长度。最小值为8，默认为16。
      * 取值应为≥8的整数。
      *
      * @default 16
@@ -6499,7 +6523,7 @@ declare namespace cert {
     macSaltLen?: int;
 
     /**
-     * 表示P12 MAC的迭代次数。默认为2048。
+     * 表示P12的MAC的迭代次数。默认为2048。
      * 取值应为正整数。
      *
      * @default 2048
@@ -6512,7 +6536,7 @@ declare namespace cert {
     macIterations?: int;
 
     /**
-     * 表示P12 MAC的摘要算法。默认为SHA256。
+     * 表示P12的MAC摘要算法。默认为SHA256。
      *
      * @default Pkcs12MacDigestAlgorithm.SHA256
      * @syscap SystemCapability.Security.Cert
@@ -6525,11 +6549,11 @@ declare namespace cert {
   }
 
   /**
-   * 表示创建Pkcs12数据，同步返回结果。
+   * 表示创建P12，同步返回结果。
    *
    * @param { Pkcs12Data } data - 要打包的P12数据对象。
-   * @param { Pkcs12CreationConfig } config - P12文件的创建配置。
-   * @returns { Uint8Array } 表示创建的P12文件，DER格式。
+   * @param { Pkcs12CreationConfig } config - P12的创建配置。
+   * @returns { Uint8Array } 表示创建的P12，DER格式。
    * @throws { BusinessError } 19020001 - 内存错误。
    * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
    *     <br>1. 内存拷贝失败；
@@ -6549,11 +6573,11 @@ declare namespace cert {
   function createPkcs12Sync(data: Pkcs12Data, config: Pkcs12CreationConfig): Uint8Array;
 
   /**
-   * 表示创建Pkcs12数据。使用Promise方式返回结果。
+   * 表示创建P12。使用Promise方式返回结果。
    *
-   * @param { Pkcs12Data } data - 要打包的Pkcs12数据对象。
-   * @param { Pkcs12CreationConfig } config - Pkcs12文件的创建配置。
-   * @returns { Promise<Uint8Array> } Promise对象，返回创建的Pkcs12文件，DER格式。
+   * @param { Pkcs12Data } data - 要打包的P12数据对象。
+   * @param { Pkcs12CreationConfig } config - P12的创建配置。
+   * @returns { Promise<Uint8Array> } Promise对象，返回创建的P12，DER格式。
    * @throws { BusinessError } 19020001 - 内存错误。
    * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
    *     <br>1. 内存拷贝失败；

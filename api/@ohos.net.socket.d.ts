@@ -36,6 +36,18 @@ import type cert from './@ohos.security.cert';
  * @since 10 dynamic
  */
 declare namespace socket {
+  /**
+   * Defines a network address.
+   * @syscap SystemCapability.Communication.NetStack
+   * @since 8
+   */
+  /**
+   * Define a network address.
+   * @syscap SystemCapability.Communication.NetStack
+   * @crossplatform
+   * @since 24 dynamic
+   * @since 26.0.0 static
+   */
   export import NetAddress = connection.NetAddress;
   /**
    * Deposit certificate
