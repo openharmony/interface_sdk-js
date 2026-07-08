@@ -24,6 +24,7 @@
  * @extends NavRouterAttribute
  * @implements AttributeModifier<NavRouterAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @atomicservice
  * @since 12 dynamiconly
  * @deprecated since 20
@@ -36,6 +37,7 @@ export declare class NavRouterModifier extends NavRouterAttribute implements Att
    * 
    * @param { NavRouterAttribute } instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamiconly

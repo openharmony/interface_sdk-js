@@ -14,21 +14,24 @@
  */
 
 /**
- * @file
+ * @file Embedded User Authentication Icons
  * @kit UserAuthenticationKit
  */
 
 import userAuth from '@ohos.userIAM.userAuth';
 
 /**
- * **userAuthIcon** provides user identity authentication icons used on the application UI. With **userAuthIcon**, you
- * can:
+ * The **userAuthIcon** module is a UI component module of the OpenHarmony user identity and access management (UserIAM)
+ * system. It provides an out-of-the-box authentication icon component (**UserAuthIcon**). This component is used to
+ * display the face authentication or fingerprint authentication icon on the application UI. It supports custom icon
+ * colors and dimensions, and can directly launch the system authentication dialog box component when the icon is
+ * tapped.
  *
- * 1. Easily integrate the facial authentication and fingerprint authentication icons into your applications.
+ * This module applies to the following scenarios:
  *
- * 2. Customize the color and size of the icons. The icon style cannot be changed.
- *
- * 3. Start the facial or fingerprint authentication pop-up component once the icon is tapped.
+ * - Quickly integrating the face or fingerprint authentication entry into the application UI.
+ * - Displaying biometric authentication icons in a unified style.
+ * - Tapping the icon to trigger the system-level authentication process.
  *
  * @syscap SystemCapability.UserIAM.UserAuth.Core
  * @atomicservice
@@ -37,7 +40,10 @@ import userAuth from '@ohos.userIAM.userAuth';
 @Component
 export default struct UserAuthIcon {
   /**
-   * User authentication parameters.
+   * User authentication parameters. The parameters include the **challenge** value, authentication type (**authType**
+   * ), and authentication trust level (**authTrustLevel**). The challenge value is used to prevent replay attacks.
+   * The authentication type specifies the available authentication methods (such as face, fingerprint, and PIN). The
+   * authentication trust level determines the security strength of the authentication.
    *
    * @syscap SystemCapability.UserIAM.UserAuth.Core
    * @atomicservice
@@ -46,7 +52,9 @@ export default struct UserAuthIcon {
   authParam: userAuth.AuthParam;
 
   /**
-   * Parameters on the user authentication page.
+   * Parameters on the user authentication page. The parameters include the authentication screen title (**title**)
+   * and navigation button text (**navigationButtonText**), which are used to customize the content displayed in the
+   * authentication dialog box.
    *
    * @syscap SystemCapability.UserIAM.UserAuth.Core
    * @atomicservice
@@ -55,7 +63,9 @@ export default struct UserAuthIcon {
   widgetParam: userAuth.WidgetParam;
 
   /**
-   * Height of the icon. The aspect ratio is 1:1. The default value is **64fp**. Percentage strings are not supported.
+   * Icon height. It is used to set the height of the authentication icon. The aspect ratio is 1:1 (that is, the
+   * height is the same as the width). The default value is **64fp**, and percentage strings are not supported. You
+   * are advised to select a proper size based on the UI layout.
    *
    * @default 64fp
    * @syscap SystemCapability.UserIAM.UserAuth.Core
@@ -65,7 +75,9 @@ export default struct UserAuthIcon {
   iconHeight?: Dimension;
 
   /**
-   * Color of the icon. The default value is **$r('sys.color.ohos_id_color_activated')**.
+   * Icon color. It is used to set the color of the authentication icon. Multiple formats are supported, such as color
+   * values and resource references. By default, the system accent color is used. You can customize the color based on
+   * the application theme, for example, using **Color.Blue** or **$r('app.color.primary')**.
    *
    * @default $r('sys.color.ohos_id_color_activated')
    * @syscap SystemCapability.UserIAM.UserAuth.Core
@@ -75,8 +87,14 @@ export default struct UserAuthIcon {
   iconColor?: ResourceColor;
 
   /**
-   * Callback used to return the user authentication result.<br>The application must request the `ohos.permission.ACCESS_BIOMETRIC` permission.
-   * Otherwise, it will only display the icon and cannot start the identity authentication components.
+   * Result callback. This callback is triggered after a user completes authentication. The callback parameters
+   * include the authentication result code (**result**), authentication token (**token**), and authentication type (
+   * **authType**). Your application needs to process the authentication result in this callback. For example, if the
+   * authentication is successful, your application can obtain the token for subsequent security operations. If the
+   * authentication fails, your application can prompt the user to try again.
+   *
+   * Note:The application must request the **ohos.permission.ACCESS_BIOMETRIC** permission. Otherwise, it will only
+   * display the icon and cannot start the authentication component.
    *
    * @param { userAuth.UserAuthResult } result - Authentication result information.
    * @syscap SystemCapability.UserIAM.UserAuth.Core
@@ -86,7 +104,9 @@ export default struct UserAuthIcon {
   onAuthResult: (result: userAuth.UserAuthResult) => void;
 
   /**
-   * Callback to be invoked when the icon is tapped.
+   * Icon click callback. This callback is triggered when a user taps the authentication icon. You can use this
+   * callback to prepare for the tap or record user behavior logs. If this callback is not set, the authentication
+   * process is directly triggered after the icon is tapped.
    *
    * @syscap SystemCapability.UserIAM.UserAuth.Core
    * @atomicservice

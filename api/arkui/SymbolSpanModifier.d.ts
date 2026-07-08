@@ -3,7 +3,7 @@
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- *
+ * 
  *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
@@ -12,64 +12,45 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 /**
  * @file
  * @kit ArkUI
  */
+
 /**
  * Defines SymbolSpan Modifier. Provided for use by the SymbolSpan component
  *
- * @extends SymbolSpanAttribute
- * @implements AttributeModifier<SymbolSpanAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform [since 20]
  * @atomicservice
- * @since 12
-*/
-/**
- * Defines SymbolSpan Modifier. Provided for use by the SymbolSpan component
- *
- * @extends SymbolSpanAttribute
- * @implements AttributeModifier<SymbolSpanAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20 dynamic
+ * @since 12 dynamic
+ * @noninterop
  */
 export declare class SymbolSpanModifier extends SymbolSpanAttribute implements AttributeModifier<SymbolSpanAttribute> {
-    /**
-     * constructor
-     *
-     * @param { Resource } src
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
-     * @since 12
-     */
-    /**
-     * constructor
-     *
-     * @param { Resource } src
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 20 dynamic
-     */
-    constructor(src?: Resource);
-    /**
-     * Defines the normal update attribute function.
-     *
-     * @param { SymbolSpanAttribute } attribute
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
-     * @since 12
-     */
-    /**
-     * Defines the normal update attribute function.
-     *
-     * @param { SymbolSpanAttribute } attribute
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 20 dynamic
-     */
-    applyNormalAttribute?(attribute: SymbolSpanAttribute): void;
+
+  /**
+   * constructor
+   *
+   * @param { Resource } src
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform [since 20]
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  constructor(src?: Resource);
+
+  /**
+   * Defines the normal update attribute function.
+   *
+   * @param { SymbolSpanAttribute } attribute
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform [since 20]
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  applyNormalAttribute?(attribute: SymbolSpanAttribute): void;
 }

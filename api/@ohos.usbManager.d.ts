@@ -145,33 +145,10 @@ declare namespace usbManager {
   function removeRight(deviceName: string): boolean;
 
   /**
-   * Adds the device access permission for the application. System applications are granted the device access permission
-   *  by default, and calling this API will not revoke the permission.
-   * [usbManager.requestRight]{(@link usbManager.requestRight)} triggers a dialog box to request for user authorization, whereas addRight adds the access
-   * permission directly without displaying a dialog box.
-   *
-   * @param { string } bundleName - Bundle name of the application.
-   * @param { string } deviceName - Device name.
-   * @returns { boolean } Permission addition result. The value **true** indicates that the access permission is added
-   *     successfully; and the value **false** indicates the opposite.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *
-   *     <br>1.Mandatory parameters are left unspecified.
-   *
-   *     <br>2.Incorrect parameter types.
-   * @syscap SystemCapability.USB.USBManager
-   * @systemapi
-   * @since 9 dynamiconly
-   * @deprecated since 12
-   * @useinstead usbManager.addDeviceAccessRight(tokenId: string, deviceName: string)
-   */
-  function addRight(bundleName: string, deviceName: string): boolean;
-
-  /**
    * Converts the USB function list in the string format to a numeric mask in Device mode.
    *
    * @param { string } funcs - Function list in string format.
-   * @returns { number } Function list in numeric mask format.
+   * @returns { number } Function list in numeric mask format after conversion.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *
    *     <br>1.Mandatory parameters are left unspecified.
@@ -189,7 +166,7 @@ declare namespace usbManager {
    * Converts the USB function list in the numeric mask format to a string in Device mode.
    *
    * @param { FunctionType } funcs - USB function list in numeric mask format.
-   * @returns { string } Function list in string format.
+   * @returns { string } Function list in string format after conversion.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *
    *     <br>1.Mandatory parameters are left unspecified.
@@ -298,7 +275,7 @@ declare namespace usbManager {
    *
    * @permission ohos.permission.MANAGE_USB_CONFIG
    * @param { string } funcs - Function list in string format.
-   * @returns { int } Function list in numeric mask format
+   * @returns { int } Function list in numeric mask format after conversion.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to
    *     call the API. [since 18].
    * @throws { BusinessError } 202 - Permission denied. Normal application do not have permission to use system api.
@@ -320,7 +297,7 @@ declare namespace usbManager {
    *
    * @permission ohos.permission.MANAGE_USB_CONFIG
    * @param { FunctionType } funcs - USB function list in numeric mask format.
-   * @returns { string } Function list in string format.
+   * @returns { string } Function list in string format after conversion.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to
    *     call the API. [since 18]
    * @throws { BusinessError } 202 - Permission denied. Normal application do not have permission to use system api.
@@ -1034,7 +1011,7 @@ declare namespace usbManager {
     attributes: int;
 
     /**
-     * Endpoint interval.
+     * Endpoint interval.Unit: milliseconds.
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9 dynamic
@@ -1043,7 +1020,7 @@ declare namespace usbManager {
     interval: int;
 
     /**
-     * Maximum size of data packets on the endpoint.
+     * Maximum size of data packets on the endpoint.Unit: bytes.
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9 dynamic

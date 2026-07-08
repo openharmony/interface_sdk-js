@@ -1,6 +1,5 @@
-
 /*
- * Copyright (C) 2025 Huawei Device Co., Ltd.
+ * Copyright (c) 2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -22,101 +21,98 @@
 /**
  * Provide common Bluetooth interfaces and types.
  *
- * @namespace common
  * @syscap SystemCapability.Communication.Bluetooth.Core
  * @since 21 dynamic
- * @since 23 static
+ * @since 26.0.0 static
  */
 declare namespace common {
+  /**
+   * Describe the type of Bluetooth address.
+   *
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @since 21 dynamic
+   * @since 26.0.0 static
+   */
+  export interface BluetoothAddress {
     /**
-     * Describe the type of Bluetooth address.
+     * The string of the Bluetooth address.
      *
-     * @typedef BluetoothAddress
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 21 dynamic
-     * @since 23 static
+     * @since 26.0.0 static
      */
-    export interface BluetoothAddress {
-      /**
-       * The string of the Bluetooth address.
-       *
-       * @type { string }
-       * @syscap SystemCapability.Communication.Bluetooth.Core
-       * @since 21 dynamic
-       * @since 23 static
-       */
-      address: string;
-      /**
-       * The type of the Bluetooth address.
-       *
-       * @type { BluetoothAddressType }
-       * @syscap SystemCapability.Communication.Bluetooth.Core
-       * @since 21 dynamic
-       * @since 23 static
-       */
-      addressType: BluetoothAddressType;
-      /**
-       * Address type defined by the Bluetooth Core Specification.
-       * It is used only when the {@link BluetoothAddress#addressType} is {@link BluetoothAddressType#REAL}.
-       *
-       * @type { ?BluetoothRawAddressType }
-       * @syscap SystemCapability.Communication.Bluetooth.Core
-       * @since 23 dynamic&static
-       */
-      rawAddressType?: BluetoothRawAddressType;
-    }
-
+    address: string;
     /**
-     * Enum for the type of Bluetooth address.
+     * The type of the Bluetooth address.
      *
-     * @enum { int }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 21 dynamic
-     * @since 23 static
+     * @since 26.0.0 static
      */
-    export enum BluetoothAddressType {
-      /**
-       * virtual address.
-       *
-       * @syscap SystemCapability.Communication.Bluetooth.Core
-       * @since 21 dynamic
-       * @since 23 static
-       */
-      VIRTUAL = 1,
-      /**
-       * real address.
-       *
-       * @syscap SystemCapability.Communication.Bluetooth.Core
-       * @since 21 dynamic
-       * @since 23 static
-       */
-      REAL = 2
-    }
-
+    addressType: BluetoothAddressType;
     /**
-     * Enum for the type of Bluetooth raw address.
-     * The enum is used only when the {@link BluetoothAddress#addressType} is {@link BluetoothAddressType#REAL}.
+     * Address type defined by the Bluetooth Core Specification.
+     * It is used only when the {@link BluetoothAddress#addressType} is {@link BluetoothAddressType#REAL}.
      *
-     * @enum { int }
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 23 dynamic&static
+     * @since 23 dynamic
+     * @since 26.0.0 static
      */
-    export enum BluetoothRawAddressType {
-      /**
-       * Public address type defined by the Bluetooth Core Specification.
-       *
-       * @syscap SystemCapability.Communication.Bluetooth.Core
-       * @since 23 dynamic&static
-       */
-      PUBLIC = 0,
-      /**
-       * Random address type defined by the Bluetooth Core Specification.
-       *
-       * @syscap SystemCapability.Communication.Bluetooth.Core
-       * @since 23 dynamic&static
-       */
-      RANDOM = 1
-    }
+    rawAddressType?: BluetoothRawAddressType;
   }
 
-  export default common;
+  /**
+   * Enum for the type of Bluetooth address.
+   *
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @since 21 dynamic
+   * @since 26.0.0 static
+   */
+  export enum BluetoothAddressType {
+    /**
+     * virtual address.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 21 dynamic
+     * @since 26.0.0 static
+     */
+    VIRTUAL = 1,
+    /**
+     * real address.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 21 dynamic
+     * @since 26.0.0 static
+     */
+    REAL = 2
+  }
+
+  /**
+   * Enum for the type of Bluetooth raw address.
+   * The enum is used only when the {@link BluetoothAddress#addressType} is {@link BluetoothAddressType#REAL}.
+   *
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @since 23 dynamic
+   * @since 26.0.0 static
+   */
+  export enum BluetoothRawAddressType {
+    /**
+     * Public address type defined by the Bluetooth Core Specification.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 23 dynamic
+     * @since 26.0.0 static
+     */
+    PUBLIC = 0,
+    /**
+     * Random address type defined by the Bluetooth Core Specification.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 23 dynamic
+     * @since 26.0.0 static
+     */
+    RANDOM = 1
+  }
+}
+
+export default common;

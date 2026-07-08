@@ -23,39 +23,40 @@ import { LengthMetrics } from './../Graphics';
 import { Resource } from './../../../api/global/resource';
 import { FontStyle, FontWeight, TextCase } from "./enums";
 import { DecorationStyleInterface } from "./styledString";
-import { ComponentBuilder, CustomBuilder } from './builder';
+import { Builder, ComponentBuilder, CustomBuilder, CustomBuilderT } from './builder';
 import { FontConfigs, FontWeightConfigs, FontVariation } from "./textCommon"
 
 /**
  * Define the background style of span.
  *
- * @interface TextBackgroundStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare interface TextBackgroundStyle {
     /**
      * Background color of span.
      *
-     * @type { ?ResourceColor }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     color?: ResourceColor;
     /**
      * Background radius of span.
      *
-     * @type { ?(Dimension | BorderRadiuses) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     radius?: Dimension | BorderRadiuses;
 }
+
 /**
  * Define the BaseSpan interface, contains the common methods of span.
  *
- * @extends CommonMethod
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  * @noninterop
  */
@@ -66,6 +67,7 @@ export declare interface BaseSpan extends CommonMethod {
      * @param { TextBackgroundStyle | undefined } style - The background style of span.
      * @returns { T }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default textBackgroundStyle(style: TextBackgroundStyle | undefined): this;
@@ -75,26 +77,21 @@ export declare interface BaseSpan extends CommonMethod {
      * @param { LengthMetrics | undefined } value - The base line offset of the Span.
      * @returns { T } The attribute of the Span.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default baselineOffset(value: LengthMetrics | undefined): this;
 }
+
 /**
  * Define the Span attribute functions.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  * @noninterop
  */
 export declare interface SpanAttribute {
-    /**
-     * Called when the font is set.
-     *
-     * @param { Font | undefined } value - the span font size and weight and family and style.
-     * @returns { SpanAttribute } The attribute of the span.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
-     */
     /**
      * Used to set the font of span.
      *
@@ -103,7 +100,7 @@ export declare interface SpanAttribute {
      * @returns { SpanAttribute } The attribute of the span.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 24 static
+     * @since 26.0.0 static
      */
     default font(value: Font | undefined, fontConfigs?: FontConfigs): this;
     /**
@@ -112,6 +109,7 @@ export declare interface SpanAttribute {
      * @param { ResourceColor | undefined } value
      * @returns { SpanAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default fontColor(value: ResourceColor | undefined): this;
@@ -121,6 +119,7 @@ export declare interface SpanAttribute {
      * @param { double | string | Resource | undefined } value
      * @returns { SpanAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default fontSize(value: double | string | Resource | undefined): this;
@@ -130,35 +129,30 @@ export declare interface SpanAttribute {
      * @param { FontStyle | undefined } value
      * @returns { SpanAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
-     */
-    default fontStyle(value: FontStyle | undefined): this;
-    /**
-     * Called when the font weight is set.
-     *
-     * @param { int | FontWeight | ResourceStr | undefined } value
-     * @returns { SpanAttribute }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
      */
+    default fontStyle(value: FontStyle | undefined): this;
+  
     /**
      * Used to set the font weight of span.
      *
      * @param { int | FontWeight | ResourceStr | undefined } weight - the span font weight.
      * @param { FontWeightConfigs } [fontWeightConfigs] - the configuration of font weight.
-     * @returns { SpanAttribute }
+     * @returns { SpanAttribute } The attribute of the span.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 24 static
+     * @since 26.0.0 static
      */
     default fontWeight(weight: int | FontWeight | ResourceStr | undefined, fontWeightConfigs?: FontWeightConfigs): this;
+  
     /**
      * Called when the font list of text is set.
      *
      * @param { string | Resource | undefined } value
      * @returns { SpanAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default fontFamily(value: string | Resource | undefined): this;
@@ -168,17 +162,19 @@ export declare interface SpanAttribute {
      * @param { DecorationStyleInterface | undefined } value
      * @returns { SpanAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default decoration(value: DecorationStyleInterface | undefined): this;
     /**
-    * Called when the distance between text fonts is set.
-    *
-    * @param { double | string | undefined } value
-    * @returns { SpanAttribute }
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @since 23 static
-    */
+     * Called when the distance between text fonts is set.
+     *
+     * @param { double | string | undefined } value
+     * @returns { SpanAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     default letterSpacing(value: double | string | undefined): this;
     /**
      * Called when the type of letter in the text font is set.
@@ -186,6 +182,7 @@ export declare interface SpanAttribute {
      * @param { TextCase | undefined } value
      * @returns { SpanAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default textCase(value: TextCase | undefined): this;
@@ -195,6 +192,7 @@ export declare interface SpanAttribute {
      * @param { Length | undefined } value - The line height of the span.
      * @returns { SpanAttribute } The attribute of the span.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default lineHeight(value: Length | undefined): this;
@@ -204,6 +202,7 @@ export declare interface SpanAttribute {
      * @param { ShadowOptions | Array<ShadowOptions> | undefined } value - The shadow options.
      * @returns { SpanAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default textShadow(value: ShadowOptions | Array<ShadowOptions> | undefined): this;
@@ -214,6 +213,7 @@ export declare interface SpanAttribute {
      *     Passing `undefined` resets it to the default value.
      * @returns { SpanAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default textBackgroundStyle(style: TextBackgroundStyle | undefined): this;
@@ -224,15 +224,18 @@ export declare interface SpanAttribute {
      *     Passing `undefined` resets it to the default value.
      * @returns { SpanAttribute } The attribute of the Span.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default baselineOffset(value: LengthMetrics | undefined): this;
+  
     /**
      * Key. User can set an key to the component to identify it.
      *
      * @param { string | undefined } value
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      * @test
      */
@@ -243,6 +246,7 @@ export declare interface SpanAttribute {
      * @param { string | undefined } value
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default id(value: string | undefined): this;
@@ -256,6 +260,7 @@ export declare interface SpanAttribute {
      * @param { Callback<ClickEvent> | undefined } event - The click event
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default onClick(event: Callback<ClickEvent> | undefined): this;
@@ -270,6 +275,7 @@ export declare interface SpanAttribute {
      * @param { double | undefined } distanceThreshold
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default onClick(event: Callback<ClickEvent> | undefined, distanceThreshold: double | undefined): this;
@@ -279,6 +285,7 @@ export declare interface SpanAttribute {
      * @param { HoverCallback | undefined } event - The hover event
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default onHover(event: HoverCallback | undefined): this;
@@ -299,19 +306,41 @@ export declare interface SpanAttribute {
      *     Passing `undefined` will do nothing.
      * @returns { SpanAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default attributeModifier(modifier: AttributeModifier<SpanAttribute> | undefined): this;
     /**
-     * Set the component's source code redirection information. 
+     * Set the component's source code redirection information.
+     *
      * @param { string } sourceLine - the source code line.
      * @param { string } [moduleName] - module to which the component belongs.
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 24 staticonly
+     * @since 26.0.0 staticonly
      */
     default debugLine(sourceLine: string, moduleName?: string): this;
+
+    /**
+     * Set Span options.
+     *
+     * @param { string | Resource } value - Span content.
+     * @returns { SpanAttribute } Returns the instance of the SpanAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    default setSpanOptions(value: string | Resource): this;
+
+    /**
+     * Notify the component is finished setting up its attributes.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    default applyAttributesFinish(): void;
 }
 
 /**
@@ -328,3 +357,18 @@ export declare interface SpanAttribute {
 export declare function Span(
     value: string | Resource
 ): SpanAttribute
+
+/**
+ * Defines Span Component.
+ *
+ * @param { CustomBuilderT<SpanAttribute> } style - Span attribute instance
+ * @returns { SpanAttribute }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ * @noninterop
+ */
+@Builder
+export declare function Span(
+    style: CustomBuilderT<SpanAttribute>,
+): SpanAttribute;

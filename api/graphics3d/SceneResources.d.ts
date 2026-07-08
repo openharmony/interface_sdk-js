@@ -1222,9 +1222,9 @@ export interface Environment extends SceneResource {
   /**
    * The rotation of the environment
    * 
-   * @type { ?Quaternion }
    * @default Quaternion {x:0, y:0, z:0, w:1}
    * @syscap SystemCapability.ArkUi.Graphics3D
+   * @stagemodelonly
    * @since 23 dynamic&static
    */
   environmentRotation?: Quaternion

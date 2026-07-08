@@ -149,7 +149,6 @@ declare namespace taskpool {
      * @param { Object[] } args - Arguments of the function. For details about the supported parameter types, see
      *     [Sequenceable Data Types](docroot://reference/apis-arkts/js-apis-taskpool.md#sequenceable-data-types). The
      *     default value is **undefined**.
-     * @throws { BusinessError } 401 - The input parameters are invalid.
      * @throws { BusinessError } 10200014 - The function is not marked as concurrent.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 10]
@@ -169,7 +168,6 @@ declare namespace taskpool {
      * @param { Object[] } args - Arguments of the function. For details about the supported types, see
      *     [Sequenceable Data Types](docroot://reference/apis-arkts/js-apis-taskpool.md#sequenceable-data-types). The
      *     default value is **undefined**.
-     * @throws { BusinessError } 401 - The input parameters are invalid.
      * @throws { BusinessError } 10200014 - The function is not marked as concurrent.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -210,7 +208,6 @@ declare namespace taskpool {
      *     supported parameter types, see
      *     [Sequenceable Data Types](docroot://reference/apis-arkts/js-apis-taskpool.md#sequenceable-data-types). The
      *     default value is **undefined**.
-     * @throws { BusinessError } 401 - The input parameters are invalid.
      * @throws { BusinessError } 10200006 - An exception occurred during serialization.
      * @throws { BusinessError } 10200022 - The function is not called in the TaskPool thread.
      * @throws { BusinessError } 10200023 - The function is not called in the concurrent function.
@@ -235,8 +232,6 @@ declare namespace taskpool {
      *
      * @param { ArrayBuffer[] } [transfer] - **ArrayBuffer** instance holding the objects to transfer. The default value
      *     is an empty array.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types; 2.Parameter
-     *     verification failed.
      * @throws { BusinessError } 10200029 - An ArrayBuffer cannot be set as both a transfer list and a clone list.
      *     [since 11]
      * @syscap SystemCapability.Utils.Lang
@@ -260,10 +255,6 @@ declare namespace taskpool {
      *     [Sendable class](docroot://arkts-utils/arkts-sendable.md#sendable-class) instances or ArrayBuffer objects
      *     passed in to **cloneList** are transferred in copy mode between threads. This means that any modification to
      *     the destination objects does not affect the original objects.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     1.Mandatory parameters are left unspecified;
-     *     2.Incorrect parameter types;
-     *     3.Parameter verification failed.
      * @throws { BusinessError } 10200029 - An ArrayBuffer cannot be set as both a transfer list and a clone list.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -281,8 +272,6 @@ declare namespace taskpool {
      * @param { Function } [callback] - Callback function for processing the data received. The data sent to the host
      *     thread is transferred to the callback as an input parameter. If no value is passed in, all the registered
      *     callbacks are canceled.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types; 2.Parameter
-     *     verification failed.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -297,10 +286,6 @@ declare namespace taskpool {
      * task that is depended on) cannot be executed multiple times.
      *
      * @param { Task[] } tasks - Array of tasks on which the current task depends. The default value is **undefined**.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     <br>1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types;
-     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 10200026 - There is a circular dependency.
      * @throws { BusinessError } 10200052 - The periodic task cannot have a dependency. [since 12]
      * @throws { BusinessError } 10200056 - The task has been executed by the AsyncRunner. [since 18]
@@ -315,10 +300,6 @@ declare namespace taskpool {
      * Removes dependent tasks for this task. Before using this method, you need to construct a **Task** object.
      *
      * @param { Task[] } tasks - Array of tasks on which the current task depends. The default value is **undefined**.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     <br>1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types;
-     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 10200027 - The dependency does not exist.
      * @throws { BusinessError } 10200052 - The periodic task cannot have a dependency. [since 12]
      * @throws { BusinessError } 10200056 - The task has been executed by the AsyncRunner. [since 18]
@@ -334,7 +315,6 @@ declare namespace taskpool {
      * The registration must be carried out before the task is executed. Otherwise, an exception is thrown.
      *
      * @param { CallbackFunction } [callback] - Callback function to register.
-     * @throws { BusinessError } 401 - The input parameters are invalid.
      * @throws { BusinessError } 10200034 - The executed task does not support the registration of listeners.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -348,7 +328,6 @@ declare namespace taskpool {
      * The registration must be carried out before the task is executed. Otherwise, an exception is thrown.
      *
      * @param { CallbackFunction } [callback] - Callback function to register.
-     * @throws { BusinessError } 401 - The input parameters are invalid.
      * @throws { BusinessError } 10200034 - The executed task does not support the registration of listeners.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -358,11 +337,10 @@ declare namespace taskpool {
     onStartExecution(callback: CallbackFunction): void;
 
     /**
-     * Register a callback function and call it when a task fails to be executed.
+     * Register a callback function and call it when a task fails to be executed(Periodic tasks are not supported).
      * The registration must be carried out before the task is executed. Otherwise, an exception is thrown.
      *
      * @param { CallbackFunctionWithError } [callback] - Callback function to register.
-     * @throws { BusinessError } 401 - The input parameters are invalid.
      * @throws { BusinessError } 10200034 - The executed task does not support the registration of listeners.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -376,7 +354,6 @@ declare namespace taskpool {
      * The registration must be carried out before the task is executed. Otherwise, an exception is thrown.
      *
      * @param { CallbackFunction } [callback] - Callback function to register.
-     * @throws { BusinessError } 401 - The input parameters are invalid.
      * @throws { BusinessError } 10200034 - The executed task does not support the registration of listeners.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -509,10 +486,6 @@ declare namespace taskpool {
      * A constructor used to create a **TaskGroup** instance, with the task group name specified.
      *
      * @param { string } name - Task group name.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     1.Mandatory parameters are left unspecified;
-     *     2.Incorrect parameter types;
-     *     3.Parameter verification failed.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -531,10 +504,6 @@ declare namespace taskpool {
      * @param { Object[] } args - Arguments of the function. For details about the supported parameter types, see
      *     [Sequenceable Data Types](docroot://reference/apis-arkts/js-apis-taskpool.md#sequenceable-data-types). The
      *     default value is **undefined**.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     1.Mandatory parameters are left unspecified;
-     *     2.Incorrect parameter types;
-     *     3.Parameter verification failed.
      * @throws { BusinessError } 10200014 - The function is not marked as concurrent.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -549,10 +518,6 @@ declare namespace taskpool {
      * executed, and periodic tasks cannot be added to the task group.
      *
      * @param { Task } task - Task to be added to the task group.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     <br>1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types;
-     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 10200014 - The function is not marked as concurrent.
      * @throws { BusinessError } 10200051 - The periodic task cannot be executed again. [since 12]
      * @throws { BusinessError } 10200057 - The task cannot be executed by two APIs. [since 18]
@@ -587,9 +552,6 @@ declare namespace taskpool {
      * A constructor used to create a **SequenceRunner** instance.
      *
      * @param { Priority } priority - Priority of the task. The default value is **taskpool.Priority.MEDIUM**.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     1.Incorrect parameter types;
-     *     2.Parameter verification failed.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -610,8 +572,6 @@ declare namespace taskpool {
      *
      * @param { string } name - Name of a serial queue.
      * @param { Priority } priority - Priority of the task. The default value is **taskpool.Priority.MEDIUM**.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     *     <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -632,9 +592,6 @@ declare namespace taskpool {
      *
      * @param { Task } task - Task to be added to the serial queue.
      * @returns { Promise<Object> } Promise used to return the task execution result.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     <br>1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types;
      * @throws { BusinessError } 10200003 - Worker initialization failed. [since 11 - 17]
      * @throws { BusinessError } 10200006 - An exception occurred during serialization.
      * @throws { BusinessError } 10200025 - dependent task not allowed.
@@ -686,8 +643,6 @@ declare namespace taskpool {
      * @param { A } args - Arguments of the function. For details about the supported parameter types, see
      *     [Sequenceable Data Types](docroot://reference/apis-arkts/js-apis-taskpool.md#sequenceable-data-types). The
      *     default value is **undefined**.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types; 2.Parameter
-     *     verification failed.
      * @throws { BusinessError } 10200014 - The function is not marked as concurrent.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 18]
@@ -707,8 +662,6 @@ declare namespace taskpool {
      * @param { A } args - Arguments of the function. For details about the supported parameter types, see
      *     [Sequenceable Data Types](docroot://reference/apis-arkts/js-apis-taskpool.md#sequenceable-data-types). The
      *     default value is **undefined**.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types; 2.Parameter
-     *     verification failed.
      * @throws { BusinessError } 10200014 - The function is not marked as concurrent.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 18]
@@ -907,10 +860,6 @@ declare namespace taskpool {
    *     default value is **undefined**.
    * @returns { Promise<unknown> } [since 9 - 11]
    * @returns { Promise<Object> } Promise used to return an object that carries the function execution result. [since 11]
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1.Mandatory parameters are left unspecified;
-   *     2.Incorrect parameter types;
-   *     3.Parameter verification failed.
    * @throws { BusinessError } 10200003 - Worker initialization failed. [since 9 - 11]
    * @throws { BusinessError } 10200006 - An exception occurred during serialization.
    * @throws { BusinessError } 10200014 - The function is not marked as concurrent.
@@ -933,8 +882,6 @@ declare namespace taskpool {
    *     [Sequenceable Data Types](docroot://reference/apis-arkts/js-apis-taskpool.md#sequenceable-data-types). The
    *     default value is **undefined**.
    * @returns { Promise<R> } Promise used to return an object that carries the function execution result.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types; 2.Parameter
-   *     verification failed.
    * @throws { BusinessError } 10200006 - An exception occurred during serialization.
    * @throws { BusinessError } 10200014 - The function is not marked as concurrent.
    * @syscap SystemCapability.Utils.Lang
@@ -955,10 +902,6 @@ declare namespace taskpool {
    *     **taskpool.Priority.MEDIUM**.
    * @returns { Promise<unknown> } [since 9 - 17]
    * @returns { Promise<Object> } Promise used to return an object that carries the function execution result. [since 11]
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     <br>1. Mandatory parameters are left unspecified;
-   *     <br>2. Incorrect parameter types;
-   *     <br>3. Parameter verification failed.
    * @throws { BusinessError } 10200003 - Worker initialization failed. [since 9 - 17]
    * @throws { BusinessError } 10200006 - An exception occurred during serialization.
    * @throws { BusinessError } 10200014 - The function is not marked as concurrent.
@@ -981,8 +924,6 @@ declare namespace taskpool {
    * @param { Priority } [priority] - Priority of the task to be executed. The default value is
    *     **taskpool.Priority.MEDIUM**.
    * @returns { Promise<R> } Promise used to return an object that carries the function execution result.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types; 2.Parameter
-   *     verification failed.
    * @throws { BusinessError } 10200006 - An exception occurred during serialization.
    * @throws { BusinessError } 10200014 - The function is not marked as concurrent.
    * @throws { BusinessError } 10200051 - The periodic task cannot be executed again.
@@ -1024,10 +965,6 @@ declare namespace taskpool {
    * @param { Task } task - Task to be executed with a delay.
    * @param { Priority } [priority] - Priority of the task. The default value is **taskpool.Priority.MEDIUM**.
    * @returns { Promise<Object> } Promise used to return an object that carries the function execution result.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     <br>1. Mandatory parameters are left unspecified;
-   *     <br>2. Incorrect parameter types;
-   *     <br>3. Parameter verification failed.
    * @throws { BusinessError } 10200028 - The delayTime is less than zero.
    * @throws { BusinessError } 10200006 - An exception occurred during serialization. [since 12]
    * @throws { BusinessError } 10200014 - The function is not marked as concurrent. [since 12]
@@ -1052,8 +989,6 @@ declare namespace taskpool {
    * @param { GenericsTask<A, R> } task - Generic task to be executed with a delay.
    * @param { Priority } [priority] - Priority of the task. The default value is **taskpool.Priority.MEDIUM**.
    * @returns { Promise<R> } Promise used to return an object that carries the function execution result.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types; 2.Parameter
-   *     verification failed.
    * @throws { BusinessError } 10200028 - The delayTime is less than zero.
    * @throws { BusinessError } 10200051 - The periodic task cannot be executed again.
    * @throws { BusinessError } 10200057 - The task cannot be executed by two APIs. [since 18]
@@ -1074,10 +1009,6 @@ declare namespace taskpool {
    *     <br>Unit:milliseconds.
    * @param { Task } task - Task to be executed.
    * @param { Priority } [priority] - Priority of the task. The default value is **taskpool.Priority.MEDIUM**.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     <br>1. Mandatory parameters are left unspecified;
-   *     <br>2. Incorrect parameter types;
-   *     <br>3. Parameter verification failed.
    * @throws { BusinessError } 10200006 - An exception occurred during serialization.
    * @throws { BusinessError } 10200014 - The function is not marked as concurrent.
    * @throws { BusinessError } 10200028 - The period is less than zero.
@@ -1100,8 +1031,6 @@ declare namespace taskpool {
    *     <br>Unit:milliseconds.
    * @param { GenericsTask<A, R> } task - Generic task to be executed periodically.
    * @param { Priority } [priority] - Priority of the task. The default value is **taskpool.Priority.MEDIUM**.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types; 2.Parameter
-   *     verification failed.
    * @throws { BusinessError } 10200006 - An exception occurred during serialization.
    * @throws { BusinessError } 10200014 - The function is not marked as concurrent.
    * @throws { BusinessError } 10200028 - The period is less than zero.
@@ -1144,10 +1073,6 @@ declare namespace taskpool {
    * the task or the final execution result.
    *
    * @param { TaskGroup } group - Task group to cancel.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1.Mandatory parameters are left unspecified;
-   *     2.Incorrect parameter types;
-   *     3.Parameter verification failed.
    * @throws { BusinessError } 10200018 - The task group to cancel does not exist.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
@@ -1194,10 +1119,6 @@ declare namespace taskpool {
    * is terminated, the thread that executes the task may be reclaimed.
    *
    * @param { LongTask } longTask - Continuous task to terminate.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1.Mandatory parameters are left unspecified;
-   *     2.Incorrect parameter types;
-   *     3.Parameter verification failed.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
@@ -1212,10 +1133,6 @@ declare namespace taskpool {
    * @returns { boolean } Check result. The value **true** is returned if the function is a concurrent function, that is
    *     , a function decorated with [@Concurrent](docroot://arkts-utils/taskpool-introduction.md#concurrent-decorator);
    *     otherwise, **false** is returned.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1.Mandatory parameters are left unspecified;
-   *     2.Incorrect parameter types;
-   *     3.Parameter verification failed.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
@@ -1244,8 +1161,6 @@ declare namespace taskpool {
      *     rounded down. The default value is **0**, indicating that there is no limit to the number of tasks that can
      *     wait. If a value greater than 0 is passed, tasks will be discarded from the front of the queue once the queue
      *     size exceeds this limit, implementing a discard policy.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     *     <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 22]
      * @atomicservice
@@ -1273,8 +1188,6 @@ declare namespace taskpool {
      *     rounded down. The default value is **0**, indicating that there is no limit to the number of tasks that can
      *     wait. If a value greater than 0 is passed, tasks will be discarded from the front of the queue once the queue
      *     size exceeds this limit, implementing a discard policy.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     *     <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 22]
      * @atomicservice
@@ -1395,7 +1308,12 @@ declare namespace taskpool {
     priority?: Priority;
 
     /**
-     * The timeout for the task in ms. The default value is Infinity.
+     * The timeout for the task in ms. Suggest passing in integers. If decimals are passed in, they will be rounded down.
+     * If this parameter is omitted, timeout will take the default value of 0 and no timeout logic will be executed.
+     * **NOTE**
+     * 1. The timeout period is not a precise time, and the actual timeout period may differ from the expected time.
+     * 2. If the value is less than 1, it will be defaulted to **0**.
+     * 3. The value is subject to system limitations. If it exceeds 2^31 �C 1, the value will be **0**.
      *
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform

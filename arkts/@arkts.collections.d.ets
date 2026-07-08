@@ -222,8 +222,7 @@ declare namespace collections {
      *
      * @param { number } index - Index of the element. The index starts from zero.
      *     If the passed-in index is less than 0 or greater than or equal to the value of 'length', an error is thrown.
-     * @returns { T } The element in the ConcatArray matching the given index.
-     * @throws { BusinessError } 401 - Parameter error. Illegal index.
+     * @returns { T } The element in the ConcatArray matching the given index. Illegal index.
      * @throws { BusinessError } 10200001 - The value of index is out of range.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 18]
@@ -236,7 +235,6 @@ declare namespace collections {
      * @param { string } [separator] - Separator to be used. If no value is passed in, a comma (,) is used as the
      *     separator.
      * @returns { string } String obtained. If the array is empty, an empty string is returned.
-     * @throws { BusinessError } 401 - Parameter error. Invalid separator.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 18]
      * @atomicservice
@@ -251,7 +249,6 @@ declare namespace collections {
      * @param { number } [end] - End index of the range (exclusive). If a negative number is passed in,
      *     it refers to the index of 'end + array.length'. The default value is the length of the ArkTS array.
      * @returns { ConcatArray<T> } New array containing the selected elements.
-     * @throws { BusinessError } 401 - Parameter error. Invalid `start` or `end` parameters.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 18]
      * @atomicservice
@@ -295,7 +292,6 @@ declare namespace collections {
      * @param { number } arrayLength - Length of the ArkTS array.
      * @param { T } initialValue - Initial value of each element in the ArkTS array.
      * @returns { Array<T> } Newly created ArkTS array.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The create method cannot be bound. [since 12 - 17]
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 18]
@@ -308,7 +304,6 @@ declare namespace collections {
      *
      * @param { ArrayLike<T> } arrayLike - Array-like object.
      * @returns { Array<T> } Newly created ArkTS array.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The from method cannot be bound. [since 12 - 17]
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 18]
@@ -321,8 +316,6 @@ declare namespace collections {
      *
      * @param { Iterable<T> } iterable - Array-like object.
      * @returns { Array<T> } Newly created ArkTS array.
-     * @throws { BusinessError } 401 - Parameter error: Possible causes: 1. Mandatory parameters are left unspecified;
-     *     2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 10200011 - The from method cannot be bound. [since 12 - 17]
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 18]
@@ -336,8 +329,6 @@ declare namespace collections {
      * @param { ArrayLike<T> | Iterable<T> } arrayLike - Array-like object.
      * @param { ArrayFromMapFn<T, T> } mapFn - Functions used to process the array elements.
      * @returns { Array<T> } Newly created ArkTS array.
-     * @throws { BusinessError } 401 - Parameter error: Possible causes: 1. Mandatory parameters are left unspecified;
-     *     2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 22]
      * @atomicservice
@@ -351,8 +342,6 @@ declare namespace collections {
      * @param  { ArrayLike<U> | Iterable<U> } arrayLike - Array-like object.
      * @param  { ArrayFromMapFn<U, T> } mapFn - Functions used to process the array elements.
      * @returns { Array<T> } Newly created ArkTS array.
-     * @throws { BusinessError } 401 - Parameter error: Possible causes: 1. Mandatory parameters are left unspecified;
-     *     2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 22]
      * @atomicservice
@@ -374,7 +363,6 @@ declare namespace collections {
      *
      * @param { T } first - First element to be included in the ArkTS array.
      * @param { T[] } left - Remaining elements to be included in the ArkTS array.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200012 - The Array's constructor cannot be directly invoked.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 18]
@@ -386,7 +374,6 @@ declare namespace collections {
      * A constructor used to create an ArkTS array with the given elements.
      *
      * @param { T[] } items - Elements to be included in the ArkTS array.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200012 - The Array's constructor cannot be directly invoked.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 18]
@@ -412,7 +399,6 @@ declare namespace collections {
      *
      * @param { T[] } items - Elements to add.
      * @returns { number } New length of the array.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The push method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -427,7 +413,6 @@ declare namespace collections {
      * @param { string } [separator] - Separator to be used. If no value is passed in, a comma (,) is used as the
      *     separator.
      * @returns { string } String obtained. If the array is empty, an empty string is returned.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The join method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -454,7 +439,6 @@ declare namespace collections {
      *
      * @param { T[] } items - Elements to add.
      * @returns { number } New length of the array.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The unshift method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -471,7 +455,6 @@ declare namespace collections {
      * @param { number } [end] - End index of the range (exclusive). If a negative number is passed in,
      *     it refers to the index of end + array.length. The default value is the length of the ArkTS array.
      * @returns { Array<T> } New array containing the selected elements.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The slice method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -486,7 +469,6 @@ declare namespace collections {
      * @param { function } [compareFn] - Function that determines the sort order. By default, elements are sorted in
      *     ascending order.
      * @returns { Array<T> } Array with the sorted elements.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The sort method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -503,7 +485,6 @@ declare namespace collections {
      * @param { number } [fromIndex] - Index from which the search starts. The value begins at 0. The default value is
      *     **0**.
      * @returns { number } Index of the first occurrence of the value. If the value is not found, **-1** is returned.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The indexOf method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -516,7 +497,6 @@ declare namespace collections {
      * Calls a callback function for each element in this ArkTS Array.
      *
      * @param { function } callbackFn - Callback function to run for each element.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The forEach method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -531,7 +511,6 @@ declare namespace collections {
      *
      * @param { function } callbackFn - Callback function to run for each element.
      * @returns { Array<U> } New array containing the result of the callback function.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The map method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -547,7 +526,6 @@ declare namespace collections {
      *     **true** means that the current element passes the test and should be retained in the new array. The value
      *     **false** means that the current element fails the test and should be excluded from the new array.
      * @returns { Array<T> } New array containing elements that pass the test.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The filter method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -563,7 +541,6 @@ declare namespace collections {
      * @param { function } callbackFn - Function that takes four arguments. It performs an operation on each element and
      *     passes the result as an accumulated value to the next element.
      * @returns { T } Final result obtained from the last call of the callback function.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The reduce method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -580,7 +557,6 @@ declare namespace collections {
      *     passes the result as an accumulated value to the next element.
      * @param { U } initialValue - Initial value of the accumulator.
      * @returns { U } Final result obtained from the last call of the callback function.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The reduce method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -599,7 +575,6 @@ declare namespace collections {
      *     a negative number is passed in, it refers to the index of **index + array.length**.
      * @returns { T | undefined } Element at the given index. If the index is out of range or invalid, **undefined** is
      *     returned.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The at method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -666,7 +641,6 @@ declare namespace collections {
      *     continues until the element that meets the condition is found or the entire array is traversed.
      * @returns { T | undefined } Value of the first element that passes the test. If none of the elements pass the test
      *     , **undefined** is returned.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The find method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -682,7 +656,6 @@ declare namespace collections {
      * @param { number } [fromIndex] - Index from which the search starts. The default value is **0**.
      * @returns { boolean } Check result. The value **true** is returned if the element exists; otherwise, **false** is
      *     returned.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The includes method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -701,7 +674,6 @@ declare namespace collections {
      *     traversal continues until the element that meets the condition is found or the entire array is traversed.
      * @returns { number } Index of the first element that passes the test. If none of the elements pass the test,
      *     **-1** is returned.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The findIndex method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -718,7 +690,6 @@ declare namespace collections {
      * @param { number } [end] - End index of the range (exclusive). If no value is passed in, it refers to the last
      *     element of the array.
      * @returns { Array<T> } Filled array.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The fill method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -732,7 +703,6 @@ declare namespace collections {
      *
      * @param { number } arrayLength - New length of the array. If a value greater than or equal to the current array
      *     length is passed in, the array does not change.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The shrinkTo method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -747,7 +717,6 @@ declare namespace collections {
      * @param { number } arrayLength - New length of the array. If a value less than or equal to the current array
      *     length is passed in, the array does not change.
      * @param { T } initialValue - Initial value of the elements to be added.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The extendTo method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -762,7 +731,6 @@ declare namespace collections {
      * @param { number } index - Index of the element. The index starts from zero.
      *     If the passed-in index is less than 0 or greater than or equal to the value of length, an error is thrown.
      * @returns { T } The element in the array matching the given index.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200001 - The value of index is out of range.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 18]
@@ -774,8 +742,7 @@ declare namespace collections {
      * Concatenates this ArkTS array with one or more arrays.
      *
      * @param { ConcatArray<T>[] } items - Concatenates this ArkTS array with one or more arrays.
-     * @returns { Array<T> } New array generated.
-     * @throws { BusinessError } 401 - Parameter error. Not a valid array.
+     * @returns { Array<T> } New array generated. Not a valid array.
      * @throws { BusinessError } 10200011 - The concat method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -790,8 +757,7 @@ declare namespace collections {
      * @param { number } start - Index from which the removal starts. If -array.length =< start < 0,
      *     the removal starts from start + array.length. If start < -array.length, the removal starts from 0.
      * @returns { Array<T> } **Array** object that contains the removed elements. If no element is removed, an empty
-     *     **Array** object is returned.
-     * @throws { BusinessError } 401 - Parameter error.Possible causes:
+     *     **Array** object is returned.Possible causes:
      *     1.Mandatory parameters are left unspecified.
      *     2.Incorrect parameter types.
      * @throws { BusinessError } 10200011 - The splice method cannot be bound.
@@ -811,8 +777,7 @@ declare namespace collections {
      * @param { T[] } items - New elements to insert from the start position.
      *     If no value is passed in, only the elements in the array are removed.
      * @returns { Array<T> } **Array** object that contains the removed elements. If no element is removed, an empty
-     *     **Array** object is returned.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     **Array** object is returned. Possible causes:
      *     1.Mandatory parameters are left unspecified.
      *     2.Incorrect parameter types.
      * @throws { BusinessError } 10200011 - The splice method cannot be bound.
@@ -828,8 +793,7 @@ declare namespace collections {
      *
      * @param { Object|undefined|null } value - Value to check.
      * @returns { boolean } Check result. The value **true** is returned if the input parameter is an ArkTS array;
-     *     otherwise, **false** is returned.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     otherwise, **false** is returned. Possible causes:
      *     1. Mandatory parameters are left unspecified.
      *     2. Incorrect parameter types.
      *     3. Parameter verification failed.
@@ -844,8 +808,7 @@ declare namespace collections {
      *
      * @param { T[] } items - Array of elements used to create the array. The number of elements can be zero, one, or
      *     more.
-     * @returns { Array<T> } Newly created ArkTS array.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * @returns { Array<T> } Newly created ArkTS array. Possible causes:
      *     1. Mandatory parameters are left unspecified.
      *     2. Incorrect parameter types.
      *     3. Parameter verification failed.
@@ -864,8 +827,7 @@ declare namespace collections {
      *     **start + array.length**.
      * @param { number } end - End index of the range. If a negative number is passed in, it refers to the index of `end
      *     + array.length`. The default value is the length of the ArkTS array.
-     * @returns { Array<T> } ArkTS array after being modified.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * @returns { Array<T> } ArkTS array after being modified. Possible causes:
      *     1. Mandatory parameters are left unspecified.
      *     2. Incorrect parameter types.
      *     3. Parameter verification failed.
@@ -967,8 +929,7 @@ declare namespace collections {
      * @param { ArrayReduceCallback<U, T, Array<T>> } callbackFn - Function that takes four arguments. It performs an
      *     operation on each element and passes the result as an accumulated value to the next element.
      * @param { U } initialValue - Initial value of the accumulator.
-     * @returns { U } Final result obtained from the last call of the callback function.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * @returns { U } Final result obtained from the last call of the callback function. Possible causes:
      *     1.Mandatory parameters are left unspecified.
      *     2.Incorrect parameter types.
      * @throws { BusinessError } 10200011 - The reduceRight method cannot be bound.
@@ -985,8 +946,7 @@ declare namespace collections {
      *
      * @param { ArrayReduceCallback<T, T, Array<T>> } callbackFn - Function that takes four arguments. It performs an
      *     operation on each element and passes the result as an accumulated value to the next element.
-     * @returns { T } Final result obtained from the last call of the callback function.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * @returns { T } Final result obtained from the last call of the callback function. Possible causes:
      *     1.Mandatory parameters are left unspecified.
      *     2.Incorrect parameter types.
      * @throws { BusinessError } 10200011 - The reduceRight method cannot be bound.
@@ -1034,7 +994,6 @@ declare namespace collections {
      *
      * @param { readonly (readonly [K, V])[] | null } [entries] - Array containing key-value pairs, or iterator object.
      *     The default value is **null**, indicating that an empty map is created.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200012 - The ArkTS Map's constructor cannot be directly invoked.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 18]
@@ -1046,7 +1005,6 @@ declare namespace collections {
      * A constructor used to create an ArkTS map.
      *
      * @param { Iterable<readonly [K, V]>} [iterable] - Object used to construct the ArkTS map.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200012 - The ArkTS Map's constructor cannot be directly invoked.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 18]
@@ -1120,7 +1078,6 @@ declare namespace collections {
      * @param { K } key - Key to delete.
      * @returns { boolean } Operation result. The value **true** is returned if the key exists and has been deleted;
      *     otherwise, **false** is returned.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The delete method cannot be bound with non-sendable.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -1133,7 +1090,6 @@ declare namespace collections {
      * Calls a callback function for each key-value pair in this ArkTS map.
      *
      * @param { function } callbackFn - Callback function to run for each key-value pair.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The forEach method cannot be bound with non-sendable.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -1147,7 +1103,6 @@ declare namespace collections {
      *
      * @param { K } key - Target key.
      * @returns { V | undefined } Value obtained. If the key is not found, **undefined** is returned.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The get method cannot be bound with non-sendable.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -1162,7 +1117,6 @@ declare namespace collections {
      * @param { K } key - Target key.
      * @returns { boolean } Check result. The value **true** is returned if the key exists; otherwise, **false** is
      *     returned.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The has method cannot be bound with non-sendable.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -1177,7 +1131,6 @@ declare namespace collections {
      * @param { K } key - Target key.
      * @param { V } value - Target value.
      * @returns { Map<K, V> } New map obtained.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The set method cannot be bound with non-sendable.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -1222,7 +1175,6 @@ declare namespace collections {
      *
      * @param { readonly T[] | null } [values] - Array or iterator object. The default value is **null**, indicating
      *     that an empty set is created.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200012 - The ArkTS Set's constructor cannot be directly invoked.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 18]
@@ -1234,7 +1186,6 @@ declare namespace collections {
      * A constructor used to create an ArkTS set.
      *
      * @param { Iterable<T>} [iterable] - Object used to construct an ArkTS set.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200012 - The ArkTS Set's constructor cannot be directly invoked.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 18]
@@ -1336,7 +1287,6 @@ declare namespace collections {
      * Calls a callback function for each key-value pair in this ArkTS set.
      *
      * @param { function } callbackFn - Callback function to run for each key-value pair.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The forEach method cannot be bound with non-sendable.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -1351,7 +1301,6 @@ declare namespace collections {
      * @param { T } value - Target key.
      * @returns { boolean } Check result. The value **true** is returned if the value exists; otherwise, **false** is
      *     returned.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The has method cannot be bound with non-sendable.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -1397,7 +1346,6 @@ declare namespace collections {
      *
      * @param { number } byteLength - Number of bytes occupied by the buffer. The maximum value is **2147483647**.
      * @throws { BusinessError } 10200012 - The ArrayBuffer's constructor cannot be directly invoked.
-     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 18]
      * @atomicservice
@@ -1412,7 +1360,6 @@ declare namespace collections {
      * @param { number } [end] - End index of the range (exclusive). If a negative number is passed in, it refers to the
      *     index of `end + arrayBuffer.byteLength`. The default value is the length of the original ArkTS ArrayBuffer.
      * @returns { ArrayBuffer } New ArrayBuffer generated.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The slice method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -1498,7 +1445,6 @@ declare namespace collections {
      *
      * @param { number } length - Length of the ArkTS Int8Array.
      * @throws { BusinessError } 10200012 - The Int8Array's constructor cannot be directly invoked.
-     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 18]
      * @atomicservice
@@ -1511,7 +1457,6 @@ declare namespace collections {
      * @param { Iterable<number> } elements - An iterable collection of numbers used to construct an ArkTS Int8Array
      *     object.
      * @throws { BusinessError } 10200012 - The Int8Array's constructor cannot be directly invoked.
-     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 18]
      * @atomicservice
@@ -1524,7 +1469,6 @@ declare namespace collections {
      * @param { ArrayLike<number> | ArrayBuffer } array - Object used to construct the ArkTS Int8Array. When the
      *     parameter type is ArrayBuffer, the number of bytes occupied by the buffer must be an integer multiple of 4.
      * @throws { BusinessError } 10200012 - The Int8Array's constructor cannot be directly invoked.
-     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 18]
      * @atomicservice
@@ -1539,7 +1483,6 @@ declare namespace collections {
      * @param { number } [byteOffset] - Byte offset of the buffer, beginning at 0. The default value is **0**.
      * @param { number } [length] - Length of the ArkTS Int8Array. The default value is **0**.
      * @throws { BusinessError } 10200012 - The Int8Array's constructor cannot be directly invoked.
-     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 18]
      * @atomicservice
@@ -1551,7 +1494,6 @@ declare namespace collections {
      *
      * @param { ArrayLike<number> } arrayLike - Array-like object used to construct the ArkTS Int8Array.
      * @returns { Int8Array } New ArkTS Int8Array generated.
-     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 18]
      * @atomicservice
@@ -1565,7 +1507,6 @@ declare namespace collections {
      * @param { ArrayLike<T> } arrayLike - Array-like object used to construct the ArkTS Int8Array.
      * @param { TypedArrayFromMapFn<T, number> } mapFn - A mapping function to call on every element of the array.
      * @returns { Int8Array } New ArkTS Int8Array generated.
-     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 18]
      * @atomicservice
@@ -1579,7 +1520,6 @@ declare namespace collections {
      * @param { TypedArrayFromMapFn<number, number> } [mapFn] - Mapping function. If no value is passed in,
      *     no special processing is conducted on the elements.
      * @returns { Int8Array } New ArkTS Int8Array generated.
-     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 18]
      * @atomicservice
@@ -1596,7 +1536,6 @@ declare namespace collections {
      * @param { number } [end] - End index of the range (exclusive). If a negative number is passed in, it refers to the
      *     index of `end + Int8Array.length`. The default value is the length of the ArkTS Int8Array.
      * @returns { Int8Array } ArkTS Int8Array after being modified.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The copyWithin method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -1611,7 +1550,6 @@ declare namespace collections {
      * @param { TypedArrayPredicateFn<number, Int8Array> } predicate - Assertion function used for the test.
      * @returns { boolean } Check result. The value **true** is returned if all elements meet the given condition;
      *     otherwise, **false** is returned.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The every method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -1629,7 +1567,6 @@ declare namespace collections {
      * @param { number } [end] - End index of the range (exclusive). If a negative number is passed in, it refers to the
      *     index of `end + Int8Array.length`. The default value is the length of the ArkTS Int8Array.
      * @returns { Int8Array } Filled ArkTS Int8Array.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The fill method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -1643,7 +1580,6 @@ declare namespace collections {
      *
      * @param { TypedArrayPredicateFn<number, Int8Array> } predicate - Assertion function used for the test.
      * @returns { Int8Array } Filtered ArkTS Int8Array.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The filter method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -1659,7 +1595,6 @@ declare namespace collections {
      * @param { TypedArrayPredicateFn<number, Int8Array> } predicate - Assertion function used for the test.
      * @returns { number | undefined } Value of the first element that passes the test. If none of the elements pass the
      *     test, **undefined** is returned.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The find method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -1675,7 +1610,6 @@ declare namespace collections {
      * @param { TypedArrayPredicateFn<number, Int8Array> } predicate - Assertion function used for the test.
      * @returns { number } Index of the first element that passes the test. If none of the elements pass the test,
      *     **-1** is returned.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The findIndex method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -1688,7 +1622,6 @@ declare namespace collections {
      * Calls a callback function for each element in this ArkTS Int8Array.
      *
      * @param { TypedArrayForEachCallback<number, Int8Array> } callbackFn - Callback function to run for each element.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The forEach method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -1706,7 +1639,6 @@ declare namespace collections {
      *     greater than or equal to the length of the ArkTS Int8Array, **-1** is returned. If a negative number is
      *     passed in, the search starts from the end of the ArkTS Int8Array.
      * @returns { number } Index of the first occurrence of the value. If the value is not found, **-1** is returned.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The indexOf method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -1721,7 +1653,6 @@ declare namespace collections {
      * @param { string } [separator] - Separator to be used. If no value is passed in, a comma (,) is used as the
      *     separator.
      * @returns { string } String obtained. If the array is empty, an empty string is returned.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The join method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -1738,7 +1669,6 @@ declare namespace collections {
      *     accepts up to three arguments.
      *     The map method calls the callbackfn function one time for each element in the array.
      * @returns { Int8Array } New ArkTS Int8Array.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The map method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -1754,7 +1684,6 @@ declare namespace collections {
      *     accepts up to four arguments.
      *     The reduce method calls the callbackfn function one time for each element in the array.
      * @returns { number } Final result obtained from the last call of the reduce function.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The reduce method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -1774,7 +1703,6 @@ declare namespace collections {
      *     the accumulation. The first call to the callbackfn function provides this value as an argument
      *     instead of an array value.
      * @returns { number } Final result obtained from the last call of the reduce function.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The reduce method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -1790,7 +1718,6 @@ declare namespace collections {
      * @param { TypedArrayReduceCallback<U, number, Int8Array> } callbackFn - Reduce function.
      * @param { U } initialValue - Initial value.
      * @returns { U } Final result obtained from the last call of the reduce function.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The reduce method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -1816,7 +1743,6 @@ declare namespace collections {
      *
      * @param { ArrayLike<number> } array - Array-like object whose elements will be written.
      * @param { number } [offset] - Start position for writing data. The default value is 0.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The set method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -1833,7 +1759,6 @@ declare namespace collections {
      * @param { number } [end] - End index of the range (exclusive). If a negative number is passed in, it refers to the
      *     index of `end + Int8Array.length`. The default value is the length of the ArkTS Int8Array.
      * @returns { Int8Array } New ArkTS Int8Array.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The slice method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -1848,7 +1773,6 @@ declare namespace collections {
      * @param { TypedArrayPredicateFn<number, Int8Array> } predicate - Assertion function used for the test.
      * @returns { boolean } Check result. The value **true** is returned if an element meeting the given condition
      *     exists; otherwise, **false** is returned.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The some method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -1863,7 +1787,6 @@ declare namespace collections {
      * @param { TypedArrayCompareFn<number> } [compareFn] - Function that determines the sort order. By default,
      *     elements are sorted in ascending order.
      * @returns { Int8Array } Sorted ArkTS Int8Array.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The sort method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -1881,7 +1804,6 @@ declare namespace collections {
      * @param { number } [end] - End index of the range (exclusive). If a negative number is passed in, it refers to the
      *     index of `end + Int8Array.length`. The default value is the length of the ArkTS Int8Array.
      * @returns { Int8Array } New ArkTS Int8Array.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The subarray method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -1896,7 +1818,6 @@ declare namespace collections {
      * @param { number } index - Index of the element. The index in an array always starts from 0 and is an integer.
      *     If a negative number is passed in, it refers to the index of index + Int8Array.length.
      * @returns { number | undefined } Element obtained. If no element is found, **undefined** is returned.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The at method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -1962,7 +1883,6 @@ declare namespace collections {
      *     it refers to the index of fromIndex + Int8Array.length. The default value is 0.
      * @returns { boolean } Check result. The value **true** is returned if the element exists; otherwise, **false** is
      *     returned.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The includes method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -2006,8 +1926,7 @@ declare namespace collections {
      * @param { U } initialValue - A value to use as the first argument to the first call of the callback.
      *     <br>If no initial value is provided, the last element of the Int8Array will be used,
      *     <br>and the callback will start with the second-to-last element.
-     * @returns { U } Final result obtained from the last call of the reduce function.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * @returns { U } Final result obtained from the last call of the reduce function. Possible causes:
      *     1.Mandatory parameters are left unspecified.
      *     2.Incorrect parameter types.
      * @throws { BusinessError } 10200011 - The reduceRight method cannot be bound.
@@ -2024,8 +1943,7 @@ declare namespace collections {
      *
      * @param { TypedArrayReduceCallback<number, number, Int8Array> } callbackFn - A function that is called for
      *     each element in the Int8Array.
-     * @returns { number } Final result obtained from the last call of the reduce function.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * @returns { number } Final result obtained from the last call of the reduce function. Possible causes:
      *     1.Mandatory parameters are left unspecified.
      *     2.Incorrect parameter types.
      * @throws { BusinessError } 10200011 - The reduceRight method cannot be bound.
@@ -2068,8 +1986,7 @@ declare namespace collections {
      * @static [since 18 - 21]
      * @param { number[] } items - Array of elements used to create the array. The number of elements can be zero, one,
      *     or more.
-     * @returns { Int8Array } New ArkTS Int8Array instance.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * @returns { Int8Array } New ArkTS Int8Array instance. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 22]
@@ -2154,7 +2071,6 @@ declare namespace collections {
      *
      * @param { number } length - Length of the ArkTS Uint8ClampedArray.
      * @throws { BusinessError } 10200012 - The Uint8ClampedArray's constructor cannot be directly invoked.
-     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 18]
      * @atomicservice
@@ -2167,7 +2083,6 @@ declare namespace collections {
      * @param { Iterable<number> } elements - An iterable collection of numbers used to construct an ArkTS Uint8
      *     ClampedArray object.
      * @throws { BusinessError } 10200012 - The Uint8ClampedArray's constructor cannot be directly invoked.
-     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 18]
      * @atomicservice
@@ -2180,7 +2095,6 @@ declare namespace collections {
      * @param { ArrayLike<number> | ArrayBuffer } array - Object used to construct the ArkTS Uint8ClampedArray. When the
      *     parameter type is ArrayBuffer, the number of bytes occupied by the buffer must be an integer multiple of 4.
      * @throws { BusinessError } 10200012 - The Uint8ClampedArray's constructor cannot be directly invoked.
-     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 18]
      * @atomicservice
@@ -2195,7 +2109,6 @@ declare namespace collections {
      * @param { number } [byteOffset] - Byte offset of the buffer, beginning at 0. The default value is **0**.
      * @param { number } [length] - Length of the ArkTS Uint8ClampedArray. The default value is **0**.
      * @throws { BusinessError } 10200012 - The Uint8ClampedArray's constructor cannot be directly invoked.
-     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 18]
      * @atomicservice
@@ -2207,7 +2120,6 @@ declare namespace collections {
      *
      * @param { ArrayLike<number> } arrayLike - Array-like object used to construct the ArkTS Uint8ClampedArray.
      * @returns { Uint8ClampedArray } New ArkTS Uint8ClampedArray generated.
-     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 18]
      * @atomicservice
@@ -2221,7 +2133,6 @@ declare namespace collections {
      * @param { ArrayLike<T> } arrayLike - Array-like object used to construct the ArkTS Uint8ClampedArray.
      * @param { TypedArrayFromMapFn<T, number> } mapFn - A mapping function to call on every element of the array.
      * @returns { Uint8ClampedArray } New ArkTS Uint8ClampedArray generated.
-     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 18]
      * @atomicservice
@@ -2235,7 +2146,6 @@ declare namespace collections {
      * @param { TypedArrayFromMapFn<number, number> } [mapFn] - Mapping function. If no value is passed in,
      *     no special processing is conducted on the elements.
      * @returns { Uint8ClampedArray } New ArkTS Uint8ClampedArray generated.
-     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 18]
      * @atomicservice
@@ -2252,7 +2162,6 @@ declare namespace collections {
      * @param { number } [end] - End index of the range (exclusive). If a negative number is passed in, it refers to the
      *     index of `end + Uint8ClampedArray.length`. The default value is the length of the ArkTS Uint8ClampedArray.
      * @returns { Uint8ClampedArray } Uint8ClampedArray after being modified.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The copyWithin method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -2267,7 +2176,6 @@ declare namespace collections {
      * @param { TypedArrayPredicateFn<number, Uint8ClampedArray> } predicate - Assertion function used for the test.
      * @returns { boolean } Check result. The value **true** is returned if all elements meet the given condition;
      *     otherwise, **false** is returned.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The every method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -2285,7 +2193,6 @@ declare namespace collections {
      * @param { number } [end] - End index of the range (exclusive). If a negative number is passed in, it refers to the
      *     index of `end + Uint8ClampedArray.length`. The default value is the length of the ArkTS Uint8ClampedArray.
      * @returns { Uint8ClampedArray } Filled ArkTS Uint8ClampedArray.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The fill method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -2299,7 +2206,6 @@ declare namespace collections {
      *
      * @param { TypedArrayPredicateFn<number, Uint8ClampedArray> } predicate - Assertion function used for the test.
      * @returns { Uint8ClampedArray } Filtered ArkTS Uint8ClampedArray.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The filter method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -2315,7 +2221,6 @@ declare namespace collections {
      * @param { TypedArrayPredicateFn<number, Uint8ClampedArray> } predicate - Assertion function used for the test.
      * @returns { number | undefined } Value of the first element that passes the test. If none of the elements pass the
      *     test, **undefined** is returned.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The find method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -2331,7 +2236,6 @@ declare namespace collections {
      * @param { TypedArrayPredicateFn<number, Uint8ClampedArray> } predicate - Assertion function used for the test.
      * @returns { number } Index of the first element that passes the test. If none of the elements pass the test,
      *     **-1** is returned.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The findIndex method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -2345,7 +2249,6 @@ declare namespace collections {
      *
      * @param { TypedArrayForEachCallback<number, Uint8ClampedArray> } callbackFn - Callback function to run for each
      *     element.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The forEach method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -2363,7 +2266,6 @@ declare namespace collections {
      *     greater than or equal to the length of the ArkTS Float32Array, **-1** is returned. If a negative number is
      *     passed in, the search starts from the end of the ArkTS Float32Array.
      * @returns { number } Index of the first occurrence of the value. If the value is not found, **-1** is returned.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The indexOf method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -2378,7 +2280,6 @@ declare namespace collections {
      * @param { string } [separator] - Separator to be used. If no value is passed in, a comma (,) is used as the
      *     separator.
      * @returns { string } String obtained. If the array is empty, an empty string is returned.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The join method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -2395,7 +2296,6 @@ declare namespace collections {
      *     accepts up to three arguments.
      *     The map method calls the callbackfn function one time for each element in the array.
      * @returns { Uint8ClampedArray } New ArkTS Uint8ClampedArray.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The map method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -2411,7 +2311,6 @@ declare namespace collections {
      *     accepts up to four arguments.
      *     The reduce method calls the callbackfn function one time for each element in the array.
      * @returns { number } Final result obtained from the last call of the reduce function.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The reduce method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -2431,7 +2330,6 @@ declare namespace collections {
      *     the accumulation. The first call to the callbackfn function provides this value as an argument
      *     instead of an array value.
      * @returns { U } Final result obtained from the last call of the reduce function.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The reduce method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -2457,7 +2355,6 @@ declare namespace collections {
      *
      * @param { ArrayLike<number> } array - A typed or untyped array of values to set.
      * @param { number } [offset] - The index in the current array at which the values are to be written.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The set method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -2474,7 +2371,6 @@ declare namespace collections {
      * @param { number } [end] - End index of the range (exclusive). If a negative number is passed in, it refers to the
      *     index of `end + Uint8ClampedArray.length`. The default value is the length of the ArkTS Uint8ClampedArray.
      * @returns { Uint8ClampedArray } New ArkTS Uint8ClampedArray.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The slice method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -2489,7 +2385,6 @@ declare namespace collections {
      * @param { TypedArrayPredicateFn<number, Uint8ClampedArray> } predicate - Assertion function used for the test.
      * @returns { boolean } Check result. The value **true** is returned if an element meeting the given condition
      *     exists; otherwise, **false** is returned.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The some method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -2504,7 +2399,6 @@ declare namespace collections {
      * @param { TypedArrayCompareFn<number> } [compareFn] - Function that determines the sort order. By default,
      *     elements are sorted in ascending order.
      * @returns { Uint8ClampedArray } Sorted ArkTS Uint8ClampedArray.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The sort method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -2522,7 +2416,6 @@ declare namespace collections {
      * @param { number } [end] - End index of the range (exclusive). If a negative number is passed in, it refers to the
      *     index of `end + Uint8ClampedArray.length`. The default value is the length of the ArkTS Uint8ClampedArray.
      * @returns { Uint8ClampedArray } New ArkTS Uint8ClampedArray.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The subarray method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -2537,7 +2430,6 @@ declare namespace collections {
      * @param { number } index - The zero-based index of the desired code unit.<br/>
      *     A negative index will count back from the last item.
      * @returns { number | undefined } Element obtained. If no element is found, **undefined** is returned.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The at method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -2600,7 +2492,6 @@ declare namespace collections {
      * @param { number } [fromIndex] - The position in this array at which to begin searching for searchElement.
      * @returns { boolean } Check result. The value **true** is returned if the element exists; otherwise, **false** is
      *     returned.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The includes method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -2644,8 +2535,7 @@ declare namespace collections {
      * @param { U } initialValue - A value to use as the first argument to the first call of the callback.
      *     <br>If no initial value is provided, the last element of the Uint8ClampedArray will be used,
      *     <br>and the callback will start with the second-to-last element.
-     * @returns { U } Final result obtained from the last call of the reduce function.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * @returns { U } Final result obtained from the last call of the reduce function. Possible causes:
      *     1.Mandatory parameters are left unspecified.
      *     2.Incorrect parameter types.
      * @throws { BusinessError } 10200011 - The reduceRight method cannot be bound.
@@ -2662,8 +2552,7 @@ declare namespace collections {
      *
      * @param { TypedArrayReduceCallback<number, number, Uint8ClampedArray> } callbackFn - A function that is called for
      *     each element in the Uint8ClampedArray.
-     * @returns { number } Final result obtained from the last call of the reduce function.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * @returns { number } Final result obtained from the last call of the reduce function. Possible causes:
      *     1.Mandatory parameters are left unspecified.
      *     2.Incorrect parameter types.
      * @throws { BusinessError } 10200011 - The reduceRight method cannot be bound.
@@ -2704,8 +2593,7 @@ declare namespace collections {
      *
      * @param { number[] } items - Array of elements used to create the array. The number of elements can be zero, one,
      *     or more.
-     * @returns { Uint8ClampedArray } New ArkTS Uint8ClampedArray instance.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * @returns { Uint8ClampedArray } New ArkTS Uint8ClampedArray instance. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 22]
@@ -2790,7 +2678,6 @@ declare namespace collections {
      *
      * @param { number } length - Length of the ArkTS Uint8Array.
      * @throws { BusinessError } 10200012 - The Uint8Array's constructor cannot be directly invoked.
-     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 18]
      * @atomicservice
@@ -2803,7 +2690,6 @@ declare namespace collections {
      * @param { Iterable<number> } elements - An iterable collection of numbers used to construct an ArkTS Uint8Array
      *     object.
      * @throws { BusinessError } 10200012 - The Uint8Array's constructor cannot be directly invoked.
-     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 18]
      * @atomicservice
@@ -2816,7 +2702,6 @@ declare namespace collections {
      * @param { ArrayLike<number> | ArrayBuffer } array - Object used to construct the ArkTS Uint8Array. When the
      *     parameter type is ArrayBuffer, the number of bytes occupied by the buffer must be an integer multiple of 4.
      * @throws { BusinessError } 10200012 - The Uint8Array's constructor cannot be directly invoked.
-     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 18]
      * @atomicservice
@@ -2831,7 +2716,6 @@ declare namespace collections {
      * @param { number } [byteOffset] - Byte offset of the buffer, beginning at 0. The default value is **0**.
      * @param { number } [length] - Length of the ArkTS Uint8Array. The default value is **0**.
      * @throws { BusinessError } 10200012 - The Uint8Array's constructor cannot be directly invoked.
-     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 18]
      * @atomicservice
@@ -2843,7 +2727,6 @@ declare namespace collections {
      *
      * @param { ArrayLike<number> } arrayLike - Array-like object used to construct the ArkTS Uint8Array.
      * @returns { Uint8Array } New ArkTS Uint8Array generated.
-     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 18]
      * @atomicservice
@@ -2856,7 +2739,6 @@ declare namespace collections {
      * @param { ArrayLike<T> } arrayLike - An array-like object to convert to an Uint8Array.
      * @param { TypedArrayFromMapFn<T, number> } mapFn - A mapping function to call on every element of the array.
      * @returns { Uint8Array } New ArkTS Uint8Array generated.
-     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 18]
      * @atomicservice
@@ -2870,7 +2752,6 @@ declare namespace collections {
      * @param { TypedArrayFromMapFn<number, number> } [mapFn] - A mapping function to
      *     call on every element of the array.
      * @returns { Uint8Array } New ArkTS Uint8Array generated.
-     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 18]
      * @atomicservice
@@ -2887,7 +2768,6 @@ declare namespace collections {
      * @param { number } [end] - End index of the range (exclusive). If a negative number is passed in, it refers to the
      *     index of `end + Uint8Array.length`. The default value is the length of the ArkTS Uint8Array.
      * @returns { Uint8Array } ArkTS Uint8Array after being modified.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The copyWithin method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -2902,7 +2782,6 @@ declare namespace collections {
      * @param { TypedArrayPredicateFn<number, Uint8Array> } predicate - Assertion function used for the test.
      * @returns { boolean } Check result. The value **true** is returned if all elements meet the given condition;
      *     otherwise, **false** is returned.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The every method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -2920,7 +2799,6 @@ declare namespace collections {
      * @param { number } [end] - End index of the range (exclusive). If a negative number is passed in, it refers to the
      *     index of `end + Uint8Array.length`. The default value is the length of the ArkTS Uint8Array.
      * @returns { Uint8Array } Filled ArkTS Uint8Array.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The fill method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -2934,7 +2812,6 @@ declare namespace collections {
      *
      * @param { TypedArrayPredicateFn<number, Uint8Array> } predicate - Assertion function used for the test.
      * @returns { Uint8Array } Filtered ArkTS Uint8Array.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The filter method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -2950,7 +2827,6 @@ declare namespace collections {
      * @param { TypedArrayPredicateFn<number, Uint8Array> } predicate - Assertion function used for the test.
      * @returns { number | undefined } Value of the first element that passes the test. If none of the elements pass the
      *     test, **undefined** is returned.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The find method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -2966,7 +2842,6 @@ declare namespace collections {
      * @param { TypedArrayPredicateFn<number, Uint8Array> } predicate - Assertion function used for the test.
      * @returns { number } Index of the first element that passes the test. If none of the elements pass the test,
      *     **-1** is returned.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The findIndex method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -2979,7 +2854,6 @@ declare namespace collections {
      * Calls a callback function for each element in this ArkTS Uint8Array.
      *
      * @param { TypedArrayForEachCallback<number, Uint8Array> } callbackFn - Callback function to run for each element.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The forEach method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -2997,7 +2871,6 @@ declare namespace collections {
      *     greater than or equal to the length of the ArkTS Float32Array, **-1** is returned. If a negative number is
      *     passed in, the search starts from the end of the ArkTS Float32Array.
      * @returns { number } Index of the first occurrence of the value. If the value is not found, **-1** is returned.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The indexOf method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -3012,7 +2885,6 @@ declare namespace collections {
      * @param { string } [separator] - Separator to be used. If no value is passed in, a comma (,) is used as the
      *     separator.
      * @returns { string } String obtained. If the array is empty, an empty string is returned.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The join method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -3029,7 +2901,6 @@ declare namespace collections {
      *     accepts up to three arguments.
      *     The map method calls the callbackfn function one time for each element in the array.
      * @returns { Uint8Array } New ArkTS Uint8Array.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The map method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -3045,7 +2916,6 @@ declare namespace collections {
      *     accepts up to four arguments.
      *     The reduce method calls the callbackfn function one time for each element in the array.
      * @returns { number } Final result obtained from the last call of the reduce function.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The reduce method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -3065,7 +2935,6 @@ declare namespace collections {
      *     the accumulation. The first call to the callbackfn function provides this value as an argument
      *     instead of an array value.
      * @returns { number } Final result obtained from the last call of the reduce function.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The reduce method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -3081,7 +2950,6 @@ declare namespace collections {
      * @param { TypedArrayReduceCallback<U, number, Uint8Array> } callbackFn - Reduce function.
      * @param { U } initialValue - Initial value.
      * @returns { U } Final result obtained from the last call of the reduce function.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The reduce method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -3107,7 +2975,6 @@ declare namespace collections {
      *
      * @param { ArrayLike<number> } array - A typed or untyped array of values to set.
      * @param { number } [offset] - The index in the current array at which the values are to be written.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The set method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -3124,7 +2991,6 @@ declare namespace collections {
      * @param { number } [end] - End index of the range (exclusive). If a negative number is passed in, it refers to the
      *     index of `end + Uint8Array.length`. The default value is the length of the ArkTS Uint8Array.
      * @returns { Uint8Array } New ArkTS Uint8Array.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The slice method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -3139,7 +3005,6 @@ declare namespace collections {
      * @param { TypedArrayPredicateFn<number, Uint8Array> } predicate - Assertion function used for the test.
      * @returns { boolean } Check result. The value **true** is returned if an element meeting the given condition
      *     exists; otherwise, **false** is returned.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The some method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -3154,7 +3019,6 @@ declare namespace collections {
      * @param { TypedArrayCompareFn<number> } [compareFn] - Function that determines the sort order. By default,
      *     elements are sorted in ascending order.
      * @returns { Uint8Array } Sorted ArkTS Uint8Array.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The sort method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -3172,7 +3036,6 @@ declare namespace collections {
      * @param { number } [end] - End index of the range (exclusive). If a negative number is passed in, it refers to the
      *     index of `end + Uint8Array.length`. The default value is the length of the ArkTS Uint8Array.
      * @returns { Uint8Array } New ArkTS Uint8Array.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The subarray method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -3187,7 +3050,6 @@ declare namespace collections {
      * @param { number } index - The zero-based index of the desired code unit.<br/>
      *     A negative index will count back from the last item.
      * @returns { number | undefined } Element obtained. If no element is found, **undefined** is returned.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The at method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -3250,7 +3112,6 @@ declare namespace collections {
      * @param { number } [fromIndex] - The position in this array at which to begin searching for searchElement.
      * @returns { boolean } Check result. The value **true** is returned if the element exists; otherwise, **false** is
      *     returned.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The includes method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -3294,8 +3155,7 @@ declare namespace collections {
      * @param { U } initialValue - A value to use as the first argument to the first call of the callback.
      *     <br>If no initial value is provided, the last element of the Uint8Array will be used,
      *     <br>and the callback will start with the second-to-last element.
-     * @returns { U } Final result obtained from the last call of the reduce function.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * @returns { U } Final result obtained from the last call of the reduce function. Possible causes:
      *     1.Mandatory parameters are left unspecified.
      *     2.Incorrect parameter types.
      * @throws { BusinessError } 10200011 - The reduceRight method cannot be bound.
@@ -3312,8 +3172,7 @@ declare namespace collections {
      *
      * @param { TypedArrayReduceCallback<number, number, Uint8Array> } callbackFn - A function that is called for
      *     each element in the Uint8Array.
-     * @returns { number } Final result obtained from the last call of the reduce function.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * @returns { number } Final result obtained from the last call of the reduce function. Possible causes:
      *     1.Mandatory parameters are left unspecified.
      *     2.Incorrect parameter types.
      * @throws { BusinessError } 10200011 - The reduceRight method cannot be bound.
@@ -3355,8 +3214,7 @@ declare namespace collections {
      *
      * @param { number[] } items - Array of elements used to create the array. The number of elements can be zero, one,
      *     or more.
-     * @returns { Uint8Array } New ArkTS Uint8Array instance.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * @returns { Uint8Array } New ArkTS Uint8Array instance. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 22]
@@ -3441,7 +3299,6 @@ declare namespace collections {
      *
      * @param { number } length - Length of the ArkTS Int16Array.
      * @throws { BusinessError } 10200012 - The Int16Array's constructor cannot be directly invoked.
-     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 18]
      * @atomicservice
@@ -3454,7 +3311,6 @@ declare namespace collections {
      * @param { Iterable<number> } elements - An iterable collection of numbers used to construct an ArkTS Int16Array
      *     object.
      * @throws { BusinessError } 10200012 - The Int16Array's constructor cannot be directly invoked.
-     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 18]
      * @atomicservice
@@ -3467,7 +3323,6 @@ declare namespace collections {
      * @param { ArrayLike<number> | ArrayBuffer } array - Object used to construct the ArkTS Int16Array. When the
      *     parameter type is ArrayBuffer, the number of bytes occupied by the buffer must be an integer multiple of 4.
      * @throws { BusinessError } 10200012 - The Int16Array's constructor cannot be directly invoked.
-     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 18]
      * @atomicservice
@@ -3482,7 +3337,6 @@ declare namespace collections {
      * @param { number } [byteOffset] - Byte offset of the buffer, beginning at 0. The default value is **0**.
      * @param { number } [length] - Length of the ArkTS Int16Array. The default value is **0**.
      * @throws { BusinessError } 10200012 - The Int16Array's constructor cannot be directly invoked.
-     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 18]
      * @atomicservice
@@ -3494,7 +3348,6 @@ declare namespace collections {
      *
      * @param { ArrayLike<number> } arrayLike - Array-like object used to construct the ArkTS Int16Array.
      * @returns { Int16Array } New ArkTS Int16Array generated.
-     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 18]
      * @atomicservice
@@ -3508,7 +3361,6 @@ declare namespace collections {
      * @param { ArrayLike<T> } arrayLike - Array-like object used to construct the ArkTS Int16Array.
      * @param { TypedArrayFromMapFn<T, number> } mapFn - A mapping function to call on every element of the array.
      * @returns { Int16Array } New ArkTS Int16Array generated.
-     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 18]
      * @atomicservice
@@ -3522,7 +3374,6 @@ declare namespace collections {
      * @param { TypedArrayFromMapFn<number, number> } [mapFn] - Mapping function. If no value is passed in,
      *     no special processing is conducted on the elements.
      * @returns { Int16Array } New ArkTS Int16Array generated.
-     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 18]
      * @atomicservice
@@ -3539,7 +3390,6 @@ declare namespace collections {
      * @param { number } [end] - End index of the range (exclusive). If a negative number is passed in, it refers to the
      *     index of `end + Int16Array.length`. The default value is the length of the ArkTS Int16Array.
      * @returns { Int16Array } ArkTS Int16Array after being modified.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The copyWithin method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -3554,7 +3404,6 @@ declare namespace collections {
      * @param { TypedArrayPredicateFn<number, Int16Array> } predicate - Assertion function used for the test.
      * @returns { boolean } Check result. The value **true** is returned if all elements meet the given condition;
      *     otherwise, **false** is returned.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The every method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -3572,7 +3421,6 @@ declare namespace collections {
      * @param { number } [end] - End index of the range (exclusive). If a negative number is passed in, it refers to the
      *     index of `end + Int16Array.length`. The default value is the length of the ArkTS Int16Array.
      * @returns { Int16Array } Filled ArkTS Int16Array.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The fill method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -3586,7 +3434,6 @@ declare namespace collections {
      *
      * @param { TypedArrayPredicateFn<number, Int16Array> } predicate - Assertion function used for the test.
      * @returns { Int16Array } Filtered ArkTS Int16Array.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The filter method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -3602,7 +3449,6 @@ declare namespace collections {
      * @param { TypedArrayPredicateFn<number, Int16Array> } predicate - Assertion function used for the test.
      * @returns { number | undefined } Value of the first element that passes the test. If none of the elements pass the
      *     test, **undefined** is returned.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The find method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -3618,7 +3464,6 @@ declare namespace collections {
      * @param { TypedArrayPredicateFn<number, Int16Array> } predicate - Assertion function used for the test.
      * @returns { number } Index of the first element that passes the test. If none of the elements pass the test,
      *     **-1** is returned.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The findIndex method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -3631,7 +3476,6 @@ declare namespace collections {
      * Calls a callback function for each element in this ArkTS Int16Array.
      *
      * @param { TypedArrayForEachCallback<number, Int16Array> } callbackFn - Callback function to run for each element.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The forEach method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -3649,7 +3493,6 @@ declare namespace collections {
      *     greater than or equal to the length of the ArkTS Int16Array, **-1** is returned. If a negative number is
      *     passed in, the search starts from the end of the ArkTS Int16Array.
      * @returns { number } Index of the first occurrence of the value. If the value is not found, **-1** is returned.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The indexOf method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -3664,7 +3507,6 @@ declare namespace collections {
      * @param { string } [separator] - Separator to be used. If no value is passed in, a comma (,) is used as the
      *     separator.
      * @returns { string } String obtained. If the array is empty, an empty string is returned.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The join method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -3681,7 +3523,6 @@ declare namespace collections {
      *     accepts up to three arguments.
      *     The map method calls the callbackfn function one time for each element in the array.
      * @returns { Int16Array } New ArkTS Int16Array.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The map method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -3697,7 +3538,6 @@ declare namespace collections {
      *     accepts up to four arguments.
      *     The reduce method calls the callbackfn function one time for each element in the array.
      * @returns { number } Final result obtained from the last call of the reduce function.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The reduce method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -3717,7 +3557,6 @@ declare namespace collections {
      *     the accumulation. The first call to the callbackfn function provides this value as an argument
      *     instead of an array value.
      * @returns { number } Final result obtained from the last call of the reduce function.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The reduce method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -3733,7 +3572,6 @@ declare namespace collections {
      * @param { TypedArrayReduceCallback<U, number, Int16Array> } callbackFn - Reduce function.
      * @param { U } initialValue - Initial value.
      * @returns { U } Final result obtained from the last call of the reduce function.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The reduce method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -3759,7 +3597,6 @@ declare namespace collections {
      *
      * @param { ArrayLike<number> } array - Array-like object whose elements will be written.
      * @param { number } [offset] - Start position for writing data. The default value is 0.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The set method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -3776,7 +3613,6 @@ declare namespace collections {
      * @param { number } [end] - End index of the range (exclusive). If a negative number is passed in, it refers to the
      *     index of `end + Int16Array.length`. The default value is the length of the ArkTS Int16Array.
      * @returns { Int16Array } New ArkTS Int16Array.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The slice method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -3791,7 +3627,6 @@ declare namespace collections {
      * @param { TypedArrayPredicateFn<number, Int16Array> } predicate - Assertion function used for the test.
      * @returns { boolean } Check result. The value **true** is returned if an element meeting the given condition
      *     exists; otherwise, **false** is returned.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The some method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -3806,7 +3641,6 @@ declare namespace collections {
      * @param { TypedArrayCompareFn<number> } [compareFn] - Function that determines the sort order. By default,
      *     elements are sorted in ascending order.
      * @returns { Int16Array } Sorted ArkTS Int16Array.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The sort method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -3824,7 +3658,6 @@ declare namespace collections {
      * @param { number } [end] - End index of the range (exclusive). If a negative number is passed in, it refers to the
      *     index of `end + Int16Array.length`. The default value is the length of the ArkTS Int16Array.
      * @returns { Int16Array } New ArkTS Int16Array.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The subarray method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -3839,7 +3672,6 @@ declare namespace collections {
      * @param { number } index - Index of the element. The index in an array always starts from 0 and is an integer.
      *     If a negative number is passed in, it refers to the index of index + Int16Array.length.
      * @returns { number | undefined } Element obtained. If no element is found, **undefined** is returned.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The at method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -3905,7 +3737,6 @@ declare namespace collections {
      *     it refers to the index of fromIndex + Int16Array.length. The default value is 0.
      * @returns { boolean } Check result. The value **true** is returned if the element exists; otherwise, **false** is
      *     returned.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The includes method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -3949,8 +3780,7 @@ declare namespace collections {
      * @param { U } initialValue - A value to use as the first argument to the first call of the callback.
      *     <br>If no initial value is provided, the last element of the Int16Array will be used,
      *     <br>and the callback will start with the second-to-last element.
-     * @returns { U } Final result obtained from the last call of the reduce function.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * @returns { U } Final result obtained from the last call of the reduce function. Possible causes:
      *     1.Mandatory parameters are left unspecified.
      *     2.Incorrect parameter types.
      * @throws { BusinessError } 10200011 - The reduceRight method cannot be bound.
@@ -3967,8 +3797,7 @@ declare namespace collections {
      *
      * @param { TypedArrayReduceCallback<number, number, Int16Array> } callbackFn - A function that is called for
      *     each element in the Int16Array.
-     * @returns { number } Final result obtained from the last call of the reduce function.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * @returns { number } Final result obtained from the last call of the reduce function. Possible causes:
      *     1.Mandatory parameters are left unspecified.
      *     2.Incorrect parameter types.
      * @throws { BusinessError } 10200011 - The reduceRight method cannot be bound.
@@ -4010,8 +3839,7 @@ declare namespace collections {
      *
      * @param { number[] } items - Array of elements used to create the array. The number of elements can be zero, one,
      *     or more.
-     * @returns { Int16Array } New ArkTS Int16Array instance.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * @returns { Int16Array } New ArkTS Int16Array instance. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 22]
@@ -4096,7 +3924,6 @@ declare namespace collections {
      *
      * @param { number } length - Length of the ArkTS Uint16Array.
      * @throws { BusinessError } 10200012 - The Uint16Array's constructor cannot be directly invoked.
-     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 18]
      * @atomicservice
@@ -4109,7 +3936,6 @@ declare namespace collections {
      * @param { Iterable<number> } elements - An iterable collection of numbers used to construct an ArkTS Uint16Array
      *     object.
      * @throws { BusinessError } 10200012 - The Uint16Array's constructor cannot be directly invoked.
-     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 18]
      * @atomicservice
@@ -4122,7 +3948,6 @@ declare namespace collections {
      * @param { ArrayLike<number> | ArrayBuffer } array - Object used to construct the ArkTS Uint16Array. When the
      *     parameter type is ArrayBuffer, the number of bytes occupied by the buffer must be an integer multiple of 4.
      * @throws { BusinessError } 10200012 - The Uint16Array's constructor cannot be directly invoked.
-     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 18]
      * @atomicservice
@@ -4137,7 +3962,6 @@ declare namespace collections {
      * @param { number } [byteOffset] - Byte offset of the buffer, beginning at 0. The default value is **0**.
      * @param { number } [length] - Length of the ArkTS Uint16Array. The default value is **0**.
      * @throws { BusinessError } 10200012 - The Uint16Array's constructor cannot be directly invoked.
-     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 18]
      * @atomicservice
@@ -4149,7 +3973,6 @@ declare namespace collections {
      *
      * @param { ArrayLike<number> } arrayLike - Array-like object used to construct the ArkTS Uint16Array.
      * @returns { Uint16Array } New ArkTS Uint16Array generated.
-     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 18]
      * @atomicservice
@@ -4162,7 +3985,6 @@ declare namespace collections {
      * @param { ArrayLike<T> } arrayLike - An array-like object to convert to an Uint16Array.
      * @param { TypedArrayFromMapFn<T, number> } mapFn - A mapping function to call on every element of the array.
      * @returns { Uint16Array } New ArkTS Uint16Array generated.
-     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 18]
      * @atomicservice
@@ -4176,7 +3998,6 @@ declare namespace collections {
      * @param { TypedArrayFromMapFn<number, number> } [mapFn] - A mapping function to
      *     call on every element of the array.
      * @returns { Uint16Array } New ArkTS Uint16Array generated.
-     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 18]
      * @atomicservice
@@ -4193,7 +4014,6 @@ declare namespace collections {
      * @param { number } [end] - End index of the range (exclusive). If a negative number is passed in, it refers to the
      *     index of `end + Uint16Array.length`. The default value is the length of the ArkTS Uint16Array.
      * @returns { Uint16Array } ArkTS Uint16Array after being modified.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The copyWithin method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -4208,7 +4028,6 @@ declare namespace collections {
      * @param { TypedArrayPredicateFn<number, Uint16Array> } predicate - Assertion function used for the test.
      * @returns { boolean } Check result. The value **true** is returned if all elements meet the given condition;
      *     otherwise, **false** is returned.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The every method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -4226,7 +4045,6 @@ declare namespace collections {
      * @param { number } [end] - End index of the range (exclusive). If a negative number is passed in, it refers to the
      *     index of `end + Uint16Array.length`. The default value is the length of the ArkTS Uint16Array.
      * @returns { Uint16Array } Filled ArkTS Uint16Array.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The fill method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -4240,7 +4058,6 @@ declare namespace collections {
      *
      * @param { TypedArrayPredicateFn<number, Uint16Array> } predicate - Assertion function used for the test.
      * @returns { Uint16Array } Filtered ArkTS Uint16Array.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The filter method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -4256,7 +4073,6 @@ declare namespace collections {
      * @param { TypedArrayPredicateFn<number, Uint16Array> } predicate - Assertion function used for the test.
      * @returns { number | undefined } Value of the first element that passes the test. If none of the elements pass the
      *     test, **undefined** is returned.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The find method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -4272,7 +4088,6 @@ declare namespace collections {
      * @param { TypedArrayPredicateFn<number, Uint16Array> } predicate - Assertion function used for the test.
      * @returns { number } Index of the first element that passes the test. If none of the elements pass the test,
      *     **-1** is returned.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The findIndex method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -4285,7 +4100,6 @@ declare namespace collections {
      * Calls a callback function for each element in this ArkTS Uint16Array.
      *
      * @param { TypedArrayForEachCallback<number, Uint16Array> } callbackFn - Callback function to run for each element.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The forEach method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -4303,7 +4117,6 @@ declare namespace collections {
      *     greater than or equal to the length of the ArkTS Float32Array, **-1** is returned. If a negative number is
      *     passed in, the search starts from the end of the ArkTS Float32Array.
      * @returns { number } Index of the first occurrence of the value. If the value is not found, **-1** is returned.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The indexOf method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -4318,7 +4131,6 @@ declare namespace collections {
      * @param { string } [separator] - Separator to be used. If no value is passed in, a comma (,) is used as the
      *     separator.
      * @returns { string } String obtained. If the array is empty, an empty string is returned.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The join method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -4334,7 +4146,6 @@ declare namespace collections {
      * @param { TypedArrayMapCallback<number, Uint16Array> } callbackFn - A function that accepts up to
      *     three arguments. The map method calls the callbackfn function one time for each element in the array.
      * @returns { Uint16Array } New ArkTS Uint16Array.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The map method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -4350,7 +4161,6 @@ declare namespace collections {
      *     accepts up to four arguments.
      *     The reduce method calls the callbackfn function one time for each element in the array.
      * @returns { number } Final result obtained from the last call of the reduce function.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The reduce method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -4370,7 +4180,6 @@ declare namespace collections {
      *     the accumulation. The first call to the callbackfn function provides this value as an argument
      *     instead of an array value.
      * @returns { number } Final result obtained from the last call of the reduce function.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The reduce method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -4386,7 +4195,6 @@ declare namespace collections {
      * @param { TypedArrayReduceCallback<U, number, Uint16Array> } callbackFn - Reduce function.
      * @param { U } initialValue - Initial value.
      * @returns { U } Final result obtained from the last call of the reduce function.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The reduce method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -4412,7 +4220,6 @@ declare namespace collections {
      *
      * @param { ArrayLike<number> } array - A typed or untyped array of values to set.
      * @param { number } [offset] - The index in the current array at which the values are to be written.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The set method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -4429,7 +4236,6 @@ declare namespace collections {
      * @param { number } [end] - End index of the range (exclusive). If a negative number is passed in, it refers to the
      *     index of `end + Uint16Array.length`. The default value is the length of the ArkTS Uint16Array.
      * @returns { Uint16Array } New ArkTS Uint16Array.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The slice method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -4444,7 +4250,6 @@ declare namespace collections {
      * @param { TypedArrayPredicateFn<number, Uint16Array> } predicate - Assertion function used for the test.
      * @returns { boolean } Check result. The value **true** is returned if an element meeting the given condition
      *     exists; otherwise, **false** is returned.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The some method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -4459,7 +4264,6 @@ declare namespace collections {
      * @param { TypedArrayCompareFn<number> } [compareFn] - Function that determines the sort order. By default,
      *     elements are sorted in ascending order.
      * @returns { Uint16Array } Sorted ArkTS Uint16Array.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The sort method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -4477,7 +4281,6 @@ declare namespace collections {
      * @param { number } [end] - End index of the range (exclusive). If a negative number is passed in, it refers to the
      *     index of `end + Uint16Array.length`. The default value is the length of the ArkTS Uint16Array.
      * @returns { Uint16Array } New ArkTS Uint16Array.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The subarray method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -4492,7 +4295,6 @@ declare namespace collections {
      * @param { number } index - The zero-based index of the desired code unit.<br/>
      *     A negative index will count back from the last item.
      * @returns { number | undefined } Element obtained. If no element is found, **undefined** is returned.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The at method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -4555,7 +4357,6 @@ declare namespace collections {
      * @param { number } [fromIndex] - The position in this array at which to begin searching for searchElement.
      * @returns { boolean } Check result. The value **true** is returned if the element exists; otherwise, **false** is
      *     returned.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The includes method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -4599,8 +4400,7 @@ declare namespace collections {
      * @param { U } initialValue - A value to use as the first argument to the first call of the callback.
      *     <br>If no initial value is provided, the last element of the Uint16Array will be used,
      *     <br>and the callback will start with the second-to-last element.
-     * @returns { U } Final result obtained from the last call of the reduce function.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * @returns { U } Final result obtained from the last call of the reduce function. Possible causes:
      *     1.Mandatory parameters are left unspecified.
      *     2.Incorrect parameter types.
      * @throws { BusinessError } 10200011 - The reduceRight method cannot be bound.
@@ -4617,8 +4417,7 @@ declare namespace collections {
      *
      * @param { TypedArrayReduceCallback<number, number, Uint16Array> } callbackFn - A function that is called for
      *     each element in the Uint16Array.
-     * @returns { number } Final result obtained from the last call of the reduce function.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * @returns { number } Final result obtained from the last call of the reduce function. Possible causes:
      *     1.Mandatory parameters are left unspecified.
      *     2.Incorrect parameter types.
      * @throws { BusinessError } 10200011 - The reduceRight method cannot be bound.
@@ -4660,8 +4459,7 @@ declare namespace collections {
      *
      * @param { number[] } items - Array of elements used to create the array. The number of elements can be zero, one,
      *     or more.
-     * @returns { Uint16Array } New ArkTS Uint16Array instance.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * @returns { Uint16Array } New ArkTS Uint16Array instance. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 22]
@@ -4746,7 +4544,6 @@ declare namespace collections {
      *
      * @param { number } length - Length of the ArkTS Int32Array.
      * @throws { BusinessError } 10200012 - The Int32Array's constructor cannot be directly invoked.
-     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 18]
      * @atomicservice
@@ -4759,7 +4556,6 @@ declare namespace collections {
      * @param { Iterable<number> } elements - An iterable collection of numbers used to construct an ArkTS Int32Array
      *     object.
      * @throws { BusinessError } 10200012 - The Int32Array's constructor cannot be directly invoked.
-     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 18]
      * @atomicservice
@@ -4772,7 +4568,6 @@ declare namespace collections {
      * @param { ArrayLike<number> | ArrayBuffer } array - Object used to construct the ArkTS Int32Array. When the
      *     parameter type is ArrayBuffer, the number of bytes occupied by the buffer must be an integer multiple of 4.
      * @throws { BusinessError } 10200012 - The Int32Array's constructor cannot be directly invoked.
-     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 18]
      * @atomicservice
@@ -4787,7 +4582,6 @@ declare namespace collections {
      * @param { number } [byteOffset] - Byte offset of the buffer, beginning at 0. The default value is **0**.
      * @param { number } [length] - Length of the ArkTS Int32Array. The default value is **0**.
      * @throws { BusinessError } 10200012 - The Int32Array's constructor cannot be directly invoked.
-     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 18]
      * @atomicservice
@@ -4799,7 +4593,6 @@ declare namespace collections {
      *
      * @param { ArrayLike<number> } arrayLike - Array-like object used to construct the ArkTS Int32Array.
      * @returns { Int32Array } New ArkTS Int32Array generated.
-     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 18]
      * @atomicservice
@@ -4812,7 +4605,6 @@ declare namespace collections {
      * @param { ArrayLike<T> } arrayLike - An array-like object to convert to an Int32Array.
      * @param { TypedArrayFromMapFn<T, number> } mapFn - A mapping function to call on every element of the array.
      * @returns { Int32Array } New ArkTS Int32Array generated.
-     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 18]
      * @atomicservice
@@ -4826,7 +4618,6 @@ declare namespace collections {
      * @param { TypedArrayFromMapFn<number, number> } [mapFn] - A mapping function to
      *     call on every element of the array.
      * @returns { Int32Array } New ArkTS Int32Array generated.
-     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 18]
      * @atomicservice
@@ -4843,7 +4634,6 @@ declare namespace collections {
      * @param { number } [end] - End index of the range (exclusive). If a negative number is passed in, it refers to the
      *     index of `end + Int32Array.length`. The default value is the length of the ArkTS Int32Array.
      * @returns { Int32Array } ArkTS Int32Array after being modified.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The copyWithin method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -4858,7 +4648,6 @@ declare namespace collections {
      * @param { TypedArrayPredicateFn<number, Int32Array> } predicate - Assertion function used for the test.
      * @returns { boolean } Check result. The value **true** is returned if all elements meet the given condition;
      *     otherwise, **false** is returned.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The every method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -4876,7 +4665,6 @@ declare namespace collections {
      * @param { number } [end] - End index of the range (exclusive). If a negative number is passed in, it refers to the
      *     index of `end + Int32Array.length`. The default value is the length of the ArkTS Int32Array.
      * @returns { Int32Array } Filled ArkTS Int32Array.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The fill method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -4890,7 +4678,6 @@ declare namespace collections {
      *
      * @param { TypedArrayPredicateFn<number, Int32Array> } predicate - Assertion function used for the test.
      * @returns { Int32Array } Filtered ArkTS Int32Array.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The filter method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -4906,7 +4693,6 @@ declare namespace collections {
      * @param { TypedArrayPredicateFn<number, Int32Array> } predicate - Assertion function used for the test.
      * @returns { number | undefined } Value of the first element that passes the test. If none of the elements pass the
      *     test, **undefined** is returned.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The find method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -4922,7 +4708,6 @@ declare namespace collections {
      * @param { TypedArrayPredicateFn<number, Int32Array> } predicate - Assertion function used for the test.
      * @returns { number } Index of the first element that passes the test. If none of the elements pass the test,
      *     **-1** is returned.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The findIndex method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -4935,7 +4720,6 @@ declare namespace collections {
      * Calls a callback function for each element in this ArkTS Int32Array.
      *
      * @param { TypedArrayForEachCallback<number, Int32Array> } callbackFn - Callback function to run for each element.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The forEach method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -4953,7 +4737,6 @@ declare namespace collections {
      *     greater than or equal to the length of the ArkTS Float32Array, **-1** is returned. If a negative number is
      *     passed in, the search starts from the end of the ArkTS Float32Array.
      * @returns { number } Index of the first occurrence of the value. If the value is not found, **-1** is returned.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The indexOf method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -4968,7 +4751,6 @@ declare namespace collections {
      * @param { string } [separator] - Separator to be used. If no value is passed in, a comma (,) is used as the
      *     separator.
      * @returns { string } String obtained. If the array is empty, an empty string is returned.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The join method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -4985,7 +4767,6 @@ declare namespace collections {
      *     accepts up to three arguments.
      *     The map method calls the callbackfn function one time for each element in the array.
      * @returns { Int32Array } New ArkTS Int32Array.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The map method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -5001,7 +4782,6 @@ declare namespace collections {
      *     accepts up to four arguments.
      *     The reduce method calls the callbackfn function one time for each element in the array.
      * @returns { number } Final result obtained from the last call of the reduce function.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The reduce method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -5021,7 +4801,6 @@ declare namespace collections {
      *     the accumulation. The first call to the callbackfn function provides this value as an argument
      *     instead of an array value.
      * @returns { number } Final result obtained from the last call of the reduce function.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The reduce method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -5037,7 +4816,6 @@ declare namespace collections {
      * @param { TypedArrayReduceCallback<U, number, Int32Array> } callbackFn - Reduce function.
      * @param { U } initialValue - Initial value.
      * @returns { U } Final result obtained from the last call of the reduce function.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The reduce method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -5063,7 +4841,6 @@ declare namespace collections {
      *
      * @param { ArrayLike<number> } array - A typed or untyped array of values to set.
      * @param { number } [offset] - The index in the current array at which the values are to be written.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The set method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -5080,7 +4857,6 @@ declare namespace collections {
      * @param { number } [end] - End index of the range (exclusive). If a negative number is passed in, it refers to the
      *     index of `end + Int32Array.length`. The default value is the length of the ArkTS Int32Array.
      * @returns { Int32Array } New ArkTS Int32Array.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The slice method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -5095,7 +4871,6 @@ declare namespace collections {
      * @param { TypedArrayPredicateFn<number, Int32Array> } predicate - Assertion function used for the test.
      * @returns { boolean } Check result. The value **true** is returned if an element meeting the given condition
      *     exists; otherwise, **false** is returned.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The some method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -5110,7 +4885,6 @@ declare namespace collections {
      * @param { TypedArrayCompareFn<number> } [compareFn] - Function that determines the sort order. By default,
      *     elements are sorted in ascending order.
      * @returns { Int32Array } Sorted ArkTS Int32Array.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The sort method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -5128,7 +4902,6 @@ declare namespace collections {
      * @param { number } [end] - End index of the range (exclusive). If a negative number is passed in, it refers to the
      *     index of `end + Int32Array.length`. The default value is the length of the ArkTS Int32Array.
      * @returns { Int32Array } New ArkTS Int32Array.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The subarray method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -5143,7 +4916,6 @@ declare namespace collections {
      * @param { number } index - The zero-based index of the desired code unit.<br/>
      *     A negative index will count back from the last item.
      * @returns { number | undefined } Element obtained. If no element is found, **undefined** is returned.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The at method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -5206,7 +4978,6 @@ declare namespace collections {
      * @param { number } [fromIndex] - The position in this array at which to begin searching for searchElement.
      * @returns { boolean } Check result. The value **true** is returned if the element exists; otherwise, **false** is
      *     returned.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The includes method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -5250,8 +5021,7 @@ declare namespace collections {
      * @param { U } initialValue - A value to use as the first argument to the first call of the callback.
      *     <br>If no initial value is provided, the last element of the Int32Array will be used,
      *     <br>and the callback will start with the second-to-last element.
-     * @returns { U } Final result obtained from the last call of the reduce function.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * @returns { U } Final result obtained from the last call of the reduce function. Possible causes:
      *     1.Mandatory parameters are left unspecified.
      *     2.Incorrect parameter types.
      * @throws { BusinessError } 10200011 - The reduceRight method cannot be bound.
@@ -5268,8 +5038,7 @@ declare namespace collections {
      *
      * @param { TypedArrayReduceCallback<number, number, Int32Array> } callbackFn - A function that is called for
      *     each element in the Int32Array.
-     * @returns { number } Final result obtained from the last call of the reduce function.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * @returns { number } Final result obtained from the last call of the reduce function. Possible causes:
      *     1.Mandatory parameters are left unspecified.
      *     2.Incorrect parameter types.
      * @throws { BusinessError } 10200011 - The reduceRight method cannot be bound.
@@ -5311,8 +5080,7 @@ declare namespace collections {
      *
      * @param { number[] } items - Array of elements used to create the array. The number of elements can be zero, one,
      *     or more.
-     * @returns { Int32Array } New ArkTS Int32Array instance.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * @returns { Int32Array } New ArkTS Int32Array instance. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 22]
@@ -5397,7 +5165,6 @@ declare namespace collections {
      *
      * @param { number } length - Length of the ArkTS Uint32Array.
      * @throws { BusinessError } 10200012 - The Uint32Array's constructor cannot be directly invoked.
-     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 18]
      * @atomicservice
@@ -5410,7 +5177,6 @@ declare namespace collections {
      * @param { Iterable<number> } elements - An iterable collection of numbers used to construct an ArkTS Uint32Array
      *     object.
      * @throws { BusinessError } 10200012 - The Uint32Array's constructor cannot be directly invoked.
-     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 18]
      * @atomicservice
@@ -5423,7 +5189,6 @@ declare namespace collections {
      * @param { ArrayLike<number> | ArrayBuffer } array - Object used to construct the ArkTS Uint32Array. When the
      *     parameter type is ArrayBuffer, the number of bytes occupied by the buffer must be an integer multiple of 4.
      * @throws { BusinessError } 10200012 - The Uint32Array's constructor cannot be directly invoked.
-     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 18]
      * @atomicservice
@@ -5438,7 +5203,6 @@ declare namespace collections {
      * @param { number } [byteOffset] - Byte offset of the buffer, beginning at 0. The default value is **0**.
      * @param { number } [length] - Length of the ArkTS Uint32Array. The default value is **0**.
      * @throws { BusinessError } 10200012 - The Uint32Array's constructor cannot be directly invoked.
-     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 18]
      * @atomicservice
@@ -5450,7 +5214,6 @@ declare namespace collections {
      *
      * @param { ArrayLike<number> } arrayLike - Array-like object used to construct the ArkTS Uint32Array.
      * @returns { Uint32Array } New ArkTS Uint32Array generated.
-     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 18]
      * @atomicservice
@@ -5463,7 +5226,6 @@ declare namespace collections {
      * @param { ArrayLike<T> } arrayLike - An array-like object to convert to an Uint32Array.
      * @param { TypedArrayFromMapFn<T, number> } mapFn - A mapping function to call on every element of the array.
      * @returns { Uint32Array } New ArkTS Uint32Array generated.
-     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 18]
      * @atomicservice
@@ -5477,7 +5239,6 @@ declare namespace collections {
      * @param { TypedArrayFromMapFn<number, number> } [mapFn] - A mapping function to
      *     call on every element of the array.
      * @returns { Uint32Array } New ArkTS Uint32Array generated.
-     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 18]
      * @atomicservice
@@ -5494,7 +5255,6 @@ declare namespace collections {
      * @param { number } [end] - End index of the range (exclusive). If a negative number is passed in, it refers to the
      *     index of `end + Uint32Array.length`. The default value is the length of the ArkTS Uint32Array.
      * @returns { Uint32Array } ArkTS Uint32Array after being modified.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The copyWithin method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -5509,7 +5269,6 @@ declare namespace collections {
      * @param { TypedArrayPredicateFn<number, Uint32Array> } predicate - Assertion function used for the test.
      * @returns { boolean } Check result. The value **true** is returned if all elements meet the given condition;
      *     otherwise, **false** is returned.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The every method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -5527,7 +5286,6 @@ declare namespace collections {
      * @param { number } [end] - End index of the range (exclusive). If a negative number is passed in, it refers to the
      *     index of `end + Uint32Array.length`. The default value is the length of the ArkTS Uint32Array.
      * @returns { Uint32Array } Filled ArkTS Uint32Array.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The fill method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -5541,7 +5299,6 @@ declare namespace collections {
      *
      * @param { TypedArrayPredicateFn<number, Uint32Array> } predicate - Assertion function used for the test.
      * @returns { Uint32Array } Filtered ArkTS Uint32Array.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The filter method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -5557,7 +5314,6 @@ declare namespace collections {
      * @param { TypedArrayPredicateFn<number, Uint32Array> } predicate - Assertion function used for the test.
      * @returns { number | undefined } Value of the first element that passes the test. If none of the elements pass the
      *     test, **undefined** is returned.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The find method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -5573,7 +5329,6 @@ declare namespace collections {
      * @param { TypedArrayPredicateFn<number, Uint32Array> } predicate - Assertion function used for the test.
      * @returns { number } Index of the first element that passes the test. If none of the elements pass the test,
      *     **-1** is returned.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The findIndex method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -5586,7 +5341,6 @@ declare namespace collections {
      * Calls a callback function for each element in this ArkTS Uint32Array.
      *
      * @param { TypedArrayForEachCallback<number, Uint32Array> } callbackFn - Callback function to run for each element.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The forEach method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -5604,7 +5358,6 @@ declare namespace collections {
      *     greater than or equal to the length of the ArkTS Float32Array, **-1** is returned. If a negative number is
      *     passed in, the search starts from the end of the ArkTS Float32Array.
      * @returns { number } Index of the first occurrence of the value. If the value is not found, **-1** is returned.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The indexOf method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -5619,7 +5372,6 @@ declare namespace collections {
      * @param { string } [separator] - Separator to be used. If no value is passed in, a comma (,) is used as the
      *     separator.
      * @returns { string } String obtained. If the array is empty, an empty string is returned.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The join method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -5635,7 +5387,6 @@ declare namespace collections {
      * @param { TypedArrayMapCallback<number, Uint32Array> } callbackFn - A function that accepts up to
      *     three arguments. The map method calls the callbackfn function one time for each element in the array.
      * @returns { Uint32Array } New ArkTS Uint32Array.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The map method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -5651,7 +5402,6 @@ declare namespace collections {
      *     accepts up to four arguments.
      *     The reduce method calls the callbackfn function one time for each element in the array.
      * @returns { number } Final result obtained from the last call of the reduce function.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The reduce method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -5671,7 +5421,6 @@ declare namespace collections {
      *     the accumulation. The first call to the callbackfn function provides this value as an argument
      *     instead of an array value.
      * @returns { number } Final result obtained from the last call of the reduce function.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The reduce method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -5687,7 +5436,6 @@ declare namespace collections {
      * @param { TypedArrayReduceCallback<U, number, Uint32Array> } callbackFn - Reduce function.
      * @param { U } initialValue - Initial value.
      * @returns { U } Final result obtained from the last call of the reduce function.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The reduce method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -5713,7 +5461,6 @@ declare namespace collections {
      *
      * @param { ArrayLike<number> } array - A typed or untyped array of values to set.
      * @param { number } [offset] - The index in the current array at which the values are to be written.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The set method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -5730,7 +5477,6 @@ declare namespace collections {
      * @param { number } [end] - End index of the range (exclusive). If a negative number is passed in, it refers to the
      *     index of `end + Uint32Array.length`. The default value is the length of the ArkTS Uint32Array.
      * @returns { Uint32Array } New ArkTS Uint32Array.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The slice method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -5745,7 +5491,6 @@ declare namespace collections {
      * @param { TypedArrayPredicateFn<number, Uint32Array> } predicate - Assertion function used for the test.
      * @returns { boolean } Check result. The value **true** is returned if an element meeting the given condition
      *     exists; otherwise, **false** is returned.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The some method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -5760,7 +5505,6 @@ declare namespace collections {
      * @param { TypedArrayCompareFn<number> } [compareFn] - Function that determines the sort order. By default,
      *     elements are sorted in ascending order.
      * @returns { Uint32Array } Sorted ArkTS Uint32Array.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The sort method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -5778,7 +5522,6 @@ declare namespace collections {
      * @param { number } [end] - End index of the range (exclusive). If a negative number is passed in, it refers to the
      *     index of `end + Uint32Array.length`. The default value is the length of the ArkTS Uint32Array.
      * @returns { Uint32Array } New ArkTS Uint32Array.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The subarray method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -5793,7 +5536,6 @@ declare namespace collections {
      * @param { number } index - The zero-based index of the desired code unit.<br/>
      *     A negative index will count back from the last item.
      * @returns { number | undefined } Element obtained. If no element is found, **undefined** is returned.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The at method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -5856,7 +5598,6 @@ declare namespace collections {
      * @param { number } [fromIndex] - The position in this array at which to begin searching for searchElement.
      * @returns { boolean } Check result. The value **true** is returned if the element exists; otherwise, **false** is
      *     returned.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The includes method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -5900,8 +5641,7 @@ declare namespace collections {
      * @param { U } initialValue - A value to use as the first argument to the first call of the callback.
      *     <br>If no initial value is provided, the last element of the Uint32Array will be used,
      *     <br>and the callback will start with the second-to-last element.
-     * @returns { U } Final result obtained from the last call of the reduce function.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * @returns { U } Final result obtained from the last call of the reduce function. Possible causes:
      *     1.Mandatory parameters are left unspecified.
      *     2.Incorrect parameter types.
      * @throws { BusinessError } 10200011 - The reduceRight method cannot be bound.
@@ -5918,8 +5658,7 @@ declare namespace collections {
      *
      * @param { TypedArrayReduceCallback<number, number, Uint32Array> } callbackFn - A function that is called for
      *     each element in the Uint32Array.
-     * @returns { number } Final result obtained from the last call of the reduce function.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * @returns { number } Final result obtained from the last call of the reduce function. Possible causes:
      *     1.Mandatory parameters are left unspecified.
      *     2.Incorrect parameter types.
      * @throws { BusinessError } 10200011 - The reduceRight method cannot be bound.
@@ -5961,8 +5700,7 @@ declare namespace collections {
      *
      * @param { number[] } items - Array of elements used to create the array. The number of elements can be zero, one,
      *     or more.
-     * @returns { Uint32Array } New ArkTS Uint32Array instance.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * @returns { Uint32Array } New ArkTS Uint32Array instance. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 22]
@@ -6047,7 +5785,6 @@ declare namespace collections {
      *
      * @param { number } length - Length of the ArkTS Float32Array.
      * @throws { BusinessError } 10200012 - The Float32Array's constructor cannot be directly invoked.
-     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 18]
      * @atomicservice
@@ -6060,7 +5797,6 @@ declare namespace collections {
      * @param { Iterable<number> } elements - An iterable collection of numbers used to construct an ArkTS Float32Array
      *     object.
      * @throws { BusinessError } 10200012 - The Float32Array's constructor cannot be directly invoked.
-     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 18]
      * @atomicservice
@@ -6073,7 +5809,6 @@ declare namespace collections {
      * @param { ArrayLike<number> | ArrayBuffer } array - Object used to construct the ArkTS Float32Array. When the
      *     parameter type is ArrayBuffer, the number of bytes occupied by the buffer must be an integer multiple of 4.
      * @throws { BusinessError } 10200012 - The Float32Array's constructor cannot be directly invoked.
-     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 18]
      * @atomicservice
@@ -6088,7 +5823,6 @@ declare namespace collections {
      * @param { number } [byteOffset] - Byte offset of the buffer, beginning at 0. The default value is **0**.
      * @param { number } [length] - Length of the ArkTS Float32Array. The default value is **0**.
      * @throws { BusinessError } 10200012 - The Float32Array's constructor cannot be directly invoked.
-     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 18]
      * @atomicservice
@@ -6100,7 +5834,6 @@ declare namespace collections {
      *
      * @param { ArrayLike<number> } arrayLike - Array-like object used to construct the ArkTS Float32Array.
      * @returns { Float32Array } New ArkTS Float32Array generated.
-     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 18]
      * @atomicservice
@@ -6113,7 +5846,6 @@ declare namespace collections {
      * @param { ArrayLike<T> } arrayLike - An array-like object to convert to an Float32Array.
      * @param { TypedArrayFromMapFn<T, number> } mapFn - A mapping function to call on every element of the array.
      * @returns { Float32Array } New ArkTS Float32Array generated.
-     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 18]
      * @atomicservice
@@ -6127,7 +5859,6 @@ declare namespace collections {
      * @param { TypedArrayFromMapFn<number, number> } [mapFn] - A mapping function to
      *     call on every element of the array.
      * @returns { Float32Array } New ArkTS Float32Array generated.
-     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 18]
      * @atomicservice
@@ -6144,7 +5875,6 @@ declare namespace collections {
      * @param { number } [end] - End index of the range (exclusive). If a negative number is passed in, it refers to the
      *     index of `end + Float32Array.length`. The default value is the length of the ArkTS Float32Array.
      * @returns { Float32Array } ArkTS Float32Array after being modified.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The copyWithin method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -6159,7 +5889,6 @@ declare namespace collections {
      * @param { TypedArrayPredicateFn<number, Float32Array> } predicate - Assertion function used for the test.
      * @returns { boolean } Check result. The value **true** is returned if all elements meet the given condition;
      *     otherwise, **false** is returned.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The every method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -6177,7 +5906,6 @@ declare namespace collections {
      * @param { number } [end] - End index of the range (exclusive). If a negative number is passed in, it refers to the
      *     index of `end + Float32Array.length`. The default value is the length of the ArkTS Float32Array.
      * @returns { Float32Array } Filled ArkTS Float32Array.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The fill method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -6191,7 +5919,6 @@ declare namespace collections {
      *
      * @param { TypedArrayPredicateFn<number, Float32Array> } predicate - Assertion function used for the test.
      * @returns { Float32Array } Filtered ArkTS Float32Array.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The filter method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -6207,7 +5934,6 @@ declare namespace collections {
      * @param { TypedArrayPredicateFn<number, Float32Array> } predicate - Assertion function used for the test.
      * @returns { number | undefined } Value of the first element that passes the test. If none of the elements pass the
      *     test, **undefined** is returned.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The find method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -6223,7 +5949,6 @@ declare namespace collections {
      * @param { TypedArrayPredicateFn<number, Float32Array> } predicate - Assertion function used for the test.
      * @returns { number } Index of the first element that passes the test. If none of the elements pass the test,
      *     **-1** is returned.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The findIndex method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -6237,7 +5962,6 @@ declare namespace collections {
      *
      * @param { TypedArrayForEachCallback<number, Float32Array> } callbackFn - Callback function to run for each
      *     element.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The forEach method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -6255,7 +5979,6 @@ declare namespace collections {
      *     greater than or equal to the length of the ArkTS Float32Array, **-1** is returned. If a negative number is
      *     passed in, the search starts from the end of the ArkTS Float32Array.
      * @returns { number } Index of the first occurrence of the value. If the value is not found, **-1** is returned.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The indexOf method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -6270,7 +5993,6 @@ declare namespace collections {
      * @param { string } [separator] - Separator to be used. If no value is passed in, a comma (,) is used as the
      *     separator.
      * @returns { string } String obtained. If the array is empty, an empty string is returned.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The join method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -6287,7 +6009,6 @@ declare namespace collections {
      *     accepts up to three arguments.
      *     The map method calls the callbackfn function one time for each element in the array.
      * @returns { Float32Array } New ArkTS Float32Array.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The map method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -6303,7 +6024,6 @@ declare namespace collections {
      *     accepts up to four arguments.
      *     The reduce method calls the callbackfn function one time for each element in the array.
      * @returns { number } Final result obtained from the last call of the reduce function.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The reduce method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -6323,7 +6043,6 @@ declare namespace collections {
      *     the accumulation. The first call to the callbackfn function provides this value as an argument
      *     instead of an array value.
      * @returns { U } Final result obtained from the last call of the reduce function.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The reduce method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -6349,7 +6068,6 @@ declare namespace collections {
      *
      * @param { ArrayLike<number> } array - A typed or untyped array of values to set.
      * @param { number } [offset] - The index in the current array at which the values are to be written.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The set method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -6366,7 +6084,6 @@ declare namespace collections {
      * @param { number } [end] - End index of the range (exclusive). If a negative number is passed in, it refers to the
      *     index of `end + Float32Array.length`. The default value is the length of the ArkTS Float32Array.
      * @returns { Float32Array } New ArkTS Float32Array.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The slice method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -6381,7 +6098,6 @@ declare namespace collections {
      * @param { TypedArrayPredicateFn<number, Float32Array> } predicate - Assertion function used for the test.
      * @returns { boolean } Check result. The value **true** is returned if an element meeting the given condition
      *     exists; otherwise, **false** is returned.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The some method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -6396,7 +6112,6 @@ declare namespace collections {
      * @param { TypedArrayCompareFn<number> } [compareFn] - Function that determines the sort order. By default,
      *     elements are sorted in ascending order.
      * @returns { Float32Array } Sorted ArkTS Float32Array.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The sort method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -6414,7 +6129,6 @@ declare namespace collections {
      * @param { number } [end] - End index of the range (exclusive). If a negative number is passed in, it refers to the
      *     index of `end + Float32Array.length`. The default value is the length of the ArkTS Float32Array.
      * @returns { Float32Array } New ArkTS Float32Array.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The subarray method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -6429,7 +6143,6 @@ declare namespace collections {
      * @param { number } index - The zero-based index of the desired code unit.<br/>
      *     A negative index will count back from the last item.
      * @returns { number | undefined } Element obtained. If no element is found, **undefined** is returned.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The at method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -6492,7 +6205,6 @@ declare namespace collections {
      * @param { number } [fromIndex] - The position in this array at which to begin searching for searchElement.
      * @returns { boolean } Check result. The value **true** is returned if the element exists; otherwise, **false** is
      *     returned.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The includes method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -6536,8 +6248,7 @@ declare namespace collections {
      * @param { U } initialValue - A value to use as the first argument to the first call of the callback.
      *     <br>If no initial value is provided, the last element of the Float32Array will be used,
      *     <br>and the callback will start with the second-to-last element.
-     * @returns { U } Final result obtained from the last call of the reduce function.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * @returns { U } Final result obtained from the last call of the reduce function. Possible causes:
      *     1.Mandatory parameters are left unspecified.
      *     2.Incorrect parameter types.
      * @throws { BusinessError } 10200011 - The reduceRight method cannot be bound.
@@ -6554,8 +6265,7 @@ declare namespace collections {
      *
      * @param { TypedArrayReduceCallback<number, number, Float32Array> } callbackFn - A function that is called
      *     for each element in the Float32Array.
-     * @returns { number } Final result obtained from the last call of the reduce function.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * @returns { number } Final result obtained from the last call of the reduce function. Possible causes:
      *     1.Mandatory parameters are left unspecified.
      *     2.Incorrect parameter types.
      * @throws { BusinessError } 10200011 - The reduceRight method cannot be bound.
@@ -6597,8 +6307,7 @@ declare namespace collections {
      *
      * @param { number[] } items - Array of elements used to create the array. The number of elements can be zero, one,
      *     or more.
-     * @returns { Float32Array } New ArkTS Float32Array instance.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * @returns { Float32Array } New ArkTS Float32Array instance. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 22]
@@ -6649,8 +6358,7 @@ declare namespace collections {
      * @param { number } element - Element to add. The value **0** indicates bit value 0, and other values indicate bit
      *     value 1.
      * @returns { boolean } Operation result. The value **true** is returned if the element is added; otherwise,
-     *     **false** is returned.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     **false** is returned. Possible causes:
      *     1.Mandatory parameters are left unspecified.
      *     2.Incorrect parameter types.
      * @throws { BusinessError } 10200011 - The push method cannot be bound.
@@ -6701,8 +6409,7 @@ declare namespace collections {
      * @param { number } fromIndex - Start index of the range (inclusive). If **fromIndex** is less than **0** or
      *     greater than or equal to **toIndex**, an error is thrown.
      * @param { number } toIndex - End index of the range (exclusive). If **toIndex** is less than **0** or greater than
-     *     or equal to **length**, an error is thrown.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     or equal to **length**, an error is thrown. Possible causes:
      *     1.Mandatory parameters are left unspecified.
      *     2.Incorrect parameter types.
      * @throws { BusinessError } 10200001 - The value of fromIndex or toIndex is out of range.
@@ -6718,8 +6425,7 @@ declare namespace collections {
      * Sets all elements in this bit vector to a bit value.
      *
      * @param { number } element - Bit value to set. The value **0** indicates bit value 0, and other values indicate
-     *     bit value 1.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     bit value 1. Possible causes:
      *     1.Mandatory parameters are left unspecified.
      *     2.Incorrect parameter types.
      * @throws { BusinessError } 10200011 - The setAllBits method cannot be bound.
@@ -6737,8 +6443,7 @@ declare namespace collections {
      *     greater than or equal to **toIndex**, an error is thrown.
      * @param { number } toIndex - End index of the range (exclusive). If **toIndex** is less than **0** or greater than
      *     or equal to **length**, an error is thrown.
-     * @returns { BitVector } Bit vector containing the bit values obtained.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * @returns { BitVector } Bit vector containing the bit values obtained. Possible causes:
      *     1.Mandatory parameters are left unspecified.
      *     2.Incorrect parameter types.
      * @throws { BusinessError } 10200001 - The value of fromIndex or toIndex is out of range.
@@ -6757,8 +6462,7 @@ declare namespace collections {
      * If **size** is less than or equal to the length of the existing bit vector, the bit vector is shrunk according to
      * the size.
      *
-     * @param { number } size - New length.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * @param { number } size - New length. Possible causes:
      *     1.Mandatory parameters are left unspecified.
      *     2.Incorrect parameter types.
      * @throws { BusinessError } 10200011 - The resize method cannot be bound.
@@ -6778,8 +6482,7 @@ declare namespace collections {
      *     greater than or equal to **toIndex**, an error is thrown.
      * @param { number } toIndex - End index of the range (exclusive). If **toIndex** is less than **0** or greater than
      *     or equal to **length**, an error is thrown.
-     * @returns { number } Number of bit values.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * @returns { number } Number of bit values. Possible causes:
      *     1.Mandatory parameters are left unspecified.
      *     2.Incorrect parameter types.
      * @throws { BusinessError } 10200001 - The value of fromIndex or toIndex is out of range.
@@ -6802,8 +6505,7 @@ declare namespace collections {
      * @param { number } toIndex - End index of the range (exclusive). If **toIndex** is less than **0** or greater than
      *     or equal to **length**, an error is thrown.
      * @returns { number } Index of the first occurrence of the bit value. If the bit value is not found, **-1** is
-     *     returned.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     returned. Possible causes:
      *     1.Mandatory parameters are left unspecified.
      *     2.Incorrect parameter types.
      * @throws { BusinessError } 10200001 - The value of fromIndex or toIndex is out of range.
@@ -6826,8 +6528,7 @@ declare namespace collections {
      * @param { number } toIndex - End index of the range (exclusive). If **toIndex** is less than **0** or greater than
      *     or equal to **length**, an error is thrown.
      * @returns { number } Index of the last occurrence of the bit value. If the bit value is not found, **-1** is
-     *     returned.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     returned. Possible causes:
      *     1.Mandatory parameters are left unspecified.
      *     2.Incorrect parameter types.
      * @throws { BusinessError } 10200001 - The value of fromIndex or toIndex is out of range.
@@ -6843,8 +6544,7 @@ declare namespace collections {
      * Flips the bit value (from 0 to 1 or from 1 to 0) at a given index in this bit vector.
      *
      * @param { number } index - Index. If **index** is less than **0** or greater than or equal to **length**, an error
-     *     is reported.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     is reported. Possible causes:
      *     1.Mandatory parameters are left unspecified.
      *     2.Incorrect parameter types.
      * @throws { BusinessError } 10200001 - The value of index is out of range.
@@ -6862,8 +6562,7 @@ declare namespace collections {
      * @param { number } fromIndex - Start index of the range (inclusive). If **fromIndex** is less than **0** or
      *     greater than or equal to **toIndex**, an error is thrown.
      * @param { number } toIndex - End index of the range (exclusive). If **toIndex** is less than **0** or greater than
-     *     or equal to **length**, an error is thrown.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     or equal to **length**, an error is thrown. Possible causes:
      *     1.Mandatory parameters are left unspecified.
      *     2.Incorrect parameter types.
      * @throws { BusinessError } 10200001 - The value of fromIndex or toIndex is out of range.

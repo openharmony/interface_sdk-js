@@ -229,6 +229,16 @@ export declare struct PhotoPickerComponent {
   onError?: ErrorCallback;
 
   /**
+   * Callback when the zoom scale changes during large image browsing.
+   *
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  onPhotoBrowserZoom?: PhotoBrowserZoomCallback;
+
+  /**
    * PickerController
    *
    * @type { ?PickerController }
@@ -405,6 +415,17 @@ export declare class PickerController {
    * @since 23 dynamic
    */
   setMovingPhotoState(movingPhotoState: photoAccessHelper.MovingPhotoBadgeStateType): Promise<void>;
+
+  /**
+   * Call this method to obtain the complete data after a selection operation has finished.
+   *
+   * @returns { Promise<CompletedResult> } Promise<CompletedResult>
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  completed(): Promise<CompletedResult>;
 }
 
 /**
@@ -672,6 +693,16 @@ export declare class PickerOptions extends photoAccessHelper.BaseSelectOptions {
    * @since 24 dynamic
    */
   backgroundOpacity?: number;
+
+  /**
+   * Context recovery information for restoring the last selection session.
+   *
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  contextRecoveryInfo?: photoAccessHelper.ContextRecoveryInfo;
 }
 
 /**
@@ -1181,6 +1212,27 @@ export declare class UpdatablePickerConfigs {
    * @since 24 dynamic
    */
   backgroundOpacity?: number;
+
+  
+  /**
+   * Support set photoBrowserMargin
+   *
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  photoBrowserMargin?: Margin;
+
+  /**
+   * Support set gridMargin
+   *
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  gridMargin?: Margin;
 }
 
 /**
@@ -1256,6 +1308,49 @@ export declare class PickerError {
    * @since 23 dynamic
    */
   message: string;
+}
+
+/**
+ * CompletedResult
+ *
+ * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+ * @stagemodelonly
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+export declare class CompletedResult {
+  /**
+   * URIs of the images or videos selected. The URI array can be used only by calling photoAccessHelper.getAssets 
+   * with temporary authorization. For details about how to use the media file URI, see Using a Media File URI.
+   *
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  photoUris: Array<string>;
+
+  /**
+   * Contextual information about the PhotoPicker's exit state.
+   *
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  contextRecoveryInfo: photoAccessHelper.ContextRecoveryInfo;
+
+  /**
+   * M​oving photo badge states for the selected media files in the gallery.
+   * When isMovingPhotoBadgeShown is true, movingPhotoBadgeStates contains the moving photo states;
+   * otherwise, it is empty.
+   *
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  movingPhotoBadgeStates: Array<photoAccessHelper.MovingPhotoBadgeStateType>;
 }
 
 /**
@@ -1849,3 +1944,14 @@ export type PhotoBrowserChangeStartCallback = (targetPhotoInfo: BaseItemInfo) =>
  * @since 23 dynamic
  */
 export type ErrorCallback = (pickerError: PickerError) => void;
+
+/**
+ * The callback of onPhotoBrowserZoom event
+ *
+ * @param { double } scale
+ * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+ * @stagemodelonly
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+export type PhotoBrowserZoomCallback = (scale: double) => void;

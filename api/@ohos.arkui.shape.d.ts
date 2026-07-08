@@ -18,13 +18,11 @@
  * @kit ArkUI
  */
 
-
-
 /**
- * Interface for shape size properties.
+ * Describes the size of a shape.
  *
- * @interface ShapeSize
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @form
  * @atomicservice
@@ -32,10 +30,17 @@
  */
 interface ShapeSize {
   /**
-   * Defines the width of Shape.
+   * Width of the shape.
    * 
-   * @type { ? (number | string) }
+   * When the parameter type is number, the valid value range is 
+   * [0, +∞). When the parameter type is string, the value must conform to the [Length]{@link Length} type specification.
+   * 
+   * Unit: vp.
+   * 
+   * If the value is invalid, 0 vp is used.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice
@@ -44,10 +49,17 @@ interface ShapeSize {
   width?: number | string;
 
   /**
-   * Defines the height of Shape.
+   * Height of the shape.
    * 
-   * @type { ? (number | string) }
+   * When the parameter type is number, the valid value range is 
+   * [0, +∞). When the parameter type is string, the value must conform to the [Length]{@link Length} type specification.
+   * 
+   * Unit: vp.
+   * 
+   * If the value is invalid, 0 vp is used.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice
@@ -57,11 +69,12 @@ interface ShapeSize {
 }
 
 /**
- * Interface for RectShape constructor parameters.
+ * Represents the parameter of the constructor used to create a **RectShape** object.
+ * 
+ * This API inherits from [ShapeSize]{@link ShapeSize}.
  *
- * @extends ShapeSize
- * @interface RectShapeOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @form
  * @atomicservice
@@ -69,10 +82,17 @@ interface ShapeSize {
  */
 interface RectShapeOptions extends ShapeSize {
   /**
-   * Defines the corner radius of the RectShape.
+   * Radius of the rectangle border corners.
    * 
-   * @type { ? (number | string | Array<number | string>) }
+   * When the parameter type is number, the valid value range is 
+   * [0, +∞). When the parameter type is string, the value must conform to the [Length]{@link Length} type specification.
+   * 
+   * Unit: vp.
+   * 
+   * If the value is invalid, 0 vp is used.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice
@@ -82,11 +102,12 @@ interface RectShapeOptions extends ShapeSize {
 }
 
 /**
- * Interface for RectShape constructor parameters with separate radius values.
+ * Represents the parameter of the constructor used to create a **RectShape** object with rounded corners.
+ * 
+ * This API inherits from [ShapeSize]{@link ShapeSize}.
  *
- * @extends ShapeSize
- * @interface RoundRectShapeOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @form
  * @atomicservice
@@ -94,10 +115,17 @@ interface RectShapeOptions extends ShapeSize {
  */
 interface RoundRectShapeOptions extends ShapeSize {
   /**
-   * Defines the width of the corner radius for RectShape.
+   * Radius width of the rectangle border corners.
    * 
-   * @type { ? (number | string) }
+   * When the parameter type is number, the valid value range is 
+   * [0, +∞). When the parameter type is string, the value must conform to the [Length]{@link Length} type specification.
+   * 
+   * Unit: vp.
+   * 
+   * If the value is invalid, 0 vp is used.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice
@@ -106,10 +134,17 @@ interface RoundRectShapeOptions extends ShapeSize {
   radiusWidth?: number | string;
 
   /**
-   * Defines the height of the corner radius for RectShape.
+   * Radius height of the rectangle border corners.
    * 
-   * @type { ? (number | string) }
+   * When the parameter type is number, the valid value range is 
+   * [0, +∞). When the parameter type is string, the value must conform to the [Length]{@link Length} type specification.
+   * 
+   * Unit: vp.
+   * 
+   * If the value is invalid, 0 vp is used.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice
@@ -119,10 +154,10 @@ interface RoundRectShapeOptions extends ShapeSize {
 }
 
 /**
- * Interface for PathShape constructor parameters.
+ * Represents the parameter of the constructor used to create a **PathShape** object.
  *
- * @interface PathShapeOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @form
  * @atomicservice
@@ -130,10 +165,10 @@ interface RoundRectShapeOptions extends ShapeSize {
  */
 interface PathShapeOptions {
   /**
-   * Defines the commands for drawing the PathShape.
-   * 
-   * @type { ?string }
+   * Path drawing commands. For more about the commands, see [commands]{@link PathAttribute#commands}.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice
@@ -143,9 +178,10 @@ interface PathShapeOptions {
 }
 
 /**
- * Common shape method class
+ * Implements the common shape methods.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @form
  * @atomicservice
@@ -153,11 +189,12 @@ interface PathShapeOptions {
  */
 declare class CommonShapeMethod<T> {
   /**
-   * Sets coordinate offset relative to the layout completion position.
+   * Sets the coordinate offset relative to the component's layout position.
    *
-   * @param { Position } offset
-   * @returns { T }
+   * @param { Position } offset - Coordinate offset relative to the component's layout position.
+   * @returns { T } Current object.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice
@@ -166,11 +203,14 @@ declare class CommonShapeMethod<T> {
   offset(offset: Position): T;
 
   /**
-   * Sets the fill color of the shape.
+   * Sets the fill color of this shape, which determines its opacity, with black representing full transparency and 
+   * white representing full opacity.
    *
-   * @param { ResourceColor } color
-   * @returns { T }
+   * @param { ResourceColor } color - Fill color of the shape, which represents the opacity of the fill area. The black
+   *     color indicates full transparency, while white indicates full opacity.
+   * @returns { T } Current object.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice
@@ -181,9 +221,10 @@ declare class CommonShapeMethod<T> {
   /**
    * Sets the position of the shape.
    *
-   * @param { Position } position
-   * @returns { T }
+   * @param { Position } position - Position of the shape.
+   * @returns { T } Current object.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice
@@ -193,10 +234,10 @@ declare class CommonShapeMethod<T> {
 }
 
 /**
- * Base shape class
+ * This API inherits from [CommonShapeMethod]{@link CommonShapeMethod}.
  *
- * @extends CommonShapeMethod<T>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @form
  * @atomicservice
@@ -204,11 +245,12 @@ declare class CommonShapeMethod<T> {
  */
 declare class BaseShape<T> extends CommonShapeMethod<T> {
   /**
-   * Sets the width of the shape.
+   * Sets the width of a shape.
    *
-   * @param { Length } width
-   * @returns { T }
+   * @param { Length } width - Width of the shape.<br>Unit: vp.<br>If the value is invalid, 0 vp is used.
+   * @returns { T } Current object.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice
@@ -217,11 +259,12 @@ declare class BaseShape<T> extends CommonShapeMethod<T> {
   width(width: Length): T;
 
   /**
-   * Sets the height of the shape.
+   * Sets the height of a shape.
    *
-   * @param { Length } height
-   * @returns { T }
+   * @param { Length } height - Height of the shape.<br>Unit: vp.<br>If the value is invalid, 0 vp is used.
+   * @returns { T } Current object.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice
@@ -230,11 +273,12 @@ declare class BaseShape<T> extends CommonShapeMethod<T> {
   height(height: Length): T;
 
   /**
-   * Sets the size of the shape.
+   * Sets the size of a shape.
    *
-   * @param { SizeOptions } size
-   * @returns { T }
+   * @param { SizeOptions } size - Size of the shape.
+   * @returns { T } Current object.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice
@@ -244,10 +288,12 @@ declare class BaseShape<T> extends CommonShapeMethod<T> {
 }
 
 /**
- * Defines a rect drawing class.
+ * Represents a rectangle shape used in the **clipShape** and **maskShape** APIs.
  * 
- * @extends BaseShape<RectShape>
+ * This API inherits from [BaseShape]{@link BaseShape}.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @form
  * @atomicservice
@@ -255,10 +301,11 @@ declare class BaseShape<T> extends CommonShapeMethod<T> {
  */
 export declare class RectShape extends BaseShape<RectShape> {
   /**
-   * Constructor.
+   * A constructor used to create a **RectShape** object.
    *
-   * @param { RectShapeOptions | RoundRectShapeOptions } options
+   * @param { RectShapeOptions | RoundRectShapeOptions } options - Rectangle parameters.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice
@@ -267,11 +314,14 @@ export declare class RectShape extends BaseShape<RectShape> {
   constructor(options?: RectShapeOptions | RoundRectShapeOptions);
 
   /**
-   * Sets the width of the corner radius for RectShape.
+   * Sets the radius width of the rectangle border corners.
    *
-   * @param { number | string } rWidth
-   * @returns { RectShape }
+   * @param { number | string } rWidth - Radius width of the rectangle border corners.<br> When the parameter type is
+   *     number, the valid value range is
+   *     [0, +∞). When the parameter type is string, the value must conform to the [Length]{@link Length} type specification.<br>Unit: vp.<br>If the value is invalid, 0 vp is used.
+   * @returns { RectShape } **RectShape** object.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice
@@ -280,11 +330,14 @@ export declare class RectShape extends BaseShape<RectShape> {
   radiusWidth(rWidth: number | string): RectShape;
 
   /**
-   * Sets the height of the corner radius for RectShape.
+   * Sets the radius height of the rectangle border corners.
    *
-   * @param { number | string } rHeight
-   * @returns { RectShape }
+   * @param { number | string } rHeight - Radius height of the rectangle border corners.<br> When the parameter type is
+   *     number, the valid value range is
+   *     [0, +∞). When the parameter type is string, the value must conform to the [Length]{@link Length} type specification.<br>Unit: vp.<br>If the value is invalid, 0 vp is used.
+   * @returns { RectShape } **RectShape** object.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice
@@ -293,11 +346,16 @@ export declare class RectShape extends BaseShape<RectShape> {
   radiusHeight(rHeight: number | string): RectShape;
 
   /**
-   * Sets the corner radius for RectShape.
+   * Sets the radius of the rectangle border corners.
    *
-   * @param { number | string | Array<number | string> } radius
-   * @returns { RectShape }
+   * @param { number | string | Array<number | string> } radius - Radius of the rectangle border corners. When an array
+   *     is provided, it should contain exactly four elements, corresponding to the radius of the upper left, upper
+   *     right, lower left, and lower right corners of the rectangle, respectively. If more than four elements are
+   *     contained, only the first four are accepted.<br> When the parameter type is number, the valid value range is
+   *     [0, +∞). When the parameter type is string, the value must conform to the [Length]{@link Length} type specification.<br>Unit: vp.<br>If the value is invalid, 0 vp is used.
+   * @returns { RectShape } **RectShape** object.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice
@@ -307,10 +365,12 @@ export declare class RectShape extends BaseShape<RectShape> {
 }
 
 /**
- * Defines a circle drawing class.
+ * Represents a circle shape used in the **clipShape** and **maskShape** APIs.
  * 
- * @extends BaseShape<CircleShape>
+ * This API inherits from [BaseShape]{@link BaseShape}.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @form
  * @atomicservice
@@ -318,10 +378,11 @@ export declare class RectShape extends BaseShape<RectShape> {
  */
 export declare class CircleShape extends BaseShape<CircleShape> {
   /**
-   * Constructor.
+   * A constructor used to create a **CircleShape** object.
    *
-   * @param { ShapeSize } options
+   * @param { ShapeSize } options - Size of the shape.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice
@@ -331,10 +392,12 @@ export declare class CircleShape extends BaseShape<CircleShape> {
 }
 
 /**
- * Defines an ellipse drawing class.
+ * Represents an ellipse shape used in the **clipShape** and **maskShape** APIs.
  * 
- * @extends BaseShape<EllipseShape>
+ * This API inherits from [BaseShape]{@link BaseShape}.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @form
  * @atomicservice
@@ -342,10 +405,11 @@ export declare class CircleShape extends BaseShape<CircleShape> {
  */
 export declare class EllipseShape extends BaseShape<EllipseShape> {
   /**
-   * Constructor.
+   * A constructor used to create a **EllipseShape** object.
    *
-   * @param { ShapeSize } options
+   * @param { ShapeSize } options - Size of the shape.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice
@@ -355,10 +419,12 @@ export declare class EllipseShape extends BaseShape<EllipseShape> {
 }
 
 /**
- * Defines a path drawing class.
+ * Represents a path used in the **clipShape** and **maskShape** APIs.
  * 
- * @extends CommonShapeMethod<PathShape>
+ * This API inherits from [CommonShapeMethod]{@link CommonShapeMethod}.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @form
  * @atomicservice
@@ -366,10 +432,11 @@ export declare class EllipseShape extends BaseShape<EllipseShape> {
  */
 export declare class PathShape extends CommonShapeMethod<PathShape> {
   /**
-   * Constructor.
+   * A constructor used to create a **PathShape** object.
    *
-   * @param { PathShapeOptions } options
+   * @param { PathShapeOptions } options - Path parameters.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice
@@ -378,11 +445,12 @@ export declare class PathShape extends CommonShapeMethod<PathShape> {
   constructor(options?: PathShapeOptions);
 
   /**
-   * Sets the commands for drawing the PathShape.
+   * Sets the path drawing commands.
    *
-   * @param { string } commands
-   * @returns { PathShape }
+   * @param { string } commands - Path drawing commands.
+   * @returns { PathShape } **PathShape** object.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice

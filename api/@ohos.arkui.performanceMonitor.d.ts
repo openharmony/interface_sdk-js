@@ -19,145 +19,166 @@
  */
 
 /**
- * Provides interfaces to monitor a scene for performance measurement.
+ * The **performanceMonitor** module provides APIs for monitoring performance metrics related to user scenes. By calling
+ * the **begin** and **end** APIs at the start and end of a scene respectively, you can obtain relevant performance
+ * metrics such as response latency, completion latency, and frame drops.
  *
- * <p>These interfaces are used to monitor the begin, end, and value changes of finger processes that last for at least
- * 3 ms.
+ * > **NOTE**
+ * >
+ * > The APIs of this module are supported since API version 10. Updates will be marked with a superscript to indicate
+ * > their
+ * >
+ * > The APIs provided by this module are system APIs.
  *
- * <p>Example:
- * import "@ohos.arkui.performanceMonitor.d.ts"
- * To start scene monitoring that is expected to complete within 5 ms:
- * <pre>{@code
- * performanceMonitor.begin(string, ActionType, string);
- * //scene finished
- * performanceMonitor.end(string);
- * }</pre>
- *
- * <p>Each {@code begin} matches one {@code end}, and they must have the same scene id.
- *
- * @namespace performanceMonitor
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
+ * @stagemodelonly
  * @since 10 dynamic
  */
 declare namespace performanceMonitor {
   /**
-   * Enumerates the input event type.
+   * Enumerates the trigger modes for user scenes (typically scenes involving animations).
    *
-   * @enum { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @stagemodelonly
    * @since 10 dynamic
    */
   export enum ActionType {
     /**
-     * The user presses the finger on the screen.
+     * Pressing against the screen.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
+     * @stagemodelonly
      * @since 10 dynamic
      */
     LAST_DOWN = 0,
 
     /**
-     * The user lifts up the finger from the screen.
+     * Lifting a finger off the screen.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
+     * @stagemodelonly
      * @since 10 dynamic
      */
     LAST_UP = 1,
 
     /**
-     * The user first moves the finger after pressing down the screen.
+     * First swiping on the screen.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
+     * @stagemodelonly
      * @since 10 dynamic
      */
     FIRST_MOVE = 2
   }
   
   /**
-   * Enumerates the input source type.
+   * Enumerates the trigger source types of user scenes.
    *
-   * @enum { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @stagemodelonly
    * @since 12 dynamic
    */
   export enum SourceType {
     /**
-     * The user touches the screen to trigger the scene.
+     * Touchscreen event.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
+     * @stagemodelonly
      * @since 12 dynamic
      */
     PERF_TOUCH_EVENT = 0,
 
     /**
-     * TThe user uses the mouse to trigger the scene.
+     * Mouse event.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
+     * @stagemodelonly
      * @since 12 dynamic
      */
     PERF_MOUSE_EVENT = 1,
 
     /**
-     * The user uses the touchpad to trigger the scene.
+     * Touchpad event.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
+     * @stagemodelonly
      * @since 12 dynamic
      */
     PERF_TOUCHPAD_EVENT = 2,
-    
+
     /**
-     * The user uses the joystick to trigger the scene.
+     * Joystick event.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
+     * @stagemodelonly
      * @since 12 dynamic
      */
     PERF_JOYSTICK_EVENT = 3,
 
     /**
-     * The user uses the keyboard to trigger the scene.
+     * Keyboard event.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
+     * @stagemodelonly
      * @since 12 dynamic
      */
     PERF_KEY_EVENT = 4
   }
 
   /**
-   * Begin monitoring an application scene.
+   * Marks the start of a user scene. Call this API when the scene begins.
    *
-   * @param { string } scene Indicates the scene name.
-   * @param { ActionType } startInputType Indicates the scene input event type.
-   * @param { string } note Indicates the app expected info delivered.
+   * @param { string } scene - User scene ID. The string length is unlimited, but it is recommended that you keep it
+   *     within 255 characters. The format is recommended to use uppercase letters connected by underscores, for
+   *     example, **LAUNCHER_APP_LAUNCH_FROM_ICON**.
+   * @param { ActionType } startInputType - Trigger mode of the user scene.
+   * @param { string } note - Remarks for the user scene. The string length is unlimited, but it is recommended that you
+   *     keep it within 255 characters. This field is optional. If provided, the performance metrics report will include
+   *     the remark information; if not provided, there is no impact.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @stagemodelonly
    * @since 10 dynamic
    */
   function begin(scene: string, startInputType: ActionType, note?: string): void;
 
   /**
-   * End monitoring an application scene.
+   * Marks the end of a user scene. Call this API when the scene ends.
    *
-   * @param { string } scene Indicates the scene name. It must be the same with the {@code scene} of start.
+   * @param { string } scene - User scene ID, which must be strictly consistent with that in **begin**; otherwise, the
+   *     monitoring will be invalid.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @stagemodelonly
    * @since 10 dynamic
    */
   function end(scene: string): void;
-  
+
   /**
-   * recordInputEventTime monitoring an application scene.
+   * Records the trigger event type and time before the start of the animation scene.
    *
-   * @param { ActionType } type - Indicates the scene input event type.
-   * @param { SourceType } sourceType - Indicates the scene input source type.
-   * @param { number } time - Indicates the scene input time.
-   * @throws { BusinessError } 202 - not system application. 
+   * @param { ActionType } type - Trigger mode of the user scene.
+   * @param { SourceType } sourceType - Trigger source of the user scene.
+   * @param { number } time - Scenario trigger timestamp (in ms), for example, **1751508570794**. Values equal to or
+   *     less than 0 will be automatically converted to the current system time, while positive values will be used as-
+   *     is. Incorrect parameters may cause abnormal response latency metrics.
+   * @throws { BusinessError } 202 - not system application.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @stagemodelonly
    * @since 12 dynamic
    */
-  function recordInputEventTime(type: ActionType, sourceType: SourceType, time: number): void;  
+  function recordInputEventTime(type: ActionType, sourceType: SourceType, time: number): void;
 }
 export default performanceMonitor;

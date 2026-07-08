@@ -19,9 +19,8 @@
  */
 
 /**
- * Indicates the common data types.
+ * The commonType module defines common data types in data management.
  *
- * @namespace commonType
  * @syscap SystemCapability.DistributedDataManager.CommonType
  * @crossplatform
  * @since 11 dynamic
@@ -29,9 +28,8 @@
  */
 declare namespace commonType {
   /**
-   * Describes the status of asset.
+   * Enumerates the asset statuses.
    *
-   * @enum { int }
    * @syscap SystemCapability.DistributedDataManager.CommonType
    * @crossplatform
    * @since 11 dynamic
@@ -39,7 +37,7 @@ declare namespace commonType {
    */
   enum AssetStatus {
     /**
-     * Means the status of asset is normal.
+     * The asset is in normal status.
      *
      * @syscap SystemCapability.DistributedDataManager.CommonType
      * @crossplatform
@@ -49,7 +47,7 @@ declare namespace commonType {
     ASSET_NORMAL,
 
     /**
-     * Means the asset needs to be inserted.
+     * The asset is to be inserted to the cloud.
      *
      * @syscap SystemCapability.DistributedDataManager.CommonType
      * @crossplatform
@@ -59,7 +57,7 @@ declare namespace commonType {
     ASSET_INSERT,
 
     /**
-     * Means the asset needs to be updated.
+     * The asset is to be updated to the cloud.
      *
      * @syscap SystemCapability.DistributedDataManager.CommonType
      * @crossplatform
@@ -69,7 +67,7 @@ declare namespace commonType {
     ASSET_UPDATE,
 
     /**
-     * Means the asset needs to be deleted.
+     * The asset is to be deleted from the cloud.
      *
      * @syscap SystemCapability.DistributedDataManager.CommonType
      * @crossplatform
@@ -79,7 +77,7 @@ declare namespace commonType {
     ASSET_DELETE,
 
     /**
-     * Means the status of asset is abnormal.
+     * The asset is in abnormal status.
      *
      * @syscap SystemCapability.DistributedDataManager.CommonType
      * @crossplatform
@@ -89,7 +87,7 @@ declare namespace commonType {
     ASSET_ABNORMAL,
 
     /**
-     * Means the status of asset is downloading.
+     * The asset is being downloaded to a local device.
      *
      * @syscap SystemCapability.DistributedDataManager.CommonType
      * @crossplatform
@@ -100,9 +98,8 @@ declare namespace commonType {
   }
 
   /**
-   * Information of the asset.
+   * Represents asset (such as a file, image, or video) information.
    *
-   * @interface Asset
    * @syscap SystemCapability.DistributedDataManager.CommonType
    * @crossplatform
    * @since 11 dynamic
@@ -110,8 +107,8 @@ declare namespace commonType {
    */
   interface Asset {
     /**
-     * The name of asset.
-     * @type { string }
+     * Asset name.
+     *
      * @syscap SystemCapability.DistributedDataManager.CommonType
      * @crossplatform
      * @since 11 dynamic
@@ -120,9 +117,8 @@ declare namespace commonType {
     name: string;
 
     /**
-     * The uri of asset.
+     * Asset URI, which is an absolute path in the system.
      *
-     * @type { string }
      * @syscap SystemCapability.DistributedDataManager.CommonType
      * @crossplatform
      * @since 11 dynamic
@@ -131,9 +127,8 @@ declare namespace commonType {
     uri: string;
 
     /**
-     * The path of asset.
+     * Application sandbox path of the asset.
      *
-     * @type { string }
      * @syscap SystemCapability.DistributedDataManager.CommonType
      * @crossplatform
      * @since 11 dynamic
@@ -142,9 +137,8 @@ declare namespace commonType {
     path: string;
 
     /**
-     * The created time of asset.
+     * Time when the asset was created.
      *
-     * @type { string }
      * @syscap SystemCapability.DistributedDataManager.CommonType
      * @crossplatform
      * @since 11 dynamic
@@ -153,9 +147,8 @@ declare namespace commonType {
     createTime: string;
 
     /**
-     * The modified time of asset. If this field changes, the asset is considered to have changed.
+     * Time when the asset was last modified.
      *
-     * @type { string }
      * @syscap SystemCapability.DistributedDataManager.CommonType
      * @crossplatform
      * @since 11 dynamic
@@ -164,9 +157,8 @@ declare namespace commonType {
     modifyTime: string;
 
     /**
-     * The size of asset. If this field changes, the asset is considered to have changed.
+     * Size of the asset. If this field changes, the asset is considered to have changed.
      *
-     * @type { string }
      * @syscap SystemCapability.DistributedDataManager.CommonType
      * @crossplatform
      * @since 11 dynamic
@@ -175,9 +167,8 @@ declare namespace commonType {
     size: string;
 
     /**
-     * The status of asset.
+     * Asset status. The default value is ASSET_NORMAL.
      *
-     * @type { ?AssetStatus }
      * @syscap SystemCapability.DistributedDataManager.CommonType
      * @crossplatform
      * @since 11 dynamic
@@ -187,9 +178,8 @@ declare namespace commonType {
   }
 
   /**
-   * Indicates several assets
+   * Represents an array of Assets.
    *
-   * @typedef { Array<Asset> }
    * @syscap SystemCapability.DistributedDataManager.CommonType
    * @crossplatform
    * @since 11 dynamic
@@ -198,9 +188,16 @@ declare namespace commonType {
   type Assets = Array<Asset>;
 
   /**
-   * Indicates possible value types.
+   * Enumerates the value types, which vary with the parameter function.
    *
-   * @typedef { null | long | double | string | boolean | Uint8Array | Asset | Assets }
+   * @unionmember { null } The value is null.
+   * @unionmember { long } The value is a 64-bit integer (int64_t).
+   * @unionmember { double } The value is a floating-point number (float).
+   * @unionmember { string } The value is a string.
+   * @unionmember { boolean } The value is true or false.
+   * @unionmember { Uint8Array } The value is an array of 8-bit unsigned integers.
+   * @unionmember { Asset } The value is an instance of the Asset type.
+   * @unionmember { Assets } The value is an instance of the Assets type.
    * @syscap SystemCapability.DistributedDataManager.CommonType
    * @crossplatform
    * @since 11 dynamic
@@ -209,9 +206,8 @@ declare namespace commonType {
   type ValueType = null | long | double | string | boolean | Uint8Array | Asset | Assets;
 
   /**
-   * Values in buckets are stored in key-value pairs.
+   * Defines the types of the key and value in a KV pair.
    *
-   * @typedef { Record<string, ValueType> }
    * @syscap SystemCapability.DistributedDataManager.CommonType
    * @crossplatform
    * @since 11 dynamic

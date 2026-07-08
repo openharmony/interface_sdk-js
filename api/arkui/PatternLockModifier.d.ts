@@ -18,35 +18,24 @@
  * @kit ArkUI
  */
 
-
-
-
 /**
  * Defines PatternLock Modifier
  *
- * @extends PatternLockAttribute
- * @implements AttributeModifier<PatternLockAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform [since 20]
  * @atomicservice
- * @since 12
-*/
-/**
- * Defines PatternLock Modifier
- *
- * @extends PatternLockAttribute
- * @implements AttributeModifier<PatternLockAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20 dynamic
+ * @since 12 dynamic
+ * @noninterop
  */
 export declare class PatternLockModifier extends PatternLockAttribute implements AttributeModifier<PatternLockAttribute> {
 
   /**
    * Defines the normal update attribute function.
-   * 
+   *
    * @param { PatternLockAttribute } instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic

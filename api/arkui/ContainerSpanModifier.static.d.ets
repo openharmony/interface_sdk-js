@@ -29,6 +29,7 @@ import { ContainerSpanAttribute } from '@ohos.arkui.component';
  *
  * @implements { ContainerSpanAttribute, AttributeModifier<ContainerSpanAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare class ContainerSpanModifier implements

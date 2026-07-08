@@ -396,24 +396,12 @@ declare class ArrayList<T> {
  * @param { T } secondValue - secondValue (required) next element.
  * @returns { double } the number type
  * @syscap SystemCapability.Utils.Lang
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 23 dynamic&static
  */
-/**
- * This type specifies the comparator of sort in comparation.
- *
- * @param { T } firstValue - firstValue (required) previous element.
- * @param { T } secondValue - secondValue (required) next element.
- * @returns { int } the number type
- * @syscap SystemCapability.Utils.Lang
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 23 dynamic
- * @since 24 static
- */
-export type ArrayListComparatorFn<T> = (firstValue: T, secondValue: T) => int;
+export type ArrayListComparatorFn<T> = (firstValue: T, secondValue: T) => double;
 
 /**
  * The type of ArrayList callback function.

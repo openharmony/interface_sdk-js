@@ -12,106 +12,120 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- 
+
 /**
+ * The **Base** module defines the public callback types of ArkTS APIs, including the common and error callbacks.
+ *
+ * > **NOTE**
+ * >
+ * > - The initial APIs of this module are supported since API version 6. Newly added APIs will be marked with a
+ * >   superscript to indicate their earliest API version.
+ * > 
+ * > - Since API version 12, the APIs of this module are supported in ArkTS widgets.
+ *
  * @file
  * @kit BasicServicesKit
  */
- 
+
 /**
- * Defines the basic callback.
+ * Defines a common callback. You can set **data** to customize the data type of the information returned by the
+ * callback.
  *
- * @typedef { Callback<T> }
  * @syscap SystemCapability.Base
+ * @param { T } data - Common callback information.
  * @since 23 static
  */
- export type Callback<T> = (data: T) => void;
+export type Callback<T> = (data: T) => void;
 
- /**
-  * Defines the basic error callback.
-  *
-  * @typedef { ErrorCallback<T extends Error = BusinessError> }
-  * @syscap SystemCapability.Base
-  * @since 23 static
-  */
- export type ErrorCallback<T extends Error = BusinessError> = (err: T)=> void;
- 
- /**
-  * Defines the basic async callback.
-  *
-  * @typedef { AsyncCallback<T, E = void> }
-  * @syscap SystemCapability.Base
-  * @since 23 static
-  */
- export type AsyncCallback<T, E = void> = (err: BusinessError<E> | null, data: T | undefined)=> void;
- 
- /**
-  * Defines the error interface.
-  * @syscap SystemCapability.Base
-  * @since 23 static
-  */
- export declare class BusinessError<T = void> extends Error {
-   /**
-   * A constructor used to create a BusinessError object
+/**
+ * Defines a common callback that carries an error parameter. The information returned by the callback is of
+ * the [BusinessError]{@link BusinessError} type.
+ *
+ * @syscap SystemCapability.Base
+ * @param { T } err - Common error information about the API invoking failure.
+ * @since 23 static
+ */
+export type ErrorCallback<T extends Error = BusinessError> = (err: T) => void;
+
+/**
+ * Defines a common callback that carries an error parameter and asynchronous return value.The error parameter is of
+ * the [BusinessError]{@link BusinessError} type. The type of the asynchronous return value is defined by the
+ * developer.
+ *
+ * @syscap SystemCapability.Base
+ * @param { BusinessError } err - Common error information about the API invoking failure.
+ * @param { T } data - Common callback information.
+ * @since 23 static
+ */
+export type AsyncCallback<T, E = void> = (err: BusinessError<E> | null, data: T | undefined) => void;
+
+/**
+ * Defines the error parameter.
+ *
+ * @syscap SystemCapability.Base
+ * @param { T } data - Common callback information. If this parameter is left empty, no related information is returned.
+ * @since 23 static
+ */
+export declare class BusinessError<T = void> extends Error {
+
+  /**
+   * Defines a constructor used to create a BusinessError object.
+   *
    * @syscap SystemCapability.Base
    * @since 23 static
    */
-   constructor();
-   /**
-   * A constructor used to create a BusinessError object
-   * @param { int } code
-   * @param { Error } error
+  constructor();
+
+  /**
+   * Defines a constructor used to create a **BusinessError** object.
+   *
+   * @param { int } code - Common error information about the API invoking failure.
+   * @param { Error } error - Defines the error parameter.
    * @syscap SystemCapability.Base
    * @since 23 static
    */
-   constructor(code: int, error: Error);
-   /**
-   * A constructor used to create a BusinessError object
-   * @param { int } code
-   * @param { T } data
-   * @param { Error } error
+  constructor(code: int, error: Error);
+
+  /**
+   * Defines a constructor used to create a **BusinessError** object.
+   *
+   * @param { int } code - Common error information about the API invoking failure.
+   * @param { T } data - Common callback information.
+   * @param { Error } error - Defines the error parameter.
    * @syscap SystemCapability.Base
    * @since 23 static
    */
-   constructor(code: int, data: T, error: Error);
-   /**
-   * A constructor used to create a BusinessError object
-   * @param { int } code
-   * @param { string } message
-   * @param { T } [data]
+  constructor(code: int, data: T, error: Error);
+
+  /**
+   * Defines a constructor used to create a **BusinessError** object.
+   *
+   * @param { int } code - Common error information about the API invoking failure.
+   * @param { string } message - Error message returned when the API call fails.
+   * @param { T } data - Common callback information.
    * @syscap SystemCapability.Base
    * @since 23 static
    */
-   constructor(code: int, message: string, data?: T);
- 
-    /**
-    * Defines the additional information for business
-    * @type { ?T } data
-    * @syscap SystemCapability.Base
-    * @since 23 static
-    */
-   public data?: T;
- }
- 
- /**
-  * In ArkTS static typing, for literals where the hierarchy and the number
-  * of attributes per level are uncertain, you can use RecordData for initialization.
-  * @typedef RecordData
-  * @syscap SystemCapability.Base
-  * @since 23 staticonly
-  * @example
-  * import { RecordData } from '@kit.BasicServiceKit';
-  * const param: RecordData = {
-  *   "key": {
-  *   "a": 1
-  *   }
-  * }
-  * let want: Want = {
-  *   bundleName: 'com.example.myapplication',
-  *   abilityName: 'EntryAbility',
-  *   parameters: param
-  * };
-  * this.context.startAbility(want);
-  */
- export type RecordData = undefined | null | Object | Record<string, RecordData> | Array<RecordData>;
- 
+  constructor(code: int, message: string, data?: T);
+
+  /**
+   * Common callback information. If this parameter is left empty, no related information is returned.
+   *
+   * @syscap SystemCapability.Base
+   * @since 23 static
+   */
+  public data?: T;
+}
+
+/**
+ * RecordData is a union type used for object structures with uncertain levels and quantities at each level.
+ *
+ * @unionmember { undefined } Undefined type.
+ * @unionmember { null } Null type.
+ * @unionmember { Object } Object type.
+ * @unionmember { Record<string, RecordData> } Record type with string keys and RecordData values.
+ * @unionmember { Array<RecordData> } Array type containing RecordData elements.
+ * @syscap SystemCapability.Base
+ * @since 23 staticonly
+ */
+export type RecordData = undefined | null | Object | Record<string, RecordData> | Array<RecordData>;

@@ -14,247 +14,158 @@
  */
 
 /**
- * @file
+ * @file Intention Code
  * @kit InputKit
  */
 
 /**
- * IntentionCode
+ * The **intentionCode** module maps the original events of the keyboard to intention codes for normalized interaction.
+ * For example, if the mapped event of the space bar on the keyboard is **INTENTION_SELECT**, the intent is to select an
+ * item.
  *
- * @enum { number }
  * @syscap SystemCapability.MultimodalInput.Input.Core
- * @since 10
- */
-/**
- * IntentionCode
- *
- * @enum { number }
- * @syscap SystemCapability.MultimodalInput.Input.Core
- * @atomicservice
- * @since 12 dynamic
+ * @atomicservice [since 12]
+ * @since 10 dynamic
  * @since 23 static
  */
 export declare enum IntentionCode {
+
   /**
-   * INTENTION_UNKNOWN
+   * Unknown intent
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 10
-   */
-  /**
-   * INTENTION_UNKNOWN
-   *
-   * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 10 dynamic
    * @since 23 static
    */
   INTENTION_UNKNOWN = -1,
 
   /**
-   * INTENTION_UP
+   * Up
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 10
-   */
-  /**
-   * INTENTION_UP
-   *
-   * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 10 dynamic
    * @since 23 static
    */
   INTENTION_UP = 1,
 
   /**
-   * INTENTION_DOWN
+   * Down
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 10
-   */
-  /**
-   * INTENTION_DOWN
-   *
-   * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 10 dynamic
    * @since 23 static
    */
   INTENTION_DOWN = 2,
 
   /**
-   * INTENTION_LEFT
+   * Left
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 10
-   */
-  /**
-   * INTENTION_LEFT
-   *
-   * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 10 dynamic
    * @since 23 static
    */
   INTENTION_LEFT = 3,
 
   /**
-   * INTENTION_RIGHT
+   * Right
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 10
-   */
-  /**
-   * INTENTION_RIGHT
-   *
-   * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 10 dynamic
    * @since 23 static
    */
   INTENTION_RIGHT = 4,
 
   /**
-   * INTENTION_SELECT
+   * Select
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 10
-   */
-  /**
-   * INTENTION_SELECT
-   *
-   * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 10 dynamic
    * @since 23 static
    */
   INTENTION_SELECT = 5,
 
   /**
-   * INTENTION_ESCAPE
+   * Escape
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 10
-   */
-  /**
-   * INTENTION_ESCAPE
-   *
-   * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 10 dynamic
    * @since 23 static
    */
   INTENTION_ESCAPE = 6,
 
   /**
-   * INTENTION_BACK
+   * Back
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 10
-   */
-  /**
-   * INTENTION_BACK
-   *
-   * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 10 dynamic
    * @since 23 static
    */
   INTENTION_BACK = 7,
 
   /**
-   * INTENTION_FORWARD
+   * Forward
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 10
-   */
-  /**
-   * INTENTION_FORWARD
-   *
-   * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 10 dynamic
    * @since 23 static
    */
   INTENTION_FORWARD = 8,
 
   /**
-   * INTENTION_MENU
+   * Menu
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 10
-   */
-  /**
-   * INTENTION_MENU
-   *
-   * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 10 dynamic
    * @since 23 static
    */
   INTENTION_MENU = 9,
 
   /**
-   * INTENTION_PAGE_UP
+   * Page up
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 10
-   */
-  /**
-   * INTENTION_PAGE_UP
-   *
-   * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 10 dynamic
    * @since 23 static
    */
   INTENTION_PAGE_UP = 11,
 
   /**
-   * INTENTION_PAGE_DOWN
+   * Page down
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 10
-   */
-  /**
-   * INTENTION_PAGE_DOWN
-   *
-   * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 10 dynamic
    * @since 23 static
    */
   INTENTION_PAGE_DOWN = 12,
 
   /**
-   * INTENTION_ZOOM_OUT
+   * Zoom out
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 10
-   */
-  /**
-   * INTENTION_ZOOM_OUT
-   *
-   * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 10 dynamic
    * @since 23 static
    */
   INTENTION_ZOOM_OUT = 13,
 
   /**
-   * INTENTION_ZOOM_IN
+   * Zoom in
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 10
-   */
-  /**
-   * INTENTION_ZOOM_IN
-   *
-   * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 10 dynamic
    * @since 23 static
    */
   INTENTION_ZOOM_IN = 14

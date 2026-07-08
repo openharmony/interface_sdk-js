@@ -51,6 +51,7 @@ import update from '@ohos.update';
 import usb from '@ohos.usb';
 import usbManager from '@ohos.usbManager';
 import serialManager from '@ohos.usbManager.serial';
+import serial from '@ohos.busManager.serial';
 import wallpaper from '@ohos.wallpaper';
 import WallpaperExtensionAbility from '@ohos.WallpaperExtensionAbility';
 import zlib from '@ohos.zlib';
@@ -88,16 +89,20 @@ export {
   screenLock, settings, systemCapability, systemDateTime, systemParameter, systemParameterEnhance, systemTime,
   systemTimer, thermal, update, usb, usbManager, serialManager, wallpaper, zlib, commonEventManager, emitter, StaticSubscriberExtensionAbility,
   StaticSubscriberExtensionContext, systemLoad, intelligentVoice, selectionManager, SelectionExtensionAbility,
-  PanelInfo, PanelType, SelectionExtensionContext, Available, SuppressWarnings, SuppressWarningsType, intelligentScene
+  PanelInfo, PanelType, SelectionExtensionContext, Available, SuppressWarnings, SuppressWarningsType, intelligentScene,
+  serial
 };
 
 /*** if arkts static */
 import configPolicy from '@ohos.configPolicy';
 import customConfig from '@ohos.customization.customConfig';
 import { AsyncCallback, BusinessError, Callback, ErrorCallback, RecordData } from '@ohos.base';
+import deviceInfo from '@ohos.deviceInfo';
 import zlib from '@ohos.zlib';
 import commonEventManager from '@ohos.commonEventManager';
 import emitter from '@ohos.events.emitter';
+import StaticSubscriberExtensionAbility from '@ohos.application.StaticSubscriberExtensionAbility';
+import StaticSubscriberExtensionContext from '@ohos.application.StaticSubscriberExtensionContext';
 import systemDateTime from '@ohos.systemDateTime';
 import systemTimer from '@ohos.systemTimer';
 import systemLoad from '@ohos.resourceschedule.systemload';
@@ -106,9 +111,11 @@ import appAccount from '@ohos.account.appAccount';
 import distributedAccount from '@ohos.account.distributedAccount';
 import osAccount from '@ohos.account.osAccount';
 import intelligentScene from '@ohos.intelligentScene';
+import { Available } from '@ohos.annotation';
 
 export {
   zlib, configPolicy, AsyncCallback, BusinessError, Callback, ErrorCallback, RecordData, customConfig, systemDateTime,
-  systemTimer, systemLoad, request, commonEventManager, emitter, appAccount, distributedAccount, osAccount, intelligentScene
+  deviceInfo,systemTimer, systemLoad, request, commonEventManager, emitter, StaticSubscriberExtensionAbility,
+  StaticSubscriberExtensionContext, appAccount, distributedAccount, osAccount, intelligentScene, Available
 };
 /*** endif */

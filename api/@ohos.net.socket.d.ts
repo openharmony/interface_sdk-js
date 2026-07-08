@@ -36,6 +36,18 @@ import type cert from './@ohos.security.cert';
  * @since 10 dynamic
  */
 declare namespace socket {
+  /**
+   * Defines a network address.
+   * @syscap SystemCapability.Communication.NetStack
+   * @since 8
+   */
+  /**
+   * Define a network address.
+   * @syscap SystemCapability.Communication.NetStack
+   * @crossplatform
+   * @since 24 dynamic
+   * @since 26.0.0 static
+   */
   export import NetAddress = connection.NetAddress;
   /**
    * Deposit certificate
@@ -1482,6 +1494,16 @@ declare namespace socket {
    * @since 26.0.0 static
      */
     getSocketFd(): Promise<int>;
+
+    /**
+     * Sets whether the multicast socket supports address reuse.
+     *
+     * @param { boolean } reuse - whether the multicast socket supports address reuse.
+     * @syscap SystemCapability.Communication.NetStack
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    setReuseAddress(reuse: boolean): void;
   }
 
   /**

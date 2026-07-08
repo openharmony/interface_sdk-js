@@ -19,50 +19,39 @@
  */
 
 /**
- * Define the namespace for uiMaterial, which contains the definitions of HarmonyOS-style material objects.
+ * This module provides APIs for system materials. Different system materials correspond to different UI effects, 
+ * including the background color ([backgroundColor]{@link CommonMethod#backgroundColor(value: ResourceColor)}), border 
+ * color ([borderColor]{@link CommonMethod#borderColor}), border width ([borderWidth]{@link CommonMethod#borderWidth}), 
+ * and shadow ([shadow]{@link CommonMethod#shadow(value: ShadowOptions | ShadowStyle)}).
  *
- * @namespace uiMaterial
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @systemapi
+ * @systemapi [since 23 - 24]
+ * @publicapi [since 26.0.0]
  * @stagemodelonly
+ * @crossplatform [since 26.0.0]
  * @form
+ * @atomicservice [since 26.0.0]
  * @since 23 dynamic
- */
-/**
- * Define the namespace for uiMaterial, which contains the definitions of HarmonyOS-style material objects.
- *
- * @namespace uiMaterial
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @form
- * @atomicservice
- * @since 26.0.0 dynamic
  */
 declare namespace uiMaterial {
   /**
-   * Enum of the type of material.
+   * Enumerates system material types.
    *
-   * @enum { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
+   * @systemapi [since 23 - 24]
+   * @publicapi [since 26.0.0]
    * @stagemodelonly
+   * @crossplatform [since 26.0.0]
    * @form
+   * @atomicservice [since 26.0.0]
    * @since 23 dynamic
-   */
-  /**
-   * Enum of the type of material.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 26.0.0 dynamic
    */
   enum MaterialType {
     /**
-     * Material type with no effect.
+     * No system material effect. The corresponding effects are: 
+     * [backgroundColor]{@link CommonMethod#backgroundColor(value: ResourceColor)} and 
+     * [borderColor]{@link CommonMethod#borderColor} are transparent, [borderWidth]{@link CommonMethod#borderWidth} is 
+     * 0, and there is no [shadow]{@link CommonMethod#shadow(value: ShadowOptions | ShadowStyle)}.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
@@ -72,7 +61,18 @@ declare namespace uiMaterial {
      */
     NONE = 0,
     /**
-     * Material type for semitransparent style. It includes predefined backgroundColor, border, and shadow effects.
+     * Semi-transparent system material effect. The corresponding effect is as follows:
+     * 
+     * [backgroundColor]{@link CommonMethod#backgroundColor(value: ResourceColor)}:
+     * #f2f1f3f5 in light mode and #f2303131 in dark mode.
+     * 
+     * [borderColor]{@link CommonMethod#borderColor}: 
+     * [token](docroot://ui/theme_skinning.md#system-default-token-color-values) value of 
+     * **theme.colors.compForegroundPrimary** with 10% transparency. 
+     * 
+     * [borderWidth]{@link CommonMethod#borderWidth}: 1 vp.
+     * 
+     * [shadow]{@link CommonMethod#shadow(value: ShadowOptions | ShadowStyle)}: ShadowStyle.OUTER_DEFAULT_SM.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
@@ -82,7 +82,10 @@ declare namespace uiMaterial {
      */
     SEMI_TRANSPARENT = 1,
     /**
-     * Material type for immersive style.
+     * Immersive material type. It is used only by the **type** attribute of the 
+     * [MaterialInfo]{@link uiMaterial.MaterialInfo} API to identify the current material type and does not map to 
+     * underlying features. The actual material effect is implemented by the 
+     * [ImmersiveMaterial]{@link uiMaterial.ImmersiveMaterial} class.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -94,7 +97,8 @@ declare namespace uiMaterial {
   }
 
   /**
-   * Enum of the material state configuration.
+   * Enumerates the material enabling states, indicating the states of the application-level immersive system material 
+   * configuration.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -102,9 +106,15 @@ declare namespace uiMaterial {
    * @atomicservice
    * @since 26.0.0 dynamic
    */
-  enum MaterialState {
+  enum MaterialState {  
     /**
-     * Default mode: Dialog, Toast, AlphabetIndexer, Text selection menu use immersive material by default.
+     * Default state. The immersive system material is enabled by default for the 
+     * [Dialog](docroot://ui/arkts-base-dialog-overview.md), [Toast](docroot://ui/arkts-create-toast.md), and 
+     * [AlphabetIndexer]{@link alphabet_indexer} components if the background color, blur, and shadow are not set for 
+     * the components. The immersive system material is enabled by default for the text menu triggered by long-pressing 
+     * or double-clicking after [copyOption]{@link TextAttribute#copyOption} is set in the [Text]{@link text} component.
+     * For other components, whether the immersive system material is enabled is set by the application.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @crossplatform
@@ -113,7 +123,18 @@ declare namespace uiMaterial {
      */
     DEFAULT = 0,
     /**
-     * Enable mode: The component uses immersive material by default.
+     * Enabled state. The immersive system material is enabled by default for the 
+     * [Dialog](docroot://ui/arkts-base-dialog-overview.md), [Toast](docroot://ui/arkts-create-toast.md), 
+     * [AlphabetIndexer]{@link alphabet_indexer}, [ChipGroup]{@link @ohos.arkui.advanced.ChipGroup}, 
+     * [Chip]{@link @ohos.arkui.advanced.Chip}, [Select]{@link select}, [Menu Control]{@link common}, 
+     * [Toggle]{@link toggle}, [SegmentButton]{@link @ohos.arkui.advanced.SegmentButton}, 
+     * [SegmentButtonV2]{@link @ohos.arkui.advanced.SegmentButtonV2}, [Slider]{@link slider}, 
+     * [bindSheet]{@link CommonMethod#bindSheet}, and [SelectionMenu]{@link @ohos.arkui.advanced.SelectionMenu}. After 
+     * [copyOption]{@link TextAttribute#copyOption} is set for the [Text]{@link text} component, the immersive system 
+     * material is enabled by default for the text menu triggered by long-pressing or double-clicking. In this state, 
+     * the immersive system material style takes precedence over the background color, blur, shadow, and border style 
+     * set for the components. You need to set whether to enable the immersive system material for other components.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @crossplatform
@@ -122,18 +143,20 @@ declare namespace uiMaterial {
      */
     ENABLE = 1,
     /**
-     * Disable mode: All components disable immersive material.
+     * Disabled state. The immersive system material cannot be enabled for any component. Even if you set the immersive 
+     * system material parameters for a component, the settings will not take effect.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 26.0.0 dynamic
      */
-    DISABLE = 2,
+    DISABLE = 2
   }
 
   /**
-   * Material information containing state and type.
+   * Provides material configuration information, including the material enabling state and material type.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -141,9 +164,11 @@ declare namespace uiMaterial {
    * @atomicservice
    * @since 26.0.0 dynamic
    */
-  interface MaterialInfo {
+  interface MaterialInfo {  
     /**
-     * The material state configuration.
+     * Material enabling state.
+     *
+     * @default MaterialState.DEFAULT
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @crossplatform
@@ -153,8 +178,10 @@ declare namespace uiMaterial {
     state: MaterialState;
 
     /**
-     * Currently configured material type.
+     * Material type ID, indicating the material type corresponding to the current configuration. The value is used only
+     * for type identification and does not map to underlying features.
      *
+     * @default MaterialType.IMMERSIVE
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @crossplatform
@@ -165,9 +192,12 @@ declare namespace uiMaterial {
   }
 
   /**
-   * Get material information from application configuration.
-   * 
-   * @returns { MaterialInfo } The material information containing state and type.
+   * Obtains the material configuration information of this application. The returned configuration information comes 
+   * from the metadata configured in the [module.json5](docroot://quick-start/module-configuration-file.md) file of the 
+   * application.
+   *
+   * @returns { MaterialInfo } Material configuration information of this application, including the material enabling
+   *     state and material type.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -177,7 +207,8 @@ declare namespace uiMaterial {
   function getMaterialInfo(): MaterialInfo;
 
   /**
-   * The enumeration of material styles. Different material styles have different thicknesses.
+   * Enumerates immersive material styles. Different material styles correspond to different material parameters, 
+   * including the blur degree and brightness.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -187,7 +218,7 @@ declare namespace uiMaterial {
    */
   enum ImmersiveStyle {
     /**
-     * Ultra thin style. The material layer is ultra thin, with a very strong transparency effect.
+     * Ultra-thin style, which provides a very strong transparent effect.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -197,7 +228,7 @@ declare namespace uiMaterial {
      */
     ULTRA_THIN = 0,
     /**
-     * Thin style. The material layer is thin, with a strong transparency effect.
+     * Thin style, which provides a strong transparent effect.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -207,7 +238,7 @@ declare namespace uiMaterial {
      */
     THIN = 1,
     /**
-     * Regular style. The material layer is regular.
+     * Regular style, which means the material layer is of regular thickness.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -217,7 +248,7 @@ declare namespace uiMaterial {
      */
     REGULAR = 2,
     /**
-     * Thick style. The blur effect is strong.
+     * Thick style, which provides a strong blur effect.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -227,7 +258,7 @@ declare namespace uiMaterial {
      */
     THICK = 3,
     /**
-     * Ultra thick style.
+     * Ultra-thick style, which provides a very strong blur effect.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -236,12 +267,226 @@ declare namespace uiMaterial {
      * @since 26.0.0 dynamic
      */
     ULTRA_THICK = 4,
+
+    /**
+     * Ultra thin style. The material layer is ultra thin, with a very strong transparency effect,
+     * set on EffectComponent.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    ULTRA_THIN_EC = 5,
+    /**
+     * Thin style. The material layer is thin, with a strong transparency effect, set on EffectComponent.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    THIN_EC = 6,
+    /**
+     * Regular style. The material layer is regular, set on EffectComponent.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    REGULAR_EC = 7,
+    /**
+     * Thick style. The blur effect is strong, set on EffectComponent.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    THICK_EC = 8,
+    /**
+     * Ultra thick style, set on EffectComponent.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    ULTRA_THICK_EC = 9,
+    /**
+     * Ultra thin style. The material layer is ultra thin, with a very strong transparency effect,
+     * set on sub component of EffectComponent.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    ULTRA_THIN_EC_SUB = 10,
+    /**
+     * Thin style. The material layer is thin, with a strong transparency effect,
+     * set on sub component of EffectComponent.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    THIN_EC_SUB = 11,
+    /**
+     * Regular style. The material layer is regular, set on sub component of EffectComponent.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    REGULAR_EC_SUB = 12,
+    /**
+     * Thick style. The blur effect is strong, set on sub component of EffectComponent.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    THICK_EC_SUB = 13,
+    /**
+     * Ultra thick style, set on sub component of EffectComponent.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    ULTRA_THICK_EC_SUB = 14
   }
 
   /**
-   * The parameters of immersive material.
+   * Enumerates the material levels, which indicate the computing power level of the device.
+   * Use [getGlobalMaterialLevel]{@link uiMaterial.getGlobalMaterialLevel()} to obtain the material level
+   * of the current device.
    *
-   * @interface
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  enum MaterialLevel {
+    /**
+     * Material level of devices with high-level computing power.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    EXQUISITE = 0,
+    /**
+     * Material level of devices with mid-level computing power.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    GENTLE = 1,
+    /**
+     * Material level of devices with low-level computing power.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    SMOOTH = 2,
+  }
+
+  /**
+   * Obtains the global material level, which is related to the device computing power. This configuration item
+   * is defined by the device and cannot be modified.
+   *
+   * @returns { MaterialLevel } Material level of the device.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  function getGlobalMaterialLevel(): MaterialLevel;
+
+  /**
+   * Check whether [ImmersiveMaterial]{@link uiMaterial#ImmersiveMaterial} is supported on the current device.
+   * If it is true, the ImmersiveMaterial object can be used in the
+   * [systemMaterial]{@link CommonMethod#systemMaterial(material: SystemUiMaterial | undefined)} attribute.
+   * If it is false, setting the ImmersiveMaterial object in the systemMaterial attribute will not take effect.
+   * It is defined by the device and cannot be modified.
+   *
+   * @returns { boolean } Whether the current device supports ImmersiveMaterial. The value true indicates that the
+   *     current device supports ImmersiveMaterial, and false indicates the opposite.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  function isImmersiveMaterialSupported(): boolean;
+
+  /**
+   * Convert from ImmersiveMaterial to another ImmersiveMaterial set on EffectComponent.
+   *
+   * @param { uiMaterial.ImmersiveMaterial } material - The ImmersiveMaterial.
+   * @returns { uiMaterial.ImmersiveMaterial } The ImmersiveMaterial set on EffectComponent.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  function convertToECMaterial(material: uiMaterial.ImmersiveMaterial) : uiMaterial.ImmersiveMaterial;
+  /**
+   * Convert from ImmersiveMaterial to another ImmersiveMaterial set on sub component of EffectComponent.
+   *
+   * @param { uiMaterial.ImmersiveMaterial } material - The ImmersiveMaterial.
+   * @returns { uiMaterial.ImmersiveMaterial } The ImmersiveMaterial set on sub component of EffectComponent.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  function convertToECSubMaterial(material: uiMaterial.ImmersiveMaterial) : uiMaterial.ImmersiveMaterial;
+
+  /**
+   * Immersive material parameters.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -250,10 +495,15 @@ declare namespace uiMaterial {
   */
   interface ImmersiveOptions {
     /**
-     * The style of the material. Different styles correspond to different material parameters, which affect the
-     * thickness of the material.
+     * Material style. Different styles correspond to different material parameters, which affect the material 
+     * thickness.
+     * 
+     * Note: This parameter takes effect only for the display effect of devices with high- and mid-level computing 
+     * power.
+     * 
+     * Default value: **ImmersiveStyle.REGULAR**
      *
-     * @default uiMaterial.MaterialStyle.REGULAR
+     * @default uiMaterial.ImmersiveStyle.REGULAR
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @crossplatform
@@ -262,9 +512,15 @@ declare namespace uiMaterial {
      */
     style?: ImmersiveStyle,
     /**
-     * The extra color of material level. This parameter will add a specified color effect to the material.
+     * Coloring of the material layer. This parameter is used to add a pure color effect for the material filter. The 
+     * pure color must have a certain transparency value and cannot be completely opaque. Otherwise, the material filter
+     * effect will be completely blocked.
+     * 
+     * Note: This parameter takes effect only for the display effect of devices with high- and mid-level computing 
+     * power.
+     * 
+     * Default value: **Color.Transparent**
      *
-     * @type { ?ResourceColor }
      * @default Color.Transparent
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -274,12 +530,36 @@ declare namespace uiMaterial {
      */
     materialColor?: ResourceColor,
     /**
-     * It determines whether the child tree of a node that has a material object set automatically adapts the material
-     * to the background color. If it is false, the color will not be automatically inverted. If it is true, the color
-     * will be automatically inverted only when other conditions are met, for example, the material style is THIN or
-     * ULTRA_THIN.
+     * Whether the subtree of the node of the material object automatically adapts the material to the complementary 
+     * color of the background color.
+     * 
+     * **false** indicates the material is not automatically adapted to the complementary color of the background color.
+     * 
+     * **true** indicates that the material is automatically adapted to the complementary color of the background color 
+     * only when the material layer is thin enough. The materials that can be adapted to the complementary color are 
+     * defined by the system. Such materials must have at least the **THIN** or **ULTRA_THIN** style, and are related to
+     * the strength configuration of the immersive light effect of the application. The thinner the material and the 
+     * stronger the immersive light effect, the more likely the material meets the requirements for adapting to the 
+     * complementary color.
+     * 
+     * The capability of automatically adapting the material to the complementary color takes effect only when special 
+     * resource values are set for some attribute APIs. The attribute APIs include 
+     * [fontColor]{@link TextAttribute#fontColor} of the **Text** component, 
+     * [fontColor]{@link ButtonAttribute#fontColor} of the **Button** component, 
+     * [fontColor]{@link SymbolGlyphAttribute#fontColor(value: Array<ResourceColor>)} of the **SymbolGlyph** component, 
+     * [fillColor]{@link ImageAttribute#fillColor(value: ResourceColor)} of the **Image** component, icon colors in 
+     * [placeholderColor]{@link SearchAttribute#placeholderColor}, [fontColor]{@link SearchAttribute#fontColor}, and 
+     * [searchIcon]{@link SearchAttribute#searchIcon} of the **Search** component, icon colors in 
+     * [cancelButton]{@link SearchAttribute#cancelButton}, caret colors in 
+     * [caretStyle]{@link SearchAttribute#caretStyle}, and text and icon colors in 
+     * [tabBar]{@link TabContentAttribute#tabBar(options: string | Resource | CustomBuilder | TabBarOptions)} of the 
+     * **TabContent** component when the [BottomTabBarStyle]{@link BottomTabBarStyle} style is used.
+     * 
+     * Note: This parameter takes effect only for the display effect of devices with high- and mid-level computing 
+     * power.
+     * 
+     * Default value: **false**
      *
-     * @type { ?boolean }
      * @default false
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -289,9 +569,16 @@ declare namespace uiMaterial {
      */
     colorInvert?: boolean,
     /**
-     * It determines whether to add shadows of the material effect.
+     * Whether to add a shadow effect for a material.
+     * 
+     * If this parameter is set to **true**, the added shadow effect in the material always takes effect, which takes 
+     * precedence over the general [shadow]{@link CommonMethod#shadow(value: ShadowOptions | ShadowStyle)} attribute. If
+     * this parameter is set to **false**, only the general shadow attribute takes effect.
+     * 
+     * Note: This parameter takes effect only for the display effect of devices with all levels of computing power.
+     * 
+     * Default value: **true**
      *
-     * @type { ?boolean }
      * @default true
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -301,22 +588,12 @@ declare namespace uiMaterial {
      */
     applyShadow?: boolean,
     /**
-     * It determines whether enable the spatial animation related to the material effect.
+     * Whether to set an interactive deformation effect for the component with a material set.
+     * 
+     * Note: This parameter takes effect for the display effect of devices with all levels of computing power.
+     * 
+     * Default value: **false**
      *
-     * @type { ?boolean }
-     * @default true
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 26.0.0 dynamic
-     */
-    enableAnimation?: boolean,
-    /**
-     * Whether the material supports interactive.
-     *
-     * @type { ?boolean }
-     * @default true
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @crossplatform
@@ -324,12 +601,52 @@ declare namespace uiMaterial {
      * @since 26.0.0 dynamic
      */
     interactive?: boolean,
+    /**
+     * Whether to set a light sensing interaction feedback effect for the component with a material set. If this 
+     * parameter is set to null, the light sensing interaction feedback effect is disabled.
+     * 
+     * Note: This parameter takes effect for the display effect of devices with all levels of computing power.
+     * 
+     * Default value: **undefined**, indicating that the light sensing interaction feedback effect is not set.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    lightEffect?: LightEffectOptions | null;
   }
+
+  /**
+   * Provides the light sensing interaction feedback configuration for immersive materials. The configuration is used to
+   * customize the color of the light sensing feedback.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  interface LightEffectOptions {  
+    /**
+     * Custom color of the light sensing feedback.
+     * 
+     * Default value: **Color.White**
+     *
+     * @default Color.White
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    color?: ResourceColor;
+ 	}
  	
   /**
-   * Define the interface containing various material parameters.
+   * System material options.
    *
-   * @interface MaterialOptions
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -338,9 +655,10 @@ declare namespace uiMaterial {
    */
   interface MaterialOptions {
     /**
-     * The type of the material.
+     * Material type.
+     * 
+     * Default value: **MaterialType.NONE**.
      *
-     * @type { ?MaterialType }
      * @default uiMaterial.MaterialType.NONE
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
@@ -348,34 +666,27 @@ declare namespace uiMaterial {
      * @form
      * @since 23 dynamic
      */
-    type?: MaterialType,
+    type?: MaterialType;
   }
 
   /**
-   * Define the class of material.
+   * System material object on the UI.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
+   * @systemapi [since 23 - 24]
+   * @publicapi [since 26.0.0]
    * @stagemodelonly
+   * @crossplatform [since 26.0.0]
    * @form
+   * @atomicservice [since 26.0.0]
    * @since 23 dynamic
-   */
-  /**
-   * Define the class of material.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 26.0.0 dynamic
    */
   class Material {
     /**
-     * Constructor of material class.
+     * A constructor used to create a **Material** object.
      *
-     * @param { MaterialOptions } [options] - the options to construct a material.
-     *     <br>Default value:{type:uiMaterial.MaterialType.NONE}
+     * @param { MaterialOptions } [options] - System material options, including the material type.
+     *     <br>Default value: **{type:MaterialType.NONE}**.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @stagemodelonly
@@ -383,10 +694,16 @@ declare namespace uiMaterial {
      * @since 23 dynamic
      */
     constructor(options?: MaterialOptions);
+
     /**
-     * Disables the material effect
+     * Returns an empty material object, which is used to disable the immersive system material effect for a component. 
+     * The usage method is **uiMaterial.Material.empty**.
+     * 
+     * In enabled state, you can disable the immersive system material effect for a component by setting 
+     * **systemMaterial(uiMaterial.Material.empty)**. If the component does not support the component-level immersive 
+     * system material API, the material effect cannot be disabled using this API.
      *
-     * @returns { Material }
+     * @returns { Material } Empty material object, indicating that there is no material effect.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @crossplatform
@@ -397,7 +714,18 @@ declare namespace uiMaterial {
   }
 
   /**
-   * Define the class of immersive material.
+   * Immersive material class, which inherits from [Material]{@link uiMaterial.MaterialType}.
+   * 
+   * The performance of an immersive material varies based on device computing power. The high, medium, and low levels 
+   * of device computing power are determined by device vendors and defined in the system configuration files. On 
+   * devices with high- and mid-level computing power, the filter and 
+   * [shadow]{@link CommonMethod#shadow(value: ShadowOptions | ShadowStyle)} effects of the material layer are affected.
+   * On devices with low-level computing power, the 
+   * [background color]{@link CommonMethod#backgroundColor(value: ResourceColor)}, 
+   * [border color]{@link CommonMethod#borderColor}, [border width]{@link CommonMethod#borderWidth}, and 
+   * [shadow]{@link CommonMethod#shadow(value: ShadowOptions | ShadowStyle)} effects are affected. In addition, the 
+   * effect of the same material is affected by the immersive light configuration in the application. The material 
+   * parameters and effects vary depending on the immersive light configuration.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -407,10 +735,12 @@ declare namespace uiMaterial {
    */
   class ImmersiveMaterial extends Material {
     /**
-     * Constructor of ImmersiveMaterial class
+     * Constructs **ImmersiveMaterial**.
      *
-     * @param { ImmersiveOptions } [options] - the options to construct an immersive material.
-     *     If this parameter is left blank. the default ImmersiveOptions is used.
+     * @param { ImmersiveOptions } [options] - System material configuration options, including the material style and
+     *     material layer coloring.<br>For details about the default values, see the default values of the parameters in
+     *     the **ImmersiveOptions** API, that is,
+     *     **{style:ImmersiveStyle.REGULAR, materialColor:Color.Transparent, colorInvert:false, applyShadow:true, interactive:false, lightEffect:undefined}**.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @crossplatform
@@ -425,19 +755,12 @@ declare namespace uiMaterial {
  * export uiMaterial namespace.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @systemapi
+ * @systemapi [since 23 - 24]
+ * @publicapi [since 26.0.0]
  * @stagemodelonly
+ * @crossplatform [since 26.0.0]
  * @form
+ * @atomicservice [since 26.0.0]
  * @since 23 dynamic
- */
-/**
- * export uiMaterial namespace.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @form
- * @atomicservice
- * @since 26 dynamic
  */
 export default uiMaterial;

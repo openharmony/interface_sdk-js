@@ -14,6 +14,11 @@
  */
 
 /**
+ * The module defines the bundle information. An application can obtain its own bundle information through 
+ * [bundleManager.getBundleInfoForSelf]{@link @ohos.bundle.bundleManager:bundleManager.getBundleInfoForSelf(bundleFlags: int)}
+ * , with [bundleFlags]{@link @ohos.bundle.bundleManager:bundleManager.BundleFlag} set to the information to be 
+ * contained in the returned [BundleInfo]{@link BundleInfo}.
+ *
  * @file
  * @kit AbilityKit
  */
@@ -23,245 +28,102 @@ import { HapModuleInfo, RouterItem } from './HapModuleInfo';
 import bundleManager from './../@ohos.bundle.bundleManager';
 
 /**
- * Obtains configuration information about a bundle
+ * The module defines the bundle information.
  *
- * @typedef BundleInfo
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
- * @since 9
- */
-/**
- * Obtains configuration information about a bundle
- *
- * @typedef BundleInfo
- * @syscap SystemCapability.BundleManager.BundleFramework.Core
- * @atomicservice
- * @since 11
- */
-/**
- * Obtains configuration information about a bundle
- *
- * @typedef BundleInfo
- * @syscap SystemCapability.BundleManager.BundleFramework.Core
- * @crossplatform
- * @atomicservice
- * @since 20 dynamic
+ * @crossplatform [since 20]
+ * @atomicservice [since 11]
+ * @since 9 dynamic
  * @since 23 static
  */
 export interface BundleInfo {
   /**
-   * Indicates the name of this bundle
+   * Name of the application package. It corresponds to the **bundleName** field in the
+   * [app.json5](docroot://quick-start/app-configuration-file.md) file.
    *
-   * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  /**
-   * Indicates the name of this bundle
-   *
-   * @type { string }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Indicates the name of this bundle
-   *
-   * @type { string }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
+   * @crossplatform [since 20]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   readonly name: string;
 
   /**
-   * Indicates the bundle vendor
+   * Vendor of the application package. It corresponds to the **vendor** field in the
+   * [app.json5](docroot://quick-start/app-configuration-file.md) file.
    *
-   * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  /**
-   * Indicates the bundle vendor
-   *
-   * @type { string }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Indicates the bundle vendor
-   *
-   * @type { string }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
+   * @crossplatform [since 20]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   readonly vendor: string;
 
   /**
-   * Indicates the version code of the bundle
+   * Version code of the application package. It corresponds to the **versionCode** field in the
+   * [app.json5](docroot://quick-start/app-configuration-file.md) file.
    *
-   * @type { number }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  /**
-   * Indicates the version code of the bundle
-   *
-   * @type { number }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Indicates the version code of the bundle
-   *
-   * @type { long }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
+   * @crossplatform [since 20]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   readonly versionCode: long;
 
   /**
-   * Indicates the version name of the bundle
+   * Version description of the application package. It corresponds to the **versionName** field in the
+   * [app.json5](docroot://quick-start/app-configuration-file.md) file.
    *
-   * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  /**
-   * Indicates the version name of the bundle
-   *
-   * @type { string }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Indicates the version name of the bundle
-   *
-   * @type { string }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
+   * @crossplatform [since 20]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   readonly versionName: string;
 
   /**
-   * Indicates the **minimum ** version compatible with the bundle
+   * Minimum compatible version of the application package in the distributed scenario. It corresponds to the
+   * **minCompatibleVersionCode** field in the [app.json5](docroot://quick-start/app-configuration-file.md) file.
    *
-   * @type { number }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  /**
-   * Indicates the **minimum ** version compatible with the bundle
-   *
-   * @type { number }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Indicates the **minimum ** version compatible with the bundle
-   *
-   * @type { int }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
+   * @crossplatform [since 20]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   readonly minCompatibleVersionCode: int;
 
   /**
-   * Indicates the target version number of the bundle
+   * Target version of the application. It corresponds to the **targetAPIVersion** field in the
+   * [app.json5](docroot://quick-start/app-configuration-file.md) file.
    *
-   * @type { number }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  /**
-   * Indicates the target version number of the bundle
-   *
-   * @type { number }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Indicates the target version number of the bundle
-   *
-   * @type { int }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
+   * @crossplatform [since 20]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   readonly targetVersion: int;
 
   /**
-   * Obtains configuration information about an application
+   * Application information. The information can be obtained by passing in **GET_BUNDLE_INFO_WITH_APPLICATION** to the
+   * **bundleFlags** parameter of
+   * [getBundleInfoForSelf]{@link @ohos.bundle.bundleManager:bundleManager.getBundleInfoForSelf(bundleFlags: int)}.
    *
-   * @type { ApplicationInfo }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  /**
-   * Obtains configuration information about an application
-   *
-   * @type { ApplicationInfo }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Obtains configuration information about an application
-   *
-   * @type { ApplicationInfo }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
+   * @crossplatform [since 20]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   readonly appInfo: ApplicationInfo;
 
   /**
    * Obtains configuration information about an application
    *
-   * @type { ApplicationInfo | null }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @since 23 static
@@ -269,129 +131,65 @@ export interface BundleInfo {
   readonly appInfo: ApplicationInfo | null;
 
   /**
-   * Obtains configuration information about a module
+   * Module configuration information. The information can be obtained by passing in **GET_BUNDLE_INFO_WITH_HAP_MODULE**
+   * to the **bundleFlags** parameter of
+   * [getBundleInfoForSelf]{@link @ohos.bundle.bundleManager:bundleManager.getBundleInfoForSelf(bundleFlags: int)}.
    *
-   * @type { Array<HapModuleInfo> }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  /**
-   * Obtains configuration information about a module
-   *
-   * @type { Array<HapModuleInfo> }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Obtains configuration information about a module
-   *
-   * @type { Array<HapModuleInfo> }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
+   * @crossplatform [since 20]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   readonly hapModulesInfo: Array<HapModuleInfo>;
 
   /**
-   * Indicates the required permissions details defined in the bundle
+   * Detailed information of the permissions to request from the system. The information can be obtained by passing in
+   * **GET_BUNDLE_INFO_WITH_REQUESTED_PERMISSION** to the **bundleFlags** parameter of
+   * [getBundleInfoForSelf]{@link @ohos.bundle.bundleManager:bundleManager.getBundleInfoForSelf(bundleFlags: int)}.
+   * The indices of the **reqPermissionDetails** array and the **permissionGrantStates** array are in one-to-one
+   * correspondence, meaning that the authorization status of **reqPermissionDetails[2]** is
+   * **permissionGrantStates[2]**.
    *
-   * @type { Array<ReqPermissionDetail> }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  /**
-   * Indicates the required permissions details defined in the bundle
-   *
-   * @type { Array<ReqPermissionDetail> }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Indicates the required permissions details defined in the bundle
-   *
-   * @type { Array<ReqPermissionDetail> }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
+   * @crossplatform [since 20]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   readonly reqPermissionDetails: Array<ReqPermissionDetail>;
 
   /**
-   * Indicates the grant state of required permissions
+   * Permission grant state. The information can be obtained by passing in **GET_BUNDLE_INFO_WITH_REQUESTED_PERMISSION**
+   * to the **bundleFlags** parameter of
+   * [getBundleInfoForSelf]{@link @ohos.bundle.bundleManager:bundleManager.getBundleInfoForSelf(bundleFlags: int)}.
+   * The indices of the **reqPermissionDetails** array and the **permissionGrantStates** array are in one-to-one
+   * correspondence, meaning that the authorization status of **reqPermissionDetails[2]** is
+   * **permissionGrantStates[2]**.
    *
-   * @type { Array<bundleManager.PermissionGrantState> }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  /**
-   * Indicates the grant state of required permissions
-   *
-   * @type { Array<bundleManager.PermissionGrantState> }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Indicates the grant state of required permissions
-   *
-   * @type { Array<bundleManager.PermissionGrantState> }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
+   * @crossplatform [since 20]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   readonly permissionGrantStates: Array<bundleManager.PermissionGrantState>;
 
   /**
-   * Indicates the SignatureInfo of the bundle
+   * Signature information of the bundle. The information can be obtained by passing in
+   * **GET_BUNDLE_INFO_WITH_SIGNATURE_INFO** to the **bundleFlags** parameter of
+   * [getBundleInfoForSelf]{@link @ohos.bundle.bundleManager:bundleManager.getBundleInfoForSelf(bundleFlags: int)}.
    *
-   * @type { SignatureInfo }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  /**
-   * Indicates the SignatureInfo of the bundle
-   *
-   * @type { SignatureInfo }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Indicates the SignatureInfo of the bundle
-   *
-   * @type { SignatureInfo }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
+   * @crossplatform [since 20]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   readonly signatureInfo: SignatureInfo;
 
   /**
    * Indicates the SignatureInfo of the bundle
    *
-   * @type { SignatureInfo | null }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @since 23 static
@@ -399,50 +197,40 @@ export interface BundleInfo {
   readonly signatureInfo: SignatureInfo | null;
 
   /**
-   * Indicates the hap install time
+   * Timestamp for the installation of the application package. It measures the milliseconds that have passed since the
+   * Unix epoch (January 1, 1970, 08:00:00 UTC+8), in milliseconds.
    *
-   * @type { number }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  /**
-   * Indicates the hap install time,the unit is millisecond.
+   * **NOTE**
    *
-   * @type { long }
-   * @readonly
+   * If the current time is not obtained when the device is powered on for the first time from the factory, the Unix
+   * epoch (1970-01-01 08:00:00 UTC+8) is used as the start time of the current system. For example, if the time is not
+   * obtained after startup and the installation succeeds after a 32-second wait, the application package installation
+   * timestamp is 32000.
+   *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   readonly installTime: long;
 
   /**
-   * Indicates the hap update time
+   * Timestamp for the last update of the application package. It measures the milliseconds that have passed since the
+   * Unix epoch (January 1, 1970, 08:00:00 UTC+8), in milliseconds.
    *
-   * @type { number }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  /**
-   * Indicates the hap update time,the unit is millisecond.
-   *
-   * @type { long }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   readonly updateTime: long;
 
   /**
-   * Indicates the router information of the application
+   * Router table of the application. The table is obtained by deduplicating and combining the **routerMap** information
+   * under **hapModulesInfo** based on the **name** field in **RouterItem**. The information can be obtained by passing
+   * in **GET_BUNDLE_INFO_WITH_HAP_MODULE** and **GET_BUNDLE_INFO_WITH_ROUTER_MAP** to the **bundleFlags** parameter of
+   * [getBundleInfoForSelf]{@link @ohos.bundle.bundleManager:bundleManager.getBundleInfoForSelf(bundleFlags: int)}.
    *
-   * @type { Array<RouterItem> }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 12 dynamic
@@ -451,10 +239,8 @@ export interface BundleInfo {
   readonly routerMap: Array<RouterItem>;
 
   /**
-   * Indicates the appIndex of application, only work in appClone mode
+   * Index of an application clone. It takes effect only for application clones.
    *
-   * @type { int }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 12 dynamic
    * @since 23 static
@@ -462,10 +248,10 @@ export interface BundleInfo {
   readonly appIndex: int;
 
   /**
-   * Indicates the hap first install time,the unit is millisecond.
+   * Timestamp for the initial installation of the application package. It measures the milliseconds that have passed
+   * since the Unix epoch (January 1, 1970, 08:00:00 UTC+8), in milliseconds. For preinstalled applications, the initial
+   * installation timestamp is 1533657660000.
    *
-   * @type { ?long }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 18 dynamic
@@ -474,348 +260,170 @@ export interface BundleInfo {
   readonly firstInstallTime?: long;
 
   /**
-   * Indicates the build version of the bundle
+   * Build version number of the application package, which identifies different build version packages under the same
+   * release version. It corresponds to the buildVersion field in the app.json5 file.
    *
-   * @type { ?string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @stagemodelonly
    * @atomicservice
    * @since 23 dynamic&static
    */
   readonly buildVersion?: string;
+
+  /**
+   * Bundle name of the sandbox application creator.
+   *
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  readonly sandboxCreatorBundleName?: string;
 }
 
 /**
- * Indicates the required permissions details defined in configuration file
+ * Provides the detailed information of the permissions to request from the system.
  *
- * @typedef ReqPermissionDetail
- * @syscap SystemCapability.BundleManager.BundleFramework.Core
- * @since 9
- */
-/**
- * Indicates the required permissions details defined in configuration file
+ * > **NOTE**
+ * >
+ * > - If multiple packages of an application have requested the same permission but with different reasons, the system
+ * > returns only one reason based on a descending priority order: entry HAP > feature HAP > in-app HSP.
  *
- * @typedef ReqPermissionDetail
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
- * @atomicservice
- * @since 11
- */
-/**
- * Indicates the required permissions details defined in configuration file
- *
- * @typedef ReqPermissionDetail
- * @syscap SystemCapability.BundleManager.BundleFramework.Core
- * @crossplatform
- * @atomicservice
- * @since 20 dynamic
+ * @crossplatform [since 20]
+ * @atomicservice [since 11]
+ * @since 9 dynamic
  * @since 23 static
  */
 export interface ReqPermissionDetail {
   /**
-   * Indicates the name of this required permissions
+   * [Name of the permission](docroot://security/AccessToken/app-permissions.md) to request.
    *
-   * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  /**
-   * Indicates the name of this required permissions
-   *
-   * @type { string }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Indicates the name of this required permissions
-   *
-   * @type { string }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
+   * @crossplatform [since 20]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   name: string;
 
   /**
-   * Indicates the module name which the request permission belongs
+   * Name of the module that requests the permission.
    *
-   * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 10
-   */
-  /**
-   * Indicates the module name which the request permission belongs
-   *
-   * @type { string }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    * @since 23 static
    */
   moduleName: string;
 
   /**
-   * Indicates the reason of this required permissions
+   * Reason for requesting the permission.
    *
-   * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  /**
-   * Indicates the reason of this required permissions
-   *
-   * @type { string }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Indicates the reason of this required permissions
-   *
-   * @type { string }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
+   * @crossplatform [since 20]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   reason: string;
 
   /**
-   * Indicates the reason id of this required permissions
+   * ID of the reason for requesting the permission.
    *
-   * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  /**
-   * Indicates the reason id of this required permissions
-   *
-   * @type { number }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Indicates the reason id of this required permissions
-   *
-   * @type { long }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
+   * @crossplatform [since 20]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   reasonId: long;
 
   /**
-   * Indicates the used scene of this required permissions
+   * Use scenario and timing for using the permission.
    *
-   * @type { UsedScene }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  /**
-   * Indicates the used scene of this required permissions
-   *
-   * @type { UsedScene }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Indicates the used scene of this required permissions
-   *
-   * @type { UsedScene }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
+   * @crossplatform [since 20]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   usedScene: UsedScene;
 }
 
 /**
- * The scene which is used
+ * Describes the use scenario and timing of the permission,
+ * helping developers request and use permissions properly.
  *
- * @typedef UsedScene
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
- * @since 9
- */
-/**
- * The scene which is used
- *
- * @typedef UsedScene
- * @syscap SystemCapability.BundleManager.BundleFramework.Core
- * @atomicservice
- * @since 11
- */
-/**
- * The scene which is used
- *
- * @typedef UsedScene
- * @syscap SystemCapability.BundleManager.BundleFramework.Core
- * @crossplatform
- * @atomicservice
- * @since 20 dynamic
+ * @crossplatform [since 20]
+ * @atomicservice [since 11]
+ * @since 9 dynamic
  * @since 23 static
  */
 export interface UsedScene {
   /**
-   * Indicates the abilities that need the permission
+   * Abilities that use the permission.
    *
-   * @type { Array<string> }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  /**
-   * Indicates the abilities that need the permission
-   *
-   * @type { Array<string> }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Indicates the abilities that need the permission
-   *
-   * @type { Array<string> }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
+   * @crossplatform [since 20]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   abilities: Array<string>;
 
   /**
-   * Indicates the time when the permission is used
+   * Time when the permission is used. The value can be **inuse** or **always**.
    *
-   * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  /**
-   * Indicates the time when the permission is used
-   *
-   * @type { string }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Indicates the time when the permission is used
-   *
-   * @type { string }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
+   * @crossplatform [since 20]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   when: string;
 }
 
 /**
- * Indicates SignatureInfo
+ * Describes the signature information of the app package,which can identifythe app source, ensure app integrity,
+ * and be used for app security verification and identification.
  *
- * @typedef SignatureInfo
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
- * @since 9
- */
-/**
- * Indicates SignatureInfo
- *
- * @typedef SignatureInfo
- * @syscap SystemCapability.BundleManager.BundleFramework.Core
- * @atomicservice
- * @since 11
- */
-/**
- * Indicates SignatureInfo
- *
- * @typedef SignatureInfo
- * @syscap SystemCapability.BundleManager.BundleFramework.Core
- * @crossplatform
- * @atomicservice
- * @since 20 dynamic
+ * @crossplatform [since 20]
+ * @atomicservice [since 11]
+ * @since 9 dynamic
  * @since 23 static
  */
 export interface SignatureInfo {
   /**
-   * Indicates the ID of the application to which this bundle belongs
-   * The application ID uniquely identifies an application. It is determined by the bundle name and signature
+   * App ID, which uniquely identifies an app. For details, see
+   * [What Is appId?](docroot://quick-start/common-problem-of-application.md#what-is-appid).
    *
-   * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  /**
-   * Indicates the ID of the application to which this bundle belongs
-   * The application ID uniquely identifies an application. It is determined by the bundle name and signature
-   *
-   * @type { string }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Indicates the ID of the application to which this bundle belongs
-   * The application ID uniquely identifies an application. It is determined by the bundle name and signature
-   *
-   * @type { string }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
+   * @crossplatform [since 20]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   readonly appId: string;
 
   /**
-   * Indicates the fingerprint of the certificate
+   * Fingerprint information of the application package. It is generated by calculating the hash value of the signing
+   * certificate using the SHA-256 algorithm. This field changes when the used signing certificate changes.
    *
-   * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  /**
-   * Indicates the fingerprint of the certificate
-   *
-   * @type { string }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Indicates the fingerprint of the certificate
-   *
-   * @type { string }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
+   * @crossplatform [since 20]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   readonly fingerprint: string;
 
   /**
-   * Globally unique identifier of an application, which is allocated by the cloud.
-   * AppIdentifier does not change along the application lifecycle, including version updates, certificate changes,
-   * public and private key changes, and application transfer.
+   * Unique ID of the application. For details, see
+   * [What is appIdentifier?](docroot://quick-start/common-problem-of-application.md#what-is-appidentifier).
    *
-   * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11 dynamic
@@ -824,10 +432,8 @@ export interface SignatureInfo {
   readonly appIdentifier: string;
 
   /**
-   * Indicates the certificate
+   * Public key of the application certificate.
    *
-   * @type { ?string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 14 dynamic
@@ -837,29 +443,25 @@ export interface SignatureInfo {
 }
 
 /**
- * AppCloneIdentity contains BundleName and appIndex
+ * Describes the identity information of an application clone.
  *
- * @typedef AppCloneIdentity
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @since 14 dynamic
  * @since 23 static
  */
 export interface AppCloneIdentity {
   /**
-   * Indicates the application bundle name to be queried.
+   * Bundle name of the application.
    *
-   * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 14 dynamic
    * @since 23 static
    */
   readonly bundleName: string;
   /**
-   * Indicates the index of clone app.
+   * Clone index information of the app package. The value is an integer ranging from [0-5],
+   * where 0 indicates the main app and 1-5 indicate clone apps.
    *
-   * @type { int }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 14 dynamic
    * @since 23 static
@@ -870,7 +472,6 @@ export interface AppCloneIdentity {
 /**
  * Obtains dynamic icon information about a bundle
  *
- * @typedef DynamicIconInfo
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @systemapi
  * @since 20 dynamic
@@ -880,8 +481,6 @@ export interface DynamicIconInfo {
   /**
    * Indicates the name of the bundle.
    *
-   * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 20 dynamic
@@ -892,8 +491,6 @@ export interface DynamicIconInfo {
   /**
    * Indicates the name of the dynamic icon.
    *
-   * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 20 dynamic
@@ -904,8 +501,6 @@ export interface DynamicIconInfo {
   /**
    * Indicates the user id of the bundle.
    *
-   * @type { int }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 20 dynamic
@@ -916,8 +511,6 @@ export interface DynamicIconInfo {
   /**
    * Indicates the index of the bundle.
    *
-   * @type { int }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 20 dynamic
@@ -927,19 +520,56 @@ export interface DynamicIconInfo {
 }
 
 /**
-  * The bundle options of bundle manager
-  * 
-  * @typedef BundleOptions
-  * @syscap SystemCapability.BundleManager.BundleFramework.Core
-  * @systemapi
-  * @since 20 dynamic
-  * @since 23 static
-  */
+ * Describes the app backup icon information.
+ *
+ * @syscap SystemCapability.BundleManager.BundleFramework.Core
+ * @stagemodelonly
+ * @since 26.0.0 dynamic&static
+ */
+export interface AlternateIconInfo {
+  /**
+   * Name of the backup icon.
+   *
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  readonly iconName: string;
+
+  /**
+   * Resource ID of the backup icon, which is automatically generated
+   * during compilation and build based on the icon configured in the app.
+   *
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  readonly iconId: long;
+
+  /**
+   * Whether the backup icon is enabled.
+   * true: The current backup icon is enabled.
+   * false: The current backup icon is not enabled.
+   *
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  readonly enabled: boolean;
+}
+
+/**
+ * The bundle options of bundle manager
+ *
+ * @syscap SystemCapability.BundleManager.BundleFramework.Core
+ * @systemapi
+ * @since 20 dynamic
+ * @since 23 static
+ */
 export interface BundleOptions {
-    /**
+  /**
    * Indicates the user id.
    *
-   * @type { ?int }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 20 dynamic
@@ -950,7 +580,6 @@ export interface BundleOptions {
   /**
    * Indicates the app index.
    *
-   * @type { ?int }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 20 dynamic
@@ -961,7 +590,6 @@ export interface BundleOptions {
   /**
    * Indicates bundle name
    *
-   * @type { ?string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @stagemodelonly
@@ -972,7 +600,6 @@ export interface BundleOptions {
   /**
    * Indicates module name
    *
-   * @type { ?string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @stagemodelonly
@@ -983,11 +610,43 @@ export interface BundleOptions {
   /**
    * Indicates ability name
    *
-   * @type { ?string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @stagemodelonly
    * @since 23 dynamic&static
    */
   abilityName?: string;
+}
+
+/**
+ * Defines the application clone preference configuration.
+ *
+ * @syscap SystemCapability.BundleManager.BundleFramework.Core
+ * @systemapi
+ * @stagemodelonly
+ * @since 26.1.0 dynamic&static
+ */
+export interface AppClonePreference {
+  /**
+   * Preference mode for application cloning.
+   *
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  mode: bundleManager.AppClonePreferenceMode;
+
+  /**
+   * Index of the application clone.
+   * This value is valid only when the mode is CLONE_APP.
+   * The value ranges from 1 to 5 (maximum 5 clones are supported).
+   * The value should be an integer.
+   *
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  appIndex?: int;
 }

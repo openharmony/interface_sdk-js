@@ -493,6 +493,24 @@ export enum PrimitiveTopology {
 }
 
 /**
+ * the type of shadow algorithm
+ *
+ * @syscap SystemCapability.ArkUi.Graphics3D
+ * @stagemodelonly
+ * @since 26.0.0 dynamic&static
+ */
+export enum ShadowAlgorithmType {
+  /**
+   * PCF algorithm
+   *
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  PCF = 0
+}
+
+/**
  * An array of vertices and their data defining a custom geometric shape.
  *
  * @extends GeometryDefinition

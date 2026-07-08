@@ -1,0 +1,172 @@
+/*
+ * Copyright (c) 2025 Huawei Device Co., Ltd.
+ * Licensed under the Apache License, Version 2.0 (the "License"),
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/**
+ * @file
+ * @kit ArkUI
+ */
+
+import { CommonMethod } from './common';
+import { ComponentBuilder } from './../stateManagement/runtime';
+import { AttributeModifier, CommonMethod } from './common';
+import { CustomBuilder, CustomBuilderT } from './builder';
+
+/**
+ * EffectComponent的渲染层级。
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @stagemodelonly
+ * @since 23 static
+ */
+export declare enum EffectLayer {
+  /**
+   * 无特效层。
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 static
+   */
+  NONE = 0,
+
+  /**
+   * 充电动画层。
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 static
+   */
+  CHARGE_MOTION = 1,
+
+  /**
+   * 充电文字层。
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 static
+   */
+  CHARGE_TEXT = 2
+}
+
+/**
+ * 设置当前EffectComponent构造参数，包含EffectComponent的渲染层级。
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @stagemodelonly
+ * @since 23 static
+ */
+export declare interface EffectComponentOptions {
+
+  /**
+   * EffectComponent的渲染层级。
+   * 
+   * 默认值：EffectLayer.NONE
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 static
+   */
+  effectLayer?: EffectLayer;
+}
+
+/**
+ * Define the EffectComponentAttribute.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @stagemodelonly
+ * @since 23 static
+ * @noninterop
+ */
+export declare interface EffectComponentAttribute extends CommonMethod {
+  /**
+   * Use snapshot when Effect Component have no visual effect.
+   *
+   * @param { boolean | undefined } enable - <br>true indicates using the snapshot method,
+   *     false indicates not using the snapshot method.
+   *     undefined means the default value false.
+   * @returns { EffectComponentAttribute }
+   * @throws { BusinessError } 202 - Permission verification failed. A nonsystem application calls a system API.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 static
+   */
+  alwaysSnapshot(enable: boolean | undefined): this;
+  /**
+   * Set the attribute modifier for EffectComponent.
+   *
+   * @param { AttributeModifier<EffectComponentAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
+   * @returns { EffectComponentAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 static
+   */
+  default attributeModifier(modifier: AttributeModifier<EffectComponentAttribute>
+      | AttributeModifier<CommonMethod> | undefined): this;
+  /**
+   * Set EffectComponent options.
+   *
+   * @param { EffectComponentOptions } [options] - The options to create an EffectComponent.
+   * @returns { EffectComponentAttribute } Returns instance of  EffectComponentAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 staticonly
+   */
+  default setEffectComponentOptions(options?: EffectComponentOptions): this;
+}
+
+/**
+ * Defines EffectComponent Component
+ *
+ * @param { EffectComponentOptions } [options] - The options to create an EffectComponent.
+ * @param { CustomBuilder } [content_] - Subcomponents of EffectComponent
+ * @returns { EffectComponentAttribute }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @stagemodelonly
+ * @since 23 static
+ * @noninterop
+ */
+@ComponentBuilder
+export declare function EffectComponent(
+    options?: EffectComponentOptions,
+    content_?: CustomBuilder,
+): EffectComponentAttribute;
+
+/**
+ * Defines EffectComponent
+ *
+ * @param { CustomBuilderT<EffectComponentAttribute> } style_ - EffectComponent attribute instance
+ * @param { CustomBuilder } [content_] - container
+ * @returns { EffectComponentAttribute }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ * @noninterop
+ */
+@Builder
+export declare function EffectComponent(
+    style_: CustomBuilderT<EffectComponentAttribute>,
+    content_?: CustomBuilder,
+): EffectComponentAttribute;

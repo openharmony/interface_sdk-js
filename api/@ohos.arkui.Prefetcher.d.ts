@@ -14,28 +14,44 @@
  */
 
 /**
- * @file
+ * Used in conjunction with **LazyForEach**, the **Prefetcher** module provides content prefetching capabilities for 
+ * container components such as **List**, **Grid**, **WaterFlow**, and **Swiper** during scrolling, to enhance the user 
+ * browsing experience.
+ * 
+ * > **NOTE**
+ * >
+ * > - The APIs of this module cannot be used in the Previewer.
+ * 
+ * ###### Supplementary Notes
+ * 
+ * You can also use the OpenHarmony third-party library 
+ * [@netteam/prefetcher](https://ohpm.openharmony.cn/#/en/detail/@netteam%2Fprefetcher) to implement the prefetching 
+ * functionality. This library provides additional APIs for more convenient and efficient data prefetching.
+ *
+ * @file Prefetching
  * @kit ArkUI
  */
 
 /**
- * Implement this interface to provide data prefetching for the LazyForEach component.
+ * Extends the [IDataSource]{@link IDataSource} API to add data prefetching capability to your data source.
  *
- * @interface IDataSourcePrefetching
- * @extends IDataSource
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
  */
 export interface IDataSourcePrefetching extends IDataSource {
+
   /**
-   * Prefetches data for the specified element in the data collection.
-   * This method can be either synchronous or asynchronous.
+   * Prefetches a specified data item from the dataset. This API can be either synchronous or asynchronous.
    *
-   * @param { number } index - Index of the item in the collection.
-   * @returns { Promise<void> | void }
+   * @param { number } index - Index of the data item to prefetch.
+   * @returns { Promise<void> | void } Promise when this API is executed asynchronously; no return value when this API
+   *     is executed synchronously. The promise only indicates that the operation is completed and contains no actual
+   *     return content.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -43,12 +59,15 @@ export interface IDataSourcePrefetching extends IDataSource {
   prefetch(index: number): Promise<void> | void;
 
   /**
-   * Cancels prefetching data for the specified element in the data collection.
-   * This method can be either synchronous or asynchronous.
+   * Cancels the prefetching of a specified data item from the dataset. This API can be either synchronous or
+   * asynchronous.
    *
-   * @param { number } index - Index of the item in the collection.
-   * @returns { Promise<void> | void }
+   * @param { number } index - Index of the data item to cancel prefetching for.
+   * @returns { Promise<void> | void } Promise when this API is executed asynchronously; no return value when this API
+   *     is executed synchronously. The promise only indicates that the operation is completed and contains no actual
+   *     return content.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -57,20 +76,22 @@ export interface IDataSourcePrefetching extends IDataSource {
 }
 
 /**
- * Implement this interface to provide prefetcher logic.
+ * Provides prefetching capabilities.
  *
- * @interface IPrefetcher
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
  */
 export interface IPrefetcher {
+
   /**
-   * Sets the data source to bind to this prefetcher.
+   * Sets the prefetching-capable data source to bind to the **Prefetcher**.
    *
-   * @param { IDataSourcePrefetching } dataSource - Data source that supports prefetching.
+   * @param { IDataSourcePrefetching } dataSource - Prefetching-capable data source.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -78,11 +99,13 @@ export interface IPrefetcher {
   setDataSource(dataSource: IDataSourcePrefetching): void;
 
   /**
-   * Call this method when the visible area boundaries were changed.
+   * Called when the boundaries of the visible area change. This API works with the **List**, **Grid**, **WaterFlow**,
+   * and **Swiper** components.
    *
-   * @param { number } minVisible - Index of the first visible data item.
-   * @param { number } maxVisible - Index of the last visible data item.
+   * @param { number } minVisible - Upper bound of the visible area.
+   * @param { number } maxVisible - Lower bound of the visible area.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -91,24 +114,27 @@ export interface IPrefetcher {
 }
 
 /**
- * Basic implementation of {@link IPrefetcher}.
- * It provides an intelligent data prefetching algorithm to make decisions about which data
- * items should be prefetched in response to the real-time changes of visible on-screen area
- * and changes in the duration of the prefetching. It also determines which prefetch requests
- * should be canceled based on user scrolling actions.
+ * **BasicPrefetcher** is a fundamental implementation of **IPrefetcher**. It offers an intelligent data prefetching
+ * algorithm that decides the data items to prefetch based on real-time changes in the visible area on the screen and
+ * variations in the prefetch duration. It can also determine the prefetch requests to be canceled based on the user's
+ * scrolling actions.
  *
- * @implements IPrefetcher
+ * **BasicPrefetcher** objects do not support JSON serialization.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
  */
 export class BasicPrefetcher implements IPrefetcher {
+
   /**
-   * Constructs a basic prefetcher instance and optionally sets the data source.
+   * A constructor used to create a prefetching-capable data source to bind to the **Prefetcher**.
    *
-   * @param { IDataSourcePrefetching } dataSource - Data source that supports prefetching.
+   * @param { IDataSourcePrefetching } dataSource - Prefetching-capable data source.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -116,10 +142,11 @@ export class BasicPrefetcher implements IPrefetcher {
   constructor(dataSource?: IDataSourcePrefetching);
 
   /**
-   * Sets the data source to bind to this prefetcher.
+   * Sets the prefetching-capable data source to bind to the **Prefetcher**.
    *
-   * @param { IDataSourcePrefetching } dataSource - Data source that supports prefetching.
+   * @param { IDataSourcePrefetching } dataSource - Prefetching-capable data source.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -127,14 +154,16 @@ export class BasicPrefetcher implements IPrefetcher {
   setDataSource(dataSource: IDataSourcePrefetching): void;
 
   /**
-   * Call this method when the visible area changed.
+   * Called when the boundaries of the visible area change. This API works with the **List**, **Grid**, **WaterFlow**,
+   * and **Swiper** components.
    *
-   * @param { number } minVisible - Index of the first visible data item.
-   * @param { number } maxVisible - Index of the last visible data item.
+   * @param { number } minVisible - Upper bound of the visible area.
+   * @param { number } maxVisible - Lower bound of the visible area.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
    */
   visibleAreaChanged(minVisible: number, maxVisible: number): void;
-}
+}

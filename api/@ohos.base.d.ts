@@ -14,280 +14,135 @@
  */
 
 /**
+ * The **Base** module defines the public callback types of ArkTS APIs, including the common and error callbacks.
+ * These callbacks provide a unified asynchronous processing mechanism for processing asynchronous operation
+ * results and error messages. They can help developers simplify the asynchronous programming model and improve
+ * code readability and maintainability.
+ *
+ * > **NOTE**
+ * >
+ * > - The initial APIs of this module are supported since API version 6. Newly added APIs will be marked with a
+ * >   superscript to indicate their earliest API version.
+ * > 
+ * > - Since API version 12, the APIs of this module are supported in ArkTS widgets.
+ *
  * @file
  * @kit BasicServicesKit
  */
 
 /**
- * Defines the basic callback.
- * @typedef Callback
+ * Defines a common callback. You can set **data** to customize the data type of the information returned by the
+ * callback.
+ *
+ * @typedef { Callback } [since 6 - 11]
+ * @typedef { Callback<T> } [since 12]
  * @syscap SystemCapability.Base
- * @since 6
- */
-/**
- * Defines the basic callback.
- * @typedef Callback
- * @syscap SystemCapability.Base
- * @crossplatform
- * @since 10
- */
-/**
- * Defines the basic callback.
- * @typedef Callback
- * @syscap SystemCapability.Base
- * @crossplatform
- * @atomicservice
- * @since 11
- */
-/**
- * Defines the basic callback.
- * @typedef Callback<T>
- * @syscap SystemCapability.Base
- * @crossplatform
- * @form
- * @atomicservice
- * @since 12 dynamic
+ * @crossplatform [since 10]
+ * @form [since 12]
+ * @atomicservice [since 11]
+ * @since 6 dynamic
  */
 export interface Callback<T> {
+
   /**
-   * Defines the callback info.
-   * @param { T } data
+   *
+   * @param { T } data - Common callback information. The type is defined by the developer. 
+   *     The callback is used to return data of the corresponding type.
    * @syscap SystemCapability.Base
-   * @since 6
-   */
-  /**
-   * Defines the callback info.
-   * @param { T } data
-   * @syscap SystemCapability.Base
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Defines the callback info.
-   * @param { T } data
-   * @syscap SystemCapability.Base
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Defines the callback info.
-   * @param { T } data
-   * @syscap SystemCapability.Base
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 10]
+   * @form [since 12]
+   * @atomicservice [since 11]
+   * @since 6 dynamic
    */
   (data: T): void;
 }
 
 /**
- * Defines the basic error callback.
- * @typedef ErrorCallback
+ * Defines a common callback that carries an error parameter. The information returned by the callback is of
+ * the [BusinessError]{@link BusinessError} type.
+ *
+ * @typedef ErrorCallback [since 6 - 10]
+ * @typedef ErrorCallback<T extends Error = BusinessError> [since 11]
  * @syscap SystemCapability.Base
- * @since 6
- */
-/**
- * Defines the basic error callback.
- * @typedef ErrorCallback
- * @syscap SystemCapability.Base
- * @crossplatform
- * @since 10
- */
-/**
- * Defines the basic error callback.
- * @typedef ErrorCallback<T extends Error = BusinessError>
- * @syscap SystemCapability.Base
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 6 dynamic
  */
 export interface ErrorCallback<T extends Error = BusinessError> {
+
   /**
-   * Defines the basic error callback.
-   * @param { T } err
+   *
+   * @param { T } err - Common error message returned when the API fails to be called.
    * @syscap SystemCapability.Base
-   * @since 6
-   */
-  /**
-   * Defines the basic error callback.
-   * @param { T } err
-   * @syscap SystemCapability.Base
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Defines the basic error callback.
-   * @param { T } err
-   * @syscap SystemCapability.Base
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 6 dynamic
    */
   (err: T): void;
 }
 
 /**
- * Defines the basic async callback.
- * @typedef AsyncCallback
+ * Defines a common callback that carries an error parameter and asynchronous return value.The error parameter is of
+ * the [BusinessError]{@link BusinessError} type. The type of the asynchronous return value is defined by the
+ * developer.
+ *
+ * @typedef AsyncCallback [since 6 - 11]
+ * @typedef AsyncCallback<T, E = void> [since 12]
  * @syscap SystemCapability.Base
- * @since 6
- */
-/**
- * Defines the basic async callback.
- * @typedef AsyncCallback
- * @syscap SystemCapability.Base
- * @crossplatform
- * @since 10
- */
-/**
- * Defines the basic async callback.
- * @typedef AsyncCallback
- * @syscap SystemCapability.Base
- * @crossplatform
- * @atomicservice
- * @since 11
- */
-/**
- * Defines the basic async callback.
- * @typedef AsyncCallback<T, E = void>
- * @syscap SystemCapability.Base
- * @crossplatform
- * @form
- * @atomicservice
- * @since 12 dynamic
+ * @crossplatform [since 10]
+ * @form [since 12]
+ * @atomicservice [since 11]
+ * @since 6 dynamic
  */
 export interface AsyncCallback<T, E = void> {
+
   /**
-   * Defines the callback data.
-   * @param { BusinessError<E> } err
-   * @param { T } data
+   *
+   * @param { BusinessError<E> } err - Common error message returned when the API fails to be called.
+   * @param { T } data - Data returned asynchronously when the API is successfully called. The data type is defined by
+   *     the developer. This parameter is unavailable when the API fails to be called.
    * @syscap SystemCapability.Base
-   * @since 6
-   */
-  /**
-   * Defines the callback data.
-   * @param { BusinessError<E> } err
-   * @param { T } data
-   * @syscap SystemCapability.Base
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Defines the callback data.
-   * @param { BusinessError<E> } err
-   * @param { T } data
-   * @syscap SystemCapability.Base
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Defines the callback data.
-   * @param { BusinessError<E> } err
-   * @param { T } data
-   * @syscap SystemCapability.Base
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 10]
+   * @form [since 12]
+   * @atomicservice [since 11]
+   * @since 6 dynamic
    */
   (err: BusinessError<E>, data: T): void;
 }
 
 /**
- * Defines the error interface.
- * @typedef BusinessError
+ * Defines the error parameter.
+ *
+ * @typedef BusinessError [since 6 - 11]
+ * @typedef BusinessError<T = void> [since 12]
  * @syscap SystemCapability.Base
- * @since 6
- */
-/**
- * Defines the error interface.
- * @typedef BusinessError
- * @syscap SystemCapability.Base
- * @crossplatform
- * @since 10
- */
-/**
- * Defines the error interface.
- * @typedef BusinessError
- * @syscap SystemCapability.Base
- * @crossplatform
- * @atomicservice
- * @since 11
- */
-/**
- * Defines the error interface.
- * @extends Error
- * @typedef BusinessError<T = void>
- * @syscap SystemCapability.Base
- * @crossplatform
- * @form
- * @atomicservice
- * @since 12 dynamic
+ * @crossplatform [since 10]
+ * @form [since 12]
+ * @atomicservice [since 11]
+ * @since 6 dynamic
  */
 export interface BusinessError<T = void> extends Error {
+
   /**
-   * Defines the basic error code.
-   * @type { number } code
+   * Error code returned when the API fails to be called.
+   *
    * @syscap SystemCapability.Base
-   * @since 6
-   */
-  /**
-   * Defines the basic error code.
-   * @type { number } code
-   * @syscap SystemCapability.Base
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Defines the basic error code.
-   * @type { number } code
-   * @syscap SystemCapability.Base
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Defines the basic error code.
-   * @type { number } code
-   * @syscap SystemCapability.Base
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 10]
+   * @form [since 12]
+   * @atomicservice [since 11]
+   * @since 6 dynamic
    */
   code: number;
+
   /**
-   * Defines the additional information for business
-   * @type { ?T } data
+   * Error message returned when the API fails to be called. If this parameter is left empty, the error object does
+   * not contain additional data.
+   *
    * @syscap SystemCapability.Base
-   * @since 9
-   */
-  /**
-   * Defines the additional information for business
-   * @type { ?T } data
-   * @syscap SystemCapability.Base
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Defines the additional information for business
-   * @type { ?T } data
-   * @syscap SystemCapability.Base
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Defines the additional information for business
-   * @type { ?T } data
-   * @syscap SystemCapability.Base
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 10]
+   * @form [since 12]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   data?: T;
 }

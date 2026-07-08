@@ -19,256 +19,123 @@
  */
 
 /**
- * Provides an interface for generating QR codes.
+ * The **QRCode** component is used to display a QR code.
  *
- * @interface QRCodeInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * Provides an interface for generating QR codes.
+ * > **NOTE**
  *
- * @interface QRCodeInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @since 9
- */
-/**
- * Provides an interface for generating QR codes.
+ * > The pixel count of the **QRCode** component is subject to the content. If the component size is not large enough,
+ * > the content may fail to be displayed. In this case, you need to resize the component.
  *
- * @interface QRCodeInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Provides an interface for generating QR codes.
- *
- * @interface QRCodeInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
+ * @noninterop
  */
 interface QRCodeInterface {
+
   /**
-   * Called when a QR code is set.
+   * Creates a **QRCode** component. The displayed QR code can be scanned to obtain the encoded string information.
    *
-   * @param { string } value
+   * @param { string } value - Content of the QR code. A maximum of 512 characters are supported. If this limit is
+   *     exceeded, the first 512 characters are used.<br>The Resource type is supported since API version 20.<br>
+   *     **NOTE**<br>If this parameter is set to **null**, it is equivalent to passing the string **"null"**. If it is
+   *     set to **undefined**, it is equivalent to passing the string **"undefined"**. Passing an empty string will
+   *     result in an invalid QR code. [since 7 - 19]
+   * @param { ResourceStr } value - Content of the QR code. A maximum of 512 characters are supported. If this limit is
+   *     exceeded, the first 512 characters are used.<br>The Resource type is supported since API version 20.<br>
+   *     **NOTE**<br>If this parameter is set to **null**, it is equivalent to passing the string **"null"**. If it is
+   *     set to **undefined**, it is equivalent to passing the string **"undefined"**. Passing an empty string will
+   *     result in an invalid QR code. [since 20]
    * @returns { QRCodeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Called when a QR code is set.
-   *
-   * @param { string } value
-   * @returns { QRCodeAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Called when a QR code is set.
-   *
-   * @param { string } value
-   * @returns { QRCodeAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Called when a QR code is set.
-   *
-   * @param { string } value
-   * @returns { QRCodeAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Called when a QR code is set.
-   *
-   * @param { ResourceStr } value
-   * @returns { QRCodeAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   (value: ResourceStr): QRCodeAttribute;
 }
 
 /**
- * Defines the qrcode attribute functions.
+ * In addition to the
+ * [universal attributes](docroot://reference/apis-arkui/arkui-ts/ts-component-general-attributes.md), the following
+ * attributes are supported.
  *
- * @extends CommonMethod<QRCodeAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * Defines the qrcode attribute functions.
+ * The [universal events][universal events](docroot://reference/apis-arkui/arkui-ts/ts-component-general-events.md) are
+ * supported.
  *
- * @extends CommonMethod<QRCodeAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @since 9
- */
-/**
- * Defines the qrcode attribute functions.
- *
- * @extends CommonMethod<QRCodeAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Defines the qrcode attribute functions.
- *
- * @extends CommonMethod<QRCodeAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
+ * @noninterop
  */
 declare class QRCodeAttribute extends CommonMethod<QRCodeAttribute> {
+
   /**
-   * Called when the QR code color is set.
+   * Sets the color of the QR code.
    *
-   * @param { ResourceColor } value
+   * @param { ResourceColor } value - QR code color. The default value is **'#ff000000'** and does not change with the
+   *     system color mode.<br>
    * @returns { QRCodeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Called when the QR code color is set.
-   *
-   * @param { ResourceColor } value
-   * @returns { QRCodeAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Called when the QR code color is set.
-   *
-   * @param { ResourceColor } value
-   * @returns { QRCodeAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Called when the QR code color is set.
-   *
-   * @param { ResourceColor } value
-   * @returns { QRCodeAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   color(value: ResourceColor): QRCodeAttribute;
 
   /**
-   * Called when setting the QR code background color.
+   * Sets the background color of the QR code.
    *
-   * @param { ResourceColor } value
+   * @param { ResourceColor } value - Background color of the QR code.<br>Default value: **Color.White**<br>Since API
+   *     version 11, the default value is **'#ffffffff'** and does not change with the system color mode.
    * @returns { QRCodeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Called when setting the QR code background color.
-   *
-   * @param { ResourceColor } value
-   * @returns { QRCodeAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Called when setting the QR code background color.
-   *
-   * @param { ResourceColor } value
-   * @returns { QRCodeAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Called when setting the QR code background color.
-   *
-   * @param { ResourceColor } value
-   * @returns { QRCodeAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   backgroundColor(value: ResourceColor): QRCodeAttribute;
 
   /**
-   * Set the opacity of the QR code content color.
-   * @param { number | Resource } value - indicates the opacity of the QR code content color. The value is between 0 and 1, with a default value of 1.
+   * Sets the opacity of the QR code content. The minimum value is 0, and the maximum value is 1.
+   *
+   * @param { number | Resource } value - Opacity of the QR code content.<br>Default value: **1**<br>Value range:
+   *     [0, 1]. If the value is out of the range, the default value is used.
    * @returns { QRCodeAttribute } the attribute of the QR code
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Set the opacity of the QR code content color.
-   * @param { number | Resource } value - indicates the opacity of the QR code content color. The value is between 0 and 1, with a default value of 1.
-   * @returns { QRCodeAttribute } the attribute of the QR code
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   contentOpacity(value: number | Resource): QRCodeAttribute;
 }
 
 /**
- * Defines QRCode Component.
+ * The **QRCode** component is used to display a QR code.
+ *
+ * > **NOTE**
+ *
+ * > The pixel count of the **QRCode** component is subject to the content. If the component size is not large enough,
+ * > the content may fail to be displayed. In this case, you need to resize the component.
+ *
+ * ###### Child Components
+ *
+ * Not supported
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * Defines QRCode Component.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @since 9
- */
-/**
- * Defines QRCode Component.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Defines QRCode Component.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
+ * @noninterop
  */
 declare const QRCode: QRCodeInterface;
 
@@ -276,30 +143,10 @@ declare const QRCode: QRCodeInterface;
  * Defines QRCode Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * Defines QRCode Component instance.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @since 9
- */
-/**
- * Defines QRCode Component instance.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Defines QRCode Component instance.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
+ * @noninterop
  */
 declare const QRCodeInstance: QRCodeAttribute;

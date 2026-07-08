@@ -19,60 +19,29 @@
  */
 
 /**
- * Provides an interface for SymbolGlyph.
+ * The **SymbolGlyph** component represents a symbol glyph.<!--RP1--><!--RP1End-->
  *
- * @interface SymbolGlyphInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 11
- */
-/**
- * Provides an interface for SymbolGlyph.
- *
- * @interface SymbolGlyphInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @atomicservice
- * @since 12
- */
-/**
- * Provides an interface for SymbolGlyph.
- *
- * @interface SymbolGlyphInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 20 dynamic
+ * @stagemodelonly
+ * @crossplatform [since 20]
+ * @form [since 12]
+ * @atomicservice [since 12]
+ * @since 11 dynamic
+ * @noninterop
  */
 interface SymbolGlyphInterface {
   /**
-   * Called when resource is entered in SymbolGlyph.
    *
-   * @param { Resource } value
+   * Defines the constructor of SymbolGlyph.
+   *
+   * @param { Resource } value - Resource of the **SymbolGlyph** component, for example, **$r('sys.symbol.ohos_wifi')**.
    * @returns { SymbolGlyphAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 11
-   */
-  /**
-   * Called when resource is entered in SymbolGlyph.
-   *
-   * @param { Resource } value
-   * @returns { SymbolGlyphAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Called when resource is entered in SymbolGlyph.
-   *
-   * @param { Resource } value
-   * @returns { SymbolGlyphAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20 dynamic
+   * @stagemodelonly
+   * @crossplatform [since 20]
+   * @form [since 12]
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   (value?: Resource): SymbolGlyphAttribute;
 }
@@ -80,411 +49,260 @@ interface SymbolGlyphInterface {
 /**
  * The symbol rendering strategy.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 11
- */
-/**
- * The symbol rendering strategy.
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @atomicservice
- * @since 12
- */
-/**
- * The symbol rendering strategy.
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 20 dynamic
+ * @stagemodelonly
+ * @crossplatform [since 20]
+ * @form [since 12]
+ * @atomicservice [since 12]
+ * @since 11 dynamic
  */
 declare enum SymbolRenderingStrategy {
+
   /**
-   * The single rendering strategy.
+   * Single-color mode (default value).
+   *
+   * The default color is black.
+   *
+   * You can set one or multiple colors, but only the first color will be applied.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 11
-   */
-  /**
-   * The single rendering strategy.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * The single rendering strategy.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20 dynamic
+   * @stagemodelonly
+   * @crossplatform [since 20]
+   * @form [since 12]
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   SINGLE = 0,
 
   /**
-   * The multiple color rendering strategy.
+   * Multi-color mode.
+   *
+   * A maximum of three colors can be set. If only one color is set, it updates the color of the first layer, leaving
+   * other colors at their default values.
+   *
+   * The sequence of color settings matches the layering order of the symbol; any colors beyond the number of symbol
+   * layers will not take effect.
+   *
+   * Only color values are accepted. Opacity settings do not take effect.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 11
-   */
-  /**
-   * The multiple color rendering strategy.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * The multiple color rendering strategy.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20 dynamic
+   * @stagemodelonly
+   * @crossplatform [since 20]
+   * @form [since 12]
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   MULTIPLE_COLOR = 1,
 
   /**
-   * The multiple opacity rendering strategy.
+   * Layered mode.
+   *
+   * The default color is black. You can set one or multiple colors, but only the first color will be applied.
+   *
+   * Opacity is predefined for the layers: 100% for the first layer, 50% for the second layer, and 20% for the third
+   * layer.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 11
+   * @stagemodelonly
+   * @crossplatform [since 20]
+   * @form [since 12]
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
-  /**
-   * The multiple opacity rendering strategy.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * The multiple opacity rendering strategy.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20 dynamic
-   */
-  MULTIPLE_OPACITY = 2,
+  MULTIPLE_OPACITY = 2
 }
 
 /**
- * The symbol effect strategy.
+ * Enumerates symbol effect types. Once applied, the symbol effect becomes active instantly, eliminating the need for
+ * triggering.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 11
- */
-/**
- * The symbol effect strategy.
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @atomicservice
- * @since 12
- */
-/**
- * The symbol effect strategy.
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 20 dynamic
+ * @stagemodelonly
+ * @crossplatform [since 20]
+ * @form [since 12]
+ * @atomicservice [since 12]
+ * @since 11 dynamic
  */
 declare enum SymbolEffectStrategy {
+
   /**
-   * There is no effect strategy.
+   * No effect (default value).
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 11
-   */
-  /**
-   * There is no effect strategy.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * There is no effect strategy.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20 dynamic
+   * @stagemodelonly
+   * @crossplatform [since 20]
+   * @form [since 12]
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   NONE = 0,
 
   /**
-   * The scale effect strategy.
+   * Scale effect as a whole.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 11
-   */
-  /**
-   * The scale effect strategy.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * The scale effect strategy.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20 dynamic
+   * @stagemodelonly
+   * @crossplatform [since 20]
+   * @form [since 12]
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   SCALE = 1,
 
   /**
-   * The hierarchical effect strategy.
+   * Hierarchical effect.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 11
-   */
-  /**
-   * The hierarchical effect strategy.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * The hierarchical effect strategy.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20 dynamic
+   * @stagemodelonly
+   * @crossplatform [since 20]
+   * @form [since 12]
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   HIERARCHICAL = 2,
 }
 
 /**
- * The direction type of symbol effect
- * 
- * @enum { number }
+ * The direction type of symbol effect.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform [since 20]
  * @form
  * @atomicservice
- * @since 12
- */
-/**
- * The direction type of symbol effect
- * 
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 20 dynamic
+ * @since 12 dynamic
  */
 declare enum EffectDirection {
+
   /**
-   * The scale down animation of symbol
+   * The symbol scales down and then returns to its original size.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform [since 20]
    * @form
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * The scale down animation of symbol
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20 dynamic
+   * @since 12 dynamic
    */
   DOWN = 0,
+
   /**
-   * The scale up animation of symbol
+   * The symbol scales up and then returns to its original size.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform [since 20]
    * @form
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
-  /**
-   * The scale up animation of symbol
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20 dynamic
-   */
-  UP = 1,
+  UP = 1
 }
 
 /**
- * Declare scope type of the symbol effect
- * 
- * @enum { number }
+ * The scope type of the symbol effect.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform [since 20]
  * @form
  * @atomicservice
- * @since 12
- */
-/**
- * Declare scope type of the symbol effect
- * 
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 20 dynamic
+ * @since 12 dynamic
  */
 declare enum EffectScope {
+
   /**
-   * The layered animation of symbol
+   * Layered mode.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform [since 20]
    * @form
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * The layered animation of symbol
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20 dynamic
+   * @since 12 dynamic
    */
   LAYER = 0,
+
   /**
-   * The whole animation of symbol
+   * Whole mode.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform [since 20]
    * @form
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
-  /**
-   * The whole animation of symbol
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20 dynamic
-   */
-  WHOLE = 1,
+  WHOLE = 1
 }
 
 /**
- * Declare fill style of symbol
- * 
- * @enum { number }
+ * The fill style of symbol effect.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform [since 20]
  * @form
  * @atomicservice
- * @since 12
- */
-/**
- * Declare fill style of symbol
- * 
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 20 dynamic
+ * @since 12 dynamic
  */
 declare enum EffectFillStyle {
+
   /**
-   * The cumulative fill style of symbol
+   * Cumulative style.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform [since 20]
    * @form
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * The cumulative fill style of symbol
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20 dynamic
+   * @since 12 dynamic
    */
   CUMULATIVE = 0,
 
   /**
-   * The iterative fill style of symbol
+   * Iterative style.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform [since 20]
    * @form
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
-  /**
-   * The iterative fill style of symbol
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20 dynamic
-   */
-  ITERATIVE = 1,
+  ITERATIVE = 1
 }
 
 /**
  * The replace effect type of symbol.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @form
  * @atomicservice
  * @since 20 dynamic
  */
 declare enum ReplaceEffectType {
+
   /**
-   * The default replace effect of symbol, the current symbol fully disappears before the new symbol fades in.
+   * Sequential replacement: The current symbol disappears before a new symbol appears. This is the default symbol
+   * replacement effect type.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice
    * @since 20 dynamic
    */
   SEQUENTIAL = 0,
- 
+
   /**
-   * The current symbol fades out while the new symbol fades in at the same time,
-   * producing a smoother and faster transition.
+   * Cross-fade transition effect: The current symbol fades out while a new symbol fades in simultaneously.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice
@@ -493,479 +311,324 @@ declare enum ReplaceEffectType {
   CROSS_FADE = 1,
 
   /**
-   * Replaces the current symbol with a symbol that includes a diagonal slash overlay,
-   * typically used to indicate a disabled or inactive state.
-   * If a corresponding slashed symbol variant is not available, the symbol is replaced without animation.
+   * Slash overlay effect: The current symbol is replaced with a symbol featuring diagonal slash, typically indicating
+   * disabled state.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice
    * @since 20 dynamic
    */
-  SLASH_OVERLAY = 2,
+  SLASH_OVERLAY = 2
 }
 
 /**
- * Defines SymbolEffect class.
+ * Defines the **SymbolEffect** class.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform [since 20]
  * @form
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
-/**
- * Defines SymbolEffect class.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 20 dynamic
- */
-declare class SymbolEffect {
-}
+declare class SymbolEffect {}
 
 /**
- * Defines ScaleSymbolEffect class.
+ * Defines ScaleSymbolEffect class, which inherits from **SymbolEffect**.
  *
- * @extends SymbolEffect
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform [since 20]
  * @form
  * @atomicservice
- * @since 12
- */
-/**
- * Defines ScaleSymbolEffect class.
- *
- * @extends SymbolEffect
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 20 dynamic
+ * @since 12 dynamic
  */
 declare class ScaleSymbolEffect extends SymbolEffect {
+
   /**
-   * constructor.
+   * A constructor used to create a **ScaleSymbolEffect** instance, which comes with a scaling animation effect.
    *
-   * @param { EffectScope } [scope] -  The scope type of symbol effect.
-   * @param { EffectDirection } [direction] - The direction of symbol effect.
+   * @param { EffectScope } [scope] - Effect scope.<br>Default value: **EffectScope.LAYER**
+   * @param { EffectDirection } [direction] - Effect direction.<br>Default value: **EffectDirection.DOWN**
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform [since 20]
    * @form
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * constructor.
-   *
-   * @param { EffectScope } [scope] -  The scope type of symbol effect.
-   * @param { EffectDirection } [direction] - The direction of symbol effect.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20 dynamic
+   * @since 12 dynamic
    */
   constructor(scope?: EffectScope, direction?: EffectDirection);
 
   /**
-   * The scope type of symbol effect
+   * Effect scope.
    *
-   * @type { ?EffectScope }
+   * Default value: **EffectScope.LAYER**
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform [since 20]
    * @form
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * The scope type of symbol effect
-   *
-   * @type { ?EffectScope }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20 dynamic
+   * @since 12 dynamic
    */
   scope?: EffectScope;
-  
+
   /**
-   * The direction of symbol effect
+   * Effect direction.
    *
-   * @type { ?EffectDirection }
+   * Default value: **EffectDirection.DOWN**
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform [since 20]
    * @form
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * The direction of symbol effect
-   *
-   * @type { ?EffectDirection }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20 dynamic
+   * @since 12 dynamic
    */
   direction?: EffectDirection;
 }
 
 /**
- * Defines HierarchicalSymbolEffect class.
+ * Defines HierarchicalSymbolEffect class, which inherits from **SymbolEffect**.
  *
- * @extends SymbolEffect
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform [since 20]
  * @form
  * @atomicservice
- * @since 12
- */
-/**
- * Defines HierarchicalSymbolEffect class.
- *
- * @extends SymbolEffect
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 20 dynamic
+ * @since 12 dynamic
  */
 declare class HierarchicalSymbolEffect extends SymbolEffect {
+
   /**
-   * constructor.
+   * A constructor used to create a **HierarchicalSymbolEffect** instance, which comes with a hierarchical animation
+   * effect.
    *
-   * @param { EffectFillStyle } [fillStyle] -  The fill style of symbol effect.
+   * @param { EffectFillStyle } [fillStyle] - Effect fill style.<br>Default value: **EffectFillStyle.CUMULATIVE**
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform [since 20]
    * @form
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * constructor.
-   *
-   * @param { EffectFillStyle } [fillStyle] -  The fill style of symbol effect.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20 dynamic
+   * @since 12 dynamic
    */
   constructor(fillStyle?: EffectFillStyle);
-  
+
   /**
-   * The fill style of symbol effect
+   * Effect fill style.
    *
-   * @type { ?EffectFillStyle }
+   * Default value: **EffectFillStyle.CUMULATIVE**
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform [since 20]
    * @form
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * The fill style of symbol effect
-   *
-   * @type { ?EffectFillStyle }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20 dynamic
+   * @since 12 dynamic
    */
   fillStyle?: EffectFillStyle;
 }
 
 /**
- * Defines AppearSymbolEffect class.
+ * Defines AppearSymbolEffect class, which inherits from **SymbolEffect**.
  *
- * @extends SymbolEffect
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform [since 20]
  * @form
  * @atomicservice
- * @since 12
- */
-/**
- * Defines AppearSymbolEffect class.
- *
- * @extends SymbolEffect
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 20 dynamic
+ * @since 12 dynamic
  */
 declare class AppearSymbolEffect extends SymbolEffect {
+
   /**
-   * constructor.
+   * A constructor used to create an **AppearSymbolEffect** instance, which comes with an appear animation effect.
    *
-   * @param { EffectScope } [scope] -  The scope type of symbol effect.
+   * @param { EffectScope } [scope] - Effect scope.<br>Default value: **EffectScope.LAYER**
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform [since 20]
    * @form
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * constructor.
-   *
-   * @param { EffectScope } [scope] -  The scope type of symbol effect.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20 dynamic
+   * @since 12 dynamic
    */
   constructor(scope?: EffectScope);
-  
+
   /**
-   * The scope type of symbol effect
+   * Effect scope.
    *
-   * @type { ?EffectScope }
+   * Default value: **EffectScope.LAYER**
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform [since 20]
    * @form
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * The scope type of symbol effect
-   *
-   * @type { ?EffectScope }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20 dynamic
+   * @since 12 dynamic
    */
   scope?: EffectScope;
 }
 
 /**
- * Defines DisappearSymbolEffect class.
+ * Defines DisappearSymbolEffect class, which inherits from **SymbolEffect**.
  *
- * @extends SymbolEffect
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform [since 20]
  * @form
  * @atomicservice
- * @since 12
- */
-/**
- * Defines DisappearSymbolEffect class.
- *
- * @extends SymbolEffect
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 20 dynamic
+ * @since 12 dynamic
  */
 declare class DisappearSymbolEffect extends SymbolEffect {
+
   /**
-   * constructor.
+   * A constructor used to create an **AppearSymbolEffect** instance, which comes with an appear animation effect.
    *
-   * @param { EffectScope } [scope] -  The scope type of symbol effect.
+   * @param { EffectScope } [scope] - Effect scope.<br>Default value: **EffectScope.LAYER**
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform [since 20]
    * @form
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * constructor.
-   *
-   * @param { EffectScope } [scope] -  The scope type of symbol effect.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20 dynamic
+   * @since 12 dynamic
    */
   constructor(scope?: EffectScope);
-  
+
   /**
-   * The scope type of symbol effect
+   * Effect scope.
    *
-   * @type { ?EffectScope }
+   * Default value: **EffectScope.LAYER**
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform [since 20]
    * @form
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * The scope type of symbol effect
-   *
-   * @type { ?EffectScope }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20 dynamic
+   * @since 12 dynamic
    */
   scope?: EffectScope;
 }
 
 /**
- * Defines BounceSymbolEffect class.
+ * Defines BounceSymbolEffect class, which inherits from **SymbolEffect**.
  *
- * @extends SymbolEffect
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform [since 20]
  * @form
  * @atomicservice
- * @since 12
- */
-/**
- * Defines BounceSymbolEffect class.
- *
- * @extends SymbolEffect
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 20 dynamic
+ * @since 12 dynamic
  */
 declare class BounceSymbolEffect extends SymbolEffect {
+
   /**
-   * constructor.
+   * A constructor used to create a **ScaleSymbolEffect** instance, which comes with a scaling animation effect.
    *
-   * @param { EffectScope } [scope] -  The scope type of symbol effect.
-   * @param { EffectDirection } [direction] - The direction of symbol effect.
+   * @param { EffectScope } [scope] - Effect scope.<br>Default value: **EffectScope.LAYER**
+   * @param { EffectDirection } [direction] - Effect direction.<br>Default value: **EffectDirection.DOWN**
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform [since 20]
    * @form
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * constructor.
-   *
-   * @param { EffectScope } [scope] -  The scope type of symbol effect.
-   * @param { EffectDirection } [direction] - The direction of symbol effect.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20 dynamic
+   * @since 12 dynamic
    */
   constructor(scope?: EffectScope, direction?: EffectDirection);
-  
+
   /**
-   * The scope type of symbol effect
+   * Effect scope.
    *
-   * @type { ?EffectScope }
+   * Default value: **EffectScope.LAYER**
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform [since 20]
    * @form
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * The scope type of symbol effect
-   *
-   * @type { ?EffectScope }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20 dynamic
+   * @since 12 dynamic
    */
   scope?: EffectScope;
-  
+
   /**
-   * The direction of symbol effect
+   * Effect direction.
    *
-   * @type { ?EffectDirection }
+   * Default value: **EffectDirection.DOWN**
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform [since 20]
    * @form
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * The direction of symbol effect
-   *
-   * @type { ?EffectDirection }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20 dynamic
+   * @since 12 dynamic
    */
   direction?: EffectDirection;
 }
 
 /**
- * Defines ReplaceSymbolEffect class.
+ * Defines ReplaceSymbolEffect class, which inherits from **SymbolEffect**.
  *
- * @extends SymbolEffect
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform [since 20]
  * @form
  * @atomicservice
- * @since 12
- */
-/**
- * Defines ReplaceSymbolEffect class.
- *
- * @extends SymbolEffect
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 20 dynamic
+ * @since 12 dynamic
  */
 declare class ReplaceSymbolEffect extends SymbolEffect {
+
   /**
-   * constructor.
+   * A constructor used to create an **AppearSymbolEffect** instance, which comes with an appear animation effect.
    *
-   * @param { EffectScope } [scope] -  The scope type of symbol effect.
+   * @param { EffectScope } [scope] - Effect scope.<br>Default value: **EffectScope.LAYER**
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform [since 20]
    * @form
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * constructor.
-   *
-   * @param { EffectScope } [scope] -  The scope type of symbol effect.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20 dynamic
+   * @since 12 dynamic
    */
   constructor(scope?: EffectScope);
 
   /**
-   * constructor.
-   * @param { EffectScope } [scope] -  The scope type of symbol effect.
-   * @param { ReplaceEffectType } [replaceType] - The replace effect type of symbol effect.
+   * A constructor used to create a **ReplaceSymbolEffect** instance, which comes with a replace animation effect. The
+   * replace effect type can be specified.
+   *
+   * @param { EffectScope } [scope] - Effect scope.<br>Default value: **EffectScope.LAYER**
+   * @param { ReplaceEffectType } [replaceType] - Replacement effect type.<br>Default value:
+   *     **ReplaceEffectType.SEQUENTIAL**
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice
    * @since 20 dynamic
    */
   constructor(scope?: EffectScope, replaceType?: ReplaceEffectType);
-  
+
   /**
-   * The scope type of symbol effect
+   * Effect scope.
    *
-   * @type { ?EffectScope }
+   * Default value: **EffectScope.LAYER**
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform [since 20]
    * @form
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * The scope type of symbol effect
-   *
-   * @type { ?EffectScope }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20 dynamic
+   * @since 12 dynamic
    */
   scope?: EffectScope;
 
   /**
-   * The replace effect type of symbol effect.
+   * Replacement effect type.
    *
-   * @type { ?ReplaceEffectType }
+   * Default value: **ReplaceEffectType.SEQUENTIAL**.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice
@@ -975,104 +638,73 @@ declare class ReplaceSymbolEffect extends SymbolEffect {
 }
 
 /**
- * Defines PulseSymbolEffect class.
+ * Defines PulseSymbolEffect class, which inherits from **SymbolEffect**.
  *
- * @extends SymbolEffect
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @form
  * @atomicservice
  * @since 12 dynamic
  */
-declare class PulseSymbolEffect extends SymbolEffect {
-}
+declare class PulseSymbolEffect extends SymbolEffect {}
 
 /**
- * Provides attribute for SymbolGlyph.
- * 
- * @extends CommonMethod<SymbolGlyphAttribute>
+ * The [universal attributes]{@link common} are supported. For text attributes, only the following attributes are
+ * supported.
+ *
+ * The [universal events]{@link common} are supported.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 11
- */
-/**
- * Provides attribute for SymbolGlyph.
- * 
- * @extends CommonMethod<SymbolGlyphAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @atomicservice
- * @since 12
- */
-/**
- * Provides attribute for SymbolGlyph.
- * 
- * @extends CommonMethod<SymbolGlyphAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 20 dynamic
+ * @stagemodelonly
+ * @crossplatform [since 20]
+ * @form [since 12]
+ * @atomicservice [since 12]
+ * @since 11 dynamic
+ * @noninterop
  */
 declare class SymbolGlyphAttribute extends CommonMethod<SymbolGlyphAttribute> {
+
   /**
-   * Called when the SymbolGlyph size is set.
+   * Sets the size of the **SymbolGlyph** component. When using the string type, numeric string values with optional
+   * units, for example, **"10"** or **"10fp"**, are supported.
    *
-   * @param { number | string | Resource } value
+   * The display size of the symbol glyph is controlled by the **fontSize** setting. Once **width** or **height** is
+   * specified, other universal attributes will only affect the size of the component's placeholder, not the symbol
+   * glyph itself.
+   *
+   * > **NOTE**
+   * >
+   * > This API can be called within [attributeModifier]{@link CommonMethod#attributeModifier} since API version 12.
+   *
+   * @param { number | string | Resource } value - Size of the **SymbolGlyph** component.<br>Default value: **16fp**<br>
+   *     Unit: [fp]{@link common}<br>Percentage strings are not supported.
    * @returns { SymbolGlyphAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 11
-   */
-  /**
-   * Called when the SymbolGlyph size is set.
-   *
-   * @param { number | string | Resource } value
-   * @returns { SymbolGlyphAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Called when the SymbolGlyph size is set.
-   *
-   * @param { number | string | Resource } value
-   * @returns { SymbolGlyphAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20 dynamic
+   * @stagemodelonly
+   * @crossplatform [since 20]
+   * @form [since 12]
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   fontSize(value: number | string | Resource): SymbolGlyphAttribute;
 
   /**
-   * Called when the SymbolGlyph color is set.
+   * Sets the color of the **SymbolGlyph** component.
    *
-   * @param { Array<ResourceColor> } value
+   * > **NOTE**
+   * >
+   * > This API can be called within [attributeModifier]{@link CommonMethod#attributeModifier} since API version 12.
+   *
+   * @param { Array<ResourceColor> } value - Color of the **SymbolGlyph** component.<br> Default value: depending on the
+   *     rendering strategy
    * @returns { SymbolGlyphAttribute } The attribute of the SymbolGlyph.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 11
-   */
-  /**
-   * Called when the SymbolGlyph color is set.
-   *
-   * @param { Array<ResourceColor> } value
-   * @returns { SymbolGlyphAttribute } The attribute of the SymbolGlyph.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Called when the SymbolGlyph color is set.
-   *
-   * @param { Array<ResourceColor> } value
-   * @returns { SymbolGlyphAttribute } The attribute of the SymbolGlyph.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20 dynamic
+   * @stagemodelonly
+   * @crossplatform [since 20]
+   * @form [since 12]
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   fontColor(value: Array<ResourceColor>): SymbolGlyphAttribute;
 
@@ -1091,281 +723,207 @@ declare class SymbolGlyphAttribute extends CommonMethod<SymbolGlyphAttribute> {
   fontColor(value: Array<ResourceColor | ColorMetrics> | undefined): SymbolGlyphAttribute;
 
   /**
-   * Set the shader style of the symbol, such as lineargradient or radialgradient.
+   * Applies a gradient or solid color shader effect to the **SymbolGlyph** component.
    *
-   * If a single `ShaderStyle` is provided, all layers of the symbol will use this shader style.
-   * If an array is provided, each item corresponds to the shader style of the matching symbol layer.
-   * - If an array item is `undefined`, that layer will use its default color.
-   * - Any layers beyond the length of the array will also use their default color.
+   * This API supports [RadialGradientStyle]{@link RadialGradientStyle},
+   * [LinearGradientStyle]{@link LinearGradientStyle}, and [ColorShaderStyle]{@link ColorShaderStyle}. When set,
+   * **shaderStyle** takes precedence over [fontColor]{@link SymbolSpanAttribute#fontColor} and any AI-based styling. To
+   * apply a simple solid color, using [fontColor]{@link SymbolSpanAttribute#fontColor} is recommended.
    *
-   * @param { Array<ShaderStyle | undefined> | ShaderStyle } shader - The shader style(s) to apply.
-   *     `ShaderStyle`: Apply the same shader style to all symbol layers.
-   *     `Array<ShaderStyle | undefined>`: Specify shader styles per layer; `undefined` means default
-   *     color for that layer.
+   * @param { Array<ShaderStyle | undefined> | ShaderStyle } shader - Shader effect.<br>Input types and behavior:<br>
+   *     Single **ShaderStyle** object: applies the specified effect to all layers. Array of **ShaderStyle** objects:
+   *     applies the specified effect to the corresponding layer. Array of **undefined**: applies the default
+   *     **SymbolGlyph** color to the corresponding layer. Layers unset retain their default color.<br> Based on the
+   *     input, the system applies a radial gradient ([RadialGradientStyle]{@link RadialGradientStyle}), linear gradient
+   *     ([LinearGradientStyle]{@link LinearGradientStyle}), or solid color ([ColorShaderStyle]{@link ColorShaderStyle})
+   *     to the **SymbolGlyph** component.<br>**NOTE**<br>Unit: [vp]{@link common}<br>Specify the center point and
+   *     radius using percentages. If a non-percentage value (e.g., **10px**) is provided, it will be interpreted as 100
+   *     0%.<br>You are advised to specify the radius using percentages.<br>Percentages are relative to the icon's size.
+   *     The recommended value range is [0, 1).
    * @returns { SymbolGlyphAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform [since 23]
    * @atomicservice
    * @since 20 dynamic
-   */
-  /**
-   * Set the shader style of the symbol, such as lineargradient or radialgradient.
-   *
-   * If a single `ShaderStyle` is provided, all layers of the symbol will use this shader style.
-   * If an array is provided, each item corresponds to the shader style of the matching symbol layer.
-   * - If an array item is `undefined`, that layer will use its default color.
-   * - Any layers beyond the length of the array will also use their default color.
-   *
-   * @param { Array<ShaderStyle | undefined> | ShaderStyle } shader - The shader style(s) to apply.
-   *     - `ShaderStyle`: Apply the same shader style to all symbol layers.
-   *     - `Array<ShaderStyle | undefined>`: Specify shader styles per layer; `undefined` means default
-   *     color for that layer.
-   * @returns { SymbolGlyphAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 23 dynamic
    */
   shaderStyle(shader: Array<ShaderStyle | undefined> | ShaderStyle): SymbolGlyphAttribute;
 
   /**
-   * Called when the font symbolGlyph weight is set.
+   * Sets the font weight of the **SymbolGlyph** component. For the number type, the value ranges from 100 to 900, at an
+   * interval of 100. A larger value indicates a heavier font weight. The default value is **400**. For the string type,
+   * only strings of the number type are supported, for example, **"400"**, **"bold"**, **"bolder"**, **"lighter"**,
+   * **"regular"**, and **"medium"**, which correspond to the enumerated values in **FontWeight**.
    *
-   * @param { number | FontWeight | string } value
+   * The **sys.symbol.ohos_lungs** icon does not support font weight setting.
+   *
+   * > **NOTE**
+   * >
+   * > This API can be called within [attributeModifier]{@link CommonMethod#attributeModifier} since API version 12.
+   *
+   * @param { number | FontWeight | string } value - Font weight of the **SymbolGlyph** component.<br>Default value:
+   *     **FontWeight.Normal**
    * @returns { SymbolGlyphAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 11
-   */
-  /**
-   * Called when the font symbolGlyph weight is set.
-   *
-   * @param { number | FontWeight | string } value
-   * @returns { SymbolGlyphAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Called when the font symbolGlyph weight is set.
-   *
-   * @param { number | FontWeight | string } value
-   * @returns { SymbolGlyphAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20 dynamic
+   * @stagemodelonly
+   * @crossplatform [since 20]
+   * @form [since 12]
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   fontWeight(value: number | FontWeight | string): SymbolGlyphAttribute;
 
   /**
-   * Called when the symbolGlyph effect is set.
+   * Used to set the font weight of symbolGlyph.
    *
-   * @param { SymbolEffectStrategy } value
-   * @returns { SymbolGlyphAttribute } The attribute of the SymbolGlyph.
+   * @param { number | FontWeight | ResourceStr } value - the symbolGlyph font weight.
+   * @param { FontWeightConfigs } [fontWeightConfigs] - the configuration of font weight.
+   * @returns { SymbolGlyphAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 11
-   */
-  /**
-   * Called when the symbolGlyph effect is set.
-   *
-   * @param { SymbolEffectStrategy } value
-   * @returns { SymbolGlyphAttribute } The attribute of the SymbolGlyph.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Called when the symbolGlyph effect is set.
-   *
-   * @param { SymbolEffectStrategy } value
-   * @returns { SymbolGlyphAttribute } The attribute of the SymbolGlyph.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 20 dynamic
+   * @since 26.0.0 dynamic
+   */
+  fontWeight(value: number | FontWeight | ResourceStr, fontWeightConfigs?: FontWeightConfigs): SymbolGlyphAttribute;
+
+  /**
+   * Sets the effect strategy of the **SymbolGlyph** component.
+   *
+   * > **NOTE**
+   * >
+   * > This API can be called within [attributeModifier]{@link CommonMethod#attributeModifier} since API version 12.
+   *
+   * @param { SymbolEffectStrategy } value - Effect strategy of the **SymbolGlyph** component.<br>Default value:
+   *     **SymbolEffectStrategy.NONE**
+   * @returns { SymbolGlyphAttribute } The attribute of the SymbolGlyph.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform [since 20]
+   * @form [since 12]
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   effectStrategy(value: SymbolEffectStrategy): SymbolGlyphAttribute;
 
   /**
-   * Called when the symbolGlyph rendering strategy is set.
+   * Sets the rendering strategy of the **SymbolGlyph** component.
    *
-   * @param { SymbolRenderingStrategy } value
+   * > **NOTE**
+   * >
+   * > This API can be called within [attributeModifier]{@link CommonMethod#attributeModifier} since API version 12.
+   *
+   * @param { SymbolRenderingStrategy } value - Rendering strategy of the **SymbolGlyph** component.<br>Default value:
+   *     **SymbolRenderingStrategy.SINGLE**
    * @returns { SymbolGlyphAttribute } The attribute of the SymbolGlyph.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 11
-   */
-  /**
-   * Called when the symbolGlyph rendering strategy is set.
-   *
-   * @param { SymbolRenderingStrategy } value
-   * @returns { SymbolGlyphAttribute } The attribute of the SymbolGlyph.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Called when the symbolGlyph rendering strategy is set.
-   *
-   * @param { SymbolRenderingStrategy } value
-   * @returns { SymbolGlyphAttribute } The attribute of the SymbolGlyph.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20 dynamic
+   * @stagemodelonly
+   * @crossplatform [since 20]
+   * @form [since 12]
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   renderingStrategy(value: SymbolRenderingStrategy): SymbolGlyphAttribute;
 
   /**
-   * Define effect options for SymbolGlyph.
+   * Sets the symbol effect and effect state for the **SymbolGlyph** component.
    *
-   * @param { SymbolEffect } [symbolEffect] - The symbol effect type
-   * @param { boolean } [isActive] - The active state of the effect
+   * @param { SymbolEffect } [symbolEffect] - Symbol effect of the **SymbolGlyph** component.<br>Default value:
+   *     [SymbolEffect]{@link SymbolGlyphAttribute#symbolEffect(symbolEffect: SymbolEffect, isActive?: boolean)}
+   * @param { boolean } [isActive] - Whether the effect is active.<br>**true**: playing. **false**: not playing.<br>
+   *     Default value: **false**.
    * @returns { SymbolGlyphAttribute } The attribute of the SymbolGlyph.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform [since 20]
    * @form
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * Define effect options for SymbolGlyph.
-   *
-   * @param { SymbolEffect } [symbolEffect] - The symbol effect type
-   * @param { boolean } [isActive] - The active state of the effect
-   * @returns { SymbolGlyphAttribute } The attribute of the SymbolGlyph.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20 dynamic
+   * @since 12 dynamic
    */
   symbolEffect(symbolEffect: SymbolEffect, isActive?: boolean): SymbolGlyphAttribute;
 
   /**
-   *  Define effect options for SymbolGlyph.
+   * Sets the symbol effect and effect trigger for the **SymbolGlyph** component.
    *
-   * @param { SymbolEffect } [symbolEffect] - The symbol effect type
-   * @param { number } [triggerValue] - The trigger of the effect
+   * @param { SymbolEffect } [symbolEffect] - Symbol effect of the **SymbolGlyph** component.<br>Default value:
+   *     [SymbolEffect]{@link SymbolGlyphAttribute#symbolEffect(symbolEffect: SymbolEffect, isActive?: boolean)}
+   * @param { number } [triggerValue] - Value that, when changed, initiates the animation of the **SymbolGlyph**
+   *     component.<br>To prevent the motion effect from triggering initially, set it to **-1**.
    * @returns { SymbolGlyphAttribute } The attribute of the SymbolGlyph.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform [since 20]
    * @form
    * @atomicservice
-   * @since 12
-   */
-  /**
-   *  Define effect options for SymbolGlyph.
-   *
-   * @param { SymbolEffect } [symbolEffect] - The symbol effect type
-   * @param { number } [triggerValue] - The trigger of the effect
-   * @returns { SymbolGlyphAttribute } The attribute of the SymbolGlyph.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20 dynamic
+   * @since 12 dynamic
    */
   symbolEffect(symbolEffect: SymbolEffect, triggerValue?: number): SymbolGlyphAttribute;
 
   /**
-   * Called when the minimum font scale of the font is set.
+   * Sets the minimum font scale factor for the **SymbolGlyph** component.
    *
-   * @param { Optional<number|Resource> } scale
+   * @param { Optional<number|Resource> } scale - Minimum font scale factor for the **SymbolGlyph** component.<br>Value
+   *     range: [0, 1]<br>The value **0** results in the minimum scaling.<br>**NOTE**<br>A value less than 0 is handled
+   *     as 0. A value greater than 1 is handled as 1. Abnormal values are ineffective by default.
    * @returns { SymbolGlyphAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform [since 20]
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
-  /**
-   * Called when the minimum font scale of the font is set.
-   *
-   * @param { Optional<number|Resource> } scale
-   * @returns { SymbolGlyphAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
-   */
-  minFontScale(scale: Optional<number | Resource>): SymbolGlyphAttribute;
+  minFontScale(scale: Optional<number|Resource>): SymbolGlyphAttribute;
 
   /**
-   * Called when the maximum font scale of the font is set.
+   * Sets the maximum font scale factor for the **SymbolGlyph** component.
    *
-   * @param { Optional<number|Resource> } scale
+   * @param { Optional<number|Resource> } scale - Maximum font scale factor for the **SymbolGlyph** component.<br>Value
+   *     range:
+   *     [1, +∞)<br>**NOTE**<br>A value less than 1 is handled as **1**. Abnormal values are ineffective by default.
    * @returns { SymbolGlyphAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform [since 20]
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
-  /**
-   * Called when the maximum font scale of the font is set.
-   *
-   * @param { Optional<number|Resource> } scale
-   * @returns { SymbolGlyphAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
-   */
-  maxFontScale(scale: Optional<number | Resource>): SymbolGlyphAttribute;
+  maxFontScale(scale: Optional<number|Resource>): SymbolGlyphAttribute;
 
   /**
-   * Set the shadow of symbol.
+   * Sets the shadow effect of the **SymbolGlyph** component.
    *
-   * <p><strong>NOTE</strong>:
-   * <br>This API does not work with the fill attribute, showType attribute or coloring strategy.
-   * </p>
-   *
-   * @param { Optional<ShadowOptions> } shadow - The shadow options.
+   * @param { Optional<ShadowOptions> } shadow - Shadow effect of the **SymbolGlyph** component.<br>Unit:
+   *     [vp]{@link common}<br>Default value: {<br>radius: 0,<br>color: Color.Black<br>offsetX: 0,<br>offsetY: 0<br>} <
+   *     br>The **fill** and **type** attributes, as well as the enumerated values of **ColoringStrategy** within the
+   *     **color **attribute, are not supported.
    * @returns { SymbolGlyphAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform [since 23]
    * @form
    * @atomicservice
    * @since 20 dynamic
-   */
-  /**
-   * Set the shadow of symbol.
-   *
-   * <p><strong>NOTE</strong>:
-   * <br>This API does not work with the fill attribute, showType attribute or coloring strategy.
-   * </p>
-   *
-   * @param { Optional<ShadowOptions> } shadow - The shadow options.
-   * @returns { SymbolGlyphAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 23 dynamic
    */
   symbolShadow(shadow: Optional<ShadowOptions>): SymbolGlyphAttribute;
 }
 
 /**
- * Defines SymbolGlyph Component.
+ * The **SymbolGlyph** component represents a symbol glyph.<!--RP1--><!--RP1End-->
+ *
+ * > **NOTE**
+ *
+ * ###### Child Components
+ *
+ * Not supported
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 11
- */
-/**
- * Defines SymbolGlyph Component.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @atomicservice
- * @since 12
- */
-/**
- * Defines SymbolGlyph Component.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 20 dynamic
+ * @stagemodelonly
+ * @crossplatform [since 20]
+ * @form [since 12]
+ * @atomicservice [since 12]
+ * @since 11 dynamic
+ * @noninterop
  */
 declare const SymbolGlyph: SymbolGlyphInterface;
 
@@ -1373,23 +931,11 @@ declare const SymbolGlyph: SymbolGlyphInterface;
  * Defines SymbolGlyph Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 11
- */
-/**
- * Defines SymbolGlyph Component instance.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @atomicservice
- * @since 12
- */
-/**
- * Defines SymbolGlyph Component instance.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 20 dynamic
+ * @stagemodelonly
+ * @crossplatform [since 20]
+ * @form [since 12]
+ * @atomicservice [since 12]
+ * @since 11 dynamic
+ * @noninterop
  */
 declare const SymbolGlyphInstance: SymbolGlyphAttribute;

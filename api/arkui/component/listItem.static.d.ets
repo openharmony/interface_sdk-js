@@ -18,7 +18,7 @@
  * @kit ArkUI
  */
 import { CommonMethod, Bindable } from './common';
-import { CustomBuilder } from './builder';
+import { CustomBuilder, Builder, CustomBuilderT, ConstructorT } from './builder';
 import { Length } from './units';
 import { ComponentContent, ComponentContentBase } from '../ComponentContent';
 import { ComponentBuilder } from './builder';
@@ -27,84 +27,97 @@ import { FrameNode } from '../FrameNode';
 /**
  * Sliding effect
  *
- * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare enum SwipeEdgeEffect {
-    /**
-     * Elastic physical action, sliding to the edge can continue to slide for a distance based on the initial speed or touch event, and spring back when released.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
-     */
-    Spring,
-    /**
-     * Sliding to the edge has no effect.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
-     */
-    None
+
+  /**
+   * Elastic physical action, sliding to the edge can continue to slide for a distance based on the initial speed or
+   * touch event, and spring back when released.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  Spring,
+
+  /**
+   * Sliding to the edge has no effect.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  None
 }
+
 /**
  * Declare enum SwipeActionState.
  *
- * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare enum SwipeActionState {
-    /**
-     * Collapsed type.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
-     */
-    COLLAPSED,
-    /**
-     * EXPANDED type.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
-     */
-    EXPANDED,
-    /**
-     * Action type.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
-     */
-    ACTIONING
+
+  /**
+   * Collapsed type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  COLLAPSED,
+
+  /**
+   * EXPANDED type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  EXPANDED,
+
+  /**
+   * Action type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  ACTIONING
 }
 
 /**
  * Declare enum ListItemSwipeActionDirection.
  *
- * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 24 static
+ * @since 26.0.0 static
  */
 export declare enum ListItemSwipeActionDirection {
-    /**
-     * When the List direction is vertical, it indicates the left in LTR mode and right in RTL mode.
-     * When the List direction is horizontal, it indicates the top.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 24 static
-     */
-    START = 0,
-    /**
-     * When the List direction is vertical, it indicates the right in LTR mode and left in RTL mode.
-     * When the List direction is horizontal, it indicates the bottom.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 24 static
-     */
-    END = 1
+
+  /**
+   * When the List direction is vertical, it indicates the left in LTR mode and right in RTL mode.
+   * When the List direction is horizontal, it indicates the top.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  START = 0,
+
+  /**
+   * When the List direction is vertical, it indicates the right in LTR mode and left in RTL mode.
+   * When the List direction is horizontal, it indicates the bottom.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  END = 1
 }
 
 /**
@@ -112,244 +125,283 @@ export declare enum ListItemSwipeActionDirection {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 24 static
+ * @since 26.0.0 static
  */
 export declare class ListItemSwipeActionManager {
-    /**
-     * Expand the swipe action
-     *
-     * @param { FrameNode } node - The ListItem FrameNode.
-     * @param { ListItemSwipeActionDirection } direction- The direction to expand.
-     * @throws { BusinessError } 100023 - The component type of the node is incorrect.
-     * @throws { BusinessError } 106203 - The node not mounted to component tree.
-     * @static
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 24 static
-     */
-    static expand(node: FrameNode, direction: ListItemSwipeActionDirection): void;
 
-    /**
-     * Collapse the swipe action
-     *
-     * @param { FrameNode } node - The ListItem FrameNode.
-     * @throws { BusinessError } 100023 - The component type of the node is incorrect.
-     * @throws { BusinessError } 106203 - The node not mounted to component tree.
-     * @static
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 24 static
-     */
-    static collapse(node: FrameNode): void;
+  /**
+   * Expand the swipe action
+   *
+   * @param { FrameNode } node - The ListItem FrameNode.
+   * @param { ListItemSwipeActionDirection } direction - The direction to expand.
+   * @throws { BusinessError } 100023 - The component type of the node is incorrect.
+   * @throws { BusinessError } 106203 - The node not mounted to component tree.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  static expand(node: FrameNode, direction: ListItemSwipeActionDirection): void;
+
+  /**
+   * Collapse the swipe action
+   *
+   * @param { FrameNode } node - The ListItem FrameNode.
+   * @throws { BusinessError } 100023 - The component type of the node is incorrect.
+   * @throws { BusinessError } 106203 - The node not mounted to component tree.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  static collapse(node: FrameNode): void;
 }
 
 /**
  * Defines the swipe action item for SwipeActionOptions.
  *
- * @interface SwipeActionItem
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare interface SwipeActionItem {
-    /**
-     * An action item that appears when a list item slides right (when list direction is Vertical) or
-     * slides down (when list direction Horizontal).
-     *
-     * @type { ?CustomBuilder }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
-     */
-    builder?: CustomBuilder;
-    /**
-      * An action item that appears when a list item slides right (when list direction is Vertical) or
-      * slides down (when list direction Horizontal).
-      *
-      * @type { ?ComponentContentBase }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-      * @since 23 static
-      */
-    builderComponent?: ComponentContentBase;
-    /**
-     * Defines distance for the delete area.
-     *
-     * @type { ?Length }
-     * @default 56vp
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
-     */
-    actionAreaDistance?: Length;
-    /**
-     * Called when ListItem need to be deleted.
-     *
-     * @type { ?function }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
-     */
-    onAction?: () => void;
-    /**
-     * Called when swipe entry delete area.
-     *
-     * @type { ?function }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
-     */
-    onEnterActionArea?: () => void;
-    /**
-     * Called when swipe exit delete area.
-     *
-     * @type { ?function }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
-     */
-    onExitActionArea?: () => void;
-    /**
-     * Called when component swipe action state changed.
-     *
-     * @type { ?function }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
-     */
-    onStateChange?: (state: SwipeActionState) => void;
+
+  /**
+   * An action item that appears when a list item slides right (when list direction is Vertical) or
+   * slides down (when list direction Horizontal).
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  builder?: CustomBuilder;
+
+  /**
+   * An action item that appears when a list item slides right (when list direction is Vertical) or
+   * slides down (when list direction Horizontal).
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  builderComponent?: ComponentContentBase;
+
+  /**
+   * Defines distance for the delete area.
+   *
+   * @default 56vp
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  actionAreaDistance?: Length;
+
+  /**
+   * Called when ListItem need to be deleted.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  onAction?: () => void;
+
+  /**
+   * Called when swipe entry delete area.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  onEnterActionArea?: () => void;
+
+  /**
+   * Called when swipe exit delete area.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  onExitActionArea?: () => void;
+
+  /**
+   * Called when component swipe action state changed.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  onStateChange?: (state: SwipeActionState) => void;
 }
+
 /**
  * Defines the SwipeActionOption of swipeAction attribute method.
  *
- * @interface SwipeActionOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare interface SwipeActionOptions {
-    /**
-     * An action item that appears when a list item slides right (when list direction is Vertical) or
-     * slides down (when list direction Horizontal).
-     *
-     * @type { ?(CustomBuilder | SwipeActionItem) }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
-     */
-    start?: CustomBuilder | SwipeActionItem;
-    /**
-     * An action item that appears when a list item slides left (when list direction is Vertical) or
-     * slides up (when list direction Horizontal).
-     *
-     * @type { ?(CustomBuilder | SwipeActionItem) }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
-     */
-    end?: CustomBuilder | SwipeActionItem;
-    /**
-     * Sets whether sliding to a boundary has a spring effect.
-     *
-     * @type { ?SwipeEdgeEffect }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
-     */
-    edgeEffect?: SwipeEdgeEffect;
-    /**
-     * Called when swipe action offset changed.
-     *
-     * @type { ?function }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
-     */
-    onOffsetChange?: (offset: double) => void;
+
+  /**
+   * An action item that appears when a list item slides right (when list direction is Vertical) or
+   * slides down (when list direction Horizontal).
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  start?: CustomBuilder | SwipeActionItem;
+
+  /**
+   * An action item that appears when a list item slides left (when list direction is Vertical) or
+   * slides up (when list direction Horizontal).
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  end?: CustomBuilder | SwipeActionItem;
+
+  /**
+   * Sets whether sliding to a boundary has a spring effect.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  edgeEffect?: SwipeEdgeEffect;
+
+  /**
+   * Called when swipe action offset changed.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  onOffsetChange?: (offset: double) => void;
 }
+
 /**
  * Defines the list item style.
  *
- * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare enum ListItemStyle {
-    /**
-     * Show custom style.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
-     */
-    NONE = 0,
-    /**
-     * Show default style.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
-     */
-    CARD = 1
+
+  /**
+   * Show custom style.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  NONE = 0,
+
+  /**
+   * Show default style.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  CARD = 1
 }
+
 /**
  * Defines the list item options.
  *
- * @interface ListItemOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare interface ListItemOptions {
-    /**
-     * Describes the ListItem style.
-     *
-     * @type { ?ListItemStyle }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
-     */
-    style?: ListItemStyle;
+
+  /**
+   * Describes the ListItem style.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  style?: ListItemStyle;
 }
 
 /**
  * The ListItemAttribute.
- * 
- * @extends CommonMethod
- * @interface ListItemAttribute
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
+ * @noninterop
  */
 export declare interface ListItemAttribute extends CommonMethod {
-    /**
-     * Called when judging whether it is selectable.
-     *
-     * @param { boolean | undefined } value
-     * @returns { this }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
-     */
-    default selectable(value: boolean | undefined): this;
-    /**
-     * Called when judging whether it is selected.
-     * This parameter supports $ for two-way binding of variables.
-     *
-     * @param { boolean | Bindable<boolean> | undefined } value - if the listItem is selected.
-     * @returns { this } the attribute of the listItem.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
-     */
-    default selected(value: boolean | Bindable<boolean> | undefined): this;
-    /**
-     * Sets the action item that appears when the list item slides in the cross axis direction of the list.
-     *
-     * @param { SwipeActionOptions | undefined } value - items defines in the SwipeActionOption.
-     * @returns { this }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
-     */
-    default swipeAction(value: SwipeActionOptions | undefined): this;
-    /**
-     * Called when the listItem is selected.
-     *
-     * @param { function | undefined } event
-     * @returns { this }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
-     */
-    default onSelect(event: ((isSelected: boolean) => void) | undefined): this;
-    /**
-     * Called attributeModifier.
-     *
-     * @param { AttributeModifier<ListAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
-     * @returns { this }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
-     */
-    default attributeModifier(modifier: AttributeModifier<ListItemAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+
+  /**
+   * Called when judging whether it is selectable.
+   *
+   * @param { boolean | undefined } value
+   * @returns { this }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  default selectable(value: boolean | undefined): this;
+
+  /**
+   * Called when judging whether it is selected.
+   * This parameter supports $ for two-way binding of variables.
+   *
+   * @param { boolean | Bindable<boolean> | undefined } value - if the listItem is selected.
+   * @returns { this } the attribute of the listItem.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  default selected(value: boolean | Bindable<boolean> | undefined): this;
+
+  /**
+   * Sets the action item that appears when the list item slides in the cross axis direction of the list.
+   *
+   * @param { SwipeActionOptions | undefined } value - items defines in the SwipeActionOption.
+   * @returns { this }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  default swipeAction(value: SwipeActionOptions | undefined): this;
+
+  /**
+   * Called when the listItem is selected.
+   *
+   * @param { function | undefined } event
+   * @returns { this }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  default onSelect(event: ((isSelected: boolean) => void) | undefined): this;
+
+  /**
+   * Set the ListItem Options.
+   *
+   * @param { ListItemOptions } [value] - ListItem constructor options
+   * @returns { ListItemAttribute } Returns the instance of the ListItemAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 staticonly
+   */
+  default setListItemOptions(value?: ListItemOptions): this;
+
+  /**
+   * Called attributeModifier.
+   *
+   * @param { AttributeModifier<ListAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
+   * @returns { this }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  default attributeModifier(modifier: AttributeModifier<ListItemAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
 
 /**
@@ -359,10 +411,85 @@ export declare interface ListItemAttribute extends CommonMethod {
  * @param { CustomBuilder } [content_]
  * @returns { ListItemAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
+ * @noninterop
  */
 @ComponentBuilder
 export declare function ListItem(
     value?: ListItemOptions, 
     content_?: CustomBuilder,
 ): ListItemAttribute
+
+/**
+ * Defines ListItem Component.
+ *
+ * @param { CustomBuilderT<ListItemAttribute> } style_ - The style to create a ListItem.
+ * @param { CustomBuilder } [content_]
+ * @returns { ListItemAttribute } The attribute of the ListItem.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ * @noninterop
+ */
+@Builder
+export declare function ListItem(
+    style_: CustomBuilderT<ListItemAttribute>,
+    content_?: CustomBuilder
+): ListItemAttribute;
+
+/**
+ * Defines the Extendable ListItem.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ */
+export declare abstract class ExtendableListItem implements ListItemAttribute {
+
+  /**
+   * Constructor of Extendable ListItem.
+   *
+   * @param { ConstructorT<T> } factory
+   * @param { ListItemOptions } [value]
+   * @param { CustomBuilder } [content_]
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 staticonly
+   */
+  @ComponentBuilder
+  static $_instantiate<T extends ExtendableListItem>(
+    factory: ConstructorT<T>, 
+    value?: ListItemOptions, 
+    content_?: CustomBuilder
+  ): T;
+
+  /**
+   * Entry of Extendable ListItem.
+   *
+   * @param { CustomBuilderT<T> } styles
+   * @param { ConstructorT<T> } factory
+   * @param { CustomBuilder } [content_]
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 staticonly
+   */
+  @Builder
+  static _instantiateImpl<T extends ExtendableListItem>(
+    styles: CustomBuilderT<T>, 
+    factory: ConstructorT<T>, 
+    content_?: CustomBuilder
+  ): void;
+
+  /**
+   * Set the ListItem Options.
+   *
+   * @param { ListItemOptions } [value]
+   * @returns { ExtendableListItem }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 staticonly
+   */
+  public setListItemOptions(value?: ListItemOptions): this;
+}

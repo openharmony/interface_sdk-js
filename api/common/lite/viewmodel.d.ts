@@ -283,6 +283,16 @@ export interface Options<T extends ViewModel, Data = DefaultData<T>> {
   onShow?(): void;
 
   /**
+   * Listens for page hiding.
+   * Called when the page disappears.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Lite
+   * @famodelonly
+   * @since 4 dynamiconly
+   */
+  onHide?(): void;
+
+  /**
    * Called when the application is created
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Lite

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2025 Huawei Device Co., Ltd.
+ * Copyright (c) 2025-2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -19,42 +19,52 @@
  */
 
 /**
- * Auto fill service trigger type.
+ * This module specifies how the autofill service is triggered, based on different user gestures.
  *
- * @enum { int }
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
- * @systemapi
+ * @systemapi [since 23 - 24]
+ * @publicapi [since 26.0.0]
  * @stagemodelonly
- * @since 23 dynamic&static
+ * @atomicservice
+ * @since 26.0.0 dynamic&static
  */
 export enum AutoFillTriggerType {
     /**
-     * Indicates that the autofill service was triggered by the autofill component.
+     * Automatically triggers the autofill service when a [TextInput]{@link @internal/component/ets/text_input} 
+     * component gains focus.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-     * @systemapi
+     * @systemapi [since 23 - 24]
+     * @publicapi [since 26.0.0]
      * @stagemodelonly
-     * @since 23 dynamic&static
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
      */
     AUTO_REQUEST = 0,
 
     /**
-     * Indicates that the autofill service was triggered by manual user interaction.
+     * Manually triggers the autofill service by long-pressing any input component to bring up a secondary menu and 
+     * selecting autofill.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-     * @systemapi
+     * @systemapi [since 23 - 24]
+     * @publicapi [since 26.0.0]
      * @stagemodelonly
-     * @since 23 dynamic&static
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
      */
     MANUAL_REQUEST = 1,
 
     /**
-     * Indicates that the autofill service was triggered by a paste action.
+     * Triggers the autofill service via paste by long-pressing a username or password in the password vault to select 
+     * secure copy, long-pressing any input component to bring up a secondary menu, and selecting paste.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-     * @systemapi
+     * @systemapi [since 23 - 24]
+     * @publicapi [since 26.0.0]
      * @stagemodelonly
-     * @since 23 dynamic&static
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
      */
     PASTE_REQUEST = 2,
 }

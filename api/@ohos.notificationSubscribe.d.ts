@@ -28,6 +28,11 @@ import { EnabledSilentReminderCallbackData as _EnabledSilentReminderCallbackData
 import { EnabledSilentReminderChangedCallback as _EnabledSilentReminderChangedCallback } from './notification/notificationSubscriber';
 import { EnabledPriorityNotificationCallbackData as _EnabledPriorityNotificationCallbackData } from './notification/notificationSubscriber';
 import { EnabledPriorityNotificationByBundleCallbackData as _EnabledPriorityNotificationByBundleCallbackData } from './notification/notificationSubscriber';
+import { VoiceContent as _VoiceContent } from './notification/notificationSubscriber';
+import { VoiceContentOptions as _VoiceContentOptions } from './notification/notificationSubscribeInfo';
+import { NotificationClassification as _NotificationClassification } from './notification/notificationSubscriber';
+import { NotificationSwitchChangedCallback as _NotificationSwitchChangedCallback } from './notification/notificationSubscriber';
+import { NotificationSwitchChangedCallbackData as _NotificationSwitchChangedCallbackData } from './notification/notificationSubscriber';
 /*** if arkts dynamic */
 import type { BadgeNumberCallbackData as _BadgeNumberCallbackData } from './notification/notificationSubscriber';
 /*** endif */
@@ -36,7 +41,13 @@ import type { BadgeNumberCallbackData as _BadgeNumberCallbackData } from './noti
 /*** endif */
 
 /**
- * @namespace notificationSubscribe
+ * The **notificationSubscribe** module provides APIs for notification subscription, notification unsubscription, 
+ * subscription removal, and more. In general cases, only system applications can call these APIs.
+ * 
+ * > **NOTE**
+ * >
+ * > The APIs provided by this module are system APIs.
+ *
  * @syscap SystemCapability.Notification.Notification
  * @systemapi
  * @since 9 dynamic
@@ -44,9 +55,8 @@ import type { BadgeNumberCallbackData as _BadgeNumberCallbackData } from './noti
  */
 declare namespace notificationSubscribe {
   /**
-   * Describes a NotificationKey, which can be used to identify a notification.
+   * Notification key.
    *
-   * @typedef NotificationKey
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9 dynamic
@@ -54,9 +64,8 @@ declare namespace notificationSubscribe {
    */
   export interface NotificationKey {
     /**
-     * Notify ID.
+     * Notification ID.
      *
-     * @type { int }
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
      * @since 9 dynamic
@@ -65,9 +74,8 @@ declare namespace notificationSubscribe {
     id: int;
 
     /**
-     * Notification label.
+     * Notification label. This parameter is left empty by default.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
      * @since 9 dynamic
@@ -77,9 +85,8 @@ declare namespace notificationSubscribe {
   }
 
   /**
-   * Reason for remove a notification
+   * Reason for removing the notification.
    *
-   * @enum { int }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9 dynamic
@@ -87,7 +94,7 @@ declare namespace notificationSubscribe {
    */
   export enum RemoveReason {
     /**
-     * Notification clicked notification on the status bar
+     * The notification is removed after a click on it.
      *
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
@@ -97,7 +104,7 @@ declare namespace notificationSubscribe {
     CLICK_REASON_REMOVE = 1,
 
     /**
-     * User dismissal notification  on the status bar
+     * The notification is removed by the user.
      *
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
@@ -108,15 +115,16 @@ declare namespace notificationSubscribe {
   }
 
   /**
-   * Subscribe to notifications.
+   * Subscribes to notifications of all applications under this user. This API uses an asynchronous callback to return 
+   * the result.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { NotificationSubscriber } subscriber - The notification subscriber.
-   * @param { AsyncCallback<void> } callback - The callback of subscribe.
+   * @param { NotificationSubscriber } subscriber - Notification subscriber.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -131,13 +139,14 @@ declare namespace notificationSubscribe {
   function subscribe(subscriber: NotificationSubscriber, callback: AsyncCallback<void>): void;
 
   /**
-   * Subscribe self notifications.
+   * Subscribes to notifications of the application and specifies subscription information. This API uses a promise to 
+   * return the result.
    *
-   * @param { NotificationSubscriber } subscriber - The notification subscriber.
-   * @returns { Promise<void> } The promise returned by the function.
+   * @param { NotificationSubscriber } subscriber - Notification subscriber.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -150,16 +159,17 @@ declare namespace notificationSubscribe {
   function subscribeSelf(subscriber: NotificationSubscriber): Promise<void>;
 
   /**
-   * Subscribe to notifications.
+   * Subscribes to a notification with the subscription information specified. This API uses an asynchronous callback to
+   * return the result.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { NotificationSubscriber } subscriber - The notification subscriber.
-   * @param { NotificationSubscribeInfo } info - The notification subscribe info.
-   * @param { AsyncCallback<void> } callback - The callback of subscribe.
+   * @param { NotificationSubscriber } subscriber - Notification subscriber.
+   * @param { NotificationSubscribeInfo } info - Notification subscription information.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -178,16 +188,18 @@ declare namespace notificationSubscribe {
   ): void;
 
   /**
-   * Subscribe to notifications
+   * Subscribes to a notification with the subscription information specified. This API uses a promise to return the 
+   * result.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { NotificationSubscriber } subscriber - The notification subscriber.
-   * @param { NotificationSubscribeInfo } [info] - The notification subscribe info.
-   * @returns { Promise<void> } The promise returned by the function.
+   * @param { NotificationSubscriber } subscriber - Notification subscriber.
+   * @param { NotificationSubscribeInfo } [info] - Notification subscription information. By default, this parameter is
+   *     left empty, which means to subscribe to notifications of all applications under this user.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -202,14 +214,16 @@ declare namespace notificationSubscribe {
   function subscribe(subscriber: NotificationSubscriber, info?: NotificationSubscribeInfo): Promise<void>;
 
   /**
-   * Subscribe to notifications; After subscribing, new messages are received via a callback function in the subscriber.
+   * Subscribes to notifications. After the subscription, the new message is received through the callback
+   * in the subscriber. This API uses a promise to return the result.
    *
    * @permission ohos.permission.NOTIFICATION_SYSTEM_SUBSCRIBER
-   * @param { NotificationSubscriber } subscriber - The notification subscriber.
-   * @returns { Promise<void> } The promise returned by the function.
+   * @param { NotificationSubscriber } subscriber - Notification subscriber.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - The caller is not a system application.
-   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 1600001 - Internal error. Possible cause: 1.IPC communication failed.
+   *     2.Memory operation error. 3.The user does not exist.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
@@ -220,15 +234,17 @@ declare namespace notificationSubscribe {
   function subscribeNotification(subscriber: NotificationSubscriber): Promise<void>;
 
   /**
-   * Subscribe to notifications; After subscribing, new messages are received via a callback function in the subscriber.
+   * Subscribes to notifications. After the subscription, the new message is received through the callback
+   * in the subscriber. This API uses a promise to return the result.
    *
    * @permission ohos.permission.NOTIFICATION_SYSTEM_SUBSCRIBER
-   * @param { NotificationSubscriber } subscriber - The notification subscriber.
-   * @param { NotificationSubscribeInfo } info - The notification subscribe info.
-   * @returns { Promise<void> } The promise returned by the function.
+   * @param { NotificationSubscriber } subscriber - Notification subscriber.
+   * @param { NotificationSubscribeInfo } info - Notification subscription information.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - The caller is not a system application.
-   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 1600001 - Internal error. Possible cause: 1.IPC communication failed.
+   *     2.Memory operation error. 3.The user does not exist.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
@@ -239,87 +255,58 @@ declare namespace notificationSubscribe {
   function subscribeNotification(subscriber: NotificationSubscriber, info: NotificationSubscribeInfo): Promise<void>;
 
   /**
-   * Unsubscribe notifications.
+   * Unsubscribes from a notification. This API uses an asynchronous callback to return the result.
    *
-   * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { NotificationSubscriber } subscriber - The notification subscriber.
-   * @param { AsyncCallback<void> } callback - The callback of unsubscribe.
-   * @throws { BusinessError } 201 - Permission denied.
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER [since 9 - 19]
+   * @param { NotificationSubscriber } subscriber - Notification subscriber.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @throws { BusinessError } 201 - Permission denied. [since 9 - 19]
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 9
-   */
-  /**
-   * Unsubscribe notifications.
-   *
-   * @param { NotificationSubscriber } subscriber - The notification subscriber.
-   * @param { AsyncCallback<void> } callback - The callback of unsubscribe.
-   * @throws { BusinessError } 202 - Not system application to call the interface.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
-   * @throws { BusinessError } 1600001 - Internal error.
-   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect to the service.
-   * @syscap SystemCapability.Notification.Notification
-   * @systemapi
-   * @since 20 dynamic
+   * @since 9 dynamic
    * @since 23 static
    */
   function unsubscribe(subscriber: NotificationSubscriber, callback: AsyncCallback<void>): void;
 
   /**
-   * Unsubscribe notifications.
+   * Unsubscribes from a notification. This API uses a promise to return the result.
    *
-   * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { NotificationSubscriber } subscriber - The notification subscriber.
-   * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 201 - Permission denied.
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER [since 9 - 19]
+   * @param { NotificationSubscriber } subscriber - Notification subscriber.
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 201 - Permission denied. [since 9 - 19]
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 9
-   */
-  /**
-   * Unsubscribe notifications.
-   *
-   * @param { NotificationSubscriber } subscriber - The notification subscriber.
-   * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 202 - Not system application to call the interface.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
-   * @throws { BusinessError } 1600001 - Internal error.
-   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect to the service.
-   * @syscap SystemCapability.Notification.Notification
-   * @systemapi
-   * @since 20 dynamic
+   * @since 9 dynamic
    * @since 23 static
    */
   function unsubscribe(subscriber: NotificationSubscriber): Promise<void>;
 
   /**
-   * Remove notification based on BundleOption and NotificationKey.
+   * Removes a notification based on the bundle information and notification key. This API uses an asynchronous callback
+   * to return the result.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { BundleOption } bundle - The bundle option.
-   * @param { NotificationKey } notificationKey - The notification key.
-   * @param { RemoveReason } reason - The remove reason.
-   * @param { AsyncCallback<void> } callback - The callback of remove.
+   * @param { BundleOption } bundle - Bundle information of the application.
+   * @param { NotificationKey } notificationKey - Notification key.
+   * @param { RemoveReason } reason - Reason for removing the notification.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -338,17 +325,18 @@ declare namespace notificationSubscribe {
   ): void;
 
   /**
-   * Remove notification based on BundleOption and NotificationKey.
+   * Removes a notification based on the bundle information and notification key. This API uses a promise to return the 
+   * result.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { BundleOption } bundle - The bundle option.
-   * @param { NotificationKey } notificationKey - The notification key.
-   * @param { RemoveReason } reason - The remove reason.
-   * @returns { Promise<void> } The promise returned by the function.
+   * @param { BundleOption } bundle - Bundle information of the application.
+   * @param { NotificationKey } notificationKey - Notification key.
+   * @param { RemoveReason } reason - Reason for removing the notification.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -362,16 +350,20 @@ declare namespace notificationSubscribe {
   function remove(bundle: BundleOption, notificationKey: NotificationKey, reason: RemoveReason): Promise<void>;
 
   /**
-   * Remove notification based on hashCode.
+   * Removes a notification based on the specified unique notification ID. This API uses an asynchronous callback to 
+   * return the result.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { string } hashCode - The hashCode.
-   * @param { RemoveReason } reason - The remove reason.
-   * @param { AsyncCallback<void> } callback - The callback of remove.
+   * @param { string } hashCode - Unique notification ID. It is the value of **hashCode** in the
+   *     [NotificationRequest]{@link ./notification/notificationRequest:NotificationRequest} object of
+   *     [SubscribeCallbackData]{@link ./notification/notificationSubscriber:SubscribeCallbackData} used in the
+   *     [onConsume]{@link ./notification/notificationSubscriber:NotificationSubscriber.onConsume} callback.
+   * @param { RemoveReason } reason - Reason for removing the notification.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -383,18 +375,20 @@ declare namespace notificationSubscribe {
    */
   function remove(hashCode: string, reason: RemoveReason, callback: AsyncCallback<void>): void;
 
-
   /**
-   * Remove notifications based on hashCodes.
+   * Removes specified notifications. This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { Array<String> } hashCodes - The hashCode array.
-   * @param { RemoveReason } reason - The remove reason.
-   * @param { AsyncCallback<void> } callback - The callback of remove.
+   * @param { Array<String> } hashCodes - Array of unique notification IDs. It is the value of **hashCode** in the
+   *     [NotificationRequest]{@link ./notification/notificationRequest:NotificationRequest} object of
+   *     [SubscribeCallbackData]{@link ./notification/notificationSubscriber:SubscribeCallbackData} used in the
+   *     [onConsume]{@link ./notification/notificationSubscriber:NotificationSubscriber.onConsume} callback.
+   * @param { RemoveReason } reason - Reason for removing the notification.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -406,16 +400,19 @@ declare namespace notificationSubscribe {
   function remove(hashCodes: Array<String>, reason: RemoveReason, callback: AsyncCallback<void>): void;
 
   /**
-   * Remove notification based on hashCode.
+   * Removes a notification based on the specified unique notification ID. This API uses a promise to return the result.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { string } hashCode - The hashCode.
-   * @param { RemoveReason } reason - The remove reason.
-   * @returns { Promise<void> } The promise returned by the function.
+   * @param { string } hashCode - Unique notification ID. It is the value of **hashCode** in the
+   *     [NotificationRequest]{@link ./notification/notificationRequest:NotificationRequest} object of
+   *     [SubscribeCallbackData]{@link ./notification/notificationSubscriber:SubscribeCallbackData} used in the
+   *     [onConsume]{@link ./notification/notificationSubscriber:NotificationSubscriber.onConsume} callback.
+   * @param { RemoveReason } reason - Reason for removing the notification.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -428,16 +425,16 @@ declare namespace notificationSubscribe {
   function remove(hashCode: string, reason: RemoveReason): Promise<void>;
 
   /**
-   * Remove notifications based on hashCodes.
+   * Removes specified notifications. This API uses a promise to return the result.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { Array<String> } hashCodes - The hashCode array.
-   * @param { RemoveReason } reason - The remove reason.
-   * @returns { Promise<void> } The promise returned by the function.
+   * @param { Array<String> } hashCodes - Array of unique notification IDs.
+   * @param { RemoveReason } reason - Reason for removing the notification.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -449,15 +446,15 @@ declare namespace notificationSubscribe {
   function remove(hashCodes: Array<String>, reason: RemoveReason): Promise<void>;
 
   /**
-   * RemoveAll all notifications based on BundleOption.
+   * Removes all notifications for a specified application. This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { BundleOption } bundle - The bundle option.
-   * @param { AsyncCallback<void> } callback - The callback of removeAll.
+   * @param { BundleOption } bundle - Bundle information of the application.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -470,14 +467,14 @@ declare namespace notificationSubscribe {
   function removeAll(bundle: BundleOption, callback: AsyncCallback<void>): void;
 
   /**
-   * RemoveAll all notifications.
+   * Removes all notifications. This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { AsyncCallback<void> } callback - The callback of removeAll.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -489,15 +486,15 @@ declare namespace notificationSubscribe {
   function removeAll(callback: AsyncCallback<void>): void;
 
   /**
-   * Remove all notifications under the specified user.
+   * Removes all notifications for a specified user. This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { int } userId - The userId.
-   * @param { AsyncCallback<void> } callback - The callback of removeAll.
+   * @param { int } userId - User ID.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -510,15 +507,15 @@ declare namespace notificationSubscribe {
   function removeAll(userId: int, callback: AsyncCallback<void>): void;
 
   /**
-   * Remove all notifications under the specified user.
+   * Removes all notifications for a specified user. This API uses a promise to return the result.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { int } userId - The userId.
-   * @returns { Promise<void> } The promise returned by the function.
+   * @param { int } userId - User ID.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -531,15 +528,16 @@ declare namespace notificationSubscribe {
   function removeAll(userId: int): Promise<void>;
 
   /**
-   * RemoveAll all notifications.
+   * Removes all notifications for a specified application. This API uses a promise to return the result.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { BundleOption } [bundle] - The bundle option.
-   * @returns { Promise<void> } The promise returned by the function.
+   * @param { BundleOption } [bundle] - Bundle information of the application. By default, this parameter is left empty,
+   *     indicating that all notifications will be removed.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -551,17 +549,19 @@ declare namespace notificationSubscribe {
    */
   function removeAll(bundle?: BundleOption): Promise<void>;
 
-   /**
-   * Trigger notification cross-device operation.
+  /**
+   * Triggers a notification for cross-device operations, such as tap-to-redirect and quick reply. This API uses a 
+   * promise to return the result.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { string } hashcode - The notification identifier.
-   * @param { OperationInfo } [operationInfo] - The interactive information.
-   * @returns { Promise<void> } The promise returned by the function.
+   * @param { string } hashcode - Unique notification ID.
+   * @param { OperationInfo } [operationInfo] - Cross-device operation information. This parameter is left empty by
+   *     default.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600010 - Distributed operation failed.
    * @throws { BusinessError } 1600021 - Distributed operation timed out.
    * @syscap SystemCapability.Notification.Notification
@@ -569,67 +569,68 @@ declare namespace notificationSubscribe {
    * @since 18 dynamic
    * @since 23 static
    */
-   function distributeOperation(hashcode: string, operationInfo?: OperationInfo): Promise<void>;
-
-   /**
-    * Information on cross-device notification interactions
-    *
-    * @typedef OperationInfo
-    * @syscap SystemCapability.Notification.Notification
-    * @systemapi
-    * @since 18 dynamic
-    * @since 23 static
-    */
-   export interface OperationInfo {
-     /**
-      * action button name
-      *
-      * @type { ?string }
-      * @syscap SystemCapability.Notification.Notification
-      * @systemapi
-      * @since 18 dynamic
-      * @since 23 static
-      */
-     actionName?: string;
-
-     /**
-      * user input.
-      *
-      * @type { ?string }
-      * @syscap SystemCapability.Notification.Notification
-      * @systemapi
-      * @since 18 dynamic
-      * @since 23 static
-      */
-     userInput?: string;
-
-     /**
-      * action operation type
-      *
-      * @type { ?int }
-      * @syscap SystemCapability.Notification.Notification
-      * @systemapi
-      * @since 20 dynamic
-      * @since 23 static
-      */
-     operationType?: int;
-
-     /**
-      * action button index
-      *
-      * @type { ?int }
-      * @syscap SystemCapability.Notification.Notification
-      * @systemapi
-      * @since 20 dynamic
-      * @since 23 static
-      */
-     buttonIndex?: int;
-   }
+  function distributeOperation(hashcode: string, operationInfo?: OperationInfo): Promise<void>;
 
   /**
-   * Describes a bundleOption in a notification.
+   * Cross-device operation information.
    *
-   * @typedef { _BundleOption } BundleOption
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 18 dynamic
+   * @since 23 static
+   */
+  export interface OperationInfo {
+    /**
+     * Operation button displayed in the notification. The value must be the same as that of **title** in 
+     * [NotificationActionButton]{@link ./notification/notificationActionButton:NotificationActionButton}.
+     *
+     * @syscap SystemCapability.Notification.Notification
+     * @systemapi
+     * @since 18 dynamic
+     * @since 23 static
+     */
+    actionName?: string;
+
+    /**
+     * User input, used to apply quick reply across devices. The value must be the same as that of **inputKey** in 
+     * [NotificationUserInput]{@link ./notification/notificationUserInput:NotificationUserInput}.
+     *
+     * @syscap SystemCapability.Notification.Notification
+     * @systemapi
+     * @since 18 dynamic
+     * @since 23 static
+     */
+    userInput?: string;
+
+    /**
+     * Operation type.
+     * 
+     * - **0**: The user taps the non-live view.
+     * - **1**: The user taps the non-live view button.
+     * - **32**: The user taps the live view.
+     * - **33**: The user taps the live view auxiliary area.
+     *
+     * @syscap SystemCapability.Notification.Notification
+     * @systemapi
+     * @since 20 dynamic
+     * @since 23 static
+     */
+    operationType?: int;
+
+    /**
+     * Index of the non-live view button or live view auxiliary area that the user taps.
+     *
+     * @syscap SystemCapability.Notification.Notification
+     * @systemapi
+     * @since 20 dynamic
+     * @since 23 static
+     */
+    buttonIndex?: int;
+  }
+
+  /**
+   * Describes the **BundleOption** information, that is, the bundle information of an application.
+   *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9 dynamic
@@ -638,9 +639,9 @@ declare namespace notificationSubscribe {
   export type BundleOption = _BundleOption;
 
   /**
-   * Sets filter criteria of publishers for subscribing to desired notifications.
+   * The **NotificationSubscribeInfo** module provides APIs for defining the information about the publisher for
+   * notification subscription.
    *
-   * @typedef { _NotificationSubscribeInfo } NotificationSubscribeInfo
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9 dynamic
@@ -649,10 +650,8 @@ declare namespace notificationSubscribe {
   export type NotificationSubscribeInfo = _NotificationSubscribeInfo;
 
   /**
-   * Provides methods that will be called back when the subscriber receives a new notification or
-   * a notification is canceled.
+   * Provides callback methods for subscribers to receive and cancel notifications.
    *
-   * @typedef { _NotificationSubscriber } NotificationSubscriber
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9 dynamic
@@ -664,7 +663,6 @@ declare namespace notificationSubscribe {
    * Provides methods that will be called back when the subscriber receives a new notification or
    * a notification is canceled.
    *
-   * @typedef { _SubscribeCallbackData } SubscribeCallbackData
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9 dynamic
@@ -675,7 +673,6 @@ declare namespace notificationSubscribe {
   /**
    * Describes the properties of the application that the permission to send notifications has changed.
    *
-   * @typedef { _EnabledNotificationCallbackData } EnabledNotificationCallbackData
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9 dynamic
@@ -686,7 +683,6 @@ declare namespace notificationSubscribe {
   /**
    * Describes the switch state for silent reminder notification.
    *
-   * @typedef { _EnabledSilentReminderCallbackData } EnabledSilentReminderCallbackData
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @stagemodelonly
@@ -695,9 +691,8 @@ declare namespace notificationSubscribe {
   export type EnabledSilentReminderCallbackData = _EnabledSilentReminderCallbackData;
 
   /**
-   * Called when the enabling status of the silent reminder changes.
+   * Defines a callback function to listen for the enabling state changes of the application's silent reminder.
    *
-   * @typedef { _EnabledSilentReminderChangedCallback } EnabledSilentReminderChangedCallback
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @stagemodelonly
@@ -708,7 +703,6 @@ declare namespace notificationSubscribe {
   /**
    * Describes the main switch state for priority notification.
    *
-   * @typedef { _EnabledPriorityNotificationCallbackData } EnabledPriorityNotificationCallbackData
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 23 dynamic&static
@@ -718,7 +712,6 @@ declare namespace notificationSubscribe {
   /**
    * Describes the bundle switch state for priority notification.
    *
-   * @typedef { _EnabledPriorityNotificationByBundleCallbackData } EnabledPriorityNotificationByBundleCallbackData
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 23 dynamic&static
@@ -728,13 +721,63 @@ declare namespace notificationSubscribe {
   /**
    * Describes the badge number of the application has changed.
    *
-   * @typedef { _BadgeNumberCallbackData } BadgeNumberCallbackData
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 11 dynamic
    * @since 23 static
    */
   export type BadgeNumberCallbackData = _BadgeNumberCallbackData;
+
+  /**
+   * Describes the properties of the voice content options for notification subscription.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  export type VoiceContentOptions = _VoiceContentOptions;
+  /**
+   * Describes the properties of the voice content of the received notification.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  export type VoiceContent = _VoiceContent;
+
+  /**
+   * Describes the notification classification information.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  export type NotificationClassification = _NotificationClassification;
+  
+  /**
+   * Register the callback function type for notification switch state changes set by the interface of
+   * [notificationManager.setNotificationSwitch]{@link
+   * ./@ohos.notificationManager:notificationManager.setNotificationSwitch}.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  export type NotificationSwitchChangedCallback = _NotificationSwitchChangedCallback;
+
+  /**
+   * Describes the notification switch state changes callback data.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  export type NotificationSwitchChangedCallbackData = _NotificationSwitchChangedCallbackData;
 }
 
 export default notificationSubscribe;

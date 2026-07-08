@@ -135,7 +135,7 @@ declare namespace agentManager {
    * Gets all AgentCards within specified bundleName.
    *
    * @permission ohos.permission.GET_AGENT_CARD
-   * @param { string } bundleName - The bundle name of the agent card belongs to.
+   * @param { string } bundleName - The bundle name of the AgentCard belongs to.
    * @returns { Promise<Array<AgentCard>> } Returns the array of AgentCard.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application.
@@ -153,8 +153,8 @@ declare namespace agentManager {
    * Gets the AgentCard within specified agent id.
    *
    * @permission ohos.permission.GET_AGENT_CARD
-   * @param { string } bundleName - The bundle name of the agent card belongs to.
-   * @param { string } agentId - The agent id the agent card belongs to.
+   * @param { string } bundleName - The bundle name of the AgentCard belongs to.
+   * @param { string } agentId - The agent id the AgentCard belongs to.
    * @returns { Promise<AgentCard> } Returns the specified AgentCard.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application.
@@ -173,7 +173,7 @@ declare namespace agentManager {
    * Updates the AgentCard within specified agent id.
    *
    * @permission ohos.permission.MODIFY_AGENT_CARD
-   * @param { AgentCard } agentCard - The agent card information to update.
+   * @param { AgentCard } agentCard - The AgentCard information to update.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application.
@@ -183,8 +183,8 @@ declare namespace agentManager {
    * 2.System service failed to communicate with dependency module.
    * @throws { BusinessError } 18500001 - The bundle does not exist or no patch has been applied.
    * @throws { BusinessError } 35600001 - The specified agentId does not exist.
-   * @throws { BusinessError } 35600004 - The specified agent card version is older than the current version.
-   * @throws { BusinessError } 35600005 - The specified agent card version is invalid.
+   * @throws { BusinessError } 35600004 - The specified AgentCard version is older than the current version.
+   * @throws { BusinessError } 35600005 - The specified AgentCard version is invalid.
    * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @systemapi
    * @stagemodelonly
@@ -196,8 +196,8 @@ declare namespace agentManager {
    * Deletes the AgentCard within specified agent id.
    *
    * @permission ohos.permission.MODIFY_AGENT_CARD
-   * @param { string } bundleName - The bundle name of the agent card belongs to.
-   * @param { string } agentId - The agent id the agent card belongs to.
+   * @param { string } bundleName - The bundle name of the AgentCard belongs to.
+   * @param { string } agentId - The agent id the AgentCard belongs to.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application.
@@ -215,9 +215,10 @@ declare namespace agentManager {
    * Registers an AgentCard.
    * If `agentCard.type` is not specified, it defaults to `agentConstant.AgentCardType.APP`.
    * When the type is `APP` or `LOW_CODE`, `appInfo` is validated, especially `bundleName` and `abilityName`.
+   * A maximum of 1000 AgentCards can be registered under one bundle.
    *
    * @permission ohos.permission.MODIFY_AGENT_CARD
-   * @param { AgentCard } agentCard - The agent card information to register.
+   * @param { AgentCard } agentCard - The AgentCard information to register.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application.
@@ -226,8 +227,9 @@ declare namespace agentManager {
    * @throws { BusinessError } 16000050 - Internal error. Possible causes: 1.Connect to system service failed.
    * 2.System service failed to communicate with dependency module.
    * @throws { BusinessError } 18500001 - The bundle does not exist or no patch has been applied.
-   * @throws { BusinessError } 35600005 - The specified agent card version is invalid.
-   * @throws { BusinessError } 35600006 - The specified agent card has already been registered. Use updateAgentCard instead.
+   * @throws { BusinessError } 35600005 - The specified AgentCard version is invalid.
+   * @throws { BusinessError } 35600006 - The specified AgentCard has already been registered. Use updateAgentCard instead.
+   * @throws { BusinessError } 35600008 - The number of AgentCards in the bundle reaches the limit.
    * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @systemapi
    * @stagemodelonly

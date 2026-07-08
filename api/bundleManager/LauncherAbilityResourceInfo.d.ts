@@ -21,9 +21,15 @@
 import { DrawableDescriptor } from './../@ohos.arkui.drawableDescriptor';
 
 /**
- * Obtains resource information about a launcher ability
+ * The module provides resource information of the entry ability of an application, such as the icon and label. The
+ * information can be obtained by calling
+ * [getLauncherAbilityResourceInfo]{@link ./../@ohos.bundle.bundleResourceManager:bundleResourceManager.getLauncherAbilityResourceInfo(bundleName: string, resourceFlags?: int)}
+ * .
  *
- * @typedef LauncherAbilityResourceInfo
+ * > **NOTE**
+ * >
+ * > The APIs provided by this module are system APIs.
+ *
  * @syscap SystemCapability.BundleManager.BundleFramework.Resource
  * @systemapi
  * @since 11 dynamic
@@ -31,10 +37,8 @@ import { DrawableDescriptor } from './../@ohos.arkui.drawableDescriptor';
  */
 export interface LauncherAbilityResourceInfo {
   /**
-   * Indicates the bundleName of this ability
+   * Bundle name of the application.
    *
-   * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Resource
    * @systemapi
    * @since 11 dynamic
@@ -43,10 +47,8 @@ export interface LauncherAbilityResourceInfo {
   readonly bundleName: string;
 
   /**
-   * Indicates the moduleName of this ability
+   * Module name of the application.
    *
-   * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Resource
    * @systemapi
    * @since 11 dynamic
@@ -55,10 +57,8 @@ export interface LauncherAbilityResourceInfo {
   readonly moduleName: string;
 
   /**
-   * Indicates the abilityName of this ability
+   * Name of the entry ability.
    *
-   * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Resource
    * @systemapi
    * @since 11 dynamic
@@ -67,10 +67,8 @@ export interface LauncherAbilityResourceInfo {
   readonly abilityName: string;
 
   /**
-   * Indicates the icon of this ability, which is base64 format
+   * Application icon, which is encoded using Base64.
    *
-   * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Resource
    * @systemapi
    * @since 11 dynamic
@@ -79,10 +77,8 @@ export interface LauncherAbilityResourceInfo {
   readonly icon: string;
 
   /**
-   * Indicates the label of this ability
+   * Application label.
    *
-   * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Resource
    * @systemapi
    * @since 11 dynamic
@@ -91,10 +87,8 @@ export interface LauncherAbilityResourceInfo {
   readonly label: string;
 
   /**
-   * Indicates the drawable descriptor of this ability icon
+   * **drawableDescriptor** object of the application icon.
    *
-   * @type { DrawableDescriptor }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Resource
    * @systemapi
    * @since 12 dynamic
@@ -104,8 +98,6 @@ export interface LauncherAbilityResourceInfo {
   /**
    * Indicates the drawable descriptor of this ability icon
    *
-   * @type { DrawableDescriptor | null }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Resource
    * @systemapi
    * @since 23 static
@@ -113,10 +105,8 @@ export interface LauncherAbilityResourceInfo {
   readonly drawableDescriptor: DrawableDescriptor | null;
 
   /**
-   * Indicates the index of the bundle
+   * Index of an application clone.
    *
-   * @type { int }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Resource
    * @systemapi
    * @since 12 dynamic

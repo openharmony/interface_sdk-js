@@ -19,18 +19,12 @@
  */
 
 /**
- * The **AbilityDelegatorArgs** module provides APIs to obtain an **AbilityDelegatorArgs** object during the execution 
+ * The **AbilityDelegatorArgs** module provides APIs to obtain an **AbilityDelegatorArgs** object during the execution
  * of test cases.
- * 
+ *
  * > **NOTE**
- * 
- * > The APIs of this module can be used only in 
  * >
- * >
- * > [JsUnit](docroot://application-test/unittest-guidelines.md)
- * >
- * >
- * > .
+ * > The APIs of this module can be used only in [JsUnit](docroot://application-test/unittest-guidelines.md).
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @crossplatform [since 10]
@@ -53,6 +47,8 @@ export interface AbilityDelegatorArgs {
   /**
    * Parameters of the unit test that is started currently.
    *
+   * @type { object } [since 8 - 10]
+   * @type { Record<string, string> } [since 11]
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform [since 10]
    * @atomicservice [since 11]
@@ -84,6 +80,4 @@ export interface AbilityDelegatorArgs {
   testRunnerClassName: string;
 }
 
-/*** if arkts dynamic */
 export default AbilityDelegatorArgs;
-/*** endif */

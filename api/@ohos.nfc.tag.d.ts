@@ -66,11 +66,22 @@ declare namespace tag {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
-   * @since 23 static
    */
   const NFC_A = 1;
 
   /**
+   * Indicates an NFC-A tag.
+   * The value should be an integer.
+   *
+   * @constant
+   * @syscap SystemCapability.Communication.NFC.Tag
+   * @stagemodelonly
+   * @atomicservice
+   * @since 23 static
+   */
+  const NFC_A: int;
+
+  /**
    * Indicates an NFC-B tag.
    *
    * @constant
@@ -84,11 +95,22 @@ declare namespace tag {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
-   * @since 23 static
    */
   const NFC_B = 2;
 
   /**
+   * Indicates an NFC-B tag.
+   * The value should be an integer.
+   *
+   * @constant
+   * @syscap SystemCapability.Communication.NFC.Tag
+   * @stagemodelonly
+   * @atomicservice
+   * @since 23 static
+   */
+  const NFC_B: int;
+
+  /**
    * Indicates an ISO_DEP tag.
    *
    * @constant
@@ -102,11 +124,22 @@ declare namespace tag {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
-   * @since 23 static
    */
   const ISO_DEP = 3;
 
   /**
+   * Indicates an ISO_DEP tag.
+   * The value should be an integer.
+   *
+   * @constant
+   * @syscap SystemCapability.Communication.NFC.Tag
+   * @stagemodelonly
+   * @atomicservice
+   * @since 23 static
+   */
+  const ISO_DEP: int;
+
+  /**
    * Indicates an NFC-F tag.
    *
    * @constant
@@ -120,11 +153,22 @@ declare namespace tag {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
-   * @since 23 static
    */
   const NFC_F = 4;
 
   /**
+   * Indicates an NFC-F tag.
+   * The value should be an integer.
+   *
+   * @constant
+   * @syscap SystemCapability.Communication.NFC.Tag
+   * @stagemodelonly
+   * @atomicservice
+   * @since 23 static
+   */
+  const NFC_F: int;
+
+  /**
    * Indicates an NFC-V tag.
    *
    * @constant
@@ -138,9 +182,20 @@ declare namespace tag {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
-   * @since 23 static
    */
   const NFC_V = 5;
+
+  /**
+   * Indicates an NFC-V tag.
+   * The value should be an integer.
+   *
+   * @constant
+   * @syscap SystemCapability.Communication.NFC.Tag
+   * @stagemodelonly
+   * @atomicservice
+   * @since 23 static
+   */
+  const NFC_V: int;
 
   /**
    * Indicates an NDEF tag.
@@ -156,9 +211,20 @@ declare namespace tag {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
-   * @since 23 static
    */
   const NDEF = 6;
+
+  /**
+   * Indicates an NDEF tag.
+   * The value should be an integer.
+   *
+   * @constant
+   * @syscap SystemCapability.Communication.NFC.Tag
+   * @stagemodelonly
+   * @atomicservice
+   * @since 23 static
+   */
+  const NDEF: int;
 
   /**
    * Indicates an NDEF Formatable tag.
@@ -174,11 +240,22 @@ declare namespace tag {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
-   * @since 23 static
    */
   const NDEF_FORMATABLE = 7;
 
   /**
+   * Indicates an NDEF Formatable tag.
+   * The value should be an integer.
+   *
+   * @constant
+   * @syscap SystemCapability.Communication.NFC.Tag
+   * @stagemodelonly
+   * @atomicservice
+   * @since 23 static
+   */
+  const NDEF_FORMATABLE: int;
+
+  /**
    * Indicates an MIFARE CLASSIC tag.
    *
    * @constant
@@ -192,9 +269,20 @@ declare namespace tag {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
-   * @since 23 static
    */
   const MIFARE_CLASSIC = 8;
+
+  /**
+   * Indicates an MIFARE CLASSIC tag.
+   * The value should be an integer.
+   *
+   * @constant
+   * @syscap SystemCapability.Communication.NFC.Tag
+   * @stagemodelonly
+   * @atomicservice
+   * @since 23 static
+   */
+  const MIFARE_CLASSIC: int;
 
   /**
    * Indicates an MIFARE ULTRALIGHT tag.
@@ -210,9 +298,20 @@ declare namespace tag {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
-   * @since 23 static
    */
   const MIFARE_ULTRALIGHT = 9;
+
+  /**
+   * Indicates an MIFARE ULTRALIGHT tag.
+   * The value should be an integer.
+   *
+   * @constant
+   * @syscap SystemCapability.Communication.NFC.Tag
+   * @stagemodelonly
+   * @atomicservice
+   * @since 23 static
+   */
+  const MIFARE_ULTRALIGHT: int;
 
   /**
    * Indicates an NfcBarcode tag.
@@ -221,9 +320,20 @@ declare namespace tag {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 18 dynamic
-   * @since 23 static
    */
   const NFC_BARCODE = 10;
+
+  /**
+   * Indicates an NfcBarcode tag.
+   * The value should be an integer.
+   *
+   * @constant
+   * @syscap SystemCapability.Communication.NFC.Tag
+   * @stagemodelonly
+   * @atomicservice
+   * @since 23 static
+   */
+  const NFC_BARCODE: int;
 
   /**
    * TNF types definitions, see NFCForum-TS-NDEF_1.0.
@@ -2071,5 +2181,26 @@ declare namespace tag {
    * @since 23 static
    */
   export type TagSession = _TagSession;
+
+  /**
+   * Skip NDEF when app is reading a card in the foreground.
+   *
+   * @syscap SystemCapability.Communication.NFC.Tag
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  const SKIP_NDEF = 11;
+
+  /**
+   * Skip NDEF when app is reading a card in the foreground.
+   * The value range is all integers.
+   *
+   * @syscap SystemCapability.Communication.NFC.Tag
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 static
+   */
+  const SKIP_NDEF: int;
 }
 export default tag;

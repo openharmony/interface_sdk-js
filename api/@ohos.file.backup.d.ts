@@ -61,6 +61,16 @@ declare namespace backup {
      * @since 23 static
      */
     uri: string;
+
+    /**
+     * Indicates uris to files.
+     *
+     * @syscap SystemCapability.FileManagement.StorageService.Backup
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    uris?: Array<string>;
   }
 
   /**
@@ -294,6 +304,18 @@ declare namespace backup {
    * @since 23 static
    */
   function getBackupVersion(): string;
+
+  /**
+   * Function that returns array of file handle.
+   *
+   * @param { BusinessError<void> } error - the error that triggers the callback.
+   * @param { Array<File> } files - file handle.
+   * @syscap SystemCapability.FileManagement.StorageService.Backup
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  type OnFileReadyBatch = (error: BusinessError<void>, files: Array<File>) => void;
 
   /**
    * Obtain a Json file that describes local capabilities.
@@ -741,6 +763,46 @@ declare namespace backup {
      * @since 23 static
      */
     onBackupSizeReport?: OnBackupSizeReport;
+
+    /**
+     * Callback called when the migrate result is reported.
+     * The first return string parameter indicates the name of the bundle.
+     * The second return string parameter indicates that when BusinessError errors occur,
+     * the callback data is the name of the bundle.
+     *
+     * @throws { BusinessError } 202 - Permission verification failed,
+     *     application which is not a system application uses system API.
+     * @throws { BusinessError } 13600001 - IPC error
+     * @throws { BusinessError } 13900001 - Operation not permitted
+     * @throws { BusinessError } 13900005 - I/O error
+     * @throws { BusinessError } 13900011 - Out of memory
+     * @throws { BusinessError } 13900020 - Invalid argument
+     * @throws { BusinessError } 13900025 - No space left on device
+     * @syscap SystemCapability.FileManagement.StorageService.Backup
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    onMigrateResult?: AsyncCallback<string, void | string>;
+
+    /**
+     * Callback called when the backup service tries to send files to the client.
+     * The File argument indicates a file to send to the client.
+     * The returned file is owned by the backup service and will be cleaned by the service once the file is closed.
+     *
+     * @throws { BusinessError } 202 - Permission verification failed,
+     *     application which is not a system application uses system API.
+     * @throws { BusinessError } 13600001 - IPC error
+     * @throws { BusinessError } 13900005 - I/O error
+     * @throws { BusinessError } 13900011 - Out of memory
+     * @throws { BusinessError } 13900020 - Invalid argument
+     * @throws { BusinessError } 13900025 - No space left on device
+     * @syscap SystemCapability.FileManagement.StorageService.Backup
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    onFileReadyBatch?: OnFileReadyBatch;
   }
 
   /**
@@ -930,6 +992,34 @@ declare namespace backup {
      * @since 23 static
      */
     getCompatibilityInfo(bundleName: string, extInfo: string): Promise<string>;
+  }
+
+ /**
+  * Path information for file migration.
+  * @syscap SystemCapability.FileManagement.StorageService.Backup
+  * @systemapi
+  * @stagemodelonly
+  * @since 26.0.0 dynamic&static
+  */
+ interface PathInfo {
+    /**
+    * Source path for migration.
+    * @syscap SystemCapability.FileManagement.StorageService.Backup
+    * @systemapi
+    * @stagemodelonly
+    * @since 26.0.0 dynamic&static
+    */
+   srcPath: string;
+
+    /**
+     * Destination path for migration.
+     *
+     * @syscap SystemCapability.FileManagement.StorageService.Backup
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    destPath: string;
   }
 
   /**
@@ -1181,8 +1271,71 @@ declare namespace backup {
      * @since 23 static
      */
     getCompatibilityInfo(bundleName: string, extInfo: string): Promise<string>;
-  }
 
+    /**
+     * Migrate file from source path to destination path.
+     *
+     * @permission ohos.permission.BACKUP
+     * @param { PathInfo } pathInfo - Path information containing source and destination paths.
+     * @param { FileMeta } fileMeta - File metadata containing bundleName and optional fileName.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
+     * @throws { BusinessError } 202 - Permission verification failed,
+     *     application which is not a system application uses system API.
+     * @throws { BusinessError } 13600001 - IPC error
+     * @throws { BusinessError } 13900001 - Operation not permitted
+     * @throws { BusinessError } 13900020 - Invalid argument
+     * @syscap SystemCapability.FileManagement.StorageService.Backup
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    migrateFile(pathInfo: PathInfo, fileMeta: FileMeta): Promise<void>;
+
+    /**
+     * Get the file handle of an APK file.
+     *
+     * @permission ohos.permission.BACKUP
+     * @param { string } path - The path to the APK file.
+     * @param { string } fileName - The name of the APK file.
+     * @returns { Promise<FileData> } Promise used to return A FileData holding the file descriptor. The returned
+     *     file is a temporal file that will be deleted automatically when closed.  
+     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
+     * @throws { BusinessError } 202 - Permission verification failed,
+     *     application which is not a system application uses system API.
+     * @throws { BusinessError } 13600001 - IPC error
+     * @throws { BusinessError } 13900001 - Operation not permitted
+     * @throws { BusinessError } 13900020 - Invalid argument
+     * @syscap SystemCapability.FileManagement.StorageService.Backup
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    getApkFileHandle(path: string, fileName: string): Promise<FileData>;
+
+    /**
+     * Request to get shared files from the service. This interface is part of the zero-copy feature.
+     * Developers could get the file through onFileReadyBatch callback.
+     * When the client accomplished the file, use publishFile to publish.
+     *
+     * @permission ohos.permission.BACKUP
+     * @param { FileMeta } fileMeta - Metadata of the file to be sent. Note that all the files should come
+     *     from the backup procedure or the getLocalCapabilities method.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
+     * @throws { BusinessError } 202 - Permission verification failed,
+     *     application which is not a system application uses system API.
+     * @throws { BusinessError } 13600001 - IPC error
+     * @throws { BusinessError } 13900001 - Operation not permitted
+     * @throws { BusinessError } 13900020 - Invalid argument
+     * @syscap SystemCapability.FileManagement.StorageService.Backup
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    getFileHandles(fileMeta: FileMeta): Promise<void>;
+  }
+  
   /**
    * Control class for incremental backup procedure.
    *

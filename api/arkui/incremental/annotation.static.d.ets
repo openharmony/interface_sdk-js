@@ -1,6 +1,6 @@
 'use static'
 /*
- * Copyright (C) 2025 Huawei Device Co., Ltd.
+ * Copyright (c) 2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 /**
  * @file
  * @kit ArkUI
@@ -21,28 +22,31 @@
 import { __memo_context_type, __memo_id_type } from './runtime/state';
 
 /**
- * Defining Memo annotation.
+ * Defines Memo Annotation.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 @Retention({policy: "SOURCE"})
-export declare @interface Memo {};
+export declare @interface Memo {}
 
 /**
- * Defining MemoIntrinsic annotation.
+ * Defines MemoIntrinsic Annotation.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 @Retention({policy: "SOURCE"})
-export declare @interface MemoIntrinsic {};
+export declare @interface MemoIntrinsic {}
 
 /**
- * Defining MemoSkip annotation.
- * MemoSkip parameter will not be a state varaiable in Builder functions.
+ * Defines MemoSkip Annotation.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 @Retention({policy: "SOURCE"})
-export declare @interface MemoSkip {};
+export declare @interface MemoSkip {}

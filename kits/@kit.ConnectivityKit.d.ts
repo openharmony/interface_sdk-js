@@ -32,6 +32,7 @@ export {
 };
 /*** endif */
 
+import bas from '@ohos.bluetooth.bas';
 import common from '@ohos.bluetooth.common';
 import bluetooth from '@ohos.bluetooth';
 import map from '@ohos.bluetooth.map';
@@ -57,11 +58,12 @@ import Bluetooth, {
 import PartnerAgentExtensionContext from '@ohos.FusionConnectivity.PartnerAgentExtensionContext';
 import PartnerAgentExtensionAbility from '@ohos.FusionConnectivity.PartnerAgentExtensionAbility';
 import partnerAgent from '@ohos.FusionConnectivity.partnerAgent';
+import ranging from '@ohos.FusionConnectivity.ranging';
 
 export {
   BLEFoundResponse, Bluetooth, BluetoothDevice, StartBLEScanOptions, StopBLEScanOptions,
   SubscribeBLEFoundOptions, bluetooth, bluetoothManager, cardEmulation,
   connectedTag, map, nfcController, omapi, opp, pan, pbap, socket, tag, wearDetection, wifi,
   wifiManager, wifiManagerExt, wifiext, common, PartnerAgentExtensionContext, PartnerAgentExtensionAbility,
-  partnerAgent
+  partnerAgent, ranging, bas
 };

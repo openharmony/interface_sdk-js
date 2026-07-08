@@ -19,9 +19,8 @@
  */
 
 /**
- * Defines the cipher response.
+ * Defines the response to the cipher interface called.
  *
- * @typedef CipherResponse
  * @syscap SystemCapability.Security.Cipher
  * @since 3 dynamiconly
  * @deprecated since 11
@@ -29,9 +28,8 @@
  */
 export interface CipherResponse {
   /**
-   * response text
+   * Response content.
    *
-   * @type { string }
    * @syscap SystemCapability.Security.Cipher
    * @since 3 dynamiconly
    * @deprecated since 11
@@ -41,9 +39,8 @@ export interface CipherResponse {
 }
 
 /**
- * Defines the rsa cipher options.
+ * Defines the input parameters of **cipher.rsa()**.
  *
- * @typedef CipherRsaOptions
  * @syscap SystemCapability.Security.Cipher
  * @since 3 dynamiconly
  * @deprecated since 11
@@ -51,12 +48,11 @@ export interface CipherResponse {
  */
 export interface CipherRsaOptions {
   /**
-   * Action type.
-   * The options are as follows:
-   *   encrypt: Encrypts data.
-   *   decrypt: Decrypts data.
+   * Action to perform. The options are as follows:
    *
-   * @type { string }
+   * 1. **encrypt**: Encrypts data.
+   * 2. **decrypt**: Decrypts data.
+   *
    * @syscap SystemCapability.Security.Cipher
    * @since 3 dynamiconly
    * @deprecated since 11
@@ -65,14 +61,13 @@ export interface CipherRsaOptions {
   action: string;
 
   /**
-   * Text content to be encrypted or decrypted.
-   * The text to be encrypted must be a common text and cannot exceed the length calculated based on the formula (keySize/8 - 66).
-   * keySize indicates the key length.
-   * For example, if the key length is 1024 bytes, the text cannot exceed 62 bytes (1024/8 - 66 = 62).
-   * The text content to be decrypted must be a binary value encoded using Base64.
-   * The default format is used for Base64 encoding.
+   * Text to be encrypted or decrypted.
    *
-   * @type { string }
+   * The text to be encrypted must be a common text and cannot exceed the length calculated based on the formula (
+   * keySize/8 - 66). **keySize** indicates the key length. For example, if the key length is 1024 bytes, the text
+   * cannot exceed 62 bytes (1024/8 - 66 = 62). The text to be decrypted must be a binary value encoded in Base64. The
+   * default format is used for Base64 encoding.
+   *
    * @syscap SystemCapability.Security.Cipher
    * @since 3 dynamiconly
    * @deprecated since 11
@@ -81,11 +76,8 @@ export interface CipherRsaOptions {
   text: string;
 
   /**
-   * Keys encrypted using RSA.
-   * During encryption, this parameter is a public key.
-   * During decryption, it is a private key.
+   * RSA key. It is a public key in encryption and a private key in decryption.
    *
-   * @type { string }
    * @syscap SystemCapability.Security.Cipher
    * @since 3 dynamiconly
    * @deprecated since 11
@@ -94,10 +86,8 @@ export interface CipherRsaOptions {
   key: string;
 
   /**
-   * RSA algorithm padding.
-   * The default value is RSA/None/OAEPWithSHA256AndMGF1Padding.
+   * RSA padding. The default value is **RSA/None/OAEPWithSHA256AndMGF1Padding**.
    *
-   * @type { ?string }
    * @syscap SystemCapability.Security.Cipher
    * @since 3 dynamiconly
    * @deprecated since 11
@@ -108,7 +98,6 @@ export interface CipherRsaOptions {
   /**
    * Called when data is encrypted or decrypted successfully.
    *
-   * @type { function }
    * @syscap SystemCapability.Security.Cipher
    * @since 3 dynamiconly
    * @deprecated since 11
@@ -119,7 +108,6 @@ export interface CipherRsaOptions {
   /**
    * Called when data fails to be encrypted or decrypted.
    *
-   * @type { function }
    * @syscap SystemCapability.Security.Cipher
    * @since 3 dynamiconly
    * @deprecated since 11
@@ -128,9 +116,8 @@ export interface CipherRsaOptions {
   fail: (data: string, code: number) => void;
 
   /**
-   * Called when the execution is completed.
+   * Called when the execution is complete.
    *
-   * @type { function }
    * @syscap SystemCapability.Security.Cipher
    * @since 3 dynamiconly
    * @deprecated since 11
@@ -140,9 +127,8 @@ export interface CipherRsaOptions {
 }
 
 /**
- * Defines the aes cipher options.
+ * Defines the input parameters of **cipher.aes()**.
  *
- * @typedef CipherAesOptions
  * @syscap SystemCapability.Security.Cipher
  * @since 3 dynamiconly
  * @deprecated since 11
@@ -150,12 +136,11 @@ export interface CipherRsaOptions {
  */
 export interface CipherAesOptions {
   /**
-   * Action type.
-   * The options are as follows:
-   *   encrypt: Encrypts data.
-   *   decrypt: Decrypts data.
+   * Action to perform. The options are as follows:
    *
-   * @type { string }
+   * 1. **encrypt**: Encrypts data.
+   * 2. **decrypt**: Decrypts data.
+   *
    * @syscap SystemCapability.Security.Cipher
    * @since 3 dynamiconly
    * @deprecated since 11
@@ -164,12 +149,11 @@ export interface CipherAesOptions {
   action: string;
 
   /**
-   * Text content to be encrypted or decrypted.
-   * The text to be encrypted must be a common text.
-   * The text content to be decrypted must be a binary value encoded using Base64.
+   * Text to be encrypted or decrypted.
+   *
+   * The text to be encrypted must be common text. The text to be decrypted must be a binary value encoded in Base64.
    * The default format is used for Base64 encoding.
    *
-   * @type { string }
    * @syscap SystemCapability.Security.Cipher
    * @since 3 dynamiconly
    * @deprecated since 11
@@ -178,9 +162,8 @@ export interface CipherAesOptions {
   text: string;
 
   /**
-   * Key used for encryption or decryption, which is a character string encrypted using Base64.
+   * Key used for encryption or decryption. It is a Base64 encoded string.
    *
-   * @type { string }
    * @syscap SystemCapability.Security.Cipher
    * @since 3 dynamiconly
    * @deprecated since 11
@@ -189,10 +172,8 @@ export interface CipherAesOptions {
   key: string;
 
   /**
-   * Encryption mode and padding of the AES algorithm.
-   * The default value is AES/CBC/PKCS5Padding.
+   * Encryption mode and padding of the AES algorithm. The default value is **AES/CBC/PKCS5Padding**.
    *
-   * @type { ?string }
    * @syscap SystemCapability.Security.Cipher
    * @since 3 dynamiconly
    * @deprecated since 11
@@ -201,11 +182,9 @@ export interface CipherAesOptions {
   transformation?: string;
 
   /**
-   * Initial vector for AES-based encryption and decryption.
-   * The value is a character string encoded using Base64.
-   * The default value is the key value.
+   * Initialization vector (IV) for AES-based encryption and decryption. The value is a string encoded in Base64. The
+   * default value is the key value.
    *
-   * @type { ?string }
    * @syscap SystemCapability.Security.Cipher
    * @since 3 dynamiconly
    * @deprecated since 11
@@ -214,10 +193,9 @@ export interface CipherAesOptions {
   iv?: string;
 
   /**
-   * Offset of the initial vector for AES-based encryption and decryption.
-   * The default value is 0.
+   * Offset of the IV for AES-based encryption and decryption. The default value is **0**, which is the only value
+   * supported.
    *
-   * @type { ?string }
    * @syscap SystemCapability.Security.Cipher
    * @since 3 dynamiconly
    * @deprecated since 11
@@ -226,10 +204,8 @@ export interface CipherAesOptions {
   ivOffset?: string;
 
   /**
-   * Length of the initial vector for AES-based encryption and decryption.
-   * The default value is 16.
+   * Length of the IV, in bytes. This field is reserved. The default value is **16**, which is the only value supported.
    *
-   * @type { ?string }
    * @syscap SystemCapability.Security.Cipher
    * @since 3 dynamiconly
    * @deprecated since 11
@@ -240,7 +216,6 @@ export interface CipherAesOptions {
   /**
    * Called when data is encrypted or decrypted successfully.
    *
-   * @type { function }
    * @syscap SystemCapability.Security.Cipher
    * @since 3 dynamiconly
    * @deprecated since 11
@@ -251,7 +226,6 @@ export interface CipherAesOptions {
   /**
    * Called when data fails to be encrypted or decrypted.
    *
-   * @type { function }
    * @syscap SystemCapability.Security.Cipher
    * @since 3 dynamiconly
    * @deprecated since 11
@@ -260,9 +234,8 @@ export interface CipherAesOptions {
   fail: (data: string, code: number) => void;
 
   /**
-   * Called when the execution is completed.
+   * Called when the execution is complete.
    *
-   * @type { function }
    * @syscap SystemCapability.Security.Cipher
    * @since 3 dynamiconly
    * @deprecated since 11
@@ -283,7 +256,7 @@ export default class Cipher {
   /**
    * Encrypts or decrypts data using RSA.
    *
-   * @param { CipherRsaOptions } options - RSA options
+   * @param { CipherRsaOptions } options - RSA options.
    * @syscap SystemCapability.Security.Cipher
    * @since 3 dynamiconly
    * @deprecated since 9
@@ -294,7 +267,7 @@ export default class Cipher {
   /**
    * Encrypts or decrypts data using AES.
    *
-   * @param { CipherAesOptions } options - AES options
+   * @param { CipherAesOptions } options - AES options.
    * @syscap SystemCapability.Security.Cipher
    * @since 3 dynamiconly
    * @deprecated since 9

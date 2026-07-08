@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 /**
  * @file
  * @kit ArkUI
@@ -24,8 +25,8 @@ import { LocalStorage } from './localStorage';
  * AppStorage singleton is sub-class of see LocalStorage for
  * UI state of app-wide access and same life cycle as the app.
  *
- * @type { LocalStorage }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare const AppStorage: LocalStorage;

@@ -57,6 +57,7 @@
     "SystemCapability.Customization.ConfigPolicy",
     "SystemCapability.Customization.CustomConfig",
     "SystemCapability.Telephony.CoreService",
+    "SystemCapability.Security.Cipher",
     "SystemCapability.Security.CryptoFramework",
     "SystemCapability.Security.CryptoFramework.Cipher",
     "SystemCapability.Security.CryptoFramework.Kdf",
@@ -163,6 +164,7 @@
     "SystemCapability.Telephony.SmsMms",
     "SystemCapability.Telephony.StateRegistry",
     "SystemCapability.FileManagement.StorageService.Encryption",
+    "SystemCapability.FileManagement.StorageService.SpatialStatistics",
     "SystemCapability.Developtools.Syscap",
     "SystemCapability.PowerManager.ThermalManager",
     "SystemCapability.MiscServices.Time",
@@ -172,6 +174,7 @@
     "SystemCapability.Web.Webview.Core",
     "SystemCapability.WindowManager.WindowManager.Core",
     "SystemCapability.ResourceSchedule.WorkScheduler",
+    "SystemCapability.Applications.Contacts",
     "SystemCapability.Applications.ContactsData",
     "SystemCapability.Communication.NFC.Core",
     "SystemCapability.Communication.NFC.CardEmulation",
@@ -195,6 +198,7 @@
     "SystemCapability.Multimedia.Media.Core",
     "SystemCapability.Security.CertificateManager",
     "SystemCapability.MiscServices.Pasteboard",
-    "SystemCapability.Applications.Settings.Core.Lite"
+    "SystemCapability.Applications.Settings.Core.Lite",
+    "SystemCapability.Communication.SoftBus.Core"
   ]
 }

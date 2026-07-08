@@ -13,9 +13,15 @@
  * limitations under the License.
  */
 
-import { DiagnosticCategory } from './api_check_wrapper_enums';
 import * as arkts from '@koalaui/libarkts';
 
+/**
+ * Diagnostic category enum for log levels
+ */
+export enum DiagnosticCategory {
+  WARNING = 0,
+  ERROR = 1
+}
 /**
  * ApiCheckWrapper服务，绑定校验规则
  */
@@ -28,6 +34,43 @@ export interface ApiCheckWrapperServiceHost {
   collectImportInfo: (moduleName: string[], modulePath: string, currentFilePath: string) => void;
 }
 
+/**
+* Verify logical interface.
+* 
+* @interface JsDocNodeCheckConfigItemInterface
+*/
+export interface JsDocNodeCheckConfigItemInterface {
+  /**
+  * check node
+  * @type { string[] } 
+  */
+  tagName: string[],
+  /**
+  * check message
+  * @type { string }
+  */
+  message: string,
+  /**
+  * check type wanr/error
+  * @type { DiagnosticCategory }
+  */
+  type: DiagnosticCategory,
+  /**
+  * check node should exist
+  * @type { boolean }
+  */
+  tagNameShouldExisted: boolean,
+  /**
+  * check suppress call back
+  * @type {CheckJsDocSpecialValidCallbackInterface}
+  */
+  checkJsDocSuppressorValidCallback?: CheckJsDocSpecialValidCallbackInterface
+}
+
+export interface CheckJsDocSpecialValidCallbackInterface {
+  (jsDocTags: readonly JSDocTag[], config: JsDocNodeCheckConfigItem, node?: arkts.AstNode, declaration?: arkts.AstNode): boolean;
+}
+
 export interface JsDocNodeCheckConfig {
   nodeNeedCheck: boolean;
   checkConfig: JsDocNodeCheckConfigItem[];
@@ -38,7 +81,7 @@ export interface JsDocNodeCheckConfigItem {
   message: string;
   type: DiagnosticCategory;
   tagNameShouldExisted: boolean;
-  checkValidCallback?: (jsDocs: JSDoc[], config: JsDocNodeCheckConfigItem) => boolean;
+  checkJsDocSuppressorValidCallback?: CheckJsDocSpecialValidCallbackInterface;
 }
 
 /**
@@ -91,13 +134,13 @@ export interface ConditionCheckResult {
   message?: string;
 }
 
-export interface ASTDeclaration extends arkts.AstNode {
-  kind: number;
-  pos: number;
-  end: number;
-  parent?: ASTDeclaration;
-  jsDoc?: JSDoc[];
-}
+// export interface ASTDeclaration extends arkts.AstNode {
+//   kind: number;
+//   pos: number;
+//   end: number;
+//   parent?: ASTDeclaration;
+//   jsDoc?: JSDoc[];
+// }
 
 export interface ASTIdentifier extends arkts.AstNode {
   kind: number;

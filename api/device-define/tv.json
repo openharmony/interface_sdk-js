@@ -49,12 +49,12 @@
     "SystemCapability.BundleManager.BundleFramework.Launcher",
     "SystemCapability.BundleManager.BundleFramework.Overlay",
     "SystemCapability.BundleManager.BundleFramework.Resource",
-    "SystemCapability.BundleManager.DistributedBundleFramework",
     "SystemCapability.BundleManager.Zlib",
     "SystemCapability.Applications.CalendarData",
     "SystemCapability.Notification.CommonEvent",
     "SystemCapability.Customization.ConfigPolicy",
     "SystemCapability.Customization.CustomConfig",
+    "SystemCapability.Security.Cipher",
     "SystemCapability.Security.CryptoFramework",
     "SystemCapability.Security.CryptoFramework.Cipher",
     "SystemCapability.Security.CryptoFramework.Kdf",
@@ -103,7 +103,6 @@
     "SystemCapability.HiviewDFX.HiLog",
     "SystemCapability.HiviewDFX.HiProfiler.HiDebug",
     "SystemCapability.HiviewDFX.HiSysEvent",
-    "SystemCapability.HiviewDFX.HiRetrieval",
     "SystemCapability.HiviewDFX.HiTrace",
     "SystemCapability.HiviewDFX.Hiview.FaultLogger",
     "SystemCapability.HiviewDFX.Hiview.LogLibrary",
@@ -183,6 +182,8 @@
     "SystemCapability.FileManagement.UserFileManager.DistributedCore",  
     "SystemCapability.Notification.NotificationSettings",
     "SystemCapability.PowerManager.PowerManager.Core",
-    "SystemCapability.ArkUI.ArkUI.Lite"
+    "SystemCapability.ArkUI.ArkUI.Lite",
+    "SystemCapability.Advertising.OAID",
+    "SystemCapability.Communication.SoftBus.Core"
   ]
 }

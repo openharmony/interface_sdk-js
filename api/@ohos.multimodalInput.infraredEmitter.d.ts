@@ -14,50 +14,38 @@
  */
 
 /**
- * @file
+ * @file IR Management
  * @kit InputKit
  */
 
 /**
- * The infraredEmitter module generates IR signals of the specified frequency and size, and queries the frequency range supported by the device.
+ * The **infraredEmitter** module generates IR signals of the specified frequency and size, and queries the frequency
+ * range supported by the device.
  *
- * @namespace infraredEmitter
  * @syscap SystemCapability.MultimodalInput.Input.InfraredEmitter
  * @since 12 dynamic
  * @since 23 static
  */
 declare namespace infraredEmitter {
+
   /**
    * Defines the frequency range of IR signals.
    *
-   * @interface InfraredFrequency
    * @syscap SystemCapability.MultimodalInput.Input.InfraredEmitter
-   * @systemapi hide for inner use
-   * @since 12
-   */
-  /**
-   * Defines the frequency range of IR signals.
-   *
-   * @interface InfraredFrequency
-   * @syscap SystemCapability.MultimodalInput.Input.InfraredEmitter
-   * @since 15 dynamic
+   * @systemapi hide for inner use [since 12 - 14]
+   * @publicapi [since 15]
+   * @since 12 dynamic
    * @since 23 static
    */
   interface InfraredFrequency {
+
     /**
      * Maximum frequency, in Hz.
      *
-     * @type { number }
      * @syscap SystemCapability.MultimodalInput.Input.InfraredEmitter
-     * @systemapi hide for inner use
-     * @since 12
-     */
-    /**
-     * Maximum frequency, in Hz.
-     *
-     * @type { long }
-     * @syscap SystemCapability.MultimodalInput.Input.InfraredEmitter
-     * @since 15 dynamic
+     * @systemapi hide for inner use [since 12 - 14]
+     * @publicapi [since 15]
+     * @since 12 dynamic
      * @since 23 static
      */
     max: long;
@@ -65,28 +53,21 @@ declare namespace infraredEmitter {
     /**
      * Minimum frequency, in Hz.
      *
-     * @type { number }
      * @syscap SystemCapability.MultimodalInput.Input.InfraredEmitter
-     * @systemapi hide for inner use
-     * @since 12
-     */
-    /**
-     * Minimum frequency, in Hz.
-     *
-     * @type { long }
-     * @syscap SystemCapability.MultimodalInput.Input.InfraredEmitter
-     * @since 15 dynamic
+     * @systemapi hide for inner use [since 12 - 14]
+     * @publicapi [since 15]
+     * @since 12 dynamic
      * @since 23 static
      */
     min: long;
   }
 
   /**
-   * Query if device has an IR emitter.
+   * Checks whether the device has an infrared transmitter. This API uses a promise to return the result.
    *
    * @permission ohos.permission.MANAGE_INPUT_INFRARED_EMITTER
-   * @returns { Promise<boolean> } Promise used to return the result. {@code true} is returned if device
-   *     has an IR emitter; {@code false} is returned otherwise.
+   * @returns { Promise<boolean> } Promise used to return the result. **true** is returned if the device has an infrared
+   *     emitter, and **false** is returned if the device does not have an infrared emitter.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 3800001 - Input service exception.
    * @syscap SystemCapability.MultimodalInput.Input.InfraredEmitter
@@ -98,54 +79,38 @@ declare namespace infraredEmitter {
    * Generates IR signals at the specified frequency and level.
    *
    * @permission ohos.permission.MANAGE_INPUT_INFRARED_EMITTER
-   * @param { number} infraredFrequency - IR infrared frequency, in Hz.
-   * @param { Array<number>} pattern - IR level signal, in μs. The value must be an even number within the value range of [0,1024]. 
-   * For example, in the IR level signal array [100,200,300,400], 100 μs is a high-level signal, 
-   * 200 μs is a low-level signal, 300 μs is a high-level signal, and 400 μs is a low-level signal.
+   * @param { long } infraredFrequency - IR frequency, in Hz.
+   * @param { Array<long>} pattern - Infrared level signal, in microseconds (μs). The number of infrared level signals
+   *     ranges from 0 to 1024. The value of this parameter must be greater than 0. If this parameter is set to **0**,
+   *     the API does not take effect. <br/>For example, in the level signal array [100,200,300,400], **100** indicates
+   *     a high-level signal, **200** indicates a low-level signal, **300** is a high-level signal, and **400** is a low
+   *     -level signal.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 202 - Not system application. [since 12 - 14]
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InfraredEmitter
-   * @systemapi hide for inner use
-   * @since 12
-   */
-  /**
-   * Generates IR signals at the specified frequency and level.
-   *
-   * @permission ohos.permission.MANAGE_INPUT_INFRARED_EMITTER
-   * @param { long } infraredFrequency - IR infrared frequency, in Hz.
-   * @param { Array<long>} pattern - IR level signal, in μs. The value must be an even number within the value range of [0,1024]. 
-   * For example, in the IR level signal array [100,200,300,400], 100 μs is a high-level signal, 
-   * 200 μs is a low-level signal, 300 μs is a high-level signal, and 400 μs is a low-level signal.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-   * @syscap SystemCapability.MultimodalInput.Input.InfraredEmitter
-   * @since 15 dynamic
+   * @systemapi hide for inner use [since 12 - 14]
+   * @publicapi [since 15]
+   * @since 12 dynamic
    * @since 23 static
    */
   function transmitInfrared(infraredFrequency: long, pattern: Array<long>): void;
 
   /**
-   * Queries the frequency range of IR signals supported by the mobile phone.
+   * Queries the frequency range of IR signals supported by the device.
    *
    * @permission ohos.permission.MANAGE_INPUT_INFRARED_EMITTER
-   * @returns { Array<InfraredFrequency> } Frequency range, including multiple groups of maximum and minimum frequencies.
+   * @returns { Array<InfraredFrequency> } Frequency range of IR signals, including multiple groups of maximum and
+   *     minimum frequencies.
+   *     <br>Since API version 23, one group of maximum and minimum frequencies, both of which are **0** Hz, are
+   *     returned.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 202 - Not system application. [since 12 - 14]
    * @syscap SystemCapability.MultimodalInput.Input.InfraredEmitter
-   * @systemapi hide for inner use
-   * @since 12
-   */
-  /**
-   * Queries the frequency range of IR signals supported by the mobile phone.
-   *
-   * @permission ohos.permission.MANAGE_INPUT_INFRARED_EMITTER
-   * @returns { Array<InfraredFrequency> } Frequency range, including multiple groups of maximum and minimum frequencies.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @syscap SystemCapability.MultimodalInput.Input.InfraredEmitter
-   * @since 15 dynamic
+   * @systemapi hide for inner use [since 12 - 14]
+   * @publicapi [since 15]
+   * @since 12 dynamic
    * @since 23 static
    */
   function getInfraredFrequencies(): Array<InfraredFrequency>;

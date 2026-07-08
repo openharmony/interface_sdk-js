@@ -16,7 +16,8 @@
  * @file Defines toolbar attributes.
  * @kit ArkUI
  */
-import { ComponentBuilder, CustomBuilder } from './builder';
+import { ComponentBuilder, CustomBuilder, CustomBuilderT } from './builder';
+import { Builder } from '@ohos.arkui.component';
 /**
  * Declare the placement of the toolbar item.
  *
@@ -77,9 +78,27 @@ export declare interface ToolBarItemAttribute {
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 24 staticonly
+     * @since 26.0.0 staticonly
      */
     debugLine(sourceLine: string, moduleName?: string): this;
+    /**
+     * Sets toolbar item options.
+     *
+     * @param { ToolBarItemOptions } [options] - column options
+     * @returns { this } ToolBarItemAttribute instance
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    setToolBarItemOptions(options?: ToolBarItemOptions): this;
+    /**
+     * Notify ToolBarItem has finished setting up its attributes.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    applyAttributesFinish(): void;
 }
 
 /**
@@ -89,10 +108,28 @@ export declare interface ToolBarItemAttribute {
  * @param { CustomBuilder } [content_] - container
  * @returns { ToolBarItemAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 @ComponentBuilder
 export declare function ToolBarItem(
     options?: ToolBarItemOptions,
+    content_?: CustomBuilder,
+): ToolBarItemAttribute
+
+/**
+ * Defines ToolBarItem Component.It requires call setToolBarItemOptions at start of the component attribute set-up,
+ * and it requires call applyAttributeFinish at the end of the component attribute set-up.
+ *
+ * @param { CustomBuilderT<ToolBarItemAttribute> } style - the callback to set up toolbaritem's attributes.
+ * @param { CustomBuilder } [content_] - container.
+ * @returns { ToolBarItemAttribute } The attribute of the ToolBarItem.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ */
+@Builder
+export declare function ToolBarItem(
+    style: CustomBuilderT<ToolBarItemAttribute>,
     content_?: CustomBuilder,
 ): ToolBarItemAttribute

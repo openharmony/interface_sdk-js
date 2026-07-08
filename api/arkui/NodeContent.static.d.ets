@@ -18,40 +18,47 @@
  * @file
  * @kit ArkUI
  */
+
 import { Content } from 'arkui.Content';
 import { FrameNode } from 'arkui.FrameNode';
 
 /**
  * NodeContent is the entity encapsulation of the node content.
  *
- * @extends Content
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare class NodeContent extends Content {
-    /**
-     * constructor
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
-     */
-    constructor();
-    /**
+
+  /**
+   * constructor
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  constructor();
+
+  /**
    * Add FrameNode to NodeContent based on parameters.
-   * 
+   *
    * @param { FrameNode } node - Newly added FrameNode.
    * @throws { BusinessError } 100025 - The parameter is invalid. Details about the invalid parameter and the reason
    *     are included in the error message. For example: "The parameter 'node' is invalid: it cannot be adopted."
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
-    addFrameNode(node: FrameNode): void;
-    /**
-     * Delete the target FrameNode.
-     *
-     * @param { FrameNode } node - FrameNode deleted.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
-     */
-    removeFrameNode(node: FrameNode): void;
+  addFrameNode(node: FrameNode): void;
+
+  /**
+   * Delete the target FrameNode.
+   *
+   * @param { FrameNode } node - FrameNode deleted.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  removeFrameNode(node: FrameNode): void;
 }

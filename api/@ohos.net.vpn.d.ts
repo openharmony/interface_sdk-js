@@ -546,6 +546,16 @@ declare namespace vpn {
     remoteAddresses?: Array<string>;
 
     /**
+     * The array of local addresses for VPN interface.
+     *
+     * @syscap SystemCapability.Communication.NetManager.Vpn
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    localAddresses?: Array<LinkAddress>;
+
+    /**
      * The p12 cert password for the ipsec VPN network.
      * @type {?string}
      * @syscap SystemCapability.Communication.NetManager.Vpn

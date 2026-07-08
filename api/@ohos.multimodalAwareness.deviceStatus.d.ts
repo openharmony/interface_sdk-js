@@ -147,7 +147,7 @@ declare namespace deviceStatus {
   function getDeviceRotationRadian(): Promise<DeviceRotationRadian>;
 
   /**
-   * Subscribe to detect the steady standing status
+   * Subscribes to steady standing status detection events.
    *
    * @param { Callback<SteadyStandingStatus> } callback - Indicates the callback for getting the event data.
    * @throws { BusinessError } 801 - Capability not supported. Function can not work correctly due to limited
@@ -160,7 +160,7 @@ declare namespace deviceStatus {
   function onSteadyStandingDetect(callback: Callback<SteadyStandingStatus>): void;
 
   /**
-   * Unsubscribe to detect the steady standing status
+   * Unsubscribes from steady standing status detection events.
    *
    * @param { Callback<SteadyStandingStatus> } [callback] - Indicates the callback for getting the event data.
    * @throws { BusinessError } 801 - Capability not supported. Function can not work correctly due to limited

@@ -14,27 +14,36 @@
  */
 
 /**
+ * **NodeContent** is the ArkUI-provided manager for [ContentSlot]{@link content_slot}.
+ *
+ * > **NOTE**
+ * >
+ * > - **NodeContent** objects do not support JSON serialization.
+ *
  * @file
  * @kit ArkUI
  */
 
 import { Content } from './Content';
+
 import { FrameNode } from './FrameNode';
 
 /**
  * NodeContent is the entity encapsulation of the node content.
  *
- * @extends Content
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
  */
 export class NodeContent extends Content {
+
   /**
-   * constructor
-   * 
+   * A constructor used to create a **NodeContent** object.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -42,32 +51,26 @@ export class NodeContent extends Content {
   constructor();
 
   /**
-   * Add FrameNode to NodeContent based on parameters.
-   * 
-   * @param { FrameNode } node - Newly added FrameNode.
+   * Adds a FrameNode to this **NodeContent** object.
+   *
+   * @param { FrameNode } node - FrameNode to add.
+   * @throws { BusinessError } 100025 - The parameter is invalid. Details about the invalid parameter and the reason
+   *     are included in the error message.
+   *     For example: "The parameter 'node' is invalid: it cannot be adopted." [since 22]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
    */
-  /**
-   * Add FrameNode to NodeContent based on parameters.
-   * 
-   * @param { FrameNode } node - Newly added FrameNode.
-   * @throws { BusinessError } 100025 - The parameter is invalid. Details about the invalid parameter and the reason
-   *     are included in the error message. For example: "The parameter 'node' is invalid: it cannot be adopted."
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 22 dynamic
-   */
   addFrameNode(node: FrameNode): void;
 
   /**
-   * Delete the target FrameNode.
-   * 
-   * @param { FrameNode } node - FrameNode deleted.
+   * Removes a FrameNode from this **NodeContent** object.
+   *
+   * @param { FrameNode } node - FrameNode to remove.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic

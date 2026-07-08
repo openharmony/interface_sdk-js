@@ -24,10 +24,21 @@ import Want from '../@ohos.application.Want';
 import StartOptions from '../@ohos.app.ability.StartOptions';
 
 /**
- * The context of window extension. It allows access to
- * windowExtension-specific resources.
+ * The WindowExtensionContext module provides the context environment for the WindowExtensionAbility. It inherits from
+ * [ExtensionContext]{@link ExtensionContext:ExtensionContext}.
  *
- * @extends ExtensionContext
+ * The module provides the capabilities of the
+ * [WindowExtensionAbility]{@link ./../@ohos.application.WindowExtensionAbility}, including starting the ability.
+ *
+ * > **NOTE**
+ * >
+ * > - This module is deprecated since API version 21. You are advised to use
+ * > [UIExtensionContext]{@link UIExtensionContext:UIExtensionContext} instead.
+ * >
+ * > - The APIs provided by this module are system APIs.
+ * >
+ * > - The APIs of this module can be used only in the stage model.
+ *
  * @syscap SystemCapability.WindowManager.WindowManager.Core
  * @systemapi
  * @stagemodelonly
@@ -36,63 +47,40 @@ import StartOptions from '../@ohos.app.ability.StartOptions';
  */
 declare class WindowExtensionContext extends ExtensionContext {
   /**
-   * Window extension uses this method to start a specific ability.
+   * Starts an ability. This API uses an asynchronous callback to return the result.
    *
-   * @param { Want } want - Indicates the ability to start.
-   * @param { StartOptions } options - Indicates the start options.
-   * @param { AsyncCallback<void> } callback - The callback of startAbility.
-   * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-   *                                                                  2.Incorrect parameter types.
+   * @param { Want } want - Want information about the target ability.
+   * @param { StartOptions } options - Parameters used for starting the ability.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system
+   *     API. [since 12]
+   * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified;
+   *     2.Incorrect parameter types.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi
    * @stagemodelonly
-   * @since 9
-   */
-  /**
-   * Window extension uses this method to start a specific ability.
-   *
-   * @param { Want } want - Indicates the ability to start.
-   * @param { StartOptions } options - Indicates the start options.
-   * @param { AsyncCallback<void> } callback - The callback of startAbility.
-   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-   *                                                                  2.Incorrect parameter types.
-   * @syscap SystemCapability.WindowManager.WindowManager.Core
-   * @systemapi
-   * @stagemodelonly
-   * @since 12 dynamiconly
+   * @since 9 dynamiconly
    * @deprecated since 21
    */
   startAbility(want: Want, options: StartOptions, callback: AsyncCallback<void>): void;
 
   /**
-   * Window extension uses this method to start a specific ability.
+   * Starts an ability. This API uses a promise to return the result.
    *
-   * @param { Want } want - Indicates the ability to start.
-   * @param { StartOptions } [options] - Indicates the start options.
-   * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-   *                                                                  2.Incorrect parameter types.
+   * @param { Want } want - Want information about the target ability, such as the ability name and bundle name.
+   * @param { StartOptions } [options] - Parameters used for starting the ability.
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system
+   *     API. [since 12]
+   * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified;
+   *     2.Incorrect parameter types.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi
    * @stagemodelonly
-   * @since 9
-   */
-  /**
-   * Window extension uses this method to start a specific ability.
-   *
-   * @param { Want } want - Indicates the ability to start.
-   * @param { StartOptions } [options] - Indicates the start options.
-   * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-   *                                                                  2.Incorrect parameter types.
-   * @syscap SystemCapability.WindowManager.WindowManager.Core
-   * @systemapi
-   * @stagemodelonly
-   * @since 12 dynamiconly
+   * @since 9 dynamiconly
    * @deprecated since 21
    */
   startAbility(want: Want, options?: StartOptions): Promise<void>;
 }
+
 export default WindowExtensionContext;

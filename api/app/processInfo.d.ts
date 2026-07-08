@@ -19,7 +19,10 @@
  */
 
 /**
- * @typedef ProcessInfo
+ * The module defines process information. You can use
+ * [getProcessInfo](docroot://reference/apis-ability-kit/js-apis-inner-app-context.md#contextgetprocessinfo7) to obtain
+ * information about the processes running on the current ability.
+ *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @since 7 dynamic
  * @since 23 static
@@ -28,7 +31,6 @@ export interface ProcessInfo {
   /**
    * The id of the current process
    *
-   * @type { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 7 dynamic
    * @since 23 static
@@ -38,7 +40,6 @@ export interface ProcessInfo {
   /**
    * The name of the current process
    *
-   * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 7 dynamic
    * @since 23 static

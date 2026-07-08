@@ -952,6 +952,21 @@ declare namespace connection {
   function setGlobalHttpProxy(httpProxy: HttpProxy): Promise<void>;
 
   /**
+   * Notifies the system that global proxy re-authentication is required.
+   * Upon receiving the notification, the system will reproces the global proxy's authentication status.
+   *
+   * @permission ohos.permission.INTERNET
+   * @returns { Promise<HttpProxy> } the promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 2100002 - Failed to connect to the service.
+   * @throws { BusinessError } 2100003 - System internal error.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function refreshGlobalHttpProxy(): Promise<HttpProxy>;
+
+  /**
    * Set the URL {@link pacUrl} of the current PAC script.
    * To invoke this method, you must have the {@code ohos.permission.SET_PAC_URL} permission.
    * @permission ohos.permission.SET_PAC_URL
@@ -1594,7 +1609,7 @@ declare namespace connection {
    * @throws { BusinessError } 202 - Nonsystem applications use system APIs.
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
-   * @throws { BusinessError } 2100400 - The input network interface card name is incorrect.
+   * @throws { BusinessError } 2100400 - The input network interface name is incorrect.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use. Only used for system app.
    * @stagemodelonly
@@ -1615,7 +1630,7 @@ declare namespace connection {
    * @throws { BusinessError } 202 - Nonsystem applications use system APIs.
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
-   * @throws { BusinessError } 2100400 - The input network interface card name is incorrect.
+   * @throws { BusinessError } 2100400 - The input network interface name is incorrect.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use. Only used for system app.
    * @stagemodelonly
@@ -1637,7 +1652,7 @@ declare namespace connection {
    * @throws { BusinessError } 202 - Nonsystem applications use system APIs.
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
-   * @throws { BusinessError } 2100400 - The input network interface card name is incorrect.
+   * @throws { BusinessError } 2100400 - The input network interface name is incorrect.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use. Only used for system app.
    * @stagemodelonly
@@ -1659,7 +1674,7 @@ declare namespace connection {
    * @throws { BusinessError } 202 - Nonsystem applications use system APIs.
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
-   * @throws { BusinessError } 2100400 - The input network interface card name is incorrect.
+   * @throws { BusinessError } 2100400 - The input network interface name is incorrect.
    * @throws { BusinessError } 2100401 - The input IP address is not found.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use. Only used for system app.
@@ -2682,6 +2697,33 @@ declare namespace connection {
   }
 
   /**
+   * Socks5 DNS strategy
+   *
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  export enum Socks5DnsStrategy {
+    /**
+     * System DNS mode.
+     *
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    SYSTEM_MODE = 0,
+
+    /**
+     * Proxy DNS mode.
+     *
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    PROXY_MODE = 1
+  }
+
+  /**
    * Defines the flag of conversion operations.
    * @enum {number}
    * @syscap SystemCapability.Communication.NetManager.Core
@@ -3097,6 +3139,70 @@ declare namespace connection {
      * @since 23 static
      */
     exclusionList: Array<string>;
+  }
+
+  /**
+    * Socks5 Proxy Configuration Information.
+    *
+    * @syscap SystemCapability.Communication.NetManager.Core
+    * @stagemodelonly
+    * @since 26.0.0 dynamic&static
+    */
+  export interface Socks5Proxy {
+    /**
+     * Proxy server host name.
+     *
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    host: string;
+
+    /**
+     * Host port.
+     *
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+    */
+    port: int;
+
+    /**
+     * Proxy username.
+     *
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    username?: string;
+
+    /**
+     * Proxy password.
+     *
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+    */
+    password?: string;
+
+    /**
+     * DNS resolution strategy.
+     * Determines whether the client or the proxy server resolves the domain name.
+     *
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    dnsStrategy?: Socks5DnsStrategy;
+
+    /**
+     * Exclusion list for proxy servers.
+     *
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    exclusionList?: Array<string>;
   }
 
   /**

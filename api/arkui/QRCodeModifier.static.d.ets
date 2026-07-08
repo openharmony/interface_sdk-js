@@ -24,8 +24,9 @@ import { QRCodeAttribute } from '@ohos.arkui.component';
 /**
  * Defines QRCode Modifier
  *
- * @implements { QRCodeAttribute, AttributeModifier<QRCodeAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
+ * @noninterop
  */
 export declare class QRCodeModifier implements QRCodeAttribute, AttributeModifier<QRCodeAttribute> {}

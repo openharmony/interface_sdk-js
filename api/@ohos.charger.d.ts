@@ -19,9 +19,12 @@
  */
 
 /**
- * Provides charger information includes type and protocol.
+ * The **charger** module enumerates charging types.
  *
- * @namespace charger
+ * > **NOTE**
+ * >
+ * > The APIs provided by this module are system APIs.
+ *
  * @syscap SystemCapability.PowerManager.BatteryManager.Core
  * @systemapi
  * @since 10 dynamic
@@ -29,9 +32,8 @@
  */
 declare namespace charger {
   /**
-   * Indicates the type of the charger plugged-in.
+   * Enumerates charging types.
    *
-   * @enum { number }
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
    * @systemapi
    * @since 10 dynamic
@@ -39,7 +41,7 @@ declare namespace charger {
    */
   export enum ChargeType {
     /**
-     * Unknown type
+     * Unknown charging type.
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @systemapi
@@ -48,7 +50,7 @@ declare namespace charger {
      */
     NONE,
     /**
-     * Wired normal type
+     * Wired normal charging.
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @systemapi
@@ -57,7 +59,7 @@ declare namespace charger {
      */
     WIRED_NORMAL,
     /**
-     * Wired quick type
+     * Wired fast charging.
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @systemapi
@@ -66,7 +68,7 @@ declare namespace charger {
      */
     WIRED_QUICK,
     /**
-     * Wired super quick type
+     * Wired super fast charging.
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @systemapi
@@ -75,7 +77,7 @@ declare namespace charger {
      */
     WIRED_SUPER_QUICK,
     /**
-     * Wireless normal type
+     * Wireless normal charging.
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @systemapi
@@ -84,7 +86,7 @@ declare namespace charger {
      */
     WIRELESS_NORMAL,
     /**
-     * Wireless quick type
+     * Wireless fast charging.
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @systemapi
@@ -93,7 +95,7 @@ declare namespace charger {
      */
     WIRELESS_QUICK,
     /**
-     * Wireless super quick type
+     * Wireless super fast charging.
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @systemapi
@@ -103,4 +105,5 @@ declare namespace charger {
     WIRELESS_SUPER_QUICK
   }
 }
+
 export default charger;

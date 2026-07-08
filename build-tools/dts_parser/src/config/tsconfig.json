@@ -109,7 +109,8 @@
         "GridCol",
         "ArcAlphabetIndexer",
         "ArcSwiper",
-        "UIPickerComponent"
+        "UIPickerComponent",
+        "SelectionContainer"
       ],
       "extend": {
         "decorator": "Extend",
@@ -628,6 +629,11 @@
             "name": "ArcSwiper",
             "type": "ArcSwiperAttribute",
             "instance": "ArcSwiperInstance"
+          },
+          {
+            "name": "SelectionContainer",
+            "type": "SelectionContainerAttribute",
+            "instance": "SelectionContainerInstance"
           }
         ]
       },

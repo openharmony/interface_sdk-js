@@ -27,7 +27,8 @@ import ExtensionAbility from './@ohos.app.ability.ExtensionAbility';
  * @typedef { partnerAgent.PartnerDeviceAddress } PartnerDeviceAddress
  * @syscap SystemCapability.Communication.FusionConnectivity.Core
  * @stagemodelonly
- * @since 23 dynamic&static
+ * @since 23 dynamic
+ * @since 26.0.0 static
  */
 type PartnerDeviceAddress = partnerAgent.PartnerDeviceAddress;
 
@@ -37,7 +38,8 @@ type PartnerDeviceAddress = partnerAgent.PartnerDeviceAddress;
  * @typedef { partnerAgent.PartnerAgentExtensionAbilityDestroyReason } PartnerAgentExtensionAbilityDestroyReason
  * @syscap SystemCapability.Communication.FusionConnectivity.Core
  * @stagemodelonly
- * @since 23 dynamic&static
+ * @since 23 dynamic
+ * @since 26.0.0 static
  */
 type PartnerAgentExtensionAbilityDestroyReason = partnerAgent.PartnerAgentExtensionAbilityDestroyReason;
 
@@ -48,7 +50,8 @@ type PartnerAgentExtensionAbilityDestroyReason = partnerAgent.PartnerAgentExtens
  * @extends ExtensionAbility
  * @syscap SystemCapability.Communication.FusionConnectivity.Core
  * @stagemodelonly
- * @since 23 dynamic&static
+ * @since 23 dynamic
+ * @since 26.0.0 static
  */
 export default class PartnerAgentExtensionAbility extends ExtensionAbility {
 
@@ -58,7 +61,8 @@ export default class PartnerAgentExtensionAbility extends ExtensionAbility {
    * @type { PartnerAgentExtensionContext }
    * @syscap SystemCapability.Communication.FusionConnectivity.Core
    * @stagemodelonly
-   * @since 23 dynamic&static
+   * @since 23 dynamic
+   * @since 26.0.0 static
    */
   context: PartnerAgentExtensionContext;
 
@@ -69,7 +73,8 @@ export default class PartnerAgentExtensionAbility extends ExtensionAbility {
    * @param { PartnerAgentExtensionAbilityDestroyReason } reason - The reason for Ability destruction.
    * @syscap SystemCapability.Communication.FusionConnectivity.Core
    * @stagemodelonly
-   * @since 23 dynamic&static
+   * @since 23 dynamic
+   * @since 26.0.0 static
    */
   onDestroyWithReason(reason: PartnerAgentExtensionAbilityDestroyReason): void;
 
@@ -79,7 +84,8 @@ export default class PartnerAgentExtensionAbility extends ExtensionAbility {
    * @param { PartnerDeviceAddress } deviceAddress Address of the discovered device.
    * @syscap SystemCapability.Communication.FusionConnectivity.Core
    * @stagemodelonly
-   * @since 23 dynamic&static
+   * @since 23 dynamic
+   * @since 26.0.0 static
    */
   onDeviceDiscovered(deviceAddress: PartnerDeviceAddress): void;
 }

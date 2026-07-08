@@ -1,3 +1,4 @@
+"use static"
 /*
  * Copyright (c) 2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,19 +15,20 @@
  */
 
 /**
- * @file Defines DepthComponent component
+ * @file
  * @kit ArkUI
  */
 
+import { BusinessError} from '../../@ohos.base'
+import { CommonMethod, PixelMap, DepthVector3, DepthVector4, DepthColorRGB } from './common';
 import { ResourceStr } from './units';
-import { ComponentBuilder, CustomBuilder, CustomBuilderT } from './builder';
-import { AttributeModifier, CommonMethod, PixelMap } from './common';
+import { Builder, ComponentBuilder, CustomBuilder, CustomBuilderT } from './builder';
 
 /**
  * Depth space type enumeration.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
  * @stagemodelonly
  * @since 26.0.0 static
  */
@@ -35,6 +37,7 @@ export declare enum DepthSpaceType {
    * Instance mode.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
    * @stagemodelonly
    * @since 26.0.0 static
    */
@@ -44,17 +47,98 @@ export declare enum DepthSpaceType {
    * Global mode.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
    * @stagemodelonly
    * @since 26.0.0 static
    */
-  GLOBAL = 1,
+  GLOBAL = 1
+}
+
+/**
+ * 2D offset for crop frame.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare interface CropOffset {
+  /**
+   * X coordinate.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  x: int;
+
+  /**
+   * Y coordinate.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  y: int;
+}
+
+/**
+ * Camera buffer crop parameters.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare interface CameraBufferCrop {
+  /**
+   * Camera off-screen rendering buffer width.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  bufferWidth: int;
+
+  /**
+   * Camera off-screen rendering buffer height.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  bufferHeight: int;
+
+  /**
+   * Crop frame offset relative to buffer top-left corner.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  cropOffset: CropOffset;
+
+  /**
+   * Crop frame scale relative to depth component size.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  cropScale: double;
 }
 
 /**
  * Camera parameters struct.
  *
- * @interface DepthCameraParams
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
  * @stagemodelonly
  * @since 26.0.0 static
  */
@@ -62,8 +146,8 @@ export declare interface DepthCameraParams {
   /**
    * Camera position in 3D space.
    *
-   * @type { DepthVector3 }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
    * @stagemodelonly
    * @since 26.0.0 static
    */
@@ -72,8 +156,8 @@ export declare interface DepthCameraParams {
   /**
    * Camera rotation as quaternion (x, y, z, w).
    *
-   * @type { DepthVector4 }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
    * @stagemodelonly
    * @since 26.0.0 static
    */
@@ -82,39 +166,49 @@ export declare interface DepthCameraParams {
   /**
    * Vertical field of view in radians.
    *
-   * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
    * @stagemodelonly
    * @since 26.0.0 static
    */
-  yFov: number;
+  yFov: double;
 
   /**
    * Near clipping plane distance.
    *
-   * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
    * @stagemodelonly
    * @since 26.0.0 static
    */
-  zNear: number;
+  zNear: double;
 
   /**
    * Far clipping plane distance.
    *
-   * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
    * @stagemodelonly
    * @since 26.0.0 static
    */
-  zFar: number;
+  zFar: double;
+
+  /**
+   * Camera buffer crop parameters.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  cameraBufferCrop?: CameraBufferCrop;
 }
 
 /**
  * Lighting parameters struct.
  *
- * @interface DepthLightParams
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
  * @stagemodelonly
  * @since 26.0.0 static
  */
@@ -122,8 +216,8 @@ export declare interface DepthLightParams {
   /**
    * Light direction vector.
    *
-   * @type { DepthVector3 }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
    * @stagemodelonly
    * @since 26.0.0 static
    */
@@ -132,8 +226,8 @@ export declare interface DepthLightParams {
   /**
    * Light color.
    *
-   * @type { DepthColorRGB }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
    * @stagemodelonly
    * @since 26.0.0 static
    */
@@ -142,19 +236,19 @@ export declare interface DepthLightParams {
   /**
    * Light intensity.
    *
-   * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
    * @stagemodelonly
    * @since 26.0.0 static
    */
-  intensity: number;
+  intensity: double;
 }
 
 /**
  * Defines the options of DepthComponent.
  *
- * @interface DepthComponentOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
  * @stagemodelonly
  * @since 26.0.0 static
  */
@@ -162,20 +256,135 @@ export declare interface DepthComponentOptions {
   /**
    * Depth space type.
    *
-   * @type { ?DepthSpaceType }
+   * @default DepthSpaceType.INSTANCE
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
    * @stagemodelonly
    * @since 26.0.0 static
    */
   depthSpace?: DepthSpaceType;
+
+  /**
+   * Scale factor for 3D rendering window, applied to both width and height. The value range is (0.0, 1.0]. Values
+   * outside this range are invalid and the default value is used.
+   *
+   * @default 1.0
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  render3DScale?: double;
 }
 
 /**
- * The DepthComponentAttribute.
+ * Information about the background resource loaded successfully.
  *
- * @extends CommonMethod
- * @interface DepthComponentAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare interface DepthComponentCompleteEvent {
+  /**
+   * Component width.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  componentWidth: double;
+
+  /**
+   * Component height.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  componentHeight: double;
+}
+
+/**
+ * Callback invoked when the background resource is loaded successfully.
+ *
+ * @param { DepthComponentCompleteEvent } event
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare type DepthComponentCompleteCallback = (event: DepthComponentCompleteEvent) => void;
+
+/**
+ * Information about the background resource loading error.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare interface DepthComponentErrorEvent {
+  /**
+   * Component width.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  componentWidth: double;
+
+  /**
+   * Component height.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  componentHeight: double;
+
+  /**
+   * Business Error.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  error?: BusinessError<void>;
+}
+
+/**
+ * Callback invoked when an error occurs during background resource loading.
+ *
+ * @param { DepthComponentErrorEvent } error
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare type DepthComponentErrorCallback = (error: DepthComponentErrorEvent) => void;
+
+/**
+ * Callback invoked when the depth map resource is loaded.
+ *
+ * @param { BusinessError<void> } error
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare type DepthMapCallback = (error: BusinessError<void>) => void;
+
+/**
+ * Style the DepthComponent.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
  * @stagemodelonly
  * @since 26.0.0 static
  */
@@ -184,19 +393,22 @@ export declare interface DepthComponentAttribute extends CommonMethod {
    * Depth map for depth calculation and rendering.
    *
    * @param { ResourceStr | PixelMap } depthMap - Depth map path or PixelMap.
-   * @returns { DepthComponentAttribute }
+   * @param { DepthMapCallback } [callback] - Callback invoked when the depth map resource is loaded.
+   * @returns { this }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
    * @stagemodelonly
    * @since 26.0.0 static
    */
-  default depthMap(depthMap: ResourceStr | PixelMap): this;
+  default depthMap(depthMap: ResourceStr | PixelMap, callback?: DepthMapCallback): this;
 
   /**
    * Camera parameters for depth rendering.
    *
    * @param { DepthCameraParams } camera - Camera parameters.
-   * @returns { DepthComponentAttribute }
+   * @returns { this }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
    * @stagemodelonly
    * @since 26.0.0 static
    */
@@ -205,51 +417,85 @@ export declare interface DepthComponentAttribute extends CommonMethod {
   /**
    * Lighting parameters for depth rendering.
    *
-   * @param { DepthLightParams } light - Lighting parameters.
-   * @returns { DepthComponentAttribute }
+   * @param { DepthLightParams } light - Lighting parameters including direction, color and intensity.
+   * @returns { this }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
    * @stagemodelonly
    * @since 26.0.0 static
    */
   default light(light: DepthLightParams): this;
 
   /**
-   * Background image offset.
+   * Triggered when the background resource is loaded successfully.
    *
-   * @param { Position | Edges | LocalizedEdges } offset - Background offset value.
-   * @returns { DepthComponentAttribute }
+   * @param { DepthComponentCompleteCallback } callback
+   * @returns { this }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
    * @stagemodelonly
    * @since 26.0.0 static
    */
-  default backgroundOffset(offset: Position | Edges | LocalizedEdges): this;
+  default onComplete(callback: DepthComponentCompleteCallback): this;
 
   /**
-   * Background image scale.
+   * Triggered when an error occurs during background resource loading.
    *
-   * @param { ScaleOptions } scale - Background scale value.
-   *     <br>Default value:{x:1,y:1,z:1,centerX:'50%',centerY:'50%'}.
-   * @returns { DepthComponentAttribute }
+   * @param { DepthComponentErrorCallback } callback
+   * @returns { this }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
    * @stagemodelonly
    * @since 26.0.0 static
    */
-  default backgroundScale(scale?: ScaleOptions): this;
+  default onError(callback: DepthComponentErrorCallback): this;
+
+  /**
+   * Set DepthComponent options.
+   *
+   * @param { ResourceStr | PixelMap } background - Background resource (required).
+   * @param { DepthComponentOptions } [options] - DepthComponent options.
+   * @returns { this } Returns instance of  DepthComponentAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 staticonly
+   */
+  default setDepthComponentOptions(background: ResourceStr | PixelMap, options?: DepthComponentOptions): this;
 }
 
 /**
- * Defines DepthComponent.
+ * Defines DepthComponent Component
  *
- * @param { ResourceStr } background - Background resource.
+ * @param { ResourceStr | PixelMap } background - Background resource (required).
  * @param { DepthComponentOptions } [options] - DepthComponent options.
+ * @param { CustomBuilder } [content_] - Subcomponents of DepthComponent.
  * @returns { DepthComponentAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
  * @stagemodelonly
  * @since 26.0.0 static
  */
 @ComponentBuilder
 export declare function DepthComponent(
-  background: ResourceStr,
-  options?: DepthComponentOptions,
+    background: ResourceStr | PixelMap,
+    options?: DepthComponentOptions,
+    content_?: CustomBuilder,
+): DepthComponentAttribute;
+
+/**
+ * Defines DepthComponent
+ *
+ * @param { CustomBuilderT<DepthComponentAttribute> } style_ - DepthComponent attribute instance
+ * @param { CustomBuilder } [content_] - container
+ * @returns { DepthComponentAttribute }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ */
+@Builder
+export declare function DepthComponent(
+  style_: CustomBuilderT<DepthComponentAttribute>,
   content_?: CustomBuilder,
-): DepthComponentAttribute
+): DepthComponentAttribute;

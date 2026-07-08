@@ -893,6 +893,7 @@ declare namespace sendablePhotoAccessHelper {
     displayName: string;
     /**
      * Size of photo asset
+     * Unit: Byte, The value must be an integer greater than or equal to 0.
      *
      * @type { number }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -902,6 +903,7 @@ declare namespace sendablePhotoAccessHelper {
     size: number;
     /**
      * Added date of photo asset
+     * Unit: ms, The value must be an integer greater than or equal to 0.
      *
      * @type { number }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -911,6 +913,7 @@ declare namespace sendablePhotoAccessHelper {
     dateAdded: number;
     /**
      * Modify date of photo asset
+     * Unit: ms, The value must be an integer greater than or equal to 0.
      *
      * @type { number }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -920,6 +923,7 @@ declare namespace sendablePhotoAccessHelper {
     dateModified: number;
     /**
      * Duration of video photo asset
+     * Unit: ms, The value must be an integer greater than or equal to 0.
      *
      * @type { number }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -929,6 +933,7 @@ declare namespace sendablePhotoAccessHelper {
     duration: number;
     /**
      * Width of photo asset
+     * Unit: px, The value must be an integer greater than or equal to 0.
      *
      * @type { number }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -938,6 +943,7 @@ declare namespace sendablePhotoAccessHelper {
     width: number;
     /**
      * Height of photo asset
+     * Unit: px, The value must be an integer greater than or equal to 0.
      *
      * @type { number }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -947,6 +953,7 @@ declare namespace sendablePhotoAccessHelper {
     height: number;
     /**
      * DateTaken of photo asset
+     * Unit: ms, The value must be an integer greater than or equal to 0.
      *
      * @type { number }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -956,6 +963,7 @@ declare namespace sendablePhotoAccessHelper {
     dateTaken: number;
     /**
      * Orientation of photo asset
+     * Unit: deg, The value must be an integer within [0,359].
      *
      * @type { number }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core

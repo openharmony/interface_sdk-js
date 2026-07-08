@@ -19,14 +19,8 @@
  * To implement your own unit test framework, extend this class and override its APIs.
  * 
  * > **NOTE**
- * 
- * >The APIs of this module can be used only in 
  * >
- * >
- * > [JsUnit](docroot://application-test/unittest-guidelines.md)
- * >
- * >
- * > .
+ * > The APIs of this module can be used only in [JsUnit](docroot://application-test/unittest-guidelines.md).
  *
  * @file
  * @kit TestKit
@@ -36,23 +30,21 @@
  * Prepare the unit testing environment for running test cases.
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @atomicservice
  * @since 23 static
  */
 type OnPrepareFn = () => void;
 
 /**
  * Run all test cases.
- * 
+ *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @atomicservice
  * @since 23 static
  */
 type OnRunFn = () => void;
 
 /**
  * Stop all test cases.
- * 
+ *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @stagemodelonly
  * @atomicservice
@@ -81,9 +73,8 @@ interface TestRunner {
 
   /**
    * Prepare the unit testing environment for running test cases.
-   * 
+   *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @atomicservice
    * @since 23 static
    */
   onPrepare: OnPrepareFn;
@@ -101,11 +92,10 @@ interface TestRunner {
    * Run all test cases.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @atomicservice
    * @since 23 static
    */
   onRun: OnRunFn;
-  
+
   /**
    * Stop all test cases.
    *
@@ -117,7 +107,7 @@ interface TestRunner {
   onStop?: OnStopFn;
 }
 
-/*** if arkts dynamic */
+/*** if arkts 1.1 */
 export { TestRunner };
 /*** endif */
 export default TestRunner;

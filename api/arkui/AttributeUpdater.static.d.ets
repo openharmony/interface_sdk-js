@@ -20,63 +20,66 @@
  */
 
 import { AttributeModifier } from '@ohos.arkui.component';
-import { RecordData } from '../@ohos.base';
 
+import { RecordData } from '../@ohos.base';
 
 /**
  * function that returns by the function updateConstructorParams.
  *
- * @typedef { function } Initializer<T>
  * @param { FixedArray<RecordData> } params
  * @returns { T }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
-export type Initializer<T> = (...params:FixedArray<RecordData>) => T;
+export type Initializer<T> = (...params: FixedArray<RecordData>) => T;
 
 /**
  * Defines a modifier which can update attributes to native side.
  *
- * @implements AttributeModifier
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  * @noninterop
  */
 export declare class AttributeUpdater<T> implements AttributeModifier<T> {
-   
+
   /**
    * Get attribute of the modifier.
    *
    * @returns { T | undefined } The attribute of the modifier.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
-   get attribute(): T | undefined;
+  get attribute(): T | undefined;
 
   /**
    * Defines a function for initialization.
    *
    * @param { T } instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
-   initializeModifier(instance: T): void;
+  initializeModifier(instance: T): void;
 
   /**
    * Used to update constructor params.
    *
-   * @type { Initializer<T> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
-   get updateConstructorParams(): Initializer<T>;
+  get updateConstructorParams(): Initializer<T>;
 
-     /**
+  /**
    * Defines a function executed when component changed.
    *
    * @param { T } component
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
-   onComponentChanged(component: T): void;
+  onComponentChanged(component: T): void;
 }

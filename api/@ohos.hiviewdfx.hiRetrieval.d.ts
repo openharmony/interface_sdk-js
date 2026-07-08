@@ -37,7 +37,8 @@ declare namespace hiRetrieval {
    */
   interface HiRetrievalConfig {
     /**
-     * Custom user type set by developers.
+     * Custom user type set by developers. No restrictions on format or character types,
+     * maximum length is 128 characters and excess characters will be truncated.
      *
      * @syscap SystemCapability.HiviewDFX.HiRetrieval
      * @FaAndStageModel
@@ -47,7 +48,8 @@ declare namespace hiRetrieval {
     userType: string;
 
     /**
-     * Custom device type set by developers.
+     * Custom device type set by developers. No restrictions on format or character types,
+     * maximum length is 128 characters and excess characters will be truncated.
      *
      * @syscap SystemCapability.HiviewDFX.HiRetrieval
      * @FaAndStageModel
@@ -57,7 +59,8 @@ declare namespace hiRetrieval {
     deviceType: string;
 
     /**
-     * Custom device model set by developers.
+     * Custom device model set by developers. No restrictions on format or character types,
+     * maximum length is 128 characters and excess characters will be truncated.
      *
      * @syscap SystemCapability.HiviewDFX.HiRetrieval
      * @FaAndStageModel
@@ -70,6 +73,8 @@ declare namespace hiRetrieval {
   /**
    * Init the HiRetrieval functionality.
    *
+   * @throws { BusinessError } 36000002 - Multi-instance applications not supported error.
+   *                                      Possibly caused by invoking this function in a multi-instance application.
    * @syscap SystemCapability.HiviewDFX.HiRetrieval
    * @FaAndStageModel
    * @atomicservice
@@ -92,6 +97,7 @@ declare namespace hiRetrieval {
 
   /**
    * Quit the HiRetrieval project. This operation clears the current HiRetrieval config.
+   * Invoking init function again is required after invoking quit function.
    *
    * @throws { BusinessError } 36000001 - Initialization error.
    *                                      Possibly caused by invoking this function before invoking init function.
@@ -106,8 +112,6 @@ declare namespace hiRetrieval {
    * Query if the app is participating the HiRetrieval project.
    *
    * @returns { boolean } Returns true if this app is participating HiRetrieval project, false otherwise.
-   * @throws { BusinessError } 36000001 - Initialization error.
-   *                                      Possibly caused by invoking this function before invoking init function.
    * @syscap SystemCapability.HiviewDFX.HiRetrieval
    * @FaAndStageModel
    * @atomicservice
@@ -120,8 +124,6 @@ declare namespace hiRetrieval {
    *
    * @returns { long } Returns the timestamp of the last participating time in milliseconds,
    *                   if never participated return 0.
-   * @throws { BusinessError } 36000001 - Initialization error.
-   *                                      Possibly caused by invoking this function before invoking init function.
    * @syscap SystemCapability.HiviewDFX.HiRetrieval
    * @FaAndStageModel
    * @atomicservice
@@ -130,7 +132,7 @@ declare namespace hiRetrieval {
   function getLastParticipationTimestamp(): long;
 
   /**
-   * Trigger the HiRetrieval functionality, make is start working.
+   * Trigger the HiRetrieval functionality, make it start working.
    *
    * @throws { BusinessError } 36000001 - Initialization error.
    *                                      Possibly caused by invoking this function before invoking init function.
@@ -144,9 +146,8 @@ declare namespace hiRetrieval {
   /**
    * Query the current HiRetrieval config.
    *
-   * @returns { HiRetrievalConfig } Returns the current HiRetrieval config.
-   * @throws { BusinessError } 36000001 - Initialization error.
-   *                                      Possibly caused by invoking this function before invoking init function.
+   * @returns { HiRetrievalConfig } Returns the current HiRetrieval config, an empty HiRetrievalConfig will be returned
+   *     if the result of invoking isParticipant function is false.
    * @syscap SystemCapability.HiviewDFX.HiRetrieval
    * @FaAndStageModel
    * @atomicservice
