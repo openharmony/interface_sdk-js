@@ -67,6 +67,7 @@ declare namespace userFileManager {
      * @since 9 dynamiconly
      * @deprecated since 26.0.0
      * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.PhotoType.IMAGE
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.PhotoType.IMAGE
      */
     IMAGE = 1,
     /**
