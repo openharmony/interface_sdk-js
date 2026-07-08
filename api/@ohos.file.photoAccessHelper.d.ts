@@ -12323,20 +12323,6 @@ declare namespace photoAccessHelper {
     setCompositeDisplayMode(compositeDisplayMode: CompositeDisplayMode): Promise<void>;
 
     /**
-     * Set 4d livephoto status.
-     *
-     * @param { LivePhoto4dStatus } status - 4d livephoto status.
-     * @param { string } [livephoto_4d_latest_pair] - The latest 4d livephoto which is genetated by the livephoto.
-     * @throws { BusinessError } 202 - Called by non-system application
-     * @throws { BusinessError } 23800301 - Internal system error. It is recommended to retry and check the logs.
-     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @systemapi
-     * @stagemodelonly
-     * @since 24 dynamic&static
-     */
-    setLivePhoto4dStatus(status: LivePhoto4dStatus, livephoto_4d_latest_pair?: string): void;
-
-    /**
      * Set hidden state of asset.
      *
      * @param { boolean } hiddenState - Hidden status of the asset.
