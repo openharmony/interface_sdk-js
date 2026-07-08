@@ -8042,6 +8042,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 22 dynamic
+     * @since 26.0.0 static
      */
     getClonedAlbumUris(oldUris: Array<string>): Promise<Map<string, string>>;
 
