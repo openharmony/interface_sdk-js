@@ -235,7 +235,7 @@ declare namespace userFileManager {
      * @systemapi
      * @since 9 dynamiconly
      * @deprecated since 26.0.0
-     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.PhotoAsset.PhotoType
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.PhotoAsset.photoType
      */
     readonly fileType: FileType;
     /**
@@ -1157,7 +1157,7 @@ declare namespace userFileManager {
    * @systemapi
    * @since 10 dynamiconly
    * @deprecated since 26.0.0
-   * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.AlbumSubType
+   * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.AlbumSubtype
    */
   enum AlbumSubType {
     /**
@@ -1177,7 +1177,7 @@ declare namespace userFileManager {
      * @systemapi
      * @since 10 dynamiconly
      * @deprecated since 26.0.0
-     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.AlbumSubType.FAVORITE
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.AlbumSubtype.FAVORITE
      */
     FAVORITE = 1025,
     /**
@@ -1187,7 +1187,7 @@ declare namespace userFileManager {
      * @systemapi
      * @since 10 dynamiconly
      * @deprecated since 26.0.0
-     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.AlbumSubType.VIDEO
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.AlbumSubtype.VIDEO
      */
     VIDEO,
     /**
@@ -1197,7 +1197,7 @@ declare namespace userFileManager {
      * @systemapi
      * @since 10 dynamiconly
      * @deprecated since 26.0.0
-     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.AlbumSubType.HIDDEN
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.AlbumSubtype.HIDDEN
      */
     HIDDEN,
     /**
@@ -1207,7 +1207,7 @@ declare namespace userFileManager {
      * @systemapi
      * @since 10 dynamiconly
      * @deprecated since 26.0.0
-     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.AlbumSubType.TRASH
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.AlbumSubtype.TRASH
      */
     TRASH,
     /**
@@ -1217,7 +1217,7 @@ declare namespace userFileManager {
      * @systemapi
      * @since 10 dynamiconly
      * @deprecated since 26.0.0
-     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.AlbumSubType.SCREENSHOT
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.AlbumSubtype.SCREENSHOT
      */
     SCREENSHOT,
     /**
@@ -1227,7 +1227,7 @@ declare namespace userFileManager {
      * @systemapi
      * @since 10 dynamiconly
      * @deprecated since 26.0.0
-     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.AlbumSubType.CAMERA
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.AlbumSubtype.CAMERA
      */
     CAMERA,
     /**
@@ -1237,7 +1237,7 @@ declare namespace userFileManager {
      * @systemapi
      * @since 10 dynamiconly
      * @deprecated since 26.0.0
-     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.AlbumSubType.ANY
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.AlbumSubtype.ANY
      */
     ANY = 2147483647
   }
@@ -1517,7 +1517,7 @@ declare namespace userFileManager {
    * @systemapi
    * @since 9 dynamiconly
    * @deprecated since 26.0.0
-   * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper
+   * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.PhotoAccessHelper
    */
   interface UserFileManager {
     /**
@@ -1951,7 +1951,7 @@ declare namespace userFileManager {
      * @systemapi
      * @since 10 dynamiconly
      * @deprecated since 26.0.0
-     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.PhotoAccessHelper.unRegisterChange
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.PhotoAccessHelper.unregisterChange
      */
     off(uri: string, callback?: Callback<ChangeData>): void;
     /**
@@ -2229,7 +2229,7 @@ declare namespace userFileManager {
      * @systemapi
      * @since 9 dynamiconly
      * @deprecated since 26.0.0
-     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.AlbumSubType.FAVORITE
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.AlbumSubtype.FAVORITE
      */
     TYPE_FAVORITE,
     /**
@@ -2239,7 +2239,7 @@ declare namespace userFileManager {
      * @systemapi
      * @since 9 dynamiconly
      * @deprecated since 26.0.0
-     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.AlbumSubType.TRASH
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.AlbumSubtype.TRASH
      */
     TYPE_TRASH
   }
