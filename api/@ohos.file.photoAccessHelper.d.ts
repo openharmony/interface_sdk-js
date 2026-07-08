@@ -9160,7 +9160,7 @@ declare namespace photoAccessHelper {
     strongAssociation: StrongAssociationType;
 
     /**
-     * Accessibility status of the thumbnail.
+     * Visible status of the thumbnail.
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
