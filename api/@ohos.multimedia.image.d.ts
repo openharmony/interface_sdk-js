@@ -11468,272 +11468,137 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
   }
 
   /**
-   * The XMAGE watermark is at the bottom of the photo.
+   * The XMAGE watermark is at the bottom of the photo.The value is 9.
    *
    * @syscap SystemCapability.Multimedia.Image.Core
    * @stagemodelonly
-   * @since 23 dynamic
-   */
-  const XMAGE_WATERMARK_MODE_AT_THE_BOTTOM = 9;
-
-  /**
-   * The XMAGE watermark is at the bottom of the photo.
-   *
-   * @syscap SystemCapability.Multimedia.Image.Core
-   * @stagemodelonly
-   * @since 23 static
+   * @since 23 dynamic&static
    */
   const XMAGE_WATERMARK_MODE_AT_THE_BOTTOM : int;
 
   /**
-   * The XMAGE watermark is around the edges of the photo.
+   * The XMAGE watermark is around the edges of the photo.The value is 10.
    *
    * @syscap SystemCapability.Multimedia.Image.Core
    * @stagemodelonly
-   * @since 23 dynamic
-   */
-  const XMAGE_WATERMARK_MODE_BORDER = 10;
-
-  /**
-   * The XMAGE watermark is around the edges of the photo.
-   *
-   * @syscap SystemCapability.Multimedia.Image.Core
-   * @stagemodelonly
-   * @since 23 static
+   * @since 23 dynamic&static
    */
   const XMAGE_WATERMARK_MODE_BORDER : int;
 
   /**
-   * Capture mode: professional.
+   * Capture mode: professional.The value is 2.
    *
    * @syscap SystemCapability.Multimedia.Image.Core
    * @stagemodelonly
-   * @since 23 dynamic
-   */
-  const CAPTURE_MODE_PROFESSIONAL = 2;
-
-  /**
-   * Capture mode: professional.
-   *
-   * @syscap SystemCapability.Multimedia.Image.Core
-   * @stagemodelonly
-   * @since 23 static
+   * @since 23 dynamic&static
    */
   const CAPTURE_MODE_PROFESSIONAL : int;
 
   /**
-   * Capture mode: night view with front lens.
+   * Capture mode: night view with front lens.The value is 7.
    *
    * @syscap SystemCapability.Multimedia.Image.Core
    * @stagemodelonly
-   * @since 23 dynamic
-   */
-  const CAPTURE_MODE_FRONT_LENS_NIGHT_VIEW = 7;
-
-  /**
-   * Capture mode: night view with front lens.
-   *
-   * @syscap SystemCapability.Multimedia.Image.Core
-   * @stagemodelonly
-   * @since 23 static
+   * @since 23 dynamic&static
    */
   const CAPTURE_MODE_FRONT_LENS_NIGHT_VIEW : int;
 
   /**
-   * Capture mode: panorama.
+   * Capture mode: panorama.The value is 8.
    *
    * @syscap SystemCapability.Multimedia.Image.Core
    * @stagemodelonly
-   * @since 23 dynamic
-   */
-  const CAPTURE_MODE_PANORAMA = 8;
-
-  /**
-   * Capture mode: panorama.
-   *
-   * @syscap SystemCapability.Multimedia.Image.Core
-   * @stagemodelonly
-   * @since 23 static
+   * @since 23 dynamic&static
    */
   const CAPTURE_MODE_PANORAMA : int;
 
   /**
-   * Capture mode: tail light.
+   * Capture mode: tail light.The value is 9.
    *
    * @syscap SystemCapability.Multimedia.Image.Core
    * @stagemodelonly
-   * @since 23 dynamic
-   */
-  const CAPTURE_MODE_TAIL_LIGHT = 9;
-
-  /**
-   * Capture mode: tail light.
-   *
-   * @syscap SystemCapability.Multimedia.Image.Core
-   * @stagemodelonly
-   * @since 23 static
+   * @since 23 dynamic&static
    */
   const CAPTURE_MODE_TAIL_LIGHT : int;
 
   /**
-   * Capture mode: light graffiti.
+   * Capture mode: light graffiti.The value is 10.
    *
    * @syscap SystemCapability.Multimedia.Image.Core
    * @stagemodelonly
-   * @since 23 dynamic
-   */
-  const CAPTURE_MODE_LIGHT_GRAFFITI = 10;
-
-  /**
-   * Capture mode: light graffiti.
-   *
-   * @syscap SystemCapability.Multimedia.Image.Core
-   * @stagemodelonly
-   * @since 23 static
+   * @since 23 dynamic&static
    */
   const CAPTURE_MODE_LIGHT_GRAFFITI : int;
 
   /**
-   * Capture mode: silky water.
+   * Capture mode: silky water.The value is 11.
    *
    * @syscap SystemCapability.Multimedia.Image.Core
    * @stagemodelonly
-   * @since 23 dynamic
-   */
-  const CAPTURE_MODE_SILKY_WATER = 11;
-
-  /**
-   * Capture mode: silky water.
-   *
-   * @syscap SystemCapability.Multimedia.Image.Core
-   * @stagemodelonly
-   * @since 23 static
+   * @since 23 dynamic&static
    */
   const CAPTURE_MODE_SILKY_WATER : int;
 
   /**
-   * Capture mode: star track.
+   * Capture mode: star track.The value is 12.
    *
    * @syscap SystemCapability.Multimedia.Image.Core
    * @stagemodelonly
-   * @since 23 dynamic
-   */
-  const CAPTURE_MODE_STAR_TRACK = 12;
-
-  /**
-   * Capture mode: star track.
-   *
-   * @syscap SystemCapability.Multimedia.Image.Core
-   * @stagemodelonly
-   * @since 23 static
+   * @since 23 dynamic&static
    */
   const CAPTURE_MODE_STAR_TRACK : int;
 
   /**
-   * Capture mode: wide aperture.
+   * Capture mode: wide aperture.The value is 19.
    *
    * @syscap SystemCapability.Multimedia.Image.Core
    * @stagemodelonly
-   * @since 23 dynamic
-   */
-  const CAPTURE_MODE_WIDEAPERTURE = 19;
-
-  /**
-   * Capture mode: wide aperture.
-   *
-   * @syscap SystemCapability.Multimedia.Image.Core
-   * @stagemodelonly
-   * @since 23 static
+   * @since 23 dynamic&static
    */
   const CAPTURE_MODE_WIDEAPERTURE : int;
 
   /**
-   * Capture mode: moving photos.
+   * Capture mode: moving photos.The value is 20.
    *
    * @syscap SystemCapability.Multimedia.Image.Core
    * @stagemodelonly
-   * @since 23 dynamic
-   */
-  const CAPTURE_MODE_MOVING_PHOTO = 20;
-
-  /**
-   * Capture mode: moving photos.
-   *
-   * @syscap SystemCapability.Multimedia.Image.Core
-   * @stagemodelonly
-   * @since 23 static
+   * @since 23 dynamic&static
    */
   const CAPTURE_MODE_MOVING_PHOTO : int;
 
   /**
-   * Capture mode: portrait.
+   * Capture mode: portrait.The value is 23.
    *
    * @syscap SystemCapability.Multimedia.Image.Core
    * @stagemodelonly
-   * @since 23 dynamic
-   */
-  const CAPTURE_MODE_PORTRAIT = 23;
-
-  /**
-   * Capture mode: portrait.
-   *
-   * @syscap SystemCapability.Multimedia.Image.Core
-   * @stagemodelonly
-   * @since 23 static
+   * @since 23 dynamic&static
    */
   const CAPTURE_MODE_PORTRAIT : int;
 
   /**
-   * Capture mode: night view with rear lens.
+   * Capture mode: night view with rear lens.The value is 42.
    *
    * @syscap SystemCapability.Multimedia.Image.Core
    * @stagemodelonly
-   * @since 23 dynamic
-   */
-  const CAPTURE_MODE_REAR_LENS_NIGHT_VIEW = 42;
-
-  /**
-   * Capture mode: night view with rear lens.
-   *
-   * @syscap SystemCapability.Multimedia.Image.Core
-   * @stagemodelonly
-   * @since 23 static
+   * @since 23 dynamic&static
    */
   const CAPTURE_MODE_REAR_LENS_NIGHT_VIEW : int;
 
   /**
-   * Capture mode: super macro.
+   * Capture mode: super macro.The value is 47.
    *
    * @syscap SystemCapability.Multimedia.Image.Core
    * @stagemodelonly
-   * @since 23 dynamic
-   */
-  const CAPTURE_MODE_SUPER_MACRO = 47;
-
-  /**
-   * Capture mode: super macro.
-   *
-   * @syscap SystemCapability.Multimedia.Image.Core
-   * @stagemodelonly
-   * @since 23 static
+   * @since 23 dynamic&static
    */
   const CAPTURE_MODE_SUPER_MACRO : int;
 
   /**
-   * Capture mode: snap shot.
+   * Capture mode: snap shot.The value is 62.
    *
    * @syscap SystemCapability.Multimedia.Image.Core
    * @stagemodelonly
-   * @since 23 dynamic
-   */
-  const CAPTURE_MODE_SNAP_SHOT = 62;
-
-  /**
-   * Capture mode: snap shot.
-   *
-   * @syscap SystemCapability.Multimedia.Image.Core
-   * @stagemodelonly
-   * @since 23 static
+   * @since 23 dynamic&static
    */
   const CAPTURE_MODE_SNAP_SHOT : int;
 
