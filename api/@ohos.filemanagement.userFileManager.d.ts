@@ -64,7 +64,7 @@ declare namespace userFileManager {
      * @systemapi
      * @since 9 dynamiconly
      * @deprecated since 26.0.0
-     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.IMAGE
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.PhotoType.IMAGE
      */
     IMAGE = 1,
     /**
@@ -74,7 +74,7 @@ declare namespace userFileManager {
      * @systemapi
      * @since 9 dynamiconly
      * @deprecated since 26.0.0
-     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.VIDEO
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.PhotoType.VIDEO
      */
     VIDEO,
     /**
@@ -1462,7 +1462,7 @@ declare namespace userFileManager {
      * @systemapi
      * @since 10 dynamiconly
      * @deprecated since 26.0.0
-     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.MediaAlbumChangeRequest.recoverAssets
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.Album.recoverAssets
      */
     recoverPhotoAssets(assets: Array<FileAsset>, callback: AsyncCallback<void>): void;
     /**
@@ -1476,7 +1476,7 @@ declare namespace userFileManager {
      * @systemapi
      * @since 10 dynamiconly
      * @deprecated since 26.0.0
-     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.MediaAlbumChangeRequest.recoverAssets
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.Album.recoverAssets
      */
     recoverPhotoAssets(assets: Array<FileAsset>): Promise<void>;
     /**
@@ -1650,7 +1650,7 @@ declare namespace userFileManager {
      * @systemapi
      * @since 10 dynamiconly
      * @deprecated since 26.0.0
-     * @useinstead @ohos.file.picker:picker.AudioViewPicker
+     * @ohos.file.picker:picker.AudioViewPicker
      */
     createAudioAsset(displayName: string): Promise<FileAsset>;
     /**
@@ -1824,7 +1824,7 @@ declare namespace userFileManager {
      * @systemapi
      * @since 9 dynamiconly
      * @deprecated since 26.0.0
-     * @useinstead @ohos.file.picker:picker.AudioViewPicker
+     * @ohos.file.picker:picker.AudioViewPicker
      */
     getAudioAssets(options: FetchOptions, callback: AsyncCallback<FetchResult<FileAsset>>): void;
     /**
@@ -1838,7 +1838,7 @@ declare namespace userFileManager {
      * @systemapi
      * @since 9 dynamiconly
      * @deprecated since 26.0.0
-     * @useinstead @ohos.file.picker:picker.AudioViewPicker
+     * @ohos.file.picker:picker.AudioViewPicker
      */
     getAudioAssets(options: FetchOptions): Promise<FetchResult<FileAsset>>;
     /**
@@ -1883,7 +1883,7 @@ declare namespace userFileManager {
      * @systemapi
      * @since 10 dynamiconly
      * @deprecated since 26.0.0
-     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.MediaAssetChangeRequest.getPhotoIndex
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.PhotoAccessHelper.getPhotoIndex
      */
     getPhotoIndex(photoUri: string, albumUri: string, options: FetchOptions, callback: AsyncCallback<number>): void;
     /**
@@ -2119,7 +2119,7 @@ declare namespace userFileManager {
      * @systemapi
      * @since 10 dynamiconly
      * @deprecated since 26.0.0
-     * @useinstead @ohos.file.picker:picker.AudioViewPicker
+     * @ohos.file.picker:picker.AudioViewPicker
      */
     DEFAULT_AUDIO_URI
   }
@@ -2229,7 +2229,7 @@ declare namespace userFileManager {
      * @systemapi
      * @since 9 dynamiconly
      * @deprecated since 26.0.0
-     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.FAVORITE
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.AlbumSubType.FAVORITE
      */
     TYPE_FAVORITE,
     /**
@@ -2239,7 +2239,7 @@ declare namespace userFileManager {
      * @systemapi
      * @since 9 dynamiconly
      * @deprecated since 26.0.0
-     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.TRASH
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.AlbumSubType.TRASH
      */
     TYPE_TRASH
   }
