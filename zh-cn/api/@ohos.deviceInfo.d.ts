@@ -24,7 +24,7 @@
  * > **说明：**
  * >
  * > 本模块首批接口从API version 6开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
- * > 部分参数返回值为default的，会在正式发布的版本中配置。
+ * > hardwareProfile、incrementalVersion、buildType、buildUser、buildHost、buildTime、buildRootHash等参数返回值为default，这些参数会在设备正式商用版本中配置具体值。
  * > 本模块接口返回设备常量信息，建议应用只调用一次，不需要频繁调用。
  *
  * @syscap SystemCapability.Startup.SystemInfo
@@ -219,7 +219,7 @@ declare namespace deviceInfo {
   /**
    * 硬件Profile。
    * 
-   * **说明**：
+   * **说明：**
    * 
    * 从API version 6 开始支持，从API version 9 开始废弃，建议使用[系统能力SystemCapability](docroot://reference/syscap.md)替代。
    * 
@@ -234,7 +234,7 @@ declare namespace deviceInfo {
   /**
    * 设备序列号SN(Serial Number)。
    * 
-   * **说明**：可作为设备唯一识别码。
+   * **说明：**可作为设备唯一识别码。
    * 
    * ohos.permission.sec.ACCESS_UDID(该权限只允许系统应用及企业定制应用申请) 
    * 
@@ -321,8 +321,10 @@ declare namespace deviceInfo {
   /**
    * 系统版本，版本格式<!--RP12-->OpenHarmony-x.x.x.x,x为数值。<!--RP12End-->
    * 
-   * 示例：<!--RP10-->Openharmony-5.0.0.1<!--RP10End-->
+   * 示例：<!--RP10-->OpenHarmony-x.x.x.x，其中x表示数字占位符。<!--RP10End-->
    *
+   * 如需获取版本号各段数值，建议直接使用majorVersion、seniorVersion、featureVersion、buildVersion字段，可提升效率，不建议解析osFullName获取。
+   * 
    * @syscap SystemCapability.Startup.SystemInfo
    * @crossplatform [since 10]
    * @atomicservice [since 11]
@@ -331,7 +333,7 @@ declare namespace deviceInfo {
   const osFullName: string;
 
   /**
-   * Major版本号，随主版本更新增加，值为osFullName中的第一位数值，建议直接使用deviceInfo.majorVersion获取，可提升效率，不建议开发者解析osFullName获取。
+   * Major版本号，随主版本更新增加，值为osFullName中的第一位数值，建议直接使用deviceInfo.majorVersion获取，可提升效率，不建议开发者自主解析osFullName获取。
    * 
    * 示例：5
    *
@@ -429,7 +431,7 @@ declare namespace deviceInfo {
 
   /**
    * 版本ID。由deviceType、manufacture、brand、productSeries、osFullName、productModel、softwareModel、sdkApiVersion、
-   * incrementalVersion、buildType拼接组成。
+   * incrementalVersion、buildType拼接组成。如果需要获取其中的某个字段值，建议直接使用对应的字段（如deviceType、manufacture等），可提升效率，不建议解析versionId获取。
    * 
    * 示例：wearable/HUAWEI/HUAWEI/TAS/OpenHarmony-5.0.0.1/TAS-AL00/TAS-AL00/12/default/release:nolog
    *
@@ -495,9 +497,9 @@ declare namespace deviceInfo {
   const buildRootHash: string;
 
   /**
-   * 设备Udid。
+   * 设备UDID。
    * 
-   * **说明**：数据长度为65字节。可作为设备唯一识别码。
+   * **说明：**数据长度为65字节。可作为设备唯一识别码。
    * 
    * ohos.permission.sec.ACCESS_UDID(该权限只允许系统应用及企业类应用申请)
    * 
@@ -560,13 +562,13 @@ declare namespace deviceInfo {
   /**
    * 开发者匿名设备标识符。
    * 
-   * **ODID值会在以下场景重新生成**：
+   * **ODID值会在以下场景重新生成：**
    * 
    * 手机恢复出厂设置。
    * 
    * 同一设备上同一个开发者(developerId相同)的应用全部卸载后重新安装时。
    * 
-   * **ODID生成规则**：
+   * **ODID生成规则：**
    * 
    * 根据签名信息里developerId解析出的groupId生成，developerId规则为groupId.developerId，若无groupId则取整个developerId作为groupId。
    * 
@@ -578,7 +580,7 @@ declare namespace deviceInfo {
    * 
    * 不同设备上不同开发者(developerId不同)的应用，ODID不同。
    * 
-   * **说明**：数据长度为37字节(包含结束符)。
+   * **说明：**数据长度为37字节(包含结束符)。
    * 
    * 示例：1234a567-XXXX-XXXX-XXXX-XXXXXXXXXXXX
    *
@@ -681,7 +683,7 @@ declare namespace deviceInfo {
   function apiAvailable(version: string | number): boolean;
 
   /**
-   * 当前设备颜色
+   * 当前设备颜色。如果无法获取，则返回空字符串
    * 
    * 示例：gold
    *
