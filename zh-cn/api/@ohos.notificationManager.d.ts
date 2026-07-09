@@ -68,7 +68,27 @@ import type UIAbilityContext from './application/UIAbilityContext';
 /*** endif */
 
 /**
- * 本模块提供通知管理的能力，包括发布、更新、取消通知，创建、获取、移除通知渠道，获取发布通知应用的使能状态，获取通知的相关信息等。
+ * 本模块提供通知管理的能力，应用可使用本模块完成通知的完整生命周期管理。其中涉及通知的发布、更新与取消，通知渠道的创建与查询、通知能力授权状态的查询与申请、应用角标的设置、通知中心存量通知的查询等操作。
+ *
+ * **API组合使用关系说明**：
+ *
+ * 本模块的接口围绕通知的"授权→发布→取消→渠道管理"的完整流程展开，各接口间存在明确的组合使用关系：
+ *
+ * 1. **授权查询与申请流程**：发布通知前，先通过isNotificationEnabled查询通知能力的授权状态。如果通知能力未授权，通过requestEnableNotification引导用户开启通知权限。
+ *
+ * 2. **通知发布与更新流程**：通过publish发布通知，通知内容通过NotificationRequest指定。如果新发布通知与已有通知的ID和标签相同，将自动更新已有通知。如果新发布通知与已有通知的ID或标签不相同，将创建新的通知。
+ *
+ * 3. **通知取消流程**：通过cancel取消指定ID的通知，通过cancelAll取消本应用所有通知，通过cancelGroup取消指定分组下的通知。
+ *
+ * 4. **通知渠道管理流程**：通过addSlot创建通知渠道，通过getSlot/getSlots查询通知渠道配置，通过removeSlot/removeAllSlots删除通知渠道。建议在发布通知前先创建对应类型的通知渠道。除了可以使用addSlot创建通知渠道，还可以在发布通知的NotificationRequest中携带notificationSlotType字段，如果对应类型的渠道不存在，会自动创建。
+ *
+ * 5. **角标管理流程**：通过setBadgeNumber设置角标数字，或者通过publish接口发布通知时，在NotificationRequest的badgeNumber字段里携带需要增加的角标数量。
+ *
+ * 6. **存量通知查询流程**：通过getActiveNotificationCount获取通知中心本应用存量通知数量，通过getActiveNotifications获取通知中心本应用存量通知详情。
+ *
+ * > **说明：**
+ * >
+ * > 本模块首批接口从API version 9开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
  *
  * @syscap SystemCapability.Notification.Notification
  * @crossplatform [since 12]
@@ -79,8 +99,9 @@ import type UIAbilityContext from './application/UIAbilityContext';
 declare namespace notificationManager {
   /**
    * 发布通知。使用callback异步回调。
-   * 
-   * 如果新发布通知与已发布通知的ID和标签都相同，则新通知将取代原有通知。
+   *
+   * 发布通知后，通知将以通知卡片的形式展示在设备的通知中心、状态栏等位置。
+   * 如果新发布通知与已发布通知的ID和标签都相同，则新通知将取代原有通知，实现通知的更新效果。
    *
    * @param { NotificationRequest } request - 设置发布通知的内容和相关配置信息。
    * @param { AsyncCallback<void> } callback - 回调函数。当发布通知成功，err为undefined，否则为错误对象。
@@ -112,8 +133,9 @@ declare namespace notificationManager {
 
   /**
    * 发布通知。使用Promise异步回调。
-   * 
-   * 如果新发布通知与已发布通知的ID和标签都相同，则新通知将取代原有通知。
+   *
+   * 发布通知后，通知将以通知卡片的形式展示在设备的通知中心、状态栏等位置。
+   * 如果新发布通知与已发布通知的ID和标签都相同，则新通知将取代原有通知，实现通知的更新效果。
    *
    * @param { NotificationRequest } request - 设置发布通知的内容和相关配置信息。
    * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
@@ -357,7 +379,12 @@ declare namespace notificationManager {
   /**
    * 根据指定的通知ID取消已发布的通知。使用callback异步回调。
    *
-   * @param { int } id - 通知ID。
+   * 取消后，对应的通知将从通知中心、状态栏等位置移除，用户不再可见。
+   * 与带label参数的notificationManager.cancel(id, label, callback)相比，
+   * 此接口不传入label，将取消与指定ID匹配的通知。当发布通知，
+   * label不为空时，则需使用接口notificationManager.cancel(id, label, callback)取消通知。
+   *
+   * @param { int } id - 通知ID，用于标识目标通知。该值由发布通知时NotificationRequest的id字段指定。
    * @param { AsyncCallback<void> } callback - 回调函数。当取消已发布的通知成功，err为undefined，否则为错误对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types. 3. Parameter verification failed.
@@ -375,8 +402,13 @@ declare namespace notificationManager {
   /**
    * 根据通知ID和标签取消已发布的通知。使用callback异步回调。
    *
-   * @param { int } id - 通知ID。
-   * @param { string } label - 通知标签。
+   * 取消后，对应的通知将从通知中心、状态栏等位置移除，用户不再可见。
+   * 适用于需要精确取消某一条带有特定标签的通知的场景。
+   * 与仅传入通知ID的notificationManager.cancel(id, callback)相比，
+   * 此接口额外传入label参数，可精确取消同一ID下不同标签的通知。
+   *
+   * @param { int } id - 通知ID，用于标识目标通知。该值由发布通知时NotificationRequest的id字段指定。
+   * @param { string } label - 通知标签，用于区分同一ID下不同标签的通知。该值由发布通知时NotificationRequest的label字段指定。
    * @param { AsyncCallback<void> } callback - 回调函数。根据通知ID和标签取消已发布的通知成功，err为undefined，否则为错误对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types. 3. Parameter verification failed.
@@ -391,9 +423,12 @@ declare namespace notificationManager {
   function cancel(id: int, label: string, callback: AsyncCallback<void>): void;
 
   /**
-   * 根据通知ID和标签取消已发布的通知，若标签为空，则取消与指定通知ID匹配的已发布通知。使用Promise异步回调。
+   * 根据通知ID和标签取消已发布的通知，若标签为空，则取消与指定通知ID匹配，
+   * 标签为空的已发布通知。使用Promise异步回调。
    *
-   * @param { int } id - 通知ID。
+   * 取消后，对应的通知将从通知中心、状态栏等位置移除，用户不再可见。
+   *
+   * @param { int } id - 通知ID，用于标识目标通知。该值由发布通知时NotificationRequest的id字段指定。
    * @param { string } [label] - 通知标签，默认为空。
    * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -515,6 +550,9 @@ declare namespace notificationManager {
   /**
    * 取消当前应用所有已发布的通知。使用callback异步回调。
    *
+   * 取消后，当前应用的所有通知将从通知中心、状态栏等位置移除，用户不再可见。
+   * 适用于应用退出或用户手动清除全部通知的场景。
+   *
    * @param { AsyncCallback<void> } callback - 回调函数。当取消当前应用所有已发布的通知成功，err为undefined，否则为错误对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types. 3. Parameter verification failed.
@@ -530,6 +568,9 @@ declare namespace notificationManager {
 
   /**
    * 取消当前应用所有已发布的通知。使用Promise异步回调。
+   *
+   * 取消后，当前应用的所有通知将从通知中心、状态栏等位置移除，用户不再可见。
+   * 适用于应用退出或用户手动清除全部通知的场景。
    *
    * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 1600001 - Internal error.
@@ -587,7 +628,14 @@ declare namespace notificationManager {
   /**
    * 创建指定类型的通知渠道。使用callback异步回调。
    *
-   * @param { SlotType } type - 要创建的通知渠道的类型。
+   * 通知渠道NotificationSlot定义了通知的提醒方式（如提示音、振动、横幅等）和级别。
+   * 发布通知前，应用需先创建对应类型的通知渠道，或者发布通知时系统将自动创建对应类型的通知渠道。
+   * 同一类型的通知渠道只能创建一个。
+   *
+   * @param { SlotType } type - 要创建的通知渠道的类型。不同的渠道类型对应不同的默认SlotLevel，
+   *     影响通知的提醒方式。例如SOCIAL_COMMUNICATION对应LEVEL_HIGH
+   *     （状态栏图标+横幅+提示音），CONTENT_INFORMATION对应LEVEL_MIN
+   *     （状态栏不显示图标+无横幅+无提示音）。
    * @param { AsyncCallback<void> } callback - 回调函数。当创建指定类型的通知渠道成功，err为undefined，否则为错误对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types. 3. Parameter verification failed.
@@ -604,7 +652,14 @@ declare namespace notificationManager {
   /**
    * 创建指定类型的通知渠道。使用Promise异步回调。
    *
-   * @param { SlotType } type - 要创建的通知渠道的类型。
+   * 通知渠道NotificationSlot定义了通知的提醒方式（如提示音、振动、横幅等）和级别。
+   * 发布通知前，应用需先创建对应类型的通知渠道，或者发布通知时系统将自动创建对应类型的通知渠道。
+   * 同一类型的通知渠道只能创建一个。
+   *
+   * @param { SlotType } type - 要创建的通知渠道的类型。不同的渠道类型对应不同的默认SlotLevel，
+   *     影响通知的提醒方式。例如SOCIAL_COMMUNICATION对应LEVEL_HIGH
+   *     （状态栏图标+横幅+提示音），CONTENT_INFORMATION对应LEVEL_MIN
+   *     （状态栏不显示图标+无横幅+无提示音）。
    * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types. 3. Parameter verification failed.
@@ -663,9 +718,12 @@ declare namespace notificationManager {
   /**
    * 获取指定类型的通知渠道。使用callback异步回调。
    *
-   * @param { SlotType } slotType - 通知渠道类型，例如社交通信、服务提醒、内容咨询等类型。
-   * @param { AsyncCallback<NotificationSlot> } callback - 回调函数。当获取通知渠道成功，err为undefined，data为获取到的NotificationSlot，否则为错误对
-   *     象。
+   * 用于查询已创建的通知渠道的详细配置信息，包括提醒方式、级别、锁屏显示等设置。
+   * 需先通过addSlot创建对应类型的通知渠道，否则获取结果为空。
+   *
+   * @param { SlotType } slotType - 通知渠道类型，例如社交通讯、服务提醒、内容咨询等类型。
+   * @param { AsyncCallback<NotificationSlot> } callback - 回调函数。当获取通知渠道成功，
+   *     err为undefined，data为获取到的NotificationSlot，否则为错误对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -679,9 +737,12 @@ declare namespace notificationManager {
   /**
    * 获取指定类型的通知渠道。使用callback异步回调。
    *
-   * @param { SlotType } slotType - 通知渠道类型，例如社交通信、服务提醒、内容咨询等类型。
-   * @param { AsyncCallback<NotificationSlot|null> } callback - 回调函数。当获取通知渠道成功，err为undefined，data为获取到的NotificationSlot，否则为错误对
-   *     象。
+   * 用于查询已创建的通知渠道的详细配置信息，包括提醒方式、级别、锁屏显示等设置。
+   * 需先通过addSlot创建对应类型的通知渠道，否则获取结果为空。
+   *
+   * @param { SlotType } slotType - 通知渠道类型，例如社交通讯、服务提醒、内容咨询等类型。
+   * @param { AsyncCallback<NotificationSlot|null> } callback - 回调函数。当获取通知渠道成功，
+   *     err为undefined，data为获取到的NotificationSlot，否则为错误对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -695,7 +756,10 @@ declare namespace notificationManager {
   /**
    * 获取指定类型的通知渠道。使用Promise异步回调。
    *
-   * @param { SlotType } slotType - 通知渠道类型，例如社交通信、服务提醒、内容咨询等类型。
+   * 用于查询已创建的通知渠道的详细配置信息，包括提醒方式、级别、锁屏显示等设置。
+   * 需先通过addSlot创建对应类型的通知渠道，否则获取结果为空。
+   *
+   * @param { SlotType } slotType - 通知渠道类型，例如社交通讯、服务提醒、内容咨询等类型。
    * @returns { Promise<NotificationSlot> } Promise对象，返回通知渠道对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types. 3. Parameter verification failed.
@@ -710,7 +774,10 @@ declare namespace notificationManager {
   /**
    * 获取指定类型的通知渠道。使用Promise异步回调。
    *
-   * @param { SlotType } slotType - 通知渠道类型，例如社交通信、服务提醒、内容咨询等类型。
+   * 用于查询已创建的通知渠道的详细配置信息，包括提醒方式、级别、锁屏显示等设置。
+   * 需先通过addSlot创建对应类型的通知渠道，否则获取结果为空。
+   *
+   * @param { SlotType } slotType - 通知渠道类型，例如社交通讯、服务提醒、内容咨询等类型。
    * @returns { Promise<NotificationSlot|null> } Promise对象，返回通知渠道对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types. 3. Parameter verification failed.
@@ -725,8 +792,11 @@ declare namespace notificationManager {
   /**
    * 获取当前应用的所有通知渠道。使用callback异步回调。
    *
-   * @param { AsyncCallback<Array<NotificationSlot>> } callback - 回调函数。当获取通知渠道成功，err为undefined，data为获取到的NotificationSlot
-   *     数组，否则为错误对象。
+   * 用于批量查询当前应用已创建的所有通知渠道的配置信息，包括各渠道的类型、提醒方式、级别等设置。
+   * 适用于需要查看所有渠道配置的场景。
+   *
+   * @param { AsyncCallback<Array<NotificationSlot>> } callback - 回调函数。当获取通知渠道成功，
+   *     err为undefined，data为获取到的NotificationSlot数组，否则为错误对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -740,6 +810,9 @@ declare namespace notificationManager {
 
   /**
    * 获取当前应用的所有通知渠道。使用Promise异步回调。
+   *
+   * 用于批量查询当前应用已创建的所有通知渠道的配置信息，包括各渠道的类型、提醒方式、级别等设置。
+   * 适用于需要查看所有渠道配置的场景。
    *
    * @returns { Promise<Array<NotificationSlot>> } Promise对象，返回通知渠道对象。
    * @throws { BusinessError } 1600001 - Internal error.
@@ -789,7 +862,12 @@ declare namespace notificationManager {
   /**
    * 删除当前应用指定类型的通知渠道。使用callback异步回调。
    *
-   * @param { SlotType } slotType - 通知渠道类型，例如社交通信、服务提醒、内容咨询等类型。
+   * 删除后，对应类型的通知渠道及其配置将被永久移除，后续发布该类型通知时系统将自动创建默认渠道。
+   * 已通过该渠道发布的通知不受影响，仍可在通知中心查看。
+   * 适用于需要重新配置渠道时先删除再创建的场景。
+   *
+   * @param { SlotType } slotType - 通知渠道类型，例如社交通讯、服务提醒、内容咨询等类型。
+   *     需传入已创建的渠道类型，否则删除操作无效。
    * @param { AsyncCallback<void> } callback - 回调函数。当删除指定类型的通知渠道成功，err为undefined，否则为错误对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types. 3. Parameter verification failed.
@@ -805,7 +883,12 @@ declare namespace notificationManager {
   /**
    * 删除当前应用指定类型的通知渠道。使用Promise异步回调。
    *
-   * @param { SlotType } slotType - 通知渠道类型，例如社交通信、服务提醒、内容咨询等类型。
+   * 删除后，对应类型的通知渠道及其配置将被永久移除，后续发布该类型通知时系统将自动创建默认渠道。
+   * 已通过该渠道发布的通知不受影响，仍可在通知中心查看。
+   * 适用于需要重新配置渠道时先删除再创建的场景。
+   *
+   * @param { SlotType } slotType - 通知渠道类型，例如社交通讯、服务提醒、内容咨询等类型。
+   *     需传入已创建的渠道类型，否则删除操作无效。
    * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types. 3. Parameter verification failed.
@@ -821,6 +904,10 @@ declare namespace notificationManager {
   /**
    * 删除当前应用所有通知渠道。使用callback异步回调。
    *
+   * 删除后，当前应用的所有通知渠道及其配置将被永久移除，后续发布通知时系统将自动创建对应类型的渠道。
+   * 已通过这些渠道发布的通知不受影响，仍可在通知中心查看。
+   * 适用于需要一次性清除所有渠道配置的场景。
+   *
    * @param { AsyncCallback<void> } callback - 回调函数。当删除当前应用所有通知渠道成功，err为undefined，否则为错误对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types. 3. Parameter verification failed.
@@ -835,6 +922,10 @@ declare namespace notificationManager {
 
   /**
    * 删除当前应用所有通知渠道。使用Promise异步回调。
+   *
+   * 删除后，当前应用的所有通知渠道及其配置将被永久移除，后续发布通知时系统将自动创建对应类型的渠道。
+   * 已通过这些渠道发布的通知不受影响，仍可在通知中心查看。
+   * 适用于需要一次性清除所有渠道配置的场景。
    *
    * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 1600001 - Internal error.
@@ -933,7 +1024,9 @@ declare namespace notificationManager {
   function isNotificationEnabled(bundle: BundleOption): Promise<boolean>;
 
   /**
-   * 查询当前应用通知使能状态。使用callback异步回调。
+   * 查询当前应用通知授权状态。使用callback异步回调。
+   *
+   * 用于在发布通知前检查当前应用是否被允许发送通知，避免在通知授权关闭时发布导致失败。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER [since 9 - 10]
    * @param { AsyncCallback<boolean> } callback - 回调函数。返回true，表示允许发布通知；返回false，表示禁止发布通知；调用失败返回错误对象。
@@ -956,7 +1049,9 @@ declare namespace notificationManager {
   function isNotificationEnabled(callback: AsyncCallback<boolean>): void;
 
   /**
-   * 查询当前应用通知使能状态。使用Promise异步回调。
+   * 查询当前应用通知授权状态。使用Promise异步回调。
+   *
+   * 用于在发布通知前检查当前应用是否被允许发送通知，避免在通知使能关闭时发布导致失败。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER [since 9 - 10]
    * @returns { Promise<boolean> } Promise对象。返回true，表示允许发布通知；返回false，表示禁止发布通知。
@@ -977,7 +1072,10 @@ declare namespace notificationManager {
   function isNotificationEnabled(): Promise<boolean>;
 
   /**
-   * 同步查询当前应用通知使能状态。
+   * 同步查询当前应用通知授权状态。
+   *
+   * 用于在发布通知前快速检查当前应用是否被允许发送通知。此接口为同步接口，
+   * 调用后立即返回结果，适用于需要在同步代码流程中获取使能状态的场景。
    *
    * @returns { boolean } 返回查询通知使能状态的结果。返回true，表示允许发布通知；返回false，表示禁止发布通知。
    * @throws { BusinessError } 1600001 - Internal error.
@@ -1503,6 +1601,9 @@ declare namespace notificationManager {
   /**
    * 取消当前应用指定组下的通知。使用callback异步回调。
    *
+   * 通知组groupName是在发布通知时通过NotificationRequest的groupName字段指定的分组标识。
+   * 取消后，该组下所有通知将从通知中心移除。适用于需要按业务分组批量取消通知的场景。
+   *
    * @param { string } groupName - 通知组名称，此名称需要在发布通知时通过
    *     [NotificationRequest]{@link ./notification/notificationRequest:NotificationRequest}对象指定。
    * @param { AsyncCallback<void> } callback - 回调函数。当取消当前应用指定组下的通知成功，err为undefined，否则为错误对象。
@@ -1519,6 +1620,9 @@ declare namespace notificationManager {
 
   /**
    * 取消当前应用指定组下的通知。使用Promise异步回调。
+   *
+   * 通知组groupName是在发布通知时通过NotificationRequest的groupName字段指定的分组标识。
+   * 取消后，该组下所有通知将从通知中心移除。适用于需要按业务分组批量取消通知的场景。
    *
    * @param { string } groupName - 通知组名称，此名称需要在发布通知时通过
    *     [NotificationRequest]{@link ./notification/notificationRequest:NotificationRequest}对象指定。
@@ -1876,7 +1980,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600004 - Notification disabled. [since 11]
    * @throws { BusinessError } 1600013 - A notification dialog box is already displayed. [since 11]
    * @syscap SystemCapability.Notification.Notification
-   * @StageModelOnly
+   * @stageModelOnly
    * @crossplatform [since 12]
    * @since 10 dynamic
    * @since 23 static
@@ -1928,7 +2032,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600004 - Notification disabled. [since 11]
    * @throws { BusinessError } 1600013 - A notification dialog box is already displayed. [since 11]
    * @syscap SystemCapability.Notification.Notification
-   * @StageModelOnly
+   * @stageModelOnly
    * @crossplatform [since 12]
    * @since 10 dynamic
    * @since 23 static
@@ -2534,6 +2638,10 @@ declare namespace notificationManager {
   /**
    * 设定角标个数，在应用的桌面图标上呈现。使用callback异步回调。
    *
+   * 角标是应用桌面图标右上角显示的数字标识，用于提示用户有未处理的通知数量。
+   *     设定后，桌面图标将显示对应角标数字。适用于需要在桌面图标上提示用户
+   *     待处理消息数量的场景，如未读消息数、待办事项数等。
+   *
    * @param { int } badgeNumber - 角标个数。当角标设定个数取值小于或等于0时，清除角标。取值大于99时，通知角标将显示99+。
    * @param { AsyncCallback<void> } callback - 回调函数。当设定角标个数成功，err为undefined，否则为错误对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -2552,6 +2660,10 @@ declare namespace notificationManager {
 
   /**
    * 设定角标个数，在应用的桌面图标上呈现。使用Promise异步回调。
+   *
+   * 角标是应用桌面图标右上角显示的数字标识，用于提示用户有未处理的通知数量。
+   *     设定后，桌面图标将显示对应角标数字。适用于需要在桌面图标上提示用户
+   *     待处理消息数量的场景，如未读消息数、待办事项数等。
    *
    * @param { int } badgeNumber - 角标个数。当角标设定个数取值小于或等于0时，清除角标。取值大于99时，通知角标将显示99+。
    * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
@@ -2595,7 +2707,7 @@ declare namespace notificationManager {
   /**
    * 注册通知监听回调。通知服务将通知信息回调给校验程序，校验程序返回校验结果决定该通知是否发布，如营销类通知发布频率控制等。
    * 
-   * 系统中每个[SlotType]{@link @ohos.notificationManager:notificationManager.SlotType}只允许存在一个注册者。
+   * 系统中每个SlotType只允许存在一个注册者。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER and ohos.permission.NOTIFICATION_AGENT_CONTROLLER
    * @param { 'checkNotification' } type - 回调函数类型名，固定为'checkNotification'。
@@ -2628,7 +2740,7 @@ declare namespace notificationManager {
   /**
    * 注册通知监听回调。通知服务将通知信息回调给校验程序，校验程序返回校验结果决定该通知是否发布，如营销类通知发布频率控制等。使用Promise异步回调。
    * 
-   * 系统中每个[SlotType]{@link @ohos.notificationManager:notificationManager.SlotType}只允许存在一个注册者。
+   * 系统中每个SlotType只允许存在一个注册者。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER and ohos.permission.NOTIFICATION_AGENT_CONTROLLER
    * @param { 'checkNotification' } type - 回调函数类型名，固定为'checkNotification'。
@@ -2802,7 +2914,8 @@ declare namespace notificationManager {
   function getSlotFlagsByBundle(bundle: BundleOption): Promise<long>;
 
   /**
-   * 获取应用程序的通知设置。使用Promise异步回调。
+   * 获取应用程序的通知设置，包括锁屏通知、横幅通知、桌面角标、振动、铃声等
+   *     开关状态。使用Promise异步回调。
    *
    * @returns { Promise<NotificationSetting> } Promise对象，返回此应用程序的通知设置。
    * @throws { BusinessError } 1600001 - Internal error.
@@ -2906,8 +3019,7 @@ declare namespace notificationManager {
    * 设置通知的系统附加配置信息。使用Promise异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_AGENT_CONTROLLER
-   * @param { string } key - 附加配置键。目前仅支持`RING_TRUSTLIST_PKG`，表示应用支持使用
-   *     [自定义铃声]{@link ./notification/notificationRequest:NotificationRequest}。
+   * @param { string } key - 附加配置键。目前仅支持`RING_TRUSTLIST_PKG`，表示应用支持使用自定义铃声。
    * @param { string } value - 附加配置值。参数示例：[bundleName1,bundleName2]。
    * @returns { Promise<int> } Promise对象，返回0表示设置成功，返回其他值表示设置失败。
    * @throws { BusinessError } 201 - Permission denied.
@@ -3044,7 +3156,7 @@ declare namespace notificationManager {
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { Map<BundleOption, long> } strategies - 应用通知优先策略的键值对集合。与
-   *     [PriorityStrategyStatus]{@link notificationManager.PriorityStrategyStatus}的枚举进行按位或运算得到值。
+   *     PriorityStrategyStatus的枚举进行按位或运算得到值。
    * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
@@ -3079,7 +3191,12 @@ declare namespace notificationManager {
   function getPriorityStrategyByBundles(bundles: Array<BundleOption>): Promise<Map<BundleOption, long>>;
 
   /**
-   * 拉起应用的通知设置界面，该页面以半模态形式呈现，可用于设置通知开关、通知提醒方式等。使用Promise异步回调。
+   * 拉起应用的通知设置界面，该页面以半模态形式呈现，可用于设置通知开关、
+   *     通知提醒方式等。使用Promise异步回调。
+   *
+   * 适用于用户需要手动修改通知设置的场景，如用户拒绝授权后二次申请，或需要
+   *     修改通知提醒方式（振动、响铃等）。当requestEnableNotification弹窗被
+   *     用户拒绝后，开发者可调用此接口引导用户前往通知设置页面手动开启。
    *
    * @param { UIAbilityContext } context - 通知设置页面绑定Ability的上下文。
    * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
@@ -3095,7 +3212,12 @@ declare namespace notificationManager {
   function openNotificationSettings(context: UIAbilityContext): Promise<void>;
 
   /**
-   * 拉起应用的通知设置界面，该页面以半模态形式呈现，可用于设置通知开关、通知提醒方式等。使用Promise异步回调, 当半模态窗口关闭时返回用户设置的状态。
+   * 拉起应用的通知设置界面，该页面以半模态形式呈现，可用于设置通知开关、
+   *     通知提醒方式等。使用Promise异步回调，当半模态窗口关闭时返回用户设置的状态。
+   *
+   * 与openNotificationSettings相比，此接口在半模态窗口关闭时返回
+   *     NotificationSetting对象，开发者可根据返回结果判断用户是否开启了通知
+   *     权限，从而决定后续逻辑。
    *
    * @param { UIAbilityContext } context - 通知设置页面绑定Ability的上下文。
    * @returns { Promise<NotificationSetting> } Promise对象，返回此应用程序的通知设置。
@@ -3427,7 +3549,6 @@ declare namespace notificationManager {
    *     - true：表示开启。
    *     - false：表示关闭。
    * @param { int } userId  - 用户ID。
-   *     <br>取值范围为全体整数。
    * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
@@ -3449,7 +3570,6 @@ declare namespace notificationManager {
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { string } switchName - 通知开关名称。取值为：DEAL（交易类通知聚合开关）、LOGISTICS（物流类通知聚合开关）。
    * @param { int } userId - 用户ID。
-   *     <br>取值范围为全体整数。
    * @returns { Promise<SwitchState> } Promise对象，返回通知开关状态。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
@@ -3615,6 +3735,8 @@ declare namespace notificationManager {
   /**
    * 获取当前应用角标数量。使用Promise异步回调。
    *
+   * 用于查询当前应用桌面图标上显示的角标数字。
+   *
    * @returns { Promise<long> } Promise对象，返回当前应用角标数量。（查询的角标数量与当前应用通知开关，桌面角标开关是否开启无关）
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
@@ -3679,8 +3801,7 @@ declare namespace notificationManager {
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { string } hashCode  - 需要设置稍后提醒通知的唯一标识。
-   * @param { long } delayTime  - 稍后提醒的时间间隔。
-   *     <br>单位为： 秒。
+   * @param { long } delayTime  - 稍后提醒的时间间隔。<br>单位：秒。
    * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
@@ -3995,96 +4116,99 @@ declare namespace notificationManager {
     notificationEnabled?: boolean;
   }
 
-  /**
-   * 通知渠道类型。
-   *
-   * @syscap SystemCapability.Notification.Notification
-   * @atomicservice [since 12]
-   * @since 9 dynamic
-   * @since 23 static
-   */
-  export enum SlotType {
-    /**
-     * 未知类型。该类型对应[SlotLevel]{@link notificationManager.SlotLevel}为LEVEL_MIN。
-     *
-     * @syscap SystemCapability.Notification.Notification
-     * @atomicservice [since 12]
-     * @since 9 dynamic
-     * @since 23 static
-     */
-    UNKNOWN_TYPE = 0,
+   /**
+    * 通知渠道类型。
+    *
+    * 不同类型对应不同的SlotLevel，决定通知的提醒行为。
+    *
+    * @syscap SystemCapability.Notification.Notification
+    * @atomicservice [since 12]
+    * @since 9 dynamic
+    * @since 23 static
+    */
+   export enum SlotType {
+     /**
+      * 未知类型。该类型对应SlotLevel为LEVEL_MIN。
+      *
+      * @syscap SystemCapability.Notification.Notification
+      * @atomicservice [since 12]
+      * @since 9 dynamic
+      * @since 23 static
+      */
+     UNKNOWN_TYPE = 0,
 
-    /**
-     * 社交通信。该类型对应[SlotLevel]{@link notificationManager.SlotLevel}为LEVEL_HIGH。
-     *
-     * @syscap SystemCapability.Notification.Notification
-     * @atomicservice [since 12]
-     * @since 9 dynamic
-     * @since 23 static
-     */
-    SOCIAL_COMMUNICATION = 1,
+     /**
+      * 社交通讯。该类型对应SlotLevel为LEVEL_HIGH。
+      *
+      * @syscap SystemCapability.Notification.Notification
+      * @atomicservice [since 12]
+      * @since 9 dynamic
+      * @since 23 static
+      */
+     SOCIAL_COMMUNICATION = 1,
 
-    /**
-     * 服务提醒。该类型对应[SlotLevel]{@link notificationManager.SlotLevel}为LEVEL_HIGH。
-     *
-     * @syscap SystemCapability.Notification.Notification
-     * @atomicservice [since 12]
-     * @since 9 dynamic
-     * @since 23 static
-     */
-    SERVICE_INFORMATION = 2,
+     /**
+      * 服务提醒。该类型对应SlotLevel为LEVEL_HIGH。
+      *
+      * @syscap SystemCapability.Notification.Notification
+      * @atomicservice [since 12]
+      * @since 9 dynamic
+      * @since 23 static
+      */
+     SERVICE_INFORMATION = 2,
 
-    /**
-     * 内容资讯。该类型对应[SlotLevel]{@link notificationManager.SlotLevel}为LEVEL_MIN。
-     *
-     * @syscap SystemCapability.Notification.Notification
-     * @atomicservice [since 12]
-     * @since 9 dynamic
-     * @since 23 static
-     */
-    CONTENT_INFORMATION = 3,
+     /**
+      * 内容资讯。该类型对应SlotLevel为LEVEL_MIN。
+      *
+      * @syscap SystemCapability.Notification.Notification
+      * @atomicservice [since 12]
+      * @since 9 dynamic
+      * @since 23 static
+      */
+     CONTENT_INFORMATION = 3,
 
-    /**
-     * 实况窗。不支持三方应用直接创建该渠道类型通知，可以由系统代理创建后，三方应用发布同ID的通知来更新指定内容。该类型对应[SlotLevel]{@link notificationManager.SlotLevel}为
-     * LEVEL_DEFAULT。
-     *
-     * @syscap SystemCapability.Notification.Notification
-     * @atomicservice [since 12]
-     * @since 11 dynamic
-     * @since 23 static
-     */
-    LIVE_VIEW = 4,
+     /**
+      * 实况窗。不支持三方应用直接创建该渠道类型通知，可以由系统代理创建后，
+      *     三方应用发布同ID的通知来更新指定内容。该类型对应SlotLevel为LEVEL_DEFAULT。
+      *
+      * @syscap SystemCapability.Notification.Notification
+      * @atomicservice [since 12]
+      * @since 11 dynamic
+      * @since 23 static
+      */
+     LIVE_VIEW = 4,
 
-    /**
-     * 客服消息。该类型用于用户与商家之间的客服消息，需由用户主动发起。该类型对应[SlotLevel]{@link notificationManager.SlotLevel}为LEVEL_DEFAULT。
-     *
-     * @syscap SystemCapability.Notification.Notification
-     * @atomicservice [since 12]
-     * @since 11 dynamic
-     * @since 23 static
-     */
-    CUSTOMER_SERVICE = 5,
+     /**
+      * 客服消息。该类型用于用户与商家之间的客服消息，需由用户主动发起。
+      *     该类型对应SlotLevel为LEVEL_DEFAULT。
+      *
+      * @syscap SystemCapability.Notification.Notification
+      * @atomicservice [since 12]
+      * @since 11 dynamic
+      * @since 23 static
+      */
+     CUSTOMER_SERVICE = 5,
 
-    /**
-     * 紧急事件。
-     *
-     * @syscap SystemCapability.Notification.Notification
-     * @systemapi
-     * @since 12 dynamic
-     * @since 23 static
-     */
-    EMERGENCY_INFORMATION = 10,
+     /**
+      * 紧急事件。
+      *
+      * @syscap SystemCapability.Notification.Notification
+      * @systemapi
+      * @since 12 dynamic
+      * @since 23 static
+      */
+     EMERGENCY_INFORMATION = 10,
 
-    /**
-     * 其他。该类型对应[SlotLevel]{@link notificationManager.SlotLevel}为LEVEL_MIN。
-     *
-     * @syscap SystemCapability.Notification.Notification
-     * @atomicservice [since 12]
-     * @since 9 dynamic
-     * @since 23 static
-     */
-    OTHER_TYPES = 0xFFFF
-  }
+     /**
+      * 其他。该类型对应SlotLevel为LEVEL_MIN。
+      *
+      * @syscap SystemCapability.Notification.Notification
+      * @atomicservice [since 12]
+      * @since 9 dynamic
+      * @since 23 static
+      */
+     OTHER_TYPES = 0xFFFF
+   }
 
   /**
    * 通知内容类型。
@@ -4170,14 +4294,16 @@ declare namespace notificationManager {
     NOTIFICATION_CONTENT_LIVE_VIEW,
   }
 
-  /**
-   * 通知级别。
-   *
-   * @syscap SystemCapability.Notification.Notification
-   * @since 9 dynamic
-   * @since 23 static
-   */
-  export enum SlotLevel {
+   /**
+    * 通知级别。
+    *
+    * 用于定义NotificationSlot的通知提醒行为级别，影响通知在状态栏的显示方式，是否展示横幅和提示音等。
+    *
+    * @syscap SystemCapability.Notification.Notification
+    * @since 9 dynamic
+    * @since 23 static
+    */
+   export enum SlotLevel {
     /**
      * 表示关闭通知功能。
      *
