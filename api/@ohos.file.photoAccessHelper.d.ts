@@ -12944,31 +12944,6 @@ declare namespace photoAccessHelper {
     resetCoverUri(): void;
 
     /**
-     * Operates album attribute.
-     *
-     * @permission ohos.permission.ACCESS_MEDIALIB_THUMB_DB
-     * @param { AlbumOperation } operation - operation to execute for the album.
-     * @throws { BusinessError } 201 - Permission denied
-     * @throws { BusinessError } 202 - Called by non-system application.
-     * @throws { BusinessError } 23800151 - The scenario parameter verification fails. Possible causes:
-     *     <br>1. The attr of operation is invalid;
-     *     <br>2. The type of operation is invalid;
-     *     <br>3. The values or operation is incorrect;
-     * @throws { BusinessError } 23800201 - Unsupported operation type. It is recommended to check the logs.
-     *     Possible causes:
-     *     <br>1. Unsupported AlbumAttribute for the album.
-     *     <br>2. Unsupported AlbumOperationType for the AlbumAttribute.
-     *     <br>3. Other operation limit.
-     * @throws { BusinessError } 23800301 - Internal system error.It is recommended to retry and check the logs.
-     *     <br>Possible causes:1. Database corrupted.2. The file system is abnormal.3. The IPC request timed out.
-     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @systemapi
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    operateAttribute(operation: AlbumOperation): void;
-
-    /**
      * set hidden state of album.
      *
      * @param { boolean } hiddenState - Hidden status of the album.
