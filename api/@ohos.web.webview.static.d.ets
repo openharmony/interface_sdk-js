@@ -4547,11 +4547,13 @@ declare namespace webview {
         setErrorPageEnabled(enable: boolean): void;
 
         /**
-         * Sets whether to enable error page. onOverrideErrorPage will be triggered when the page error.
+         * Set whether to enable error page. onOverrideErrorPage will be triggered when the page error.
          *
-         * @param { boolean } enable - Whether to enable error page.
+         * @param { boolean } enable - Whether enable error page.
          * @param { boolean } includeSubframe - If true, error page is displayed in iframe
          *     when a subframe fails to load.
+         * @throws { BusinessError } 17100001 - Init error.
+         *     The WebviewController must be associated with a Web component.
          * @syscap SystemCapability.Web.Webview.Core
          * @stagemodelonly
          * @since 26.0.0 static
