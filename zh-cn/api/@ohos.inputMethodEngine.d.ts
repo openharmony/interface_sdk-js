@@ -1880,8 +1880,6 @@ declare namespace inputMethodEngine {
      * **使用场景：** 实现光标移动到特定位置、实现上下左右移动光标功能、实现快速定位、实现自定义光标控制等。
      * 
      * **使用后效果：** 成功时编辑框中的光标按指定方向移动一步。direction取值参见
-     * [光标常量](docroot://reference/apis-ime-kit/js-apis-inputmethodengine.md#工具不太能识别具体链接到的是哪个常量。让人工处理。咨询黄山）)，1为上移，2为下移，3为
-     * 左移，4为右移。
      *
      * @param { int } direction - 光标移动方向。<br/>- 当值为1时，表示向上。<br/>- 当值为2时，表示向下。<br/>- 当值为3时，表示向左。<br/>- 当值为4时，表示向右。不能小于0。
      * @param { AsyncCallback<void> } callback - 回调函数。当光标移动成功，err为undefined，否则为错误对象。
@@ -3520,8 +3518,7 @@ declare namespace inputMethodEngine {
    */
   interface EditorAttribute {
     /**
-     * 编辑框的文本属性，详见
-     * [常量中的编辑框定义](docroot://reference/apis-ime-kit/js-apis-inputmethodengine.md#工具不太能识别具体链接到的是哪个常量。让人工处理。咨询黄山）)。
+     * 编辑框的文本属性
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8 dynamic
@@ -3530,8 +3527,7 @@ declare namespace inputMethodEngine {
     readonly inputPattern: int;
 
     /**
-     * 编辑框的功能属性，详见
-     * [常量中的功能键定义](docroot://reference/apis-ime-kit/js-apis-inputmethodengine.md#工具不太能识别具体链接到的是哪个常量。让人工处理。咨询黄山）)。
+     * 编辑框的功能属性
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8 dynamic
