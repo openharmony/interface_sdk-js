@@ -73,9 +73,16 @@ declare namespace huks {
    *
    * 基于密钥不出[TEE](docroot://security/UniversalKeystoreKit/huks-concepts.md#可信执行环境tee)原则，此接口不会返回密钥材料内容，只用于表示此次调用是否成功。
    *
+   * > **说明：**
+   * >
+   * > 生成[HuksKeySecurityLevel]{@link huks.HuksKeySecurityLevel}中定义的SE安全级别密钥需要ohos.permission.ACCESS_SE_KEY权限。
+   *
    * @param { string } keyAlias - 密钥别名。密钥别名的最大长度为128字节，建议不包含个人信息等敏感词汇。
    * @param { HuksOptions } options - 用于存放生成key所需TAG。其中密钥使用的算法、密钥用途、密钥长度为必选参数。
+   *     指定[HuksKeySecurityLevel]{@link huks.HuksKeySecurityLevel}中定义的SE安全级别时，需要ohos.permission.ACCESS_SE_KEY权限。
    * @param { AsyncCallback<void> } callback - 回调函数。当生成密钥成功时，err为undefined，否则为错误对象。
+   * @throws { BusinessError } 201 - The application permissions are insufficient, possibly because
+   *     the ohos.permission.ACCESS_SE_KEY permission is missing. [since 26.0.0]
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
@@ -112,9 +119,16 @@ declare namespace huks {
    *
    * 基于密钥不出[TEE](docroot://security/UniversalKeystoreKit/huks-concepts.md#可信执行环境tee)原则，此接口不会返回密钥材料内容，只用于表示此次调用是否成功。
    *
+   * > **说明：**
+   * >
+   * > 生成[HuksKeySecurityLevel]{@link huks.HuksKeySecurityLevel}中定义的SE安全级别密钥需要ohos.permission.ACCESS_SE_KEY权限。
+   *
    * @param { string } keyAlias - 密钥别名。密钥别名的最大长度为128字节，建议不包含个人信息等敏感词汇。
    * @param { HuksOptions } options - 用于存放生成key所需TAG。其中密钥使用的算法、密钥用途、密钥长度为必选参数。
+   *     指定[HuksKeySecurityLevel]{@link huks.HuksKeySecurityLevel}中定义的SE安全级别时，需要ohos.permission.ACCESS_SE_KEY权限。
    * @returns { Promise<void> } Promise对象，无返回结果。
+   * @throws { BusinessError } 201 - The application permissions are insufficient, possibly because
+   *     the ohos.permission.ACCESS_SE_KEY permission is missing. [since 26.0.0]
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
@@ -224,10 +238,15 @@ declare namespace huks {
   /**
    * 删除密钥。使用callback异步回调。
    *
+   * > **说明：**
+   * > 删除[HuksKeySecurityLevel]{@link huks.HuksKeySecurityLevel}中定义的SE安全级别密钥需要ohos.permission.ACCESS_SE_KEY权限。
+   *
    * @param { string } keyAlias - 密钥别名，应为生成key时传入的别名。
    * @param { HuksOptions } options - 用于删除密钥时指定密钥的属性，如使用[HuksAuthStorageLevel]{@link huks.HuksAuthStorageLevel}指定需删除密钥的安
    *     全级别，<br>可传空，当API version ≥ 12时，传空默认为CE，当API version ＜ 12时，传空默认为DE。
    * @param { AsyncCallback<void> } callback - 回调函数。当删除密钥成功时，err为undefined，否则为错误对象。
+   * @throws { BusinessError } 201 - The application permissions are insufficient, possibly because
+   *     the ohos.permission.ACCESS_SE_KEY permission is missing. [since 26.0.0]
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
@@ -249,10 +268,16 @@ declare namespace huks {
   /**
    * 删除密钥。使用Promise异步回调。
    *
+   * > **说明：**
+   * >
+   * > 删除[HuksKeySecurityLevel]{@link huks.HuksKeySecurityLevel}中定义的SE安全级别密钥需要ohos.permission.ACCESS_SE_KEY权限。
+   *
    * @param { string } keyAlias - 密钥别名，应为生成key时传入的别名。
    * @param { HuksOptions } options - 用于删除时指定密钥的属性TAG，如使用[HuksAuthStorageLevel]{@link huks.HuksAuthStorageLevel}指定需删除密钥的
    *     安全级别，<br>可传空，当API version ≥ 12时，传空默认为CE，当API version ＜ 12时，传空默认为DE。
    * @returns { Promise<void> } Promise对象，无返回结果。
+   * @throws { BusinessError } 201 - The application permissions are insufficient, possibly because
+   *     the ohos.permission.ACCESS_SE_KEY permission is missing. [since 26.0.0]
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
@@ -446,12 +471,18 @@ declare namespace huks {
   /**
    * Imports a wrapped key. This API uses an asynchronous callback to return the result.
    *
+   * > **说明：**
+   * >
+   * > 导入[HuksKeySecurityLevel]{@link huks.HuksKeySecurityLevel}中定义的SE安全级别加密密钥需要ohos.permission.ACCESS_SE_KEY权限。
+   *
    * @param { string } keyAlias - Alias of the wrapped key to import.
    * @param { string } wrappingKeyAlias - Alias of the data used to unwrap the key imported.
    * @param { HuksOptions } options - Tags required for the import and the wrapped key to import. The algorithm, key
    *     purpose, and key length are mandatory.
    * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful, no
    *     **err** value is returned; otherwise, an error code is returned.
+   * @throws { BusinessError } 201 - The application permissions are insufficient, possibly because
+   *     the ohos.permission.ACCESS_SE_KEY permission is missing. [since 26.0.0]
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
@@ -534,11 +565,17 @@ declare namespace huks {
   /**
    * Imports a wrapped key. This API uses a promise to return the result.
    *
+   * > **说明：**
+   * >
+   * > 导入[HuksKeySecurityLevel]{@link huks.HuksKeySecurityLevel}中定义的SE安全级别加密密钥需要ohos.permission.ACCESS_SE_KEY权限。
+   *
    * @param { string } keyAlias - Alias of the wrapped key to import.
    * @param { string } wrappingKeyAlias - Alias of the data used to unwrap the key imported.
    * @param { HuksOptions } options - Tags required for the import and the wrapped key to import. The algorithm, key
    *     purpose, and key length are mandatory.
    * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 201 - The application permissions are insufficient, possibly because
+   *     the ohos.permission.ACCESS_SE_KEY permission is missing. [since 26.0.0]
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
@@ -609,11 +646,17 @@ declare namespace huks {
   /**
    * 导出密钥。使用callback异步回调。
    *
+   * > **说明：**
+   * >
+   * > 导出[HuksKeySecurityLevel]{@link huks.HuksKeySecurityLevel}中定义的SE安全级别公钥需要ohos.permission.ACCESS_SE_KEY权限。
+   *
    * @param { string } keyAlias - 密钥别名，应与所用密钥生成时使用的别名相同。
    * @param { HuksOptions } options - 用于导出密钥时指定密钥的属性，如使用[HuksAuthStorageLevel]{@link huks.HuksAuthStorageLevel}指定需导出密钥的安
    *     全级别，<br>可传空，当API version ≥ 12时，传空默认为CE，当API version ＜ 12时，传空默认为DE。
    * @param { AsyncCallback<HuksReturnResult> } callback - 回调函数。当导出密钥成功时，err为undefined，data为获取到的HuksReturnResult；否则为错误对象
    *     。HuksReturnResult中的outData返回从HUKS中导出的公钥。
+   * @throws { BusinessError } 201 - The application permissions are insufficient, possibly because
+   *     the ohos.permission.ACCESS_SE_KEY permission is missing. [since 26.0.0]
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
@@ -677,9 +720,15 @@ declare namespace huks {
   /**
    * 导出密钥。使用Promise异步回调。
    *
+   * > **说明：**
+   * >
+   * > 导出[HuksKeySecurityLevel]{@link huks.HuksKeySecurityLevel}中定义的SE安全级别公钥需要ohos.permission.ACCESS_SE_KEY权限。
+   *
    * @param { string } keyAlias - 密钥别名，应与所用密钥生成时使用的别名相同。
    * @param { HuksOptions } options - 空对象（此处传空即可）。
    * @returns { Promise<HuksReturnResult> } Promise对象，返回调用接口的结果。当调用成功时，HuksReturnResult的outData成员为从密钥中导出的公钥。
+   * @throws { BusinessError } 201 - The application permissions are insufficient, possibly because
+   *     the ohos.permission.ACCESS_SE_KEY permission is missing. [since 26.0.0]
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
@@ -746,11 +795,17 @@ declare namespace huks {
   /**
    * Obtains key properties. This API uses an asynchronous callback to return the result.
    *
+   * > **说明：**
+   * >
+   * > 获取[HuksKeySecurityLevel]{@link huks.HuksKeySecurityLevel}中定义的SE安全级别密钥属性需要ohos.permission.ACCESS_SE_KEY权限。
+   *
    * @param { string } keyAlias - Key alias, which must be the same as the alias used when the key was generated.
    * @param { HuksOptions } options - Empty object (leave this parameter empty).
    * @param { AsyncCallback<HuksReturnResult> } callback - Callback used to return the result. If the operation is
    *     successful, **err** is **undefined**, and **data** is the obtained **HuksReturnResult**. Otherwise, **err** is
    *     an error object. **properties** of **HuksReturnResult** are the parameters required for generating a key.
+   * @throws { BusinessError } 201 - The application permissions are insufficient, possibly because
+   *     the ohos.permission.ACCESS_SE_KEY permission is missing. [since 26.0.0]
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
@@ -821,9 +876,15 @@ declare namespace huks {
   /**
    * 获取密钥属性。使用Promise异步回调。
    *
+   * > **说明：**
+   * >
+   * > 获取[HuksKeySecurityLevel]{@link huks.HuksKeySecurityLevel}中定义的SE安全级别密钥属性需要ohos.permission.ACCESS_SE_KEY权限。
+   *
    * @param { string } keyAlias - 密钥别名，应与所用密钥生成时使用的别名相同。
    * @param { HuksOptions } options - 空对象（此处传空即可）。
    * @returns { Promise<HuksReturnResult> } Promise对象，返回调用接口的结果。当调用成功时，HuksReturnResult的properties成员为获取的密钥属性信息。
+   * @throws { BusinessError } 201 - The application permissions are insufficient, possibly because
+   *     the ohos.permission.ACCESS_SE_KEY permission is missing. [since 26.0.0]
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
@@ -1070,10 +1131,16 @@ declare namespace huks {
    *
    * huks.initSession、huks.updateSession、huks.finishSession为三段式接口，需要一起使用。
    *
+   * > **说明：**
+   * >
+   * > 初始化[HuksKeySecurityLevel]{@link huks.HuksKeySecurityLevel}中定义的SE安全级别密钥会话需要ohos.permission.ACCESS_SE_KEY权限。
+   *
    * @param { string } keyAlias - initSession操作密钥的别名。
    * @param { HuksOptions } options - initSession操作的参数集合。
    * @param { AsyncCallback<HuksSessionHandle> } callback - 回调函数。当密钥操作init成功时，err为undefined，data为获取到的HuksSessionHandle；否
    *     则为错误对象。HuksSessionHandle的handle返回initSession生成的handle。
+   * @throws { BusinessError } 201 - The application permissions are insufficient, possibly because
+   *     the ohos.permission.ACCESS_SE_KEY permission is missing. [since 26.0.0]
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
@@ -1109,10 +1176,16 @@ declare namespace huks {
    *
    * huks.initSession、huks.updateSession、huks.finishSession为三段式接口，需要一起使用。
    *
+   * > **说明：**
+   * >
+   * > 初始化[HuksKeySecurityLevel]{@link huks.HuksKeySecurityLevel}中定义的SE安全级别密钥会话需要ohos.permission.ACCESS_SE_KEY权限。
+   *
    * @param { string } keyAlias - initSession操作密钥的别名。
    * @param { HuksOptions } options - initSession参数集合。
    * @returns { Promise<HuksSessionHandle> } Promise对象，返回HuksSessionHandle。HuksSessionHandle的handle返回initSession生成的
    *     handle。
+   * @throws { BusinessError } 201 - The application permissions are insufficient, possibly because
+   *     the ohos.permission.ACCESS_SE_KEY permission is missing. [since 26.0.0]
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
@@ -1706,12 +1779,18 @@ declare namespace huks {
    *
    * 该操作需要联网进行，且耗时较长。返回12000012错误码时，可能是由于网络异常导致。此时如果没有联网，需要提示用户网络没有连接，如果已经联网，可能是由于网络抖动导致失败，建议重试。
    *
+   * > **说明：**
+   * >
+   * > 获取[HuksKeySecurityLevel]{@link huks.HuksKeySecurityLevel}中定义的SE安全级别密钥证书需要ohos.permission.ACCESS_SE_KEY权限。
+   *
    * <!--RP1--><!--RP1End-->
    *
    * @param { string } keyAlias - 密钥别名，存放待获取证书密钥的别名。
    * @param { HuksOptions } options - 用于获取证书时指定所需参数与数据。
    * @param { AsyncCallback<HuksReturnResult> } callback - 回调函数。当获取匿名化密钥证书成功时，err为undefined，data为获取到的HuksReturnResult；否则
    *     为错误对象。
+   * @throws { BusinessError } 201 - The application permissions are insufficient, possibly because
+   *     the ohos.permission.ACCESS_SE_KEY permission is missing. [since 26.0.0]
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
@@ -1821,11 +1900,17 @@ declare namespace huks {
    *
    * 该操作需要联网进行，且耗时较长。返回12000012错误码时，可能是由于网络异常导致。此时如果没有联网，需要提示用户网络没有连接，如果已经联网，可能是由于网络抖动导致失败，建议重试。
    *
+   * > **说明：**
+   * >
+   * > 获取[HuksKeySecurityLevel]{@link huks.HuksKeySecurityLevel}中定义的SE安全级别密钥证书需要ohos.permission.ACCESS_SE_KEY权限。
+   *
    * <!--RP1--><!--RP1End-->
    *
    * @param { string } keyAlias - 密钥别名，存放待获取证书密钥的别名。
    * @param { HuksOptions } options - 用于获取证书时指定所需参数与数据。
    * @returns { Promise<HuksReturnResult> } Promise对象，返回调用接口的结果。当调用成功时，HuksReturnResult的certChains成员为获取到的证书链。
+   * @throws { BusinessError } 201 - The application permissions are insufficient, possibly because
+   *     the ohos.permission.ACCESS_SE_KEY permission is missing. [since 26.0.0]
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
@@ -1930,11 +2015,17 @@ declare namespace huks {
   /**
    * 加密导出密钥。使用Promise异步回调。
    *
+   * > **说明：**
+   * >
+   * > 加密导出[HuksKeySecurityLevel]{@link huks.HuksKeySecurityLevel}中定义的SE安全级别密钥需要ohos.permission.ACCESS_SE_KEY权限。
+   *
    * <!--Del-->该功能暂不支持。<!--DelEnd-->
    *
    * @param { string } keyAlias - 密钥别名，应与所用密钥生成时使用的别名相同。
    * @param { HuksOptions } params - 用于指定导出密钥时的加密类型。
    * @returns { Promise<HuksReturnResult> } Promise对象，返回调用接口的结果。当调用成功时，HuksReturnResult的outData成员为导出的密钥密文。
+   * @throws { BusinessError } 201 - The application permissions are insufficient, possibly because
+   *     the ohos.permission.ACCESS_SE_KEY permission is missing. [since 26.0.0]
    * @throws { BusinessError } 801 - api is not supported
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
@@ -1953,12 +2044,18 @@ declare namespace huks {
   /**
    * 加密导入密钥。使用Promise异步回调。
    *
+   * > **说明：**
+   * >
+   * > 加密导入[HuksKeySecurityLevel]{@link huks.HuksKeySecurityLevel}中定义的SE安全级别密钥需要ohos.permission.ACCESS_SE_KEY权限。
+   *
    * <!--Del-->该功能暂不支持。<!--DelEnd-->
    *
    * @param { string } keyAlias - 密钥别名，指定导入密钥的密钥别名。
    * @param { HuksOptions } params - 用于指定导入密钥时的加密类型。
    * @param { Uint8Array } wrappedKey - 加密导出密钥的密文。
    * @returns { Promise<HuksReturnResult> } Promise对象，返回调用接口的结果。
+   * @throws { BusinessError } 201 - The application permissions are insufficient, possibly because
+   *     the ohos.permission.ACCESS_SE_KEY permission is missing. [since 26.0.0]
    * @throws { BusinessError } 801 - api is not supported
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
@@ -4792,6 +4889,7 @@ declare namespace huks {
     /**
      * 密钥在安全环境中生成并使用。
      *
+     * @permission ohos.permission.ACCESS_SE_KEY
      * @syscap SystemCapability.Security.Huks.Core
      * @FaAndStageModel
      * @atomicservice
