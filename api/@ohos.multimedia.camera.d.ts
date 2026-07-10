@@ -4274,7 +4274,7 @@ declare namespace camera {
     getIso(): int;
 
     /**
-     * Sets ISO sensitivity value, within the range of getSupportedIsoRange. This control can not effective if
+     * Sets ISO sensitivity value, within the range of getSupportedIsoRange. This control can not be effective if
      * ExposureMode is set to EXPOSURE_MODE_LOCKED.
      *
      * @param { int } iso - ISO
