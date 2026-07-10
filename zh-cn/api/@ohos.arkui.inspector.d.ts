@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -21,7 +21,7 @@
 import { Callback } from './@ohos.base';
 
 /**
-* Used to do observer layout and draw event for component.
+* 用于观察组件的布局和绘制事件。
 *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -32,7 +32,7 @@ import { Callback } from './@ohos.base';
 declare namespace inspector {
 
   /**
-   * The ComponentObserver is used to listen for layout and draw events.
+   * ComponentObserver用于监听布局和绘制事件。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -43,13 +43,13 @@ declare namespace inspector {
   interface ComponentObserver {
 
     /**
-     * Registers a callback with the corresponding query condition by using the handle.
-     * This callback is triggered when the component layout complete.
+     * 使用句柄注册具有相应查询条件的回调。
+     * 当组件布局完成时会触发此回调。
      *
-     * @param { string } type - type of the listened event. [since 10 - 11]
-     * @param { ()=>void } callback - callback of the listened event. [since 10 - 11]
-     * @param { 'layout' } type - type of the listened event. [since 12]
-     * @param { function } callback - callback of the listened event. [since 12]
+     * @param { string } type - 监听事件的类型。[since 10 - 11]
+     * @param { ()=>void } callback - 监听事件的回调。[since 10 - 11]
+     * @param { 'layout' } type - 监听事件的类型。[since 12]
+     * @param { function } callback - 监听事件的回调。[since 12]
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @crossplatform
@@ -59,13 +59,13 @@ declare namespace inspector {
     on(type: 'layout', callback: () => void): void;
 
     /**
-     * Deregisters a callback with the corresponding query condition by using the handle.
-     * This callback is not triggered when the component layout complete.
+     * 使用句柄注销具有相应查询条件的回调。
+     * 当组件布局完成时不再触发此回调。
      *
-     * @param { string } type - type of the listened event. [since 10 - 11]
-     * @param { ()=>void } callback - callback of the listened event. [since 10 - 11]
-     * @param { 'layout' } type - type of the listened event. [since 12]
-     * @param { function } callback - callback of the listened event. [since 12]
+     * @param { string } type - 监听事件的类型。[since 10 - 11]
+     * @param { ()=>void } callback - 监听事件的回调。[since 10 - 11]
+     * @param { 'layout' } type - 监听事件的类型。[since 12]
+     * @param { function } callback - 监听事件的回调。[since 12]
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @crossplatform
@@ -75,13 +75,13 @@ declare namespace inspector {
     off(type: 'layout', callback?: () => void): void;
 
     /**
-     * Registers a callback with the corresponding query condition by using the handle.
-     * This callback is triggered when the component draw complete.
+     * 使用句柄注册具有相应查询条件的回调。
+     * 当组件绘制完成时会触发此回调。
      *
-     * @param { string } type - type of the listened event. [since 10 - 11]
-     * @param { ()=>void } callback - callback of the listened event. [since 10 - 11]
-     * @param { 'draw' } type - type of the listened event. [since 12]
-     * @param { function } callback - callback of the listened event. [since 12]
+     * @param { string } type - 监听事件的类型。[since 10 - 11]
+     * @param { ()=>void } callback - 监听事件的回调。[since 10 - 11]
+     * @param { 'draw' } type - 监听事件的类型。[since 12]
+     * @param { function } callback - 监听事件的回调。[since 12]
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @crossplatform
@@ -91,13 +91,13 @@ declare namespace inspector {
     on(type: 'draw', callback: () => void): void;
 
     /**
-     * Deregisters a callback with the corresponding query condition by using the handle.
-     * This callback is not triggered when the component draw complete.
+     * 使用句柄注销具有相应查询条件的回调。
+     * 当组件绘制完成时不再触发此回调。
      *
-     * @param { string } type - type of the listened event. [since 10 - 11]
-     * @param { ()=>void } callback - callback of the listened event. [since 10 - 11]
-     * @param { 'draw' } type - type of the listened event. [since 12]
-     * @param { function } callback - callback of the listened event. [since 12]
+     * @param { string } type - 监听事件的类型。[since 10 - 11]
+     * @param { ()=>void } callback - 监听事件的回调。[since 10 - 11]
+     * @param { 'draw' } type - 监听事件的类型。[since 12]
+     * @param { function } callback - 监听事件的回调。[since 12]
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @crossplatform
@@ -173,7 +173,7 @@ declare namespace inspector {
     /**
      * 使用监听句柄取消注册指定事件的回调函数，当组件的任一子节点布局完成时不再触发回调。
      *
-     * @param { Callback<void> } [callback] - callback of the listened event.
+     * @param { Callback<void> } [callback] - 监听事件的回调。
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @crossplatform
@@ -185,8 +185,8 @@ declare namespace inspector {
 
   /**
    *
-   * @param { string } id - component id.
-   * @returns { ComponentObserver } create listener for observer component event.
+   * @param { string } id - 组件id。
+   * @returns { ComponentObserver } 创建用于观察组件事件的监听器。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
