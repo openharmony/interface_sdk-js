@@ -82,7 +82,8 @@ export interface RingtonePlayer {
   /**
    * 获取铃声标题。使用callback异步回调。
    *
-   * @param { AsyncCallback<string> } callback - 回调函数。当获取铃声标题成功，err为undefined，data为获取到的铃声标题；否则为错误对象。
+   * @param { AsyncCallback<string> } callback - 回调函数。当获取铃声标题成功，err为undefined，data为获取到的铃声标题；
+   *     否则为错误对象。
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
    * @since 10 dynamic
@@ -103,8 +104,8 @@ export interface RingtonePlayer {
   /**
    * 获取铃声使用的AudioRendererInfo。使用callback异步回调。
    *
-   * @param { AsyncCallback<audio.AudioRendererInfo> } callback - 回调函数。当获取音频渲染器信息成功，err为undefined，data为获取到的音频渲染器信息；否则为错误
-   *     对象。
+   * @param { AsyncCallback<audio.AudioRendererInfo> } callback - 回调函数。当获取音频渲染器信息成功，err为
+   *     undefined data为获取到的音频渲染器信息；否则为错误对象。
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
    * @since 10 dynamic
@@ -224,8 +225,7 @@ export interface RingtonePlayer {
   on(type: 'audioInterrupt', callback: Callback<audio.InterruptEvent>): void;
 
   /**
-   * Listens for audio interrupt events. This method uses a callback to get interrupt events. The interrupt event is
-   * triggered when audio playback is interrupted.
+   * 监听音频中断事件（当音频焦点发生变化时触发）。使用callback异步回调。
    * @param { Callback<audio.InterruptEvent> } callback - Callback used to listen for interrupt callback.
    * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 6800101 - Parameter verification failed.
@@ -250,7 +250,7 @@ export interface RingtonePlayer {
   off(type: 'audioInterrupt'): void;
 
   /**
-   * Unsubscribes to audio interrupt events.
+   * 取消监听音频中断事件。
    * @throws { BusinessError } 202 - Not system application.
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi

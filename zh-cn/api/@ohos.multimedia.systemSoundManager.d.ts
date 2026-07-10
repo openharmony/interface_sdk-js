@@ -449,8 +449,7 @@ declare namespace systemSoundManager {
     /**
      * 设置铃声类别。
      *
-     * @param { int } category - 铃声类别，取值参考
-     *     [铃声类别的常量](docroot://reference/apis-audio-kit/js-apis-systemSoundManager-sys.md#工具不太能识别具体链接到的是哪个常量。让人工处理。咨询黄山）)。
+     * @param { int } category - 铃声类别，取值参考[铃声类别的常量](#常量)。
      * @throws { BusinessError } 202 - Caller is not a system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *                                 1.Mandatory parameters are left unspecified;
@@ -465,8 +464,7 @@ declare namespace systemSoundManager {
     /**
      * 获取铃声类别。
      *
-     * @returns { int } 铃声类别，取值参考
-     *     [铃声类别的常量](docroot://reference/apis-audio-kit/js-apis-systemSoundManager-sys.md#工具不太能识别具体链接到的是哪个常量。让人工处理。咨询黄山）)。
+     * @returns { int } 铃声类别，取值参考[铃声类别的常量](#常量)。
      * @throws { BusinessError } 202 - Caller is not a system application.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
@@ -573,7 +571,7 @@ declare namespace systemSoundManager {
    */
   enum ToneHapticsMode {
     /**
-     * None haptics mode.
+     * 无振动模式。
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
      * @since 14 dynamic
@@ -581,7 +579,7 @@ declare namespace systemSoundManager {
      */
     NONE = 0,
     /**
-     * Haptics is synchronized with tone.
+     * 与铃音同步模式。
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
      * @since 14 dynamic
@@ -590,7 +588,7 @@ declare namespace systemSoundManager {
     SYNC = 1,
 
     /**
-     * Haptics is out of synchronize with tone.
+     * 非同步模式。
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
      * @since 14 dynamic
@@ -609,7 +607,7 @@ declare namespace systemSoundManager {
    */
   interface ToneHapticsSettings {
     /**
-     *
+     * 铃音振动模式。
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
      * @since 14 dynamic
@@ -617,7 +615,7 @@ declare namespace systemSoundManager {
      */
     mode: ToneHapticsMode;
     /**
-     *
+     * 振动URI。
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
      * @since 14 dynamic
@@ -734,7 +732,8 @@ declare namespace systemSoundManager {
   function getSystemSoundManager(): SystemSoundManager;
 
   /**
-   * 管理系统声音。在调用SystemSoundManager的接口前，需要先通过[getSystemSoundManager]{@link systemSoundManager.getSystemSoundManager}创建实例。
+   * 管理系统声音。在调用SystemSoundManager的接口前，需要先
+   * 通过[getSystemSoundManager]{@link systemSoundManager.getSystemSoundManager}创建实例。
    *
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
@@ -746,7 +745,8 @@ declare namespace systemSoundManager {
      * 设置系统铃声uri。使用callback异步回调。
      *
      * @param { Context } context - 当前应用的上下文。
-     * @param { string } uri - 被设置的系统铃声的uri，资源支持可参考[media.AVPlayer]{@link @ohos.multimedia.media:media.AVPlayer}。
+     * @param { string } uri - 被设置的系统铃声的uri，资源支持
+     *     可参考[media.AVPlayer]{@link @ohos.multimedia.media:media.AVPlayer}。
      * @param { RingtoneType } type - 被设置的系统铃声的类型。
      * @param { AsyncCallback<void> } callback - 回调函数。当设置系统铃声uri成功，err为undefined，否则为错误对象。
      * @syscap SystemCapability.Multimedia.SystemSound.Core
@@ -761,7 +761,8 @@ declare namespace systemSoundManager {
      * 设置系统铃声uri。使用Promise异步回调。
      *
      * @param { Context } context - 当前应用的上下文。
-     * @param { string } uri - 被设置的系统铃声的uri，资源支持可参考[media.AVPlayer]{@link @ohos.multimedia.media:media.AVPlayer}。
+     * @param { string } uri - 被设置的系统铃声的uri，资源支持
+     *     可参考[media.AVPlayer]{@link @ohos.multimedia.media:media.AVPlayer}。
      * @param { RingtoneType } type - 被设置的系统铃声的类型。
      * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
      * @syscap SystemCapability.Multimedia.SystemSound.Core
@@ -776,7 +777,8 @@ declare namespace systemSoundManager {
      * 设置系统铃声uri。使用Promise异步回调。
      *
      * @param { BaseContext } context - 当前应用的上下文。
-     * @param { string } uri - 被设置的系统铃声的uri，资源支持可参考[media.AVPlayer]{@link @ohos.multimedia.media:media.AVPlayer}。
+     * @param { string } uri - 被设置的系统铃声的uri，资源支持
+     *     可参考[media.AVPlayer]{@link @ohos.multimedia.media:media.AVPlayer}。
      * @param { RingtoneType } type - 被设置的系统铃声的类型。
      * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
      * @throws { BusinessError } 202 - Caller is not a system application.
@@ -796,7 +798,8 @@ declare namespace systemSoundManager {
      *
      * @param { Context } context - 当前应用的上下文。
      * @param { RingtoneType } type - 待获取的系统铃声的类型。
-     * @param { AsyncCallback<string> } callback - 回调函数。当获取系统铃声uri成功，err为undefined，data为获取到的系统铃声uri；否则为错误对象。
+     * @param { AsyncCallback<string> } callback - 回调函数。当获取系统铃声uri成功，err为undefined，
+     *     data为获取到的系统铃声uri；否则为错误对象。
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
      * @since 10 dynamiconly
@@ -892,7 +895,8 @@ declare namespace systemSoundManager {
      *
      * @param { Context } context - 当前应用的上下文。
      * @param { RingtoneType } type - 待获取播放器的系统铃声的类型。
-     * @param { AsyncCallback<RingtonePlayer> } callback - 回调函数。当获取系统铃声播放器成功，err为undefined，data为获取到的系统铃声播放器；否则为错误对象。
+     * @param { AsyncCallback<RingtonePlayer> } callback - 回调函数。当获取系统铃声播放器成功，err为undefined
+     *     data为获取到的系统铃声播放器；否则为错误对象。
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
      * @since 10 dynamiconly
