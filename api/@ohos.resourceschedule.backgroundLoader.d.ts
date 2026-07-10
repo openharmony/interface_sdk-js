@@ -21,14 +21,13 @@
 import { AsyncCallback } from './@ohos.base';
 
 /**
- * The **BackgroundLoader** module provides the APIs for registering, canceling, and querying tasks.
+ * The **BackgroundLoader** module provides the APIs for registering, unregistering and querying tasks.
  *  You can use the APIs to register tasks that need to be loaded in the background. The system 
  * schedules and executes these deferred tasks at an appropriate time, subject to the storage space, power consumption, 
- * and more. For details, see [Deferred Task Scheduling](docroot://task-management/work-scheduler.md).
  *
  * @syscap SystemCapability.ResourceSchedule.WorkScheduler
  * @stagemodelonly
- * @since 26 dynamic & static
+ * @since 26.0.0 dynamic & static
  */
 declare namespace backgroundLoader {
   /**
@@ -36,7 +35,7 @@ declare namespace backgroundLoader {
    *
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @stagemodelonly
-   * @since 26 dynamic & static
+   * @since 26.0.0 dynamic & static
    */
   export enum StopCode {
     /**
@@ -44,7 +43,7 @@ declare namespace backgroundLoader {
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @stagemodelonly
-     * @since 26 dynamic & static
+     * @since 26.0.0 dynamic & static
      */
     SUCCESS = 0,
     /**
@@ -52,7 +51,7 @@ declare namespace backgroundLoader {
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @stagemodelonly
-     * @since 26 dynamic & static
+     * @since 26.0.0 dynamic & static
      */
     SYSTEM_ERROR = 1,
     /**
@@ -60,7 +59,7 @@ declare namespace backgroundLoader {
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @stagemodelonly
-     * @since 26 dynamic & static
+     * @since 26.0.0 dynamic & static
      */
     PERCEPTIBLE_ERROR = 2,
     /**
@@ -68,7 +67,7 @@ declare namespace backgroundLoader {
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @stagemodelonly
-     * @since 26 dynamic & static
+     * @since 26.0.0 dynamic & static
      */
     TIMEOUT_ERROR = 3,
     /**
@@ -76,7 +75,7 @@ declare namespace backgroundLoader {
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @stagemodelonly
-     * @since 26 dynamic & static
+     * @since 26.0.0 dynamic & static
      */
     EXECUTE_ERROR = 4
   }
@@ -86,7 +85,7 @@ declare namespace backgroundLoader {
    *
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0.0.0 dynamic&static
    */
   export interface TaskInfo {
     /**
@@ -94,7 +93,7 @@ declare namespace backgroundLoader {
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0.0.0 dynamic&static
      */
     abilityName: string;
 
@@ -103,7 +102,7 @@ declare namespace backgroundLoader {
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0.0.0 dynamic&static
      */
     taskId: int;
   }
@@ -113,7 +112,7 @@ declare namespace backgroundLoader {
    *
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0.0.0 dynamic&static
    */
   export interface TaskStopInfo {
     /**
@@ -121,7 +120,7 @@ declare namespace backgroundLoader {
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0.0.0 dynamic&static
      */
     taskId: int;
 
@@ -130,7 +129,7 @@ declare namespace backgroundLoader {
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0.0.0 dynamic&static
      */
     abilityName: string;
 
@@ -139,7 +138,7 @@ declare namespace backgroundLoader {
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0.0.0 dynamic&static
      */
     stopCode: StopCode;
 
@@ -148,7 +147,7 @@ declare namespace backgroundLoader {
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0.0.0 dynamic&static
      */
     stopMessage: string;
   }
@@ -163,7 +162,7 @@ declare namespace backgroundLoader {
    * @throws { BusinessError } 9700004 - Check on taskInfo failed.
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0.0.0 dynamic&static
    */
   function registerTask(taskInfo: TaskInfo): void;
 
@@ -177,7 +176,7 @@ declare namespace backgroundLoader {
    * @throws { BusinessError } 9700004 - Check on taskInfo failed.
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0.0.0 dynamic&static
    */
   function unregisterTask(taskInfo: TaskInfo): void;
 
@@ -191,7 +190,7 @@ declare namespace backgroundLoader {
    * @throws { BusinessError } 9700004 - Check on taskInfo failed.
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0.0.0 dynamic&static
    */
   function finishTask(taskInfo: TaskInfo): void;
 
@@ -207,7 +206,7 @@ declare namespace backgroundLoader {
    * @throws { BusinessError } 9700004 - Check on taskInfo failed.
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0.0.0 dynamic&static
    */
   function getTaskInfo(taskId: int): Promise<TaskInfo>;
 
@@ -216,7 +215,7 @@ declare namespace backgroundLoader {
    *
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @stagemodelonly
-   * @since 26 dynamic & static
+   * @since 26.0.0 dynamic & static
    */
   const ON_START: string;
 
@@ -225,7 +224,7 @@ declare namespace backgroundLoader {
    *
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @stagemodelonly
-   * @since 26 dynamic & static
+   * @since 26.0.0 dynamic & static
    */
   const ON_STOP: string;
 }
