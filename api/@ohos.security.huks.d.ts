@@ -68,12 +68,21 @@ declare namespace huks {
    * [Trusted Execution Environment (TEE)](docroot://security/UniversalKeystoreKit/huks-concepts.md#tee), the key
    * material content is not returned through this API and is only used to indicate whether the call is successful.
    *
+   * > **NOTE**
+   * >
+   * > Generating SE security level keys defined in [HuksKeySecurityLevel]{@link huks.HuksKeySecurityLevel}
+   * > requires the ohos.permission.ACCESS_SE_KEY permission.
+   *
    * @param { string } keyAlias - Alias of the key. The value can contain up to 128 bytes and should not include
    *     sensitive data such as personal information.
    * @param { HuksOptions } options - Tags required for generating the key. The algorithm, key purpose, and key length
-   *     are mandatory.
+   *     are mandatory. When specifying the SE security level defined in
+   *     [HuksKeySecurityLevel]{@link huks.HuksKeySecurityLevel}, the ohos.permission.ACCESS_SE_KEY permission
+   *     is required.
    * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
    *     **err** is **undefined**. Otherwise, **err** is an error object.
+   * @throws { BusinessError } 201 - The application permissions are insufficient, possibly because
+   *     the ohos.permission.ACCESS_SE_KEY permission is missing. [since 26.0.0]
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
@@ -107,6 +116,11 @@ declare namespace huks {
   /**
    * Generates a key. This API uses a promise to return the result.
    *
+   * > **NOTE**
+   * >
+   * > Generating SE security level keys defined in [HuksKeySecurityLevel]{@link huks.HuksKeySecurityLevel}
+   * > requires the ohos.permission.ACCESS_SE_KEY permission.
+   *
    * Based on the principle that the key cannot be transferred out of
    * [Trusted Execution Environment (TEE)](docroot://security/UniversalKeystoreKit/huks-concepts.md#tee), the key
    * material content is not returned through this API and is only used to indicate whether the call is successful.
@@ -114,8 +128,12 @@ declare namespace huks {
    * @param { string } keyAlias - Alias of the key. The value can contain up to 128 bytes and should not include
    *     sensitive data such as personal information.
    * @param { HuksOptions } options - Tags required for generating the key. The algorithm, key purpose, and key length
-   *     are mandatory.
+   *     are mandatory. When specifying the SE security level defined in
+   *     [HuksKeySecurityLevel]{@link huks.HuksKeySecurityLevel}, the ohos.permission.ACCESS_SE_KEY permission
+   *     is required.
    * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 201 - The application permissions are insufficient, possibly because
+   *     the ohos.permission.ACCESS_SE_KEY permission is missing. [since 26.0.0]
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
@@ -220,6 +238,10 @@ declare namespace huks {
   /**
    * Deletes a key. This API uses an asynchronous callback to return the result.
    *
+   * > **NOTE**
+   * > Deleting SE security level keys defined in [HuksKeySecurityLevel]{@link huks.HuksKeySecurityLevel}
+   * > requires the ohos.permission.ACCESS_SE_KEY permission.
+   *
    * @param { string } keyAlias - Alias of the key to delete. It must be the key alias passed in when the key was
    *     generated.
    * @param { HuksOptions } options - Attribute of the key to be deleted. If
@@ -228,6 +250,8 @@ declare namespace huks {
    *     passed in. If the API version is earlier than 12, the default value **DE** is passed in.
    * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
    *     **err** is **undefined**. Otherwise, **err** is an error object.
+   * @throws { BusinessError } 201 - The application permissions are insufficient, possibly because
+   *     the ohos.permission.ACCESS_SE_KEY permission is missing. [since 26.0.0]
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
@@ -248,6 +272,11 @@ declare namespace huks {
   /**
    * Deletes a key. This API uses a promise to return the result.
    *
+   * > **NOTE**
+   * >
+   * > Deleting SE security level keys defined in [HuksKeySecurityLevel]{@link huks.HuksKeySecurityLevel}
+   * > requires the ohos.permission.ACCESS_SE_KEY permission.
+   *
    * @param { string } keyAlias - Alias of the key to delete. It must be the key alias passed in when the key was
    *     generated.
    * @param { HuksOptions } options - Attribute tag of the key to be deleted. If
@@ -255,6 +284,8 @@ declare namespace huks {
    *     deleted,<br>this parameter can be left empty. If the API version is 12 or later, the default value **CE** is
    *     passed in. If the API version is earlier than 12, the default value **DE** is passed in.
    * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 201 - The application permissions are insufficient, possibly because
+   *     the ohos.permission.ACCESS_SE_KEY permission is missing. [since 26.0.0]
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
@@ -444,12 +475,19 @@ declare namespace huks {
   /**
    * Imports keys in secure mode. This API uses an asynchronous callback to return the result.
    *
+   * > **NOTE**
+   * >
+   * > Importing SE security level wrapped keys defined in [HuksKeySecurityLevel]{@link huks.HuksKeySecurityLevel}
+   * > requires the ohos.permission.ACCESS_SE_KEY permission.
+   *
    * @param { string } keyAlias - Alias of the wrapped key to import.
    * @param { string } wrappingKeyAlias - Alias of the data used to unwrap the key imported.
    * @param { HuksOptions } options - Tags required for the import and the wrapped key to import. The algorithm, key
    *     purpose, and key length are mandatory.
    * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful, no
    *     **err** value is returned; otherwise, an error code is returned.
+   * @throws { BusinessError } 201 - The application permissions are insufficient, possibly because
+   *     the ohos.permission.ACCESS_SE_KEY permission is missing. [since 26.0.0]
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
@@ -531,11 +569,18 @@ declare namespace huks {
   /**
    * Imports keys in secure mode. This API uses a promise to return the result.
    *
+   * > **NOTE**
+   * >
+   * > Importing SE security level wrapped keys defined in [HuksKeySecurityLevel]{@link huks.HuksKeySecurityLevel}
+   * > requires the ohos.permission.ACCESS_SE_KEY permission.
+   *
    * @param { string } keyAlias - Alias of the wrapped key to import.
    * @param { string } wrappingKeyAlias - Alias of the data used to unwrap the key imported.
    * @param { HuksOptions } options - Tags required for the import and the wrapped key to import. The algorithm, key
    *     purpose, and key length are mandatory.
    * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 201 - The application permissions are insufficient, possibly because
+   *     the ohos.permission.ACCESS_SE_KEY permission is missing. [since 26.0.0]
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
@@ -597,6 +642,11 @@ declare namespace huks {
   /**
    * Exports a key. This API uses an asynchronous callback to return the result.
    *
+   * > **NOTE**
+   * >
+   * > Exporting SE security level public keys defined in [HuksKeySecurityLevel]{@link huks.HuksKeySecurityLevel}
+   * > requires the ohos.permission.ACCESS_SE_KEY permission.
+   *
    * @param { string } keyAlias - Key alias, which must be the same as the alias used when the key was generated.
    * @param { HuksOptions } options - Property of the key to be exported. If
    *     [HuksAuthStorageLevel]{@link huks.HuksAuthStorageLevel} is used to specify the security level of the key to be
@@ -605,6 +655,8 @@ declare namespace huks {
    * @param { AsyncCallback<HuksReturnResult> } callback - Callback used to return the result. If the operation is
    *     successful, **err** is **undefined**, and **data** is the obtained **HuksReturnResult**. Otherwise, **err** is
    *     an error object. **outData** in **HuksReturnResult** returns the public key exported from HUKS.
+   * @throws { BusinessError } 201 - The application permissions are insufficient, possibly because
+   *     the ohos.permission.ACCESS_SE_KEY permission is missing. [since 26.0.0]
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
@@ -668,10 +720,17 @@ declare namespace huks {
   /**
    * Exports a key. This API uses a promise to return the result.
    *
+   * > **NOTE**
+   * >
+   * > Exporting SE security level public keys defined in [HuksKeySecurityLevel]{@link huks.HuksKeySecurityLevel}
+   * > requires the ohos.permission.ACCESS_SE_KEY permission.
+   *
    * @param { string } keyAlias - Key alias, which must be the same as the alias used when the key was generated.
    * @param { HuksOptions } options - Empty object (leave this parameter empty).
    * @returns { Promise<HuksReturnResult> } Promise that returns the operation result. If the operation is successful,
    *     **outData** in **HuksReturnResult** is the exported public key.
+   * @throws { BusinessError } 201 - The application permissions are insufficient, possibly because
+   *     the ohos.permission.ACCESS_SE_KEY permission is missing. [since 26.0.0]
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
@@ -728,11 +787,18 @@ declare namespace huks {
   /**
    * Obtains key properties. This API uses an asynchronous callback to return the result.
    *
+   * > **NOTE**
+   * >
+   * > Getting properties of SE security level keys defined in [HuksKeySecurityLevel]{@link huks.HuksKeySecurityLevel}
+   * > requires the ohos.permission.ACCESS_SE_KEY permission.
+   *
    * @param { string } keyAlias - Key alias, which must be the same as the alias used when the key was generated.
    * @param { HuksOptions } options - Empty object (leave this parameter empty).
    * @param { AsyncCallback<HuksReturnResult> } callback - Callback used to return the result. If the operation is
    *     successful, **err** is **undefined**, and **data** is the obtained **HuksReturnResult**. Otherwise, **err** is
    *     an error object. **properties** of **HuksReturnResult** are the parameters required for generating a key.
+   * @throws { BusinessError } 201 - The application permissions are insufficient, possibly because
+   *     the ohos.permission.ACCESS_SE_KEY permission is missing. [since 26.0.0]
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
@@ -802,10 +868,17 @@ declare namespace huks {
   /**
    * Obtains key properties. This API uses a promise to return the result.
    *
+   * > **NOTE**
+   * >
+   * > Getting properties of SE security level keys defined in [HuksKeySecurityLevel]{@link huks.HuksKeySecurityLevel}
+   * > requires the ohos.permission.ACCESS_SE_KEY permission.
+   *
    * @param { string } keyAlias - Key alias, which must be the same as the alias used when the key was generated.
    * @param { HuksOptions } options - Empty object (leave this parameter empty).
    * @returns { Promise<HuksReturnResult> } Promise that returns the operation result. If the operation is successful,
    *     **properties** of **HuksReturnResult** is the obtained key property information.
+   * @throws { BusinessError } 201 - The application permissions are insufficient, possibly because
+   *     the ohos.permission.ACCESS_SE_KEY permission is missing. [since 26.0.0]
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
@@ -1049,11 +1122,18 @@ declare namespace huks {
    *
    * The **huks.initSession**, **huks.updateSession**, and **huks.finishSession** must be used together.
    *
+   * > **NOTE**
+   * >
+   * > Initializing a session for SE security level keys defined in
+   * > [HuksKeySecurityLevel]{@link huks.HuksKeySecurityLevel} requires the ohos.permission.ACCESS_SE_KEY permission.
+   *
    * @param { string } keyAlias - Alias of the key involved in the **initSession** operation.
    * @param { HuksOptions } options - Parameter set used for the **initSession** operation.
    * @param { AsyncCallback<HuksSessionHandle> } callback - Callback used to return the result. If the operation is
    *     successful, **err** is **undefined**, and **data** is the obtained **HuksSessionHandle**. Otherwise, **err** is
    *     an error object. The handle of **HuksSessionHandle** is the handle generated by **initSession**.
+   * @throws { BusinessError } 201 - The application permissions are insufficient, possibly because
+   *     the ohos.permission.ACCESS_SE_KEY permission is missing. [since 26.0.0]
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
@@ -1088,10 +1168,17 @@ declare namespace huks {
    *
    * The **huks.initSession**, **huks.updateSession**, and **huks.finishSession** must be used together.
    *
+   * > **NOTE**
+   * >
+   * > Initializing a session for SE security level keys defined in
+   * > [HuksKeySecurityLevel]{@link huks.HuksKeySecurityLevel} requires the ohos.permission.ACCESS_SE_KEY permission.
+   *
    * @param { string } keyAlias - Alias of the key involved in the **initSession** operation.
    * @param { HuksOptions } options - Parameter set used for the **initSession** operation.
    * @returns { Promise<HuksSessionHandle> } Promise that returns **HuksSessionHandle**. The handle of
    *     **HuksSessionHandle** is the handle generated by **initSession**.
+   * @throws { BusinessError } 201 - The application permissions are insufficient, possibly because
+   *     the ohos.permission.ACCESS_SE_KEY permission is missing. [since 26.0.0]
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
@@ -1670,6 +1757,11 @@ declare namespace huks {
    * abnormal. If the device is not connected to the network, display a message, indicating that the network is not
    * connected. If the network is connected, the failure may be caused by network jitter. Tray again later.
    *
+   * > **NOTE**
+   * >
+   * > Attesting SE security level keys that defined in [HuksKeySecurityLevel]{@link huks.HuksKeySecurityLevel}
+   * > requires the ohos.permission.ACCESS_SE_KEY permission.
+   *
    * <!--RP1--><!--RP1End-->
    *
    * @param { string } keyAlias - Alias of the key. The certificate to be obtained stores the key.
@@ -1677,6 +1769,8 @@ declare namespace huks {
    * @param { AsyncCallback<HuksReturnResult> } callback - Callback used to return the result. If the operation is
    *     successful, **err** is **undefined**, and **data** is the obtained **HuksReturnResult**. Otherwise, **err** is
    *     an error object.
+   * @throws { BusinessError } 201 - The application permissions are insufficient, possibly because
+   *     the ohos.permission.ACCESS_SE_KEY permission is missing. [since 26.0.0]
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
@@ -1792,12 +1886,19 @@ declare namespace huks {
    * abnormal. If the device is not connected to the network, display a message, indicating that the network is not
    * connected. If the network is connected, the failure may be caused by network jitter. Tray again later.
    *
+   * > **NOTE**
+   * >
+   * > Attesting SE security level keys that defined in [HuksKeySecurityLevel]{@link huks.HuksKeySecurityLevel}
+   * > requires the ohos.permission.ACCESS_SE_KEY permission.
+   *
    * <!--RP1--><!--RP1End-->
    *
    * @param { string } keyAlias - Alias of the key. The certificate to be obtained stores the key.
    * @param { HuksOptions } options - Parameters and data required for obtaining the certificate.
    * @returns { Promise<HuksReturnResult> } Promise that returns the operation result. When the call is successful, the
    *     **certChains** member of **HuksReturnResult** is the obtained certificate chain.
+   * @throws { BusinessError } 201 - The application permissions are insufficient, possibly because
+   *     the ohos.permission.ACCESS_SE_KEY permission is missing. [since 26.0.0]
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
@@ -1897,12 +1998,19 @@ declare namespace huks {
   /**
    * Wraps a key. This API uses a promise to return the result.
    *
+   * > **NOTE**
+   * >
+   * > Wrapping SE security level keys that defined in [HuksKeySecurityLevel]{@link huks.HuksKeySecurityLevel}
+   * > requires the ohos.permission.ACCESS_SE_KEY permission.
+   *
    * <!--Del-->This feature is not supported currently.<!--DelEnd-->
    *
    * @param { string } keyAlias - Key alias, which must be the same as the alias used when the key was generated.
    * @param { HuksOptions } params - Encryption type of the key to be exported.
    * @returns { Promise<HuksReturnResult> } Promise that returns the operation result. If the operation is successful,
    *     **outData** in **HuksReturnResult** is the exported key ciphertext.
+   * @throws { BusinessError } 201 - The application permissions are insufficient, possibly because
+   *     the ohos.permission.ACCESS_SE_KEY permission is missing. [since 26.0.0]
    * @throws { BusinessError } 801 - api is not supported
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
@@ -1920,12 +2028,19 @@ declare namespace huks {
   /**
    * Unwraps a key. This API uses a promise to return the result.
    *
+   * > **NOTE**
+   * >
+   * > Unwrapping SE security level keys that defined in [HuksKeySecurityLevel]{@link huks.HuksKeySecurityLevel}
+   * > requires the ohos.permission.ACCESS_SE_KEY permission.
+   *
    * <!--Del-->This feature is not supported currently.<!--DelEnd-->
    *
    * @param { string } keyAlias - Alias of the key to be unwrapped.
    * @param { HuksOptions } params - Encryption type of the key to be imported.
    * @param { Uint8Array } wrappedKey - Ciphertext of the key to be exported.
    * @returns { Promise<HuksReturnResult> } Promise that returns the operation result.
+   * @throws { BusinessError } 201 - The application permissions are insufficient, possibly because
+   *     the ohos.permission.ACCESS_SE_KEY permission is missing. [since 26.0.0]
    * @throws { BusinessError } 801 - api is not supported
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
@@ -4611,6 +4726,7 @@ declare namespace huks {
     /**
      * The key is generated and used in the secure environment.
      *
+     * @permission ohos.permission.ACCESS_SE_KEY
      * @syscap SystemCapability.Security.Huks.Core
      * @stagemodelonly
      * @atomicservice
