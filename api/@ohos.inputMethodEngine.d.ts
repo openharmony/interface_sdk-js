@@ -200,73 +200,41 @@ declare namespace inputMethodEngine {
   const PATTERN_PASSWORD_NUMBER: int;
 
   /**
-   * User name edit box.
+   * User name edit box. The value is fixed at 10.
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @stagemodelonly
    * @since 20 dynamic
-   */
-  const PATTERN_USER_NAME = 10;
-
-  /**
-   * User name edit box.
-   *
-   * @syscap SystemCapability.MiscServices.InputMethodFramework
-   * @stagemodelonly
    * @since 23 static
    */
   const PATTERN_USER_NAME: int;
 
   /**
-   * New password edit box.
+   * New password edit box. The value is fixed at 11.
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @stagemodelonly
    * @since 20 dynamic
-   */
-  const PATTERN_NEW_PASSWORD = 11;
-
-  /**
-   * New password edit box.
-   *
-   * @syscap SystemCapability.MiscServices.InputMethodFramework
-   * @stagemodelonly
    * @since 23 static
    */
   const PATTERN_NEW_PASSWORD: int;
 
   /**
-   * Edit box for numbers with decimal points.
+   * Edit box for numbers with decimal points. The value is fixed at 12.
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @stagemodelonly
    * @since 20 dynamic
-   */
-  const PATTERN_NUMBER_DECIMAL = 12;
-
-  /**
-   * Edit box for numbers with decimal points.
-   *
-   * @syscap SystemCapability.MiscServices.InputMethodFramework
-   * @stagemodelonly
    * @since 23 static
    */
   const PATTERN_NUMBER_DECIMAL: int;
 
   /**
-   * Verification code edit box.
+   * Verification code edit box. The value is fixed at 13.
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @stagemodelonly
    * @since 20 dynamic
-   */
-  const PATTERN_ONE_TIME_CODE = 13;
-
-  /**
-   * Verification code edit box.
-   *
-   * @syscap SystemCapability.MiscServices.InputMethodFramework
-   * @stagemodelonly
    * @since 23 static
    */
   const PATTERN_ONE_TIME_CODE: int;
