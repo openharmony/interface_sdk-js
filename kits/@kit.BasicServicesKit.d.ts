@@ -76,6 +76,7 @@ import selectionManager from '@ohos.selectionInput.selectionManager';
 import SelectionExtensionContext from '@ohos.selectionInput.SelectionExtensionContext';
 import { Available, SuppressWarnings, SuppressWarningsType } from '@ohos.annotation';
 import intelligentScene from '@ohos.intelligentScene';
+import settingsLite from '@ohos.settingsLite';
 export {
   AsyncCallback, Battery, BatteryResponse, Brightness, BrightnessModeResponse,
   BrightnessResponse, BusinessError, Callback, Device, DeviceResponse,
@@ -88,7 +89,7 @@ export {
   screenLock, settings, systemCapability, systemDateTime, systemParameter, systemParameterEnhance, systemTime,
   systemTimer, thermal, update, usb, usbManager, serialManager, wallpaper, zlib, commonEventManager, emitter, StaticSubscriberExtensionAbility,
   StaticSubscriberExtensionContext, systemLoad, intelligentVoice, selectionManager, SelectionExtensionAbility,
-  PanelInfo, PanelType, SelectionExtensionContext, Available, SuppressWarnings, SuppressWarningsType, intelligentScene
+  PanelInfo, PanelType, SelectionExtensionContext, Available, SuppressWarnings, SuppressWarningsType, intelligentScene,settingsLite
 };
 
 /*** if arkts static */
