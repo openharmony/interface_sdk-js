@@ -25,10 +25,10 @@ import type { ConnectOptions } from '../ability/connectOptions';
 /*** endif */
 
 /**
- * The context of live form extension. It allows access to
- * liveFormExtension-specific resources.
- *
- * @extends ExtensionContext
+ * **LiveFormExtensionContext**, inherited from 
+ * [ExtensionContext]{@link ./application/ExtensionContext:ExtensionContext}, is the context of 
+ * [LiveFormExtensionAbility]{@link @ohos.app.form.LiveFormExtensionAbility}.
+ * 
  * @syscap SystemCapability.Ability.Form
  * @stagemodelonly
  * @atomicservice
@@ -37,9 +37,17 @@ import type { ConnectOptions } from '../ability/connectOptions';
  */
 declare class LiveFormExtensionContext extends ExtensionContext {
   /**
-   * Start ability belongs to the application
+   * Starts the widget provider (application) page. This API uses a promise to return the result.
+   * <br>This API can only be used to start the page of the interactive widget provider (application). If this API is used 
+   * to start the page of another application, error code 16501011 will be reported.
+   * <br>You are advised to call this API in click event callbacks. Calling it in callbacks of other gesture events is not 
+   * recommended, and direct calls in non-gesture events are not allowed. Otherwise, the error code 16501011 will be 
+   * reported.
+   * <br>In addition, this API can be directly called in the click event callback but cannot be called after a delay. 
+   * Otherwise, the error code 16501011 will be reported.
    *
-   * @param { Want } want - includes ability name, parameters and relative info sending to an ability.
+   * @param { Want } want - Information about the application page to be started. 
+   *     [Only explicit Want is supported](docroot://application-models/ability-startup-with-explicit-want.md).
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 801 - Capability not supported due to limited device capabilities.
    * @throws { BusinessError } 16500050 - An IPC connection error happened.
@@ -58,6 +66,7 @@ declare class LiveFormExtensionContext extends ExtensionContext {
    * Connect a service extension ability.The destination of the connection must be a service extension.
    * You must implement the {@link ConnectOptions} interface to obtain the proxy of the target
    * service extension when the Service extension is connected.
+   *
    * @param { Want } want - Indicates the service extension to connect.
    * @param { ConnectOptions } connection - Indicates the callback of connection.
    * @returns { long } Returns the connection id.
@@ -79,7 +88,7 @@ declare class LiveFormExtensionContext extends ExtensionContext {
    *
    * @param { long } connectionId - the connection id returned from connectServiceExtensionAbility api.
    * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 202 - Permission verification failed, 
+   * @throws { BusinessError } 202 - Permission verification failed,
    *     application which is not a system application uses system API.
    * @throws { BusinessError } 16501000 - An internal functional error occurred.
    * @throws { BusinessError } 16501011 - The form can not support this operation

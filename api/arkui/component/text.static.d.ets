@@ -1,6 +1,6 @@
 /*
  * Copyright (c) 2025 Huawei Device Co., Ltd.
- * Licensed under the Apache License, Version 2.0 (the "License");
+ * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
@@ -18,19 +18,19 @@
  * @kit ArkUI
  */
 import { CommonMethod, ShadowOptions, Callback, AttributeModifier, SelectionOptions } from "./common";
-import { CustomBuilder } from './builder';
+import { CustomBuilder, Builder, CustomBuilderT, ConstructorT, ComponentBuilder } from './builder';
 import { EllipsisMode, TextCase, LineBreakStrategy, TextAlign, FontStyle, FontWeight, WordBreak, TextOverflow, CopyOptions, TextHeightAdaptivePolicy, TextSelectableMode } from "./enums";
 import { Resource, ResourceColor, Font, Length, LengthMetrics, ResourceStr } from "./units";
-import { TextDataDetectorConfig, LayoutManager, FontSettingOptions, EditMenuOptions, SelectedDragPreviewStyle, TextDirection, ShaderStyle, LineSpacingOptions, TextVerticalAlign, ContentTransition, TextContentAlign } from "./textCommon";
+import { TextDataDetectorConfig, LayoutManager, FontSettingOptions, EditMenuOptions, SelectedDragPreviewStyle, TextDirection, ShaderStyle, LineSpacingOptions, TextVerticalAlign, ContentTransition, TextContentAlign, FontVariation, IncrementalUpdatePolicy } from "./textCommon";
 import { DecorationStyleInterface, StyledString } from "./styledString";
 import { SelectionMenuOptions } from "./richEditor";
-import { ComponentBuilder } from './builder';
 /**
  * Text overflow options.
  *
  * Anonymous Object Rectification.
- * @interface TextOverflowOptions
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare interface TextOverflowOptions {
@@ -38,19 +38,22 @@ export declare interface TextOverflowOptions {
      * Text overflow option. Use TextOverflow::NONE when the value is undefined.
      *
      * Anonymous Object Rectification.
-     * @type { TextOverflow | undefined }
+     *
      * @default TextOverflow.Clip
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     overflow: TextOverflow | undefined;
 }
+
 /**
  * TextAttribute.
  *
- * @extends CommonMethod
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
+ * @noninterop
  */
 export declare interface TextAttribute extends CommonMethod {
     /**
@@ -60,19 +63,22 @@ export declare interface TextAttribute extends CommonMethod {
      * <br>It is only effective for the Text component, not for its child components.
      * </p>
      *
-     * @param { Font } fontValue - the text font size and weight and family and style.
-     * @param { FontSettingOptions } options - font setting options.
+     * @param { Font | undefined } fontValue - the text font size and weight and family and style.
+     * @param { FontSettingOptions | undefined } [options] - font setting options.
      * @returns { TextAttribute } The attribute of the text.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default font(fontValue: Font | undefined, options?: FontSettingOptions | undefined): this;
     /**
      * Called when the font color is set.
      *
-     * @param { ResourceColor } value - Default value is '#e6182431'.The default value on wearable devices is '#c5ffffff'.
+     * @param { ResourceColor | undefined } value - Default value is '#e6182431'.The default value on wearable devices
+     *     is '#c5ffffff'.
      * @returns { TextAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default fontColor(value: ResourceColor | undefined): this;
@@ -83,9 +89,11 @@ export declare interface TextAttribute extends CommonMethod {
      * <br>If fontSize is of the number type, the unit fp is used.
      * </p>
      *
-     * @param { double | string | Resource } value - Default value is 16fp.The default value on wearable devices is 15fp.
+     * @param { double | string | Resource | undefined } value - Default value is 16fp.
+     *     The default value on wearable devices is 15fp.
      * @returns { TextAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default fontSize(value: double | string | Resource | undefined): this;
@@ -104,9 +112,10 @@ export declare interface TextAttribute extends CommonMethod {
      * and the adaptive font size is applied to parts where the font size is not set.
      * </p>
      *
-     * @param { double | string | Resource } value - The unit is fp.
+     * @param { double | string | Resource | undefined } value - The unit is fp.
      * @returns { TextAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default minFontSize(value: double | string | Resource | undefined): this;
@@ -125,9 +134,10 @@ export declare interface TextAttribute extends CommonMethod {
      * and the adaptive font size is applied to parts where the font size is not set.
      * </p>
      *
-     * @param { double | string | Resource } value - The unit is fp.
+     * @param { double | string | Resource | undefined } value - The unit is fp.
      * @returns { TextAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default maxFontSize(value: double | string | Resource | undefined): this;
@@ -141,9 +151,10 @@ export declare interface TextAttribute extends CommonMethod {
      * <br>Abnormal values are ineffective by default.
      * </p>
      *
-     * @param { double | Resource } scale
+     * @param { double | Resource | undefined } scale
      * @returns { TextAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default minFontScale(scale: double | Resource | undefined): this;
@@ -156,18 +167,20 @@ export declare interface TextAttribute extends CommonMethod {
      * <br>Abnormal values are ineffective by default.
      * </p>
      *
-     * @param { double | Resource  } scale
+     * @param { double | Resource | undefined } scale
      * @returns { TextAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default maxFontScale(scale: double | Resource | undefined): this;
     /**
      * Called when the font style of a font is set.
      *
-     * @param { FontStyle } value - Default value is FontStyle.Normal.
+     * @param { FontStyle | undefined } value - Default value is FontStyle.Normal.
      * @returns { TextAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default fontStyle(value: FontStyle | undefined): this;
@@ -178,21 +191,11 @@ export declare interface TextAttribute extends CommonMethod {
      * @param { FontSettingOptions | undefined } [options] - font setting options.
      * @returns { TextAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default fontWeight(weight: int | FontWeight | ResourceStr | undefined, options?: FontSettingOptions | undefined): this;
-    /**
-     * Set font line spacing.
-     *
-     * <p><strong>NOTE</strong>:
-     * <br>If the value specified is less than or equal to 0, the default value 0 is used.
-     * </p>
-     *
-     * @param { LengthMetrics | undefined } value - Default value is 0.
-     * @returns { TextAttribute }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
-     */
+
     /**
      * Set font line spacing with options.
      *
@@ -204,6 +207,7 @@ export declare interface TextAttribute extends CommonMethod {
      * @param { LineSpacingOptions } [options]
      * @returns { TextAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default lineSpacing(value: LengthMetrics | undefined, options?: LineSpacingOptions): this;
@@ -222,9 +226,11 @@ export declare interface TextAttribute extends CommonMethod {
      * and the text in the last line is horizontally aligned with the start edge.
      * </p>
      *
-     * @param { TextAlign } value - Default value is TextAlign.Start.The default value on wearable devices is TextAlign.Center.
+     * @param { TextAlign | undefined } value - Default value is TextAlign.Start.The default value on wearable devices
+     *     is TextAlign.Center.
      * @returns { TextAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default textAlign(value: TextAlign | undefined): this;
@@ -237,9 +243,10 @@ export declare interface TextAttribute extends CommonMethod {
      * <br>For the string type, numeric string values with optional units, for example, "10" or "10fp", are supported.
      * </p>
      *
-     * @param { double | string | Resource } value
+     * @param { double | string | Resource | undefined } value
      * @returns { TextAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default lineHeight(value: double | string | Resource | undefined): this;
@@ -263,9 +270,10 @@ export declare interface TextAttribute extends CommonMethod {
      * where the text and images are displayed in scrolling mode in a line.
      * </p>
      *
-     * @param { TextOverflowOptions } options - Text overflow options.
+     * @param { TextOverflowOptions| undefined } options - Text overflow options.
      * @returns { TextAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default textOverflow(options: TextOverflowOptions | undefined): this;
@@ -278,9 +286,10 @@ export declare interface TextAttribute extends CommonMethod {
      * <br>Only the 'HarmonyOS Sans' font is supported for widgets.
      * </p>
      *
-     * @param { string | Resource } value
+     * @param { string | Resource | undefined } value
      * @returns { TextAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default fontFamily(value: string | Resource | undefined): this;
@@ -293,9 +302,10 @@ export declare interface TextAttribute extends CommonMethod {
      * <br>If there is extra text, you can use textOverflow to specify how it is displayed.
      * </p>
      *
-     * @param { int } value
+     * @param { int | undefined } value
      * @returns { TextAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default maxLines(value: int | undefined): this;
@@ -306,36 +316,41 @@ export declare interface TextAttribute extends CommonMethod {
      * <br>The style parameter cannot be used in widgets.
      * </p>
      *
-     * @param { DecorationStyleInterface } value - Default value is { type: TextDecorationType.None, color: Color.Black, style: TextDecorationStyle.SOLID }.
+     * @param { DecorationStyleInterface | undefined } value - Default value is { type: TextDecorationType.None, color:
+     *     Color.Black, style: TextDecorationStyle.SOLID }.
      * @returns { TextAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default decoration(value: DecorationStyleInterface | undefined): this;
     /**
      * Called when the distance between text fonts is set.
      *
-     * @param { double | string } value
+     * @param { double | string | undefined } value
      * @returns { TextAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default letterSpacing(value: double | string | undefined): this;
     /**
      * Called when the type of letter in the text font is set.
      *
-     * @param { TextCase } value - Default value is TextCase.Normal.
+     * @param { TextCase | undefined } value - Default value is TextCase.Normal.
      * @returns { TextAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default textCase(value: TextCase | undefined): this;
     /**
      * Called when the baseline offset is set.
      *
-     * @param { double | string } value
+     * @param { double | string | undefined } value - The default unit is fp.
      * @returns { TextAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default baselineOffset(value: double | string | undefined): this;
@@ -348,9 +363,10 @@ export declare interface TextAttribute extends CommonMethod {
      * <br>Because widgets do not have the long press event, the context menu will not be displayed when users long press text.
      * </p>
      *
-     * @param { CopyOptions } value - Default value is CopyOptions.None.
+     * @param { CopyOptions | undefined } value - Default value is CopyOptions.None.
      * @returns { TextAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default copyOption(value: CopyOptions | undefined): this;
@@ -364,9 +380,10 @@ export declare interface TextAttribute extends CommonMethod {
      * the selected text can be dragged and copied to the text box.
      * </p>
      *
-     * @param { boolean } value - Default value is false.
+     * @param { boolean | undefined } value - Default value is false.
      * @returns { TextAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default draggable(value: boolean | undefined): this;
@@ -377,9 +394,10 @@ export declare interface TextAttribute extends CommonMethod {
      * <br>This API does not work with the fill attribute or coloring strategy.
      * </p>
      *
-     * @param { ShadowOptions | Array<ShadowOptions> } value - The shadow options.
+     * @param { ShadowOptions | Array<ShadowOptions> | undefined } value - The shadow options.
      * @returns { TextAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default textShadow(value: ShadowOptions | Array<ShadowOptions> | undefined): this;
@@ -406,21 +424,43 @@ export declare interface TextAttribute extends CommonMethod {
      * </ul>
      * </p>
      *
-     * @param { TextHeightAdaptivePolicy } value - The height adaptive policy.Default value is TextHeightAdaptivePolicy.MAX_LINES_FIRST.
+     * @param { TextHeightAdaptivePolicy | undefined } value - The height adaptive policy.Default value is
+     *     TextHeightAdaptivePolicy.MAX_LINES_FIRST.
      * @returns { TextAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default heightAdaptivePolicy(value: TextHeightAdaptivePolicy | undefined): this;
     /**
      * Specify the indentation of the first line in a text-block.
      *
-     * @param { Length } value - The length of text indent.Default value is 0.
+     * @param { Length | undefined } value - The length of text indent.Default value is 0.
      * @returns { TextAttribute } The attribute of the text.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default textIndent(value: Length | undefined): this;
+    /**
+     * Specify the tail indentation for each line in a text block.
+     *
+     * <p><strong>Description</strong>:
+     * <br>When a single LengthMetrics value is provided, all rows share the same tail indentation.
+     * <br>When an array is provided, the i-th element specifies the trailing indentation of the i-th line.
+     * If the number of lines of text exceeds the length of the array, the last element in the array is used.
+     * for the remaining lines.
+     * <br>A negative value is treated as 0.
+     * <br>If this parameter is set to undefined, the default value 0 is used.
+     * </p>
+     *
+     * @param { LengthMetrics | Array<LengthMetrics> | undefined } value - The tail indent value(s).Default value is 0
+     * @returns { TextAttribute } The attribute of the text.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    default tailIndents(value: LengthMetrics | Array<LengthMetrics> | undefined): this;
     /**
      * Set the word break type.
      *
@@ -429,9 +469,10 @@ export declare interface TextAttribute extends CommonMethod {
      * between letters when overflow occurs and display excess content with an ellipsis (...).
      * </p>
      *
-     * @param { WordBreak } value - The word break type.Default value is WordBreak.BREAK_WORD.
+     * @param { WordBreak | undefined } value - The word break type.Default value is WordBreak.BREAK_WORD.
      * @returns { TextAttribute } The attribute of the text.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default wordBreak(value: WordBreak | undefined): this;
@@ -443,9 +484,11 @@ export declare interface TextAttribute extends CommonMethod {
      * <br>Hyphens are not supported.
      * </p>
      *
-     * @param { LineBreakStrategy } strategy - The text line break strategy type.Default value is LineBreakStrategy.GREEDY.
+     * @param { LineBreakStrategy | undefined  } strategy - The text line break strategy type.Default value is
+     *     LineBreakStrategy.GREEDY.
      * @returns { TextAttribute } The attribute of the text.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default lineBreakStrategy(strategy: LineBreakStrategy | undefined): this;
@@ -453,9 +496,10 @@ export declare interface TextAttribute extends CommonMethod {
      * Called when using the Clipboard menu
      * Currently, only text can be copied.
      *
-     * @param { function } callback - callback of the listened event.
+     * @param { function | undefined } callback - callback of the listened event.
      * @returns { TextAttribute } The attribute of the text.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default onCopy(callback: ((value: string) => void) | undefined): this;
@@ -485,28 +529,31 @@ export declare interface TextAttribute extends CommonMethod {
      * <br>If clipping is disabled, the text selection outside of the parent component takes effect.
      * </p>
      *
-     * @param { int } selectionStart - The start position of the selected text.Default value is -1.
-     * @param { int } selectionEnd - The end position of the selected text.Default value is -1.
+     * @param { int | undefined } selectionStart - The start position of the selected text.Default value is -1.
+     * @param { int | undefined } selectionEnd - The end position of the selected text.Default value is -1.
      * @returns { TextAttribute } The attribute of the text.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default selection(selectionStart: int | undefined, selectionEnd: int | undefined): this;
     /**
      * Set the caret color for the selected text.
      *
-     * @param { ResourceColor } color - The color of the selected text caret.
+     * @param { ResourceColor | undefined } color - The color of the selected text caret.
      * @returns { TextAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default caretColor(color: ResourceColor | undefined): this;
     /**
      * Set the selected background color of the text.
      *
-     * @param { ResourceColor } color - The color of the selected text background.
+     * @param { ResourceColor | undefined } color - The color of the selected text background.
      * @returns { TextAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default selectedBackgroundColor(color: ResourceColor | undefined): this;
@@ -519,9 +566,10 @@ export declare interface TextAttribute extends CommonMethod {
      * <br>EllipsisMode.START and EllipsisMode.CENTER take effect only when text overflows in a single line.
      * </p>
      *
-     * @param { EllipsisMode } value - The ellipsis mode.Default value is EllipsisMode.END.
+     * @param { EllipsisMode | undefined } value - The ellipsis mode.Default value is EllipsisMode.END.
      * @returns { TextAttribute } The attribute of the text.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default ellipsisMode(value: EllipsisMode | undefined): this;
@@ -550,9 +598,10 @@ export declare interface TextAttribute extends CommonMethod {
      * the entity still has the copy functionality but does not have the text selection feature.
      * </p>
      *
-     * @param { boolean } enable - Enable data detector.Default value is false.
+     * @param { boolean | undefined } enable - Enable data detector.Default value is false.
      * @returns { TextAttribute } The attribute of the text.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default enableDataDetector(enable: boolean | undefined): this;
@@ -571,9 +620,10 @@ export declare interface TextAttribute extends CommonMethod {
      * </ol>
      * </p>
      *
-     * @param { TextDataDetectorConfig } config - The config of text data detector.
+     * @param { TextDataDetectorConfig | undefined } config - The config of text data detector.
      * @returns { TextAttribute } The attribute of the text.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default dataDetectorConfig(config: TextDataDetectorConfig | undefined): this;
@@ -587,52 +637,59 @@ export declare interface TextAttribute extends CommonMethod {
      * <br>If the custom menu is too long, embed a Scroll component to prevent the keyboard from being blocked.
      * </p>
      *
-     * @param { TextSpanType } spanType - Indicates the type of selection menu.Default value is TextSpanType.TEXT.
-     * @param { CustomBuilder } content - Indicates the content of selection menu.
-     * @param { TextResponseType } responseType - Indicates response type of selection menu.Default value is TextResponseType.LONG_PRESS.
-     * @param { SelectionMenuOptions } [options] - Indicates the options of selection menu.
+     * @param { TextSpanType | undefined } spanType - Indicates the type of selection menu.Default value is
+     *     TextSpanType.TEXT.
+     * @param { CustomBuilder | undefined } content - Indicates the content of selection menu.
+     * @param { TextResponseType | undefined } responseType - Indicates response type of selection menu.Default value is
+     *     TextResponseType.LONG_PRESS.
+     * @param { SelectionMenuOptions | undefined } [options] - Indicates the options of selection menu.
      * @returns { TextAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default bindSelectionMenu(spanType: TextSpanType | undefined, content: CustomBuilder | undefined, responseType: TextResponseType | undefined, options?: SelectionMenuOptions | undefined): this;
     /**
      * Called when the text selection changes.
      *
-     * @param { function } callback - callback of the listened event.
+     * @param { function | undefined } callback - callback of the listened event.
      * @returns { TextAttribute } returns the instance of the TextAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default onTextSelectionChange(callback: ((selectionStart: int, selectionEnd: int) => void) | undefined): this;
     /**
      * Set font feature.
      *
-     * @param { string } value - The fontFeature.
-     * normal | <feature-tag-value>,
-     * where <feature-tag-value> = <string> [ <integer> | on | off ], like: "ss01" 0
-     * the values of <feature-tag-value> reference to doc of text component
-     * number of <feature-tag-value> can be single or multiple, and separated by comma ','.
+     * @param { string | undefined } value - The fontFeature.
+     *     normal | <feature-tag-value>,
+     *     where <feature-tag-value> = <string> [ <integer> | on | off ], like: "ss01" 0
+     *     the values of <feature-tag-value> reference to doc of text component
+     *     number of <feature-tag-value> can be single or multiple, and separated by comma ','.
      * @returns { TextAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default fontFeature(value: string | undefined): this;
     /**
      * Set the marquee options.
      *
-     * @param { Optional<TextMarqueeOptions> } options
+     * @param { TextMarqueeOptions | undefined } options - The marquee options, Use default value when undefined.
      * @returns { TextAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default marqueeOptions(options: TextMarqueeOptions | undefined): this;
     /**
      * Called when the text marquee state changes.
      *
-     * @param { Callback<MarqueeState> } callback - callback of the marquee state change event.
+     * @param { Callback<MarqueeState> | undefined } callback - callback of the marquee state change event.
      * @returns { TextAttribute } returns the instance of the TextAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default onMarqueeStateChange(callback: Callback<MarqueeState> | undefined): this;
@@ -645,18 +702,21 @@ export declare interface TextAttribute extends CommonMethod {
      * <br>Enabling privacy mode requires widget framework support.
      * </p>
      *
-     * @param { boolean } supported - Whether to support sensitive privacy information.Default value is false.
+     * @param { boolean | undefined } supported - Whether to support sensitive privacy information.Default value is
+     *     false.
      * @returns { TextAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default privacySensitive(supported: boolean | undefined): this;
     /**
      * set text selectable and focusable
      *
-     * @param { TextSelectableMode } mode - Default value is TextSelectableMode.SELECTABLE_UNFOCUSABLE.
+     * @param { TextSelectableMode | undefined } mode - Default value is TextSelectableMode.SELECTABLE_UNFOCUSABLE.
      * @returns { TextAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default textSelectable(mode: TextSelectableMode | undefined): this;
@@ -665,9 +725,10 @@ export declare interface TextAttribute extends CommonMethod {
      * Sets the extended options of the custom context menu on selection,
      * including the text content, icon, and callback.
      *
-     * @param { EditMenuOptions } editMenu - Customize text menu options.
+     * @param { EditMenuOptions | undefined } editMenu - Customize text menu options.
      * @returns { TextAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default editMenuOptions(editMenu: EditMenuOptions | undefined): this;
@@ -679,18 +740,20 @@ export declare interface TextAttribute extends CommonMethod {
      * <br>The value true means that half leading is enabled, and false means the opposite.
      * </p>
      *
-     * @param { boolean } halfLeading - Default value is false.
+     * @param { boolean | undefined } halfLeading - Default value is false.
      * @returns { TextAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default halfLeading(halfLeading: boolean | undefined): this;
     /**
      * Enable or disable haptic feedback.
      *
-     * @param { boolean } isEnabled - Default value is true, set false to disable haptic feedback.
+     * @param { boolean | undefined } isEnabled - Default value is true, set false to disable haptic feedback.
      * @returns { TextAttribute } returns the instance of the TextAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default enableHapticFeedback(isEnabled: boolean | undefined): this;
@@ -699,8 +762,9 @@ export declare interface TextAttribute extends CommonMethod {
      *
      * @param { boolean | undefined } include - Whether enable the feature, the default value is false.
      *     Passing `undefined` resets it to the default value.
-     * @returns { TextAttribute } returns the instance of the TextAttribute.
+     * @returns { TextAttribute } - returns the instance of the TextAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default includeFontPadding(include: boolean | undefined): this;
@@ -709,8 +773,9 @@ export declare interface TextAttribute extends CommonMethod {
      *
      * @param { boolean | undefined } enabled - Whether enable the feature, the default value is false.
      *     Passing `undefined` resets it to the default value.
-     * @returns { TextAttribute } returns the instance of the TextAttribute.
+     * @returns { TextAttribute } - returns the instance of the TextAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default fallbackLineSpacing(enabled: boolean | undefined): this;
@@ -721,6 +786,7 @@ export declare interface TextAttribute extends CommonMethod {
      *     Passing `undefined` resets it to the default value.
      * @returns { TextAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 24 static
      */
     default optimizeTrailingSpace(optimize: boolean | undefined): this;
@@ -732,6 +798,7 @@ export declare interface TextAttribute extends CommonMethod {
      *     Passing `undefined` resets it to the default value.
      * @returns { TextAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 24 static
      */
     default shaderStyle(shader: ShaderStyle | undefined): this;
@@ -743,6 +810,7 @@ export declare interface TextAttribute extends CommonMethod {
      *     to enable automatic spacing. Passing `undefined` resets it to the default value.
      * @returns { TextAttribute } returns the instance of the TextAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 24 static
      */
     default enableAutoSpacing(enabled: boolean | undefined): this;
@@ -754,6 +822,7 @@ export declare interface TextAttribute extends CommonMethod {
      *     Use default value when undefined.
      * @returns { TextAttribute } returns the instance of the TextAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 24 static
      */
     default textVerticalAlign(textVerticalAlign: TextVerticalAlign | undefined): this;
@@ -765,6 +834,7 @@ export declare interface TextAttribute extends CommonMethod {
      *     Passing `undefined` resets it to the default value.
      * @returns { TextAttribute } returns the instance of the TextAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 24 static
      */
     default contentTransition(transition: ContentTransition | undefined): this;
@@ -787,6 +857,7 @@ export declare interface TextAttribute extends CommonMethod {
      *     Passing `undefined` resets it to the default value.
      * @returns { TextAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 24 static
      */
     default minLines(minLines: int | undefined): this;
@@ -801,6 +872,7 @@ export declare interface TextAttribute extends CommonMethod {
      * @param { LengthMetrics | undefined } value
      * @returns { TextAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 24 static
      */
     default minLineHeight(value: LengthMetrics | undefined): this;
@@ -815,13 +887,14 @@ export declare interface TextAttribute extends CommonMethod {
      * @param { LengthMetrics | undefined } value
      * @returns { TextAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 24 static
      */
     default maxLineHeight(value: LengthMetrics | undefined): this;
 
     /**
      * Set the line height multiple value of text.
-     * 
+     *
      * <p><strong>NOTE</strong>:
      * <br>If the value is set to undefined, this property is set to 0 and has no effect.
      * </p>
@@ -829,16 +902,18 @@ export declare interface TextAttribute extends CommonMethod {
      * @param { double | undefined } value
      * @returns { TextAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 24 static
      */
     default lineHeightMultiple(value: double | undefined): this;
-  
+
     /**
      * Enable selected data detector.
      *
      * @param { boolean | undefined } enable - Whether to enable the selected data detector.
      * @returns { TextAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 24 static
      */
     default enableSelectedDataDetector(enable: boolean | undefined): this;
@@ -847,11 +922,25 @@ export declare interface TextAttribute extends CommonMethod {
      * Sets the attribute modifier.
      *
      * @param { AttributeModifier<TextAttribute> | AttributeModifier<CommonMethod> | undefined } modifier.
-     * @returns { TextAttribute } the attribute of the TextAttribute.
+     * @returns { TextAttribute } returns the instance of the TextAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default attributeModifier(modifier: AttributeModifier<TextAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+
+    /**
+     * Set Text options.
+     *
+     * @param { string | Resource } [content] - Text constructor content.
+     * @param { TextOptions } [value] - Text constructor options.
+     * @returns { TextAttribute } Returns the instance of the TextAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    default setTextOptions(content?: string | Resource, value?: TextOptions): this;
+
     /**
      * Whether to compress punctuation at the beginning of line.
      *
@@ -859,6 +948,7 @@ export declare interface TextAttribute extends CommonMethod {
      *     Passing `undefined` resets it to the default value.
      * @returns { TextAttribute } - returns the instance of the TextAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default compressLeadingPunctuation(enabled: boolean | undefined): this;
@@ -869,6 +959,7 @@ export declare interface TextAttribute extends CommonMethod {
      *     If set undefined will reset the style.
      * @returns { TextAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default selectedDragPreviewStyle(value: SelectedDragPreviewStyle | undefined): this;
@@ -880,6 +971,7 @@ export declare interface TextAttribute extends CommonMethod {
      *     When undefined is set, this property will be reset to TextDirection.DEFAULT.
      * @returns { TextAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default textDirection(direction: TextDirection | undefined): this;
@@ -887,13 +979,51 @@ export declare interface TextAttribute extends CommonMethod {
     /**
      * Whether to avoid an orphan word on the last line of the paragraph.
      *
-     * @param { boolean | undefined } enabled - The default value is false,
-     *     indicates the flag whether to enable this feature.
-     * @returns { TextAttribute } returns the instance of the TextAttribute.
+     * @param { boolean | undefined } enabled - If true, enables the feature; if false, disables it.
+     *     The default value is false.
+     * @returns { TextAttribute } - returns the instance of the TextAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 26.0.0 static
      */
     default orphanCharOptimization(enabled: boolean | undefined): this;
+
+    /**
+     * Set the font variation.
+     *
+     * @param { Array<FontVariation> | undefined } fontVariations - Indicates the text font variation.
+     * @returns { TextAttribute } - returns the instance of the TextAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    default fontVariations(fontVariations: Array<FontVariation> | undefined): this;
+
+    /**
+     * Sets the incremental update policy for text rendering.
+     *
+     * This API takes effect only when Text content contains a StyledString.
+     * Default value is IncrementalUpdatePolicy.NONE.
+     *
+     * @param { IncrementalUpdatePolicy | undefined } policy - Indicates the incremental update policy.
+     *     Passing `undefined` resets it to the default value.
+     * @returns { TextAttribute } returns the instance of the TextAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    default incrementalUpdatePolicy(policy: IncrementalUpdatePolicy | undefined): this;
+
+    /**
+     * Whether to enable punctuation overflow at line ends.
+     *
+     * @param { boolean | undefined } enabled - Whether to enable the feature, the default value is false.
+     *     Passing `undefined` resets it to the default value.
+     * @returns { TextAttribute } returns the instance of the TextAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    default punctuationOverflow(enabled: boolean | undefined): this;
 }
 /**
  * Defines span type.
@@ -909,8 +1039,8 @@ export declare interface TextAttribute extends CommonMethod {
  * </ol>
  * </p>
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare enum TextSpanType {
@@ -918,6 +1048,7 @@ export declare enum TextSpanType {
      * Only contains text.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     TEXT = 0,
@@ -925,6 +1056,7 @@ export declare enum TextSpanType {
      * Only contains image.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     IMAGE = 1,
@@ -932,6 +1064,7 @@ export declare enum TextSpanType {
      * Contains both text and image.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     MIXED = 2,
@@ -941,6 +1074,7 @@ export declare enum TextSpanType {
      * this type will be triggered and displayed for those registered types.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     DEFAULT = 3
@@ -959,8 +1093,8 @@ export declare enum TextSpanType {
  * </ol>
  * </p>
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare enum TextResponseType {
@@ -968,6 +1102,7 @@ export declare enum TextResponseType {
      * Right click.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     RIGHT_CLICK = 0,
@@ -975,6 +1110,7 @@ export declare enum TextResponseType {
      * Long press.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     LONG_PRESS = 1,
@@ -982,6 +1118,7 @@ export declare enum TextResponseType {
      * Selected by mouse.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     SELECT = 2,
@@ -991,6 +1128,7 @@ export declare enum TextResponseType {
      * this type will be triggered and displayed for right-click, long press, and mouse selection actions.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     DEFAULT = 3
@@ -998,8 +1136,8 @@ export declare enum TextResponseType {
 /**
  * Defines marquee state.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare enum MarqueeState {
@@ -1007,6 +1145,7 @@ export declare enum MarqueeState {
      * The marquee started.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     START = 0,
@@ -1014,6 +1153,7 @@ export declare enum MarqueeState {
      * The marquee a round finished and start next round.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     BOUNCE = 1,
@@ -1021,23 +1161,16 @@ export declare enum MarqueeState {
      * The marquee all finished.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
-    FINISH = 2,
-    /**
-     * The marquee is stoped.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 26.0.0 static
-     */
-    STOP = 3
+    FINISH = 2
 }
 /**
  * Defines marquee start policy.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare enum MarqueeStartPolicy {
@@ -1045,6 +1178,7 @@ export declare enum MarqueeStartPolicy {
      * Start marquee in any case. This is the default policy.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     DEFAULT = 0,
@@ -1052,6 +1186,7 @@ export declare enum MarqueeStartPolicy {
      * Start marquee only when get focus.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     ON_FOCUS = 1
@@ -1060,8 +1195,8 @@ export declare enum MarqueeStartPolicy {
 /**
  * Marquee scrolling policy after text update.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare enum MarqueeUpdatePolicy {
@@ -1069,6 +1204,7 @@ export declare enum MarqueeUpdatePolicy {
    * Reset scroll position and restart scroll.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   DEFAULT = 0,
@@ -1077,6 +1213,7 @@ export declare enum MarqueeUpdatePolicy {
    * Preserve scroll position, just change to new text.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   PRESERVE_POSITION = 1
@@ -1085,16 +1222,16 @@ export declare enum MarqueeUpdatePolicy {
 /**
  * Defines the options of Text.
  *
- * @interface TextOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare interface TextOptions {
     /**
      * Text controller.
      *
-     * @type { TextController }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     controller: TextController;
@@ -1102,90 +1239,90 @@ export declare interface TextOptions {
 /**
  * Defines the marquee options.
  *
- * @interface TextMarqueeOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare interface TextMarqueeOptions {
     /**
      * Is need start marquee.
      *
-     * @type { boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     start: boolean;
     /**
      * The step size of the marquee.
      *
-     * @type { ?double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     step?: double;
     /**
      * The spacing between two rounds of marquee.
-     *
      * <p><strong>NOTE</strong>:
      * <br>Default value is 48vp.
      * </p>
      *
-     * @type { ?LengthMetrics }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     spacing?: LengthMetrics;
     /**
      * The rounds of the marquee.
+     * The value should be an integer.
      *
-     * @type { ?int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     loop?: int;
     /**
      * The running direction of the marquee.
      *
-     * @type { ?boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     fromStart?: boolean;
     /**
      * The waiting time between each round of the marquee.
+     * The value should be an integer.
      *
-     * @type { ?int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     delay?: int;
     /**
      * Set whether the text is faded out.
      *
-     * @type { ?boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     fadeout?: boolean;
     /**
      * The start policy for marquee.
      *
-     * @type { ?MarqueeStartPolicy }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     marqueeStartPolicy?: MarqueeStartPolicy;
     /**
      * Marquee scrolling policy after text update.
-     *
      * <p><strong>NOTE</strong>:
      * <br>This attribute takes effect when the marquee is in the playing state
-     *     and the text content width exceeds the width of the marquee component.
-     *     Default value is MarqueeUpdatePolicy.DEFAULT.
+     * and the text content width exceeds the width of the marquee component.
+     * Default value is MarqueeUpdatePolicy.DEFAULT.
      * </p>
      *
-     * @type { ?MarqueeUpdatePolicy }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     marqueeUpdatePolicy?: MarqueeUpdatePolicy;
@@ -1194,6 +1331,7 @@ export declare interface TextMarqueeOptions {
  * Defines the controller of Text.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare class TextController {
@@ -1201,6 +1339,7 @@ export declare class TextController {
      * Close the select menu when menu is on.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     closeSelectionMenu(): void;
@@ -1213,6 +1352,7 @@ export declare class TextController {
      *
      * @param { StyledString } value
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     setStyledString(value: StyledString): void;
@@ -1221,6 +1361,7 @@ export declare class TextController {
      *
      * @returns { LayoutManager | undefined } - Return the LayoutManager.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     getLayoutManager(): LayoutManager | undefined;
@@ -1238,12 +1379,30 @@ export declare class TextController {
      * @param { int | undefined } selectionStart - The start position of the selected text.
      * @param { int | undefined } selectionEnd - The end position of the selected text.
      * @param { SelectionOptions } [options] - Indicates the options of the text selection.
-     * Default value is MenuPolicy.DEFAULT.
+     *     Default value is MenuPolicy.DEFAULT.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     setTextSelection(selectionStart: int | undefined, selectionEnd: int | undefined, options?: SelectionOptions): void;
 }
+
+/**
+ * Defines Text Component.
+ *
+ * @param { CustomBuilderT<TextAttribute> } style - Text attribute instance.
+ * @param { CustomBuilder } [content_] - content.
+ * @returns { TextAttribute }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ * @noninterop
+ */
+@Builder
+export declare function Text(
+    style: CustomBuilderT<TextAttribute>,
+    content_?: CustomBuilder,
+): TextAttribute;
 
 /**
  * Defines Text Component.
@@ -1253,10 +1412,73 @@ export declare class TextController {
  * @param { CustomBuilder } [content_]
  * @returns { TextAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
+ * @noninterop
  */
 @ComponentBuilder
 export declare function Text(
     content?: string | Resource, value?: TextOptions, 
     content_?: CustomBuilder,
-): TextAttribute
+): TextAttribute;
+
+/**
+ * Defines the Extendable Text.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ */
+export declare abstract class ExtendableText implements TextAttribute {
+    /**
+     * Constructor of Extendable Text.
+     *
+     * @param { ConstructorT<T> } factory
+     * @param { string | Resource } [content]
+     * @param { TextOptions } [value]
+     * @param { CustomBuilder } [content_]
+     * @returns { T }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    @ComponentBuilder
+    static $_instantiate<T extends ExtendableText>(
+      factory: ConstructorT<T>, 
+      content?: string | Resource, 
+      value?: TextOptions, 
+      content_?: CustomBuilder
+    ): T;
+
+    /**
+     * Entry of Extendable Text.
+     *
+     * @param { CustomBuilderT<T> } styles
+     * @param { ConstructorT<T> } factory
+     * @param { CustomBuilder } [content_]
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    @Builder
+    static _instantiateImpl<T extends ExtendableText>(
+        styles: CustomBuilderT<T>,  
+        factory: ConstructorT<T>, 
+        content_?: CustomBuilder
+    ): void;
+
+    /**
+     * Set the Text Options.
+     *
+     * @param { string | Resource } [content]
+     * @param { TextOptions } [value]
+     * @returns { ExtendableText }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    public setTextOptions(
+      content?: string | Resource, 
+      value?: TextOptions
+    ): this;
+}

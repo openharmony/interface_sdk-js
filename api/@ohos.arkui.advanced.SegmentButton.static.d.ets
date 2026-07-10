@@ -1,5 +1,5 @@
-'use static';
 
+'use static';
 /*
   * Copyright (c) 2025 Huawei Device Co., Ltd.
   * Licensed under the Apache License, Version 2.0 (the "License");
@@ -21,12 +21,14 @@
  */
 
 import { Callback } from './@ohos.base';
+
 import {
   PropRef,
   ObjectLink,
   Link,
-  Observed,
+  Observed
 } from './@ohos.arkui.stateManagement';
+
 import {
   ResourceStr,
   SizeOptions,
@@ -45,24 +47,26 @@ import {
   LengthMetrics,
   Component,
   BuilderParam,
-  Builder,
+  Builder
 } from './@ohos.arkui.component';
+
 import uiMaterial from './@ohos.arkui.uiMaterial';
 
 /**
  * Defines text only item of SegmentButton.
  *
- * @interface SegmentButtonTextItem
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  * @noninterop
  */
 interface SegmentButtonTextItem {
+
   /**
    * The text of text only item.
    *
-   * @type { ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -71,9 +75,9 @@ interface SegmentButtonTextItem {
   /**
    * The accessibilityLevel of buttonItem.
    *
-   * @type { ?string }
    * @default "auto"
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -82,9 +86,9 @@ interface SegmentButtonTextItem {
   /**
    * The accessibilityDescription of buttonItem.
    *
-   * @type { ?ResourceStr }
    * @default ""
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -94,28 +98,29 @@ interface SegmentButtonTextItem {
 /**
  * Defines icon only item of SegmentButton.
  *
- * @interface SegmentButtonIconItem
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  * @noninterop
  */
 interface SegmentButtonIconItem {
+
   /**
-  * The icon of icon only item.
-  *
-  * @type { ResourceStr }
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @since 23 static
-  * @noninterop
-  */
+   * The icon of icon only item.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   * @noninterop
+   */
   icon: ResourceStr;
 
   /**
    * The accessibilityText of icon.
    *
-   * @type { ?ResourceStr }
    * @default ""
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -124,8 +129,8 @@ interface SegmentButtonIconItem {
   /**
    * The icon of icon only item in the selected state.
    *
-   * @type { ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -134,9 +139,9 @@ interface SegmentButtonIconItem {
   /**
    * The accessibilityText of selectedIcon.
    *
-   * @type { ?ResourceStr }
    * @default ""
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -145,9 +150,9 @@ interface SegmentButtonIconItem {
   /**
    * The accessibilityLevel of buttonItem.
    *
-   * @type { ?string }
    * @default "auto"
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -156,9 +161,9 @@ interface SegmentButtonIconItem {
   /**
    * The accessibilityDescription of buttonItem.
    *
-   * @type { ?ResourceStr }
    * @default ""
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -168,17 +173,18 @@ interface SegmentButtonIconItem {
 /**
  * Defines icon and text item of SegmentButton.
  *
- * @interface SegmentButtonIconTextItem
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  * @noninterop
  */
 interface SegmentButtonIconTextItem {
+
   /**
    * The icon of icon and text item.
    *
-   * @type { ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -187,9 +193,9 @@ interface SegmentButtonIconTextItem {
   /**
    * The accessibilityText of icon.
    *
-   * @type { ?ResourceStr }
    * @default ""
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -198,8 +204,8 @@ interface SegmentButtonIconTextItem {
   /**
    * The icon of icon and text item in the selected state.
    *
-   * @type { ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -208,9 +214,9 @@ interface SegmentButtonIconTextItem {
   /**
    * The accessibilityText of selectedIcon.
    *
-   * @type { ?ResourceStr }
    * @default ""
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -219,8 +225,8 @@ interface SegmentButtonIconTextItem {
   /**
    * The text of icon and text item.
    *
-   * @type { ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -229,9 +235,9 @@ interface SegmentButtonIconTextItem {
   /**
    * The accessibilityLevel of buttonItem.
    *
-   * @type { ?string }
    * @default "auto"
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -240,9 +246,9 @@ interface SegmentButtonIconTextItem {
   /**
    * The accessibilityDescription of buttonItem.
    *
-   * @type { ?ResourceStr }
    * @default ""
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -252,8 +258,13 @@ interface SegmentButtonIconTextItem {
 /**
  * Defines the DimensionNoPercentage type.
  *
- * @typedef { PX | VP | FP | LPX | Resource }
+ * @unionmember { PX }
+ * @unionmember { VP }
+ * @unionmember { FP }
+ * @unionmember { LPX }
+ * @unionmember { Resource }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  * @noninterop
  */
@@ -262,15 +273,18 @@ declare type DimensionNoPercentage = PX | VP | FP | LPX | Resource;
 /**
  * Defines the BorderRadiusMode type.
  *
- * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  * @noninterop
  */
 declare enum BorderRadiusMode {
+
   /**
    * Default mode, radius is auto calculated by framework.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -278,7 +292,9 @@ declare enum BorderRadiusMode {
 
   /**
    * Custom mode, radius can be set by developers.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -288,17 +304,18 @@ declare enum BorderRadiusMode {
 /**
  * Defines SegmentButton common options.
  *
- * @interface CommonSegmentButtonOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  * @noninterop
  */
 interface CommonSegmentButtonOptions {
+
   /**
    * The font color of buttons.
    *
-   * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -307,8 +324,8 @@ interface CommonSegmentButtonOptions {
   /**
    * The font color of selected button.
    *
-   * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -317,9 +334,9 @@ interface CommonSegmentButtonOptions {
   /**
    * The font size of buttons.
    *
-   * @type { ?DimensionNoPercentage }
    * @default $r('sys.float.ohos_id_text_size_body2')
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -328,9 +345,9 @@ interface CommonSegmentButtonOptions {
   /**
    * The font size of selected button.
    *
-   * @type { ?DimensionNoPercentage }
    * @default $r('sys.float.ohos_id_text_size_body2')
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -339,9 +356,9 @@ interface CommonSegmentButtonOptions {
   /**
    * The font weight of buttons.
    *
-   * @type { ?FontWeight }
    * @default FontWeight.Regular
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -350,9 +367,9 @@ interface CommonSegmentButtonOptions {
   /**
    * The font weight of selected button.
    *
-   * @type { ?FontWeight }
    * @default FontWeight.Medium
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -361,9 +378,9 @@ interface CommonSegmentButtonOptions {
   /**
    * The background color of SegmentButton.
    *
-   * @type { ?ResourceColor }
    * @default $r('sys.color.ohos_id_color_button_normal')
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -372,8 +389,8 @@ interface CommonSegmentButtonOptions {
   /**
    * The background color of selected button.
    *
-   * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -382,9 +399,9 @@ interface CommonSegmentButtonOptions {
   /**
    * The image size of buttons.
    *
-   * @type { ?SizeOptions }
    * @default SizeOptions { width: 24, height: 24 }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -393,10 +410,10 @@ interface CommonSegmentButtonOptions {
   /**
    * The padding of buttons.
    *
-   * @type { ?(Padding | Dimension) }
    * @default For text only / icon only buttons Padding { top: 4, right: 8, bottom: 4, left: 8 }.
-   *          For text & icon buttons Padding { top: 6, right: 8, bottom: 6, left: 8 }.
+   *     For text & icon buttons Padding { top: 6, right: 8, bottom: 6, left: 8 }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -405,12 +422,14 @@ interface CommonSegmentButtonOptions {
   /**
    * The localized padding of buttons.
    *
-   * @type { ?LocalizedPadding }
    * @default For text only / icon only buttons LocalizedPadding
-   *     { top: LengthMetrics.vp(4), end: LengthMetrics.vp(8), bottom: LengthMetrics.vp(4), start: LengthMetrics.vp(8) }.
+   *     { top: LengthMetrics.vp(4), end: LengthMetrics.vp(8), bottom: LengthMetrics.vp(4),
+   *     start: LengthMetrics.vp(8) }.
    *     For text & icon buttons LocalizedPadding
-   *     { top: LengthMetrics.vp(6), end: LengthMetrics.vp(8), bottom: LengthMetrics.vp(6), start: LengthMetrics.vp(8) }.
+   *     { top: LengthMetrics.vp(6), end: LengthMetrics.vp(8), bottom: LengthMetrics.vp(6),
+   *     start: LengthMetrics.vp(8) }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -419,10 +438,9 @@ interface CommonSegmentButtonOptions {
   /**
    * The padding of text in button.
    *
-   * @type { ?(Padding | Dimension) }
-
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -431,8 +449,8 @@ interface CommonSegmentButtonOptions {
   /**
    * The localized padding of text in button.
    *
-   * @type { ?LocalizedPadding }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -441,8 +459,8 @@ interface CommonSegmentButtonOptions {
   /**
    * The blurStyle of background.
    *
-   * @type { ?BlurStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -451,8 +469,8 @@ interface CommonSegmentButtonOptions {
   /**
    * Indicates the attribute of the current segment button direction.
    *
-   * @type { ?Direction }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -461,9 +479,9 @@ interface CommonSegmentButtonOptions {
   /**
    * The border radius mode of SegmentButton.
    *
-   * @type { ?BorderRadiusMode }
    * @default BorderRadiusMode.Default
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -473,8 +491,8 @@ interface CommonSegmentButtonOptions {
    * The background border radius of SegmentButton.
    * Only takes effect when borderRadiusMode is set to BorderRadiusMode.Custom.
    *
-   * @type { ?LengthMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -484,8 +502,8 @@ interface CommonSegmentButtonOptions {
    * The border radius of selected item in SegmentButton.
    * Only takes effect when borderRadiusMode is set to BorderRadiusMode.Custom.
    *
-   * @type { ?LengthMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -495,9 +513,10 @@ interface CommonSegmentButtonOptions {
    * Set system-styled materials for the component. Different materials have different effects, which can influence
    * the backgroundColor, border, shadow, and other visual attributes of the component.
    *
-   * @type { ?uiMaterial.Material } material - System-styled material. 
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
+   * @type { ?uiMaterial.Material } material - System-styled material. [since 23 - 24]
+   * @syscap SystemCapability.ArkUI.ArkUI.Full [since 23]
+   * @systemapi [since 23 - 24]
+   * @publicapi [since 26.0.0]
    * @stagemodelonly
    * @since 23 static
    */
@@ -507,8 +526,8 @@ interface CommonSegmentButtonOptions {
 /**
  * Defines the ItemRestriction type.
  *
- * @typedef { Array<T> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  * @noninterop
  */
@@ -517,12 +536,14 @@ declare type ItemRestriction<T> = Array<T>;
 /**
  * Defines the SegmentButtonItemTuple type.
  *
- * @typedef { ItemRestriction<SegmentButtonTextItem> | ItemRestriction<SegmentButtonIconItem> | ItemRestriction<SegmentButtonIconTextItem> }
+ * @unionmember { ItemRestriction<SegmentButtonTextItem> }
+ * @unionmember { ItemRestriction<SegmentButtonIconItem> }
+ * @unionmember { ItemRestriction<SegmentButtonIconTextItem> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  * @noninterop
  */
-
 declare type SegmentButtonItemTuple =
   ItemRestriction<SegmentButtonTextItem> |
   ItemRestriction<SegmentButtonIconItem> |
@@ -531,18 +552,18 @@ declare type SegmentButtonItemTuple =
 /**
  * Defines SegmentButton tab options.
  *
- * @extends CommonSegmentButtonOptions
- * @interface TabSegmentButtonConstructionOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  * @noninterop
  */
 interface TabSegmentButtonConstructionOptions extends CommonSegmentButtonOptions {
+
   /**
    * The items of tab type of SegmentButton.
    *
-   * @type { ItemRestriction<SegmentButtonTextItem> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -552,18 +573,18 @@ interface TabSegmentButtonConstructionOptions extends CommonSegmentButtonOptions
 /**
  * Defines SegmentButton capsule options.
  *
- * @extends CommonSegmentButtonOptions
- * @interface CapsuleSegmentButtonConstructionOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  * @noninterop
  */
 interface CapsuleSegmentButtonConstructionOptions extends CommonSegmentButtonOptions {
+
   /**
    * The items of capsule type of SegmentButton.
    *
-   * @type { SegmentButtonItemTuple }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -572,9 +593,9 @@ interface CapsuleSegmentButtonConstructionOptions extends CommonSegmentButtonOpt
   /**
    * Support multiple selections flag.
    *
-   * @type { ?boolean }
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -584,18 +605,18 @@ interface CapsuleSegmentButtonConstructionOptions extends CommonSegmentButtonOpt
 /**
  * Defines the type of SegmentButton options of tab type.
  *
- * @extends TabSegmentButtonConstructionOptions
- * @interface TabSegmentButtonOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  * @noninterop
  */
 interface TabSegmentButtonOptions extends TabSegmentButtonConstructionOptions {
+
   /**
    * The type of SegmentButton.
    *
-   * @type { "tab" }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -605,18 +626,18 @@ interface TabSegmentButtonOptions extends TabSegmentButtonConstructionOptions {
 /**
  * Defines the type of SegmentButton options of capsule type.
  *
- * @extends CapsuleSegmentButtonConstructionOptions
- * @interface CapsuleSegmentButtonOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  * @noninterop
  */
 interface CapsuleSegmentButtonOptions extends CapsuleSegmentButtonConstructionOptions {
+
   /**
    * The type of SegmentButton.
    *
-   * @type { "capsule" }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -626,17 +647,18 @@ interface CapsuleSegmentButtonOptions extends CapsuleSegmentButtonConstructionOp
 /**
  * Construct parameter types for SegmentButtonItemOptions.
  *
- * @interface SegmentButtonItemOptionsConstructorOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  * @noninterop
  */
 interface SegmentButtonItemOptionsConstructorOptions {
+
   /**
    * The icon of icon and text item.
    *
-   * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -645,9 +667,9 @@ interface SegmentButtonItemOptionsConstructorOptions {
   /**
    * The accessibilityText of icon.
    *
-   * @type { ?ResourceStr }
    * @default ""
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -656,8 +678,8 @@ interface SegmentButtonItemOptionsConstructorOptions {
   /**
    * The icon of icon and text item in the selected state.
    *
-   * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -666,30 +688,30 @@ interface SegmentButtonItemOptionsConstructorOptions {
   /**
    * The accessibilityText of selectedIcon.
    *
-   * @type { ?ResourceStr }
    * @default ""
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
   selectedIconAccessibilityText?: ResourceStr;
 
   /**
-  * The text of icon and text item.
-  *
-  * @type { ?ResourceStr }
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @since 23 static
-  * @noninterop
-  */
+   * The text of icon and text item.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   * @noninterop
+   */
   text?: ResourceStr;
 
   /**
    * The accessibilityLevel of buttonItem.
    *
-   * @type { ?string }
    * @default "auto"
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -698,9 +720,9 @@ interface SegmentButtonItemOptionsConstructorOptions {
   /**
    * The accessibilityDescription of buttonItem.
    *
-   * @type { ?ResourceStr }
    * @default ""
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -711,16 +733,18 @@ interface SegmentButtonItemOptionsConstructorOptions {
  * The options for SegmentButton items.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  * @noninterop
  */
 @Observed
 declare class SegmentButtonItemOptions {
+
   /**
    * The icon of item.
    *
-   * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -729,9 +753,9 @@ declare class SegmentButtonItemOptions {
   /**
    * The accessibilityText of icon.
    *
-   * @type { ?ResourceStr }
    * @default ""
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -740,8 +764,8 @@ declare class SegmentButtonItemOptions {
   /**
    * The icon of selected item.
    *
-   * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -750,9 +774,9 @@ declare class SegmentButtonItemOptions {
   /**
    * The accessibilityText of selectedIcon.
    *
-   * @type { ?ResourceStr }
    * @default ""
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -761,8 +785,8 @@ declare class SegmentButtonItemOptions {
   /**
    * The text of item.
    *
-   * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -771,9 +795,9 @@ declare class SegmentButtonItemOptions {
   /**
    * The accessibilityLevel of buttonItem.
    *
-   * @type { ?string }
    * @default "auto"
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -782,9 +806,9 @@ declare class SegmentButtonItemOptions {
   /**
    * The accessibilityDescription of buttonItem.
    *
-   * @type { ?ResourceStr }
    * @default ""
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -795,6 +819,7 @@ declare class SegmentButtonItemOptions {
    *
    * @param { SegmentButtonItemOptionsConstructorOptions } options - item info.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -804,18 +829,20 @@ declare class SegmentButtonItemOptions {
 /**
  * The class for SegmentButton item options array.
  *
- * @extends Array<SegmentButtonItemOptions>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  * @noninterop
  */
 @Observed
 declare class SegmentButtonItemOptionsArray extends Array<SegmentButtonItemOptions> {
+
   /**
    * The constructor used to create a SegmentButtonItemOptionsArray object.
    *
    * @param { SegmentButtonItemTuple } elements - The SegmentButton items.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -824,9 +851,11 @@ declare class SegmentButtonItemOptionsArray extends Array<SegmentButtonItemOptio
   /**
    * Appends new elements to the end of SegmentButtonItemOptionsArray.
    *
-   * @param { SegmentButtonTextItem | SegmentButtonIconItem | SegmentButtonIconTextItem } item - New element to add to SegmentButtonItemOptionsArray.
+   * @param { SegmentButtonTextItem | SegmentButtonIconItem | SegmentButtonIconTextItem } item - New element to add to
+   *     SegmentButtonItemOptionsArray.
    * @returns { int } Returns the new length of SegmentButtonItemOptionsArray.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -835,10 +864,13 @@ declare class SegmentButtonItemOptionsArray extends Array<SegmentButtonItemOptio
   /**
    * Appends new elements to the end of SegmentButtonItemOptionsArray.
    *
-   * @param { SegmentButtonTextItem | SegmentButtonIconItem | SegmentButtonIconTextItem } item1 - New element to add to SegmentButtonItemOptionsArray.
-   * @param { SegmentButtonTextItem | SegmentButtonIconItem | SegmentButtonIconTextItem } item2 - New element to add to SegmentButtonItemOptionsArray.
+   * @param { SegmentButtonTextItem | SegmentButtonIconItem | SegmentButtonIconTextItem } item1 - New element to add to
+   *     SegmentButtonItemOptionsArray.
+   * @param { SegmentButtonTextItem | SegmentButtonIconItem | SegmentButtonIconTextItem } item2 - New element to add to
+   *     SegmentButtonItemOptionsArray.
    * @returns { int } Returns the new length of SegmentButtonItemOptionsArray.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -850,11 +882,15 @@ declare class SegmentButtonItemOptionsArray extends Array<SegmentButtonItemOptio
   /**
    * Appends new elements to the end of SegmentButtonItemOptionsArray.
    *
-   * @param { SegmentButtonTextItem | SegmentButtonIconItem | SegmentButtonIconTextItem } item1 - New element to add to SegmentButtonItemOptionsArray.
-   * @param { SegmentButtonTextItem | SegmentButtonIconItem | SegmentButtonIconTextItem } item2 - New element to add to SegmentButtonItemOptionsArray.
-   * @param { SegmentButtonTextItem | SegmentButtonIconItem | SegmentButtonIconTextItem } item3 - New element to add to SegmentButtonItemOptionsArray.
+   * @param { SegmentButtonTextItem | SegmentButtonIconItem | SegmentButtonIconTextItem } item1 - New element to add to
+   *     SegmentButtonItemOptionsArray.
+   * @param { SegmentButtonTextItem | SegmentButtonIconItem | SegmentButtonIconTextItem } item2 - New element to add to
+   *     SegmentButtonItemOptionsArray.
+   * @param { SegmentButtonTextItem | SegmentButtonIconItem | SegmentButtonIconTextItem } item3 - New element to add to
+   *     SegmentButtonItemOptionsArray.
    * @returns { int } Returns the new length of SegmentButtonItemOptionsArray.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -869,6 +905,7 @@ declare class SegmentButtonItemOptionsArray extends Array<SegmentButtonItemOptio
    *
    * @returns { SegmentButtonItemOptions | undefined } Returns the removed element.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -879,6 +916,7 @@ declare class SegmentButtonItemOptionsArray extends Array<SegmentButtonItemOptio
    *
    * @returns { SegmentButtonItemOptions | undefined } Returns the removed element.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -887,9 +925,11 @@ declare class SegmentButtonItemOptionsArray extends Array<SegmentButtonItemOptio
   /**
    * Appends new elements to the start of SegmentButtonItemOptionsArray.
    *
-   * @param { SegmentButtonTextItem | SegmentButtonIconItem | SegmentButtonIconTextItem } item - New element to add to SegmentButtonItemOptionsArray.
+   * @param { SegmentButtonTextItem | SegmentButtonIconItem | SegmentButtonIconTextItem } item - New element to add to
+   *     SegmentButtonItemOptionsArray.
    * @returns { int } Returns the new length of SegmentButtonItemOptionsArray.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -898,10 +938,13 @@ declare class SegmentButtonItemOptionsArray extends Array<SegmentButtonItemOptio
   /**
    * Appends new elements to the start of SegmentButtonItemOptionsArray.
    *
-   * @param { SegmentButtonTextItem | SegmentButtonIconItem | SegmentButtonIconTextItem } item1 - New element to add to SegmentButtonItemOptionsArray.
-   * @param { SegmentButtonTextItem | SegmentButtonIconItem | SegmentButtonIconTextItem } item2 - New element to add to SegmentButtonItemOptionsArray.
+   * @param { SegmentButtonTextItem | SegmentButtonIconItem | SegmentButtonIconTextItem } item1 - New element to add to
+   *     SegmentButtonItemOptionsArray.
+   * @param { SegmentButtonTextItem | SegmentButtonIconItem | SegmentButtonIconTextItem } item2 - New element to add to
+   *     SegmentButtonItemOptionsArray.
    * @returns { int } Returns the new length of SegmentButtonItemOptionsArray.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -914,11 +957,15 @@ declare class SegmentButtonItemOptionsArray extends Array<SegmentButtonItemOptio
   /**
    * Appends new elements to the start of SegmentButtonItemOptionsArray.
    *
-   * @param { SegmentButtonTextItem | SegmentButtonIconItem | SegmentButtonIconTextItem } item1 - New element to add to SegmentButtonItemOptionsArray.
-   * @param { SegmentButtonTextItem | SegmentButtonIconItem | SegmentButtonIconTextItem } item2 - New element to add to SegmentButtonItemOptionsArray.
-   * @param { SegmentButtonTextItem | SegmentButtonIconItem | SegmentButtonIconTextItem } item3 - New element to add to SegmentButtonItemOptionsArray.
+   * @param { SegmentButtonTextItem | SegmentButtonIconItem | SegmentButtonIconTextItem } item1 - New element to add to
+   *     SegmentButtonItemOptionsArray.
+   * @param { SegmentButtonTextItem | SegmentButtonIconItem | SegmentButtonIconTextItem } item2 - New element to add to
+   *     SegmentButtonItemOptionsArray.
+   * @param { SegmentButtonTextItem | SegmentButtonIconItem | SegmentButtonIconTextItem } item3 - New element to add to
+   *     SegmentButtonItemOptionsArray.
    * @returns { int } Returns the new length of SegmentButtonItemOptionsArray.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -929,13 +976,17 @@ declare class SegmentButtonItemOptionsArray extends Array<SegmentButtonItemOptio
   ): int;
 
   /**
-   * Changes the elements of SegmentButtonItemOptionsArray by removing or replacing existing elements and/or adding new elements in place.
+   * Changes the elements of SegmentButtonItemOptionsArray by removing or replacing existing elements and/or adding new
+   * elements in place.
    *
    * @param { int } start - The zero-based location in the array from which to start removing elements.
+   *     <br>The value should be an integer.
    * @param { int } deleteCount - The number of elements to remove.
+   *     <br>The value should be an integer.
    * @param { SegmentButtonItemOptions[] } items - Elements to insert into the array in place of the deleted elements.
    * @returns { SegmentButtonItemOptions[] } Returns a SegmentButtonItemOptions array containing the deleted elements.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -946,8 +997,8 @@ declare class SegmentButtonItemOptionsArray extends Array<SegmentButtonItemOptio
    *
    * @param { SegmentButtonItemTuple } elements - The SegmentButton items.
    * @returns { SegmentButtonItemOptionsArray } Returns the a new SegmentButtonItemOptionsArray object.
-   * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -955,19 +1006,21 @@ declare class SegmentButtonItemOptionsArray extends Array<SegmentButtonItemOptio
 }
 
 /**
-* The class for SegmentButton options.
-*
-* @syscap SystemCapability.ArkUI.ArkUI.Full
-* @since 23 static
-* @noninterop
-*/
+ * The class for SegmentButton options.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 23 static
+ * @noninterop
+ */
 @Observed
 declare class SegmentButtonOptions {
+
   /**
    * The type of SegmentButton.
    *
-   * @type { "tab" | "capsule" }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -976,8 +1029,8 @@ declare class SegmentButtonOptions {
   /**
    * The support multiple selections flag of SegmentButton.
    *
-   * @type { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -986,8 +1039,8 @@ declare class SegmentButtonOptions {
   /**
    * The buttons information of SegmentButton.
    *
-   * @type { SegmentButtonOptionsArray }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -996,8 +1049,8 @@ declare class SegmentButtonOptions {
   /**
    * The font color of buttons.
    *
-   * @type { ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -1006,8 +1059,8 @@ declare class SegmentButtonOptions {
   /**
    * The font color of selected button.
    *
-   * @type { ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -1016,8 +1069,8 @@ declare class SegmentButtonOptions {
   /**
    * The font size of buttons.
    *
-   * @type { DimensionNoPercentage }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -1026,8 +1079,8 @@ declare class SegmentButtonOptions {
   /**
    * The font size of selected button.
    *
-   * @type { DimensionNoPercentage }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -1036,8 +1089,8 @@ declare class SegmentButtonOptions {
   /**
    * The font weight of buttons.
    *
-   * @type { FontWeight }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -1046,48 +1099,48 @@ declare class SegmentButtonOptions {
   /**
    * The font weight of selected button.
    *
-   * @type { FontWeight }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
   selectedFontWeight: FontWeight;
 
   /**
-  * The background color of SegmentButton.
-  *
-  * @type { ResourceColor }
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @since 23 static
-  * @noninterop
-  */
+   * The background color of SegmentButton.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   * @noninterop
+   */
   backgroundColor: ResourceColor;
 
   /**
    * The background color of selected button.
    *
-   * @type { ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
   selectedBackgroundColor: ResourceColor;
 
   /**
-  * The image size of buttons.
-  *
-  * @type { SizeOptions }
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @since 23 static
-  * @noninterop
-  */
+   * The image size of buttons.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   * @noninterop
+   */
   imageSize: SizeOptions;
 
   /**
    * The padding of buttons.
    *
-   * @type { Padding | Dimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -1096,8 +1149,8 @@ declare class SegmentButtonOptions {
   /**
    * The localized padding of buttons.
    *
-   * @type { ?LocalizedPadding }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -1106,8 +1159,8 @@ declare class SegmentButtonOptions {
   /**
    * The padding of text in button.
    *
-   * @type { Padding | Dimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -1116,8 +1169,8 @@ declare class SegmentButtonOptions {
   /**
    * The localized padding of text in button.
    *
-   * @type { ?LocalizedPadding }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -1126,8 +1179,8 @@ declare class SegmentButtonOptions {
   /**
    * The blurStyle of background.
    *
-   * @type { BlurStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -1137,12 +1190,10 @@ declare class SegmentButtonOptions {
    * Set system-styled materials for the component. Different materials have different effects, which can influence
    * the backgroundColor, border, shadow, and other visual attributes of the component.
    *
-   * Device Behavior Differences:The effect of the same material may vary across different devices depending on
-   * their computing power.
-   *
-   * @type { ?uiMaterial.Material } material - System-styled material. 
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
+   * @type { ?uiMaterial.Material } material - System-styled material. [since 23 - 24]
+   * @syscap SystemCapability.ArkUI.ArkUI.Full [since 23]
+   * @systemapi [since 23 - 24]
+   * @publicapi [since 26.0.0]
    * @stagemodelonly
    * @since 23 static
    */
@@ -1153,6 +1204,7 @@ declare class SegmentButtonOptions {
    *
    * @param { TabSegmentButtonOptions | CapsuleSegmentButtonOptions } options - The options of SegmentButton.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -1163,8 +1215,8 @@ declare class SegmentButtonOptions {
    *
    * @param { TabSegmentButtonConstructionOptions } options - The options of SegmentButton.
    * @returns { SegmentButtonOptions } Returns the a new SegmentButtonOptions object of tab type.
-   * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -1175,8 +1227,8 @@ declare class SegmentButtonOptions {
    *
    * @param { CapsuleSegmentButtonConstructionOptions } options - The options of SegmentButton.
    * @returns { SegmentButtonOptions } Returns the a new SegmentButtonOptions object of capsule type.
-   * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -1185,8 +1237,8 @@ declare class SegmentButtonOptions {
   /**
    * Indicates the attribute of the current segment button direction.
    *
-   * @type { ?Direction }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -1195,9 +1247,9 @@ declare class SegmentButtonOptions {
   /**
    * The border radius mode of SegmentButton.
    *
-   * @type { ?BorderRadiusMode }
    * @default BorderRadiusMode.Default
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -1207,8 +1259,8 @@ declare class SegmentButtonOptions {
    * The background border radius of SegmentButton.
    * Only takes effect when borderRadiusMode is set to BorderRadiusMode.Custom.
    *
-   * @type { ?LengthMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -1218,8 +1270,8 @@ declare class SegmentButtonOptions {
    * The border radius of selected item in SegmentButton.
    * Only takes effect when borderRadiusMode is set to BorderRadiusMode.Custom.
    *
-   * @type { ?LengthMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -1227,20 +1279,21 @@ declare class SegmentButtonOptions {
 }
 
 /**
-* Declare Component SegmentButton
-*
-* @struct { SegmentButton }
-* @syscap SystemCapability.ArkUI.ArkUI.Full
-* @since 23 static
-* @noninterop
-*/
+ * Declare Component SegmentButton
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 23 static
+ * @noninterop
+ */
 @Component
 declare struct SegmentButton {
+
   /**
    * The options of SegmentButton.
    *
-   * @type { SegmentButtonOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -1250,8 +1303,8 @@ declare struct SegmentButton {
   /**
    * The selectedIndex.
    *
-   * @type { int[] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -1260,8 +1313,9 @@ declare struct SegmentButton {
 
   /**
    * The max font scale of the segmented button option text.
-   * @type { double | Resource }
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -1271,24 +1325,26 @@ declare struct SegmentButton {
   /**
    * The click event callback will be triggered when a option button of SegmentButton is clicked.
    *
-   * @type { ?Callback<int> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
   onItemClicked?: Callback<int>;
-  
+
   /**
    * The method to build component.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 staticonly
    */
-  @Builder build(): void;
+  @Builder
+  build(): void;
 
   /**
    * Enable animation when selectedIndexes change.
    *
-   * @type { boolean }
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1316,4 +1372,4 @@ export {
   SegmentButtonItemOptionsConstructorOptions,
   SegmentButtonItemOptions,
   BorderRadiusMode
-};
+}

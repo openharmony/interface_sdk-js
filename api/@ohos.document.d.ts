@@ -15,30 +15,30 @@
 
 /**
  * @file
+ * @kit API10LessDeprecatedModules
  */
 
 import { AsyncCallback } from './@ohos.base';
 
-export default document;
-
 /**
  * document
  *
- * @namespace document
  * @syscap SystemCapability.FileManagement.UserFileService
  * @since 6
  * @deprecated since 9
  */
 declare namespace document {
+
   export { choose };
+
   export { show };
 }
 
 /**
- * choose.
+ * Chooses files of the specified types. This API uses a promise to return the result.
  *
- * @param { string[] } types - type.
- * @returns { Promise<string> } return Promise
+ * @param { string[] } types - Types of the files to choose.
+ * @returns { Promise<string> } Promise used to return the result. An error code is returned.
  * @throws { TypedError } Parameter check failed
  * @syscap SystemCapability.FileManagement.UserFileService
  * @since 6
@@ -47,9 +47,9 @@ declare namespace document {
 declare function choose(types?: string[]): Promise<string>;
 
 /**
- * choose.
+ * Chooses a file. This API uses an asynchronous callback to return the result.
  *
- * @param { AsyncCallback<string> } [callback] - callback.
+ * @param { AsyncCallback<string> } [callback] - Callback used to return the result. An error code is returned.
  * @throws { TypedError } Parameter check failed
  * @syscap SystemCapability.FileManagement.UserFileService
  * @since 6
@@ -58,10 +58,10 @@ declare function choose(types?: string[]): Promise<string>;
 declare function choose(callback: AsyncCallback<string>): void;
 
 /**
- * choose.
+ * Chooses files of the specified types. This API uses an asynchronous callback to return the result.
  *
- * @param { string[] } types - type.
- * @param { AsyncCallback<string> } [callback] - callback.
+ * @param { string[] } types - Types of the files to choose.
+ * @param { AsyncCallback<string> } [callback] - Callback used to return the result. An error code is returned.
  * @throws { TypedError } Parameter check failed
  * @syscap SystemCapability.FileManagement.UserFileService
  * @since 6
@@ -70,11 +70,11 @@ declare function choose(callback: AsyncCallback<string>): void;
 declare function choose(types: string[], callback: AsyncCallback<string>): void;
 
 /**
- * show.
+ * Opens a file. This API uses a promise to return the result.
  *
- * @param { string } uri - uri.
- * @param { string } type - type.
- * @returns { Promise<void> } return Promise
+ * @param { string } uri - URI of the file to open.
+ * @param { string } type - Type of the file to open.
+ * @returns { Promise<void> } Promise used to return the result. An error code is returned.
  * @throws { TypedError } Parameter check failed
  * @syscap SystemCapability.FileManagement.UserFileService
  * @since 6
@@ -83,14 +83,16 @@ declare function choose(types: string[], callback: AsyncCallback<string>): void;
 declare function show(uri: string, type: string): Promise<void>;
 
 /**
- * show.
+ * Opens a file. This API uses an asynchronous callback to return the result.
  *
- * @param { string } uri - uri.
- * @param { string } type - type.
- * @param { AsyncCallback<void> } [callback] - callback.
+ * @param { string } uri - URI of the file to open.
+ * @param { string } type - Type of the file to open.
+ * @param { AsyncCallback<void> } [callback] - Callback used to return the result. An error code is returned.
  * @throws { TypedError } Parameter check failed
  * @syscap SystemCapability.FileManagement.UserFileService
  * @since 6
  * @deprecated since 9
  */
 declare function show(uri: string, type: string, callback: AsyncCallback<void>): void;
+
+export default document;

@@ -18,453 +18,244 @@
  * @kit ArkUI
  */
 
-
-
 import type { AsyncCallback, BusinessError, Callback } from './@ohos.base';
 import type unifiedDataChannel from './@ohos.data.unifiedDataChannel';
 
 /**
- * This module allows developers to trigger a drag event.
- * @namespace dragController
+ * This module provides APIs for initiating drag actions. When receiving a gesture event, such as a touch or long-press
+ * event, an application can initiate a drag action and carry drag information therein.
+ *
+ * > **NOTE**
+ * >
+ * > - The functionality of this module depends on UI context. This means that the APIs of this module cannot be used
+ * > where [the UI context is ambiguous](docroot://ui/arkts-global-interface.md#ambiguous-ui-context). For details, see
+ * > [UIContext]{@link @ohos.arkui.UIContext}.
+ * >
+ * > - You can preview how this component looks on a real device, but not in DevEco Studio Previewer.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 10
- */
-/**
- * This module allows developers to trigger a drag event.
- * @namespace dragController
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 12
- */
-/**
- * This module allows developers to trigger a drag event.
- * @namespace dragController
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 18 dynamic
+ * @stagemodelonly
+ * @crossplatform [since 18]
+ * @atomicservice [since 12]
+ * @since 10 dynamic
  */
 declare namespace dragController {
+
   /**
-   * Defines the Drag Status.
+   * Describes the dragging start and end states.
    *
-   * @enum { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 11
-   */
-  /**
-   * Defines the Drag Status.
-   *
-   * @enum { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Defines the Drag Status.
-   *
-   * @enum { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @stagemodelonly
+   * @crossplatform [since 18]
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   const enum DragStatus {
+
     /**
-     * Drag has started.
+     * Dragging is started.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 11
-     */
-    /**
-     * Drag has started.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
-     * @since 12
-     */
-    /**
-     * Drag has started.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 18 dynamic
+     * @stagemodelonly
+     * @crossplatform [since 18]
+     * @atomicservice [since 12]
+     * @since 11 dynamic
      */
     STARTED = 0,
+
     /**
-     * Drag has ended.
+     * Dragging ends.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 11
+     * @stagemodelonly
+     * @crossplatform [since 18]
+     * @atomicservice [since 12]
+     * @since 11 dynamic
      */
-    /**
-     * Drag has ended.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
-     * @since 12
-     */
-    /**
-     * Drag has ended.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 18 dynamic
-     */
-    ENDED = 1,
+    ENDED = 1
   }
 
   /**
-   * Drag and drop information
+   * Provides the data reported when the state changes during dragging.
    *
-   * @interface DragAndDropInfo
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 11
-   */
-  /**
-   * Drag and drop information
-   *
-   * @interface DragAndDropInfo
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Drag and drop information
-   *
-   * @interface DragAndDropInfo
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @stagemodelonly
+   * @crossplatform [since 18]
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   interface DragAndDropInfo {
+
     /**
-     * The drag status.
-     * @type { DragStatus }
+     * Current dragging state (started or ended).
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 11
-     */
-    /**
-     * The drag status.
-     * @type { DragStatus }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
-     * @since 12
-     */
-    /**
-     * The drag status.
-     * @type { DragStatus }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 18 dynamic
+     * @stagemodelonly
+     * @crossplatform [since 18]
+     * @atomicservice [since 12]
+     * @since 11 dynamic
      */
     status: DragStatus;
+
     /**
-     * The information containing the drag event.
-     * @type { DragEvent }
+     * Drag event corresponding to the current state. The drag event initiated by **dragController** only supports the
+     * APIs for obtaining the result and behavior, and is used exclusively for the dragging end state.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 11
-     */
-    /**
-     * The information containing the drag event.
-     * @type { DragEvent }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
-     * @since 12
-     */
-    /**
-     * The information containing the drag event.
-     * @type { DragEvent }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 18 dynamic
+     * @stagemodelonly
+     * @crossplatform [since 18]
+     * @atomicservice [since 12]
+     * @since 11 dynamic
      */
     event: DragEvent;
+
     /**
-     * Additional information about the drag info.
-     * @type { ?string }
+     * Additional information about the drag action. Not supported currently. The default value is null.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 11
-     */
-    /**
-     * Additional information about the drag info.
-     * @type { ?string }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
-     * @since 12
-     */
-    /**
-     * Additional information about the drag info.
-     * @type { ?string }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 18 dynamic
+     * @stagemodelonly
+     * @crossplatform [since 18]
+     * @atomicservice [since 12]
+     * @since 11 dynamic
      */
     extraParams?: string;
   }
 
   /**
-   * One drag action object for drag process
+   * Implements a **DragAction** object to subscribe to drag state changes and start the drag service.
    *
-   * @interface DragAction
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 11
-   */
-  /**
-   * One drag action object for drag process
-   *
-   * @interface DragAction
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * One drag action object for drag process
-   *
-   * @interface DragAction
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @stagemodelonly
+   * @crossplatform [since 18]
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   interface DragAction {
+
     /**
-     * trigger drag action
+     * Starts the drag service. This API uses a promise to return the result.
      *
-     * @returns { Promise<void> } A Promise can indicate the start result.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 100001 - Internal handling failed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 11
-     */
-    /**
-     * trigger drag action
-     *
-     * @returns { Promise<void> } A Promise can indicate the start result.
-     * @throws { BusinessError } 100001 - Internal handling failed.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
-     * @since 12
-     */
-    /**
-     * trigger drag action
-     *
-     * @returns { Promise<void> } A Promise can indicate the start result.
-     * @throws { BusinessError } 100001 - Internal handling failed.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 18 dynamic
+     * @stagemodelonly
+     * @crossplatform [since 18]
+     * @atomicservice [since 12]
+     * @since 11 dynamic
      */
     startDrag(): Promise<void>;
+
     /**
-     * Registers a callback for listening on drag status changes.
-     * This callback is triggered when the drag status change.
+     * Subscribes to drag state changes.
      *
      * @param { 'statusChange' } type for status changing
      * @param { Callback<DragAndDropInfo> } callback with drag event and status information
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 11
-     */
-    /**
-     * Registers a callback for listening on drag status changes.
-     * This callback is triggered when the drag status change.
-     *
-     * @param { 'statusChange' } type for status changing
-     * @param { Callback<DragAndDropInfo> } callback with drag event and status information
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
-     * @since 12
-     */
-    /**
-     * Registers a callback for listening on drag status changes.
-     * This callback is triggered when the drag status change.
-     *
-     * @param { 'statusChange' } type for status changing
-     * @param { Callback<DragAndDropInfo> } callback with drag event and status information
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 18 dynamic
+     * @stagemodelonly
+     * @crossplatform [since 18]
+     * @atomicservice [since 12]
+     * @since 11 dynamic
      */
     on(type: 'statusChange', callback: Callback<DragAndDropInfo>): void;
 
     /**
-     * Deregisters a callback for listening on drag status changes.
-     * This callback is not triggered when the drag status change.
+     * Unsubscribes from drag state changes.
      *
      * @param { 'statusChange' } type for status changing
      * @param { Callback<DragAndDropInfo> } callback with drag event and status information
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 11
-     */
-    /**
-     * Deregisters a callback for listening on drag status changes.
-     * This callback is not triggered when the drag status change.
-     *
-     * @param { 'statusChange' } type for status changing
-     * @param { Callback<DragAndDropInfo> } callback with drag event and status information
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
-     * @since 12
-     */
-    /**
-     * Deregisters a callback for listening on drag status changes.
-     * This callback is not triggered when the drag status change.
-     *
-     * @param { 'statusChange' } type for status changing
-     * @param { Callback<DragAndDropInfo> } callback with drag event and status information
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 18 dynamic
+     * @stagemodelonly
+     * @crossplatform [since 18]
+     * @atomicservice [since 12]
+     * @since 11 dynamic
      */
     off(type: 'statusChange', callback?: Callback<DragAndDropInfo>): void;
   }
 
   /**
-   * DragInfo object description
-   * 
-   * @interface DragInfo
+   * Defines the attributes required for initiating a drag action and information carried in the dragging process.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
-   */
-  /**
-   * DragInfo object description
-   * 
-   * @interface DragInfo
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * DragInfo object description
-   * 
-   * @interface DragInfo
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @stagemodelonly
+   * @crossplatform [since 18]
+   * @atomicservice [since 12]
+   * @since 10 dynamic
    */
   interface DragInfo {
+
     /**
-     * A unique identifier to identify which touch point.
-     * @type { number }
+     * ID of the touch point on the screen when dragging is started. The value is an integer in the [0, 9] range.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 10
-     */
-    /**
-     * A unique identifier to identify which touch point.
-     * @type { number }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
-     * @since 12
-     */
-    /**
-     * A unique identifier to identify which touch point.
-     * @type { number }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 18 dynamic
+     * @stagemodelonly
+     * @crossplatform [since 18]
+     * @atomicservice [since 12]
+     * @since 10 dynamic
      */
     pointerId: number;
 
     /**
-    * Drag data.
-    * @type { ?unifiedDataChannel.UnifiedData }
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @since 10
-    */
-    /**
-    * Drag data.
-    * @type { ?unifiedDataChannel.UnifiedData }
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @atomicservice
-    * @since 12
-    */
-   /**
-    * Drag data.
-    * @type { ?unifiedDataChannel.UnifiedData }
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @crossplatform
-    * @atomicservice
-    * @since 18 dynamic
-    */
+     * Data carried in the dragging process.
+     *
+     * The default value is null.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform [since 18]
+     * @atomicservice [since 12]
+     * @since 10 dynamic
+     */
     data?: unifiedDataChannel.UnifiedData;
 
     /**
-    * Additional information about the drag info.
-    * @type { ?string }
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @since 10
-    */
-    /**
-    * Additional information about the drag info.
-    * @type { ?string }
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @atomicservice
-    * @since 12
-    */
-   /**
-    * Additional information about the drag info.
-    * @type { ?string }
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @crossplatform
-    * @atomicservice
-    * @since 18 dynamic
-    */
+     * Additional information about the drag action. Not supported currently.
+     *
+     * The default value is null.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform [since 18]
+     * @atomicservice [since 12]
+     * @since 10 dynamic
+     */
     extraParams?: string;
 
     /**
-     * Touch point coordinates.
-     * @type { ?TouchPoint }
+     * Coordinates of the touch point. If this parameter is not set, the touch point is centered horizontally and
+     * shifted downward by 20% from the top.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 11
-     */
-    /**
-     * Touch point coordinates.
-     * @type { ?TouchPoint }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
-     * @since 12
-     */
-    /**
-     * Touch point coordinates.
-     * @type { ?TouchPoint }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 18 dynamic
+     * @stagemodelonly
+     * @crossplatform [since 18]
+     * @atomicservice [since 12]
+     * @since 11 dynamic
      */
     touchPoint?: TouchPoint;
 
     /**
-     * Drag preview options.
-     * @type { ?DragPreviewOptions }
+     * Processing mode of the drag preview and the display of the number badge during dragging.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 11
-     */
-    /**
-     * Drag preview options.
-     * @type { ?DragPreviewOptions }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
-     * @since 12
-     */
-    /**
-     * Drag preview options.
-     * @type { ?DragPreviewOptions }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 18 dynamic
+     * @stagemodelonly
+     * @crossplatform [since 18]
+     * @atomicservice [since 12]
+     * @since 11 dynamic
      */
     previewOptions?: DragPreviewOptions;
 
     /**
-     * Components to be automatically hidden during drag by uniqueId.
-     * You can pass a single uniqueId or an array. If the drag source itself also needs to be hidden,
-     * pass its uniqueId as well.
+     * Unique ID of the component that is automatically hidden by the system during proactive dragging. A single unique
+     * ID or an array of unique IDs can be passed.
+     *
+     * After the proactive dragging is successfully initiated, the system automatically hides the target component
+     * before displaying the drag preview window.
+     *
+     * If the proactive dragging source also needs to be hidden, its unique ID must be passed as well.
+     *
+     * The unique ID of a component can be obtained by using [UIContext.getFrameNodeById()]{@link @ohos.arkui.UIContext:UIContext#getFrameNodeById}
+     * together with [FrameNode.getUniqueId()]{@link FrameNode:FrameNode#getUniqueId}.
+     *
+     * You need to restore the component display status as required in the drag end callback.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -473,16 +264,17 @@ declare namespace dragController {
      * @since 26.0.0 dynamic
      */
     autoHideComponentUniqueIds?: int | int[];
-    
+
     /**
-     * Provide a data representation to the system instead of providing a complete data
-     * object directly. When the user releases the drag over the target application, the system will use this data
-     * representation to request the actual data from drag source. This approach significantly improves the
-     * efficiency of initiating drag operations for large volumes of data and enhances the effectiveness of data
-     * reception. It is recommended to use this instead of the data field.
+     * Parameters for deferred data loading from the drag source. This API provides data loading parameters to the
+     * system instead of directly providing complete data objects. When the user drops data on the target application,
+     * the system will use these parameters to request the actual data from the drag source. If set together with
+     * **data**, **dataLoadParams** takes effect.
      *
-     * @type { ?unifiedDataChannel.DataLoadParams }
+     * The default value is null.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @atomicservice
      * @since 20 dynamic
      */
@@ -490,484 +282,366 @@ declare namespace dragController {
   }
 
   /**
-   * Defines the animation options for drag preview.
-   * 
-   * @interface AnimationOptions
+   * Defines parameters related to drag-and-drop animation effects.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 11
-   */
-  /**
-   * Defines the animation options for drag preview.
-   * 
-   * @interface AnimationOptions
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Defines the animation options for drag preview.
-   * 
-   * @interface AnimationOptions
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @stagemodelonly
+   * @crossplatform [since 18]
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   interface AnimationOptions {
+
     /**
      * Animation duration, in ms.
-     * @type { ?number }
+     *
+     * Default value: **1000**
+     *
+     * **NOTE**
+     *
+     * - If this parameter is set to a value less than 0, the value **0** is used.
+     * - Floating-point values will be rounded down to integers. For example, if the value set is 1.2, **1** will be
+     * used.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 11
-     */
-    /**
-     * Animation duration, in ms.
-     * @type { ?number }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
-     * @since 12
-     */
-    /**
-     * Animation duration, in ms.
-     * @type { ?number }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 18 dynamic
+     * @stagemodelonly
+     * @crossplatform [since 18]
+     * @atomicservice [since 12]
+     * @since 11 dynamic
      */
     duration?: number;
+
     /**
-    * Animation curve.
-    * @type { ?(Curve | ICurve) }
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @since 11
-    */
-   /**
-    * Animation curve.
-    * @type { ?(Curve | ICurve) }
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @atomicservice
-    * @since 12
-    */
-   /**
-    * Animation curve.
-    * @type { ?(Curve | ICurve) }
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @crossplatform
-    * @atomicservice
-    * @since 18 dynamic
-    */
+     * Animation curve.
+     *
+     * Default value: **Curve.EaseInOut**
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform [since 18]
+     * @atomicservice [since 12]
+     * @since 11 dynamic
+     */
     curve?: Curve | ICurve;
   }
 
   /**
-   * Provides the functions of setting color or updating animation.
+   * Implements a **DragPreview** object. This API does not work in the **OnDrop** and **OnDragEnd** callbacks.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 11
-   */
-  /**
-   * Provides the functions of setting color or updating animation.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Provides the functions of setting color or updating animation.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @stagemodelonly
+   * @crossplatform [since 18]
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   export class DragPreview {
+
     /**
-     * change foreground color of preview
-     * @param { ResourceColor } color - color value
+     * Sets the foreground color of the drag preview. This API does not work in the **OnDrop** and **OnDragEnd**
+     * callbacks. It can only be used on the object obtained through the
+     * [getDragPreview()]{@link @ohos.arkui.UIContext:DragController#getDragPreview} API.
+     *
+     * @param { ResourceColor } color - Foreground color of the drag preview.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 11
-     */
-    /**
-     * change foreground color of preview
-     * @param { ResourceColor } color - color value
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
-     * @since 12
-     */
-    /**
-     * change foreground color of preview
-     * @param { ResourceColor } color - color value
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 18 dynamic
+     * @stagemodelonly
+     * @crossplatform [since 18]
+     * @atomicservice [since 12]
+     * @since 11 dynamic
      */
     setForegroundColor(color: ResourceColor): void;
+
     /**
-     * update preview style with animation
-     * @param { AnimationOptions } options - animation options
-     * @param { function } handler - change style functions
+     * Applies a foreground color animation to the drag preview. This API does not work in the **OnDrop** and
+     * **OnDragEnd** callbacks. It can only be used on the object obtained through the
+     * [getDragPreview()]{@link @ohos.arkui.UIContext:DragController#getDragPreview} API.
+     *
+     * @param { AnimationOptions } options - Animation settings.
+     * @param { function } handler - Callback used to change attributes such as the background mask color.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 11
-     */
-    /**
-     * update preview style with animation
-     * @param { AnimationOptions } options - animation options
-     * @param { function } handler - change style functions
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
-     * @since 12
-     */
-    /**
-     * update preview style with animation
-     * @param { AnimationOptions } options - animation options
-     * @param { function } handler - change style functions
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 18 dynamic
+     * @stagemodelonly
+     * @crossplatform [since 18]
+     * @atomicservice [since 12]
+     * @since 11 dynamic
      */
     animate(options: AnimationOptions, handler: () =>void): void;
   }
 
   /**
-   * Define the drag event parameters
-   * 
-   * @interface DragEventParam
+   * Callback used to return the result.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * Define the drag event parameters
-   * 
-   * @interface DragEventParam
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    */
   interface DragEventParam {
 
     /**
-     * The information containing the drag event.
-     * @type { DragEvent }
+     * Drag event information that includes only the drag result.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 10
-     */
-    /**
-     * The information containing the drag event.
-     * @type { DragEvent }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
-     * @since 12
-     */
-    /**
-     * The information containing the drag event.
-     * @type { DragEvent }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 18 dynamic
+     * @stagemodelonly
+     * @crossplatform [since 18]
+     * @atomicservice [since 12]
+     * @since 10 dynamic
      */
     event: DragEvent;
 
     /**
-     * Additional information about the drag info.
-     * @type { string }
+     * Additional information about the drag action. Not supported currently.
+     *
+     * The default value is null.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 10
-     */
-    /**
-     * Additional information about the drag info.
-     * @type { string }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
-     * @since 12
-     */
-    /**
-     * Additional information about the drag info.
-     * @type { string }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 18 dynamic
+     * @stagemodelonly
+     * @crossplatform [since 18]
+     * @atomicservice [since 12]
+     * @since 10 dynamic
      */
     extraParams: string;
   }
 
   /**
-   * Execute a drag event.
-   * @param { CustomBuilder | DragItemInfo } custom - Object used for prompts displayed when the object is dragged.
-   * @param { DragInfo } dragInfo - Information about the drag event.
-   * @param { AsyncCallback<{ event: DragEvent, extraParams: string }> } callback - Callback that contains the drag
-   *     event information.
+   * Initiates a drag action, with the object to be dragged and the drag information passed in. This API uses an
+   * asynchronous callback to return the result.
+   *
+   * > **NOTE**
+   * >
+   * > Since API version 11, you can use the [getDragController]{@link @ohos.arkui.UIContext:UIContext#getDragController} API in
+   * > [UIContext]{@link @ohos.arkui.UIContext} to obtain the [DragController]{@link @ohos.arkui.UIContext:DragController} object
+   * > associated with the current UI context.
+   *
+   * @param { CustomBuilder | DragItemInfo } custom - Object to be dragged.<br>**NOTE**<br>The global builder is not
+   *     supported. If the [Image]{@link image} component is used in the builder, enable synchronous loading, that is,
+   *     set the [syncLoad]{@link ImageAttribute#syncLoad} attribute of the component to **true**. The builder is used
+   *     only to generate the image displayed during the current dragging. If the root component of the builder has zero
+   *     width or height, it will cause failure in drag image generation, which in turn breaks the entire drag
+   *     operation. Changes to the builder, if any, apply to the next dragging, but not to the current dragging.
+   * @param { DragInfo } dragInfo - Drag information.
+   * @param { AsyncCallback<{ event: DragEvent, extraParams: string }> } callback - Callback function. If the operation
+   *     is successful, **err** is **undefined** and **data** is the **DragEventParam** object obtained. Otherwise,
+   *     **err** is an error object. [since 10 - 11]
+   * @param { AsyncCallback<DragEventParam> } callback - Callback function. If the operation is successful, **err** is
+   *     **undefined** and **data** is the **DragEventParam** object obtained. Otherwise, **err** is an error
+   *     object. [since 12]
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
    *     <br> 2. Incorrect parameters types.
    *     <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Internal handling failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
-   */
-  /**
-   * Execute a drag event.
-   * @param { CustomBuilder | DragItemInfo } custom - Object used for prompts displayed when the object is dragged.
-   * @param { DragInfo } dragInfo - Information about the drag event.
-   * @param { AsyncCallback<DragEventParam> } callback - Callback that contains the drag event information.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     <br> 1. Mandatory parameters are left unspecified.
-   *     <br> 2. Incorrect parameters types.
-   *     <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - Internal handling failed.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 12
-   */ 
-  /**
-   * Execute a drag event.
-   * @param { CustomBuilder | DragItemInfo } custom - Object used for prompts displayed when the object is dragged.
-   * @param { DragInfo } dragInfo - Information about the drag event.
-   * @param { AsyncCallback<DragEventParam> } callback - Callback that contains the drag event information.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     <br> 1. Mandatory parameters are left unspecified.
-   *     <br> 2. Incorrect parameters types.
-   *     <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - Internal handling failed.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamiconly
+   * @stagemodelonly
+   * @crossplatform [since 18]
+   * @atomicservice [since 12]
+   * @since 10 dynamiconly
    * @deprecated since 18
    * @useinstead ohos.arkui.UIContext.DragController#executeDrag
    */
   function executeDrag(custom: CustomBuilder | DragItemInfo, dragInfo: DragInfo,
-      callback: AsyncCallback<DragEventParam>): void;
+    callback: AsyncCallback<DragEventParam>): void;
 
   /**
-   * Execute a drag event.
-   * @param { CustomBuilder | DragItemInfo } custom - Object used for prompts displayed when the object is dragged.
-   * @param { DragInfo } dragInfo - Information about the drag event.
-   * @returns { Promise<{ event: DragEvent, extraParams: string }> } A Promise with the drag event information.
+   * Initiates a drag action, with the object to be dragged and the drag information passed in. This API uses a promise
+   * to return the result.
+   *
+   * > **NOTE**
+   * >
+   * > Since API version 11, you can use the [getDragController]{@link @ohos.arkui.UIContext:UIContext#getDragController} API in
+   * > [UIContext]{@link @ohos.arkui.UIContext} to obtain the [DragController]{@link @ohos.arkui.UIContext:DragController} object
+   * > associated with the current UI context.
+   *
+   * @param { CustomBuilder | DragItemInfo } custom - Object to be dragged.
+   * @param { DragInfo } dragInfo - Drag information.
+   * @returns { Promise<{ event: DragEvent, extraParams: string }> } Promise used to return the result. [since 10 - 11]
+   * @returns { Promise<DragEventParam> } A Promise with the drag event information. [since 12]
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
    *     <br> 2. Incorrect parameters types.
    *     <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Internal handling failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
-   */
-  /**
-   * Execute a drag event.
-   * @param { CustomBuilder | DragItemInfo } custom - Object used for prompts displayed when the object is dragged.
-   * @param { DragInfo } dragInfo - Information about the drag event.
-   * @returns { Promise<DragEventParam> } A Promise with the drag event information.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     <br> 1. Mandatory parameters are left unspecified.
-   *     <br> 2. Incorrect parameters types.
-   *     <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - Internal handling failed.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Execute a drag event.
-   * @param { CustomBuilder | DragItemInfo } custom - Object used for prompts displayed when the object is dragged.
-   * @param { DragInfo } dragInfo - Information about the drag event.
-   * @returns { Promise<DragEventParam> } A Promise with the drag event information.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     <br> 1. Mandatory parameters are left unspecified.
-   *     <br> 2. Incorrect parameters types.
-   *     <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - Internal handling failed.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamiconly
+   * @stagemodelonly
+   * @crossplatform [since 18]
+   * @atomicservice [since 12]
+   * @since 10 dynamiconly
    * @deprecated since 18
    * @useinstead ohos.arkui.UIContext.DragController#executeDrag
    */
   function executeDrag(custom: CustomBuilder | DragItemInfo, dragInfo: DragInfo): Promise<DragEventParam>;
 
   /**
-   * Create one drag action object, which can be used for starting drag later or monitoring
-   * the drag status after drag started.
-   * @param { Array<CustomBuilder | DragItemInfo> } customArray - Objects used for prompts
-   *     displayed when the objects are dragged.
-   * @param { DragInfo } dragInfo - Information about the drag event.
-   * @returns { DragAction } one drag action object
+   * Initiates a drag action, with the object to be dragged and the drag information passed in. This API uses a promise
+   * to return the result.
+   *
+   * > **NOTE**
+   * >
+   * > - Since API version 11, you can use the
+   * > [getDragController]{@link @ohos.arkui.UIContext:UIContext#getDragController} API in
+   * > [UIContext]{@link @ohos.arkui.UIContext} to obtain the
+   * > [DragController]{@link @ohos.arkui.UIContext:DragController} object associated with the current UI context.
+   * >
+   * > - For optimal drag and drop performance, limit the number of drag previews.
+   *
+   * @param { Array<CustomBuilder | DragItemInfo> } customArray - Object to be dragged.
+   * @param { DragInfo } dragInfo - Drag information.
+   * @returns { DragAction } **DragAction** object, which is used to subscribe to drag state changes and start the
+   *     drag service.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
    *     <br> 2. Incorrect parameters types.
    *     <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Internal handling failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 11
-   */
-  /**
-   * Create one drag action object, which can be used for starting drag later or monitoring
-   * the drag status after drag started.
-   * @param { Array<CustomBuilder | DragItemInfo> } customArray - Objects used for prompts
-   *     displayed when the objects are dragged.
-   * @param { DragInfo } dragInfo - Information about the drag event.
-   * @returns { DragAction } one drag action object
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     <br> 1. Mandatory parameters are left unspecified.
-   *     <br> 2. Incorrect parameters types.
-   *     <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - Internal handling failed.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Create one drag action object, which can be used for starting drag later or monitoring
-   * the drag status after drag started.
-   * @param { Array<CustomBuilder | DragItemInfo> } customArray - Objects used for prompts
-   *     displayed when the objects are dragged.
-   * @param { DragInfo } dragInfo - Information about the drag event.
-   * @returns { DragAction } one drag action object
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     <br> 1. Mandatory parameters are left unspecified.
-   *     <br> 2. Incorrect parameters types.
-   *     <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - Internal handling failed.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamiconly
+   * @stagemodelonly
+   * @crossplatform [since 18]
+   * @atomicservice [since 12]
+   * @since 11 dynamiconly
    * @deprecated since 18
    * @useinstead ohos.arkui.UIContext.DragController#createDragAction
    */
   function createDragAction(customArray: Array<CustomBuilder | DragItemInfo>, dragInfo: DragInfo): DragAction;
 
   /**
-   * Get drag preview object.
-   * @returns { DragPreview } A drag preview object.
+   * Obtains the **DragPreview** object, which represents the preview displayed during a drag operation.
+   *
+   * > **NOTE**
+   * >
+   * > Since API version 11, you can use the [getDragController]{@link @ohos.arkui.UIContext:UIContext#getDragController} API in
+   * > [UIContext]{@link @ohos.arkui.UIContext} to obtain the [DragController]{@link @ohos.arkui.UIContext:DragController} object
+   * > associated with the current UI context.
+   *
+   * @returns { DragPreview } **DragPreview** object. It provides the API for setting the preview style. It does not
+   *     work in the **OnDrop** and **OnDragEnd** callbacks.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 11
-   */
-  /**
-   * Get drag preview object.
-   * @returns { DragPreview } A drag preview object.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Get drag preview object.
-   * @returns { DragPreview } A drag preview object.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamiconly
+   * @stagemodelonly
+   * @crossplatform [since 18]
+   * @atomicservice [since 12]
+   * @since 11 dynamiconly
    * @deprecated since 18
    * @useinstead ohos.arkui.UIContext.DragController#getDragPreview
    */
   function getDragPreview(): DragPreview;
 
   /**
-   * Define the status for the application to notify the framework whether to execute drag.
-   * 
-   * @enum { number }
+   * Enumerates the states defining whether an application can initiate a drag operation. This API is effective only
+   * when [onDragStart]{@link CommonMethod#onDragStart} is called.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 18 dynamic
    */
   const enum DragStartRequestStatus {
+
     /**
-     * Notify the framework that the application is not yet ready and needs to temporarily block
-     * the start of drag, only effective in onDragStart calls.
-     * 
+     * The application is preparing data and cannot initiate a drag operation yet.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @atomicservice
      * @since 18 dynamic
      */
     WAITING = 0,
 
     /**
-     * Notify the framework that the drag can continue to be started, but only during the start
-     * of drag, and will not take effect when the drag is started.
-     * 
+     * The application has completed data preparation and is ready to initiate a drag operation.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @atomicservice
      * @since 18 dynamic
      */
-    READY = 1,
+    READY = 1
   }
 
   /**
-   * Defines the drag spring loading state.
+   * Enumerates hover detection states during drag operations.
    * Under default system configuration, if no CANCEL occurs, the state reporting is as follows:
-   *     Hover still--500ms-->BEGIN-->100ms-->UPDATE-->100ms-->UPDATE-->100ms-->UPDATE-->100ms-->END
+   * Hover still-->500ms-->BEGIN-->100ms-->UPDATE-->100ms-->UPDATE-->100ms-->UPDATE-->100ms-->END
    *
-   * @enum { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
    */
   const enum DragSpringLoadingState {
+
     /**
-     * The user has remained stationary for a period, initiating the spring loading process.
-     * This state allows for some preparatory operations during spring loading.
+     * Initial state when a dragged item enters the component boundary and remains stationary for the specified
+     * duration. This state enables preparation operations.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
      */
     BEGIN,
+
     /**
-     * Already in the spring loading state. The system periodically checks the user's hover status.
-     * If the user remains stationary, it triggers an UPDATE state notification at regular intervals.
-     * This state allows for UI effect refreshes to emphasize the hover state.
+     * Periodic notification state during sustained hover detection. In this state, periodic updates refresh UI effects
+     * to highlight the hover state.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
      */
     UPDATE,
+
     /**
-     * The entire spring loading state ends. The application can perform cleanup operations
-     * and execute navigation or view switching actions when this state occurs.
+     * Final state indicating completion of the hover detection cycle, which is triggered when the dragged item remains
+     * stationary after the last update notification. Hover detection will only restart after the dragged item exits and
+     * re-enters the component boundary or enters a child component. In this state, the application can perform cleanup,
+     * navigation, or view switching operations.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
      */
     END,
+
     /**
-     * After entering the BEGIN state, if the user moves out of the component range, exceeds the displacement
-     * threshold, lifts the finger, or switches windows (pull out), the CANCEL state is triggered.
-     * The application should restore the UI style and cancel any pending navigation or view switching actions.
+     * Interruption state of hover detection triggered by termination events, which include the following: finger or
+     * mouse release, window switching, screen off, exiting the component boundary, entering child components, or
+     * exceeding the movement threshold within the component. The application will restore the UI style and cancel
+     * pending navigation and view switching operations.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
      */
-    CANCEL
-   }
+    CANCEL,
+  }
 
   /**
-   * Defines parameters affecting spring loading detection. Typically, default system configurations suffice.
-   * Customization can be done by specifying the config when binding onDragSpringLoading or dynamically modifying it
-   * using the updateConfiguration method during the BEGIN state.
+   * Defines the configuration parameters for drag hover detection. The default settings typically suffice. These
+   * settings can be customized through [onDragSpringLoading]{@link CommonMethod#onDragSpringLoading} binding or
+   * dynamically updated during BEGIN state using
+   * [updateConfiguration]{@link dragController.SpringLoadingContext#updateConfiguration}.
    *
-   * @typedef { DragSpringLoadingConfiguration }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
    */
   interface DragSpringLoadingConfiguration {
+
     /**
-     * Time interval to maintain a stationary state before entering spring loading. Default: 500 ms.
+     * Time (in ms) required to remain stationary to enter the BEGIN state of hover detection. Value range: integer in
+     * the [0, 2<sup>31</sup>-1] range. Floating-point number inputs will be truncated to integers. Invalid values (
+     * negative numbers, **null**, **undefined**, **NaN**) are treated as the default value **500**.
      *
-     * @type { ?number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
@@ -975,10 +649,12 @@ declare namespace dragController {
     stillTimeLimit?: number;
 
     /**
-     * Interval between update notifications after entering the spring loading state. Default: 100ms.
+     * Time interval (in ms) at which update notifications are sent after hover detection enters the UPDATE state. Value
+     * range: integer in the [0, 2<sup>31</sup>-1] range. Floating-point number inputs will be truncated to integers.
+     * Invalid values (negative numbers, **null**, **undefined**, **NaN**) are treated as the default value **100**.
      *
-     * @type { ?number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
@@ -986,10 +662,12 @@ declare namespace dragController {
     updateInterval?: number;
 
     /**
-     * Maximum number of update notifications to report while in the spring loading state. Default: 3.
+     * Maximum number of update notifications after hover detection enters the UPDATE state. Value range: integer in the
+     * [0, 2<sup>31</sup>-1] range. Floating-point number inputs will be truncated to integers. Invalid values (negative
+     * numbers, **null**, **undefined**, **NaN**) are treated as the default value **3**.
      *
-     * @type { ?number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
@@ -997,10 +675,12 @@ declare namespace dragController {
     updateNotifyCount?: number;
 
     /**
-     * Maximum wait time from the last UPDATE state to the end of spring loading. Default: 100ms.
+     * Maximum waiting time (in ms) from the UPDATE state to the END state. Value range: integer in the
+     * [0, 2<sup>31</sup>-1] range. Floating-point number inputs will be truncated to integers. Invalid values (negative
+     * numbers, **null**, **undefined**, **NaN**) are treated as the default value **100**.
      *
-     * @type { ?number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
@@ -1009,113 +689,124 @@ declare namespace dragController {
   }
 
   /**
-   * Defines drag-related information when triggering spring loading callbacks.
-   * This interface provides drag data summaries and additional drag information, useful for applications
-   * needing to dynamically determine whether to respond to spring loading callbacks based on drag data.
+   * Defines the drag event information when hover detection is triggered. This API provides drag data summaries and
+   * additional drag event information, allowing applications to decide whether to respond to hover detection
+   * callbacks.
    *
-   * @typedef { SpringLoadingDragInfos }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
    */
-   interface SpringLoadingDragInfos {
+  interface SpringLoadingDragInfos {
+
     /**
-     * Summary of the dragged data. This field is absent if the source application did not configure data.
+     * Summary of the dragged data. The default value is null.
      *
-     * @type { ?unifiedDataChannel.Summary }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
      */
     dataSummary?: unifiedDataChannel.Summary;
-    
+
     /**
-     * Additional information provided by the source application when initiating the drag operation.
-     * This field is absent if the source application did not configure it.
+     * Additional information about the drag event. The default value is an empty string.
      *
-     * @type { ?string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
      */
     extraInfos?: string;
-   }
+  }
 
   /**
-   * Context information for the current spring loading trigger. This object is passed to the application
-   * in the spring loading callback, allowing it to obtain the current state, dynamically refresh UI effects,
-   * and access drag data to determine whether to handle the drag operation.
+   * Defines callback context information passed to applications during hover detection. It enables access to drag
+   * states, dynamic UI effect updates, and drag data for operation handling decisions.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 20 dynamic
    */
   class SpringLoadingContext {
+
     /**
-     * Current spring loading state. Refer to the DragSpringLoadingState enum for details.
+     * Current state of hover detection.
      *
-     * @type { DragSpringLoadingState }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
      */
     state: DragSpringLoadingState;
+
     /**
-     * Sequence number of the current spring loading state notification. Begins at 0 for BEGIN and increments
-     * with each callback.
+     * Callback notification sequence number in the current hover detection cycle. The value is zero-based.
      *
-     * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
      */
     currentNotifySequence: number;
+
     /**
-     * Drag-related information. Absent when the state is CANCEL.
+     * Drag information. Omitted in CANCEL state; uses the
+     * [SpringLoadingDragInfos]{@link dragController.SpringLoadingDragInfos} default value when **undefined**.
      *
-     * @type { ?SpringLoadingDragInfos }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
      */
     dragInfos?: SpringLoadingDragInfos;
+
     /**
-     * Current spring loading configuration. Absent when the state is CANCEL.
+     * Configuration information in the current callback. Omitted in CANCEL state; uses the
+     * [DragSpringLoadingConfiguration]{@link dragController.DragSpringLoadingConfiguration} default value when
+     * **undefined**.
      *
-     * @type { ?DragSpringLoadingConfiguration }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
      */
     currentConfig?: DragSpringLoadingConfiguration;
+
     /**
-     * Aborts subsequent spring loading triggers.
-     * Note: Aborting does not trigger a CANCEL notification, the application must handle state cleanup when aborting.
+     * Terminates subsequent hover detection. This API does not trigger CANCEL state notifications, and the application
+     * needs to perform state cleanup when executing this API.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
      */
     abort(): void;
+
     /**
-     * Updates the spring loading configuration for the current trigger. Only effective during the BEGIN state.
-     * This method does not modify the original configuration set during onDragSpringLoading binding.
-     * It provides an opportunity for dynamic configuration updates during the current trigger.
-     * Typically, applications should use default configurations or set them once during binding.
-     * Use this method sparingly, e.g., for different drag data types requiring varied UX timing.
+     * Updates the hover detection configuration. This API is effective only when the hover detection state is BEGIN.
+     * Applications typically set the hover detection configuration when binding
+     * [onDragSpringLoading]{@link CommonMethod#onDragSpringLoading} or use the default configuration. This API does not
+     * modify the original configuration set during binding, but updates dynamic configuration information for
+     * subsequent hover detection. Use this API with caution, as different drag data types may require different UX
+     * timing.
      *
-     * @param { DragSpringLoadingConfiguration } config - The spring loading detection configuration
+     * @param { DragSpringLoadingConfiguration } config - New configuration for hover detection.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
+     * @stagemodelonly
      * @crossplatform
+     * @atomicservice
      * @since 20 dynamic
      */
     updateConfiguration(config: DragSpringLoadingConfiguration): void;

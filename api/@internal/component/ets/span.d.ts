@@ -21,232 +21,154 @@
 /**
  * Define the background style of span.
  *
- * @interface TextBackgroundStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
- * @since 11
- */
-/**
- * Define the background style of span.
- *
- * @interface TextBackgroundStyle
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 12 dynamic
+ * @atomicservice [since 12]
+ * @since 11 dynamic
  */
 declare interface TextBackgroundStyle {
+
   /**
-   * Background color of span.
+   * Text background color.
    *
-   * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Background color of span.
-   *
-   * @type { ?ResourceColor }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   color?: ResourceColor;
-  
+
   /**
-   * Background radius of span.
+   * Rounded corner radius of the text background.
    *
-   * @type { ?(Dimension | BorderRadiuses) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Background radius of span.
-   *
-   * @type { ?(Dimension | BorderRadiuses) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   radius?: Dimension | BorderRadiuses;
 }
 
 /**
- * Define the BaseSpan class, contains the common methods of span.
+ * Defines the base class **BaseSpan**, including the universal attributes of the **Span** component.
  *
- * @extends CommonMethod<T>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
- * @since 11
- */
-/**
- * Define the BaseSpan class, contains the common methods of span.
- *
- * @extends CommonMethod<T>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 12 dynamic
+ * @atomicservice [since 12]
+ * @since 11 dynamic
+ * @noninterop
  */
 declare class BaseSpan<T> extends CommonMethod<T> {
+
   /**
-   * Span background style.
+   * Background style. This attribute prioritizes the value separately set for the component. If it is not set, the
+   * component can inherit the settings from its parent [ContainerSpan]{@link container_span}.
    *
-   * @param { TextBackgroundStyle } style - The background style of span.
-   * @returns { T }
+   * @param { TextBackgroundStyle } style - Sets the background style.<br>Default value:<br>{<br>  color:
+   *     Color.Transparent,<br>  radius: 0<br>}
+   * @returns { T } Attributes of the span.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Span background style.
-   *
-   * @param { TextBackgroundStyle } style - The background style of span.
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   textBackgroundStyle(style: TextBackgroundStyle): T;
 
   /**
-   * Base line offset of the Span.
+   * Sets the offset of the baseline. This attribute coexists with the **baselineOffset** attribute of the parent
+   * component.
    *
-   * @param { LengthMetrics } value - The base line offset of the Span.
-   * @returns { T } The attribute of the Span.
+   * @param { LengthMetrics } value - Offset of the baseline. If the value specified is a percentage, the default value
+   *     is used.<br>A positive value moves the content upwards, while a negative value moves it downwards.<br>Default
+   *     value: **0**<br>In the **ImageSpan**, when this parameter is set to a non-zero value, the
+   *     [verticalAlign]{@link ImageSpanAttribute#verticalAlign} is fixed to **ImageSpanAlignment.BASELINE**; when this
+   *     parameter is set to **0**, [verticalAlign]{@link ImageSpanAttribute#verticalAlign} must be set to
+   *     **ImageSpanAlignment.BASELINE** for the baseline alignment strategy to take effect.
+   * @returns { T } Attributes of the span.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
    */
-    baselineOffset(value: LengthMetrics): T;
+  baselineOffset(value: LengthMetrics): T;
 }
 
 /**
- * Provide text decoration.
+ * As a child of the [Text]{@link text} and [ContainerSpan]{@link container_span} components, the **Span** component is
+ * used to display inline text.
  *
- * @interface SpanInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * Provide text decoration.
+ * > **NOTE**
+ * >
+ * > This component is supported since API version 10. It can inherit attribute settings from its parent component
+ * > **Text**. This means that, if an attribute is not set in this component, it takes the value (if any) of the
+ * > attribute from its parent component. Only the following attributes can be inherited: **fontColor**, **fontSize**,
+ * > **fontStyle**, **fontWeight**, **decoration**, **letterSpacing**, **textCase**, **fontFamily**, and **textShadow**.
+ * >
+ * > The [universal attributes]{@link common} are not supported. To set universal attributes, use [Text]{@link text} for
+ * > configuration or use [CustomSpan]{@link CustomSpan} in the [Styled String]{@link styled_string} for custom drawing.
+ * >
+ * > Among [universal events]{@link common}, only
+ * > [onClick]{@link CommonMethod#onClick(event: Callback<ClickEvent>, distanceThreshold: number)} click events and
+ * > [onHover]{@link CommonMethod#onHover} hover events are supported.
  *
- * @interface SpanInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @since 9
- */
-/**
- * Provide text decoration.
- *
- * @interface SpanInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Provide text decoration.
- *
- * @interface SpanInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
+ * @noninterop
  */
 interface SpanInterface {
+
   /**
-   * Called when text is entered in span.
    *
-   * @param { string | Resource } value
+   * Defines the constructor of Span.
+   *
+   * @param { string | Resource } value - Plain text.
    * @returns { SpanAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Called when text is entered in span.
-   *
-   * @param { string | Resource } value
-   * @returns { SpanAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Called when text is entered in span.
-   *
-   * @param { string | Resource } value
-   * @returns { SpanAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Called when text is entered in span.
-   *
-   * @param { string | Resource } value
-   * @returns { SpanAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   (value: string | Resource): SpanAttribute;
 }
 
 /**
- * @extends CommonMethod<SpanAttribute>
+ * Inherited from [BaseSpan]{@link BaseSpan}.
+ *
+ * Among universal events, only
+ * [onClick]{@link CommonMethod#onClick(event: Callback<ClickEvent>, distanceThreshold: number)} click events and
+ * [onHover]{@link CommonMethod#onHover} hover events are supported.
+ *
+ * @extends CommonMethod<SpanAttribute> [since 7 - 10]
+ * @extends BaseSpan<SpanAttribute> [since 11]
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * @extends CommonMethod<SpanAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @since 9
- */
-/**
- * @extends CommonMethod<SpanAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * @extends BaseSpan<SpanAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
+ * @noninterop
  */
 declare class SpanAttribute extends BaseSpan<SpanAttribute> {
+
   /**
-   * Called when the font is set.
+   * Sets the text style, covering the font size, font width, Font family, and font style.
    *
-   * @param { Font } value - the span font size and weight and family and style.
+   * @param { Font } value - Text style.
    * @returns { SpanAttribute } The attribute of the span.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
-   */
-  /**
-   * Called when the font is set.
-   *
-   * @param { Font } value - the span font size and weight and family and style.
-   * @returns { SpanAttribute } The attribute of the span.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @stagemodelonly
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   font(value: Font): SpanAttribute;
 
@@ -265,173 +187,69 @@ declare class SpanAttribute extends BaseSpan<SpanAttribute> {
   font(value: Font, fontConfigs?: FontConfigs): SpanAttribute;
 
   /**
-   * Called when the font color is set.
+   * Sets the font color.
    *
-   * @param { ResourceColor } value
+   * @param { ResourceColor } value - Font color.<br>Default value: **'e6182431'**.<br>Default value for wearables:
+   *     **'#c5ffffff'**
    * @returns { SpanAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Called when the font color is set.
-   *
-   * @param { ResourceColor } value
-   * @returns { SpanAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Called when the font color is set.
-   *
-   * @param { ResourceColor } value
-   * @returns { SpanAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Called when the font color is set.
-   *
-   * @param { ResourceColor } value
-   * @returns { SpanAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   fontColor(value: ResourceColor): SpanAttribute;
 
   /**
-   * Called when the font size is set.
+   * Sets the font size.
    *
-   * @param { number | string | Resource } value
+   * @param { number | string | Resource } value - Font size. If **fontSize** is of the number type, the unit fp is
+   *     used. The default font size is 16 fp. For the string type, numeric string values with optional units, for
+   *     example, **"10"** or **"10fp"**, are supported. Percentage values are not supported.<br>Default value on
+   *     wearable devices: **15fp**.
    * @returns { SpanAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Called when the font size is set.
-   *
-   * @param { number | string | Resource } value
-   * @returns { SpanAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Called when the font size is set.
-   *
-   * @param { number | string | Resource } value
-   * @returns { SpanAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Called when the font size is set.
-   *
-   * @param { number | string | Resource } value
-   * @returns { SpanAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   fontSize(value: number | string | Resource): SpanAttribute;
 
   /**
-   * Called when the font style of a font is set.
+   * Sets the font style.
    *
-   * @param { FontStyle } value
+   * @param { FontStyle } value - Font style.<br>Default value: **FontStyle.Normal**
    * @returns { SpanAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Called when the font style of a font is set.
-   *
-   * @param { FontStyle } value
-   * @returns { SpanAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Called when the font style of a font is set.
-   *
-   * @param { FontStyle } value
-   * @returns { SpanAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Called when the font style of a font is set.
-   *
-   * @param { FontStyle } value
-   * @returns { SpanAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   fontStyle(value: FontStyle): SpanAttribute;
 
   /**
-   * Called when the font weight is set.
+   * Sets the font weight. If the value is too large, the text may be clipped depending on the font.
    *
-   * @param { number | FontWeight | string } value
+   * @param { number | FontWeight | string } value - Font weight. For the number type, the value range is [100, 900], at
+   *     an interval of 100. The default value is **400**. A larger value indicates a heavier font weight. For the
+   *     string type, only strings of the number type are supported, for example, **400**, **"bold"**, **"bolder"**,
+   *     **"lighter"**, **"regular"**, and **"medium"**, which correspond to the enumerated values in **FontWeight**.<br
+   *     >Default value: **FontWeight.Normal**<br>The [Resource]{@link Resource} type is supported since API version 2
+   *     0. [since 7 - 19]
+   * @param { number | FontWeight | ResourceStr } value - Font weight. For the number type, the value range is
+   *     [100, 900], at an interval of 100. The default value is **400**. A larger value indicates a heavier font
+   *     weight. For the string type, only strings of the number type are supported, for example, **400**, **"bold"**,
+   *     **"bolder"**, **"lighter"**, **"regular"**, and **"medium"**, which correspond to the enumerated values in
+   *     **FontWeight**.<br>Default value: **FontWeight.Normal**<br>The [Resource]{@link Resource} type is supported
+   *     since API version 20. [since 20]
    * @returns { SpanAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Called when the font weight is set.
-   *
-   * @param { number | FontWeight | string } value
-   * @returns { SpanAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Called when the font weight is set.
-   *
-   * @param { number | FontWeight | string } value
-   * @returns { SpanAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Called when the font weight is set.
-   *
-   * @param { number | FontWeight | string } value
-   * @returns { SpanAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11
-   */
-   /**
-   * Called when the font weight is set.
-   *
-   * @param { number | FontWeight | ResourceStr } value
-   * @returns { SpanAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   fontWeight(value: number | FontWeight | ResourceStr): SpanAttribute;
 
@@ -451,258 +269,140 @@ declare class SpanAttribute extends BaseSpan<SpanAttribute> {
   fontWeight(weight: number | FontWeight | ResourceStr, fontWeightConfigs?: FontWeightConfigs): SpanAttribute;
 
   /**
-   * Called when the font list of text is set.
+   * Sets the font family.
    *
-   * @param { string | Resource } value
+   * @param { string | Resource } value - Font family.<br>Default font: **'HarmonyOS Sans'**<br>To specify multiple
+   *     fonts, separate them with commas (,), and fonts are applied in priority order. Example:
+   *     **'Arial, HarmonyOS Sans'**.
    * @returns { SpanAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Called when the font list of text is set.
-   *
-   * @param { string | Resource } value
-   * @returns { SpanAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Called when the font list of text is set.
-   *
-   * @param { string | Resource } value
-   * @returns { SpanAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Called when the font list of text is set.
-   *
-   * @param { string | Resource } value
-   * @returns { SpanAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   fontFamily(value: string | Resource): SpanAttribute;
 
   /**
-   * Called when the text decoration of the text is set.
+   * Style and color of the text decorative line.
    *
-   * @param { object } value
+   * @param { object } value - Style of the text decorative line.<br>Default value:<br>{<br> type:
+   *     TextDecorationType.None,<br> color: Color.Black,<br> style: TextDecorationStyle.SOLID <br>}<br>**NOTE**<br>The
+   *     **style** parameter cannot be used in widgets. [since 7 - 11]
+   * @param { DecorationStyleInterface } value - Style of the text decorative line.<br>Default value:<br>{<br> type:
+   *     TextDecorationType.None,<br> color: Color.Black,<br> style: TextDecorationStyle.SOLID <br>}<br>**NOTE**<br>The
+   *     **style** parameter cannot be used in widgets. [since 12]
    * @returns { SpanAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Called when the text decoration of the text is set.
-   *
-   * @param { object } value
-   * @returns { SpanAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Called when the text decoration of the text is set.
-   *
-   * @param { object } value
-   * @returns { SpanAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Called when the text decoration of the text is set.
-   *
-   * @param { object } value
-   * @returns { SpanAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Called when the text decoration of the text is set.
-   *
-   * @param { DecorationStyleInterface } value
-   * @returns { SpanAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   decoration(value: DecorationStyleInterface): SpanAttribute;
 
   /**
-   * Called when the distance between text fonts is set.
+   * Sets the letter spacing. A negative value tightens the spacing; a positive value loosens the spacing, and the
+   * letters are spread farther apart with the value. For the string type, numeric string values with optional units,
+   * for example, **"10"** or **"10fp"**, are supported.
    *
-   * @param { number | string } value
+   * @param { number | string } value - Letter spacing.<br>Unit: [fp]{@link common}<br>The [Resource]{@link Resource}
+   *     type is supported since API version 20. [since 7 - 19]
+   * @param { number | ResourceStr } value - Letter spacing.<br>Unit: [fp]{@link common}<br>The
+   *     [Resource]{@link Resource} type is supported since API version 20. [since 20]
    * @returns { SpanAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Called when the distance between text fonts is set.
-   *
-   * @param { number | string } value
-   * @returns { SpanAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Called when the distance between text fonts is set.
-   *
-   * @param { number | string } value
-   * @returns { SpanAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Called when the distance between text fonts is set.
-   *
-   * @param { number | string } value
-   * @returns { SpanAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11
-   */
-   /**
-   * Called when the distance between text fonts is set.
-   *
-   * @param { number | ResourceStr } value
-   * @returns { SpanAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   letterSpacing(value: number | ResourceStr): SpanAttribute;
 
   /**
-   * Called when the type of letter in the text font is set.
+   * Sets the text case.
    *
-   * @param { TextCase } value
+   * @param { TextCase } value - Text case.<br>Default value: **TextCase.Normal**
    * @returns { SpanAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Called when the type of letter in the text font is set.
-   *
-   * @param { TextCase } value
-   * @returns { SpanAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Called when the type of letter in the text font is set.
-   *
-   * @param { TextCase } value
-   * @returns { SpanAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Called when the type of letter in the text font is set.
-   *
-   * @param { TextCase } value
-   * @returns { SpanAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   textCase(value: TextCase): SpanAttribute;
 
   /**
-   * Called when the line height of the span is set.
+   * Sets the line height for the text.
    *
-   * @param { Length } value - The line height of the span.
+   * @param { Length } value - Line height of the text.<br> If the value is of the number type, the unit is fp. When
+   *     using the string type, numeric string values with optional units, for example, **"10"** or **"10fp"**, are
+   *     supported.
    * @returns { SpanAttribute } The attribute of the span.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
-   */
-  /**
-   * Called when the line height of the span is set.
-   *
-   * @param { Length } value - The line height of the span.
-   * @returns { SpanAttribute } The attribute of the span.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @stagemodelonly
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   lineHeight(value: Length): SpanAttribute;
 
   /**
-   * Called when the text shadow is set.
+   * Text shadow. It supports input parameters in an array to implement multiple text shadows. This API does not work
+   * with the **fill** attribute or coloring strategy.
    *
-   * @param { ShadowOptions | Array<ShadowOptions> } value - The shadow options.
+   * @param { ShadowOptions | Array<ShadowOptions> } value - Text shadow.
    * @returns { SpanAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Called when the text shadow is set.
-   *
-   * @param { ShadowOptions | Array<ShadowOptions> } value - The shadow options.
-   * @returns { SpanAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   textShadow(value: ShadowOptions | Array<ShadowOptions>): SpanAttribute;
+
+  /**
+   * Set the font variation.
+   *
+   * @param { Array<FontVariation> } fontVariations - Indicates the span font variation.
+   * @returns { SpanAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  fontVariations(fontVariations: Array<FontVariation>): SpanAttribute;
 }
 
 /**
- * Defines Span Component.
+ * As a child of the [Text]{@link text} and [ContainerSpan]{@link container_span} components, the **Span** component is
+ * used to display inline text.
+ *
+ * > **NOTE**
+ * >
+ * > This component is supported since API version 10. It can inherit attribute settings from its parent component
+ * > **Text**. This means that, if an attribute is not set in this component, it takes the value (if any) of the
+ * > attribute from its parent component. Only the following attributes can be inherited: **fontColor**, **fontSize**,
+ * > **fontStyle**, **fontWeight**, **decoration**, **letterSpacing**, **textCase**, **fontFamily**, and **textShadow**.
+ * >
+ * > The [universal attributes]{@link common} are not supported. To set universal attributes, use [Text]{@link text} for
+ * > configuration or use [CustomSpan]{@link CustomSpan} in the [Styled String]{@link styled_string} for custom drawing.
+ * >
+ * > Among [universal events]{@link common}, only
+ * > [onClick]{@link CommonMethod#onClick(event: Callback<ClickEvent>, distanceThreshold: number)} click events and
+ * > [onHover]{@link CommonMethod#onHover} hover events are supported.
+ *
+ * ###### Child Components
+ *
+ * Not supported
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * Defines Span Component.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @since 9
- */
-/**
- * Defines Span Component.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Defines Span Component.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
+ * @noninterop
  */
 declare const Span: SpanInterface;
 
@@ -710,30 +410,10 @@ declare const Span: SpanInterface;
  * Defines Span Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * Defines Span Component instance.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @since 9
- */
-/**
- * Defines Span Component instance.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Defines Span Component instance.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
+ * @noninterop
  */
 declare const SpanInstance: SpanAttribute;

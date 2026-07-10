@@ -21,9 +21,13 @@
 import { NotificationSorting } from './notificationSorting';
 
 /**
- * Provides sorting information about the active notifications among all the notifications that have been subscribed to
+ * The **NotificationSortingMap** module provides APIs for defining the sorting information of active notifications in 
+ * all subscribed notifications.
+ * 
+ * > **NOTE**
+ * >
+ * > The APIs provided by this module are system APIs.
  *
- * @typedef NotificationSortingMap
  * @syscap SystemCapability.Notification.Notification
  * @systemapi
  * @since 7 dynamic
@@ -31,10 +35,8 @@ import { NotificationSorting } from './notificationSorting';
  */
 export interface NotificationSortingMap {
   /**
-   * An array of notification sort information.
+   * Array of notification sorting information.
    *
-   * @type { Record<string, NotificationSorting> }
-   * @readonly
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 7 dynamic
@@ -43,10 +45,8 @@ export interface NotificationSortingMap {
   readonly sortings: Record<string, NotificationSorting>;
 
   /**
-   * Notification unique identification array.
+   * Hash codes for notification sorting.
    *
-   * @type { Array<string> }
-   * @readonly
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 7 dynamic

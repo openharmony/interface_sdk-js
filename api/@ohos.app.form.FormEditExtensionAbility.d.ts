@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2025 Huawei Device Co., Ltd.
+ * Copyright (c) 2025-2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -21,9 +21,10 @@ import UIExtensionAbility from './@ohos.app.ability.UIExtensionAbility';
 import FormEditExtensionContext from './application/FormEditExtensionContext';
 
 /**
- * The class of form edit extension ability.
- *
- * @extends UIExtensionAbility
+ * The **FormEditExtensionAbility** module, inherited from 
+ * [UIExtensionAbility]{@link @ohos.app.ability.UIExtensionAbility:UIExtensionAbility}, provides the widget editing 
+ * function.
+ * 
  * @syscap SystemCapability.Ability.Form
  * @stagemodelonly
  * @since 18 dynamic
@@ -31,14 +32,21 @@ import FormEditExtensionContext from './application/FormEditExtensionContext';
  */
 declare class FormEditExtensionAbility extends UIExtensionAbility {
 /**
-   * Indicates configuration infomation about an form edit extension ability context.
-   *
-   * @type { FormEditExtensionContext }
-   * @syscap SystemCapability.Ability.Form
-   * @stagemodelonly
-   * @since 18 dynamic
-   * @since 23 static
-   */
+  * Indicates configuration information about a form edit extension ability context.
+  *
+  * @syscap SystemCapability.Ability.Form
+  * @stagemodelonly
+  * @since 18 dynamic
+  */
 	context: FormEditExtensionContext;
+
+/**
+  * Indicates configuration information about a form edit extension ability context.
+  *
+  * @syscap SystemCapability.Ability.Form
+  * @stagemodelonly
+  * @since 23 static
+  */
+	formEditContext: FormEditExtensionContext;
 }
 export default FormEditExtensionAbility;

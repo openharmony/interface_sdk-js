@@ -20,246 +20,175 @@
 
 import { AsyncCallback } from './@ohos.base';
 import type Context from './application/BaseContext';
+
 import { ValueType } from './@ohos.data.ValuesBucket';
 import type image from './@ohos.multimedia.image';
 
 /**
- * Contains variety of system contact, provides functions for adding, updating and deleting these system contact
- * and provides methods for querying the information of contact.
+ * The **contact** module provides contact management functions, such as adding, deleting, and updating contacts.
  *
- * @namespace contact
  * @syscap SystemCapability.Applications.ContactsData
+ * @atomicservice [since 11]
  * @since 7
- */
-/**
- * Contains variety of system contact, provides functions for adding, updating and deleting these system contact
- * and provides methods for querying the information of contact.
- *
- * @namespace contact
- * @syscap SystemCapability.Applications.ContactsData
- * @atomicservice
- * @since 11
  */
 declare namespace contact {
   /**
-   * Creates a contact.
+   * Adds a contact. This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.WRITE_CONTACTS
    * @param { Contact } contact - Indicates the contact information.
-   * @param { AsyncCallback<number> } callback - Returns the contact ID (which can be obtained
-   * by {@link Contact#getId()}) if the creation is successful. returns {@link Contact#INVALID_CONTACT_ID} if the
-   * creation fails.
+   * @param { AsyncCallback<number> } callback - Indicates the callback for getting the result of the call. If the operation is successful, the
+   *     ID of the added contact is returned. If the operation fails, an error code is returned.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
    * @deprecated since 10
-   * @useinstead contact.addContact#addContact
+   * @useinstead contact.addContact(context: Context, contact: Contact, callback: AsyncCallback<number>)
    */
   function addContact(contact: Contact, callback: AsyncCallback<number>): void;
 
   /**
-   * Creates a contact.
+   * Adds a contact. This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.WRITE_CONTACTS
    * @param { Context } context - Indicates the context of application or capability.
    * @param { Contact } contact - Indicates the contact information.
-   * @param { AsyncCallback<number> } callback - Returns the contact ID (which can be obtained
-   * by {@link Contact#getId()}) if the creation is successful. returns {@link Contact#INVALID_CONTACT_ID} if the
-   * creation fails.
+   * @param { AsyncCallback<number> } callback - Indicates the callback for getting the result of the call. If the operation is successful, the
+   *     ID of the added contact is returned. If the operation fails, an error code is returned.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
+   * @atomicservice [since 12]
    * @since 10
-   */
-  /**
-   * Creates a contact.
-   *
-   * @permission ohos.permission.WRITE_CONTACTS
-   * @param { Context } context - Indicates the context of application or capability.
-   * @param { Contact } contact - Indicates the contact information.
-   * @param { AsyncCallback<number> } callback - Returns the contact ID (which can be obtained
-   * by {@link Contact#getId()}) if the creation is successful. returns {@link Contact#INVALID_CONTACT_ID} if the
-   * creation fails.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
-   * @syscap SystemCapability.Applications.ContactsData
-   * @atomicservice
-   * @since 12
    */
   function addContact(context: Context, contact: Contact, callback: AsyncCallback<number>): void;
 
   /**
-   * Creates a contact.
+   * Adds a contact. This API uses a promise to return the result.
+   *
    *
    * @permission ohos.permission.WRITE_CONTACTS
    * @param { Contact } contact - Indicates the contact information.
-   * @returns { Promise<number> } Returns the contact ID (which can be obtained by {@link Contact#getId()}) if the
-   * creation is successful. returns {@link Contact#INVALID_CONTACT_ID} if the creation fails.
+   * @returns { Promise<number> } Promise used to return the result, which is the ID of the added contact.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
    * @deprecated since 10
-   * @useinstead contact.addContact#addContact
+   * @useinstead contact.addContact(context: Context, contact: Contact)
    */
   function addContact(contact: Contact): Promise<number>;
 
   /**
-   * Creates a contact.
+   * Adds a contact. This API uses a promise to return the result.
    *
    * @permission ohos.permission.WRITE_CONTACTS
    * @param { Context } context - Indicates the context of application or capability.
    * @param { Contact } contact - Indicates the contact information.
-   * @returns { Promise<number> } Returns the contact ID (which can be obtained by {@link Contact#getId()}) if the
-   * creation is successful. returns {@link Contact#INVALID_CONTACT_ID} if the creation fails.
+   * @returns { Promise<number> } Promise used to return the result, which is the ID of the added contact.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
+   * @atomicservice [since 12]
    * @since 10
-   */
-  /**
-   * Creates a contact.
-   *
-   * @permission ohos.permission.WRITE_CONTACTS
-   * @param { Context } context - Indicates the context of application or capability.
-   * @param { Contact } contact - Indicates the contact information.
-   * @returns { Promise<number> } Returns the contact ID (which can be obtained by {@link Contact#getId()}) if the
-   * creation is successful. returns {@link Contact#INVALID_CONTACT_ID} if the creation fails.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
-   * @syscap SystemCapability.Applications.ContactsData
-   * @atomicservice
-   * @since 12
    */
   function addContact(context: Context, contact: Contact): Promise<number>;
 
   /**
-   * Select contact.
+   * Selects a contact. This API uses an asynchronous callback to return the result.
    *
-   * @permission ohos.permission.READ_CONTACTS
-   * @param { AsyncCallback<Array<Contact>> } callback - Indicates the callback for getting the result of the call.
-   * Returns the contact list which user select; returns empty contact list if user not select.
+   * @param { AsyncCallback<Array<Contact>> } callback - Indicates the callback for getting the result of the call. If the operation is
+   *     successful, an array of selected contacts is returned. If the operation fails, an error code is returned.
    * @syscap SystemCapability.Applications.Contacts
    * @since 7
    * @deprecated since 10
-   * @useinstead contact.selectContact#selectContacts
+   * @useinstead contact.selectContacts(callback: AsyncCallback<Array<Contact>>)
    */
   function selectContact(callback: AsyncCallback<Array<Contact>>): void;
 
   /**
-   * Select contact.
+   * Selects a contact. This API uses an asynchronous callback to return the result.
    *
-   * @param { AsyncCallback<Array<Contact>> } callback - Indicates the callback for getting the result of the call.
-   * Returns the contact list which user select; returns empty contact list if user not select.
+   * @param { AsyncCallback<Array<Contact>> } callback - Indicates the callback for getting the result of the call. If the operation is
+   *     successful, an array of selected contacts is returned. If the operation fails, an error code is returned.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.Contacts
+   * @atomicservice [since 11]
    * @since 10
-   */
-  /**
-   * Select contact.
-   *
-   * @param { AsyncCallback<Array<Contact>> } callback - Indicates the callback for getting the result of the call.
-   * Returns the contact list which user select; returns empty contact list if user not select.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
-   * @syscap SystemCapability.Applications.Contacts
-   * @atomicservice
-   * @since 11
    */
   function selectContacts(callback: AsyncCallback<Array<Contact>>): void;
 
   /**
-   * Select contact.
+   * Selects a contact. This API uses a promise to return the result.
    *
-   * @permission ohos.permission.READ_CONTACTS
-   * @returns { Promise<Array<Contact>> } Returns the contact list which user select;
-   * returns empty contact list if user not select.
+   * @returns { Promise<Array<Contact>> } Promise used to return the result, which is an array of selected contacts.
    * @syscap SystemCapability.Applications.Contacts
    * @since 7
    * @deprecated since 10
-   * @useinstead contact.selectContact#selectContacts
+   * @useinstead contact.selectContacts()
    */
   function selectContact(): Promise<Array<Contact>>;
 
   /**
-   * Select contact.
+   * Selects a contact. This API uses a promise to return the result.
    *
-   * @returns { Promise<Array<Contact>> } Returns the contact list which user select;
-   * returns empty contact list if user not select.
+   * @returns { Promise<Array<Contact>> } Promise used to return the result, which is an array of selected contacts.
    * @syscap SystemCapability.Applications.Contacts
+   * @atomicservice [since 11]
    * @since 10
-   */
-  /**
-   * Select contact.
-   *
-   * @returns { Promise<Array<Contact>> } Returns the contact list which user select;
-   * returns empty contact list if user not select.
-   * @syscap SystemCapability.Applications.Contacts
-   * @atomicservice
-   * @since 11
    */
   function selectContacts(): Promise<Array<Contact>>;
 
   /**
-   * Select contact with option.
+   * Selects a contact. (Filter criteria can be transferred during contact selection.) This API uses an asynchronous
+   * callback to return the result.
    *
-   * @param { ContactSelectionOptions } options - Indicates the Single-select or multiple-select.
-   * @param { AsyncCallback<Array<Contact>> } callback - Indicates the callback for getting the result of the call.
+   * @param { ContactSelectionOptions } options - Contact selection options, which specifies whether one contact or
+   *     multiple contacts can be selected.
+   * @param { AsyncCallback<Array<Contact>> } callback - Indicates the callback for getting the result of the call. If the operation is
+   *     successful, an array of selected contacts is returned. If the operation fails, an error code is returned.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.Contacts
+   * @atomicservice [since 11]
    * @since 10
-   */
-  /**
-   * Select contact with option.
-   *
-   * @param { ContactSelectionOptions } options - Indicates the Single-select or multiple-select.
-   * @param { AsyncCallback<Array<Contact>> } callback - Indicates the callback for getting the result of the call.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
-   * @syscap SystemCapability.Applications.Contacts
-   * @atomicservice
-   * @since 11
    */
   function selectContacts(options: ContactSelectionOptions, callback: AsyncCallback<Array<Contact>>): void;
 
   /**
-   * Select contact with option.
+   * Selects a contact. (Filter criteria can be transferred during contact selection.) This API uses a promise to return
+   * the result.
    *
-   * @param { ContactSelectionOptions } options - Indicates the Single-select or multiple-select.
-   * @returns { Promise<Array<Contact>> } Returns the contact list which user select;
-   * returns empty contact list if user not select.
+   * @param { ContactSelectionOptions } options - Contact selection options, which specifies whether one contact or
+   *     multiple contacts can be selected.
+   * @returns { Promise<Array<Contact>> } Promise used to return the result, which is an array of selected contacts.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.Contacts
+   * @atomicservice [since 11]
    * @since 10
-   */
-  /**
-   * Select contact with option.
-   *
-   * @param { ContactSelectionOptions } options - Indicates the Single-select or multiple-select.
-   * @returns { Promise<Array<Contact>> } Returns the contact list which user select;
-   * returns empty contact list if user not select.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
-   * @syscap SystemCapability.Applications.Contacts
-   * @atomicservice
-   * @since 11
    */
   function selectContacts(options: ContactSelectionOptions): Promise<Array<Contact>>;
 
   /**
-   * Deletes a specified contact.
+   * Deletes a contact. This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.WRITE_CONTACTS
-   * @param { string } key - Indicates the unique query key of a contact to delete.
-   * @param { AsyncCallback<void> } callback - Return the callback function.
+   * @param { string } key - Unique query key of a contact. One contact corresponds to one key, which can be obtained
+   *     through [queryKey]{@link contact.queryKey(context: Context, id: number, callback: AsyncCallback<string>)}.
+   * @param { AsyncCallback<void> } callback - Indicates the callback for getting the result of the call. If the operation is successful, the
+   *     ID of the deleted contact is returned. If the operation fails, an error code is returned.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
    * @deprecated since 10
-   * @useinstead contact.deleteContact#deleteContact
+   * @useinstead contact.deleteContact(context: Context, key: string, callback: AsyncCallback<void>)
    */
   function deleteContact(key: string, callback: AsyncCallback<void>): void;
 
   /**
-   * Deletes a specified contact.
+   * Deletes a contact. This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.WRITE_CONTACTS
    * @param { Context } context - Indicates the context of application or capability.
-   * @param { string } key - Indicates the unique query key of a contact to delete.
-   * @param { AsyncCallback<void> } callback - Return the callback function.
+   * @param { string } key - Unique query key of a contact. One contact corresponds to one key, which can be obtained
+   *     through [queryKey]{@link contact.queryKey(context: Context, id: number, callback: AsyncCallback<string>)}.
+   * @param { AsyncCallback<void> } callback - Indicates the callback for getting the result of the call. If the operation is successful, the
+   *     ID of the deleted contact is returned. If the operation fails, an error code is returned.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
@@ -268,25 +197,27 @@ declare namespace contact {
   function deleteContact(context: Context, key: string, callback: AsyncCallback<void>): void;
 
   /**
-   * Deletes a specified contact.
+   * Deletes a contact. This API uses a promise to return the result.
    *
    * @permission ohos.permission.WRITE_CONTACTS
-   * @param { string } key - Indicates the unique query key of a contact to delete.
-   * @returns { Promise<void> } The promise returned by the function.
+   * @param { string } key - Unique query key of a contact. One contact corresponds to one key, which can be obtained
+   *     through [queryKey]{@link contact.queryKey(context: Context, id: number, callback: AsyncCallback<string>)}.
+   * @returns { Promise<void> } Promise that returns no value.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
    * @deprecated since 10
-   * @useinstead contact.deleteContact#deleteContact
+   * @useinstead contact.deleteContact(context: Context, key: string)
    */
   function deleteContact(key: string): Promise<void>;
 
   /**
-   * Deletes a specified contact.
+   * Deletes a contact. This API uses a promise to return the result.
    *
    * @permission ohos.permission.WRITE_CONTACTS
    * @param { Context } context - Indicates the context of application or capability.
-   * @param { string } key - Indicates the unique query key of a contact to delete.
-   * @returns { Promise<void> } The promise returned by the function.
+   * @param { string } key - Unique query key of a contact. One contact corresponds to one key, which can be obtained
+   *     through [queryKey]{@link contact.queryKey(context: Context, id: number, callback: AsyncCallback<string>)}.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
@@ -295,25 +226,31 @@ declare namespace contact {
   function deleteContact(context: Context, key: string): Promise<void>;
 
   /**
-   * Queries a specified contact of specified attributes.
+   * Queries a contact based on the specified key. This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.READ_CONTACTS
-   * @param { string } key - Indicates the unique query key of a contact.
-   * @param { AsyncCallback<Contact> } callback - Returns the specified contact.
+   * @param { string } key - Unique query key of a contact, which is the unique identifier automatically generated by
+   *     the system when a contact is created. Each contact corresponds to one key, which can be obtained through
+   *     [queryKey]{@link contact.queryKey(context: Context, id: number, callback: AsyncCallback<string>)}.
+   * @param { AsyncCallback<Contact> } callback - Indicates the callback for getting the result of the call. If the operation is successful, an
+   *     array of queried contacts is returned. If the operation fails, an error code is returned.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
    * @deprecated since 10
-   * @useinstead contact.queryContact#queryContact
+   * @useinstead contact.queryContact(context: Context, key: string, callback: AsyncCallback<Contact>)
    */
   function queryContact(key: string, callback: AsyncCallback<Contact>): void;
 
   /**
-   * Queries a specified contact of specified attributes.
+   * Queries a contact based on the specified key. This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.READ_CONTACTS
    * @param { Context } context - Indicates the context of application or capability.
-   * @param { string } key - Indicates the unique query key of a contact.
-   * @param { AsyncCallback<Contact> } callback - Returns the specified contact.
+   * @param { string } key - Unique query key of a contact, which is the unique identifier automatically generated by
+   *     the system when a contact is created. Each contact corresponds to one key, which can be obtained through
+   *     [queryKey]{@link contact.queryKey(context: Context, id: number, callback: AsyncCallback<string>)}.
+   * @param { AsyncCallback<Contact> } callback - Indicates the callback for getting the result of the call. If the operation is successful, an
+   *     array of queried contacts is returned. If the operation fails, an error code is returned.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
@@ -322,29 +259,38 @@ declare namespace contact {
   function queryContact(context: Context, key: string, callback: AsyncCallback<Contact>): void;
 
   /**
-   * Queries a specified contact of specified attributes.
+   * Queries a contact based on the specified key and holder. This API uses an asynchronous callback to return the
+   * result.
+   *
    *
    * @permission ohos.permission.READ_CONTACTS
-   * @param { string } key - Indicates the unique query key of a contact.
-   * @param { Holder } holder - Indicates the contact holder.
-   * If this parameter is null, the default holder is used for matching.
-   * @param { AsyncCallback<Contact> } callback - Returns the specified contact.
+   * @param { string } key - Unique query key of a contact, which is the unique identifier automatically generated by
+   *     the system when a contact is created. Each contact corresponds to one key, which can be obtained through
+   *     [queryKey]{@link contact.queryKey(context: Context, id: number, callback: AsyncCallback<string>)}.
+   * @param { Holder } holder - Application that creates the contacts.If the passed parameter is empty, the system
+   *     contact application is used by default.
+   * @param { AsyncCallback<Contact> } callback - Indicates the callback for getting the result of the call. If the operation is successful, an
+   *     array of queried contacts is returned. If the operation fails, an error code is returned.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
    * @deprecated since 10
-   * @useinstead contact.queryContact#queryContact
+   * @useinstead contact.queryContact(context: Context, key: string, holder: Holder, callback: AsyncCallback<Contact>)
    */
   function queryContact(key: string, holder: Holder, callback: AsyncCallback<Contact>): void;
 
   /**
-   * Queries a specified contact of specified attributes.
+   * Queries a contact based on the specified key and holder. This API uses an asynchronous callback to return the
+   * result.
    *
    * @permission ohos.permission.READ_CONTACTS
    * @param { Context } context - Indicates the context of application or capability.
-   * @param { string } key - Indicates the unique query key of a contact.
-   * @param { Holder } holder - Indicates the contact holder.
-   * If this parameter is null, the default holder is used for matching.
-   * @param { AsyncCallback<Contact> } callback - Returns the specified contact.
+   * @param { string } key - Unique query key of a contact, which is the unique identifier automatically generated by
+   *     the system when a contact is created. Each contact corresponds to one key, which can be obtained through
+   *     [queryKey]{@link contact.queryKey(context: Context, id: number, callback: AsyncCallback<string>)}.
+   * @param { Holder } holder - Application that creates the contacts.If the passed parameter is empty, the system
+   *     contact application is used by default.
+   * @param { AsyncCallback<Contact> } callback - Indicates the callback for getting the result of the call. If the operation is successful, an
+   *     array of queried contacts is returned. If the operation fails, an error code is returned.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
@@ -353,29 +299,37 @@ declare namespace contact {
   function queryContact(context: Context, key: string, holder: Holder, callback: AsyncCallback<Contact>): void;
 
   /**
-   * Queries a specified contact of specified attributes.
+   * Queries a contact based on the specified key and attributes. This API uses an asynchronous callback to return the
+   * result.
    *
    * @permission ohos.permission.READ_CONTACTS
-   * @param { string } key - Indicates the unique query key of a contact.
-   * @param { ContactAttributes } attrs - Indicates the contact attributes.
-   * If this parameter is null, all attributes are used for matching.
-   * @param { AsyncCallback<Contact> } callback - Returns the specified contact.
+   * @param { string } key - Unique query key of a contact, which is the unique identifier automatically generated by
+   *     the system when a contact is created. Each contact corresponds to one key, which can be obtained through
+   *     [queryKey]{@link contact.queryKey(context: Context, id: number, callback: AsyncCallback<string>)}.
+   * @param { ContactAttributes } attrs - List of contact attributes. If this parameter is empty, all attribute fields (
+   *     including the name, phone number, and email address) of the contact are queried.
+   * @param { AsyncCallback<Contact> } callback - Indicates the callback for getting the result of the call. If the operation is successful, an
+   *     array of queried contacts is returned. If the operation fails, an error code is returned.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
    * @deprecated since 10
-   * @useinstead contact.queryContact#queryContact
+   * @useinstead contact.queryContact(context: Context, key: string, attrs: ContactAttributes, callback: AsyncCallback<Contact>)
    */
   function queryContact(key: string, attrs: ContactAttributes, callback: AsyncCallback<Contact>): void;
 
   /**
-   * Queries a specified contact of specified attributes.
+   * Queries a contact based on the specified key and attributes. This API uses an asynchronous callback to return the
+   * result.
    *
    * @permission ohos.permission.READ_CONTACTS
    * @param { Context } context - Indicates the context of application or capability.
-   * @param { string } key - Indicates the unique query key of a contact.
-   * @param { ContactAttributes } attrs - Indicates the contact attributes.
-   * If this parameter is null, all attributes are used for matching.
-   * @param { AsyncCallback<Contact> } callback - Returns the specified contact.
+   * @param { string } key - Unique query key of a contact, which is the unique identifier automatically generated by
+   *     the system when a contact is created. Each contact corresponds to one key, which can be obtained through
+   *     [queryKey]{@link contact.queryKey(context: Context, id: number, callback: AsyncCallback<string>)}.
+   * @param { ContactAttributes } attrs - List of contact attributes. If this parameter is empty, all attribute fields (
+   *     including the name, phone number, and email address) of the contact are queried.
+   * @param { AsyncCallback<Contact> } callback - Indicates the callback for getting the result of the call. If the operation is successful, an
+   *     array of queried contacts is returned. If the operation fails, an error code is returned.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
@@ -384,31 +338,41 @@ declare namespace contact {
   function queryContact(context: Context, key: string, attrs: ContactAttributes, callback: AsyncCallback<Contact>): void;
 
   /**
-   * Queries a specified contact of specified attributes.
+   * Queries a contact based on the specified key, holder, and attributes. This API uses an asynchronous callback to
+   * return the result.
    *
    * @permission ohos.permission.READ_CONTACTS
-   * @param { string } key - Indicates the unique query key of a contact.
-   * @param { Holder } holder - Indicates the contact holder.
-   * @param { ContactAttributes } attrs - Indicates the contact attributes.
-   * If this parameter is null, all attributes are used for matching.
-   * @param { AsyncCallback<Contact> } callback - Returns the specified contact.
+   * @param { string } key - Unique query key of a contact, which is the unique identifier automatically generated by
+   *     the system when a contact is created. Each contact corresponds to one key, which can be obtained through
+   *     [queryKey]{@link contact.queryKey(context: Context, id: number, callback: AsyncCallback<string>)}.
+   * @param { Holder } holder - Application that creates the contacts.If the passed parameter is empty, the system
+   *     contact application is used by default.
+   * @param { ContactAttributes } attrs - List of contact attributes. If this parameter is empty, all attribute fields (
+   *     including the name, phone number, and email address) of the contact are queried.
+   * @param { AsyncCallback<Contact> } callback - Indicates the callback for getting the result of the call. If the operation is successful, an
+   *     array of queried contacts is returned. If the operation fails, an error code is returned.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
    * @deprecated since 10
-   * @useinstead contact.queryContact#queryContact
+   * @useinstead contact.queryContact(context: Context, key: string, holder: Holder, attrs: ContactAttributes, callback: AsyncCallback<Contact>)
    */
   function queryContact(key: string, holder: Holder, attrs: ContactAttributes, callback: AsyncCallback<Contact>): void;
 
   /**
-   * Queries a specified contact of specified attributes.
+   * Queries a contact based on the specified key, holder, and attributes. This API uses an asynchronous callback to
+   * return the result.
    *
    * @permission ohos.permission.READ_CONTACTS
    * @param { Context } context - Indicates the context of application or capability.
-   * @param { string } key - Indicates the unique query key of a contact.
-   * @param { Holder } holder - Indicates the contact holder.
-   * @param { ContactAttributes } attrs - Indicates the contact attributes.
-   * If this parameter is null, all attributes are used for matching.
-   * @param { AsyncCallback<Contact> } callback - Returns the specified contact.
+   * @param { string } key - Unique query key of a contact, which is the unique identifier automatically generated by
+   *     the system when a contact is created. Each contact corresponds to one key, which can be obtained through
+   *     [queryKey]{@link contact.queryKey(context: Context, id: number, callback: AsyncCallback<string>)}.
+   * @param { Holder } holder - Application that creates the contacts.If the passed parameter is empty, the system
+   *     contact application is used by default.
+   * @param { ContactAttributes } attrs - List of contact attributes. If this parameter is empty, all attribute fields (
+   *     including the name, phone number, and email address) of the contact are queried.
+   * @param { AsyncCallback<Contact> } callback - Indicates the callback for getting the result of the call. If the operation is successful, an
+   *     array of queried contacts is returned. If the operation fails, an error code is returned.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
@@ -417,31 +381,37 @@ declare namespace contact {
   function queryContact(context: Context, key: string, holder: Holder, attrs: ContactAttributes, callback: AsyncCallback<Contact>): void;
 
   /**
-   * Queries a specified contact of specified attributes.
+   * Queries a contact based on the specified key, holder, and attributes. This API uses a promise to return the result.
    *
    * @permission ohos.permission.READ_CONTACTS
-   * @param { string } key - Indicates the unique query key of a contact.
-   * @param { Holder } holder - Indicates the contact holder.
-   * @param { ContactAttributes } attrs - Indicates the contact attributes.
-   * If this parameter is null, all attributes are used for matching.
-   * @returns { Promise<Contact> } Returns the specified contact.
+   * @param { string } key - Unique query key of a contact, which is the unique identifier automatically generated by
+   *     the system when a contact is created. Each contact corresponds to one key, which can be obtained through
+   *     [queryKey]{@link contact.queryKey(context: Context, id: number, callback: AsyncCallback<string>)}.
+   * @param { Holder } holder - Application information for a contact. If this parameter is not specified, the system
+   *     contact application is used by default.
+   * @param { ContactAttributes } attrs - Contact attribute list. If this parameter is not specified, all contact
+   *     attributes are queried by default.
+   * @returns { Promise<Contact> } Promise used to return the result, which is the queried contact.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
    * @deprecated since 10
-   * @useinstead contact.queryContact#queryContact
+   * @useinstead contact.queryContact(context: Context, key: string, holder?: Holder, attrs?: ContactAttributes)
    */
   function queryContact(key: string, holder?: Holder, attrs?: ContactAttributes): Promise<Contact>;
 
   /**
-   * Queries a specified contact of specified attributes.
+   * Queries a contact based on the specified key, holder, and attributes. This API uses a promise to return the result.
    *
    * @permission ohos.permission.READ_CONTACTS
    * @param { Context } context - Indicates the context of application or capability.
-   * @param { string } key - Indicates the unique query key of a contact.
-   * @param { Holder } holder - Indicates the contact holder.
-   * @param { ContactAttributes } attrs - Indicates the contact attributes.
-   * If this parameter is null, all attributes are used for matching.
-   * @returns { Promise<Contact> } Returns the specified contact.
+   * @param { string } key - Unique query key of a contact, which is the unique identifier automatically generated by
+   *     the system when a contact is created. Each contact corresponds to one key, which can be obtained through
+   *     [queryKey]{@link contact.queryKey(context: Context, id: number, callback: AsyncCallback<string>)}.
+   * @param { Holder } holder - Application information for a contact. If this parameter is not specified, the system
+   *     contact application is used by default.
+   * @param { ContactAttributes } attrs - Contact attribute list. If this parameter is not specified, all contact
+   *     attributes are queried by default.
+   * @returns { Promise<Contact> } Promise used to return the result, which is the queried contact.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
@@ -450,23 +420,25 @@ declare namespace contact {
   function queryContact(context: Context, key: string, holder?: Holder, attrs?: ContactAttributes): Promise<Contact>;
 
   /**
-   * Queries contacts with query conditions.
+   * Queries all contacts. This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.READ_CONTACTS
-   * @param { AsyncCallback<Array<Contact>> } callback - Returns the {@code Contact} list object.
+   * @param { AsyncCallback<Array<Contact>> } callback - Indicates the callback for getting the result of the call.
+   *     Returns the contact list which user select; returns empty contact list if user not select.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
    * @deprecated since 10
-   * @useinstead contact.queryContacts#queryContacts
+   * @useinstead contact.queryContacts(context: Context, callback: AsyncCallback<Array<Contact>>)
    */
   function queryContacts(callback: AsyncCallback<Array<Contact>>): void;
 
   /**
-   * Queries contacts with query conditions.
+   * Queries all contacts. This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.READ_CONTACTS
    * @param { Context } context - Indicates the context of application or capability.
-   * @param { AsyncCallback<Array<Contact>> } callback - Returns the {@code Contact} list object.
+   * @param { AsyncCallback<Array<Contact>> } callback - Indicates the callback for getting the result of the call.
+   *     Returns the contact list which user select; returns empty contact list if user not select.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
@@ -475,27 +447,29 @@ declare namespace contact {
   function queryContacts(context: Context, callback: AsyncCallback<Array<Contact>>): void;
 
   /**
-   * Queries contacts with query conditions.
+   * Queries all contacts based on the specified holder. This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.READ_CONTACTS
-   * @param { Holder } holder - Indicates the contact holder.
-   * If this parameter is null, the default holder is used for matching.
-   * @param { AsyncCallback<Array<Contact>> } callback - Returns the {@code Contact} list object.
+   * @param { Holder } holder - Application that creates the contacts.If the passed parameter is empty, the system
+   *     contact application is used by default.
+   * @param { AsyncCallback<Array<Contact>> } callback - Indicates the callback for getting the result of the call.
+   *     Returns the contact list which user select; returns empty contact list if user not select.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
    * @deprecated since 10
-   * @useinstead contact.queryContacts#queryContacts
+   * @useinstead contact.queryContacts(context: Context, holder: Holder, callback: AsyncCallback<Array<Contact>>)
    */
   function queryContacts(holder: Holder, callback: AsyncCallback<Array<Contact>>): void;
 
   /**
-   * Queries contacts with query conditions.
+   * Queries all contacts based on the specified holder. This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.READ_CONTACTS
    * @param { Context } context - Indicates the context of application or capability.
-   * @param { Holder } holder - Indicates the contact holder.
-   * If this parameter is null, the default holder is used for matching.
-   * @param { AsyncCallback<Array<Contact>> } callback - Returns the {@code Contact} list object.
+   * @param { Holder } holder - Application that creates the contacts.If the passed parameter is empty, the system
+   *     contact application is used by default.
+   * @param { AsyncCallback<Array<Contact>> } callback - Indicates the callback for getting the result of the call.
+   *     Returns the contact list which user select; returns empty contact list if user not select.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
@@ -504,27 +478,31 @@ declare namespace contact {
   function queryContacts(context: Context, holder: Holder, callback: AsyncCallback<Array<Contact>>): void;
 
   /**
-   * Queries contacts with query conditions.
+   * Queries all contacts based on the specified attributes. This API uses an asynchronous callback to return the
+   * result.
    *
    * @permission ohos.permission.READ_CONTACTS
-   * @param { ContactAttributes } attrs - Indicates the contact attributes.
-   * If this parameter is null, all attributes are used for matching.
-   * @param { AsyncCallback<Array<Contact>> } callback - Returns the {@code Contact} list object.
+   * @param { ContactAttributes } attrs - List of contact attributes. If this parameter is empty, all attribute fields (
+   *     including the name, phone number, and email address) of the contact are queried.
+   * @param { AsyncCallback<Array<Contact>> } callback - Indicates the callback for getting the result of the call.
+   *     Returns the contact list which user select; returns empty contact list if user not select.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
    * @deprecated since 10
-   * @useinstead contact.queryContacts#queryContacts
+   * @useinstead contact.queryContacts(context: Context, attrs: ContactAttributes, callback: AsyncCallback<Array<Contact>>)
    */
   function queryContacts(attrs: ContactAttributes, callback: AsyncCallback<Array<Contact>>): void;
 
   /**
-   * Queries contacts with query conditions.
+   * Queries all contacts based on the specified attributes. This API uses an asynchronous callback to return the
+   * result.
    *
    * @permission ohos.permission.READ_CONTACTS
    * @param { Context } context - Indicates the context of application or capability.
-   * @param { ContactAttributes } attrs - Indicates the contact attributes.
-   * If this parameter is null, all attributes are used for matching.
-   * @param { AsyncCallback<Array<Contact>> } callback - Returns the {@code Contact} list object.
+   * @param { ContactAttributes } attrs - List of contact attributes. If this parameter is empty, all attribute fields (
+   *     including the name, phone number, and email address) of the contact are queried.
+   * @param { AsyncCallback<Array<Contact>> } callback - Indicates the callback for getting the result of the call.
+   *     Returns the contact list which user select; returns empty contact list if user not select.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
@@ -533,31 +511,35 @@ declare namespace contact {
   function queryContacts(context: Context, attrs: ContactAttributes, callback: AsyncCallback<Array<Contact>>): void;
 
   /**
-   * Queries contacts with query conditions.
+   * Queries all contacts based on the specified holder and attributes. This API uses an asynchronous callback to return
+   * the result.
    *
    * @permission ohos.permission.READ_CONTACTS
-   * @param { Holder } holder - Indicates the contact holder.
-   * If this parameter is null, the default holder is used for matching.
-   * @param { ContactAttributes } attrs - Indicates the contact attributes.
-   * If this parameter is null, all attributes are used for matching.
-   * @param { AsyncCallback<Array<Contact>> } callback - Returns the {@code Contact} list object.
+   * @param { Holder } holder - Application that creates the contacts.If the passed parameter is empty, the system
+   *     contact application is used by default.
+   * @param { ContactAttributes } attrs - List of contact attributes. If this parameter is empty, all attribute fields (
+   *     including the name, phone number, and email address) of the contact are queried.
+   * @param { AsyncCallback<Array<Contact>> } callback - Indicates the callback for getting the result of the call.
+   *     Returns the contact list which user select; returns empty contact list if user not select.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
    * @deprecated since 10
-   * @useinstead contact.queryContacts#queryContacts
+   * @useinstead contact.queryContacts(context: Context, holder: Holder, attrs: ContactAttributes, callback: AsyncCallback<Array<Contact>>)
    */
   function queryContacts(holder: Holder, attrs: ContactAttributes, callback: AsyncCallback<Array<Contact>>): void;
 
   /**
-   * Queries contacts with query conditions.
+   * Queries all contacts based on the specified holder and attributes. This API uses an asynchronous callback to return
+   * the result.
    *
    * @permission ohos.permission.READ_CONTACTS
    * @param { Context } context - Indicates the context of application or capability.
-   * @param { Holder } holder - Indicates the contact holder.
-   * If this parameter is null, the default holder is used for matching.
-   * @param { ContactAttributes } attrs - Indicates the contact attributes.
-   * If this parameter is null, all attributes are used for matching.
-   * @param { AsyncCallback<Array<Contact>> } callback - Returns the {@code Contact} list object.
+   * @param { Holder } holder - Application that creates the contacts.If the passed parameter is empty, the system
+   *     contact application is used by default.
+   * @param { ContactAttributes } attrs - List of contact attributes. If this parameter is empty, all attribute fields (
+   *     including the name, phone number, and email address) of the contact are queried.
+   * @param { AsyncCallback<Array<Contact>> } callback - Indicates the callback for getting the result of the call.
+   *     Returns the contact list which user select; returns empty contact list if user not select.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
@@ -566,31 +548,31 @@ declare namespace contact {
   function queryContacts(context: Context, holder: Holder, attrs: ContactAttributes, callback: AsyncCallback<Array<Contact>>): void;
 
   /**
-   * Queries contacts with query conditions.
+   * Queries all contacts based on the specified holder and attributes. This API uses a promise to return the result.
    *
    * @permission ohos.permission.READ_CONTACTS
-   * @param { Holder } holder - Indicates the contact holder.
-   * If this parameter is null, the default holder is used for matching.
-   * @param { ContactAttributes } attrs - Indicates the contact attributes.
-   * If this parameter is null, all attributes are used for matching.
-   * @returns { Promise<Array<Contact>> } Returns the {@code Contact} list object.
+   * @param { Holder } holder - Application information for a contact. If this parameter is not specified, the system
+   *     contact application is used by default.
+   * @param { ContactAttributes } attrs - Contact attribute list. If this parameter is not specified, all contact
+   *     attributes are queried by default.
+   * @returns { Promise<Array<Contact>> } Promise used to return the result, which is an array of queried contacts.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
    * @deprecated since 10
-   * @useinstead contact.queryContacts#queryContacts
+   * @useinstead contact.queryContacts(context: Context, holder?: Holder, attrs?: ContactAttributes)
    */
   function queryContacts(holder?: Holder, attrs?: ContactAttributes): Promise<Array<Contact>>;
 
   /**
-   * Queries contacts with query conditions.
+   * Queries all contacts based on the specified holder and attributes. This API uses a promise to return the result.
    *
    * @permission ohos.permission.READ_CONTACTS
    * @param { Context } context - Indicates the context of application or capability.
-   * @param { Holder } holder - Indicates the contact holder.
-   * If this parameter is null, the default holder is used for matching.
-   * @param { ContactAttributes } attrs - Indicates the contact attributes.
-   * If this parameter is null, all attributes are used for matching.
-   * @returns { Promise<Array<Contact>> } Returns the {@code Contact} list object.
+   * @param { Holder } holder - Application information for a contact. If this parameter is not specified, the system
+   *     contact application is used by default.
+   * @param { ContactAttributes } attrs - Contact attribute list. If this parameter is not specified, all contact
+   *     attributes are queried by default.
+   * @returns { Promise<Array<Contact>> } Promise used to return the result, which is an array of queried contacts.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
@@ -599,25 +581,35 @@ declare namespace contact {
   function queryContacts(context: Context, holder?: Holder, attrs?: ContactAttributes): Promise<Array<Contact>>;
 
   /**
-   * Queries contacts by a specified email address.
+   * Queries a contact based on the specified email. This API uses an asynchronous callback to return the result. The
+   * return result of this API includes only the **id**, **key**, and **Emails** attributes. If you want to query all
+   * information about a contact, you are advised to call
+   * [queryContact]{@link contact.queryContact(context: Context, key: string, holder: Holder, attrs: ContactAttributes, callback: AsyncCallback<Contact>)}
+   * to query the contact based on the specified key.
    *
    * @permission ohos.permission.READ_CONTACTS
-   * @param { string } email - Indicates the email address.
-   * @param { AsyncCallback<Array<Contact>> } callback - Returns a {@code Contact} list object.
+   * @param { string } email - Email address of the contact.
+   * @param { AsyncCallback<Array<Contact>> } callback - Indicates the callback for getting the result of the call.
+   *     Returns the contact list which user select; returns empty contact list if user not select.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
    * @deprecated since 10
-   * @useinstead contact.queryContactsByEmail#queryContactsByEmail
+   * @useinstead contact.queryContactsByEmail(context: Context, email: string, callback: AsyncCallback<Array<Contact>>)
    */
   function queryContactsByEmail(email: string, callback: AsyncCallback<Array<Contact>>): void;
 
   /**
-   * Queries contacts by a specified email address.
+   * Queries a contact based on the specified email. This API uses an asynchronous callback to return the result. The
+   * return result of this API includes only the **id**, **key**, and **Emails** attributes. If you want to query all
+   * information about a contact, you are advised to call
+   * [queryContact]{@link contact.queryContact(context: Context, key: string, holder: Holder, attrs: ContactAttributes, callback: AsyncCallback<Contact>)}
+   * to query the contact based on the specified key.
    *
    * @permission ohos.permission.READ_CONTACTS
    * @param { Context } context - Indicates the context of application or capability.
-   * @param { string } email - Indicates the email address.
-   * @param { AsyncCallback<Array<Contact>> } callback - Returns a {@code Contact} list object.
+   * @param { string } email - Email address of the contact.
+   * @param { AsyncCallback<Array<Contact>> } callback - Indicates the callback for getting the result of the call.
+   *     Returns the contact list which user select; returns empty contact list if user not select.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
@@ -626,29 +618,39 @@ declare namespace contact {
   function queryContactsByEmail(context: Context, email: string, callback: AsyncCallback<Array<Contact>>): void;
 
   /**
-   * Queries contacts by a specified email address and contact holder.
+   * Queries a contact based on the specified email and holder. This API uses an asynchronous callback to return the
+   * result. The return result of this API includes only the **id**, **key**, and **Emails** attributes. If you want to
+   * query all information about a contact, you are advised to call
+   * [queryContact]{@link contact.queryContact(context: Context, key: string, holder: Holder, attrs: ContactAttributes, callback: AsyncCallback<Contact>)}
+   * to query the contact based on the specified key.
    *
    * @permission ohos.permission.READ_CONTACTS
-   * @param { string } email - Indicates the email address.
-   * @param { Holder } holder - Indicates the contact holder.
-   * If this parameter is null, the default holder is used for matching.
-   * @param { AsyncCallback<Array<Contact>> } callback - Returns a {@code Contact} list object.
+   * @param { string } email - Email address of the contact.
+   * @param { Holder } holder - Application that creates the contacts.If the passed parameter is empty, the system
+   *     contact application is used by default.
+   * @param { AsyncCallback<Array<Contact>> } callback - Indicates the callback for getting the result of the call.
+   *     Returns the contact list which user select; returns empty contact list if user not select.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
    * @deprecated since 10
-   * @useinstead contact.queryContactsByEmail#queryContactsByEmail
+   * @useinstead contact.queryContactsByEmail(context: Context, email: string, holder: Holder, callback: AsyncCallback<Array<Contact>>)
    */
   function queryContactsByEmail(email: string, holder: Holder, callback: AsyncCallback<Array<Contact>>): void;
 
   /**
-   * Queries contacts by a specified email address and contact holder.
+   * Queries a contact based on the specified email and holder. This API uses an asynchronous callback to return the
+   * result. The return result of this API includes only the **id**, **key**, and **Emails** attributes. If you want to
+   * query all information about a contact, you are advised to call
+   * [queryContact]{@link contact.queryContact(context: Context, key: string, holder: Holder, attrs: ContactAttributes, callback: AsyncCallback<Contact>)}
+   * to query the contact based on the specified key.
    *
    * @permission ohos.permission.READ_CONTACTS
    * @param { Context } context - Indicates the context of application or capability.
-   * @param { string } email - Indicates the email address.
-   * @param { Holder } holder - Indicates the contact holder.
-   * If this parameter is null, the default holder is used for matching.
-   * @param { AsyncCallback<Array<Contact>> } callback - Returns a {@code Contact} list object.
+   * @param { string } email - Email address of the contact.
+   * @param { Holder } holder - Application that creates the contacts.If the passed parameter is empty, the system
+   *     contact application is used by default.
+   * @param { AsyncCallback<Array<Contact>> } callback - Indicates the callback for getting the result of the call.
+   *     Returns the contact list which user select; returns empty contact list if user not select.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
@@ -658,29 +660,39 @@ declare namespace contact {
     callback: AsyncCallback<Array<Contact>>): void;
 
   /**
-   * Queries contacts by a specified email address and contact attributes.
+   * Queries a contact based on the specified email and attributes. This API uses an asynchronous callback to return the
+   * result. The return result of this API includes only the **id**, **key**, and **Emails** attributes. If you want to
+   * query all information about a contact, you are advised to call
+   * [queryContact]{@link contact.queryContact(context: Context, key: string, holder: Holder, attrs: ContactAttributes, callback: AsyncCallback<Contact>)}
+   * to query the contact based on the specified key.
    *
    * @permission ohos.permission.READ_CONTACTS
-   * @param { string } email - Indicates the email address.
-   * @param { ContactAttributes } attrs - Indicates the contact attributes.
-   * If this parameter is null, all attributes are used for matching.
-   * @param { AsyncCallback<Array<Contact>> } callback - Returns a {@code Contact} list object.
+   * @param { string } email - Email address of the contact.
+   * @param { ContactAttributes } attrs - List of contact attributes. If this parameter is empty, all attribute fields (
+   *     including the name, phone number, and email address) of the contact are queried.
+   * @param { AsyncCallback<Array<Contact>> } callback - Indicates the callback for getting the result of the call.
+   *     Returns the contact list which user select; returns empty contact list if user not select.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
    * @deprecated since 10
-   * @useinstead contact.queryContactsByEmail#queryContactsByEmail
+   * @useinstead contact.queryContactsByEmail(context: Context, email: string, attrs: ContactAttributes, callback: AsyncCallback<Array<Contact>>)
    */
   function queryContactsByEmail(email: string, attrs: ContactAttributes, callback: AsyncCallback<Array<Contact>>): void;
 
   /**
-   * Queries contacts by a specified email address and contact attributes.
+   * Queries a contact based on the specified email and attributes. This API uses an asynchronous callback to return the
+   * result. The return result of this API includes only the **id**, **key**, and **Emails** attributes. If you want to
+   * query all information about a contact, you are advised to call
+   * [queryContact]{@link contact.queryContact(context: Context, key: string, holder: Holder, attrs: ContactAttributes, callback: AsyncCallback<Contact>)}
+   * to query the contact based on the specified key.
    *
    * @permission ohos.permission.READ_CONTACTS
    * @param { Context } context - Indicates the context of application or capability.
-   * @param { string } email - Indicates the email address.
-   * @param { ContactAttributes } attrs - Indicates the contact attributes.
-   * If this parameter is null, all attributes are used for matching.
-   * @param { AsyncCallback<Array<Contact>> } callback - Returns a {@code Contact} list object.
+   * @param { string } email - Email address of the contact.
+   * @param { ContactAttributes } attrs - List of contact attributes. If this parameter is empty, all attribute fields (
+   *     including the name, phone number, and email address) of the contact are queried.
+   * @param { AsyncCallback<Array<Contact>> } callback - Indicates the callback for getting the result of the call.
+   *     Returns the contact list which user select; returns empty contact list if user not select.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
@@ -690,33 +702,43 @@ declare namespace contact {
     callback: AsyncCallback<Array<Contact>>): void;
 
   /**
-   * Queries contacts by a specified email address, contact holder, and contact attributes.
+   * Queries a contact based on the specified email, holder, and attributes. This API uses an asynchronous callback to
+   * return the result. The return result of this API includes only the **id**, **key**, and **Emails** attributes. If
+   * you want to query all information about a contact, you are advised to call
+   * [queryContact]{@link contact.queryContact(context: Context, key: string, holder: Holder, attrs: ContactAttributes, callback: AsyncCallback<Contact>)}
+   * to query the contact based on the specified key.
    *
    * @permission ohos.permission.READ_CONTACTS
-   * @param { string } email - Indicates the email address.
-   * @param { Holder } holder - Indicates the contact holder.
-   * If this parameter is null, the default holder is used for matching.
-   * @param { ContactAttributes } attrs - Indicates the contact attributes.
-   * If this parameter is null, all attributes are used for matching.
-   * @param { AsyncCallback<Array<Contact>> } callback - Returns a {@code Contact} list object.
+   * @param { string } email - Email address of the contact.
+   * @param { Holder } holder - Application that creates the contacts.If the passed parameter is empty, the system
+   *     contact application is used by default.
+   * @param { ContactAttributes } attrs - List of contact attributes. If this parameter is empty, all attribute fields (
+   *     including the name, phone number, and email address) of the contact are queried.
+   * @param { AsyncCallback<Array<Contact>> } callback - Indicates the callback for getting the result of the call.
+   *     Returns the contact list which user select; returns empty contact list if user not select.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
    * @deprecated since 10
-   * @useinstead contact.queryContactsByEmail#queryContactsByEmail
+   * @useinstead contact.queryContactsByEmail(context: Context, email: string, holder: Holder, attrs: ContactAttributes, callback: AsyncCallback<Array<Contact>>)
    */
   function queryContactsByEmail(email: string, holder: Holder, attrs: ContactAttributes, callback: AsyncCallback<Array<Contact>>): void;
 
   /**
-   * Queries contacts by a specified email address, contact holder, and contact attributes.
+   * Queries a contact based on the specified email, holder, and attributes. This API uses an asynchronous callback to
+   * return the result. The return result of this API includes only the **id**, **key**, and **Emails** attributes. If
+   * you want to query all information about a contact, you are advised to call
+   * [queryContact]{@link contact.queryContact(context: Context, key: string, holder: Holder, attrs: ContactAttributes, callback: AsyncCallback<Contact>)}
+   * to query the contact based on the specified key.
    *
    * @permission ohos.permission.READ_CONTACTS
    * @param { Context } context - Indicates the context of application or capability.
-   * @param { string } email - Indicates the email address.
-   * @param { Holder } holder - Indicates the contact holder.
-   * If this parameter is null, the default holder is used for matching.
-   * @param { ContactAttributes } attrs - Indicates the contact attributes.
-   * If this parameter is null, all attributes are used for matching.
-   * @param { AsyncCallback<Array<Contact>> } callback - Returns a {@code Contact} list object.
+   * @param { string } email - Email address of the contact.
+   * @param { Holder } holder - Application that creates the contacts.If the passed parameter is empty, the system
+   *     contact application is used by default.
+   * @param { ContactAttributes } attrs - List of contact attributes. If this parameter is empty, all attribute fields (
+   *     including the name, phone number, and email address) of the contact are queried.
+   * @param { AsyncCallback<Array<Contact>> } callback - Indicates the callback for getting the result of the call.
+   *     Returns the contact list which user select; returns empty contact list if user not select.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
@@ -725,33 +747,41 @@ declare namespace contact {
   function queryContactsByEmail(context: Context, email: string, holder: Holder, attrs: ContactAttributes, callback: AsyncCallback<Array<Contact>>): void;
 
   /**
-   * Queries contacts by a specified email address, contact holder, and contact attributes.
+   * Queries a contact based on the specified email, holder, and attributes. This API uses a promise to return the
+   * result. The return result of this API includes only the **id**, **key**, and **Emails** attributes. If you want to
+   * query all information about a contact, you are advised to call
+   * [queryContact]{@link contact.queryContact(context: Context, key: string, holder: Holder, attrs: ContactAttributes, callback: AsyncCallback<Contact>)}
+   * to query the contact based on the specified key.
    *
    * @permission ohos.permission.READ_CONTACTS
-   * @param { string } email - Indicates the email address.
-   * @param { Holder } holder - Indicates the contact holder.
-   * If this parameter is null, the default holder is used for matching.
-   * @param { ContactAttributes } attrs - Indicates the contact attributes.
-   * If this parameter is null, all attributes are used for matching.
-   * @returns { Promise<Array<Contact>> } Returns a {@code Contact} list object.
+   * @param { string } email - Email address of the contact.
+   * @param { Holder } holder - Application information for a contact. If this parameter is not specified, it is not
+   *     used for contact filtering by default.
+   * @param { ContactAttributes } attrs - Contact attribute list. If this parameter is not specified, all contact
+   *     attributes are queried by default.
+   * @returns { Promise<Array<Contact>> } Promise used to return the result, which is an array of queried contacts.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
    * @deprecated since 10
-   * @useinstead contact.queryContactsByEmail#queryContactsByEmail
+   * @useinstead contact.queryContactsByEmail(context: Context, email: string, holder?: Holder, attrs?: ContactAttributes)
    */
   function queryContactsByEmail(email: string, holder?: Holder, attrs?: ContactAttributes): Promise<Array<Contact>>;
 
   /**
-   * Queries contacts by a specified email address, contact holder, and contact attributes.
+   * Queries a contact based on the specified email, holder, and attributes. This API uses a promise to return the
+   * result. The return result of this API includes only the **id**, **key**, and **Emails** attributes. If you want to
+   * query all information about a contact, you are advised to call
+   * [queryContact]{@link contact.queryContact(context: Context, key: string, holder: Holder, attrs: ContactAttributes, callback: AsyncCallback<Contact>)}
+   * to query the contact based on the specified key.
    *
    * @permission ohos.permission.READ_CONTACTS
    * @param { Context } context - Indicates the context of application or capability.
-   * @param { string } email - Indicates the email address.
-   * @param { Holder } holder - Indicates the contact holder.
-   * If this parameter is null, the default holder is used for matching.
-   * @param { ContactAttributes } attrs - Indicates the contact attributes.
-   * If this parameter is null, all attributes are used for matching.
-   * @returns { Promise<Array<Contact>> } Returns a {@code Contact} list object.
+   * @param { string } email - Email address of the contact.
+   * @param { Holder } holder - Application information for a contact. If this parameter is not specified, it is not
+   *     used for contact filtering by default.
+   * @param { ContactAttributes } attrs - Contact attribute list. If this parameter is not specified, all contact
+   *     attributes are queried by default.
+   * @returns { Promise<Array<Contact>> } Promise used to return the result, which is an array of queried contacts.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
@@ -760,27 +790,39 @@ declare namespace contact {
   function queryContactsByEmail(context: Context, email: string, holder?: Holder, attrs?: ContactAttributes): Promise<Array<Contact>>;
 
   /**
-   * Queries contacts by a phone number.
+   * Queries a contact based on the specified phone number. This API uses an asynchronous callback to return the result.
+   * The return result of this API includes only the **id**, **key**, and **phoneNumbers** attributes. If you want to
+   * query all information about a contact, you are advised to call
+   * [queryContact]{@link contact.queryContact(context: Context, key: string, holder: Holder, attrs: ContactAttributes, callback: AsyncCallback<Contact>)}
+   * to query the contact based on the specified key. If an application calls this API in the background to obtain
+   * contact information, the application must request the corresponding continuous task.
    *
    * @permission ohos.permission.READ_CONTACTS
-   * @param { string } phoneNumber - Indicates the phone number.
-   * Only full match is supported, and wildcards are not supported.
-   * @param { AsyncCallback<Array<Contact>> } callback - Returns the {@code Contact} list object.
+   * @param { string } phoneNumber - Phone number of a contact. Only full match is supported, and wildcards are not
+   *     supported.
+   * @param { AsyncCallback<Array<Contact>> } callback - Indicates the callback for getting the result of the call.
+   *     Returns the contact list which user select; returns empty contact list if user not select.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
    * @deprecated since 10
-   * @useinstead contact.queryContactsByPhoneNumber#queryContactsByPhoneNumber
+   * @useinstead contact.queryContactsByPhoneNumber(context: Context, phoneNumber: string, callback: AsyncCallback<Array<Contact>>)
    */
   function queryContactsByPhoneNumber(phoneNumber: string, callback: AsyncCallback<Array<Contact>>): void;
 
   /**
-   * Queries contacts by a phone number.
+   * Queries a contact based on the specified phone number. This API uses an asynchronous callback to return the result.
+   * The return result of this API includes only the **id**, **key**, and **phoneNumbers** attributes. If you want to
+   * query all information about a contact, you are advised to call
+   * [queryContact]{@link contact.queryContact(context: Context, key: string, holder: Holder, attrs: ContactAttributes, callback: AsyncCallback<Contact>)}
+   * to query the contact based on the specified key. If an application calls this API in the background to obtain
+   * contact information, the application must request the corresponding continuous task.
    *
    * @permission ohos.permission.READ_CONTACTS
    * @param { Context } context - Indicates the context of application or capability.
-   * @param { string } phoneNumber - Indicates the phone number.
-   * Only full match is supported, and wildcards are not supported.
-   * @param { AsyncCallback<Array<Contact>> } callback - Returns the {@code Contact} list object.
+   * @param { string } phoneNumber - Phone number of a contact. Only full match is supported, and wildcards are not
+   *     supported.
+   * @param { AsyncCallback<Array<Contact>> } callback - Indicates the callback for getting the result of the call.
+   *     Returns the contact list which user select; returns empty contact list if user not select.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
@@ -789,31 +831,43 @@ declare namespace contact {
   function queryContactsByPhoneNumber(context: Context, phoneNumber: string, callback: AsyncCallback<Array<Contact>>): void;
 
   /**
-   * Queries contacts by a phone number and contact holder.
+   * Queries a contact based on the specified phone number and holder. This API uses an asynchronous callback to return
+   * the result. The return result of this API includes only the **id**, **key**, and **phoneNumbers** attributes. If
+   * you want to query all information about a contact, you are advised to call
+   * [queryContact]{@link contact.queryContact(context: Context, key: string, holder: Holder, attrs: ContactAttributes, callback: AsyncCallback<Contact>)}
+   * to query the contact based on the specified key. If an application calls this API in the background to obtain
+   * contact information, the application must request the corresponding continuous task.
    *
    * @permission ohos.permission.READ_CONTACTS
-   * @param { string } phoneNumber - Indicates the phone number.
-   * Only full match is supported, and wildcards are not supported.
-   * @param { Holder } holder - Indicates the contact holder.
-   * If this parameter is null, the default holder is used for matching.
-   * @param { AsyncCallback<Array<Contact>> } callback - Returns the {@code Contact} list object.
+   * @param { string } phoneNumber - Phone number of a contact. Only full match is supported, and wildcards are not
+   *     supported.
+   * @param { Holder } holder - Application that creates the contacts.If the passed parameter is empty, the system
+   *     contact application is used by default.
+   * @param { AsyncCallback<Array<Contact>> } callback - Indicates the callback for getting the result of the call.
+   *     Returns the contact list which user select; returns empty contact list if user not select.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
    * @deprecated since 10
-   * @useinstead contact.queryContactsByPhoneNumber#queryContactsByPhoneNumber
+   * @useinstead contact.queryContactsByPhoneNumber(context: Context, phoneNumber: string, holder: Holder, callback: AsyncCallback<Array<Contact>>)
    */
   function queryContactsByPhoneNumber(phoneNumber: string, holder: Holder, callback: AsyncCallback<Array<Contact>>): void;
 
   /**
-   * Queries contacts by a phone number and contact holder.
+   * Queries a contact based on the specified phone number and holder. This API uses an asynchronous callback to return
+   * the result. The return result of this API includes only the **id**, **key**, and **phoneNumbers** attributes. If
+   * you want to query all information about a contact, you are advised to call
+   * [queryContact]{@link contact.queryContact(context: Context, key: string, holder: Holder, attrs: ContactAttributes, callback: AsyncCallback<Contact>)}
+   * to query the contact based on the specified key. If an application calls this API in the background to obtain
+   * contact information, the application must request the corresponding continuous task.
    *
    * @permission ohos.permission.READ_CONTACTS
    * @param { Context } context - Indicates the context of application or capability.
-   * @param { string } phoneNumber - Indicates the phone number.
-   * Only full match is supported, and wildcards are not supported.
-   * @param { Holder } holder - Indicates the contact holder.
-   * If this parameter is null, the default holder is used for matching.
-   * @param { AsyncCallback<Array<Contact>> } callback - Returns the {@code Contact} list object.
+   * @param { string } phoneNumber - Phone number of a contact. Only full match is supported, and wildcards are not
+   *     supported.
+   * @param { Holder } holder - Application that creates the contacts.If the passed parameter is empty, the system
+   *     contact application is used by default.
+   * @param { AsyncCallback<Array<Contact>> } callback - Indicates the callback for getting the result of the call.
+   *     Returns the contact list which user select; returns empty contact list if user not select.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
@@ -822,31 +876,43 @@ declare namespace contact {
   function queryContactsByPhoneNumber(context: Context, phoneNumber: string, holder: Holder, callback: AsyncCallback<Array<Contact>>): void;
 
   /**
-   * Queries contacts by a phone number and contact attribute.
+   * Queries a contact based on the specified phone number and attributes. This API uses an asynchronous callback to
+   * return the result. The return result of this API includes only the **id**, **key**, and **phoneNumbers**
+   * attributes. If you want to query all information about a contact, you are advised to call
+   * [queryContact]{@link contact.queryContact(context: Context, key: string, holder: Holder, attrs: ContactAttributes, callback: AsyncCallback<Contact>)}
+   * to query the contact based on the specified key. If an application calls this API in the background to obtain
+   * contact information, the application must request the corresponding continuous task.
    *
    * @permission ohos.permission.READ_CONTACTS
-   * @param { string } phoneNumber - Indicates the phone number.
-   * Only full match is supported, and wildcards are not supported.
-   * @param { ContactAttributes } attrs - Indicates the contact attribute.
-   * If this parameter is null, all attributes will be used for matching.
-   * @param { AsyncCallback<Array<Contact>> } callback - Returns the {@code Contact} list object.
+   * @param { string } phoneNumber - Phone number of a contact. Only full match is supported, and wildcards are not
+   *     supported.
+   * @param { ContactAttributes } attrs - List of contact attributes. If this parameter is empty, all attribute fields (
+   *     including the name, phone number, and email address) of the contact are queried.
+   * @param { AsyncCallback<Array<Contact>> } callback - Indicates the callback for getting the result of the call.
+   *     Returns the contact list which user select; returns empty contact list if user not select.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
    * @deprecated since 10
-   * @useinstead contact.queryContactsByPhoneNumber#queryContactsByPhoneNumber
+   * @useinstead contact.queryContactsByPhoneNumber(context: Context, phoneNumber: string, attrs: ContactAttributes, callback: AsyncCallback<Array<Contact>>)
    */
   function queryContactsByPhoneNumber(phoneNumber: string, attrs: ContactAttributes, callback: AsyncCallback<Array<Contact>>): void;
 
   /**
-   * Queries contacts by a phone number and contact attribute.
+   * Queries a contact based on the specified phone number and attributes. This API uses an asynchronous callback to
+   * return the result. The return result of this API includes only the **id**, **key**, and **phoneNumbers**
+   * attributes. If you want to query all information about a contact, you are advised to call
+   * [queryContact]{@link contact.queryContact(context: Context, key: string, holder: Holder, attrs: ContactAttributes, callback: AsyncCallback<Contact>)}
+   * to query the contact based on the specified key. If an application calls this API in the background to obtain
+   * contact information, the application must request the corresponding continuous task.
    *
    * @permission ohos.permission.READ_CONTACTS
    * @param { Context } context - Indicates the context of application or capability.
-   * @param { string } phoneNumber - Indicates the phone number.
-   * Only full match is supported, and wildcards are not supported.
-   * @param { ContactAttributes } attrs - Indicates the contact attribute.
-   * If this parameter is null, all attributes will be used for matching.
-   * @param { AsyncCallback<Array<Contact>> } callback - Returns the {@code Contact} list object.
+   * @param { string } phoneNumber - Phone number of a contact. Only full match is supported, and wildcards are not
+   *     supported.
+   * @param { ContactAttributes } attrs - List of contact attributes. If this parameter is empty, all attribute fields (
+   *     including the name, phone number, and email address) of the contact are queried.
+   * @param { AsyncCallback<Array<Contact>> } callback - Indicates the callback for getting the result of the call.
+   *     Returns the contact list which user select; returns empty contact list if user not select.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
@@ -855,35 +921,47 @@ declare namespace contact {
   function queryContactsByPhoneNumber(context: Context, phoneNumber: string, attrs: ContactAttributes, callback: AsyncCallback<Array<Contact>>): void;
 
   /**
-   * Queries contacts by a phone number, contact holder and contact attribute.
+   * Queries a contact based on the specified phone number, holder, and attributes. This API uses an asynchronous
+   * callback to return the result. The return result of this API includes only the **id**, **key**, and
+   * **phoneNumbers** attributes. If you want to query all information about a contact, you are advised to call
+   * [queryContact]{@link contact.queryContact(context: Context, key: string, holder: Holder, attrs: ContactAttributes, callback: AsyncCallback<Contact>)}
+   * to query the contact based on the specified key. If an application calls this API in the background to obtain
+   * contact information, the application must request the corresponding continuous task.
    *
    * @permission ohos.permission.READ_CONTACTS
-   * @param { string } phoneNumber - Indicates the phone number.
-   * Only full match is supported, and wildcards are not supported.
-   * @param { Holder } holder - Indicates the contact holder.
-   * If this parameter is null, the default holder is used for matching.
-   * @param { ContactAttributes } attrs - Indicates the contact attribute.
-   * If this parameter is null, all attributes will be used for matching.
-   * @param { AsyncCallback<Array<Contact>> } callback - Returns the {@code Contact} list object.
+   * @param { string } phoneNumber - Phone number of a contact. Only full match is supported, and wildcards are not
+   *     supported.
+   * @param { Holder } holder - Application that creates the contacts.If the passed parameter is empty, the system
+   *     contact application is used by default.
+   * @param { ContactAttributes } attrs - List of contact attributes. If this parameter is empty, all attribute fields (
+   *     including the name, phone number, and email address) of the contact are queried.
+   * @param { AsyncCallback<Array<Contact>> } callback - Indicates the callback for getting the result of the call.
+   *     Returns the contact list which user select; returns empty contact list if user not select.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
    * @deprecated since 10
-   * @useinstead contact.queryContactsByPhoneNumber#queryContactsByPhoneNumber
+   * @useinstead contact.queryContactsByPhoneNumber(context: Context, phoneNumber: string, holder: Holder, attrs: ContactAttributes, callback: AsyncCallback<Array<Contact>>)
    */
   function queryContactsByPhoneNumber(phoneNumber: string, holder: Holder, attrs: ContactAttributes, callback: AsyncCallback<Array<Contact>>): void;
 
   /**
-   * Queries contacts by a phone number, contact holder and contact attribute.
+   * Queries a contact based on the specified phone number, holder, and attributes. This API uses an asynchronous
+   * callback to return the result. The return result of this API includes only the **id**, **key**, and
+   * **phoneNumbers** attributes. If you want to query all information about a contact, you are advised to call
+   * [queryContact]{@link contact.queryContact(context: Context, key: string, holder: Holder, attrs: ContactAttributes, callback: AsyncCallback<Contact>)}
+   * to query the contact based on the specified key. If an application calls this API in the background to obtain
+   * contact information, the application must request the corresponding continuous task.
    *
    * @permission ohos.permission.READ_CONTACTS
    * @param { Context } context - Indicates the context of application or capability.
-   * @param { string } phoneNumber - Indicates the phone number.
-   * Only full match is supported, and wildcards are not supported.
-   * @param { Holder } holder - Indicates the contact holder.
-   * If this parameter is null, the default holder is used for matching.
-   * @param { ContactAttributes } attrs - Indicates the contact attribute.
-   * If this parameter is null, all attributes will be used for matching.
-   * @param { AsyncCallback<Array<Contact>> } callback - Returns the {@code Contact} list object.
+   * @param { string } phoneNumber - Phone number of a contact. Only full match is supported, and wildcards are not
+   *     supported.
+   * @param { Holder } holder - Application that creates the contacts.If the passed parameter is empty, the system
+   *     contact application is used by default.
+   * @param { ContactAttributes } attrs - List of contact attributes. If this parameter is empty, all attribute fields (
+   *     including the name, phone number, and email address) of the contact are queried.
+   * @param { AsyncCallback<Array<Contact>> } callback - Indicates the callback for getting the result of the call.
+   *     Returns the contact list which user select; returns empty contact list if user not select.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
@@ -893,35 +971,45 @@ declare namespace contact {
     callback: AsyncCallback<Array<Contact>>): void;
 
   /**
-   * Queries contacts by a phone number, contact holder and contact attribute.
+   * Queries a contact based on the specified phone number, holder, and attributes. This API uses a promise to return
+   * the result. The return result of this API includes only the **id**, **key**, and **phoneNumbers** attributes. If
+   * you want to query all information about a contact, you are advised to call
+   * [queryContact]{@link contact.queryContact(context: Context, key: string, holder: Holder, attrs: ContactAttributes, callback: AsyncCallback<Contact>)}
+   * to query the contact based on the specified key. If an application calls this API in the background to obtain
+   * contact information, the application must request the corresponding continuous task.
    *
    * @permission ohos.permission.READ_CONTACTS
-   * @param { string } phoneNumber - Indicates the phone number.
-   * Only full match is supported, and wildcards are not supported.
-   * @param { Holder } holder - Indicates the contact holder.
-   * If this parameter is null, the default holder is used for matching.
-   * @param { ContactAttributes } attrs - Indicates the contact attribute.
-   * If this parameter is null, all attributes will be used for matching.
-   * @returns { Promise<Array<Contact>> } Returns the {@code Contact} list object.
+   * @param { string } phoneNumber - Phone number of a contact. Only full match is supported, and wildcards are not
+   *     supported.
+   * @param { Holder } holder - Application information for a contact. If this parameter is not specified, the system
+   *     contact application is used by default.
+   * @param { ContactAttributes } attrs - Contact attribute list. If this parameter is not specified, all contact
+   *     attributes are queried by default.
+   * @returns { Promise<Array<Contact>> } Promise used to return the result, which is an array of queried contacts.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
    * @deprecated since 10
-   * @useinstead contact.queryContactsByPhoneNumber#queryContactsByPhoneNumber
+   * @useinstead contact.queryContactsByPhoneNumber(context: Context, phoneNumber: string, holder?: Holder, attrs?: ContactAttributes)
    */
   function queryContactsByPhoneNumber(phoneNumber: string, holder?: Holder, attrs?: ContactAttributes): Promise<Array<Contact>>;
 
   /**
-   * Queries contacts by a phone number, contact holder and contact attribute.
+   * Queries a contact based on the specified phone number, holder, and attributes. This API uses a promise to return
+   * the result. The return result of this API includes only the **id**, **key**, and **phoneNumbers** attributes. If
+   * you want to query all information about a contact, you are advised to call
+   * [queryContact]{@link contact.queryContact(context: Context, key: string, holder: Holder, attrs: ContactAttributes, callback: AsyncCallback<Contact>)}
+   * to query the contact based on the specified key. If an application calls this API in the background to obtain
+   * contact information, the application must request the corresponding continuous task.
    *
    * @permission ohos.permission.READ_CONTACTS
    * @param { Context } context - Indicates the context of application or capability.
-   * @param { string } phoneNumber - Indicates the phone number.
-   * Only full match is supported, and wildcards are not supported.
-   * @param { Holder } holder - Indicates the contact holder.
-   * If this parameter is null, the default holder is used for matching.
-   * @param { ContactAttributes } attrs - Indicates the contact attribute.
-   * If this parameter is null, all attributes will be used for matching.
-   * @returns { Promise<Array<Contact>> } Returns the {@code Contact} list object.
+   * @param { string } phoneNumber - Phone number of a contact. Only full match is supported, and wildcards are not
+   *     supported.
+   * @param { Holder } holder - Application information for a contact. If this parameter is not specified, the system
+   *     contact application is used by default.
+   * @param { ContactAttributes } attrs - Contact attribute list. If this parameter is not specified, all contact
+   *     attributes are queried by default.
+   * @returns { Promise<Array<Contact>> } Promise used to return the result, which is an array of queried contacts.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
@@ -930,23 +1018,25 @@ declare namespace contact {
   function queryContactsByPhoneNumber(context: Context, phoneNumber: string, holder?: Holder, attrs?: ContactAttributes): Promise<Array<Contact>>;
 
   /**
-   * Queries contact groups.
+   * Queries all groups of a contact. This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.READ_CONTACTS
-   * @param { AsyncCallback<Array<Group>> } callback - Returns the contact group list object.
+   * @param { AsyncCallback<Array<Group>> } callback - Indicates the callback for getting the result of the call. If the operation is
+   *     successful, an array of queried groups is returned. If the operation fails, an error code is returned.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
    * @deprecated since 10
-   * @useinstead contact.queryGroups#queryGroups
+   * @useinstead contact.queryGroups(context: Context, callback: AsyncCallback<Array<Group>>)
    */
   function queryGroups(callback: AsyncCallback<Array<Group>>): void;
 
   /**
-   * Queries contact groups.
+   * Queries all groups of a contact. This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.READ_CONTACTS
    * @param { Context } context - Indicates the context of application or capability.
-   * @param { AsyncCallback<Array<Group>> } callback - Returns the contact group list object.
+   * @param { AsyncCallback<Array<Group>> } callback - Indicates the callback for getting the result of the call. If the operation is
+   *     successful, an array of queried groups is returned. If the operation fails, an error code is returned.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
@@ -955,27 +1045,31 @@ declare namespace contact {
   function queryGroups(context: Context, callback: AsyncCallback<Array<Group>>): void;
 
   /**
-   * Queries contact groups by contact holder.
+   * Queries all groups of a contact based on the specified holder. This API uses an asynchronous callback to return the
+   * result.
    *
    * @permission ohos.permission.READ_CONTACTS
-   * @param { Holder } holder - Indicates the contact holder.
-   * If this parameter is null, the default holder is used for matching.
-   * @param { AsyncCallback<Array<Group>> } callback - Returns the contact group list object.
+   * @param { Holder } holder - Application that creates the contacts.If the passed parameter is empty, the system
+   *     contact application is used by default.
+   * @param { AsyncCallback<Array<Group>> } callback - Indicates the callback for getting the result of the call. If the operation is
+   *     successful, an array of queried groups is returned. If the operation fails, an error code is returned.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
    * @deprecated since 10
-   * @useinstead contact.queryGroups#queryGroups
+   * @useinstead contact.queryGroups(context: Context, holder: Holder, callback: AsyncCallback<Array<Group>>)
    */
   function queryGroups(holder: Holder, callback: AsyncCallback<Array<Group>>): void;
 
   /**
-   * Queries contact groups by contact holder.
+   * Queries all groups of a contact based on the specified holder. This API uses an asynchronous callback to return the
+   * result.
    *
    * @permission ohos.permission.READ_CONTACTS
    * @param { Context } context - Indicates the context of application or capability.
-   * @param { Holder } holder - Indicates the contact holder.
-   * If this parameter is null, the default holder is used for matching.
-   * @param { AsyncCallback<Array<Group>> } callback - Returns the contact group list object.
+   * @param { Holder } holder - Application that creates the contacts.If the passed parameter is empty, the system
+   *     contact application is used by default.
+   * @param { AsyncCallback<Array<Group>> } callback - Indicates the callback for getting the result of the call. If the operation is
+   *     successful, an array of queried groups is returned. If the operation fails, an error code is returned.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
@@ -984,27 +1078,27 @@ declare namespace contact {
   function queryGroups(context: Context, holder: Holder, callback: AsyncCallback<Array<Group>>): void;
 
   /**
-   * Queries contact groups by contact holder.
+   * Queries all groups of a contact based on the specified holder. This API uses a promise to return the result.
    *
    * @permission ohos.permission.READ_CONTACTS
-   * @param { Holder } holder - Indicates the contact holder.
-   * If this parameter is null, the default holder is used for matching.
-   * @returns { Promise<Array<Group>> } Returns the contact group list object.
+   * @param { Holder } holder - Application information for a contact. If this parameter is not specified, the system
+   *     contact application is used by default.
+   * @returns { Promise<Array<Group>> } Promise used to return the result, which is an array of groups.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
    * @deprecated since 10
-   * @useinstead contact.queryGroups#queryGroups
+   * @useinstead contact.queryGroups(context: Context, holder?: Holder)
    */
   function queryGroups(holder?: Holder): Promise<Array<Group>>;
 
   /**
-   * Queries contact groups by contact holder.
+   * Queries all groups of a contact based on the specified holder. This API uses a promise to return the result.
    *
    * @permission ohos.permission.READ_CONTACTS
    * @param { Context } context - Indicates the context of application or capability.
-   * @param { Holder } holder - Indicates the contact holder.
-   * If this parameter is null, the default holder is used for matching.
-   * @returns { Promise<Array<Group>> } Returns the contact group list object.
+   * @param { Holder } holder - Application information for a contact. If this parameter is not specified, the system
+   *     contact application is used by default.
+   * @returns { Promise<Array<Group>> } Promise used to return the result, which is an array of groups.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
@@ -1013,23 +1107,27 @@ declare namespace contact {
   function queryGroups(context: Context, holder?: Holder): Promise<Array<Group>>;
 
   /**
-   * Queries contact holders.
+   * Queries all applications that have created contacts. This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.READ_CONTACTS
-   * @param { AsyncCallback<Array<Holder>> } callback - Returns the {@code Holder} list object.
+   * @param { AsyncCallback<Array<Holder>> } callback - Indicates the callback for getting the result of the call. If the operation is
+   *     successful, an array of the queried applications is returned. If the operation fails, an error code is
+   *     returned.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
    * @deprecated since 10
-   * @useinstead contact.queryHolders#queryHolders
+   * @useinstead contact.queryHolders(context: Context, callback: AsyncCallback<Array<Holder>>)
    */
   function queryHolders(callback: AsyncCallback<Array<Holder>>): void;
 
   /**
-   * Queries contact holders.
+   * Queries all applications that have created contacts. This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.READ_CONTACTS
    * @param { Context } context - Indicates the context of application or capability.
-   * @param { AsyncCallback<Array<Holder>> } callback - Returns the {@code Holder} list object.
+   * @param { AsyncCallback<Array<Holder>> } callback - Indicates the callback for getting the result of the call. If the operation is
+   *     successful, an array of the queried applications is returned. If the operation fails, an error code is
+   *     returned.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
@@ -1038,23 +1136,23 @@ declare namespace contact {
   function queryHolders(context: Context, callback: AsyncCallback<Array<Holder>>): void;
 
   /**
-   * Queries contact holders.
+   * Queries all applications that have created contacts. This API uses a promise to return the result.
    *
    * @permission ohos.permission.READ_CONTACTS
-   * @returns { Promise<Array<Holder>> } Returns the {@code Holder} list object.
+   * @returns { Promise<Array<Holder>> } Promise used to return the result, which is an array of queried applications.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
    * @deprecated since 10
-   * @useinstead contact.queryHolders#queryHolders
+   * @useinstead contact.queryHolders(context: Context)
    */
   function queryHolders(): Promise<Array<Holder>>;
 
   /**
-   * Queries contact holders.
+   * Queries all applications that have created contacts. This API uses a promise to return the result.
    *
    * @permission ohos.permission.READ_CONTACTS
    * @param { Context } context - Indicates the context of application or capability.
-   * @returns { Promise<Array<Holder>> } Returns the {@code Holder} list object.
+   * @returns { Promise<Array<Holder>> } Promise used to return the result, which is an array of queried applications.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
@@ -1063,112 +1161,127 @@ declare namespace contact {
   function queryHolders(context: Context): Promise<Array<Holder>>;
 
   /**
-   * Obtains the query key of a contact based on a specified ID.
+   * Queries the key of a contact based on the specified contact ID. This API uses an asynchronous callback to return
+   * the result.
    *
    * @permission ohos.permission.READ_CONTACTS
-   * @param { number } id - Indicates the contact ID.
-   * @param { AsyncCallback<string> } callback - Returns the query key of the contact.
+   * @param { number } id - Contact ID.
+   * @param { AsyncCallback<string> } callback - Indicates the callback for getting the result of the call. If the operation is successful, the
+   *     key of the queried contact is returned. If the operation fails, an error code is returned.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
    * @deprecated since 10
-   * @useinstead contact.queryKey#queryKey
+   * @useinstead contact.queryKey(context: Context, id: number, callback: AsyncCallback<string>)
    */
   function queryKey(id: number, callback: AsyncCallback<string>): void;
 
   /**
-   * Obtains the query key of a contact based on a specified ID.
+   * Queries the key of a contact based on the specified contact ID. This API uses an asynchronous callback to return
+   * the result.
    *
    * @permission ohos.permission.READ_CONTACTS
    * @param { Context } context - Indicates the context of application or capability.
-   * @param { number } id - Indicates the contact ID.
-   * @param { AsyncCallback<string> } callback - Returns the query key of the contact.
+   * @param { number } id - Contact ID.
+   * @param { AsyncCallback<string> } callback - Indicates the callback for getting the result of the call. If the operation is successful, the
+   *     key of the queried contact is returned. If the operation fails, an error code is returned.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified. 2.Parameter verification failed.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
    */
   function queryKey(context: Context, id: number, callback: AsyncCallback<string>): void;
 
   /**
-   * Obtains the query key of a contact based on a specified ID and holder.
+   * Queries the key of a contact based on the specified contact ID and holder. This API uses an asynchronous callback
+   * to return the result.
    *
    * @permission ohos.permission.READ_CONTACTS
-   * @param { number } id - Indicates the contact ID.
-   * @param { Holder } holder - Indicates the contact holder.
-   * If this parameter is null, the default holder is used for matching.
-   * @param { AsyncCallback<string> } callback - Returns the query key of the contact.
+   * @param { number } id - Contact ID.
+   * @param { Holder } holder - Application that creates the contacts.If the passed parameter is empty, the system
+   *     contact application is used by default.
+   * @param { AsyncCallback<string> } callback - Indicates the callback for getting the result of the call. If the operation is successful, the
+   *     key of the queried contact is returned. If the operation fails, an error code is returned.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
    * @deprecated since 10
-   * @useinstead contact.queryKey#queryKey
+   * @useinstead contact.queryKey(context: Context, id: number, holder: Holder, callback: AsyncCallback<string>)
    */
   function queryKey(id: number, holder: Holder, callback: AsyncCallback<string>): void;
 
   /**
-   * Obtains the query key of a contact based on a specified ID and holder.
+   * Queries the key of a contact based on the specified contact ID and holder. This API uses an asynchronous callback
+   * to return the result.
    *
    * @permission ohos.permission.READ_CONTACTS
    * @param { Context } context - Indicates the context of application or capability.
-   * @param { number } id - Indicates the contact ID.
-   * @param { Holder } holder - Indicates the contact holder.
-   * If this parameter is null, the default holder is used for matching.
-   * @param { AsyncCallback<string> } callback - Returns the query key of the contact.
+   * @param { number } id - Contact ID.
+   * @param { Holder } holder - Application that creates the contacts.If the passed parameter is empty, the system
+   *     contact application is used by default.
+   * @param { AsyncCallback<string> } callback - Indicates the callback for getting the result of the call. If the operation is successful, the
+   *     key of the queried contact is returned. If the operation fails, an error code is returned.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified. 2.Parameter verification failed.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
    */
   function queryKey(context: Context, id: number, holder: Holder, callback: AsyncCallback<string>): void;
 
   /**
-   * Obtains the query key of a contact based on a specified ID and holder.
+   * Queries the key of a contact based on the specified contact ID and holder. This API uses a promise to return the
+   * result.
    *
    * @permission ohos.permission.READ_CONTACTS
-   * @param { number } id - Indicates the contact ID.
-   * @param { Holder } holder - Indicates the contact holder.
-   * If this parameter is null, the default holder is used for matching.
-   * @returns { Promise<string> } Returns the query key of the contact.
+   * @param { number } id - Contact ID.
+   * @param { Holder } holder - Application information for a contact. If this parameter is not specified, the system
+   *     contact application is used by default.
+   * @returns { Promise<string> } Promise used to return the result, which is the key of the queried contact.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
    * @deprecated since 10
-   * @useinstead contact.queryKey#queryKey
+   * @useinstead contact.queryKey(context: Context, id: number, holder?: Holder)
    */
   function queryKey(id: number, holder?: Holder): Promise<string>;
 
   /**
-   * Obtains the query key of a contact based on a specified ID and holder.
+   * Queries the key of a contact based on the specified contact ID and holder. This API uses a promise to return the
+   * result.
    *
    * @permission ohos.permission.READ_CONTACTS
    * @param { Context } context - Indicates the context of application or capability.
-   * @param { number } id - Indicates the contact ID.
-   * @param { Holder } holder - Indicates the contact holder.
-   * If this parameter is null, the default holder is used for matching.
-   * @returns { Promise<string> } Returns the query key of the contact.
+   * @param { number } id - Contact ID.
+   * @param { Holder } holder - Application information for a contact. If this parameter is not specified, the system
+   *     contact application is used by default.
+   * @returns { Promise<string> } Promise used to return the result, which is the key of the queried contact.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified. 2.Parameter verification failed.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
    */
   function queryKey(context: Context, id: number, holder?: Holder): Promise<string>;
 
   /**
-   * Queries information about "my card".
+   * Queries my card. This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.READ_CONTACTS
-   * @param { AsyncCallback<Contact> } callback - Returns information about "my card".
+   * @param { AsyncCallback<Contact> } callback - Indicates the callback for getting the result of the call. If the operation is successful,
+   *     information about my card is returned. If the operation fails, an error code is returned.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
    * @deprecated since 10
-   * @useinstead contact.queryMyCard#queryMyCard
+   * @useinstead contact.queryMyCard(context: Context, callback: AsyncCallback<Contact>)
    */
   function queryMyCard(callback: AsyncCallback<Contact>): void;
 
   /**
-   * Queries information about "my card".
+   * Queries my card. This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.READ_CONTACTS
    * @param { Context } context - Indicates the context of application or capability.
-   * @param { AsyncCallback<Contact> } callback - Returns information about "my card".
+   * @param { AsyncCallback<Contact> } callback - Indicates the callback for getting the result of the call. If the operation is successful,
+   *     information about my card is returned. If the operation fails, an error code is returned.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
@@ -1177,27 +1290,31 @@ declare namespace contact {
   function queryMyCard(context: Context, callback: AsyncCallback<Contact>): void;
 
   /**
-   * Queries information about "my card".
+   * Queries my card. (The contact attribute list can be imported.) This API uses an asynchronous callback to return the
+   * result.
    *
    * @permission ohos.permission.READ_CONTACTS
-   * @param { ContactAttributes } attrs - Indicates the contact attribute.
-   * If this parameter is null, all attributes are used for matching.
-   * @param { AsyncCallback<Contact> } callback - Returns information about "my card".
+   * @param { ContactAttributes } attrs - List of contact attributes. If this parameter is empty, all attribute fields (
+   *     including the name, phone number, and email address) of the contact are queried.
+   * @param { AsyncCallback<Contact> } callback - Indicates the callback for getting the result of the call. If the operation is successful,
+   *     information about my card is returned. If the operation fails, an error code is returned.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
    * @deprecated since 10
-   * @useinstead contact.queryMyCard#queryMyCard
+   * @useinstead contact.queryMyCard(context: Context, attrs: ContactAttributes, callback: AsyncCallback<Contact>)
    */
   function queryMyCard(attrs: ContactAttributes, callback: AsyncCallback<Contact>): void;
 
   /**
-   * Queries information about "my card".
+   * Queries my card. (The contact attribute list can be imported.) This API uses an asynchronous callback to return the
+   * result.
    *
    * @permission ohos.permission.READ_CONTACTS
    * @param { Context } context - Indicates the context of application or capability.
-   * @param { ContactAttributes } attrs - Indicates the contact attribute.
-   * If this parameter is null, all attributes are used for matching.
-   * @param { AsyncCallback<Contact> } callback - Returns information about "my card".
+   * @param { ContactAttributes } attrs - List of contact attributes. If this parameter is empty, all attribute fields (
+   *     including the name, phone number, and email address) of the contact are queried.
+   * @param { AsyncCallback<Contact> } callback - Indicates the callback for getting the result of the call. If the operation is successful,
+   *     information about my card is returned. If the operation fails, an error code is returned.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
@@ -1206,27 +1323,27 @@ declare namespace contact {
   function queryMyCard(context: Context, attrs: ContactAttributes, callback: AsyncCallback<Contact>): void;
 
   /**
-   * Queries information about "my card".
+   * Queries my card. (The contact attribute list can be imported.) This API uses a promise to return the result.
    *
    * @permission ohos.permission.READ_CONTACTS
-   * @param { ContactAttributes } attrs - Indicates the contact attribute.
-   * If this parameter is null, all attributes are used for matching.
-   * @returns { Promise<Contact> } Returns information about "my card".
+   * @param { ContactAttributes } attrs - List of contact attributes. If this parameter is empty, all attribute fields (
+   *     including the name, phone number, and email address) of the contact are queried.
+   * @returns { Promise<Contact> } Promise used to return the result, which is a contact in my card.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
    * @deprecated since 10
-   * @useinstead contact.queryMyCard#queryMyCard
+   * @useinstead contact.queryMyCard(context: Context, attrs?: ContactAttributes)
    */
   function queryMyCard(attrs?: ContactAttributes): Promise<Contact>;
 
   /**
-   * Queries information about "my card".
+   * Queries my card. (The contact attribute list can be imported.) This API uses a promise to return the result.
    *
    * @permission ohos.permission.READ_CONTACTS
    * @param { Context } context - Indicates the context of application or capability.
-   * @param { ContactAttributes } attrs - Indicates the contact attribute.
-   * If this parameter is null, all attributes are used for matching.
-   * @returns { Promise<Contact> } Returns information about "my card".
+   * @param { ContactAttributes } attrs - List of contact attributes. If this parameter is empty, all attribute fields (
+   *     including the name, phone number, and email address) of the contact are queried.
+   * @returns { Promise<Contact> } Promise used to return the result, which is a contact in my card.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
@@ -1235,25 +1352,29 @@ declare namespace contact {
   function queryMyCard(context: Context, attrs?: ContactAttributes): Promise<Contact>;
 
   /**
-   * Updates specified attributes of a contact.
+   * Updates a contact. This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.WRITE_CONTACTS
-   * @param { Contact } contact - Indicates the contact whose information is to update.
-   * @param { AsyncCallback<void> } callback - The callback of updateContact.
+   * @param { Contact } contact - Indicates the contact information. The ID is mandatory and can be obtained through
+   *     [selectContacts]{@link contact.selectContacts()}.
+   * @param { AsyncCallback<void> } callback - Indicates the callback for getting the result of the call. If the operation is successful, the
+   *     ID of the updated contact is returned. If the operation fails, an error code is returned.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
    * @deprecated since 10
-   * @useinstead contact.updateContact#updateContact
+   * @useinstead contact.updateContact(context: Context, contact: Contact, callback: AsyncCallback<void>)
    */
   function updateContact(contact: Contact, callback: AsyncCallback<void>): void;
 
   /**
-   * Updates specified attributes of a contact.
+   * Updates a contact. This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.WRITE_CONTACTS
    * @param { Context } context - Indicates the context of application or capability.
-   * @param { Contact } contact - Indicates the contact whose information is to update.
-   * @param { AsyncCallback<void> } callback - The callback of updateContact.
+   * @param { Contact } contact - Indicates the contact information. The ID is mandatory and can be obtained through
+   *     [selectContacts]{@link contact.selectContacts()}.
+   * @param { AsyncCallback<void> } callback - Indicates the callback for getting the result of the call. If the operation is successful, the
+   *     ID of the updated contact is returned. If the operation fails, an error code is returned.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
@@ -1262,29 +1383,35 @@ declare namespace contact {
   function updateContact(context: Context, contact: Contact, callback: AsyncCallback<void>): void;
 
   /**
-   * Updates specified attributes of a contact.
+   * Updates a contact. (The contact attribute list can be imported.) This API uses an asynchronous callback to return
+   * the result.
    *
    * @permission ohos.permission.WRITE_CONTACTS
-   * @param { Contact } contact - Indicates the contact whose information is to update.
-   * @param { ContactAttributes } attrs - Indicates the contact attribute.
-   * If this parameter is null, all attributes are used for matching.
-   * @param { AsyncCallback<void> } callback - The callback of updateContact.
+   * @param { Contact } contact - Indicates the contact information. The ID is mandatory and can be obtained through
+   *     [selectContacts]{@link contact.selectContacts()}.
+   * @param { ContactAttributes } attrs - List of contact attributes. If this parameter is empty, all attribute fields (
+   *     including the name, phone number, and email address) of the contact are queried.
+   * @param { AsyncCallback<void> } callback - Indicates the callback for getting the result of the call. If the operation is successful, the
+   *     ID of the updated contact is returned. If the operation fails, an error code is returned.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
    * @deprecated since 10
-   * @useinstead contact.updateContact#updateContact
+   * @useinstead contact.updateContact(context: Context, contact: Contact, attrs: ContactAttributes, callback: AsyncCallback<void>)
    */
   function updateContact(contact: Contact, attrs: ContactAttributes, callback: AsyncCallback<void>): void;
 
   /**
-   * Updates specified attributes of a contact.
+   * Updates a contact. (The contact attribute list can be imported.) This API uses an asynchronous callback to return
+   * the result.
    *
    * @permission ohos.permission.WRITE_CONTACTS
    * @param { Context } context - Indicates the context of application or capability.
-   * @param { Contact } contact - Indicates the contact whose information is to update.
-   * @param { ContactAttributes } attrs - Indicates the contact attribute.
-   * If this parameter is null, all attributes are used for matching.
-   * @param { AsyncCallback<void> } callback - The callback of updateContact.
+   * @param { Contact } contact - Indicates the contact information. The ID is mandatory and can be obtained through
+   *     [selectContacts]{@link contact.selectContacts()}.
+   * @param { ContactAttributes } attrs - List of contact attributes. If this parameter is empty, all attribute fields (
+   *     including the name, phone number, and email address) of the contact are queried.
+   * @param { AsyncCallback<void> } callback - Indicates the callback for getting the result of the call. If the operation is successful, the
+   *     ID of the updated contact is returned. If the operation fails, an error code is returned.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
@@ -1293,29 +1420,31 @@ declare namespace contact {
   function updateContact(context: Context, contact: Contact, attrs: ContactAttributes, callback: AsyncCallback<void>): void;
 
   /**
-   * Updates specified attributes of a contact.
+   * Updates a contact. (The contact attribute list can be imported.) This API uses a promise to return the result.
    *
    * @permission ohos.permission.WRITE_CONTACTS
-   * @param { Contact } contact - Indicates the contact whose information is to update.
-   * @param { ContactAttributes } attrs - Indicates the contact attribute.
-   * If this parameter is null, all attributes are used for matching.
-   * @returns { Promise<void> } The promise returned by the function.
+   * @param { Contact } contact - Indicates the contact information. The ID is mandatory and can be obtained through
+   *     [selectContacts]{@link contact.selectContacts()}.
+   * @param { ContactAttributes } attrs - List of contact attributes. If this parameter is empty, all attribute fields (
+   *     including the name, phone number, and email address) of the contact are queried.
+   * @returns { Promise<void> } Promise that returns no value.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
    * @deprecated since 10
-   * @useinstead contact.updateContact#updateContact
+   * @useinstead contact.updateContact(context: Context, contact: Contact, attrs?: ContactAttributes)
    */
   function updateContact(contact: Contact, attrs?: ContactAttributes): Promise<void>;
 
   /**
-   * Updates specified attributes of a contact.
+   * Updates a contact. (The contact attribute list can be imported.) This API uses a promise to return the result.
    *
    * @permission ohos.permission.WRITE_CONTACTS
    * @param { Context } context - Indicates the context of application or capability.
-   * @param { Contact } contact - Indicates the contact whose information is to update.
-   * @param { ContactAttributes } attrs - Indicates the contact attribute.
-   * If this parameter is null, all attributes are used for matching.
-   * @returns { Promise<void> } The promise returned by the function.
+   * @param { Contact } contact - Indicates the contact information. The ID is mandatory and can be obtained through
+   *     [selectContacts]{@link contact.selectContacts()}.
+   * @param { ContactAttributes } attrs - List of contact attributes. If this parameter is empty, all attribute fields (
+   *     including the name, phone number, and email address) of the contact are queried.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
@@ -1324,156 +1453,154 @@ declare namespace contact {
   function updateContact(context: Context, contact: Contact, attrs?: ContactAttributes): Promise<void>;
 
   /**
-   * Checks whether the contact ID is in the local phone book.
+   * Checks whether the ID of this contact is in the local address book. This API uses an asynchronous callback to
+   * return the result.
    *
    * @permission ohos.permission.READ_CONTACTS
-   * @param { number } id - Indicates the contact ID.
-   * @param { AsyncCallback<boolean> } callback - The callback of isLocalContact.
-   * Returns {@code true} if the contact ID is in the local phone book; returns {@code false} otherwise.
+   * @param { number } id - Contact ID. Each contact corresponds to one ID.
+   * @param { AsyncCallback<boolean> } callback - Indicates the callback for getting the result of the call. If the operation is successful, a
+   *     Boolean value is returned. The value **true** indicates that the contact ID is in the local phonebook, and the
+   *     value **false** indicates the opposite. If the operation fails, an error code is returned.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
    * @deprecated since 10
-   * @useinstead contact.isLocalContact#isLocalContact
+   * @useinstead contact.isLocalContact(context: Context, id: number, callback: AsyncCallback<boolean>)
    */
   function isLocalContact(id: number, callback: AsyncCallback<boolean>): void;
 
   /**
-   * Checks whether the contact ID is in the local phone book.
+   * Checks whether the ID of this contact is in the local address book. This API uses an asynchronous callback to
+   * return the result.
    *
    * @permission ohos.permission.READ_CONTACTS
    * @param { Context } context - Indicates the context of application or capability.
-   * @param { number } id - Indicates the contact ID.
-   * @param { AsyncCallback<boolean> } callback - The callback of isLocalContact.
-   * Returns {@code true} if the contact ID is in the local phone book; returns {@code false} otherwise.
+   * @param { number } id - Contact ID. Each contact corresponds to one ID.
+   * @param { AsyncCallback<boolean> } callback - Indicates the callback for getting the result of the call. If the operation is successful, a
+   *     Boolean value is returned. The value **true** indicates that the contact ID is in the local phonebook, and the
+   *     value **false** indicates the opposite. If the operation fails, an error code is returned.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified. 2.Parameter verification failed.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
    */
   function isLocalContact(context: Context, id: number, callback: AsyncCallback<boolean>): void;
 
   /**
-   * Checks whether the contact ID is in the local phone book.
+   * Checks whether the ID of this contact is in the local address book. This API uses a promise to return the result.
    *
    * @permission ohos.permission.READ_CONTACTS
-   * @param { number } id - Indicates the contact ID.
-   * @returns { Promise<boolean> } Returns {@code true} if the contact ID is in the local phone book,
-   * returns {@code false} otherwise.
+   * @param { number } id - Contact ID. Each contact corresponds to one ID.
+   * @returns { Promise<boolean> } Promise used to return the result. The value **true** indicates that the contact ID
+   *     is in the local phonebook, and the value **false** indicates the opposite.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
    * @deprecated since 10
-   * @useinstead contact.isLocalContact#isLocalContact
+   * @useinstead contact.isLocalContact(context: Context, id: number)
    */
   function isLocalContact(id: number): Promise<boolean>;
 
   /**
-   * Checks whether the contact ID is in the local phone book.
+   * Checks whether the ID of this contact is in the local address book. This API uses a promise to return the result.
    *
    * @permission ohos.permission.READ_CONTACTS
    * @param { Context } context - Indicates the context of application or capability.
-   * @param { number } id - Indicates the contact ID.
-   * @returns { Promise<boolean> } Returns {@code true} if the contact ID is in the local phone book,
-   * returns {@code false} otherwise.
+   * @param { number } id - Contact ID. Each contact corresponds to one ID.
+   * @returns { Promise<boolean> } Promise used to return the result. The value **true** indicates that the contact ID
+   *     is in the local phonebook, and the value **false** indicates the opposite.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified. 2.Parameter verification failed.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
    */
   function isLocalContact(context: Context, id: number): Promise<boolean>;
 
   /**
-   * Checks whether the contact ID is of "my card".
+   * Checks whether a contact is included in my card. This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.READ_CONTACTS
-   * @param { number } id - Indicates the contact ID.
-   * @param { AsyncCallback<boolean> } callback - The callback of isMyCard.
-   * Returns {@code true} if the contact ID is of "my card"; returns {@code false} otherwise.
+   * @param { number } id - Contact ID.
+   * @param { AsyncCallback<boolean> } callback - Indicates the callback for getting the result of the call. If the operation is successful, a
+   *     Boolean value is returned. The value **true** indicates that the contact is included in my card, and the value
+   *     **false** indicates the opposite. If the operation fails, an error code is returned.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
    * @deprecated since 10
-   * @useinstead contact.isMyCard#isMyCard
+   * @useinstead contact.isMyCard(context: Context, id: number, callback: AsyncCallback<boolean>)
    */
   function isMyCard(id: number, callback: AsyncCallback<boolean>): void;
 
   /**
-   * Checks whether the contact ID is of "my card".
+   * Checks whether a contact is included in my card. This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.READ_CONTACTS
    * @param { Context } context - Indicates the context of application or capability.
-   * @param { number } id - Indicates the contact ID.
-   * @param { AsyncCallback<boolean> } callback - The callback of isMyCard.
-   * Returns {@code true} if the contact ID is of "my card"; returns {@code false} otherwise.
+   * @param { number } id - Contact ID.
+   * @param { AsyncCallback<boolean> } callback - Indicates the callback for getting the result of the call. If the operation is successful, a
+   *     Boolean value is returned. The value **true** indicates that the contact is included in my card, and the value
+   *     **false** indicates the opposite. If the operation fails, an error code is returned.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified. 2.Parameter verification failed.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
    */
   function isMyCard(context: Context, id: number, callback: AsyncCallback<boolean>): void;
 
   /**
-   * Checks whether the contact ID is of "my card".
+   * Checks whether a contact is included in my card. This API uses a promise to return the result.
    *
    * @permission ohos.permission.READ_CONTACTS
-   * @param { number } id - Indicates the contact ID.
-   * @returns { Promise<boolean> } Returns true if the contact ID is of "my card", returns false otherwise.
+   * @param { number } id - Contact ID.
+   * @returns { Promise<boolean> } Promise used to return the result. The value **true** indicates that the contact is
+   *     included in my card, and the value **false** indicates the opposite.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
    * @deprecated since 10
-   * @useinstead contact.isMyCard#isMyCard
+   * @useinstead contact.isMyCard(context: Context, id: number)
    */
   function isMyCard(id: number): Promise<boolean>;
 
   /**
-   * Checks whether the contact ID is of "my card".
+   * Checks whether a contact is included in my card. This API uses a promise to return the result.
    *
    * @permission ohos.permission.READ_CONTACTS
    * @param { Context } context - Indicates the context of application or capability.
-   * @param { number } id - Indicates the contact ID.
-   * @returns { Promise<boolean> } Returns true if the contact ID is of "my card", returns false otherwise.
+   * @param { number } id - Contact ID.
+   * @returns { Promise<boolean> } Promise used to return the result. The value **true** indicates that the contact is
+   *     included in my card, and the value **false** indicates the opposite.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified. 2.Parameter verification failed.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
    */
   function isMyCard(context: Context, id: number): Promise<boolean>;
 
   /**
-   * ContactSelectionOptions Object
+   * Defines the Contact selection options, which specifies whether one contact or
+   *     multiple contacts can be selected.
    *
-   * @interface ContactSelectionOptions
    * @syscap SystemCapability.Applications.Contacts
+   * @atomicservice [since 11]
    * @since 10
-   */
-  /**
-   * ContactSelectionOptions Object
-   *
-   * @interface ContactSelectionOptions
-   * @syscap SystemCapability.Applications.Contacts
-   * @atomicservice
-   * @since 11
    */
   interface ContactSelectionOptions {
     /**
-     * Indicates the Single-select or multiple-select.
+     * Whether multiple contacts can be selected. The value **true** indicates that multiple contacts can be selected,
+     * and the value **false** indicates that only one contact can be selected. The default value is **false**.
      *
-     * @type { ?boolean }
      * @syscap SystemCapability.Applications.Contacts
+     * @atomicservice [since 11]
      * @since 10
-     */
-    /**
-     * Indicates the Single-select or multiple-select.
-     *
-     * @type { ?boolean }
-     * @syscap SystemCapability.Applications.Contacts
-     * @atomicservice
-     * @since 11
      */
     isMultiSelect?: boolean;
 
     /**
-     * Contact filtering parameters.
+     * Contact selection filter.
+     * This API can be used in atomic services since API version 15.
      *
-     * @type { ?ContactSelectionFilter }
      * @syscap SystemCapability.Applications.Contacts
      * @atomicservice
      * @since 15
@@ -1481,9 +1608,10 @@ declare namespace contact {
     filter?: ContactSelectionFilter;
 
     /**
-     * Maximum number of contacts. The value ranges from 1 to 10000. The default value is 10000.
+     * Maximum number of contacts. The default value is **10000**. If the value exceeds the maximum number, the default
+     * value is used.
+     * This API can be used in atomic services since API version 15.
      *
-     * @type { ?number }
      * @syscap SystemCapability.Applications.Contacts
      * @atomicservice
      * @since 15
@@ -1491,1043 +1619,580 @@ declare namespace contact {
     maxSelectable?: number;
 
     /**
-     * Contact display dimension.
+     * Whether to display contacts by name. The value **true** indicates that contacts are displayed by name, and the
+     * value **false** indicates that contacts are displayed by number. The default value is **false**.
+     * This API can be used in atomic services since API version 15.
      *
-     * @type { ?boolean }
      * @syscap SystemCapability.Applications.Contacts
      * @atomicservice
      * @since 15
      */
     isDisplayedByName?: boolean;
+
+    /**
+     * Indicates whether the contact picker is automatically closed when page routing is performed,for example, when the application is in the background.
+     *
+     * The default value is false
+     *
+     * @syscap SystemCapability.Applications.Contacts
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0
+     */
+    isAutoDismissOnNavigation?: boolean;
   }
 
   /**
-   * Provides methods for contact information
+   * Defines a contact.
    *
    * @syscap SystemCapability.Applications.ContactsData
+   * @atomicservice [since 11]
    * @since 7
-   */
-  /**
-   * Provides methods for contact information
-   *
-   * @syscap SystemCapability.Applications.ContactsData
-   * @atomicservice
-   * @since 11
    */
   class Contact {
     /**
-     * Indicates the contact invalid ID.
+     * Default contact ID, value is -1.
      *
-     * @type { number }
-     * @readonly
-     * @static
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates the contact invalid ID.
-     *
-     * @type { number }
-     * @readonly
-     * @static
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     static readonly INVALID_CONTACT_ID: -1;
 
     /**
-     * Indicates the contact ID.
+     * Contact ID, which is automatically generated by the system.
      *
-     * @type { ?number }
-     * @readonly
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates the contact ID.
-     *
-     * @type { ?number }
-     * @readonly
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     readonly id?: number;
 
     /**
-     * Indicates the query key that identifies the contact.
+     * Contact key, which is automatically generated by the system.
      *
-     * @type { ?string }
-     * @readonly
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates the query key that identifies the contact.
-     *
-     * @type { ?string }
-     * @readonly
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     readonly key?: string;
 
     /**
-     * Indicates the contact attributes.
+     * List of contact attributes.
      *
-     * @type { ?ContactAttributes }
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates the contact attributes.
-     *
-     * @type { ?ContactAttributes }
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     contactAttributes?: ContactAttributes;
 
     /**
-     * Indicates list of contact email addresses.
+     * List of email addresses of the contact.
      *
-     * @type { ?Email[] }
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates list of contact email addresses.
-     *
-     * @type { ?Email[] }
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     emails?: Email[];
 
     /**
-     * Indicates an event (special date) of the contact.
+     * List of important dates such as birthdays and anniversaries of the contact.
      *
-     * @type { ?Event[] }
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates an event (special date) of the contact.
-     *
-     * @type { ?Event[] }
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     events?: Event[];
 
     /**
-     * Indicates a group of the contact.
+     * List of groups of the contact.
      *
-     * @type { ?Group[] }
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates a group of the contact.
-     *
-     * @type { ?Group[] }
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     groups?: Group[];
 
     /**
-     * Indicates an IM address of the contact.
+     * List of instant message addresses of the contact.
      *
-     * @type { ?ImAddress[] }
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates an IM address of the contact.
-     *
-     * @type { ?ImAddress[] }
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     imAddresses?: ImAddress[];
 
     /**
-     * Indicates a phone number of the contact.
+     * List of phone numbers of the contact.
      *
-     * @type { ?PhoneNumber[] }
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates a phone number of the contact.
-     *
-     * @type { ?PhoneNumber[] }
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     phoneNumbers?: PhoneNumber[];
 
     /**
-     * Indicates the contact portrait.
+     * Contact portrait.
      *
-     * @type { ?Portrait }
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates the contact portrait.
-     *
-     * @type { ?Portrait }
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     portrait?: Portrait;
 
     /**
-     * Indicates a postal address of the contact.
+     * List of postal addresses of the contact.
      *
-     * @type { ?PostalAddress[] }
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates a postal address of the contact.
-     *
-     * @type { ?PostalAddress[] }
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     postalAddresses?: PostalAddress[];
 
     /**
-     * Indicates a relation of the contact.
+     * List of relationships with the contact.
      *
-     * @type { ?Relation[] }
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates a relation of the contact.
-     *
-     * @type { ?Relation[] }
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     relations?: Relation[];
 
     /**
-     * Indicates a Session Initiation Protocol (SIP) address of the contact.
+     * List of Session Initiation Protocol (SIP) addresses of the contact.
      *
-     * @type { ?SipAddress[] }
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates a Session Initiation Protocol (SIP) address of the contact.
-     *
-     * @type { ?SipAddress[] }
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     sipAddresses?: SipAddress[];
 
     /**
-     * Indicates a website of the contact.
+     * List of websites of the contact.
      *
-     * @type { ?Website[] }
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates a website of the contact.
-     *
-     * @type { ?Website[] }
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     websites?: Website[];
 
     /**
-     * Indicates the contact name.
+     * Contact name.
      *
-     * @type { ?Name }
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates the contact name.
-     *
-     * @type { ?Name }
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     name?: Name;
 
     /**
-     * Indicates the contact nickname.
+     * Contact nickname.
      *
-     * @type { ?NickName }
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates the contact nickname.
-     *
-     * @type { ?NickName }
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     nickName?: NickName;
 
     /**
-     * Indicates the contact note.
+     * Contact notes.
      *
-     * @type { ?Note }
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates the contact note.
-     *
-     * @type { ?Note }
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     note?: Note;
 
     /**
-     * Indicates organization information about the contact.
+     * Organization of the contact.
      *
-     * @type { ?Organization }
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates organization information about the contact.
-     *
-     * @type { ?Organization }
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     organization?: Organization;
   }
 
   /**
-   * Provides methods for contact attributes information
+   * Provides a list of contact attributes, which are generally used as arguments.
+   * If **null** is passed, all attributes are queried by default.
    *
    * @syscap SystemCapability.Applications.ContactsData
+   * @atomicservice [since 11]
    * @since 7
-   */
-  /**
-   * Provides methods for contact attributes information
-   *
-   * @syscap SystemCapability.Applications.ContactsData
-   * @atomicservice
-   * @since 11
    */
   class ContactAttributes {
     /**
      * Indicates the contact attributes.
      *
-     * @type { Attribute[] }
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates the contact attributes.
-     *
-     * @type { Attribute[] }
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     attributes: Attribute[];
   }
 
   /**
-   * Provides methods for attribute information
+   * Enumerates contact attributes. The enumerated value is of the number type.
+   * Create contact data in JSON format:
    *
-   * @enum { number }
    * @syscap SystemCapability.Applications.ContactsData
+   * @atomicservice [since 11]
    * @since 7
-   */
-  /**
-   * Provides methods for attribute information
-   *
-   * @enum { number }
-   * @syscap SystemCapability.Applications.ContactsData
-   * @atomicservice
-   * @since 11
    */
   enum Attribute {
     /**
-     * Indicates the contact event.
+     * Important dates such as birthday and anniversaries of the contact.
      *
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates the contact event.
-     *
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     ATTR_CONTACT_EVENT = 0,
 
     /**
-     * Indicates the email address.
+     * Email address of the contact.
      *
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates the email address.
-     *
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     ATTR_EMAIL = 1,
 
     /**
-     * Indicates the contact group.
+     * Groups of the contact.
      *
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates the contact group.
-     *
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     ATTR_GROUP_MEMBERSHIP = 2,
 
     /**
-     * Indicates the instant messaging (IM) address.
+     * IM addresses of the contact.
      *
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates the instant messaging (IM) address.
-     *
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     ATTR_IM = 3,
 
     /**
-     * Indicates the name.
+     * Contact name.
      *
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates the name.
-     *
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     ATTR_NAME = 4,
 
     /**
-     * Indicates the nickname.
+     * Contact nickname.
      *
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates the nickname.
-     *
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     ATTR_NICKNAME = 5,
 
     /**
-     * Indicates the note.
+     * Contact notes.
      *
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates the note.
-     *
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     ATTR_NOTE = 6,
 
     /**
-     * Indicates the organization.
+     * Organization of the contact.
      *
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates the organization.
-     *
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     ATTR_ORGANIZATION = 7,
 
     /**
-     * Indicates the phone number.
+     * Phone number of a contact. Only full match is supported, and wildcards are not
+     *     supported.
      *
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates the phone number.
-     *
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     ATTR_PHONE = 8,
 
     /**
-     * Indicates the portrait.
+     * Contact portrait.
      *
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates the portrait.
-     *
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     ATTR_PORTRAIT = 9,
 
     /**
-     * Indicates the postal address.
+     * Postal address of the contact.
      *
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates the postal address.
-     *
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     ATTR_POSTAL_ADDRESS = 10,
 
     /**
-     * Indicates the relation.
+     * Relationship with the contact.
      *
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates the relation.
-     *
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     ATTR_RELATION = 11,
 
     /**
-     * Indicates the Session Initiation Protocol (SIP) address.
+     * SIP addresses of the contact.
      *
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates the Session Initiation Protocol (SIP) address.
-     *
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     ATTR_SIP_ADDRESS = 12,
 
     /**
-     * Indicates the website.
+     * Website that stores the contact information.
      *
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates the website.
-     *
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     ATTR_WEBSITE = 13
   }
 
   /**
-   * Provides methods for email information
+   * Defines a contact's email.
    *
    * @syscap SystemCapability.Applications.ContactsData
+   * @atomicservice [since 11]
    * @since 7
-   */
-  /**
-   * Provides methods for email information
-   *
-   * @syscap SystemCapability.Applications.ContactsData
-   * @atomicservice
-   * @since 11
    */
   class Email {
     /**
-     * Indicates a custom label.
+     * Custom mailbox type, the default value is **0**.
      *
-     * @type { number }
-     * @readonly
-     * @static
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates a custom label.
-     *
-     * @type { number }
-     * @readonly
-     * @static
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     static readonly CUSTOM_LABEL: 0;
 
     /**
-     * Indicates a home email.
+     * Home mailbox, the default value is **1**.
      *
-     * @type { number }
-     * @readonly
-     * @static
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates a home email.
-     *
-     * @type { number }
-     * @readonly
-     * @static
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     static readonly EMAIL_HOME: 1;
 
     /**
-     * Indicates a work email.
+     * Work mailbox, the default value is **2**.
      *
-     * @type { number }
-     * @readonly
-     * @static
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates a work email.
-     *
-     * @type { number }
-     * @readonly
-     * @static
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     static readonly EMAIL_WORK: 2;
 
     /**
-     * Indicates an email of the OTHER type.
+     * Other mailbox, the default value is **3**.
      *
-     * @type { number }
-     * @readonly
-     * @static
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates an email of the OTHER type.
-     *
-     * @type { number }
-     * @readonly
-     * @static
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     static readonly EMAIL_OTHER: 3;
 
     /**
-     * Indicates an invalid label ID.
+     * Invalid mailbox, the default value is **-1**.
      *
-     * @type { number }
-     * @readonly
-     * @static
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates an invalid label ID.
-     *
-     * @type { number }
-     * @readonly
-     * @static
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     static readonly INVALID_LABEL_ID: -1;
 
     /**
-     * Indicates the email address.
+     * Email address of the contact.
      *
-     * @type { string }
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates the email address.
-     *
-     * @type { string }
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     email: string;
 
     /**
-     * Indicates the label name of an attribute.
+     * Name of the mailbox type.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates the label name of an attribute.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     labelName?: string;
 
     /**
-     * Indicates the displayed email name.
+     * Displayed name of the mailbox.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates the displayed email name.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     displayName?: string;
 
     /**
-     * Indicates the label id.
+     * Mailbox type.
      *
-     * @type { ?number }
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates the label id.
-     *
-     * @type { ?number }
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     labelId?: number;
   }
 
   /**
-   * Provides methods for event information
+   * Defines a contact's event.
    *
    * @syscap SystemCapability.Applications.ContactsData
+   * @atomicservice [since 11]
    * @since 7
-   */
-  /**
-   * Provides methods for event information
-   *
-   * @syscap SystemCapability.Applications.ContactsData
-   * @atomicservice
-   * @since 11
    */
   class Event {
     /**
-     * Indicates a custom label.
+     * Custom mailbox type, the default value is **0**.
      *
-     * @type { number }
-     * @readonly
-     * @static
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates a custom label.
-     *
-     * @type { number }
-     * @readonly
-     * @static
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     static readonly CUSTOM_LABEL: 0;
 
     /**
-     * Indicates an anniversary event.
+     * Custom mailbox type, the default value is **0**.
      *
-     * @type { number }
-     * @readonly
-     * @static
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates an anniversary event.
-     *
-     * @type { number }
-     * @readonly
-     * @static
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     static readonly EVENT_ANNIVERSARY: 1;
 
     /**
-     * Indicates an event of the OTHER type.
+     * Custom mailbox type, the default value is **0**.
      *
-     * @type { number }
-     * @readonly
-     * @static
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates an event of the OTHER type.
-     *
-     * @type { number }
-     * @readonly
-     * @static
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     static readonly EVENT_OTHER: 2;
 
     /**
-     * Indicates an birthday event.
+     * Birthday event, the default value is **3**.
      *
-     * @type { number }
-     * @readonly
-     * @static
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates an birthday event.
-     *
-     * @type { number }
-     * @readonly
-     * @static
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     static readonly EVENT_BIRTHDAY: 3;
 
     /**
-     * Indicates an invalid label ID.
+     * Invalid mailbox, the default value is **-1**.
      *
-     * @type { number }
-     * @readonly
-     * @static
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates an invalid label ID.
-     *
-     * @type { number }
-     * @readonly
-     * @static
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     static readonly INVALID_LABEL_ID: -1;
 
     /**
-     * Indicates the event date.
+     * Event date.
      *
-     * @type { string }
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates the event date.
-     *
-     * @type { string }
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     eventDate: string;
 
     /**
-     * Indicates the label name of an attribute.
+     * Name of the mailbox type.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates the label name of an attribute.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     labelName?: string;
 
     /**
-     * Indicates the label id.
+     * Mailbox type.
      *
-     * @type { ?number }
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates the label id.
-     *
-     * @type { ?number }
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     labelId?: number;
   }
 
   /**
-   * Provides methods for group information
+   * Defines a contact group.
    *
    * @syscap SystemCapability.Applications.ContactsData
+   * @atomicservice [since 11]
    * @since 7
-   */
-  /**
-   * Provides methods for group information
-   *
-   * @syscap SystemCapability.Applications.ContactsData
-   * @atomicservice
-   * @since 11
    */
   class Group {
     /**
-     * Indicates the contact group ID.
+     * ID of a contact group.
      *
-     * @type { ?number }
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates the contact group ID.
-     *
-     * @type { ?number }
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     groupId?: number;
 
     /**
-     * Indicates the contact group title.
+     * Name of a contact group.
      *
-     * @type { string }
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates the contact group title.
-     *
-     * @type { string }
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     title: string;
   }
 
   /**
-   * Provides methods for holder information
+   * Defines an application that creates the contact.
    *
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
    */
   class Holder {
     /**
-     * Indicates the bundle name of a contact holder.
+     * Bundle name. The default value is **com.ohos.contacts**.
      *
-     * @type { string }
-     * @readonly
      * @syscap SystemCapability.Applications.ContactsData
      * @since 7
      */
     readonly bundleName: string;
 
     /**
-     * Indicates the displayed name of a contact holder.
+     * Application name.
      *
-     * @type { ?string }
-     * @readonly
      * @syscap SystemCapability.Applications.ContactsData
      * @since 7
      */
     readonly displayName?: string;
 
     /**
-     * Indicates the holder ID.
+     * Application ID.
      *
-     * @type { ?number }
      * @syscap SystemCapability.Applications.ContactsData
      * @since 7
      */
@@ -2535,431 +2200,215 @@ declare namespace contact {
   }
 
   /**
-   * Provides methods for ImAddress information
+   * Enumerates IM addresses.
    *
    * @syscap SystemCapability.Applications.ContactsData
+   * @atomicservice [since 11]
    * @since 7
-   */
-  /**
-   * Provides methods for ImAddress information
-   *
-   * @syscap SystemCapability.Applications.ContactsData
-   * @atomicservice
-   * @since 11
    */
   class ImAddress {
     /**
-     * Indicates a custom label.
+     * Custom mailbox type, the default value is **0**.
      *
-     * @type { number }
-     * @readonly
-     * @static
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates a custom label.
-     *
-     * @type { number }
-     * @readonly
-     * @static
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     static readonly CUSTOM_LABEL: -1;
 
     /**
-     * Indicates an AIM instant message.
+     * AIM, the default value is **0**.
      *
-     * @type { number }
-     * @readonly
-     * @static
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates an AIM instant message.
-     *
-     * @type { number }
-     * @readonly
-     * @static
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     static readonly IM_AIM: 0;
 
     /**
-     * Indicates a Windows Live instant message.
+     * MSN, the default value is **1**.
      *
-     * @type { number }
-     * @readonly
-     * @static
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates a Windows Live instant message.
-     *
-     * @type { number }
-     * @readonly
-     * @static
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     static readonly IM_MSN: 1;
 
     /**
-     * Indicates a Yahoo instant message.
+     * Yahoo, the default value is **2**.
      *
-     * @type { number }
-     * @readonly
-     * @static
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates a Yahoo instant message.
-     *
-     * @type { number }
-     * @readonly
-     * @static
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     static readonly IM_YAHOO: 2;
 
     /**
-     * Indicates a Skype instant message.
+     * Skype, the default value is **3**.
      *
-     * @type { number }
-     * @readonly
-     * @static
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates a Skype instant message.
-     *
-     * @type { number }
-     * @readonly
-     * @static
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     static readonly IM_SKYPE: 3;
 
     /**
-     * Indicates a QQ instant message.
+     * QQ, the default value is **4**.
      *
-     * @type { number }
-     * @readonly
-     * @static
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates a QQ instant message.
-     *
-     * @type { number }
-     * @readonly
-     * @static
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     static readonly IM_QQ: 4;
 
     /**
-     * Indicates an ICQ instant message.
+     * ICQ, the default value is **6**.
      *
-     * @type { number }
-     * @readonly
-     * @static
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates an ICQ instant message.
-     *
-     * @type { number }
-     * @readonly
-     * @static
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     static readonly IM_ICQ: 6;
 
     /**
-     * Indicates a Jabber instant message.
+     * JABBER, the default value is **7**.
      *
-     * @type { number }
-     * @readonly
-     * @static
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates a Jabber instant message.
-     *
-     * @type { number }
-     * @readonly
-     * @static
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     static readonly IM_JABBER: 7;
 
     /**
-     * Indicates an invalid label ID.
+     * Invalid mailbox, the default value is **-1**.
      *
-     * @type { number }
-     * @readonly
-     * @static
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates an invalid label ID.
-     *
-     * @type { number }
-     * @readonly
-     * @static
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     static readonly INVALID_LABEL_ID: -2;
 
     /**
-     * Indicates the IM address.
+     * IM address.
      *
-     * @type { string }
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates the IM address.
-     *
-     * @type { string }
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     imAddress: string;
 
     /**
-     * Indicates the label name of an attribute.
+     * Name of the mailbox type.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates the label name of an attribute.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     labelName?: string;
 
     /**
-     * Indicates the label id.
+     * Mailbox type.
      *
-     * @type { ?number }
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates the label id.
-     *
-     * @type { ?number }
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     labelId?: number;
   }
 
   /**
-   * Provides methods for name information
+   * Defines a contact's name.
    *
    * @syscap SystemCapability.Applications.ContactsData
+   * @atomicservice [since 11]
    * @since 7
-   */
-  /**
-   * Provides methods for name information
-   *
-   * @syscap SystemCapability.Applications.ContactsData
-   * @atomicservice
-   * @since 11
    */
   class Name {
     /**
-     * Indicates the family name of the contact.
+     * Family name.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates the family name of the contact.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     familyName?: string;
 
     /**
-     * Indicates the phonetic family name of the contact.
+     * Family name in pinyin.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates the phonetic family name of the contact.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     familyNamePhonetic?: string;
 
     /**
-     * Indicates the full name of the contact.
+     * Full name of the contact.
      *
-     * @type { string }
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates the full name of the contact.
-     *
-     * @type { string }
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     fullName: string;
 
     /**
-     * Indicates the given name of the contact.
+     * Given name of the contact.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates the given name of the contact.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     givenName?: string;
 
     /**
-     * Indicates the phonetic given name of the contact.
+     * Given name of the contact in pinyin.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates the phonetic given name of the contact.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     givenNamePhonetic?: string;
 
     /**
-     * Indicates the middle name of the contact.
+     * Middle name of the contact.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates the middle name of the contact.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     middleName?: string;
 
     /**
-     * Indicates the phonetic middle name of the contact.
+     * Middle name of the contact in pinyin.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates the phonetic middle name of the contact.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     middleNamePhonetic?: string;
 
     /**
-     * Indicates the prefix of the contact name.
+     * Prefix of the contact name.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates the prefix of the contact name.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     namePrefix?: string;
 
     /**
-     * Indicates the suffix of this contact name.
+     * Suffix of the contact name.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates the suffix of this contact name.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     nameSuffix?: string;
 
     /**
-     * Indicates whether the original contact has a name.
-     * 
-     * @type { ?boolean }
+     * Whether the contact information contains the name. The value **true** indicates that the contact information
+     * contains the name, and the value **false** indicates the opposite.
+     *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
      * @since 22
@@ -2968,681 +2417,336 @@ declare namespace contact {
   }
 
   /**
-   * Provides methods for nick name information
+   * Defines a contact's nickname.
    *
    * @syscap SystemCapability.Applications.ContactsData
+   * @atomicservice [since 11]
    * @since 7
-   */
-  /**
-   * Provides methods for nick name information
-   *
-   * @syscap SystemCapability.Applications.ContactsData
-   * @atomicservice
-   * @since 11
    */
   class NickName {
     /**
-     * Indicates the nickname of the contact.
+     * Contact nickname.
      *
-     * @type { string }
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates the nickname of the contact.
-     *
-     * @type { string }
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     nickName: string;
   }
 
   /**
-   * Provides methods for note information
+   * Defines a contact's note.
    *
    * @syscap SystemCapability.Applications.ContactsData
+   * @atomicservice [since 11]
    * @since 7
-   */
-  /**
-   * Provides methods for note information
-   *
-   * @syscap SystemCapability.Applications.ContactsData
-   * @atomicservice
-   * @since 11
    */
   class Note {
     /**
-     * Indicates the note content.
+     * Notes of the contact.
      *
-     * @type { string }
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates the note content.
-     *
-     * @type { string }
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     noteContent: string;
   }
 
   /**
-   * Provides methods for organization information
+   * Defines a contact's organization.
    *
    * @syscap SystemCapability.Applications.ContactsData
+   * @atomicservice [since 11]
    * @since 7
-   */
-  /**
-   * Provides methods for organization information
-   *
-   * @syscap SystemCapability.Applications.ContactsData
-   * @atomicservice
-   * @since 11
    */
   class Organization {
     /**
-     * Indicates the name of the organization to which the contact belongs.
+     * Organization name.
      *
-     * @type { string }
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates the name of the organization to which the contact belongs.
-     *
-     * @type { string }
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     name: string;
 
     /**
-     * Indicates the title of the organization.
+     * Job title.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates the title of the organization.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     title?: string;
   }
 
   /**
-   * Provides methods for phone number information
+   * Defines a contact's phone number.
    *
    * @syscap SystemCapability.Applications.ContactsData
+   * @atomicservice [since 11]
    * @since 7
-   */
-  /**
-   * Provides methods for phone number information
-   *
-   * @syscap SystemCapability.Applications.ContactsData
-   * @atomicservice
-   * @since 11
    */
   class PhoneNumber {
     /**
-     * Indicates a custom label.
+     * Custom mailbox type, the default value is **0**.
      *
-     * @type { number }
-     * @readonly
-     * @static
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates a custom label.
-     *
-     * @type { number }
-     * @readonly
-     * @static
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     static readonly CUSTOM_LABEL: 0;
 
     /**
-     * Indicates a home number.
+     * Home phone, the default value is **1**.
      *
-     * @type { number }
-     * @readonly
-     * @static
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates a home number.
-     *
-     * @type { number }
-     * @readonly
-     * @static
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     static readonly NUM_HOME: 1;
 
     /**
-     * Indicates a mobile phone number.
+     * Mobile phone, the default value is **2**.
      *
-     * @type { number }
-     * @readonly
-     * @static
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates a mobile phone number.
-     *
-     * @type { number }
-     * @readonly
-     * @static
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     static readonly NUM_MOBILE: 2;
 
     /**
-     * Indicates a work number.
+     * Work phone, the default value is **3**.
      *
-     * @type { number }
-     * @readonly
-     * @static
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates a work number.
-     *
-     * @type { number }
-     * @readonly
-     * @static
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     static readonly NUM_WORK: 3;
 
     /**
-     * Indicates a work fax number.
+     * Work fax, the default value is **4**.
      *
-     * @type { number }
-     * @readonly
-     * @static
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates a work fax number.
-     *
-     * @type { number }
-     * @readonly
-     * @static
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     static readonly NUM_FAX_WORK: 4;
 
     /**
-     * Indicates a home fax number.
+     * Family fax, the default value is **5**.
      *
-     * @type { number }
-     * @readonly
-     * @static
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates a home fax number.
-     *
-     * @type { number }
-     * @readonly
-     * @static
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     static readonly NUM_FAX_HOME: 5;
 
     /**
-     * Indicates a pager number.
+     * Pager, the default value is **6**.
      *
-     * @type { number }
-     * @readonly
-     * @static
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates a pager number.
-     *
-     * @type { number }
-     * @readonly
-     * @static
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     static readonly NUM_PAGER: 6;
 
     /**
-     * Indicates a number of the OTHER type.
+     * Other phone type, the default value is **7**.
      *
-     * @type { number }
-     * @readonly
-     * @static
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates a number of the OTHER type.
-     *
-     * @type { number }
-     * @readonly
-     * @static
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     static readonly NUM_OTHER: 7;
 
     /**
-     * Indicates a callback number.
+     * Callback phone, the default value is **8**.
      *
-     * @type { number }
-     * @readonly
-     * @static
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates a callback number.
-     *
-     * @type { number }
-     * @readonly
-     * @static
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     static readonly NUM_CALLBACK: 8;
 
     /**
-     * Indicates a car number.
+     * Car phone, the default value is **9**.
      *
-     * @type { number }
-     * @readonly
-     * @static
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates a car number.
-     *
-     * @type { number }
-     * @readonly
-     * @static
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     static readonly NUM_CAR: 9;
 
     /**
-     * Indicates a company director number.
+     * Company phone, the default value is **10**.
      *
-     * @type { number }
-     * @readonly
-     * @static
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates a company director number.
-     *
-     * @type { number }
-     * @readonly
-     * @static
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     static readonly NUM_COMPANY_MAIN: 10;
 
     /**
-     * Indicates an Integrated Services Digital Network (ISDN) number.
+     * Integrated Services Digital Network (ISDN) phone, the default value is **11**.
      *
-     * @type { number }
-     * @readonly
-     * @static
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates an Integrated Services Digital Network (ISDN) number.
-     *
-     * @type { number }
-     * @readonly
-     * @static
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     static readonly NUM_ISDN: 11;
 
     /**
-     * Indicates a main number.
+     * Main phone, the default value is **12**.
      *
-     * @type { number }
-     * @readonly
-     * @static
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates a main number.
-     *
-     * @type { number }
-     * @readonly
-     * @static
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     static readonly NUM_MAIN: 12;
 
     /**
-     * Indicates a number of the OTHER_FAX type.
+     * Other fax phone, the default value is **13**.
      *
-     * @type { number }
-     * @readonly
-     * @static
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates a number of the OTHER_FAX type.
-     *
-     * @type { number }
-     * @readonly
-     * @static
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     static readonly NUM_OTHER_FAX: 13;
 
     /**
-     * Indicates a radio number.
+     * Wireless phone, the default value is **14**.
      *
-     * @type { number }
-     * @readonly
-     * @static
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates a radio number.
-     *
-     * @type { number }
-     * @readonly
-     * @static
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     static readonly NUM_RADIO: 14;
 
     /**
-     * Indicates a telex number.
+     * Telex phone, the default value is **15**.
      *
-     * @type { number }
-     * @readonly
-     * @static
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates a telex number.
-     *
-     * @type { number }
-     * @readonly
-     * @static
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     static readonly NUM_TELEX: 15;
 
     /**
-     * Indicates a teletypewriter (TTY) or test-driven development (TDD) number.
+     * Teletypewriter (TTY) or Test Driven Development (TDD) phone, the default value is **16**.
      *
-     * @type { number }
-     * @readonly
-     * @static
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates a teletypewriter (TTY) or test-driven development (TDD) number.
-     *
-     * @type { number }
-     * @readonly
-     * @static
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     static readonly NUM_TTY_TDD: 16;
 
     /**
-     * Indicates a work mobile phone number.
+     * Work mobile phone, the default value is **17**.
      *
-     * @type { number }
-     * @readonly
-     * @static
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates a work mobile phone number.
-     *
-     * @type { number }
-     * @readonly
-     * @static
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     static readonly NUM_WORK_MOBILE: 17;
 
     /**
-     * Indicates a work pager number.
+     * Work pager, the default value is **18**.
      *
-     * @type { number }
-     * @readonly
-     * @static
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates a work pager number.
-     *
-     * @type { number }
-     * @readonly
-     * @static
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     static readonly NUM_WORK_PAGER: 18;
 
     /**
-     * Indicates an assistant number.
+     * Assistant phone, the default value is **19**.
      *
-     * @type { number }
-     * @readonly
-     * @static
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates an assistant number.
-     *
-     * @type { number }
-     * @readonly
-     * @static
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     static readonly NUM_ASSISTANT: 19;
 
     /**
-     * Indicates an MMS number.
+     * MMS phone, the default value is **20**.
      *
-     * @type { number }
-     * @readonly
-     * @static
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates an MMS number.
-     *
-     * @type { number }
-     * @readonly
-     * @static
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     static readonly NUM_MMS: 20;
 
     /**
-     * Indicates an invalid label ID.
+     * Invalid mailbox, the default value is **-1**.
      *
-     * @type { number }
-     * @readonly
-     * @static
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates an invalid label ID.
-     *
-     * @type { number }
-     * @readonly
-     * @static
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     static readonly INVALID_LABEL_ID: -1;
 
     /**
-     * Indicates the label name of an attribute.
+     * Name of the mailbox type.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates the label name of an attribute.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     labelName?: string;
 
     /**
-     * Indicates the phone number of the contact.
+     * Phone number.
      *
-     * @type { string }
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates the phone number of the contact.
-     *
-     * @type { string }
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     phoneNumber: string;
 
     /**
-     * Indicates the label id.
+     * Mailbox type.
      *
-     * @type { ?number }
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates the label id.
-     *
-     * @type { ?number }
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     labelId?: number;
   }
 
   /**
-   * Provides methods for portrait information
+   * Defines a contact's portrait.
+   *
+   * > **NOTE**
+   * >
+   * > Since API version 22, contact portraits can be set in URI or [PixelMap]{@link @ohos.multimedia.image:image.PixelMap}
+   * > format. (Currently, contact avatars cannot be set through the [addContactViaUI]{@link contact.addContactViaUI} or
+   * > [saveToExistingContactViaUI]{@link contact.saveToExistingContactViaUI} API.)
+   * >
+   * > URI indicates the address of the contact portrait file that can be accessed, and
+   * > [PixelMap]{@link @ohos.multimedia.image:image.PixelMap} indicates the [PixelMap]{@link @ohos.multimedia.image:image.PixelMap}
+   * > object generated based on the contact portrait resource.
+   * >
+   * > Since API version 22, the profile picture resource can be read through URI. The resource can be opened only in
+   * > [fs.open]{@link @ohos.file.fs:open(path: string, mode?: number)} mode and cannot be directly displayed in the **Image** component using a URI. You need to read
+   * > the resource and display it in [PixelMap]{@link @ohos.multimedia.image:image.PixelMap} format.
    *
    * @syscap SystemCapability.Applications.ContactsData
+   * @atomicservice [since 11]
    * @since 7
-   */
-  /**
-   * Provides methods for portrait information
-   *
-   * @syscap SystemCapability.Applications.ContactsData
-   * @atomicservice
-   * @since 11
    */
   class Portrait {
     /**
-     * Indicates the uri of the contact portrait.
+     * Contact portrait in URI format.
      *
-     * @type { string }
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
      */
-    /**
-     * Indicates the uri of the contact portrait.
-     *
-     * @type { string }
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
-     */
     uri: string;
+
     /**
-     * Indicates the contact portrait in image.PixelMap format. 
-     * If you want to set contact portrait in this format, the uri needs to be set to empty.
-     * 
-     * @type { ?image.PixelMap }
+     * Contact portrait in PixelMap format.
+     *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
      * @since 22
@@ -3651,904 +2755,431 @@ declare namespace contact {
   }
 
   /**
-   * Provides methods for postal address information
+   * Defines a contact's postal address.
    *
    * @syscap SystemCapability.Applications.ContactsData
+   * @atomicservice [since 11]
    * @since 7
-   */
-  /**
-   * Provides methods for postal address information
-   *
-   * @syscap SystemCapability.Applications.ContactsData
-   * @atomicservice
-   * @since 11
    */
   class PostalAddress {
     /**
-     * Indicates a custom label.
+     * Custom mailbox type, the default value is **0**.
      *
-     * @type { number }
-     * @readonly
-     * @static
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates a custom label.
-     *
-     * @type { number }
-     * @readonly
-     * @static
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     static readonly CUSTOM_LABEL: 0;
 
     /**
-     * Indicates a home address.
+     * Home address, the default value is **1**.
      *
-     * @type { number }
-     * @readonly
-     * @static
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates a home address.
-     *
-     * @type { number }
-     * @readonly
-     * @static
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     static readonly ADDR_HOME: 1;
 
     /**
-     * Indicates a work address.
+     * Work address, the default value is **2**.
      *
-     * @type { number }
-     * @readonly
-     * @static
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates a work address.
-     *
-     * @type { number }
-     * @readonly
-     * @static
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     static readonly ADDR_WORK: 2;
 
     /**
-     * Indicates an address of the OTHER type.
+     * Other addresses, the default value is **3**.
      *
-     * @type { number }
-     * @readonly
-     * @static
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates an address of the OTHER type.
-     *
-     * @type { number }
-     * @readonly
-     * @static
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     static readonly ADDR_OTHER: 3;
 
     /**
-     * Indicates an invalid label ID.
+     * Invalid mailbox, the default value is **-1**.
      *
-     * @type { number }
-     * @readonly
-     * @static
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates an invalid label ID.
-     *
-     * @type { number }
-     * @readonly
-     * @static
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     static readonly INVALID_LABEL_ID: -1;
 
     /**
-     * Indicates the city where this contact is located.
+     * City where the contact is located.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates the city where this contact is located.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     city?: string;
 
     /**
-     * Indicates the country/region where this contact is located.
+     * Country/Region where the contact is located.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates the country/region where this contact is located.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     country?: string;
 
     /**
-     * Indicates the label name of an attribute.
+     * Name of the mailbox type.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates the label name of an attribute.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     labelName?: string;
 
     /**
-     * Indicates the neighborhood where this contact is located.
+     * Neighbor of the contact.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates the neighborhood where this contact is located.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     neighborhood?: string;
 
     /**
-     * Indicates the post box of this contact.
+     * Email of the contact.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates the post box of this contact.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     pobox?: string;
 
     /**
-     * Indicates the postal address of this contact.
+     * Postal address of the contact.
      *
-     * @type { string }
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates the postal address of this contact.
-     *
-     * @type { string }
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     postalAddress: string;
 
     /**
-     * Indicates the postal code of this contact.
+     * Postal code of the region where the contact is located.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates the postal code of this contact.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     postcode?: string;
 
     /**
-     * Indicates the area where this contact is located.
+     * Area where the contact is located.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates the area where this contact is located.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     region?: string;
 
     /**
-     * Indicates the street where this contact is located.
+     * Street where the contact resides.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates the street where this contact is located.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     street?: string;
 
     /**
-     * Indicates the label id.
+     * Mailbox type.
      *
-     * @type { ?number }
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates the label id.
-     *
-     * @type { ?number }
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     labelId?: number;
   }
 
   /**
-   * Provides methods for relation information
+   * Defines a contact's relationship.
    *
    * @syscap SystemCapability.Applications.ContactsData
+   * @atomicservice [since 11]
    * @since 7
-   */
-  /**
-   * Provides methods for relation information
-   *
-   * @syscap SystemCapability.Applications.ContactsData
-   * @atomicservice
-   * @since 11
    */
   class Relation {
     /**
-     * Indicates custom relationship type.
+     * Custom relationship, the default value is **0**.
      *
-     * @type { number }
-     * @readonly
-     * @static
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates custom relationship type.
-     *
-     * @type { number }
-     * @readonly
-     * @static
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     static readonly CUSTOM_LABEL: 0;
 
     /**
-     * Indicates assistant relationship type.
+     * Assistant, the default value is **1**.
      *
-     * @type { number }
-     * @readonly
-     * @static
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates assistant relationship type.
-     *
-     * @type { number }
-     * @readonly
-     * @static
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     static readonly RELATION_ASSISTANT: 1;
 
     /**
-     * Indicates brother relationship type.
+     * Sibling, the default value is **2**.
      *
-     * @type { number }
-     * @readonly
-     * @static
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates brother relationship type.
-     *
-     * @type { number }
-     * @readonly
-     * @static
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     static readonly RELATION_BROTHER: 2;
 
     /**
-     * Indicates child relationship type.
+     * Child, the default value is **3**.
      *
-     * @type { number }
-     * @readonly
-     * @static
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates child relationship type.
-     *
-     * @type { number }
-     * @readonly
-     * @static
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     static readonly RELATION_CHILD: 3;
 
     /**
-     * Indicates domestic partner relationship type.
+     * Domestic partner, the default value is **4**.
      *
-     * @type { number }
-     * @readonly
-     * @static
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates domestic partner relationship type.
-     *
-     * @type { number }
-     * @readonly
-     * @static
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     static readonly RELATION_DOMESTIC_PARTNER: 4;
 
     /**
-     * Indicates father relationship type.
+     * Father, the default value is **5**.
      *
-     * @type { number }
-     * @readonly
-     * @static
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates father relationship type.
-     *
-     * @type { number }
-     * @readonly
-     * @static
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     static readonly RELATION_FATHER: 5;
 
     /**
-     * Indicates friend relationship type.
+     * Friend, the default value is **6**.
      *
-     * @type { number }
-     * @readonly
-     * @static
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates friend relationship type.
-     *
-     * @type { number }
-     * @readonly
-     * @static
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     static readonly RELATION_FRIEND: 6;
 
     /**
-     * Indicates manager relationship type.
+     * Manager, the default value is **7**.
      *
-     * @type { number }
-     * @readonly
-     * @static
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates manager relationship type.
-     *
-     * @type { number }
-     * @readonly
-     * @static
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     static readonly RELATION_MANAGER: 7;
 
     /**
-     * Indicates mother relationship type.
+     * Mother, the default value is **8**.
      *
-     * @type { number }
-     * @readonly
-     * @static
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates mother relationship type.
-     *
-     * @type { number }
-     * @readonly
-     * @static
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     static readonly RELATION_MOTHER: 8;
 
     /**
-     * Indicates parent relationship type.
+     * Parent, the default value is **9**.
      *
-     * @type { number }
-     * @readonly
-     * @static
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates parent relationship type.
-     *
-     * @type { number }
-     * @readonly
-     * @static
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     static readonly RELATION_PARENT: 9;
 
     /**
-     * Indicates partner relationship type.
+     * Parent, the default value is **9**.
      *
-     * @type { number }
-     * @readonly
-     * @static
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates partner relationship type.
-     *
-     * @type { number }
-     * @readonly
-     * @static
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     static readonly RELATION_PARTNER: 10;
 
     /**
-     * Indicates referrer relationship type.
+     * Referrer, the default value is **11**.
      *
-     * @type { number }
-     * @readonly
-     * @static
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates referrer relationship type.
-     *
-     * @type { number }
-     * @readonly
-     * @static
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     static readonly RELATION_REFERRED_BY: 11;
 
     /**
-     * Indicates relative relationship type.
+     * Relative, the default value is **12**.
      *
-     * @type { number }
-     * @readonly
-     * @static
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates relative relationship type.
-     *
-     * @type { number }
-     * @readonly
-     * @static
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     static readonly RELATION_RELATIVE: 12;
 
     /**
-     * Indicates sister relationship type.
+     * Relative, the default value is **12**.
      *
-     * @type { number }
-     * @readonly
-     * @static
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates sister relationship type.
-     *
-     * @type { number }
-     * @readonly
-     * @static
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     static readonly RELATION_SISTER: 13;
 
     /**
-     * Indicates spouse relationship type.
+     * Spouse, the default value is **14**.
      *
-     * @type { number }
-     * @readonly
-     * @static
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates spouse relationship type.
-     *
-     * @type { number }
-     * @readonly
-     * @static
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     static readonly RELATION_SPOUSE: 14;
 
     /**
-     * Indicates invalid relationship type.
+     * Invalid relationship, the default value is **-1**.
      *
-     * @type { number }
-     * @readonly
-     * @static
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates invalid relationship type.
-     *
-     * @type { number }
-     * @readonly
-     * @static
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     static readonly INVALID_LABEL_ID: -1;
 
     /**
-     * Indicates the label name of an attribute.
+     * Name of the mailbox type.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates the label name of an attribute.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     labelName?: string;
 
     /**
-     * Indicates the relation name.
+     * Relationship name.
      *
-     * @type { string }
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates the relation name.
-     *
-     * @type { string }
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     relationName: string;
 
     /**
-     * Indicates the label id.
+     * Mailbox type.
      *
-     * @type { ?number }
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates the label id.
-     *
-     * @type { ?number }
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     labelId?: number;
   }
 
   /**
-   * Provides methods for sip address information
+   * Defines a contact's SIP address.
    *
    * @syscap SystemCapability.Applications.ContactsData
+   * @atomicservice [since 11]
    * @since 7
-   */
-  /**
-   * Provides methods for sip address information
-   *
-   * @syscap SystemCapability.Applications.ContactsData
-   * @atomicservice
-   * @since 11
    */
   class SipAddress {
     /**
-     * Indicates a custom label.
+     * Custom mailbox type, the default value is **0**.
      *
-     * @type { number }
-     * @readonly
-     * @static
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates a custom label.
-     *
-     * @type { number }
-     * @readonly
-     * @static
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     static readonly CUSTOM_LABEL: 0;
 
     /**
-     * Indicates a home SIP address.
+     * Home SIP address, the default value is **1**.
      *
-     * @type { number }
-     * @readonly
-     * @static
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates a home SIP address.
-     *
-     * @type { number }
-     * @readonly
-     * @static
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     static readonly SIP_HOME: 1;
 
     /**
-     * Indicates a work SIP address.
+     * Work SIP address, the default value is **2**.
      *
-     * @type { number }
-     * @readonly
-     * @static
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates a work SIP address.
-     *
-     * @type { number }
-     * @readonly
-     * @static
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     static readonly SIP_WORK: 2;
 
     /**
-     * Indicates an SIP address of the OTHER type.
+     * Other SIP address, the default value is **3**.
      *
-     * @type { number }
-     * @readonly
-     * @static
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates an SIP address of the OTHER type.
-     *
-     * @type { number }
-     * @readonly
-     * @static
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     static readonly SIP_OTHER: 3;
 
     /**
-     * Indicates an invalid label ID.
+     * Invalid mailbox, the default value is **-1**.
      *
-     * @type { number }
-     * @readonly
-     * @static
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates an invalid label ID.
-     *
-     * @type { number }
-     * @readonly
-     * @static
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     static readonly INVALID_LABEL_ID: -1;
 
     /**
-     * Indicates the label name of an attribute.
+     * Name of the mailbox type.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates the label name of an attribute.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     labelName?: string;
 
     /**
-     * Indicates the SIP address.
+     * SIP address.
      *
-     * @type { string }
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates the SIP address.
-     *
-     * @type { string }
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     sipAddress: string;
 
     /**
-     * Indicates the label id.
+     * Mailbox type.
      *
-     * @type { ?number }
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates the label id.
-     *
-     * @type { ?number }
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     labelId?: number;
   }
 
   /**
-   * Provides methods for website information
+   * Defines a contact's website.
    *
    * @syscap SystemCapability.Applications.ContactsData
+   * @atomicservice [since 11]
    * @since 7
-   */
-  /**
-   * Provides methods for website information
-   *
-   * @syscap SystemCapability.Applications.ContactsData
-   * @atomicservice
-   * @since 11
    */
   class Website {
     /**
-     * Indicates the website.
+     * Website that stores the contact information.
      *
-     * @type { string }
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice [since 11]
      * @since 7
-     */
-    /**
-     * Indicates the website.
-     *
-     * @type { string }
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
      */
     website: string;
   }
 
   /**
-   * FilterOptions Object
+   * Defines contact filter options.
    *
-   * @interface FilterOptions
    * @syscap SystemCapability.Applications.Contacts
    * @atomicservice
    * @since 15
@@ -4556,9 +3187,8 @@ declare namespace contact {
   interface FilterOptions {
 
     /**
-     * Filter condition.
+     * Filter criteria.
      *
-     * @type { FilterCondition }
      * @syscap SystemCapability.Applications.Contacts
      * @atomicservice
      * @since 15
@@ -4566,9 +3196,8 @@ declare namespace contact {
     filterCondition: FilterCondition;
 
     /**
-     * Filter value.
+     * Filter value. The default value is **undefined**.
      *
-     * @type { ?string | ValueType[] }
      * @syscap SystemCapability.Applications.Contacts
      * @atomicservice
      * @since 15
@@ -4577,10 +3206,8 @@ declare namespace contact {
   }
 
   /**
-   * DataFilter Object
-   * The relation of clause in arrays is OR, and the maximum length of the array is 3.
+   * Defines the contact data filter item.
    *
-   * @interface DataFilter
    * @syscap SystemCapability.Applications.Contacts
    * @atomicservice
    * @since 15
@@ -4588,9 +3215,8 @@ declare namespace contact {
   interface DataFilter {
 
     /**
-     * Data filter options.
+     * Contact filtering parameter. Multiple filter options in the array are ORed. The maximum length of the array is 3.
      *
-     * @type { Array<FilterOptions> }
      * @syscap SystemCapability.Applications.Contacts
      * @atomicservice
      * @since 15
@@ -4598,9 +3224,8 @@ declare namespace contact {
     options: Array<FilterOptions>;
 
     /**
-     * Data filter field.
+     * Contact data field.
      *
-     * @type { DataField }
      * @syscap SystemCapability.Applications.Contacts
      * @atomicservice
      * @since 15
@@ -4609,10 +3234,9 @@ declare namespace contact {
   }
 
   /**
-   * FilterClause Object
-   * The relation of clause in arrays is OR, and the maximum length of the array is 3.
+   * Defines the contact filter criteria. Multiple filter criteria are ORed. If the parameter is an array, the array can
+   * contain a maximum of three elements.
    *
-   * @interface FilterClause
    * @syscap SystemCapability.Applications.Contacts
    * @atomicservice
    * @since 15
@@ -4622,7 +3246,6 @@ declare namespace contact {
     /**
      * Contact data filter item.
      *
-     * @type { ?DataFilter }
      * @syscap SystemCapability.Applications.Contacts
      * @atomicservice
      * @since 15
@@ -4632,7 +3255,6 @@ declare namespace contact {
     /**
      * Contact name.
      *
-     * @type { ?Array<FilterOptions> }
      * @syscap SystemCapability.Applications.Contacts
      * @atomicservice
      * @since 15
@@ -4642,7 +3264,6 @@ declare namespace contact {
     /**
      * Contact ID.
      *
-     * @type { ?Array<FilterOptions> }
      * @syscap SystemCapability.Applications.Contacts
      * @atomicservice
      * @since 15
@@ -4650,9 +3271,8 @@ declare namespace contact {
     id?: Array<FilterOptions>;
 
     /**
-     * Focus mode.
+     * Focus mode list.
      *
-     * @type { ?Array<FilterOptions> }
      * @syscap SystemCapability.Applications.Contacts
      * @atomicservice
      * @since 15
@@ -4661,16 +3281,16 @@ declare namespace contact {
   }
 
   /**
-   * Saves the information to an existing contact through UI interaction.
+   * Saves the information to an existing contact through UI interaction.. This API uses a promise to return the
+   * result.
    *
    * @param { Context } context - Indicates the context of application or capability.
    * @param { Contact } contact - Indicates the contact information.
-   * @returns { Promise<number> } Returns the contact ID (which can be obtained by {@link Contact#getId()}) if the
-   * creation is successful. returns {@link Contact#INVALID_CONTACT_ID} if the creation fails.
+   * @returns { Promise<number> } Promise used to return the result, which is the contact ID.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @throws { BusinessError } 801 - The specified SystemCapability name was not found.
    * @throws { BusinessError } 16700001 - General error.
-   * @throws { BusinessError } 16700101 - Failed to get value to contacts data.
+   * @throws { BusinessError } 16700101 - Failed to get value from contacts data.
    * @throws { BusinessError } 16700102 - Failed to set value to contacts data.
    * @throws { BusinessError } 16700103 - User cancel.
    * @syscap SystemCapability.Applications.Contacts
@@ -4680,9 +3300,8 @@ declare namespace contact {
   function saveToExistingContactViaUI(context: Context, contact: Contact): Promise<number>;
 
   /**
-   * ContactSelectionFilter Object
+   * Defines the contact selection filter.
    *
-   * @interface ContactSelectionFilter
    * @syscap SystemCapability.Applications.Contacts
    * @atomicservice
    * @since 15
@@ -4690,9 +3309,8 @@ declare namespace contact {
   interface ContactSelectionFilter {
 
     /**
-     * Filter clause.
+     * Filter criteria.
      *
-     * @type { FilterClause }
      * @syscap SystemCapability.Applications.Contacts
      * @atomicservice
      * @since 15
@@ -4702,7 +3320,6 @@ declare namespace contact {
     /**
      * Filter type.
      *
-     * @type { FilterType }
      * @syscap SystemCapability.Applications.Contacts
      * @atomicservice
      * @since 15
@@ -4711,9 +3328,8 @@ declare namespace contact {
   }
 
   /**
-   * The type for functions of filter conditions
+   * Enumerates contact filter types.
    *
-   * @enum { number }
    * @syscap SystemCapability.Applications.ContactsData
    * @atomicservice
    * @since 15
@@ -4721,7 +3337,7 @@ declare namespace contact {
   enum FilterType {
 
     /**
-     * Only the contacts that meet the filter condition will be displayed.
+     * Shows only contacts that meet the filter criteria.
      *
      * @syscap SystemCapability.Applications.Contacts
      * @atomicservice
@@ -4730,7 +3346,7 @@ declare namespace contact {
     SHOW_FILTER = 0,
 
     /**
-     * Contacts that meet the filter condition will be selected by default.
+     * Selects contacts that meet the filter criteria by default.
      *
      * @syscap SystemCapability.Applications.Contacts
      * @atomicservice
@@ -4739,7 +3355,7 @@ declare namespace contact {
     DEFAULT_SELECT = 1,
 
     /**
-     * Only the contacts that meet the filter condition will be displayed and are selected by default.
+     * Shows only contacts that meet the filter criteria and selects these contacts by default.
      *
      * @syscap SystemCapability.Applications.Contacts
      * @atomicservice
@@ -4749,9 +3365,8 @@ declare namespace contact {
   }
 
   /**
-   * The type of filter condition
+   * Enumerates filter criteria.
    *
-   * @enum { number }
    * @syscap SystemCapability.Applications.ContactsData
    * @atomicservice
    * @since 15
@@ -4759,7 +3374,7 @@ declare namespace contact {
   enum FilterCondition {
 
     /**
-     * Field equal to value, value type is string.
+     * The corresponding field is equal to a value.
      *
      * @syscap SystemCapability.Applications.Contacts
      * @atomicservice
@@ -4768,7 +3383,7 @@ declare namespace contact {
     EQUAL_TO = 1,
 
     /**
-     * Field not equal to value, value type is string.
+     * The corresponding field is not equal to a value.
      *
      * @syscap SystemCapability.Applications.Contacts
      * @atomicservice
@@ -4777,7 +3392,7 @@ declare namespace contact {
     NOT_EQUAL_TO = 2,
 
     /**
-     * Field in value, value type is ValueType[].
+     * The value of the corresponding field is in an array.
      *
      * @syscap SystemCapability.Applications.Contacts
      * @atomicservice
@@ -4786,7 +3401,7 @@ declare namespace contact {
     IN = 3,
 
     /**
-     * Field is not null.
+     * The corresponding field is not empty.
      *
      * @syscap SystemCapability.Applications.Contacts
      * @atomicservice
@@ -4795,7 +3410,7 @@ declare namespace contact {
     IS_NOT_NULL = 0,
 
     /**
-     * Field not in value, value type is ValueType[].
+     * The value of the corresponding field is not in an array.
      *
      * @syscap SystemCapability.Applications.Contacts
      * @atomicservice
@@ -4804,7 +3419,7 @@ declare namespace contact {
     NOT_IN = 4,
 
     /**
-     * Field contains value, value type is string.
+     * The value of the corresponding field contains a certain value.
      *
      * @syscap SystemCapability.Applications.Contacts
      * @atomicservice
@@ -4814,9 +3429,8 @@ declare namespace contact {
   }
 
   /**
-   * Data field that support filtering
+   * Enumerates contact data fields.
    *
-   * @enum { number }
    * @syscap SystemCapability.Applications.ContactsData
    * @atomicservice
    * @since 15
@@ -4824,7 +3438,7 @@ declare namespace contact {
   enum DataField {
 
     /**
-     * Indicates a phone of the contact.
+     * Phone number of the contact.
      *
      * @syscap SystemCapability.Applications.Contacts
      * @atomicservice
@@ -4833,7 +3447,7 @@ declare namespace contact {
     PHONE = 1,
 
     /**
-     * Indicates organization information of the contact.
+     * Organization of the contact.
      *
      * @syscap SystemCapability.Applications.Contacts
      * @atomicservice
@@ -4842,7 +3456,7 @@ declare namespace contact {
     ORGANIZATION = 2,
 
     /**
-     * Indicates email addresses of the contact.
+     * Email of the contact.
      *
      * @syscap SystemCapability.Applications.Contacts
      * @atomicservice
@@ -4852,12 +3466,11 @@ declare namespace contact {
   }
 
   /**
-   * Creates a contact through UI interaction.
+   * Creates a contact through UI interaction. This API uses a promise to return the result.
    *
    * @param { Context } context - Indicates the context of application or capability.
    * @param { Contact } contact - Indicates the contact information.
-   * @returns { Promise<number> } Returns the contact ID (which can be obtained by {@link Contact#getId()}) if the
-   * creation is successful. returns {@link Contact#INVALID_CONTACT_ID} if the creation fails.
+   * @returns { Promise<number> } Promise used to return the result, which is the contact ID.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @throws { BusinessError } 801 - The specified SystemCapability name was not found.
    * @throws { BusinessError } 16700001 - General error.
@@ -4870,11 +3483,11 @@ declare namespace contact {
   function addContactViaUI(context: Context, contact: Contact): Promise<number>;
 
   /**
-   * Queries the total count of all contacts.
-   * 
+   * Queries the number of all contacts. This API uses a promise to return the result.
+   *
    * @permission ohos.permission.READ_CONTACTS
    * @param { Context } context - Indicates the context of application or capability.
-   * @returns { Promise<int> } Returns the total count of contacts.
+   * @returns { Promise<int> } Promise used to return the result, which is the number of queried contacts.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 16700001 - General error.
    * @syscap SystemCapability.Applications.ContactsData
@@ -4884,16 +3497,16 @@ declare namespace contact {
   function queryContactsCount(context: Context): Promise<int>;
 
   /**
-   * Creates multiple contacts in batches.
+   * Adds contacts in batches. This API uses a promise to return the result.
    *
    * @permission ohos.permission.WRITE_CONTACTS
    * @param { Context } context - Indicates the context of application or capability.
-   * @param { Array<Contact> } contacts - Indicates the contacts information to be inserted to the database.
-   * @returns { Promise<Array<int>> } Returns the array of contact ID (which can be obtained by {@link Contact#getId()}) 
-   *     if the creation is successful. returns {@link Contact#INVALID_CONTACT_ID} if the creation fails.
+   * @param { Array<Contact> } contacts - Indicates the contact information. array.
+   * @returns { Promise<Array<int>> } Promise used to return the result, which is the ID array of the contacts added in
+   *     batches.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 16700001 - General error.
-   * @throws { BusinessError } 16700002 - Invalid parameter value. 
+   * @throws { BusinessError } 16700002 - Invalid parameter value.
    * @syscap SystemCapability.Applications.ContactsData
    * @atomicservice
    * @since 23
@@ -4902,7 +3515,7 @@ declare namespace contact {
 
   /**
    * Check whether there are any calls that meet the specified condition.
-   * 
+   *
    * By default, the system queries call records generated within 6 hours.
    *
    * @permission ohos.permission.CHECK_CALL_LOG
@@ -4912,7 +3525,7 @@ declare namespace contact {
    * @returns { Promise<boolean> } Returns true if any matching call is found, false otherwise.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 16700001 - General error.
-   * @throws { BusinessError } 16700002 - Invalid parameter value. 
+   * @throws { BusinessError } 16700002 - Invalid parameter value.
    * @syscap SystemCapability.Applications.ContactsData
    * @stagemodelonly
    * @atomicservice
@@ -4922,7 +3535,7 @@ declare namespace contact {
 
   /**
    * Check whether there are any calls that meet the specified condition.
-   * 
+   *
    * @permission ohos.permission.CHECK_CALL_LOG
    * @param { Context } context - Indicates the context of the application or capability.
    * @param { string } phoneNumber - Indicates the phone number.
@@ -4932,13 +3545,223 @@ declare namespace contact {
    * @returns { Promise<boolean> } Returns true if any matching call is found, false otherwise.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 16700001 - General error.
-   * @throws { BusinessError } 16700002 - Invalid parameter value. 
+   * @throws { BusinessError } 16700002 - Invalid parameter value.
    * @syscap SystemCapability.Applications.ContactsData
    * @stagemodelonly
    * @atomicservice
    * @since 24
    */
   function hasMatchedCallLog(context: Context, phoneNumber: string, minDuration: int, withinTime: int): Promise<boolean>;
+
+  /**
+   * Sync multiple contacts in batches into contacts database.
+   *
+   * A maximum of 400 contacts can be synchronized in batches. The invoking party must be in the foreground.
+   *
+   * @permission ohos.permission.WRITE_CONTACTS
+   * @param { Context } context - Indicates the context of the application or capability.
+   * @param { ContactSyncMode } mode - Indicates the type of contact synchronization mode.
+   * @param { ContactSyncProgress } progress - Indicates the information about the contact synchronization progress.
+   * @param { Array<Contact> } contacts - Indicates the array of contact information to be synchronized into the database.
+   * @returns { Promise<Array<int>> } Returns the array of contacts creation results. Valid contact ID (which can be
+   * obtained by {@link Contact#getId()}) indicates that the creation was successful.
+   * {@link Contact#INVALID_CONTACT_ID} indicates the creation failed.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 16700001 - General error.
+   * @throws { BusinessError } 16700002 - Invalid parameter value.
+   * @throws { BusinessError } 16700003 - Background usage is prohibited.
+   * @throws { BusinessError } 16700004 - The number of contacts exceeds the limit.
+   * @throws { BusinessError } 16700103 - User cancel.
+   * @syscap SystemCapability.Applications.ContactsData
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0
+   */
+  function syncContacts(context: Context, mode: ContactSyncMode, progress: ContactSyncProgress, contacts: Array<Contact>): Promise<Array<int>>;
+
+  /**
+   * Queries information about ongoing contact synchronization for the calling application.
+   *
+   * If the returned contact synchronization information is empty, the invoking party does not synchronize contacts or
+   * the contact synchronization is complete.
+   *
+   * @permission ohos.permission.READ_CONTACTS
+   * @param { Context } context - Indicates the context of the application or capability.
+   * @returns { Promise<Array<ContactSyncInfo>> } Returns the array of contacts synchronization information for the
+   * calling application. Returns null if no contacts are being synchronized.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 16700001 - General error.
+   * @syscap SystemCapability.Applications.ContactsData
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0
+   */
+  function queryContactSyncInfo(context: Context): Promise<Array<ContactSyncInfo>>;
+
+  /**
+   * Imports multiple contacts through UI interaction.
+   *
+   *  A maximum of 100 contacts can be imported at a time.
+   *
+   * @param { Context } context - Indicates the context of the application or capability.
+   * @param { Array<Contact> } contacts - Indicates the array of contact information to be imported into the database.
+   * @returns { Promise<Array<int>> } Returns the array of contacts creation results. Valid contact ID (which can be
+   *  obtained by [getId]{@link Contact#getId()}) indicates that the creation was successful.
+   * [INVALID_CONTACT_ID]{@link Contact.INVALID_CONTACT_ID} indicates the creation failed.
+   * -2 indicates that the user has not selected this contact.
+   * @throws { BusinessError } 801 - The specified SystemCapability name was not found.
+   * @throws { BusinessError } 16700001 - General error.
+   * @throws { BusinessError } 16700002 - Invalid parameter value.
+   * @throws { BusinessError } 16700004 - The number of contacts exceeds the limit.
+   * @throws { BusinessError } 16700103 - User cancel.
+   * @syscap SystemCapability.Applications.Contacts
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0
+   */
+  function importContactsViaUI(context: Context, contacts: Array<Contact>): Promise<Array<int>>;
+
+  /**
+   * The type of contact synchronization mode.
+   * 
+   * @syscap SystemCapability.Applications.ContactsData
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0
+   */
+  enum ContactSyncMode {
+
+    /**
+     * Indicates that contacts differing between cloud and local will be inserted or updated in the database.
+     *
+     * @syscap SystemCapability.Applications.ContactsData
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0
+     */
+    MODE_INCREMENTAL = 1,
+
+    /**
+     * Indicates that all local contacts will be replaced by cloud contacts.
+     *
+     * When the cloud overwrite local mode is used for batch synchronization, all local contacts
+     *  (excluding third-party contacts) are deleted during the first batch synchronization.
+     *
+     * @syscap SystemCapability.Applications.ContactsData
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0
+     */
+    MODE_CLOUD_BASED = 2
+  }
+
+  /**
+   * Information about the contact synchronization progress.
+   *
+   * Contains the sync ID, current batch, and total batch.
+   *
+   * @syscap SystemCapability.Applications.ContactsData
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0
+   */
+  interface ContactSyncProgress {
+    /**
+     * Indicates the sync identifier used for synchronizing all contacts.
+     *
+     * The value should start from 0.
+     *
+     * @syscap SystemCapability.Applications.ContactsData
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0
+     */
+    syncId: int;
+
+    /**
+     * Indicates the identifier of the current batch of contacts to be synchronized.
+     *
+     * The range of values is from 1 to totalBatches.
+     *
+     * @syscap SystemCapability.Applications.ContactsData
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0
+     */
+    currentBatch: int;
+
+    /**
+     * Indicates the total number of batches of contacts to be synchronized.
+     *
+     * @syscap SystemCapability.Applications.ContactsData
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0
+     */
+    totalBatches: int;
+  }
+
+  /**
+   * Information about contact synchronization for the calling application.
+   *
+   * @syscap SystemCapability.Applications.ContactsData
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0
+   */
+  interface ContactSyncInfo {
+
+    /**
+     * The contact synchronization mode.
+     *
+     * @syscap SystemCapability.Applications.ContactsData
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0
+    */
+    mode: ContactSyncMode;
+    /**
+     * Indicates the sync identifier used for synchronizing all contacts.
+     *
+     * @syscap SystemCapability.Applications.ContactsData
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0
+     */
+    syncId: int;
+
+    /**
+     * Indicates the array of batch identifiers for contacts that have been synchronized successfully.
+     *
+     * The range of values is from 1 to totalBatches.
+     *
+     * @syscap SystemCapability.Applications.ContactsData
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0
+     */
+    completedBatches: Array<int>;
+
+    /**
+     * Indicates the total number of batches of contacts to be synchronized.
+     *
+     * @syscap SystemCapability.Applications.ContactsData
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0
+     */
+    totalBatches: int;
+
+    /**
+     * Indicates the latest timestamp the contacts were synchronized in milliseconds.
+     *
+     * @syscap SystemCapability.Applications.ContactsData
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0
+     */
+    lastSyncTime: int;
+  }
 }
 
 export default contact;

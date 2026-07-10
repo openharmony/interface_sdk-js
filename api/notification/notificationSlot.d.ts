@@ -14,7 +14,7 @@
  */
 
 /**
- * @file The NotificationSlot module provides APIs for defining the notification slot.
+ * @file Description of the notification channel
  * @kit NotificationKit
  */
 
@@ -26,18 +26,20 @@ import type notificationManager from '../@ohos.notificationManager';
 /*** endif */
 
 /**
- * The NotificationSlot module provides APIs for defining the notification slot.
+ * The **NotificationSlot** module provides APIs for defining the notification slots. The notification reminder modes 
+ * vary according to notification slots.
  *
- * @typedef NotificationSlot
  * @syscap SystemCapability.Notification.Notification
  * @since 7 dynamic
  * @since 23 static
  */
 export interface NotificationSlot {
   /**
-   * Notification slot type.
+   * Channel type.
+   * 
+   * This attribute is supported since API version 7 and deprecated since API version 11. It is recommended to use
+   * **notificationType** instead.
    *
-   * @type { ?notification.SlotType }
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamiconly
    * @deprecated since 11
@@ -48,7 +50,6 @@ export interface NotificationSlot {
   /**
    * Notification slot type.
    *
-   * @type { ?notificationManager.SlotType }
    * @syscap SystemCapability.Notification.Notification
    * @since 11 dynamic
    * @since 23 static
@@ -57,8 +58,10 @@ export interface NotificationSlot {
 
   /**
    * Notification level.
+   * 
+   * This attribute is supported since API version 7 and deprecated since API version 20. You are advised to use 
+   * **notificationLevel** instead.
    *
-   * @type { ?notification.SlotLevel }
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamiconly
    * @deprecated since 20
@@ -67,11 +70,8 @@ export interface NotificationSlot {
   level?: notification.SlotLevel;
 
   /**
-   * SlotLevel is used to regulate the display behavior and alert mechanisms of notifications.
-   * Each value of SlotLevel determines whether the system displays notification icons in the status bar,
-   * shows banners, or plays prompt tones.
+   * Notification level.
    *
-   * @type { ?notificationManager.SlotLevel }
    * @syscap SystemCapability.Notification.Notification
    * @since 20 dynamic
    * @since 23 static
@@ -79,9 +79,9 @@ export interface NotificationSlot {
   notificationLevel?: notificationManager.SlotLevel;
 
   /**
-   * Notification slot description.
+   * Description of the notification channel. The size cannot exceed 243 bytes, and the excess part will be
+   * truncated.
    *
-   * @type { ?string }
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
    * @since 23 static
@@ -89,9 +89,11 @@ export interface NotificationSlot {
   desc?: string;
 
   /**
-   * Whether to display the badge.
+   * Whether to display the badge. The default value is **true**.
    *
-   * @type { ?boolean }
+   * - **true**: Display the badge.
+   * - **false**: Do not display the badge.
+   *
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
    * @since 23 static
@@ -99,9 +101,11 @@ export interface NotificationSlot {
   badgeFlag?: boolean;
 
   /**
-   * Whether to bypass DND mode in the system.
+   * Whether to bypass Do Not Disturb mode in the system. The default value is **false**.
    *
-   * @type { ?boolean }
+   * - **true**: Bypass Do Not Disturb mode, and notifications will still be alerted in Do Not Disturb mode.
+   * - **false**: Do not bypass Do Not Disturb mode, and notifications will not be alerted in Do Not Disturb mode.
+   *
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
    * @since 23 static
@@ -109,9 +113,9 @@ export interface NotificationSlot {
   bypassDnd?: boolean;
 
   /**
-   * Mode for displaying the notification on the lock screen.
+   * Mode for displaying the notification on the lock screen. This is a reserved capability and is not supported
+   * currently.
    *
-   * @type { ?int }
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
    * @since 23 static
@@ -119,9 +123,11 @@ export interface NotificationSlot {
   lockscreenVisibility?: int;
 
   /**
-   * Whether to enable vibration for the notification.
+   * Whether to enable vibration. The default value is **false**.
    *
-   * @type { ?boolean }
+   * - **true**: yes.
+   * - **false**: no.
+   *
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
    * @since 23 static
@@ -129,9 +135,10 @@ export interface NotificationSlot {
   vibrationEnabled?: boolean;
 
   /**
-   * Notification alert tone.
+   * File name of the custom ringtone for notifications from this channel. The file is placed in the
+   * **resources/rawfile** directory, and formats such as M4A, AAC, MP3, OGG, WAV, FLAC, and AMR are supported. The
+   * size cannot exceed 243 bytes, and the excess part will be truncated.
    *
-   * @type { ?string }
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
    * @since 23 static
@@ -139,9 +146,11 @@ export interface NotificationSlot {
   sound?: string;
 
   /**
-   * Whether the indicator blinks for the notification.
+   * Whether to enable the light. The default value is **false**.
    *
-   * @type { ?boolean }
+   * - **true**: yes.
+   * - **false**: no.
+   *
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
    * @since 23 static
@@ -149,9 +158,8 @@ export interface NotificationSlot {
   lightEnabled?: boolean;
 
   /**
-   * Indicator color of the notification.
+   * Indicator color of the notification. This is a reserved capability and is not supported currently.
    *
-   * @type { ?int }
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
    * @since 23 static
@@ -159,9 +167,8 @@ export interface NotificationSlot {
   lightColor?: int;
 
   /**
-   * Vibration mode of the notification.
+   * Vibration mode of the notification. This is a reserved capability and is not supported currently.
    *
-   * @type { ?Array<long> }
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
    * @since 23 static
@@ -169,10 +176,11 @@ export interface NotificationSlot {
   vibrationValues?: Array<long>;
 
   /**
-   * Whether the notification slot is enabled. The value true means to enable the notification slot, and false means the opposite.
+   * Whether to allow notifications to be published from this notification channel.
    *
-   * @type { ?boolean }
-   * @readonly
+   * - **true**: yes.
+   * - **false**: no.
+   *
    * @syscap SystemCapability.Notification.Notification
    * @since 9 dynamic
    * @since 23 static
@@ -180,10 +188,16 @@ export interface NotificationSlot {
   readonly enabled?: boolean;
 
   /**
-   * Obtains the notification reminder mode of the current notification entry.
+   * Reminder mode of the notification.
    *
-   * @type { ?int }
-   * @readonly
+   * - Bit 0: sound alert. The value **0** means to enable the feature, and **1** means the opposite.
+   * - Bit 1: locking the screen. The value **0** means to enable the feature, and **1** means the opposite.
+   * - Bit 2: banner. The value **0** means to enable the feature, and **1** means the opposite.
+   * - Bit 3: turning on the screen. The value **0** means to enable the feature, and **1** means the opposite.
+   * - Bit 4: vibration. The value **0** means to enable the feature, and **1** means the opposite.
+   * - Bit 5: notification icon in the status bar. The value **0** means to enable the feature, and **1** means the
+   * opposite.
+   *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 11 dynamic
@@ -192,10 +206,11 @@ export interface NotificationSlot {
   readonly reminderMode?: int;
 
   /**
-   * Obtains channel information is authorized by the user.
+   * Authorization status.
    *
-   * @type { ?int }
-   * @readonly
+   * - **0**: means the feature is authorized.
+   * - **1**: means the feature is to be authorized.
+   *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 12 dynamic

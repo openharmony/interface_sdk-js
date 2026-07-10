@@ -20,31 +20,35 @@
 
 import { AsyncCallback } from './@ohos.base';
 import { LauncherAbilityInfo as _LauncherAbilityInfo } from './bundleManager/LauncherAbilityInfo';
-/*** if arkts dynamic */
-import AbilityConstant from './@ohos.app.ability.AbilityConstant';
-/*** endif */
 import { ShortcutInfo as _ShortcutInfo, ShortcutWant as _ShortcutWant, ParameterItem as _ParameterItem } from './bundleManager/ShortcutInfo';
 import StartOptions from './@ohos.app.ability.StartOptions';
 
 /**
- * Launcher bundle manager.
+ * The module providers APIs for launcher applications (applications with icons on the home screen) to obtain the
+ * [launcher ability information]{@link ./bundleManager/LauncherAbilityInfo:LauncherAbilityInfo}.
  *
- * @namespace launcherBundleManager
  * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
- * @since 18 dynamic
+ * @since 9 dynamic
  * @since 23 static
  */
 declare namespace launcherBundleManager {
   /**
-   * Obtains launcher abilities info based on a given bundleName and userId.
+   * Obtains the [launcher ability information]{@link ./bundleManager/LauncherAbilityInfo:LauncherAbilityInfo} based on
+   * the given bundle name and user ID. This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-   * @param { string } bundleName - Indicates the application bundle name to be queried.
-   * @param { int } userId - Indicates the id for the user.
-   * @param { AsyncCallback<Array<LauncherAbilityInfo>> } callback -The callback of the LauncherAbilityInfo object result.
+   * @param { string } bundleName - Bundle name.
+   * @param { int } userId - User ID, which can be obtained by calling
+   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
+   *     .
+   * @param { AsyncCallback<Array<LauncherAbilityInfo>> } callback - [Callback]{@link @ohos.base:AsyncCallback} used to
+   *     return the result. If the operation is successful, **err** is **null**, and **data** is the array of
+   *     [LauncherAbilityInfo]{@link ./bundleManager/LauncherAbilityInfo:LauncherAbilityInfo} objects obtained.
+   *     Otherwise, **err** is an error object.
    * @throws { BusinessError } 201 - Verify permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.
+   *     Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not support.
    * @throws { BusinessError } 17700001 - The specified bundle name is not found.
    * @throws { BusinessError } 17700004 - The specified user ID is not found.
@@ -53,19 +57,23 @@ declare namespace launcherBundleManager {
    * @since 9 dynamic
    * @since 23 static
    */
-  function getLauncherAbilityInfo(bundleName: string,
-    userId: int, callback: AsyncCallback<Array<LauncherAbilityInfo>>): void;
+  function getLauncherAbilityInfo(bundleName: string, userId: int, callback: AsyncCallback<Array<LauncherAbilityInfo>>) : void;
 
   /**
-   * Obtains launcher abilities info based on a given bundleName and userId.
+   * Obtains the [launcher ability information]{@link ./bundleManager/LauncherAbilityInfo:LauncherAbilityInfo} based on
+   * the given bundle name and user ID. This API uses a promise to return the result.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-   * @param { string } bundleName - Indicates the application bundle name to be queried.
-   * @param { int } userId - Indicates the id for the user.
-   * @returns { Promise<Array<LauncherAbilityInfo>> } the LauncherAbilityInfo object.
+   * @param { string } bundleName - Bundle name.
+   * @param { int } userId - User ID, which can be obtained by calling
+   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
+   *     .
+   * @returns { Promise<Array<LauncherAbilityInfo>> } Promise used to return the array of
+   *     [LauncherAbilityInfo]{@link ./bundleManager/LauncherAbilityInfo:LauncherAbilityInfo} objects obtained.
    * @throws { BusinessError } 201 - Verify permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.
+   *     Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not support.
    * @throws { BusinessError } 17700001 - The specified bundle name is not found.
    * @throws { BusinessError } 17700004 - The specified user ID is not found.
@@ -74,15 +82,19 @@ declare namespace launcherBundleManager {
    * @since 9 dynamic
    * @since 23 static
    */
-  function getLauncherAbilityInfo(bundleName: string, userId: int): Promise<Array<LauncherAbilityInfo>>;
+  function getLauncherAbilityInfo(bundleName: string, userId: int) : Promise<Array<LauncherAbilityInfo>>;
 
   /**
-   * Obtains launcher abilities info based on a given bundleName and userId.
+   * Obtains the [launcher ability information]{@link ./bundleManager/LauncherAbilityInfo:LauncherAbilityInfo} based on
+   * the given bundle name and user ID.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-   * @param { string } bundleName - Indicates the application bundle name to be queried.
-   * @param { int } userId - Indicates the id for the user.
-   * @returns { Array<LauncherAbilityInfo> } the LauncherAbilityInfo object.
+   * @param { string } bundleName - Bundle name.
+   * @param { int } userId - User ID, which can be obtained by calling
+   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
+   *     .
+   * @returns { Array<LauncherAbilityInfo> } Array of the
+   *     [LauncherAbilityInfo]{@link ./bundleManager/LauncherAbilityInfo:LauncherAbilityInfo} objects obtained.
    * @throws { BusinessError } 201 - Verify permission denied.
    * @throws { BusinessError } 801 - Capability not support.
    * @throws { BusinessError } 17700001 - The specified bundle name is not found.
@@ -94,14 +106,21 @@ declare namespace launcherBundleManager {
   function getLauncherAbilityInfoSync(bundleName: string, userId: int): Array<LauncherAbilityInfo>;
 
   /**
-   * Obtains launcher abilities info based on a given userId.
+   * Obtains the [launcher ability information]{@link ./bundleManager/LauncherAbilityInfo:LauncherAbilityInfo} of all
+   * applications based on the given user ID. This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-   * @param { int } userId - Indicates the id for the user.
-   * @param { AsyncCallback<Array<LauncherAbilityInfo>> } callback -The callback of the LauncherAbilityInfo object result.
+   * @param { int } userId - User ID, which can be obtained by calling
+   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
+   *     .
+   * @param { AsyncCallback<Array<LauncherAbilityInfo>> } callback - [Callback]{@link @ohos.base:AsyncCallback} used to
+   *     return the result. If the operation is successful, **err** is **null**, and **data** is the array of
+   *     [LauncherAbilityInfo]{@link ./bundleManager/LauncherAbilityInfo:LauncherAbilityInfo} objects obtained.
+   *     Otherwise, **err** is an error object.
    * @throws { BusinessError } 201 - Verify permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.
+   *     Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not support.
    * @throws { BusinessError } 17700004 - The specified user ID is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
@@ -109,17 +128,22 @@ declare namespace launcherBundleManager {
    * @since 9 dynamic
    * @since 23 static
    */
-  function getAllLauncherAbilityInfo(userId: int, callback: AsyncCallback<Array<LauncherAbilityInfo>>): void;
+  function getAllLauncherAbilityInfo(userId: int, callback: AsyncCallback<Array<LauncherAbilityInfo>>) : void;
 
   /**
-   * Obtains launcher abilities info based on a given userId.
+   * Obtains the [launcher ability information]{@link ./bundleManager/LauncherAbilityInfo:LauncherAbilityInfo} of all
+   * applications based on the given user ID. This API uses a promise to return the result.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-   * @param { int } userId - Indicates the id for the user.
-   * @returns { Promise<Array<LauncherAbilityInfo>> } the LauncherAbilityInfo object.
+   * @param { int } userId - User ID, which can be obtained by calling
+   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
+   *     .
+   * @returns { Promise<Array<LauncherAbilityInfo>> } Promise used to return the array of
+   *     [LauncherAbilityInfo]{@link ./bundleManager/LauncherAbilityInfo:LauncherAbilityInfo} objects obtained.
    * @throws { BusinessError } 201 - Verify permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.
+   *     Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not support.
    * @throws { BusinessError } 17700004 - The specified user ID is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
@@ -127,17 +151,25 @@ declare namespace launcherBundleManager {
    * @since 9 dynamic
    * @since 23 static
    */
-  function getAllLauncherAbilityInfo(userId: int): Promise<Array<LauncherAbilityInfo>>;
+  function getAllLauncherAbilityInfo(userId: int) : Promise<Array<LauncherAbilityInfo>>;
 
   /**
-   * Obtains shortcut info based on a given bundleName.
+   * Obtains the [shortcut information]{@link ./bundleManager/ShortcutInfo} of the current user based on the given
+   * bundle name of a main application. To obtain shortcut information about an application clone, use
+   * [getShortcutInfoByAppIndex]{@link launcherBundleManager.getShortcutInfoByAppIndex}. This API uses an asynchronous
+   * callback to return the result.
+   *
+   * No permission is required for obtaining the caller's own information.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
-   * @param { string } bundleName - Indicates the application bundle name to be queried.
-   * @param { AsyncCallback<Array<ShortcutInfo>> } callback -The callback of the ShortcutInfo object result.
+   * @param { string } bundleName - Bundle name.
+   * @param { AsyncCallback<Array<ShortcutInfo>> } callback - [Callback]{@link @ohos.base:AsyncCallback} used to return
+   *     the result. If the operation is successful, **err** is **null**, and **data** is the array of
+   *     [ShortcutInfo]{@link ./bundleManager/ShortcutInfo} objects obtained. Otherwise, **err** is an error object.
    * @throws { BusinessError } 201 - Verify permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.
+   *     Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not support.
    * @throws { BusinessError } 17700001 - The specified bundle name is not found.
    * @throws { BusinessError } 17700026 - The specified bundle is disabled.
@@ -146,17 +178,24 @@ declare namespace launcherBundleManager {
    * @since 9 dynamic
    * @since 23 static
    */
-  function getShortcutInfo(bundleName: string, callback: AsyncCallback<Array<ShortcutInfo>>): void;
+  function getShortcutInfo(bundleName :string, callback: AsyncCallback<Array<ShortcutInfo>>) : void;
 
   /**
-   * Obtains shortcut info based on a given bundleName.
+   * Obtains the [shortcut information]{@link ./bundleManager/ShortcutInfo} of the current user based on the given
+   * bundle name of a main application. To obtain shortcut information about an application clone, use
+   * [getShortcutInfoByAppIndex]{@link launcherBundleManager.getShortcutInfoByAppIndex}. This API uses a promise to
+   * return the result.
+   *
+   * No permission is required for obtaining the caller's own information.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
-   * @param { string } bundleName - Indicates the application bundle name to be queried.
-   * @returns { Promise<Array<ShortcutInfo>> } the LauncherShortcutInfo object.
+   * @param { string } bundleName - Bundle name.
+   * @returns { Promise<Array<ShortcutInfo>> } Promise used to return the array of
+   *     [ShortcutInfo]{@link ./bundleManager/ShortcutInfo} objects obtained.
    * @throws { BusinessError } 201 - Verify permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.
+   *     Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not support.
    * @throws { BusinessError } 17700001 - The specified bundle name is not found.
    * @throws { BusinessError } 17700026 - The specified bundle is disabled.
@@ -165,17 +204,22 @@ declare namespace launcherBundleManager {
    * @since 9 dynamic
    * @since 23 static
    */
-  function getShortcutInfo(bundleName: string): Promise<Array<ShortcutInfo>>;
+  function getShortcutInfo(bundleName : string) : Promise<Array<ShortcutInfo>>;
 
   /**
-   * Obtains shortcut info based on a given bundleName.
+   * Obtains the [shortcut information]{@link ./bundleManager/ShortcutInfo} of the current user based on the given
+   * bundle name of a main application. To obtain shortcut information about an application clone, use
+   * [getShortcutInfoByAppIndex]{@link launcherBundleManager.getShortcutInfoByAppIndex}.
+   *
+   * No permission is required for obtaining the caller's own information.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
-   * @param { string } bundleName - Indicates the application bundle name to be queried.
-   * @returns { Array<ShortcutInfo> } the LauncherShortcutInfo object.
+   * @param { string } bundleName - Bundle name.
+   * @returns { Array<ShortcutInfo> } Array of the [ShortcutInfo]{@link ./bundleManager/ShortcutInfo} objects obtained.
    * @throws { BusinessError } 201 - Verify permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.
+   *     Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not support.
    * @throws { BusinessError } 17700001 - The specified bundle name is not found.
    * @throws { BusinessError } 17700026 - The specified bundle is disabled.
@@ -186,17 +230,23 @@ declare namespace launcherBundleManager {
    */
   function getShortcutInfoSync(bundleName: string): Array<ShortcutInfo>;
 
-
   /**
-   * Obtains shortcut info based on bundleName and userId.
+   * Obtains the [shortcut information]{@link ./bundleManager/ShortcutInfo} of the specified user based on the given
+   * bundle name of a main application. To obtain shortcut information about an application clone, use
+   * [getShortcutInfoByAppIndex]{@link launcherBundleManager.getShortcutInfoByAppIndex}.
+   *
+   * No permission is required for obtaining the caller's own information.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
-   * @param { string } bundleName - Indicates the application bundle name to be queried.
-   * @param { int } userId - Indicates the user ID.
-   * @returns { Array<ShortcutInfo> } the LauncherShortcutInfo object.
+   * @param { string } bundleName - Bundle name.
+   * @param { int } userId - User ID, which can be obtained by calling
+   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
+   *     .
+   * @returns { Array<ShortcutInfo> } Array of the [ShortcutInfo]{@link ./bundleManager/ShortcutInfo} objects obtained.
    * @throws { BusinessError } 201 - Verify permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.
+   *     Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not support.
    * @throws { BusinessError } 17700001 - The specified bundle name is not found.
    * @throws { BusinessError } 17700004 - The specified user ID is not found.
@@ -209,12 +259,15 @@ declare namespace launcherBundleManager {
   function getShortcutInfoSync(bundleName: string, userId: int): Array<ShortcutInfo>;
 
   /**
-   * Obtains shortcut info based on bundleName and appIndex.
+   * Obtains the [shortcut information]{@link ./bundleManager/ShortcutInfo} of the current user based on the index of an
+   * application clone.
+   *
+   * No permission is required for obtaining the caller's own information.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-   * @param { string } bundleName - Indicates the application bundle name to be queried.
-   * @param { int } appIndex - Indicates the index of clone app.
-   * @returns { Array<ShortcutInfo> } the ShortcutInfo object.
+   * @param { string } bundleName - Bundle name.
+   * @param { int } appIndex - Index of the application clone.
+   * @returns { Array<ShortcutInfo> } Array of the [ShortcutInfo]{@link ./bundleManager/ShortcutInfo} objects obtained.
    * @throws { BusinessError } 201 - Verify permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 801 - Capability not support.
@@ -228,15 +281,18 @@ declare namespace launcherBundleManager {
   function getShortcutInfoByAppIndex(bundleName: string, appIndex: int): Array<ShortcutInfo>;
 
   /**
-   * Starts shortcut.
+   * Starts an ability based on the specified [shortcut information]{@link ./bundleManager/ShortcutInfo}. This API uses
+   * a promise to return the result.
    *
    * @permission ohos.permission.START_SHORTCUT
-   * @param { ShortcutInfo } shortcutInfo - Indicates the shortcut info which contains shortcut want.
-   * @param { StartOptions } [options] - Indicates the start options.
-   * @returns { Promise<void> } the promise returned by the function.
+   * @param { ShortcutInfo } shortcutInfo - Shortcut information of the application.
+   * @param { StartOptions } [options] - Startup parameters, which are used to specify the window mode and device ID for
+   *     switching the mission to the foreground.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - Verify permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.
+   *     Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not support.
    * @throws { BusinessError } 17700065 - The specified shortcut want in shortcut info is not supported to be started.
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
@@ -247,13 +303,20 @@ declare namespace launcherBundleManager {
   function startShortcut(shortcutInfo: ShortcutInfo, options?: StartOptions): Promise<void>;
 
   /**
-   * Starts shortcut with start reason.
+   * Starts an ability based on the specified shortcut information, and carries the reason for the shortcut launch. This
+   * API uses a promise to return the result.
+   *
+   * The launched ability can obtain the launch reason through the **launchReasonMessage** field of
+   * [LaunchParam]{@link @ohos.app.ability.AbilityConstant:AbilityConstant.LaunchParam} and handle service logic
+   * accordingly.
    *
    * @permission ohos.permission.START_SHORTCUT and ohos.permission.SET_LAUNCH_REASON_MESSAGE
-   * @param { ShortcutInfo } shortcutInfo - Indicates the shortcut info which contains shortcut want.
-   * @param { string } startReason {@link AbilityConstant} - Indicates the start reason.
-   * @param { StartOptions } [options] - Indicates the start options.
-   * @returns { Promise<void> } the promise returned by the function.
+   * @param { ShortcutInfo } shortcutInfo - Shortcut information of the application.
+   * @param { string } startReason - Reason for launching the shortcut. The value can be
+   *     [AbilityConstant.REASON_MESSAGE_DESKTOP_SHORTCUT](docroot://reference/apis-ability-kit/js-apis-app-ability-abilityConstant.md#constants)
+   *     , indicating a home screen shortcut launch.
+   * @param { StartOptions } [options] - Parameters used to specify the window mode of the target ability.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - Verify permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 801 - Capability not support.
@@ -266,9 +329,8 @@ declare namespace launcherBundleManager {
   function startShortcutWithReason(shortcutInfo: ShortcutInfo, startReason: string, options?: StartOptions): Promise<void>;
 
   /**
-   * Contains basic launcher Ability information, which uniquely identifies an LauncherAbilityInfo.
+   * Defines the information about the launcher ability.
    *
-   * @typedef { _LauncherAbilityInfo }
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @since 18 dynamic
    * @since 23 static
@@ -276,56 +338,41 @@ declare namespace launcherBundleManager {
   export type LauncherAbilityInfo = _LauncherAbilityInfo;
 
   /**
-   * Provides information about a shortcut, including the shortcut ID and label.
+   * Defines the shortcut information defined in the
+   * [module.json5](docroot://quick-start/module-configuration-file.md#shortcuts) file of the application.
    *
-   * @typedef { _ShortcutInfo }
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @systemapi
-   * @since 9
-   */
-  /**
-   * Provides information about a shortcut, including the shortcut ID and label.
-   *
-   * @typedef { _ShortcutInfo }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @since 20 dynamic
+   * @systemapi [since 9 - 19]
+   * @publicapi [since 20]
+   * @since 9 dynamic
    * @since 23 static
    */
   export type ShortcutInfo = _ShortcutInfo;
   /**
-   * Obtains information about the ability that a shortcut will start.
+   * Defines the target [wants](docroot://quick-start/module-configuration-file.md#wants) defined in the shortcut
+   * configuration.
    *
-   * @typedef { _ShortcutWant }
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @systemapi
-   * @since 9
-   */
-  /**
-   * Obtains information about the ability that a shortcut will start.
-   *
-   * @typedef { _ShortcutWant }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @since 20 dynamic
+   * @systemapi [since 9 - 19]
+   * @publicapi [since 20]
+   * @since 9 dynamic
    * @since 23 static
    */
   export type ShortcutWant = _ShortcutWant;
   /**
-   * Indicates the custom parameters in shortcut want.
+   * Defines the custom data in the shortcut configuration.
    *
-   * @typedef { _ParameterItem }
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @systemapi
-   * @since 12
-   */
-  /**
-   * Indicates the custom parameters in shortcut want.
-   *
-   * @typedef { _ParameterItem }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @since 20 dynamic
+   * @systemapi [since 12 - 19]
+   * @publicapi [since 20]
+   * @since 12 dynamic
    * @since 23 static
    */
   export type ParameterItem = _ParameterItem;
 }
+
+/*** if arkts dynamic */
+import AbilityConstant from './@ohos.app.ability.AbilityConstant';
+/*** endif */
 
 export default launcherBundleManager;

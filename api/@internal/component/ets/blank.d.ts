@@ -21,186 +21,88 @@
 /**
  * Create Blank.
  *
- * @interface BlankInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * Create Blank.
- *
- * @interface BlankInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @since 9
- */
-/**
- * Create Blank.
- *
- * @interface BlankInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Create Blank.
- *
- * @interface BlankInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
+ * @noninterop [since 11]
  */
 interface BlankInterface {
   /**
-   * The minimum size of the blank fill assembly on the container spindle.
+   * Creates a **Blank** component.
+   * 
+   * Since API version 10: 
+   * 
+   * - When the **Blank** component is used within a [Row]{@link Row}, [Column]{@link Column}, or [Flex]{@link Flex} 
+   * container, it will automatically stretch or shrink along the main axis if it does not have a main axis size 
+   * specified. If the **Blank** component has a main axis size specified or if the container is set to adapt to the 
+   * size of its child nodes, the component will not automatically stretch or shrink.
+   * - Relationship between **size** and **min** of the **Blank** component on the main axis: max(min, size). 
+   * - If the **Blank** component has a cross axis size specified, it will not fill up the parent container on the cross
+   * axis. If it does not have a cross axis size specified, it will fill up the parent container on the cross axis, 
+   * following the **ItemAlign.Stretch** mode, the default setting of **alignSelf**.
    *
-   * @param { number | string } min
+   * @param { number | string } min - Minimum size of the **Blank** component in the container along the main axis.<br>
+   *     Default value: **0**<br>If the type is number, the default unit is vp. If the type is string, the
+   *     pixel unit can be explicitly specified, for example, '**10px**'. If the unit is not specified,
+   *     the default unit vp is used, in which case **'10'** is equivalent to **10vp**.<br>Invalid values are treated as
+   *     the default value.<br>**NOTE**<br>This parameter cannot be set in percentage. If the value is negative, the
+   *     default value is used. If the minimum size is larger than the available space of the container, it is used as
+   *     the component size, and the component extends beyond the container.
    * @returns { BlankAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * The minimum size of the blank fill assembly on the container spindle.
-   *
-   * @param { number | string } min
-   * @returns { BlankAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * The minimum size of the blank fill assembly on the container spindle.
-   *
-   * @param { number | string } min
-   * @returns { BlankAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Minimum size of the Blank component in the container along the main axis.<br>
-   * Default value: **0**.
-   *
-   * @param { number | string } min
-   * @returns { BlankAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   (min?: number | string): BlankAttribute;
 }
 
 /**
- * Inheritance CommonMethod Set Styles
+ * In addition to the [universal attributes]{@link CommonMethod}, the following attributes are supported.
+ * 
+ * The [universal events]{@link CommonMethod} are supported.
  *
- * @extends CommonMethod<BlankAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * Inheritance CommonMethod Set Styles
- *
- * @extends CommonMethod<BlankAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @since 9
- */
-/**
- * Inheritance CommonMethod Set Styles
- *
- * @extends CommonMethod<BlankAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Inheritance CommonMethod Set Styles
- *
- * @extends CommonMethod<BlankAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
+ * @noninterop [since 11]
  */
 declare class BlankAttribute extends CommonMethod<BlankAttribute> {
   /**
-   * color: set color.
+   * Sets the fill color of the **Blank** component. This attribute can be dynamically set using 
+   * [attributeModifier]{@link CommonMethod#attributeModifier}.
    *
-   * @param { ResourceColor } value
+   * @param { ResourceColor } value - Color to fill the blank.<br>Default value: **Color.Transparent**<br>Invalid values
+   *     are treated as the default value.
    * @returns { BlankAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * color: set color.
-   *
-   * @param { ResourceColor } value
-   * @returns { BlankAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * color: set color.
-   *
-   * @param { ResourceColor } value
-   * @returns { BlankAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Sets the color to fill the blank.
-   * Default value: **Color.Transparent**.
-   *
-   * @param { ResourceColor } value
-   * @returns { BlankAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   color(value: ResourceColor): BlankAttribute;
 }
 
 /**
- * Defines Blank Component.
+ * The **Blank** component is a spacer in the layout, automatically filling the remaining space along the main axis of
+ * its parent container. It works only when the parent component is [Row]{@link Row}, [Column]{@link Column}, or
+ * [Flex]{@link Flex}.
+ * > **Child Components**
+ * >
+ * > No child component can be set.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * Defines Blank Component.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @since 9
- */
-/**
- * Defines Blank Component.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Defines Blank Component.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
+ * @noninterop [since 11]
  */
 declare const Blank: BlankInterface;
 
@@ -208,30 +110,10 @@ declare const Blank: BlankInterface;
  * Defines Blank Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * Defines Blank Component instance.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @since 9
- */
-/**
- * Defines Blank Component instance.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Defines Blank Component instance.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
+ * @noninterop [since 11]
  */
 declare const BlankInstance: BlankAttribute;

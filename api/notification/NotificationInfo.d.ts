@@ -1,3 +1,4 @@
+
 /*
  * Copyright (c) 2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
@@ -22,19 +23,17 @@ import type notificationManager from '../@ohos.notificationManager';
 import { NotificationExtensionContent } from './NotificationExtensionContent';
 
 /**
- * The notification info describes the notification to be shared with third party wearables.
+ * The **NotificationInfo** module describes the notification information delivered to the onReceiveMessage callback
+ * of ExtensionAbility for notification subscriptions.
  *
- * @typedef NotificationInfo
  * @syscap SystemCapability.Notification.Notification
  * @since 22 dynamic
  * @since 23 static
  */
 export interface NotificationInfo {
   /**
-   * Unique ID of the notification.
+   * Unique identifier of the notification.
    *
-   * @type { string }
-   * @readonly
    * @syscap SystemCapability.Notification.Notification
    * @since 22 dynamic
    * @since 23 static
@@ -42,10 +41,9 @@ export interface NotificationInfo {
   readonly hashCode: string;
 
   /**
-   * Notification slot type. The default value is OTHER_TYPES.
+   * Notification slot type, which identifies the channel category to which the notification belongs (such as social
+   * communication, service reminder, etc.). Different slot types correspond to different reminder methods.
    *
-   * @type { notificationManager.SlotType }
-   * @readonly
    * @syscap SystemCapability.Notification.Notification
    * @since 22 dynamic
    * @since 23 static
@@ -53,10 +51,8 @@ export interface NotificationInfo {
   readonly notificationSlotType: notificationManager.SlotType;
 
   /**
-   * Notification content.
+   * Notification content, which includes the title and body of the notification.
    *
-   * @type { NotificationExtensionContent }
-   * @readonly
    * @syscap SystemCapability.Notification.Notification
    * @since 22 dynamic
    * @since 23 static
@@ -66,8 +62,6 @@ export interface NotificationInfo {
   /**
    * Name of the bundle that creates the notification.
    *
-   * @type { string }
-   * @readonly
    * @syscap SystemCapability.Notification.Notification
    * @since 22 dynamic
    * @since 23 static
@@ -77,8 +71,6 @@ export interface NotificationInfo {
   /**
    * Name of the application that creates the notification.
    *
-   * @type { ?string }
-   * @readonly
    * @syscap SystemCapability.Notification.Notification
    * @since 22 dynamic
    * @since 23 static
@@ -86,10 +78,8 @@ export interface NotificationInfo {
   readonly appName?: string;
 
   /**
-   * The publish timestamp of notification.
+   * Timestamp when the notification is published. Data format: timestamp. Unit: millisecond.
    *
-   * @type { ?long }
-   * @readonly
    * @syscap SystemCapability.Notification.Notification
    * @since 22 dynamic
    * @since 23 static
@@ -97,10 +87,8 @@ export interface NotificationInfo {
   readonly deliveryTime?: long;
 
   /**
-   * Notification group name. This parameter is left blank by default.
+   * Name of the notification group.
    *
-   * @type { ?string }
-   * @readonly
    * @syscap SystemCapability.Notification.Notification
    * @since 22 dynamic
    * @since 23 static
@@ -108,10 +96,8 @@ export interface NotificationInfo {
   readonly groupName?: string;
 
   /**
-   * The appIndex of application that creates the notification, only work in appClone mode.
+   * Index of the application clone that creates the notification. It takes effect only for application clones.
    *
-   * @type { int }
-   * @readonly
    * @syscap SystemCapability.Notification.Notification
    * @since 22 dynamic
    * @since 23 static

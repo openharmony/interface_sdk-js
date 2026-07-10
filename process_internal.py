@@ -18,6 +18,7 @@ import sys
 import shutil
 import optparse
 import json
+from pathlib import Path
 
 
 def copy_files(options):
@@ -38,7 +39,7 @@ def copy_files(options):
                         options.project_dir, base_path)
                     format_src = format_path(base_full_path, options.base_dir)
                     file_list.append(format_src)
-            for file in os.listdir(options.input):
+            for file in get_all_file(options.input):
                 src = os.path.join(options.input, file)
                 if os.path.isfile(src) and (
                     'global_remove' not in rm_name or (
@@ -56,12 +57,23 @@ def copy_files(options):
                     else:
                         file_list.append(format_src)
         else:
-            for file in os.listdir(options.input):
+            for file in get_all_file(options.input):
                 src = os.path.join(options.input, file)
                 if os.path.isfile(src):
                     format_src = format_path(src, options.base_dir)
                     file_list.append(format_src)
         return file_list
+
+
+def get_all_file(filepath):
+    file_list = []
+    for file in os.listdir(filepath):
+        file_path = os.path.join(filepath, file)
+        if os.path.isdir(file_path):
+            file_list.extend(os.path.join(file, f) for f in get_all_file(file_path))
+        else:
+            file_list.append(file)
+    return file_list
 
 
 def format_path(filepath, base_dir):
@@ -90,8 +102,31 @@ def main(argv):
         os.makedirs(options.output)
     result = copy_files(options)
     for file_path in result:
-        shutil.copy(file_path, options.output)
+        copy_with_rel_path(Path(file_path), options.input, options.output)
+
+    # 更新输出文件夹的修改时间，防止后续编译工具误认为文件未修改而跳过编译
+    os.utime(options.output)
     return 0
+
+
+def is_parent_path(child, parent):
+    try:
+        parent_path = Path(parent).resolve()
+        child_path = Path(child).resolve()
+        is_parent = parent_path in child_path.parents
+        return is_parent
+    except ValueError:
+        return False
+
+
+def copy_with_rel_path(src_file, input_dir, output_dir):
+    if not is_parent_path(src_file, input_dir):
+        shutil.copy(src_file, output_dir)
+        return
+    rel_path = src_file.relative_to(input_dir)
+    dest_file = output_dir / rel_path
+    dest_file.parent.mkdir(parents=True, exist_ok=True)
+    shutil.copy(src_file, dest_file)
 
 
 if __name__ == "__main__":

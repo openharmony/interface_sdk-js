@@ -14,7 +14,7 @@
  */
 
 /**
- * @file The NotificationActionButton module provides APIs for describing the button displayed in the notification.
+ * @file Describes an action button displayed in a notification
  * @kit NotificationKit
  */
 
@@ -28,18 +28,20 @@ import { RecordData } from '../@ohos.base';
 /*** endif */
 
 /**
- * The NotificationActionButton module provides APIs for describing the button displayed in the notification.
+ * The **NotificationActionButton** module defines the action buttons displayed in a notification. It is used to add
+ * interactive action buttons in NotificationRequest, allowing users to trigger a **WantAgent** action by tapping the
+ * button. This module is used when you need to provide interactive action buttons (such as **Reply** and
+ * **Mark as read**) in a notification.
  *
- * @typedef NotificationActionButton
  * @syscap SystemCapability.Notification.Notification
  * @since 7 dynamic
  * @since 23 static
  */
 export interface NotificationActionButton {
   /**
-   * Button title.
+   * Title of the button, displayed on the action button of the notification. The string length cannot exceed 202
+   * bytes; the excess part will be truncated. It cannot be an empty string.
    *
-   * @type { string }
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
    * @since 23 static
@@ -47,9 +49,10 @@ export interface NotificationActionButton {
   title: string;
 
   /**
-   * WantAgent of the button.
+   * **WantAgent** triggered when the button is tapped, which encapsulates the application's behavioral intent. After
+   * the user taps the button, the system will execute the action in the method specified by the **WantAgent** (such
+   * as navigating to a specified UIAbility or sending a common event).
    *
-   * @type { WantAgent }
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
    * @since 23 static
@@ -57,27 +60,24 @@ export interface NotificationActionButton {
   wantAgent: WantAgent;
 
   /**
-   * Extra information of the button.
+   * Extended information of the button. The default value is empty.
    *
-   * @type { ?object }
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
    */
   extras?: { [key: string]: any };
 
   /**
-   * Extra information of the button.
+   * Extended information of the button. The default value is empty.
    *
-   * @type { ?Record<string, RecordData> }
    * @syscap SystemCapability.Notification.Notification
    * @since 23 static
    */
   extras?: Record<string, RecordData>;
 
   /**
-   * User input object. ID entered by a subscriber.
+   * User input object. This parameter is left empty by default. ID entered by a subscriber.
    *
-   * @type { ?NotificationUserInput }
    * @syscap SystemCapability.Notification.Notification
    * @since 8 dynamic
    * @since 23 static

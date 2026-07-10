@@ -21,22 +21,42 @@
 import { AsyncCallback, BusinessError } from './@ohos.base';
 
 /**
- * The interface of system parameters class.
+ * The **SystemParameter** module provides system services with easy access to key-value pairs. You can use the APIs 
+ * provided by this module to describe the service status and change the service behavior. The basic operation 
+ * primitives are **get** and **set**. You can obtain the values of system parameters through getters and modify the 
+ * values through setters.
+ * 
+ * For details about the system parameter design principles and definitions, see 
+ * [Parameter Management](docroot://../device-dev/subsystems/subsys-boot-init-sysparam.md).
+ * 
+ * > **NOTE**
+ * >
+ * > - The APIs of this module are no longer maintained since API version 9. You are advised to use 
+ * > [@ohos.systemParameterEnhance]{@link @ohos.systemParameterEnhance:systemParameterEnhance} instead.
+ * >
+ * > - The APIs provided by this module are system APIs.
+ * >
+ * > - Third-party applications cannot use the APIs provided by this module because system parameters each require 
+ * > specific discretionary access control (DAC) and mandatory access control (MAC) permissions.
  *
- * @namespace systemParameter
  * @syscap SystemCapability.Startup.SystemInfo
  * @systemapi Hide this for inner system use.
  * @since 6 dynamiconly
  * @deprecated since 9
- * @useinstead ohos.systemParameterEnhance
+ * @useinstead @ohos.systemParameterEnhance:systemParameterEnhance
  */
 declare namespace systemParameter {
   /**
-   * Gets the value of the attribute with the specified key.
+   * Obtains a value of the specified key.
    *
-   * @param { string } key Key of the system attribute.
-   * @param { string } def Default value.
-   * @returns { string } if the parameter is empty or doesn't exist, empty string will be returned.
+   * @param { string } key - Key to be queried.
+   * @param { string } def - Default value of the system parameter.<br> It works only when the system parameter does
+   *     not exist.<br>The value can be **undefined** or any custom value.
+   * @returns { string } Value of the system parameter.
+   *     <br> If the specified key exists, the set value is returned.
+   *     <br> If the specified key does not exist and **def** is set to a valid value, the set value is returned. If the
+   *     specified key does not exist and **def** is set to an invalid value (such as **undefined**) or is not set, an
+   *     empty string is returned.
    * @syscap SystemCapability.Startup.SystemInfo
    * @systemapi Hide this for inner system use.
    * @since 6 dynamiconly
@@ -46,10 +66,10 @@ declare namespace systemParameter {
   function getSync(key: string, def?: string): string;
 
   /**
-   * Gets the value of the attribute with the specified key.
+   * Obtains a value of the specified key. This API uses an asynchronous callback to return the result.
    *
-   * @param { string } key Key of the system attribute.
-   * @param { AsyncCallback<string> } callback Callback function.
+   * @param { string } key - Key to be queried.
+   * @param { AsyncCallback<string> } callback - Callback used to return the result.
    * @syscap SystemCapability.Startup.SystemInfo
    * @systemapi Hide this for inner system use.
    * @since 6 dynamiconly
@@ -59,11 +79,11 @@ declare namespace systemParameter {
   function get(key: string, callback: AsyncCallback<string>): void;
 
   /**
-   * Gets the value of the attribute with the specified key.
+   * Obtains a value of the specified key. This API uses an asynchronous callback to return the result.
    *
-   * @param { string } key Key of the system attribute.
-   * @param { string } def Default value.
-   * @param { AsyncCallback<string> } callback Callback function.
+   * @param { string } key - Key to be queried.
+   * @param { string } def - Default value.
+   * @param { AsyncCallback<string> } callback - Callback used to return the result.
    * @syscap SystemCapability.Startup.SystemInfo
    * @systemapi Hide this for inner system use.
    * @since 6 dynamiconly
@@ -73,11 +93,12 @@ declare namespace systemParameter {
   function get(key: string, def: string, callback: AsyncCallback<string>): void;
 
   /**
-   * Gets the value of the attribute with the specified key.
+   * Obtains a value of the specified key. This API uses a promise to return the result.
    *
-   * @param { string } key Key of the system attribute.
-   * @param { string } def Default value.
-   * @returns { Promise<string> } , which is used to obtain the result asynchronously.
+   * @param { string } key - Key to be queried.
+   * @param { string } def - Default value of the system parameter.<br> It works only when the system parameter does
+   *     not exist.<br> The value can be **undefined** or any custom value.
+   * @returns { Promise<string> } Promise used to return the execution result.
    * @syscap SystemCapability.Startup.SystemInfo
    * @systemapi Hide this for inner system use.
    * @since 6 dynamiconly
@@ -87,10 +108,10 @@ declare namespace systemParameter {
   function get(key: string, def?: string): Promise<string>;
 
   /**
-   * Sets a value for the attribute with the specified key.
+   * Sets a value for the specified key.
    *
-   * @param { string } key Key of the system attribute.
-   * @param { string } value value System attribute value to set.
+   * @param { string } key - Target key.
+   * @param { string } value - Value to set.
    * @syscap SystemCapability.Startup.SystemInfo
    * @systemapi Hide this for inner system use.
    * @since 6 dynamiconly
@@ -100,11 +121,11 @@ declare namespace systemParameter {
   function setSync(key: string, value: string): void;
 
   /**
-   * Sets a value for the attribute with the specified key.
+   * Sets a value for the specified key. This API uses an asynchronous callback to return the result.
    *
-   * @param { string } key Key of the system attribute.
-   * @param { string } value System attribute value to set.
-   * @param { AsyncCallback<void> } callback Callback function.
+   * @param { string } key - Target key.
+   * @param { string } value - Value to set.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @syscap SystemCapability.Startup.SystemInfo
    * @systemapi Hide this for inner system use.
    * @since 6 dynamiconly
@@ -114,11 +135,11 @@ declare namespace systemParameter {
   function set(key: string, value: string, callback: AsyncCallback<void>): void;
 
   /**
-   * Sets a value for the attribute with the specified key.
+   * Sets a value for the specified key. This API uses a promise to return the result.
    *
-   * @param { string } key Key of the system attribute.
-   * @param { string } value Default value.
-   * @returns { Promise<void> } which is used to obtain the result asynchronously.
+   * @param { string } key - Target key.
+   * @param { string } value - Value to set.
+   * @returns { Promise<void> } Promise used to return the execution result.
    * @syscap SystemCapability.Startup.SystemInfo
    * @systemapi Hide this for inner system use.
    * @since 6 dynamiconly

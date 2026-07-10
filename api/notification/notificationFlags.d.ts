@@ -14,142 +14,113 @@
  */
 
 /**
- * @file The NotificationFlags module implements a NotificationFlags instance.
+ * The **NotificationFlags** module implements a **NotificationFlags** instance.
+ * 
+ * @file Some states and flags for notifications
  * @kit NotificationKit
  */
 
 /**
- * Enumerates the notification flag statuses.
+ * Enumerates the notification flag states.
  *
- * @enum { number }
  * @syscap SystemCapability.Notification.Notification
- * @systemapi
- * @since 8
- */
-/**
- * Enumerates the notification flag statuses.
- *
- * @enum { int }
- * @syscap SystemCapability.Notification.Notification
- * @since 11 dynamic
+ * @systemapi [since 8 - 10]
+ * @publicapi [since 11]
+ * @since 8 dynamic
  * @since 23 static
  */
 export enum NotificationFlagStatus {
   /**
-   * The default flag is used. The effect is the same as that of TYPE_OPEN.
+   * Default flag, which has the same effect as **TYPE_OPEN**.
    *
    * @syscap SystemCapability.Notification.Notification
-   * @systemapi
-   * @since 8
-   */
-  /**
-   * The default flag is used. The effect is the same as that of TYPE_OPEN.
-   *
-   * @syscap SystemCapability.Notification.Notification
-   * @since 11 dynamic
+   * @systemapi [since 8 - 10]
+   * @publicapi [since 11]
+   * @since 8 dynamic
    * @since 23 static
    */
   TYPE_NONE = 0,
 
   /**
-   * The notification flag is enabled.
+   * The notification flag is opened.
    *
    * @syscap SystemCapability.Notification.Notification
-   * @systemapi
-   * @since 8
-   */
-  /**
-   * The notification flag is enabled.
-   *
-   * @syscap SystemCapability.Notification.Notification
-   * @since 11 dynamic
+   * @systemapi [since 8 - 10]
+   * @publicapi [since 11]
+   * @since 8 dynamic
    * @since 23 static
    */
   TYPE_OPEN = 1,
 
   /**
-   * The notification flag is disabled.
+   * The notification flag is closed.
    *
    * @syscap SystemCapability.Notification.Notification
-   * @systemapi
-   * @since 8
-   */
-  /**
-   * The notification flag is disabled.
-   *
-   * @syscap SystemCapability.Notification.Notification
-   * @since 11 dynamic
+   * @systemapi [since 8 - 10]
+   * @publicapi [since 11]
+   * @since 8 dynamic
    * @since 23 static
    */
   TYPE_CLOSE = 2
 }
 
 /**
- * Describes a NotificationFlags instance.
+ * Defines the notification flags.
  *
- * @typedef NotificationFlags
  * @syscap SystemCapability.Notification.Notification
  * @since 8 dynamic
  * @since 23 static
  */
 export interface NotificationFlags {
   /**
-   * Whether to enable sound reminder.
+   * Settings of sound for the notification. The default value is **TYPE_NONE**. This parameter becomes writable
+   * starting from API version 23. Only TYPE_CLOSE takes effect.
    *
-   * @type { ?NotificationFlagStatus }
-   * @readonly
+   * @readonly [since 8 - 22]
    * @syscap SystemCapability.Notification.Notification
    * @since 8 dynamic
-   */
-  /**
-   * Whether to enable sound reminder.
-   *
-   * @type { ?NotificationFlagStatus }
-   * @syscap SystemCapability.Notification.Notification
-   * @since 23 dynamic&static
+   * @since 23 static
    */
   soundEnabled?: NotificationFlagStatus;
 
   /**
-   * Whether to enable vibration reminder.
+   * Settings of vibration for the notification. The default value is **TYPE_NONE**. This parameter becomes writable
+   * starting from API version 23. Only TYPE_CLOSE takes effect.
    *
-   * @type { ?NotificationFlagStatus }
-   * @readonly
+   * @readonly [since 8 - 22]
    * @syscap SystemCapability.Notification.Notification
    * @since 8 dynamic
-   */
-  /**
-   * Whether to enable vibration reminder.
-   *
-   * @type { ?NotificationFlagStatus }
-   * @syscap SystemCapability.Notification.Notification
-   * @since 23 dynamic&static
+   * @since 23 static
    */
   vibrationEnabled?: NotificationFlagStatus;
 
   /**
-   * Whether to enable banner reminder.
+   * Settings of banner for the notification. The default value is **TYPE_NONE**. Only TYPE_CLOSE takes effect.
    *
-   * @type { ?NotificationFlagStatus }
    * @syscap SystemCapability.Notification.Notification
    * @since 23 dynamic&static
    */
   bannerEnabled?: NotificationFlagStatus;
 
   /**
-   * Whether to enable lockScreen reminder.
+   * Settings of screen lock for the notification. The default value is **TYPE_NONE**. Only TYPE_CLOSE takes effect.
    *
-   * @type { ?NotificationFlagStatus }
    * @syscap SystemCapability.Notification.Notification
    * @since 23 dynamic&static
    */
   lockScreenEnabled?: NotificationFlagStatus;
 
   /**
-   * Read-only the prompt entry information allowed by the current channel.
+   * Settings of the input information reminder features.
+   * 
+   * - Bit 0: sound alert. The value **0** means to enable the feature, and **1** means the opposite.
+   * - Bit 1: locking the screen. The value **0** means to enable the feature, and **1** means the opposite.
+   * - Bit 2: banner. The value **0** means to enable the feature, and **1** means the opposite.
+   * - Bit 3: turning on the screen. The value **0** means to enable the feature, and **1** means the opposite.
+   * - Bit 4: vibration. The value **0** means to enable the feature, and **1** means the opposite.
+   * - Bit 5: notification icon in the status bar. The value **0** means to enable the feature, and **1** means the 
+   * opposite.
    *
-   * @type { ?long }
-   * @readonly
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 11 dynamic

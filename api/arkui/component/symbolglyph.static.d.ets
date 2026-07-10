@@ -1,6 +1,6 @@
 /*
  * Copyright (c) 2025 Huawei Device Co., Ltd.
- * Licensed under the Apache License, Version 2.0 (the "License");
+ * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
@@ -18,16 +18,16 @@
  * @kit ArkUI
  */
 import { Resource } from '../../global/resource';
-import { ResourceColor } from "./units";
+import { ResourceColor, ResourceStr, ColorMetrics } from "./units";
 import { FontWeight } from "./enums";
 import { CommonMethod, AttributeModifier, ShadowOptions } from "./common";
-import { ComponentBuilder, CustomBuilder } from './builder';
-import { ShaderStyle } from "./textCommon";
+import { Builder, ComponentBuilder, CustomBuilder, CustomBuilderT } from './builder';
+import { ShaderStyle, FontWeightConfigs } from "./textCommon";
 /**
  * The symbol rendering strategy.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare enum SymbolRenderingStrategy {
@@ -35,6 +35,7 @@ export declare enum SymbolRenderingStrategy {
      * The single rendering strategy.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     SINGLE = 0,
@@ -42,6 +43,7 @@ export declare enum SymbolRenderingStrategy {
      * The multiple color rendering strategy.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     MULTIPLE_COLOR = 1,
@@ -49,6 +51,7 @@ export declare enum SymbolRenderingStrategy {
      * The multiple opacity rendering strategy.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     MULTIPLE_OPACITY = 2
@@ -56,8 +59,8 @@ export declare enum SymbolRenderingStrategy {
 /**
  * The symbol effect strategy.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare enum SymbolEffectStrategy {
@@ -65,6 +68,7 @@ export declare enum SymbolEffectStrategy {
      * There is no effect strategy.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     NONE = 0,
@@ -72,6 +76,7 @@ export declare enum SymbolEffectStrategy {
      * The scale effect strategy.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     SCALE = 1,
@@ -79,6 +84,7 @@ export declare enum SymbolEffectStrategy {
      * The hierarchical effect strategy.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     HIERARCHICAL = 2
@@ -86,8 +92,8 @@ export declare enum SymbolEffectStrategy {
 /**
  * The direction type of symbol effect
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare enum EffectDirection {
@@ -95,6 +101,7 @@ export declare enum EffectDirection {
      * The scale down animation of symbol
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     DOWN = 0,
@@ -102,6 +109,7 @@ export declare enum EffectDirection {
      * The scale up animation of symbol
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     UP = 1
@@ -109,8 +117,8 @@ export declare enum EffectDirection {
 /**
  * Declare scope type of the symbol effect
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare enum EffectScope {
@@ -118,6 +126,7 @@ export declare enum EffectScope {
      * The layered animation of symbol
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     LAYER = 0,
@@ -125,6 +134,7 @@ export declare enum EffectScope {
      * The whole animation of symbol
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     WHOLE = 1
@@ -132,8 +142,8 @@ export declare enum EffectScope {
 /**
  * Declare fill style of symbol
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare enum EffectFillStyle {
@@ -141,6 +151,7 @@ export declare enum EffectFillStyle {
      * The cumulative fill style of symbol
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     CUMULATIVE = 0,
@@ -148,6 +159,7 @@ export declare enum EffectFillStyle {
      * The iterative fill style of symbol
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     ITERATIVE = 1
@@ -155,7 +167,6 @@ export declare enum EffectFillStyle {
 /**
  * The replace effect type of symbol.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -193,6 +204,7 @@ export declare enum ReplaceEffectType {
  * Defines SymbolEffect class.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare class SymbolEffect {
@@ -200,8 +212,8 @@ export declare class SymbolEffect {
 /**
  * Defines ScaleSymbolEffect class.
  *
- * @extends SymbolEffect
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare class ScaleSymbolEffect extends SymbolEffect {
@@ -211,22 +223,23 @@ export declare class ScaleSymbolEffect extends SymbolEffect {
      * @param { EffectScope } [scope] -  The scope type of symbol effect.
      * @param { EffectDirection } [direction] - The direction of symbol effect.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     constructor(scope?: EffectScope, direction?: EffectDirection);
     /**
-     * The scope type of symbol effect
+     * The scope type of symbol effect.
      *
-     * @type { ?EffectScope }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     scope?: EffectScope;
     /**
-     * The direction of symbol effect
+     * The direction of symbol effect.
      *
-     * @type { ?EffectDirection }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     direction?: EffectDirection;
@@ -234,8 +247,8 @@ export declare class ScaleSymbolEffect extends SymbolEffect {
 /**
  * Defines HierarchicalSymbolEffect class.
  *
- * @extends SymbolEffect
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare class HierarchicalSymbolEffect extends SymbolEffect {
@@ -244,14 +257,15 @@ export declare class HierarchicalSymbolEffect extends SymbolEffect {
      *
      * @param { EffectFillStyle } [fillStyle] -  The fill style of symbol effect.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     constructor(fillStyle?: EffectFillStyle);
     /**
-     * The fill style of symbol effect
+     * The fill style of symbol effect.
      *
-     * @type { ?EffectFillStyle }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     fillStyle?: EffectFillStyle;
@@ -259,8 +273,8 @@ export declare class HierarchicalSymbolEffect extends SymbolEffect {
 /**
  * Defines AppearSymbolEffect class.
  *
- * @extends SymbolEffect
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare class AppearSymbolEffect extends SymbolEffect {
@@ -269,14 +283,15 @@ export declare class AppearSymbolEffect extends SymbolEffect {
      *
      * @param { EffectScope } [scope] -  The scope type of symbol effect.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     constructor(scope?: EffectScope);
     /**
-     * The scope type of symbol effect
+     * The scope type of symbol effect.
      *
-     * @type { ?EffectScope }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     scope?: EffectScope;
@@ -284,8 +299,8 @@ export declare class AppearSymbolEffect extends SymbolEffect {
 /**
  * Defines DisappearSymbolEffect class.
  *
- * @extends SymbolEffect
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare class DisappearSymbolEffect extends SymbolEffect {
@@ -294,14 +309,15 @@ export declare class DisappearSymbolEffect extends SymbolEffect {
      *
      * @param { EffectScope } [scope] -  The scope type of symbol effect.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     constructor(scope?: EffectScope);
     /**
-     * The scope type of symbol effect
+     * The scope type of symbol effect.
      *
-     * @type { ?EffectScope }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     scope?: EffectScope;
@@ -309,8 +325,8 @@ export declare class DisappearSymbolEffect extends SymbolEffect {
 /**
  * Defines BounceSymbolEffect class.
  *
- * @extends SymbolEffect
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare class BounceSymbolEffect extends SymbolEffect {
@@ -320,22 +336,23 @@ export declare class BounceSymbolEffect extends SymbolEffect {
      * @param { EffectScope } [scope] -  The scope type of symbol effect.
      * @param { EffectDirection } [direction] - The direction of symbol effect.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     constructor(scope?: EffectScope, direction?: EffectDirection);
     /**
-     * The scope type of symbol effect
+     * The scope type of symbol effect.
      *
-     * @type { ?EffectScope }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     scope?: EffectScope;
     /**
-     * The direction of symbol effect
+     * The direction of symbol effect.
      *
-     * @type { ?EffectDirection }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     direction?: EffectDirection;
@@ -343,8 +360,8 @@ export declare class BounceSymbolEffect extends SymbolEffect {
 /**
  * Defines ReplaceSymbolEffect class.
  *
- * @extends SymbolEffect
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare class ReplaceSymbolEffect extends SymbolEffect {
@@ -359,37 +376,38 @@ export declare class ReplaceSymbolEffect extends SymbolEffect {
      */
     constructor(scope?: EffectScope, replaceType?: ReplaceEffectType);
     /**
-     * The scope type of symbol effect
+     * The scope type of symbol effect.
      *
-     * @type { ?EffectScope }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     scope?: EffectScope;
     /**
      * The replace effect type of symbol effect.
      *
-     * @type { ?ReplaceEffectType }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
      */
     replaceType?: ReplaceEffectType;
 }
+
 /**
  * Defines PulseSymbolEffect class.
  *
- * @extends SymbolEffect
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare class PulseSymbolEffect extends SymbolEffect {
 }
+
 /**
  * Provides attribute for SymbolGlyph.
  *
- * @extends CommonMethod
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  * @noninterop
  */
@@ -397,21 +415,42 @@ export declare interface SymbolGlyphAttribute extends CommonMethod {
     /**
      * Called when the SymbolGlyph size is set.
      *
-     * @param { double | string | Resource } value
+     * @param { double | string | Resource | undefined } value
      * @returns { SymbolGlyphAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default fontSize(value: double | string | Resource | undefined): this;
     /**
      * Called when the SymbolGlyph color is set.
      *
-     * @param { Array<ResourceColor> } value
+     * @param { Array<ResourceColor> | undefined } value
      * @returns { SymbolGlyphAttribute } The attribute of the SymbolGlyph.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default fontColor(value: Array<ResourceColor> | undefined): this;
+
+    /**
+     * Called when the SymbolGlyph color is set.
+     *
+     * @param { Array<ResourceColor> | Array<ColorMetrics> | Array<ResourceColor | ColorMetrics> | undefined } value
+     *     - The custom color list applied to the symbol.
+     *     - `Array<ResourceColor>` means each item is a resource-based color value, for example a color resource,
+     *     numeric color value, or color string.
+     *     - `Array<ColorMetrics>` means each item is a ColorMetrics color object.
+     *     - `Array<ResourceColor | ColorMetrics>` means the array can mix resource-based colors and ColorMetrics color
+     *     objects.
+     *     - `undefined` clears the custom setting and restores the default color.
+     *     The final rendered result still depends on `SymbolRenderingStrategy` , see { @link SymbolRenderingStrategy}.
+     * @returns { SymbolGlyphAttribute } The attribute of the SymbolGlyph.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    default symbolColor(value: Array<ResourceColor> | Array<ColorMetrics> | Array<ResourceColor | ColorMetrics> | undefined): this;
     /**
      * Called when the font symbolGlyph weight is set.
      *
@@ -419,71 +458,92 @@ export declare interface SymbolGlyphAttribute extends CommonMethod {
      *     the default is Normal. Passing `undefined` resets it to the default value.
      * @returns { SymbolGlyphAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default fontWeight(value: int | FontWeight | string | undefined): this;
     /**
+     * Used to set the font weight of SymbolGlyph.
+     *
+     * @param { int | FontWeight | ResourceStr | undefined } value - the SymbolGlyph font weight.
+     * @param { FontWeightConfigs } [fontWeightConfigs] - the configuration of font weight.
+     * @returns { SymbolGlyphAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    default fontWeight(value: int | FontWeight | ResourceStr | undefined, fontWeightConfigs?: FontWeightConfigs): this;
+    /**
      * Called when the symbolGlyph effect is set.
      *
-     * @param { SymbolEffectStrategy } value
+     * @param { SymbolEffectStrategy | undefined } value
      * @returns { SymbolGlyphAttribute } The attribute of the SymbolGlyph.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default effectStrategy(value: SymbolEffectStrategy | undefined): this;
     /**
      * Called when the symbolGlyph rendering strategy is set.
      *
-     * @param { SymbolRenderingStrategy } value
+     * @param { SymbolRenderingStrategy | undefined } value
      * @returns { SymbolGlyphAttribute } The attribute of the SymbolGlyph.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default renderingStrategy(value: SymbolRenderingStrategy | undefined): this;
     /**
-     *  Define effect options for SymbolGlyph.
+     * Define effect options for SymbolGlyph.
      *
      * @param { SymbolEffect | undefined } symbolEffect - The symbol effect type
      * @returns { SymbolGlyphAttribute } The attribute of the SymbolGlyph.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default symbolEffect(symbolEffect: SymbolEffect | undefined): this;
     /**
-     *  Define effect options for SymbolGlyph.
+     * Define effect options for SymbolGlyph.
      *
      * @param { SymbolEffect | undefined } symbolEffect - The symbol effect type
      * @param { boolean | undefined } isActive - The active state of the effect
      * @returns { SymbolGlyphAttribute } The attribute of the SymbolGlyph.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default symbolEffect(symbolEffect: SymbolEffect | undefined, isActive: boolean | undefined): this;
     /**
-     *  Define effect options for SymbolGlyph.
+     * Define effect options for SymbolGlyph.
      *
      * @param { SymbolEffect | undefined } symbolEffect - The symbol effect type
      * @param { int | undefined } triggerValue - The trigger of the effect
      * @returns { SymbolGlyphAttribute } The attribute of the SymbolGlyph.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default symbolEffect(symbolEffect: SymbolEffect | undefined, triggerValue: int | undefined): this;
     /**
      * Called when the minimum font scale of the font is set.
      *
-     * @param { Optional<double|Resource> } scale
+     * @param { double | Resource | undefined } scale - The default is 1.0. Passing `undefined` resets
+     *     it to the default value.
      * @returns { SymbolGlyphAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default minFontScale(scale: double | Resource | undefined): this;
     /**
      * Called when the maximum font scale of the font is set.
      *
-     * @param { Optional<double|Resource> } scale
+     * @param { double | Resource | undefined } scale - The default is 1.0. Passing `undefined` resets
+     *     it to the default value.
      * @returns { SymbolGlyphAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default maxFontScale(scale: double | Resource | undefined): this;
@@ -492,6 +552,7 @@ export declare interface SymbolGlyphAttribute extends CommonMethod {
      *
      * If a single `ShaderStyle` is provided, all layers of the symbol will use this shader style.
      * If an array is provided, each item corresponds to the shader style of the matching symbol layer.
+     *
      * - If an array item is `undefined`, that layer will use its default color.
      * - Any layers beyond the length of the array will also use their default color.
      *
@@ -516,6 +577,7 @@ export declare interface SymbolGlyphAttribute extends CommonMethod {
      * @param { ShadowOptions | undefined } shadow - The shadow options. Passing `undefined` will reset to default.
      * @returns { SymbolGlyphAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 24 static
      */
     default symbolShadow(shadow: ShadowOptions | undefined): this;
@@ -524,11 +586,23 @@ export declare interface SymbolGlyphAttribute extends CommonMethod {
      * Sets the attribute modifier.
      *
      * @param { AttributeModifier<SymbolGlyphAttribute> | AttributeModifier<CommonMethod> | undefined } modifier.
-     * @returns { SymbolGlyphAttribute } the attribute of the SymbolGlyphAttribute.
+     * @returns { SymbolGlyphAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default attributeModifier(modifier: AttributeModifier<SymbolGlyphAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+
+    /**
+     * Set SymbolGlyph options.
+     *
+     * @param { Resource } [value] - SymbolGlyph constructor options
+     * @returns { SymbolGlyphAttribute } Returns the instance of the SymbolGlyphAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    default setSymbolGlyphOptions(value?: Resource): this;
 }
 
 /**
@@ -544,4 +618,19 @@ export declare interface SymbolGlyphAttribute extends CommonMethod {
 @ComponentBuilder
 export declare function SymbolGlyph(
     value?: Resource
-): SymbolGlyphAttribute
+): SymbolGlyphAttribute;
+
+/**
+ * Defines SymbolGlyph Component.
+ *
+ * @param { CustomBuilderT<SymbolGlyphAttribute> } style - SymbolGlyph attribute instance
+ * @returns { SymbolGlyphAttribute }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ * @noninterop
+ */
+@Builder
+export declare function SymbolGlyph(
+    style: CustomBuilderT<SymbolGlyphAttribute>,
+): SymbolGlyphAttribute;

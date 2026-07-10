@@ -1,3 +1,4 @@
+'use static';
 /*
  * Copyright (c) 2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -76,16 +77,17 @@ import { AnimationPropertyType, EventQueryType } from './component/enums';
 /**
  * Layout constraint, including the max size, the min size and the reference size for children to calculate percent.
  *
- * @interface LayoutConstraint
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare interface LayoutConstraint {
+
   /**
    * MaxSize
    *
-   * @type { Size }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   maxSize: Size;
@@ -93,8 +95,8 @@ export declare interface LayoutConstraint {
   /**
    * MinSize
    *
-   * @type { Size }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   minSize: Size;
@@ -103,8 +105,8 @@ export declare interface LayoutConstraint {
    * PercentReference, if the size unit of the child nodes is percentage, then they use PercentReference to calculate
    * the px size.
    *
-   * @type { Size }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   percentReference: Size;
@@ -113,67 +115,74 @@ export declare interface LayoutConstraint {
 /**
  * Defines the cross-language options.
  *
- * @interface CrossLanguageOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare interface CrossLanguageOptions {
+
   /**
    * Defines if it enables setting attributes cross-language. Default value is false.
    *
-   * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   attributeSetting?: boolean;
+
+  /**
+   * Defines if it enables tree operations cross-language. Default value is false.
+   * Tree operations include appendChild, removeChild, insertChildAfter, etc.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  treeOperating?: boolean;
 }
 
 /**
  * The interaction event binding status information on the component.
  *
- * @interface InteractionEventBindingInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 24 static
+ * @since 26.0.0 static
  */
-declare interface InteractionEventBindingInfo {
+export declare interface InteractionEventBindingInfo {
+
   /**
    * Whether to bind events declaratively.
    *
-   * @type { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   baseEventRegistered: boolean;
 
   /**
    * Whether to bind events in an imperative FrameNode mode.
    *
-   * @type { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   nodeEventRegistered: boolean;
 
   /**
    * Whether to bind the event as an imperative NativeNode.
    *
-   * @type { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   nativeEventRegistered: boolean;
 
   /**
    * Whether the component binds built-in event.
    *
-   * @type { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   builtInEventRegistered: boolean;
 }
@@ -181,15 +190,17 @@ declare interface InteractionEventBindingInfo {
 /**
  * Enum for the expand mode.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export enum ExpandMode {
+
   /**
    * Do not expand the children of node.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   NOT_EXPAND = 0,
@@ -198,6 +209,7 @@ export enum ExpandMode {
    * Expand the children of node.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   EXPAND = 1,
@@ -206,26 +218,83 @@ export enum ExpandMode {
    * Expand the children of node if needed.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
-  LAZY_EXPAND = 2
+  LAZY_EXPAND = 2,
+
+  /**
+   * Do not expand children of node.
+   * If the FrameNode contains LazyForEach child nodes, child nodes can be obtained directly when nodes in main tree.
+   * When nodes are not in main tree, only a node at corresponding position will be created,
+   * rather than expanding all child nodes.
+   * The child node sequence numbers are calculated based on all child nodes.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  LAZY_NOT_EXPAND = 3
+}
+
+/**
+ * Enum for children count mode.
+ * Specifies how to count children when querying number of child nodes.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export enum ChildrenCountMode {
+
+  /**
+   * Expand mode. When encountering lazy loaded nodes (e.g., LazyForEach),
+   * nodes are expanded and count includes all child nodes.
+   * This is the default behavior.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  ALL_EXPAND = 0,
+
+  /**
+   * Count expanded mode. Does not expand lazy loaded nodes.
+   * Returns count of only currently expanded child nodes. Unexpanded lazy loaded nodes are not included in count.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  ONLY_EXPANDED = 1,
+
+  /**
+   * Count all mode. Does not expand lazy loaded nodes,
+   * but returns count including all potential children (both expanded and unexpanded lazy loaded nodes).
+   * This provides total potential child count without triggering expansion.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  ALL_NOT_EXPAND = 2
 }
 
 /**
  * Enum for the UI state of one component, which is used for handling of state style.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 24 static
+ * @since 26.0.0 static
  */
 export enum UIState {
+
   /**
    * The normal state.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   NORMAL = 0,
 
@@ -234,7 +303,7 @@ export enum UIState {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   PRESSED = 1 << 0,
 
@@ -243,7 +312,7 @@ export enum UIState {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   FOCUSED = 1 << 1,
 
@@ -252,7 +321,7 @@ export enum UIState {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   DISABLED = 1 << 2,
 
@@ -262,9 +331,18 @@ export enum UIState {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
-  SELECTED = 1 << 3
+  SELECTED = 1 << 3,
+
+  /**
+   * The hovered state.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  HOVERED = 1 << 4
 }
 
 /**
@@ -275,32 +353,30 @@ export enum UIState {
  * But, please be awared, for the normal state check, the equal should be used directly.
  * if (currentStates == UIState.NORMAL)
  *
- * @typedef { function } UIStatesChangeHandler
  * @param { FrameNode } node - Current node which is triggering the state change.
  * @param { int } currentUIStates - Current UI states when the handler is triggered.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 24 static
+ * @since 26.0.0 static
  */
 declare type UIStatesChangeHandler = (node: FrameNode, currentUIStates: int) => void;
 
 /**
  * FrameNode options for configuring node creation behavior.
  *
- * @interface FrameNodeOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 24 staticonly
+ * @since 26.0.0 staticonly
  */
 export declare interface FrameNodeOptions {
+
   /**
    * Whether to support multi-threaded operations for the FrameNode.
    * When set to true, the node can be safely used in multi-threaded scenarios.
    *
-   * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 staticonly
+   * @since 26.0.0 staticonly
    */
   supportMultiThread?: boolean;
 }
@@ -313,21 +389,15 @@ export declare interface FrameNodeOptions {
  * @since 23 static
  */
 export declare class FrameNode {
+
   /**
    * Constructor.
    *
    * @param { UIContext } uiContext - uiContext used to create the FrameNode
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
-   */
-  /**
-   * Constructor.
-   *
-   * @param { UIContext } uiContext - uiContext used to create the FrameNode
-   * @param { FrameNodeOptions } [options] - Options for configuring FrameNode creation
+   * @param { FrameNodeOptions } [options] - Options for configuring FrameNode creation [since 26.0.0]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 23 static
    */
   constructor(uiContext: UIContext, options?: FrameNodeOptions);
 
@@ -336,16 +406,18 @@ export declare class FrameNode {
    *
    * @returns { RenderNode | null } - Returns a RenderNode inside the FrameNode, or null if not contained.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   getRenderNode(): RenderNode | null;
 
   /**
-   * Return a flag to indicate whether the current FrameNode can be modified.
-   * Indicates whether the FrameNode supports appendChild, insertChildAfter, removeChild, clearChildren.
+   * Return a flag to indicate whether the current FrameNode can be modified. Indicates whether the FrameNode supports
+   * appendChild, insertChildAfter, removeChild, clearChildren.
    *
    * @returns { boolean } - Returns true if the FrameNode can be modified, otherwise return false.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   isModifiable(): boolean;
@@ -366,6 +438,7 @@ export declare class FrameNode {
    * @throws { BusinessError } 100025 - The parameter is invalid. Details about the invalid parameter and the reason
    *     are included in the error message. For example: "The parameter 'node' is invalid: it cannot be adopted."
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   appendChild(node: FrameNode): void;
@@ -380,12 +453,13 @@ export declare class FrameNode {
    *     If the child node does not meet the specifications, an exception is thrown.
    *     The child node cannot have a parent node. Otherwise, an exception is thrown.
    *     The child node cannot be adopted. Otherwise, an exception is thrown.
-   * @param { FrameNode | null } sibling - The new node is added after this node. When sibling is null, insert node as
-   *     the first children of the node.
+   * @param { FrameNode | null } sibling - The new node is added after this node. When sibling is null, insert
+   *     node as the first children of the node.
    * @throws { BusinessError } 100021 - The FrameNode is not modifiable.
    * @throws { BusinessError } 100025 - The parameter is invalid. Details about the invalid parameter and the reason
    *     are included in the error message. For example: "The parameter 'child' is invalid: it cannot be adopted."
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   insertChildAfter(child: FrameNode, sibling: FrameNode | null): void;
@@ -396,6 +470,7 @@ export declare class FrameNode {
    * @param { FrameNode } node - The node will be removed.
    * @throws { BusinessError } 100021 - The FrameNode is not modifiable.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   removeChild(node: FrameNode): void;
@@ -405,6 +480,7 @@ export declare class FrameNode {
    *
    * @throws { BusinessError } 100021 - The FrameNode is not modifiable.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   clearChildren(): void;
@@ -416,6 +492,7 @@ export declare class FrameNode {
    * @param { ExpandMode | undefined } [expandMode] - The expand mode. Default value is ExpandMode.EXPAND.
    * @returns { FrameNode | null } - Returns a FrameNode. When the required node does not exist, returns null.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   getChild(index: int, expandMode?: ExpandMode | undefined): FrameNode | null;
@@ -425,6 +502,7 @@ export declare class FrameNode {
    *
    * @returns { int } - Returns the index of the current FrameNode's first child node which is on the tree.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   getFirstChildIndexWithoutExpand(): int;
@@ -434,6 +512,7 @@ export declare class FrameNode {
    *
    * @returns { int } - Returns the index of the current FrameNode's last child node which is on the tree.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   getLastChildIndexWithoutExpand(): int;
@@ -441,10 +520,11 @@ export declare class FrameNode {
   /**
    * Get the first child of the current FrameNode.
    *
-   * @returns {  FrameNode | null } - Returns a FrameNode, which is first child of the current FrameNode.
-   * If current FrameNode does not have child node, returns null.
-   * If current FrameNode does not have child node, returns null.
+   * @returns { FrameNode | null } - Returns a FrameNode, which is first child of the current FrameNode.
+   *     If current FrameNode does not have child node, returns null.
+   *     If current FrameNode does not have child node, returns null.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   getFirstChild(): FrameNode | null;
@@ -453,8 +533,9 @@ export declare class FrameNode {
    * Get the next sibling node of the current FrameNode.
    *
    * @returns { FrameNode | null } - Returns a FrameNode. If current FrameNode does not have next sibling node,
-   * returns null.
+   *     returns null.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   getNextSibling(): FrameNode | null;
@@ -463,8 +544,9 @@ export declare class FrameNode {
    * Get the previous sibling node of the current FrameNode.
    *
    * @returns { FrameNode | null } - Returns a FrameNode. If current FrameNode does not have previous sibling node,
-   * returns null.
+   *     returns null.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   getPreviousSibling(): FrameNode | null;
@@ -474,6 +556,7 @@ export declare class FrameNode {
    *
    * @returns { FrameNode | null } - Returns a FrameNode. If current FrameNode does not have parent node, returns null.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   getParent(): FrameNode | null;
@@ -483,9 +566,21 @@ export declare class FrameNode {
    *
    * @returns { int } - Returns the number of the children of the current FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   getChildrenCount(): int;
+
+  /**
+   * Get the children count of the current FrameNode with specified count mode.
+   *
+   * @param { ChildrenCountMode } [countMode] - The children count mode. Default value is ChildrenCountMode.ALL_EXPAND.
+   * @returns { int } - Returns the number of children of the current FrameNode based on the count mode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  getChildrenCount(countMode?: ChildrenCountMode): int;
 
   /**
    * Move node to the target Framenode as child.
@@ -493,7 +588,7 @@ export declare class FrameNode {
    * When targetParent is a typeNode, the API validates the type or number of child nodes.
    * If the validation fails, an exception is thrown. For specific limitations, see typeNode.
    * If this FrameNode is adopted, an exception is thrown.
-   * 
+   *
    * <p><strong>NOTE</strong>:
    * <br>Currently, only the following types of TypedFrameNode are supported for the movement
    * operations: Stack, XComponent.
@@ -504,11 +599,12 @@ export declare class FrameNode {
    *     If it does not meet the specifications, an exception is thrown.
    * @param { int } [index] - The index which the node is moved to. If the value is a negative number or invalid,
    *     the node is moved to the end of the target parent node. Moves to the end of the target parent node by default.
-   *     If the target FrameNode has n nodes, the value range for index is 0 to n-1.
-   *     Default value: -1
+   *     If the target FrameNode has n nodes, the value range for index is [0, n).
+   *     <br>Default value: -1
    * @throws { BusinessError } 100021 - The FrameNode is not modifiable.
    * @throws { BusinessError } 100027 - The current node has been adopted.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   moveTo(targetParent: FrameNode, index?: int): void;
@@ -517,6 +613,7 @@ export declare class FrameNode {
    * Dispose the FrameNode immediately.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   dispose(): void;
@@ -526,6 +623,7 @@ export declare class FrameNode {
    *
    * @returns { NodePosition } - Returns position of the node relative to window.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   getPositionToWindow(): NodePosition;
@@ -535,6 +633,7 @@ export declare class FrameNode {
    *
    * @returns { boolean } - Returns true if the FrameNode is disposed, false otherwise.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   isDisposed(): boolean;
@@ -544,6 +643,7 @@ export declare class FrameNode {
    *
    * @returns { NodePosition } - Returns position of the node relative to its parent.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   getPositionToParent(): NodePosition;
@@ -553,6 +653,7 @@ export declare class FrameNode {
    *
    * @returns { Size } - Returns the size of the FrameNode after measure, with unit PX.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   getMeasuredSize(): Size;
@@ -562,6 +663,7 @@ export declare class FrameNode {
    *
    * @returns { NodePosition } - Returns the offset to the parent of the FrameNode after layout, with unit PX.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   getLayoutPosition(): NodePosition;
@@ -571,6 +673,7 @@ export declare class FrameNode {
    *
    * @returns { NodeEdges<LengthMetrics> } - Returns the user config border width of the FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   getUserConfigBorderWidth(): NodeEdges<LengthMetrics>;
@@ -580,6 +683,7 @@ export declare class FrameNode {
    *
    * @returns { NodeEdges<LengthMetrics> } - Returns the user config padding of the FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   getUserConfigPadding(): NodeEdges<LengthMetrics>;
@@ -589,6 +693,7 @@ export declare class FrameNode {
    *
    * @returns { NodeEdges<LengthMetrics> } - Returns the user config margin of the FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   getUserConfigMargin(): NodeEdges<LengthMetrics>;
@@ -598,6 +703,7 @@ export declare class FrameNode {
    *
    * @returns { SizeT<LengthMetrics> } - Returns the user config size of the FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   getUserConfigSize(): SizeT<LengthMetrics>;
@@ -607,6 +713,7 @@ export declare class FrameNode {
    *
    * @returns { string } - Returns the id of the FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   getId(): string;
@@ -616,6 +723,7 @@ export declare class FrameNode {
    *
    * @returns { int } - Returns the unique id of the FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   getUniqueId(): int;
@@ -626,6 +734,7 @@ export declare class FrameNode {
    *
    * @returns { string } - Returns the type of the FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   getNodeType(): string;
@@ -635,6 +744,7 @@ export declare class FrameNode {
    *
    * @returns { double } - Returns the opacity of the FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   getOpacity(): double;
@@ -644,6 +754,7 @@ export declare class FrameNode {
    *
    * @returns { boolean } - Returns if the FrameNode is visible.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   isVisible(): boolean;
@@ -653,6 +764,7 @@ export declare class FrameNode {
    *
    * @returns { boolean } - Returns if the FrameNode is clip to frame.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   isClipToFrame(): boolean;
@@ -662,6 +774,7 @@ export declare class FrameNode {
    *
    * @returns { boolean } - Returns if the FrameNode is attached to the root node tree.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   isAttached(): boolean;
@@ -671,6 +784,7 @@ export declare class FrameNode {
    *
    * @returns { Object } - Returns the inspector information of the FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   getInspectorInfo(): Object;
@@ -681,6 +795,7 @@ export declare class FrameNode {
    * @param { string } name - the name of the custom property.
    * @returns { CustomProperty } - Returns the value of the custom property.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   getCustomProperty(name: string): CustomProperty;
@@ -689,8 +804,9 @@ export declare class FrameNode {
    * Set commonEvent response to the current FrameNode.
    *
    * @returns { UICommonEvent } - Returns a Object inside the FrameNode, which is used to set callbacks about different
-   * events.
+   *     events.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   get commonEvent(): UICommonEvent;
@@ -699,8 +815,9 @@ export declare class FrameNode {
    * Get gestureEvent of the current FrameNode.
    *
    * @returns { UIGestureEvent } - Returns a Object inside the FrameNode, which is used to set callbacks about different
-   * gesture events.
+   *     gesture events.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   get gestureEvent(): UIGestureEvent;
@@ -709,8 +826,9 @@ export declare class FrameNode {
    * Get the CommonAttribute of the current FrameNode.
    *
    * @returns { CommonAttribute } - Returns the CommonAttribute which is used to modify the common attributes of the
-   * FrameNode.
+   *     FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    * @noninterop
    */
@@ -721,17 +839,19 @@ export declare class FrameNode {
    *
    * @param { DrawContext } context - The DrawContext will be used when executed draw method.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
-  onDraw(context: DrawContext): void
+  onDraw(context: DrawContext): void;
 
   /**
    * Method to measure the FrameNode and its content to determine the measured size. Use this method to override the
    * default measure method when measuring the FrameNode.
    *
    * @param { LayoutConstraint } constraint - The layout constraint of the node, will be used when executed measure
-   * method.
+   *     method.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   onMeasure(constraint: LayoutConstraint): void;
@@ -742,6 +862,7 @@ export declare class FrameNode {
    *
    * @param { NodePosition } position - The position of the node, will be used when executed layout method.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   onLayout(position: NodePosition): void;
@@ -751,6 +872,7 @@ export declare class FrameNode {
    *
    * @param { Size } size - The size of the FrameNode after measure.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   setMeasuredSize(size: Size): void;
@@ -760,6 +882,7 @@ export declare class FrameNode {
    *
    * @param { NodePosition } position - The position to the parent of the FrameNode after layout.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   setLayoutPosition(position: NodePosition): void;
@@ -770,6 +893,7 @@ export declare class FrameNode {
    *
    * @param { LayoutConstraint } constraint - The layout constraint of the node, supplied by the parent node.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   measure(constraint: LayoutConstraint): void;
@@ -781,6 +905,7 @@ export declare class FrameNode {
    *
    * @param { NodePosition } position - The position of the node, will be used when executed the layout method.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   layout(position: NodePosition): void;
@@ -789,6 +914,7 @@ export declare class FrameNode {
    * Mark the frame node as need layout.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   setNeedsLayout(): void;
@@ -797,6 +923,7 @@ export declare class FrameNode {
    * Invalidate the RenderNode in the FrameNode, which will cause a re-render of the RenderNode.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   invalidate(): void;
@@ -806,6 +933,7 @@ export declare class FrameNode {
    *
    * @returns { NodePosition } - Returns position of the node relative to screen.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   getPositionToScreen(): NodePosition;
@@ -815,6 +943,7 @@ export declare class FrameNode {
    *
    * @returns { NodePosition } - Returns position of the node relative to unified display, in vp.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   getGlobalPositionOnDisplay(): NodePosition;
@@ -824,6 +953,7 @@ export declare class FrameNode {
    *
    * @returns { NodePosition } - Returns position of the node relative to window with transform.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   getPositionToWindowWithTransform(): NodePosition;
@@ -833,6 +963,7 @@ export declare class FrameNode {
    *
    * @returns { NodePosition } - Returns position of the node relative to its parent with transform.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   getPositionToParentWithTransform(): NodePosition;
@@ -842,6 +973,7 @@ export declare class FrameNode {
    *
    * @returns { NodePosition } - Returns position of the node relative to screen with transform.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   getPositionToScreenWithTransform(): NodePosition;
@@ -850,6 +982,7 @@ export declare class FrameNode {
    * Detach from parent and dispose all child recursively.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   disposeTree(): void;
@@ -873,7 +1006,7 @@ export declare class FrameNode {
    * @param { boolean } [excludeInner=false] - A flag to disable the system's default style handling for states.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   addSupportedUIStates(uiStates: int, statesChangeHandler: UIStatesChangeHandler, excludeInner?: boolean): void;
 
@@ -884,26 +1017,21 @@ export declare class FrameNode {
    * @param { int } uiStates - The target UI states to remove handlers from.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   removeSupportedUIStates(uiStates: int): void;
 
   /**
    * Mount ComponentContent to FrameNode.
-   * 
-   * @param { ComponentContent<T> } content - Newly added ComponentContent.
-   * @throws { BusinessError } 100021 - The FrameNode is not modifiable.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
-   */
-  /**
-   * Mount ComponentContent and ReactiveComponentContent to FrameNode.
-   * 
+   * On API 26.0.0 and above, It can also mount ComponentContent and ReactiveComponentContent to FrameNode.
+   *
    * @param { ComponentContent<T> | ReactiveComponentContent } content - Newly added ComponentContent or
-   *     ReactiveComponentContent.
+   *     ReactiveComponentContent. [since 26.0.0]
+   * @param { ComponentContent<T> } content - Newly added ComponentContent. [since 23 - 24]
    * @throws { BusinessError } 100021 - The FrameNode is not modifiable.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 24 static
+   * @stagemodelonly
+   * @since 23 static
    */
   addComponentContent<T>(content: ComponentContent<T> | ReactiveComponentContent): void;
 
@@ -914,6 +1042,7 @@ export declare class FrameNode {
    * @throws { BusinessError } 100022 - The FrameNode cannot be set whether to support cross-language common attribute
    *     setting.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   setCrossLanguageOptions(value: CrossLanguageOptions): void;
@@ -923,6 +1052,7 @@ export declare class FrameNode {
    *
    * @returns { CrossLanguageOptions } - Returns the cross-language options of the target FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   getCrossLanguageOptions(): CrossLanguageOptions;
@@ -931,6 +1061,7 @@ export declare class FrameNode {
    * Recycle current FrameNode From JsFrameNode.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   recycle(): void;
@@ -939,6 +1070,7 @@ export declare class FrameNode {
    * Reuse current FrameNode From JsFrameNode.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   reuse(): void;
@@ -982,7 +1114,7 @@ export declare class FrameNode {
    *     events binded on current node, returns undefined if no one binded on.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   getInteractionEventBindingInfo(eventType: EventQueryType): InteractionEventBindingInfo | undefined;
 
@@ -1013,6 +1145,7 @@ export declare class FrameNode {
    * @returns { boolean } - whether the cancel operation is successful. For example,
    *     if ipc fails, canceling the animation fails.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   cancelAnimations(properties: AnimationPropertyType[]): boolean;
@@ -1023,19 +1156,21 @@ export declare class FrameNode {
    * @param { AnimationPropertyType } property - animation property type to get value.
    * @returns { double[] } - the property value on the node.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   getNodePropertyValue(property: AnimationPropertyType): double[];
 
   /**
-  * Returns a flag indicating whether the current FrameNode was obtained through dynamic-static conversion,
-  * includes conversions in both directions: dynamic-to-static and static-to-dynamic.
-  *
-  * @returns { boolean } - Returns true if the FrameNode was converted between dynamic and static states,
-  * otherwise returns false.
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @since 23 static
-  */
+   * Returns a flag indicating whether the current FrameNode was obtained through dynamic-static conversion,
+   * includes conversions in both directions: dynamic-to-static and static-to-dynamic.
+   *
+   * @returns { boolean } - Returns true if the FrameNode was converted between dynamic and static states,
+   *     otherwise, returns false.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
   isTransferred(): boolean;
 
   /**
@@ -1045,12 +1180,13 @@ export declare class FrameNode {
    * @param { NodePosition } position - The point's coordinates in the current node's local coordinate system.
    * @param { FrameNode } targetNode - The destination node whose coordinate system will be used
    *     for conversion.
-   * @returns { NodePosition } The converted coordinates in the target node's local coordinate system.
+   * @returns { NodePosition } - The converted coordinates in the target node's local coordinate system.
    * @throws { BusinessError } 100024 - The current FrameNode and the target FrameNode do not have a common ancestor
    *     node.
    * @throws { BusinessError } 100025 - The parameter is invalid. Details about the invalid parameter and the reason
    *     are included in the error message. For example: "The parameter 'targetNode' is invalid: it cannot be disposed."
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   convertPosition(position: NodePosition, targetNode: FrameNode): NodePosition;
@@ -1086,9 +1222,11 @@ export declare class FrameNode {
   /**
    * Get if the FrameNode is in the render state. A FrameNode is considered to be in the render state if its
    * corresponding RenderNode is on the render tree.
+   *
    * @returns { boolean } - Returns whether the node is in the render state. True indicates it is in the
    *     render state, while false indicates it is not.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   isInRenderState(): boolean;
@@ -1111,7 +1249,6 @@ export declare class FrameNode {
    * @param { int } count - the number of FrameNode objects to create.
    *     Returns an empty array if count <= 0 or is not an integer.
    * @returns { FrameNode[] } the array of created FrameNode objects.
-   * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.0.0 static
@@ -1133,6 +1270,7 @@ export declare class FrameNode {
    * Get FrameNode by uniqueId.
    * Obtains the entity node, FrameNode, of a component on the component tree using its uniqueId.
    * The return value depends on the type of component associated with the uniqueId.
+   *
    * 1. If the uniqueId corresponds to a built-in component, the associated FrameNode is returned.
    * 2. If the uniqueId corresponds to a custom component: If the component has rendered content, its root node is
    * returned, with the type __Common__; if the component has no rendered content, the FrameNode of its first child
@@ -1149,59 +1287,73 @@ export declare class FrameNode {
 
   /**
    * Triggers node updates in the current frame.
-   * 
+   *
    * When node attributes are modified after the current frame's build phase,
    * the node updates will be deferred to the next
    * frame. This function forces immediate node updates within the current frame to
    * ensure rendering effects are applied synchronously.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
-   */ 
+   */
   invalidateAttributes(): void;
+
+  /**
+   * Get whether the current FrameNode is a minimized FrameNode.
+   *
+   * @returns { boolean } - Returns true when the current FrameNode is a minimized FrameNode,
+   *     otherwise returns false.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 staticonly
+   */
+  isMinimized(): boolean;
 }
 
 /**
  * Used to define the FrameNode type.
  *
- * @extends FrameNode
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare abstract class TypedFrameNode<T> extends FrameNode {
-    /**
-     * Get attribute instance of FrameNode to set attributes.
-     *
-     * @returns { T } - Returns the attribute instance of FrameNode.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
-     */
-    get attribute(): T;
+
+  /**
+   * Get attribute instance of FrameNode to set attributes.
+   *
+   * @returns { T } - Returns the attribute instance of FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  get attribute(): T;
 }
 
 /**
  * Provides methods to implement FrameNode.
  *
- * @namespace typeNode
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 23 static
  * @stagemodelonly
+ * @since 23 static
  * @noninterop
  */
 export declare namespace typeNode {
+
   /**
    * Define the Column type of FrameNode.
    *
-   * @extends TypedFrameNode<ColumnAttribute>
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
-  abstract class ColumnFrameNode extends TypedFrameNode<ColumnAttribute> {  
+  abstract class ColumnFrameNode extends TypedFrameNode<ColumnAttribute> {
+
     /**
      * Initialize Column FrameNode.
      *
-     * @param { ColumnOptions | ColumnOptionsV2} [options] - Column options.
+     * @param { ColumnOptions | ColumnOptionsV2 } [options] - Column options.
      * @returns { ColumnAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -1213,29 +1365,22 @@ export declare namespace typeNode {
   /**
    * Define the FrameNode type for Column.
    *
-   * @typedef { ColumnFrameNode } Column
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   type Column = ColumnFrameNode;
 
   /**
    * Create a FrameNode of Column type.
+   * On API 26.0.0 and above, It can also create a FrameNode of Column type with options.
    *
    * @param { UIContext } context - uiContext used to create the FrameNode.
-   * @returns { Column } - Return Column type FrameNode.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
-   */
-  /**
-   * Create a FrameNode of Column type with options.
-   *
-   * @param { UIContext } context - uiContext used to create the FrameNode.
-   * @param { FrameNodeOptions } [options] - Options for configuring FrameNode creation.
+   * @param { FrameNodeOptions } [options] - Options for configuring FrameNode creation. [since 26.0.0]
    * @returns { Column } - Return Column type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 23 static
    */
   export function createColumnNode(context: UIContext, options?: FrameNodeOptions): Column;
 
@@ -1246,6 +1391,7 @@ export declare namespace typeNode {
    * @returns { ColumnAttribute | undefined } - Return the attribute instance of FrameNode, and return undefined if it
    *     does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   export function getColumnAttribute(node: FrameNode): ColumnAttribute | undefined;
@@ -1253,16 +1399,16 @@ export declare namespace typeNode {
   /**
    * Define the Row type of FrameNode.
    *
-   * @extends TypedFrameNode<RowAttribute>
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
-  abstract class RowFrameNode extends TypedFrameNode<RowAttribute> {  
+  abstract class RowFrameNode extends TypedFrameNode<RowAttribute> {
+
     /**
      * Initialize Row FrameNode.
      *
-     * @param { RowOptions | RowOptionsV2} [options] - Row options.
+     * @param { RowOptions | RowOptionsV2 } [options] - Row options.
      * @returns { RowAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -1274,29 +1420,22 @@ export declare namespace typeNode {
   /**
    * Define the FrameNode type for Row.
    *
-   * @typedef { RowFrameNode } Row
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   type Row = RowFrameNode;
 
   /**
    * Create a FrameNode of Row type.
+   * On API 26.0.0 and above, It can also create a FrameNode of Row type with options.
    *
    * @param { UIContext } context - uiContext used to create the FrameNode.
-   * @returns { Row } - Return Row type FrameNode.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
-   */
-  /**
-   * Create a FrameNode of Row type with options.
-   *
-   * @param { UIContext } context - uiContext used to create the FrameNode.
-   * @param { FrameNodeOptions } [options] - Options for configuring FrameNode creation.
+   * @param { FrameNodeOptions } [options] - Options for configuring FrameNode creation. [since 26.0.0]
    * @returns { Row } - Return Row type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 23 static
    */
   export function createRowNode(context: UIContext, options?: FrameNodeOptions): Row;
 
@@ -1307,6 +1446,7 @@ export declare namespace typeNode {
    * @returns { RowAttribute | undefined } - Return the attribute instance of FrameNode, and return undefined if it
    *     does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   export function getRowAttribute(node: FrameNode): RowAttribute | undefined;
@@ -1314,12 +1454,12 @@ export declare namespace typeNode {
   /**
    * Define the Stack type of FrameNode.
    *
-   * @extends TypedFrameNode<StackAttribute>
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
-  abstract class StackFrameNode extends TypedFrameNode<StackAttribute> {  
+  abstract class StackFrameNode extends TypedFrameNode<StackAttribute> {
+
     /**
      * Initialize Stack FrameNode.
      *
@@ -1335,29 +1475,22 @@ export declare namespace typeNode {
   /**
    * Define the FrameNode type for Stack.
    *
-   * @typedef { StackFrameNode } Stack
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   type Stack = StackFrameNode;
 
   /**
    * Create a FrameNode of Stack type.
+   * On API 26.0.0 and above, It can also create a FrameNode of Stack type with options.
    *
    * @param { UIContext } context - uiContext used to create the FrameNode.
-   * @returns { Stack } - Return Stack type FrameNode.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
-   */
-  /**
-   * Create a FrameNode of Stack type with options.
-   *
-   * @param { UIContext } context - uiContext used to create the FrameNode.
-   * @param { FrameNodeOptions } [options] - Options for configuring FrameNode creation.
+   * @param { FrameNodeOptions } [options] - Options for configuring FrameNode creation. [since 26.0.0]
    * @returns { Stack } - Return Stack type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 23 static
    */
   export function createStackNode(context: UIContext, options?: FrameNodeOptions): Stack;
 
@@ -1368,6 +1501,7 @@ export declare namespace typeNode {
    * @returns { StackAttribute | undefined } - Return the attribute instance of FrameNode, and return undefined if it
    *     does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   export function getStackAttribute(node: FrameNode): StackAttribute | undefined;
@@ -1375,12 +1509,12 @@ export declare namespace typeNode {
   /**
    * Define the GridRow type of FrameNode.
    *
-   * @extends TypedFrameNode<GridRowAttribute>
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
-  abstract class GridRowFrameNode extends TypedFrameNode<GridRowAttribute> {  
+  abstract class GridRowFrameNode extends TypedFrameNode<GridRowAttribute> {
+
     /**
      * Initialize GridRow FrameNode.
      *
@@ -1396,8 +1530,8 @@ export declare namespace typeNode {
   /**
    * Define the FrameNode type for GridRow.
    *
-   * @typedef { GridRowFrameNode } GridRow
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   type GridRow = GridRowFrameNode;
@@ -1408,19 +1542,20 @@ export declare namespace typeNode {
    * @param { UIContext } context - uiContext used to create the FrameNode.
    * @returns { GridRow } - Return GridRow type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @stagemodelonly
+   * @since 26.0.0 static
    */
   export function createGridRowNode(context: UIContext): GridRow;
 
   /**
    * Define the GridCol type of FrameNode.
    *
-   * @extends TypedFrameNode<GridColAttribute>
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
-  abstract class GridColFrameNode extends TypedFrameNode<GridColAttribute> {  
+  abstract class GridColFrameNode extends TypedFrameNode<GridColAttribute> {
+
     /**
      * Initialize GridCol FrameNode.
      *
@@ -1436,8 +1571,8 @@ export declare namespace typeNode {
   /**
    * Define the FrameNode type for GridCol.
    *
-   * @typedef { GridColFrameNode } GridCol
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   type GridCol = GridColFrameNode;
@@ -1448,6 +1583,7 @@ export declare namespace typeNode {
    * @param { UIContext } context - uiContext used to create the FrameNode.
    * @returns { GridCol } - Return GridCol type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   export function createGridColNode(context: UIContext): GridCol;
@@ -1455,12 +1591,12 @@ export declare namespace typeNode {
   /**
    * Define the Flex type of FrameNode.
    *
-   * @extends TypedFrameNode<FlexAttribute>
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
-  abstract class FlexFrameNode extends TypedFrameNode<FlexAttribute> {  
+  abstract class FlexFrameNode extends TypedFrameNode<FlexAttribute> {
+
     /**
      * Initialize Flex FrameNode.
      *
@@ -1476,29 +1612,22 @@ export declare namespace typeNode {
   /**
    * Define the FrameNode type for Flex.
    *
-   * @typedef { FlexFrameNode } Flex
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   type Flex = FlexFrameNode;
 
   /**
    * Create a FrameNode of Flex type.
+   * On API 26.0.0 and above, It can also create a FrameNode of Flex type with options.
    *
    * @param { UIContext } context - uiContext used to create the FrameNode.
-   * @returns { Flex } - Return Flex type FrameNode.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
-   */
-  /**
-   * Create a FrameNode of Flex type with options.
-   *
-   * @param { UIContext } context - uiContext used to create the FrameNode.
-   * @param { FrameNodeOptions } [options] - Options for configuring FrameNode creation.
+   * @param { FrameNodeOptions } [options] - Options for configuring FrameNode creation. [since 26.0.0]
    * @returns { Flex } - Return Flex type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 23 static
    */
   export function createFlexNode(context: UIContext, options?: FrameNodeOptions): Flex;
 
@@ -1509,6 +1638,7 @@ export declare namespace typeNode {
    * @returns { FlexAttribute | undefined } - Return the attribute instance of FrameNode, and return undefined if it
    *     does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   export function getFlexAttribute(node: FrameNode): FlexAttribute | undefined;
@@ -1516,12 +1646,12 @@ export declare namespace typeNode {
   /**
    * Define the RelativeContainer type of FrameNode.
    *
-   * @extends TypedFrameNode<RelativeContainerAttribute>
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
-  abstract class RelativeContainerFrameNode extends TypedFrameNode<RelativeContainerAttribute> {  
+  abstract class RelativeContainerFrameNode extends TypedFrameNode<RelativeContainerAttribute> {
+
     /**
      * Initialize RelativeContainer FrameNode.
      *
@@ -1536,29 +1666,22 @@ export declare namespace typeNode {
   /**
    * Define the FrameNode type for RelativeContainer.
    *
-   * @typedef { RelativeContainerFrameNode } RelativeContainer
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   type RelativeContainer = RelativeContainerFrameNode;
 
   /**
    * Create a FrameNode of RelativeContainer type.
+   * On API 26.0.0 and above, It can also create a FrameNode of RelativeContainer type with options.
    *
    * @param { UIContext } context - uiContext used to create the FrameNode.
-   * @returns { RelativeContainer } - Return RelativeContainer type FrameNode.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
-   */
-  /**
-   * Create a FrameNode of RelativeContainer type with options.
-   *
-   * @param { UIContext } context - uiContext used to create the FrameNode.
-   * @param { FrameNodeOptions } [options] - Options for configuring FrameNode creation.
+   * @param { FrameNodeOptions } [options] - Options for configuring FrameNode creation. [since 26.0.0]
    * @returns { RelativeContainer } - Return RelativeContainer type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 23 static
    */
   export function createRelativeContainerNode(context: UIContext, options?: FrameNodeOptions): RelativeContainer;
 
@@ -1569,6 +1692,7 @@ export declare namespace typeNode {
    * @returns { RelativeContainerAttribute | undefined } - Return the attribute instance of FrameNode, and return
    *     undefined if it does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   export function getRelativeContainerAttribute(node: FrameNode): RelativeContainerAttribute | undefined;
@@ -1576,12 +1700,12 @@ export declare namespace typeNode {
   /**
    * Define the Divider type of FrameNode.
    *
-   * @extends TypedFrameNode<DividerAttribute>
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
-  abstract class DividerFrameNode extends TypedFrameNode<DividerAttribute> {  
+  abstract class DividerFrameNode extends TypedFrameNode<DividerAttribute> {
+
     /**
      * Initialize Divider FrameNode.
      *
@@ -1596,8 +1720,8 @@ export declare namespace typeNode {
   /**
    * Define the FrameNode type for Divider.
    *
-   * @typedef { DividerFrameNode } Divider
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   type Divider = DividerFrameNode;
@@ -1608,6 +1732,7 @@ export declare namespace typeNode {
    * @param { UIContext } context - uiContext used to create the FrameNode.
    * @returns { Divider } - Return Divider type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   export function createDividerNode(context: UIContext): Divider;
@@ -1615,12 +1740,12 @@ export declare namespace typeNode {
   /**
    * Define the LoadingProgress type of FrameNode.
    *
-   * @extends TypedFrameNode<LoadingProgressAttribute>
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
-  abstract class LoadingProgressFrameNode extends TypedFrameNode<LoadingProgressAttribute> {  
+  abstract class LoadingProgressFrameNode extends TypedFrameNode<LoadingProgressAttribute> {
+
     /**
      * Initialize LoadingProgress FrameNode.
      *
@@ -1635,29 +1760,22 @@ export declare namespace typeNode {
   /**
    * Define the FrameNode type for LoadingProgress.
    *
-   * @typedef { LoadingProgressFrameNode } LoadingProgress
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   type LoadingProgress = LoadingProgressFrameNode;
 
   /**
    * Create a FrameNode of LoadingProgress type.
+   * On API 26.0.0 and above, It can also create a FrameNode of LoadingProgress type with options.
    *
    * @param { UIContext } context - uiContext used to create the FrameNode.
-   * @returns { LoadingProgress } - Return LoadingProgress type FrameNode.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
-   */
-  /**
-   * Create a FrameNode of LoadingProgress type with options.
-   *
-   * @param { UIContext } context - uiContext used to create the FrameNode.
-   * @param { FrameNodeOptions } [options] - Options for configuring FrameNode creation.
+   * @param { FrameNodeOptions } [options] - Options for configuring FrameNode creation. [since 26.0.0]
    * @returns { LoadingProgress } - Return LoadingProgress type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 23 static
    */
   export function createLoadingProgressNode(context: UIContext, options?: FrameNodeOptions): LoadingProgress;
 
@@ -1665,9 +1783,10 @@ export declare namespace typeNode {
    * Get the attribute instance of FrameNode to set attributes.
    *
    * @param { FrameNode } node - the target FrameNode.
-   * @returns { LoadingProgressAttribute | undefined } - Return the attribute instance of FrameNode, 
+   * @returns { LoadingProgressAttribute | undefined } - Return the attribute instance of FrameNode,
    *     and return undefined if it does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   export function getLoadingProgressAttribute(node: FrameNode): LoadingProgressAttribute | undefined;
@@ -1675,16 +1794,16 @@ export declare namespace typeNode {
   /**
    * Define the Blank type of FrameNode.
    *
-   * @extends TypedFrameNode<BlankAttribute>
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
-  abstract class BlankFrameNode extends TypedFrameNode<BlankAttribute> {  
+  abstract class BlankFrameNode extends TypedFrameNode<BlankAttribute> {
+
     /**
      * Initialize Blank FrameNode.
      *
-     * @param { double | string} [min] - Blank options.
+     * @param { double | string } [min] - Blank options.
      * @returns { BlankAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -1696,8 +1815,8 @@ export declare namespace typeNode {
   /**
    * Define the FrameNode type for Blank.
    *
-   * @typedef { BlankFrameNode } Blank
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   type Blank = BlankFrameNode;
@@ -1708,6 +1827,7 @@ export declare namespace typeNode {
    * @param { UIContext } context - uiContext used to create the FrameNode.
    * @returns { Blank } - Return Blank type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   export function createBlankNode(context: UIContext): Blank;
@@ -1715,12 +1835,12 @@ export declare namespace typeNode {
   /**
    * Define the Image type of FrameNode.
    *
-   * @extends TypedFrameNode<ImageAttribute>
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
-  abstract class ImageFrameNode extends TypedFrameNode<ImageAttribute> {  
+  abstract class ImageFrameNode extends TypedFrameNode<ImageAttribute> {
+
     /**
      * Initialize Image FrameNode.
      *
@@ -1731,7 +1851,7 @@ export declare namespace typeNode {
      * @since 23 static
      */
     abstract initialize(src: image.PixelMap | ResourceStr | DrawableDescriptor): ImageAttribute;
-    
+
     /**
      * Initialize Image FrameNode.
      *
@@ -1742,7 +1862,7 @@ export declare namespace typeNode {
      * @since 23 static
      */
     abstract initialize(src: image.PixelMap | ResourceStr | DrawableDescriptor | ImageContent): ImageAttribute;
-    
+
     /**
      * Initialize Image FrameNode.
      *
@@ -1759,29 +1879,22 @@ export declare namespace typeNode {
   /**
    * Define the FrameNode type for Image.
    *
-   * @typedef { ImageFrameNode } Image
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   type Image = ImageFrameNode;
 
   /**
    * Create a FrameNode of Image type.
+   * On API 26.0.0 and above, It can also create a FrameNode of Image type with options.
    *
    * @param { UIContext } context - uiContext used to create the FrameNode.
-   * @returns { Image } - Return Image type FrameNode.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
-   */
-  /**
-   * Create a FrameNode of Image type with options.
-   *
-   * @param { UIContext } context - uiContext used to create the FrameNode.
-   * @param { FrameNodeOptions } [options] - Options for configuring FrameNode creation.
+   * @param { FrameNodeOptions } [options] - Options for configuring FrameNode creation. [since 26.0.0]
    * @returns { Image } - Return Image type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 23 static
    */
   export function createImageNode(context: UIContext, options?: FrameNodeOptions): Image;
 
@@ -1792,21 +1905,22 @@ export declare namespace typeNode {
    * @returns { ImageAttribute | undefined } - Return the attribute instance of FrameNode, and return undefined if it
    *     does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
-   */ 
+   */
   export function getImageAttribute(node: FrameNode): ImageAttribute | undefined;
 
   /**
    * Define the List type of FrameNode.
    *
-   * @extends TypedFrameNode<ListAttribute>
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
-  abstract class ListFrameNode extends TypedFrameNode<ListAttribute> {  
+  abstract class ListFrameNode extends TypedFrameNode<ListAttribute> {
+
     /**
-     * Initialize FrameNode.
+     * Initialize List FrameNode.
      *
      * @param { ListOptions } [options] - list options
      * @returns { ListAttribute }
@@ -1820,29 +1934,22 @@ export declare namespace typeNode {
   /**
    * Define the FrameNode type for List.
    *
-   * @typedef { ListFrameNode } List
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   type List = ListFrameNode;
 
   /**
    * Create a FrameNode of List type.
+   * On API 26.0.0 and above, It can also create a FrameNode of List type with options.
    *
    * @param { UIContext } context - uiContext used to create the FrameNode.
-   * @returns { List } - Return List type FrameNode.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
-   */
-  /**
-   * Create a FrameNode of List type with options.
-   *
-   * @param { UIContext } context - uiContext used to create the FrameNode.
-   * @param { FrameNodeOptions } [options] - Options for configuring FrameNode creation.
+   * @param { FrameNodeOptions } [options] - Options for configuring FrameNode creation. [since 26.0.0]
    * @returns { List } - Return List type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 23 static
    */
   export function createListNode(context: UIContext, options?: FrameNodeOptions): List;
 
@@ -1853,7 +1960,8 @@ export declare namespace typeNode {
    * @returns { ListAttribute | undefined } - Return the attribute instance of FrameNode, and return undefined if it
    *     does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 24 static
+   * @stagemodelonly
+   * @since 26.0.0 static
    */
   export function getListAttribute(node: FrameNode): ListAttribute | undefined;
 
@@ -1864,7 +1972,8 @@ export declare namespace typeNode {
    * @returns { UIListEvent | undefined } - Return the event instance of FrameNode, and return undefined if it
    *     does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 24 static
+   * @stagemodelonly
+   * @since 26.0.0 static
    */
   export function getListEvent(node: FrameNode): UIListEvent | undefined;
 
@@ -1875,23 +1984,21 @@ export declare namespace typeNode {
    * @param { Scroller } controller - the controller which is bind to the target FrameNode.
    * @throws { BusinessError } 100023 - Parameter error. Possible causes: 1. The component type of the node
    *     is incorrect. 2. The node is null or undefined. 3. The controller is null or undefined.
-   * @throws { BusinessError } 100021 - The FrameNode is not modifiable. Introduced in API version 24 and will not be
-   *     threw above API version 24. [since 24 - 24]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   export function bindListController(node: FrameNode, controller: Scroller): void;
 
   /**
    * Define the ListItem type of FrameNode.
    *
-   * @extends TypedFrameNode<ListItemAttribute>
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
   abstract class ListItemFrameNode extends TypedFrameNode<ListItemAttribute> {
+
     /**
      * Initialize ListItem FrameNode.
      *
@@ -1907,29 +2014,22 @@ export declare namespace typeNode {
   /**
    * Define the FrameNode type for ListItem.
    *
-   * @typedef { ListItemFrameNode } ListItem
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   type ListItem = ListItemFrameNode;
 
   /**
    * Create a FrameNode of ListItem type.
+   * On API 26.0.0 and above, It can also create a FrameNode of ListItem type with options.
    *
    * @param { UIContext } context - uiContext used to create the FrameNode.
-   * @returns { ListItem } - Return ListItem type FrameNode.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
-   */
-  /**
-   * Create a FrameNode of ListItem type with options.
-   *
-   * @param { UIContext } context - uiContext used to create the FrameNode.
-   * @param { FrameNodeOptions } [options] - Options for configuring FrameNode creation.
+   * @param { FrameNodeOptions } [options] - Options for configuring FrameNode creation. [since 26.0.0]
    * @returns { ListItem } - Return ListItem type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 23 static
    */
   export function createListItemNode(context: UIContext, options?: FrameNodeOptions): ListItem;
 
@@ -1940,19 +2040,20 @@ export declare namespace typeNode {
    * @returns { ListItemAttribute | undefined } - Return the attribute instance of FrameNode, and return undefined if it
    *     does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 24 static
+   * @stagemodelonly
+   * @since 26.0.0 static
    */
   export function getListItemAttribute(node: FrameNode): ListItemAttribute | undefined;
 
   /**
    * Define the ListItemGroup type of FrameNode.
    *
-   * @extends TypedFrameNode<ListItemGroupAttribute>
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
   abstract class ListItemGroupFrameNode extends TypedFrameNode<ListItemGroupAttribute> {
+
     /**
      * Initialize ListItemGroup FrameNode.
      *
@@ -1968,29 +2069,22 @@ export declare namespace typeNode {
   /**
    * Define the FrameNode type for ListItemGroup.
    *
-   * @typedef { ListItemGroupFrameNode } ListItemGroup
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   type ListItemGroup = ListItemGroupFrameNode;
 
   /**
    * Create a FrameNode of ListItemGroup type.
+   * On API 26.0.0 and above, It can also create a FrameNode of ListItemGroup type.
    *
    * @param { UIContext } context - uiContext used to create the FrameNode.
-   * @returns { ListItemGroup } - Return ListItemGroup type FrameNode.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
-   */
-  /**
-   * Create a FrameNode of ListItemGroup type with options.
-   *
-   * @param { UIContext } context - uiContext used to create the FrameNode.
-   * @param { FrameNodeOptions } [options] - Options for configuring FrameNode creation.
+   * @param { FrameNodeOptions } [options] - Options for configuring FrameNode creation. [since 26.0.0]
    * @returns { ListItemGroup } - Return ListItemGroup type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 23 static
    */
   export function createListItemGroupNode(context: UIContext, options?: FrameNodeOptions): ListItemGroup;
 
@@ -1999,21 +2093,22 @@ export declare namespace typeNode {
    *
    * @param { FrameNode } node - the target FrameNode.
    * @returns { ListItemGroupAttribute | undefined } - Return the attribute instance of FrameNode,
-   *      and return undefined if it does not exist.
+   *     and return undefined if it does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 24 static
+   * @stagemodelonly
+   * @since 26.0.0 static
    */
   export function getListItemGroupAttribute(node: FrameNode): ListItemGroupAttribute | undefined;
 
   /**
    * Define the Progress type of FrameNode.
    *
-   * @extends TypedFrameNode<ProgressAttribute>
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
-  abstract class ProgressFrameNode extends TypedFrameNode<ProgressAttribute> {  
+  abstract class ProgressFrameNode extends TypedFrameNode<ProgressAttribute> {
+
     /**
      * Initialize Progress FrameNode.
      *
@@ -2029,29 +2124,22 @@ export declare namespace typeNode {
   /**
    * Define the FrameNode type for Progress.
    *
-   * @typedef { ProgressFrameNode } Progress
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   type Progress = ProgressFrameNode;
 
   /**
    * Create a FrameNode of Progress type.
+   * On API 26.0.0 and above, It can also create a FrameNode of Progress type with options.
    *
    * @param { UIContext } context - uiContext used to create the FrameNode.
-   * @returns { Progress } - Return Progress type FrameNode.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
-   */
-  /**
-   * Create a FrameNode of Progress type with options.
-   *
-   * @param { UIContext } context - uiContext used to create the FrameNode.
-   * @param { FrameNodeOptions } [options] - Options for configuring FrameNode creation.
+   * @param { FrameNodeOptions } [options] - Options for configuring FrameNode creation. [since 26.0.0]
    * @returns { Progress } - Return Progress type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 23 static
    */
   export function createProgressNode(context: UIContext, options?: FrameNodeOptions): Progress;
 
@@ -2062,6 +2150,7 @@ export declare namespace typeNode {
    * @returns { ProgressAttribute | undefined } - Return the attribute instance of FrameNode, and return undefined if it
    *     does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   export function getProgressAttribute(node: FrameNode): ProgressAttribute | undefined;
@@ -2069,12 +2158,12 @@ export declare namespace typeNode {
   /**
    * Define the Scroll type of FrameNode.
    *
-   * @extends TypedFrameNode<ScrollAttribute>
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
   abstract class ScrollFrameNode extends TypedFrameNode<ScrollAttribute> {
+
     /**
      * Initialize Scroll FrameNode.
      *
@@ -2090,29 +2179,22 @@ export declare namespace typeNode {
   /**
    * Define the FrameNode type for Scroll.
    *
-   * @typedef { ScrollFrameNode } Scroll
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   type Scroll = ScrollFrameNode;
 
   /**
    * Create a FrameNode of Scroll type.
+   * On API 26.0.0 and above, It can also create a FrameNode of Scroll type with options.
    *
    * @param { UIContext } context - uiContext used to create the FrameNode.
-   * @returns { Scroll } - Return Scroll type FrameNode.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
-   */
-  /**
-   * Create a FrameNode of Scroll type with options.
-   *
-   * @param { UIContext } context - uiContext used to create the FrameNode.
-   * @param { FrameNodeOptions } [options] - Options for configuring FrameNode creation.
+   * @param { FrameNodeOptions } [options] - Options for configuring FrameNode creation. [since 26.0.0]
    * @returns { Scroll } - Return Scroll type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 23 static
    */
   export function createScrollNode(context: UIContext, options?: FrameNodeOptions): Scroll;
 
@@ -2123,10 +2205,9 @@ export declare namespace typeNode {
    * @param { Scroller } controller - the controller which is bind to the target FrameNode.
    * @throws { BusinessError } 100023 - Parameter error. Possible causes: 1. The component type of the node
    *     is incorrect. 2. The node is null or undefined. 3. The controller is null or undefined.
-   * @throws { BusinessError } 100021 - The FrameNode is not modifiable. Introduced in API version 24 and will not be
-   *     threw above API version 24. [since 24 - 24]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 24 static
+   * @stagemodelonly
+   * @since 26.0.0 static
    */
   export function bindScrollController(node: FrameNode, controller: Scroller): void;
 
@@ -2137,7 +2218,8 @@ export declare namespace typeNode {
    * @returns { ScrollAttribute | undefined } - Return the attribute instance of FrameNode, and return undefined if it
    *     does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 24 static
+   * @stagemodelonly
+   * @since 26.0.0 static
    */
   export function getScrollAttribute(node: FrameNode): ScrollAttribute | undefined;
 
@@ -2148,19 +2230,20 @@ export declare namespace typeNode {
    * @returns { UIScrollEvent | undefined } - Return the event instance of FrameNode, and return undefined if it
    *     does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 24 static
+   * @stagemodelonly
+   * @since 26.0.0 static
    */
   export function getScrollEvent(node: FrameNode): UIScrollEvent | undefined;
 
   /**
    * Define the TextClock type of FrameNode.
    *
-   * @extends TypedFrameNode<TextClockAttribute>
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
-  abstract class TextClockFrameNode extends TypedFrameNode<TextClockAttribute> {  
+  abstract class TextClockFrameNode extends TypedFrameNode<TextClockAttribute> {
+
     /**
      * Initialize TextClock FrameNode.
      *
@@ -2176,8 +2259,8 @@ export declare namespace typeNode {
   /**
    * Define the FrameNode type for TextClock.
    *
-   * @typedef { TextClockFrameNode } TextClock
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   type TextClock = TextClockFrameNode;
@@ -2188,6 +2271,7 @@ export declare namespace typeNode {
    * @param { UIContext } context - uiContext used to create the FrameNode.
    * @returns { TextClock } - Return TextClock type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   export function createTextClockNode(context: UIContext): TextClock;
@@ -2195,12 +2279,12 @@ export declare namespace typeNode {
   /**
    * Define the TextTimer type of FrameNode.
    *
-   * @extends TypedFrameNode<TextTimerAttribute>
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
-  abstract class TextTimerFrameNode extends TypedFrameNode<TextTimerAttribute> {  
+  abstract class TextTimerFrameNode extends TypedFrameNode<TextTimerAttribute> {
+
     /**
      * Initialize TextTimer FrameNode.
      *
@@ -2216,8 +2300,8 @@ export declare namespace typeNode {
   /**
    * Define the FrameNode type for TextTimer.
    *
-   * @typedef { TextTimerFrameNode } TextTimer
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   type TextTimer = TextTimerFrameNode;
@@ -2228,6 +2312,7 @@ export declare namespace typeNode {
    * @param { UIContext } context - uiContext used to create the FrameNode.
    * @returns { TextTimer } - Return TextTimer type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   export function createTextTimerNode(context: UIContext): TextTimer;
@@ -2235,12 +2320,12 @@ export declare namespace typeNode {
   /**
    * Define the Grid type of FrameNode.
    *
-   * @extends TypedFrameNode<GridAttribute>
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
   abstract class GridFrameNode extends TypedFrameNode<GridAttribute> {
+
     /**
      * Initialize Grid FrameNode.
      *
@@ -2257,29 +2342,22 @@ export declare namespace typeNode {
   /**
    * Define the FrameNode type for Grid.
    *
-   * @typedef { GridFrameNode } Grid
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   type Grid = GridFrameNode;
 
   /**
    * Create a FrameNode of Grid type.
+   * On API 26.0.0 and above, It can also create a FrameNode of Grid type with options.
    *
    * @param { UIContext } context - uiContext used to create the FrameNode.
-   * @returns { Grid } - Return Grid type FrameNode.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
-   */
-  /**
-   * Create a FrameNode of Grid type with options.
-   *
-   * @param { UIContext } context - uiContext used to create the FrameNode.
-   * @param { FrameNodeOptions } [options] - Options for configuring FrameNode creation.
+   * @param { FrameNodeOptions } [options] - Options for configuring FrameNode creation. [since 26.0.0]
    * @returns { Grid } - Return Grid type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 23 static
    */
   export function createGridNode(context: UIContext, options?: FrameNodeOptions): Grid;
 
@@ -2290,7 +2368,8 @@ export declare namespace typeNode {
    * @returns { GridAttribute | undefined } - Return the attribute instance of FrameNode, and return undefined if it
    *     does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 24 static
+   * @stagemodelonly
+   * @since 26.0.0 static
    */
   export function getGridAttribute(node: FrameNode): GridAttribute | undefined;
 
@@ -2301,7 +2380,8 @@ export declare namespace typeNode {
    * @returns { UIGridEvent | undefined } - Return the event instance of FrameNode, and return undefined if it
    *     does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 24 static
+   * @stagemodelonly
+   * @since 26.0.0 static
    */
   export function getGridEvent(node: FrameNode): UIGridEvent | undefined;
 
@@ -2312,23 +2392,21 @@ export declare namespace typeNode {
    * @param { Scroller } controller - the controller which is bind to the target FrameNode.
    * @throws { BusinessError } 100023 - Parameter error. Possible causes: 1. The component type of the node
    *     is incorrect. 2. The node is null or undefined. 3. The controller is null or undefined.
-   * @throws { BusinessError } 100021 - The FrameNode is not modifiable. Introduced in API version 24 and will not be
-   *     threw above API version 24. [since 24 - 24]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   export function bindGridController(node: FrameNode, controller: Scroller): void;
 
   /**
    * Define the GridItem type of FrameNode.
    *
-   * @extends TypedFrameNode<GridItemAttribute>
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
   abstract class GridItemFrameNode extends TypedFrameNode<GridItemAttribute> {
+
     /**
      * Initialize GridItem FrameNode.
      *
@@ -2344,29 +2422,22 @@ export declare namespace typeNode {
   /**
    * Define the FrameNode type for GridItem.
    *
-   * @typedef { GridItemFrameNode } GridItem
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   type GridItem = GridItemFrameNode;
 
   /**
    * Create a FrameNode of GridItem type.
+   * On API 26.0.0 and above, It can also create a FrameNode of GridItem type with options.
    *
    * @param { UIContext } context - uiContext used to create the FrameNode.
-   * @returns { GridItem } - Return GridItem type FrameNode.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
-   */
-  /**
-   * Create a FrameNode of GridItem type with options.
-   *
-   * @param { UIContext } context - uiContext used to create the FrameNode.
-   * @param { FrameNodeOptions } [options] - Options for configuring FrameNode creation.
+   * @param { FrameNodeOptions } [options] - Options for configuring FrameNode creation. [since 26.0.0]
    * @returns { GridItem } - Return GridItem type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 23 static
    */
   export function createGridItemNode(context: UIContext, options?: FrameNodeOptions): GridItem;
 
@@ -2377,19 +2448,20 @@ export declare namespace typeNode {
    * @returns { GridItemAttribute | undefined } - Return the attribute instance of FrameNode, and return undefined if it
    *     does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 24 static
+   * @stagemodelonly
+   * @since 26.0.0 static
    */
   export function getGridItemAttribute(node: FrameNode): GridItemAttribute | undefined;
 
   /**
    * Define the WaterFlow type of FrameNode.
    *
-   * @extends TypedFrameNode<WaterFlowAttribute>
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
   abstract class WaterFlowFrameNode extends TypedFrameNode<WaterFlowAttribute> {
+
     /**
      * Initialize WaterFlow FrameNode.
      *
@@ -2405,29 +2477,22 @@ export declare namespace typeNode {
   /**
    * Define the FrameNode type for WaterFlow.
    *
-   * @typedef { WaterFlowFrameNode } WaterFlow
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   type WaterFlow = WaterFlowFrameNode;
 
   /**
    * Create a FrameNode of WaterFlow type.
+   * On API 26.0.0 and above, It can also create a FrameNode of WaterFlow type with options.
    *
    * @param { UIContext } context - uiContext used to create the FrameNode.
-   * @returns { WaterFlow } - Return WaterFlow type FrameNode.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
-   */
-  /**
-   * Create a FrameNode of WaterFlow type with options.
-   *
-   * @param { UIContext } context - uiContext used to create the FrameNode.
-   * @param { FrameNodeOptions } [options] - Options for configuring FrameNode creation.
+   * @param { FrameNodeOptions } [options] - Options for configuring FrameNode creation. [since 26.0.0]
    * @returns { WaterFlow } - Return WaterFlow type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 23 static
    */
   export function createWaterFlowNode(context: UIContext, options?: FrameNodeOptions): WaterFlow;
 
@@ -2436,10 +2501,11 @@ export declare namespace typeNode {
    *
    * @param { FrameNode } node - the target FrameNode.
    * @returns { WaterFlowAttribute | undefined } - Return the attribute instance of FrameNode,
-   *      and return undefined if it does not exist.
+   *     and return undefined if it does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 24 static
-   */ 
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
   export function getWaterFlowAttribute(node: FrameNode): WaterFlowAttribute | undefined;
 
   /**
@@ -2449,7 +2515,8 @@ export declare namespace typeNode {
    * @returns { UIWaterFlowEvent | undefined } - Return the event instance of FrameNode, and return undefined if it
    *     does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 24 static
+   * @stagemodelonly
+   * @since 26.0.0 static
    */
   export function getWaterFlowEvent(node: FrameNode): UIWaterFlowEvent | undefined;
 
@@ -2460,23 +2527,21 @@ export declare namespace typeNode {
    * @param { Scroller } controller - the controller which is bind to the target FrameNode.
    * @throws { BusinessError } 100023 - Parameter error. Possible causes: 1. The component type of the node
    *     is incorrect. 2. The node is null or undefined. 3. The controller is null or undefined.
-   * @throws { BusinessError } 100021 - The FrameNode is not modifiable. Introduced in API version 24 and will not be
-   *     threw above API version 24. [since 24 - 24]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   export function bindWaterFlowController(node: FrameNode, controller: Scroller): void;
 
   /**
    * Define the FlowItem type of FrameNode.
    *
-   * @extends TypedFrameNode<FlowItemAttribute>
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
   abstract class FlowItemFrameNode extends TypedFrameNode<FlowItemAttribute> {
+
     /**
      * Initialize FlowItem FrameNode.
      *
@@ -2491,29 +2556,22 @@ export declare namespace typeNode {
   /**
    * Define the FrameNode type for FlowItem.
    *
-   * @typedef { FlowItemFrameNode } FlowItem
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   type FlowItem = FlowItemFrameNode;
 
   /**
    * Create a FrameNode of FlowItem type.
+   * On API 26.0.0 and above, It can also create a FrameNode of FlowItem type with options.
    *
    * @param { UIContext } context - uiContext used to create the FrameNode.
-   * @returns { FlowItem } - Return FlowItem type FrameNode.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
-   */
-  /**
-   * Create a FrameNode of FlowItem type with options.
-   *
-   * @param { UIContext } context - uiContext used to create the FrameNode.
-   * @param { FrameNodeOptions } [options] - Options for configuring FrameNode creation.
+   * @param { FrameNodeOptions } [options] - Options for configuring FrameNode creation. [since 26.0.0]
    * @returns { FlowItem } - Return FlowItem type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 23 static
    */
   export function createFlowItemNode(context: UIContext, options?: FrameNodeOptions): FlowItem;
 
@@ -2524,24 +2582,25 @@ export declare namespace typeNode {
    * @returns { FlowItemAttribute | undefined } - Return the attribute instance of FrameNode, and return undefined if it
    *     does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 24 static
+   * @stagemodelonly
+   * @since 26.0.0 static
    */
   export function getFlowItemAttribute(node: FrameNode): FlowItemAttribute | undefined;
 
   /**
    * Define the Text type of FrameNode.
    *
-   * @extends TypedFrameNode<TextAttribute>
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
   abstract class TextFrameNode extends TypedFrameNode<TextAttribute> {
+
     /**
      * Initialize Text FrameNode.
      *
-     * @param { string | Resource } [content] - text content
-     * @param { TextOptions } [value] - text options
+     * @param { string | Resource } [content]
+     * @param { TextOptions } [value]
      * @returns { TextAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -2553,29 +2612,22 @@ export declare namespace typeNode {
   /**
    * Define the FrameNode type for Text.
    *
-   * @typedef { TextFrameNode } Text
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   type Text = TextFrameNode;
 
   /**
    * Create a FrameNode of Text type.
+   * On API 26.0.0 and above, It can also create a FrameNode of Text type with options.
    *
    * @param { UIContext } context - uiContext used to create the FrameNode.
-   * @returns { Text } - Return Text type FrameNode.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
-   */
-  /**
-   * Create a FrameNode of Text type with options.
-   *
-   * @param { UIContext } context - uiContext used to create the FrameNode.
-   * @param { FrameNodeOptions } [options] - Options for configuring FrameNode creation.
+   * @param { FrameNodeOptions } [options] - Options for configuring FrameNode creation. [since 26.0.0]
    * @returns { Text } - Return Text type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 23 static
    */
   export function createTextNode(context: UIContext, options?: FrameNodeOptions): Text;
 
@@ -2584,19 +2636,20 @@ export declare namespace typeNode {
    *
    * @param { FrameNode } node - the target FrameNode.
    * @returns { TextAttribute | undefined } - Return the attribute instance of FrameNode, and return undefined if it
-   * does not exist.
+   *     does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 24 static
    */
   export function getTextAttribute(node: FrameNode): TextAttribute | undefined;
-  
+
   /**
    * Bind the controller of FrameNode whose type is Text.
    *
    * @param { FrameNode } node - the target FrameNode.
    * @param { TextController } controller - the controller which is bind to the target FrameNode.
    * @throws { BusinessError } 100023 - Parameter error. Possible causes: 1. The component type of the node
-   * is incorrect. 2. The node is null or undefined. 3. The controller is null or undefined.
+   *     is incorrect. 2. The node is null or undefined. 3. The controller is null or undefined.
    * @throws { BusinessError } 100021 - The FrameNode is not modifiable.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2607,16 +2660,16 @@ export declare namespace typeNode {
   /**
    * Define the Search type of FrameNode.
    *
-   * @extends TypedFrameNode<SearchAttribute>
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
   abstract class SearchFrameNode extends TypedFrameNode<SearchAttribute> {
+
     /**
      * Initialize Search FrameNode.
      *
-     * @param { SearchOptions } [value] - search options
+     * @param { SearchOptions } [value]
      * @returns { SearchAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -2628,8 +2681,8 @@ export declare namespace typeNode {
   /**
    * Define the FrameNode type for Search.
    *
-   * @typedef { SearchFrameNode } Search
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   type Search = SearchFrameNode;
@@ -2640,6 +2693,7 @@ export declare namespace typeNode {
    * @param { UIContext } context - uiContext used to create the FrameNode.
    * @returns { Search } - Return Search type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   export function createSearchNode(context: UIContext): Search;
@@ -2647,16 +2701,16 @@ export declare namespace typeNode {
   /**
    * Define the TextInput type of FrameNode.
    *
-   * @extends TypedFrameNode<TextInputAttribute>
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
   abstract class TextInputFrameNode extends TypedFrameNode<TextInputAttribute> {
+
     /**
      * Initialize TextInput FrameNode.
      *
-     * @param { TextInputOptions } [value] - textInput options
+     * @param { TextInputOptions } [value]
      * @returns { TextInputAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -2668,29 +2722,22 @@ export declare namespace typeNode {
   /**
    * Define the FrameNode type for TextInput.
    *
-   * @typedef { TextInputFrameNode } TextInput
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   type TextInput = TextInputFrameNode;
 
   /**
    * Create a FrameNode of TextInput type.
+   * On API 26.0.0 and above, It can also create a FrameNode of TextInput type with options.
    *
    * @param { UIContext } context - uiContext used to create the FrameNode.
-   * @returns { TextInput } - Return TextInput type FrameNode.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
-   */
-  /**
-   * Create a FrameNode of TextInput type with options.
-   *
-   * @param { UIContext } context - uiContext used to create the FrameNode.
-   * @param { FrameNodeOptions } [options] - Options for configuring FrameNode creation.
+   * @param { FrameNodeOptions } [options] - Options for configuring FrameNode creation. [since 26.0.0]
    * @returns { TextInput } - Return TextInput type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 23 static
    */
   export function createTextInputNode(context: UIContext, options?: FrameNodeOptions): TextInput;
 
@@ -2699,19 +2746,20 @@ export declare namespace typeNode {
    *
    * @param { FrameNode } node - the target FrameNode.
    * @returns { TextInputAttribute | undefined } - Return the attribute instance of FrameNode, and
-   * return undefined if it does not exist.
+   *     return undefined if it does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 24 static
    */
   export function getTextInputAttribute(node: FrameNode): TextInputAttribute | undefined;
-  
+
   /**
    * Bind the controller of FrameNode whose type is TextInput.
    *
    * @param { FrameNode } node - the target FrameNode.
    * @param { TextInputController } controller - the controller which is bind to the target FrameNode.
    * @throws { BusinessError } 100023 - Parameter error. Possible causes: 1. The component type of the node
-   * is incorrect. 2. The node is null or undefined. 3. The controller is null or undefined.
+   *     is incorrect. 2. The node is null or undefined. 3. The controller is null or undefined.
    * @throws { BusinessError } 100021 - The FrameNode is not modifiable.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2722,16 +2770,16 @@ export declare namespace typeNode {
   /**
    * Define the TextArea type of FrameNode.
    *
-   * @extends TypedFrameNode<TextAreaAttribute>
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
   abstract class TextAreaFrameNode extends TypedFrameNode<TextAreaAttribute> {
+
     /**
      * Initialize TextArea FrameNode.
      *
-     * @param { TextAreaOptions } [value] - textArea options
+     * @param { TextAreaOptions } [value]
      * @returns { TextAreaAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -2743,29 +2791,22 @@ export declare namespace typeNode {
   /**
    * Define the FrameNode type for TextArea.
    *
-   * @typedef { TextAreaFrameNode } TextArea
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   type TextArea = TextAreaFrameNode;
 
   /**
    * Create a FrameNode of TextArea type.
+   * On API 26.0.0 and above, It can also create a FrameNode of TextArea type with options.
    *
    * @param { UIContext } context - uiContext used to create the FrameNode.
-   * @returns { TextArea } - Return TextArea type FrameNode.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
-   */
-  /**
-   * Create a FrameNode of TextArea type with options.
-   *
-   * @param { UIContext } context - uiContext used to create the FrameNode.
-   * @param { FrameNodeOptions } [options] - Options for configuring FrameNode creation.
+   * @param { FrameNodeOptions } [options] - Options for configuring FrameNode creation. [since 26.0.0]
    * @returns { TextArea } - Return TextArea type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 23 static
    */
   export function createTextAreaNode(context: UIContext, options?: FrameNodeOptions): TextArea;
 
@@ -2774,19 +2815,20 @@ export declare namespace typeNode {
    *
    * @param { FrameNode } node - the target FrameNode.
    * @returns { TextAreaAttribute | undefined } - Return the attribute instance of FrameNode, and return undefined if it
-   * does not exist.
+   *     does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 24 static
    */
   export function getTextAreaAttribute(node: FrameNode): TextAreaAttribute | undefined;
-  
+
   /**
    * Bind the controller of FrameNode whose type is TextArea.
    *
    * @param { FrameNode } node - the target FrameNode.
    * @param { TextAreaController } controller - the controller which is bind to the target FrameNode.
    * @throws { BusinessError } 100023 - Parameter error. Possible causes: 1. The component type of the node
-   * is incorrect. 2. The node is null or undefined. 3. The controller is null or undefined.
+   *     is incorrect. 2. The node is null or undefined. 3. The controller is null or undefined.
    * @throws { BusinessError } 100021 - The FrameNode is not modifiable.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2797,16 +2839,16 @@ export declare namespace typeNode {
   /**
    * Define the SymbolGlyph type of FrameNode.
    *
-   * @extends TypedFrameNode<SymbolGlyphAttribute>
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
   abstract class SymbolGlyphFrameNode extends TypedFrameNode<SymbolGlyphAttribute> {
+
     /**
-     * Initialize SybolGlyph FrameNode.
+     * Initialize SymbolGlyph FrameNode.
      *
-     * @param { Resource } [value] - symbolGlyph resource
+     * @param { Resource } [value]
      * @returns { SymbolGlyphAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -2818,8 +2860,8 @@ export declare namespace typeNode {
   /**
    * Define the FrameNode type for SymbolGlyph.
    *
-   * @typedef { SymbolGlyphFrameNode } SymbolGlyph
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   type SymbolGlyph = SymbolGlyphFrameNode;
@@ -2830,6 +2872,7 @@ export declare namespace typeNode {
    * @param { UIContext } context - uiContext used to create the FrameNode.
    * @returns { SymbolGlyph } - Return SymbolGlyph type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   export function createSymbolGlyphNode(context: UIContext): SymbolGlyph;
@@ -2837,12 +2880,12 @@ export declare namespace typeNode {
   /**
    * Define the QRCode type of FrameNode.
    *
-   * @extends TypedFrameNode<QRCodeAttribute>
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
-  abstract class QRCodeFrameNode extends TypedFrameNode<QRCodeAttribute> {  
+  abstract class QRCodeFrameNode extends TypedFrameNode<QRCodeAttribute> {
+
     /**
      * Initialize QRCode FrameNode.
      *
@@ -2858,8 +2901,8 @@ export declare namespace typeNode {
   /**
    * Define the FrameNode type for QRCode.
    *
-   * @typedef { QRCodeFrameNode } QRCode
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   type QRCode = QRCodeFrameNode;
@@ -2870,6 +2913,7 @@ export declare namespace typeNode {
    * @param { UIContext } context - uiContext used to create the FrameNode.
    * @returns { QRCode } - Return QRCode type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   export function createQRCodeNode(context: UIContext): QRCode;
@@ -2877,12 +2921,12 @@ export declare namespace typeNode {
   /**
    * Define the Badge type of FrameNode.
    *
-   * @extends TypedFrameNode<BadgeAttribute>
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
-  abstract class BadgeFrameNode extends TypedFrameNode<BadgeAttribute> {  
+  abstract class BadgeFrameNode extends TypedFrameNode<BadgeAttribute> {
+
     /**
      * Initialize Badge FrameNode.
      *
@@ -2893,7 +2937,7 @@ export declare namespace typeNode {
      * @since 23 static
      */
     abstract initialize(value: BadgeParamWithNumber): BadgeAttribute;
-    
+
     /**
      * Initialize Badge FrameNode.
      *
@@ -2909,8 +2953,8 @@ export declare namespace typeNode {
   /**
    * Define the FrameNode type for Badge.
    *
-   * @typedef { BadgeFrameNode } Badge
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   type Badge = BadgeFrameNode;
@@ -2921,6 +2965,7 @@ export declare namespace typeNode {
    * @param { UIContext } context - uiContext used to create the FrameNode.
    * @returns { Badge } - Return Badge type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   export function createBadgeNode(context: UIContext): Badge;
@@ -2928,12 +2973,12 @@ export declare namespace typeNode {
   /**
    * Define the Marquee type of FrameNode.
    *
-   * @extends TypedFrameNode<MarqueeAttribute>
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
   abstract class MarqueeFrameNode extends TypedFrameNode<MarqueeAttribute> {
+
     /**
      * Initialize Marquee FrameNode.
      *
@@ -2949,8 +2994,8 @@ export declare namespace typeNode {
   /**
    * Define the FrameNode type for Marquee.
    *
-   * @typedef { MarqueeFrameNode } Marquee
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   type Marquee = MarqueeFrameNode;
@@ -2961,6 +3006,7 @@ export declare namespace typeNode {
    * @param { UIContext } context - uiContext used to create the FrameNode.
    * @returns { Marquee } - Return Marquee type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   export function createMarqueeNode(context: UIContext): Marquee;
@@ -2968,16 +3014,16 @@ export declare namespace typeNode {
   /**
    * Define the Swiper type of FrameNode.
    *
-   * @extends TypedFrameNode<SwiperAttribute>
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
   abstract class SwiperFrameNode extends TypedFrameNode<SwiperAttribute> {
+
     /**
-     * Initialize FrameNode.
+     * Initialize Swiper FrameNode.
      *
-     * @param { SwiperController } [controller] - a controller for Swiper container components.
+     * @param { SwiperController } [controller] - The controller for swiper.
      * @returns { SwiperAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -2989,67 +3035,60 @@ export declare namespace typeNode {
   /**
    * Define the FrameNode type for Swiper.
    *
-   * @typedef { SwiperFrameNode } Swiper
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   type Swiper = SwiperFrameNode;
 
   /**
    * Create a FrameNode of Swiper type.
+   * On API 26.0.0 and above, It can also create a FrameNode of Swiper type with options.
    *
    * @param { UIContext } context - uiContext used to create the FrameNode.
-   * @returns { Swiper } - Return Swiper type FrameNode.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
-   */
-  /**
-   * Create a FrameNode of Swiper type with options.
-   *
-   * @param { UIContext } context - uiContext used to create the FrameNode.
-   * @param { FrameNodeOptions } [options] - Options for configuring FrameNode creation.
+   * @param { FrameNodeOptions } [options] - Options for configuring FrameNode creation. [since 26.0.0]
    * @returns { Swiper } - Return Swiper type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 23 static
    */
   export function createSwiperNode(context: UIContext, options?: FrameNodeOptions): Swiper;
 
   /**
-   * Get the attribute instance of FrameNode tp set attribute.
+   * Get the attribute instance of FrameNode to set attributes.
    *
    * @param { FrameNode } node - the target FrameNode.
    * @returns { SwiperAttribute | undefined } - Return the attribute instance of FrameNode, and return undefined if it
    *     does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   export function getSwiperAttribute(node: FrameNode): SwiperAttribute | undefined;
 
   /**
-    * Bind the controller of FrameNode which type is Swiper.
-    *
-    * @param { FrameNode } node - the target FrameNode.
-    * @param { SwiperController } controller - the controller which is bind to the target FrameNode.
-    * @throws { BusinessError } 100023 - Parameter error. Possible causes: 1. The component type of the node
-    *     is incorrect. 2. The node is null or undefined. 3. The controller is null or undefined.
-    * @throws { BusinessError } 100021 - The FrameNode is not modifiable.
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 24 static
-    */
+   * Bind the controller of FrameNode which type is Swiper.
+   *
+   * @param { FrameNode } node - the target FrameNode.
+   * @param { SwiperController } controller - the controller which is bind to the target FrameNode.
+   * @throws { BusinessError } 100023 - Parameter error. Possible causes: 1. The component type of the node
+   *     is incorrect. 2. The node is null or undefined. 3. The controller is null or undefined.
+   * @throws { BusinessError } 100021 - The FrameNode is not modifiable.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
   export function bindSwiperController(node: FrameNode, controller: SwiperController): void;
 
   /**
    * Defines the XComponent type of FrameNode.
    *
-   * @extends TypedFrameNode<XComponentAttribute>
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
   abstract class XComponentFrameNode extends TypedFrameNode<XComponentAttribute> {
+
     /**
      * Initialize XComponent FrameNode.
      *
@@ -3088,98 +3127,77 @@ export declare namespace typeNode {
   /**
    * Define the FrameNode type for XComponent.
    *
-   * @typedef { XComponentFrameNode } XComponent
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   type XComponent = XComponentFrameNode;
 
   /**
    * Create a FrameNode of XComponent type.
+   * On API 26.0.0 and above, It can also create a FrameNode of XComponent type with options.
    *
    * @param { UIContext } context - uiContext used to create the FrameNode.
-   * @returns { XComponent } - Return XComponent type FrameNode.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
-   */
-  /**
-   * Create a FrameNode of XComponent type with options.
-   *
-   * @param { UIContext } context - uiContext used to create the FrameNode.
-   * @param { FrameNodeOptions } [options] - Options for configuring FrameNode creation.
+   * @param { FrameNodeOptions } [options] - Options for configuring FrameNode creation. [since 26.0.0]
    * @returns { XComponent } - Return XComponent type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 23 static
    */
   export function createXComponentNodeDefault(context: UIContext, options?: FrameNodeOptions): XComponent;
 
   /**
    * Create a FrameNode of XComponent type with options.
+   * On API 26.0.0 and above, It can also create a FrameNode of XComponent type with options and FrameNode options.
    *
    * @param { UIContext } context - uiContext used to create the FrameNode.
-   * @param { XComponentOptions } value - XComponent options
-   * @returns { XComponent } - Return XComponent type FrameNode.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
-   */
-  /**
-   * Create a FrameNode of XComponent type with options and FrameNode options.
-   *
-   * @param { UIContext } context - uiContext used to create the FrameNode.
-   * @param { XComponentOptions } value - XComponent options
-   * @param { FrameNodeOptions } [options] - Options for configuring FrameNode creation.
+   * @param { XComponentOptions } value - XComponent options.
+   * @param { FrameNodeOptions } [options] - Options for configuring FrameNode creation. [since 26.0.0]
    * @returns { XComponent } - Return XComponent type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 23 static
    */
   export function createXComponentNodeWithOptions(
     context: UIContext, value: XComponentOptions, options?: FrameNodeOptions): XComponent;
 
   /**
    * Create a FrameNode of XComponent type with options for native developing.
+   * On API 26.0.0 and above, It can also create a FrameNode of XComponent type with options for native developing and
+   *     FrameNode options.
    *
    * @param { UIContext } context - uiContext used to create the FrameNode.
    * @param { NativeXComponentParameters } parameters - initialization parameters.
-   * @returns { XComponent } - Return XComponent type FrameNode.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
-   */
-  /**
-   * Create a FrameNode of XComponent type with options for native developing and FrameNode options.
-   *
-   * @param { UIContext } context - uiContext used to create the FrameNode.
-   * @param { NativeXComponentParameters } parameters - initialization parameters.
-   * @param { FrameNodeOptions } [options] - Options for configuring FrameNode creation.
+   * @param { FrameNodeOptions } [options] - Options for configuring FrameNode creation. [since 26.0.0]
    * @returns { XComponent } - Return XComponent type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 23 static
    */
   export function createXComponentNodeWithNativeParameters(
     context: UIContext, parameters: NativeXComponentParameters, options?: FrameNodeOptions): XComponent;
 
   /**
- 	 * Get the attribute instance of FrameNode which type is XComponent to set attributes.
- 	 *
- 	 * @param { FrameNode } node - the target FrameNode.
- 	 * @returns { XComponentAttribute | undefined } - Return the attribute instance of FrameNode,
- 	 *     and return undefined if it does not exist.
- 	 * @syscap SystemCapability.ArkUI.ArkUI.Full
- 	 * @since 23 static
- 	 */ 
- 	export function getXComponentAttribute(node: FrameNode): XComponentAttribute | undefined;
+   * Get the attribute instance of FrameNode which type is XComponent to set attributes.
+   *
+   * @param { FrameNode } node - the target FrameNode.
+   * @returns { XComponentAttribute | undefined } - Return the attribute instance of FrameNode,
+   *     and return undefined if it does not exist.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  export function getXComponentAttribute(node: FrameNode): XComponentAttribute | undefined;
 
   /**
    * Define the Button type of FrameNode.
    *
-   * @extends TypedFrameNode<ButtonAttribute>
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
   abstract class ButtonFrameNode extends TypedFrameNode<ButtonAttribute> {
+
     /**
      * Initialize Button FrameNode.
      *
@@ -3217,29 +3235,22 @@ export declare namespace typeNode {
   /**
    * Define the FrameNode type for Button.
    *
-   * @typedef { ButtonFrameNode } Button
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   type Button = ButtonFrameNode;
 
   /**
    * Create a FrameNode of Button type.
+   * On API 26.0.0 and above, It can also create a FrameNode of Button type with options.
    *
    * @param { UIContext } context - uiContext used to create the FrameNode.
-   * @returns { Button } - Return Button type FrameNode.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
-   */
-  /**
-   * Create a FrameNode of Button type with options.
-   *
-   * @param { UIContext } context - uiContext used to create the FrameNode.
-   * @param { FrameNodeOptions } [options] - Options for configuring FrameNode creation.
+   * @param { FrameNodeOptions } [options] - Options for configuring FrameNode creation. [since 26.0.0]
    * @returns { Button } - Return Button type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 23 static
    */
   export function createButtonNode(context: UIContext, options?: FrameNodeOptions): Button;
 
@@ -3250,6 +3261,7 @@ export declare namespace typeNode {
    * @returns { ButtonAttribute | undefined } - Return the attribute instance of FrameNode, and return undefined if it
    *     does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   export function getButtonAttribute(node: FrameNode): ButtonAttribute | undefined;
@@ -3257,12 +3269,12 @@ export declare namespace typeNode {
   /**
    * Define the Checkbox type of FrameNode.
    *
-   * @extends TypedFrameNode<CheckboxAttribute>
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
   abstract class CheckboxFrameNode extends TypedFrameNode<CheckboxAttribute> {
+
     /**
      * Initialize Checkbox FrameNode.
      *
@@ -3278,29 +3290,22 @@ export declare namespace typeNode {
   /**
    * Define the FrameNode type for Checkbox.
    *
-   * @typedef { CheckboxFrameNode } Checkbox
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   type Checkbox = CheckboxFrameNode;
 
   /**
    * Create a FrameNode of Checkbox type.
+   * On API 26.0.0 and above, It can also create a FrameNode of Checkbox type with options.
    *
    * @param { UIContext } context - uiContext used to create the FrameNode.
-   * @returns { Checkbox } - Return Checkbox type FrameNode.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
-   */
-  /**
-   * Create a FrameNode of Checkbox type with options.
-   *
-   * @param { UIContext } context - uiContext used to create the FrameNode.
-   * @param { FrameNodeOptions } [options] - Options for configuring FrameNode creation.
+   * @param { FrameNodeOptions } [options] - Options for configuring FrameNode creation. [since 26.0.0]
    * @returns { Checkbox } - Return Checkbox type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 23 static
    */
   export function createCheckboxNode(context: UIContext, options?: FrameNodeOptions): Checkbox;
 
@@ -3311,6 +3316,7 @@ export declare namespace typeNode {
    * @returns { CheckboxAttribute | undefined } - Return the attribute instance of FrameNode, and return undefined if it
    *     does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   export function getCheckboxAttribute(node: FrameNode): CheckboxAttribute | undefined;
@@ -3318,12 +3324,12 @@ export declare namespace typeNode {
   /**
    * Define the CheckboxGroup type of FrameNode.
    *
-   * @extends TypedFrameNode<CheckboxGroupAttribute>
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
   abstract class CheckboxGroupFrameNode extends TypedFrameNode<CheckboxGroupAttribute> {
+
     /**
      * Initialize CheckboxGroup FrameNode.
      *
@@ -3339,41 +3345,34 @@ export declare namespace typeNode {
   /**
    * Define the FrameNode type for CheckboxGroup.
    *
-   * @typedef { CheckboxGroupFrameNode } CheckboxGroup
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   type CheckboxGroup = CheckboxGroupFrameNode;
 
   /**
    * Create a FrameNode of CheckboxGroup type.
+   * On API 26.0.0 and above, It can also create a FrameNode of CheckboxGroup type with options.
    *
    * @param { UIContext } context - uiContext used to create the FrameNode.
-   * @returns { CheckboxGroup } - Return CheckboxGroup type FrameNode.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
-   */
-  /**
-   * Create a FrameNode of CheckboxGroup type with options.
-   *
-   * @param { UIContext } context - uiContext used to create the FrameNode.
-   * @param { FrameNodeOptions } [options] - Options for configuring FrameNode creation.
+   * @param { FrameNodeOptions } [options] - Options for configuring FrameNode creation. [since 26.0.0]
    * @returns { CheckboxGroup } - Return CheckboxGroup type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 23 static
    */
   export function createCheckboxGroupNode(context: UIContext, options?: FrameNodeOptions): CheckboxGroup;
 
   /**
    * Define the Radio type of FrameNode.
    *
-   * @extends TypedFrameNode<RadioAttribute>
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
   abstract class RadioFrameNode extends TypedFrameNode<RadioAttribute> {
+
     /**
      * Initialize Radio FrameNode.
      *
@@ -3389,29 +3388,22 @@ export declare namespace typeNode {
   /**
    * Define the FrameNode type for Radio.
    *
-   * @typedef { RadioFrameNode } Radio
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   type Radio = RadioFrameNode;
 
   /**
    * Create a FrameNode of Radio type.
+   * On API 26.0.0 and above, It can also create a FrameNode of Radio type with options.
    *
    * @param { UIContext } context - uiContext used to create the FrameNode.
-   * @returns { Radio } - Return Radio type FrameNode.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
-   */
-  /**
-   * Create a FrameNode of Radio type with options.
-   *
-   * @param { UIContext } context - uiContext used to create the FrameNode.
-   * @param { FrameNodeOptions } [options] - Options for configuring FrameNode creation.
+   * @param { FrameNodeOptions } [options] - Options for configuring FrameNode creation. [since 26.0.0]
    * @returns { Radio } - Return Radio type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 23 static
    */
   export function createRadioNode(context: UIContext, options?: FrameNodeOptions): Radio;
 
@@ -3422,6 +3414,7 @@ export declare namespace typeNode {
    * @returns { RadioAttribute | undefined } - Return the attribute instance of FrameNode, and return undefined if it
    *     does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   export function getRadioAttribute(node: FrameNode): RadioAttribute | undefined;
@@ -3429,12 +3422,12 @@ export declare namespace typeNode {
   /**
    * Define the Rating type of FrameNode.
    *
-   * @extends TypedFrameNode<RatingAttribute>
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
   abstract class RatingFrameNode extends TypedFrameNode<RatingAttribute> {
+
     /**
      * Initialize Rating FrameNode.
      *
@@ -3450,8 +3443,8 @@ export declare namespace typeNode {
   /**
    * Define the FrameNode type for Rating.
    *
-   * @typedef { RatingFrameNode } Rating
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   type Rating = RatingFrameNode;
@@ -3462,6 +3455,7 @@ export declare namespace typeNode {
    * @param { UIContext } context - uiContext used to create the FrameNode.
    * @returns { Rating } - Return Rating type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   export function createRatingNode(context: UIContext): Rating;
@@ -3469,12 +3463,12 @@ export declare namespace typeNode {
   /**
    * Define the Select type of FrameNode.
    *
-   * @extends TypedFrameNode<SelectAttribute>
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
   abstract class SelectFrameNode extends TypedFrameNode<SelectAttribute> {
+
     /**
      * Initialize Select FrameNode.
      *
@@ -3490,8 +3484,8 @@ export declare namespace typeNode {
   /**
    * Define the FrameNode type for Select.
    *
-   * @typedef { SelectFrameNode } Select
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   type Select = SelectFrameNode;
@@ -3502,6 +3496,7 @@ export declare namespace typeNode {
    * @param { UIContext } context - uiContext used to create the FrameNode.
    * @returns { Select } - Return Select type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   export function createSelectNode(context: UIContext): Select;
@@ -3509,12 +3504,12 @@ export declare namespace typeNode {
   /**
    * Define the Slider type of FrameNode.
    *
-   * @extends TypedFrameNode<SliderAttribute>
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
   abstract class SliderFrameNode extends TypedFrameNode<SliderAttribute> {
+
     /**
      * Initialize Slider FrameNode.
      *
@@ -3530,29 +3525,22 @@ export declare namespace typeNode {
   /**
    * Define the FrameNode type for Slider.
    *
-   * @typedef { SliderFrameNode } Slider
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   type Slider = SliderFrameNode;
 
   /**
    * Create a FrameNode of Slider type.
+   * On API 26.0.0 and above, It can also create a FrameNode of Slider type with options.
    *
    * @param { UIContext } context - uiContext used to create the FrameNode.
-   * @returns { Slider } - Return Slider type FrameNode.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
-   */
-  /**
-   * Create a FrameNode of Slider type with options.
-   *
-   * @param { UIContext } context - uiContext used to create the FrameNode.
-   * @param { FrameNodeOptions } [options] - Options for configuring FrameNode creation.
+   * @param { FrameNodeOptions } [options] - Options for configuring FrameNode creation. [since 26.0.0]
    * @returns { Slider } - Return Slider type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 23 static
    */
   export function createSliderNode(context: UIContext, options?: FrameNodeOptions): Slider;
 
@@ -3563,6 +3551,7 @@ export declare namespace typeNode {
    * @returns { SliderAttribute | undefined } - Return the attribute instance of FrameNode, and return undefined if it
    *     does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   export function getSliderAttribute(node: FrameNode): SliderAttribute | undefined;
@@ -3570,12 +3559,12 @@ export declare namespace typeNode {
   /**
    * Define the Toggle type of FrameNode.
    *
-   * @extends TypedFrameNode<ToggleAttribute>
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
   abstract class ToggleFrameNode extends TypedFrameNode<ToggleAttribute> {
+
     /**
      * Initialize Toggle FrameNode.
      *
@@ -3591,31 +3580,22 @@ export declare namespace typeNode {
   /**
    * Define the FrameNode type for Toggle.
    *
-   * @typedef { ToggleFrameNode } Toggle
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   type Toggle = ToggleFrameNode;
 
   /**
-   * Create a FrameNode of Toggle type with Toggle options.
-   *
-   * @param { UIContext } context - uiContext used to create the FrameNode.
-   * @param { ToggleOptions } [options] - ToggleOptions.
-   * @returns { Toggle } - Return Toggle type FrameNode.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
-   */
-  /**
    * Create a FrameNode of Toggle type with Toggle options and FrameNode options.
    *
    * @param { UIContext } context - uiContext used to create the FrameNode.
    * @param { ToggleOptions } [options] - Toggle component options
-   * @param { FrameNodeOptions } [frameNodeOptions] - Options for configuring FrameNode creation.
+   * @param { FrameNodeOptions } [frameNodeOptions] - Options for configuring FrameNode creation. [since 26.0.0]
    * @returns { Toggle } - Return Toggle type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 23 static
    */
   export function createToggleNode(
     context: UIContext, options?: ToggleOptions, frameNodeOptions?: FrameNodeOptions): Toggle;
@@ -3627,6 +3607,7 @@ export declare namespace typeNode {
    * @returns { ToggleAttribute | undefined } - Return the attribute instance of FrameNode, and return undefined if it
    *     does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   export function getToggleAttribute(node: FrameNode): ToggleAttribute | undefined;
@@ -3636,20 +3617,25 @@ export declare namespace typeNode {
  * Used for lazy loading of typeNode.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare class NodeAdapter {
+
   /**
    * Constructor.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   constructor();
+
   /**
    * Dispose the NodeAdapter immediately.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   dispose(): void;
@@ -3659,128 +3645,158 @@ export declare class NodeAdapter {
    *
    * @returns { boolean } - Returns true if the NodeAdapter is disposed, false otherwise.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   isDisposed(): boolean;
+
   /**
    * Set the total number of node count.
    *
    * @param { int } count - The total number of node count.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   set totalNodeCount(count: int);
+
   /**
    * Get the total number of node count.
    *
    * @returns { int } - Return the total number of node count.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   get totalNodeCount(): int;
+
   /**
    * Define the operation of reloading all data.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   reloadAllItems(): void;
+
   /**
    * Define the data reload operation.Reload a specified amount of data starting from the index value.
    *
    * @param { int } start - Start loading index values for data.
    * @param { int } count - Load the number of data.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   reloadItem(start: int, count: int): void;
+
   /**
    * Define data deletion operations.Delete a specified amount of data starting from the index value.
    *
    * @param { int } start - Start deleting index values for data.
    * @param { int } count - Delete the number of data.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   removeItem(start: int, count: int): void;
+
   /**
    * Define data insertion operations.Insert a specified amount of data starting from the index value.
    *
    * @param { int } start - Start Insert index values for data.
    * @param { int } count - Insert the number of data.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   insertItem(start: int, count: int): void;
+
   /**
    * Define data movement operations. Move data from the starting index to the ending index.
    *
    * @param { int } from - Starting index value.
    * @param { int } to - End index value.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   moveItem(from: int, to: int): void;
+
   /**
    * Obtain all data results.
    *
    * @returns { Array<FrameNode> } - Return all valid FrameNode collections.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   getAllAvailableItems(): Array<FrameNode>;
-    /**
-     * This callback will be triggered when a FrameNode is bound.
-     *
-     * @param { FrameNode } target - The bound FrameNode node.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
-     */
-    onAttachToNode(target: FrameNode): void;
-    /**
-     * This callback will be triggered when the binding is released.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
-     */
-    onDetachFromNode(): void;
-    /**
-     * Call this callback when loading for the first time or when a new node slides in.Used to generate custom IDs,
-     * developers need to ensure the uniqueness of the IDs themselves.
-     *
-     * @param { int } index - Load the index value of the data.
-     * @returns { int } - Returning the developer's custom ID requires the developer to ensure its uniqueness.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
-     */
-    onGetChildId(index: int): int;
-    /**
-     * Call this callback when loading for the first time or when a new node slides in.
-     *
-     * @param { int } index - Load the index value of the data.
-     * @returns { FrameNode } - Returns the FrameNode node that loads the node.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
-     */
-    onCreateChild(index: int): FrameNode;
-    /**
-     * Called when the child node is about to be destroyed.
-     *
-     * @param { int } id - The child node ID that is about to be destroyed.
-     * @param { FrameNode } node - The FrameNode node that is about to be destroyed.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
-     */
-    onDisposeChild(id: int, node: FrameNode): void;
+
+  /**
+   * This callback will be triggered when a FrameNode is bound.
+   *
+   * @param { FrameNode } target - The bound FrameNode node.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  onAttachToNode(target: FrameNode): void;
+
+  /**
+   * This callback will be triggered when the binding is released.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  onDetachFromNode(): void;
+
+  /**
+   * Call this callback when loading for the first time or when a new node slides in.Used to generate custom IDs,
+   * developers need to ensure the uniqueness of the IDs themselves.
+   *
+   * @param { int } index - Load the index value of the data.
+   * @returns { int } - Returning the developer's custom ID requires the developer to ensure its uniqueness.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  onGetChildId(index: int): int;
+
+  /**
+   * Call this callback when loading for the first time or when a new node slides in.
+   *
+   * @param { int } index - Load the index value of the data.
+   * @returns { FrameNode } - Returns the FrameNode node that loads the node.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  onCreateChild(index: int): FrameNode;
+
+  /**
+   * Called when the child node is about to be destroyed.
+   *
+   * @param { int } id - The child node ID that is about to be destroyed.
+   * @param { FrameNode } node - The FrameNode node that is about to be destroyed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  onDisposeChild(id: int, node: FrameNode): void;
+
   /**
    * Call this callback when reloading or reusing.
    *
    * @param { int } id - The child node ID that is about to be reloaded.
    * @param { FrameNode } node - Reused FrameNode nodes.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   onUpdateChild(id: int, node: FrameNode): void;
+
   /**
    * Add a NodeAdapter to bind to the node.A node can only be bound to one NodeAdapter. Binding failure returns false.
    *
@@ -3788,14 +3804,17 @@ export declare class NodeAdapter {
    * @param { FrameNode } node - The bound FrameNode node.
    * @returns { boolean } Return the binding result.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   static attachNodeAdapter(adapter: NodeAdapter, node: FrameNode): boolean;
+
   /**
    * Remove the bound NodeAdapter from the node.A node can only be bound to one NodeAdapter.
    *
    * @param { FrameNode } node - Unbind the FrameNode node.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   static detachNodeAdapter(node: FrameNode): void;

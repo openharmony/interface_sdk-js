@@ -21,25 +21,27 @@
 import type { AsyncCallback, Callback } from './@ohos.base';
 
 /**
- * Provides the capabilities to manage the state and data of cloud file synchronization.
+ * The **cloudSyncManager** module provides APIs for managing device-cloud sync for applications. You can use the APIs
+ * to manage the full download state, the reason why the full download stops, and number of local and cloud files.
  *
- * @namespace cloudSyncManager
  * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
  * @since 10 dynamic
  * @since 23 static
  */
 declare namespace cloudSyncManager {
   /**
-   * Modify switch state of the application's cloud synchronization capability.
+   * Changes the device-cloud file sync switch for an application. This API uses a promise to return the result.
    *
-   * @param { string } accountId - Current account id
-   * @param { string } bundleName - Name of bundle whose switchStatus is changing
-   * @param { boolean } status - New switch status
-   * @returns { Promise<void> } - Return Promise
+   * @param { string } accountId - Account ID.
+   * @param { string } bundleName - Bundle name.
+   * @param { boolean } status - State of the cloud-device file sync switch to set. The value **true** means to enable
+   *     this function; the value **false** means the opposite.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 202 - The caller is not a system application.
-   * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Mandatory parameters are left unspecified;
-   * <br>2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Mandatory parameters are left
+   *     unspecified;
+   *     <br>2.Incorrect parameter types.
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
    * @systemapi
    * @since 10 dynamic
@@ -48,38 +50,39 @@ declare namespace cloudSyncManager {
   function changeAppCloudSwitch(accountId: string, bundleName: string, status: boolean): Promise<void>;
 
   /**
-   * Modify switch state of the application's cloud synchronization capability.
+   * Changes the device-cloud file sync switch for an application. This API uses an asynchronous callback to return the
+   * result.
    *
-   * @param { string } accountId - Current account id
-   * @param { string } bundleName - Name of bundle whose switchStatus is changing
-   * @param { boolean } status - New switch status
-   * @param { AsyncCallback<void> } [callback] - Callback function
+   * @param { string } accountId - Account ID.
+   * @param { string } bundleName - Bundle name of the application.
+   * @param { boolean } status - State of the cloud-device file sync switch to set. The value **true** means to enable
+   *     this function; the value **false** means the opposite.
+   * @param { AsyncCallback<void> } [callback] - Callback used to return the result of changing the device-cloud file
+   *     sync switch for an application.
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 202 - The caller is not a system application.
-   * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Mandatory parameters are left unspecified;
-   * <br>2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Mandatory parameters are left
+   *     unspecified;
+   *     <br>2.Incorrect parameter types.
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
    * @systemapi
    * @since 10 dynamic
    * @since 23 static
    */
-  function changeAppCloudSwitch(
-    accountId: string,
-    bundleName: string,
-    status: boolean,
-    callback: AsyncCallback<void>
-  ): void;
+  function changeAppCloudSwitch(accountId: string, bundleName: string, status: boolean, callback: AsyncCallback<void>): void;
 
   /**
-   * Notify the change of data in cloud.
+   * Notifies the device-cloud service that the cloud data of a specific application under a specified account has been
+   * changed. This API uses a promise to return the result.
    *
-   * @param { string } accountId - Current account id
-   * @param { string } bundleName - Name of bundle whose switchStatus is changing
-   * @returns { Promise<void> } Return Promise
+   * @param { string } accountId - Account ID.
+   * @param { string } bundleName - Bundle name.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 202 - The caller is not a system application.
-   * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Mandatory parameters are left unspecified;
-   * <br>2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Mandatory parameters are left
+   *     unspecified;
+   *     <br>2.Incorrect parameter types.
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
    * @systemapi
    * @since 10 dynamic
@@ -88,15 +91,17 @@ declare namespace cloudSyncManager {
   function notifyDataChange(accountId: string, bundleName: string): Promise<void>;
 
   /**
-   * Notify the change of data in cloud.
+   * Notifies the device-cloud service that the cloud data of a specific application under a specified account has been
+   * changed. This API uses an asynchronous callback to return the result.
    *
-   * @param { string } accountId - Current account id
-   * @param { string } bundleName - Name of bundle whose switchStatus is changing
-   * @param { AsyncCallback<void> } [callback] - Callback function
+   * @param { string } accountId - Account ID.
+   * @param { string } bundleName - Bundle name.
+   * @param { AsyncCallback<void> } [callback] - Callback used to return the application data change in the cloud.
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 202 - The caller is not a system application.
-   * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Mandatory parameters are left unspecified;
-   * <br>2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Mandatory parameters are left
+   *     unspecified;
+   *     <br>2.Incorrect parameter types.
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
    * @systemapi
    * @since 10 dynamic
@@ -105,16 +110,19 @@ declare namespace cloudSyncManager {
   function notifyDataChange(accountId: string, bundleName: string, callback: AsyncCallback<void>): void;
 
   /**
-   * Enable the cloud file synchronization function.
+   * Enables device-cloud sync. This API uses a promise to return the result.
    *
    * @permission ohos.permission.CLOUDFILE_SYNC_MANAGER
-   * @param { string } accountId - Current account id.
-   * @param { Record<string, boolean> } switches - Indicates switches information of all applications.
-   * @returns { Promise<void> } Return Promise
+   * @param { string } accountId - Account ID.
+   * @param { Record<string, boolean> } switches - Whether to enable the device-cloud sync feature. The application
+   *     bundle name is a string. The switch status is a Boolean value. The value **true** means to enable this function
+   *     ; the value **false** means the opposite.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 202 - The caller is not a system application.
-   * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Mandatory parameters are left unspecified;
-   * <br>2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Mandatory parameters are left
+   *     unspecified;
+   *     <br>2.Incorrect parameter types.
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
    * @systemapi
    * @since 10 dynamic
@@ -123,33 +131,41 @@ declare namespace cloudSyncManager {
   function enableCloud(accountId: string, switches: Record<string, boolean>): Promise<void>;
 
   /**
-   * Enable the cloud file synchronization function.
+   * Enables device-cloud sync. This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.CLOUDFILE_SYNC_MANAGER
-   * @param { string } accountId - Current account id
-   * @param { Record<string, boolean> } switches - Indicates switches information of all applications.
-   * @param { AsyncCallback<void> } [callback] - Callback function
+   * @param { string } accountId - Account ID.
+   * @param { Record<string, boolean> } switches - Whether to enable the device-cloud sync feature. The application
+   *     bundle name is a string. The switch status is a Boolean value. The value **true** means to enable this function
+   *     ; the value **false** means the opposite.
+   * @param { AsyncCallback<void> } [callback] - Callback used to return the result of enabling device-cloud sync.
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 202 - The caller is not a system application.
-   * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Mandatory parameters are left unspecified;
-   * <br>2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Mandatory parameters are left
+   *     unspecified;
+   *     <br>2.Incorrect parameter types.
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
    * @systemapi
    * @since 10 dynamic
    * @since 23 static
    */
-  function enableCloud(accountId: string, switches: Record<string, boolean>, callback: AsyncCallback<void>): void;
+  function enableCloud(
+    accountId: string,
+    switches: Record<string, boolean>,
+    callback: AsyncCallback<void>
+  ): void;
 
   /**
-   * Disable the cloud file synchronization function.
+   * Disables device-cloud sync. This API uses a promise to return the result.
    *
    * @permission ohos.permission.CLOUDFILE_SYNC_MANAGER
-   * @param { string } accountId - Current account id.
-   * @returns { Promise<void> } Return Promise.
+   * @param { string } accountId - Account ID.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 202 - The caller is not a system application.
-   * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Mandatory parameters are left unspecified;
-   * <br>2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Mandatory parameters are left
+   *     unspecified;
+   *     <br>2.Incorrect parameter types.
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
    * @systemapi
    * @since 10 dynamic
@@ -158,15 +174,16 @@ declare namespace cloudSyncManager {
   function disableCloud(accountId: string): Promise<void>;
 
   /**
-   * Disable the cloud file synchronization function.
+   * Disables device-cloud sync. This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.CLOUDFILE_SYNC_MANAGER
-   * @param { string } accountId - Current account id.
-   * @param { AsyncCallback<void> } callback - Callback function
+   * @param { string } accountId - Account ID.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result of disabling device-cloud sync.
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 202 - The caller is not a system application.
-   * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Mandatory parameters are left unspecified;
-   * <br>2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Mandatory parameters are left
+   *     unspecified;
+   *     <br>2.Incorrect parameter types.
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
    * @systemapi
    * @since 10 dynamic
@@ -175,9 +192,8 @@ declare namespace cloudSyncManager {
   function disableCloud(accountId: string, callback: AsyncCallback<void>): void;
 
   /**
-   * Describes the clear action type.
+   * Enumerates the actions that can be taken to clear local cloud data.
    *
-   * @enum { int }
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
    * @systemapi
    * @since 10 dynamic
@@ -185,37 +201,39 @@ declare namespace cloudSyncManager {
    */
   enum Action {
     /**
-     * Indicates clearing cloud identification only, retaining local cached data.
+     * Clear the cloud identifier but retain the files cached locally.
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @systemapi
      * @since 10 dynamic
      * @since 23 static
      */
-    RETAIN_DATA,
+    RETAIN_DATA = 0,
 
     /**
-     * Indicates clearing all cloud-related file data, which synchronized with the cloud.
+     * Clear the cloud identifier and the files cached locally.
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @systemapi
      * @since 10 dynamic
      * @since 23 static
      */
-    CLEAR_DATA
+    CLEAR_DATA = 1
   }
 
   /**
-   * Clean up cloud-related file data based on specific action.
+   * Callback used to clear the cloud data locally. This API uses a promise to return the result.
    *
    * @permission ohos.permission.CLOUDFILE_SYNC_MANAGER
-   * @param { string } accountId - Current account id.
-   * @param { Record<string, Action> } appActions - Indicates information about cloud file need to clear in which way.
-   * @returns { Promise<void> } Return Promise.
+   * @param { string } accountId - Account ID.
+   * @param { Record<string, Action> } appActions - Action to perform. The bundle name of the application whose data is
+   *     to be cleared is a string. [Action]{@link cloudSyncManager.Action} specifies the action to perform.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 202 - The caller is not a system application.
-   * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Mandatory parameters are left unspecified;
-   * <br>2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Mandatory parameters are left
+   *     unspecified;
+   *     <br>2.Incorrect parameter types.
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
    * @systemapi
    * @since 10 dynamic
@@ -224,16 +242,18 @@ declare namespace cloudSyncManager {
   function clean(accountId: string, appActions: Record<string, Action>): Promise<void>;
 
   /**
-   * Clean up cloud-related file data based on specific action.
+   * Callback used to clear the cloud data locally. This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.CLOUDFILE_SYNC_MANAGER
-   * @param { string } accountId - Current account id.
-   * @param { Record<string, Action> } appActions - Indicates information about cloud file need to clear in which way.
-   * @param { AsyncCallback<void> } callback - Callback function
+   * @param { string } accountId - Account ID.
+   * @param { Record<string, Action> } appActions - Action to perform. The bundle name of the application whose data is
+   *     to be cleared is a string. [Action]{@link cloudSyncManager.Action} specifies the action to perform.
+   * @param { AsyncCallback<void> } callback - Callback used to clear the cloud data locally.
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 202 - The caller is not a system application.
-   * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Mandatory parameters are left unspecified;
-   * <br>2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Mandatory parameters are left
+   *     unspecified;
+   *     <br>2.Incorrect parameter types.
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
    * @systemapi
    * @since 10 dynamic
@@ -242,16 +262,19 @@ declare namespace cloudSyncManager {
   function clean(accountId: string, appActions: Record<string, Action>, callback: AsyncCallback<void>): void;
 
   /**
-   * Notify the change of data in cloud.
+   * Notifies the device-cloud service of the cloud data change information of a specified user. This API uses a promise
+   * to return the result.
    *
    * @permission ohos.permission.CLOUDFILE_SYNC_MANAGER
-   * @param { int } userId - The Id of the user whose cloud data changed
-   * @param { ExtraData } extraData - The change info from push notification
-   * @returns { Promise<void> } Return Promise
+   * @param { int } userId - User ID.
+   * @param { ExtraData } extraData - Represents the cloud data change information.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
-   * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
-   * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Mandatory parameters are left unspecified;
-   * <br>2.Incorrect parameter types.
+   * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses
+   *     system API.
+   * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Mandatory parameters are left
+   *     unspecified;
+   *     <br>2.Incorrect parameter types.
    * @throws { BusinessError } 13600001 - IPC error.
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
    * @systemapi
@@ -261,16 +284,19 @@ declare namespace cloudSyncManager {
   function notifyDataChange(userId: int, extraData: ExtraData): Promise<void>;
 
   /**
-   * Notify the change of data in cloud.
+   * Notifies the device-cloud service of the cloud data change information of a specified user. This API uses an
+   * asynchronous callback to return the result.
    *
    * @permission ohos.permission.CLOUDFILE_SYNC_MANAGER
-   * @param { int } userId - The Id of the user whose cloud data changed
-   * @param { ExtraData } extraData - The change info from push notification
-   * @param { AsyncCallback<void> } callback - Callback function
+   * @param { int } userId - User ID.
+   * @param { ExtraData } extraData - Represents the cloud data change information.
+   * @param { AsyncCallback<void> } callback - Callback used to return the application data change in the cloud.
    * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
-   * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
-   * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Mandatory parameters are left unspecified;
-   * <br>2.Incorrect parameter types.
+   * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses
+   *     system API.
+   * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Mandatory parameters are left
+   *     unspecified;
+   *     <br>2.Incorrect parameter types.
    * @throws { BusinessError } 13600001 - IPC error.
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
    * @systemapi
@@ -280,9 +306,8 @@ declare namespace cloudSyncManager {
   function notifyDataChange(userId: int, extraData: ExtraData, callback: AsyncCallback<void>): void;
 
   /**
-   * The change info from push notification.
+   * Represents the cloud data change information.
    *
-   * @interface ExtraData
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
    * @systemapi
    * @since 11 dynamic
@@ -290,9 +315,8 @@ declare namespace cloudSyncManager {
    */
   interface ExtraData {
     /**
-     * The eventId of the push info.
+     * Change event ID.
      *
-     * @type { string }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @systemapi
      * @since 11 dynamic
@@ -300,9 +324,8 @@ declare namespace cloudSyncManager {
      */
     eventId: string;
     /**
-     * The change info.
+     * Represents the cloud data change information.
      *
-     * @type { string }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @systemapi
      * @since 11 dynamic
@@ -312,64 +335,64 @@ declare namespace cloudSyncManager {
   }
 
   /**
-   * Describes the reason why the download task stop.
-   * @enum { int } DownloadStopReason
+   * Enumerates the reasons why the full download stops. The default value is **NO_STOP**.
+   *
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
    * @since 20 dynamic
    * @since 23 static
    */
   enum DownloadStopReason {
-
     /**
-     * download task is not stopped.
+     * Downloading.
+     *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20 dynamic
      * @since 23 static
      */
     NO_STOP = 0,
-
     /**
-     * Network is unavailable.
+     * Downloading. Mobile network and Wi-Fi are unavailable.
+     *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20 dynamic
      * @since 23 static
      */
     NETWORK_UNAVAILABLE = 1,
-
     /**
-     * The local storage space is full.
+     * Downloading. The device storage is full.
+     *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20 dynamic
      * @since 23 static
      */
     LOCAL_STORAGE_FULL = 2,
-
     /**
-     * Temperature control Limits.
+     * Downloading. The device temperature exceeds the upper limit.
+     *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20 dynamic
      * @since 23 static
      */
     TEMPERATURE_LIMIT = 3,
-
     /**
-     * User stopped the download task.
+     * Downloading. The user stops the download.
+     *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20 dynamic
      * @since 23 static
      */
     USER_STOPPED = 4,
-
     /**
-     * The local application has been unloaded.
+     * Downloading. The application is uninstalled.
+     *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20 dynamic
      * @since 23 static
      */
     APP_UNLOAD = 5,
-
     /**
-     * Other reasons of some internal error.
+     * Downloading. The download stops due to other reasons, for example, the cloud server does not respond.
+     *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20 dynamic
      * @since 23 static
@@ -378,96 +401,175 @@ declare namespace cloudSyncManager {
   }
 
   /**
-   * Describes the state type of downgrade download.
-   * @enum { int } DownloadState
+   * Enumerates the full download states.
+   *
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
    * @since 20 dynamic
    * @since 23 static
    */
   enum DownloadState {
-
     /**
-     * Indicates that the download task in process now.
+     * Downloading.
+     *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20 dynamic
      * @since 23 static
      */
     RUNNING = 0,
-
     /**
-     * Indicates that the download task finished.
+     * Downloaded.
+     *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20 dynamic
      * @since 23 static
      */
     COMPLETED = 1,
-
     /**
-     * Indicates that the download task stopped.
+     * Downloading stopped.
+     *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20 dynamic
      * @since 23 static
+     */
+    STOPPED = 2,
+    /**
+     * Indicates that the download task is missing.
+     *
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    MISSING = 3
+  }
+
+  /**
+   * Describes the state type of transfer task.
+   *
+   * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  enum TransferState {
+    /**
+     * Indicates that the transfer task is running.
+     *
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    RUNNING = 0,
+    /**
+     * Indicates that the transfer task has been finished.
+     *
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    COMPLETED = 1,
+    /**
+     * Indicates that the transfer task has been stopped.
+     *
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
      */
     STOPPED = 2
   }
 
   /**
-   * Defines the CloudFileInfo data structure.
-   * @typedef CloudFileInfo
+   * Describes the state type of transfer stop reason.
+   *
+   * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  enum TransferStopReason {
+    /**
+     * Indicates that the transfer task stopped by switch off.
+     *
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    SWITCH_OFF = 0,
+    /**
+     * Indicates that the transfer task stopped by account logout.
+     *
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    ACCOUNT_LOGOUT = 1,
+    /**
+     * Indicates that the transfer task stopped by other reason.
+     *
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    OTHER_REASON = 2
+  }
+
+  /**
+   * Represents the number and size of local and cloud files of an application.
+   *
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
    * @since 20 dynamic
    * @since 23 static
    */
   interface CloudFileInfo {
-
     /**
-     * Total number of files located in the cloud.
-     * @type { int }
+     * Total number of cloud files that are not downloaded locally. The value range is [0, INT32_MAX].
+     *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20 dynamic
      * @since 23 static
      */
     cloudFileCount: int;
-
     /**
-     * Total size of files located in the cloud, in units of bytes.
-     * @type { long }
+     * Total size of cloud files that are not downloaded locally, in bytes. The value range is [0, INT64_MAX].
+     *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20 dynamic
      * @since 23 static
      */
     cloudFileTotalSize: long;
-
     /**
-     * Total number of files located locally.
-     * @type { int }
+     * Total number of local files that are not uploaded to the cloud. The value range is [0, INT32_MAX].
+     *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20 dynamic
      * @since 23 static
      */
     localFileCount: int;
-
     /**
-     * Total size of files located locally, in units of bytes.
-     * @type { long }
+     * Total size of local files that are not uploaded to the cloud, in bytes. The value range is [0, INT64_MAX].
+     *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20 dynamic
      * @since 23 static
      */
     localFileTotalSize: long;
-
     /**
-     * Total number of files located both locally and in the cloud.
-     * @type { int }
+     * Total number of local files that have been uploaded to the cloud. The value range is [0, INT32_MAX].
+     *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20 dynamic
      * @since 23 static
      */
     bothFileCount: int;
-
     /**
-     * Total size of files located both locally and in the cloud, in units of bytes.
-     * @type { long }
+     * Total size of local files that have been uploaded to the cloud, in bytes. The value range is [0, INT64_MAX].
+     *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20 dynamic
      * @since 23 static
@@ -476,70 +578,150 @@ declare namespace cloudSyncManager {
   }
 
   /**
-   * Defines DownloadProgress object.
+   * Defines the TransferProgress data structure.
+   *
+   * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  interface TransferProgress {
+    /**
+     * Describes the state type of transfer task.
+     *
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    state: TransferState;
+    /**
+     * successful count in TransferProgress.
+     * The value should be an integer.
+     * <br>Unit:Pcs.
+     *
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    successfulCount: int;
+    /**
+     * failed count in TransferProgress.
+     * The value should be an integer.
+     * <br>Unit:Pcs.
+     *
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    failedCount: int;
+    /**
+     * total count in TransferProgress.
+     * The value should be an integer.
+     * <br>Unit:Pcs.
+     *
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    totalCount: int;
+    /**
+     * transferred size in TransferProgress.
+     * <br>Unit:Byte.
+     *
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    transferredSize: long;
+    /**
+     * Total size in TransferProgress.
+     * <br>Unit:Byte.
+     *
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    totalSize: long;
+    /**
+     * Describes the state type of transfer stop reason.
+     *
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    stopReason: TransferStopReason;
+  }
+
+  /**
+   * Describes the full download progress.
+   *
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
    * @since 20 dynamic
    * @since 23 static
    */
   class DownloadProgress {
-
     /**
-     * The current download task state.
-     * @type { DownloadState }
+     * Download state.
+     *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20 dynamic
      * @since 23 static
      */
     state: DownloadState;
-
     /**
-     * The number of files that downloaded successfully
-     * @type { int }
+     * Number of downloaded files. The value range is [0, INT32_MAX]. If the progress is abnormal, **-1** is returned.
+     *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20 dynamic
      * @since 23 static
      */
     successfulCount: int;
-
     /**
-     * The number of files that fail to be downloaded.
-     * @type { int }
+     * Number of files that fail to be downloaded. The value range is [0, INT32_MAX]. If the progress is abnormal,
+     * **-1** is returned.
+     *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20 dynamic
      * @since 23 static
      */
     failedCount: int;
-
     /**
-     * Total number of all files to be downloaded.
-     * @type { int }
+     * Total number of files to be downloaded. The value range is [0, INT32_MAX]. If the progress is abnormal, **-1** is
+     * returned.
+     *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20 dynamic
      * @since 23 static
      */
     totalCount: int;
-
     /**
-     * Total size of downloaded files.
-     * @type { long }
+     * Size of the downloaded data, in bytes. The value range is
+     * [0, INT64_MAX). If the progress is abnormal, **INT64_MAX** is returned.
+     *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20 dynamic
      * @since 23 static
      */
     downloadedSize: long;
-
     /**
-     * Total size of all files to be downloaded.
-     * @type { long }
+     * Total size of the files to be downloaded, in bytes. The value range is
+     * [0, INT64_MAX). If the progress is abnormal, **INT64_MAX** is returned.
+     *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20 dynamic
      * @since 23 static
      */
     totalSize: long;
-
     /**
-     * The reason for stopping the download task.
-     * @type { DownloadStopReason }
+     * Reason why the download stops.
+     *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20 dynamic
      * @since 23 static
@@ -548,7 +730,9 @@ declare namespace cloudSyncManager {
   }
 
   /**
-   * DowngradeDownload object.
+   * Full download: provides the capability of downloading cloud data for applications.
+   *
+   * It supports the full download of cloud application files.
    *
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
    * @systemapi
@@ -556,14 +740,14 @@ declare namespace cloudSyncManager {
    * @since 23 static
    */
   class DowngradeDownload {
-
     /**
-     * A constructor used to create a DowngradeDownload object.
+     * A constructor used to create an instance of the **DowngradeDownload** class with a specified bundle name.
      *
      * @permission ohos.permission.CLOUDFILE_SYNC_MANAGER
-     * @param { string } bundleName - Name of the bundle that need to synchronize and subscribe the sync progress event.
+     * @param { string } bundleName - Bundle name.
      * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
+     *     uses system API.
      * @throws { BusinessError } 13900020 - Invalid argument. Possible causes:
      *     <br>1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @throws { BusinessError } 22400005 - Inner error. Possible causes:
@@ -575,14 +759,15 @@ declare namespace cloudSyncManager {
      * @since 23 static
      */
     constructor(bundleName: string);
-
     /**
-     * Get the total size and number of files in different locations.
+     * Obtains the size and count of files for applications requiring full download, including those stored only locally
+     * , only in the cloud, or both locally and in the cloud. This API uses a promise to return the result.
      *
      * @permission ohos.permission.CLOUDFILE_SYNC_MANAGER
-     * @returns { Promise<CloudFileInfo> } - Return the file size and number info.
+     * @returns { Promise<CloudFileInfo> } Promise used to return the local and cloud file information.
      * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
+     *     uses system API.
      * @throws { BusinessError } 13600001 - IPC error. Possible causes:
      *     <br>1.IPC failed or timed out. 2.Failed to load the service.
      * @throws { BusinessError } 13900010 - Try again.
@@ -595,15 +780,19 @@ declare namespace cloudSyncManager {
      * @since 23 static
      */
     getCloudFileInfo(): Promise<CloudFileInfo>;
-
     /**
-     * Start to download all cloud files of the specified application to local.
+     * Starts the full download for the specified application's cloud files. This API uses a promise to return the
+     * result. This API uses an asynchronous callback to return the result.
+     *
+     * Repeated triggering of a full download task will throw an error (22400006).
      *
      * @permission ohos.permission.CLOUDFILE_SYNC_MANAGER
-     * @param { Callback<DownloadProgress> } callback - callback function with a `DownloadProgress` argument.
-     * @returns { Promise<void> } - Return Promise.
+     * @param { Callback<DownloadProgress> } callback - Callback used to return the download progress. The parameter is
+     *     **DownloadProgress**, and the return value is **void**.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
+     *     uses system API.
      * @throws { BusinessError } 13600001 - IPC error. Possible causes:
      *     <br>1.IPC failed or timed out. 2.Failed to load the service.
      * @throws { BusinessError } 13900010 - Try again.
@@ -619,14 +808,15 @@ declare namespace cloudSyncManager {
      * @since 23 static
      */
     startDownload(callback: Callback<DownloadProgress>): Promise<void>;
-
     /**
-     * Stop the specified application's download task.
+     * Stops the full download task triggered by [startDownload]{@link cloudSyncManager.DowngradeDownload.startDownload}
+     * . This API uses a promise to return the result.
      *
      * @permission ohos.permission.CLOUDFILE_SYNC_MANAGER
-     * @returns { Promise<void> } - Return Promise.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
+     *     uses system API.
      * @throws { BusinessError } 13600001 - IPC error. Possible causes:
      *     <br>1.IPC failed or timed out. 2.Failed to load the service.
      * @throws { BusinessError } 22400005 - Inner error. Possible causes:
@@ -638,31 +828,73 @@ declare namespace cloudSyncManager {
      * @since 23 static
      */
     stopDownload(): Promise<void>;
+    /**
+     * Start to migrate the downloaded full data to the specified public directory of file management.
+     *
+     * @permission ohos.permission.CLOUDFILE_SYNC_MANAGER
+     * @param { string } targetUri - Transfer target Uri.
+     * @param { Callback<TransferProgress> } callback - Callback function. The callback will be triggered when the transfer progress changes or the transfer task completes.
+     * @throws { BusinessError } 201 - Permission verification failed.
+     * @throws { BusinessError } 202 - The caller is not a system application.
+     * @throws { BusinessError } 13900001 - Operation not permitted. Possible causes:
+     *     <br>1.The DowngradeDownload task is running.
+     *     <br>2.The full data synchronization task is running.
+     * @throws { BusinessError } 13900002 - No such file or directory.
+     * @throws { BusinessError } 13900010 - Try again.
+     * @throws { BusinessError } 13900020 - Invalid argument. Possible causes:
+     *     <br>1.Mandatory parameters are left unspecified.
+     *     <br>2.The length of the input uri does not meet the value range requirement.
+     *     <br>3.The input uri does not belong to a File Manager public directory.
+     * @throws { BusinessError } 22400006 - The same task is already in progress.
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    startTransfer(targetUri: string, callback: Callback<TransferProgress>): void;
   }
 
   /**
-   * The existence status of files
-   *     <br>that have not been uploaded to the cloud for application that has been connected to the cloud disk.
-   * 
-   * @interface LocalFilePresentStatus
+   * Supports querying the execution status of full data download tasks for integrated cloud drive applications.
+   *
+   * @permission ohos.permission.CLOUDFILE_SYNC_MANAGER
+   * @param { Array<string> } bundleNames - array of bundleName.
+   * @returns { Promise<Array<DownloadProgress>> } - Return Promise.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   * @throws { BusinessError } 202 - The caller is not a system application.
+   * @throws { BusinessError } 13900010 - Try again.
+   * @throws { BusinessError } 13900020 - Invalid argument. Possible causes:
+   *     <br>1.Mandatory parameter are left unspecified.
+   *     <br>2.The length of the input parameter exceeds the upper limit. Maximum array length is 20.
+   *     <br>3.The input parameter contains an invalid bundleName.
+   * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function getDowngradeDownloadTaskState(bundleNames: Array<string>): Promise<Array<DownloadProgress>>;
+
+  /**
+   * Specifies a result object that contains the application bundle name and the status information about whether there
+   * are files that have not been uploaded to the cloud in the cloud storage space.
+   *
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
    * @systemapi
    * @since 23 dynamic&static
    */
   interface LocalFilePresentStatus {
     /**
-     * BundleName of the application that has been connected to the cloud disk.
-     * 
-     * @type { string }
+     * Bundle name.
+     *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @systemapi
      * @since 23 dynamic&static
      */
     bundleName: string;
     /**
-     * The existence status of files that have not been uploaded to the cloud.
-     * 
-     * @type { boolean }
+     * Whether there are local files that have not been synchronized to the cloud in the cloud storage space of the
+     * application. The value **true** indicates that such file exists, and the value **false** indicates the opposite.
+     *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @systemapi
      * @since 23 dynamic&static
@@ -671,14 +903,14 @@ declare namespace cloudSyncManager {
   }
 
   /**
-   * Check whether there are files in the applications that have been connected to the cloud disk
-   *     <br>that have not been uploaded to the cloud.
-   * 
+   * Obtains the existence status of local files for multiple applications and checks whether there are files that
+   * have not been uploaded to the cloud in the cloud storage space. This API uses a promise to return the result.
+   *
    * @permission ohos.permission.CLOUDFILE_SYNC_MANAGER
-   * @param { Array<string> } bundleNames - The bundle names of the applications
-   *     <br>that have been connected to the cloud disk.
-   * @returns { Promise<Array<LocalFilePresentStatus>> } - Return the existence status of files
-   *     <br>that have not been uploaded to the cloud for the queried applications.
+   * @param { Array<string> } bundleNames - Array of application bundle names to be checked. Each element is the
+   *     bundle name of an application.
+   * @returns { Promise<Array<LocalFilePresentStatus>> } Promise used to return an array of objects. Each object in
+   *     the array contains the bundle name of the application to be checked and the local file existence status.
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 202 - The caller is not a system application.
    * @throws { BusinessError } 13600001 - IPC error. Possible causes:

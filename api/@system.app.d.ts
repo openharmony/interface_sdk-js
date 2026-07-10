@@ -19,191 +19,101 @@
  */
 
 /**
- * Defines the AppResponse info.
+ * Defines the application response information.
  *
- * @interface AppResponse
  * @syscap SystemCapability.ArkUI.ArkUI.Lite
  * @FaAndStageModel
- * @since 3
- */
-/**
- * Defines the AppResponse info.
- *
- * @interface AppResponse
- * @syscap SystemCapability.ArkUI.ArkUI.Lite
- * @FaAndStageModel
- * @atomicservice
- * @since 12 dynamiconly
+ * @atomicservice [since 12]
+ * @since 3 dynamiconly
  */
 export interface AppResponse {
   /**
-   * Application bundleName.
+   * Bundle name of an application. It uniquely identifies the application.
    *
-   * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 6
-   */
-  /**
-   * Application bundleName.
-   *
-   * @type { string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @atomicservice
-   * @since 12 dynamiconly
+   * @atomicservice [since 12]
+   * @since 6 dynamiconly
    */
   appID: string;
 
   /**
    * Application name.
    *
-   * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @FaAndStageModel
-   * @since 3
-   */
-  /**
-   * Application name.
-   *
-   * @type { string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Lite
-   * @FaAndStageModel
-   * @atomicservice
-   * @since 12 dynamiconly
+   * @atomicservice [since 12]
+   * @since 3 dynamiconly
    */
   appName: string;
 
   /**
    * Application version name.
    *
-   * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @FaAndStageModel
-   * @since 3
-   */
-  /**
-   * Application version name.
-   *
-   * @type { string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Lite
-   * @FaAndStageModel
-   * @atomicservice
-   * @since 12 dynamiconly
+   * @atomicservice [since 12]
+   * @since 3 dynamiconly
    */
   versionName: string;
 
   /**
-   * Application version.
+   * Application version number.
    *
-   * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @FaAndStageModel
-   * @since 3
-   */
-  /**
-   * Application version.
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Lite
-   * @FaAndStageModel
-   * @atomicservice
-   * @since 12 dynamiconly
+   * @atomicservice [since 12]
+   * @since 3 dynamiconly
    */
   versionCode: number;
 }
 
 /**
- * Defines the option of screenOnVisible interface.
+ * Defines the options of the visible interface on the screen.
  *
- * @interface ScreenOnVisibleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @since 3
- */
-/**
- * Defines the option of screenOnVisible interface.
- *
- * @interface ScreenOnVisibleOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @atomicservice
- * @since 11 dynamiconly
+ * @atomicservice [since 11]
+ * @since 3 dynamiconly
  */
 export interface ScreenOnVisibleOptions {
   /**
-   * Whether to keep the application visible. The default value is false.
+   * Whether to keep the application visible. The default value is **false**.
    *
-   * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 3
-   */
-  /**
-   * Whether to keep the application visible. The default value is false.
-   *
-   * @type { ?boolean }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @atomicservice
-   * @since 11 dynamiconly
+   * @atomicservice [since 11]
+   * @since 3 dynamiconly
    */
   visible?: boolean;
 
   /**
-   * Called when the application always keeps visible.
+   * Callback upon success.
    *
-   * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 3
-   */
-  /**
-   * Called when the application always keeps visible.
-   *
-   * @type { ?function }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @atomicservice
-   * @since 11 dynamiconly
+   * @atomicservice [since 11]
+   * @since 3 dynamiconly
    */
   success?: () => void;
 
   /**
-   * Called when the application fails to keep visible.
+   * Callback upon failure.
    *
-   * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 3
-   */
-  /**
-   * Called when the application fails to keep visible.
-   *
-   * @type { ?function }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @atomicservice
-   * @since 11 dynamiconly
+   * @atomicservice [since 11]
+   * @since 3 dynamiconly
    */
   fail?: (data: string, code: number) => void;
 
   /**
-   * Called when the execution is completed.
+   * Called when the API call is complete.
    *
-   * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 3
-   */
-  /**
-   * Called when the execution is completed.
-   *
-   * @type { ?function }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @atomicservice
-   * @since 11 dynamiconly
+   * @atomicservice [since 11]
+   * @since 3 dynamiconly
    */
   complete?: () => void;
 }
@@ -211,99 +121,68 @@ export interface ScreenOnVisibleOptions {
 /**
  * Defines the option of RequestFullWindow interface.
  *
- * @interface RequestFullWindowOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @since 3
- */
-/**
- * Defines the option of RequestFullWindow interface.
- *
- * @interface RequestFullWindowOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @atomicservice
- * @since 11 dynamiconly
+ * @atomicservice [since 11]
+ * @since 3 dynamiconly
  */
 export interface RequestFullWindowOptions {
   /**
    * Defines the number of animation options.
    *
-   * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 3
-   */
-  /**
-   * Defines the number of animation options.
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @atomicservice
-   * @since 11 dynamiconly
+   * @atomicservice [since 11]
+   * @since 3 dynamiconly
    */
   duration: number;
 }
 
 /**
- * Defines the app class info.
+ * Defines static functions of App class
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Lite
  * @FaAndStageModel
- * @since 3
- */
-/**
- * Defines the app class info.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Lite
- * @FaAndStageModel
- * @atomicservice
- * @since 12 dynamiconly
+ * @atomicservice [since 12]
+ * @since 3 dynamiconly
  */
 export default class App {
   /**
-   * Obtains the declared information in the config.json file of an application.
+   * Obtains the declared information in the **config.json** file of an application. In the stage model, this API
+   * returns **null**.
    *
-   * @returns { AppResponse }
+   * This API is deprecated since API version 9. You are advised to use
+   * [bundleManager.getBundleInfoForSelf]{@link @ohos.bundle.bundleManager:bundleManager.getBundleInfoForSelf(bundleFlags: int)}
+   * instead.
+   *
+   * @returns { AppResponse } Application response information.
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @FaAndStageModel
-   * @since 3
-   */
-  /**
-   * Obtains the declared information in the config.json file of an application. It will return null when used in
-   * StageModel.
-   *
-   * @returns { AppResponse }
-   * @syscap SystemCapability.ArkUI.ArkUI.Lite
-   * @FaAndStageModel
-   * @atomicservice
-   * @since 12 dynamiconly
+   * @atomicservice [since 12]
+   * @since 3 dynamiconly
    */
   static getInfo(): AppResponse;
 
   /**
-   * Destroys the current ability.
+   * Terminates the current ability. In the stage model, this API has no effect.
+   *
+   * This API is deprecated since API version 7. You are advised to use
+   * [@ohos.ability.featureAbility]{@link @ohos.ability.featureAbility:featureAbility} instead.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @FaAndStageModel
-   * @since 3
-   */
-  /**
-   * Destroys the current ability. It does not work in StageModel.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Lite
-   * @FaAndStageModel
-   * @atomicservice
-   * @since 12 dynamiconly
+   * @atomicservice [since 12]
+   * @since 3 dynamiconly
    */
   static terminate(): void;
 
   /**
-   * Keeps the application visible after the screen is waken up.
-   * This method prevents the system from returning to the home screen when the screen is locked.
+   * Defines whether to keep the application visible when the screen is woken up.
    *
-   * @param { ScreenOnVisibleOptions } options
+   * This API is deprecated since API version 8.
+   *
+   * @param { ScreenOnVisibleOptions } options - With keep-alive, the system is prevented from returning to the home
+   *     screen when the screen is locked, so that the application is visible when the screen is woken up.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 3 dynamiconly
    * @deprecated since 8
@@ -332,17 +211,8 @@ export default class App {
    * @param { number } value - capacity of decoded image count.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * Set image cache capacity of decoded image count.
-   * if not set, the application will not cache any decoded image.
-   *
-   * @param { number } value - capacity of decoded image count.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 7 dynamic
    */
   static setImageCacheCount(value: number): void;
 
@@ -353,17 +223,8 @@ export default class App {
    * @param { number } value - capacity of raw image data size in bytes.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * Set image cache capacity of raw image data size in bytes before decode.
-   * if not set, the application will not cache any raw image data.
-   *
-   * @param { number } value - capacity of raw image data size in bytes.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 7 dynamic
    */
   static setImageRawDataCacheSize(value: number): void;
 
@@ -374,17 +235,8 @@ export default class App {
    * @param { number } value - capacity of raw image data size in bytes.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * Set image file cache size in bytes on disk before decode.
-   * if not set, the application will cache 100MB image files on disk.
-   *
-   * @param { number } value - capacity of raw image data size in bytes.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @atomicservice
-   * @since 12 dynamiconly
+   * @atomicservice [since 12]
+   * @since 7 dynamiconly
    */
   static setImageFileCacheSize(value: number): void;
 }

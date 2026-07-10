@@ -20,9 +20,13 @@
 
 import type ExtensionContext from './application/ExtensionContext';
 /**
- * Class inherited for the notification subscriber extension function.
+ * The **NotificationSubscriberExtensionContext** module provides the context
+ * for the **NotificationSubscriberExtensionAbility**.
+ * 
+ * > **NOTE**
+ * > 
+ * > The APIs of this module can be used only in the stage model.
  *
- * @extends ExtensionContext
  * @syscap SystemCapability.Notification.Notification
  * @stagemodelonly
  * @since 22 dynamic

@@ -26,6 +26,7 @@ import { NavigationAttribute } from '@ohos.arkui.component';
  *
  * @implements { NavigationAttribute, AttributeModifier<NavigationAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare class NavigationModifier implements NavigationAttribute, AttributeModifier<NavigationAttribute> {
@@ -34,6 +35,7 @@ export declare class NavigationModifier implements NavigationAttribute, Attribut
    * 
    * @param { NavigationAttribute } instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   applyNormalAttribute(instance: NavigationAttribute): void;  

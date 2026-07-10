@@ -19,80 +19,41 @@
  */
 
 /**
- * indexer align property.
+ * Enumerates the alignment styles of the indexer pop-up window.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * indexer align property.
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 10
- */
-/**
- * indexer align property.
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
  */
 declare enum IndexerAlign {
+
   /**
-   * A dialog box is displayed on the right of the index bar.
+   * The pop-up window is displayed on the right of the indexer.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * A dialog box is displayed on the right of the index bar.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * A dialog box is displayed on the right of the index bar.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   Left,
 
   /**
-   * A dialog box is displayed on the left of the index bar.
+   * The pop-up window is displayed on the left of the indexer.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * A dialog box is displayed on the left of the index bar.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * A dialog box is displayed on the left of the index bar.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   Right,
 
   /**
-   * A dialog box is displayed on the start of the index bar.
+   * The pop-up window is displayed on the right of the indexer for left-to-right scripts, and on the left of the
+   * indexer for right-to-left scripts.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -100,186 +61,107 @@ declare enum IndexerAlign {
   START,
 
   /**
-   * A dialog box is displayed on the end of the index bar.
+   * The pop-up window is displayed on the left of the indexer for left-to-right scripts, and on the right of the
+   * indexer for right-to-left scripts.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
    */
-  END,
+  END
 }
 
 /**
- * AlphabetIndexer constructor options.
+ * Defines the options of the **AlphabetIndexer** component.
  *
- * @interface AlphabetIndexerOptions
+ * > **NOTE**
+ *
+ * > To standardize anonymous object definitions, the element definitions here have been revised in API version 18.
+ * > While historical version information is preserved for anonymous objects, there may be cases where the outer element
+ * > 's @since version number is higher than inner elements'. This does not affect interface usability.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 18 dynamic
  */
 interface AlphabetIndexerOptions {
+
   /**
-   * Alphabetical index string array.
+   * Array of index items.
    *
-   * @type { Array<string> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Alphabetical index string array.
-   *
-   * @type { Array<string> }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Alphabetical index string array.
-   *
-   * @type { Array<string> }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Alphabetical index string array.
-   * Anonymous Object Rectification.
-   * 
-   * @type { Array<string> }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   arrayValue: Array<string>;
+
   /**
-   * ID of the selected item.
+   * Index of the initial selected item. If the value is out of range, the default value **0** is used. When this
+   * parameter and the [selected]{@link AlphabetIndexerAttribute#selected} property are set at the same time, the
+   * **selected** property has a higher priority.
    *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * ID of the selected item.
+   * Value range: [0, arrayValue.length-1]
    *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * ID of the selected item.
+   * This parameter supports two-way binding through [$$](docroot://ui/state-management/arkts-two-way-sync.md).
    *
-   * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * ID of the selected item.
-   * Anonymous Object Rectification.
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   selected: number;
 }
 
 /**
- * Alphabet index bar.
+ * The **AlphabetIndexer** component can create a logically indexed array of items in a container for instant location.
  *
- * @interface AlphabetIndexerInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * Alphabet index bar.
+ * > **NOTE**
  *
- * @interface AlphabetIndexerInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 10
- */
-/**
- * Alphabet index bar.
- *
- * @interface AlphabetIndexerInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
+ * @noninterop
  */
 interface AlphabetIndexerInterface {
+
   /**
-   * ArrayValue: Alphabetical index string array.
-   * selected: ID of the selected item.
+   * Creates an **AlphabetIndexer** component.
    *
-   * @param { object } value
+   * @param { object } value [since 7 - 17]
+   * @param { AlphabetIndexerOptions } options - Options of the **AlphabetIndexer** component. [since 18]
    * @returns { AlphabetIndexerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * ArrayValue: Alphabetical index string array.
-   * selected: ID of the selected item.
-   *
-   * @param { object } value
-   * @returns { AlphabetIndexerAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * ArrayValue: Alphabetical index string array.
-   * selected: ID of the selected item.
-   *
-   * @param { object } value
-   * @returns { AlphabetIndexerAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Construct the alphabet indexer component.
-   * Called when the alphabet indexer component is used.
-   * Anonymous Object Rectification.
-   *
-   * @param { AlphabetIndexerOptions } options - alphabet indexer options
-   * @returns { AlphabetIndexerAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   (options: AlphabetIndexerOptions): AlphabetIndexerAttribute;
 }
 
 /**
- * Defines an AlphabetIndexer callback when onSelect.
+ * Represents the callback invoked when an index item is selected.
  *
- * @typedef { function } OnAlphabetIndexerSelectCallback
  * @param { number } index - selected index
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 18 dynamic
  */
-declare type OnAlphabetIndexerSelectCallback = (index: number) => void;
+declare type OnAlphabetIndexerSelectCallback  = (index: number) => void;
 
 /**
- * Defines an AlphabetIndexer callback when onPopupSelect.
+ * Represents the callback invoked when a secondary index item in the pop-up window is selected.
  *
- * @typedef { function } OnAlphabetIndexerPopupSelectCallback
  * @param { number } index - selected index
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 18 dynamic
@@ -287,47 +169,46 @@ declare type OnAlphabetIndexerSelectCallback = (index: number) => void;
 declare type OnAlphabetIndexerPopupSelectCallback = (index: number) => void;
 
 /**
- * Defines an AlphabetIndexer callback when onRequestPopupData.
+ * Represents the callback invoked when an index item is selected and
+ * [usingPopup]{@link AlphabetIndexerAttribute#usingPopup} is set to **true**.
  *
- * @typedef { function } OnAlphabetIndexerRequestPopupDataCallback
  * @param { number } index - selected index
  * @returns { Array<string> } string array corresponding to the index
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 18 dynamic
  */
-declare type OnAlphabetIndexerRequestPopupDataCallback = (index: number) => Array<string>;
+declare type OnAlphabetIndexerRequestPopupDataCallback  = (index: number) => Array<string>;
 
 /**
- * Defines the alphabet index bar attribute functions.
+ * When the [width]{@link CommonMethod#width(value: Length)} attribute is set to **"auto"**, the width is adaptive. This
+ * means that the width will adjust according to the maximum width of the index items.
  *
- * @extends CommonMethod<AlphabetIndexerAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * Defines the alphabet index bar attribute functions.
+ * The default value of the [padding]{@link CommonMethod#padding} attribute is 4 vp.
  *
- * @extends CommonMethod<AlphabetIndexerAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 10
- */
-/**
- * Defines the alphabet index bar attribute functions.
+ * The [maxFontScale]{@link TextAttribute#maxFontScale} and [minFontScale]{@link TextAttribute#minFontScale} attributes
+ * are both set to a constant value of 1, which means that they do not change with the system font size.
  *
- * @extends CommonMethod<AlphabetIndexerAttribute>
+ * In addition to the [universal attributes]{@link common}, the following attributes are supported.
+ *
+ * In addition to the [universal events]{@link common}, the following events are supported.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
  */
 declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttribute> {
+
   /**
-   * Index bar selection callback.
+   * Triggered when an index item is selected, with the callback parameter being the index of the currently selected
+   * item.
    *
-   * @param { function } callback
+   * > **NOTE**
+   *
+   * @param { function } callback - Index of the selected item.
    * @returns { AlphabetIndexerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7 dynamiconly
@@ -337,620 +218,347 @@ declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttri
   onSelected(callback: (index: number) => void): AlphabetIndexerAttribute;
 
   /**
-   * Definitions color.
+   * Sets the text color for unselected items.
    *
-   * @param { ResourceColor } value
+   * @param { ResourceColor } value - Text color of unselected items.<br>Default value: **0x99182431**, which is a
+   *     slightly transparent brown.
    * @returns { AlphabetIndexerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Definitions color.
-   *
-   * @param { ResourceColor } value
-   * @returns { AlphabetIndexerAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Definitions color.
-   *
-   * @param { ResourceColor } value
-   * @returns { AlphabetIndexerAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   color(value: ResourceColor): AlphabetIndexerAttribute;
 
   /**
-   * Select the text color.
+   * Sets the text color for the selected item.
    *
-   * @param { ResourceColor } value
+   * @param { ResourceColor } value - Text color of the selected item.<br>Default value: **0xFF007DFF**, which is blue.
    * @returns { AlphabetIndexerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Select the text color.
-   *
-   * @param { ResourceColor } value
-   * @returns { AlphabetIndexerAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Select the text color.
-   *
-   * @param { ResourceColor } value
-   * @returns { AlphabetIndexerAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   selectedColor(value: ResourceColor): AlphabetIndexerAttribute;
 
   /**
-   * Font color of the pop-up prompt text.
+   * Sets the text color for the primary index item in the pop-up window.
    *
-   * @param { ResourceColor } value
+   * @param { ResourceColor } value - Text color of the primary index item in the pop-up window.<br>Default value:
+   *     **0xFF007DFF**, which is blue.
    * @returns { AlphabetIndexerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Font color of the pop-up prompt text.
-   *
-   * @param { ResourceColor } value
-   * @returns { AlphabetIndexerAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Font color of the pop-up prompt text.
-   *
-   * @param { ResourceColor } value
-   * @returns { AlphabetIndexerAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   popupColor(value: ResourceColor): AlphabetIndexerAttribute;
 
   /**
-   * Select the text background color.
+   * Sets the background color of the selected item.
    *
-   * @param { ResourceColor } value
+   * @param { ResourceColor } value - Background color of the selected item.<br>Default value: **0x1A007DFF**, which is
+   *     semi-transparent blue-green.
    * @returns { AlphabetIndexerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Select the text background color.
-   *
-   * @param { ResourceColor } value
-   * @returns { AlphabetIndexerAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Select the text background color.
-   *
-   * @param { ResourceColor } value
-   * @returns { AlphabetIndexerAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   selectedBackgroundColor(value: ResourceColor): AlphabetIndexerAttribute;
 
   /**
-   * Background color of the pop-up window index.
+   * Sets the background color for the pop-up window.
    *
-   * @param { ResourceColor } value
+   * If this API is not called or the **value** parameter is set to **undefined**:
+   *
+   * In API version 11 and earlier versions, the default background color of the pop-up is **0xFFFFFFFF**, which is
+   * white.
+   *
+   * In API versions 12 to 24, the default background color is **#66808080**, which is translucent gray.
+   *
+   * Since API version 26.0.0, if neither **popupBackground** nor
+   * [popupBackgroundBlurStyle]{@link AlphabetIndexerAttribute#popupBackgroundBlurStyle} is called or the **value**
+   * parameter is set to **undefined**, the **THIN** style of
+   * **[ImmersiveStyle](docroot://reference/apis-arkui/arkts-apis-uimaterial.md#immersivestyle)** is displayed by
+   * default on devices with high- and mid-level computing power, and the white background is displayed by default on
+   * devices with low-level computing power. If **popupBackgroundBlurStyle** is called and the **value** parameter is
+   * set to a valid value, the background color of the pop-up is **#66808080** by default, which is translucent gray.
+   *
+   * @param { ResourceColor } value - Background color of the pop-up window.<br>The background blur effect of the pop-up
+   *     text can affect the background color. You can disable the effect by setting
+   *     [popupBackgroundBlurStyle]{@link AlphabetIndexerAttribute#popupBackgroundBlurStyle} to **NONE**.<br>
    * @returns { AlphabetIndexerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Background color of the pop-up window index.
-   *
-   * @param { ResourceColor } value
-   * @returns { AlphabetIndexerAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Background color of the pop-up window index.
-   *
-   * @param { ResourceColor } value
-   * @returns { AlphabetIndexerAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   popupBackground(value: ResourceColor): AlphabetIndexerAttribute;
 
   /**
-   * Set the selected font color of non-alphabetic part of the pop-up window.
+   * Sets the text color for the selected secondary index item in the pop-up window.
    *
-   * @param { ResourceColor } value - indicates the color of the selected font.
+   * @param { ResourceColor } value - Text color of the selected secondary index items in the pop-up window.<br>Default
+   *     value: **#FF182431**, which is dark blue.
    * @returns { AlphabetIndexerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Set the selected font color of non-alphabetic part of the pop-up window.
-   *
-   * @param { ResourceColor } value - indicates the color of the selected font.
-   * @returns { AlphabetIndexerAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   popupSelectedColor(value: ResourceColor): AlphabetIndexerAttribute;
 
   /**
-   * Set the unselected font color of non-alphabetic part of the pop-up window.
+   * Sets the text color for the unselected secondary index items in the pop-up window.
    *
-   * @param { ResourceColor } value - indicates the color of the unselected font.
+   * @param { ResourceColor } value - Text color of the unselected secondary index items in the pop-up window.<br>
+   *     Default value: **#FF182431**, which is dark blue.
    * @returns { AlphabetIndexerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Set the unselected font color of non-alphabetic part of the pop-up window.
-   *
-   * @param { ResourceColor } value - indicates the color of the unselected font.
-   * @returns { AlphabetIndexerAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   popupUnselectedColor(value: ResourceColor): AlphabetIndexerAttribute;
 
   /**
-   * Set the background color of non-alphabetic part of the pop-up window.
+   * Sets the background color for the secondary index item in the pop-up window.
    *
-   * @param { ResourceColor } value - indicates the color of background.
+   * @param { ResourceColor } value - Background color of the secondary index item in the pop-up window.<br>Default
+   *     value:<br>API version 11 and earlier: **#FFFFFFFF**, which is white.<br>API version 12 and later:
+   *     **#00000000**, which is transparent.
    * @returns { AlphabetIndexerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Set the background color of non-alphabetic part of the pop-up window.
-   *
-   * @param { ResourceColor } value - indicates the color of background.
-   * @returns { AlphabetIndexerAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   popupItemBackgroundColor(value: ResourceColor): AlphabetIndexerAttribute;
 
   /**
-   * Whether to use pop-up index hints.
+   * Sets whether to display the pop-up window.
    *
-   * @param { boolean } value
+   * @param { boolean } value - Whether to display the pop-up window.<br>Default value: **false**.<br>**true**: Display
+   *     the pop-up window.<br>**false**: Do not display the pop-up window.
    * @returns { AlphabetIndexerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Whether to use pop-up index hints.
-   *
-   * @param { boolean } value
-   * @returns { AlphabetIndexerAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Whether to use pop-up index hints.
-   *
-   * @param { boolean } value
-   * @returns { AlphabetIndexerAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   usingPopup(value: boolean): AlphabetIndexerAttribute;
 
   /**
-   * Select the text text style,
+   * Sets the text style for the selected item.
    *
-   * @param { Font } value
+   * @param { Font } value - Text style of the selected item.<br>Default value:<br>API version 11 and earlier:<br>{<br>
+   *     size:'12.0fp',<br> style:FontStyle.Normal,<br> weight:FontWeight.Regular,<br> family:'HarmonyOS Sans'<br>}<br>
+   *     API version 12 and later:<br>{<br>size:'10.0vp',<br> style:FontStyle.Normal,<br> weight:FontWeight.Medium,<br>
+   *     family:'HarmonyOS Sans'<br>}
    * @returns { AlphabetIndexerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Select the text text style,
-   *
-   * @param { Font } value
-   * @returns { AlphabetIndexerAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Select the text text style,
-   *
-   * @param { Font } value
-   * @returns { AlphabetIndexerAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   selectedFont(value: Font): AlphabetIndexerAttribute;
 
   /**
-   * Select the text background color.
+   * Sets the text style for the primary index item in the pop-up window.
    *
-   * @param { Font } value
+   * @param { Font } value - Text style of the primary index item in the pop-up window.<br>Default value:<br>{<br>size:'
+   *     24.0vp',<br> style:FontStyle.Normal,<br> weight:FontWeight.Medium,<br> family:'HarmonyOS Sans'<br>}
    * @returns { AlphabetIndexerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Select the text background color.
-   *
-   * @param { Font } value
-   * @returns { AlphabetIndexerAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Select the text background color.
-   *
-   * @param { Font } value
-   * @returns { AlphabetIndexerAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   popupFont(value: Font): AlphabetIndexerAttribute;
 
   /**
-   * Set the font style of non-alphabetic part of the prompt pop-up window.
-   * Family and style are not supported currently and will be fixed in future.
+   * Sets the text style for the secondary index item in the pop-up window.
    *
-   * @param { Font } value - indicates the style of the font.
+   * @param { Font } value - Text style of the secondary index item in the pop-up window.<br>Default value:<br>{<br>size
+   *     :24,<br>weight:FontWeight.Medium<br>}
    * @returns { AlphabetIndexerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Set the font style of non-alphabetic part of the prompt pop-up window.
-   * Family and style are not supported currently and will be fixed in future.
-   *
-   * @param { Font } value - indicates the style of the font.
-   * @returns { AlphabetIndexerAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   popupItemFont(value: Font): AlphabetIndexerAttribute;
 
   /**
-   * Size of the letter area on the letter index bar. The letter area is a square. Set the length of the square side.
+   * Sets the size of the index item area.
    *
-   * @param { string | number } value
+   * @param { string | number } value - Size of the index item area, which is a square, meaning the side length of the
+   *     square. This attribute cannot be set in percentage.<br>The actual value is restricted by the component size.
+   *     The maximum width of an index item is the component width minus the left and right
+   *     [padding]{@link CommonMethod#padding}, and the maximum height of an index item is (component height minus the
+   *     top and bottom [padding]{@link CommonMethod#padding})/number of index items. If the input value is less than or
+   *     equal to 0, the default value is used.<br>Default value: **16.0**<br>Unit: vp
    * @returns { AlphabetIndexerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Size of the letter area on the letter index bar. The letter area is a square. Set the length of the square side.
-   *
-   * @param { string | number } value
-   * @returns { AlphabetIndexerAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Size of the letter area on the letter index bar. The letter area is a square. Set the length of the square side.
-   *
-   * @param { string | number } value
-   * @returns { AlphabetIndexerAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   itemSize(value: string | number): AlphabetIndexerAttribute;
 
   /**
-   * Definitions fonts.
+   * Sets the text style for unselected items.
    *
-   * @param { Font } value
+   * @param { Font } value - Text style of unselected items.<br>Default value:<br>API version 11 and earlier:<br>{<br>
+   *     size:'12.0fp',<br> style:FontStyle.Normal,<br> weight:FontWeight.Regular,<br> family:'HarmonyOS Sans'<br>}<br>
+   *     API version 12 and later:<br>{<br>size:'10.0vp',<br> style:FontStyle.Normal,<br> weight:FontWeight.Medium,<br>
+   *     family:'HarmonyOS Sans'<br>}
    * @returns { AlphabetIndexerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Definitions fonts.
-   *
-   * @param { Font } value
-   * @returns { AlphabetIndexerAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Definitions fonts.
-   *
-   * @param { Font } value
-   * @returns { AlphabetIndexerAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   font(value: Font): AlphabetIndexerAttribute;
 
   /**
-   * Alphabet index bar alignment style. The left and right alignment styles are supported,
-   * which affects the pop-up position of the pop-up window.
+   * Sets the alignment style of the indexer pop-up window.
    *
-   * @param { IndexerAlign } value - indicates the alignment style of Alphabet index.
+   * @param { IndexerAlign } value - Alignment style of the indexer pop-up window. The pop-up window can be displayed on
+   *     the right or left of the indexer.<br>Default value: **IndexerAlign.END**
+   * @param { Length } [offset] - Spacing between the pop-up window and the alphabetic index bar. A value greater than
+   *     or equal to **0** is valid. If this parameter is set to a value less than **0** or is not set, the spacing is
+   *     the same as **popupPosition**. When this parameter and
+   *     [popupPosition]{@link AlphabetIndexerAttribute#popupPosition} are set at the same time, **offset** takes effect
+   *     in the horizontal direction, and **popupPosition.y** takes effect in the vertical direction. [since 10]
    * @returns { AlphabetIndexerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Alphabet index bar alignment style. The left and right alignment styles are supported,
-   * which affects the pop-up position of the pop-up window.
-   *
-   * @param { IndexerAlign } value - indicates the alignment style of Alphabet index.
-   * @param { Length } [offset] - indicates the horizontal space between pop-up window and indexer bar.
-   * @returns { AlphabetIndexerAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Alphabet index bar alignment style. The left and right alignment styles are supported,
-   * which affects the pop-up position of the pop-up window.
-   *
-   * @param { IndexerAlign } value - indicates the alignment style of Alphabet index.
-   * @param { Length } [offset] - indicates the horizontal space between pop-up window and indexer bar.
-   * @returns { AlphabetIndexerAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   alignStyle(value: IndexerAlign, offset?: Length): AlphabetIndexerAttribute;
 
   /**
-   * Index bar selection callback.
+   * Triggered when an index item is selected, with the callback parameter being the index of the currently selected
+   * item.
    *
-   * @param { function } callback
+   * @param { function } callback - Event triggered when an index item is selected. [since 8 - 17]
+   * @param { OnAlphabetIndexerSelectCallback } callback - Event triggered when an index item is selected. [since 18]
    * @returns { AlphabetIndexerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Index bar selection callback.
-   *
-   * @param { function } callback
-   * @returns { AlphabetIndexerAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Index bar selection callback.
-   *
-   * @param { function } callback
-   * @returns { AlphabetIndexerAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Index bar selection callback.
-   * Anonymous Object Rectification.
-   *
-   * @param { OnAlphabetIndexerSelectCallback } callback
-   * @returns { AlphabetIndexerAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   onSelect(callback: OnAlphabetIndexerSelectCallback): AlphabetIndexerAttribute;
 
   /**
-   * Index bar selection callback and return the strings which display on pop-up.
+   * Triggered for a secondary index item content event in the pop-up window. The callback parameter is the index of the
+   * selected secondary index item. The return value is the secondary index item content to be displayed in the pop-up
+   * window.
    *
-   * @param { function } callback
+   * @param { function } callback - Callback for setting the secondary index item content event in the pop-up
+   *     window. [since 8 - 17]
+   * @param { OnAlphabetIndexerRequestPopupDataCallback } callback - Callback for setting the secondary index item
+   *     content event in the pop-up window. [since 18]
    * @returns { AlphabetIndexerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Index bar selection callback and return the strings which display on pop-up.
-   *
-   * @param { function } callback
-   * @returns { AlphabetIndexerAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Index bar selection callback and return the strings which display on pop-up.
-   *
-   * @param { function } callback
-   * @returns { AlphabetIndexerAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Index bar selection callback and return the strings which display on pop-up.
-   * Anonymous Object Rectification.
-   *
-   * @param { OnAlphabetIndexerRequestPopupDataCallback } callback
-   * @returns { AlphabetIndexerAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   onRequestPopupData(callback: OnAlphabetIndexerRequestPopupDataCallback): AlphabetIndexerAttribute;
 
   /**
-   * Pop-up selection callback.
+   * Triggered when a secondary index item in the pop-up window is selected. The callback parameter is the index of the
+   * selected secondary index item.
    *
-   * @param { function } callback
+   * @param { function } callback - Event triggered when a secondary index item in the pop-up window is
+   *     selected. [since 8 - 17]
+   * @param { OnAlphabetIndexerPopupSelectCallback } callback - Event triggered when a secondary index item in the pop-
+   *     up window is selected. [since 18]
    * @returns { AlphabetIndexerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Pop-up selection callback.
-   *
-   * @param { function } callback
-   * @returns { AlphabetIndexerAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Pop-up selection callback.
-   *
-   * @param { function } callback
-   * @returns { AlphabetIndexerAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Pop-up selection callback.
-   * Anonymous Object Rectification.
-   *
-   * @param { OnAlphabetIndexerPopupSelectCallback } callback
-   * @returns { AlphabetIndexerAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   onPopupSelect(callback: OnAlphabetIndexerPopupSelectCallback): AlphabetIndexerAttribute;
 
   /**
-   * Sets the selected index.
+   * Sets the index of the selected item.
    *
-   * @param { number } index
+   * Since API version 10, this parameter supports two-way binding through
+   * [$$](docroot://ui/state-management/arkts-two-way-sync.md).
+   *
+   * @param { number } index - Index of the selected item.<br>Value range:
+   *     [0, [arrayValue]{@link AlphabetIndexerOptions}.length – 1]<br>Default value: **0**
    * @returns { AlphabetIndexerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Sets the selected index.
-   *
-   * @param { number } index
-   * @returns { AlphabetIndexerAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Sets the selected index.
-   *
-   * @param { number } index
-   * @returns { AlphabetIndexerAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   selected(index: number): AlphabetIndexerAttribute;
 
   /**
-   * Position of the pop-up windows, relative to the midpoint of the top border of the indexer bar.
+   * Sets the position of the pop-up window relative to the center of the indexer's top border.
    *
-   * @param { Position } value
+   * @param { Position } value - Position of the pop-up window relative to the center of the indexer's top border.<br>
+   *     Default value: **{x: 60.0, y: 48.0}**
    * @returns { AlphabetIndexerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Position of the pop-up windows, relative to the midpoint of the top border of the indexer bar.
-   *
-   * @param { Position } value
-   * @returns { AlphabetIndexerAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Position of the pop-up windows, relative to the midpoint of the top border of the indexer bar.
-   *
-   * @param { Position } value
-   * @returns { AlphabetIndexerAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   popupPosition(value: Position): AlphabetIndexerAttribute;
 
   /**
-   * Automatically collapses the characters when the indexer bar not high enough to display all characters.
+   * Sets whether to enable the adaptive collapse behavior for the indexer.
    *
-   * @param { boolean } value - A boolean value determines whether auto collapses is enabled for indexer bar.
+   * When the first index item is **"#"**: Remaining items ≤ 9: Full display mode; 9 < Remaining items ≤ 13: Adapts
+   * between full display and short collapse modes based on the indexer height; remaining items > 13: Adapts between
+   * short and long collapse modes based on the indexer height.
+   *
+   * When the first index item is not **"#"**: All items ≤ 9: Full display mode; 9 < All items ≤ 13: Adapts between full
+   * display and short collapse modes based on the indexer height; all items > 13: Adapts between short and long
+   * collapse modes based on the indexer height.
+   *
+   * > **NOTE**
+   *
+   * > This API can be called within [attributeModifier]{@link CommonMethod#attributeModifier} since API version 12.
+   *
+   * @param { boolean } value - Whether to auto-collapse or expand the indexer bar.<br>Default value:<br>Before API
+   *     version 12: **false**<br>Since API version 12: **true**<br>**true**: Enable the adaptive collapse behavior.<br>
+   *     **false**: Disable the adaptive collapse behavior.
    * @returns { AlphabetIndexerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Automatically collapses the characters when the indexer bar not high enough to display all characters.
-   *
-   * @param { boolean } value - A boolean value determines whether auto collapses is enabled for indexer bar.
-   * @returns { AlphabetIndexerAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   autoCollapse(value: boolean): AlphabetIndexerAttribute;
 
   /**
-   * Set the radius of the item of the pop-up window.
+   * Sets the radius of the index border corners in the pop-up window.
    *
-   * @param { number } value
+   * @param { number } value - Radius of the index background border corners in the pop-up window.
+   *     <br>Unit: vp.
+   *     **24vp**.<br>This parameter cannot be set in percentage. If the value specified is less than **0**, **0** is
+   *     used.<br>The radius of the index background border corners in the pop-up window is automatically adaptive (
+   *     radius of the index corners + 4 vp).
    * @returns { AlphabetIndexerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -958,11 +566,16 @@ declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttri
   popupItemBorderRadius(value: number): AlphabetIndexerAttribute;
 
   /**
-   * Set the radius of the item of the indexer.
+   * Sets the radius of the index background border corners in the alphabetic index bar.
    *
-   * @param { number } value
+   * @param { number } value - <br>Unit: vp.
+   *     - Radius of the index background border corners in the alphabetic index bar.<br>Default
+   *     value: **8vp**<br>This parameter cannot be set in percentage. If the value specified is less than **0**, **0**
+   *     is used.<br>The radius of the index background border corners in the alphabetic index bar is automatically
+   *     adaptive (radius of the index corners + 4 vp).
    * @returns { AlphabetIndexerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -970,11 +583,20 @@ declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttri
   itemBorderRadius(value: number): AlphabetIndexerAttribute;
 
   /**
-   * Set the background blurStyle of title of the pop-up window.
+   * Sets the background blur style of the pop-up window. In versions earlier than API version 26.0.0, if this API is
+   * not called, the **COMPONENT_REGULAR** value in **BlurStyle** is used by default. Since API version 26.0.0, if
+   * neither [popupBackground]{@link AlphabetIndexerAttribute#popupBackground} nor **popupBackgroundBlurStyle** is
+   * called or the value is **undefined**, the **THIN** style of
+   * [ImmersiveStyle](docroot://reference/apis-arkui/arkts-apis-uimaterial.md#immersivestyle) is used by default on
+   * devices with high- and mid-level computing power, and the white background is used by default on devices with low-
+   * level computing power.
    *
-   * @param { BlurStyle } value
+   * @param { BlurStyle } value - Background blur style of the pop-up window.<br>The background blur effect can affect
+   *     [popupBackground]{@link AlphabetIndexerAttribute#popupBackground}. You can disable the effect by setting it to
+   *     **NONE**.
    * @returns { AlphabetIndexerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -982,11 +604,14 @@ declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttri
   popupBackgroundBlurStyle(value: BlurStyle): AlphabetIndexerAttribute;
 
   /**
-   * Set the background color of title of the pop-up window.
+   * Sets the background color for the primary index item in the pop-up window.
    *
-   * @param { ResourceColor } value
+   * @param { ResourceColor } value - Background color for the primary index item in the pop-up window.<br>Default value
+   *     :<br>If the pop-up window has only one index: **#00FFFFFF**.<br>If the pop-up window has multiple indexes:
+   *     **#0c182431**.
    * @returns { AlphabetIndexerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -994,11 +619,17 @@ declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttri
   popupTitleBackground(value: ResourceColor): AlphabetIndexerAttribute;
 
   /**
-   * Enable or disable haptic feedback.
+   * Sets whether to enable haptic feedback.
    *
-   * @param { boolean } value - Default value is true, set false to disable haptic feedback.
+   * @param { boolean } value - Whether to enable haptic feedback.<br>**true**: To enable haptic feedback.<br>**false**:
+   *     Not to enable haptic feedback.<br>Default value: **true**<br>To enable haptic feedback, you must declare the
+   *     **ohos.permission.VIBRATE** permission under **requestPermissions** in the
+   *     [module.json5](docroot://quick-start/module-configuration-file.md) file of the project.<br>"requestPermissions"
+   *     : [{"name": "ohos.permission.VIBRATE"}]
    * @returns { AlphabetIndexerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform [since 26.0.0]
    * @atomicservice
    * @since 12 dynamic
    */
@@ -1006,25 +637,19 @@ declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttri
 }
 
 /**
- * Defines AlphabetIndexer Component.
+ * The **AlphabetIndexer** component can create a logically indexed array of items in a container for instant location.
+ *
+ * > **NOTE**
+ *
+ * ###### Child Components
+ *
+ * Not supported
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * Defines AlphabetIndexer Component.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 10
- */
-/**
- * Defines AlphabetIndexer Component.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
+ * @noninterop
  */
 declare const AlphabetIndexer: AlphabetIndexerInterface;
 
@@ -1032,21 +657,9 @@ declare const AlphabetIndexer: AlphabetIndexerInterface;
  * Defines AlphabetIndexer Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * Defines AlphabetIndexer Component instance.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 10
- */
-/**
- * Defines AlphabetIndexer Component instance.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
+ * @noninterop
  */
 declare const AlphabetIndexerInstance: AlphabetIndexerAttribute;

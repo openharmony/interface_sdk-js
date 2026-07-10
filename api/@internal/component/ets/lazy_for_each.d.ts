@@ -19,19 +19,55 @@
  */
 
 /**
+ * Defines a type for memory optimization strategy.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+declare enum LazyForEachMemOptStrategy {
+
+  /**
+   * No memory optimization.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  DEFAULT = 0,
+
+  /**
+   * LazyForEach handle the memory optimization.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  ENABLE_AUTO_CACHE_OPTIMIZATION = 1 << 0
+}
+
+/**
  * Enumerates the data operation types.
  *
- * @enum { string }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
  */
 declare enum DataOperationType {
+
   /**
    * Data addition.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -42,6 +78,7 @@ declare enum DataOperationType {
    * Data deletion.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -52,6 +89,7 @@ declare enum DataOperationType {
    * Data exchange.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -62,6 +100,7 @@ declare enum DataOperationType {
    * Data movement.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -72,6 +111,7 @@ declare enum DataOperationType {
    * Data change.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -82,6 +122,7 @@ declare enum DataOperationType {
    * Data reloading.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -90,175 +131,317 @@ declare enum DataOperationType {
 }
 
 /**
+ * Enumerates the release strategies for LazyForEach discarded nodes.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+declare enum LazyForEachReleaseStrategy {
+
+  /**
+   * Release all discarded nodes during the next idle period.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  BATCH = 0,
+
+  /**
+   * Release discarded nodes one by one during the next idle period based on the
+   * remaining time of the current frame. Unreleased nodes will continue to be
+   * released in subsequent idle periods based on the available idle time.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  PROGRESSIVE = 1
+}
+
+/**
+ * Enumerates the freeze modes for cached custom nodes that have been removed
+ * from the component tree in LazyForEach.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+declare enum LazyForEachCustomComponentFreezeMode {
+
+  /**
+   * Follow the enableCustomComponentFreeze field in Metadata to determine
+   * whether freezing takes effect.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  AUTO = 0,
+
+  /**
+   * Freezing is disabled for cached custom nodes removed from the component tree.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  DISABLED = 1,
+
+  /**
+   * Freezing is enabled for cached custom nodes removed from the component tree.
+   * State updates of cached custom components will be frozen.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  ENABLED = 2
+}
+
+/**
+ * Defines the options for LazyForEach.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+declare interface LazyForEachOptions {
+
+  /**
+   * Memory optimization strategy for LazyForEach.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  memoryOptimizationStrategy?: LazyForEachMemOptStrategy;
+
+  /**
+   * Freeze mode for cached custom nodes that have been removed from the
+   * component tree. Default value: LazyForEachCustomComponentFreezeMode.AUTO.
+   *
+   * @default LazyForEachCustomComponentFreezeMode.AUTO
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  customComponentFreezeMode?: LazyForEachCustomComponentFreezeMode;
+
+  /**
+   * Resource release strategy for LazyForEach discarded nodes.
+   * Default value: LazyForEachReleaseStrategy.BATCH.
+   *
+   * @default LazyForEachReleaseStrategy.BATCH
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  releaseStrategy?: LazyForEachReleaseStrategy;
+}
+
+/**
  * Represents an operation for adding data.
  *
- * @interface DataAddOperation
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
  */
 interface DataAddOperation {
+
   /**
    * Type of data addition.
    *
-   * @type { DataOperationType.ADD }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
    */
-  type: DataOperationType.ADD,
+  type: DataOperationType.ADD;
 
   /**
-   * Index at which to insert the data record.
+   * Index at which to insert the data record. The value range is [0, data source length - 1].
    *
-   * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
    */
-  index: number,
+  index: number;
 
   /**
-   * Number of data records to insert. Default value: 1.
+   * Number of data records to insert.
    *
-   * @type { ?number }
+   * Default value: **1**.
+   *
    * @default 1
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
    */
-  count?: number,
+  count?: number;
 
   /**
-   * Keys to assign to the inserted data records.
+   * Keys to assign to the inserted data records. The original keys are used by default.
    *
-   * @type { ?(string | Array<string>) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
    */
-  key?: string | Array<string>
+  key?: string | Array<string>;
 }
 
 /**
  * Represents an operation for deleting data.
  *
- * @interface DataDeleteOperation
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
  */
 interface DataDeleteOperation {
+
   /**
    * Type of data deletion.
    *
-   * @type { DataOperationType.DELETE }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
    */
-  type: DataOperationType.DELETE,
+  type: DataOperationType.DELETE;
 
   /**
-   * Index at which to start deleting data.
+   * Index at which to start deleting data. The value range is [0, data source length - 1].
    *
-   * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
    */
-  index: number,
+  index: number;
 
   /**
-   * Number of data records to delete. Default value: 1.
+   * Number of data records to delete.
    *
-   * @type { ?number }
+   * Default value: **1**.
+   *
    * @default 1
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
    */
-  count?: number
+  count?: number;
 }
 
 /**
  * Represents an operation for changing data.
  *
- * @interface DataChangeOperation
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
  */
 interface DataChangeOperation {
+
   /**
    * Type of data change.
    *
-   * @type { DataOperationType.CHANGE }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
    */
-  type: DataOperationType.CHANGE,
+  type: DataOperationType.CHANGE;
 
   /**
-   * Index of the data to be changed.
+   * Index of the data to be changed. The value range is [0, data source length - 1].
    *
-   * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
    */
-  index: number,
+  index: number;
 
   /**
    * New key to assign to the changed data. The original key is used by default.
    *
-   * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
    */
-  key?: string
+  key?: string;
 }
 
 /**
  * Defines position of moved data.
  *
- * @interface MoveIndex
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
  */
 interface MoveIndex {
+
   /**
-   * Start position for the movement.
+   * Start position for the movement. The value range is [0, data source length - 1].
    *
-   * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
    */
   from: number;
+
   /**
-   * End position for the movement.
+   * End position for the movement. The value range is [0, data source length - 1].
    *
-   * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -269,28 +452,30 @@ interface MoveIndex {
 /**
  * Defines position of exchange data.
  *
- * @interface ExchangeIndex
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
  */
 interface ExchangeIndex {
+
   /**
-   * First position for the exchange.
+   * First position for the exchange. The value range is [0, data source length - 1].
    *
-   * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
    */
   start: number;
+
   /**
-   * Second position for the exchange.
+   * Second position for the exchange. The value range is [0, data source length - 1].
    *
-   * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -301,28 +486,30 @@ interface ExchangeIndex {
 /**
  * Defines new key of exchange data.
  *
- * @interface ExchangeKey
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
  */
 interface ExchangeKey {
+
   /**
    * New key to assign to the first position in the exchange. The original key is used by default.
    *
-   * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
    */
   start: string;
+
   /**
    * New key to assign to the second position in the exchange. The original key is used by default.
    *
-   * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -333,121 +520,149 @@ interface ExchangeKey {
 /**
  * Represents an operation for moving data.
  *
- * @interface DataMoveOperation
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
  */
 interface DataMoveOperation {
+
   /**
    * Type of data movement.
    *
-   * @type { DataOperationType.MOVE }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
    */
-  type: DataOperationType.MOVE,
+  type: DataOperationType.MOVE;
 
   /**
-   * Positions for the movement.
+   * Positions for the movement. The value range is [0, data source length - 1].
    *
-   * @type { MoveIndex }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
    */
-  index: MoveIndex,
+  index: MoveIndex;
 
   /**
    * New key to assign to the moved data. The original key is used by default.
    *
-   * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
    */
-  key?: string
+  key?: string;
 }
 
 /**
  * Represents an operation for exchanging data.
  *
- * @interface DataExchangeOperation
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
  */
- interface DataExchangeOperation {
+interface DataExchangeOperation {
+
   /**
    * Type of data exchange.
    *
-   * @type { DataOperationType.EXCHANGE }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
    */
-  type: DataOperationType.EXCHANGE,
+  type: DataOperationType.EXCHANGE;
 
   /**
-   * Positions for the exchange.
+   * Positions for the exchange. The value range is [0, data source length - 1].
    *
-   * @type { ExchangeIndex }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
    */
-  index: ExchangeIndex,
+  index: ExchangeIndex;
 
   /**
    * New keys to assign to the exchanged data. The original keys are used by default.
    *
-   * @type { ?ExchangeKey }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
    */
-  key?: ExchangeKey
+  key?: ExchangeKey;
 }
 
 /**
- * Represents an operation for reloading data.
- * If the onDatasetChange event contains a DataOperationType.RELOAD operation,
- * all other operations in the event are ineffective. In such cases, the framework will
- * call keygenerator to perform a comparison of keys with their corresponding values.
+ * Represents an operation for reloading data. If the **onDatasetChange** event contains a **DataOperationType.RELOAD**
+ * operation, all other operations in the event are ineffective. In such cases, the framework will call **keyGenerator**
+ * to perform a comparison of keys with their corresponding values.
  *
- * @interface DataReloadOperation
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
  */
 interface DataReloadOperation {
+
   /**
    * Type of data reloading.
    *
-   * @type { DataOperationType.RELOAD }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
    */
-  type: DataOperationType.RELOAD
+  type: DataOperationType.RELOAD;
+
+  /**
+   * Whether to enable the feature that reuse old child components when \@Reuseable or \@ReuseableV2 is used and
+   * recycle pool is empty.
+   *
+   * **true**: Enable the feature.
+   *
+   * **false**: Disable the feature.
+   *
+   * Default value: **false**.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.1.0 dynamic
+   */
+  reuseImmediately?: boolean;
 }
 
 /**
  * All data operation types.
  *
- * @typedef { DataAddOperation | DataDeleteOperation | DataChangeOperation |DataMoveOperation | DataExchangeOperation | DataReloadOperation }
+ * > **NOTE**
+ *
+ * @unionmember { DataAddOperation } Represents an operation for adding data.
+ * @unionmember { DataDeleteOperation } Represents an operation for deleting data.
+ * @unionmember { DataChangeOperation } Represents an operation for changing data.
+ * @unionmember { DataMoveOperation } Represents an operation for moving data.
+ * @unionmember { DataExchangeOperation } Represents an operation for exchanging data.
+ * @unionmember { DataReloadOperation } Represents an operation for reloading data.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -458,237 +673,212 @@ declare type DataOperation =
 /**
  * Listener for data changes.
  *
- * @interface DataChangeListener
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @since 7
- */
-/**
- * Listener for data changes.
+ * > **NOTE**
+ * >
+ * > In APIs of **DataChangeListener** other than **onDatasetChange**, if the value of **index** is negative, the value
+ * > is treated as **0** by default. In **onDatasetChange**, if the specified index in a **DataOperation** is outside
+ * > the data source index range, the corresponding **DataOperation** does not take effect. (In **DataAddOperation**,
+ * > the value of **index** can equal the data source length.)
  *
- * @interface DataChangeListener
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @crossplatform
- * @since 10
- */
-/**
- * Listener for data changes.
- *
- * @interface DataChangeListener
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
  */
 declare interface DataChangeListener {
+
   /**
-   * Invoked when all data is reloaded. For data items whose key remains unchanged,
-   * the original child component is used. For data items whose key changes, a new child component is created.
+   * Invoked when all data is reloaded. For data items whose key remains unchanged, the original child component is
+   * used. For data items whose key changes, a new child component is created.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * Invoked when all data is reloaded. For data items whose key remains unchanged,
-   * the original child component is used. For data items whose key changes, a new child component is created.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Invoked when all data is reloaded. For data items whose key remains unchanged,
-   * the original child component is used. For data items whose key changes, a new child component is created.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   onDataReloaded(): void;
 
   /**
+   * Invoked when all data is reloaded. When \@Reuseable or \@ReuseableV2 is used and recycle pool is empty, old child
+   * components will be recycled and then be reused as new child components. If no old child component can be reused,
+   * new child components will be created.
+   *
+   * @param { boolean } reuseImmediately - Whether to enable the feature that reuse old child components when
+   *     \@Reuseable or \@ReuseableV2 is used and recycle pool is empty.
+   *     <br>**true**: Enable the feature.
+   *     <br>**false**: Disable the feature.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.1.0 dynamic
+   */
+  onDataReloaded(reuseImmediately: boolean): void;
+
+  /**
    * Invoked when data is added to the position indicated by the specified index.
    *
-   * @param { number } index
+   * > This API is deprecated since API version 8. You are advised to use
+   * > [onDataAdd]{@link DataChangeListener.onDataAdd} instead.
+   *
+   * @param { number } index - Index of the position where data is added. The value range is
+   *     [0, data source length - 1].<br>If the value is less than 0, it is treated as **0**. If the value is greater
+   *     than the data source length minus 1, it is treated as the data source length minus 1.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @since 7 dynamiconly
    * @deprecated since 8
-   * @useinstead onDataAdd
+   * @useinstead DataChangeListener.onDataAdd
    */
   onDataAdded(index: number): void;
 
   /**
    * Invoked when data is added to the position indicated by the specified index.
    *
-   * @param { number } index
+   * @param { number } index - Index of the position where data is added. The value range is
+   *     [0, data source length - 1].<br>If the value is less than 0, it is treated as **0**. If the value is greater
+   *     than the data source length minus 1, it is treated as the data source length minus 1.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 8
-   */
-  /**
-   * Invoked when data is added to the position indicated by the specified index.
-   *
-   * @param { number } index
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Invoked when data is added to the position indicated by the specified index.
-   *
-   * @param { number } index
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   onDataAdd(index: number): void;
 
   /**
-   * Invoked when data is moved, that is, when data is swapped between the from and to positions.
+   * Invoked when data is moved, that is, when data is swapped between the **from** and **to** positions.
    *
-   * @param { number } from
-   * @param { number } to
+   * > This API is deprecated since API version 8. You are advised to use
+   * > [onDataMove]{@link DataChangeListener.onDataMove} instead.
+   *
+   * > **NOTE**
+   * >
+   * > The ID must remain unchanged before and after data movement. If the ID changes, APIs for deleting and adding data
+   * > must be called.
+   *
+   * @param { number } from - Original position of data. The value range is [0, data source length - 1].<br>If the value
+   *     is less than 0, it is treated as **0**. If the value is greater than the data source length minus 1, it is
+   *     treated as the data source length minus 1.
+   * @param { number } to - Target position of data. The value range is [0, data source length - 1].<br>If the value is
+   *     less than 0, it is treated as **0**. If the value is greater than the data source length minus 1, it is treated
+   *     as the data source length minus 1.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @since 7 dynamiconly
    * @deprecated since 8
-   * @useinstead onDataMove
+   * @useinstead DataChangeListener.onDataMove
    */
   onDataMoved(from: number, to: number): void;
 
   /**
    * Invoked when data is moved, that is, when data is swapped between the **from** and **to** positions.
    *
-   * @param { number } from
-   * @param { number } to
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @since 8
-   */
-  /**
-   * Invoked when data is moved, that is, when data is swapped between the **from** and **to** positions.
+   * > **NOTE**
+   * >
+   * > The ID must remain unchanged before and after data movement. If the ID changes, APIs for deleting and adding data
+   * > must be called.
    *
-   * @param { number } from
-   * @param { number } to
+   * @param { number } from - Original position of data. The value range is [0, data source length - 1].<br>If the value
+   *     is less than 0, it is treated as **0**. If the value is greater than the data source length minus 1, it is
+   *     treated as the data source length minus 1.
+   * @param { number } to - Target position of data. The value range is [0, data source length - 1].<br>If the value is
+   *     less than 0, it is treated as **0**. If the value is greater than the data source length minus 1, it is treated
+   *     as the data source length minus 1.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Invoked when data is moved, that is, when data is swapped between the **from** and **to** positions.
-   *
-   * @param { number } from
-   * @param { number } to
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   onDataMove(from: number, to: number): void;
 
   /**
-   * Invoked when data is deleted from the position indicated by the specified index.
-   * LazyForEach will update the displayed content accordingly.
+   * Invoked when data is deleted from the position indicated by the specified index. LazyForEach will update the
+   * displayed content accordingly.
    *
-   * @param { number } index
+   * > This API is deprecated since API version 8. You are advised to use
+   * > [onDataDelete]{@link DataChangeListener.onDataDelete} instead.
+   *
+   * @param { number } index - Index of the position where data is deleted. The value range is
+   *     [0, data source length - 1].<br>If the value is less than 0, it is treated as **0**. If the value is greater
+   *     than the data source length minus 1, it is treated as the data source length minus 1.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @since 7 dynamiconly
    * @deprecated since 8
-   * @useinstead onDataDelete
+   * @useinstead DataChangeListener.onDataDelete
    */
   onDataDeleted(index: number): void;
 
   /**
-   * Invoked when data is deleted from the position indicated by the specified index.
-   * LazyForEach will update the displayed content accordingly.
+   * Invoked when data is deleted from the position indicated by the specified index. LazyForEach will update the
+   * displayed content accordingly.
    *
-   * @param { number } index
+   * > **NOTE**
+   * >
+   * > Before **onDataDelete** is called, ensure that the corresponding data in **dataSource** has been deleted.
+   * > Otherwise, undefined behavior will occur during page rendering.
+   *
+   * @param { number } index - Index of the position where data is deleted. The value range is
+   *     [0, data source length - 1].<br>If the value is less than 0, it is treated as **0**. If the value is greater
+   *     than the data source length minus 1, it is treated as the data source length minus 1.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 8
-   */
-  /**
-   * Invoked when data is deleted from the position indicated by the specified index.
-   * LazyForEach will update the displayed content accordingly.
-   *
-   * @param { number } index
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Invoked when data is deleted from the position indicated by the specified index.
-   * LazyForEach will update the displayed content accordingly.
-   *
-   * @param { number } index
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   onDataDelete(index: number): void;
 
   /**
    * Invoked when data in the position indicated by the specified index is changed.
    *
-   * @param { number } index
+   * > This API is deprecated since API version 8. You are advised to use
+   * > [onDataChange]{@link DataChangeListener.onDataChange} instead.
+   *
+   * @param { number } index - Listener for data changes. The value range is [0, data source length - 1].<br>If the
+   *     value is less than 0, it is treated as **0**. If the value is greater than the data source length minus 1, it
+   *     is treated as the data source length minus 1.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @since 7 dynamiconly
    * @deprecated since 8
-   * @useinstead onDataChange
+   * @useinstead DataChangeListener.onDataChange
    */
   onDataChanged(index: number): void;
 
   /**
    * Invoked when data in the position indicated by the specified index is changed.
    *
-   * @param { number } index
+   * @param { number } index - Index of the position where data is changed. The value range is
+   *     [0, data source length - 1].<br>If the value is less than 0, it is treated as **0**. If the value is greater
+   *     than the data source length minus 1, it is treated as the data source length minus 1.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 8
-   */
-  /**
-   * Invoked when data in the position indicated by the specified index is changed.
-   *
-   * @param { number } index
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Invoked when data in the position indicated by the specified index is changed.
-   *
-   * @param { number } index
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   onDataChange(index: number): void;
 
   /**
    * Invoked when data is processed in batches to notify the component of refreshing.
    *
-   * @param { DataOperation[] } dataOperations
+   * > **NOTE**
+   * >
+   * > This API cannot be used together with other data operation APIs of **DataChangeListener**. For example, in the
+   * > same **LazyForEach**, if you have called **onDataAdd**, do not call **onDatasetChange**; if you have called
+   * > **onDatasetChange**, do not call **onDataAdd** or other data operation APIs. Different **LazyForEach** instances
+   * > on the page do not affect each other. When data is processed in batches within the same **onDatasetChange**
+   * > callback, if multiple **DataOperation** instances target the same index, only the first **DataOperation** will
+   * > take effect.
+   *
+   * @param { DataOperation[] } dataOperations - Array of data operations performed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -697,270 +887,175 @@ declare interface DataChangeListener {
 }
 
 /**
- * Developers need to implement this interface to provide data to LazyForEach component.
+ * Data source of **LazyForEach**.
  *
- * @interface IDataSource
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @since 7
- */
-/**
- * Developers need to implement this interface to provide data to LazyForEach component.
- *
- * @interface IDataSource
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @since 10
- */
-/**
- * Developers need to implement this interface to provide data to LazyForEach component.
- *
- * @interface IDataSource
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
  */
 declare interface IDataSource {
+
   /**
    * Obtains the total number of data items.
    *
-   * @returns { number }
+   * @returns { number } Total number of data items, which is subject to the data source.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * Obtains the total number of data items.
-   *
-   * @returns { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Obtains the total number of data items.
-   *
-   * @returns { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   totalCount(): number;
 
   /**
    * Obtains the data item that matches the specified index.
    *
-   * @param { number } index
-   * @returns { any }
+   * @param { number } index - Index of the data record to obtain. The value range is [0, data source length - 1].
+   * @returns { any } Data item that matches the specified index. The actual type is determined by the data source
+   *     implementation.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * Obtains the data item that matches the specified index.
-   *
-   * @param { number } index
-   * @returns { any }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Obtains the data item that matches the specified index.
-   *
-   * @param { number } index
-   * @returns { any }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   getData(index: number): any;
 
   /**
    * Registers a listener for data changes.
    *
-   * @param { DataChangeListener } listener
+   * @param { DataChangeListener } listener - Listener for data changes.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * Registers a listener for data changes.
-   *
-   * @param { DataChangeListener } listener
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Registers a listener for data changes.
-   *
-   * @param { DataChangeListener } listener
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   registerDataChangeListener(listener: DataChangeListener): void;
 
   /**
    * Unregisters the listener for data changes.
    *
-   * @param { DataChangeListener } listener
+   * @param { DataChangeListener } listener - Listener for data changes.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * Unregisters the listener for data changes.
-   *
-   * @param { DataChangeListener } listener
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Unregisters the listener for data changes.
-   *
-   * @param { DataChangeListener } listener
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   unregisterDataChangeListener(listener: DataChangeListener): void;
 }
 
 /**
- * Declare LazyForEachAttribute.
+ * The [drag-and-drop sorting]{@link common} attribute is supported.
  *
- * @extends DynamicNode<LazyForEachAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
+ * @noninterop
  */
-declare class LazyForEachAttribute extends DynamicNode<LazyForEachAttribute> {
-}
+declare class LazyForEachAttribute extends DynamicNode<LazyForEachAttribute> {}
+
 /**
- * Lazy loading.
+ * > **NOTE**
  *
- * @interface LazyForEachInterface
+ * For details about the development, see
+ * [LazyForEach: Lazy Data Loading](docroot://ui/rendering-control/arkts-rendering-control-lazyforeach.md).
+ *
+ * In scenarios involving a large number of child components, LazyForEach, when combined with techniques such as cached
+ * list items, dynamic preloading, and component reuse, can significantly improve scrolling frame rates while reducing
+ * memory usage. For best practices, see
+ * [Optimizing Frame Loss for Long List Loading](https://developer.huawei.com/consumer/en/doc/best-practices/bpta-best-practices-long-list).
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @since 7
- */
-/**
- * Lazy loading.
- *
- * @interface LazyForEachInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @since 10
- */
-/**
- * Lazy loading.
- *
- * @interface LazyForEachInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
+ * @noninterop
  */
 interface LazyForEachInterface {
+
   /**
-   * Enter the value to obtain the LazyForEach.
+   * **LazyForEach** iterates over provided data sources and creates corresponding components during each iteration.
+   * When **LazyForEach** is used in a scrolling container, the framework creates components as required within the
+   * visible area of the scrolling container. When a component is out of the visible area, the framework destroys and
+   * reclaims the component to reduce memory usage.
    *
-   * @param { IDataSource } dataSource
-   * @param { function } itemGenerator
-   * @param { function } keyGenerator
-   * @returns { LazyForEachInterface }
+   * @param { IDataSource } dataSource - **LazyForEach** data source. You need to implement related APIs.
+   * @param { function } itemGenerator - Child component generation function, which generates a child component for each
+   *     data item in the array.<br>**NOTE**<br>- (Optional) **item**: data item.<br>(Optional) **index**: index of the
+   *     data item.<br>- The function body of **itemGenerator** must be included in braces {...}.<br>- **itemGenerator**
+   *     can and must generate only one child component for each iteration.<br>- The **if** statement is allowed in
+   *     **itemGenerator**, but you must ensure that each branch of the **if** statement creates a child component of
+   *     the same type.
+   * @param { function } keyGenerator - ID generation function, which generates a unique and fixed ID for each data item
+   *     in the data source. Components are updated only when their generated key changes. The **keyGenerator**
+   *     parameter is optional, but you are advised to provide it so that the development framework can better identify
+   *     array changes and update components correctly.<br>The default value is an empty callback.<br>**NOTE**<br>- (
+   *     Optional) **item**: data item.<br>(Optional) **index**: index of the data item.<br>- When **keyGenerator** is
+   *     omitted, the default function **(item: Object, index: number) => { return viewId + '-' + index.toString(); }**
+   *     is used, where key generation is affected by the index value only (**viewId** is compiler-generated and
+   *     consistent within the same **LazyForEach** component).<br>- To ensure correct and efficient child component
+   *     updates, avoiding rendering anomalies or performance degradation, keys must meet the following requirements:<br
+   *     >1. Uniqueness: Each data item must have a distinct key.<br>2. Consistency: Keys must remain unchanged for
+   *     unmodified data items.
+   * @returns { LazyForEachInterface } [since 7 - 11]
+   * @returns { LazyForEachAttribute } [since 12]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * Enter the value to obtain the LazyForEach.
-   *
-   * @param { IDataSource } dataSource
-   * @param { function } itemGenerator
-   * @param { function } keyGenerator
-   * @returns { LazyForEachInterface }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Enter the value to obtain the LazyForEach.
-   *
-   * @param { IDataSource } dataSource
-   * @param { function } itemGenerator
-   * @param { function } keyGenerator
-   * @returns { LazyForEachInterface }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Enter the value to obtain the LazyForEach.
-   *
-   * @param { IDataSource } dataSource
-   * @param { function } itemGenerator
-   * @param { function } keyGenerator
-   * @returns { LazyForEachAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   (
     dataSource: IDataSource,
     itemGenerator: (item: any, index: number) => void,
     keyGenerator?: (item: any, index: number) => string
   ): LazyForEachAttribute;
+
+  /**
+   * Enter the value to obtain the LazyForEach.
+   *
+   * @param { IDataSource } dataSource
+   * @param { function } itemGenerator
+   * @param { function } [keyGenerator]
+   * @param { LazyForEachOptions } [options]
+   * @returns { LazyForEachAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  (
+    dataSource: IDataSource,
+    itemGenerator: (item: any, index: number) => void,
+    keyGenerator?: (item: any, index: number) => string,
+    options?: LazyForEachOptions
+  ): LazyForEachAttribute;
 }
 
 /**
- * Defines LazyForEach Component.
+ * > **NOTE**
+ *
+ * For details about the development, see
+ * [LazyForEach: Lazy Data Loading](docroot://ui/rendering-control/arkts-rendering-control-lazyforeach.md).
+ *
+ * In scenarios involving a large number of child components, LazyForEach, when combined with techniques such as cached
+ * list items, dynamic preloading, and component reuse, can significantly improve scrolling frame rates while reducing
+ * memory usage. For best practices, see
+ * [Optimizing Frame Loss for Long List Loading](https://developer.huawei.com/consumer/en/doc/best-practices/bpta-best-practices-long-list).
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @since 7
- */
-/**
- * Defines LazyForEach Component.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @since 10
- */
-/**
- * Defines LazyForEach Component.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
+ * @noninterop
  */
 declare const LazyForEach: LazyForEachInterface;

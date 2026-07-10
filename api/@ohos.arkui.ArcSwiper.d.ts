@@ -17,10 +17,10 @@
  * @file
  * @kit ArkUI
  */
+
 /**
- * Handler of swiper controller, used in finishAnimation.
+ * Defines the callback to notify the application when the animation stops playing.
  *
- * @typedef { function } FinishAnimationHandler
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @crossplatform
  * @atomicservice
@@ -29,7 +29,8 @@
 declare type FinishAnimationHandler = () => void;
 
 /**
- * Provide methods for controlling ArcSwiper component.
+ * Implements the controller of the **ArcSwiper** component. You can bind this object to the **ArcSwiper** component and
+ * use it to control page switching.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @crossplatform
@@ -37,8 +38,9 @@ declare type FinishAnimationHandler = () => void;
  * @since 18 dynamic
  */
 export class ArcSwiperController {
+
   /**
-   * A constructor used to create a ArcSwiperController object.
+   * A constructor used to create an **ArcSwiperController** instance.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
@@ -48,7 +50,8 @@ export class ArcSwiperController {
   constructor();
 
   /**
-   * Show next subcomponent.
+   * Turns to the next page. Page turning occurs with the animation, whose duration is specified by
+   * [duration]{@link ArcSwiperAttribute#duration}.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
@@ -58,7 +61,8 @@ export class ArcSwiperController {
   showNext();
 
   /**
-   * Show previous subcomponent.
+   * Turns to the previous page. Page turning occurs with the animation, whose duration is specified by
+   * [duration]{@link ArcSwiperAttribute#duration}.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
@@ -68,9 +72,10 @@ export class ArcSwiperController {
   showPrevious();
 
   /**
-   * Finish the swiper animation.
+   * Stops an animation.
    *
-   * @param { FinishAnimationHandler } [handler] - The handler is used to listen for the end of the animation.
+   * @param { FinishAnimationHandler } handler - Callback invoked when the animation stops.<br>If no value is provided,
+   *     no callback is performed.
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
@@ -82,13 +87,13 @@ export class ArcSwiperController {
 /**
  * Declare the direction of arc indicator.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @crossplatform
  * @atomicservice
  * @since 18 dynamic
  */
 export enum ArcDirection {
+
   /**
    * 3 o'clock direction.
    *
@@ -117,20 +122,22 @@ export enum ArcDirection {
    * @atomicservice
    * @since 18 dynamic
    */
-  NINE_CLOCK_DIRECTION = 2,
+  NINE_CLOCK_DIRECTION = 2
 }
 
 /**
- * Define ArcDotIndicator, the indicator type is arc dot.
+ * Describes the properties and behavior of the arc dot navigation indicator.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @crossplatform
  * @atomicservice
  * @since 18 dynamic
+ * @noninterop
  */
 export class ArcDotIndicator {
+
   /**
-   * A constructor used to create a ArcDotIndicator object.
+   * A constructor used to create an **ArcDotIndicator** instance.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
@@ -140,10 +147,11 @@ export class ArcDotIndicator {
   constructor();
 
   /**
-   * Set the direction of arc indicator.
+   * Sets the direction of the arc navigation indicator.
    *
-   * @param { Optional<ArcDirection> } direction - the direction of arc indicator, default value is { ArcDirection.SIX_CLOCK_DIRECTION }.
-   * @returns { ArcDotIndicator }
+   * @param { Optional<ArcDirection> } direction - Direction of the arc navigation indicator.<br>Default value:
+   *     **ArcDirection.SIX_CLOCK_DIRECTION** (6 o'clock direction)
+   * @returns { ArcDotIndicator } Properties and functionality of the arc navigation indicator.
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
@@ -152,10 +160,11 @@ export class ArcDotIndicator {
   arcDirection(direction: Optional<ArcDirection>): ArcDotIndicator;
 
   /**
-   * Set the navigation point color.
+   * Sets the color of the unselected navigation points in the arc navigation indicator.
    *
-   * @param { Optional<ResourceColor> } color - the indicator item color, default value is { #A9FFFFFF }.
-   * @returns { ArcDotIndicator }
+   * @param { Optional<ResourceColor> } color - Color of the unselected navigation points in the arc navigation
+   *     indicator.<br>Default value: **'#A9FFFFFF'**
+   * @returns { ArcDotIndicator } Properties and functionality of the arc navigation indicator.
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
@@ -164,10 +173,11 @@ export class ArcDotIndicator {
   itemColor(color: Optional<ResourceColor>): ArcDotIndicator;
 
   /**
-   * Set the selected navigation point color.
+   * Sets the color of the selected navigation point in the arc navigation indicator.
    *
-   * @param { Optional<ResourceColor> } color - the indicator item when selected, default value is { #FF5EA1FF }.
-   * @returns { ArcDotIndicator }
+   * @param { Optional<ResourceColor> } color - Color of the selected navigation point in the arc navigation indicator.<
+   *     br>Default value: **#FF5EA1FF**
+   * @returns { ArcDotIndicator } Properties and functionality of the arc navigation indicator.
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
@@ -176,10 +186,11 @@ export class ArcDotIndicator {
   selectedItemColor(color: Optional<ResourceColor>): ArcDotIndicator;
 
   /**
-   * Set the background color.
+   * Sets the color of the arc navigation indicator when it is long-pressed.
    *
-   * @param { Optional<ResourceColor> } color - the background color, default value is { #FF404040 }.
-   * @returns { ArcDotIndicator }
+   * @param { Optional<ResourceColor> } color - Color of the arc navigation indicator when it is long-pressed.<br>
+   *     Default value: **'#FF404040'**
+   * @returns { ArcDotIndicator } Properties and functionality of the arc navigation indicator.
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
@@ -188,10 +199,11 @@ export class ArcDotIndicator {
   backgroundColor(color: Optional<ResourceColor>): ArcDotIndicator;
 
   /**
-   * Set the gradient color for the mask.
+   * Sets the mask gradient color of the arc navigation indicator.
    *
-   * @param { Optional<LinearGradient> } color - the gradient color, default start color is { #00000000 }, default end color is { #FF000000 }.
-   * @returns { ArcDotIndicator }
+   * @param { Optional<LinearGradient> } color - Mask gradient color of the arc navigation indicator.<br>Default start
+   *     color: **'#00000000'**<br>Default end color: **'#FF000000'**
+   * @returns { ArcDotIndicator } Properties and functionality of the arc navigation indicator.
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
@@ -203,17 +215,18 @@ export class ArcDotIndicator {
 /**
  * Provide an interface for ArcSwiper.
  *
- * @interface ArcSwiperInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @crossplatform
  * @atomicservice
  * @since 18 dynamic
+ * @noninterop
  */
 interface ArcSwiperInterface {
+
   /**
-   * Create ArcSwiper component.
+   * Creates an **ArcSwiper** component.
    *
-   * @param { ArcSwiperController } [controller]
+   * @param { ArcSwiperController } controller - Controller bound to the component to control the page turning.
    * @returns { ArcSwiperAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
@@ -224,10 +237,9 @@ interface ArcSwiperInterface {
 }
 
 /**
- * Handler of swiper, used in OnChange.
+ * Defines the callback to notify the application when the index of the currently displayed element changes.
  *
- * @typedef { function } IndexChangedHandler
- * @param { number } index - The index of the current swiper.
+ * @param { number } index - Index of the currently displayed element. The index is zero-based.
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @crossplatform
  * @atomicservice
@@ -236,12 +248,14 @@ interface ArcSwiperInterface {
 declare type IndexChangedHandler = (index: number) => void;
 
 /**
- * Handler of swiper, used in OnAnimationStart.
- * 
- * @typedef { function } AnimationStartHandler
- * @param { number } index - The index of the current swiper.
- * @param { number } targetIndex - The index of the target swiper.
- * @param { SwiperAnimationEvent } event - The extra information of the animation.
+ * Defines the callback triggered when the page transition animation starts.
+ *
+ * @param { number } index - Index of the currently displayed element before the animation starts (not the final index
+ *     after the animation ends).
+ * @param { number } targetIndex - Index of the target element to switch to.
+ * @param { SwiperAnimationEvent } event - Extra information of the animation, including the offset of the currently
+ *     displayed element and target element relative to the start position of the **ArcSwiper** along the main axis, and
+ *     the hands-off velocity.
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @crossplatform
  * @atomicservice
@@ -250,11 +264,11 @@ declare type IndexChangedHandler = (index: number) => void;
 declare type AnimationStartHandler = (index: number, targetIndex: number, event: SwiperAnimationEvent) => void;
 
 /**
- * Handler of swiper, used in OnAnimationEnd.
- * 
- * @typedef { function } AnimationEndHandler
- * @param { number } index - The index of the current swiper.
- * @param { SwiperAnimationEvent } event - The extra information of the animation.
+ * Defines the callback triggered when the page transition animation ends.
+ *
+ * @param { number } index - Index of the currently displayed element.
+ * @param { SwiperAnimationEvent } event - Extra information of the animation, which is the offset of the currently
+ *     displayed element relative to the start position of the **ArcSwiper** along the main axis.
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @crossplatform
  * @atomicservice
@@ -263,11 +277,11 @@ declare type AnimationStartHandler = (index: number, targetIndex: number, event:
 declare type AnimationEndHandler = (index: number, event: SwiperAnimationEvent) => void;
 
 /**
- * Handler of swiper, used in OnGestureSwipe.
- * 
- * @typedef { function } GestureSwipeHandler
- * @param { number } index - The index of the current swiper.
- * @param { SwiperAnimationEvent } event - The extra information of the animation.
+ * Defines the callback triggered on a frame-by-frame basis during a swipe-based page turn.
+ *
+ * @param { number } index - Index of the currently displayed element.
+ * @param { SwiperAnimationEvent } event - Extra information of the animation, which is the offset of the currently
+ *     displayed element relative to the start position of the **ArcSwiper** along the main axis.
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @crossplatform
  * @atomicservice
@@ -275,22 +289,24 @@ declare type AnimationEndHandler = (index: number, event: SwiperAnimationEvent) 
  */
 declare type GestureSwipeHandler = (index: number, event: SwiperAnimationEvent) => void;
 
-
 /**
- * Defines the swiper content animated transition options.
+ * Provides the information about the custom page transition animation.
  *
- * @interface SwiperContentAnimatedTransition
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @crossplatform
  * @atomicservice
  * @since 18 dynamic
  */
 declare interface SwiperContentAnimatedTransition {
+
   /**
-   * Defines the timeout of custom content transition animation after the page is moved out of the swiper. The unit is ms.
-   * If SwiperContentTransitionProxy.finishTransition() is not invoked, use the timeout as animation end time.
+   * Timeout for the custom page transition animation. The timeout timer starts when the default animation (page
+   * scrolling) reaches the point where the first frame is moved out of the viewport. If you do not call the
+   * [finishTransition]{@link SwiperContentTransitionProxy.finishTransition} API of
+   * [SwiperContentTransitionProxy]{@link SwiperContentTransitionProxy} before the timer expires, the component
+   * considers that the custom animation of the page ends and immediately removes the page node from the render tree.
+   * The unit is ms. The default value is **0**.
    *
-   * @type { ?number }
    * @default 0 ms
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
@@ -300,9 +316,8 @@ declare interface SwiperContentAnimatedTransition {
   timeout?: number;
 
   /**
-   * Called when custom content transition animation start.
+   * Content of the custom page transition animation.
    *
-   * @type { Callback<SwiperContentTransitionProxy> }
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
@@ -312,19 +327,37 @@ declare interface SwiperContentAnimatedTransition {
 }
 
 /**
- *The proxy object returned to the developer during the execution of the Swiper custom content transition animation.
+ * Implements the proxy object returned during the execution of the custom page transition animation of the
+ * **ArcSwiper** component. You can use this object to obtain the page information in the custom animation viewport. You
+ * can also call the **finishTransition** API of this object to notify the **ArcSwiper** component that the custom
+ * animation has finished playing.
  *
- * @interface SwiperContentTransitionProxy
+ * > **NOTE**
+ *
+ * > - For example, when the index of the currently selected child component is 0, during a transition animation from
+ * > page 0 to page 1, the callback is triggered for all pages within the viewport on every frame. When pages 0 and 1
+ * > are both in the viewport, the callback is triggered twice per frame. The first callback has **selectedIndex** as
+ * > **0**, **index** as **0**, **position** as the ratio of how much page 0 has moved relative to its position before
+ * > the animation started on the current frame, and **mainAxisLength** as the length of page 0 on the main axis. The
+ * > second callback has **selectedIndex** as **0**, **index** as **1**, **position** as the ratio of how much page 1
+ * > has moved relative to page 0 before the animation started on the current frame, and **mainAxisLength** as the
+ * > length of page 1 on the main axis.
+ * >
+ * > - If the animation curve is a spring interpolation curve, during the transition animation from page 0 to page 1,
+ * > due to the position and velocity when the user lifts their finger off the screen, animation may overshoot and slide
+ * > past to page 2, then bounce back to page 1. Throughout this process, a callback is triggered for pages 1 and 2
+ * > within the viewport on every frame.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @crossplatform
  * @atomicservice
  * @since 18 dynamic
  */
 declare interface SwiperContentTransitionProxy {
+
   /**
-   * the index value of the swiper content selected before animation start.
+   * Index of the currently selected page.
    *
-   * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
@@ -333,9 +366,8 @@ declare interface SwiperContentTransitionProxy {
   selectedIndex: number;
 
   /**
-   * The index value of the swiper content.
+   * Index of a page in the viewport.
    *
-   * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
@@ -344,9 +376,9 @@ declare interface SwiperContentTransitionProxy {
   index: number;
 
   /**
-   * the moving ratio of the swiper content from the start position of the swiper main axis.
+   * Position of the page specified by **index** relative to the start position of the **ArcSwiper** main axis (start
+   * position of the page corresponding to **selectedIndex**).
    *
-   * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
@@ -355,9 +387,9 @@ declare interface SwiperContentTransitionProxy {
   position: number;
 
   /**
-   * the swiper main axis length for calculating position.
+   * Length of the page specified by **index** along the main axis.
+   * Unit: vp.
    *
-   * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
@@ -366,7 +398,7 @@ declare interface SwiperContentTransitionProxy {
   mainAxisLength: number;
 
   /**
-   * Notifies Swiper page the custom content transition animation is complete.
+   * Notifies the **ArcSwiper** component that the custom animation has finished playing.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
@@ -377,19 +409,24 @@ declare interface SwiperContentTransitionProxy {
 }
 
 /**
- * Defines the Arc swiper attribute functions.
+ * In addition to the [universal attributes]{@link common}, the following attributes are supported.
  *
- * @extends CommonMethod<ArcSwiperAttribute>
+ * In addition to the [universal events]{@link common}, the following events are supported.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @crossplatform
  * @atomicservice
  * @since 18 dynamic
+ * @noninterop
  */
 declare class ArcSwiperAttribute extends CommonMethod<ArcSwiperAttribute> {
+
   /**
-   * Set the index value of the displayed subcomponent.
+   * Sets the index of the child component currently displayed in the container. If the value is less than 0 or greater
+   * than or equal to the number of child components, the default value **0** is used.
    *
-   * @param { Optional<number> } index - The index value of the subcomponents to be displayed, default value is { 0 }.
+   * @param { Optional<number> } index - Index of the child component currently displayed in the container.<br>If
+   *     **index** is set to **undefined**, the value **0** is used.
    * @returns { ArcSwiperAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
@@ -399,10 +436,12 @@ declare class ArcSwiperAttribute extends CommonMethod<ArcSwiperAttribute> {
   index(index: Optional<number>): ArcSwiperAttribute;
 
   /**
-   * Set whether the indicator is available or set the indicator style.
+   * Sets the style of the arc dot navigation indicator.
    *
-   * @param { Optional<ArcDotIndicator | boolean> } style - The style information of the indicator or whether to
-   *                                                display the indicator, default value is { true }.
+   * @param { Optional<ArcDotIndicator | boolean> } style - Style of the arc dot navigation indicator.<br> -
+   *     **ArcDotIndicator**: properties and behavior of the arc dot navigation indicator.<br> - **boolean**: whether to
+   *     enable the arc dot navigation indicator. **true** to enable, **false** otherwise.<br> Default value: **true**<
+   *     br> Default type: **ArcDotIndicator**
    * @returns { ArcSwiperAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
@@ -412,9 +451,10 @@ declare class ArcSwiperAttribute extends CommonMethod<ArcSwiperAttribute> {
   indicator(style: Optional<ArcDotIndicator | boolean>): ArcSwiperAttribute;
 
   /**
-   * Set the animation duration of the switch in ms.
+   * Sets the duration of the animation for child component switching.
    *
-   * @param { Optional<number> } duration - Duration of animation, default value is { 400ms }.
+   * @param { Optional<number> } duration - Duration of the autoplay for child component switching.<br>Default value:
+   *     **400**<br>Unit: ms
    * @returns { ArcSwiperAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
@@ -424,9 +464,10 @@ declare class ArcSwiperAttribute extends CommonMethod<ArcSwiperAttribute> {
   duration(duration: Optional<number>): ArcSwiperAttribute;
 
   /**
-   * Set whether to slide vertically.
+   * Sets whether vertical swiping is used.
    *
-   * @param { Optional<boolean> } isVertical - The value indicates whether to slide vertically, default value is { false }.
+   * @param { Optional<boolean> } isVertical - Whether vertical swiping is used.<br>The value **true** means vertical
+   *     swiping, and **false** means horizontal swiping.<br>Default value: **false**
    * @returns { ArcSwiperAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
@@ -436,9 +477,10 @@ declare class ArcSwiperAttribute extends CommonMethod<ArcSwiperAttribute> {
   vertical(isVertical: Optional<boolean>): ArcSwiperAttribute;
 
   /**
-   * Set whether to disable sliding function.
+   * Sets whether to disable the swipe feature.
    *
-   * @param { Optional<boolean> } disabled - The value indicates whether the sliding function is enabled, default value is { false }.
+   * @param { Optional<boolean> } disabled - Whether to disable the swipe feature. The value **true** means to disable
+   *     the feature, and **false** means the opposite.<br>Default value: **false**
    * @returns { ArcSwiperAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
@@ -448,9 +490,10 @@ declare class ArcSwiperAttribute extends CommonMethod<ArcSwiperAttribute> {
   disableSwipe(disabled: Optional<boolean>): ArcSwiperAttribute;
 
   /**
-   * Set the sensitivity of rotating crown.
+   * Sets the sensitivity to the digital crown rotation.
    *
-   * @param { Optional<CrownSensitivity> } sensitivity - The sensitivity of rotating crown, default value is { MEDIUM }.
+   * @param { Optional<CrownSensitivity> } sensitivity - Sensitivity to the digital crown rotation.<br>Default value:
+   *     **CrownSensitivity.MEDIUM**.
    * @returns { ArcSwiperAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
@@ -460,9 +503,14 @@ declare class ArcSwiperAttribute extends CommonMethod<ArcSwiperAttribute> {
   digitalCrownSensitivity(sensitivity: Optional<CrownSensitivity>): ArcSwiperAttribute;
 
   /**
-   * Called when the index value has changed.
+   * Triggered when the index of the currently displayed child component changes. The return value is the index of the
+   * currently displayed child component.
    *
-   * @param { Optional<IndexChangedHandler> } handler - The handler is used to listen for index values that have changed.
+   * When the **ArcSwiper** component is used together with
+   * [LazyForEach](docroot://ui/rendering-control/arkts-rendering-control-lazyforeach.md), the subpage UI update cannot
+   * be triggered in the **onChange** event.
+   *
+   * @param { Optional<IndexChangedHandler> } handler - Callback for the index of the currently displayed element.
    * @returns { ArcSwiperAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
@@ -472,9 +520,9 @@ declare class ArcSwiperAttribute extends CommonMethod<ArcSwiperAttribute> {
   onChange(handler: Optional<IndexChangedHandler>): ArcSwiperAttribute;
 
   /**
-   * Called when the swiper animation has started.
+   * Triggered when the page transition animation starts.
    *
-   * @param { Optional<AnimationStartHandler> } handler - The handler is used to listen for the animation has started.
+   * @param { Optional<AnimationStartHandler> } handler - Triggered when the page transition animation starts.
    * @returns { ArcSwiperAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
@@ -484,9 +532,14 @@ declare class ArcSwiperAttribute extends CommonMethod<ArcSwiperAttribute> {
   onAnimationStart(handler: Optional<AnimationStartHandler>): ArcSwiperAttribute;
 
   /**
-   * Called when the swiper animation has ended.
+   * Triggered when the page transition animation ends.
    *
-   * @param { Optional<AnimationEndHandler> } handler - The handler is used to listen for the animation has ended.
+   * This event is triggered when the page transition animation of the **ArcSwiper** component ends, whether it is
+   * caused by gesture interruption or by calling **finishAnimation** through
+   * [SwiperController]{@link SwiperController}. The **index** parameter indicates the index after the animation ends.
+   * When the **ArcSwiper** component contains multiple columns, the index is of the leftmost element.
+   *
+   * @param { Optional<AnimationEndHandler> } handler - Triggered when the page transition animation ends.
    * @returns { ArcSwiperAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
@@ -496,9 +549,10 @@ declare class ArcSwiperAttribute extends CommonMethod<ArcSwiperAttribute> {
   onAnimationEnd(handler: Optional<AnimationEndHandler>): ArcSwiperAttribute;
 
   /**
-   * Called when swiping the switch using gestures.
+   * Triggered on a frame-by-frame basis when the page is turned by a swipe.
    *
-   * @param { Optional<GestureSwipeHandler> } handler - The handler is used to listen for swiping through gestures.
+   * @param { Optional<GestureSwipeHandler> } handler - Triggered on a frame-by-frame basis when the page is turned by a
+   *     swipe.
    * @returns { ArcSwiperAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
@@ -508,9 +562,11 @@ declare class ArcSwiperAttribute extends CommonMethod<ArcSwiperAttribute> {
   onGestureSwipe(handler: Optional<GestureSwipeHandler>): ArcSwiperAttribute;
 
   /**
-   * Set effect when scrolling over edge.
+   * Sets the effect used when the scroll boundary is reached. For details about the supported effects, see
+   * [EdgeEffect]{@link EdgeEffect}. The setting does not take effect when configured using the controller API.
    *
-   * @param {  Optional<EdgeEffect> } edgeEffect - scrolling effect over edge, default value is { EdgeEffect.Spring }.
+   * @param {  Optional<EdgeEffect> } edgeEffect - Effect used when the component is at one of the edges.<br>Default
+   *     value: **EdgeEffect.Spring**
    * @returns { ArcSwiperAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
@@ -520,9 +576,17 @@ declare class ArcSwiperAttribute extends CommonMethod<ArcSwiperAttribute> {
   effectMode(edgeEffect: Optional<EdgeEffect>): ArcSwiperAttribute;
 
   /**
-   * Custom swiper content transition animation.
+   * Defines a custom page transition animation. During finger-following swipes and post-release transition animations,
+   * this triggers a frame-by-frame callback for all pages in the viewport, allowing you to customize animations by
+   * modifying properties like opacity, scale, and translation.
    *
-   * @param { Optional<SwiperContentAnimatedTransition> } transition - custom content transition animation.
+   * During finger-following swipes and post-release transition animations, the
+   * [SwiperContentTransitionProxy]{@link SwiperContentTransitionProxy} callback is invoked for all pages in the
+   * viewport on a frame-by-frame basis. For example, when there are two pages whose subscripts are 0 and 1 in the
+   * viewport, two callbacks whose indexes are 0 and 1 are invoked in each frame.
+   *
+   * @param { Optional<SwiperContentAnimatedTransition> } transition - Information about the custom page transition
+   *     animation.
    * @returns { ArcSwiperAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
@@ -532,9 +596,11 @@ declare class ArcSwiperAttribute extends CommonMethod<ArcSwiperAttribute> {
   customContentTransition(transition: Optional<SwiperContentAnimatedTransition>): ArcSwiperAttribute;
 
   /**
-   * Custom swiper content transition animation.
+   * Sets whether to disable the transition animation.
    *
-   * @param { Optional<boolean> } disabled - the value indicates whether to disable the transition animation, default value is { false }.
+   * @param { Optional<boolean> } disabled - Whether to disable the transition animation.<br>**true**: Disable the
+   *     animation effect. **false**: Do not disable the animation effect.<br>If the input parameter is invalid, the
+   *     value **false** is used.
    * @returns { ArcSwiperAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
@@ -550,16 +616,9 @@ declare class ArcSwiperAttribute extends CommonMethod<ArcSwiperAttribute> {
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @crossplatform
  * @atomicservice
- * @since 18
- */
-/**
- * Defines the ArcSwiper Component that can provide the ability for sub components to swipe and display.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Circle
- * @crossplatform
- * @atomicservice
- * @uicomponent
- * @since 19 dynamic
+ * @uicomponent [since 19]
+ * @since 18 dynamic
+ * @noninterop
  */
 declare let ArcSwiper: ArcSwiperInterface;
 
@@ -570,5 +629,6 @@ declare let ArcSwiper: ArcSwiperInterface;
  * @crossplatform
  * @atomicservice
  * @since 18 dynamic
+ * @noninterop
  */
 declare let ArcSwiperInstance: ArcSwiperAttribute;

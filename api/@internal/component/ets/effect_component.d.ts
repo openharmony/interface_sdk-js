@@ -19,101 +19,125 @@
  */
 
 /**
- * Provides an Effect Component, which is invisible, but setting properties on this component defines an effect template
- * that child components can apply by setting useEffect(true).
+ * The **EffectComponent** component defines combined special effects for child components to optimize the special 
+ * effect drawing performance.
+ * 
+ * > **NOTE**
+ * 
+ * > - The APIs provided by this component are system APIs.
+ * >
+ * > - Currently, this component provides only combined background blur effects for child components.
+ * >
+ * > - To use this component for combined background blur effects, first replace the **backgroundBlurStyle(BlurStyle)** 
+ * > attribute of the target child components with **useEffect(true)**.
  *
- * @interface EffectComponentInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
+ * @stagemodelonly
  * @since 10 dynamic
+ * @noninterop
  */
 interface EffectComponentInterface {
   /**
-   * Return effectComponent.
+   * Creates an **EffectComponent** component.
    *
    * @returns { EffectComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @stagemodelonly
    * @since 10 dynamic
    */
   (): EffectComponentAttribute;
-  
+
   /**
-   * Return effectComponent.
+   * Creates an effect drawing and combination component. If no parameter is passed or the parameter is 
+   * EffectLayer.None, the background blur effect of child components is combined. If a parameter is specified, the 
+   * current rendering layer is placed on a special layer.
    *
-   * @param { EffectComponentOptions } [options] - EffectComponent constructor options.
+   * @param { EffectComponentOptions } [options] - EffectComponent constructor parameter.
    * @returns { EffectComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @stagemodelonly
    * @since 20 dynamic
    */
   (options?: EffectComponentOptions): EffectComponentAttribute;
 }
 
 /**
- * Effect layer enum.
+ * Rendering layer of the EffectComponent.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
+ * @stagemodelonly
  * @since 20 dynamic
  */
 declare enum EffectLayer {
   /**
-   * No layer.
+   * No special effect layer.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @stagemodelonly
    * @since 20 dynamic
    */
   NONE = 0,
 
   /**
-   * Charge motion layer.
+   * Charging animation layer.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @stagemodelonly
    * @since 20 dynamic
    */
   CHARGE_MOTION = 1,
 
   /**
-   * Charge text layer.
+   * Charging text layer.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @stagemodelonly
    * @since 20 dynamic
    */
   CHARGE_TEXT = 2
 }
 
 /**
- * Defines the Effect Component constructor options.
+ * Sets the construction parameters of the current EffectComponent, including the rendering layer of the 
+ * EffectComponent.
  *
- * @interface EffectComponentOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
+ * @stagemodelonly
  * @since 20 dynamic
  */
 declare interface EffectComponentOptions {
-  /** 
-   * Use this to determine the component layer level. Default value is none.
+  /**
+   * Rendering layer of the EffectComponent.
+   * 
+   * Default value: EffectLayer.NONE
    *
-   * @type { ?EffectLayer }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @stagemodelonly
    * @since 20 dynamic
    */
   effectLayer?: EffectLayer;
 }
 
 /**
- * Defines the Effect Component attribute functions.
+ * The universal attributes are supported. Currently, this component only works with the **backgroundBlurStyle** 
+ * attribute.
+ * 
+ * The universal events are not supported.
  *
- * @extends CommonMethod<EffectComponentAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
+ * @stagemodelonly
  * @since 10 dynamic
+ * @noninterop
  */
 declare class EffectComponentAttribute extends CommonMethod<EffectComponentAttribute> {
   /**
@@ -124,17 +148,30 @@ declare class EffectComponentAttribute extends CommonMethod<EffectComponentAttri
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @stagemodelonly
    * @since 19 dynamic
    */
   alwaysSnapshot(enable: boolean): EffectComponentAttribute;
 }
 
 /**
- * Defines Effect Component.
+ * The **EffectComponent** component defines combined special effects for child components to optimize the special 
+ * effect drawing performance.
+ * 
+ * > **NOTE**
+ * 
+ * > - The APIs provided by this component are system APIs.
+ * >
+ * > - Currently, this component provides only combined background blur effects for child components.
+ * >
+ * > - To use this component for combined background blur effects, first replace the **backgroundBlurStyle(BlurStyle)** 
+ * > attribute of the target child components with **useEffect(true)**.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
+ * @stagemodelonly
  * @since 10 dynamic
+ * @noninterop
  */
 declare const EffectComponent: EffectComponentInterface;
 
@@ -143,6 +180,8 @@ declare const EffectComponent: EffectComponentInterface;
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
+ * @stagemodelonly
  * @since 10 dynamic
+ * @noninterop
  */
 declare const EffectComponentInstance: EffectComponentAttribute;

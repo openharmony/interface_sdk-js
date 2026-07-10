@@ -986,7 +986,7 @@ export interface Animation extends SceneResource {
   speed?: double;
 
   /**
-   * The duration of the animation.
+   * The duration of the animation, the unit is second.
    *
    * @type { double }
    * @readonly
@@ -1222,9 +1222,9 @@ export interface Environment extends SceneResource {
   /**
    * The rotation of the environment
    * 
-   * @type { ?Quaternion }
    * @default Quaternion {x:0, y:0, z:0, w:1}
    * @syscap SystemCapability.ArkUi.Graphics3D
+   * @stagemodelonly
    * @since 23 dynamic&static
    */
   environmentRotation?: Quaternion
@@ -1241,7 +1241,7 @@ export interface Environment extends SceneResource {
  */
 export interface Image extends SceneResource {
   /**
-   * The width of the image.
+   * The width of the image, the unit is pixel.
    *
    * @type { int }
    * @readonly
@@ -1252,7 +1252,7 @@ export interface Image extends SceneResource {
   readonly width: int;
 
   /**
-   * The height of the image.
+   * The height of the image, the unit is pixel.
    *
    * @type { int }
    * @readonly
@@ -1261,6 +1261,24 @@ export interface Image extends SceneResource {
    * @since 23 static
    */
   readonly height: int;
+}
+
+/**
+ * ImageStream resource.
+ *
+ * @syscap SystemCapability.ArkUi.Graphics3D
+ * @stagemodelonly
+ * @since 26.0.0 dynamic&static
+ */
+export interface ImageStream extends Image {
+  /**
+   * The surfaceId of the imageStream.
+   *
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  readonly surfaceId: string;
 }
 
 /**

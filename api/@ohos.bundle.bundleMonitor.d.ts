@@ -21,7 +21,7 @@
 import { Callback } from './@ohos.base';
 
 /**
- * Bundle monitor，monitor application installation, updates, and uninstallation events.
+ * Bundle monitor
  *
  * @namespace bundleMonitor
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -104,7 +104,7 @@ declare namespace bundleMonitor {
    * Register installation listener.
    *
    * @permission ohos.permission.LISTEN_BUNDLE_CHANGE
-   * @param { Callback<BundleChangedInfo> } [callback] - Indicates the callback to be registered.
+   * @param { Callback<BundleChangedInfo> } callback - Indicates the callback to be registered.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -117,7 +117,7 @@ declare namespace bundleMonitor {
    * Register update listener.
    *
    * @permission ohos.permission.LISTEN_BUNDLE_CHANGE
-   * @param { Callback<BundleChangedInfo> } [callback] - Indicates the callback to be registered.
+   * @param { Callback<BundleChangedInfo> } callback - Indicates the callback to be registered.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -130,7 +130,7 @@ declare namespace bundleMonitor {
    * Register uninstallation listener.
    *
    * @permission ohos.permission.LISTEN_BUNDLE_CHANGE
-   * @param { Callback<BundleChangedInfo> } [callback] - Indicates the callback to be registered.
+   * @param { Callback<BundleChangedInfo> } callback - Indicates the callback to be registered.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core

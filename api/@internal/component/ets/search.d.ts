@@ -18,120 +18,73 @@
  * @kit ArkUI
  */
 
-
 /**
- * Provides the method of switching the cursor position.
+ * The controller for the **Search** component inherits from
+ * [TextContentControllerBase]{@link TextContentControllerBase}. The APIs involved are as follows:<!--Del--> system API
+ * [getText]{@link TextContentControllerBase#getText} and other APIs like<!--DelEnd-->
+ * [getTextContentRect]{@link TextContentControllerBase#getTextContentRect},
+ * [getTextContentLineCount]{@link TextContentControllerBase#getTextContentLineCount},
+ * [getCaretOffset]{@link TextContentControllerBase#getCaretOffset}, [addText]{@link TextContentControllerBase#addText},
+ * [deleteText]{@link TextContentControllerBase#deleteText},
+ * [getSelection]{@link TextContentControllerBase#getSelection},
+ * [clearPreviewText]{@link TextContentControllerBase#clearPreviewText},
+ * [setStyledPlaceholder]{@link TextContentControllerBase#setStyledPlaceholder}, and
+ * [deleteBackward]{@link TextContentControllerBase#deleteBackward}.
  *
- * @extends TextContentControllerBase
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 8
- */
-/**
- * Provides the method of switching the cursor position.
- *
- * @extends TextContentControllerBase
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 10
- */
-/**
- * Provides the method of switching the cursor position.
- *
- * @extends TextContentControllerBase
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 8 dynamic
  */
 declare class SearchController extends TextContentControllerBase {
+
   /**
-   * constructor.
+   * A constructor used to create a **SearchController** object.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * constructor.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * constructor.
-   * A constructor used to create a SearchController object.
-   * 
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   constructor();
 
   /**
-   * Called when the position of the insertion cursor is set.
-   *
-   * @param { number } value
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Called when the position of the insertion cursor is set.
-   *
-   * @param { number } value
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Called when the position of the insertion cursor is set.
+   * Sets the position of the caret.
    *
    * @param { number } value - Length from the start of the character string to the position where the caret is located.
+   *     <br>Values less than 0 are treated as **0**. Values greater than the string length are treated as the string
+   *     length.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   caretPosition(value: number): void;
 
   /**
-   * Exit edit state.
+   * Exits the editing state.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Exit edit state.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   stopEditing(): void;
 
   /**
-   * Text selection is achieved by specifying the start and end positions of the text.
-   * 
-   * <p><strong>NOTE</strong>:
-   * <br>If selectionStart or selectionEnd is set to undefined, the value 0 will be used.
-   * <br>If <em>selectionMenuHidden</em> is set to <em>true</em> or a 2-in-1 device is used,
-   * calling setTextSelection does not display the context menu even when options is set to <em>MenuPolicy.SHOW</em>.
-   * <br>If the selected text contains an emoji, the emoji is selected when its start position is within the text selection range.
-   * <br>Sets the text selection range and highlights the selected text when the component is focused.
-   * <br>This API works only when the value of selectionStart is less than that of selectionEnd.
-   * </p>
-   * 
-   * @param { number } selectionStart - The start position of the selected text.
-   * The start position of text in the text box is 0.
-   * A value less than 0 is handled as 0.
-   * A value greater than the maximum text length is handled as the maximum text length.
-   * @param { number } selectionEnd - The end position of the selected text.
-   * A value less than 0 is handled as the value 0.
-   * A value greater than the maximum text length is handled as the maximum text length.
-   * @param { SelectionOptions } [options] - Indicates the options of the text selection.Default value is MenuPolicy.DEFAULT.
+   * Sets the text selection range and highlights the selected text when the component is focused. This API works only
+   * when the value of **selectionStart** is less than that of **selectionEnd**.
+   *
+   * @param { number } selectionStart - Start position of the text selection range. The start position of text in the
+   *     text box is 0.<br>A value less than 0 is handled as **0**. A value greater than the maximum text length is
+   *     handled as the maximum text length.<br>
+   * @param { number } selectionEnd - End position of the text selection range.<br>A value less than 0 is handled as
+   *     **0**. A value greater than the maximum text length is handled as the maximum text length.<br>
+   * @param { SelectionOptions } [options] - Configuration options for text selection.<br>Default value:
+   *     **MenuPolicy.DEFAULT**
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -140,177 +93,129 @@ declare class SearchController extends TextContentControllerBase {
 }
 
 /**
- * Enum for the style of cancel button
+ * Enum for the style of cancel button.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
- * @since 10
- */
-/**
- * Enum for the style of cancel button
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @atomicservice [since 11]
+ * @since 10 dynamic
  */
 declare enum CancelButtonStyle {
+
   /**
-   * The value of button style constant
+   * The Cancel button is always displayed.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * The value of button style constant
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   CONSTANT,
 
   /**
-   * The value of button style invisible
+   * The Cancel button is always hidden.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * The value of button style invisible
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   INVISIBLE,
 
   /**
-   * The value of button style input
+   * The Cancel button is displayed when there is text input.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
-   * @since 10
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
-  /**
-   * The value of button style input
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
-   */
-  INPUT
+  INPUT,
 }
 
 /**
- * Declare the type of search input box
+ * Enumerates the text input types of a search box.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
- * @since 11
- */
-/**
- * Declare the type of search input box
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 12 dynamic
+ * @atomicservice [since 12]
+ * @since 11 dynamic
  */
 declare enum SearchType {
+
   /**
-   * Basic input mode.
+   * Basic input mode with no special restrictions.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Basic input mode.
-   * The value can contain digits, letters, underscores (_), spaces, and special characters.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   NORMAL = 0,
 
   /**
-   * Pure digital input mode.
+   * Digit input mode.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Pure digital input mode.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   NUMBER = 2,
 
   /**
-   * Phone number entry mode.
+   * Phone number input mode.
+   *
+   * In this mode, the following characters are allowed: digits, spaces, plus signs (+), hyphens (-), asterisks (*), and
+   * number signs (#); the length is not limited.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Phone number entry mode.
-   * In this mode, the following are allowed: digits, spaces, plus signs (+), hyphens (-), asterisks (*), and number signs (#);
-   * the length is not limited.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   PHONE_NUMBER = 3,
 
   /**
-   * E-mail address input mode.
+   * Email address input mode.
+   *
+   * This mode accepts only digits, letters, underscores (_), dots (.), and the following special characters: ! # $ % &
+   * ' * + - / = ? ^ ` { | } ~ @ (which can only appear once)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * E-mail address input mode.
-   * This mode accepts only digits, letters, underscores (_), dots (.),
-   * and the following special characters: ! # $ % & ' * + - / = ? ^ ` { | } ~ @ (which can only appear once)
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   EMAIL = 5,
 
   /**
-   * Number decimal entry mode.
+   * Number input mode with a decimal point.
+   *
    * The value can contain digits and one decimal point.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
    */
   NUMBER_DECIMAL = 12,
-  
+
   /**
-   * URL entry mode.
+   * URL input mode with no special restrictions.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -318,386 +223,217 @@ declare enum SearchType {
   URL = 13,
 
   /**
-   * One time code mode.
+   * One-time code (verification code) input mode with no special restrictions.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 20 dynamic
    */
-  ONE_TIME_CODE = 14,
+  ONE_TIME_CODE = 14
 }
 
 /**
- * Options used to construct the search.
+ * Describes the initialization options of the **Search** component.
  *
- * Anonymous Object Rectification.
- * @typedef SearchOptions
+ * > **NOTE**
+ * >
+ * > To standardize anonymous object definitions, the element definitions here have been revised in API version 18.
+ * > While historical version information is preserved for anonymous objects, there may be cases where the outer element
+ * > 's @since version number is higher than inner elements'. This does not affect interface usability.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 18 dynamic
  */
 declare interface SearchOptions {
+
   /**
-   * Text input in the search text box.
+   * Sets the text input in the search text box.
    *
-   * @type { ?string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Text input in the search text box.
+   * Since API version 10, this parameter supports two-way binding through
+   * [$$](docroot://ui/state-management/arkts-two-way-sync.md).
    *
-   * @type { ?string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Text input in the search text box.
+   * Since API version 18, this parameter supports two-way binding through
+   * [!!](docroot://ui/state-management/arkts-new-binding.md#two-way-binding-between-built-in-component-parameters).
    *
-   * Anonymous Object Rectification.
-   * 
-   * <p><strong>NOTE</strong>:
-   * <br>Since API version 10, this parameter supports two-way binding through $$.
-   * <br>Since API version 18, this parameter supports two-way binding through !!.
-   * </p>
-   * 
-   * @type { ?string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 18
-   */
-  /**
-   * Text input in the search text box.
+   * The Resource type is supported since API version 20.
    *
-   * @type { ?ResourceStr }
+   * @type { ?string } [since 8 - 19]
+   * @type { ?ResourceStr } [since 20]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
+   * @crossplatform [since 20]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   value?: ResourceStr;
 
   /**
    * Text displayed when there is no input.
    *
-   * @type { string }
+   * @type { string } [since 8 - 9]
+   * @type { ?ResourceStr } [since 10]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Text displayed when there is no input.
-   *
-   * @type { ?ResourceStr }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
-   */
-  /**
-   * Text displayed when there is no input.
-   *
-   * @type { ?ResourceStr }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Text displayed when there is no input.
-   *
-   * Anonymous Object Rectification.
-   *
-   * @type { ?ResourceStr }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 18]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   placeholder?: ResourceStr;
 
   /**
-   * Path to the search icon.
+   * Path to the search icon. By default, the system search icon is used.
    *
-   * @type { ?string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Path to the search icon.
+   * **NOTE**
    *
-   * @type { ?string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Path to the search icon.
+   * The icon data source supports both
+   * [relative paths](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-image.md#example-25-displaying-an-image-using-a-relative-path)
+   * and network images.
    *
-   * Anonymous Object Rectification.
-   * 
-   * <p><strong>NOTE</strong>:
-   * <br>The icon data source can be a local or online image.
-   * <ul>
-   * <li>The supported formats include PNG, JPG, BMP, SVG, GIF, pixelmap, and HEIF.</li>
-   * <li>The Base64 string is supported in the following format:
-   * data:image/[png|jpeg|bmp|webp|heif];base64,[base64 data], where [base64 data] is a Base64 string.</li>
-   * </ul>
-   * <br>If this attribute and the searchIcon attribute are both set, the searchIcon attribute takes precedence.
-   * </p>
-   * 
-   * @type { ?string }
+   * - The supported formats include PNG, JPG, BMP, SVG, GIF, pixelmap, and HEIF.
+   * - The Base64 string is supported in the following format: data:image/[png|jpeg|bmp|webp|heif];base64,[base64 data],
+   * where *[base64 data]* is a Base64 string.
+   *
+   * If this attribute and the **searchIcon** attribute are both set, the **searchIcon** attribute takes precedence.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 18]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   icon?: string;
 
   /**
-   * Controller of the <Search> component.
+   * Controller of the **Search** component.
    *
-   * @type { ?SearchController }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Controller of the <Search> component.
-   *
-   * @type { ?SearchController }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Controller of the <Search> component.
-   *
-   * Anonymous Object Rectification.
-   *
-   * @type { ?SearchController }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 18]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   controller?: SearchController;
 }
 
 /**
- * The construct function of search
+ * The **Search** component provides an area for users to enter search queries.
  *
- * @interface SearchInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 8
- */
-/**
- * The construct function of search
+ * > **NOTE**
  *
- * @interface SearchInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 10
- */
-/**
- * The construct function of search
+ * > This component supports plain text only. For rich text, use the [RichEditor]{@link rich_editor} component.
  *
- * @interface SearchInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 8 dynamic
+ * @noninterop
  */
 interface SearchInterface {
+
   /**
-   * The options of SearchInterface
    *
-   * @param { object } options
+   * Defines the constructor of Search.
+   *
+   * @param { object } options - Initialization options of the **Search** component. [since 8 - 17]
+   * @param { SearchOptions } [options] - Initialization options of the **Search** component. [since 18]
    * @returns { SearchAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * The options of SearchInterface
-   *
-   * @param { object } options
-   * @returns { SearchAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * The options of SearchInterface
-   *
-   * @param { object } options
-   * @returns { SearchAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * The options of SearchInterface.
-   *
-   * Anonymous Object Rectification.
-   * @param { SearchOptions } [options] - Search options.
-   * @returns { SearchAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   (options?: SearchOptions): SearchAttribute;
 }
 
 /**
- * Defines the icon options
+ * Defines the icon options.
  *
- * @interface IconOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
- * @since 10
- */
-/**
- * Defines the icon options
- *
- * @interface IconOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @atomicservice [since 11]
+ * @since 10 dynamic
  */
 interface IconOptions {
+
   /**
-   * Set the icon size
+   * Icon size. It cannot be set in percentage.
    *
-   * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Set the icon size
-   * 
-   * <p><strong>NOTE</strong>:
-   * <br>It cannot be set in percentage.
-   * </p>
-   * 
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   size?: Length;
 
   /**
-   * Set the icon color
+   * Icon color.
    *
-   * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Set the icon color
-   *
-   * @type { ?ResourceColor }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   color?: ResourceColor;
 
   /**
-   * Set the icon resource
+   * Image source of the icon.
    *
-   * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Set the icon resource
-   *
-   * @type { ?ResourceStr }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   src?: ResourceStr;
 }
 
 /**
- * Defines the SearchButton options
+ * Defines the SearchButton options.
  *
- * @interface SearchButtonOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
- * @since 10
- */
-/**
- * Defines the SearchButton options
- *
- * @interface SearchButtonOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @atomicservice [since 11]
+ * @since 10 dynamic
  */
 interface SearchButtonOptions {
+
   /**
-   * Set the SearchButton fontSize
+   * Font size of the button. It cannot be set in percentage.
    *
-   * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Set the SearchButton fontSize
-   * 
-   * <p><strong>NOTE</strong>:
-   * <br>It cannot be set in percentage.
-   * </p>
-   * 
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   fontSize?: Length;
 
   /**
-   * Set the SearchButton fontColor
+   * Font color of the button.
    *
-   * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Set the SearchButton fontColor
-   *
-   * @type { ?ResourceColor }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   fontColor?: ResourceColor;
 
   /**
-   * Automatically disables the search button before the user enters text
-   * 
-   * <p><strong>NOTE</strong>:
-   * <br><em>true</em>: The search button is disabled when there is no text input.
-   * <br><em>false</em>: The search button remains enabled regardless of the text input.
-   * </p>
-   * 
-   * @type { ?Boolean }
+   * Whether to disable the search button when there is no text input.
+   *
+   * Default value: **false**
+   *
+   * **true**: The search button is disabled when there is no text input. **false**: The search button remains enabled
+   * regardless of the text input.
+   *
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -706,21 +442,21 @@ interface SearchButtonOptions {
 }
 
 /**
- * Defines the CancelButton options
+ * Defines the CancelButton options.
  *
- * @interface CancelButtonOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
  */
 interface CancelButtonOptions {
+
   /**
-   * Set the CancelButton style
    * Display state of the Cancel button on the right.
-   * 
-   * @type { ?CancelButtonStyle }
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -728,11 +464,10 @@ interface CancelButtonOptions {
   style?: CancelButtonStyle;
 
   /**
-   * Set the CancelButton icon
    * Icon of the Cancel button on the right.
-   * 
-   * @type { ?IconOptions }
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -741,30 +476,22 @@ interface CancelButtonOptions {
 }
 
 /**
- * Defines the CancelButton symbol options
+ * Defines the CancelButton symbol options.
  *
- * @interface CancelButtonSymbolOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform [since 20]
  * @atomicservice
- * @since 12
- */
-/**
- * Defines the CancelButton symbol options
- *
- * @interface CancelButtonSymbolOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20 dynamic
+ * @since 12 dynamic
  * @noninterop
  */
 interface CancelButtonSymbolOptions {
+
   /**
-   * Set the CancelButton style.
    * Display state of the Cancel button on the right.
-   * 
-   * @type { ?CancelButtonStyle }
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -772,34 +499,24 @@ interface CancelButtonSymbolOptions {
   style?: CancelButtonStyle;
 
   /**
-   * Set the CancelButton symbol icon.
    * Symbol icon of the Cancel button on the right.
-   * 
-   * @type { ?SymbolGlyphModifier }
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform [since 20]
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * Set the CancelButton symbol icon.
-   * Symbol icon of the Cancel button on the right.
-   * 
-   * @type { ?SymbolGlyphModifier }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
+   * @since 12 dynamic
    */
   icon?: SymbolGlyphModifier;
 }
 
 /**
- * Declare the event listener callback of the enter key.
+ * Called when the search icon, search button, or soft keyboard search button is clicked.
  *
- * @typedef { function } SearchSubmitCallback
- * @param { string } searchContent - The submitted content of search.
- * @param { SubmitEvent } [event] - Provides the method of keeping Search editable state when submitted.
+ * @param { string } searchContent - Current text input.
+ * @param { SubmitEvent } [event] - Submit event.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 14 dynamic
@@ -807,220 +524,126 @@ interface CancelButtonSymbolOptions {
 declare type SearchSubmitCallback = (searchContent: string, event?: SubmitEvent) => void;
 
 /**
- * The attribute function of search
+ * In addition to the [universal attributes]{@link common}, the following attributes are supported.
  *
- * @extends CommonMethod<SearchAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 8
- */
-/**
- * The attribute function of search
+ * In addition to the [universal events]{@link common}, the following events are supported.
  *
- * @extends CommonMethod<SearchAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 10
- */
-/**
- * The attribute function of search
- *
- * @extends CommonMethod<SearchAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 8 dynamic
+ * @noninterop
  */
 declare class SearchAttribute extends CommonMethod<SearchAttribute> {
+
   /**
-   * Set the search button text
+   * Sets the text on the search button located next to the search text box.
    *
-   * @param { string } value - indicates the text of the search button.
-   * @param { SearchButtonOption } option
-   * @returns { SearchAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Set the search button text, fontSize and fontColor
+   * Clicking the search button triggers both **onSubmit** and **onClick** callbacks.
    *
-   * @param { string } value - indicates the text of the search button.
-   * @param { SearchButtonOptions } option - indicates the fontSize and fontColor of the search button.
-   * @returns { SearchAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Set the search button text, fontSize and fontColor
-   * 
-   * <p><strong>NOTE</strong>:
-   * <br>Clicking the search button triggers both onSubmit and onClick callbacks.
-   * <br>The default font size on wearable devices is 18 fp.
-   * </p>
-   * 
-   * 
-   * @param { string } value - indicates the text of the search button.
-   * @param { SearchButtonOptions } option - indicates the fontSize and fontColor of the search button.
-   *                                         Default value is { fontSize: '16fp', fontColor: '#ff3f97e9' }
-   * @returns { SearchAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Set the search button text, fontSize and fontColor
+   * The default font size on wearable devices is 18 fp.
    *
-   * @param { ResourceStr } value - indicates the text of the search button.
-   * @param { SearchButtonOptions } option - indicates the fontSize and fontColor of the search button.
+   * @param { string } value - Text on the search button located next to the search text box.<br>The Resource type is
+   *     supported since API version 20. [since 8 - 19]
+   * @param { ResourceStr } value - Text on the search button located next to the search text box.<br>The Resource type
+   *     is supported since API version 20. [since 20]
+   * @param { SearchButtonOption } option - Text style of the search button located next to the search text box.<br>
+   *     Default value:<br>{<br>fontSize: '16fp',<br>fontColor: '#ff3f97e9'<br>} [since 8 - 9]
+   * @param { SearchButtonOptions } option - Text style of the search button located next to the search text box.<br>
+   *     Default value:<br>{<br>fontSize: '16fp',<br>fontColor: '#ff3f97e9'<br>} [since 10]
    * @returns { SearchAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   searchButton(value: ResourceStr, option?: SearchButtonOptions): SearchAttribute;
 
   /**
-   * Set the text Color
+   * Sets the font color of the input text. **fontSize**, **fontStyle**, **fontWeight**, and **fontFamily** are set in
+   * the [textFont]{@link SearchAttribute#textFont} attribute.
    *
-   * @param { ResourceColor } value - indicates the color of the text.
+   * @param { ResourceColor } value - Font color of the input text.<br>Default value: **'#FF182431'**<br>Default value
+   *     on wearable devices: **'#dbffffff' **
    * @returns { SearchAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Set the text Color
-   * 
-   * <p><strong>NOTE</strong>:
-   * <br>Universal text attributes fontSize, fontStyle, fontWeight, and fontFamily are set in the textFont attribute.
-   * </p>
-   * 
-   * @param { ResourceColor } value - indicates the color of the text.Default value is '#FF182431'.The default value on wearable devices is '#dbffffff'.
-   * @returns { SearchAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   fontColor(value: ResourceColor): SearchAttribute;
 
   /**
-   * Set the search icon style
+   * Sets the style of the search icon on the left.
    *
-   * @param { IconOptions } value - indicates the style of the search icon.
-   * @returns { SearchAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Set the search icon style
+   * The default icon size on wearable devices is 16 vp.
    *
-   * @param { IconOptions } value - indicates the style of the search icon.
+   * @param { IconOptions } value - Style of the search icon on the left.<!--RP1--><br>Default value in light mode:<br>{
+   *     <br>size: '16vp',<br>color: '#99182431',<br>src: ' '<br>}<br>Default value in dark mode:<br>{<br>size: '16vp',<
+   *     br>color: '#99ffffff',<br>src: ' '<br>} <!--RP1End--> [since 10 - 11]
+   * @param { IconOptions | SymbolGlyphModifier } value - Style of the search icon on the left.<!--RP1--><br>Default
+   *     value in light mode:<br>{<br>size: '16vp',<br>color: '#99182431',<br>src: ' '<br>}<br>Default value in dark
+   *     mode:<br>{<br>size: '16vp',<br>color: '#99ffffff',<br>src: ' '<br>} <!--RP1End--> [since 12]
    * @returns { SearchAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Set the search icon style
-   * 
-   * <p><strong>NOTE</strong>:
-   * <br>The default icon size on wearable devices is 16 vp.
-   * <br>Default value in light mode:
-   * <code>
-   * {
-   *    size: '16vp',
-   *    color: '#99182431',
-   *    src: ' '
-   * }
-   * </code>
-   * <br>Default value in dark mode:
-   * <code>
-   * {
-   *    size: '16vp',
-   *    color: '#99ffffff',
-   *    src: ' '
-   * }
-   * </code>
-   * </p>
-   * 
-   * @param { IconOptions | SymbolGlyphModifier } value - indicates the style of the search icon.
-   * @returns { SearchAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   searchIcon(value: IconOptions | SymbolGlyphModifier): SearchAttribute;
 
   /**
-   * Set the cancel button style
+   * Sets the style of the cancel button on the right. For details, see
+   * [Example 2: Setting Search and Delete Icons](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-search.md#example-2-setting-search-and-delete-icons)
+   * and
+   * [Example 11: Setting a Custom Symbol-Type Cancel Button](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-search.md#example-11-setting-a-custom-symbol-type-cancel-button).
    *
-   * @param { object } value - indicates the style of the cancel button.
-   * @returns { SearchAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Set the cancel button style
+   * The default icon size on wearable devices is 18 fp.
    *
-   * @param { object } value - indicates the style of the cancel button.
+   * @param { object } value - Style of the cancel button on the right.<br>Default value:<br>{<br>style:
+   *     CancelButtonStyle.INPUT,<br>icon: {<br>size: '16vp',<br>color: '#99ffffff',<br>src: ' '<br>}<br>}<br>When style
+   *     is set to **CancelButtonStyle.CONSTANT**, the cancel button is displayed in a default style. [since 10 - 11]
+   * @param { CancelButtonOptions | CancelButtonSymbolOptions } value - Style of the cancel button on the right.<br>
+   *     Default value:<br>{<br>style: CancelButtonStyle.INPUT,<br>icon: {<br>size: '16vp',<br>color: '#99ffffff',<br>
+   *     src: ' '<br>}<br>}<br>When style is set to **CancelButtonStyle.CONSTANT**, the cancel button is displayed in a
+   *     default style. [since 12]
    * @returns { SearchAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Set the cancel button style
-   * 
-   * <p><strong>NOTE</strong>:
-   * <br>The default icon size on wearable devices is 18 vp.
-   * <br>When style is set to CancelButtonStyle.CONSTANT, the Cancel button is always displayed.
-   * <br>Default value:
-   * <code>
-   * {
-   *    style: CancelButtonStyle.INPUT,
-   *    icon: {
-   *    size: '16vp',
-   *    color: '#99ffffff',
-   *    src: ' '
-   *    }
-   * }
-   * </code>
-   * </p>
-   * 
-   * @param { CancelButtonOptions | CancelButtonSymbolOptions } value - indicates the style of the cancel button.
-   * @returns { SearchAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   cancelButton(value: CancelButtonOptions | CancelButtonSymbolOptions): SearchAttribute;
 
   /**
-   * Enable selected data detector.
+   * Sets whether to enable entity recognition for selected text. This API only works on devices that provide text
+   * recognition.
    *
-   * @param { boolean | undefined } enable - whether to enable the selected data detector.
+   * When **enableSelectedDataDetector** is set to **true**, all entity types are recognized by default.
+   *
+   * This feature is only effective when [CopyOptions]{@link CopyOptions} is set to **CopyOptions.LocalDevice** or
+   * **CopyOptions.CrossDevice**.
+   *
+   * @param { boolean | undefined } enable - Whether to enable entity recognition for selected text.<br>**true**: Entity
+   *     recognition is enabled. **false**: Entity recognition is disabled. Default value: **true**
    * @returns { SearchAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 22 dynamic
    */
-  enableSelectedDataDetector(enable: boolean | undefined): SearchAttribute
+  enableSelectedDataDetector(enable: boolean | undefined): SearchAttribute;
 
   /**
-   * Specify the indentation of the first line in a text-block.
+   * Sets the indent of the first line text.
    *
-   * @param { Dimension } value - The length of text indent.Default value is 0.
+   * @param { Dimension } value - Indent of the first line text.<br>Default value: **0**
    * @returns { SearchAttribute } The attribute of the text.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1028,20 +651,20 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
   textIndent(value: Dimension): SearchAttribute;
 
   /**
-   * Called when the inputFilter of text is set.
-   * 
-   * <p><strong>NOTE</strong>:
-   * <br>Only inputs that comply with the regular expression can be displayed.
-   * <br>Other inputs are filtered out.
-   * <br>The specified regular expression can match single characters, but not strings.
-   * <br>If inputFilter is set and the entered characters are not null,
-   * the filtering effect attached to the text box type (specified through the type attribute) does not take effect.
-   * </p>
-   * 
+   * Sets the regular expression for input filtering. Only inputs that comply with the regular expression can be
+   * displayed. Other inputs are filtered out.
+   *
+   * For single-character input scenarios, only single-character matching is supported; for multi-character input
+   * scenarios (such as pasting), string matching is supported.
+   *
+   * If **inputFilter** is set and the entered characters are not null, the filtering effect attached to the text box
+   * type (specified through the **type** attribute) does not take effect.
+   *
    * @param { ResourceStr } value - Regular expression.
    * @param { Callback<string> } error - Filtered-out content to return when regular expression matching fails.
    * @returns { SearchAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1049,12 +672,14 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
   inputFilter(value: ResourceStr, error?: Callback<string>): SearchAttribute;
 
   /**
-   * Called when judging whether the text editing change finished.
-   * The text box is in the editing state when it has the caret placed in it, and is in the non-editing state otherwise.
-   * 
-   * @param { Callback<boolean> } callback - Returns true if the component is in an editing state.
+   * Called when the input state changes. The text box is in the editing state when it has the caret placed in it, and
+   * is in the non-editing state otherwise.
+   *
+   * @param { Callback<boolean> } callback - Callback for editing state changes. The value **true** indicates that the
+   *     text is being inserted, and **false** indicates that the text box is out of focus and text cannot be inserted.
    * @returns { SearchAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1062,15 +687,12 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
   onEditChange(callback: Callback<boolean>): SearchAttribute;
 
   /**
-   * Define the text selected background color of the text input.
-   * 
-   * <p><strong>NOTE</strong>:
-   * <br>If the opacity is not set, a 20% opacity will be used.
-   * </p>
-   * 
-   * @param { ResourceColor } value
+   * Sets the background color of the selected text. If the opacity is not set, a 20% opacity will be used.
+   *
+   * @param { ResourceColor } value - Background color of the selected text.
    * @returns { SearchAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1078,140 +700,63 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
   selectedBackgroundColor(value: ResourceColor): SearchAttribute;
 
   /**
-   * Set the cursor style
+   * Sets the caret style.
    *
-   * @param { CaretStyle } value - indicates the style of the cursor.
+   * @param { CaretStyle } value - Caret style.<br>Default value:<br>{<br>width: '2.0vp',<br>color: '#007DFF'<br>}
    * @returns { SearchAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Set the cursor style
-   * 
-   * <p><strong>NOTE</strong>:
-   * <br>Since API version 12, this API can be used to set the text handle color, which is the same as the caret color.
-   * <br>Default value:
-   * <code>
-   * {
-   *    width: '1.5vp',
-   *    color: '#007DFF'
-   * }
-   * </code>
-   * </p>
-   * 
-   * @param { CaretStyle } value - indicates the style of the cursor.
-   * @returns { SearchAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   caretStyle(value: CaretStyle): SearchAttribute;
 
   /**
-   * Set the place hold text color
+   * Sets the placeholder text color. The default value on wearable devices is **'#99ffffff'**.
    *
-   * @param { ResourceColor } value
+   * @param { ResourceColor } value - Placeholder text color.<br>Default value: **'#99182431'**
    * @returns { SearchAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Set the place hold text color
-   *
-   * @param { ResourceColor } value
-   * @returns { SearchAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Set the place hold text color
-   *
-   * @param { ResourceColor } value - Default value is '#99182431'.The default value on wearable devices is '#99ffffff'.
-   * @returns { SearchAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   placeholderColor(value: ResourceColor): SearchAttribute;
 
   /**
-   * Set the font used for place holder text
+   * Placeholder text style, including the font size, font weight, font family, and font style.
    *
-   * @param { Font } value
+   * @param { Font } value - Placeholder text style.
    * @returns { SearchAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Set the font used for place holder text
-   *
-   * @param { Font } value
-   * @returns { SearchAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Set the font used for place holder text
-   * 
-   * <p><strong>NOTE</strong>:
-   * <br>The 'HarmonyOS Sans' font and registered custom fonts are supported.
-   * <br>The default font size on wearable devices is 18 px.
-   * </p>
-   * 
-   * @param { Font } value
-   * @returns { SearchAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   placeholderFont(value?: Font): SearchAttribute;
 
   /**
-   * Set the font used for input text
+   * Style of the text entered in the search box, including the font size, font weight, font family, and font style.
    *
-   * @param { Font } value
-   * @returns { SearchAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Set the font used for input text
+   * The default font size on wearable devices is 18 fp.
    *
-   * @param { Font } value
+   * @param { Font } value - Text font of the search text box.
    * @returns { SearchAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Set the font used for input text
-   * 
-   * <p><strong>NOTE</strong>:
-   * <br>Currently, only the default font family is supported.
-   * <br>The default font size on wearable devices is 18 fp.
-   * </p>
-   * 
-   * @param { Font } value
-   * @returns { SearchAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   textFont(value?: Font): SearchAttribute;
 
   /**
-   * Set enter key type of soft keyboard
+   * Sets the type of the Enter key.
    *
-   * @param { EnterKeyType } value - Default value is EnterKeyType.Search.
+   * @param { EnterKeyType } value - Type of the Enter key.<br>Default value: **EnterKeyType.Search**
    * @returns { SearchAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1219,51 +764,29 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
   enterKeyType(value: EnterKeyType): SearchAttribute;
 
   /**
-   * Call the function when clicked the search button
+   * Called when the search icon, search button, or soft keyboard search button is clicked.
    *
-   * @param { function } callback
+   * @param { function } callback - Search submission callback, which returns the text content currently in the search
+   *     box. [since 8 - 17]
+   * @param { Callback<string> } callback - Search submission callback, which returns the text content currently in the
+   *     search box. [since 18]
    * @returns { SearchAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Call the function when clicked the search button
-   *
-   * @param { function } callback
-   * @returns { SearchAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Call the function when clicked the search button
-   *
-   * @param { function } callback
-   * @returns { SearchAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Call the function when clicked the search button.
-   *
-   * Anonymous Object Rectification.
-   * @param { Callback<string> } callback - Search submission callback, which returns the text content currently in the search box.
-   * @returns { SearchAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   onSubmit(callback: Callback<string>): SearchAttribute;
+
   /**
-   * Call the function when clicked the search button.
-   * The submission event provides a method to maintain the edit state of the Search component.
-   * 
-   * @param { SearchSubmitCallback } callback - callback of the listened event.
+   * Invoked when the search icon, search button, or soft keyboard search button is clicked. The submission event
+   * provides a method to maintain the edit state of the **Search** component.
+   *
+   * @param { SearchSubmitCallback } callback - Callback invoked when the search icon, search button, or soft keyboard
+   *     search button is clicked.
    * @returns { SearchAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 14 dynamic
@@ -1271,150 +794,61 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
   onSubmit(callback: SearchSubmitCallback): SearchAttribute;
 
   /**
-   * Call the function when editing the input text
+   * Called when the input in the text box changes.
    *
-   * @param { function } callback
-   * @returns { SearchAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Call the function when editing the input text
+   * In this callback, if caret operations are performed, you must adjust the caret logic based on the **previewText**
+   * parameter to ensure it works seamlessly within the preview display scenario.
    *
-   * @param { function } callback
+   * @param { function } callback - Callback invoked when the input in the text box changes. [since 8 - 11]
+   * @param { EditableTextOnChangeCallback } callback - Callback invoked when the input in the text box
+   *     changes. [since 12]
    * @returns { SearchAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Call the function when editing the input text
-   *
-   * @param { function } callback
-   * @returns { SearchAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Call the function when editing the input text
-   * 
-   * <p><strong>NOTE</strong>:
-   * <br>In this callback, if cursor operations are performed,
-   * developers need to adjust the cursor logic based on the previewText parameter to ensure it works seamlessly within the preview display scenario.
-   * </p>
-   * 
-   * @param { EditableTextOnChangeCallback } callback
-   * @returns { SearchAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   onChange(callback: EditableTextOnChangeCallback): SearchAttribute;
 
   /**
-   * Called when the text selection changes.
+   * Called when the text selection changes or the caret position changes during editing.
    *
-   * @param { function } callback - callback of the listened event.
-   * @returns { SearchAttribute } returns the instance of the SearchAttribute.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Called when the text selection changes.
-   *
-   * @param { function } callback - callback of the listened event.
-   * @returns { SearchAttribute } returns the instance of the SearchAttribute.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Called when the text selection changes.
-   *
-   * Anonymous Object Rectification.
-   * @param { OnTextSelectionChangeCallback } callback - Callback of the listened event.
+   * @param { function } callback - Callback for text selection changes or caret position changes. [since 10 - 17]
+   * @param { OnTextSelectionChangeCallback } callback - Callback for text selection changes or caret position
+   *     changes. [since 18]
    * @returns { SearchAttribute } Returns the instance of the SearchAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   onTextSelectionChange(callback: OnTextSelectionChangeCallback): SearchAttribute;
 
   /**
-   * Called when the content scrolls.
+   * Called when the text content is scrolled.
    *
-   * @param { function } callback - callback of the listened event.
-   * @returns { SearchAttribute } returns the instance of the SearchAttribute.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Called when the content scrolls.
-   *
-   * @param { function } callback - callback of the listened event.
-   * @returns { SearchAttribute } returns the instance of the SearchAttribute.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Called when the content scrolls.
-   *
-   * Anonymous Object Rectification.
-   * @param { OnContentScrollCallback } callback - Callback of the listened event.
+   * @param { function } callback - Callback for text content scrolling. [since 10 - 17]
+   * @param { OnContentScrollCallback } callback - Callback for text content scrolling. [since 18]
    * @returns { SearchAttribute } Returns the instance of the SearchAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   onContentScroll(callback: OnContentScrollCallback): SearchAttribute;
 
   /**
-   * Called when using the Clipboard menu
+   * Called when a copy operation is performed.
    *
-   * @param { function } callback
+   * @param { function } callback - Callback used to return the copied text content. [since 8 - 17]
+   * @param { Callback<string> } callback - Callback used to return the copied text content. [since 18]
    * @returns { SearchAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Called when using the Clipboard menu
-   *
-   * @param { function } callback
-   * @returns { SearchAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Called when using the Clipboard menu
-   *
-   * @param { function } callback
-   * @returns { SearchAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Called when using the Clipboard menu.
-   *
-   * Anonymous Object Rectification.
-   * @param { Callback<string> } callback - Callback used to return the copied text content.
-   * @returns { SearchAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   onCopy(callback: Callback<string>): SearchAttribute;
 
@@ -1432,42 +866,15 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
   onWillCopy(callback: Callback<string, boolean>): SearchAttribute;
 
   /**
-   * Called when using the Clipboard menu
+   * Called when a cut operation is performed.
    *
-   * @param { function } callback
+   * @param { function } callback - Callback used to return the cut text content. [since 8 - 17]
+   * @param { Callback<string> } callback - Callback used to return the cut text content. [since 18]
    * @returns { SearchAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Called when using the Clipboard menu
-   *
-   * @param { function } callback
-   * @returns { SearchAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Called when using the Clipboard menu
-   *
-   * @param { function } callback
-   * @returns { SearchAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Called when using the Clipboard menu.
-   *
-   * Anonymous Object Rectification.
-   * @param { Callback<string> } callback - Callback used to return the cut text content.
-   * @returns { SearchAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   onCut(callback: Callback<string>): SearchAttribute;
 
@@ -1485,220 +892,117 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
   onWillCut(callback: Callback<string, boolean>): SearchAttribute;
 
   /**
-   * Called when using the Clipboard menu
+   * Called when a paste operation is performed.
    *
    * @param { function } callback
-   * @returns { SearchAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Called when using the Clipboard menu
-   *
-   * @param { function } callback
-   * @returns { SearchAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Called when using the Clipboard menu
-   *
-   * @param { function } callback
-   *          Executed when a paste operation is performed.
-   *          { string } value - The text content to be pasted.
-   *          { PasteEvent } event - The user-defined paste event.
-   * @returns { SearchAttribute } returns the instance of the SearchAttribute.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Called when using the Clipboard menu.
-   *
-   * Anonymous Object Rectification.
-   * @param { OnPasteCallback } callback - Executed when a paste operation is performed.Callback used to return the pasted text content.
+   *     Executed when a paste operation is performed.
+   *     { string } value - The text content to be pasted.
+   *     { PasteEvent } event - The user-defined paste event. [since 8 - 17]
+   * @param { OnPasteCallback } callback - Executed when a paste operation is performed.Callback used to return the
+   *     pasted text content. [since 18]
    * @returns { SearchAttribute } Returns the instance of the SearchAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   onPaste(callback: OnPasteCallback): SearchAttribute;
 
   /**
-   * Called when the copy option is set.
+   * Sets whether the input text can be copied. If this attribute is set to **CopyOptions.None**, the **Search**
+   * component supports paste and select-all operations, while other operations such as copy, cut, translate, and share,
+   * as well as the Celia Writer assisted writing feature, are disabled.
    *
-   * @param { CopyOptions } value
-   * @returns { SearchAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
-   */
-  /**
-   * Called when the copy option is set.
+   * Dragging is not allowed when **CopyOptions.None** is set.
    *
-   * @param { CopyOptions } value
+   * @param { CopyOptions } value - Whether the input text can be copied.<br>Default value: **CopyOptions.LocalDevice**
    * @returns { SearchAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Called when the copy option is set.
-   * 
-   * <p><strong>NOTE</strong>:
-   * <br>If this attribute is set to CopyOptions.None, the text can only be pasted;
-   * all other actions, such as copying, cutting, and sharing, are disabled.
-   * <br>Dragging is not allowed when CopyOptions.None is set.
-   * </p>
-   * 
-   * @param { CopyOptions } value - Default value is CopyOptions.LocalDevice.
-   * @returns { SearchAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   copyOption(value: CopyOptions): SearchAttribute;
 
   /**
-   * Called when the input of maximum text length is set.
+   * Sets the maximum number of characters for text input. By default, there is no maximum number of characters. When
+   * the maximum number is reached, no more characters can be entered.
    *
-   * @param { number } value
+   * @param { number } value - Maximum number of characters for text input.<br> When the value is less than 0, the
+   *     default value is used and no limit is applied.
    * @returns { SearchAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 11
-   */
-  /**
-   * Called when the input of maximum text length is set.
-   * 
-   * <p><strong>NOTE</strong>:
-   * <br>By default, there is no maximum number of characters.
-   * <br>When the maximum number is reached, no more characters can be entered.
-   * </p>
-   * 
-   * @param { number } value
-   * @returns { SearchAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Called when the input of maximum text length is set.
-   * 
-   * <p><strong>NOTE</strong>:
-   * <br>By default, there is no maximum number of characters.
-   * <br>When the maximum number is reached, no more characters can be entered.
-   * </p>
-   * 
-   * @param { number } value
-   * @returns { SearchAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
+   * @stagemodelonly
+   * @crossplatform [since 20]
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   maxLength(value: number): SearchAttribute;
 
   /**
-   * Called when the text align is set.
+   * Sets the text alignment mode in the search text box. Currently, the following alignment modes are supported:
+   * **TextAlign.Start**, **TextAlign.Center**, **TextAlign.End**, **TextAlign.LEFT**, and **TextAlign.RIGHT**.
+   * **TextAlign.JUSTIFY** behaves the same as **TextAlign.Start**.
    *
-   * @param { TextAlign } value
+   * @param { TextAlign } value - Text alignment mode in the search text box.<br>Default value: **TextAlign.Start**
    * @returns { SearchAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
-   */
-  /**
-   * Called when the text align is set.
-   *
-   * @param { TextAlign } value
-   * @returns { SearchAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Called when the text align is set.
-   * 
-   * <p><strong>NOTE</strong>:
-   * <br>Currently, the following alignment modes are supported: Start, Center, and End.
-   * </p>
-   * 
-   * @param { TextAlign } value - Default value is TextAlign.Start.
-   * @returns { SearchAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   textAlign(value: TextAlign): SearchAttribute;
 
   /**
-   * Sets whether request keyboard or not when on focus.
+   * Sets whether to pop up the soft keyboard when the **Search** component obtains focus in a way other than clicking.
    *
-   * @param { boolean } value
+   * Since API version 10, the **Search** component is bound to the input method by default when it obtains focus.
+   *
+   * @param { boolean } value - Whether to automatically pop up the soft keyboard when the **Search** component gains
+   *     focus.<br>**true**: The soft keyboard pops up. **false**: The soft keyboard does not pop up.<br>Default value:
+   *     **true**
    * @returns { SearchAttribute } Returns the instance of the SearchAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Sets whether request keyboard or not when on focus.
-   * 
-   * <p><strong>NOTE</strong>:
-   * <br>Since API version 10, the Search component brings up the keyboard by default when it obtains focus.
-   * </p>
-   * 
-   * @param { boolean } value - Default value is true.
-   * @returns { SearchAttribute } Returns the instance of the SearchAttribute.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   enableKeyboardOnFocus(value: boolean): SearchAttribute;
 
   /**
-   * Controls whether the selection menu pops up.
+   * Sets whether to hide the system text selection menu.
    *
-   * @param { boolean } value
+   * @param { boolean } value - Whether to hide the system text selection menu.<br>**true**: Tapping, long-pressing,
+   *     double-tapping, triple-tapping, or right-clicking the text box will not trigger the system text selection menu.
+   *     <br>**false**: Tapping, long-pressing, double-tapping, triple-tapping, or right-clicking the text box will
+   *     trigger the system text selection menu.<br>Default value: **false**
    * @returns { SearchAttribute } returns the instance of the SearchAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Controls whether the selection menu pops up.
-   *
-   * <p><strong>NOTE</strong>:
-   * <br><em>true</em>: Tapping, long-pressing, double-tapping, triple-tapping,
-   * or right-clicking the text box will not trigger the system text selection menu.
-   * <br><em>false</em>: Tapping, long-pressing, double-tapping, triple-tapping,
-   * or right-clicking the text box will trigger the system text selection menu.
-   * </p>
-   * 
-   * @param { boolean } value - Default value is false.
-   * @returns { SearchAttribute } returns the instance of the SearchAttribute.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   selectionMenuHidden(value: boolean): SearchAttribute;
 
   /**
-   * Called when the minimum font size of the font is set.
+   * Sets the minimum font size. For the string type, numeric string values with optional units, for example, **"10"**
+   * or **"10fp"**, are supported.
    *
-   * <p><strong>NOTE</strong>:
-   * <br>For the string type, numeric string values with optional units, for example, "10" or "10fp", are supported.
-   * <br>For the setting to take effect, this attribute must be used together with maxFontSize or layout constraint settings.
-   * <br>When the adaptive font size is used, the fontSize settings do not take effect.
-   * </p>
-   * 
-   * @param { number | string | Resource } value - The unit is fp.
+   * For the setting to take effect, this attribute must be used together with
+   * [maxFontSize]{@link SearchAttribute#maxFontSize} or layout constraint settings.
+   *
+   * When the adaptive font size is used, the **fontSize** settings do not take effect.
+   *
+   * If **minFontSize** is less than or equal to 0, the adaptive font size does not take effect. In this case, the value
+   * of **size** in the [textFont]{@link SearchAttribute#textFont} attribute takes effect. If **size** is not set, the
+   * default value applies.
+   *
+   * @param { number | string | Resource } value - Minimum font size.<br>Unit: [fp]{@link common}
    * @returns { SearchAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1706,17 +1010,22 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
   minFontSize(value: number | string | Resource): SearchAttribute;
 
   /**
-   * Called when the maximum font size of the font is set.
-   * 
-   * <p><strong>NOTE</strong>:
-   * <br>For the string type, numeric string values with optional units, for example, "10" or "10fp", are supported.
-   * <br>For the setting to take effect, this attribute must be used together with minFontSize or layout constraint settings.
-   * <br>When the adaptive font size is used, the fontSize settings do not take effect.
-   * </p>
-   * 
-   * @param { number | string | Resource } value - The unit is fp.
+   * Sets the maximum font size. For the string type, numeric string values with optional units, for example, **"10"**
+   * or **"10fp"**, are supported.
+   *
+   * For the setting to take effect, this attribute must be used together with
+   * [minFontSize]{@link SearchAttribute#minFontSize} or layout constraint settings.
+   *
+   * When the adaptive font size is used, the **fontSize** settings do not take effect.
+   *
+   * If **maxFontSize** is less than or equal to 0 or **maxFontSize** is less than **minFontSize**, the adaptive font
+   * size does not take effect. In this case, the value of **size** in the [textFont]{@link SearchAttribute#textFont}
+   * attribute takes effect. If **size** is not set, the default value applies.
+   *
+   * @param { number | string | Resource } value - Maximum font size.<br>Unit: [fp]{@link common}
    * @returns { SearchAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1724,153 +1033,89 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
   maxFontSize(value: number | string | Resource): SearchAttribute;
 
   /**
-   * Called when the minimum font scale of the font is set.
-   * Value range: [0, 1]
-   * 
-   * <p><strong>NOTE</strong>:
-   * <br>The undefined type is supported.
-   * <br>A value less than 0 is handled as 0.
-   * <br>A value greater than 1 is handled as 1.
-   * <br>Abnormal values are ineffective by default.
-   * </p>
-   * 
-   * @param { Optional<number | Resource> } scale
+   * Sets the minimum font scale factor for text.
+   *
+   * @param { Optional<number | Resource> } scale - Minimum font scale factor for text. The **undefined** type is
+   *     supported.<br>Value range: [0, 1]<br>**NOTE**<br>A value less than 0 is handled as **0**. A value greater than
+   *     1 is handled as **1**. Abnormal values are ineffective by default.<br>Before use, you need to configure the
+   *     [configuration.json](docroot://quick-start/app-configuration-file.md#tags-in-the-configuration-file) and
+   *     [app.json5](docroot://quick-start/app-configuration-file.md) files in the project. For details, see
+   *     [Example 19: Setting the Minimum and Maximum Font Scale Factors](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-search.md#example-19-setting-the-minimum-and-maximum-font-scale-factors).
    * @returns { SearchAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform [since 20]
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
-  /**
-   * Called when the minimum font scale of the font is set.
-   * Value range: [0, 1]
-   * 
-   * <p><strong>NOTE</strong>:
-   * <br>The undefined type is supported.
-   * <br>A value less than 0 is handled as 0.
-   * <br>A value greater than 1 is handled as 1.
-   * <br>Abnormal values are ineffective by default.
-   * </p>
-   * 
-   * @param { Optional<number | Resource> } scale
-   * @returns { SearchAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
-   */
-  minFontScale(scale: Optional<number | Resource>): SearchAttribute;
+  minFontScale(scale: Optional<number|Resource>): SearchAttribute;
 
-   /**
-    * Called when the maximum font scale of the font is set.
-    * Value range: [1, +∞)
-    * 
-    * <p><strong>NOTE</strong>:
-    * <br>The undefined type is supported.
-    * <br>A value less than 1 is handled as 1.
-    * <br>Abnormal values are ineffective by default.
-    * </p>
-    * 
-    * @param { Optional<number | Resource> } scale
-    * @returns { SearchAttribute }
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @atomicservice
-    * @since 18
-    */
-   /**
-    * Called when the maximum font scale of the font is set.
-    * Value range: [1, +∞)
-    * 
-    * <p><strong>NOTE</strong>:
-    * <br>The undefined type is supported.
-    * <br>A value less than 1 is handled as 1.
-    * <br>Abnormal values are ineffective by default.
-    * </p>
-    * 
-    * @param { Optional<number | Resource> } scale
-    * @returns { SearchAttribute }
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @crossplatform
-    * @atomicservice
-    * @since 20 dynamic
-    */
-   maxFontScale(scale: Optional<number | Resource>): SearchAttribute;
-   
   /**
-   * Define custom keyboard.
+   * Sets the maximum font scale factor for text.
    *
-   * @param { CustomBuilder } value
-   * @returns { SearchAttribute } returns the instance of the SearchAttribute.
+   * @param { Optional<number | Resource> } scale - Maximum font scale factor for text. The **undefined** type is
+   *     supported.<br>Value range:
+   *     [1, +∞)<br>**NOTE**<br>A value less than 1 is handled as **1**. Abnormal values are ineffective by default.<br>After the **maxFontScale** attribute is set, the content of the **Search** component can be scaled up to 2 times at most.<br>Before use, you need to configure the [configuration.json](docroot://quick-start/app-configuration-file.md#tags-in-the-configuration-file) and [app.json5](docroot://quick-start/app-configuration-file.md) files in the project. For details, see [Example 19: Setting the Minimum and Maximum Font Scale Factors](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-search.md#example-19-setting-the-minimum-and-maximum-font-scale-factors).
+   * @returns { SearchAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
+   * @stagemodelonly
+   * @crossplatform [since 20]
+   * @atomicservice
+   * @since 18 dynamic
    */
+  maxFontScale(scale: Optional<number|Resource>): SearchAttribute;
+
   /**
-   * Define custom keyboard.
+   * Sets the custom keyboard.
    *
-   * @param { CustomBuilder } value
-   * @returns { SearchAttribute } returns the instance of the SearchAttribute.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Define custom keyboard.
-   * 
-   * <p><strong>NOTE</strong>:
-   * <br>When a custom keyboard is set, activating the text box opens the specified custom component,
-   * instead of the system input method.
-   * <br>The custom keyboard's height can be set through the height attribute of the custom component's root node,
-   * and its width is fixed at the default value.
-   * <br>The custom keyboard is presented by overlaying the original screen.
-   * <br>It is not compressed or lifted if avoid mode is not enabled or avoidance is not needed for the text box.
-   * <br>The custom keyboard cannot obtain the focus, but it blocks gesture events.
-   * <br>By default, the custom keyboard is closed when the input component loses the focus.
-   * <br>You can also use the stopEditing API to close the keyboard.
-   *  <br>When a custom keyboard is set, the text box does not support camera input, even when the device supports.
-   * <br>When setting a custom keyboard, you can bind the onKeyPrelme event to prevent input from the physical keyboard.
-   * </p>
-   * 
-   * @param { CustomBuilder } value - Set up a custom keyboard of Search
-   * @param { KeyboardOptions } [options] - Indicates the custom keyboard options of Search
-   * @returns { SearchAttribute } returns the instance of the SearchAttribute.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
-   */
-  /**
-   * Define custom keyboard.
+   * When a custom keyboard is set, activating the text box opens the specified custom component, instead of the system
+   * input method.
    *
-   * <p><strong>NOTE</strong>:
-   * <br>When a custom keyboard is set, activating the text box opens the specified custom component,
-   * instead of the system input method.
-   * <br>The custom keyboard's height can be set through the height attribute of the custom component's root node,
-   * and its width is fixed at the default value.
-   * <br>The custom keyboard is presented by overlaying the original screen.
-   * <br>It is not compressed or lifted if avoid mode is not enabled or avoidance is not needed for the text box.
-   * <br>The custom keyboard cannot obtain the focus, but it blocks gesture events.
-   * <br>By default, the custom keyboard is closed when the input component loses the focus.
-   * <br>You can also use the stopEditing API to close the keyboard.
-   * <br>When a custom keyboard is set, the text box does not support camera input, even when the device supports.
-   * <br>When setting a custom keyboard, you can bind the onKeyPrelme event to prevent input from the physical keyboard.
-   * </p>
-   * 
-   * @param { CustomBuilder | ComponentContent | undefined } value - Set up a custom keyboard of Search
-   * @param { KeyboardOptions } [options] - Indicates the custom keyboard options of Search
+   * The custom keyboard's height can be set through the **height** attribute of the custom component's root node, and
+   * its width is fixed at the default value.
+   *
+   * The custom keyboard is presented by overlaying the original screen. It is not compressed or lifted if avoid mode is
+   * not enabled or avoidance is not needed for the text box.
+   *
+   * The custom keyboard cannot obtain focus, but it blocks gesture events.
+   *
+   * By default, the custom keyboard is closed when the input component loses focus. You can also use the
+   * [stopEditing]{@link SearchController#stopEditing} API to close the keyboard.
+   *
+   * When setting a custom keyboard, you can bind the [onKeyPreIme]{@link CommonMethod#onKeyPreIme} event to prevent
+   * input from the physical keyboard.
+   *
+   * From API version 23, the
+   * [setCustomKeyboardContinueFeature](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#setcustomkeyboardcontinuefeature23)
+   * API can be used to enable the continuation feature for custom keyboards. When switching between custom keyboards,
+   * the system changes the keyboard directly without triggering the close and open animations.
+   *
+   * > **NOTE**
+   * >
+   * > This API cannot be called within [attributeModifier]{@link CommonMethod#attributeModifier}.
+   *
+   * @param { CustomBuilder } value - Custom keyboard. If the value is **undefined**, the custom keyboard is
+   *     closed. [since 10 - 21]
+   * @param { CustomBuilder | ComponentContent | undefined } value - Custom keyboard. If the value is **undefined**, the
+   *     custom keyboard is closed. [since 22]
+   * @param { KeyboardOptions } [options] - Whether to support keyboard avoidance. [since 12]
    * @returns { SearchAttribute } returns the instance of the SearchAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 22 dynamic
+   * @stagemodelonly
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   customKeyboard(value: CustomBuilder | ComponentContent | undefined, options?: KeyboardOptions): SearchAttribute;
 
   /**
-   * Called when the text decoration of the text is set.
+   * Sets the color, type, and style of the text decorative line.
    *
-   * @param { TextDecorationOptions } value - Default value is { type: TextDecorationType.None, color: Color.Black, style: TextDecorationStyle.SOLID }.
+   * @param { TextDecorationOptions } value - Text decorative line options.<br>Default value: {<br> type:
+   *     TextDecorationType.None,<br> color: Color.Black,<br> style: TextDecorationStyle.SOLID <br>}
    * @returns { SearchAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1878,18 +1123,19 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
   decoration(value: TextDecorationOptions): SearchAttribute;
 
   /**
-   * Called when the distance between text fonts is set.
-   * 
-   * <p><strong>NOTE</strong>:
-   * <br>If the value specified is a percentage or 0, the default value is used.
-   * <br>For the string type, numeric string values with optional units, for example, "10" or "10fp", are supported.
-   * <br>If the value specified is a negative value, the text is compressed.
-   * <br>A negative value too small may result in the text being compressed to 0 and no content being displayed.
-   * </p>
-   * 
-   * @param { number | string | Resource } value - The unit is fp.
+   * Sets the letter spacing for a text style. If the value specified is a percentage or **0**, the default value is
+   * used. For the string type, numeric string values with optional units, for example, **"10"** or **"10fp"**, are
+   * supported.
+   *
+   * If the value specified is a negative value, the text is compressed. A negative value too small may result in the
+   * text being compressed to 0 and no content being displayed.
+   *
+   * This setting applies to every character, including those at line endings.
+   *
+   * @param { number | string | Resource } value - Letter spacing.<br>Unit: [fp]{@link common}
    * @returns { SearchAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1897,16 +1143,13 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
   letterSpacing(value: number | string | Resource): SearchAttribute;
 
   /**
-   * Called when the line height of the font is set.
-   * 
-   * <p><strong>NOTE</strong>:
-   * <br>If the value is less than or equal to 0, the line height is not limited and the font size is adaptive.
-   * <br>If the value is of the number type, the unit fp is used.
-   * </p>
-   * 
-   * @param { number | string | Resource } value
+   * Sets the text line height. If the value is less than or equal to **0**, the line height is not limited and the font
+   * size is adaptive. If the value is of the number type, the unit fp is used.
+   *
+   * @param { number | string | Resource } value - Text line height.
    * @returns { SearchAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1914,36 +1157,35 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
   lineHeight(value: number | string | Resource): SearchAttribute;
 
   /**
-   * Called when the search type is set.
+   * Sets the text box type.
    *
-   * @param { SearchType } value
+   * Different **SearchType** values trigger corresponding keyboard types and enforce input restrictions.
+   *
+   * @param { SearchType } value - Text box type.<br>Default value: **SearchType.NORMAL**
    * @returns { SearchAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Called when the search type is set.
-   *
-   * @param { SearchType } value - Default value is SearchType.Normal.
-   * @returns { SearchAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   type(value: SearchType): SearchAttribute;
 
   /**
-   * Set font feature.
+   * Sets the font feature, for example, monospaced digits.
    *
-   * @param { string } value - The fontFeature.
-   * normal | <feature-tag-value>, 
-   * where <feature-tag-value> = <string> [ <integer> | on | off ], like: "ss01" 0
-   * the values of <feature-tag-value> reference to doc of search component
-   * number of <feature-tag-value> can be single or multiple, and separated by comma ','.
+   * Format: normal \| \<feature-tag-value\>
+   *
+   * Format of **\<feature-tag-value\>**: \<string\> \[ \<integer\> \| on \| off ]
+   *
+   * There can be multiple **\<feature-tag-value\>** values, which are separated by commas (,).
+   *
+   * For example, the input format for monospaced clock fonts is "ss01" on.
+   *
+   * @param { string } value - Font feature.
    * @returns { SearchAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1951,17 +1193,14 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
   fontFeature(value: string): SearchAttribute;
 
   /**
-   * Get text value information when about to input.
-   * 
-   * <p><strong>NOTE</strong>:
-   * <br>It returns true if the text is inserted; returns false otherwise.
-   * <br>This callback is not triggered for pre-edit or candidate word operations.
-   * <br>It is available only for system input methods.
-   * </p>
-   * 
-   * @param { Callback<InsertValue, boolean> } callback - The triggered function when text content is about to insert.
+   * Called when text is about to be inserted.
+   *
+   * @param { Callback<InsertValue, boolean> } callback - Callback invoked when text is about to be inserted.<br>It
+   *     returns **true** if the text is inserted; returns **false** otherwise.<br>This callback is not invoked for pre-
+   *     edit or candidate word operations.<br>It is available only for system input methods.
    * @returns { SearchAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1969,15 +1208,13 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
   onWillInsert(callback: Callback<InsertValue, boolean>): SearchAttribute;
 
   /**
-   * Get text value information when completed input.
-   * 
-   * <p><strong>NOTE</strong>:
-   * <br>It is available only for system input methods.
-   * </p>
-   * 
-   * @param { Callback<InsertValue> } callback - The triggered function when text content has been inserted.
+   * Called when text is inserted.
+   *
+   * @param { Callback<InsertValue> } callback - Callback invoked when text is inserted.<br>It is available only for
+   *     system input methods.
    * @returns { SearchAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1985,17 +1222,14 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
   onDidInsert(callback: Callback<InsertValue>): SearchAttribute;
 
   /**
-   * Get text value information when about to delete.
-   * 
-   * <p><strong>NOTE</strong>:
-   * <br>It returns true if the text is deleted; returns false otherwise.
-   * <br>This callback is not invoked for text preview.
-   * <br>It is available only for system input methods.
-   * </p>
-   * 
-   * @param { Callback<DeleteValue, boolean> } callback - The triggered function when text content is about to delete.
+   * Called when text is about to be deleted.
+   *
+   * @param { Callback<DeleteValue, boolean> } callback - Callback invoked when text is about to be deleted.<br>It
+   *     returns **true** if the text is deleted; returns **false** otherwise.<br>This callback is not invoked for text
+   *     preview.<br>It is available only for system input methods.
    * @returns { SearchAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -2003,15 +1237,13 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
   onWillDelete(callback: Callback<DeleteValue, boolean>): SearchAttribute;
 
   /**
-   * Get text value information when the deletion has been completed
-   * 
-   * <p><strong>NOTE</strong>:
-   * <br>It is available only for system input methods.
-   * </p>
-   * 
-   * @param { Callback<DeleteValue> } callback - The triggered function when text content has been deleted.
+   * Called when text is deleted.
+   *
+   * @param { Callback<DeleteValue> } callback - Callback invoked when text is deleted.<br>It is available only for
+   *     system input methods.
    * @returns { SearchAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -2019,11 +1251,28 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
   onDidDelete(callback: Callback<DeleteValue>): SearchAttribute;
 
   /**
-   * Called before the search component attach the InputMethod.
+   * Called when the search box is about to be bound to an input method.
    *
-   * @param { Callback<IMEClient> } callback - The triggered function before attach the InputMethod.
+   * <!--Del-->
+   *
+   * Before the search box is bound to an input method, you can use the
+   * [setKeyboardAppearanceConfig]{@link @ohos.arkui.UIContext:UIContext#setKeyboardAppearanceConfig} API of
+   * **UIContext** to set the keyboard style.<!--DelEnd-->
+   *
+   * From API version 22, the [setExtraConfig]{@link IMEClient.setExtraConfig} method of [IMEClient]{@link IMEClient}
+   * can be called to set input method extension information. After the input method is bound, it receives this
+   * extension information, which can be used to implement custom functionality.
+   *
+   * **IMEClient** is valid only during the execution of **onWillAttachIME** and cannot be called asynchronously.
+   *
+   * > **NOTE**
+   * >
+   * > This API cannot be called within [attributeModifier]{@link CommonMethod#attributeModifier}.
+   *
+   * @param { Callback<IMEClient> } callback - Called when the search box is about to be bound to an input method.
    * @returns { SearchAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
@@ -2031,13 +1280,19 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
   onWillAttachIME(callback: Callback<IMEClient>): SearchAttribute;
 
   /**
-   * Set the custom text menu.
-   * Sets the extended options of the custom context menu on selection,
-   * including the text content, icon, and callback.
-   * 
-   * @param { EditMenuOptions } editMenu - Customize text menu options.
+   * Sets the extended options of the custom menu, including the text content, icon, and callback.
+   *
+   * When
+   * [disableMenuItems](docroot://reference/apis-arkui/arkts-apis-uicontext-textmenucontroller.md#disablemenuitems20) or
+   *
+   * [disableSystemServiceMenuItems](docroot://reference/apis-arkui/arkts-apis-uicontext-textmenucontroller.md#disablesystemservicemenuitems20)
+   * is used to disable system service menu items in the text selection menu, the disabled menu options will be excluded
+   * from the parameter list in the [onCreateMenu]{@link EditMenuOptions.onCreateMenu} callback of **editMenuOptions**.
+   *
+   * @param { EditMenuOptions } editMenu - Extended options of the custom menu.
    * @returns { SearchAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -2045,16 +1300,16 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
   editMenuOptions(editMenu: EditMenuOptions): SearchAttribute;
 
   /**
-   * Define the preview text mode of the text input.
-   * 
-   * <p><strong>NOTE</strong>:
-   * <br>Preview text is in a temporary state and does not support text interception.
-   * <br>As such, it does not trigger onWillInsert, onDidInsert, onWillDelete, or onDidDelete callbacks.
-   * </p>
-   * 
-   * @param { boolean } enable - Indicates the preview text mode.Default value is true.
+   * Sets whether to enable preview text.
+   *
+   * The preview content is defined as a temporary, uncommitted input state. Currently, the text interception function
+   * is not supported.
+   *
+   * @param { boolean } enable - Whether to enable preview text.<br>**true**: Preview text is enabled. **false**:
+   *     Preview text is disabled.<br>Default value: **true**
    * @returns { SearchAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -2062,23 +1317,16 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
   enablePreviewText(enable: boolean): SearchAttribute;
 
   /**
-   * Enable or disable haptic feedback.
-   * 
-   * <p><strong>NOTE</strong>:
-   * <br>To enable haptic feedback,
-   * you must declare the ohos.permission.VIBRATE permission under requestPermissions in the module.json5 file of the project.
-   * <code>
-   * "requestPermissions": [
-   *   {
-   *       "name": "ohos.permission.VIBRATE",
-   *   }
-   * ]
-   * </code> 
-   * </p>
-   * 
-   * @param { boolean } isEnabled - Default value is true, set false to disable haptic feedback.
+   * Specifies whether to enable haptic feedback.
+   *
+   * To enable haptic feedback, you must declare the **ohos.permission.VIBRATE** permission under **requestPermissions**
+   * in the [module.json5](docroot://quick-start/module-configuration-file.md) file of the project.
+   *
+   * @param { boolean } isEnabled - Whether to enable haptic feedback.<br>**true**: Haptic feedback is enabled.
+   *     **false**: Haptic feedback is disabled.<br>Default value: **true**
    * @returns { SearchAttribute } returns the instance of the SearchAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 13 dynamic
@@ -2086,11 +1334,13 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
   enableHapticFeedback(isEnabled: boolean): SearchAttribute;
 
   /**
-   * Set text mode of automatic case mode switching.
+   * Sets the text auto-capitalization mode. This API provides the capability, but actual implementation depends on the
+   * input method application.
    *
-   * @param { AutoCapitalizationMode } mode - Automatic case mode switching.
+   * @param { AutoCapitalizationMode } mode - Auto-capitalization mode. The default state is inactive.
    * @returns { SearchAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
@@ -2098,11 +1348,14 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
   autoCapitalizationMode(mode: AutoCapitalizationMode): SearchAttribute;
 
   /**
-   * Set the text with half leading.
+   * Enables half leading for text, which splits the leading equally between the top and bottom of the line.
    *
-   * @param { Optional<boolean> } halfLeading - Default value is false.The value true means that half leading is enabled, and false means the opposite.
+   * @param { Optional<boolean> } halfLeading - Whether half leading is enabled. Half leading refers to splitting the
+   *     leading in half and applying it equally to the top and bottom of the line.<br>**true**: Half leading is
+   *     enabled. **false**: Half leading is not enabled.<br>Default value: **false**
    * @returns { SearchAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -2110,37 +1363,31 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
   halfLeading(halfLeading: Optional<boolean>): SearchAttribute;
 
   /**
-   * Set whether stop backPressed callback event or not.
+   * Sets whether to prevent the back key event from being propagated.
    *
-   * @param { Optional<boolean> } isStopped - Default value is true, set false to trigger the latest callback event.
-   * @returns { SearchAttribute } returns the instance of the SearchAttribute.
+   * @param { Optional<boolean> } isStopped - Whether to prevent the back key event from being propagated.<br>**true**:
+   *     Propagation is prevented. **false**: Propagation is allowed.<br>Default value: **true** The default value is
+   *     used for abnormal values.
+   * @returns { SearchAttribute } - returns the instance of the SearchAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform [since 23]
    * @atomicservice
    * @since 15 dynamic
-   */
-  /**
-   * Set whether stop backPressed callback event or not.
-   *
-   * @param { Optional<boolean> } isStopped - Default value is true, set false to trigger the latest callback event.
-   * @returns { SearchAttribute } returns the instance of the SearchAttribute.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 23 dynamic
    */
   stopBackPress(isStopped: Optional<boolean>): SearchAttribute;
 
   /**
-   * Get text value information when about to change.
-   * 
-   * <p><strong>NOTE</strong>:
-   * <br>This callback is triggered after onWillInsert and onWillDelete, but before onDidInsert and onDidDelete.
-   * </p>
-   * 
-   * @param { Callback<EditableTextChangeValue, boolean> } callback - The triggered function when text content is about to change.
-   * Returning true allows the change to proceed, while returning false cancels the change.
+   * Called when the text content is about to change.
+   *
+   * This callback is triggered after **onWillInsert** and **onWillDelete**, but before **onDidInsert** and
+   * **onDidDelete**.
+   *
+   * @param { Callback<EditableTextChangeValue, boolean> } callback - Callback invoked when the text content is about to
+   *     change.<br>Returning **true** allows the change to proceed, while returning **false** cancels the change.
    * @returns { SearchAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 15 dynamic
@@ -2148,22 +1395,28 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
   onWillChange(callback: Callback<EditableTextChangeValue, boolean>): SearchAttribute;
 
   /**
-   * Set the keyboard appearance.
+   * Sets the keyboard appearance for the text box. This setting takes effect only after input method adaptation. For
+   * details, see
+   * [Immersive Mode of the Input Method Application](docroot://inputmethod/inputmethod-immersive-mode-guide.md).
    *
-   * @param { Optional<KeyboardAppearance> } appearance - Default value is KeyboardAppearance.NONE_IMMERSIVE
+   * @param { Optional<KeyboardAppearance> } appearance - Appearance of the keyboard.<br>Default value:
+   *     **KeyboardAppearance.NONE_IMMERSIVE**
    * @returns { SearchAttribute } returns the instance of the SearchAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 15 dynamic
    */
   keyboardAppearance(appearance: Optional<KeyboardAppearance>): SearchAttribute;
 
   /**
-   * Set the stroke width.
+   * Sets the text stroke width.
    *
-   * @param { Optional<LengthMetrics> } width - indicates the stroke width.
+   * @param { Optional<LengthMetrics> } width - Text stroke width. When the unit of **LengthMetrics** is px:<br>Values <
+   *     0: solid text.<br>Values > 0: outlined text.<br>Default value: **0** (no stroke)
    * @returns { SearchAttribute } returns the instance of the SearchAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
@@ -2171,11 +1424,13 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
   strokeWidth(width: Optional<LengthMetrics>): SearchAttribute;
 
   /**
-   * Set the stroke color.
+   * Sets the text stroke color.
    *
-   * @param { Optional<ResourceColor> } color - indicates the stroke color.
+   * @param { Optional<ResourceColor> } color - Stroke color. Default value: font color. Invalid values are treated as
+   *     the default value.
    * @returns { SearchAttribute } returns the instance of the SearchAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
@@ -2183,11 +1438,13 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
   strokeColor(color: Optional<ResourceColor>): SearchAttribute;
 
   /**
-   * Whether to enable automatic spacing between Chinese and Latin characters.
+   * Sets whether to enable automatic spacing between Chinese and Western characters.
    *
-   * @param { Optional<boolean> } enabled - The default value is false, indicates the flag whether to enable automatic spacing.
+   * @param { Optional<boolean> } enabled - Whether to enable automatic spacing between Chinese and Western characters.<
+   *     br>**true**: Enabled. **false**: Disabled.<br>Default value: **false**
    * @returns { SearchAttribute } returns the instance of the SearchAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
@@ -2195,11 +1452,13 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
   enableAutoSpacing(enabled: Optional<boolean>): SearchAttribute;
 
   /**
-   * Set the divider color.
-   * 
-   * @param { Optional<ColorMetrics> } color - Color of the divider.
+   * Sets the color of the text box divider.
+   *
+   * @param { Optional<ColorMetrics> } color - Divider color.<br>By default, system theme colors are used: 0x33000000 in
+   *     light mode (appears as light black), 0x33FFFFFF in dark mode (appears as light white).
    * @returns { SearchAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 23 dynamic
@@ -2207,11 +1466,15 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
   dividerColor(color: Optional<ColorMetrics>): SearchAttribute;
 
   /**
-   * Determines whether the layout adds extra padding at the top and bottom to make space for characters.
+   * Sets whether to add spacing to the first and last lines to avoid text truncation. If this attribute is not set, no
+   * spacing is added by default.
    *
-   * @param { Optional<boolean> } include - Whether enable the feature, the default value is false.
-   * @returns { SearchAttribute } returns the instance of the SearchAttribute.
+   * @param { Optional<boolean> } include - Whether to add spacing to the first and last lines to avoid text truncation.
+   *     <br>**true**: Spacing is added to the first and last lines. **false**: Spacing is not added to the first and
+   *     last lines.
+   * @returns { SearchAttribute } - returns the instance of the SearchAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 23 dynamic
@@ -2219,10 +1482,13 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
   includeFontPadding(include: Optional<boolean>): SearchAttribute;
 
   /**
-   * Whether to include ascent/descent from fallback fonts to prevent overlapping lines.
+   * Adapts the line height to the actual text height for overlapped multi-line text. This API takes effect only when
+   * the line height is less than the actual text height. If this API is not set, the line height does not adapt to the
+   * actual text height by default.
    *
-   * @param { Optional<boolean> } enabled - Whether enable the feature, the default value is false.
-   *     True means enable the feature, false means disable the feature.
+   * @param { Optional<boolean> } enabled - Whether the line height is adapted to the actual text height.<br>**true**:
+   *     Line height is adapted to the actual text height. **false**: Line height is not adapted to the actual text
+   *     height.
    * @returns { SearchAttribute } returns the instance of the SearchAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2233,25 +1499,35 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
   fallbackLineSpacing(enabled: Optional<boolean>): SearchAttribute;
 
   /**
-   * Whether to compress punctuation at the beginning of line.
+   * Sets whether to enable leading punctuation compression.
    *
-   * @param { Optional<boolean> } enabled - Whether to enable the feature, the default value is false.
+   * > **NOTE**
+   * >
+   * > - Leading punctuation is not compressed by default.
+   * >
+   * > - For the list of punctuation marks that support compression, see the punctuation range at the beginning of a
+   * > line in [ParagraphStyle]{@link @ohos.graphics.text:text.ParagraphStyle}.
+   *
+   * @param { Optional<boolean> } enabled - Whether to enable leading punctuation compression.<br>**true**: Leading
+   *     punctuation compression is enabled. **false**: Leading punctuation compression is disabled.
    * @returns { SearchAttribute } - returns the instance of the SearchAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 23 dynamic
    */
   compressLeadingPunctuation(enabled: Optional<boolean>): SearchAttribute;
 
-  
   /**
-   * Used to set the selected drag preview style.
+   * Sets the drag preview style for text being dragged in the search box.
    *
-   * @param { SelectedDragPreviewStyle | undefined } value - Selected drag preview style.
-   *     If set undefined will reset the style.
+   * @param { SelectedDragPreviewStyle | undefined } value - Drag preview style for text being dragged in the search
+   *     box.<br>If this parameter is set to **undefined**, the drag preview follows the theme: white in light mode and
+   *     black in dark mode.
    * @returns { SearchAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 23 dynamic
@@ -2259,39 +1535,66 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
   selectedDragPreviewStyle(value: SelectedDragPreviewStyle | undefined): SearchAttribute;
 
   /**
-   * Set the text direction.
+   * Specifies the text layout direction. If this attribute is not set, the default text layout direction follows the
+   * component layout direction.
    *
-   * @param { TextDirection | undefined } direction - Indicates the text direction.
-   *     When undefined is set, this property will be reset to TextDirection.DEFAULT.
+   * @param { TextDirection | undefined } direction - Defines the text layout direction.<br>If this parameter is set to
+   *     **undefined**, the text layout direction follows the component layout direction as defined by
+   *     **TextDirection.DEFAULT**.
    * @returns { SearchAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 23 dynamic
    */
-  textDirection(direction: TextDirection | undefined): SearchAttribute
+  textDirection(direction: TextDirection | undefined): SearchAttribute;
+
+  /**
+   * Set the join style of the stroke.
+   *
+   * @param { StrokeJoinStyle | undefined } strokeJoinStyle - The join style of stroke.
+   *     Passing `undefined` resets it to the default value
+   * @returns { SearchAttribute } returns the instance of the SearchAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  strokeJoinStyle(strokeJoinStyle: StrokeJoinStyle | undefined): SearchAttribute;
+
+  /**
+   * Set the shader style of the text, such as lineargradient or radialgradient.
+   *
+   * @param { ShaderStyle | undefined } shader - The shader style of the text.
+   *     Passing `undefined` resets it to the default value.
+   * @returns { SearchAttribute } returns the instance of the SearchAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  shaderStyle(shader: ShaderStyle | undefined): SearchAttribute;
 }
 
 /**
- * Defines Search Component.
+ * The **Search** component provides an area for users to enter search queries.
+ *
+ * > **NOTE**
+ *
+ * > This component supports plain text only. For rich text, use the [RichEditor]{@link rich_editor} component.
+ *
+ * ###### Child Components
+ *
+ * Not supported
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 8
- */
-/**
- * Defines Search Component.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 10
- */
-/**
- * Defines Search Component.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 8 dynamic
+ * @noninterop
  */
 declare const Search: SearchInterface;
 
@@ -2299,21 +1602,9 @@ declare const Search: SearchInterface;
  * Defines Search Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 8
- */
-/**
- * Defines Search Component instance.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 10
- */
-/**
- * Defines Search Component instance.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 8 dynamic
+ * @noninterop
  */
 declare const SearchInstance: SearchAttribute;

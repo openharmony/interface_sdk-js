@@ -1,6 +1,6 @@
 /*
  * Copyright (c) 2025 Huawei Device Co., Ltd.
- * Licensed under the Apache License, Version 2.0 (the "License");
+ * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
@@ -22,7 +22,6 @@
  * Provides a UnionEffectContainer Component that generates a component fusion effect for descendant components with
  * "useUnionEffect(true)" set inside it, when their distance is less than a certain threshold.
  *
- * @interface UnionEffectContainerInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @stagemodelonly
@@ -43,9 +42,8 @@ declare interface UnionEffectContainerInterface {
 }
 
 /**
- * Defines the constructor options for UnionEffectContainer.
+ * Sets the construction options of **UnionEffectContainer**.
  *
- * @interface UnionEffectContainerOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @stagemodelonly
@@ -53,11 +51,17 @@ declare interface UnionEffectContainerInterface {
  */
 declare interface UnionEffectContainerOptions {
     /**
-     * Spacing indicates the ease with which fusion occurs; it does not represent actual distance.
-     * The larger the spacing, the easier it is for subcomponents to fuse, and the greater the degree of fusion.
-     * Value constraint: Must be greater than or equal to 0.
+     * Degree of union deformation of the descendant component. This parameter does not represent the actual spacing. 
+     * Union occurs only when the descendant components use the union effect of the ancestor component 
+     * **UnionEffectContainer** and they come close to a certain extent.
+     * **NOTE**
+     * If **spacing** is greater than 0 and the descendant components that use the union effect of the ancestor 
+     * component **UnionEffectContainer** come close to a certain extent, the descendant components start to deform due 
+     * to union. The closer the descendant components are, the stronger the deformation effect. A larger value indicates
+     * that the union of descendant components starts earlier and is more likely to occur when the descendant components
+     * come close to each other.
+     * The Value must be greater than or equal to 0. Default value: **0**.
      *
-     * @type { ?number }
      * @default 0
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
@@ -68,32 +72,98 @@ declare interface UnionEffectContainerOptions {
 }
 
 /**
- * Defines the UnionEffectContainer attribute functions.
+ * Enumerates the union modes.
  *
- * @extends CommonMethod<UnionEffectContainerAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @stagemodelonly
+ * @since 26.0.0 dynamic
+ */
+declare enum UnionMode {
+  /**
+   * Smooth union mode.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  SMOOTH_UNION = 0,
+  /**
+   * Gravity union mode.
+   * 
+   * **NOTE**
+   * 
+   * This mode takes effect only when 
+   * [useUnionEffect](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-use-union-effect-sys.md#useunioneffect-1)
+   * is used and **gravityCenter** of 
+   * [GravityCenterOptions](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-use-union-effect-sys.md#gravitycenteroptions)
+   * is set to **true**.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  GRAVITY_UNION = 1
+}
+
+/**
+ * Universal attributes are supported. The width and height can be set.
+ * 
+ * > **NOTE**
+ * >
+ * > - During the union, the container exhibits a sticky non-linear deformation effect, and its border will show a sticky
+ * > effect after union. Therefore, border-related capabilities will be affected. Currently, the following border-
+ * > related attributes support the union deformation effect: 
+ * > [border](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-border.md#border), 
+ * > [outline](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-outline.md#outline), 
+ * > [shadow]{@link CommonMethod#shadow(value: ShadowOptions | ShadowStyle)}, 
+ * > [backgroundColor]{@link CommonMethod#backgroundColor(value: ResourceColor)}, and 
+ * > [pointLight]{@link UnionEffectContainerAttribute#pointLight}. The above effects are drawn on the shape after union,
+ * > which is the drawing part of **UnionEffectContainer**.
+ * >
+ * > - If the attributes related to the border and supporting the union deformation effect are set on the component, the
+ * > drawing is displayed on the component. If the same attribute is set on the descendant component, the two attributes
+ * > are set independently. The drawing is performed twice, once in the drawing of the **UnionEffectContainer** 
+ * > component and once in the drawing of the descendant component. Generally, you do not need to set the same attribute
+ * > that supports the union deformation effect on the descendant component that uses the union effect of the ancestor 
+ * > component **UnionEffectContainer**. This prevents the deterioration of the union effect.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @stagemodelonly
  * @since 23 dynamic
  */
 declare class UnionEffectContainerAttribute extends CommonMethod<UnionEffectContainerAttribute> {
-    /**
-     * Sets up point light source effects.
-     *
-     * @param { PointLightStyle } light - The point light style.
-     * @returns { UnionEffectContainerAttribute } The attribute of the UnionEffectContainer.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @systemapi
-     * @stagemodelonly
-     * @since 23 dynamic
-     */
-    pointLight(light: PointLightStyle): UnionEffectContainerAttribute;
-}
+  /**
+   * Sets the point light style.
+   *
+   * @param { PointLightStyle } light - Point light style.
+   * @returns { UnionEffectContainerAttribute } The attribute of the UnionEffectContainer.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic
+   */
+  pointLight(light: PointLightStyle): UnionEffectContainerAttribute;
 
+  /**
+   * Sets the union mode.
+   *
+   * @param { UnionMode } mode - Union mode.
+   * @returns { UnionEffectContainerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  unionMode(mode: UnionMode): UnionEffectContainerAttribute;
+}
+  
 /**
  * Defines UnionEffectContainer Component.
  *
- * @type { UnionEffectContainerInterface }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @stagemodelonly
@@ -104,11 +174,9 @@ declare const UnionEffectContainer: UnionEffectContainerInterface;
 /**
  * Defines UnionEffectContainer Component instance.
  *
- * @type { UnionEffectContainerAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @stagemodelonly
  * @since 23 dynamic
  */
 declare const UnionEffectContainerInstance: UnionEffectContainerAttribute;
-  

@@ -193,7 +193,7 @@ export interface Container<T> {
  */
 export interface Node extends SceneResource {
   /**
-   * position of the node.
+   * position of the node, the unit is the scene unit in the world coordinate system (e.g., cm, m, km).
    *
    * @type { Position3 }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -392,7 +392,7 @@ export interface Light extends Node {
   color: Color;
 
   /**
-   * The intensity of the light.
+   * The intensity of the light, the unit is candela.
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -433,7 +433,7 @@ export interface Light extends Node {
  */
 export interface SpotLight extends Light {
   /**
-   * The inner angle of the spot light.
+   * The inner angle of the spot light, the unit is radian.
    * 
    * @type { ?double }
    * @default 0
@@ -443,7 +443,7 @@ export interface SpotLight extends Light {
   innerAngle?: double;
 
   /**
-   * The outer angle of the spot light.
+   * The outer angle of the spot light, the unit is radian.
    * 
    * @type { ?double }
    * @default PI / 4.0
@@ -476,7 +476,7 @@ export interface DirectionalLight extends Light {
  */
 export interface Camera extends Node {
   /**
-   * Field of view of the camera.
+   * Field of view of the camera, the unit is radian.
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -486,7 +486,7 @@ export interface Camera extends Node {
   fov: double;
 
   /**
-   * Near plane of the camera.
+   * Near plane of the camera, the unit is the scene unit in the world coordinate system (e.g., cm, m, km).
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -496,7 +496,7 @@ export interface Camera extends Node {
   nearPlane: double;
 
   /**
-   * Far plane of the camera.
+   * Far plane of the camera, the unit is the scene unit in the world coordinate system (e.g., cm, m, km).
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D

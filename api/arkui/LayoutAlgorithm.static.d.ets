@@ -23,6 +23,7 @@ import { FrameNode, LayoutConstraint } from 'arkui.FrameNode';
 import { LengthMetrics, NodePosition } from 'arkui.Graphics';
 import { HorizontalAlign, FlexAlign, VerticalAlign, LocalizedAlignment } from './component/enums';
 import { ItemFillPolicy } from './component/units';
+import { ObservedV2, Trace } from '@ohos.arkui.stateManagement'
 
 /**
  * Defines layout algorithm.
@@ -385,6 +386,7 @@ interface GridLayoutAlgorithmOptions {
  * @stagemodelonly
  * @since 24 static
  */
+@ObservedV2
 export declare class GridLayoutAlgorithm implements LayoutAlgorithm {
     /**
      * Constructor.
@@ -404,7 +406,7 @@ export declare class GridLayoutAlgorithm implements LayoutAlgorithm {
      * @stagemodelonly
      * @since 24 static
      */
-    public columnsTemplate?: string | ItemFillPolicy;
+    @Trace public columnsTemplate?: string | ItemFillPolicy;
     /**
      * The spacing between columns.
      *
@@ -414,7 +416,7 @@ export declare class GridLayoutAlgorithm implements LayoutAlgorithm {
      * @stagemodelonly
      * @since 24 static
      */
-    public columnsGap?: LengthMetrics;
+    @Trace public columnsGap?: LengthMetrics;
     /**
      * The spacing between rows.
      *
@@ -424,5 +426,5 @@ export declare class GridLayoutAlgorithm implements LayoutAlgorithm {
      * @stagemodelonly
      * @since 24 static
      */
-    public rowsGap?: LengthMetrics;
+    @Trace public rowsGap?: LengthMetrics;
 }

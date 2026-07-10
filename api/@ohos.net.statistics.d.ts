@@ -273,6 +273,20 @@ declare namespace statistics {
    * @since 10 dynamic
    * @since 23 static
    */
+  /**
+   * Queries the data traffic (including all TCP and UDP data packets) received by a specified application.
+   * @permission ohos.permission.GET_NETWORK_STATS
+   * @param { int } uid - Indicates the process ID of the application.
+   * @param { AsyncCallback<long> } callback - Returns the data traffic received by the specified application.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 2100002 - Failed to connect to the service.
+   * @throws { BusinessError } 2100003 - System internal error.
+   * @throws { BusinessError } 2103005 - Failed to read the system map.
+   * @throws { BusinessError } 2103011 - Failed to create a system map.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @since 26.0.0 dynamic&static
+   */
   function getUidRxBytes(uid: int, callback: AsyncCallback<long>): void;
 
   /**
@@ -287,6 +301,20 @@ declare namespace statistics {
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 10 dynamic
    * @since 23 static
+   */
+  /**
+   * Queries the data traffic (including all TCP and UDP data packets) received by a specified application.
+   * @permission ohos.permission.GET_NETWORK_STATS
+   * @param { int } uid - Indicates the process ID of the application.
+   * @returns { Promise<long> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 2100002 - Failed to connect to the service.
+   * @throws { BusinessError } 2100003 - System internal error.
+   * @throws { BusinessError } 2103005 - Failed to read the system map.
+   * @throws { BusinessError } 2103011 - Failed to create a system map.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @since 26.0.0 dynamic&static
    */
   function getUidRxBytes(uid: int): Promise<long>;
 
@@ -303,6 +331,20 @@ declare namespace statistics {
    * @since 10 dynamic
    * @since 23 static
    */
+  /**
+   * Queries the data traffic (including all TCP and UDP data packets) sent by a specified application.
+   * @permission ohos.permission.GET_NETWORK_STATS
+   * @param { int } uid - Indicates the process ID of the application.
+   * @param { AsyncCallback<long> } callback - Returns the data traffic sent by the specified application.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 2100002 - Failed to connect to the service.
+   * @throws { BusinessError } 2100003 - System internal error.
+   * @throws { BusinessError } 2103005 - Failed to read the system map.
+   * @throws { BusinessError } 2103011 - Failed to create a system map.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @since 26.0.0 dynamic&static
+   */
   function getUidTxBytes(uid: int, callback: AsyncCallback<long>): void;
   
   /**
@@ -317,6 +359,20 @@ declare namespace statistics {
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 10 dynamic
    * @since 23 static
+   */
+  /**
+   * Queries the data traffic (including all TCP and UDP data packets) sent by a specified application.
+   * @permission ohos.permission.GET_NETWORK_STATS
+   * @param { int } uid - Indicates the process ID of the application.
+   * @returns { Promise<long> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 2100002 - Failed to connect to the service.
+   * @throws { BusinessError } 2100003 - System internal error.
+   * @throws { BusinessError } 2103005 - Failed to read the system map.
+   * @throws { BusinessError } 2103011 - Failed to create a system map.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @since 26.0.0 dynamic&static
    */
   function getUidTxBytes(uid: int): Promise<long>;
 
@@ -565,9 +621,9 @@ declare namespace statistics {
    * Updates network statistics data.
    *
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
-   * @returns { Promise<void> } 201 - Permission denied.
-   * @throws { BusinessError } 201 - Non-system applications use system APIs.
-   * @throws { BusinessError } 202 - Failed to connect to the service.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
@@ -997,7 +1053,7 @@ declare namespace statistics {
    * @throws { BusinessError } 2103019 - The timestamp in param is invalid.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 22 dynamic
-   * @since 23 static
+   * @since 26.0.0 static
    */
   function getSelfTrafficStats(networkInfo: NetworkInfo): Promise<NetStatsInfo>;
 

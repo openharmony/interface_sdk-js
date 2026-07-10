@@ -19,18 +19,17 @@
  */
 
 /**
- * Describes the notification extension content.
+ * The **NotificationExtensionContent** module describes the notification extension content.
  *
- * @typedef NotificationExtensionContent
  * @syscap SystemCapability.Notification.Notification
  * @since 22 dynamic
  * @since 23 static
  */
 export interface NotificationExtensionContent {
   /**
-   * Notification title. It cannot be empty or exceed 1024 bytes. Excess content will be truncated.
+   * Notification title. It cannot be an empty string. The size cannot exceed 1024 bytes, and any excess will be
+   * truncated.
    *
-   * @type { string }
    * @syscap SystemCapability.Notification.Notification
    * @crossplatform
    * @since 22 dynamic
@@ -39,9 +38,9 @@ export interface NotificationExtensionContent {
   title: string;
 
   /**
-   * Notification content. It cannot be empty or exceed 3072 bytes. Excess content will be truncated.
+   * Notification body content. It cannot be an empty string. The size cannot exceed 3072 bytes, and any excess
+   * will be truncated.
    *
-   * @type { string }
    * @syscap SystemCapability.Notification.Notification
    * @crossplatform
    * @since 22 dynamic

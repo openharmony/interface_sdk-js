@@ -14,6 +14,11 @@
  */
 
 /**
+ * The module defines the application information. An application can obtain its own application information through 
+ * [bundleManager.getBundleInfoForSelf]{@link ./../@ohos.bundle.bundleManager:bundleManager.getBundleInfoForSelf(bundleFlags: int)}
+ * , with **GET_BUNDLE_INFO_WITH_APPLICATION** passed in to 
+ * [bundleFlags]{@link ./../@ohos.bundle.bundleManager:bundleManager.BundleFlag}.
+ *
  * @file
  * @kit AbilityKit
  */
@@ -23,366 +28,160 @@ import { Resource } from '../global/resource';
 import bundleManager from './../@ohos.bundle.bundleManager';
 
 /**
- * Obtains configuration information about an application
+ * The module defines the application information.
  *
- * @typedef ApplicationInfo
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
- * @since 9
- */
-/**
- * Obtains configuration information about an application
- *
- * @typedef ApplicationInfo
- * @syscap SystemCapability.BundleManager.BundleFramework.Core
- * @crossplatform
- * @since 10
- */
-/**
- * Obtains configuration information about an application
- *
- * @typedef ApplicationInfo
- * @syscap SystemCapability.BundleManager.BundleFramework.Core
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 9 dynamic
  * @since 23 static
  */
 export interface ApplicationInfo {
   /**
-   * Indicates the application name, which is the same as {@code bundleName}
+   * Name of the application bundle. It corresponds to the **bundleName** field in the
+   * [app.json5](docroot://quick-start/app-configuration-file.md) file.
    *
-   * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  /**
-   * Indicates the application name, which is the same as {@code bundleName}
-   *
-   * @type { string }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Indicates the application name, which is the same as {@code bundleName}
-   *
-   * @type { string }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   readonly name: string;
 
   /**
-   * Description of application
+   * Description of the application. It corresponds to the **description** field in the
+   * [app.json5](docroot://quick-start/app-configuration-file.md). For details about **description**, see the
+   * **descriptionResource** field in this table.
    *
-   * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  /**
-   * Description of application
-   *
-   * @type { string }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Description of application
-   *
-   * @type { string }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   readonly description: string;
 
   /**
-   * Indicates the description id of the application
+   * Resource ID of the application description. It is automatically generated during compilation and build based on the
+   * description configured for the application.
    *
-   * @type { number }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  /**
-   * Indicates the description id of the application
-   *
-   * @type { number }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Indicates the description id of the application
-   *
-   * @type { long }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   readonly descriptionId: long;
 
   /**
-   * Indicates whether or not this application may be instantiated
+   * Whether the application is enabled. **true** if enabled, **false** otherwise.
    *
-   * @type { boolean }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  /**
-   * Indicates whether or not this application may be instantiated
-   *
-   * @type { boolean }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Indicates whether or not this application may be instantiated
-   *
-   * @type { boolean }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
+   * @crossplatform [since 20]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   readonly enabled: boolean;
 
   /**
-   * Indicates the label of the application
+   * Application label. It corresponds to the **label** field in the
+   * [app.json5](docroot://quick-start/app-configuration-file.md) file. For details about **label**, see the
+   * **labelResource** field in this table. Starting from API version 20, if
+   * [bundleManager.getAbilityInfo]{@link ./../@ohos.bundle.bundleManager:bundleManager.getAbilityInfo} is used to
+   * obtain application information, this field is the application name visible to users, instead of the resource
+   * descriptor.
    *
-   * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  /**
-   * Indicates the label of the application
-   *
-   * @type { string }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Indicates the label of the application
-   *
-   * @type { string }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   readonly label: string;
 
   /**
-   * Indicates the label id of the application
+   * Resource ID of the application label. It is automatically generated during compilation and build based on the label
+   * configured for the application.
    *
-   * @type { number }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  /**
-   * Indicates the label id of the application
-   *
-   * @type { number }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Indicates the label id of the application
-   *
-   * @type { long }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   readonly labelId: long;
 
   /**
-   * Indicates the icon of the application
+   * Application icon. It corresponds to the **icon** field in the
+   * [app.json5](docroot://quick-start/app-configuration-file.md) file. For details about **icon**, see the
+   * **iconResource** field in this table.
    *
-   * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  /**
-   * Indicates the icon of the application
-   *
-   * @type { string }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Indicates the icon of the application
-   *
-   * @type { string }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   readonly icon: string;
 
   /**
-   * Indicates the icon id of the application
+   * Resource ID of the application icon. It is automatically generated during compilation and build based on the icon
+   * configured for the application.
    *
-   * @type { number }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  /**
-   * Indicates the icon id of the application
-   *
-   * @type { number }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Indicates the icon id of the application
-   *
-   * @type { long }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   readonly iconId: long;
 
   /**
-   * Process of application, if user do not set it ,the value equal bundleName
+   * Process name.
    *
-   * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  /**
-   * Process of application, if user do not set it ,the value equal bundleName
-   *
-   * @type { string }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Process of application, if user do not set it ,the value equal bundleName
-   *
-   * @type { string }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
+   * @crossplatform [since 20]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   readonly process: string;
 
   /**
-   * Indicates the permissions required for accessing the application.
+   * Permissions required for accessing the application. The permissions can be obtained by passing in
+   * **GET_BUNDLE_INFO_WITH_APPLICATION** and **GET_BUNDLE_INFO_WITH_REQUESTED_PERMISSION** to the **bundleFlags**
+   * parameter of
+   * [getBundleInfoForSelf]{@link ./../@ohos.bundle.bundleManager:bundleManager.getBundleInfoForSelf(bundleFlags: int)}.
    *
-   * @type { Array<string> }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  /**
-   * Indicates the permissions required for accessing the application.
-   *
-   * @type { Array<string> }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Indicates the permissions required for accessing the application.
-   *
-   * @type { Array<string> }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
+   * @crossplatform [since 20]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   readonly permissions: Array<string>;
 
   /**
-   * Indicates the application source code path
+   * Installation directory of the application.
    *
-   * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  /**
-   * Indicates the application source code path
-   *
-   * @type { string }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Indicates the application source code path
-   *
-   * @type { string }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   readonly codePath: string;
 
   /**
-   * Indicates the metadata of module
+   * Metadata of the application. The information can be obtained by passing in **GET_BUNDLE_INFO_WITH_APPLICATION** and
+   * **GET_BUNDLE_INFO_WITH_METADATA** to the **bundleFlags** parameter of
+   * [getBundleInfoForSelf]{@link ./../@ohos.bundle.bundleManager:bundleManager.getBundleInfoForSelf(bundleFlags: int)}.
    *
-   * @type { Map<string, Array<Metadata>> }
-   * @readonly
+   * Note: Supported since API version 9 and deprecated since API version 10. You are advised to use **metadataArray**
+   * instead.
+   *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9 dynamiconly
    * @deprecated since 10
@@ -391,402 +190,189 @@ export interface ApplicationInfo {
   readonly metadata: Map<string, Array<Metadata>>;
 
   /**
-   * Indicates the metadata of the application
+   * Metadata of the application. The information can be obtained by passing in **GET_BUNDLE_INFO_WITH_APPLICATION** and
+   * **GET_BUNDLE_INFO_WITH_METADATA** to the **bundleFlags** parameter of
+   * [getBundleInfoForSelf]{@link ./../@ohos.bundle.bundleManager:bundleManager.getBundleInfoForSelf(bundleFlags: int)}.
    *
-   * @type { Array<ModuleMetadata> }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 10
-   */
-  /**
-   * Indicates the metadata of the application
-   *
-   * @type { Array<ModuleMetadata> }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Indicates the metadata of the application
-   *
-   * @type { Array<ModuleMetadata> }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
+   * @crossplatform [since 20]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    * @since 23 static
    */
   readonly metadataArray: Array<ModuleMetadata>;
 
   /**
-   * Indicates whether or not this application may be removable
+   * Whether the application is removable. **true** if removable, **false** otherwise.
    *
-   * @type { boolean }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  /**
-   * Indicates whether or not this application may be removable
-   *
-   * @type { boolean }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Indicates whether or not this application may be removable
-   *
-   * @type { boolean }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
+   * @crossplatform [since 20]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   readonly removable: boolean;
 
   /**
-   * Indicates the access token of the application
+   * Access token ID of the application, which is used in the
+   * [application access control verification API](docroot://reference/apis-ability-kit/js-apis-abilityAccessCtrl.md#checkaccesstoken9)
+   * .
    *
-   * @type { number }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  /**
-   * Indicates the access token of the application
-   *
-   * @type { number }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Indicates the access token of the application
-   *
-   * @type { long }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
+   * @crossplatform [since 20]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   readonly accessTokenId: long;
 
   /**
-   * Indicates the uid of the application
+   * UID of the application.
    *
-   * @type { number }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  /**
-   * Indicates the uid of the application
-   *
-   * @type { number }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Indicates the uid of the application
-   *
-   * @type { int }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
+   * @crossplatform [since 20]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   readonly uid: int;
 
   /**
-   * Indicates icon resource of the application
+   * Resource information of the application icon. The resource information obtained contains the bundle name, module
+   * name, and ID of the resource. You can call
+   * [getMediaContent]{@link ./../@ohos.resourceManager:resourceManager.ResourceManager.getMediaContent(resId: long, callback: _AsyncCallback<Uint8Array>)}
+   * to obtain the resource details.
    *
-   * @type { Resource }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  /**
-   * Indicates icon resource of the application
-   *
-   * @type { Resource }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Indicates icon resource of the application
-   *
-   * @type { Resource }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
+   * @crossplatform [since 20]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   readonly iconResource: Resource;
 
   /**
-   * Indicates label resource of the application
+   * Resource information of the application label. The resource information obtained contains the bundle name, module
+   * name, and ID of the resource. You can call
+   * [getMediaContent]{@link ./../@ohos.resourceManager:resourceManager.ResourceManager.getMediaContent(resId: long, callback: _AsyncCallback<Uint8Array>)}
+   * to obtain the resource details.
    *
-   * @type { Resource }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  /**
-   * Indicates label resource of the application
-   *
-   * @type { Resource }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Indicates label resource of the application
-   *
-   * @type { Resource }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
+   * @crossplatform [since 20]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   readonly labelResource: Resource;
 
   /**
-   * Indicates description resource of the application
+   * Resource information of the application description. The resource information obtained contains the bundle name,
+   * module name, and ID of the resource. You can call
+   * [getMediaContent]{@link ./../@ohos.resourceManager:resourceManager.ResourceManager.getMediaContent(resId: long, callback: _AsyncCallback<Uint8Array>)}
+   * to obtain the resource details.
    *
-   * @type { Resource }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  /**
-   * Indicates description resource of the application
-   *
-   * @type { Resource }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Indicates description resource of the application
-   *
-   * @type { Resource }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
+   * @crossplatform [since 20]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   readonly descriptionResource: Resource;
 
   /**
-   * Indicates the appDistributionType of the application
+   * Distribution type of the application signing certificate. The options are as follows:<li>**app_gallery**:
+   * application installed from AppGallery. <!--RP1--><!--RP1End--><li>**enterprise**: enterprise internal application.
+   * These are applications developed by an enterprise for its internal use by employees only. They are not distributed
+   * through public channels like AppGallery but are distributed internally via the enterprise's own channels. <!--RP2--
+   * ><!--RP2End--><li>**enterprise_mdm**: enterprise
+   * [Mobile Device Management (MDM) application](docroot://mdm/mdm-kit-term.md#mdm-application-device-administrator-application)
+   * . <!--Del-->To install a common enterprise application, you must have
+   * [administrator privileges]{@link ./../@ohos.enterprise.adminManager:adminManager.enableAdmin(admin: Want, enterpriseInfo: EnterpriseInfo, type: AdminType, callback: AsyncCallback<void>)}
+   * . <!--DelEnd--><!--RP3--><!--RP3End--><li>**enterprise_normal**: standard enterprise application. These
+   * applications do not need to be released to AppGallery. Instead, they can be distributed and installed through an
+   * enterprise [MDM application](docroot://mdm/mdm-kit-term.md#mdm-application-device-administrator-application) and
+   * offline installer. <!--RP4--><!--RP4End--><li>**os_integration**: pre-installed application. They are not available
+   * for third-party applications. <li>crowdtesting: application under crowdtesting, which is distributed by AppGallery
+   * to a limited number of users and come with a set expiration date. When the system detects that the validity period
+   * of the application expires, it prompts the user to update to the release version available on AppGallery. This API
+   * is deprecated since API version 11. <li>**internaltesting**: application under internal testing of AppGallery. <!--
+   * RP5--><!--RP5End--><li>none: others.
    *
-   * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  /**
-   * Indicates the appDistributionType of the application
-   *
-   * @type { string }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Indicates the appDistributionType of the application
-   *
-   * @type { string }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
+   * @crossplatform [since 20]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   readonly appDistributionType: string;
 
   /**
-   * Indicates the appProvisionType of the application
+   * Type of the application signing certificate file. The options are **debug** and **release**.
    *
-   * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  /**
-   * Indicates the appProvisionType of the application
-   *
-   * @type { string }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Indicates the appProvisionType of the application
-   *
-   * @type { string }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
+   * @crossplatform [since 20]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   readonly appProvisionType: string;
 
   /**
-   * Indicates whether the application is a system application
+   * Whether the application is a system application. **true** if it is a system application, **false** otherwise.
    *
-   * @type { boolean }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  /**
-   * Indicates whether the application is a system application
-   *
-   * @type { boolean }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Indicates whether the application is a system application
-   *
-   * @type { boolean }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
+   * @crossplatform [since 20]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   readonly systemApp: boolean;
 
   /**
-   * Indicates the type of application is APP or atomicService.
+   * Bundle type, which can be **APP** (application) or **ATOMIC_SERVICE** (atomic service).
    *
-   * @type { bundleManager.BundleType }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  /**
-   * Indicates the type of application is APP or atomicService.
-   *
-   * @type { bundleManager.BundleType }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   readonly bundleType: bundleManager.BundleType;
 
   /**
-   * Indicates whether the application is in debug mode.
+   * Whether the application is running in debug mode. **true** if in debug mode, **false** otherwise.
    *
-   * @type { boolean }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 10
-   */
-  /**
-   * Indicates whether the application is in debug mode.
-   *
-   * @type { boolean }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Indicates whether the application is in debug mode.
-   *
-   * @type { boolean }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
+   * @crossplatform [since 20]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    * @since 23 static
    */
   readonly debug: boolean;
 
   /**
-   * Indicates whether the application data is unclearable, that is, whether the application data cannot be cleared.
+   * Whether the application data is unclearable. **true** if unclearable, **false** otherwise.
    *
-   * @type { boolean }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform [since 20]
    * @atomicservice
-   * @since 11
-   */
-  /**
-   * Indicates whether the application data is unclearable, that is, whether the application data cannot be cleared.
-   *
-   * @type { boolean }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
+   * @since 11 dynamic
    * @since 23 static
    */
   readonly dataUnclearable: boolean;
 
   /**
-   * Indicates native library path.
+   * Local library file path of the application.
    *
-   * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 12
-   */
-  /**
-   * Indicates native library path.
-   *
-   * @type { string }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
-   * @since 20 dynamic
+   * @crossplatform [since 20]
+   * @since 12 dynamic
    * @since 23 static
    */
   readonly nativeLibraryPath: string;
 
   /**
-   * Indicates the MultiAppMode object of the bundle
+   * Multi-app mode.
    *
-   * @type { MultiAppMode }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 12 dynamic
    * @since 23 static
@@ -794,10 +380,8 @@ export interface ApplicationInfo {
   readonly multiAppMode: MultiAppMode;
 
   /**
-   * Indicates the index of the bundle
+   * Index of an application clone. It takes effect only for cloned applications.
    *
-   * @type { int }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 12 dynamic
    * @since 23 static
@@ -805,10 +389,15 @@ export interface ApplicationInfo {
   readonly appIndex: int;
 
   /**
-   * Indicates sources to install the app
+   * Installation source of an application. The options are as follows:
    *
-   * @type { string }
-   * @readonly
+   * - **pre-installed**: pre-installed application installed during the first boot.
+   * - **ota**: pre-installed application added during system upgrade.
+   * - **recovery**: pre-installed application manually restored by the user after uninstallation.
+   * - **bundleName**: installation by the application corresponding to this bundle name. **bundleName** represents a
+   * variable, subject to the actual value.
+   * - **unknown**: unknown application installation source.
+   *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 12 dynamic
@@ -817,32 +406,23 @@ export interface ApplicationInfo {
   readonly installSource: string;
 
   /**
-   * Indicates the release type of the app
+   * Release type of the SDK used for application packing. Currently, the SDK release types include Canary, Beta, and
+   * Release. Each of the Canary and Beta releases can be distinguished by a sequential number, such as Canary1, Canary2
+   * , Beta1, and Beta2. You can compare the SDK release type on which application packaging depends and the OS release
+   * type (specified by [deviceInfo.distributionOSReleaseType]{@link ./../@ohos.deviceInfo:deviceInfo}) to determine the
+   * compatibility.
    *
-   * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform [since 20]
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * Indicates the release type of the app
-   *
-   * @type { string }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
+   * @since 12 dynamic
    * @since 23 static
    */
   readonly releaseType: string;
 
   /**
-   * Indicates whether the application enables cloud file sync.
+   * Whether device-cloud file synchronization is enabled for the application. **true** if enabled, **false** otherwise.
    *
-   * @type { boolean }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 12 dynamic
@@ -851,10 +431,9 @@ export interface ApplicationInfo {
   readonly cloudFileSyncEnabled: boolean;
 
   /**
-   * Indicates whether the application enables cloud structured data sync.
+   * Whether device-cloud structured data synchronization is enabled for the application. **true** if enabled, **false**
+   * otherwise.
    *
-   * @type { ?boolean }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 20 dynamic
@@ -865,8 +444,6 @@ export interface ApplicationInfo {
   /**
    * Indicates the flags of the application.
    *
-   * @type { ?int }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 12 dynamic
@@ -876,96 +453,41 @@ export interface ApplicationInfo {
 }
 
 /**
- * Indicates the ModuleMetadata
+ * Describes the metadata of a module.
  *
- * @typedef ModuleMetadata
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
- * @since 10
- */
-/**
- * Indicates the ModuleMetadata
- *
- * @typedef ModuleMetadata
- * @syscap SystemCapability.BundleManager.BundleFramework.Core
- * @atomicservice
- * @since 11
- */
-/**
- * Indicates the ModuleMetadata
- *
- * @typedef ModuleMetadata
- * @syscap SystemCapability.BundleManager.BundleFramework.Core
- * @crossplatform
- * @atomicservice
- * @since 20 dynamic
+ * @crossplatform [since 20]
+ * @atomicservice [since 11]
+ * @since 10 dynamic
  * @since 23 static
  */
 export interface ModuleMetadata {
   /**
-   * Indicates the name of this hap module
+   * Module name.
    *
-   * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 10
-   */
-  /**
-   * Indicates the name of this hap module
-   *
-   * @type { string }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Indicates the name of this hap module
-   *
-   * @type { string }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
+   * @crossplatform [since 20]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    * @since 23 static
    */
   readonly moduleName: string;
 
   /**
-   * Indicates the metadata of this hap module
+   * Metadata list of the module.
    *
-   * @type { Array<Metadata> }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 10
-   */
-  /**
-   * Indicates the metadata of this hap module
-   *
-   * @type { Array<Metadata> }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Indicates the metadata of this hap module
-   *
-   * @type { Array<Metadata> }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
+   * @crossplatform [since 20]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    * @since 23 static
    */
   readonly metadata: Array<Metadata>;
 }
 
 /**
- * Indicates MultiAppMode
+ * Defines the [multi-app mode](docroot://quick-start/multiInstance.md).
  *
- * @typedef MultiAppMode
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @since 12 dynamic
  * @since 23 static
@@ -974,8 +496,6 @@ export interface MultiAppMode {
   /**
    * Indicates the multiAppModeType of the bundle
    *
-   * @type { bundleManager.MultiAppModeType }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 12 dynamic
    * @since 23 static
@@ -985,8 +505,6 @@ export interface MultiAppMode {
   /**
    * Indicates the max count of the bundle,the unit is quantity.
    *
-   * @type { int }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 12 dynamic
    * @since 23 static
@@ -995,9 +513,8 @@ export interface MultiAppMode {
 }
 
 /**
- * Indicates the information of preinstalled application
+ * Indicates the information of preinstalled application.
  *
- * @typedef PreinstalledApplicationInfo
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @systemapi
  * @since 12 dynamic
@@ -1006,10 +523,8 @@ export interface MultiAppMode {
 export interface PreinstalledApplicationInfo {
 
   /**
-   * Indicates the name of this bundle
+   * Bundle name of the application.
    *
-   * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 12 dynamic
@@ -1018,10 +533,9 @@ export interface PreinstalledApplicationInfo {
   readonly bundleName: string;
 
   /**
-   * Indicates the name of module
+   * Module name of the application. The value is **moduleName** configured for the entry module. If the entry module
+   * does not exist, the value is **moduleName** configured for the feature module.
    *
-   * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 12 dynamic
@@ -1030,10 +544,8 @@ export interface PreinstalledApplicationInfo {
   readonly moduleName: string;
 
   /**
-   * Indicates the icon id of the application
+   * Icon ID of the application.
    *
-   * @type { long }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 12 dynamic
@@ -1042,14 +554,22 @@ export interface PreinstalledApplicationInfo {
   readonly iconId: long;
 
   /**
-   * Indicates the label id of the application
+   * Label ID of the application.
    *
-   * @type { long }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 12 dynamic
    * @since 23 static
    */
   readonly labelId: long;
+
+  /**
+   * App description ID.
+   *
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 24 dynamic&static
+   */
+  readonly descriptionId?: long;
 }

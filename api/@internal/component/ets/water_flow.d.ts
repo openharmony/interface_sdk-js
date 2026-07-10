@@ -19,12 +19,13 @@
  */
 
 /**
- * function that returns item main size by index.
- * 
- * @typedef { function } GetItemMainSizeByIndex
+ * Obtains the main axis size of a specified water flow item based on its index.
+ *
  * @param { number } index - Index of the target water flow item.<br>Value range: [0, total number of child nodes - 1].
- * @returns { number } main size of the FlowItem at index
+ * @returns { number } Main axis size, in vp, of the water flow item at the specified index, which is the height for a
+ *     vertical **WaterFlow** component and the width for a horizontal **WaterFlow** component.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -35,18 +36,21 @@ declare type GetItemMainSizeByIndex = (index: number) => number;
  * Describes the configuration of the water flow item section.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
-*/
+ */
 declare class SectionOptions {
+
   /**
-   * The number of FlowItems in this section.
+   * Number of **FlowItem** components in a section. The value must be a non-negative number. If the **splice**,
+   * **push**, or **update** APIs receive a section whose **itemsCount** is set to a negative number, these APIs will
+   * not be executed. Do not use a section whose **itemsCount** is **0**. Otherwise, the layout calculation may be
+   * abnormal.
    *
-   * @type { number } itemsCount - Number of water flow items in the section. The value must be a positive integer.
-   * If the <em>splice</em>, <em>push</em>, or <em>update</em> APIs receive a section
-   * where the <em>itemsCount</em> value is less than 0, these APIs will not be executed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -54,12 +58,15 @@ declare class SectionOptions {
   itemsCount: number;
 
   /**
-   * The columns of this section in vertical layout, or rows in horizontal layout.
+   * Number of columns (in vertical layout) or rows (in horizontal layout).
    *
-   * @type { ?number } crossCount - Number of columns (in vertical layout) or rows (in horizontal layout).
-   * <br> If the value is less than 1, the default value is used.
+   * Default value: **1**
+   *
+   * If the value is less than 1, the default value is used.
+   *
    * @default 1 one column in vertical layout, or one row in horizontal layout
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -67,20 +74,22 @@ declare class SectionOptions {
   crossCount?: number;
 
   /**
-   * Callback used to obtain the main axis size,in vp, of the water flow item at a specified index during
-   * the layout process of the WaterFlow component.
-   * 
-   * <p><strong>NOTE</strong>
-   * <br>1. When both <em>onGetItemMainSizeByIndex</em> and the width or height attribute of the water flow item are used,
-   * the main axis size is determined by the return value of <em>onGetItemMainSizeByIndex</em>,
-   * which will override the main axis length of water flow item.
-   * <br>2. Using <em>onGetItemMainSizeByIndex</em> can improve the efficiency of jumping to a specific position or index in the <em>WaterFlow</em> component.
-   * Avoid mixing the use of <em>onGetItemMainSizeByIndex</em> with sections that do not have it set, as this can cause layout exceptions.
-   * <br>3. If <em>onGetItemMainSizeByIndex</em> returns a negative number, the height of the water flow item is 0.
-   * </p>
+   * Callback used to obtain the main axis size, in vp, of the water flow item at a specified index during the layout
+   * process of the **WaterFlow** component. For a vertical **WaterFlow** component, this size refers to the height, and
+   * for a horizontal **WaterFlow** component, it refers to the width.
    *
-   * @type { ?GetItemMainSizeByIndex } onGetItemMainSizeByIndex - function that returns item main size by index
+   * **NOTE**
+   *
+   * 1. When both **onGetItemMainSizeByIndex** and the width or height attribute of **FlowItem** are used,
+   * the main-axis size is determined by the return value of **onGetItemMainSizeByIndex**,
+   * which will override the main-axis length of **FlowItem**.
+   * 2. Using **onGetItemMainSizeByIndex** can improve the efficiency of jumping to a specific position
+   * or index in the **WaterFlow** component. Avoid mixing the use of **onGetItemMainSizeByIndex** with sections
+   * that do not have it set, as this can cause layout exceptions.
+   * 3. If **onGetItemMainSizeByIndex** returns a negative number, the height of the water flow item is 0.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -88,12 +97,11 @@ declare class SectionOptions {
   onGetItemMainSizeByIndex?: GetItemMainSizeByIndex;
 
   /**
-   * Gap between columns. If this parameter is not set, the value of columnsGap for the water flow is used.
-   * If this parameter is set to an invalid value, 0 vp is used.
-   * 
-   * @type { ?Dimension } columnsGap - column gap of this section
-   * same with columnsGap of WaterFlow if not set
+   * Column gap of the section. If this parameter is not set, the [columnsGap]{@link WaterFlowAttribute#columnsGap} of
+   * the **WaterFlow** component is used by default. If an invalid value is set, 0 vp is used.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -101,12 +109,11 @@ declare class SectionOptions {
   columnsGap?: Dimension;
 
   /**
-   * Gap between rows. If this parameter is not set, the value of <em>rowsGap</em> for the water flow is used.
-   * If this parameter is set to an invalid value, 0 vp is used.
+   * Row gap of the section. If this parameter is not set, the [rowsGap]{@link WaterFlowAttribute#rowsGap} of the
+   * **WaterFlow** component is used by default. If an invalid value is set, 0 vp is used.
    *
-   * @type { ?Dimension } rowsGap - row gap of this section
-   * same with rowsGap of WaterFlow if not set
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -114,11 +121,18 @@ declare class SectionOptions {
   rowsGap?: Dimension;
 
   /**
-   * Padding of the section. A value of the Length type specifies the margin for all the four sides.
+   * Margins of the section. A value of the **Length** type specifies the margins on all the four sides.
    *
-   * @type { ?(Margin | Dimension) } margin - outer margin of this section
+   * Default value: **0**
+   *
+   * Unit: vp
+   *
+   * When **margin** is set to a percentage, the width of the **WaterFlow** component is used as the base value for the
+   * top, bottom, left, and right margins.
+   *
    * @default {top: 0, right: 0, bottom: 0, left: 0}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -129,16 +143,25 @@ declare class SectionOptions {
 /**
  * Describes the water flow item sections.
  *
+ * > **NOTE**
+ * >
+ * > After the section information is modified using **splice**, **push**, and **update**, ensure that the total number
+ * > of child nodes in all sections matches the actual total number of child nodes in the **WaterFlow** component. Any
+ * > failure to do so may result in layout issues that prevent the **WaterFlow** component from scrolling properly.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
  */
 declare class WaterFlowSections {
+
   /**
-   * A constructor used to create a <em>WaterFlowSections</em> object.
+   * A constructor used to create a **WaterFlowSections** object.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -148,22 +171,22 @@ declare class WaterFlowSections {
   /**
    * Changes sections by removing or replacing an existing section and/or adding a section.
    *
-   * @param { number } start - Zero-based index at which the changing starts. The value is converted to an integer.
-   * <br><em>NOTE</em>
-   * <br>1. A negative index counts back from the end of the section list.
-   * If -<em>WaterFlowSections.length()</em> <= <em>start</em> < <em>0</em>, <em>start</em> + <em>array.length</em> is used.
-   * <br>2. If <em>start</em> < -<em>WaterFlowSections.length()</em>, <em>0</em> is used.
-   * <br>3. If <em>start</em> >= <em>WaterFlowSections.length()</em>, a new section is added at the end.
-   * @param { number } [deleteCount] - Number of sections to be deleted from the position specified by <em>start</em>.
-   * <br><em>NOTE</em>
-   * <br>1. If <em>deleteCount</em> is omitted, or if its value is greater than or equal to the number of sections from
-   * the position specified by <em>start</em> to the end of the <em>WaterFlowSections</em>,
-   * then all sections from the position specified by <em>start</em> to the end of the <em>WaterFlowSections</em> will be deleted.
-   * <br>2. If <em>deleteCount</em> is <em>0</em> or a negative number, no sections are deleted.
-   * @param { Array<SectionOptions> } [sections] - Sections to add to the section list, beginning from the position specified by <em>start</em>.
-   * If no section is specified, <em>splice()</em> will only delete sections from the <em>WaterFlow</em> component.
-   * @returns { boolean } Whether the splice was successful.
+   * @param { number } start - Zero-based index at which the changing starts. The value is converted to an integer.<br>
+   *     **NOTE**<br>1. A negative index counts back from the end of the section list.
+   *     **start + WaterFlowSections.length()** is used.<br>2. If **start** < -**WaterFlowSections.length()**, **0** is
+   *     used.<br>3. If **start** >= **WaterFlowSections.length()**, a new section is added at the end.
+   * @param { number } [deleteCount] - Number of sections to be deleted from the position specified by **start**.<br>
+   *     **NOTE**<br>1. If **deleteCount** is omitted, or if its value is greater than or equal to the number of
+   *     sections from the position specified by **start** to the end of the **WaterFlowSections**, then all sections
+   *     from the position specified by **start** to the end of the **WaterFlowSections** will be deleted.<br>2. If
+   *     **deleteCount** is **0** or a negative number, no sections are deleted.
+   * @param { Array<SectionOptions> } [sections] - Sections to add to the section list, beginning from the position
+   *     specified by **start**. If no section is specified, **splice()** will only delete sections from the
+   *     **WaterFlow** component.
+   * @returns { boolean } Returns **true** if the sections are successfully modified and returns **false** if the
+   *     modification fails (**itemsCount** of any section to be added is not a non-negative number).
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -171,11 +194,13 @@ declare class WaterFlowSections {
   splice(start: number, deleteCount?: number, sections?: Array<SectionOptions>): boolean;
 
   /**
-   * Adds the specified sections to the end of the <em>WaterFlow</em> component.
+   * Adds the specified sections to the end of the **WaterFlow** component.
    *
-   * @param { SectionOptions } section - Sections to add to the end of the <em>WaterFlow</em> component.
-   * @returns { boolean } Whether the push was successful.
+   * @param { SectionOptions } section - Sections to add to the end of the **WaterFlow** component.
+   * @returns { boolean } Returns **true** if the section is successfully added; returns **false** if the addition fails
+   *     (**itemsCount** of the new section is not a non-negative number).
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -185,15 +210,16 @@ declare class WaterFlowSections {
   /**
    * Updates the configuration of a specified water flow item section.
    *
-   * @param { number } sectionIndex - Zero-based index of the water flow item section to update. The value is converted to an integer.
-   * <br><em>NOTE</em>
-   * <br>1. A negative index counts back from the end of the section list.
-   * If -<em>WaterFlowSections.length()</em> <= <em>sectionIndex</em> < <em>0</em>, <em>sectionIndex</em> + <em>array.length</em> is used.
-   * <br>2. If <em>sectionIndex</em> < -<em>WaterFlowSections.length()</em>, <em>0</em> is used.<br>
-   * 3. If <em>sectionIndex</em> >= <em>WaterFlowSections.length()</em>, a new section is added at the end.
+   * @param { number } sectionIndex - Zero-based index of the water flow item section to update. The value is converted
+   *     to an integer.<br>**NOTE**<br>1. A negative index counts back from the end of the section list.
+   *     **sectionIndex + WaterFlowSections.length()** is used.<br>2. If **sectionIndex** < -
+   *     **WaterFlowSections.length()**, **0** is used.<br>3. If **sectionIndex** >= **WaterFlowSections.length()**, a
+   *     new section is added at the end.
    * @param { SectionOptions } section - New section configuration.
-   * @returns { boolean } Whether the update was successful.
+   * @returns { boolean } Returns whether the update is successful. If the value of **itemsCount** in any section to add
+   *     is not a non-negative integer, **false** is returned.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -201,10 +227,11 @@ declare class WaterFlowSections {
   update(sectionIndex:number, section: SectionOptions): boolean;
 
   /**
-   * Obtains the configuration of all sections in the <em>WaterFlow</em> component.
+   * Obtains the configuration of all sections in the **WaterFlow** component.
    *
-   * @returns { Array<SectionOptions> } Returns all the section options in the WaterFlow.
+   * @returns { Array<SectionOptions> } Configuration of all sections in the **WaterFlow** component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -212,10 +239,11 @@ declare class WaterFlowSections {
   values(): Array<SectionOptions>;
 
   /**
-   * Obtains the number of sections in the <em>WaterFlow</em> component.
+   * Obtains the number of sections in the **WaterFlow** component.
    *
-   * @returns { number } Returns section counts in the WaterFlow.
+   * @returns { number } Number of sections in the **WaterFlow** component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -224,20 +252,23 @@ declare class WaterFlowSections {
 }
 
 /**
- * Declare layout modes of WaterFlow.
+ * Enumerates the layout modes of the **WaterFlow** component.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
  */
 declare enum WaterFlowLayoutMode {
+
   /**
-   * Default layout mode where water flow items are arranged from top to bottom. Items in the viewport depend on the layout of all items above them.
-   * As such, in cases of redirection or switching the number of columns, the layout of all items above the viewport must be recalculated.
+   * Default layout mode where water flow items are arranged from top to bottom. Items in the viewport depend on the
+   * layout of all items above them. In cases of jumping to a position or switching column counts, the layout of all
+   * items above the must be recalculated.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -245,25 +276,37 @@ declare enum WaterFlowLayoutMode {
   ALWAYS_TOP_DOWN = 0,
 
   /**
-   * Sliding window mode. This mode only takes into account the layout in the viewport,
-   * without depending on water flow items above the viewport.
-   * 
-   * <p><strong>NOTE</strong>
-   * <br> 1. During a non-animated redirection to a distant location, water flow items are laid out forward or backward based on the target position.
-   * If the user then swipes back to the position prior to the redirection, the layout of the content may not be consistent with its previous state.
-   * This can lead to misalignment of the top nodes when the user swipes back to the top after the redirection.
-   * To counteract this issue, in this layout mode, the layout will be automatically adjusted after reaching the top of
-   * the viewport to ensure that the top is aligned.
-   * If there are multiple sections, adjustments will be made to the sections within the viewport when scrolling ends.
-   * <br> 2. The total offset returned by the currentOffset API of scroller is inaccurate after a redirection or data update.
-   * This offset will be recalibrated when the user swipes back to the top.
-   * <br> 3. If a jump action (for example, by calling scrollToIndex without animation or scrollEdge) and
-   * an input offset (such as from a swipe gesture or a scrolling animation) are both initiated within the same frame, both will be executed.
-   * <br> 4. If the scrollToIndex API is called without animation to jump to a distant position (beyond the range of visible water flow items in the window),
+   * Sliding window mode. Only the layout information inside the viewport is considered, with no dependency on
+   * **FlowItem** components above the viewport. Hence, when jumping forward or switching column counts, only the
+   * **FlowItem** components within the viewport need to be laid out. This mode is recommended, especially when the
+   * application needs to support screen rotation or dynamic column‑count switching.
+   *
+   * **NOTE**
+   *
+   * 1. During a non-animated redirection to a distant position, water flow items are laid out forward or backward based
+   * on the target position. If the user then swipes back to the original position,
+   * the layout of the content may differ from before.
+   * This can lead to misalignment of the top nodes when a user swipes back to the top after the redirection.
+   * To counteract this issue, in this layout mode,
+   * the layout will be automatically adjusted after reaching the top of the viewport to ensure that the top is aligned.
+   * If there are multiple sections, adjustments will be made to the sections within the viewport when sliding ends.
+   * 2. The total offset returned by the [currentOffset]{@link Scroller#currentOffset}
+   * or [offset]{@link Scroller#offset} API of [scroller]{@link WaterFlowOptions}
+   * is inaccurate after the jump or data update is triggered.
+   * The offset will be recalibrated when the user scrolls back to the top.
+   * The offset API is added in API version 23 and later versions.
+   * 3. If a jump action (for example, by calling [scrollToIndex]{@link Scroller#scrollToIndex}
+   * without animation or [scrollEdge]{@link Scroller#scrollEdge})
+   * and an input offset (such as from a swipe gesture or a scrolling animation)
+   * are both initiated within the same frame, both will be executed.
+   * 4. If the [scrollToIndex]{@link Scroller#scrollToIndex} API is called without animation
+   * to jump to a distant position (beyond the range of visible water flow items in the window),
    * the total offset is calculated in the sliding window mode.
-   * </p>
+   * 5. The [scrollBar](docroot://reference/apis-arkui/arkui-ts/ts-container-scrollable-common.md#scrollbar11)
+   * is supported only in API version 18 and later. In earlier versions, the scrollbar will not be displayed.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -272,63 +315,35 @@ declare enum WaterFlowLayoutMode {
 }
 
 /**
- * Defines the water flow options.
+ * Provides parameters of the **WaterFlow** component.
  *
- * @interface WaterFlowOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 9
- */
-/**
- * Defines the water flow options.
- *
- * @interface WaterFlowOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 10
- */
-/**
- * Provides parameters of the <em>WaterFlow</em> component.
- *
- * @interface WaterFlowOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 9 dynamic
  */
 declare interface WaterFlowOptions {
+
   /**
-   * Describes the water flow footer.
+   * Footer component of the **WaterFlow** component, which is used to display custom content (such as loading
+   * prompts and bottom icons) at the end of the waterfall. If this parameter is not set, no footer component is
+   * displayed.
    *
-   * @type { ?CustomBuilder }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
-   */
-  /**
-   * Describes the water flow footer.
-   *
-   * @type { ?CustomBuilder }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Footer of the WaterFlow component.
-   *
-   * @type { ?CustomBuilder }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   footer?: CustomBuilder;
 
   /**
-   * Footer of the WaterFlow component.
+   * Footer of the **WaterFlow** component. This parameter has a higher priority than **footer**. If both
+   * **footer** and **footerContent** are set, the component set by **footerContent** will be used.
    *
-   * @type { ?ComponentContent }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -336,46 +351,34 @@ declare interface WaterFlowOptions {
   footerContent?: ComponentContent;
 
   /**
-   * Describes the water flow scroller.
-   *
-   * @type { ?Scroller }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
-   */
-  /**
-   * Describes the water flow scroller.
-   *
-   * @type { ?Scroller }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
    * Controller of the scrollable component, bound to the scrollable component.
-   * 
+   *
    * <p><strong>NOTE</strong>
-   * <br>The scroller cannot be bound to other scrollable components, such as ArcList, List, Grid, or Scroll.
+   * <br>The scroller cannot be bound to other scrollable components, such as ArcList, List, Grid, Scroll, or WaterFlow.
    * </p>
    *
-   * @type { ?Scroller }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   scroller?: Scroller;
 
   /**
-   * Water flow item sections. Different sections can have different numbers of columns.
-   * 
+   * Water flow item sections, used to implement mixed layouts with different column counts for each section within
+   * the same **WaterFlow** component. This is applicable to scenarios where different numbers of columns are
+   * required in different areas. If this parameter is not set, the layout with the same number of columns is used.
+   *
    * <p><strong>NOTE</strong>
-   * <br>1. When <em>sections</em> is used, the <em>columnsTemplate</em> and <em>rowsTemplate</em> attributes are ignored.
-   * <br>2. When <em>sections</em> is used, the footer cannot be set separately. The last section can function as the footer.
+   * <br>1. When <em>sections</em> is used, the <em>columnsTemplate</em> and <em>rowsTemplate</em> attributes
+   * are ignored.
+   * <br>2. When <em>sections</em> is used, the footer cannot be set separately.
+   * The last section can function as the footer.
    * </p>
    *
-   * @type { ?WaterFlowSections } sections - sections with different cross count
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -385,9 +388,9 @@ declare interface WaterFlowOptions {
   /**
    * Layout mode of the <em>WaterFlow</em> component.
    *
-   * @type { ?WaterFlowLayoutMode }
    * @default ALWAYS_TOP_DOWN
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -396,21 +399,27 @@ declare interface WaterFlowOptions {
 }
 
 /**
- * Defines a UIWaterFlowEvent which is used to set event to target component.
+ * Represents the return value of the
+ * [getEvent('WaterFlow')]{@link FrameNode:typeNode.getEvent(node: FrameNode, nodeType: 'WaterFlow')} method in
+ * **frameNode**, which can be used to set scroll events for a **WaterFlow** node.
  *
- * @extends UIScrollableCommonEvent
- * @interface UIWaterFlowEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 19 dynamic
  */
 declare interface UIWaterFlowEvent extends UIScrollableCommonEvent {
+
   /**
-   * Set or reset the callback which is triggered when the WaterFlow will scroll.
+   * Sets the callback for the
+   * [onWillScroll](docroot://reference/apis-arkui/arkui-ts/ts-container-scrollable-common.md#onwillscroll12) event.
    *
-   * @param { OnWillScrollCallback | undefined } callback - callback function, triggered when the WaterFlow will scroll.
+   * If the input parameter is **undefined**, the event callback is reset.
+   *
+   * @param { OnWillScrollCallback | undefined } callback - Callback for the **onWillScroll** event.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 19 dynamic
@@ -418,10 +427,14 @@ declare interface UIWaterFlowEvent extends UIScrollableCommonEvent {
   setOnWillScroll(callback: OnWillScrollCallback | undefined): void;
 
   /**
-   * Set or reset the callback which is triggered when WaterFlow view did scroll.
+   * Sets the callback for the
+   * [onDidScroll](docroot://reference/apis-arkui/arkui-ts/ts-container-scrollable-common.md#ondidscroll12) event.
    *
-   * @param { OnScrollCallback | undefined } callback - callback function, triggered when the WaterFlow did scroll.
+   * If the input parameter is **undefined**, the event callback is reset.
+   *
+   * @param { OnScrollCallback | undefined } callback - Callback for the **onDidScroll** event.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 19 dynamic
@@ -429,11 +442,14 @@ declare interface UIWaterFlowEvent extends UIScrollableCommonEvent {
   setOnDidScroll(callback: OnScrollCallback | undefined): void;
 
   /**
-   * Set or reset the callback which is triggered when the start and end positions of the display change.
+   * Sets the callback of the
+   * [onScrollIndex](docroot://reference/apis-arkui/arkui-ts/ts-container-waterflow.md#onscrollindex11) event.
    *
-   * @param { OnWaterFlowScrollIndexCallback | undefined } callback - callback function, triggered when start or
-   *     end positions of the display change.
+   * If the input parameter is **undefined**, the event callback is reset.
+   *
+   * @param { OnWaterFlowScrollIndexCallback | undefined } callback - Callback for the **onScrollIndex** event.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 19 dynamic
@@ -442,12 +458,12 @@ declare interface UIWaterFlowEvent extends UIScrollableCommonEvent {
 }
 
 /**
- * Defines the callback type used in onScrollIndex.
+ * Represents a callback for item changes in the visible area of the **WaterFlow** component.
  *
- * @typedef {function} OnWaterFlowScrollIndexCallback
- * @param {number} first - the first index in visible content.
- * @param {number} last - the last index in visible content.
+ * @param {number} first - Index of the first item of the component.
+ * @param {number} last - Index of the last item of the component.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 19 dynamic
@@ -455,126 +471,97 @@ declare interface UIWaterFlowEvent extends UIScrollableCommonEvent {
 declare type OnWaterFlowScrollIndexCallback = (first: number, last: number) => void;
 
 /**
- * Defines the water flow interface.
+ * The **WaterFlow** component is a water flow container that consists of cells formed by rows and columns and arranges
+ * items of different sizes from top to bottom according to the preset rules.
  *
- * @interface WaterFlowInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 9
- */
-/**
- * Defines the water flow interface.
+ * > **NOTE**
  *
- * @interface WaterFlowInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 10
- */
-/**
- * Defines the water flow interface.
+ * > The **WaterFlow** component supports the waterfall layout but does not support the edit mode or dragging of child
+ * > elements.
+ * >
+ * > The component has been bound with gestures to implement functions such as following the finger. If you need to add
+ * > custom gestures, refer to [Enhanced Gesture Interception]{@link common}.
  *
- * @interface WaterFlowInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 9 dynamic
  * @noninterop
  */
 interface WaterFlowInterface {
+
   /**
-   * WaterFlow is returned when the parameter is transferred. Only support api: scrollToIndex
+   * Creates a **WaterFlow** component.
    *
-   * @param { WaterFlowOptions } options
-   * @returns { WaterFlowAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
-   */
-  /**
-   * WaterFlow is returned when the parameter is transferred. Only support api: scrollToIndex
-   *
-   * @param { WaterFlowOptions } options
-   * @returns { WaterFlowAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * WaterFlow is returned when the parameter is transferred. Only support api: scrollToIndex
-   *
-   * @param { WaterFlowOptions } options
+   * @param { WaterFlowOptions } options - Parameters of the **WaterFlow** component.
    * @returns { WaterFlowAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   (options?: WaterFlowOptions): WaterFlowAttribute;
 }
 
 /**
- * Defines the water flow attribute.
- * 
- * @extends CommonMethod<WaterFlowAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 9
- */
-/**
- * Defines the water flow attribute.
- * 
- * @extends CommonMethod<WaterFlowAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 10
- */
-/**
- * Defines the water flow attribute.
- * 
- * @extends ScrollableCommonMethod<WaterFlowAttribute>
+ * In addition to [universal attributes]{@link common} and
+ * [scrollable component common attributes](docroot://reference/apis-arkui/arkui-ts/ts-container-scrollable-common.md#attributes),
+ * the following attributes are also supported.
+ *
+ * In addition to [universal events]{@link common} and
+ * [scrollable component common events](docroot://reference/apis-arkui/arkui-ts/ts-container-scrollable-common.md#events),
+ * the following events are also supported.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 9 dynamic
  * @noninterop
  */
 declare class WaterFlowAttribute extends ScrollableCommonMethod<WaterFlowAttribute> {
-  /**
-   * This parameter specifies the number of columns in the current waterflow.
-   *
-   * @param { string } value
-   * @returns { WaterFlowAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
-   */
-  /**
-   * This parameter specifies the number of columns in the current waterflow.
-   *
-   * @param { string } value
-   * @returns { WaterFlowAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
+
   /**
    * Sets the number of columns in the layout. If this attribute is not set, one column is used by default.
    *
-   * @param { string } value - Number of columns in the layout.<br>Default value: <em>'1fr'</em>
+   * For example, **'1fr 1fr 2fr'** indicates three columns, with the first column taking up 1/4 of the parent component
+   * 's full width, the second column 1/4, and the third column 2/4.
+   *
+   * You can use **columnsTemplate('repeat(auto-fill,track-size)')** to automatically calculate the number of columns
+   * based on the specified column width **track-size**. **repeat** and **auto-fill** are keywords. The units for
+   * **track-size** can be px, vp (default), %, or a valid number. For details, see
+   * [Example 2](docroot://reference/apis-arkui/arkui-ts/ts-container-waterflow.md#example-2-implementing-automatic-column-count-calculation).
+   *
+   * @param { string } value - Number of columns in the layout.<br>Default value: **'1fr'**
    * @returns { WaterFlowAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   columnsTemplate(value: string): WaterFlowAttribute;
-  
+
   /**
    * Sets the number of columns in the layout. If this attribute is not set, one column is used by default.
    *
-   * @param { string | ItemFillPolicy } value - Number of columns in the layout.<br>Default value: <em>'1fr'</em>
+   * When the value is of the string type, refer to
+   * [columnsTemplate(value: string)]{@link WaterFlowAttribute#columnsTemplate(value: string)} for the usage.
+   *
+   * When the value is of the **ItemFillPolicy** type, the number of columns is determined based on the
+   * [breakpoint type](docroot://ui/arkts-layout-development-grid-layout.md#breakpoints) corresponding to the width of
+   * the **WaterFlow** component.
+   *
+   * For example, the **ItemFillPolicy.BREAKPOINT_DEFAULT** component displays two columns when the component width
+   * falls within the sm or smaller breakpoint range, three columns for the md breakpoint range, and five columns for
+   * the lg or larger breakpoint range, with each column being 1 fr.
+   *
+   * @param { string | ItemFillPolicy } value - Number of columns in the layout.
    * @returns { WaterFlowAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 22 dynamic
@@ -582,255 +569,182 @@ declare class WaterFlowAttribute extends ScrollableCommonMethod<WaterFlowAttribu
   columnsTemplate(value: string | ItemFillPolicy): WaterFlowAttribute;
 
   /**
-   * This parameter specifies the min or max size of each item.
+   * Sets the size constraints of the child components during layout. For details about how to use this API, see
+   * [Example 1](docroot://reference/apis-arkui/arkui-ts/ts-container-waterflow.md#example-1-using-a-basic-waterflow-component).
    *
-   * @param { ConstraintSizeOptions } value
-   * @returns { WaterFlowAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
-   */
-  /**
-   * This parameter specifies the min or max size of each item.
-   *
-   * @param { ConstraintSizeOptions } value
-   * @returns { WaterFlowAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Sets the size constraints of the child components during layout.
-   *
-   * @param { ConstraintSizeOptions } value - Size constraints of the child components during layout.
-   * If the value specified is less than 0, this parameter does not take effect.
+   * @param { ConstraintSizeOptions } value - Size constraints of the child components during layout. If the value
+   *     specified is less than **0**, this parameter does not take effect.<br>**NOTE**<br>1. If both
+   *     **itemConstraintSize** and the [constraintSize]{@link CommonMethod#constraintSize} attribute of the
+   *     **FlowItem** are set, the **minWidth** (or **minHeight**) will be the larger of the two values, and the
+   *     **maxWidth** (or **maxHeight**) will be the smaller of the two values. The resulting values will then be used
+   *     as the **constraintSize** for the **FlowItem**.<br>2. When only **itemConstraintSize** is set, it effectively
+   *     applies a uniform size constraint to all child components in the **WaterFlow**.<br>3. The
+   *     **itemConstraintSize** attribute, once converted to the **constraintSize** attribute of the **FlowItem**
+   *     through the two methods mentioned above, follows the same rules for taking effect as the universal attribute
+   *     [constraintSize]{@link CommonMethod#constraintSize}.
    * @returns { WaterFlowAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   itemConstraintSize(value: ConstraintSizeOptions): WaterFlowAttribute;
 
   /**
-   * Set the number of rows in the current waterflow.
-   *
-   * @param { string } value
-   * @returns { WaterFlowAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
-   */
-  /**
-   * Set the number of rows in the current waterflow.
-   *
-   * @param { string } value
-   * @returns { WaterFlowAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
    * Sets the number of rows in the layout. If this attribute is not set, one row is used by default.
    *
-   * @param { string } value - Number of rows in the layout.<br>Default value: <em>'1fr'</em>
+   * For example, **'1fr 1fr 2fr'** indicates three rows, with the first row taking up 1/4 of the parent component's
+   * full height, the second row 1/4, and the third row 2/4.
+   *
+   * You can use **rowsTemplate('repeat(auto-fill,track-size)')** to automatically calculate the number of rows based on
+   * the specified row height **track-size**. **repeat** and **auto-fill** are keywords. The units for **track-size**
+   * can be px, vp (default), %, or a valid number.
+   *
+   * @param { string } value - Number of rows in the layout.<br>Default value: **'1fr'**
    * @returns { WaterFlowAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   rowsTemplate(value: string): WaterFlowAttribute;
 
   /**
-   * Set the spacing between columns.
-   *
-   * @param { Length } value
-   * @returns { WaterFlowAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
-   */
-  /**
-   * Set the spacing between columns.
-   *
-   * @param { Length } value
-   * @returns { WaterFlowAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
    * Sets the gap between columns.
    *
-   * @param { Length } value - Gap between columns.<br>Default value: <em>0</em>
-   * <br>Value range: [0, +∞).
+   * @param { Length } value - Gap between columns.<br>Default value: **0**<br>Value range:
+   *     [0, +∞). A value less than 0 evaluates to the value **0**.
    * @returns { WaterFlowAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   columnsGap(value: Length): WaterFlowAttribute;
 
   /**
-   * Set the spacing between rows.
-   *
-   * @param { Length } value
-   * @returns { WaterFlowAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
-   */
-  /**
-   * Set the spacing between rows.
-   *
-   * @param { Length } value
-   * @returns { WaterFlowAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
    * Sets the gap between rows.
    *
-   * @param { Length } value - Gap between rows.<br>Default value: <em>0</em>
+   * @param { Length } value - Gap between rows.<br>Default value: **0**<br>Value range:
+   *     [0, +∞). A value less than 0 evaluates to the value **0**.
    * @returns { WaterFlowAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   rowsGap(value: Length): WaterFlowAttribute;
 
   /**
-   * Control layout direction of the WaterFlow.
-   *
-   * @param { FlexDirection } value
-   * @returns { WaterFlowAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
-   */
-  /**
-   * Control layout direction of the WaterFlow.
-   *
-   * @param { FlexDirection } value
-   * @returns { WaterFlowAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
    * Sets the main axis direction of the layout.
    *
-   * @param { FlexDirection } value -  Main axis direction of the layout.<br>Default value: <em>FlexDirection.Column</em>
+   * @param { FlexDirection } value - Main axis direction of the layout.<br>Default value: **FlexDirection.Column**
    * @returns { WaterFlowAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   layoutDirection(value: FlexDirection): WaterFlowAttribute;
 
   /**
-   * Called to setting the nested scroll options.
-   *
-   * @param { NestedScrollOptions } value - options for nested scrolling.
-   * @returns { WaterFlowAttribute } the attribute of the water flow.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
-   */
-  /**
-   * Sets the nested scrolling mode in the forward and backward directions to implement scrolling linkage with the parent component.
+   * Sets the nested scrolling mode in the forward and backward directions to implement scrolling linkage with the
+   * parent component. For details, see
+   * [Example 3: Implementing Nested Scrolling (Method 2)](docroot://reference/apis-arkui/arkui-ts/ts-container-scroll.md#example-3-implementing-nested-scrolling-method-2).
    *
    * @param { NestedScrollOptions } value - Nested scrolling options.
    * @returns { WaterFlowAttribute } the attribute of the water flow.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @stagemodelonly
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   nestedScroll(value: NestedScrollOptions): WaterFlowAttribute;
 
   /**
-   * Called when setting whether to enable scroll by gesture or mouse.
-   * @param { boolean } value
+   * Sets whether to support the scrolling gesture.
+   *
+   * > **NOTE**
+   * >
+   * > The component cannot be scrolled through mouse press-and-drag operations.
+   *
+   * @param { boolean } value - Whether to support scroll gestures. With the value **true**, scrolling via finger or
+   *     mouse is enabled. With the value **false**, scrolling via finger or mouse is disabled, but this does not affect
+   *     the scrolling APIs of the [Scroller]{@link Scroller}.<br>Default value: **true**
    * @returns { WaterFlowAttribute } The attribute of the waterflow
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Sets whether to support scroll gestures.
-   * 
-   * @param { boolean } value - Whether to support scroll gestures.<br>Default value: <em>true</em>
-   * @returns { WaterFlowAttribute } The attribute of the waterflow
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   enableScrollInteraction(value: boolean): WaterFlowAttribute;
 
   /**
-   * Called to setting the friction.
-   * @param { number | Resource } value - options for scrolling friction.
+   * Sets the friction coefficient. It applies only to gestures in the scrolling area, and it affects only indirectly
+   * the scroll chaining during the inertial scrolling process.
+   *
+   * @param { number | Resource } value - Friction coefficient.<br>Default value: **0.9** for wearable devices and
+   *     **0.6** for non-wearable devices.<br>Since API version 11, the default value for non-wearable devices is
+   *     **0.7**.<br>Since API version 12, the default value for non-wearable devices is **0.75**.<br>Value range: (0, +
+   *     ∞).<br>If the value is less than or equal to 0, the default value is used.
    * @returns { WaterFlowAttribute } the attribute of the water flow.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Sets the friction coefficient. It applies only to gestures in the scrolling area,
-   * and it affects only indirectly the scroll chaining during the inertial scrolling process.
-   * 
-   * @param { number | Resource } value - Friction coefficient.<br>Default value: <em>0.9</em> for wearable devices and <em>0.6</em> for non-wearable devices.
-   * <br>Since API version 11, the default value for non-wearable devices is <em>0.7</em>.
-   * <br>Since API version 12, the default value for non-wearable devices is <em>0.75</em>.
-   * <br>Value range: (0, +∞).
-   * <br>If the value is less than or equal to 0, the default value is used.
-   * @returns { WaterFlowAttribute } the attribute of the water flow.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   friction(value: number | Resource): WaterFlowAttribute;
 
   /**
-   * Called to set number of flow items to be preloaded (cached) in LazyForEach.
-   * @param { number } value - number of flow items to be preloaded (cached).
+   * Number of items to be preloaded.
+   *
+   * This attribute takes effect only in
+   * [LazyForEach](docroot://ui/rendering-control/arkts-rendering-control-lazyforeach.md) and
+   * [Repeat](docroot://ui/rendering-control/arkts-new-rendering-control-repeat.md) with
+   * [virtualScroll]{@link RepeatAttribute#virtualScroll} enabled. **FlowItem** components that are outside the display
+   * and cache range will be released.
+   *
+   * @param { number } value - Number of water flow items to be preloaded (cached).<br>Default value: number of nodes
+   *     visible on the screen, with the maximum value of 16<br>Value range:
+   *     [0, +∞).<br>Values less than 0 are treated as **1**.
    * @returns { WaterFlowAttribute } the attribute of the water flow.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Sets the number of items to be cached.
-   *  
-   * @param { number } value - Number of water flow items to be preloaded (cached).
-   * <br>Default value: number of nodes visible on the screen, with the maximum value of 16
-   * <br>Value range: [0, +∞).
-   * <br>Values less than 0 are treated as <em>1</em>.
-   * @returns { WaterFlowAttribute } the attribute of the water flow.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   cachedCount(value: number): WaterFlowAttribute;
 
   /**
-   * Sets the number of water flow items to be cached (preloaded) and specifies whether to display the cached nodes.
-   * 
-   * @param { number } count - Number of water flow items to be preloaded (cached).
-   * <br>Default value: number of nodes visible on the screen, with the maximum value of 16
-   * <br>Value range: [0, +∞).
-   * <br>Values less than 0 are treated as <em>1</em>.
-   * @param { boolean } show - Whether to display the cached water flow items.
+   * Sets the number of flow items to be cached (preloaded) and specifies whether to display the preloaded nodes.
+   *
+   * This attribute can be combined with the [clip]{@link CommonMethod#clip(value: boolean)} or
+   * [clipContent](docroot://reference/apis-arkui/arkui-ts/ts-container-scrollable-common.md#clipcontent14) attributes
+   * to display the preloaded nodes.
+   *
+   * This parameter takes effect only when used with
+   * [LazyForEach](docroot://ui/rendering-control/arkts-rendering-control-lazyforeach.md) or the
+   * [Repeat](docroot://ui/rendering-control/arkts-new-rendering-control-repeat.md) component that has virtualScroll
+   * enabled. **FlowItem** elements outside the visible area and cache range will be released.
+   *
+   * @param { number } count - Number of water flow items to be preloaded (cached).<br>Default value: number of nodes
+   *     visible on the screen, with the maximum value of 16<br>Value range:
+   *     [0, +∞).<br>Values less than 0 are treated as **1**.
+   * @param { boolean } show - Whether to display the cached water flow items. If this parameter is set to **true**, the
+   *     preloaded flow items are displayed. If this parameter is set to **false**, the preloaded flow items are not
+   *     displayed.<br> Default value: **false**.
    * @returns { WaterFlowAttribute } the attribute of the water flow.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 14 dynamic
@@ -838,11 +752,16 @@ declare class WaterFlowAttribute extends ScrollableCommonMethod<WaterFlowAttribu
   cachedCount(count: number, show: boolean): WaterFlowAttribute;
 
   /**
-   * Set whether to synchronously load child nodes within one frame.
+   * Sets whether to synchronously load all child components in the **WaterFlow** component.
    *
-   * @param { boolean } enable - Whether to synchronously load child nodes within one frame
+   * @param { boolean } enable - Whether to synchronously load all child components in the **WaterFlow** component.<br>
+   *     **true**: synchronous loading; false: asynchronous loading<br>Default value: **true**<br>**NOTE**<br>When this
+   *     parameter is set to **false**, in the first display or [scrollToIndex]{@link Scroller#scrollToIndex} jumps
+   *     without animation, if the time consumed by the frame layout exceeds 50 ms, the child components that have not
+   *     been laid out in the **WaterFlow** component are delayed to the next frame for layout.
    * @returns { WaterFlowAttribute } The attribute of the water flow.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
@@ -850,13 +769,25 @@ declare class WaterFlowAttribute extends ScrollableCommonMethod<WaterFlowAttribu
   syncLoad(enable: boolean): WaterFlowAttribute;
 
   /**
-   * Sets whether empty branches are supported in lazy loading.
+   * Defines whether the **WaterFlow** component supports the generation of empty branch nodes that do not contain any
+   * child components using the **if/else** rendering control syntax in **LazyForEach** or **Repeat**. If this attribute
+   * is not set, empty branch nodes are not supported. This attribute cannot be updated after being set. Therefore, you
+   * cannot switch between the behavior of supporting empty branches and the behavior of not supporting empty branches
+   * after setting this attribute.
    *
-   * @param { boolean | undefined } supported - Indicates whether empty branches are supported in lazy loading.
-   *     <br>Default value: false, passing undefined will restore the default value.
-   *     <br>If set to false, LazyForEach or Repeat with virtualScroll does not allow empty branches.
-   *     <br>If set to true, an empty branch of LazyForEach or Repeat with virtualScroll is treated as a node of
-   *     zero size.
+   * > **NOTE**
+   * >
+   * > When [WaterFlowSections]{@link WaterFlowSections} is set using the [sections]{@link WaterFlowOptions} parameter,
+   * > or when the [SLIDING_WINDOW]{@link WaterFlowLayoutMode} layout mode is set using the
+   * > [layoutMode]{@link WaterFlowOptions} parameter, the **FlowItem** after the empty branch is displayed regardless
+   * > of the **supportEmptyBranchInLazyLoading** setting.
+   *
+   * @param { boolean | undefined } supported - Whether the current **WaterFlow** component supports the use of the
+   *     [if/else](docroot://ui/rendering-control/arkts-rendering-control-ifelse.md) rendering syntax in
+   *     [LazyForEach](docroot://ui/rendering-control/arkts-rendering-control-lazyforeach.md) or
+   *     [Repeat](docroot://ui/rendering-control/arkts-new-rendering-control-repeat.md) to generate an empty branch node
+   *     that contains no child component.<br>**true** indicates that the **FlowItem** after the empty branch is
+   *     displayed; **false** indicates the opposite.<br>If the value is **undefined**, it is processed as **false**.
    * @returns { WaterFlowAttribute } the attribute of the WaterFlow.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -867,94 +798,57 @@ declare class WaterFlowAttribute extends ScrollableCommonMethod<WaterFlowAttribu
   supportEmptyBranchInLazyLoading(supported: boolean | undefined): WaterFlowAttribute;
 
   /**
-   * Called when the water flow begins to arrive.
+   * Triggered when the **WaterFlow** content reaches the start position.
    *
-   * @param { function } event
-   * @returns { WaterFlowAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
-   */
-  /**
-   * Called when the water flow begins to arrive.
-   *
-   * @param { function } event
-   * @returns { WaterFlowAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Triggered when the component reaches the start.
-   *
-   * @param { function } event
+   * @param { function } event - Callback triggered when the **WaterFlow** content reaches the start position.
    * @returns { WaterFlowAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   onReachStart(event: () => void): WaterFlowAttribute;
 
   /**
-   * Called when the water flow reaches the end.
+   * Triggered when the **WaterFlow** content reaches the end position.
    *
-   * @param { function } event
-   * @returns { WaterFlowAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
-   */
-  /**
-   * Called when the water flow reaches the end.
-   *
-   * @param { function } event
-   * @returns { WaterFlowAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Triggered when the component reaches the end position.
-   *
-   * @param { function } event
+   * @param { function } event - Callback triggered when the **WaterFlow** content reaches the end position.
    * @returns { WaterFlowAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   onReachEnd(event: () => void): WaterFlowAttribute;
 
   /**
-   * Called when scrolling begin each frame.
+   * When this API is called back, the event parameter passes the scroll offset that is about to occur. The event
+   * processing function can calculate the actually required scroll offset based on the application scenario and return
+   * it as the return value. The **WaterFlow** component will then scroll according to this returned actual scroll
+   * offset.
    *
-   * @param { function } event
+   * This event is triggered when either of the following conditions is met:
+   *
+   * 1. Scrolling is initiated by user interaction (for example, finger swipe, keyboard, or mouse operation).
+   * 2. The **WaterFlow** component scrolls by inertia.
+   * 3. Scrolling is triggered by calling the [fling]{@link Scroller#fling} API.
+   *
+   * This event is not triggered in the following scenarios:
+   *
+   * 1. A scroll control API other than [fling]{@link Scroller#fling} is called.
+   * 2. The out-of-bounds bounce effect is active.
+   * 3. The scrollbar is dragged.
+   *
+   * @param { function } event - Callback triggered when each frame scrolling starts. [since 10 - 19]
+   * @param { OnScrollFrameBeginCallback } event - Callback triggered when each frame scrolling starts. [since 20]
    * @returns { WaterFlowAttribute } the attribute of the water flow.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Triggered when the component starts to scroll.
-   *
-   * @param { function } event
-   * @returns { WaterFlowAttribute } the attribute of the water flow.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Called when scrolling begin each frame.
-   * Anonymous Object Rectification.
-   *
-   * @param { OnScrollFrameBeginCallback } event - callback function, triggered when the scrolling begin each frame.
-   * @returns { WaterFlowAttribute } the attribute of the water flow.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   onScrollFrameBegin(event: OnScrollFrameBeginCallback): WaterFlowAttribute;
 
@@ -963,11 +857,12 @@ declare class WaterFlowAttribute extends ScrollableCommonMethod<WaterFlowAttribu
    * It is triggered once when the component is initialized.
    *
    * @param { function } event - Callback function, triggered when the first or last item
-   * displayed in the waterflow changes.
-   * "first": the index of the first item displayed in the waterflow,
-   * "last": the index of the last item displayed in the waterflow.
+   *     displayed in the waterflow changes.
+   *     "first": the index of the first item displayed in the waterflow,
+   *     "last": the index of the last item displayed in the waterflow.
    * @returns { WaterFlowAttribute } the attribute of the water flow.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -976,35 +871,54 @@ declare class WaterFlowAttribute extends ScrollableCommonMethod<WaterFlowAttribu
 }
 
 /**
- * Defines WaterFlow Component.
+ * The **WaterFlow** component is a water flow container that consists of cells formed by rows and columns and arranges
+ * items of different sizes from top to bottom according to the preset rules.
  *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 9
- */
-/**
- * Defines WaterFlow Component.
+ * > **NOTE**
  *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 10
- */
-/**
- * Defines WaterFlow Component.
+ * > The **WaterFlow** component supports the waterfall layout but does not support the edit mode or dragging of child
+ * > elements.
+ * >
+ * > The component has been bound with gestures to implement functions such as following the finger. If you need to add
+ * > custom gestures, refer to [Enhanced Gesture Interception]{@link common}.
  *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 11
- */
-/**
- * Defines WaterFlow Component.
- * It is recommended to use LazyForEach or Repeat to generate child components.
+ * ###### Child Components
+ *
+ * Only the [FlowItem]{@link flow_item} child component and custom components are supported. When a custom component is
+ * used in **WaterFlow**, you are advised to use **FlowItem** as the top-level component of the custom component. You
+ * are not advised to set attributes and event methods for the custom component.
+ *
+ * Child components can be dynamically generated using rendering control types
+ * [if/else](docroot://ui/rendering-control/arkts-rendering-control-ifelse.md),
+ * [ForEach](docroot://ui/rendering-control/arkts-rendering-control-foreach.md),
+ * [LazyForEach](docroot://ui/rendering-control/arkts-rendering-control-lazyforeach.md), and
+ * [Repeat](docroot://ui/rendering-control/arkts-new-rendering-control-repeat.md). **LazyForEach** or **Repeat** is
+ * recommended to optimize performance.
+ *
+ * > **NOTE**
+ * >
+ * > When the **visibility** attribute of a child component of **WaterFlow** is set to **None**, this child component is
+ * > not displayed in the container, but its **columnsGap**, **rowsGap**, and **margin** settings are still effective.
+ * > >  If there are a large number of child components, you are advised to adopt methods such as lazy loading, data
+ * > caching, component reuse, fixed dimensions, and layout optimization to improve performance and reduce memory usage.
+ * > For best practices, see
+ * > [Optimizing Frame Loss for Waterfall Loading](https://developer.huawei.com/consumer/en/doc/best-practices/bpta-waterflow-performance-optimization).
+ * >
+ * > In vertical layout mode, **WaterFlow** calculates the cumulative height of child components in each column and
+ * > places new child components in the column with the smallest cumulative height to maintain a compact overall layout.
+ * >
+ * > If the heights of multiple columns are the same, the leftmost column is prioritized. In RTL mode, the rightmost
+ * > column is prioritized.
+ * >
+ * > Starting from API version 21, the maximum width or height for a single child component inside a **WaterFlow**
+ * > container is 16,777,216 px. In API version 20 and earlier versions, the limit was 1,000,000 px. If a child
+ * > component exceeds the applicable size limit, scrolling or display behavior may become abnormal.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @crossplatform
- * @atomicservice
- * @since 20 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 9 dynamic
  * @noninterop
  */
 declare const WaterFlow: WaterFlowInterface;
@@ -1013,23 +927,10 @@ declare const WaterFlow: WaterFlowInterface;
  * Defines WaterFlow Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 9
- */
-/**
- * Defines WaterFlow Component instance.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 10
- */
-/**
- * Defines WaterFlow Component instance.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 9 dynamic
  * @noninterop
  */
 declare const WaterFlowInstance: WaterFlowAttribute;

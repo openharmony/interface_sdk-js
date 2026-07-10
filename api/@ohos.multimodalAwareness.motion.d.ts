@@ -19,9 +19,8 @@
  */
 import type { Callback } from "./@ohos.base";
 /**
- * This module provides the capability to subscribe to report the action or motion.
+ * The **motion** module provides the user motion awareness capabilities, including user gestures and actions.
  *
- * @namespace motion
  * @syscap SystemCapability.MultimodalAwareness.Motion
  * @since 15 dynamic
  * @since 23 static
@@ -29,16 +28,15 @@ import type { Callback } from "./@ohos.base";
 
 declare namespace motion {
   /**
-   * Enum for operating hand status.
+   * Defines the status of the operating hand.
    *
-   * @enum { int } OperatingHandStatus
    * @syscap SystemCapability.MultimodalAwareness.Motion
    * @since 15 dynamic
    * @since 23 static
    */
   export enum OperatingHandStatus {
     /**
-     * indicates nothing has been detected.
+     * Unknown status.
      *
      * @syscap SystemCapability.MultimodalAwareness.Motion
      * @since 15 dynamic
@@ -46,7 +44,7 @@ declare namespace motion {
      */
     UNKNOWN_STATUS = 0,
     /**
-     * indicates the operating hand is left hand.
+     * Left hand in use.
      *
      * @syscap SystemCapability.MultimodalAwareness.Motion
      * @since 15 dynamic
@@ -54,7 +52,7 @@ declare namespace motion {
      */
     LEFT_HAND_OPERATED = 1,
     /**
-     * indicates the operating hand is right hand.
+     * Right hand in use.
      *
      * @syscap SystemCapability.MultimodalAwareness.Motion
      * @since 15 dynamic
@@ -64,16 +62,16 @@ declare namespace motion {
   }
 
   /**
-   * Enum for holding hand status
+   * Represents the holding hand status. The holding hand status is returned if listening for holding hand status 
+   * changes is enabled.
    *
-   * @enum { int } HoldingHandStatus
    * @syscap SystemCapability.MultimodalAwareness.Motion
    * @since 20 dynamic
    * @since 23 static
    */
   export enum HoldingHandStatus {
     /**
-     * indicates no holding has been detected.
+     * No holding.
      *
      * @syscap SystemCapability.MultimodalAwareness.Motion
      * @since 20 dynamic
@@ -81,7 +79,7 @@ declare namespace motion {
      */
     NOT_HELD = 0,
     /**
-     * indicates holding with the left hand.
+     * Holding with the left hand.
      *
      * @syscap SystemCapability.MultimodalAwareness.Motion
      * @since 20 dynamic
@@ -89,7 +87,7 @@ declare namespace motion {
      */
     LEFT_HAND_HELD = 1,
     /**
-     * indicates holding with the right hand.
+     * Holding with the right hand.
      *
      * @syscap SystemCapability.MultimodalAwareness.Motion
      * @since 20 dynamic
@@ -97,7 +95,7 @@ declare namespace motion {
      */
     RIGHT_HAND_HELD = 2,
     /**
-     * indicates holding with both hands.
+     * Holding with both hands.
      *
      * @syscap SystemCapability.MultimodalAwareness.Motion
      * @since 20 dynamic
@@ -105,7 +103,7 @@ declare namespace motion {
      */
     BOTH_HANDS_HELD = 3,
     /**
-     * indicates nothing has been detected.
+     * Unknown status.
      *
      * @syscap SystemCapability.MultimodalAwareness.Motion
      * @since 20 dynamic
@@ -115,53 +113,293 @@ declare namespace motion {
   }
 
   /**
-   * Subscribe to detect the operating hand changed event.
-   * @permission ohos.permission.ACTIVITY_MOTION or ohos.permission.DETECT_GESTURE
-   * @param { 'operatingHandChanged' } type - Indicates the event type.
-   * @param { Callback<OperatingHandStatus> } callback - Indicates the callback for getting the event data.
+   * Enum for pickup event.
+   *
+   * @syscap SystemCapability.MultimodalAwareness.Motion
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  export enum PickupEvent {
+    /**
+     * Indicates the pickup motion is detected(the device is being lifted).
+     *
+     * @syscap SystemCapability.MultimodalAwareness.Motion
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    PICKED_UP = 0
+  }
+
+  /**
+   * Enum for rotate event.
+   *
+   * @syscap SystemCapability.MultimodalAwareness.Motion
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  export enum RotateEvent {
+    /**
+     * Indicates the device has rotated, but the movement is insufficient
+     * to change the current orientation. The orientation remains the same as before.
+     *
+     * @syscap SystemCapability.MultimodalAwareness.Motion
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    UNCHANGED = -1,
+    /**
+     * Indicates the device is upright.
+     *
+     * @syscap SystemCapability.MultimodalAwareness.Motion
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    UPRIGHT = 0,
+    /**
+     * Indicates the device is rotated left.
+     *
+     * @syscap SystemCapability.MultimodalAwareness.Motion
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    LEFT = 1,
+    /**
+     * Indicates the device is inverted.
+     *
+     * @syscap SystemCapability.MultimodalAwareness.Motion
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    INVERTED = 2,
+    /**
+     * Indicates the device is rotated right.
+     *
+     * @syscap SystemCapability.MultimodalAwareness.Motion
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    RIGHT = 3
+  }
+
+  /**
+   * Enum for physical orientation detected by the sensor.
+   *
+   * @syscap SystemCapability.MultimodalAwareness.Motion
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  export enum PhysicalOrientation {
+    /**
+     * Indicates upright.
+     *
+     * @syscap SystemCapability.MultimodalAwareness.Motion
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    UPRIGHT = 0,
+    /**
+     * Indicates left.
+     *
+     * @syscap SystemCapability.MultimodalAwareness.Motion
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    LEFT = 1,
+    /**
+     * Indicates the physical orientation is inverted.
+     *
+     * @syscap SystemCapability.MultimodalAwareness.Motion
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    INVERTED = 2,
+    /**
+     * Indicates right.
+     *
+     * @syscap SystemCapability.MultimodalAwareness.Motion
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    RIGHT = 3,
+    /**
+     * Indicates face up.
+     *
+     * @syscap SystemCapability.MultimodalAwareness.Motion
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    FACE_UP = 4,
+    /**
+     * Indicates face down.
+     *
+     * @syscap SystemCapability.MultimodalAwareness.Motion
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    FACE_DOWN = 5
+  }
+
+  /**
+   * Enum for logical orientation calculated by smart algorithms.
+   *
+   * @syscap SystemCapability.MultimodalAwareness.Motion
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  export enum LogicalOrientation {
+
+    /**
+     * Indicates the orientation is unknown or cannot be determined(e.g., non-grip).
+     *
+     * @syscap SystemCapability.MultimodalAwareness.Motion
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    UNKNOWN = -1,
+    /**
+     * Indicates upright.
+     *
+     * @syscap SystemCapability.MultimodalAwareness.Motion
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    UPRIGHT = 0,
+    /**
+     * Indicates left.
+     *
+     * @syscap SystemCapability.MultimodalAwareness.Motion
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    LEFT = 1,
+    /**
+     * Indicates the logical orientation is inverted.
+     *
+     * @syscap SystemCapability.MultimodalAwareness.Motion
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    INVERTED = 2,
+    /**
+     * Indicates right.
+     *
+     * @syscap SystemCapability.MultimodalAwareness.Motion
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    RIGHT = 3
+  }
+
+  /**
+   * The basic data structure of the smart rotate sensor event.
+   *
+   * @syscap SystemCapability.MultimodalAwareness.Motion
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  interface SmartRotateEvent {
+    /**
+     * The physical orientation reported by the gravity sensor.
+     *
+     * @syscap SystemCapability.MultimodalAwareness.Motion
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    physicalOrientation: PhysicalOrientation;
+    /**
+     * The logical orientation adjusted by smart algorithms.
+     *
+     * @syscap SystemCapability.MultimodalAwareness.Motion
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    logicalOrientation?: LogicalOrientation;
+  }
+
+  /**
+   * Subscribes to operating hand change events.
+   * 
+   * If the device does not support this function, error code 801 is returned.
+   *
+   * @permission ohos.permission.ACTIVITY_MOTION [since 15 - 19]
+   * @permission ohos.permission.ACTIVITY_MOTION or ohos.permission.DETECT_GESTURE [since 20]
+   * @param { 'operatingHandChanged' } type - Event type. This parameter has a fixed value of **operatingHandChanged**.
+   * @param { Callback<OperatingHandStatus> } callback - Callback used to return the result.
    * @throws { BusinessError } 201 - Permission denied. An attempt was made to subscribe operatingHandChanged
-   * <br> event forbidden by permission: ohos.permission.ACTIVITY_MOTION or ohos.permission.DETECT_GESTURE.
+   *     <br> event forbidden by permission: ohos.permission.ACTIVITY_MOTION or ohos.permission.DETECT_GESTURE.
    * @throws { BusinessError } 401 - Parameter error. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported. Function can not work correctly due to limited
-   * <br> device capabilities.
-   * @throws { BusinessError } 31500001 - Service exception. Possible causes: 1. A system error, such as null pointer, container-related exception;
-   * <br> 2. N-API invocation exception, invalid N-API status.
+   *     <br> device capabilities.
+   * @throws { BusinessError } 31500001 - Service exception. Possible causes: 1. A system error, such as null pointer,
+   *     container-related exception;
+   *     <br> 2. N-API invocation exception, invalid N-API status.
    * @throws { BusinessError } 31500002 - Subscription failed. Possible causes: 1. Callback registration failure;
-   * <br> 2. Failed to bind native object to js wrapper; 3. N-API invocation exception, invalid N-API status; 4. IPC request exception.
+   *     <br> 2. Failed to bind native object to js wrapper; 3. N-API invocation exception, invalid N-API status; 4. IPC
+   *     request exception.
    * @syscap SystemCapability.MultimodalAwareness.Motion
    * @since 15 dynamic
    */
   function on(type: 'operatingHandChanged', callback: Callback<OperatingHandStatus>): void;
 
   /**
-   * Unsubscribe from the operating hand changed event.
-   * @permission ohos.permission.ACTIVITY_MOTION or ohos.permission.DETECT_GESTURE
-   * @param { 'operatingHandChanged' } type - Indicates the event type.
-   * @param { Callback<OperatingHandStatus> } callback - Indicates the callback for getting the event data.
+   * Unsubscribes from operating hand change events.
+   *
+   * @permission ohos.permission.ACTIVITY_MOTION [since 15 - 19]
+   * @permission ohos.permission.ACTIVITY_MOTION or ohos.permission.DETECT_GESTURE [since 20]
+   * @param { 'operatingHandChanged' } type - Event type. This parameter has a fixed value of **operatingHandChanged**.
+   * @param { Callback<OperatingHandStatus> } [callback] - Callback used to return the result.
    * @throws { BusinessError } 201 - Permission denied. An attempt was made to unsubscribe operatingHandChanged
-   * <br> event forbidden by permission: ohos.permission.ACTIVITY_MOTION or ohos.permission.DETECT_GESTURE.
+   *     <br> event forbidden by permission: ohos.permission.ACTIVITY_MOTION or ohos.permission.DETECT_GESTURE.
    * @throws { BusinessError } 401 - Parameter error. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported. Function can not work correctly due to limited
-   * <br> device capabilities.
-   * @throws { BusinessError } 31500001 - Service exception. Possible causes: 1. A system error, such as null pointer, container-related exception;
-   * <br> 2. N-API invocation exception, invalid N-API status.
+   *     <br> device capabilities.
+   * @throws { BusinessError } 31500001 - Service exception. Possible causes: 1. A system error, such as null pointer,
+   *     container-related exception;
+   *     <br> 2. N-API invocation exception, invalid N-API status.
    * @throws { BusinessError } 31500003 - Unsubscription failed. Possible causes: 1. Callback failure;
-   * <br> 2. N-API invocation exception, invalid N-API status; 3. IPC request exception.
+   *     <br> 2. N-API invocation exception, invalid N-API status; 3. IPC request exception.
    * @syscap SystemCapability.MultimodalAwareness.Motion
    * @since 15 dynamic
    */
   function off(type: 'operatingHandChanged', callback?: Callback<OperatingHandStatus>): void;
 
   /**
-   * Get the recent operating hand status.
-   * @permission ohos.permission.ACTIVITY_MOTION or ohos.permission.DETECT_GESTURE
-   * @returns { OperatingHandStatus } The result of operating hand status.
+   * Obtains the latest operating hand status.
+   *
+   * @permission ohos.permission.ACTIVITY_MOTION [since 15 - 19]
+   * @permission ohos.permission.ACTIVITY_MOTION or ohos.permission.DETECT_GESTURE [since 20]
+   * @returns { OperatingHandStatus } Status of the operating hand.
    * @throws { BusinessError } 201 - Permission denied. An attempt was made to get the recent operating hand
-   * <br> status forbidden by permission: ohos.permission.ACTIVITY_MOTION or ohos.permission.DETECT_GESTURE.
+   *     <br> status forbidden by permission: ohos.permission.ACTIVITY_MOTION or ohos.permission.DETECT_GESTURE.
    * @throws { BusinessError } 801 - Capability not supported. Function can not work correctly due to limited
-   * <br> device capabilities.
-   * @throws { BusinessError } 31500001 - Service exception. Possible causes: 1. A system error, such as null pointer, container-related exception;
-   * <br> 2. N-API invocation exception, invalid N-API status.
+   *     <br> device capabilities.
+   * @throws { BusinessError } 31500001 - Service exception. Possible causes: 1. A system error, such as null pointer,
+   *     container-related exception;
+   *     <br> 2. N-API invocation exception, invalid N-API status.
    * @syscap SystemCapability.MultimodalAwareness.Motion
    * @since 15 dynamic
    * @since 23 static
@@ -169,36 +407,44 @@ declare namespace motion {
   function getRecentOperatingHandStatus(): OperatingHandStatus;
 
   /**
-   * Subscribe to detect the holding hand changed event
+   * Enables listening for holding hand status changes.
+   *
    * @permission ohos.permission.DETECT_GESTURE
-   * @param { 'holdingHandChanged' } type - Indicates the event type.
-   * @param { Callback<HoldingHandStatus> } callback - Indicates the callback for getting the event data.
+   * @param { 'holdingHandChanged' } type - Event type. The value **holdingHandChanged** indicates the holding hand
+   *     status change event.
+   * @param { Callback<HoldingHandStatus> } callback - Callback used to return the holding hand status.
    * @throws { BusinessError } 201 - Permission denied. An attempt was made to subscribe holdingHandChanged
-   * <br> event forbidden by permission: ohos.permission.DETECT_GESTURE.
+   *     <br> event forbidden by permission: ohos.permission.DETECT_GESTURE.
    * @throws { BusinessError } 801 - Capability not supported. Function can not work correctly due to limited
-   * <br> device capabilities.
-   * @throws { BusinessError } 31500001 - Service exception. Possible causes: 1. A system error, such as null pointer, container-related exception;
-   * <br> 2. N-API invocation exception, invalid N-API status.
+   *     <br> device capabilities.
+   * @throws { BusinessError } 31500001 - Service exception. Possible causes: 1. A system error, such as null pointer,
+   *     container-related exception;
+   *     <br> 2. N-API invocation exception, invalid N-API status.
    * @throws { BusinessError } 31500002 - Subscription failed. Possible causes: 1. Callback registration failure;
-   * <br> 2. Failed to bind native object to js wrapper; 3. N-API invocation exception, invalid N-API status; 4. IPC request exception.
+   *     <br> 2. Failed to bind native object to js wrapper; 3. N-API invocation exception, invalid N-API status; 4. IPC
+   *     request exception.
    * @syscap SystemCapability.MultimodalAwareness.Motion
    * @since 20 dynamic
    */
   function on(type: 'holdingHandChanged', callback: Callback<HoldingHandStatus>): void;
 
   /**
-   * Unsubscribe from the holding hand changed event.
+   * Disables listening for holding hand status changes.
+   *
    * @permission ohos.permission.DETECT_GESTURE
-   * @param { 'holdingHandChanged' } type - Indicates the event type.
-   * @param { Callback<HoldingHandStatus> }[callback] - Indicates the callback for getting the event data.
+   * @param { 'holdingHandChanged' } type - Event type. The value **holdingHandChanged** indicates the holding hand
+   *     status change event.
+   * @param { Callback<HoldingHandStatus> } [callback] - Callback to unregister. If this parameter is not passed, all
+   *     callbacks for the holding hand status change event will be unregistered.
    * @throws { BusinessError } 201 - Permission denied. An attempt was made to unsubscribe holdingHandChanged
-   * <br> event forbidden by permission: ohos.permission.DETECT_GESTURE.
+   *     <br> event forbidden by permission: ohos.permission.DETECT_GESTURE.
    * @throws { BusinessError } 801 - Capability not supported. Function can not work correctly due to limited
-   * <br> device capabilities.
-   * @throws { BusinessError } 31500001 - Service exception. Possible causes: 1. A system error, such as null pointer, container-related exception;
-   * <br> 2. N-API invocation exception, invalid N-API status.
+   *     <br> device capabilities.
+   * @throws { BusinessError } 31500001 - Service exception. Possible causes: 1. A system error, such as null pointer,
+   *     container-related exception;
+   *     <br> 2. N-API invocation exception, invalid N-API status.
    * @throws { BusinessError } 31500003 - Unsubscription failed. Possible causes: 1. Callback failure;
-   * <br> 2. N-API invocation exception, invalid N-API status; 3. IPC request exception.
+   *     <br> 2. N-API invocation exception, invalid N-API status; 3. IPC request exception.
    * @syscap SystemCapability.MultimodalAwareness.Motion
    * @since 20 dynamic
    */
@@ -206,38 +452,44 @@ declare namespace motion {
 
   /**
    * Subscribe to detect the operating hand changed event.
+   *
    * @permission ohos.permission.ACTIVITY_MOTION or ohos.permission.DETECT_GESTURE
    * @param { Callback<OperatingHandStatus> } callback - Indicates the callback for getting the event data.
    * @throws { BusinessError } 201 - Permission denied. An attempt was made to subscribe operatingHandChanged
    *     <br> event forbidden by permission: ohos.permission.ACTIVITY_MOTION or ohos.permission.DETECT_GESTURE.
    * @throws { BusinessError } 801 - Capability not supported. Function can not work correctly due to limited
-   * <br> device capabilities.
-   * @throws { BusinessError } 31500001 - Service exception. Possible causes: 1. A system error, such as null pointer, container-related exception;
-   * <br> 2. N-API invocation exception, invalid N-API status.
+   *     <br> device capabilities.
+   * @throws { BusinessError } 31500001 - Service exception. Possible causes: 1. A system error, such as null pointer,
+   *     container-related exception;
+   *     <br> 2. N-API invocation exception, invalid N-API status.
    * @throws { BusinessError } 31500002 - Subscription failed. Possible causes: 1. Callback registration failure;
-   * <br> 2. Failed to bind native object to js wrapper; 3. N-API invocation exception, invalid N-API status; 4. IPC request exception.
+   *     <br> 2. Failed to bind native object to js wrapper; 3. N-API invocation exception, invalid N-API status; 4. IPC
+   *     request exception.
    * @syscap SystemCapability.MultimodalAwareness.Motion
    * @since 23 static
    */
   function onOperatingHandChanged(callback: Callback<OperatingHandStatus>): void;
   /**
    * Unsubscribe from the operating hand changed event.
+   *
    * @permission ohos.permission.ACTIVITY_MOTION or ohos.permission.DETECT_GESTURE
    * @param { Callback<OperatingHandStatus> } [callback] - Indicates the callback for getting the event data.
    * @throws { BusinessError } 201 - Permission denied. An attempt was made to unsubscribe operatingHandChanged
    *     <br> event forbidden by permission: ohos.permission.ACTIVITY_MOTION or ohos.permission.DETECT_GESTURE.
    * @throws { BusinessError } 801 - Capability not supported. Function can not work correctly due to limited
-   * <br> device capabilities.
-   * @throws { BusinessError } 31500001 - Service exception. Possible causes: 1. A system error, such as null pointer, container-related exception;
-   * <br> 2. N-API invocation exception, invalid N-API status.
+   *     <br> device capabilities.
+   * @throws { BusinessError } 31500001 - Service exception. Possible causes: 1. A system error, such as null pointer,
+   *     container-related exception;
+   *     <br> 2. N-API invocation exception, invalid N-API status.
    * @throws { BusinessError } 31500003 - Unsubscription failed. Possible causes: 1. Callback failure;
-   * <br> 2. N-API invocation exception, invalid N-API status; 3. IPC request exception.
+   *     <br> 2. N-API invocation exception, invalid N-API status; 3. IPC request exception.
    * @syscap SystemCapability.MultimodalAwareness.Motion
    * @since 23 static
    */
   function offOperatingHandChanged(callback?: Callback<OperatingHandStatus>): void;
   /**
    * Subscribe to detect the holding hand changed event.
+   *
    * @permission ohos.permission.DETECT_GESTURE
    * @param { Callback<HoldingHandStatus> } callback - Indicates the callback for getting the event data.
    * @throws { BusinessError } 201 - Permission denied. An attempt was made to subscribe holdingHandChanged
@@ -252,6 +504,7 @@ declare namespace motion {
   function onHoldingHandChanged(callback: Callback<HoldingHandStatus>): void;
   /**
    * Unsubscribe from the holding hand changed event.
+   *
    * @permission ohos.permission.DETECT_GESTURE
    * @param { Callback<HoldingHandStatus> } [callback] - Indicates the callback for getting the event data.
    * @throws { BusinessError } 201 - Permission denied. An attempt was made to unsubscribe holdingHandChanged
@@ -264,5 +517,98 @@ declare namespace motion {
    * @since 23 static
    */
   function offHoldingHandChanged(callback?: Callback<HoldingHandStatus>): void;
+
+  /**
+   * Subscribe to pick up sensor event.
+   *
+   * @param { Callback<PickupEvent> } callback - The callback to receive pickup status.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited
+   *     <br> device capabilities.
+   * @throws { BusinessError } 31500001 - Service exception. Possible causes: 1. A system error, such as null pointer,
+   *     <br> container-related exception; 2. N-API invocation exception, invalid N-API status.
+   * @syscap SystemCapability.MultimodalAwareness.Motion
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function onPickupChange(callback: Callback<PickupEvent>): void;
+
+  /**
+   * Subscribe to rotate sensor event.
+   *
+   * @param { Callback<RotateEvent> } callback - The callback to receive rotate orientation.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited
+   *     <br> device capabilities.
+   * @throws { BusinessError } 31500001 - Service exception. Possible causes: 1. A system error, such as null pointer,
+   *     <br> container-related exception; 2. N-API invocation exception, invalid N-API status.
+   * @syscap SystemCapability.MultimodalAwareness.Motion
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function onRotateChange(callback: Callback<RotateEvent>): void;
+
+  /**
+   * Subscribe to smart rotate sensor event.
+   *
+   * @param { Callback<SmartRotateEvent> } callback - The callback to receive smart rotate orientations.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited
+   *     <br> device capabilities.
+   * @throws { BusinessError } 31500001 - Service exception. Possible causes: 1. A system error, such as null pointer,
+   *     <br> container-related exception; 2. N-API invocation exception, invalid N-API status.
+   * @syscap SystemCapability.MultimodalAwareness.Motion
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function onSmartRotateChange(callback: Callback<SmartRotateEvent>): void;
+
+  /**
+   * Unsubscribe to pick up sensor event.
+   *
+   * @param { Callback<PickupEvent> } [callback] - Callback used for pick up event unsubscription.
+   *     <br> If this parameter is not specified, all callbacks of the pick up event are unsubscribed from.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 31500001 - Service exception. Possible causes: 1. A system error, such as null pointer,
+   *     <br> container-related exception; 2. N-API invocation exception, invalid N-API status.
+   * @syscap SystemCapability.MultimodalAwareness.Motion
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function offPickupChange(callback?: Callback<PickupEvent>): void;
+
+  /**
+   * Unsubscribe to rotate sensor event.
+   *
+   * @param { Callback<RotateEvent> } [callback] - Callback used for rotate event unsubscription.
+   *     <br> If this parameter is not specified, all callbacks of the rotate event are unsubscribed from.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 31500001 - Service exception. Possible causes: 1. A system error, such as null pointer,
+   *     <br> container-related exception; 2. N-API invocation exception, invalid N-API status.
+   * @syscap SystemCapability.MultimodalAwareness.Motion
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function offRotateChange(callback?: Callback<RotateEvent>): void;
+
+  /**
+   * Unsubscribe to smart rotate sensor event.
+   *
+   * @param { Callback<SmartRotateEvent> } [callback] - Callback used for smart rotate event unsubscription.
+   *     <br> If this parameter is not specified, all callbacks of the smart rotate event are unsubscribed from.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 31500001 - Service exception. Possible causes: 1. A system error, such as null pointer,
+   *     <br> container-related exception; 2. N-API invocation exception, invalid N-API status.
+   * @syscap SystemCapability.MultimodalAwareness.Motion
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function offSmartRotateChange(callback?: Callback<SmartRotateEvent>): void;
 }
 export default motion;

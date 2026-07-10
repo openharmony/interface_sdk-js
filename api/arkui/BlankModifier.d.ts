@@ -26,6 +26,7 @@
  * @extends BlankAttribute
  * @implements AttributeModifier<BlankAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @atomicservice
  * @since 12
 */
@@ -35,6 +36,7 @@
  * @extends BlankAttribute
  * @implements AttributeModifier<BlankAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 20 dynamic
@@ -46,6 +48,7 @@ export declare class BlankModifier extends BlankAttribute implements AttributeMo
    * 
    * @param { BlankAttribute } instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic

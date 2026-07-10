@@ -19,10 +19,16 @@
  */
 
 /**
- * Define options used to construct a rectangle.
+ * Describes the options of the rectangle.
  *
- * @interface RectOptions
+ * > **NOTE**
+ * >
+ * > To standardize anonymous object definitions, the element definitions here have been revised in API version 18.
+ * > While historical version information is preserved for anonymous objects, there may be cases where the outer
+ * > element's @since version number is higher than inner elements'. This does not affect interface usability.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @form
  * @atomicservice
@@ -30,200 +36,67 @@
  */
 declare interface RectOptions {
   /**
-   * Rectangle width.
+   * Width.
+   * Unit: vp, The value must be greater than or equal to 0, The **undefined**, **null**, **NaN**, and
+   * **Infinity** values are invalid and treated as the default value. Default value: **0**.
    *
-   * @type { ?(number | string) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * Rectangle width.
-   *
-   * @type { ?(number | string) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Rectangle width.
-   *
-   * @type { ?(number | string) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Rectangle width.
-   *
-   * @type { ?(number | string) }
+   * @type { ?(number | string) } [since 18 - 19]
+   * @type { ?Length } [since 20]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
-   */
-  /**
-   * Rectangle width.
-   * Anonymous Object Rectification.
-   *
-   * @type { ?(number | string) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 18
-   */
-  /**
-   * Rectangle width.
-   *
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20 dynamic
+   * @since 18 dynamic
    */
   width?: Length;
 
   /**
-   * Rectangle height.
+   * Height.
+   * Unit: vp, The value must be greater than or equal to 0, The **undefined**, **null**, **NaN**, and
+   * **Infinity** values are invalid and treated as the default value. Default value: **0**.
    *
-   * @type { ?(number | string) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * Rectangle height.
-   *
-   * @type { ?(number | string) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Rectangle height.
-   *
-   * @type { ?(number | string) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Rectangle height.
-   *
-   * @type { ?(number | string) }
+   * @type { ?(number | string) } [since 7 - 19]
+   * @type { ?Length } [since 20]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
-   */
-  /**
-   * Rectangle height.
-   * Anonymous Object Rectification.
-   *
-   * @type { ?(number | string) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 18
-   */
-  /**
-   * Rectangle height.
-   *
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20 dynamic
+   * @since 18 dynamic
    */
   height?: Length;
 
   /**
-   * Corner radius of the rectangle.
+   * Radius of the rounded corner. You can set separate radii for the four rounded corners. The value must be greater
+   * than or equal to 0.
+   * This attribute takes precedence over **radiusWidth** and **radiusHeight** when used together.
+   * Unit: vp, The **undefined**, **null**, **NaN**, and **Infinity** values are invalid and treated as the
+   * default value. Default value: **0**.
    *
-   * @type { ?(number | string | Array<any>) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * Corner radius of the rectangle.
-   *
-   * @type { ?(number | string | Array<any>) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Corner radius of the rectangle.
-   *
-   * @type { ?(number | string | Array<any>) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Corner radius of the rectangle.
-   *
-   * @type { ?(number | string | Array<any>) }
+   * @type { ?(number | string | Array<any>) } [since 18 - 19]
+   * @type { ?(Length | Array<any>) } [since 20]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
-   */
-  /**
-   * Corner radius of the rectangle.
-   * Anonymous Object Rectification.
-   *
-   * @type { ?(number | string | Array<any>) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 18
-   */
-  /**
-   * Corner radius of the rectangle.
-   *
-   * @type { ?(Length | Array<any>) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20 dynamic
+   * @since 18 dynamic
    */
   radius?: Length | Array<any>;
 }
 
 /**
- * Define options used to construct a rectangle with rounded corners.
+ * Describes the options of the rounded rectangle.
+ * 
+ * > **NOTE**
+ * >
+ * > To standardize anonymous object definitions, the element definitions here have been revised in API version 18.
+ * > While historical version information is preserved for anonymous objects, there may be cases where the outer
+ * > element's @since version number is higher than inner elements'. This does not affect interface usability.
  *
- * @interface RoundedRectOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @form
  * @atomicservice
@@ -231,254 +104,65 @@ declare interface RectOptions {
  */
 declare interface RoundedRectOptions {
   /**
-   * Rectangle width.
+   * Width. The value must be greater than or equal to 0
+   * Unit: vp, The **undefined**, **null**, **NaN**, and **Infinity**
+   * values are invalid and treated as the default value. Default value: **0**.
    *
-   * @type { ?(number | string) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * Rectangle width.
-   *
-   * @type { ?(number | string) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Rectangle width.
-   *
-   * @type { ?(number | string) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Rectangle width.
-   *
-   * @type { ?(number | string) }
+   * @type { ?(number | string) } [since 18 - 19]
+   * @type { ?Length } [since 20]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
-   */
-  /**
-   * Rectangle width.
-   * Anonymous Object Rectification.
-   *
-   * @type { ?(number | string) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 18
-   */
-  /**
-   * Rectangle width.
-   *
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20 dynamic
+   * @since 18 dynamic
    */
   width?: Length;
 
   /**
-   * Rectangle height.
+   * Height. The value must be greater than or equal to 0.
+   * Unit: vp, The value must be greater than or equal to 0, The **undefined**, **null**, **NaN**, and
+   * **Infinity** values are invalid and treated as the default value. Default value: **0**.
    *
-   * @type { ?(number | string) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * Rectangle height.
-   *
-   * @type { ?(number | string) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Rectangle height.
-   *
-   * @type { ?(number | string) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Rectangle height.
-   *
-   * @type { ?(number | string) }
+   * @type { ?(number | string) } [since 18 - 19]
+   * @type { ?Length } [since 20]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
-   */
-  /**
-   * Rectangle height.
-   * Anonymous Object Rectification.
-   *
-   * @type { ?(number | string) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 18
-   */
-  /**
-   * Rectangle height.
-   *
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20 dynamic
+   * @since 18 dynamic
    */
   height?: Length;
 
   /**
-   * Width of the corner radius.
+   * Width of the rounded corner. The value must be greater than or equal to 0.
+   * Unit: vp, Invalid values are treated as the default value.
+   * Default value: **0**.
    *
-   * @type { ?(number | string) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * Width of the corner radius.
-   *
-   * @type { ?(number | string) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Width of the corner radius.
-   *
-   * @type { ?(number | string) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Width of the corner radius.
-   *
-   * @type { ?(number | string) }
+   * @type { ?(number | string) } [since 18 - 19]
+   * @type { ?Length } [since 20]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
-   */
-  /**
-   * Width of the corner radius.
-   * Anonymous Object Rectification.
-   *
-   * @type { ?(number | string) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 18
-   */
-  /**
-   * Width of the corner radius.
-   *
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20 dynamic
+   * @since 18 dynamic
    */
   radiusWidth?: Length;
 
   /**
-   * Height of the corner radius.
+   * Height of the rounded corner. The value must be greater than or equal to 0.
+   * Unit: vp, Invalid values are treated as the default value. Default value: **0**.
    *
-   * @type { ?(number | string) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * Height of the corner radius.
-   *
-   * @type { ?(number | string) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Height of the corner radius.
-   *
-   * @type { ?(number | string) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Height of the corner radius.
-   *
-   * @type { ?(number | string) }
+   * @type { ?(number | string) } [since 18 - 19]
+   * @type { ?Length } [since 20]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
-   */
-  /**
-   * Height of the corner radius.
-   * Anonymous Object Rectification.
-   *
-   * @type { ?(number | string) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 18
-   */
-  /**
-   * Height of the corner radius.
-   *
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20 dynamic
+   * @since 18 dynamic
    */
   radiusHeight?: Length;
 }
@@ -486,159 +170,48 @@ declare interface RoundedRectOptions {
 /**
  * Provides an interface for drawing rectangles.
  *
- * @interface RectInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @since 7
- */
-/**
- * Provides an interface for drawing rectangles.
- *
- * @interface RectInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @form
- * @since 9
- */
-/**
- * Provides an interface for drawing rectangles.
- *
- * @interface RectInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Provides an interface for drawing rectangles.
- *
- * @interface RectInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
+ * @noninterop [since 11]
  */
 interface RectInterface {
   /**
    * Use new function to create Rect.
-   *
-   * @param { object } value
-   * @returns { RectAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * Use new function to create Rect.
-   *
-   * @param { object } value
-   * @returns { RectAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Use new function to create Rect.
-   *
-   * @param { object } value
-   * @returns { RectAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Use new function to create Rect.
-   *
-   * @param { object } value
-   * @returns { RectAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Use new function to create Rect.
    * Anonymous Object Rectification.
    *
-   * @param { RectOptions | RoundedRectOptions } [options] - Rect options
+   * @param { object } value [since 7 - 17]
+   * @param { RectOptions | RoundedRectOptions } [options] - Rect options [since 18]
    * @returns { RectAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   new (
     options?: RectOptions | RoundedRectOptions,
   ): RectAttribute;
 
   /**
-   * Called when a rectangle is created.
+   * Defines the constructor of Rect component.
    *
    * @param { {width?: number | string;height?: number | string;radius?: number | string | Array<any>;} |
-  *  {width?: number | string;height?: number | string;radiusWidth?: number | string;radiusHeight?: number | string;} } value
+   *     {width?: number | string;height?: number | string;radiusWidth?: number | string;radiusHeight?: number | string;
+   *     } } value - [since 7 - 17]
+   * @param { RectOptions | RoundedRectOptions } [options] - Options of the rectangle.
+   *     <br>The **undefined** and **null** values are treated as invalid and will not take effect. [since 18]
    * @returns { RectAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * Called when a rectangle is created.
-   *
-   * @param { {width?: number | string;height?: number | string;radius?: number | string | Array<any>;} |
-  *  {width?: number | string;height?: number | string;radiusWidth?: number | string;radiusHeight?: number | string;} } value
-   * @returns { RectAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Called when a rectangle is created.
-   *
-   * @param { {width?: number | string;height?: number | string;radius?: number | string | Array<any>;} |
-   *  {width?: number | string;height?: number | string;radiusWidth?: number | string;radiusHeight?: number | string;} } value
-   * @returns { RectAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Called when a rectangle is created.
-   *
-   * @param { {width?: number | string;height?: number | string;radius?: number | string | Array<any>;} |
-   *  {width?: number | string;height?: number | string;radiusWidth?: number | string;radiusHeight?: number | string;} } value
-   * @returns { RectAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Called when a rectangle is created.
-   * Anonymous Object Rectification.
-   *
-   * @param { RectOptions | RoundedRectOptions } [options] - Rect options
-   * @returns { RectAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   (
     options?: RectOptions | RoundedRectOptions,
@@ -646,239 +219,101 @@ interface RectInterface {
 }
 
 /**
- * rect attribute declaration.
+ * In addition to the [universal attributes]{@link CommonMethod}, the following attributes are supported.
  *
- * @extends CommonShapeMethod<RectAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @since 7
- */
-/**
- * rect attribute declaration.
- *
- * @extends CommonShapeMethod<RectAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @form
- * @since 9
- */
-/**
- * rect attribute declaration.
- *
- * @extends CommonShapeMethod<RectAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * rect attribute declaration.
- *
- * @extends CommonShapeMethod<RectAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
+ * @noninterop [since 11]
  */
 declare class RectAttribute extends CommonShapeMethod<RectAttribute> {
   /**
-   * Called when the fillet width is set.
+   * Sets the width of the rounded corner. The width and height are the same when only the width is set. This attribute 
+   * can be dynamically set using 
+   * [attributeModifier]{@link CommonMethod#attributeModifier}
+   * . Invalid values are treated as the default value.
    *
-   * @param { number | string } value
+   * @param { number | string } value - Width of the rounded corner. The value must be greater than or equal to 0.<br>
+   *     Default value: **0**<br>Default unit: vp<br>The **undefined** value is invalid and treated as the default
+   *     value. [since 7 - 19]
+   * @param { Length } value - Width of the rounded corner. The value must be greater than or equal to 0.<br>Default
+   *     value: **0**<br>Default unit: vp<br>The **undefined** value is invalid and treated as the default
+   *     value. [since 20]
    * @returns { RectAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * Called when the fillet width is set.
-   *
-   * @param { number | string } value
-   * @returns { RectAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Called when the fillet width is set.
-   *
-   * @param { number | string } value
-   * @returns { RectAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Called when the fillet width is set.
-   *
-   * @param { number | string } value
-   * @returns { RectAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Called when the fillet width is set.
-   *
-   * @param { Length } value
-   * @returns { RectAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   radiusWidth(value: Length): RectAttribute;
 
   /**
-   * Called when the fillet height is set.
+   * Sets the height of the rounded corner. The width and height are the same when only the height is set. This 
+   * attribute can be dynamically set using [attributeModifier]{@link CommonMethod#attributeModifier}. Invalid values
+   * are treated as the default value.
    *
-   * @param { number | string } value
+   * @param { number | string } value - Height of the rounded corner. The value must be greater than or equal to 0.<br>
+   *     Default value: **0**<br>Default unit: vp<br>The **undefined** value is invalid and treated as the default
+   *     value. [since 7 - 19]
+   * @param { Length } value - Height of the rounded corner. The value must be greater than or equal to 0.<br>Default
+   *     value: **0**<br>Default unit: vp<br>The **undefined** value is invalid and treated as the default
+   *     value. [since 20]
    * @returns { RectAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * Called when the fillet height is set.
-   *
-   * @param { number | string } value
-   * @returns { RectAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Called when the fillet height is set.
-   *
-   * @param { number | string } value
-   * @returns { RectAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Called when the fillet height is set.
-   *
-   * @param { number | string } value
-   * @returns { RectAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Called when the fillet height is set.
-   *
-   * @param { Length } value
-   * @returns { RectAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   radiusHeight(value: Length): RectAttribute;
 
   /**
-   * Called when the fillet size is set.
+   * Sets the radius of the rounded corner. The value must be greater than or equal to 0. This attribute can be 
+   * dynamically set using [attributeModifier]{@link CommonMethod#attributeModifier}. Invalid values are treated as the
+   * default value.
    *
-   * @param { number | string | Array<any> } value
+   * @param { number | string | Array<any> } value - Radius of the rounded corner. You can set separate radii for the
+   *     four rounded corners.<br>Default value: **0**<br>Default unit: vp<br>Invalid values **undefined** and **null**
+   *     are treated as **[[0, 0], [0, 0], [0, 0], [0, 0]]**. [since 7 - 19]
+   * @param { Length | Array<any> } value - Radius of the rounded corner. You can set separate radii for the four
+   *     rounded corners.<br>Default value: **0**<br>Default unit: vp<br>Invalid values **undefined** and **null** are
+   *     treated as **[[0, 0], [0, 0], [0, 0], [0, 0]]**. [since 20]
    * @returns { RectAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * Called when the fillet size is set.
-   *
-   * @param { number | string | Array<any> } value
-   * @returns { RectAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Called when the fillet size is set.
-   *
-   * @param { number | string | Array<any> } value
-   * @returns { RectAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Called when the fillet size is set.
-   *
-   * @param { number | string | Array<any> } value
-   * @returns { RectAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Called when the fillet size is set.
-   *
-   * @param { Length | Array<any> } value
-   * @returns { RectAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   radius(value: Length | Array<any>): RectAttribute;
 }
 
 /**
- * Defines Rect Component.
+ * The **Rect** component is used to draw a rectangle.
+ * > **NOTE**
+ * >
+ * > This component supports dynamic constructor parameter updates using the
+ * > [updateConstructorParams](docroot://reference/apis-arkui/js-apis-arkui-AttributeUpdater.md#properties) API of the
+ * > [AttributeUpdater](docroot://reference/apis-arkui/js-apis-arkui-AttributeUpdater.md) class since API version 20.
+ * >
+ * > **Child Components**
+ * >
+ * > None
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
+ * @crossplatform [since 10]
  * @form
- * @since 9
- */
-/**
- * Defines Rect Component.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Defines Rect Component.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @atomicservice [since 11]
+ * @since 9 dynamic
+ * @noninterop [since 11]
  */
 declare const Rect: RectInterface;
 
@@ -890,30 +325,18 @@ declare const Rect: RectInterface;
  * @since 7 dynamiconly
  * @deprecated since 9
  * @useinstead RectInstance
+ * @noninterop
  */
 declare const RectInStance: RectAttribute;
 
 /**
- * Rect attribute.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
+ * @crossplatform [since 10]
  * @form
- * @since 9
- */
-/**
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @atomicservice [since 11]
+ * @since 9 dynamic
+ * @noninterop [since 11]
  */
 declare const RectInstance: RectAttribute;

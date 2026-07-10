@@ -19,513 +19,279 @@
  */
 
 /**
- * Defines the option of MenuItem.
+ * Provides information about the menu item.
  *
- * @interface MenuItemOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 9
- */
-/**
- * Defines the option of MenuItem.
- *
- * @interface MenuItemOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 10
- */
-/**
- * Defines the option of MenuItem.
- *
- * @interface MenuItemOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 9 dynamic
  * @noninterop
  */
 declare interface MenuItemOptions {
   /**
-   * Defines the start display image info.
+   * Start icon of the menu item. Symbol icons are not supported. If a symbol icon is used, **symbolStartIcon** must be 
+   * used.
    *
-   * @type { ?ResourceStr }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
-   */
-  /**
-   * Defines the start display image info.
-   *
-   * @type { ?ResourceStr }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Defines the start display image info.
-   *
-   * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   startIcon?: ResourceStr;
 
   /**
-   * Defines the start display symbol info.
+   * Symbol icon at the start of a menu item. When this parameter is set, the icon set through **startIcon** is not 
+   * displayed.
    *
-   * @type { ?SymbolGlyphModifier }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform [since 20]
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * Defines the start display symbol info.
-   *
-   * @type { ?SymbolGlyphModifier }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
+   * @since 12 dynamic
    */
   symbolStartIcon?: SymbolGlyphModifier;
 
   /**
-   * Defines the content string display info.
+   * Content of the menu item.
    *
-   * @type { ?ResourceStr }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
-   */
-  /**
-   * Defines the content string display info.
-   *
-   * @type { ?ResourceStr }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Defines the content string display info.
-   *
-   * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   content?: ResourceStr;
 
   /**
-   * Defines the end display image info.
+   * End icon of the menu item. Symbol icons are not supported. If the symbol icon is used, **symbolEndIcon** must be 
+   * used.
    *
-   * @type { ?ResourceStr }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
-   */
-  /**
-   * Defines the end display image info.
-   *
-   * @type { ?ResourceStr }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Defines the end display image info.
-   *
-   * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   endIcon?: ResourceStr;
 
   /**
-   * Defines the end display symbol info.
+   * Symbol icon at the end of a menu item. When this parameter is set, the icon set through **endIcon** is not 
+   * displayed.
    *
-   * @type { ?SymbolGlyphModifier }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform [since 20]
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * Defines the end display symbol info.
-   *
-   * @type { ?SymbolGlyphModifier }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
+   * @since 12 dynamic
    */
   symbolEndIcon?: SymbolGlyphModifier;
 
   /**
-   * Defines the end label info like shortcut.
+   * Label information at the end of the menu item, such as shortcut keys like Ctrl+C.
    *
-   * @type { ?ResourceStr }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
-   */
-  /**
-   * Defines the end label info like shortcut.
-   *
-   * @type { ?ResourceStr }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Defines the end label info like shortcut.
-   *
-   * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   labelInfo?: ResourceStr;
 
   /**
-   * Create the submenu.
+   * Builder for a level-2 menu.
    *
-   * @type { ?CustomBuilder }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
-   */
-  /**
-   * Create the submenu.
-   *
-   * @type { ?CustomBuilder }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Create the submenu.
-   *
-   * @type { ?CustomBuilder }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   builder?: CustomBuilder;
 }
 
 /**
- * Defines the MenuItem Component.
+ * The **MenuItem** component represents an item in a menu.
+ * 
+ * > **NOTE**
+ * >
+ * > This component is supported since API version 9. Newly added APIs will be marked with a superscript to indicate 
+ * > their 
  *
- * @interface MenuItemInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 9
- */
-/**
- * Defines the MenuItem Component.
- *
- * @interface MenuItemInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 10
- */
-/**
- * Defines the MenuItem Component.
- *
- * @interface MenuItemInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 9 dynamic
  * @noninterop
  */
 interface MenuItemInterface {
   /**
-   * Creates the MenuItem component.
    *
-   * @param { MenuItemOptions | CustomBuilder } value
-   * @returns { MenuItemAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
-   */
-  /**
-   * Creates the MenuItem component.
-   *
-   * @param { MenuItemOptions | CustomBuilder } value
-   * @returns { MenuItemAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Creates the MenuItem component.
-   *
-   * @param { MenuItemOptions | CustomBuilder } value
+   * @param { MenuItemOptions | CustomBuilder } value - Information about the menu item.
    * @returns { MenuItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   (value?: MenuItemOptions | CustomBuilder): MenuItemAttribute;
 }
 
 /**
- * Defines the MenuItem component attribute functions.
+ * In addition to the [universal attributes]{@link common}, the following attributes are supported.
  *
- * @extends CommonMethod<MenuItemAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 9
- */
-/**
- * Defines the MenuItem component attribute functions.
- *
- * @extends CommonMethod<MenuItemAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 10
- */
-/**
- * Defines the MenuItem component attribute functions.
- *
- * @extends CommonMethod<MenuItemAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 9 dynamic
  * @noninterop
  */
 declare class MenuItemAttribute extends CommonMethod<MenuItemAttribute> {
   /**
-   * Setting whether menuItem is selected.
+   * Sets whether the menu item is selected.
+   * 
+   * Since API version 10, this parameter supports two-way binding through 
+   * [$$](docroot://ui/state-management/arkts-two-way-sync.md).
+   * 
+   * Since API version 18, this parameter supports two-way binding through 
+   * [!!](docroot://ui/state-management/arkts-new-binding.md#two-way-binding-between-built-in-component-parameters).
    *
-   * @param { boolean } value
-   * @returns { MenuItemAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
-   */
-  /**
-   * Setting whether menuItem is selected.
-   *
-   * @param { boolean } value
-   * @returns { MenuItemAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Setting whether menuItem is selected.
-   *
-   * @param { boolean } value
+   * @param { boolean } value - Whether the menu item is selected.<br>**true**: The menu item is selected. **false**:
+   *     The menu item is not selected.<br>Default value: **false**.
    * @returns { MenuItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   selected(value: boolean): MenuItemAttribute;
 
   /**
-   * Whether the relevant check icon is displayed when a menu item is selected.
+   * Sets whether to display the selected icon when the menu item is selected.
    *
-   * @param { boolean } value - Indicates whether to display the check icon when selected.
-   * @returns { MenuItemAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
-   */
-  /**
-   * Whether the relevant check icon is displayed when a menu item is selected.
-   * Use type ResourceStr to specify icon instead of the default check mark.
-   *
-   * @param { boolean | ResourceStr } value - Indicates whether to display icon when selected.
-   *                                          true: displays the default check mark when selected.
-   *                                          false: does not displays icon when selected.
-   *                                          ResourceStr: displays the specified icon when selected.
-   * @returns { MenuItemAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Whether the relevant check icon is displayed when a menu item is selected.
-   * Use type ResourceStr to specify icon instead of the default check mark.
-   *
-   * @param { boolean | ResourceStr } value - Indicates whether to display icon when selected.
-   *                                          true: displays the default check mark when selected.
-   *                                          false: does not displays icon when selected.
-   *                                          ResourceStr: displays the specified icon when selected.
-   * @returns { MenuItemAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Whether the relevant check icon is displayed when a menu item is selected.
-   * Use type ResourceStr or SymbolGlyphModifier to specify icon instead of the default check mark.
-   *
-   * @param { boolean | ResourceStr | SymbolGlyphModifier } value - Indicates whether to display icon when selected.
-   * <br>true: displays the default check mark when selected.
-   * <br>false: does not displays icon when selected.
-   * <br>ResourceStr or SymbolGlyphModifier: displays the specified icon when selected.
+   * @param { boolean } value - Whether to display the selected icon when the menu item is selected.<br>**true**:
+   *     Display the default check mark icon. **false**: Hide the selected state icon.<br>**ResourceStr**: Display the
+   *     specified custom icon resource.<br>**SymbolGlyphModifier**: Display the specified HMSymbol icon.<br>Default
+   *     value: **false**. [since 9 - 9]
+   * @param { boolean | ResourceStr } value - Whether to display the selected icon when the menu item is selected.<br>
+   *     **true**: Display the default check mark icon. **false**: Hide the selected state icon.<br>**ResourceStr**:
+   *     Display the specified custom icon resource.<br>**SymbolGlyphModifier**: Display the specified HMSymbol icon.<br
+   *     >Default value: **false**. [since 10 - 11]
+   * @param { boolean | ResourceStr | SymbolGlyphModifier } value - Whether to display the selected icon when the menu
+   *     item is selected.<br>**true**: Display the default check mark icon. **false**: Hide the selected state icon.<br
+   *     >**ResourceStr**: Display the specified custom icon resource.<br>**SymbolGlyphModifier**: Display the specified
+   *     HMSymbol icon.<br>Default value: **false**. [since 12]
    * @returns { MenuItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   selectIcon(value: boolean | ResourceStr | SymbolGlyphModifier): MenuItemAttribute;
 
   /**
-   * Triggers a callback when a menu item is selected or unchecked.
+   * Triggered when the selection status of the menu item is changed manually.
    *
-   * @param { function } callback
-   * @returns { MenuItemAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
-   */
-  /**
-   * Triggers a callback when a menu item is selected or unchecked.
-   *
-   * @param { function } callback
-   * @returns { MenuItemAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Triggers a callback when a menu item is selected or unchecked.
-   *
-   * @param { function } callback
+   * @param { function } callback - Invoked when the selected status changes.<br>**true**: selected; **false**:
+   *     unselected.
    * @returns { MenuItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   onChange(callback: (selected: boolean) => void): MenuItemAttribute;
 
   /**
-   * Sets the content font style.
-   * Family and style are not supported currently and will be fixed in future.
+   * Sets the font style of the menu item content.
    *
-   * @param { Font } value - Indicates the font style of content text.
+   * @param { Font } value - Font style of the menu item content.
    * @returns { MenuItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Sets the content font style.
-   * Family and style are not supported currently and will be fixed in future.
-   *
-   * @param { Font } value - Indicates the font style of content text.
-   * @returns { MenuItemAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   contentFont(value: Font): MenuItemAttribute;
 
   /**
-   * Sets the font color of content text.
+   * Sets the font color of the menu item content.
    *
-   * @param { ResourceColor } value - Indicates the font color of content text.
+   * @param { ResourceColor } value - Font color of the menu item content.<br>Default value: **'#E5000000'**
    * @returns { MenuItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Sets the font color of content text.
-   *
-   * @param { ResourceColor } value - Indicates the font color of content text.
-   * @returns { MenuItemAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   contentFontColor(value: ResourceColor): MenuItemAttribute;
 
   /**
-   * Sets the label info font style.
-   * Family and style are not supported currently and will be fixed in future.
+   * Sets the font style of the menu item label.
    *
-   * @param { Font } value - Indicates the font style of label info text.
+   * @param { Font } value - Font style of the menu item label.
    * @returns { MenuItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Sets the label info font style.
-   * Family and style are not supported currently and will be fixed in future.
-   *
-   * @param { Font } value - Indicates the font style of label info text.
-   * @returns { MenuItemAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   labelFont(value: Font): MenuItemAttribute;
 
   /**
-   * Sets the font color of label info text.
+   * Sets the font color of the menu item label.
    *
-   * @param { ResourceColor } value - Indicates the font color of label info text.
+   * @param { ResourceColor } value - Font color of the menu item label.<br>Default value: **'#99000000'**
    * @returns { MenuItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Sets the font color of label info text.
-   *
-   * @param { ResourceColor } value - Indicates the font color of label info text.
-   * @returns { MenuItemAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   labelFontColor(value: ResourceColor): MenuItemAttribute;
+
+  /**
+   * Create the submenu for custom menu item.
+   *
+   * @param { CustomBuilder } builder - Indicates the builder function for submenu.
+   * @returns { MenuItemAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  subMenuBuilder(builder: CustomBuilder): MenuItemAttribute;
 }
 
 /**
- * Defines MenuItem Component.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 9
- */
-/**
- * Defines MenuItem Component.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 10
- */
-/**
- * Defines MenuItem Component.
+ * The **MenuItem** component represents an item in a menu.
+ * 
+ * > **NOTE**
+ * >
+ * > This component is supported since API version 9. Newly added APIs will be marked with a superscript to indicate 
+ * > their 
+ * 
+ * ###### Child Components
+ * 
+ * Not supported
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 9 dynamic
  */
 declare const MenuItem: MenuItemInterface;
 
@@ -533,22 +299,9 @@ declare const MenuItem: MenuItemInterface;
  * Defines MenuItem Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 9
- */
-/**
- * Defines MenuItem Component instance.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 10
- */
-/**
- * Defines MenuItem Component instance.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 9 dynamic
  */
 declare const MenuItemInstance: MenuItemAttribute;

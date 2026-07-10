@@ -24,21 +24,23 @@ import lang from '../arkts/@arkts.lang';
 import photoAccessHelper from './@ohos.file.photoAccessHelper';
 
 /**
- * Helper functions to access image and video assets
+ * The module provides APIs for album management, including creating an album and accessing and modifying media data in 
+ * an album, based on a [Sendable](docroot://arkts-utils/arkts-sendable.md) object.
  *
- * @namespace sendablePhotoAccessHelper
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @atomicservice
  * @since 12 dynamiconly
  */
 declare namespace sendablePhotoAccessHelper {
   /**
-   * Returns an instance of PhotoAccessHelper
+   * Obtains a PhotoAccessHelper instance, which can be used for accessing and modifying media files in an album.
    *
-   * @param { Context } context - Hap context information
-   * @returns { PhotoAccessHelper } Instance of PhotoAccessHelper
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   * @param { Context } context - Context of the ability instance.
+   * @returns { PhotoAccessHelper } PhotoAccessHelper instance obtained.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   *     <br>1. Mandatory parameters are left unspecified;
+   *     <br>2. Incorrect parameter types; 
+   *     <br>3. Parameter verification failed.
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @StageModelOnly
    * @atomicservice
@@ -47,12 +49,12 @@ declare namespace sendablePhotoAccessHelper {
   function getPhotoAccessHelper(context: Context): PhotoAccessHelper;
 
   /**
-   * Returns an instance of PhotoAccessHelper
+   * Obtains a PhotoAccessHelper instance for the specified user, letting you access and modify media files in an album.
    *
    * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
-   * @param { Context } context - Hap context information
-   * @param { number } userId - Target userId
-   * @returns { PhotoAccessHelper } Instance of PhotoAccessHelper
+   * @param { Context } context - Context of the ability instance.
+   * @param { number } userId - ID of the user.
+   * @returns { PhotoAccessHelper } PhotoAccessHelper instance obtained.
    * @throws { BusinessError } 201 - Permission denied
    * @throws { BusinessError } 202 - Called by non-system application
    * @throws { BusinessError } 13900020 - Invalid argument
@@ -66,7 +68,6 @@ declare namespace sendablePhotoAccessHelper {
   /**
    * Enumerates media file types.
    *
-   * @enum { number } PhotoType
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
    * @since 12 dynamiconly
@@ -91,9 +92,8 @@ declare namespace sendablePhotoAccessHelper {
   }
 
   /**
-   * Enumerates the PhotoAsset types.
+   * Enumerates the [PhotoAsset]{@link sendablePhotoAccessHelper.PhotoAsset} types.
    *
-   * @enum { number } PhotoSubtype
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
    * @since 14 dynamiconly
@@ -136,7 +136,6 @@ declare namespace sendablePhotoAccessHelper {
   /**
    * Enumerates the dynamic range types of media assets.
    *
-   * @enum { number } DynamicRangeType
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @since 14 dynamiconly
    */
@@ -159,8 +158,7 @@ declare namespace sendablePhotoAccessHelper {
 
   /**
    * Ability to access thumbnail
-   * 
-   * @enum { number } ThumbnailVisibility
+   *
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @systemapi
    * @since 14 dynamiconly
@@ -168,7 +166,7 @@ declare namespace sendablePhotoAccessHelper {
   enum ThumbnailVisibility {
     /**
      * Unable to access thumbnail
-     * 
+     *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 14 dynamiconly
@@ -176,7 +174,7 @@ declare namespace sendablePhotoAccessHelper {
     INVISIBLE = 0,
     /**
      * able to access thumbnail
-     * 
+     *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 14 dynamiconly
@@ -187,7 +185,6 @@ declare namespace sendablePhotoAccessHelper {
   /**
    * Photo asset position
    *
-   * @enum { number } Photo asset position, such as local device or cloud
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @systemapi
    * @since 14 dynamiconly
@@ -211,10 +208,9 @@ declare namespace sendablePhotoAccessHelper {
     CLOUD = 1 << 1
   }
 
-   /**
+  /**
    * Enumeration of moving photo effect mode.
    *
-   * @enum { number } MovingPhotoEffectMode
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @systemapi
    * @since 14 dynamiconly
@@ -285,9 +281,8 @@ declare namespace sendablePhotoAccessHelper {
   }
 
   /**
-   * Defines the photo asset
+   * Provides APIs for encapsulating file asset attributes.
    *
-   * @interface PhotoAsset
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
    * @since 12 dynamiconly
@@ -296,8 +291,6 @@ declare namespace sendablePhotoAccessHelper {
     /**
      * uri of the asset.
      *
-     * @type { string }
-     * @readonly
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 12 dynamiconly
@@ -306,7 +299,6 @@ declare namespace sendablePhotoAccessHelper {
     /**
      * Photo type, image or video
      *
-     * @type { PhotoType }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 12 dynamiconly
      */
@@ -314,36 +306,43 @@ declare namespace sendablePhotoAccessHelper {
     /**
      * Display name (with a file name extension) of the asset.
      *
-     * @type { string }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 12 dynamiconly
      */
     readonly displayName: string;
     /**
-     * Obtains a PhotoAsset member parameter.
+     * Obtains a **PhotoAsset** member parameter.
      *
-     * @param { string } member - Name of the member parameter to obtain.
-     * Except 'uri', 'media_type', 'subtype', and 'display_name', you must pass in PhotoKeys in fetchColumns.
-     * For example, to obtain the title, pass in fetchColumns: ['title'].
-     * @returns { MemberType } Returns the value of the specified photo asset member
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @param { string } member - Name of the member parameter to obtain. 
+     *     <br>Except **'uri'**, **'media_type'**, **'subtype'**, and **'display_name'**, you must pass in
+     *     [PhotoKeys]{@link @ohos.file.photoAccessHelper:photoAccessHelper.PhotoKeys} in **fetchColumns**. For example,
+     *     to obtain the title, pass in **fetchColumns: ['title']**.
+     * @returns { photoAccessHelper.MemberType } **PhotoAsset** member parameter obtained.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types; 
+     *     <br>3. Parameter verification failed.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 12 dynamiconly
      */
     get(member: string): photoAccessHelper.MemberType;
     /**
-     * Sets a PhotoAsset member parameter.
+     * Sets a **PhotoAsset** member parameter.
      *
-     * @param { string } member - Name of the parameter to set, for example, PhotoKeys.TITLE.
-     * The value contains 1 to 255 characters.
-     * @param { string } value - Value to set. Only the value of PhotoKeys. TITLE can be changed. 
-     * The title must meet the following requirements:
-     * - It does not contain a file name extension.
-     * - The file name, which is in the format of title+file name extension, does not exceed 255 characters.
-     * - The title does not contain any of the following characters:\ / : * ? " ' ` < > | { } [ ]
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @param { string } member - Name of the parameter to set, for example,
+     *     [PhotoKeys]{@link @ohos.file.photoAccessHelper:photoAccessHelper.PhotoKeys}.TITLE. The string length ranges
+     *     from 1 to 255.
+     * @param { string } value - Value to set. Only the value of
+     *     [PhotoKeys]{@link @ohos.file.photoAccessHelper:photoAccessHelper.PhotoKeys}.TITLE can be changed. The title
+     *     must meet the following requirements:
+     *     <br>- It must not contain a file name extension.
+     *     <br>- The string length ranges from 1 to 255. (The asset file name is in the format of title + file name 
+     *     extension.)
+     *     <br>- It must not contain any invalid characters, which are:\ / : * ? " ' ` < > | { } [ ]
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types; 
+     *     <br>3. Parameter verification failed.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 12 dynamiconly
      * @example : set(PhotoKeys.TITLE, "newTitle"), call commitModify after set
@@ -353,10 +352,12 @@ declare namespace sendablePhotoAccessHelper {
      * Commits the modification on the file metadata to the database. This API uses a promise to return the result.
      *
      * @permission ohos.permission.WRITE_IMAGEVIDEO
-     * @returns { Promise<void> } Returns void
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 201 - Permission denied
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types; 
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 14000011 - Internal system error
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
@@ -368,25 +369,29 @@ declare namespace sendablePhotoAccessHelper {
      *
      * @permission ohos.permission.READ_IMAGEVIDEO
      * @param { image.Size } [size] - Size of the thumbnail.
-     * @returns { Promise<image.PixelMap> } Returns the thumbnail's pixelMap.
+     * @returns { Promise<image.PixelMap> } Promise used to return the PixelMap of the thumbnail.
      * @throws { BusinessError } 201 - Permission denied
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types; 
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 14000011 - Internal system error
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 12 dynamiconly
      */
     getThumbnail(size?: image.Size): Promise<image.PixelMap>;
     /**
-     * Get analysis data of the asset.
+     * Obtains analysis data. This API uses a promise to return the result.
      *
      * @permission ohos.permission.READ_IMAGEVIDEO
-     * @param { AnalysisType } analysisType - Analysis type
-     * @returns { Promise<string> } Returns analysis info into a json string
+     * @param { AnalysisType } analysisType - Smart analysis type.
+     * @returns { Promise<string> } Promise used to return the analysis result obtained.
      * @throws { BusinessError } 201 - Permission denied
      * @throws { BusinessError } 202 - Called by non-system application
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types; 
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 14000011 - Internal system error
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
@@ -394,10 +399,10 @@ declare namespace sendablePhotoAccessHelper {
      */
     getAnalysisData(analysisType: photoAccessHelper.AnalysisType): Promise<string>;
     /**
-     * Opens the source file to obtain the file descriptor (FD). This API uses a promise to return the result.
+     * Opens the source file and returns the FD. This API uses a promise to return the result.
      *
      * @permission ohos.permission.READ_IMAGEVIDEO
-     * @returns { Promise<number> }  Returns opened source asset fd.
+     * @returns { Promise<number> } Promise used to return the FD obtained.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Called by non-system application.
      * @throws { BusinessError } 14000011 - Internal system error
@@ -409,7 +414,8 @@ declare namespace sendablePhotoAccessHelper {
     /**
      * Converts a Sendable PhotoAsset object to a non-Sendable PhotoAsset object.
      *
-     * @returns { photoAccessHelper.PhotoAsset } Returns the instance if the operation is successful.
+     * @returns { photoAccessHelper.PhotoAsset } [PhotoAsset]{@link @ohos.file.photoAccessHelper:photoAccessHelper} of
+     *     the non-Sendable type.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 14000011 - Internal system error
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -421,7 +427,6 @@ declare namespace sendablePhotoAccessHelper {
   /**
    * Provides APIs to manage the file retrieval result.
    *
-   * @interface FetchResult
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @since 12 dynamiconly
    */
@@ -429,7 +434,7 @@ declare namespace sendablePhotoAccessHelper {
     /**
      * Obtains the total number of files in the result set.
      *
-     * @returns { number } Total number of objects.
+     * @returns { number } Total number of files obtained.
      * @throws { BusinessError } 14000011 - Internal system error
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 12 dynamiconly
@@ -438,7 +443,8 @@ declare namespace sendablePhotoAccessHelper {
     /**
      * Checks whether the cursor is in the last row of the result set.
      *
-     * @returns { boolean } Whether the object is the last one in the fetch result.
+     * @returns { boolean } Returns **true** if the cursor is in the last row of the result set; returns **false**
+     *     otherwise.
      * @throws { BusinessError } 14000011 - Internal system error
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 12 dynamiconly
@@ -447,7 +453,7 @@ declare namespace sendablePhotoAccessHelper {
     /**
      * Obtains the first asset in the result set. This API uses a promise to return the result.
      *
-     * @returns { Promise<T> } Returns the first object in the fetch result.
+     * @returns { Promise<T> } Promise used to return the first object in the result set.
      * @throws { BusinessError } 14000011 - Internal system error
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 12 dynamiconly
@@ -455,10 +461,11 @@ declare namespace sendablePhotoAccessHelper {
     getFirstObject(): Promise<T>;
     /**
      * Obtains the next asset in the result set. This API uses a promise to return the result.
-     * Before using this API, you must use isAfterLast() to check whether the current position is the end of
-     * <br>the result set.
+     * 
+     * Before using this API, you must use [isAfterLast()]{@link sendablePhotoAccessHelper.FetchResult.isAfterLast} to 
+     * check whether the current position is the end of the result set.
      *
-     * @returns { Promise<T> } Returns the next object
+     * @returns { Promise<T> } Promise used to return the next object in the result set.
      * @throws { BusinessError } 14000011 - Internal system error
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 12 dynamiconly
@@ -467,7 +474,7 @@ declare namespace sendablePhotoAccessHelper {
     /**
      * Obtains the last asset in the result set. This API uses a promise to return the result.
      *
-     * @returns { Promise<T> } Returns the last object
+     * @returns { Promise<T> } Promise used to return the last object in the result set.
      * @throws { BusinessError } 14000011 - Internal system error
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 12 dynamiconly
@@ -476,10 +483,12 @@ declare namespace sendablePhotoAccessHelper {
     /**
      * Obtains the asset with the given index in the result set. This API uses a promise to return the result.
      *
-     * @param { number } index - Index of the asset to obtain. The value starts from 0.
-     * @returns { Promise<T> } Returns the object
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @param { number } index - Index of the asset to obtain. The value starts from **0**.
+     * @returns { Promise<T> } Promise used to return the asset obtained.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types; 
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 14000011 - Internal system error
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 12 dynamiconly
@@ -488,15 +497,15 @@ declare namespace sendablePhotoAccessHelper {
     /**
      * Obtains all the file assets in the result set. This API uses a promise to return the result.
      *
-     * @returns { Promise<Array<T>> } Returns all the objects
+     * @returns { Promise<Array<T>> } Promise used to return all the assets in the result set.
      * @throws { BusinessError } 14000011 - Internal system error
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 12 dynamiconly
      */
     getAllObjects(): Promise<Array<T>>;
     /**
-     * Closes this FetchFileResult instance to invalidate it.
-     * After this instance is closed, the APIs in this instance cannot be invoked.
+     * Closes this FetchResult instance to invalidate it. After this instance is closed, the APIs in this instance 
+     * cannot be invoked.
      *
      * @throws { BusinessError } 14000011 - Internal system error
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -508,7 +517,6 @@ declare namespace sendablePhotoAccessHelper {
   /**
    * Enumerates the album types.
    *
-   * @enum { number } AlbumType
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @since 12 dynamiconly
    */
@@ -528,7 +536,7 @@ declare namespace sendablePhotoAccessHelper {
      */
     SYSTEM = 1024,
     /**
-     * Smart analysis album. System API: This is a system API.
+     * Smart analysis album. 
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
@@ -538,9 +546,8 @@ declare namespace sendablePhotoAccessHelper {
   }
 
   /**
-   * Album subtype
+   * Enumerate the album subtypes.
    *
-   * @enum { number } AlbumSubtype
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @since 12 dynamiconly
    */
@@ -560,14 +567,14 @@ declare namespace sendablePhotoAccessHelper {
      */
     FAVORITE = 1025,
     /**
-     * Video album, which contains all video assets.
+     * Video album.
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 12 dynamiconly
      */
     VIDEO,
     /**
-     * Hidden album, which assets are marked as hidden.
+     * Hidden album. 
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
@@ -575,7 +582,7 @@ declare namespace sendablePhotoAccessHelper {
      */
     HIDDEN,
     /**
-     * Trash album, which assets are deleted.
+     * Trash. 
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
@@ -583,7 +590,7 @@ declare namespace sendablePhotoAccessHelper {
      */
     TRASH,
     /**
-     * Screenshot album
+     * Album for screenshots and screen recording files. 
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
@@ -591,7 +598,7 @@ declare namespace sendablePhotoAccessHelper {
      */
     SCREENSHOT,
     /**
-     * Camera album
+     * Album for photos and videos taken by the camera. 
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
@@ -599,14 +606,14 @@ declare namespace sendablePhotoAccessHelper {
      */
     CAMERA,
     /**
-     * Image album
+     * Photo album.
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 12 dynamiconly
      */
     IMAGE = 1031,
     /**
-     * Source album
+     * Source album. 
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
@@ -614,7 +621,7 @@ declare namespace sendablePhotoAccessHelper {
      */
     SOURCE_GENERIC = 2049,
     /**
-     * Classify album
+     * Classified album. 
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
@@ -622,7 +629,7 @@ declare namespace sendablePhotoAccessHelper {
      */
     CLASSIFY = 4097,
     /**
-     * Location album
+     * Geographic location album. 
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
@@ -630,7 +637,7 @@ declare namespace sendablePhotoAccessHelper {
      */
     GEOGRAPHY_LOCATION = 4099,
     /**
-     * City album
+     * City album. 
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
@@ -638,7 +645,7 @@ declare namespace sendablePhotoAccessHelper {
      */
     GEOGRAPHY_CITY,
     /**
-     * ShootingMode album
+     * Shooting mode album. 
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
@@ -646,7 +653,7 @@ declare namespace sendablePhotoAccessHelper {
      */
     SHOOTING_MODE,
     /**
-     * Portrait album
+     * Portrait album. 
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
@@ -654,7 +661,7 @@ declare namespace sendablePhotoAccessHelper {
      */
     PORTRAIT,
     /**
-     * Group photo album
+     * Group photo album. 
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
@@ -662,7 +669,7 @@ declare namespace sendablePhotoAccessHelper {
      */
     GROUP_PHOTO,
     /**
-     * Highlight album
+     * Highlights album. 
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
@@ -670,7 +677,7 @@ declare namespace sendablePhotoAccessHelper {
      */
     HIGHLIGHT = 4104,
     /**
-     * Highlight suggestions album
+     * Highlights suggestion album. 
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
@@ -678,7 +685,7 @@ declare namespace sendablePhotoAccessHelper {
      */
     HIGHLIGHT_SUGGESTIONS,
     /**
-     * Any album
+     * Any album.
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 12 dynamiconly
@@ -689,7 +696,6 @@ declare namespace sendablePhotoAccessHelper {
   /**
    * Defines the abstract interface of albums.
    *
-   * @interface AbsAlbum
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @since 12 dynamiconly
    */
@@ -697,7 +703,6 @@ declare namespace sendablePhotoAccessHelper {
     /**
      * Album type
      *
-     * @type { AlbumType }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 12 dynamiconly
      */
@@ -705,7 +710,6 @@ declare namespace sendablePhotoAccessHelper {
     /**
      * Album subtype
      *
-     * @type { AlbumSubtype }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 12 dynamiconly
      */
@@ -713,7 +717,6 @@ declare namespace sendablePhotoAccessHelper {
     /**
      * Album name.
      *
-     * @type { string }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 12 dynamiconly
      */
@@ -721,7 +724,6 @@ declare namespace sendablePhotoAccessHelper {
     /**
      * Album uri.
      *
-     * @type { string }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 12 dynamiconly
      */
@@ -729,7 +731,6 @@ declare namespace sendablePhotoAccessHelper {
     /**
      * Number of assets in the album
      *
-     * @type { number }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 12 dynamiconly
      */
@@ -737,7 +738,6 @@ declare namespace sendablePhotoAccessHelper {
     /**
      * Cover uri for the album
      *
-     * @type { string }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 12 dynamiconly
      */
@@ -746,11 +746,13 @@ declare namespace sendablePhotoAccessHelper {
      * Obtains media assets. This API uses a promise to return the result.
      *
      * @permission ohos.permission.READ_IMAGEVIDEO
-     * @param { FetchOptions } options - Options for fetching the media assets.
-     * @returns { Promise<FetchResult<PhotoAsset>> } Returns the fetch result
+     * @param { FetchOptions } options - Retrieval options.
+     * @returns { Promise<FetchResult<PhotoAsset>> } Promise used to return the media assets obtained.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types; 
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 14000011 - Internal system error
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 12 dynamiconly
@@ -764,8 +766,10 @@ declare namespace sendablePhotoAccessHelper {
      * @returns { Array<SharedPhotoAsset> } Returns the shared photo assets
      * @throws { BusinessError } 201 - Permission denied
      * @throws { BusinessError } 202 - Called by non-system application
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types; 
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 14000011 - Internal system error
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
@@ -775,9 +779,8 @@ declare namespace sendablePhotoAccessHelper {
   }
 
   /**
-   * Defines the album.
+   * Provides APIs to manage albums.
    *
-   * @interface Album
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @since 12 dynamiconly
    */
@@ -785,8 +788,6 @@ declare namespace sendablePhotoAccessHelper {
     /**
      * Number of image assets in the album
      *
-     * @type { ?number }
-     * @readonly
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 12 dynamiconly
      */
@@ -794,8 +795,6 @@ declare namespace sendablePhotoAccessHelper {
     /**
      * Number of video assets in the album
      *
-     * @type { ?number }
-     * @readonly
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 12 dynamiconly
      */
@@ -804,7 +803,7 @@ declare namespace sendablePhotoAccessHelper {
      * Commits the modification on the album attributes to the database. This API uses a promise to return the result.
      *
      * @permission ohos.permission.WRITE_IMAGEVIDEO
-     * @returns { Promise<void> } Returns void
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 14000011 - Internal system error
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -814,7 +813,7 @@ declare namespace sendablePhotoAccessHelper {
     /**
      * Converts this Sendable album to a non-Sendable album.
      *
-     * @returns { photoAccessHelper.Album } Returns the instance if the operation is successful.
+     * @returns { photoAccessHelper.Album } Album of the non-Sendable type.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 14000011 - Internal system error
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -822,11 +821,12 @@ declare namespace sendablePhotoAccessHelper {
      */
     convertToPhotoAlbum(): photoAccessHelper.Album;
     /**
-     * Obtains the face identifier on the cover of a portrait album or group photo album.
+     * Obtains the face identifier on the cover of a portrait album or group photo album. This API uses a promise to 
+     * return the result.
      *
      * @permission ohos.permission.READ_IMAGEVIDEO
-     * @returns { Promise<string> } Returns tag_id if portrait album, Returns group_tag if group photo album,
-     * <br>Returns empty if not found.
+     * @returns { Promise<string> } Promise used to return **tag_id** of the portrait album, **group_tag** of the group
+     *     photo album, or an empty string if no face identifier is found.
      * @throws { BusinessError } 201 - Permission denied
      * @throws { BusinessError } 202 - Called by non-system application
      * @throws { BusinessError } 14000011 - Internal system error
@@ -840,7 +840,6 @@ declare namespace sendablePhotoAccessHelper {
   /**
    * Defines the shared photo asset
    *
-   * @interface SharedPhotoAsset
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @systemapi
    * @since 14 dynamiconly
@@ -849,7 +848,6 @@ declare namespace sendablePhotoAccessHelper {
     /**
      * File id of photo asset
      *
-     * @type { number }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 14 dynamiconly
@@ -858,7 +856,6 @@ declare namespace sendablePhotoAccessHelper {
     /**
      * URI of photo asset
      *
-     * @type { string }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 14 dynamiconly
@@ -867,7 +864,6 @@ declare namespace sendablePhotoAccessHelper {
     /**
      * Path data of photo asset
      *
-     * @type { string }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 14 dynamiconly
@@ -876,7 +872,6 @@ declare namespace sendablePhotoAccessHelper {
     /**
      * Media type of photo asset
      *
-     * @type { PhotoType }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 14 dynamiconly
@@ -885,7 +880,6 @@ declare namespace sendablePhotoAccessHelper {
     /**
      * Display name of photo asset
      *
-     * @type { string }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 14 dynamiconly
@@ -893,8 +887,8 @@ declare namespace sendablePhotoAccessHelper {
     displayName: string;
     /**
      * Size of photo asset
+     * Unit: Byte, The value must be an integer greater than or equal to 0.
      *
-     * @type { number }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 14 dynamiconly
@@ -902,8 +896,8 @@ declare namespace sendablePhotoAccessHelper {
     size: number;
     /**
      * Added date of photo asset
+     * Unit: ms, The value must be an integer greater than or equal to 0.
      *
-     * @type { number }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 14 dynamiconly
@@ -911,8 +905,8 @@ declare namespace sendablePhotoAccessHelper {
     dateAdded: number;
     /**
      * Modify date of photo asset
+     * Unit: ms, The value must be an integer greater than or equal to 0.
      *
-     * @type { number }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 14 dynamiconly
@@ -920,8 +914,8 @@ declare namespace sendablePhotoAccessHelper {
     dateModified: number;
     /**
      * Duration of video photo asset
+     * Unit: ms, The value must be an integer greater than or equal to 0.
      *
-     * @type { number }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 14 dynamiconly
@@ -929,8 +923,8 @@ declare namespace sendablePhotoAccessHelper {
     duration: number;
     /**
      * Width of photo asset
+     * Unit: px, The value must be an integer greater than or equal to 0.
      *
-     * @type { number }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 14 dynamiconly
@@ -938,8 +932,8 @@ declare namespace sendablePhotoAccessHelper {
     width: number;
     /**
      * Height of photo asset
+     * Unit: px, The value must be an integer greater than or equal to 0.
      *
-     * @type { number }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 14 dynamiconly
@@ -947,8 +941,8 @@ declare namespace sendablePhotoAccessHelper {
     height: number;
     /**
      * DateTaken of photo asset
+     * Unit: ms, The value must be an integer greater than or equal to 0.
      *
-     * @type { number }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 14 dynamiconly
@@ -956,8 +950,8 @@ declare namespace sendablePhotoAccessHelper {
     dateTaken: number;
     /**
      * Orientation of photo asset
+     * Unit: deg, The value must be an integer within [0,359].
      *
-     * @type { number }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 14 dynamiconly
@@ -966,7 +960,6 @@ declare namespace sendablePhotoAccessHelper {
     /**
      * Favorite state of photo asset
      *
-     * @type { boolean }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 14 dynamiconly
@@ -975,7 +968,6 @@ declare namespace sendablePhotoAccessHelper {
     /**
      * Title of photo asset
      *
-     * @type { string }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 14 dynamiconly
@@ -984,7 +976,6 @@ declare namespace sendablePhotoAccessHelper {
     /**
      * Position of photo asset
      *
-     * @type { PositionType }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 14 dynamiconly
@@ -993,7 +984,6 @@ declare namespace sendablePhotoAccessHelper {
     /**
      * Trashed date of photo asset
      *
-     * @type { number }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 14 dynamiconly
@@ -1002,7 +992,6 @@ declare namespace sendablePhotoAccessHelper {
     /**
      * Hidden state of photo asset
      *
-     * @type { boolean }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 14 dynamiconly
@@ -1011,7 +1000,6 @@ declare namespace sendablePhotoAccessHelper {
     /**
      * User comment info of photo asset
      *
-     * @type { string }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 14 dynamiconly
@@ -1020,7 +1008,6 @@ declare namespace sendablePhotoAccessHelper {
     /**
      * Camera shot key of photo asset
      *
-     * @type { string }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 14 dynamiconly
@@ -1029,7 +1016,6 @@ declare namespace sendablePhotoAccessHelper {
     /**
      * The year of the file created
      *
-     * @type { string }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 14 dynamiconly
@@ -1038,7 +1024,6 @@ declare namespace sendablePhotoAccessHelper {
     /**
      * The month of the file created
      *
-     * @type { string }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 14 dynamiconly
@@ -1047,7 +1032,6 @@ declare namespace sendablePhotoAccessHelper {
     /**
      * The day of the file created
      *
-     * @type { string }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 14 dynamiconly
@@ -1056,7 +1040,6 @@ declare namespace sendablePhotoAccessHelper {
     /**
      * Pending state of the asset, true means asset is pending
      *
-     * @type { boolean }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 14 dynamiconly
@@ -1065,7 +1048,6 @@ declare namespace sendablePhotoAccessHelper {
     /**
      * Added date of photo asset in milliseconds
      *
-     * @type { number }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 14 dynamiconly
@@ -1074,7 +1056,6 @@ declare namespace sendablePhotoAccessHelper {
     /**
      * Modified time of the asset in milliseconds
      *
-     * @type { number }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 14 dynamiconly
@@ -1083,7 +1064,6 @@ declare namespace sendablePhotoAccessHelper {
     /**
      * Trashed time of the asset in milliseconds
      *
-     * @type { number }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 14 dynamiconly
@@ -1092,7 +1072,6 @@ declare namespace sendablePhotoAccessHelper {
     /**
      * Subtype of photo asset
      *
-     * @type { PhotoSubtype }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 14 dynamiconly
@@ -1100,8 +1079,7 @@ declare namespace sendablePhotoAccessHelper {
     subtype: PhotoSubtype;
     /**
      * Effect mode of moving photo
-     * 
-     * @type { MovingPhotoEffectMode }
+     *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 14 dynamiconly
@@ -1110,7 +1088,6 @@ declare namespace sendablePhotoAccessHelper {
     /**
      * Dynamic range type of the asset
      *
-     * @type { DynamicRangeType }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 14 dynamiconly
@@ -1119,7 +1096,6 @@ declare namespace sendablePhotoAccessHelper {
     /**
      * Ready state of thumbnail
      *
-     * @type { boolean }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 14 dynamiconly
@@ -1128,7 +1104,6 @@ declare namespace sendablePhotoAccessHelper {
     /**
      * Width and height information of lcd picture
      *
-     * @type { string }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 14 dynamiconly
@@ -1137,7 +1112,6 @@ declare namespace sendablePhotoAccessHelper {
     /**
      * Width and height information of thumbnail picture
      *
-     * @type { string }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 14 dynamiconly
@@ -1146,7 +1120,6 @@ declare namespace sendablePhotoAccessHelper {
     /**
      * modified time of thumbnail status
      *
-     * @type { number }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 14 dynamiconly
@@ -1155,7 +1128,6 @@ declare namespace sendablePhotoAccessHelper {
     /**
      * visibility of thumbnails
      *
-     * @type { ThumbnailVisibility }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 14 dynamiconly
@@ -1166,35 +1138,41 @@ declare namespace sendablePhotoAccessHelper {
   /**
    * Helper functions to access photos and albums.
    *
-   * @interface PhotoAccessHelper
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
    * @since 12 dynamiconly
    */
   interface PhotoAccessHelper extends lang.ISendable {
     /**
-     * Obtains media assets. This API uses a promise to return the result.
+     * Obtains image and video assets. This API uses a promise to return the result.
      *
      * @permission ohos.permission.READ_IMAGEVIDEO
-     * @param { FetchOptions } options - Options for fetching the media assets.
-     * @returns { Promise<FetchResult<PhotoAsset>> } Returns the fetch result.
+     * @param { FetchOptions } options - Retrieval options.
+     * @returns { Promise<FetchResult<PhotoAsset>> } Promise used to return the media assets obtained.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types; 
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 14000011 - Internal system error
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 12 dynamiconly
      */
     getAssets(options: photoAccessHelper.FetchOptions): Promise<FetchResult<PhotoAsset>>;
     /**
-     * Obtains burst assets. This API uses a promise to return the result.
+     * Obtains resources of burst photos. This API uses a promise to return the result.
      *
      * @permission ohos.permission.READ_IMAGEVIDEO
-     * @param { string } burstKey - Burst asset options.
-     * @returns { Promise<FetchResult<PhotoAsset>> } Returns the fetch result.
+     * @param { string } burstKey - Universally Unique Identifier (UUID) of a group of burst photos, that is,
+     *     **BURST_KEY** of [PhotoKeys]{@link @ohos.file.photoAccessHelper:photoAccessHelper.PhotoKeys}. The string
+     *     contains 36 bytes.
+     * @param { photoAccessHelper.FetchOptions } options - Retrieval options.
+     * @returns { Promise<FetchResult<PhotoAsset>> } Promise used to return the result.
      * @throws { BusinessError } 201 - Permission denied
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types; 
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 14000011 - Internal system error
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 12 dynamiconly
@@ -1202,56 +1180,88 @@ declare namespace sendablePhotoAccessHelper {
     getBurstAssets(burstKey: string, options: photoAccessHelper.FetchOptions): Promise<FetchResult<PhotoAsset>>;
     /**
      * Creates an asset with the specified file name. This API uses a promise to return the result.
+     * 
+     * The file name must meet the following requirements:
+     * 
+     * - A valid file name must include a base name and a supported image or video extension.
+     * - The total length of the file name must be between 1 and 255 characters.
+     * - The base name must not contain any invalid characters.
+     * 
+     * Starting from API version 18, the following characters are considered invalid: \ / : * ? " < > |
+     * 
+     * For API versions 10 to 17, the following characters are considered invalid: . .. \ / : * ? " ' ` < > | { } [ ]
      *
      * @permission ohos.permission.WRITE_IMAGEVIDEO
      * @param { string } displayName - File name of the asset to create.
-     * @returns { Promise<PhotoAsset> } Returns the newly created asset
+     * @returns { Promise<PhotoAsset> } Promise used to return the created asset.
      * @throws { BusinessError } 201 - Permission denied
      * @throws { BusinessError } 202 - Called by non-system application.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 13900020 - Invalid argument
-     * @throws { BusinessError } 14000001 - Invalid display name
-     * @throws { BusinessError } 14000011 - Internal system error
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types; 
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 13900020 - Invalid argument.
+     * @throws { BusinessError } 14000001 - Invalid display name.
+     * @throws { BusinessError } 14000011 - Internal system error.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 12 dynamiconly
      */
     createAsset(displayName: string): Promise<PhotoAsset>;
     /**
-     * Create a photo asset
+     * Creates an asset with the specified file name and options. This API uses a promise to return the result.
+     * 
+     * The file name must meet the following requirements:
+     * 
+     * - A valid file name must include a base name and a supported image or video extension.
+     * - The total length of the file name must be between 1 and 255 characters.
+     * - The base name must not contain any invalid characters.
+     * 
+     * Starting from API version 18, the following characters are considered invalid: \ / : * ? " < > |
+     * 
+     * For API versions 10 to 17, the following characters are considered invalid: . .. \ / : * ? " ' ` < > | { } [ ]
      *
      * @permission ohos.permission.WRITE_IMAGEVIDEO
-     * @param { string } displayName - Asset name
-     * @param { PhotoCreateOptions } options - Create operation
+     * @param { string } displayName - File name of the asset to create.
+     * @param { PhotoCreateOptions } options - Options for creating the asset.
+     * @returns { Promise<PhotoAsset> } Promise used to return the created asset.
      * @throws { BusinessError } 201 - Permission denied
-     * @returns { Promise<PhotoAsset> } Returns the newly created asset
      * @throws { BusinessError } 202 - Called by non-system application.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 13900020 - Invalid argument
-     * @throws { BusinessError } 14000001 - Invalid display name
-     * @throws { BusinessError } 14000011 - Internal system error
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types; 
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 13900020 - Invalid argument.
+     * @throws { BusinessError } 14000001 - Invalid display name.
+     * @throws { BusinessError } 14000011 - Internal system error.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 12 dynamiconly
      */
     createAsset(displayName: string, options: photoAccessHelper.PhotoCreateOptions): Promise<PhotoAsset>;
     /**
-     * Creates an image or video asset with the specified file type, file name extension, and options.
-     * This API uses a promise to return the result.
-     * If the caller does not have the ohos.permission.WRITE_IMAGEVIDEO permission,
-     * you can create a media asset by using a security component.
-     * For details, see Creating a Media Asset Using a Security Component.
+     * Creates an image or video asset with the specified file type, file name extension, and options. This API uses a 
+     * promise to return the result.
+     * 
+     * If you do not have the **ohos.permission.WRITE_IMAGEVIDEO** permission, you can create a media asset by using a 
+     * security component. For details, see 
+     * [Saving Media Assets](docroot://media/medialibrary/photoAccessHelper-savebutton.md).
      *
      * @permission ohos.permission.WRITE_IMAGEVIDEO
-     * @param { PhotoType } photoType - Type of the file to create, which can be IMAGE or VIDEO.
-     * @param { string } extension - File name extension, for example, 'jpg'. The value contains 1 to 255 characters.
-     * @param { CreateOptions } [options] - Options for creating the media asset, for example, {title: 'testPhoto'}.
-     * @returns { Promise<string> } Returns the uri of the newly created asset
+     * @param { PhotoType } photoType - Type of the file to create, which can be **IMAGE** or **VIDEO**.
+     * @param { string } extension - File name extension, for example, **'jpg'**. The string length ranges from 1 to 255
+     *     .
+     * @param { CreateOptions } [options] - Options for creating the media asset, for example, **{title: 'testPhoto'}**.
+     *     <br>The file name must not contain any invalid characters.
+     *     <br>Starting from API version 18, the following characters are considered invalid: \ / : * ? " < > | 
+     *     <br>For API versions 10 to 17, the following characters  are considered 
+     *     invalid: . .. \ / : * ? " ' ` < > | { } [ ]
+     * @returns { Promise<string> } Promise used to return the URI of the created media asset.
      * @throws { BusinessError } 201 - Permission denied
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types; 
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 14000011 - Internal system error
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
@@ -1259,14 +1269,18 @@ declare namespace sendablePhotoAccessHelper {
      */
     createAsset(photoType: PhotoType, extension: string, options?: photoAccessHelper.CreateOptions): Promise<string>;
     /**
-     * Obtains albums. This API uses a promise to return the result.
+     * Obtains albums based on the specified options. This API uses a promise to return the result.
+     * 
+     * Before the operation, ensure that the albums to obtain exist.
      *
      * @permission ohos.permission.READ_IMAGEVIDEO
-     * @param { FetchOptions } [options] - Options for fetching the albums.
-     * @returns { Promise<FetchResult<Album>> } - Returns the fetch result
+     * @param { FetchOptions } [options] - Retrieval options.
+     * @returns { Promise<FetchResult<Album>> } Promise used to return the result.
      * @throws { BusinessError } 201 - Permission denied
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types; 
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 14000011 - Internal system error
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 12 dynamiconly
@@ -1274,16 +1288,20 @@ declare namespace sendablePhotoAccessHelper {
     getAlbums(options: photoAccessHelper.FetchOptions): Promise<FetchResult<Album>>;
     /**
      * Obtains albums based on the specified options and album type. This API uses a promise to return the result.
+     * 
+     * Before the operation, ensure that the albums to obtain exist.
      *
      * @permission ohos.permission.READ_IMAGEVIDEO
-     * @param { AlbumType } type - Type of the albums to obtain.
+     * @param { AlbumType } type - Album type.
      * @param { AlbumSubtype } subtype - Subtype of the album.
-     * @param { FetchOptions } [options] - Options for fetching the albums.
-     * If this parameter is not specified, the albums are obtained based on the album type by default.
-     * @returns { Promise<FetchResult<Album>> } - Returns the fetch result
+     * @param { FetchOptions } [options] - Retrieval options. If this parameter is not specified, the albums are
+     *     obtained based on the album type by default.
+     * @returns { Promise<FetchResult<Album>> } Promise used to return the result.
      * @throws { BusinessError } 201 - Permission denied
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types; 
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 14000011 - Internal system error
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 12 dynamiconly
@@ -1294,18 +1312,20 @@ declare namespace sendablePhotoAccessHelper {
       options?: photoAccessHelper.FetchOptions
     ): Promise<FetchResult<Album>>;
     /**
-     * Obtains hidden albums based on the specified display mode and retrieval options.
-     * This API uses a promise to return the result.
+     * Obtains hidden albums based on the specified display mode and retrieval options. This API uses a promise to 
+     * return the result.
      *
      * @permission ohos.permission.READ_IMAGEVIDEO and ohos.permission.MANAGE_PRIVATE_PHOTOS
      * @param { HiddenPhotosDisplayMode } mode - Display mode of hidden albums.
-     * @param { FetchOptions } [options] - Options for retrieving the albums.
-     * If this parameter is not specified, the albums are retrieved based on the display mode.
-     * @returns { Promise<FetchResult<Album>> } Returns fetchResult of albums containing hidden assets.
+     * @param { FetchOptions } [options] - Options for retrieving the albums. If this parameter is not specified, the
+     *     albums are retrieved based on the display mode.
+     * @returns { Promise<FetchResult<Album>> } Promise used to return the result.
      * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
      * @throws { BusinessError } 202 - Called by non-system application
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types; 
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 14000011 - Internal system error
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
@@ -1316,10 +1336,10 @@ declare namespace sendablePhotoAccessHelper {
       options?: photoAccessHelper.FetchOptions
     ): Promise<FetchResult<Album>>;
     /**
-     * Releases this PhotoAccessHelper instance. This API uses a promise to return the result.
-     * Call this API when the APIs of the PhotoAccessHelper instance are no longer used.
+     * Releases the **PhotoAccessHelper** instance. Call this method when the APIs of the **PhotoAccessHelper** instance
+     * are no longer used. This API uses a promise to return the result.
      *
-     * @returns { Promise<void> } Returns void
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 14000011 - Internal system error
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 12 dynamiconly
@@ -1330,11 +1350,13 @@ declare namespace sendablePhotoAccessHelper {
      *
      * @permission ohos.permission.ACCESS_MEDIALIB_THUMB_DB
      * @param { FetchOptions } options - Fetch options.
-     * @returns { Array<SharedPhotoAsset> } Returns the shared photo assets 
+     * @returns { Array<SharedPhotoAsset> } Returns the shared photo assets
      * @throws { BusinessError } 201 - Permission denied
      * @throws { BusinessError } 202 - Called by non-system application
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types; 
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 14000011 - Internal system error
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
@@ -1342,20 +1364,24 @@ declare namespace sendablePhotoAccessHelper {
      */
     getSharedPhotoAssets(options: photoAccessHelper.FetchOptions): Array<SharedPhotoAsset>;
     /**
-     * Get PhotoAsset objects from ValuesBucket record info.
+     * Converts the **ValuesBucket** record to a **PhotoAsset** object.
      *
-     * @param { photoAccessHelper.ValuesBucket[] } assetsData - Array of asset records. Each element in the array
-     *     contains the asset's column names and their values. The array size cannot exceed 500. Each element in the
-     *     array must contain the following asset column information: file_id, data, display_name, media_type, and
-     *     subtype.
-     * @returns { Promise<PhotoAsset[]> } Returns an array of PhotoAsset objects (may be empty).
+     * @param { photoAccessHelper.ValuesBucket[] } assetsData - Array of asset records.
+     *     <br>Each element in the array contains the column name and value of the asset.
+     *     <br>The array can contain a maximum of 500 elements.
+     *     <br>Each element in the array must contain the following asset column information: **file_id**, **data**,
+     *     **display_name**, **media_type**, and **subtype**.
+     * @returns { Promise<PhotoAsset[]> } Promise used to return the PhotoAsset object array (which may be empty).
      * @throws { BusinessError } 202 - Called by non-system application.
      * @throws { BusinessError } 23800151 - The scenario parameter verification fails. Possible causes:
      *     <br>1. Invalid value type in ValuesBucket;
      *     <br>2. Missing required column in ValuesBucket;
      *     <br>3. Array size exceeds 500.
      * @throws { BusinessError } 23800301 - Internal system error. It is recommended to retry and check the logs.
-     *     <br>Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
+     *     <br>Possible causes: 
+     *     <br>1. Database corrupted; 
+     *     <br>2. The file system is abnormal; 
+     *     <br>3. The IPC request timed out.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @stagemodelonly

@@ -14,21 +14,29 @@
  */
 
 /**
- * @file
+ * @file Facial Authentication
  * @kit UserAuthenticationKit
  */
 
 /**
- * This module provides the capability to manage face auth.
+ * The **faceAuth** module is an important part of the OpenHarmony user identity and access management (UserIAM) and is
+ * used to manage face enrollment. This module provides core APIs for face authentication management, enabling
+ * developers to enroll and manage face information within their applications.
  *
- * @namespace faceAuth
+ * This module applies to the following scenarios:
+ *
+ * - Applications that need to implement the face enrollment function.
+ * - Scenarios where the system-level identity authentication service needs to be integrated.
+ * - Applications that need to customize the face preview page.
+ *
  * @syscap SystemCapability.UserIAM.UserAuth.FaceAuth
  * @since 9 dynamic
  * @since 23 static
  */
 declare namespace faceAuth {
   /**
-   * Provides the abilities for face authentication.
+   * Provides APIs for facial authentication management. It provides management features during face enrollment,
+   * including setting the surface ID of the face preview page.
    *
    * @syscap SystemCapability.UserIAM.UserAuth.FaceAuth
    * @systemapi Hide this for inner system use.
@@ -37,7 +45,7 @@ declare namespace faceAuth {
    */
   class FaceAuthManager {
     /**
-     * Constructor to get the FaceAuthManager class instance.
+     * Creates a face authentication manager object.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.FaceAuth
      * @systemapi Hide this for inner system use.
@@ -47,10 +55,16 @@ declare namespace faceAuth {
     constructor();
 
     /**
-     * Set XComponent surface id for camera preview during enroll.
+     * Sets the surface ID of the face preview page during face enrollment. This API must be used together with
+     * [addCredential]{@link @ohos.account.osAccount:osAccount.UserIdentityManager#addCredential} to display the face
+     * preview page through the surface of the
+     * [getXComponentSurfaceId]{@link XComponentController#getXComponentSurfaceId} component.
      *
      * @permission ohos.permission.MANAGE_USER_IDM
-     * @param { string } surfaceId Indicates surface id for face enroll preview.
+     * @param { string } surfaceId - ID of the surface held by
+     *     [XComponent]{@link XComponentController#getXComponentSurfaceId}. This ID is used to display the face preview
+     *     page during face enrollment. It must be obtained using the **getXComponentSurfaceId** method of
+     *     **XComponentController**.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Permission denied. Called by non-system application.
      * @throws { BusinessError } 12700001 - The service is unavailable.

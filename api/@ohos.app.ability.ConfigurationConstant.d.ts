@@ -19,77 +19,35 @@
  */
 
 /**
- * The definition of ConfigurationConstant.
+ * The ConfigurationConstant module provides preset enumerated values related to
+ * [Configuration]{@link @ohos.app.ability.Configuration:Configuration} operations.
  *
- * @namespace ConfigurationConstant
  * @syscap SystemCapability.Ability.AbilityBase
- * @since 9
- */
-/**
- * The definition of ConfigurationConstant.
- *
- * @namespace ConfigurationConstant
- * @syscap SystemCapability.Ability.AbilityBase
- * @atomicservice
- * @since 11
- */
-/**
- * The definition of ConfigurationConstant.
- *
- * @namespace ConfigurationConstant
- * @syscap SystemCapability.Ability.AbilityBase
- * @crossplatform
- * @atomicservice
- * @since 12 dynamic
+ * @crossplatform [since 12]
+ * @atomicservice [since 11]
+ * @since 9 dynamic
  * @since 23 static
  */
 declare namespace ConfigurationConstant {
   /**
-   * Color mode
+   * Enumerates the dark/light color modes, which are used in the
+   * [Configuration.colorMode]{@link @ohos.app.ability.Configuration:Configuration} field. You can use these predefined
+   * enumerated values to set or obtain the dark/light color mode of the system or application.
    *
-   * @enum { number }
    * @syscap SystemCapability.Ability.AbilityBase
-   * @since 9
-   */
-  /**
-   * Color mode
-   *
-   * @enum { number }
-   * @syscap SystemCapability.Ability.AbilityBase
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Color mode
-   *
-   * @enum { number }
-   * @syscap SystemCapability.Ability.AbilityBase
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   export enum ColorMode {
     /**
-     * The color mode is not set.
+     * Unspecified color mode.
      *
      * @syscap SystemCapability.Ability.AbilityBase
-     * @since 9
-     */
-    /**
-     * The color mode is not set.
-     *
-     * @syscap SystemCapability.Ability.AbilityBase
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * The color mode is not set.
-     *
-     * @syscap SystemCapability.Ability.AbilityBase
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      * @since 23 static
      */
     COLOR_MODE_NOT_SET = -1,
@@ -98,22 +56,9 @@ declare namespace ConfigurationConstant {
      * Dark mode.
      *
      * @syscap SystemCapability.Ability.AbilityBase
-     * @since 9
-     */
-    /**
-     * Dark mode.
-     *
-     * @syscap SystemCapability.Ability.AbilityBase
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Dark mode.
-     *
-     * @syscap SystemCapability.Ability.AbilityBase
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      * @since 23 static
      */
     COLOR_MODE_DARK = 0,
@@ -122,73 +67,33 @@ declare namespace ConfigurationConstant {
      * Light mode.
      *
      * @syscap SystemCapability.Ability.AbilityBase
-     * @since 9
-     */
-    /**
-     * Light mode.
-     *
-     * @syscap SystemCapability.Ability.AbilityBase
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Light mode.
-     *
-     * @syscap SystemCapability.Ability.AbilityBase
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      * @since 23 static
      */
     COLOR_MODE_LIGHT = 1
   }
 
   /**
-   * Screen direction.
+   * Enumerates the screen directions, which are used in the
+   * [Configuration.direction]{@link @ohos.app.ability.Configuration:Configuration} field. You can use these predefined
+   * enumerated values to set or obtain the screen direction of the system or application.
    *
-   * @enum { number }
    * @syscap SystemCapability.Ability.AbilityBase
-   * @since 9
-   */
-  /**
-   * Screen direction.
-   *
-   * @enum { number }
-   * @syscap SystemCapability.Ability.AbilityBase
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Screen direction.
-   *
-   * @enum { number }
-   * @syscap SystemCapability.Ability.AbilityBase
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   export enum Direction {
     /**
-     * The direction is not set.
+     * Unspecified direction.
      *
      * @syscap SystemCapability.Ability.AbilityBase
-     * @since 9
-     */
-    /**
-     * The direction is not set.
-     *
-     * @syscap SystemCapability.Ability.AbilityBase
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * The direction is not set.
-     *
-     * @syscap SystemCapability.Ability.AbilityBase
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      * @since 23 static
      */
     DIRECTION_NOT_SET = -1,
@@ -197,22 +102,9 @@ declare namespace ConfigurationConstant {
      * Vertical direction.
      *
      * @syscap SystemCapability.Ability.AbilityBase
-     * @since 9
-     */
-    /**
-     * Vertical direction.
-     *
-     * @syscap SystemCapability.Ability.AbilityBase
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Vertical direction.
-     *
-     * @syscap SystemCapability.Ability.AbilityBase
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      * @since 23 static
      */
     DIRECTION_VERTICAL = 0,
@@ -221,50 +113,27 @@ declare namespace ConfigurationConstant {
      * Horizontal direction.
      *
      * @syscap SystemCapability.Ability.AbilityBase
-     * @since 9
-     */
-    /**
-     * Horizontal direction.
-     *
-     * @syscap SystemCapability.Ability.AbilityBase
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Horizontal direction.
-     *
-     * @syscap SystemCapability.Ability.AbilityBase
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      * @since 23 static
      */
     DIRECTION_HORIZONTAL = 1
   }
 
   /**
-   * Screen density
+   * Enumerates the pixel densities of the screen, which are used in the
+   * [Configuration.screenDensity]{@link @ohos.app.ability.Configuration:Configuration} field. You can use these
+   * predefined enumerated values to set or obtain the pixel density of the screen.
    *
-   * @enum { number }
-   * @syscap SystemCapability.Ability.AbilityBase
-   * @since 9
-   */
-  /**
-   * Screen density
+   * The font size is positively correlated with the screen pixel density. By monitoring changes in the screen pixel
+   * density, you can detect adjustments in the font size. Typically, for the same physical size, the higher the screen
+   * pixel density, the larger the font display effect.
    *
-   * @enum { number }
    * @syscap SystemCapability.Ability.AbilityBase
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Screen density
-   *
-   * @enum { number }
-   * @syscap SystemCapability.Ability.AbilityBase
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 18]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   export enum ScreenDensity {
@@ -272,166 +141,75 @@ declare namespace ConfigurationConstant {
      * The screen pixel density is not set.
      *
      * @syscap SystemCapability.Ability.AbilityBase
-     * @since 9
-     */
-    /**
-     * The screen pixel density is not set.
-     *
-     * @syscap SystemCapability.Ability.AbilityBase
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * The screen pixel density is not set.
-     *
-     * @syscap SystemCapability.Ability.AbilityBase
-     * @crossplatform
-     * @atomicservice
-     * @since 18 dynamic
+     * @crossplatform [since 18]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      * @since 23 static
      */
     SCREEN_DENSITY_NOT_SET = 0,
 
     /**
-     * Screen pixel density is 'SDPI'
+     * The pixel density of the screen is 'SDPI'.
      *
      * @syscap SystemCapability.Ability.AbilityBase
-     * @since 9
-     */
-    /**
-     * Screen pixel density is 'SDPI'
-     *
-     * @syscap SystemCapability.Ability.AbilityBase
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Screen pixel density is 'SDPI'
-     *
-     * @syscap SystemCapability.Ability.AbilityBase
-     * @crossplatform
-     * @atomicservice
-     * @since 18 dynamic
+     * @crossplatform [since 18]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      * @since 23 static
      */
     SCREEN_DENSITY_SDPI = 120,
 
     /**
-     * Screen pixel density is 'MDPI'
+     * The pixel density of the screen is 'MDPI'.
      *
      * @syscap SystemCapability.Ability.AbilityBase
-     * @since 9
-     */
-    /**
-     * Screen pixel density is 'MDPI'
-     *
-     * @syscap SystemCapability.Ability.AbilityBase
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Screen pixel density is 'MDPI'
-     *
-     * @syscap SystemCapability.Ability.AbilityBase
-     * @crossplatform
-     * @atomicservice
-     * @since 18 dynamic
+     * @crossplatform [since 18]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      * @since 23 static
      */
     SCREEN_DENSITY_MDPI = 160,
 
     /**
-     * Screen pixel density is 'LDPI'
+     * The pixel density of the screen is 'LDPI'.
      *
      * @syscap SystemCapability.Ability.AbilityBase
-     * @since 9
-     */
-    /**
-     * Screen pixel density is 'LDPI'
-     *
-     * @syscap SystemCapability.Ability.AbilityBase
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Screen pixel density is 'LDPI'
-     *
-     * @syscap SystemCapability.Ability.AbilityBase
-     * @crossplatform
-     * @atomicservice
-     * @since 18 dynamic
+     * @crossplatform [since 18]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      * @since 23 static
      */
     SCREEN_DENSITY_LDPI = 240,
 
     /**
-     * Screen pixel density is 'XLDPI'
+     * The pixel density of the screen is 'XLDPI'.
      *
      * @syscap SystemCapability.Ability.AbilityBase
-     * @since 9
-     */
-    /**
-     * Screen pixel density is 'XLDPI'
-     *
-     * @syscap SystemCapability.Ability.AbilityBase
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Screen pixel density is 'XLDPI'
-     *
-     * @syscap SystemCapability.Ability.AbilityBase
-     * @crossplatform
-     * @atomicservice
-     * @since 18 dynamic
+     * @crossplatform [since 18]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      * @since 23 static
      */
     SCREEN_DENSITY_XLDPI = 320,
 
     /**
-     * Screen pixel density is 'XXLDPI'
+     * The pixel density of the screen is 'XXLDPI'.
      *
      * @syscap SystemCapability.Ability.AbilityBase
-     * @since 9
-     */
-    /**
-     * Screen pixel density is 'XXLDPI'
-     *
-     * @syscap SystemCapability.Ability.AbilityBase
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Screen pixel density is 'XXLDPI'
-     *
-     * @syscap SystemCapability.Ability.AbilityBase
-     * @crossplatform
-     * @atomicservice
-     * @since 18 dynamic
+     * @crossplatform [since 18]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      * @since 23 static
      */
     SCREEN_DENSITY_XXLDPI = 480,
 
     /**
-     * Screen pixel density is 'XXXLDPI'
+     * The pixel density of the screen is 'XXXLDPI'.
      *
      * @syscap SystemCapability.Ability.AbilityBase
-     * @since 9
-     */
-    /**
-     * Screen pixel density is 'XXXLDPI'
-     *
-     * @syscap SystemCapability.Ability.AbilityBase
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Screen pixel density is 'XXXLDPI'
-     *
-     * @syscap SystemCapability.Ability.AbilityBase
-     * @crossplatform
-     * @atomicservice
-     * @since 18 dynamic
+     * @crossplatform [since 18]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      * @since 23 static
      */
     SCREEN_DENSITY_XXXLDPI = 640

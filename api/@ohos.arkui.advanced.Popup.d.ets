@@ -19,406 +19,343 @@
  */
 
 /**
- * Defines the popup text options
+ * Provides text style settings.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
- * @since 11
- */
- /**
- * Defines the popup text options
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 12 dynamic
+ * @atomicservice [since 12]
+ * @since 11 dynamic
  */
 
 
 export interface PopupTextOptions {
   /**
-   * Set the text display content.
+   * Text content.
    * @type { ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-   /**
-   * Set the text display content.
-   * @type { ResourceStr }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   text: ResourceStr;
 
   /**
-   * Set the text font size.
+   * Text font size.
+   * 
+   * Default value: **$r('sys.float.ohos_id_text_size_body2')**
+   * 
+   * The string value must be convertible to a number (for example, **'10'**) or include a length unit (for example, 
+   * **'10px'**); percentage-based strings are not supported.
+   * 
+   * Value range of number values: (0, +∞)
+   *
    * @type { ?(number | string | Resource) }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-   /**
-   * Set the text font size.
-   * @type { ?(number | string | Resource) }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   fontSize?: number | string | Resource;
 
   /**
-   * Set the text font color.
+   * Text font color.
+   * 
+   * Default value: **$r('sys.color.ohos_id_color_text_secondary')**
+   *
    * @type { ?ResourceColor }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-   /**
-   * Set the text font color.
-   * @type { ?ResourceColor }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   fontColor?: ResourceColor;
 
   /**
-   * Set the text font weight.
+   * Text font weight.
+   * 
+   * For the number type, the value ranges from 100 to 900, at an interval of 100. A larger value indicates a heavier 
+   * font weight. The default value is **400**.
+   * 
+   * For the string type, only strings of the number type are supported, for example, **"400"**, **"bold"**, 
+   * **"bolder"**, **"lighter"**, **"regular"**, and **"medium"**, which correspond to the enumerated values in 
+   * **FontWeight**.
+   * 
+   * Default value: **FontWeight.Regular**
+   * 
    * @type { ?(number | FontWeight | string) }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-   /**
-   * Set the text font weight.
-   * @type { ?(number | FontWeight | string) }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   fontWeight?: number | FontWeight | string;
 }
 
 /**
- * Defines the popup button options
+ * Defines the button attributes and events.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
- * @since 11
- */
- /**
- * Defines the popup button options
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 12 dynamic
+ * @atomicservice [since 12]
+ * @since 11 dynamic
  */
 export interface PopupButtonOptions {
   /**
-   * Set the button display content.
+   * Text of the button.
    * @type { ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-   /**
-   * Set the button display content.
-   * @type { ResourceStr }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   text: ResourceStr;
 
   /**
-   * Set the button callback.
+   * Click callback of the button.
+   * 
+   * By default, no operation is performed.
+   *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-   /**
-   * Set the button callback.
-   * @type { ?function }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   action?: () => void;
 
   /**
-   * Set the button font size.
+   * Font size of the button text.
+   * 
+   * Default value: **$r('sys.float.ohos_id_text_size_button2')**
+   * 
+   * The string value must be convertible to a number (for example, **'10'**) or include a length unit (for example, 
+   * **'10px'**); percentage-based strings are not supported.
+   * 
+   * Invalid values are handled as default values.
+   *
    * @type { ?(number | string | Resource) }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-   /**
-   * Set the button font size.
-   * @type { ?(number | string | Resource) }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   fontSize?: number | string | Resource;
 
   /**
-   * Set the button font color.
+   * Font color of the button text.
+   * 
+   * Default value: **$r('sys.color.ohos_id_color_text_primary_activated')**
+   *
    * @type { ?ResourceColor }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-   /**
-   * Set the button font color.
-   * @type { ?ResourceColor }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   fontColor?: ResourceColor;
 }
 
 /**
- * Defines the popup icon options
+ * Defines the icon options.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
- * @since 11
- */
- /**
- * Defines the popup icon options
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 12 dynamic
+ * @atomicservice [since 12]
+ * @since 11 dynamic
  */
 export interface PopupIconOptions {
   /**
-   * Set the icon image.
+   * Icon content.
+   *
    * @type { ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-   /**
-   * Set the icon image.
-   * @type { ResourceStr }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   image: ResourceStr;
 
   /**
-   * Set the icon width.
+   * Icon width.
+   * 
+   * Default value: **32VP**
+   *
    * @type { ?Dimension }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-   /**
-   * Set the icon width.
-   * @type { ?Dimension }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   width?: Dimension;
 
   /**
-   * Set the icon height.
+   * Icon height.
+   * 
+   * Default value: **32VP**
+   *
    * @type { ?Dimension }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-   /**
-   * Set the icon height.
-   * @type { ?Dimension }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   height?: Dimension;
 
   /**
-   * Set the icon fill color.
+   * Icon fill color. This property applies only to an SVG image.
+   * 
+   * By default, the icon color is not changed.
+   *
    * @type { ?ResourceColor }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-   /**
-   * Set the icon fill color.
-   * @type { ?ResourceColor }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   fillColor?: ResourceColor;
 
   /**
-   * Set the icon border radius.
+   * Rounded corner of the icon.
+   * 
+   * Default value: **$r('sys.float.ohos_id_corner_radius_default_s')**
+   *
    * @type { ?(Length | BorderRadiuses) }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-   /**
-   * Set the icon border radius.
-   * @type { ?(Length | BorderRadiuses) }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   borderRadius?: Length | BorderRadiuses;
 }
 
 /**
- * Defines the popup options.
+ * Defines the style parameters of the popup.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
- * @since 11
- */
- /**
- * Defines the popup options.
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 12 dynamic
+ * @atomicservice [since 12]
+ * @since 11 dynamic
  */
 export interface PopupOptions {
   /**
-   * The icon of Popup.
-   *
+   * Icon of the popup.
+   * 
+   * **NOTE**
+   * 
+   * The icon is not displayed when **width** and **height** are set to an invalid value or **0**.
+   * 
+   * By default, no icon is displayed.
+    *
    * @type { ?PopupIconOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-   /**
-   * The icon of Popup.
-   *
-   * @type { ?PopupIconOptions }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   icon?: PopupIconOptions;
 
   /**
-   * The title of Popup.
-   *
+   * Title of the popup.
+   * 
+   * By default, no title is displayed.
+    *
    * @type { ?PopupTextOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-   /**
-   * The title of Popup.
-   *
-   * @type { ?PopupTextOptions }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   title?: PopupTextOptions;
 
   /**
-   * The message of Popup.
+   * Message of the popup.
+   * 
+   * **NOTE**
+   * 
+   * **fontWeight** is not available for messages.
+   * 
+   * By default, no message is displayed.
    *
    * @type { PopupTextOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-   /**
-   * The message of Popup.
-   *
-   * @type { PopupTextOptions }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   message: PopupTextOptions;
 
   /**
-   * The show close of Popup.
+   * Whether to show the close button.
+   * 
+   * **true**: Show the close button. **false**: Do not show the close button.
+   * 
+   * **Resource**: Show the corresponding icon.
+   * 
+   * Default value: **true**
    *
    * @type { ?(boolean | Resource) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-   /**
-   * The show close of Popup.
-   *
-   * @type { ?(boolean | Resource) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   showClose?: boolean | Resource;
 
   /**
-   * The close button callback of Popup.
+   * Callback for the popup close button.
+   * 
+   * By default, the callback for the close button is not set.
    *
    * @type { ?() => void }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-   /**
-   * The close button callback of Popup.
-   *
-   * @type { ?() => void }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   onClose?: () => void;
 
   /**
-   * The buttons of Popup.
+   * Buttons of the popup. A maximum of two buttons can be set.
+   * 
+   * By default, no buttons are displayed.
    *
    * @type { ?[PopupButtonOptions?, PopupButtonOptions?] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-   /**
-   * The buttons of Popup.
-   *
-   * @type { ?[PopupButtonOptions?, PopupButtonOptions?] }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   buttons?: [PopupButtonOptions?, PopupButtonOptions?];
 
   /**
-   * Indicates the attribute of the current popup direction.
+   * Layout direction.
+   * 
+   * Default value: **Direction.Auto**
    *
    * @type { ?Direction }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -426,10 +363,19 @@ export interface PopupOptions {
    direction?: Direction;
 
   /**
-   * Set the max width of the popup.
+   * Maximum width of the popup. This API allows the popup to display with a custom width.
+   * 
+   * **NOTE**
+   * 
+   * 1. When using resource references, ensure that the parameter type matches the attribute method type.
+   * 2. **maxWidth** accepts numeric values (both floating-point and integer values), such as **$r('app.float.maxWidth')** and **$r('app.integer.maxWidth')**.
+   * 3. When the type is Resource, values default to px units if no unit is explicitly specified.
+   * 
+   * Default value: **400vp**
    *
    * @type { ?Dimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -438,21 +384,13 @@ export interface PopupOptions {
 }
 
 /**
- * Build function of popup.
  *
- * @param { PopupOptions } options - popup option.
+ * @param { PopupOptions } options - Parameters of the popup.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
- * @since 11
- */
- /**
- * Build function of popup.
- *
- * @param { PopupOptions } options - popup option.
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 12 dynamic
+ * @atomicservice [since 12]
+ * @since 11 dynamic
  */
 @Builder
 export declare function Popup(options: PopupOptions): void;

@@ -21,13 +21,14 @@
 import { CommonConfiguration, CommonMethod, ShadowOptions, ContentModifier } from './common';
 import { ResourceColor, Length, ResourceStr } from "./units";
 import { FontStyle, FontWeight } from "./enums";
-import { ComponentBuilder, CustomBuilder } from './builder';
+import { Builder, ComponentBuilder, CustomBuilder, CustomBuilderT } from './builder';
 import { AttributeModifier } from "./common";
 
 /**
  * Provides a way to control the process.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare class TextTimerController {
@@ -36,6 +37,7 @@ export declare class TextTimerController {
      * A constructor used to create a TextTimerController object.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     constructor();
@@ -43,6 +45,7 @@ export declare class TextTimerController {
      * Provides a start event for timer.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     start(): void;
@@ -50,6 +53,7 @@ export declare class TextTimerController {
      * Provides a pause event for timer.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     pause(): void;
@@ -57,6 +61,7 @@ export declare class TextTimerController {
      * Provides an event to reset timer.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     reset(): void;
@@ -64,9 +69,8 @@ export declare class TextTimerController {
 /**
  * TextTimerConfiguration used by content modifier.
  *
- * @extends CommonConfiguration<TextTimerConfiguration>
- * @interface TextTimerConfiguration
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare interface TextTimerConfiguration extends CommonConfiguration<TextTimerConfiguration> {
@@ -80,8 +84,8 @@ export declare interface TextTimerConfiguration extends CommonConfiguration<Text
      * <br>Otherwise, the default value is used as the initial countdown time.
      * </p>
      *
-     * @type { long }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     count: long;
@@ -90,33 +94,34 @@ export declare interface TextTimerConfiguration extends CommonConfiguration<Text
      * The value true means that the timer counts down,
      * and false means that the timer counts up.
      *
-     * @type { boolean }
      * @default false
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     isCountDown: boolean;
     /**
      * Whether the timer has already started.
      *
-     * @type { boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     started: boolean;
     /**
      * Elapsed time of the timer, in the minimum unit of the format.
      *
-     * @type { long }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     elapsedTime: long;
     /**
      * The start time of the timer.
-     * It is effective when isCountDown is false.
+     * It is effective only when isCountDown is false.
+     * The value should be an integer.
      *
-     * Unit:milliseconds.
+     * Unit: ms.
      * Default value: 0.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -128,8 +133,8 @@ export declare interface TextTimerConfiguration extends CommonConfiguration<Text
 /**
  * Parameters of the TextTimer component.
  *
- * @interface TextTimerOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export interface TextTimerOptions {
@@ -137,9 +142,10 @@ export interface TextTimerOptions {
      * Whether the timer is a countdown.
      * The value true means that the timer counts down,
      * and false means that the timer counts up.
+     * Default value: false.
      *
-     * @type { ?boolean } - Default value: false
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     isCountDown?: boolean;
@@ -147,31 +153,33 @@ export interface TextTimerOptions {
      * Timer duration, in milliseconds.
      * It is effective only when isCountDown is true.
      * The maximum value is 86400000 ms (24 hours).
+     * Default value: 60000 ms.
      *
      * <p><strong>NOTE</strong>:
      * <br>If the value is between 0 and 86,400,000, it is used as the initial countdown time.
      * <br>Otherwise, the default value is used as the initial countdown time.
      * </p>
      *
-     * @type { ?long } - Default value: 60000
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     count?: long;
     /**
      * TextTimer controller.
      *
-     * @type { ?TextTimerController }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     controller?: TextTimerController;
     /**
      * The start time of the timer.
-     * It is effective when isCountDown is false.
+     * It is effective only when isCountDown is false.
+     * The value should be an integer.
      *
-     * Unit:milliseconds.
-     * Default value:0.
+     * Unit: ms.
+     * Default value: 0.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -182,21 +190,20 @@ export interface TextTimerOptions {
 /**
  * TimerCallback
  *
- * @typedef { function } TimerCallback
  * @param { long } utc
  * @param { long } elapsedTime
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
- * @noninterop
  */
 export type TimerCallback = (utc: long, elapsedTime: long) => void;
 /**
  * Defines the TextTimer component attributes.
  *
- * @extends CommonMethod
- * @interface TextTimerAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
+ * @noninterop
  */
 export declare interface TextTimerAttribute extends CommonMethod {
     /**
@@ -210,6 +217,7 @@ export declare interface TextTimerAttribute extends CommonMethod {
      * @param { string | undefined } value - Custom format.Default value: 'HH:mm:ss.SS'
      * @returns { TextTimerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default format(value: string | undefined): this;
@@ -219,6 +227,7 @@ export declare interface TextTimerAttribute extends CommonMethod {
      * @param { ResourceColor | undefined } value
      * @returns { TextTimerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default fontColor(value: ResourceColor | undefined): this;
@@ -226,10 +235,11 @@ export declare interface TextTimerAttribute extends CommonMethod {
      * Sets the font size.
      *
      * @param { Length | undefined } value - Font size.The default font size is 16 fp.
-     * <br>If fontSize is of the number type, the unit fp is used.
-     * <br>The value cannot be a percentage.
+     *     <br>If fontSize is of the number type, the unit fp is used.
+     *     <br>The value cannot be a percentage.
      * @returns { TextTimerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default fontSize(value: Length | undefined): this;
@@ -239,6 +249,7 @@ export declare interface TextTimerAttribute extends CommonMethod {
      * @param { FontStyle | undefined } value - Font style.Default value: FontStyle.Normal
      * @returns { TextTimerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default fontStyle(value: FontStyle | undefined): this;
@@ -250,11 +261,12 @@ export declare interface TextTimerAttribute extends CommonMethod {
      * </p>
      *
      * @param { int | FontWeight | ResourceStr | undefined } value - Font weight.
-     * <br>For the number type, Value range: [100, 900], at an interval of 100.The default value is 400.
-     * <br>A larger value indicates a heavier font weight.
-     * <br>For the string type, only strings that represent a number.
+     *     For the number type, Value range: [100, 900], at an interval of 100.The default value is 400.
+     *     A larger value indicates a heavier font weight.
+     *     For the string type, only strings that represent a number.
      * @returns { TextTimerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default fontWeight(value: int | FontWeight | ResourceStr | undefined): this;
@@ -264,6 +276,7 @@ export declare interface TextTimerAttribute extends CommonMethod {
      * @param { ResourceStr | undefined } value - Font family. Default font: 'HarmonyOS Sans'
      * @returns { TextTimerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default fontFamily(value: ResourceStr | undefined): this;
@@ -275,6 +288,7 @@ export declare interface TextTimerAttribute extends CommonMethod {
      * @param { TimerCallback | undefined } event
      * @returns { TextTimerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default onTimer(event: TimerCallback | undefined): this;
@@ -286,6 +300,7 @@ export declare interface TextTimerAttribute extends CommonMethod {
      * @param { ShadowOptions | Array<ShadowOptions> | undefined } value - The shadow options.
      * @returns { TextTimerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default textShadow(value: ShadowOptions | Array<ShadowOptions> | undefined): this;
@@ -295,6 +310,7 @@ export declare interface TextTimerAttribute extends CommonMethod {
      * @param { ContentModifier<TextTimerConfiguration> | undefined } modifier - The content modifier of texttimer.
      * @returns { TextTimerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default contentModifier(modifier: ContentModifier<TextTimerConfiguration> | undefined): this;
@@ -304,15 +320,27 @@ export declare interface TextTimerAttribute extends CommonMethod {
      * @param { AttributeModifier<TextTimerAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
      * @returns { TextTimerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default attributeModifier(modifier: AttributeModifier<TextTimerAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+
+    /**
+     * Set TextTimer options.
+     *
+     * @param { TextTimerOptions } [options] - TextTimer constructor options
+     * @returns { TextTimerAttribute } Returns the instance of the TextTimerAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    default setTextTimerOptions(options?: TextTimerOptions): this;
 }
 /**
  * Defines the TextTimer component.
  *
  * @param { TextTimerOptions } [options] - text timer options.
- * @returns { TextTimerAttribute } The attribute of the TextTimer.
+ * @returns { TextTimerAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -321,4 +349,19 @@ export declare interface TextTimerAttribute extends CommonMethod {
 @ComponentBuilder
 export declare function TextTimer(
     options?: TextTimerOptions
+): TextTimerAttribute;
+
+/**
+ * Defines TextTimer Component.
+ *
+ * @param { CustomBuilderT<TextTimerAttribute> } style - TextTimer attribute instance
+ * @returns { TextTimerAttribute }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ * @noninterop
+ */
+@Builder
+export declare function TextTimer(
+    style: CustomBuilderT<TextTimerAttribute>,
 ): TextTimerAttribute;

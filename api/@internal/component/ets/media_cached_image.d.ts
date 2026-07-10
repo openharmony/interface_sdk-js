@@ -24,6 +24,7 @@
  * @interface ASTCResource
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
+ * @stagemodelonly
  * @since 12 dynamic
  */
 interface ASTCResource {
@@ -32,6 +33,7 @@ interface ASTCResource {
    * @type { Array<string> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @stagemodelonly
    * @since 12 dynamic
    */
   sources: Array<string>;
@@ -40,6 +42,7 @@ interface ASTCResource {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @stagemodelonly
    * @since 12 dynamic
    */
   column: number;
@@ -49,6 +52,7 @@ interface ASTCResource {
  * @interface MediaCachedImageInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
+ * @stagemodelonly
  * @since 12 dynamic
  * @noninterop
  */
@@ -60,6 +64,7 @@ interface MediaCachedImageInterface {
    * @returns { MediaCachedImageAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @stagemodelonly
    * @since 12 dynamic
    */
   (src: PixelMap | ResourceStr | DrawableDescriptor | ASTCResource): MediaCachedImageAttribute;
@@ -71,6 +76,7 @@ interface MediaCachedImageInterface {
  * @extends ImageAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
+ * @stagemodelonly
  * @since 12 dynamic
  * @noninterop
  */
@@ -81,6 +87,7 @@ declare class MediaCachedImageAttribute extends ImageAttribute {}
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
+ * @stagemodelonly
  * @since 12 dynamic
  * @noninterop
  */
@@ -91,6 +98,7 @@ declare const MediaCachedImage: MediaCachedImageInterface;
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
+ * @stagemodelonly
  * @since 12 dynamic
  * @noninterop
  */

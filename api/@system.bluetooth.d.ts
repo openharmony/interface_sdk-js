@@ -19,160 +19,160 @@
  */
 
 /**
- * @typedef StartBLEScanOptions
  * @syscap SystemCapability.Communication.Bluetooth.Lite
+ * @famodelonly
  * @since 6 dynamiconly
  */
 export interface StartBLEScanOptions {
   /**
    * Time of delay for reporting the scan result
    *
-   * @type { number }
    * @syscap SystemCapability.Communication.Bluetooth.Lite
+   * @famodelonly
    * @since 6 dynamiconly
    */
   interval: number;
   /**
    * StartBLEScanOptions success
    *
-   * @type { function }
    * @syscap SystemCapability.Communication.Bluetooth.Lite
+   * @famodelonly
    * @since 6 dynamiconly
    */
   success: () => void;
   /**
    * StartBLEScanOptions failed
    *
-   * @type { function }
    * @syscap SystemCapability.Communication.Bluetooth.Lite
+   * @famodelonly
    * @since 6 dynamiconly
    */
   fail: (data: string, code: number) => void;
   /**
    * StartBLEScanOptions completed
    *
-   * @type { function }
    * @syscap SystemCapability.Communication.Bluetooth.Lite
+   * @famodelonly
    * @since 6 dynamiconly
    */
   complete: () => void;
 }
 
 /**
- * @typedef StopBLEScanOptions
  * @syscap SystemCapability.Communication.Bluetooth.Lite
+ * @famodelonly
  * @since 6 dynamiconly
  */
 export interface StopBLEScanOptions {
   /**
    * StopBLEScanOptions success
    *
-   * @type { function }
    * @syscap SystemCapability.Communication.Bluetooth.Lite
+   * @famodelonly
    * @since 6 dynamiconly
    */
   success: () => void;
   /**
    * StopBLEScanOptions failed
    *
-   * @type { function }
    * @syscap SystemCapability.Communication.Bluetooth.Lite
+   * @famodelonly
    * @since 6 dynamiconly
    */
   fail: (data: string, code: number) => void;
   /**
    * StopBLEScanOptions completed
    *
-   * @type { function }
    * @syscap SystemCapability.Communication.Bluetooth.Lite
+   * @famodelonly
    * @since 6 dynamiconly
    */
   complete: () => void;
 }
 
 /**
- * @typedef BluetoothDevice
  * @syscap SystemCapability.Communication.Bluetooth.Lite
+ * @famodelonly
  * @since 6 dynamiconly
  */
 export interface BluetoothDevice {
   /**
    * The addrType of address, may be public or random
    *
-   * @type { 'public' | 'random' }
    * @syscap SystemCapability.Communication.Bluetooth.Lite
+   * @famodelonly
    * @since 6 dynamiconly
    */
   addrType: 'public' | 'random';
   /**
    * Address of BluetoothDevice
    *
-   * @type { string }
    * @syscap SystemCapability.Communication.Bluetooth.Lite
+   * @famodelonly
    * @since 6 dynamiconly
    */
   addr: string;
   /**
    * RSSI of the remote device
    *
-   * @type { number }
    * @syscap SystemCapability.Communication.Bluetooth.Lite
+   * @famodelonly
    * @since 6 dynamiconly
    */
   rssi: number;
   /**
    * Transmission power level for advertising
    *
-   * @type { string }
    * @syscap SystemCapability.Communication.Bluetooth.Lite
+   * @famodelonly
    * @since 6 dynamiconly
    */
   txpower: string;
   /**
    * The data of BluetoothDevice
    *
-   * @type { string }
    * @syscap SystemCapability.Communication.Bluetooth.Lite
+   * @famodelonly
    * @since 6 dynamiconly
    */
   data: string;
 }
 
 /**
- * @typedef BLEFoundResponse
  * @syscap SystemCapability.Communication.Bluetooth.Lite
+ * @famodelonly
  * @since 6 dynamiconly
  */
 export interface BLEFoundResponse {
   /**
    * The devices of BLEFoundResponse
    *
-   * @type { Array<BluetoothDevice> }
    * @syscap SystemCapability.Communication.Bluetooth.Lite
+   * @famodelonly
    * @since 6 dynamiconly
    */
   devices: Array<BluetoothDevice>;
 }
 
 /**
- * @typedef SubscribeBLEFoundOptions
  * @syscap SystemCapability.Communication.Bluetooth.Lite
+ * @famodelonly
  * @since 6 dynamiconly
  */
 export interface SubscribeBLEFoundOptions {
   /**
    * SubscribeBLEFoundOptions success
    *
-   * @type { function }
    * @syscap SystemCapability.Communication.Bluetooth.Lite
+   * @famodelonly
    * @since 6 dynamiconly
    */
   success: (data: BLEFoundResponse) => void;
   /**
    * SubscribeBLEFoundOptions failed
    *
-   * @type { function }
    * @syscap SystemCapability.Communication.Bluetooth.Lite
+   * @famodelonly
    * @since 6 dynamiconly
    */
   fail: (data: string, code: number) => void;
@@ -182,6 +182,7 @@ export interface SubscribeBLEFoundOptions {
  * Provides methods to manage BLE scan.
  *
  * @syscap SystemCapability.Communication.Bluetooth.Lite
+ * @famodelonly
  * @since 6 dynamiconly
  */
 export default class Bluetooth {
@@ -190,6 +191,7 @@ export default class Bluetooth {
    *
    * @param { StartBLEScanOptions } options - Options
    * @syscap SystemCapability.Communication.Bluetooth.Lite
+   * @famodelonly
    * @since 6 dynamiconly
    */
   static startBLEScan(options: StartBLEScanOptions): void;
@@ -199,6 +201,7 @@ export default class Bluetooth {
    *
    * @param { StopBLEScanOptions } options - Options
    * @syscap SystemCapability.Communication.Bluetooth.Lite
+   * @famodelonly
    * @since 6 dynamiconly
    */
   static stopBLEScan(options: StopBLEScanOptions): void;
@@ -208,6 +211,7 @@ export default class Bluetooth {
    *
    * @param { SubscribeBLEFoundOptions } options - Options
    * @syscap SystemCapability.Communication.Bluetooth.Lite
+   * @famodelonly
    * @since 6 dynamiconly
    */
   static subscribeBLEFound(options: SubscribeBLEFoundOptions): void;
@@ -216,6 +220,7 @@ export default class Bluetooth {
    * Stop the subscription of BLE found
    *
    * @syscap SystemCapability.Communication.Bluetooth.Lite
+   * @famodelonly
    * @since 6 dynamiconly
    */
   static unsubscribeBLEFound(): void;

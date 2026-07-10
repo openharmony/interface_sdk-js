@@ -24,6 +24,7 @@
  * @interface RootSceneSession
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
+ * @stagemodelonly
  * @since 10 dynamic
  */
 interface RootSceneSession {
@@ -35,6 +36,7 @@ interface RootSceneSession {
  * @interface RootSceneInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
+ * @stagemodelonly
  * @since 10 dynamic
  * @noninterop
  */
@@ -46,6 +48,7 @@ interface RootSceneInterface {
    * @returns { RootSceneAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @stagemodelonly
    * @since 10 dynamic
    */
   (session: RootSceneSession): RootSceneAttribute;
@@ -57,6 +60,7 @@ interface RootSceneInterface {
  * @extends CommonMethod<RootSceneAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
+ * @stagemodelonly
  * @since 10 dynamic
  * @noninterop
  */
@@ -68,6 +72,7 @@ declare class RootSceneAttribute extends CommonMethod<RootSceneAttribute> {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
+ * @stagemodelonly
  * @since 10 dynamic
  * @noninterop
  */
@@ -78,6 +83,7 @@ declare const RootScene: RootSceneInterface;
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
+ * @stagemodelonly
  * @since 10 dynamic
  * @noninterop
  */

@@ -18,192 +18,98 @@
  * @kit ArkUI
  */
 /**
- * Defines the option of MenuItemGroup.
+ * Describes the header and footer of the menu item group.
  *
- * @interface MenuItemGroupOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 9
- */
-/**
- * Defines the option of MenuItemGroup.
- *
- * @interface MenuItemGroupOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 10
- */
-/**
- * Defines the option of MenuItemGroup.
- *
- * @interface MenuItemGroupOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 9 dynamic
  */
 declare interface MenuItemGroupOptions {
     /**
-     * Defines the header display info.
+     * Header of the menu item group.
      *
-     * @type { ?(ResourceStr | CustomBuilder) }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 9
-     */
-    /**
-     * Defines the header display info.
-     *
-     * @type { ?(ResourceStr | CustomBuilder) }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Defines the header display info.
-     *
-     * @type { ?(ResourceStr | CustomBuilder) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @FaAndStageModel
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      */
     header?: ResourceStr | CustomBuilder;
     /**
-     * Defines the footer display info.
+     * Footer of the menu item group.
      *
-     * @type { ?(ResourceStr | CustomBuilder) }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 9
-     */
-    /**
-     * Defines the footer display info.
-     *
-     * @type { ?(ResourceStr | CustomBuilder) }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Defines the footer display info.
-     *
-     * @type { ?(ResourceStr | CustomBuilder) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @FaAndStageModel
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      */
     footer?: ResourceStr | CustomBuilder;
 }
 
 /**
- * Defines the MenuItemGroup Component.
+ * The **MenuItemGroup** component represents a group of menu items.
+ * 
+ * > **NOTE**
+ * >
+ * > This component is supported since API version 9. Newly added APIs will be marked with a superscript to indicate 
+ * > their 
  *
- * @interface MenuItemGroupInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 9
- */
-/**
- * Defines the MenuItemGroup Component.
- *
- * @interface MenuItemGroupInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 10
- */
-/**
- * Defines the MenuItemGroup Component.
- *
- * @interface MenuItemGroupInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 9 dynamic
  * @noninterop
  */
 interface MenuItemGroupInterface {
     /**
-     * Creates the MenuItemGroup component.
      *
-     * @param { MenuItemGroupOptions } value
-     * @returns { MenuItemGroupAttribute }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 9
-     */
-    /**
-     * Creates the MenuItemGroup component.
-     *
-     * @param { MenuItemGroupOptions } value
-     * @returns { MenuItemGroupAttribute }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Creates the MenuItemGroup component.
-     *
-     * @param { MenuItemGroupOptions } value
+     * @param { MenuItemGroupOptions } value - Header and footer of the menu item group.
      * @returns { MenuItemGroupAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @FaAndStageModel
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      */
     (value?: MenuItemGroupOptions): MenuItemGroupAttribute;
 }
 
 /**
- * Defines the MenuItemGroup component attribute functions.
  *
- * @extends CommonMethod<MenuItemGroupAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 9
- */
-/**
- * Defines the MenuItemGroup component attribute functions.
- *
- * @extends CommonMethod<MenuItemGroupAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 10
- */
-/**
- * Defines the MenuItemGroup component attribute functions.
- *
- * @extends CommonMethod<MenuItemGroupAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 9 dynamic
  * @noninterop
  */
 declare class MenuItemGroupAttribute extends CommonMethod<MenuItemGroupAttribute> {}
 
 /**
- * Defines MenuItemGroup Component.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 9
- */
-/**
- * Defines MenuItemGroup Component.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 10
- */
-/**
- * Defines MenuItemGroup Component.
+ * The **MenuItemGroup** component represents a group of menu items.
+ * 
+ * > **NOTE**
+ * >
+ * > This component is supported since API version 9. Newly added APIs will be marked with a superscript to indicate 
+ * > their 
+ * 
+ * ###### Child Components
+ * 
+ * This component contains the [MenuItem]{@link menu_item} child component.
+ * 
+ * ###### Sample
+ * 
+ * For details, see [Example in Menu](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-menu.md#example).
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 9 dynamic
  * @noninterop
  */
 declare const MenuItemGroup: MenuItemGroupInterface;
@@ -212,23 +118,10 @@ declare const MenuItemGroup: MenuItemGroupInterface;
  * Defines MenuItemGroup Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 9
- */
-/**
- * Defines MenuItemGroup Component instance.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 10
- */
-/**
- * Defines MenuItemGroup Component instance.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 9 dynamic
  * @noninterop
  */
 declare const MenuItemGroupInstance: MenuItemGroupAttribute;

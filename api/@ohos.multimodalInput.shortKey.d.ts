@@ -14,35 +14,41 @@
 */
 
 /**
- * @file
+ * The **shortKey** module provides APIs to set the delay for starting an ability using a shortcut key. For example, you
+ * can set the delay to 3 seconds so that a screenshot is taken when you press and hold the shortcut key for 3 seconds.
+ *
+ * @file Preset Global Shortcut Keys
  * @kit InputKit
  */
 
 import type { AsyncCallback } from './@ohos.base';
+
 /**
- * The shortKey module provides APIs to set the delay for starting an ability using a shortcut key. 
- * For example, you can set the delay to 3 seconds so that a screenshot is taken when you press and hold the shortcut key for 3 seconds.
+ * The shortKey module provides APIs to set the delay for starting an ability using a shortcut key.
+ * For example, you can set the delay to 3 seconds so that a screenshot is taken when you press and hold the shortcut
+ * key for 3 seconds.
  *
- * @namespace shortKey
  * @syscap SystemCapability.MultimodalInput.Input.ShortKey
  * @systemapi hide for inner use
  * @since 10 dynamic
  * @since 23 static
  */
-
 declare namespace shortKey {
+
   /**
-   * Sets the delay for starting an ability using shortcut keys. 
-   * This API uses an asynchronous callback to return the result.
-   * 
-   * @param { string } businessKey - Unique service ID registered on the multimodal side. 
-   * It corresponds to businessId in the ability_launch_config.json file. You need to query this parameter on your own before calling the API.
-   * @param { int } delay - Delay for starting an ability using shortcut keys, in milliseconds. This field is invalid only when shortcut keys are used.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result. 
-   * If the operation is successful, err is undefined. Otherwise, err is an error object.
+   * Sets the delay for starting an ability using shortcut keys. This API uses an asynchronous callback to return the
+   * result.
+   *
+   * @param { string } businessKey - Unique service ID registered on the multimodal side. It corresponds to
+   *     **businessId** in the **ability_launch_config.json** file. You need to query this parameter on your own before
+   *     calling the API.
+   * @param { int } delay - Delay for starting an ability using shortcut keys, in milliseconds. This field is valid only
+   *     when shortcut keys are pressed.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+   *     **err** is **undefined**. Otherwise, **err** is an error object.
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.ShortKey
    * @systemapi hide for inner use
    * @since 10 dynamic
@@ -51,38 +57,39 @@ declare namespace shortKey {
   function setKeyDownDuration(businessKey: string, delay: int, callback: AsyncCallback<void>): void;
 
   /**
-   * Sets the delay for starting an ability using shortcut keys. 
-   * This API uses a promise to return the result.
-   * 
-   * @param { string } businessKey - Unique service ID registered on the multimodal side. 
-   * It corresponds to businessId in the ability_launch_config.json file. You need to query this parameter on your own before calling the API.
-   * @param { int } delay - Delay for starting an ability using shortcut keys, in milliseconds. This field is invalid only when shortcut keys are used.
-   * @returns { Promise<void> } Returns the result through a promise.
+   * Sets the delay for starting an ability using shortcut keys. This API uses a promise to return the result.
+   *
+   * @param { string } businessKey - Unique service ID registered on the multimodal side. It corresponds to
+   *     **businessId** in the **ability_launch_config.json** file. You need to query this parameter on your own before
+   *     calling the API.
+   * @param { int } delay - Delay for starting an ability using shortcut keys, in milliseconds. This field is valid only
+   *     when shortcut keys are pressed.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.ShortKey
    * @systemapi hide for inner use
    * @since 10 dynamic
    * @since 23 static
    */
   function setKeyDownDuration(businessKey: string, delay: int): Promise<void>;
-
 }
+
 export default shortKey;
 
 /**
- * Enumerates fingerprint key event types.
+ * Enumerates fingerprint gesture event types.
  *
- * @enum { number }
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @systemapi Hide this for inner system use.
  * @since 12 dynamic
  * @since 23 static
  */
 export declare enum FingerprintAction {
+
   /**
-   * Pressing down.
+   * Pressing down
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi Hide this for inner system use.
@@ -92,7 +99,7 @@ export declare enum FingerprintAction {
   DOWN = 0,
 
   /**
-   * Lifting up.
+   * Lifting up
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi Hide this for inner system use.
@@ -102,7 +109,7 @@ export declare enum FingerprintAction {
   UP = 1,
 
   /**
-   * Sliding.
+   * Sliding
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi Hide this for inner system use.
@@ -112,7 +119,7 @@ export declare enum FingerprintAction {
   SLIDE = 2,
 
   /**
-   * Retouching.
+   * Second pressing down
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi Hide this for inner system use.
@@ -122,30 +129,29 @@ export declare enum FingerprintAction {
   RETOUCH = 3,
 
   /**
-   * Clicking.
+   * Double-click
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi Hide this for inner system use.
    * @since 12 dynamic
    * @since 23 static
    */
-  CLICK = 4,
+  CLICK = 4
 }
 
 /**
- * Defines the key event type and the offset position relative to the key.
+ * Provides fingerprint gesture event types and the offset of the fingerprint sensor relative to the side edge.
  *
- * @interface FingerprintEvent
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @systemapi Hide this for inner system use.
  * @since 12 dynamic
  * @since 23 static
  */
 export declare interface FingerprintEvent {
+
   /**
-   * Fingerprint key event type.
+   * Enumeration of fingerprint gesture event types.
    *
-   * @type { FingerprintAction }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi Hide this for inner system use.
    * @since 12 dynamic
@@ -154,16 +160,9 @@ export declare interface FingerprintEvent {
   action: FingerprintAction;
 
   /**
-   * This value indicates the sliding percentage of the fingerprint key on the X axis,
-   * that is, the ratio of the relative sliding distance to the device length
-   * compared with the previous report of the sliding event.
-   * A positive value indicates moving in the positive direction of the X axis,
-   * and a negative value indicates the opposite.
-   * The vertical upward direction of the device stands for the positive direction of the Y axis,
-   * and the horizontal rightward direction stands for the positive direction of the X axis.
-   * This way, a rectangular coordinate system is constructed.
+   * Offset relative to the short axis of the side fingerprint device (positive values indicate movement to the right,
+   * and negative values indicate movement to the left).
    *
-   * @type { double }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi Hide this for inner system use.
    * @since 12 dynamic
@@ -172,16 +171,9 @@ export declare interface FingerprintEvent {
   distanceX: double;
 
   /**
-   * This value indicates the sliding percentage of the fingerprint key on the Y axis,
-   * that is, the ratio of the relative sliding distance to the component length
-   * compared with the previous report of the sliding event.
-   * A positive value indicates moving in the positive direction of the Y axis,
-   * and a negative value indicates the opposite.
-   * The vertical upward direction of the device stands for the positive direction of the Y axis,
-   * and the horizontal rightward direction stands for the positive direction of the X axis.
-   * This way, a rectangular coordinate system is constructed.
+   * Offset relative to the long axis of the side fingerprint device (positive values indicate upward movement, and
+   * negative values indicate downward movement).
    *
-   * @type { double }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi Hide this for inner system use.
    * @since 12 dynamic

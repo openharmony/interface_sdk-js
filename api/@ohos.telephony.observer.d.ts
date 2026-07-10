@@ -171,7 +171,6 @@ declare namespace observer {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.StateRegistry
    * @since 6 dynamic
-   * @since 23 static
    */
   function on(type: 'networkStateChange', callback: Callback<NetworkState>): void;
 
@@ -228,7 +227,6 @@ declare namespace observer {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.StateRegistry
    * @since 11 dynamic
-   * @since 23 static
    */
   function on(type: 'networkStateChange', options: ObserverOptions, callback: Callback<NetworkState>): void;
 
@@ -265,7 +263,6 @@ declare namespace observer {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.StateRegistry
    * @since 6 dynamic
-   * @since 23 static
    */
   function off(type: 'networkStateChange', callback?: Callback<NetworkState>): void;
 
@@ -299,7 +296,6 @@ declare namespace observer {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.StateRegistry
    * @since 6 dynamic
-   * @since 23 static
    */
   function on(type: 'signalInfoChange', callback: Callback<Array<SignalInformation>>): void;
 
@@ -350,7 +346,6 @@ declare namespace observer {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.StateRegistry
    * @since 11 dynamic
-   * @since 23 static
    */
   function on(type: 'signalInfoChange', options: ObserverOptions, callback: Callback<Array<SignalInformation>>): void;
 
@@ -385,7 +380,6 @@ declare namespace observer {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.StateRegistry
    * @since 6 dynamic
-   * @since 23 static
    */
   function off(type: 'signalInfoChange', callback?: Callback<Array<SignalInformation>>): void;
 
@@ -423,7 +417,6 @@ declare namespace observer {
    * @syscap SystemCapability.Telephony.StateRegistry
    * @systemapi Hide this for inner system use.
    * @since 8 dynamic
-   * @since 23 static
    */
   function on(type: 'cellInfoChange', callback: Callback<Array<CellInformation>>): void;
 
@@ -486,7 +479,6 @@ declare namespace observer {
    * @syscap SystemCapability.Telephony.StateRegistry
    * @systemapi Hide this for inner system use.
    * @since 11 dynamic
-   * @since 23 static
    */
   function on(type: 'cellInfoChange', options: ObserverOptions, callback: Callback<Array<CellInformation>>): void;
 
@@ -527,7 +519,6 @@ declare namespace observer {
    * @syscap SystemCapability.Telephony.StateRegistry
    * @systemapi Hide this for inner system use.
    * @since 8 dynamic
-   * @since 23 static
    */
   function off(type: 'cellInfoChange', callback?: Callback<Array<CellInformation>>): void;
 
@@ -581,7 +572,6 @@ declare namespace observer {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.StateRegistry
    * @since 11 dynamic
-   * @since 23 static
    */
   function on(type: 'cellularDataConnectionStateChange', callback: Callback<DataConnectionStateInfo>): void;
 
@@ -637,7 +627,6 @@ declare namespace observer {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.StateRegistry
    * @since 11 dynamic
-   * @since 23 static
    */
   function on(type: 'cellularDataConnectionStateChange', options: ObserverOptions,
               callback: Callback<DataConnectionStateInfo>): void;
@@ -691,7 +680,6 @@ declare namespace observer {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.StateRegistry
    * @since 11 dynamic
-   * @since 23 static
    */
   function off(type: 'cellularDataConnectionStateChange', callback?: Callback<DataConnectionStateInfo>): void;
 
@@ -725,7 +713,6 @@ declare namespace observer {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.StateRegistry
    * @since 7 dynamic
-   * @since 23 static
    */
   function on(type: 'cellularDataFlowChange', callback: Callback<DataFlowType>): void;
 
@@ -776,7 +763,6 @@ declare namespace observer {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.StateRegistry
    * @since 11 dynamic
-   * @since 23 static
    */
   function on(type: 'cellularDataFlowChange', options: ObserverOptions, callback: Callback<DataFlowType>): void;
 
@@ -811,7 +797,6 @@ declare namespace observer {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.StateRegistry
    * @since 7 dynamic
-   * @since 23 static
    */
   function off(type: 'cellularDataFlowChange', callback?: Callback<DataFlowType>): void;
 
@@ -1083,7 +1068,6 @@ declare namespace observer {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.StateRegistry
    * @since 7 dynamic
-   * @since 23 static
    */
   function on(type: 'simStateChange', callback: Callback<SimStateData>): void;
 
@@ -1132,7 +1116,6 @@ declare namespace observer {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.StateRegistry
    * @since 11 dynamic
-   * @since 23 static
    */
   function on(type: 'simStateChange', options: ObserverOptions, callback: Callback<SimStateData>): void;
 
@@ -1165,7 +1148,6 @@ declare namespace observer {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.StateRegistry
    * @since 7 dynamic
-   * @since 23 static
    */
   function off(type: 'simStateChange', callback?: Callback<SimStateData>): void;
 
@@ -1199,7 +1181,6 @@ declare namespace observer {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.StateRegistry
    * @since 10 dynamic
-   * @since 23 static
    */
   function on(type: 'iccAccountInfoChange', callback: Callback<void>): void;
 
@@ -1234,7 +1215,6 @@ declare namespace observer {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.StateRegistry
    * @since 10 dynamic
-   * @since 23 static
    */
   function off(type: 'iccAccountInfoChange', callback?: Callback<void>): void;
 
@@ -1253,6 +1233,34 @@ declare namespace observer {
    * @since 23 static
    */
   function offIccAccountInfoChange(callback?: Callback<void>): void;
+
+  /**
+   * This API uses an asynchronous callback to return the result.
+   *
+   * @permission ohos.permission.GET_NETWORK_INFO
+   * @param { Callback<boolean> } callback - Callback used to return the result.
+   *     The value **true** indicates 5A state, and **false** indicates not 5A state.
+   * @param { ObserverOptions } [options] - Indicates the options for observer.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @syscap SystemCapability.Telephony.StateRegistry
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function onCommunicationStateChange(callback: Callback<boolean>, options?: ObserverOptions): void;
+
+  /**
+   * Unsubscribes from the callback for listening to the 5A state.
+   *
+   * @permission ohos.permission.GET_NETWORK_INFO
+   * @param { Callback<boolean> } callback - Callback used to return the result.
+   *     The value **true** indicates 5A state, and **false** indicates not 5A state.
+   * @param { ObserverOptions } [options] - Indicates the options for observer.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @syscap SystemCapability.Telephony.StateRegistry
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function offCommunicationStateChange(callback: Callback<boolean>, options?: ObserverOptions): void;
 
   /**
    * Indicates SIM card type and status.

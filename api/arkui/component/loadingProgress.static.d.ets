@@ -20,14 +20,14 @@
  */
 import { CommonMethod, ContentModifier, CommonConfiguration } from './common';
 import { ResourceColor } from "./units";
-import { ComponentBuilder, CustomBuilder } from './builder';
+import { Builder, ComponentBuilder, CustomBuilder, CustomBuilderT } from './builder';
 import { AttributeModifier } from "./common";
 
 /**
  * Load style of progress bar.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare enum LoadingProgressStyle {
@@ -35,6 +35,7 @@ export declare enum LoadingProgressStyle {
      * Default style.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     Default,
@@ -42,6 +43,7 @@ export declare enum LoadingProgressStyle {
      * Announcement style.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     Circular,
@@ -49,6 +51,7 @@ export declare enum LoadingProgressStyle {
      * The style of the track.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     Orbital
@@ -56,9 +59,8 @@ export declare enum LoadingProgressStyle {
 /**
  * Defines the LoadingProgress component attributes.
  *
- * @extends CommonMethod
- * @interface LoadingProgressAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  * @noninterop
  */
@@ -69,6 +71,7 @@ export declare interface LoadingProgressAttribute extends CommonMethod {
      * @param { ResourceColor | undefined } value
      * @returns { LoadingProgressAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default color(value: ResourceColor | undefined): this;
@@ -76,18 +79,20 @@ export declare interface LoadingProgressAttribute extends CommonMethod {
      * Whether to display the LoadingProgress content.
      *
      * @param { boolean | undefined } value - indicates the state of LoadingProgress content
-     * @returns { LoadingProgressAttribute } the attribute of the LoadingProgress.
+     * @returns { LoadingProgressAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default enableLoading(value: boolean | undefined): this;
     /**
      * Set the content modifier of loadingProgress.
      *
-     * @param { ContentModifier<LoadingProgressConfiguration> | undefined } modifier - 
+     * @param { ContentModifier<LoadingProgressConfiguration> | undefined } modifier -
      *     The contentModifier of LoadingProgress.
-     * @returns { LoadingProgressAttribute} the attribute of the loading progress
+     * @returns { LoadingProgressAttribute}
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default contentModifier(modifier: ContentModifier<LoadingProgressConfiguration> | undefined): this;
@@ -97,24 +102,34 @@ export declare interface LoadingProgressAttribute extends CommonMethod {
      * @param { AttributeModifier<LoadingProgressAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
      * @returns { LoadingProgressAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default attributeModifier(modifier: AttributeModifier<LoadingProgressAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+
+    /**
+     * Set LoadingProgress options.
+     *
+     * @returns { LoadingProgressAttribute } Returns the instance of the LoadingProgressAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    default setLoadingProgressOptions(): this;
 }
 /**
  * LoadingProgressConfiguration used by LoadingProgress contentModifier
  *
- * @extends CommonConfiguration<LoadingProgressConfiguration>
- * @interface LoadingProgressConfiguration
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare interface LoadingProgressConfiguration extends CommonConfiguration<LoadingProgressConfiguration> {
     /**
      * Whether to enable the LoadingProgress content.
      *
-     * @type { boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     enableLoading: boolean;
@@ -122,7 +137,7 @@ export declare interface LoadingProgressConfiguration extends CommonConfiguratio
 /**
  * Defines the LoadingProgress component.
  *
- * @returns { LoadingProgressAttribute } The attribute of the LoadingProgress.
+ * @returns { LoadingProgressAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -130,4 +145,19 @@ export declare interface LoadingProgressConfiguration extends CommonConfiguratio
  */
 @ComponentBuilder
 export declare function LoadingProgress(
+): LoadingProgressAttribute;
+
+/**
+ * Defines LoadingProgress Component.
+ *
+ * @param { CustomBuilderT<LoadingProgressAttribute> } style - LoadingProgress attribute instance
+ * @returns { LoadingProgressAttribute }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ * @noninterop
+ */
+@Builder
+export declare function LoadingProgress(
+    style: CustomBuilderT<LoadingProgressAttribute>,
 ): LoadingProgressAttribute;

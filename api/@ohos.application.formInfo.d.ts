@@ -21,19 +21,23 @@
 import Want from './@ohos.app.ability.Want';
 
 /**
- * interface of formInfo.
+ * The **formInfo** module provides types and enums related to the widget information and state.
+ * 
+ * > **NOTE**
+ * 
+ * > - This module is deprecated since API version 9. You are advised to use 
+ * > [formInfo]{@link @ohos.app.form.formInfo:formInfo} instead.
  *
- * @namespace formInfo
  * @syscap SystemCapability.Ability.Form
  * @since 8
  * @deprecated since 9
  * @useinstead ohos.app.form.formInfo/formInfo
  */
 declare namespace formInfo {
+
   /**
-   * Provides information about a form.
+   * Widget information.
    *
-   * @typedef FormInfo
    * @syscap SystemCapability.Ability.Form
    * @since 8
    * @deprecated since 9
@@ -41,9 +45,8 @@ declare namespace formInfo {
    */
   interface FormInfo {
     /**
-     * Obtains the bundle name of the application to which this form belongs.
+     * Name of the bundle to which the widget belongs.
      *
-     * @type { string }
      * @syscap SystemCapability.Ability.Form
      * @since 8
      * @deprecated since 9
@@ -52,9 +55,8 @@ declare namespace formInfo {
     bundleName: string;
 
     /**
-     * Obtains the name of the application module to which this form belongs.
+     * Name of the module to which the widget belongs.
      *
-     * @type { string }
      * @syscap SystemCapability.Ability.Form
      * @since 8
      * @deprecated since 9
@@ -63,9 +65,8 @@ declare namespace formInfo {
     moduleName: string;
 
     /**
-     * Obtains the class name of the ability to which this form belongs.
+     * Name of the ability to which the widget belongs.
      *
-     * @type { string }
      * @syscap SystemCapability.Ability.Form
      * @since 8
      * @deprecated since 9
@@ -74,9 +75,8 @@ declare namespace formInfo {
     abilityName: string;
 
     /**
-     * Obtains the name of this form.
+     * Widget name.
      *
-     * @type { string }
      * @syscap SystemCapability.Ability.Form
      * @since 8
      * @deprecated since 9
@@ -85,9 +85,8 @@ declare namespace formInfo {
     name: string;
 
     /**
-     * Obtains the description of this form.
+     * Description of the widget.
      *
-     * @type { string }
      * @syscap SystemCapability.Ability.Form
      * @since 8
      * @deprecated since 9
@@ -96,9 +95,8 @@ declare namespace formInfo {
     description: string;
 
     /**
-     * Obtains the type of this form. Currently, JS forms are supported.
+     * Type of the widget. Currently, only JS widgets are supported.
      *
-     * @type { FormType }
      * @syscap SystemCapability.Ability.Form
      * @since 8
      * @deprecated since 9
@@ -107,9 +105,8 @@ declare namespace formInfo {
     type: FormType;
 
     /**
-     * Obtains the JS component name of this JS form.
+     * Component name of the JS widget.
      *
-     * @type { string }
      * @syscap SystemCapability.Ability.Form
      * @since 8
      * @deprecated since 9
@@ -118,9 +115,8 @@ declare namespace formInfo {
     jsComponentName: string;
 
     /**
-     * Obtains the color mode of this form.
+     * Color mode of the widget.
      *
-     * @type { ColorMode }
      * @syscap SystemCapability.Ability.Form
      * @since 8
      * @deprecated since 9
@@ -129,9 +125,11 @@ declare namespace formInfo {
     colorMode: ColorMode;
 
     /**
-     * Checks whether this form is a default form.
+     * Whether the widget is the default one.
+     * 
+     * - **true**: The widget is the default one.
+     * - **false**: The widget is not the default one.
      *
-     * @type { boolean }
      * @syscap SystemCapability.Ability.Form
      * @since 8
      * @deprecated since 9
@@ -140,9 +138,11 @@ declare namespace formInfo {
     isDefault: boolean;
 
     /**
-     * Obtains the updateEnabled.
+     * Whether the widget is updatable.
+     * 
+     * - **true**: The widget can be updated periodically.
+     * - **false**: The widget cannot be updated periodically.
      *
-     * @type { boolean }
      * @syscap SystemCapability.Ability.Form
      * @since 8
      * @deprecated since 9
@@ -151,9 +151,11 @@ declare namespace formInfo {
     updateEnabled: boolean;
 
     /**
-     * Obtains whether notify visible of this form.
+     * Whether to send a notification when the widget is visible.
+     * 
+     * - **true**: The widget provider is notified of the status change.
+     * - **false**: The widget provider is not notified of the status change.
      *
-     * @type { boolean }
      * @syscap SystemCapability.Ability.Form
      * @since 8
      * @deprecated since 9
@@ -162,9 +164,8 @@ declare namespace formInfo {
     formVisibleNotify: boolean;
 
     /**
-     * Obtains the bundle relatedBundleName of the application to which this form belongs.
+     * Name of the associated bundle to which the widget belongs.
      *
-     * @type { string }
      * @syscap SystemCapability.Ability.Form
      * @since 8
      * @deprecated since 9
@@ -172,9 +173,8 @@ declare namespace formInfo {
     relatedBundleName: string;
 
     /**
-     * Obtains the scheduledUpdateTime.
+     * Time when the widget was updated.
      *
-     * @type { string }
      * @syscap SystemCapability.Ability.Form
      * @since 8
      * @deprecated since 9
@@ -183,9 +183,8 @@ declare namespace formInfo {
     scheduledUpdateTime: string;
 
     /**
-     * Obtains the form config ability about this form.
+     * Configuration ability of the widget.
      *
-     * @type { string }
      * @syscap SystemCapability.Ability.Form
      * @since 8
      * @deprecated since 9
@@ -194,9 +193,8 @@ declare namespace formInfo {
     formConfigAbility: string;
 
     /**
-     * Obtains the updateDuration.
+     * Update period of the widget.
      *
-     * @type { number }
      * @syscap SystemCapability.Ability.Form
      * @since 8
      * @deprecated since 9
@@ -205,9 +203,8 @@ declare namespace formInfo {
     updateDuration: number;
 
     /**
-     * Obtains the default grid style of this form.
+     * Default dimension of the widget.
      *
-     * @type { number }
      * @syscap SystemCapability.Ability.Form
      * @since 8
      * @deprecated since 9
@@ -216,9 +213,8 @@ declare namespace formInfo {
     defaultDimension: number;
 
     /**
-     * Obtains the grid styles supported by this form.
+     * Dimensions supported by the widget.
      *
-     * @type { Array<number> }
      * @syscap SystemCapability.Ability.Form
      * @since 8
      * @deprecated since 9
@@ -227,9 +223,8 @@ declare namespace formInfo {
     supportDimensions: Array<number>;
 
     /**
-     * Obtains the custom data defined in this form.
+     * Custom data of the widget.
      *
-     * @type { object }
      * @syscap SystemCapability.Ability.Form
      * @since 8
      * @deprecated since 9
@@ -239,9 +234,8 @@ declare namespace formInfo {
   }
 
   /**
-   * Type of form.
+   * Enumerates the widget types.
    *
-   * @enum { number }
    * @syscap SystemCapability.Ability.Form
    * @since 8
    * @deprecated since 9
@@ -249,7 +243,7 @@ declare namespace formInfo {
    */
   enum FormType {
     /**
-     * JS form.
+     * JS widget.
      *
      * @syscap SystemCapability.Ability.Form
      * @since 8
@@ -260,9 +254,8 @@ declare namespace formInfo {
   }
 
   /**
-   * Color mode.
+   * Enumerates the color modes supported by the widget.
    *
-   * @enum { number }
    * @syscap SystemCapability.Ability.Form
    * @since 8
    * @deprecated since 9
@@ -270,7 +263,7 @@ declare namespace formInfo {
    */
   enum ColorMode {
     /**
-     * Automatic mode.
+     * Auto mode.
      *
      * @syscap SystemCapability.Ability.Form
      * @since 8
@@ -301,9 +294,8 @@ declare namespace formInfo {
   }
 
   /**
-   * Provides state information about a form.
+   * Describes the widget state information.
    *
-   * @typedef FormStateInfo
    * @syscap SystemCapability.Ability.Form
    * @since 8
    * @deprecated since 9
@@ -311,9 +303,8 @@ declare namespace formInfo {
    */
   interface FormStateInfo {
     /**
-     * Obtains the form state.
+     * Widget state.
      *
-     * @type { FormState }
      * @syscap SystemCapability.Ability.Form
      * @since 8
      * @deprecated since 9
@@ -322,9 +313,8 @@ declare namespace formInfo {
     formState: FormState;
 
     /**
-     * Obtains the want form .
+     * Want text.
      *
-     * @type { Want }
      * @syscap SystemCapability.Ability.Form
      * @since 8
      * @deprecated since 9
@@ -334,9 +324,8 @@ declare namespace formInfo {
   }
 
   /**
-   * Provides state about a form.
+   * Enumerates the widget states.
    *
-   * @enum { number }
    * @syscap SystemCapability.Ability.Form
    * @since 8
    * @deprecated since 9
@@ -344,7 +333,7 @@ declare namespace formInfo {
    */
   enum FormState {
     /**
-     * Indicates that the form status is unknown due to an internal error.
+     * Unknown state.
      *
      * @syscap SystemCapability.Ability.Form
      * @since 8
@@ -354,7 +343,7 @@ declare namespace formInfo {
     UNKNOWN = -1,
 
     /**
-     * Indicates that the form is in the default state.
+     * Default state.
      *
      * @syscap SystemCapability.Ability.Form
      * @since 8
@@ -364,7 +353,7 @@ declare namespace formInfo {
     DEFAULT = 0,
 
     /**
-     * Indicates that the form is ready.
+     * Ready state.
      *
      * @syscap SystemCapability.Ability.Form
      * @since 8
@@ -375,9 +364,8 @@ declare namespace formInfo {
   }
 
   /**
-   * Parameter of form.
+   * Enumerates the widget parameters.
    *
-   * @enum { string }
    * @syscap SystemCapability.Ability.Form
    * @since 8
    * @deprecated since 9
@@ -385,12 +373,9 @@ declare namespace formInfo {
    */
   enum FormParam {
     /**
-     * Indicates the key specifying the ID of the form to be obtained, which is represented as
-     * want: {
-     *   "parameters": {
-     *       IDENTITY_KEY: 1L
-     *    }
-     * }.
+     * Widget ID.
+     * 
+     * This is a system API.
      *
      * @syscap SystemCapability.Ability.Form
      * @systemapi
@@ -401,12 +386,7 @@ declare namespace formInfo {
     IDENTITY_KEY = 'ohos.extra.param.key.form_identity',
 
     /**
-     * Indicates the key specifying the grid style of the form to be obtained, which is represented as
-     * want: {
-     *   "parameters": {
-     *       DIMENSION_KEY: FormDimension.Dimension_1_2
-     *    }
-     * }.
+     * Widget dimension.
      *
      * @syscap SystemCapability.Ability.Form
      * @since 8
@@ -416,12 +396,7 @@ declare namespace formInfo {
     DIMENSION_KEY = 'ohos.extra.param.key.form_dimension',
 
     /**
-     * Indicates the key specifying the name of the form to be obtained, which is represented as
-     * want: {
-     *   "parameters": {
-     *       NAME_KEY: "formName"
-     *    }
-     * }.
+     * Widget name.
      *
      * @syscap SystemCapability.Ability.Form
      * @since 8
@@ -431,14 +406,7 @@ declare namespace formInfo {
     NAME_KEY = 'ohos.extra.param.key.form_name',
 
     /**
-     * Indicates the key specifying the name of the module to which the form to be obtained belongs, which is
-     * represented as
-     * want: {
-     *   "parameters": {
-     *       MODULE_NAME_KEY: "formEntry"
-     *    }
-     * }
-     * This constant is mandatory.
+     * Name of the module to which the widget belongs.
      *
      * @syscap SystemCapability.Ability.Form
      * @since 8
@@ -448,12 +416,7 @@ declare namespace formInfo {
     MODULE_NAME_KEY = 'ohos.extra.param.key.module_name',
 
     /**
-     * Indicates the key specifying the width of the form to be obtained, which is represented as
-     * want: {
-     *   "parameters": {
-     *       WIDTH_KEY: 800
-     *    }
-     * }
+     * Widget width.
      *
      * @syscap SystemCapability.Ability.Form
      * @since 8
@@ -463,12 +426,7 @@ declare namespace formInfo {
     WIDTH_KEY = 'ohos.extra.param.key.form_width',
 
     /**
-     * Indicates the key specifying the height of the form to be obtained, which is represented as
-     * want: {
-     *   "parameters": {
-     *       HEIGHT_KEY: 400
-     *    }
-     * }
+     * Widget height.
      *
      * @syscap SystemCapability.Ability.Form
      * @since 8
@@ -478,12 +436,7 @@ declare namespace formInfo {
     HEIGHT_KEY = 'ohos.extra.param.key.form_height',
 
     /**
-     * Indicates the key specifying whether a form is temporary, which is represented as
-     * want: {
-     *   "parameters": {
-     *       TEMPORARY_KEY: true
-     *    }
-     * }
+     * Temporary widget.
      *
      * @syscap SystemCapability.Ability.Form
      * @since 8

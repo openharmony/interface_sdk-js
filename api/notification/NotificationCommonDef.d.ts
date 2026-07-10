@@ -14,23 +14,23 @@
  */
 
 /**
- * @file The NotificationCommonDef module provides APIs for describing the BundleOption information, that is, the bundle information of a specified application.
+ * The **NotificationCommonDef** module defines the common data structures used in notification-related APIs.
+ *
+ * @file Some common definitions
  * @kit NotificationKit
  */
 
 /**
- * The NotificationCommonDef module provides APIs for describing the BundleOption information, that is, the bundle information of a specified application.
+ * Describes the **BundleOption** information, that is, the bundle information of an application.
  *
- * @typedef BundleOption
  * @syscap SystemCapability.Notification.Notification
  * @since 9 dynamic
  * @since 23 static
  */
 export interface BundleOption {
   /**
-   * Application name.
+   * Bundle name of the application.
    *
-   * @type { string }
    * @syscap SystemCapability.Notification.Notification
    * @since 9 dynamic
    * @since 23 static
@@ -38,9 +38,9 @@ export interface BundleOption {
   bundle: string;
 
   /**
-   * UID of an application, which is obtained from ApplicationInfo. The default value is 0.
+   * UID of the application, which is obtained from ApplicationInfo. The default value is **0**. This parameter is
+   * mandatory in application clone scenarios.
    *
-   * @type { ?int }
    * @syscap SystemCapability.Notification.Notification
    * @since 9 dynamic
    * @since 23 static
@@ -49,19 +49,16 @@ export interface BundleOption {
 }
 
 /**
- * The NotificationCommonDef module provides APIs for describing the GrantedBundleInfo, that is,
- *  the bundle information of a specified application granted to third party wearable application by user.
+ * Describes the authorized bundle information.
  *
- * @typedef GrantedBundleInfo
  * @syscap SystemCapability.Notification.Notification
  * @since 22 dynamic
  * @since 23 static
  */
 export interface GrantedBundleInfo {
   /**
-   * Name of the bundle.
+   * Bundle name of the application.
    *
-   * @type { string }
    * @syscap SystemCapability.Notification.Notification
    * @since 22 dynamic
    * @since 23 static
@@ -69,10 +66,9 @@ export interface GrantedBundleInfo {
   bundleName: string;
 
   /**
-   * The appIndex of application that creates the notification, only work in appClone mode.
+   * Index of an application clone, which takes effect only for application clones. The value is obtained from the
+   * **appIndex** of ApplicationInfo.
    *
-   * @type { int }
-   * @readonly
    * @syscap SystemCapability.Notification.Notification
    * @since 22 dynamic
    * @since 23 static
@@ -80,10 +76,8 @@ export interface GrantedBundleInfo {
   readonly appIndex: int;
 
   /**
-   * Name of the application.
+   * Application name, which is obtained from the **label** of ApplicationInfo.
    *
-   * @type { ?string }
-   * @readonly
    * @syscap SystemCapability.Notification.Notification
    * @since 22 dynamic
    * @since 23 static
@@ -92,20 +86,16 @@ export interface GrantedBundleInfo {
 }
 
 /**
- * The NotificationCommonDef module provides APIs for describing the UserGrantSetting, that is,
- * the bundle information of a specified application granted to third party wearable application by user.
+ * Describes the user authorization settings.
  *
- * @typedef UserGrantSetting
  * @syscap SystemCapability.Notification.Notification
  * @stagemodelonly
  * @since 26.0.0 dynamic&static
  */
 export interface UserGrantSetting {
   /**
-   * User-granted state.
+   * Whether the **Allow access to notifications on this device** switch is toggled on. true: **yes**; false: **no**.
    *
-   * @type { boolean }
-   * @readonly
    * @syscap SystemCapability.Notification.Notification
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
@@ -113,10 +103,8 @@ export interface UserGrantSetting {
   readonly userGrantEnabled: boolean;
 
   /**
-   * Array of user-granted bundle info.
+   * List of apps for which the **Allow access to notifications on this device** switch is toggled on.
    *
-   * @type { ?Array<GrantedBundleInfo> }
-   * @readonly
    * @syscap SystemCapability.Notification.Notification
    * @stagemodelonly
    * @since 26.0.0 dynamic&static

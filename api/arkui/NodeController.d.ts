@@ -14,150 +14,156 @@
  */
 
 /**
+ * The NodeController module provides APIs for managing custom nodes, such as creating, showing, and updating
+ * custom nodes, and APIs for mounting custom nodes to a {@link node_container} component.
+ *
+ * > **NOTE**
+ * >
+ * > - NodeController对象不支持使用JSON序列化。
+ *
  * @file
  * @kit ArkUI
  */
 
 import { UIContext } from '../@ohos.arkui.UIContext';
+
 import { FrameNode } from './FrameNode';
+
 import { Size } from './Graphics';
 
 /**
- * Defines the controller of the node container. Provides lifecycle callbacks for the associated NodeContainer
- * and methods to control the child node of the NodeContainer.
- * 
+ * Implements a NodeController instance to manage the bound
+ * {@link node_container} component.
+ * One NodeController instance can be bound to only one {@link node_container} component.
+ * For best practices, see [Dynamic Component Creation: Dynamically Adding, Updating, and Deleting Components]
+ * (https://developer.huawei.com/consumer/en/doc/best-practices/bpta-ui-dynamic-operations#section153921947151012).
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
- * @since 11
- */
-/**
- * Defines the controller of the node container. Provides lifecycle callbacks for the associated NodeContainer
- * and methods to control the child node of the NodeContainer.
- * 
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 12 dynamic
+ * @atomicservice [since 12]
+ * @since 11 dynamic
  */
 export abstract class NodeController {
+
   /**
-   * MakeNode Method. Used to build a node tree and return a FrameNode or null, and
-   * attach the return result to the associated NodeContainer.
-   * Executed when the associated NodeContainer is created or the rebuild function is called.
+   * Called when the [NodeContainer]{@link node_container} component bound to this **NodeController** instance is
+   * created. This callback returns a node, which will be mounted to the **NodeContainer**.
    *
-   * @param { UIContext } uiContext - uiContext used to makeNode
-   * @returns { FrameNode | null } - Returns a FrameNode or null.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 11
-   */
-  /**
-   * MakeNode Method. Used to build a node tree and return a FrameNode or null, and
-   * attach the return result to the associated NodeContainer.
-   * Executed when the associated NodeContainer is created or the rebuild function is called.
+   * This callback can also be invoked through the **rebuild()** method of **NodeController**.
    *
-   * @param { UIContext } uiContext - uiContext used to makeNode
-   * @returns { FrameNode | null } - Returns a FrameNode or null.
+   * > **NOTE**
+   * >
+   * > [NodeContainer]{@link node_container} does not support cross-instance reuse. If
+   * > [NodeContainer]{@link node_container} is reused across instances and [NodeController]{@link NodeController} of
+   * > [NodeContainer]{@link node_container} triggers the [makeNode]{@link NodeController#makeNode} callback method, the
+   * > [UIContext]{@link @ohos.arkui.UIContext} object in the input parameter may be undefined. In this case, you need
+   * > to check whether the [UIContext]{@link @ohos.arkui.UIContext} object in the input parameter is undefined, which
+   * > prevents the [invalid UIContext](docroot://ui/arkts-wrong-uicontext-debug.md#identifying-uicontext-errors) when
+   * > the input parameter is used.
+   *
+   * @param { UIContext } uiContext - UI context of the bound [NodeContainer]{@link node_container} component.
+   * @returns { FrameNode | null } **FrameNode** object, which will be mounted to the placeholder node of the
+   *     [NodeContainer]{@link node_container} component. If a null object is returned, the child nodes of the
+   *     corresponding [NodeContainer]{@link node_container} component are removed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   abstract makeNode(uiContext: UIContext): FrameNode | null;
 
   /**
-   * AboutToResize Method. Executed when the associated NodeContainer performs the measure method.
+   * Called when the [NodeContainer]{@link node_container} component bound to this **NodeController** instance is
+   * resized.
    *
-   * @param { Size } size - size used to resize
+   * @param { Size } size - Width and height of the component, in vp.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * AboutToResize Method. Executed when the associated NodeContainer performs the measure method.
-   *
-   * @param { Size } size - size used to resize
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   aboutToResize?(size: Size): void;
 
   /**
-   * AboutToAppear Method. Executed when the associated NodeContainer is aboutToAppear.
+   * Called after the [NodeContainer]{@link node_container} component bound to this **NodeController** instance is
+   * attached and about to appear.
+   *
+   * > **NOTE**
+   * >
+   * > For details about the callback timing, see [onAppear]{@link CommonMethod#onAppear}.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * AboutToAppear Method. Executed when the associated NodeContainer is aboutToAppear.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   aboutToAppear?(): void;
 
   /**
-   * AboutToDisappear Method. Executed when the associated NodeContainer is aboutToDisappear.
+   * Called when the [NodeContainer]{@link node_container} component bound to this **NodeController** instance is
+   * destroyed.
+   *
+   * > **NOTE**
+   * >
+   * > For details about the callback timing, see [onDisAppear]{@link CommonMethod#onDisAppear}.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * AboutToDisappear Method. Executed when the associated NodeContainer is aboutToDisappear.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   aboutToDisappear?(): void;
 
   /**
-   * Rebuild Method. Used to invoke the makeNode method.
+   * Instructs the [NodeContainer]{@link node_container} component bound to this **NodeController** instance to call the
+   * [makeNode]{@link NodeController#makeNode} API again to change child nodes.
+   *
+   * > **NOTE**
+   * > > Since the **rebuild** API is actively called by the application and is tied to the UI, you need to ensure that
+   * > the UI context is valid at the time of the call, that is, it must be consistent with the UI context of the bound
+   * > NodeContainer.
+   * >
+   * > In cases where the [UI context is unclear](docroot://ui/arkts-global-interface.md#ambiguous-ui-context), for
+   * > example, during event callbacks, you can use the
+   * > [runScopedTask](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#runscopedtask) method of
+   * > [UIContext]{@link @ohos.arkui.UIContext} to explicitly define the UI context at the time of the call.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Rebuild Method. Used to re-invoke the makeNode method.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   rebuild(): void;
 
   /**
-   * OnTouchEvent Method. Executed when associated NodeContainer is touched.
+   * Called when the [NodeContainer]{@link node_container} component bound to this **NodeController** instance receives
+   * a touch event.
    *
-   * @param { TouchEvent } event - The TouchEvent when associated NodeContainer is touched.
+   * @param { TouchEvent } event - Touch event.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * OnTouchEvent Method. Executed when associated NodeContainer is touched.
-   *
-   * @param { TouchEvent } event - The TouchEvent when associated NodeContainer is touched.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   onTouchEvent?(event: TouchEvent): void;
 
   /**
-   * OnAttach Method. Executed when the associated NodeContainer is attached to the main tree.
+   * Called when the [NodeContainer]{@link node_container} component bound to this **NodeController** instance is
+   * attached to the main node tree.
+   *
+   * > **NOTE**
+   * >
+   * > For details about the callback timing, see [onAttach]{@link CommonMethod#onAttach}.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -165,9 +171,15 @@ export abstract class NodeController {
   onAttach?(): void;
 
   /**
-   * OnDetach Method. Executed when the associated NodeContainer is detached from the main tree.
+   * Called when the [NodeContainer]{@link node_container} component bound to this **NodeController** instance is
+   * detached from the main node tree.
+   *
+   * > **NOTE**
+   * >
+   * > For details about the callback timing, see [onDetach]{@link CommonMethod#onDetach}.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -175,10 +187,13 @@ export abstract class NodeController {
   onDetach?(): void;
 
   /**
-   * OnWillBind Method. Executed before the NodeController is bound to a NodeContainer.
+   * Called when this **NodeController** instance is about to be bound to a [NodeContainer]{@link node_container}
+   * component.
    *
-   * @param { number } containerId - the uniqueId of the NodeContainer.
+   * @param { number } containerId - ID of the [NodeContainer]{@link node_container} component to which the
+   *     **NodeController** instance is about to be bound.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -186,10 +201,13 @@ export abstract class NodeController {
   onWillBind?(containerId: number): void;
 
   /**
-   * OnWillUnbind Method. Executed before the NodeController is unbound with the NodeContainer.
+   * Called when this **NodeController** instance is about to be unbound from a [NodeContainer]{@link node_container}
+   * component.
    *
-   * @param { number } containerId - the uniqueId of the NodeContainer.
+   * @param { number } containerId - ID of the [NodeContainer]{@link node_container} component from which the
+   *     **NodeController** instance is about to be unbound.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -197,10 +215,12 @@ export abstract class NodeController {
   onWillUnbind?(containerId: number): void;
 
   /**
-   * OnBind Method. Executed after the NodeController is bound to a NodeContainer.
+   * Called after this **NodeController** instance is bound to a [NodeContainer]{@link node_container} component.
    *
-   * @param { number } containerId - the uniqueId of the NodeContainer.
+   * @param { number } containerId - ID of the [NodeContainer]{@link node_container} component to which the
+   *     **NodeController** instance is bound.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -208,10 +228,12 @@ export abstract class NodeController {
   onBind?(containerId: number): void;
 
   /**
-   * OnUnbind Method. Executed after the NodeController is unbound with the NodeContainer.
+   * Called after this **NodeController** instance is unbound from a [NodeContainer]{@link node_container} component.
    *
-   * @param { number } containerId - the uniqueId of the NodeContainer.
+   * @param { number } containerId - ID of the [NodeContainer]{@link node_container} component from which the
+   *     **NodeController** instance is unbound.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic

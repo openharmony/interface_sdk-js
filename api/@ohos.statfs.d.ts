@@ -15,64 +15,67 @@
 
 /**
  * @file
+ * @kit API10LessDeprecatedModules
  */
 
 import { AsyncCallback } from './@ohos.base';
 
 /**
- * Provides filesystem statistics APIs
+ * The **statfs** module provides APIs for obtaining file system information, including the total size and free size of
+ * a file system, in bytes.
  *
- * @namespace Statfs
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 8
  * @deprecated since 9
- * @useinstead ohos.file.statvfs.statfs
+ * @useinstead @ohos.file.statvfs:statfs
  */
 declare namespace Statfs {
   /**
-   * Get the number of free bytes on the specified path.
+   * Obtains the free size of the specified file system, in bytes. This API uses an asynchronous callback to return the
+   * result.
    *
-   * @param { string } path
-   * @param { AsyncCallback<number> } callback - callback
+   * @param { string } path - Path of the file system.
+   * @param { AsyncCallback<number> } callback - Callback used to return the free size obtained, in bytes.
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.file.statvfs.getFreeSize
+   * @useinstead @ohos.file.statvfs:statfs.getFreeBytes
    */
   function getFreeBytes(path: string, callback: AsyncCallback<number>): void;
 
   /**
-   * Get the number of free bytes on the specified path.
+   * Obtains the free size of the specified file system, in bytes. This API uses a promise to return the result.
    *
-   * @param { string } path
-   * @returns { Promise<number> } return Promise
+   * @param { string } path - Path of the file system.
+   * @returns { Promise<number> } Promise used to return the free size obtained, in bytes.
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.file.statvfs.getFreeSize
+   * @useinstead @ohos.file.statvfs:statfs.getFreeBytes
    */
   function getFreeBytes(path: string): Promise<number>;
   /**
-   * Get the total number of bytes of the specified path.
+   * Obtains the total size of the specified file system, in bytes. This API uses an asynchronous callback to return the
+   * result.
    *
-   * @param { string } path
-   * @param { AsyncCallback<number> } callback - callback
+   * @param { string } path - Path of the file system.
+   * @param { AsyncCallback<number> } callback - Callback used to return the total size obtained, in bytes.
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.file.statvfs.getTotalSize
+   * @useinstead @ohos.file.statvfs:statfs.getTotalBytes
    */
   function getTotalBytes(path: string, callback: AsyncCallback<number>): void;
 
   /**
-   * Get the total number of bytes of the specified path.
+   * Obtains the total size of the specified file system, in byte. This API uses a promise to return the result.
    *
-   * @param { string } path
-   * @returns { Promise<number> } return Promise
+   * @param { string } path - Path of the file system.
+   * @returns { Promise<number> } Promise used to return the total size obtained, in bytes.
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.file.statvfs.getTotalSize
+   * @useinstead @ohos.file.statvfs:statfs.getTotalBytes
    */
   function getTotalBytes(path: string): Promise<number>;
 }

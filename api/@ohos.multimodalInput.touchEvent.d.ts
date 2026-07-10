@@ -14,23 +14,28 @@
  */
 
 /**
- * @file
+ * The **touchEvent** module provides touch events reported by a device. It is inherited from 
+ * [InputEvent]{@link @ohos.multimodalInput.inputEvent:InputEvent}.
+ *
+ * @file Touch Event
  * @kit InputKit
  */
 
 import type { InputEvent } from './@ohos.multimodalInput.inputEvent';
 
 /**
- * Action
+ * Enumerates the touch event types.
  *
- * @enum { number }
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @since 9 dynamic
  * @since 23 static
  */
 export declare enum Action {
+
   /**
-   * Touch cancelled
+   * Touch canceled. The **DOWN** event of the touchscreen is interrupted unexpectedly and does not close normally. For
+   * example, the **CANCEL** event is triggered when the finger is pressed but not lifted, the screen is rotated or
+   * folded, or a new hover occurs.
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -39,7 +44,7 @@ export declare enum Action {
   CANCEL = 0,
 
   /**
-   * Touch pressed
+   * Touch down.
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -48,7 +53,7 @@ export declare enum Action {
   DOWN = 1,
 
   /**
-   * Touch moved
+   * Touch moved.
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -57,26 +62,59 @@ export declare enum Action {
   MOVE = 2,
 
   /**
-   * Touch lifted
+   * Touch up.
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
    * @since 23 static
    */
-  UP = 3
+  UP = 3,
+
+  /**
+   * Drag started.
+   *
+   * **Since**: 26.0.0
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  PULL_DOWN = 4,
+
+  /**
+   * Dragging.
+   *
+   * **Since**: 26.0.0
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  PULL_MOVE = 5,
+
+  /**
+   * Drag ended.
+   *
+   * **Since**: 26.0.0
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  PULL_UP = 6
 }
 
 /**
- * ToolType
+ * Enumerates touch tool types.
  *
- * @enum { number }
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @since 9 dynamic
  * @since 23 static
  */
 export declare enum ToolType {
+
   /**
-   * Finger
+   * Finger.
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -85,7 +123,7 @@ export declare enum ToolType {
   FINGER = 0,
 
   /**
-   * Stylus
+   * Stylus.
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -94,7 +132,7 @@ export declare enum ToolType {
   PEN = 1,
 
   /**
-   * Rubber
+   * Eraser.
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -103,7 +141,7 @@ export declare enum ToolType {
   RUBBER = 2,
 
   /**
-   * Brush
+   * Brush.
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -112,7 +150,7 @@ export declare enum ToolType {
   BRUSH = 3,
 
   /**
-   * Pencil
+   * Pencil.
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -121,7 +159,7 @@ export declare enum ToolType {
   PENCIL = 4,
 
   /**
-   * Air brush
+   * Air brush.
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -130,7 +168,7 @@ export declare enum ToolType {
   AIRBRUSH = 5,
 
   /**
-   * Mouse
+   * Mouse.
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -139,7 +177,7 @@ export declare enum ToolType {
   MOUSE = 6,
 
   /**
-   * lens
+   * Lens.
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -149,16 +187,16 @@ export declare enum ToolType {
 }
 
 /**
- * SourceType
+ * Enumerates touch sources. Currently, only the touchscreen and touchpad are supported.
  *
- * @enum { number }
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @since 9 dynamic
  * @since 23 static
  */
 export declare enum SourceType {
+
   /**
-   * Touchscreen
+   * Touchscreen.
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -167,7 +205,7 @@ export declare enum SourceType {
   TOUCH_SCREEN = 0,
 
   /**
-   * Stylus
+   * Stylus.
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -176,7 +214,7 @@ export declare enum SourceType {
   PEN = 1,
 
   /**
-   * Touchpad
+   * Touchpad.
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -186,18 +224,18 @@ export declare enum SourceType {
 }
 
 /**
- * Fixed mode of screenX and screenY.
- * 
- * @enum { number }
+ * Enumerates coordinate correction modes.
+ *
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @systemapi Hide this for inner system use.
  * @since 19 dynamic
  * @since 23 static
  */
 export declare enum FixedMode {
+
   /**
-   * Not fix.
-   * 
+   * Normal mode.
+   *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi Hide this for inner system use.
    * @since 19 dynamic
@@ -206,8 +244,8 @@ export declare enum FixedMode {
   NONE = 0,
 
   /**
-   * One hand mode.
-   * 
+   * One-handed mode.
+   *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi Hide this for inner system use.
    * @since 19 dynamic
@@ -217,17 +255,17 @@ export declare enum FixedMode {
 }
 
 /**
- * Touch
+ * Defines the touch point information.
  *
- * @interface Touch
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @since 9 dynamic
  * @since 23 static
  */
 export declare interface Touch {
+
   /**
-   * Pointer identifier
-   * @type { int }
+   * Touch event ID.
+   *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
    * @since 23 static
@@ -235,8 +273,8 @@ export declare interface Touch {
   id: int;
 
   /**
-   * Time stamp when touch is pressed
-   * @type { long }
+   * Press timestamp, in microseconds (μs) since the system starts.
+   *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
    * @since 23 static
@@ -244,8 +282,9 @@ export declare interface Touch {
   pressedTime: long;
 
   /**
-   * X coordinate of the touch position on the screen
-   * @type { int }
+   * X coordinate of the touch event in the relative coordinate system with the upper-left corner of the specified
+   * screen as the origin. Currently, only integers are supported. The unit is pixels.
+   *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
    * @since 23 static
@@ -253,8 +292,9 @@ export declare interface Touch {
   screenX: int;
 
   /**
-   * Y coordinate of the touch position on the screen
-   * @type { int }
+   * Y coordinate of the touch event in the relative coordinate system with the upper-left corner of the specified
+   * screen as the origin. Currently, only integers are supported. The unit is pixels.
+   *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
    * @since 23 static
@@ -262,8 +302,9 @@ export declare interface Touch {
   screenY: int;
 
   /**
-   * X coordinate of the touch position in the window
-   * @type { int }
+   * X coordinate in the relative coordinate system with the upper-left corner of the window where the touch is located
+   * as the origin. Currently, only integers are supported. The unit is pixels.
+   *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
    * @since 23 static
@@ -271,8 +312,9 @@ export declare interface Touch {
   windowX: int;
 
   /**
-   * Y coordinate of the touch position in the window
-   * @type { int }
+   * Y coordinate in the relative coordinate system with the upper-left corner of the window where the touch is located
+   * as the origin. Currently, only integers are supported. The unit is pixels.
+   *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
    * @since 23 static
@@ -280,8 +322,8 @@ export declare interface Touch {
   windowY: int;
 
   /**
-   * Pressure value. The value range is [0.0, 1.0]. The value 0.0 indicates that the pressure is not supported.
-   * @type { double }
+   * Pressure value. The value range is [0.0, 1.0]. The value **0.0** indicates that the pressure is not supported.
+   *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
    * @since 23 static
@@ -289,8 +331,8 @@ export declare interface Touch {
   pressure: double;
 
   /**
-   * Width of the contact area when touch is pressed
-   * @type { int }
+   * Width of the touch area, in pixels. The value can only be an integer.
+   *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
    * @since 23 static
@@ -298,8 +340,8 @@ export declare interface Touch {
   width: int;
 
   /**
-   * Height of the contact area when touch is pressed
-   * @type { int }
+   * Height of the touch area, in pixels. The value can only be an integer.
+   *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
    * @since 23 static
@@ -307,8 +349,9 @@ export declare interface Touch {
   height: int;
 
   /**
-   * Angle relative to the YZ plane. The value range is [-90, 90]. A positive value indicates a rightward tilt.
-   * @type { int }
+   * Angle relative to the YZ plane, in degrees. The value range is [-90, 90]. A positive value indicates a rightward
+   * tilt.
+   *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
    * @since 23 static
@@ -316,8 +359,9 @@ export declare interface Touch {
   tiltX: int;
 
   /**
-   * Angle relative to the XZ plane. The value range is [-90, 90]. A positive value indicates a downward tilt.
-   * @type { int }
+   * Angle relative to the XZ plane, in degrees. The value range is [-90, 90]. A positive value indicates a downward
+   * tilt.
+   *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
    * @since 23 static
@@ -325,8 +369,9 @@ export declare interface Touch {
   tiltY: int;
 
   /**
-   * Center point X of the tool area
-   * @type { int }
+   * X coordinate of the tool area center in the relative coordinate system with the upper-left corner of the specified
+   * screen as the origin. Currently, only integers are supported. The unit is pixels.
+   *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
    * @since 23 static
@@ -334,8 +379,9 @@ export declare interface Touch {
   toolX: int;
 
   /**
-   * Center point Y of the tool area
-   * @type { int }
+   * Y coordinate of the tool area center in the relative coordinate system with the upper-left corner of the specified
+   * screen as the origin. Currently, only integers are supported. The unit is pixels.
+   *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
    * @since 23 static
@@ -343,8 +389,8 @@ export declare interface Touch {
   toolY: int;
 
   /**
-   * Width of the tool area
-   * @type { int }
+   * Width of the tool area, in pixels. The value can only be an integer.
+   *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
    * @since 23 static
@@ -352,8 +398,8 @@ export declare interface Touch {
   toolWidth: int;
 
   /**
-   * Height of the tool area
-   * @type { int }
+   * Height of the tool area, in pixels. The value can only be an integer.
+   *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
    * @since 23 static
@@ -361,8 +407,8 @@ export declare interface Touch {
   toolHeight: int;
 
   /**
-   * X coordinate of the input device
-   * @type { int }
+   * X coordinate of the input device. Currently, only integers are supported. The unit is pixels.
+   *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
    * @since 23 static
@@ -370,8 +416,8 @@ export declare interface Touch {
   rawX: int;
 
   /**
-   * Y coordinate of the input device
-   * @type { int }
+   * Y coordinate of the input device. Currently, only integers are supported. The unit is pixels.
+   *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
    * @since 23 static
@@ -379,8 +425,8 @@ export declare interface Touch {
   rawY: int;
 
   /**
-   * Tool type
-   * @type { ToolType }
+   * Tool type.
+   *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
    * @since 23 static
@@ -388,8 +434,8 @@ export declare interface Touch {
   toolType: ToolType;
 
   /**
-   * fixedDisplayX - Corrected value of the screen x coordinate.
-   * @type { ?int }
+   * Corrected value of the screenX coordinate in one-hand mode, in px.
+   *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi Hide this for inner system use.
    * @since 19 dynamic
@@ -398,8 +444,8 @@ export declare interface Touch {
   fixedDisplayX?: int;
 
   /**
-   * fixedDisplayY - Corrected value of the screen y coordinate.
-   * @type { ?int }
+   * Corrected value of the screenY coordinate in one-hand mode, in px.
+   *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi Hide this for inner system use.
    * @since 19 dynamic
@@ -408,8 +454,14 @@ export declare interface Touch {
   fixedDisplayY?: int;
 
   /**
-   * globalX - Global X coordinate.
-   * @type { ?int }
+   * X coordinate of the touch event in the global coordinate system with the upper-left corner of the primary screen as
+   * the origin, in px. <!--Del--> When being used as an input parameter, this parameter is mandatory if the value of
+   * [TouchEventData.useGlobalCoordinate]{@link @ohos.multimodalInput.inputEventClient:inputEventClient.TouchEventData}
+   * is **true**, and its value can only be an integer. Otherwise, you do not need to set this parameter. In this case,
+   * the X coordinate of the relative coordinate system with the upper left corner of the specified screen as the origin
+   * is used to calculate the injected event. <!--DelEnd-->When being used as an output parameter, its value is reported
+   * by the system.
+   *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 20 dynamic
    * @since 23 static
@@ -417,8 +469,14 @@ export declare interface Touch {
   globalX?: int;
 
   /**
-   * globalY - Global Y coordinate.
-   * @type { ?int }
+   * Y coordinate of the touch event in the global coordinate system with the upper-left corner of the primary screen as
+   * the origin, in px. <!--Del--> When being used as an input parameter, this parameter is mandatory if the value of
+   * [TouchEventData.useGlobalCoordinate]{@link @ohos.multimodalInput.inputEventClient:inputEventClient.TouchEventData}
+   * is **true**, and its value can only be an integer. Otherwise, you do not need to set this parameter. In this case,
+   * the Y coordinate of the relative coordinate system with the upper left corner of the specified screen as the origin
+   * is used to calculate the injected event. <!--DelEnd-->When being used as an output parameter, its value is reported
+   * by the system.
+   *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 20 dynamic
    * @since 23 static
@@ -426,8 +484,9 @@ export declare interface Touch {
   globalY?: int;
 
   /**
-   * blobId - blob id.
-   * @type { ?int }
+   * Touch point attribute ID. Currently, only single-finger touch is supported. The value **1** indicates left-hand
+   * touch, and the value **2** indicates right-hand touch.
+   *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi Hide this for inner system use.
    * @stagemodelonly
@@ -437,18 +496,17 @@ export declare interface Touch {
 }
 
 /**
- * TouchEvent
+ * Defines a touch event.
  *
- * @extends InputEvent
- * @interface TouchEvent
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @since 9 dynamic
  * @since 23 static
  */
 export declare interface TouchEvent extends InputEvent {
+
   /**
-   * Touch action
-   * @type { Action }
+   * Event type.
+   *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
    * @since 23 static
@@ -456,8 +514,8 @@ export declare interface TouchEvent extends InputEvent {
   action: Action;
 
   /**
-   * Current touch point
-   * @type { Touch }
+   * Current touch point.
+   *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
    * @since 23 static
@@ -465,8 +523,8 @@ export declare interface TouchEvent extends InputEvent {
   touch: Touch;
 
   /**
-   * All touch points
-   * @type { Touch[] }
+   * All touch points.
+   *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
    * @since 23 static
@@ -474,8 +532,8 @@ export declare interface TouchEvent extends InputEvent {
   touches: Touch[];
 
   /**
-   * Device type of the touch source
-   * @type { SourceType }
+   * Device type of the touch source.
+   *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
    * @since 23 static
@@ -483,9 +541,8 @@ export declare interface TouchEvent extends InputEvent {
   sourceType: SourceType;
 
   /**
-   * fixedMode - Fixed mode of Touch.
+   * Coordinate correction mode.
    *
-   * @type { FixedMode }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi Hide this for inner system use.
    * @since 19 dynamic
@@ -494,8 +551,9 @@ export declare interface TouchEvent extends InputEvent {
   fixedMode?: FixedMode;
 
   /**
-   * Indicates whether the touch event is an inject event.
-   * @type { ?boolean }
+   * Whether the touch event is an injection event. For details about injection events, see
+   * [@ohos.multimodalInput.inputEventClient]{@link @ohos.multimodalInput.inputEventClient:inputEventClient}.
+   *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi Hide this for inner system use.
    * @since 20 dynamic
