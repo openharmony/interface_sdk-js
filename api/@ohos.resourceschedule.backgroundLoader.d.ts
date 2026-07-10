@@ -158,7 +158,7 @@ declare namespace backgroundLoader {
    *
    * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
    * @param { Taskinfo } taskinfo - The info of background load task.
-   * @throws { BusinessError } 201 -permission denied.
+   * @throws { BusinessError } 201 - No permission.
    * @throws { BusinessError } 9700003 - System service operation failed.
    * @throws { BusinessError } 9700004 - Check on taskInfo failed.
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
@@ -172,7 +172,7 @@ declare namespace backgroundLoader {
    *
    * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
    * @param { Taskinfo } taskinfo - The info of background load task.
-   * @throws { BusinessError } 201 -permission denied.
+   * @throws { BusinessError } 201 - No permission.
    * @throws { BusinessError } 9700003 - System service operation failed.
    * @throws { BusinessError } 9700004 - Check on taskInfo failed.
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
@@ -186,7 +186,7 @@ declare namespace backgroundLoader {
    *
    * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
    * @param { Taskinfo } taskinfo - The info of background load task.
-   * @throws { BusinessError } 201 -permission denied.
+   * @throws { BusinessError } 201 - No permission.
    * @throws { BusinessError } 9700003 - System service operation failed.
    * @throws { BusinessError } 9700004 - Check on taskInfo failed.
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
@@ -202,9 +202,9 @@ declare namespace backgroundLoader {
    * @param { int } taskId - Id of background load task.
    *     <br>The value range is all integers.
    * @returns { Promise<TaskInfo> } Promise used to return the TaskInfo.
-   * @throws { BusinessError } 201 -permission denied.
+   * @throws { BusinessError } 201 - No permission.
    * @throws { BusinessError } 9700003 - System service operation failed.
-   * @throws { BusinessError } 9700004 - Check on taskId failed.
+   * @throws { BusinessError } 9700004 - Check on taskInfo failed.
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
