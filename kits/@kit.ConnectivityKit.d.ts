@@ -59,11 +59,20 @@ import PartnerAgentExtensionContext from '@ohos.FusionConnectivity.PartnerAgentE
 import PartnerAgentExtensionAbility from '@ohos.FusionConnectivity.PartnerAgentExtensionAbility';
 import partnerAgent from '@ohos.FusionConnectivity.partnerAgent';
 import ranging from '@ohos.FusionConnectivity.ranging';
+import advertising from '@ohos.nearlink.advertising';
+import cdsm from '@ohos.nearlink.cdsm';
+import nearlinkConstant from '@ohos.nearlink.constant';
+import dataTransfer from '@ohos.nearlink.dataTransfer';
+import manager from '@ohos.nearlink.manager';
+import remoteDevice from '@ohos.nearlink.remoteDevice';
+import scan from '@ohos.nearlink.scan';
+import ssap from '@ohos.nearlink.ssap';
 
 export {
   BLEFoundResponse, Bluetooth, BluetoothDevice, StartBLEScanOptions, StopBLEScanOptions,
   SubscribeBLEFoundOptions, bluetooth, bluetoothManager, cardEmulation,
   connectedTag, map, nfcController, omapi, opp, pan, pbap, socket, tag, wearDetection, wifi,
-  wifiManager, wifiManagerExt, wifiext, common, PartnerAgentExtensionContext, PartnerAgentExtensionAbility,
+  wifiManager, wifiManagerExt, wifiext, advertising, cdsm, nearlinkConstant, dataTransfer, manager, remoteDevice,
+  scan, ssap, common, PartnerAgentExtensionContext, PartnerAgentExtensionAbility,
   partnerAgent, ranging, bas
 };
