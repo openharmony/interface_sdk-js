@@ -24,7 +24,7 @@
  * @syscap SystemCapability.Ability.AgentRuntime.Core
  * @systemapi
  * @stagemodelonly
- * @since 26.1.0 dynamiconly
+ * @since 26.0.0 dynamiconly
  */
 export interface FunctionInfo {
 
@@ -34,7 +34,7 @@ export interface FunctionInfo {
    * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.1.0 dynamiconly
+   * @since 26.0.0 dynamiconly
    */
   readonly version: string;
 
@@ -44,7 +44,7 @@ export interface FunctionInfo {
    * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.1.0 dynamiconly
+   * @since 26.0.0 dynamiconly
    */
   readonly functionNamespace: string;
 
@@ -54,7 +54,7 @@ export interface FunctionInfo {
    * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.1.0 dynamiconly
+   * @since 26.0.0 dynamiconly
    */
   readonly functionName: string;
 
@@ -64,7 +64,7 @@ export interface FunctionInfo {
    * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.1.0 dynamiconly
+   * @since 26.0.0 dynamiconly
    */
   readonly description: string;
 
@@ -74,7 +74,7 @@ export interface FunctionInfo {
    * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.1.0 dynamiconly
+   * @since 26.0.0 dynamiconly
    */
   readonly inputSchema?: string;
 
@@ -84,7 +84,7 @@ export interface FunctionInfo {
    * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.1.0 dynamiconly
+   * @since 26.0.0 dynamiconly
    */
   readonly outputSchema?: string;
 }
