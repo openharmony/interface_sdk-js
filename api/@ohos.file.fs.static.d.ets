@@ -1926,7 +1926,7 @@ function mkdtempSync(prefix: string): string;
  *     area are visible only to the current process and do not affect the original file.
  * @param { long } offset - Start position of the file mapping area, in bytes.
  * @param { int } size - Size of the file mapping area, in bytes.
- * @returns { Promise<FileMapping> } Promise object. Returns a FileMapping object.
+ * @returns { Promise<FileMapping> } - Promise object. Returns a FileMapping object.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
@@ -3896,7 +3896,7 @@ interface FileMapping {
   /**
    * Gets the current location of the file mapping area.
    *
-   * @returns { int } - Current location of the file mapping area, in bytes.
+   * @returns { int } Current location of the file mapping area, in bytes.
    * @throws { BusinessError } 13900020 - Invalid argument
    * @throws { BusinessError } 13900050 - Internal resource error
    * @throws { BusinessError } 13900052 - Mmap buffer released
@@ -3909,7 +3909,7 @@ interface FileMapping {
   /**
    * Obtains the capacity of the file mapping area.
    *
-   * @returns { int } - Size of the file mapping area, in bytes.
+   * @returns { int } Size of the file mapping area, in bytes.
    * @throws { BusinessError } 13900020 - Invalid argument
    * @throws { BusinessError } 13900050 - Internal resource error
    * @throws { BusinessError } 13900052 - Mmap buffer released
@@ -3937,7 +3937,7 @@ interface FileMapping {
   /**
    * Obtains the upper bound of the readable and writable area of the file mapping area.
    *
-   * @returns { int } - Upper bound of the current readable and writable area, in bytes.
+   * @returns { int } Upper bound of the current readable and writable area, in bytes.
    * @throws { BusinessError } 13900020 - Invalid argument
    * @throws { BusinessError } 13900050 - Internal resource error
    * @throws { BusinessError } 13900052 - Mmap buffer released
@@ -3964,7 +3964,7 @@ interface FileMapping {
    * Obtains the number of remaining bytes between the current position (position) and the upper bound (limit) of the
    * readable and writable area.
    *
-   * @returns { int } - Number of remaining readable or writable bytes.
+   * @returns { int } Number of remaining readable or writable bytes.
    * @throws { BusinessError } 13900020 - Invalid argument
    * @throws { BusinessError } 13900050 - Internal resource error
    * @throws { BusinessError } 13900052 - Mmap buffer released
@@ -4017,7 +4017,7 @@ interface FileMapping {
    * @param { ArrayBuffer } data - Buffer data to be written to the file.
    * @param { int } [length] - Length of the data to be written, in bytes. This parameter is optional. 
    *     The default value is the buffer length.
-   * @returns { int } - Length of the data written.
+   * @returns { int } - Length of the data written, in bytes.
    * @throws { BusinessError } 13900020 - Invalid argument
    * @throws { BusinessError } 13900050 - Internal resource error
    * @throws { BusinessError } 13900051 - Buffer read/write out of bounds
@@ -4056,7 +4056,7 @@ interface FileMapping {
    * Note: If the file is not stored on the local device, calling this API does not ensure that all changes are
    * stored persistently.
    *
-   * @returns { Promise<void> } - Promise object. No return value.
+   * @returns { Promise<void> } Promise object. No return value.
    * @throws { BusinessError } 13900011 - Out of memory
    * @throws { BusinessError } 13900014 - Device or resource busy
    * @throws { BusinessError } 13900020 - Invalid argument
@@ -4077,7 +4077,7 @@ interface FileMapping {
    *
    * @param { int } position - Start position to synchronize from, in bytes.
    * @param { int } length - Length of the data to be synchronized, in bytes.
-   * @returns { Promise<void> } - Promise object. No return value.
+   * @returns { Promise<void> } Promise object. No return value.
    * @throws { BusinessError } 13900011 - Out of memory
    * @throws { BusinessError } 13900014 - Device or resource busy
    * @throws { BusinessError } 13900020 - Invalid argument
