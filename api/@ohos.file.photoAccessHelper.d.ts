@@ -9357,7 +9357,8 @@ declare namespace photoAccessHelper {
      *
      * @type { boolean }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @systemapi
+     * @systemapi [since 20 - 24]
+     * @publicapi [since 26.0.0]
      * @since 20 dynamic
      * @since 23 static
      */
@@ -12107,7 +12108,8 @@ declare namespace photoAccessHelper {
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14000011 - System inner fail
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @systemapi
+     * @systemapi [since 11 - 24]
+     * @publicapi [since 26.0.0]
      * @since 11 dynamic
      * @since 23 static
      */
@@ -12627,7 +12629,8 @@ declare namespace photoAccessHelper {
    *
    * @implements MediaChangeRequest
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-   * @systemapi
+   * @systemapi [since 11 - 24]
+   * @publicapi [since 26.0.0]
    * @since 11 dynamic
    * @since 23 static
    */
@@ -12653,7 +12656,8 @@ declare namespace photoAccessHelper {
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14000011 - System inner fail
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @systemapi
+     * @systemapi [since 11 - 24]
+     * @publicapi [since 26.0.0]
      * @since 11 dynamic
      * @since 23 static
      */
@@ -12668,7 +12672,8 @@ declare namespace photoAccessHelper {
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14000011 - System inner fail
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @systemapi
+     * @systemapi [since 11 - 24]
+     * @publicapi [since 26.0.0]
      * @since 11 dynamic
      * @since 23 static
      */
