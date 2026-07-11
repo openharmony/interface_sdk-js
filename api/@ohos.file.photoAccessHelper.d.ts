@@ -8665,6 +8665,21 @@ declare namespace photoAccessHelper {
      * @since 26.0.0 dynamic&static
      */
     stopDeepOptimizeSpace(): Promise<void>;
+    
+    /**
+     * Convert Asset Attributes to Compatibility Attributes
+     *
+     * @param { Array<PhotoAsset> } assets - need to be converted.
+     * @returns { Promise<Array<PhotoAsset>> } Promise used to return Converted assets.
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 23800151 - The scenario parameter verification fails. Possible causes:
+     *     <br>1. Invalid Array<PhotoAsset>.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    convertAssetToCompatibleAsset(assets: Array<PhotoAsset>): Promise<Array<PhotoAsset>>;
   }
   
   /**
