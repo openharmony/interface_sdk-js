@@ -11939,6 +11939,20 @@ declare namespace audio {
      */
     MODE_MEDIA = 0x1,
     /**
+     * Only voip mode. Capture only voice/video communication streams.
+     * If {@link AudioCapturerOptions#playbackCaptureUid} is set, only the
+     * voice/video communication stream of the specified application is captured.
+     * The {@link AudioCapturerOptions#playbackCaptureUid} takes effect only when
+     * this mode is set.
+     * This mode requires the `ohos.permission.CAPTURE_VOICE_DOWNLINK_AUDIO`
+     * permission; otherwise {@link createAudioCapturer} fails.
+     * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+    */
+    MODE_ONLY_VOIP = 0x4000,
+    /**
      * Excluding self mode. Capture streams excluding the audio played by application itself.
      * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
      * @stagemodelonly
@@ -12079,6 +12093,19 @@ declare namespace audio {
      * @since 26.0.0 dynamic&static
      */
     playbackCaptureMode?: AudioPlaybackCaptureMode;
+
+    /**
+    * The target application uid for voice/video communication playback capture.
+    * This parameter takes effect only when {@link AudioPlaybackCaptureMode#MODE_ONLY_VOIP}
+    * is set in {@link AudioCapturerOptions#playbackCaptureMode}. In other playback capture modes,
+    * this parameter is ignored.
+    * The value should be an integer.
+    * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
+    * @systemapi
+    * @stagemodelonly
+    * @since 26.0.0 dynamic&static
+    */
+    playbackCaptureUid?: int;
   }
 
   /**
