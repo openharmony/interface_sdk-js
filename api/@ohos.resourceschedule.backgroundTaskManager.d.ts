@@ -2543,16 +2543,6 @@ declare namespace backgroundTaskManager {
     SYSTEM_CANCEL_DATA_TRANSFER_LOW_SPEED = 4,
   
     /**
-     * A continuous task of the **AUDIO_PLAYBACK** type is requested, but 
-     * [AVSession](docroot://media/avsession/avsession-overview.md) is not accessed.
-     *
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    SYSTEM_CANCEL_AUDIO_PLAYBACK_NOT_USE_AVSESSION = 5,
-  
-    /**
      * A continuous task of the **AUDIO_PLAYBACK** type is requested, but the audio and video are not played.
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
