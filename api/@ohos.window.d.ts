@@ -6834,6 +6834,7 @@ declare namespace window {
      * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead window.Window.setWindowSystemBarEnable(names: Array<'status' | 'navigation'>)
+     * @useinstead window.Window.setWindowLayoutFullScreen(isLayoutFullScreen: boolean)
      */
     setFullScreen(isFullScreen: boolean, callback: AsyncCallback<void>): void;
 
@@ -6862,6 +6863,7 @@ declare namespace window {
      * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead window.Window.setWindowSystemBarEnable(names: Array<'status' | 'navigation'>)
+     * @useinstead window.Window.setWindowLayoutFullScreen(isLayoutFullScreen: boolean)
      */
     setFullScreen(isFullScreen: boolean): Promise<void>;
 
