@@ -9147,9 +9147,10 @@ declare namespace photoAccessHelper {
      * Whether the media asset is marked as a favorite. **true** if marked, **false** otherwise.
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @publicapi
-     * @FaAndStageModel
-     * @since 26.0.0 dynamic&static
+     * @systemapi [since 20 - 24]
+     * @publicapi [since 26.0.0]
+     * @since 20 dynamic
+     * @since 23 static
      */
     isFavorite: boolean;
 
@@ -11754,9 +11755,10 @@ declare namespace photoAccessHelper {
      * @param { boolean } favoriteState - Whether to favorite the file. **true** to favorite, **false** otherwise.
      * @throws { BusinessError } 14000011 - System inner fail
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @publicapi
-     * @FaAndStageModel
-     * @since 26.0.0 dynamic&static
+     * @systemapi [since 11 - 24]
+     * @publicapi [since 26.0.0]
+     * @since 11 dynamic
+     * @since 23 static
      */
     setFavorite(favoriteState: boolean): void;
 
@@ -12379,6 +12381,8 @@ declare namespace photoAccessHelper {
    * Represents a request for changing multiple assets.
    *
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @systemapi [since 11 - 24]
+   * @publicapi [since 26.0.0]
    * @since 11 dynamic
    * @since 23 static
    */
@@ -12402,8 +12406,10 @@ declare namespace photoAccessHelper {
      * @param { Array<PhotoAsset> } assets - Assets to change.
      * @throws { BusinessError } 14000011 - System inner fail
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @FaAndStageModel
-     * @since 26.0.0 dynamic&static
+     * @systemapi [since 11 - 24]
+     * @publicapi [since 26.0.0]
+     * @since 11 dynamic
+     * @since 23 static
      */
     constructor(assets: Array<PhotoAsset>);
 
@@ -12413,9 +12419,10 @@ declare namespace photoAccessHelper {
      * @param { boolean } favoriteState - Whether to favorite the file. **true** to favorite, **false** otherwise.
      * @throws { BusinessError } 14000011 - System inner fail
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @publicapi
-     * @FaAndStageModel
-     * @since 26.0.0 dynamic&static
+     * @systemapi [since 11 - 24]
+     * @publicapi [since 26.0.0]
+     * @since 11 dynamic
+     * @since 23 static
      */
     setFavorite(favoriteState: boolean): void;
 
