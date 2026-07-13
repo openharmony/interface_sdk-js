@@ -14,33 +14,28 @@
 */
 
 /**
- * @file FaultLogger
+ * @file 故障日志获取
  * @kit PerformanceAnalysisKit
  */
 
 import type { AsyncCallback } from './@ohos.base';
 
 /**
- * The **faultLogger** APIs can be used to query fault logs of an application cached on the system. The APIs use the
- * application bundle name and the UID allocated by the system as the unique key value.
- *
- * The number of application fault logs stored in the system is limited by the system log pressure. You are advised to
- * use [@ohos.hiviewdfx.hiAppEvent]{@link @ohos.hiviewdfx.hiAppEvent:hiAppEvent} to subscribe to fault events such as
- * **APP_CRASH** and **APP_FREEZE**.
- *
- * > **NOTE**
+ * 应用可以使用faultLogger接口查询系统侧缓存的当前应用的故障日志。接口以应用包名和系统分配的UID作为唯一键值。
+ * 
+ * 系统侧保存的应用故障日志数量受系统日志的压力限制，
+ * 推荐使用[@ohos.hiviewdfx.hiAppEvent]{@link @ohos.hiviewdfx.hiAppEvent:hiAppEvent}订阅APP_CRASH及APP_FREEZE等故障事件。
+ * 
+ * > **说明：**
  * >
- * > The APIs of this module are no longer maintained since API version 18. You are advised to use
- * > [@ohos.hiviewdfx.hiAppEvent]{@link @ohos.hiviewdfx.hiAppEvent:hiAppEvent} to subscribe to the **APP_CRASH** and
- * > **APP_FREEZE** events in later versions.
+ * > 本模块接口从API version 18开始废弃使用, 该接口不再维护。后续版本推荐使用
+ * > [@ohos.hiviewdfx.hiAppEvent]{@link @ohos.hiviewdfx.hiAppEvent:hiAppEvent}订阅APP_CRASH，APP_FREEZE事件。
  * >
- * > For details about how to use HiAppEvent to subscribe to the **APP_CRASH** event, see
- * > [Migrating Crash Events from the FaultLogger API](docroot://dfx/hiappevent-watcher-crash-events-arkts.md#migrating-crash-events-from-the-faultlogger-api)
- * > .
+ * > 查阅[从Faultlogger接口迁移崩溃事件](docroot://dfx/hiappevent-watcher-crash-events-arkts.md#从faultlogger接口迁移崩溃事件)，
+ * > 了解使用hiAppEvent订阅APP_CRASH的具体信息。
  * >
- * > For details about how to use HiAppEvent to subscribe to the **APP_FREEZE** event, see
- * > [Migrating Application Freeze Events from the Faultlogger API](docroot://dfx/hiappevent-watcher-freeze-events-arkts.md#migrating-application-freeze-events-from-the-faultlogger-api)
- * > .
+ * > 查阅[从Faultlogger接口迁移应用冻屏事件](docroot://dfx/hiappevent-watcher-freeze-events-arkts.md#从faultlogger接口迁移应用冻屏事件)，
+ * > 了解使用hiAppEvent订阅APP_FREEZE的具体信息。
  *
  * @syscap SystemCapability.HiviewDFX.Hiview.FaultLogger
  * @since 8 dynamiconly
@@ -49,7 +44,7 @@ import type { AsyncCallback } from './@ohos.base';
  */
 declare namespace FaultLogger {
   /**
-   * Enumerates the fault types.
+   * 故障类型枚举。
    *
    * @syscap SystemCapability.HiviewDFX.Hiview.FaultLogger
    * @since 8 dynamiconly
@@ -58,7 +53,7 @@ declare namespace FaultLogger {
    */
   enum FaultType {
     /**
-     * No specific fault type.
+     * 不区分故障类型。
      *
      * @syscap SystemCapability.HiviewDFX.Hiview.FaultLogger
      * @since 8 dynamiconly
@@ -66,7 +61,7 @@ declare namespace FaultLogger {
      */
     NO_SPECIFIC = 0,
     /**
-     * Native program crash.
+     * Native运行时异常。
      *
      * @syscap SystemCapability.HiviewDFX.Hiview.FaultLogger
      * @since 8 dynamiconly
@@ -74,7 +69,7 @@ declare namespace FaultLogger {
      */
     CPP_CRASH = 2,
     /**
-     * JS program crash.
+     * JS程序故障类型。
      *
      * @syscap SystemCapability.HiviewDFX.Hiview.FaultLogger
      * @since 8 dynamiconly
@@ -82,7 +77,7 @@ declare namespace FaultLogger {
      */
     JS_CRASH = 3,
     /**
-     * Application freezing.
+     * 应用程序冻屏故障类型。
      *
      * @syscap SystemCapability.HiviewDFX.Hiview.FaultLogger
      * @since 8 dynamiconly
@@ -92,13 +87,11 @@ declare namespace FaultLogger {
   }
 
   /**
-   * Obtains the fault information about the current application. This API uses an asynchronous callback to return the
-   * fault information array obtained, which contains a maximum of 10 pieces of fault information.
+   * 获取当前应用故障信息，该方法通过回调方式获取故障信息数组，故障信息数组内最多上报10份故障信息。
    *
-   * @param { FaultType } faultType - Fault type.
-   * @param { AsyncCallback<Array<FaultLogInfo>> } callback - Callback used to return the fault information array.<br>
-   *     **value** is the fault information array obtained. If **value** is **undefined**, an exception occurs during
-   *     the information retrieval. In this case, an error string will be returned.
+   * @param { FaultType } faultType - 输入要查询的故障类型。
+   * @param { AsyncCallback<Array<FaultLogInfo>> } callback - 回调函数，在回调函数中获取故障信息数组。
+   *    <br>value拿到故障信息数组；value为undefined表示获取过程中出现异常，error返回错误提示字符串。
    * @syscap SystemCapability.HiviewDFX.Hiview.FaultLogger
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -107,14 +100,11 @@ declare namespace FaultLogger {
   function querySelfFaultLog(faultType: FaultType, callback: AsyncCallback<Array<FaultLogInfo>>): void;
 
   /**
-   * Obtains the fault information about the current application. This API uses a promise to return the fault
-   * information array obtained, which contains a maximum of 10 pieces of fault information.
+   * 获取当前应用故障信息，该方法通过Promise方式返回故障信息数组，故障信息数组内最多上报10份故障信息。
    *
-   * @param { FaultType } faultType - Fault type.
-   * @returns { Promise<Array<FaultLogInfo>> } Promise used to return the fault information array. You can obtain the
-   *     fault information instance in its **then()** method or use **await**.
-   *     <br>**value** is the fault information array obtained. If **value** is **undefined**, an exception occurs
-   *     during the information retrieval.
+   * @param { FaultType } faultType - 输入要查询的故障类型。
+   * @returns { Promise<Array<FaultLogInfo>> } Promise实例，可以在其then()方法中获取故障信息实例，也可以使用await。
+   *    <br>value拿到故障信息数组；value为undefined表示获取过程中出现异常。
    * @syscap SystemCapability.HiviewDFX.Hiview.FaultLogger
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -123,13 +113,11 @@ declare namespace FaultLogger {
   function querySelfFaultLog(faultType: FaultType): Promise<Array<FaultLogInfo>>;
 
   /**
-   * Obtains the fault information about the current application. This API uses an asynchronous callback to return the
-   * fault information array obtained, which contains a maximum of 10 pieces of fault information.
+   * 获取当前应用故障信息，该方法通过回调方式获取故障信息数组，故障信息数组内最多上报10份故障信息。
    *
-   * @param { FaultType } faultType - Fault type.
-   * @param { AsyncCallback<Array<FaultLogInfo>> } callback - Callback used to return the fault information array.<br>
-   *     **value** is the fault information array obtained. If **value** is **undefined**, an exception occurs during
-   *     the information retrieval. In this case, an error string will be returned.
+   * @param { FaultType } faultType - 输入要查询的故障类型。
+   * @param { AsyncCallback<Array<FaultLogInfo>> } callback - 回调函数，在回调函数中获取故障信息数组。
+   *    <br>value拿到故障信息数组；value为undefined表示获取过程中出现异常，error返回错误提示字符串。
    * @throws { BusinessError } 401 - The parameter check failed, Parameter type error
    * @throws { BusinessError } 801 - The specified SystemCapability name was not found
    * @throws { BusinessError } 10600001 - The service is not started or is faulty
@@ -141,14 +129,11 @@ declare namespace FaultLogger {
   function query(faultType: FaultType, callback: AsyncCallback<Array<FaultLogInfo>>): void;
 
   /**
-   * Obtains the fault information about the current application. This API uses a promise to return the fault
-   * information array obtained, which contains a maximum of 10 pieces of fault information.
+   * 获取当前应用故障信息，该方法通过Promise方式返回故障信息数组，故障信息数组内最多上报10份故障信息。
    *
-   * @param { FaultType } faultType - Fault type.
-   * @returns { Promise<Array<FaultLogInfo>> } Promise used to return the fault information array. You can obtain the
-   *     fault information instance in its **then()** method or use **await**.
-   *     <br>**value** is the fault information array obtained. If **value** is **undefined**,
-   *     an exception occurs during the information retrieval.
+   * @param { FaultType } faultType - 输入要查询的故障类型。
+   * @returns { Promise<Array<FaultLogInfo>> } Promise实例，可以在其then()方法中获取故障信息实例，也可以使用await。
+   *    <br>value拿到故障信息数组；value为undefined表示获取过程中出现异常。
    * @throws { BusinessError } 401 - The parameter check failed, Parameter type error
    * @throws { BusinessError } 801 - The specified SystemCapability name was not found
    * @throws { BusinessError } 10600001 - The service is not started or is faulty
@@ -160,7 +145,7 @@ declare namespace FaultLogger {
   function query(faultType: FaultType): Promise<Array<FaultLogInfo>>;
 
   /**
-   * Defines the data structure of the fault log information.
+   * 故障信息数据结构，获取到的故障信息的数据结构。
    *
    * @syscap SystemCapability.HiviewDFX.Hiview.FaultLogger
    * @since 8 dynamiconly
@@ -168,7 +153,7 @@ declare namespace FaultLogger {
    */
   interface FaultLogInfo {
     /**
-     * Process ID of the faulty process.
+     * 故障进程的进程id。
      *
      * @syscap SystemCapability.HiviewDFX.Hiview.FaultLogger
      * @since 8 dynamiconly
@@ -177,7 +162,7 @@ declare namespace FaultLogger {
     pid: number;
 
     /**
-     * User ID of the faulty process.
+     * 故障进程的用户id。
      *
      * @syscap SystemCapability.HiviewDFX.Hiview.FaultLogger
      * @since 8 dynamiconly
@@ -186,7 +171,7 @@ declare namespace FaultLogger {
     uid: number;
 
     /**
-     * Fault type.
+     * 故障类型。
      *
      * @syscap SystemCapability.HiviewDFX.Hiview.FaultLogger
      * @since 8 dynamiconly
@@ -195,7 +180,7 @@ declare namespace FaultLogger {
     type: FaultType;
 
     /**
-     * Millisecond-level timestamp when the log was generated.
+     * 日志生成时的毫秒级时间戳。
      *
      * @syscap SystemCapability.HiviewDFX.Hiview.FaultLogger
      * @since 8 dynamiconly
@@ -204,7 +189,7 @@ declare namespace FaultLogger {
     timestamp: number;
 
     /**
-     * Reason for the fault.
+     * 发生故障的原因。
      *
      * @syscap SystemCapability.HiviewDFX.Hiview.FaultLogger
      * @since 8 dynamiconly
@@ -213,7 +198,7 @@ declare namespace FaultLogger {
     reason: string;
 
     /**
-     * Module on which the fault occurred.
+     * 发生故障的模块。
      *
      * @syscap SystemCapability.HiviewDFX.Hiview.FaultLogger
      * @since 8 dynamiconly
@@ -222,7 +207,7 @@ declare namespace FaultLogger {
     module: string;
 
     /**
-     * Summary of the fault.
+     * 故障的概要。
      *
      * @syscap SystemCapability.HiviewDFX.Hiview.FaultLogger
      * @since 8 dynamiconly
@@ -231,7 +216,7 @@ declare namespace FaultLogger {
     summary: string;
 
     /**
-     * Full log text.
+     * 故障日志全文。
      *
      * @syscap SystemCapability.HiviewDFX.Hiview.FaultLogger
      * @since 8 dynamiconly
