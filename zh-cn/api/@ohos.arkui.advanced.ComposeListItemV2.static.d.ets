@@ -1,3 +1,4 @@
+'use static';
 /*
  * Copyright (c) 2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
@@ -14,1049 +15,881 @@
  */
 
 /**
- * @file
- * @kit ArkUI
+  * @file
+  * @kit ArkUI
  */
 
+import { Builder, ComponentV2, ResourceStr } from './@ohos.arkui.component';
+import { SymbolGlyphModifier } from './@ohos.arkui.modifier';
+import { Param, ObservedV2, Require, Trace } from '@ohos.arkui.stateManagement';
+
 /**
- * Declare enum IconTypeV2
+ * 列表左侧图标类型。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 26.0.0 dynamic
+ * @since 26.0.0 static
  */
 export declare enum IconTypeV2 {
   /**
-   * Badge type.
+   * 左侧图标为badge类型。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
+   * @since 26.0.0 static
    */
   BADGE = 1,
   /**
-   * Normal icon type.
+   * 左侧图标为小图标类型。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
+   * @since 26.0.0 static
    */
   NORMAL_ICON = 2,
   /**
-   * System icon type.
+   * 左侧图标为系统图标类型。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
+   * @since 26.0.0 static
    */
   SYSTEM_ICON = 3,
   /**
-   * HeadSculpture type.
+   * 左侧图标为头像类型。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
+   * @since 26.0.0 static
    */
   HEAD_SCULPTURE = 4,
   /**
-   * App icon type.
+   * 左侧图标为应用图标类型。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
+   * @since 26.0.0 static
    */
   APP_ICON = 5,
   /**
-   * Preview type.
+   * 左侧图标为预览图类型。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
+   * @since 26.0.0 static
    */
   PREVIEW = 6,
   /**
-   * Longitudinal type.
+   * 左侧图标为横向特殊比例。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
+   * @since 26.0.0 static
    */
   LONGITUDINAL = 7,
   /**
-   * Vertical type.
+   * 左侧图标为竖向特殊比例。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
+   * @since 26.0.0 static
    */
   VERTICAL = 8
 }
 /**
- * Callback function when operate the icon.
+ * 操作图标时的回调函数。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 26.0.0 dynamic
+ * @since 26.0.0 static
  */
 declare type OnActionCallback = () => void;
 /**
- * Callback function when operate the checkbox/switch/radio.
+ * 操作复选框/开关/单选按钮时的回调函数。
  *
- * @param { boolean } value - The value  of checkbox/switch/radio.
+ * @param { boolean } value - 复选框/开关/单选按钮的值。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 26.0.0 dynamic
+ * @since 26.0.0 static
  */
 declare type OnChangeCallback = (value: boolean) => void;
 
 /**
- * Declare interface OperateIconV2Options
+ * 声明接口OperateIconV2Options
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 26.0.0 dynamic
+ * @since 26.0.0 static
  */
 export interface OperateIconV2Options {
   /**
-   * The content of text or the address of icon
+   * 文本内容或图标地址。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
+   * @since 26.0.0 static
    */
   value?: ResourceStr;
 
   /**
-   * The content of text or the address of symbol
+   * 文本内容或图标地址。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
+   * @since 26.0.0 static
    */
   symbolStyle?: SymbolGlyphModifier;
 
   /**
-   * Callback function when operate the icon
+   * 操作图标时的回调函数。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
+   * @since 26.0.0 static
    */
   action?: OnActionCallback;
 
   /**
-   * The accessibilityText of the icon.
+   * 图标的无障碍文本属性。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
+   * @since 26.0.0 static
    */
   accessibilityText?: ResourceStr;
 
   /**
-   * The accessibilityDescription of the icon.
+   * 图标的无障碍描述。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
+   * @since 26.0.0 static
    */
   accessibilityDescription?: ResourceStr;
 
   /**
-   * The accessibilityLevel of the icon.
+   * 图标的无障碍重要性。
    *
    * @default auto
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
+   * @since 26.0.0 static
    */
   accessibilityLevel?: string;
 }
 
 /**
- * Declare type OperateIconV2
+ * 列表右侧图标元素的类型。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 26.0.0 dynamic
+ * @since 26.0.0 static
  */
 @ObservedV2
 export declare class OperateIconV2 {
   /**
-   * The content of text or the address of icon.
+   * 文本内容或图标地址。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
+   * @since 26.0.0 static
    */
   @Trace
   public value: ResourceStr;
 
   /**
-   * The content of text or the address of symbol
+   * 文本内容或图标地址。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
+   * @since 26.0.0 static
    */
   @Trace
   public symbolStyle?: SymbolGlyphModifier;
 
   /**
-   * Callback function when operate the icon.
+   * 操作图标时的回调函数。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
+   * @since 26.0.0 static
    */
   @Trace
   public action?: OnActionCallback;
 
   /**
-   * The accessibilityText of the icon.
+   * 图标的无障碍文本属性。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
+   * @since 26.0.0 static
    */
   @Trace
   public accessibilityText?: ResourceStr;
 
   /**
-   * The accessibilityDescription of the icon.
+   * 图标的无障碍描述。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
+   * @since 26.0.0 static
    */
   @Trace
   public accessibilityDescription?: ResourceStr;
 
   /**
-   * The accessibilityLevel of the icon.
+   * 图标的无障碍重要性。
    *
    * @default auto
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
+   * @since 26.0.0 static
    */
   @Trace
   public accessibilityLevel?: string;
 
   /**
-   * The constructor of OperateIconV2.
+   * OperateIconV2的构造函数。
    *
-   * @param { OperateIconV2Options } [options] - The options of OperateIconV2
+   * @param { OperateIconV2Options } [options] - OperateIconV2的可选项
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
+   * @since 26.0.0 static
    */
   constructor(options?: OperateIconV2Options);
 }
 
 /**
- * Declare interface OperateCheckV2Options
+ * 声明接口OperateCheckV2Options
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 26.0.0 dynamic
+ * @since 26.0.0 static
  */
 export interface OperateCheckV2Options {
   /**
-   * Whether is checked on default
+   * 是否默认选中。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
+   * @since 26.0.0 static
    */
   isCheck?: boolean;
 
   /**
-   * Callback function when operate the checkbox/switch/radio
+   * 操作checkbox/switch/radio时的回调函数。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
+   * @since 26.0.0 static
    */
   onChange?: OnChangeCallback;
 
   /**
-   * The accessibilityText of the checkbox/switch/radio
+   * Switch/CheckBox/Radio的无障碍文本属性。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
+   * @since 26.0.0 static
    */
   accessibilityText?: ResourceStr;
 
   /**
-   * The accessibilityDescription of the checkbox/switch/radio.
+   * Switch/CheckBox/Radio的无障碍描述。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
+   * @since 26.0.0 static
    */
   accessibilityDescription?: ResourceStr;
 
   /**
-   * The accessibilityLevel of the checkbox/switch/radio.
+   * Switch/CheckBox/Radio的无障碍重要性。
    *
    * @default auto
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
+   * @since 26.0.0 static
    */
   accessibilityLevel?: string;
 }
 
 /**
- * Declare type OperateCheckV2
+ * 列表右侧元素为Switch、CheckBox、Radio的类型。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 26.0.0 dynamic
+ * @since 26.0.0 static
  */
 @ObservedV2
 export declare class OperateCheckV2 {
   /**
-   * Whether is checked on default.
+   * 是否默认选中。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
+   * @since 26.0.0 static
    */
   @Trace
   public isCheck?: boolean;
 
   /**
-   * Callback function when operate the checkbox/switch/radio.
+   * 操作checkbox/switch/radio时的回调函数。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
+   * @since 26.0.0 static
    */
   @Trace
   public onChange?: OnChangeCallback;
 
   /**
-   * The accessibilityText of the checkbox/switch/radio.
+   * Switch/CheckBox/Radio的无障碍文本属性。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
+   * @since 26.0.0 static
    */
   @Trace
   public accessibilityText?: ResourceStr;
 
   /**
-   * The accessibilityDescription of the checkbox/switch/radio.
+   * Switch/CheckBox/Radio的无障碍描述。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
+   * @since 26.0.0 static
    */
   @Trace
   public accessibilityDescription?: ResourceStr;
 
   /**
-   * The accessibilityLevel of the checkbox/switch/radio.
+   * Switch/CheckBox/Radio的无障碍重要性。
    *
    * @default auto
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
+   * @since 26.0.0 static
    */
   @Trace
   public accessibilityLevel?: string;
 
   /**
-   * The constructor of OperateCheckV2.
+   * OperateCheckV2的构造函数。
    *
-   * @param { OperateCheckV2Options } [options] - The options of OperateCheckV2
+   * @param { OperateCheckV2Options } [options] - OperateCheckV2的可选项
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
+   * @since 26.0.0 static
    */
   constructor(options?: OperateCheckV2Options);
 }
 
 /**
- * Declare interface OperateButtonV2Options
+ * 声明接口OperateButtonV2Options
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 26.0.0 dynamic
+ * @since 26.0.0 static
  */
 export interface OperateButtonV2Options {
   /**
-   * The text on the button
+   * 按钮文本。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
+   * @since 26.0.0 static
    */
   text?: ResourceStr;
 
   /**
-   * The accessibilityText of the button.
+   * 按钮的无障碍文本属性。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
+   * @since 26.0.0 static
    */
   accessibilityText?: ResourceStr;
 
   /**
-   * The accessibilityDescription of the button.
+   * 按钮的无障碍描述。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
+   * @since 26.0.0 static
    */
   accessibilityDescription?: ResourceStr;
 
   /**
-   * The accessibilityLevel of the button.
+   * 按钮的无障碍重要性。
    *
    * @default auto
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
+   * @since 26.0.0 static
    */
   accessibilityLevel?: string;
 }
 
 /**
- * Declare type OperateButtonV2
+ * 列表右侧按钮元素的类型。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 26.0.0 dynamic
+ * @since 26.0.0 static
  */
 @ObservedV2
 export declare class OperateButtonV2 {
   /**
-   * The text on the button.
+   * 按钮文本。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
+   * @since 26.0.0 static
    */
   @Trace
   public text?: ResourceStr;
 
   /**
-   * The accessibilityText of the button.
+   * 按钮的无障碍文本属性。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
+   * @since 26.0.0 static
    */
   @Trace
   public accessibilityText?: ResourceStr;
 
   /**
-   * The accessibilityDescription of the button.
+   * 按钮的无障碍描述。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
+   * @since 26.0.0 static
    */
   @Trace
   public accessibilityDescription?: ResourceStr;
 
   /**
-   * The accessibilityLevel of the button.
+   * 按钮的无障碍重要性。
    *
    * @default auto
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
+   * @since 26.0.0 static
    */
   @Trace
   public accessibilityLevel?: string;
 
   /**
-   * The constructor of OperateButtonV2.
+   * OperateButtonV2的构造函数。
    *
-   * @param { OperateButtonV2Options } [options] - The options of OperateButtonV2
+   * @param { OperateButtonV2Options } [options] - OperateButtonV2的可选项
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
+   * @since 26.0.0 static
    */
   constructor(options?: OperateButtonV2Options);
 }
 
 /**
- * Declare interface ContentItemV2Options
+ * 声明接口ContentItemV2Options
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 26.0.0 dynamic
+ * @since 26.0.0 static
  */
 export interface ContentItemV2Options {
   /**
-   * The type of icon
+   * 图标样式。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
+   * @since 26.0.0 static
    */
   iconStyle?: IconTypeV2;
 
   /**
-   * Sets the icon
+   * 设置图标
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
+   * @since 26.0.0 static
    */
   icon?: ResourceStr;
 
   /**
-   * Sets the symbol
+   * 设置Symbol图标。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
+   * @since 26.0.0 static
    */
   symbolStyle?: SymbolGlyphModifier;
 
   /**
-   * Sets the primaryText.
+   * 设置标题内容。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
+   * @since 26.0.0 static
    */
   primaryText?: ResourceStr;
 
   /**
-   * Sets the secondaryText.
+   * 设置副标题内容。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
+   * @since 26.0.0 static
    */
   secondaryText?: ResourceStr;
 
   /**
-   * Sets the description.
+   * 设置描述内容。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
+   * @since 26.0.0 static
    */
   description?: ResourceStr;
 }
 
 /**
- * Declare ContentItemV2
+ * 列表左侧显示的图标、图标大小以及中间元素文字内容。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 26.0.0 dynamic
+ * @since 26.0.0 static
  */
 @ObservedV2
 export declare class ContentItemV2 {
   /**
-   * The type of icon.
+   * 图标样式。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
+   * @since 26.0.0 static
    */
   @Trace
   public iconStyle?: IconTypeV2;
 
   /**
-   * Sets the icon.
+   * 设置图标
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
+   * @since 26.0.0 static
    */
   @Trace
   public icon?: ResourceStr;
 
   /**
-   * Sets the symbol.
+   * 设置Symbol图标。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
+   * @since 26.0.0 static
    */
   @Trace
   public symbolStyle?: SymbolGlyphModifier;
 
   /**
-   * Sets the primaryText.
+   * 设置标题内容。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
+   * @since 26.0.0 static
    */
   @Trace
   public primaryText?: ResourceStr;
 
   /**
-   * Sets the secondaryText.
+   * 设置副标题内容。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
+   * @since 26.0.0 static
    */
   @Trace
   public secondaryText?: ResourceStr;
 
   /**
-   * Sets the description.
+   * 设置描述内容。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
+   * @since 26.0.0 static
    */
   @Trace
   public description?: ResourceStr;
 
   /**
-   * The constructor of ContentItemV2.
+   * ContentItemV2的构造函数。
    *
-   * @param { ContentItemV2Options } [options] - The options of ContentItemV2
+   * @param { ContentItemV2Options } [options] - ContentItemV2的可选项
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
+   * @since 26.0.0 static
    */
   constructor(options?: ContentItemV2Options);
 }
 
 /**
- * Declare interface OperateItemV2Options
+ * 声明接口OperateItemV2Options
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 26.0.0 dynamic
+ * @since 26.0.0 static
  */
 export interface OperateItemV2Options {
   /**
-   * Sets the icon.
+   * 设置图标
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
+   * @since 26.0.0 static
    */
   icon?: OperateIconV2;
 
   /**
-   * Sets the subIcon
+   * 设置子图标。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
+   * @since 26.0.0 static
    */
   subIcon?: OperateIconV2;
 
   /**
-   * Sets the button
+   * 设置按钮。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
+   * @since 26.0.0 static
    */
   button?: OperateButtonV2;
 
   /**
-   * Sets the toggle
+   * 设置开关。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
+   * @since 26.0.0 static
    */
   toggle?: OperateCheckV2;
 
   /**
-   * Sets the checkBox
+   * 设置多选框。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
+   * @since 26.0.0 static
    */
   checkbox?: OperateCheckV2;
 
   /**
-   * Sets the radio
+   * 设置单选框。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
+   * @since 26.0.0 static
    */
   radio?: OperateCheckV2;
 
   /**
-   * Sets the image
+   * 设置图片。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
+   * @since 26.0.0 static
    */
   image?: ResourceStr;
 
   /**
-   * Sets the symbolStyle
+   * 设置Symbol图标。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
+   * @since 26.0.0 static
    */
   symbolStyle?: SymbolGlyphModifier;
 
   /**
-   * Sets the text
+   * 设置文本。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
+   * @since 26.0.0 static
    */
   text?: ResourceStr;
 
   /**
-   * Sets the arrow
+   * 设置箭头。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
+   * @since 26.0.0 static
    */
   arrow?: OperateIconV2;
 }
 
 /**
- * Declare OperateItemV2
+ * 列表右侧显示的元素类型。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 26.0.0 dynamic
+ * @since 26.0.0 static
  */
 @ObservedV2
 export declare class OperateItemV2 {
   /**
-   * Sets the icon.
+   * 设置图标
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
+   * @since 26.0.0 static
    */
   @Trace
   public icon?: OperateIconV2;
 
   /**
-   * Sets the subIcon.
+   * 设置子图标。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
+   * @since 26.0.0 static
    */
   @Trace
   public subIcon?: OperateIconV2;
 
   /**
-   * Sets the button.
+   * 设置按钮。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
+   * @since 26.0.0 static
    */
   @Trace
   public button?: OperateButtonV2;
 
   /**
-   * Sets the toggle.
+   * 设置开关。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
+   * @since 26.0.0 static
    */
   @Trace
   public toggle?: OperateCheckV2;
 
   /**
-   * Sets the checkBox.
+   * 设置多选框。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
+   * @since 26.0.0 static
    */
   @Trace
   public checkbox?: OperateCheckV2;
 
   /**
-   * Sets the radio.
+   * 设置单选框。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
+   * @since 26.0.0 static
    */
   @Trace
   public radio?: OperateCheckV2;
 
   /**
-   * Sets the image.
+   * 设置图片。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
+   * @since 26.0.0 static
    */
   @Trace
   public image?: ResourceStr;
 
   /**
-   * Sets the symbolStyle.
+   * 设置Symbol图标。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
+   * @since 26.0.0 static
    */
   @Trace
   public symbolStyle?: SymbolGlyphModifier;
 
   /**
-   * Sets the text.
+   * 设置文本。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
+   * @since 26.0.0 static
    */
   @Trace
   public text?: ResourceStr;
 
   /**
-   * Sets the arrow.
+   * 设置箭头。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
+   * @since 26.0.0 static
    */
   @Trace
   public arrow?: OperateIconV2;
 
   /**
-   * The constructor of OperateItemV2.
+   * OperateItemV2的构造函数。
    *
-   * @param { OperateItemV2Options } [options] - The options of OperateItemV2
+   * @param { OperateItemV2Options } [options] - OperateItemV2的可选项
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
+   * @since 26.0.0 static
    */
   constructor(options?: OperateItemV2Options);
 }
 
 /**
- * Declare ComposeListItemV2
+ * 列表组件，可自定义列表左侧、中间元素以及右侧显示内容。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 26.0.0 dynamic
+ * @since 26.0.0 static
  */
 @ComponentV2
 export declare struct ComposeListItemV2 {
   /**
-   * The ContentItem.
+   * 定义左侧以及中间元素。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
+   * @since 26.0.0 static
    */
   @Param
   contentItemV2?: ContentItemV2;
 
   /**
-   * The OperateItem.
+   * 定义右侧元素。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
+   * @since 26.0.0 static
    */
   @Param
   operateItemV2?: OperateItemV2;
+
+  /**
+   * 构建组件的方法。
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 staticonly
+   */
+  @Builder
+  build(): void;
 }
