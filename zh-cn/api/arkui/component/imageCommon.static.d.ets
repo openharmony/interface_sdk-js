@@ -15,12 +15,12 @@
  */
 
 /**
- * @file
- * @kit ArkUI
+  * @file
+  * @kit ArkUI
  */
 
 /**
- * Image AI analysis type. When not set, subject recognition and text recognition are enabled by default.
+ * 图像AI分析类型，未设置时默认开启主体识别和文字识别功能。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full [since 23]
  * @stagemodelonly
@@ -28,7 +28,7 @@
  */
 export declare enum ImageAnalyzerType {
   /**
-   * Subject recognition function.
+   * 主体识别功能。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -36,7 +36,7 @@ export declare enum ImageAnalyzerType {
    */
   SUBJECT = 0,
   /**
-   * Text recognition function.
+   * 文字识别功能。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -44,7 +44,7 @@ export declare enum ImageAnalyzerType {
    */
   TEXT,
   /**
-   * Object lookup function.
+   *  对象查找功能。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -53,8 +53,7 @@ export declare enum ImageAnalyzerType {
   OBJECT_LOOKUP
 }
 /**
- * Image AI analysis controller. You can bind this object to a supported component and call supported methods through
- * the controller.
+ * 图像AI分析控制器。可以将此对象绑定至支持的组件，通过控制器来调用支持的方法。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -62,7 +61,7 @@ export declare enum ImageAnalyzerType {
  */
 export declare class ImageAnalyzerController {
   /**
-   * Constructor.
+   * 构造函数。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -70,9 +69,9 @@ export declare class ImageAnalyzerController {
    */
   constructor();
   /**
-   * Gets the AI analysis types supported by the corresponding component.
+   * 获取对应组件支持的AI分析类型。
    *
-   * @returns { ImageAnalyzerType[] } The AI analysis types supported by the corresponding component.
+   * @returns { ImageAnalyzerType[] } 对应组件支持的AI分析类型。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -80,7 +79,7 @@ export declare class ImageAnalyzerController {
   getImageAnalyzerSupportTypes(): ImageAnalyzerType[];
 }
 /**
- * Image AI analysis configuration item.
+ * 图像AI分析配置项。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -88,7 +87,7 @@ export declare class ImageAnalyzerController {
  */
 export declare interface ImageAnalyzerConfig {
   /**
-   * Image AI analysis type.
+   * 图像AI分析类型。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -97,17 +96,14 @@ export declare interface ImageAnalyzerConfig {
   types: ImageAnalyzerType[];
 }
 /**
- * Image AI analysis options.
+ * 图像AI分析选项。
  *
- * > **Description:**
+ * > **说明：**
  * >
- * > The types parameter in this feature has higher priority than the types parameter in
- * > [ImageAnalyzerConfig]{@link ImageAnalyzerConfig}. When both are set,
- * > the value set in this feature takes precedence.
+ * > 该特性中的参数types优先级高于[ImageAnalyzerConfig]{@link ImageAnalyzerConfig}中的参数types，两者同时设置时以该特性设置的值为准。
  * >
- * > This feature depends on device capability and needs to be used with
- * > the [enableAnalyzer]{@link ImageAttribute.enableAnalyzer} interface
- * > of the corresponding component (for example, [Image component]{@link ./image}).
+ * > 该特性依赖设备能力，且需要和对应组件的[enableAnalyzer]{@link ImageAttribute.enableAnalyzer}接口
+ * > （例如[Image组件]{@link ./image}）搭配使用。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -115,7 +111,7 @@ export declare interface ImageAnalyzerConfig {
  */
 export declare interface ImageAIOptions {
   /**
-   * Image AI analysis type.
+   * 图像AI分析类型。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -123,11 +119,9 @@ export declare interface ImageAIOptions {
    */
   types?: ImageAnalyzerType[];
   /**
-   * Image AI analysis controller. The enableAnalyzer interface of the corresponding component (for example,
-   * the [enableAnalyzer]{@link ImageAttribute.enableAnalyzer}
-   * interface of the Image component) must be set to true for this to take effect.
-   *
-   * Currently, only ESValue type is supported.
+   * 图像AI分析控制器，需要对应组件的enableAnalyzer接口（例如Image组件的[enableAnalyzer]{@link ImageAttribute.enableAnalyzer}
+   * 接口）设置为true才能生效。
+   * 目前只支持ESValue类型。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
