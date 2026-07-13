@@ -18,12 +18,11 @@
  * @kit BackgroundTasksKit
  */
 
-import { AsyncCallback } from './@ohos.base';
 
 /**
  * The **BackgroundLoader** module provides the APIs for registering, unregistering and querying tasks.
- *  You can use the APIs to register tasks that need to be loaded in the background. The system 
- * schedules and executes these deferred tasks at an appropriate time, subject to the storage space, power consumption, 
+ *  You can use these APIs to register tasks that need to be loaded in the background. The system 
+ * schedules and executes these deferred tasks at an appropriate time, subject to the storage space, power consumption.
  *
  * @syscap SystemCapability.ResourceSchedule.WorkScheduler
  * @stagemodelonly
@@ -47,7 +46,7 @@ declare namespace backgroundLoader {
      */
     SUCCESS = 0,
     /**
-     * System error during task execution
+     * System error during task execution.
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @stagemodelonly
@@ -63,7 +62,7 @@ declare namespace backgroundLoader {
      */
     PERCEPTIBLE_ERROR = 2,
     /**
-     * Timeout during task execution
+     * Timeout during task execution.
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @stagemodelonly
@@ -85,7 +84,7 @@ declare namespace backgroundLoader {
    *
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @stagemodelonly
-   * @since 26.0.0.0.0 dynamic&static
+   * @since 26.0.0 dynamic&static
    */
   export interface TaskInfo {
     /**
@@ -93,7 +92,7 @@ declare namespace backgroundLoader {
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @stagemodelonly
-     * @since 26.0.0.0.0 dynamic&static
+     * @since 26.0.0 dynamic&static
      */
     abilityName: string;
 
@@ -102,17 +101,17 @@ declare namespace backgroundLoader {
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @stagemodelonly
-     * @since 26.0.0.0.0 dynamic&static
+     * @since 26.0.0 dynamic&static
      */
     taskId: int;
   }
 
   /**
-   * Enumerates the background load task stop information, which is used to ON_STOP function.
+   * Represents the background load task stop information, which is used to ON_STOP function.
    *
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @stagemodelonly
-   * @since 26.0.0.0.0 dynamic&static
+   * @since 26.0.0 dynamic&static
    */
   export interface TaskStopInfo {
     /**
@@ -120,7 +119,7 @@ declare namespace backgroundLoader {
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @stagemodelonly
-     * @since 26.0.0.0.0 dynamic&static
+     * @since 26.0.0 dynamic&static
      */
     taskId: int;
 
@@ -129,7 +128,7 @@ declare namespace backgroundLoader {
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @stagemodelonly
-     * @since 26.0.0.0.0 dynamic&static
+     * @since 26.0.0 dynamic&static
      */
     abilityName: string;
 
@@ -138,7 +137,7 @@ declare namespace backgroundLoader {
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @stagemodelonly
-     * @since 26.0.0.0.0 dynamic&static
+     * @since 26.0.0 dynamic&static
      */
     stopCode: StopCode;
 
@@ -147,7 +146,7 @@ declare namespace backgroundLoader {
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @stagemodelonly
-     * @since 26.0.0.0.0 dynamic&static
+     * @since 26.0.0 dynamic&static
      */
     stopMessage: string;
   }
@@ -162,7 +161,7 @@ declare namespace backgroundLoader {
    * @throws { BusinessError } 9700004 - Check on taskInfo failed.
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @stagemodelonly
-   * @since 26.0.0.0.0 dynamic&static
+   * @since 26.0.0 dynamic&static
    */
   function registerTask(taskInfo: TaskInfo): void;
 
@@ -176,7 +175,7 @@ declare namespace backgroundLoader {
    * @throws { BusinessError } 9700004 - Check on taskInfo failed.
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @stagemodelonly
-   * @since 26.0.0.0.0 dynamic&static
+   * @since 26.0.0 dynamic&static
    */
   function unregisterTask(taskInfo: TaskInfo): void;
 
@@ -190,15 +189,15 @@ declare namespace backgroundLoader {
    * @throws { BusinessError } 9700004 - Check on taskInfo failed.
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @stagemodelonly
-   * @since 26.0.0.0.0 dynamic&static
+   * @since 26.0.0 dynamic&static
    */
   function finishTask(taskInfo: TaskInfo): void;
 
   /**
-   * Obtains th information of a background load task. This API returns the result via a promise.
+   * Obtains the information of a background load task. This API returns the result via a promise.
    *
    * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
-   * @param { int } taskId - Id of background load task.
+   * @param { int } taskId - Id of the background load task.
    *     <br>The value range is all integers.
    * @returns { Promise<TaskInfo> } Promise used to return the TaskInfo.
    * @throws { BusinessError } 201 - No permission.
@@ -206,7 +205,7 @@ declare namespace backgroundLoader {
    * @throws { BusinessError } 9700004 - Check on taskInfo failed.
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @stagemodelonly
-   * @since 26.0.0.0.0 dynamic&static
+   * @since 26.0.0 dynamic&static
    */
   function getTaskInfo(taskId: int): Promise<TaskInfo>;
 
