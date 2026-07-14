@@ -26,47 +26,45 @@ import { LazyLayoutAlgorithm } from './arkui/LazyLayoutAlgorithm';
 /**
  * The LazyDynamicLayoutAttribute
  *
- * @extends CommonMethod
- * @interface LazyDynamicLayoutAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 26.0.0 static
  * @noninterop
  */
 export declare interface LazyDynamicLayoutAttribute extends CommonMethod {
-    /**
-     * Called attributeModifier.
-     *
-     * @param { AttributeModifier<LazyDynamicLayoutAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
-     * @returns { this }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 26.0.0 static
-     */
-    default attributeModifier(
+  /**
+   * Called attributeModifier.
+   *
+   * @param { AttributeModifier<LazyDynamicLayoutAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
+   * @returns { this }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  default attributeModifier(
       modifier: AttributeModifier<LazyDynamicLayoutAttribute> | AttributeModifier<CommonMethod> | undefined): this;
-    /**
-     * Called when visible indexes change.
-     *
-     * @param { Callback<int[]> | undefined } callback - Callback used to return the list of index
-     *     numbers of visible subcomponents.
-     *     <br>Passing undefined will unregister the callback.
-     * @returns { this }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 26.0.0 static
-     */
-    default onVisibleIndexesChange(callback: Callback<int[]> | undefined): this;
-    /**
-     * Set LazyDynamicLayout options.
-     *
-     * @param { LazyLayoutAlgorithm } algorithm - Lazy layout algorithm.
-     * @returns { this } Returns the instance of the LazyDynamicLayoutAttribute.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 26.0.0 staticonly
-     */
-    default setLazyDynamicLayoutOptions(algorithm: LazyLayoutAlgorithm): this;
+  /**
+   * Called when visible indexes change.
+   *
+   * @param { Callback<int[]> | undefined } callback - The callback function to be called when
+   *     visible indexes change.
+   *     <br>Passing undefined will unregister the callback.
+   * @returns { this }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  default onVisibleIndexesChange(callback: Callback<int[]> | undefined): this;
+  /**
+   * Set LazyDynamicLayout options.
+   *
+   * @param { LazyLayoutAlgorithm } algorithm - Lazy layout algorithm.
+   * @returns { this } Returns the instance of the LazyDynamicLayoutAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 staticonly
+   */
+  default setLazyDynamicLayoutOptions(algorithm: LazyLayoutAlgorithm): this;
 }
 /**
  * Defines LazyDynamicLayout Component.

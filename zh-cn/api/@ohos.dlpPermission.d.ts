@@ -295,7 +295,7 @@ declare namespace dlpPermission {
      * 
      * 根据原始文件名后缀判断文件类型，选择对应的应用打开。
      *
-     * @param { string } fileName - 指定要查询的DLP文件名。长度不超过255字节，超出此范围抛出错误码19100001。
+     * @param { string } fileName - 指定要查询的DLP文件名。长度不超过255字节，超出此范围抛出错误码401。
      * @returns { string } 返回DLP文件的原始文件名。例如：DLP文件名为test.txt.dlp，则返回的原始文件名为test.txt。不超过255字节。
      * @throws { BusinessError } 19100001 - Invalid parameter value.
      * @throws { BusinessError } 19100011 - The system ability works abnormally.
@@ -404,7 +404,7 @@ declare namespace dlpPermission {
      * 设置DLP沙箱的保留状态。默认情况下，打开DLP文件时系统会自动创建沙箱环境，关闭文件后自动销毁沙箱。设置保留状态后，即使关闭DLP文件，沙箱环境也会保留，便于快速重新打开相同DLP文件。适用于需要频繁操作同一DLP文件的场景
      * ，可提升文件打开效率。仅支持在DLP沙箱应用中调用。使用Promise异步回调。
      *
-     * @param { Array<string> } docUris - 表示需要设置保留状态的文件uri列表。不对Array长度进行限制，每个string不超过4095字节，超出此范围抛出错误码19100001。
+     * @param { Array<string> } docUris - 表示需要设置保留状态的文件uri列表。不对Array长度进行限制，每个string不超过4095字节，超出此范围抛出错误码401。
      * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     2. Incorrect parameter types.
@@ -420,7 +420,7 @@ declare namespace dlpPermission {
      * 设置DLP沙箱的保留状态。默认情况下，打开DLP文件时系统会自动创建沙箱环境，关闭文件后自动销毁沙箱。设置保留状态后，即使关闭DLP文件，沙箱环境也会保留，便于快速重新打开相同DLP文件。适用于需要频繁操作同一DLP文件的场景
      * ，可提升文件打开效率。仅支持在DLP沙箱应用中调用。使用callback异步回调。
      *
-     * @param { Array<string> } docUris - 表示需要设置保留状态的文件uri列表。不对Array长度进行限制，每个string长度不超过4095字节，超出此范围抛出错误码19100001。
+     * @param { Array<string> } docUris - 表示需要设置保留状态的文件uri列表。不对Array长度进行限制，每个string长度不超过4095字节，超出此范围抛出错误码401。
      * @param { AsyncCallback<void> } callback - 回调函数。err为undefined时表示设置成功；否则为错误对象。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     2. Incorrect parameter types.
@@ -437,7 +437,7 @@ declare namespace dlpPermission {
      * 
      * 该接口用于取消沙箱保留状态，恢复默认行为以释放系统资源，适用于不再频繁访问DLP文件的场景。
      *
-     * @param { Array<string> } docUris - 表示需要取消保留状态的文件uri列表。不对Array长度进行限制，每个string长度不超过4095字节，超出此范围抛出错误码19100001。
+     * @param { Array<string> } docUris - 表示需要取消保留状态的文件uri列表。不对Array长度进行限制，每个string长度不超过4095字节，超出此范围抛出错误码401。
      * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     2. Incorrect parameter types.
@@ -452,7 +452,7 @@ declare namespace dlpPermission {
      * 
      * 该接口用于取消沙箱保留状态，恢复默认行为以释放系统资源，适用于不再频繁访问DLP文件的场景。
      *
-     * @param { Array<string> } docUris - 表示需要取消保留状态的文件uri列表。不对Array长度进行限制，每个string长度不超过4095字节，超出此范围抛出错误码19100001。
+     * @param { Array<string> } docUris - 表示需要取消保留状态的文件uri列表。不对Array长度进行限制，每个string长度不超过4095字节，超出此范围抛出错误码401。
      * @param { AsyncCallback<void> } callback - 回调函数。err为undefined时表示设置成功；否则为错误对象。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     2. Incorrect parameter types.
@@ -468,7 +468,7 @@ declare namespace dlpPermission {
      * 该接口用于查询指定应用的保留沙箱列表，以便查看或管理当前处于保留状态的沙箱环境。
      *
      * @param { string } [bundleName] - 指定应用包名，用于查询该应用的保留沙箱信息列表。当需要查询其他应用的保留沙箱信息时传入此参数，当需要查询当前应用的保留沙箱信息时可不传此参数。长度范围
-     *     [7, 128]字节，超出此范围抛出错误码19100001。
+     *     [7, 128]字节，超出此范围抛出错误码401。
      * @returns { Promise<Array<RetentionSandboxInfo>> } Promise对象。返回查询的沙箱信息列表。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
      * @throws { BusinessError } 19100001 - Invalid parameter value.
@@ -484,7 +484,7 @@ declare namespace dlpPermission {
      * 
      * 该接口用于查询指定应用的保留沙箱列表，以便查看或管理当前处于保留状态的沙箱环境。
      *
-     * @param { string } bundleName - 指定应用包名，用于查询该应用的保留沙箱信息列表。长度范围[7, 128]字节，超出此范围抛出错误码19100001。
+     * @param { string } bundleName - 指定应用包名，用于查询该应用的保留沙箱信息列表。长度范围[7, 128]字节，超出此范围抛出错误码401。
      * @param { AsyncCallback<Array<RetentionSandboxInfo>> } callback - 回调函数。err为undefined时表示查询成功；否则为错误对象。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
      * @throws { BusinessError } 19100001 - Invalid parameter value.
@@ -690,11 +690,11 @@ declare namespace dlpPermission {
      * DLP文件管理应用打开受保护文件前，需要先为目标应用安装DLP沙箱。
      *
      * @permission ohos.permission.ACCESS_DLP_FILE
-     * @param { string } bundleName - 应用包名。最小7字节，最大128字节。超出范围时抛出错误码19100001。
+     * @param { string } bundleName - 应用包名。最小7字节，最大128字节。超出范围时抛出错误码401。
      * @param { DLPFileAccess } access - DLP文件授权类型。设置不同的授权类型将决定用户对DLP文件的访问权限范围。
      * @param { number } userId - 当前的用户ID，通过账号子系统获取的系统账号ID，默认主用户ID：100。<br>取值范围为[0, 2<sup>31</sup>-1]，超出范围将被截断。当传入参数值小于0
      *     时，输出错误日志。
-     * @param { string } uri - DLP文件的URI。不超过4095字节。超出范围时抛出错误码19100001。
+     * @param { string } uri - DLP文件的URI。不超过4095字节。超出范围时抛出错误码401。
      * @returns { Promise<DLPSandboxInfo> } Promise对象。安装沙箱应用，返回应用沙箱信息。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -717,11 +717,11 @@ declare namespace dlpPermission {
      * DLP文件管理应用打开受保护文件前，需要先为目标应用安装DLP沙箱。
      *
      * @permission ohos.permission.ACCESS_DLP_FILE
-     * @param { string } bundleName - 应用包名。最小7字节，最大128字节。超出范围时抛出错误码19100001。
+     * @param { string } bundleName - 应用包名。最小7字节，最大128字节。超出范围时抛出错误码401。
      * @param { DLPFileAccess } access - DLP文件授权类型。设置不同的授权类型将决定用户对DLP文件的访问权限范围。
      * @param { number } userId - 当前的用户ID，通过账号子系统获取的系统账号ID，默认主用户ID：100。<br>取值范围为[0, 2<sup>31</sup>-1]，超出范围将被截断。当传入参数值小于0
      *     时，输出错误日志。
-     * @param { string } uri - DLP文件的URI。不超过4095字节。 超出范围时抛出错误码19100001。
+     * @param { string } uri - DLP文件的URI。不超过4095字节。 超出范围时抛出错误码401。
      * @param { AsyncCallback<DLPSandboxInfo> } callback - 回调函数。当安装DLP沙箱成功，err为undefined，data为获取到的沙箱信息；否则为错误对象。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -744,7 +744,7 @@ declare namespace dlpPermission {
      * 安装沙箱后才能调用此方法卸载。
      *
      * @permission ohos.permission.ACCESS_DLP_FILE
-     * @param { string } bundleName - 应用包名。最小7字节，最大128字节。超出范围时抛出错误码19100001。
+     * @param { string } bundleName - 应用包名。最小7字节，最大128字节。超出范围时抛出错误码401。
      * @param { number } userId - 当前的用户ID，通过账号子系统获取的系统账号ID，默认主用户ID：100。<br>取值范围为[0, 2<sup>31</sup>-1]，超出范围将被截断。当传入参数值小于0
      *     时，输出错误日志。
      * @param { number } appIndex - DLP沙箱号，即installDLPSandbox接口调用成功后的返回值，用于标识已安装的DLP沙箱。取值范围为[1000, 1100]，超出范围时输出错误日志。
@@ -770,7 +770,7 @@ declare namespace dlpPermission {
      * 安装沙箱后才能调用此方法卸载。
      *
      * @permission ohos.permission.ACCESS_DLP_FILE
-     * @param { string } bundleName - 应用包名。最小7字节，最大128字节。超出范围时抛出错误码19100001。
+     * @param { string } bundleName - 应用包名。最小7字节，最大128字节。超出范围时抛出错误码401。
      * @param { number } userId - 当前的用户ID，通过账号子系统获取的系统账号ID，默认主用户ID：100。取值范围为[0, 2<sup>31</sup>-1]，超出范围将被截断。
      * @param { number } appIndex - DLP沙箱号，即installDLPSandbox接口调用成功后的返回值，用于标识已安装的DLP沙箱。取值范围为[1000, 1100]，超出范围时输出错误日志。
      * @param { AsyncCallback<void> } callback - 回调函数。当卸载DLP沙箱成功，err为undefined，否则为错误对象。
@@ -794,7 +794,7 @@ declare namespace dlpPermission {
      */
     export interface DLPSandboxState {
         /**
-         * 表示应用包名。最小7字节，最大128字节。超出此范围抛出错误码19100001。
+         * 表示应用包名。
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @systemapi Hide this for inner system use.
@@ -899,7 +899,7 @@ declare namespace dlpPermission {
      */
     export interface AuthUser {
         /**
-         * 表示被授权用户账号。不超过255字节，超出此范围抛出错误码19100001。
+         * 表示被授权用户账号。不超过255字节，超出此范围抛出错误码401。
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @systemapi Hide this for inner system use. [since 10 - 20]
@@ -945,7 +945,7 @@ declare namespace dlpPermission {
      */
     export interface DLPProperty {
         /**
-         * 表示权限设置者账号。长度不超过255字节，超出此范围抛出错误码19100001。
+         * 表示权限设置者账号。长度不超过255字节，超出此范围抛出错误码401。
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @systemapi Hide this for inner system use. [since 10 - 20]
@@ -954,7 +954,7 @@ declare namespace dlpPermission {
          */
         ownerAccount: string;
         /**
-         * 表示权限设置者账号的ID。长度不超过255字节，超出此范围抛出错误码19100001。
+         * 表示权限设置者账号的ID。长度不超过255字节，超出此范围抛出错误码401。
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @systemapi Hide this for inner system use. [since 10 - 20]
@@ -981,7 +981,7 @@ declare namespace dlpPermission {
          */
         authUserList?: Array<AuthUser>;
         /**
-         * 表示联系人账号。长度不超过255字节，超出此范围抛出错误码19100001。
+         * 表示联系人账号。长度不超过255字节，超出此范围抛出错误码401。
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @systemapi Hide this for inner system use. [since 10 - 20]
@@ -1026,7 +1026,7 @@ declare namespace dlpPermission {
          */
         actionUponExpiry?: ActionType;
         /**
-         * 表示文件的标识，默认为空。长度不超过255字节，超出此范围抛出错误码19100001。
+         * 表示文件的标识，默认为空。长度不超过255字节，超出此范围抛出错误码401。
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @since 21
@@ -1093,7 +1093,7 @@ declare namespace dlpPermission {
          * DLP应用需要通过标准文件接口访问加密文件内容时，先添加link文件将DLP文件映射为虚拟明文文件，应用可像操作普通文件一样读写该link文件。
          *
          * @permission ohos.permission.ACCESS_DLP_FILE
-         * @param { string } linkFileName - 用于FUSE文件系统的link文件名。不超过255字节。超出范围时抛出错误码19100001。
+         * @param { string } linkFileName - 用于FUSE文件系统的link文件名。不超过255字节。超出范围时抛出错误码401。
          * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
          * @throws { BusinessError } 201 - Permission denied.
          * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -1117,7 +1117,7 @@ declare namespace dlpPermission {
          * DLP应用需要通过标准文件接口访问加密文件内容时使用此接口。
          *
          * @permission ohos.permission.ACCESS_DLP_FILE
-         * @param { string } linkFileName - 用于FUSE文件系统的link文件名。不超过255字节。超出范围时抛出错误码19100001。
+         * @param { string } linkFileName - 用于FUSE文件系统的link文件名。不超过255字节。超出范围时抛出错误码401。
          * @param { AsyncCallback<void> } callback - 回调函数，用于接收添加link文件的结果。
          * @throws { BusinessError } 201 - Permission denied.
          * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -1216,7 +1216,7 @@ declare namespace dlpPermission {
          * 需要切换访问不同的DLP文件时，通过替换link文件实现文件映射的切换。
          *
          * @permission ohos.permission.ACCESS_DLP_FILE
-         * @param { string } linkFileName - 用于FUSE文件系统的link文件名。不超过255字节。超出范围时抛出错误码19100001。
+         * @param { string } linkFileName - 用于FUSE文件系统的link文件名。不超过255字节。超出范围时抛出错误码401。
          * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
          * @throws { BusinessError } 201 - Permission denied.
          * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -1237,7 +1237,7 @@ declare namespace dlpPermission {
          * 需要切换访问不同的DLP文件时替换link文件。
          *
          * @permission ohos.permission.ACCESS_DLP_FILE
-         * @param { string } linkFileName - 用于FUSE文件系统的link文件名。不超过255字节。超出范围时抛出错误码19100001。
+         * @param { string } linkFileName - 用于FUSE文件系统的link文件名。不超过255字节。超出范围时抛出错误码401。
          * @param { AsyncCallback<void> } callback - 回调函数，用于接收替换link文件的结果。回调参数包括：err（错误对象，成功时为undefined）。
          * @throws { BusinessError } 201 - Permission denied.
          * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -1261,7 +1261,7 @@ declare namespace dlpPermission {
          * DLP文件访问结束后清理link文件映射时使用此接口。
          *
          * @permission ohos.permission.ACCESS_DLP_FILE
-         * @param { string } linkFileName - 用于FUSE文件系统的link文件名。不超过255字节。超出范围时抛出错误码19100001。
+         * @param { string } linkFileName - 用于FUSE文件系统的link文件名。不超过255字节。超出范围时抛出错误码401。
          * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
          * @throws { BusinessError } 201 - Permission denied.
          * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -1285,7 +1285,7 @@ declare namespace dlpPermission {
          * DLP文件访问结束后清理link文件映射时使用此接口。
          *
          * @permission ohos.permission.ACCESS_DLP_FILE
-         * @param { string } linkFileName - 用于FUSE文件系统的link文件名。不超过255字节。超出范围时抛出错误码19100001。
+         * @param { string } linkFileName - 用于FUSE文件系统的link文件名。不超过255字节。超出范围时抛出错误码401。
          * @param { AsyncCallback<void> } callback - 回调函数，用于接收删除link文件的结果。
          * @throws { BusinessError } 201 - Permission denied.
          * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -1472,7 +1472,7 @@ declare namespace dlpPermission {
      * @permission ohos.permission.ACCESS_DLP_FILE
      * @param { number } ciphertextFd - 加密文件的fd。取值范围为[0, 2<sup>31</sup>-1]。当fd小于0时，打印错误日志，函数停止运行；当fd大于2<sup>31</sup>-1时，
      *     fd的值被截断。
-     * @param { string } appId - 调用方身份。最小8字节，最大1024字节。超出范围时返回错误码19100001。
+     * @param { string } appId - 调用方身份。最小8字节，最大1024字节。超出范围时返回错误码401。
      * @returns { Promise<DLPFile> } Promise对象。resolve时返回DLPFile对象表示成功打开DLP文件，reject时抛出错误表示失败。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -1501,7 +1501,7 @@ declare namespace dlpPermission {
      * @permission ohos.permission.ACCESS_DLP_FILE
      * @param { number } ciphertextFd - 加密文件的fd。取值范围为[0, 2<sup>31</sup>-1]。当fd小于0时，打印错误日志，函数停止运行；当fd大于2<sup>31</sup>-1时，
      *     fd的值被截断。
-     * @param { string } appId - 调用方身份。最小8字节，最大1024字节。超出范围时返回错误码19100001。
+     * @param { string } appId - 调用方身份。最小8字节，最大1024字节。超出范围时返回错误码401。
      * @param { AsyncCallback<DLPFile> } callback - 回调函数。用于接收打开DLP文件的结果。回调参数包括：err（错误对象，成功时为undefined）和res（DLPFile对象，表示打
      *     开的DLP文件）。
      * @throws { BusinessError } 201 - Permission denied.
@@ -1529,7 +1529,7 @@ declare namespace dlpPermission {
      * 
      * 该接口用于设置沙箱应用的配置信息，以便应用按需传递自定义参数。
      *
-     * @param { string } configInfo - 沙箱应用配置信息。长度不超过2<sup>22</sup>-1字节，超出此范围抛出错误码19100001。
+     * @param { string } configInfo - 沙箱应用配置信息。长度不超过2<sup>22</sup>-1字节，超出此范围抛出错误码401。
      * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     2. Incorrect parameter types.
@@ -1624,7 +1624,7 @@ declare namespace dlpPermission {
      */
     export interface CustomProperty {
         /**
-         * 表示企业定制策略的JSON字符串。长度不超过2<sup>22</sup>字节，超出此范围抛出错误码19100001。
+         * 表示企业定制策略的JSON字符串。长度不超过2<sup>22</sup>字节，超出此范围抛出错误码401。
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @systemapi Hide this for inner system use. [since 20 - 20]
@@ -1745,7 +1745,7 @@ declare namespace dlpPermission {
      */
     export interface EnterprisePolicy {
         /**
-         * 表示企业定制策略的JSON字符串。长度不超过2<sup>22</sup>字节，超出此范围抛出错误码19100001。
+         * 表示企业定制策略的JSON字符串。长度不超过2<sup>22</sup>字节，超出此范围输出错误日志。
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @since 21

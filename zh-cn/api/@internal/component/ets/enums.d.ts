@@ -6127,7 +6127,7 @@ declare enum HitTestMode {
    * @atomicservice [since 11]
    * @since 9 dynamic
    */
-  Default = 0,
+  Default,
 
   /**
    * 自身响应触摸测试，阻塞子节点、兄弟节点和祖先节点的触摸测试。
@@ -6139,7 +6139,7 @@ declare enum HitTestMode {
    * @atomicservice [since 11]
    * @since 9 dynamic
    */
-  Block = 1,
+  Block,
 
   /**
    * 自身和子节点均响应触摸测试，不会阻塞兄弟节点和祖先节点的触摸测试。
@@ -6151,7 +6151,7 @@ declare enum HitTestMode {
    * @atomicservice [since 11]
    * @since 9 dynamic
    */
-  Transparent = 2,
+  Transparent,
 
   /**
    * 自身不响应触摸测试，不会阻塞子节点、兄弟节点和祖先节点的触摸测试。
@@ -6163,7 +6163,7 @@ declare enum HitTestMode {
    * @atomicservice [since 11]
    * @since 9 dynamic
    */
-  None = 3,
+  None,
   /**
    * 自身和子节点响应触摸测试，阻止所有优先级较低的兄弟节点和父节点参与触摸测试。
    *
@@ -6174,7 +6174,7 @@ declare enum HitTestMode {
    * @atomicservice
    * @since 20 dynamic
    */
-  BLOCK_HIERARCHY = 4,
+  BLOCK_HIERARCHY,
   /**
    * 自身不响应触摸测试，并且所有的后代（孩子，孙子等）也不响应触摸测试，不会影响祖先节点的触摸测试。
    *
@@ -6185,7 +6185,7 @@ declare enum HitTestMode {
    * @atomicservice
    * @since 20 dynamic
    */
-  BLOCK_DESCENDANTS = 5
+  BLOCK_DESCENDANTS,
 }
 
 /**

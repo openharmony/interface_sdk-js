@@ -158,7 +158,7 @@ declare namespace manager {
    * @permission ohos.permission.MANAGE_NEARLINK
    * @returns { Promise<void> } Returns the promise object.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - System API is not allowed to be called by non-system applications.
+   * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
    * @throws { BusinessError } 801 - Capability not supported because the chip does not support it.
    * @throws { BusinessError } 36100099 - Operation failed.
    * @syscap SystemCapability.Communication.NearLink.Base

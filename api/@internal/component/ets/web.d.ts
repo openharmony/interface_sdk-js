@@ -1292,22 +1292,15 @@ declare interface FullScreenEnterEvent {
    */
   videoWidth?: number;
 
-  /**
-   * The intrinsic height of the video if the fullscreen element contains video element, expressed in CSS pixels, Unit: px.
+   /**
+   * Video height, in px. If the element that enters fulls screen mode is a **<video>** element, the value represents its
+   * height; if the element that enters fulls screen mode contains a **<video>** element, the value represents the height
+   * of the first sub-video element; in other cases, the value is **0**.
    *
-   * @type { ?number }
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * The intrinsic height of the video if the fullscreen element contains video element, expressed in CSS pixels, Unit: px.
-   *
-   * @type { ?number }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    */
   videoHeight?: number;
 }

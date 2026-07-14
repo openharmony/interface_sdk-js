@@ -661,10 +661,19 @@ declare type OnListScrollIndexCallback = (start: number, end: number, center: nu
  * @since 11 dynamic
  */
 declare class ListScroller extends Scroller {
-
   /**
    * Obtains the size of a [list item]{@link list_item} in a [list item group]{@link list_item_group} and its position
    * relative to the list.
+   *
+   * > **NOTE**
+   * >
+   * > - The value of **index** must be the index of a child component visible in the display area.
+   *     Otherwise, the value is considered invalid.
+   * > - The child component for which **index** is set must be a list item group. Otherwise,
+   *     the **index** value is considered invalid.
+   * > - The value of **indexInGroup** must be the index of a list item in the list item group visible
+   *     in the display area. Otherwise, the value is considered invalid.
+   * > - When **index** or **indexInGroup** is set to an invalid value, the returned size and position are both **0**.
    *
    * @param { number } index - Index of the list item group in the list.
    * @param { number } indexInGroup - Index of the list item in the list item group.
@@ -2013,8 +2022,16 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
 
   /**
    * Triggered when the dragged item is dropped on the drop target of the list.
+   * During dragging across lists, **isSuccess** is set to **true** if the drop target is bound to **onItemDrop**.
+   * Otherwise, **isSuccess** is set to **false**. During dragging within a list, **isSuccess** is the return value of
+   * the **onItemMove** event.
    *
-   * @param { function } event
+   * @param { function } event - Callback triggered when dragging is stopped within the scope of the list.
+   *     <br/>event: Information about the drag point.
+   *     <br/>itemIndex: Initial position of the dragged item.
+   *     <br/>insertIndex: Index of the position to which the dragged item is dropped. <br/>
+   *     isSuccess: Whether the dragged item is successfully dropped. If the return value is **true**, the list item is
+   *     successfully dropped. If the return value is **false**, the list item is not successfully dropped.
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel

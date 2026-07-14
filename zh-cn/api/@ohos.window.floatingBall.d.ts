@@ -54,8 +54,12 @@ declare namespace floatingBall {
    * @returns { Promise<FloatingBallController> } Promise对象。返回当前创建的闪控球控制器。
    * @throws { BusinessError } 801 - Capability not supported.
    *     Failed to call the API due to limited device capabilities.
-   * @throws { BusinessError } 1300019 - Wrong parameters for operating the floating ball.
-   * @throws { BusinessError } 1300023 - Floating ball internal error.
+   * @throws { BusinessError } 1300019 - Wrong parameters for operating the floating ball. Possible causes:
+   *     <br>1.The context parameter is null.
+   *     <br>2.The FloatingBallConfiguration parameter is null.
+   * @throws { BusinessError } 1300023 - Floating ball internal error. Possible causes:
+   *     <br>1.The application context or main window is invalid.
+   *     <br>2.System internal error, such as null pointer or insufficient memory.
    * @syscap SystemCapability.Window.SessionManager
    * @since 20 dynamic
    * @since 23 static
@@ -97,13 +101,22 @@ declare namespace floatingBall {
      * @param { FloatingBallParams } params - 启动闪控球的参数。
      * @returns { Promise<void> } 无返回结果的Promise对象。
      * @throws { BusinessError } 201 - Permission verification failed, usually returned by VerifyAccessToken.
-     * @throws { BusinessError } 1300019 - Wrong parameters for operating the floating ball.
-     * @throws { BusinessError } 1300020 - Failed to create the floating ball window.
+     * @throws { BusinessError } 1300019 - Wrong parameters for operating the floating ball. Possible causes:
+     *     <br>1. FloatingBallParams parameter is null.
+     *     <br>2. Parameter is invalid, such as invalid icon object, template type,
+     *            or title (empty or exceeds 64 bytes).
+     * @throws { BusinessError } 1300020 - Failed to create the floating ball window. Possible cause:
+     *     The main window is not shown.
      * @throws { BusinessError } 1300021 - Failed to start multiple floating ball windows.
      * @throws { BusinessError } 1300022 - Repeated floating ball operation.
-     * @throws { BusinessError } 1300023 - Floating ball internal error.
-     * @throws { BusinessError } 1300024 - The floating ball window state is abnormal.
-     * @throws { BusinessError } 1300025 - The floating ball state does not support this operation.
+     * @throws { BusinessError } 1300023 - Floating ball internal error. Possible causes:
+     *     <br>1.The floating ball controller has been destroyed.
+     *     <br>2.Internal error, failed to show the floating ball window.
+     *           Such as insufficient resources or abnormal window service.
+     * @throws { BusinessError } 1300024 - The floating ball window state is abnormal. Possible cause:
+     *     The floating ball window is not created or has been destroyed.
+     * @throws { BusinessError } 1300025 - The floating ball state does not support this operation. Possible cause:
+     *     The floating ball state is stopping.
      * @throws { BusinessError } 1300034 - This operation conflicts with other floating windows. Possible cause:
      *     App has already started float view. [since 26.0.0]
      * @syscap SystemCapability.Window.SessionManager
@@ -117,13 +130,22 @@ declare namespace floatingBall {
      *
      * @param { FloatingBallParams } params - 更新闪控球的参数。
      * @returns { Promise<void> } 无返回结果的Promise对象。
-     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause:
+     *     Internal error, the window type is not a floating ball.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
-     * @throws { BusinessError } 1300004 - Unauthorized operation.
-     * @throws { BusinessError } 1300019 - Wrong parameters for operating the floating ball.
-     * @throws { BusinessError } 1300023 - Floating ball internal error.
-     * @throws { BusinessError } 1300024 - The floating ball window state is abnormal.
-     * @throws { BusinessError } 1300025 - The floating ball state does not support this operation.
+     *     Possible cause: Internal IPC error.
+     * @throws { BusinessError } 1300004 - Unauthorized operation. Possible cause: The process ID
+     *     calling the API does not match the process ID of the session that created the floating ball.
+     * @throws { BusinessError } 1300019 - Wrong parameters for operating the floating ball. Possible causes:
+     *     <br>1.FloatingBallParams parameter is null.
+     *     <br>2.Parameter is invalid, such as invalid icon object, template type,
+     *           or title (empty or exceeds 64 bytes).
+     * @throws { BusinessError } 1300023 - Floating ball internal error. Possible cause:
+     *     System error, such as a null pointer, insufficient memory.
+     * @throws { BusinessError } 1300024 - The floating ball window state is abnormal. Possible cause:
+     *     The floating ball window is not created or has been destroyed.
+     * @throws { BusinessError } 1300025 - The floating ball state does not support this operation. Possible cause:
+     *     The floating ball is not started.
      * @throws { BusinessError } 1300027 - When updating the floating ball, the template type cannot be changed.
      * @throws { BusinessError } 1300028 - Updating static template-based floating balls is not supported.
      * @syscap SystemCapability.Window.SessionManager
@@ -137,8 +159,10 @@ declare namespace floatingBall {
      *
      * @returns { Promise<void> } 无返回结果的Promise对象。
      * @throws { BusinessError } 1300022 - Repeated floating ball operation.
-     * @throws { BusinessError } 1300023 - Floating ball internal error.
-     * @throws { BusinessError } 1300024 - The floating ball window state is abnormal.
+     * @throws { BusinessError } 1300023 - Floating ball internal error. Possible cause:
+     *     System error, such as a null pointer, insufficient memory.
+     * @throws { BusinessError } 1300024 - The floating ball window state is abnormal. Possible cause:
+     *     The floating ball window is not created or has been destroyed.
      * @syscap SystemCapability.Window.SessionManager
      * @since 20 dynamic
      * @since 23 static
@@ -150,10 +174,14 @@ declare namespace floatingBall {
      *
      * @param { 'stateChange' } type - 监听事件，固定为'stateChange'，即闪控球生命周期状态变化事件。
      * @param { Callback<FloatingBallState> } callback - 回调函数。返回当前的闪控球生命周期状态。
-     * @throws { BusinessError } 1300019 - Wrong parameters for operating the floating ball.
+     * @throws { BusinessError } 1300019 - Wrong parameters for operating the floating ball. Possible causes:
+     *     <br>1.Mandatory parameters are left unspecified.
+     *     <br>2.Callback is null or not callable.
      * @throws { BusinessError } 1300022 - Repeated floating ball operation.
-     * @throws { BusinessError } 1300023 - Floating ball internal error.
-     * @throws { BusinessError } 1300024 - The floating ball window state is abnormal.
+     * @throws { BusinessError } 1300023 - Floating ball internal error. Possible cause:
+     *     System error, such as a null pointer, insufficient memory.
+     * @throws { BusinessError } 1300024 - The floating ball window state is abnormal. Possible cause:
+     *     The floating ball controller has been destroyed.
      * @syscap SystemCapability.Window.SessionManager
      * @since 20 dynamic
      */
@@ -163,10 +191,14 @@ declare namespace floatingBall {
      * Register floating ball stateChange event listener.
      *
      * @param { Callback<FloatingBallState> } callback - Used to handle {'stateChange'} command.
-     * @throws { BusinessError } 1300019 - Wrong parameters for operating the floating ball.
+     * @throws { BusinessError } 1300019 - Wrong parameters for operating the floating ball. Possible causes:
+     *     <br>1.Mandatory parameters are left unspecified.
+     *     <br>2.Callback is null or not callable.
      * @throws { BusinessError } 1300022 - Repeated floating ball operation.
-     * @throws { BusinessError } 1300023 - Floating ball internal error.
-     * @throws { BusinessError } 1300024 - The floating ball window state is abnormal.
+     * @throws { BusinessError } 1300023 - Floating ball internal error. Possible cause:
+     *     System error, such as a null pointer, insufficient memory.
+     * @throws { BusinessError } 1300024 - The floating ball window state is abnormal. Possible cause:
+     *     The floating ball controller has been destroyed.
      * @syscap SystemCapability.Window.SessionManager
      * @since 23 static
      */
@@ -177,9 +209,13 @@ declare namespace floatingBall {
      *
      * @param { 'stateChange' } type - 监听事件，固定为'stateChange'，即闪控球生命周期状态变化事件。
      * @param { Callback<FloatingBallState> } [callback] - 回调函数。返回当前的闪控球生命周期状态。若传入参数，则停止该监听。若未传入参数，则停止所有闪控球生命周期状态变化的监听。
-     * @throws { BusinessError } 1300019 - Wrong parameters for operating the floating ball.
-     * @throws { BusinessError } 1300023 - Floating ball internal error.
-     * @throws { BusinessError } 1300024 - The floating ball window state is abnormal.
+     * @throws { BusinessError } 1300019 - Wrong parameters for operating the floating ball. Possible causes:
+     *     <br>1.Mandatory parameters are left unspecified.
+     *     <br>2.Callback is null or not callable.
+     * @throws { BusinessError } 1300023 - Floating ball internal error. Possible cause:
+     *     System error, such as a null pointer, insufficient memory.
+     * @throws { BusinessError } 1300024 - The floating ball window state is abnormal. Possible cause:
+     *     The floating ball controller has been destroyed.
      * @syscap SystemCapability.Window.SessionManager
      * @since 20 dynamic
      */
@@ -190,9 +226,13 @@ declare namespace floatingBall {
      *
      * @param { Callback<FloatingBallState> } [callback] - Indicates the callback function. If not provided,
      *     all callbacks for the given event type will be removed.
-     * @throws { BusinessError } 1300019 - Wrong parameters for operating the floating ball.
-     * @throws { BusinessError } 1300023 - Floating ball internal error.
-     * @throws { BusinessError } 1300024 - The floating ball window state is abnormal.
+     * @throws { BusinessError } 1300019 - Wrong parameters for operating the floating ball. Possible causes:
+     *     <br>1.Mandatory parameters are left unspecified.
+     *     <br>2.Callback is null or not callable.
+     * @throws { BusinessError } 1300023 - Floating ball internal error. Possible cause:
+     *     System error, such as a null pointer, insufficient memory.
+     * @throws { BusinessError } 1300024 - The floating ball window state is abnormal. Possible cause:
+     *     The floating ball controller has been destroyed.
      * @syscap SystemCapability.Window.SessionManager
      * @since 23 static
      */
@@ -203,10 +243,14 @@ declare namespace floatingBall {
      *
      * @param { 'click' } type - 监听事件，固定为'click'，即闪控球点击事件。
      * @param { Callback<void> } callback - 回调函数。当点击闪控球事件发生时的回调。该回调函数不返回任何参数。
-     * @throws { BusinessError } 1300019 - Wrong parameters for operating the floating ball.
+     * @throws { BusinessError } 1300019 - Wrong parameters for operating the floating ball. Possible causes:
+     *     <br>1.Mandatory parameters are left unspecified.
+     *     <br>2.Callback is null or not callable.
      * @throws { BusinessError } 1300022 - Repeated floating ball operation.
-     * @throws { BusinessError } 1300023 - Floating ball internal error.
-     * @throws { BusinessError } 1300024 - The floating ball window state is abnormal.
+     * @throws { BusinessError } 1300023 - Floating ball internal error. Possible cause:
+     *     System error, such as a null pointer, insufficient memory.
+     * @throws { BusinessError } 1300024 - The floating ball window state is abnormal. Possible cause:
+     *     The floating ball controller has been destroyed.
      * @syscap SystemCapability.Window.SessionManager
      * @since 20 dynamic
      */
@@ -216,10 +260,14 @@ declare namespace floatingBall {
      * Register floating ball click event listener.
      *
      * @param { Callback<void> } callback - Used to handle {'click'} command.
-     * @throws { BusinessError } 1300019 - Wrong parameters for operating the floating ball.
+     * @throws { BusinessError } 1300019 - Wrong parameters for operating the floating ball. Possible causes:
+     *     <br>1.Mandatory parameters are left unspecified.
+     *     <br>2.Callback is null or not callable.
      * @throws { BusinessError } 1300022 - Repeated floating ball operation.
-     * @throws { BusinessError } 1300023 - Floating ball internal error.
-     * @throws { BusinessError } 1300024 - The floating ball window state is abnormal.
+     * @throws { BusinessError } 1300023 - Floating ball internal error. Possible cause:
+     *     System error, such as a null pointer, insufficient memory.
+     * @throws { BusinessError } 1300024 - The floating ball window state is abnormal. Possible cause:
+     *     The floating ball controller has been destroyed.
      * @syscap SystemCapability.Window.SessionManager
      * @since 23 static
      */
@@ -230,9 +278,13 @@ declare namespace floatingBall {
      *
      * @param { 'click' } type - 监听事件，固定为'click'，即闪控球点击事件。
      * @param { Callback<void> } [callback] - 回调函数。当点击闪控球事件发生时的回调。该回调函数不返回任何参数。若传入参数，则关闭特定的监听。若未传入参数，则关闭所有闪控球点击的监听。
-     * @throws { BusinessError } 1300019 - Wrong parameters for operating the floating ball.
-     * @throws { BusinessError } 1300023 - Floating ball internal error.
-     * @throws { BusinessError } 1300024 - The floating ball window state is abnormal.
+     * @throws { BusinessError } 1300019 - Wrong parameters for operating the floating ball. Possible causes:
+     *     <br>1.Mandatory parameters are left unspecified.
+     *     <br>2.Callback is null or not callable.
+     * @throws { BusinessError } 1300023 - Floating ball internal error. Possible cause:
+     *     System error, such as a null pointer, insufficient memory.
+     * @throws { BusinessError } 1300024 - The floating ball window state is abnormal. Possible cause:
+     *     The floating ball controller has been destroyed.
      * @syscap SystemCapability.Window.SessionManager
      * @since 20 dynamic
      */
@@ -243,9 +295,13 @@ declare namespace floatingBall {
      *
      * @param { Callback<void> } [callback] - Indicates the callback function. If not provided,
      *     all callbacks for the given event type will be removed.
-     * @throws { BusinessError } 1300019 - Wrong parameters for operating the floating ball.
-     * @throws { BusinessError } 1300023 - Floating ball internal error.
-     * @throws { BusinessError } 1300024 - The floating ball window state is abnormal.
+     * @throws { BusinessError } 1300019 - Wrong parameters for operating the floating ball. Possible causes:
+     *     <br>1.Mandatory parameters are left unspecified.
+     *     <br>2.Callback is null or not callable.
+     * @throws { BusinessError } 1300023 - Floating ball internal error. Possible cause:
+     *     System error, such as a null pointer, insufficient memory.
+     * @throws { BusinessError } 1300024 - The floating ball window state is abnormal. Possible cause:
+     *     The floating ball controller has been destroyed.
      * @syscap SystemCapability.Window.SessionManager
      * @since 23 static
      */
@@ -296,12 +352,19 @@ declare namespace floatingBall {
      * 获得闪控球窗口信息，使用Promise异步回调。
      *
      * @returns { Promise<FloatingBallWindowInfo> } Promise对象，返回闪控球窗口信息。
-     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause:
+     *     Internal error, the window type is not a floating ball.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
-     * @throws { BusinessError } 1300004 - Unauthorized operation.
-     * @throws { BusinessError } 1300023 - Floating ball internal error.
-     * @throws { BusinessError } 1300024 - The floating ball window state is abnormal.
-     * @throws { BusinessError } 1300025 - The floating ball state does not support this operation.
+     *     Possible cause: Internal IPC error.
+     * @throws { BusinessError } 1300004 - Unauthorized operation. Possible cause: The process ID
+     *     calling the API does not match the process ID of the session that created the floating ball.
+     * @throws { BusinessError } 1300023 - Floating ball internal error. Possible cause:
+     *     System error, such as a null pointer, insufficient memory.
+     * @throws { BusinessError } 1300024 - The floating ball window state is abnormal. Possible causes:
+     *     <br>1. The floating ball controller has been destroyed.
+     *     <br>2. The floating ball window is not created or has been destroyed.
+     * @throws { BusinessError } 1300025 - The floating ball state does not support this operation. Possible cause:
+     *     The floating ball is not started.
      * @syscap SystemCapability.Window.SessionManager
      * @since 20 dynamic
      * @since 23 static
@@ -315,13 +378,21 @@ declare namespace floatingBall {
      * @param { Want } want - 加载指定页面的Want。
      * @returns { Promise<void> } 无返回结果的Promise对象。
      * @throws { BusinessError } 201 - Permission verification failed, usually returned by VerifyAccessToken.
-     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause:
+     *     Internal error, the window type is not a floating ball.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
-     * @throws { BusinessError } 1300004 - Unauthorized operation.
-     * @throws { BusinessError } 1300019 - Wrong parameters for operating the floating ball.
-     * @throws { BusinessError } 1300023 - Floating ball internal error.
-     * @throws { BusinessError } 1300024 - The floating ball window state is abnormal.
-     * @throws { BusinessError } 1300025 - The floating ball state does not support this operation.
+     *     Possible cause: Internal IPC error.
+     * @throws { BusinessError } 1300004 - Unauthorized operation. Possible cause: The process ID
+     *     calling the API does not match the process ID of the session that created the floating ball.
+     * @throws { BusinessError } 1300019 - Wrong parameters for operating the floating ball. Possible cause:
+     *     Want parameter is null or invalid.
+     * @throws { BusinessError } 1300023 - Floating ball internal error. Possible cause:
+     *     System error, such as a null pointer, insufficient memory.
+     * @throws { BusinessError } 1300024 - The floating ball window state is abnormal. Possible causes:
+     *     <br>1.The floating ball controller has been destroyed.
+     *     <br>2.The floating ball window is not created or has been destroyed.
+     * @throws { BusinessError } 1300025 - The floating ball state does not support this operation. Possible cause:
+     *     The floating ball is not started.
      * @throws { BusinessError } 1300026 - Failed to restore the main window. Possible causes:
      *     1. Invalid parameter. The provided bundleName does not match the caller's application bundleName.
      *     2. The application lacks the ohos.permission.AUTO_RESTORE_MAIN_WINDOW permission,

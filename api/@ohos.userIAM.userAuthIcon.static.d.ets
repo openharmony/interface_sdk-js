@@ -15,7 +15,7 @@
  */
 
 /**
- * @file
+ * @file Embedded User Authentication Icons
  * @kit UserAuthenticationKit
  */
 
@@ -23,14 +23,17 @@ import userAuth from '@ohos.userIAM.userAuth';
 import { ResourceColor, Dimension, Component } from '@ohos.arkui.component';
 
 /**
- * **userAuthIcon** provides user identity authentication icons used on the application UI. With **userAuthIcon**, you
- * can:
+ * The **userAuthIcon** module is a UI component module of the OpenHarmony user identity and access management (UserIAM)
+ * system. It provides an out-of-the-box authentication icon component (**UserAuthIcon**). This component is used to
+ * display the face authentication or fingerprint authentication icon on the application UI. It supports custom icon
+ * colors and dimensions, and can directly launch the system authentication dialog box component when the icon is
+ * tapped.
  *
- * 1. Easily integrate the facial authentication and fingerprint authentication icons into your applications.
+ * This module applies to the following scenarios:
  *
- * 2. Customize the color and size of the icons. The icon style cannot be changed.
- *
- * 3. Start the facial or fingerprint authentication pop-up component once the icon is tapped.
+ * - Quickly integrating the face or fingerprint authentication entry into the application UI.
+ * - Displaying biometric authentication icons in a unified style.
+ * - Tapping the icon to trigger the system-level authentication process.
  *
  * @struct { UserAuthIcon }
  * @syscap SystemCapability.UserIAM.UserAuth.Core

@@ -178,9 +178,8 @@ declare namespace dlpPermission {
          */
         dlpFileAccess: DLPFileAccess;
         /**
-         * Operations that can be performed on the DLP file. The value is a combination of different 
-         * [ActionFlagTypes]{@link dlpPermission.ActionFlagType}. If the value is out of range, error code 19100001 is 
-         * thrown.
+         * Operations that can be performed on the DLP file. The value is determined by a combination of different
+         * [ActionFlagTypes]{@link dlpPermission.ActionFlagType}.
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @since 10
@@ -233,8 +232,7 @@ declare namespace dlpPermission {
          */
         bundleName: string;
         /**
-         * URI list of the DLP files. The length of the array is not limited. Each string contains a maximum of 4095 
-         * bytes. If the string is out of range, error code 19100001 is thrown.
+         * URI list of the DLP files. The array has no length limit, but each string cannot exceed 4095 bytes.
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @since 10
@@ -248,8 +246,8 @@ declare namespace dlpPermission {
      * processing policy. For example, whether to open the file in a DLP sandbox.
      *
      * @param { number } fd - FD of the file to be checked. The value range is [0, 2<sup>31</sup>-1]. If the value of
-     *     **fd** is less than 0, **false** is returned. If the value of **fd** is greater than 2<sup>31</sup>-1, the
-     *     value is truncated.
+     *     **fd** is less than 0, error code 19100001 is thrown. If the value of **fd** is greater than 2<sup>31</sup>-1, 
+     *     the excess part will be truncated.
      * @returns { Promise<boolean> } Returns {@code true} if {@link fd} is a DLP file; returns {@code false} otherwise.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     2. Incorrect parameter types.
@@ -268,8 +266,8 @@ declare namespace dlpPermission {
      * processing policy. For example, whether to open the file in a DLP sandbox.
      *
      * @param { number } fd - FD of the file to be checked. The value range is [0, 2<sup>31</sup>-1]. If the value of
-     *     **fd** is less than 0, **false** is returned. If the value of **fd** is greater than 2<sup>31</sup>-1, the
-     *     value is truncated.
+     *     **fd** is less than 0, error code 19100001 is thrown. If the value of **fd** is greater than 2<sup>31</sup>-1, 
+     *     the excess part will be truncated.
      * @param { AsyncCallback<boolean> } callback - Callback used to receive the query result. The callback parameters
      *     include **err** and **res**. **err** is **undefined** when the query is successful; otherwise, **err** is an
      *     error object. If **true** is returned, **res** is a DLP file; if **false** is returned, **res** is not a DLP
@@ -325,7 +323,7 @@ declare namespace dlpPermission {
      * Determine the file type based on the original file name extension and select an application to open the file.
      *
      * @param { string } fileName - Name of the target DLP file. The value contains 1 to 255 bytes. If the value is out
-     *     of range, error code 19100001 is thrown.
+     *     of range, error code 401 is thrown.
      * @returns { string } Original name of the DLP file obtained. For example, if the DLP file name is **test.txt.dlp**
      *     , the original file name returned is **test.txt**. The value contains up to 255 bytes.
      * @throws { BusinessError } 19100001 - Invalid parameter value.
@@ -464,7 +462,7 @@ declare namespace dlpPermission {
      *
      * @param { Array<string> } docUris - URIs of the files to be set with the retention state. The length of the array
      *     is not limited. Each string contains a maximum of 4095 bytes. If the string is out of range, error code
-     *     19100001 is thrown.
+     *     401 is thrown.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     2. Incorrect parameter types.
@@ -485,7 +483,7 @@ declare namespace dlpPermission {
      *
      * @param { Array<string> } docUris - URIs of the files to be set with the retention state. The length of the array
      *     is not limited. Each string contains a maximum of 4095 bytes. If the string is out of range, error code
-     *     19100001 is thrown.
+     *     401 is thrown.
      * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
      *     **err** is **undefined**. Otherwise, **err** is an error object.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -507,7 +505,7 @@ declare namespace dlpPermission {
      *
      * @param { Array<string> } docUris - URIs of the files to be canceled with the retention state. The length of the
      *     array is not limited. Each string contains a maximum of 4095 bytes. If the string is out of range, error code
-     *     19100001 is thrown.
+     *     401 is thrown.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     2. Incorrect parameter types.
@@ -526,7 +524,7 @@ declare namespace dlpPermission {
      *
      * @param { Array<string> } docUris - URIs of the files to be canceled with the retention state. The length of the
      *     array is not limited. Each string contains a maximum of 4095 bytes. If the string is out of range, error code
-     *     19100001 is thrown.
+     *     401 is thrown.
      * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
      *     **err** is **undefined**. Otherwise, **err** is an error object.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -548,7 +546,7 @@ declare namespace dlpPermission {
      *     information of the application. This parameter is required when you need to query the sandbox retention
      *     information of another application. It is optional when you need to query the sandbox retention information
      *     of the current application. The value contains 7 to 128 bytes. If the value is out of range, error code
-     *     19100001 is thrown.
+     *     401 is thrown.
      * @returns { Promise<Array<RetentionSandboxInfo>> } Promise used to return the sandbox retention information
      *     obtained.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
@@ -571,7 +569,7 @@ declare namespace dlpPermission {
      *     information of the application. This parameter is required when you need to query the sandbox retention
      *     information of another application. It is optional when you need to query the sandbox retention information
      *     of the current application. The value contains 7 to 128 bytes. If the value is out of range, error code
-     *     19100001 is thrown.
+     *     401 is thrown.
      * @param { AsyncCallback<Array<RetentionSandboxInfo>> } callback - Callback used to return the result. If the
      *     operation is successful, **err** is **undefined**. Otherwise, **err** is an error object.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
@@ -802,7 +800,7 @@ declare namespace dlpPermission {
      *
      * @permission ohos.permission.ACCESS_DLP_FILE
      * @param { string } bundleName - Bundle name of the application. The value contains 7 to 128 bytes. If the value is
-     *     out of range, error code 19100001 is thrown.
+     *     out of range, error code 401 is thrown.
      * @param { DLPFileAccess } access - Permission on the DLP file. The permissions on a DLP file determine the access
      *     scope of the file.
      * @param { number } userId - Current user ID, which is the system account ID obtained by the account subsystem. The
@@ -810,7 +808,7 @@ declare namespace dlpPermission {
      *     the excess part will be truncated. If the value of the passed parameter is less than 0, an error log is
      *     generated.
      * @param { string } uri - URI of the DLP file. The value contains up to 4095 bytes. If the value is out of range,
-     *     error code 19100001 is thrown.
+     *     error code 401 is thrown.
      * @returns { Promise<DLPSandboxInfo> } Promise used to return the information about the sandbox application
      *     installed.
      * @throws { BusinessError } 201 - Permission denied.
@@ -838,7 +836,7 @@ declare namespace dlpPermission {
      *
      * @permission ohos.permission.ACCESS_DLP_FILE
      * @param { string } bundleName - Bundle name of the application. The value contains 7 to 128 bytes. If the value is
-     *     out of range, error code 19100001 is thrown.
+     *     out of range, error code 401 is thrown.
      * @param { DLPFileAccess } access - Permission on the DLP file. The permissions on a DLP file determine the access
      *     scope of the file.
      * @param { number } userId - Current user ID, which is the system account ID obtained by the account subsystem. The
@@ -846,7 +844,7 @@ declare namespace dlpPermission {
      *     the excess part will be truncated. If the value of the passed parameter is less than 0, an error log is
      *     generated.
      * @param { string } uri - URI of the DLP file. The value contains up to 4095 bytes. If the value is out of range,
-     *     error code 19100001 is thrown.
+     *     error code 401 is thrown.
      * @param { AsyncCallback<DLPSandboxInfo> } callback - Callback used to return the result. If the DLP sandbox
      *     installation is successful, **err** is **undefined**, and **data** is the sandbox information obtained.
      *     Otherwise, **err** is an error object.
@@ -873,7 +871,7 @@ declare namespace dlpPermission {
      *
      * @permission ohos.permission.ACCESS_DLP_FILE
      * @param { string } bundleName - Bundle name of the application. The value contains 7 to 128 bytes. If the value is
-     *     out of range, error code 19100001 is thrown.
+     *     out of range, error code 401 is thrown.
      * @param { number } userId - Current user ID, which is the system account ID obtained by the account subsystem. The
      *     default super user ID is **100**.<br>The value range is [0, 2<sup>31</sup>-1]. If the value is out of range,
      *     the excess part will be truncated. If the value of the passed parameter is less than 0, an error log is
@@ -906,7 +904,7 @@ declare namespace dlpPermission {
      *
      * @permission ohos.permission.ACCESS_DLP_FILE
      * @param { string } bundleName - Bundle name of the application. The value contains 7 to 128 bytes. If the value is
-     *     out of range, error code 19100001 is thrown.
+     *     out of range, error code 401 is thrown.
      * @param { number } userId - Current user ID, which is the system account ID obtained by the account subsystem. The
      *     default super user ID is **100**. The value range is [0, 2<sup>31</sup>-1]. If the value is out of range, the
      *     excess part will be truncated.
@@ -935,8 +933,7 @@ declare namespace dlpPermission {
      */
     export interface DLPSandboxState {
         /**
-         * Bundle name of the application. The value contains 7 to 128 bytes. If the value is out of range, error code
-         * 19100001 is thrown.
+         * Bundle name of the application.
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @systemapi Hide this for inner system use.
@@ -1052,7 +1049,7 @@ declare namespace dlpPermission {
     export interface AuthUser {
         /**
          * Account of the user who can access the DLP file. The value contains a maximum of 255 bytes. If the value is 
-         * out of range, error code 19100001 is thrown.
+         * out of range, error code 401 is thrown.
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @systemapi Hide this for inner system use. [since 10 - 20]
@@ -1080,7 +1077,7 @@ declare namespace dlpPermission {
         dlpFileAccess: DLPFileAccess;
         /**
          * Time when the authorization expires. The value must be greater than or equal to 0. If the value is out of 
-         * range, error code 19100001 is thrown. Unit: s.
+         * range, it will be forcibly converted to an unsigned integer. Unit: s.
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @systemapi Hide this for inner system use. [since 10 - 20]
@@ -1100,7 +1097,7 @@ declare namespace dlpPermission {
     export interface DLPProperty {
         /**
          * Account of the owner who can set the permission. The value contains 1 to 255 bytes. If the value is out of 
-         * range, error code 19100001 is thrown.
+         * range, error code 401 is thrown.
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @systemapi Hide this for inner system use. [since 10 - 20]
@@ -1110,7 +1107,7 @@ declare namespace dlpPermission {
         ownerAccount: string;
         /**
          * Account ID of the owner. The value contains a maximum of 255 bytes. If the value is out of range, error code 
-         * 19100001 is thrown.
+         * 401 is thrown.
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @systemapi Hide this for inner system use. [since 10 - 20]
@@ -1137,7 +1134,7 @@ declare namespace dlpPermission {
          */
         authUserList?: Array<AuthUser>;
         /**
-         * Account of the contact. The value contains 1 to 255 bytes. If the value is out of range, error code 19100001 
+         * Account of the contact. The value contains 1 to 255 bytes. If the value is out of range, error code 401 
          * is thrown.
          *
          * @syscap SystemCapability.Security.DataLossPrevention
@@ -1186,15 +1183,14 @@ declare namespace dlpPermission {
         actionUponExpiry?: ActionType;
         /**
          * System account ID. This parameter is left empty by default. The value contains a maximum of 255 bytes. If the
-         * value is out of range, error code 19100001 is thrown.
+         * value is out of range, error code 401 is thrown.
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @since 21
          */
         fileId?: string;
         /**
-         * Number of allowed opening times. This parameter is left empty by default. The value must be greater than or 
-         * equal to 0. If the value is out of range, error code 19100001 is thrown.
+         * Number of allowed opening times. The default value is **0**. No value range restriction is specified.
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @since 21
@@ -1208,9 +1204,9 @@ declare namespace dlpPermission {
          */
         waterMarkConfig?: boolean;
         /**
-         * Validity period for file viewing, in seconds. After the validity period expires, the file is automatically 
-         * closed. This parameter is left empty by default. The value must be greater than or equal to 0. If the value 
-         * is out of range, error code 19100001 is thrown.
+         * Validity period for file viewing, in seconds. The default value is 0. After the validity period expires, 
+         * the file is automatically closed. The value must be greater than or equal to 0. No value range restriction 
+         * is specified.
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @stagemodelonly
@@ -1264,7 +1260,7 @@ declare namespace dlpPermission {
          *
          * @permission ohos.permission.ACCESS_DLP_FILE
          * @param { string } linkFileName - Name of the link file in the FUSE. The value contains up to 255 bytes. If
-         *     the value is out of range, error code 19100001 is thrown.
+         *     the value is out of range, error code 401 is thrown.
          * @returns { Promise<void> } Promise that returns no value.
          * @throws { BusinessError } 201 - Permission denied.
          * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -1291,7 +1287,7 @@ declare namespace dlpPermission {
          *
          * @permission ohos.permission.ACCESS_DLP_FILE
          * @param { string } linkFileName - Name of the link file in the FUSE. The value contains up to 255 bytes. If
-         *     the value is out of range, error code 19100001 is thrown.
+         *     the value is out of range, error code 401 is thrown.
          * @param { AsyncCallback<void> } callback - Callback used to receive the result of adding a link file.
          * @throws { BusinessError } 201 - Permission denied.
          * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -1403,7 +1399,7 @@ declare namespace dlpPermission {
          *
          * @permission ohos.permission.ACCESS_DLP_FILE
          * @param { string } linkFileName - Name of the link file in the FUSE. The value contains up to 255 bytes. If
-         *     the value is out of range, error code 19100001 is thrown.
+         *     the value is out of range, error code 401 is thrown.
          * @returns { Promise<void> } Promise that returns no value.
          * @throws { BusinessError } 201 - Permission denied.
          * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -1426,7 +1422,7 @@ declare namespace dlpPermission {
          *
          * @permission ohos.permission.ACCESS_DLP_FILE
          * @param { string } linkFileName - Name of the link file in the FUSE. The value contains up to 255 bytes. If
-         *     the value is out of range, error code 19100001 is thrown.
+         *     the value is out of range, error code 401 is thrown.
          * @param { AsyncCallback<void> } callback - Callback used to receive the result of replacing a link file. The
          *     callback parameter is **err**. **err** is **undefined** when the operation is successful; otherwise,
          *     **err** is an error object.
@@ -1454,7 +1450,7 @@ declare namespace dlpPermission {
          *
          * @permission ohos.permission.ACCESS_DLP_FILE
          * @param { string } linkFileName - Name of the link file in the FUSE. The value contains up to 255 bytes. If
-         *     the value is out of range, error code 19100001 is thrown.
+         *     the value is out of range, error code 401 is thrown.
          * @returns { Promise<void> } Promise that returns no value.
          * @throws { BusinessError } 201 - Permission denied.
          * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -1480,7 +1476,7 @@ declare namespace dlpPermission {
          *
          * @permission ohos.permission.ACCESS_DLP_FILE
          * @param { string } linkFileName - Name of the link file in the FUSE. The value contains up to 255 bytes. If
-         *     the value is out of range, error code 19100001 is thrown.
+         *     the value is out of range, error code 401 is thrown.
          * @param { AsyncCallback<void> } callback - Callback used to receive the result of deleting a link file.
          * @throws { BusinessError } 201 - Permission denied.
          * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -1696,7 +1692,7 @@ declare namespace dlpPermission {
      *     of **fd** is less than 0, an error log is generated, and the function stops running. If the value of **fd**
      *     is greater than 2<sup>31</sup>-1, the excess part will be truncated.
      * @param { string } appId - ID of the caller. The value contains 8 to 1024 bytes. If the value is out of range,
-     *     error code 19100001 is returned.
+     *     error code 401 is returned.
      * @returns { Promise<DLPFile> } Promise If the value is **resolve**, a **DLPFile** object is returned, indicating
      *     that a DLP file is successfully opened. If the value is **reject**, an error is returned, indicating that the
      *     DLP file fails to be opened.
@@ -1731,7 +1727,7 @@ declare namespace dlpPermission {
      *     of **fd** is less than 0, an error log is generated, and the function stops running. If the value of **fd**
      *     is greater than 2<sup>31</sup>-1, the excess part will be truncated.
      * @param { string } appId - ID of the caller. The value contains 8 to 1024 bytes. If the value is out of range,
-     *     error code 19100001 is returned.
+     *     error code 401 is returned.
      * @param { AsyncCallback<DLPFile> } callback - Callback used to receive the result of opening a DLP file. The
      *     callback parameters include **err** and **res**. **err** is **undefined** when the operation is successful;
      *     otherwise, **err** is an error object. **res** is a **DLPFile** object that represents the DLP file opened.
@@ -1764,7 +1760,7 @@ declare namespace dlpPermission {
      * required.
      *
      * @param { string } configInfo - Sandbox application configuration. The value contains a maximum of 4,194,304
-     *     bytes. If the value is out of range, error code 19100001 is thrown.
+     *     bytes. If the value is out of range, error code 401 is thrown.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     2. Incorrect parameter types.
@@ -1869,7 +1865,7 @@ declare namespace dlpPermission {
     export interface CustomProperty {
         /**
          * JSON string of an enterprise custom policy. The value contains a maximum of 4,194,304 bytes. If the value is 
-         * out of range, error code 19100001 is thrown.
+         * out of range, error code 401 is thrown.
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @systemapi Hide this for inner system use. [since 20 - 20]
@@ -1901,11 +1897,11 @@ declare namespace dlpPermission {
      *
      * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE
      * @param { number } plaintextFd - FD of a plaintext file. The value range is [0, 2<sup>31</sup>-1]. If the value of
-     *     **fd** is less than 0, error code 19100001 is thrown. If the value of **fd** is greater than 2<sup>31</sup>-1
-     *     , the value is truncated.
+     *     **fd** is less than 0, an error log is generated, and the function stops running. If the value of **fd** is 
+     *     greater than 2<sup>31</sup>-1, the excess part will be truncated.
      * @param { number } dlpFd - FD of an encrypted file. The value range is [0, 2<sup>31</sup>-1]. If the value of
-     *     **fd** is less than 0, error code 19100001 is thrown. If the value of **fd** is greater than 2<sup>31</sup>-1
-     *     , the value is truncated.
+     *     **fd** is less than 0, an error log is generated, and the function stops running. If the value of **fd** 
+     *     is greater than 2<sup>31</sup>-1, the excess part will be truncated.
      * @param { DLPProperty } property - General policy of DLP files.
      * @param { CustomProperty } customProperty - Enterprise custom policy.
      * @returns { Promise<void> } Promise that returns no value.
@@ -1939,8 +1935,8 @@ declare namespace dlpPermission {
      *
      * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE
      * @param { number } dlpFd - FD of the DLP file to be queried. The value range is [0, 2<sup>31</sup>-1]. If the 
-     *     value of **fd** is less than 0, error code 19100001 is thrown. If the value of **fd** is greater than 
-     *     2<sup>31</sup>-1, the value is truncated.
+     *     value of **fd** is less than 0, an error log is generated, and the function stops running. If the value 
+     *     of **fd** is greater than 2<sup>31</sup>-1, the excess part will be truncated.
      * @returns { Promise<string> } Promise used to return the JSON string of the DLP policy. The length cannot exceed
      *     4,194,304 bytes.
      * @throws { BusinessError } 201 - Permission denied.
@@ -1974,11 +1970,11 @@ declare namespace dlpPermission {
      *
      * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE
      * @param { number } dlpFd - FD of the DLP file to be decrypted. The value range is [0, 2<sup>31</sup>-1]. If the
-     *     value of **fd** is less than 0, error code 19100001 is thrown. If the value of **fd** is greater than
-     *     2<sup>31</sup>-1, the value is truncated.
+     *     value of **fd** is less than 0, n error log is generated, and the function stops running. If the value of 
+     *     **fd** is greater than 2<sup>31</sup>-1, the excess part will be truncated.
      * @param { number } plaintextFd - FD of the decrypted file. The value range is [0, 2<sup>31</sup>-1]. If the value
-     *     of **fd** is less than 0, error code 19100001 is thrown. If the value of **fd** is greater than
-     *     2<sup>31</sup>, the value is truncated.
+     *     of **fd** is less than 0, an error log is generated, and the function stops running. If the value of **fd** 
+     *     is greater than 2<sup>31</sup>, the excess part will be truncated.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications use system APIs. [since 20 - 20]
@@ -2006,7 +2002,7 @@ declare namespace dlpPermission {
     export interface EnterprisePolicy {
         /**
          * JSON string of an enterprise custom policy. The value contains a maximum of 4,194,304 bytes. If the value is 
-         * out of range, error code 19100001 is thrown.
+         * out of range, an error log is generated.
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @since 21

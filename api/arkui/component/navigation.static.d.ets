@@ -21,28 +21,17 @@
  */
 
 import window from '../../@ohos.window';
-
 import { Resource } from '../../global/resource';
-
 import { TextModifier } from '../../arkui/TextModifier';
-
 import { LengthMetrics } from '../../arkui/Graphics';
-
 import { Callback, BlurStyle, CommonMethod, LayoutSafeAreaType, LayoutSafeAreaEdge, BackgroundEffectOptions, 
   BackgroundBlurStyleOptions, PixelMap, Bindable, AttributeModifier } from './common';
-
 import { Builder, CustomBuilder, CustomBuilderT, PageMapBuilder } from './builder';
-
 import { Length, ResourceStr, ResourceColor, Dimension, VoidCallback } from './units';
-
 import { TitleHeight } from './enums';
-
 import { SymbolGlyphModifier } from '../../arkui/SymbolGlyphModifier';
-
 import { NavDestinationContext, NavDestinationMode } from './navDestination';
-
 import { ComponentBuilder } from './builder';
-
 import { ComponentContent } from '@ohos.arkui.node';
 
 import uiMaterial from '../../@ohos.arkui.uiMaterial';
@@ -128,7 +117,7 @@ export declare enum NavigationMode {
    * @stagemodelonly
    * @since 23 static
    */
-  Stack = 0,
+  Stack,
 
   /**
    * The navigation bar and the content area are displayed side by side.
@@ -137,7 +126,7 @@ export declare enum NavigationMode {
    * @stagemodelonly
    * @since 23 static
    */
-  Split = 1,
+  Split,
 
   /**
    * If the window width is greater than the sum of minNavBarWidth and minContentWidth, the navigation component is
@@ -148,7 +137,7 @@ export declare enum NavigationMode {
    * @stagemodelonly
    * @since 23 static
    */
-  Auto = 2,
+  Auto,
 
   /**
    * If the navigation width is greater than the sum of minNavBarWidth and minContentWidth,
@@ -159,7 +148,7 @@ export declare enum NavigationMode {
    * @stagemodelonly
    * @since 24 static
    */
-  AUTO_WITH_ASPECT_RATIO = 3
+  AUTO_WITH_ASPECT_RATIO
 }
 
 /**
@@ -178,7 +167,7 @@ export declare enum NavBarPosition {
    * @stagemodelonly
    * @since 23 static
    */
-  Start = 0,
+  Start,
 
   /**
    * The navigation bar is on the End of the container
@@ -187,7 +176,7 @@ export declare enum NavBarPosition {
    * @stagemodelonly
    * @since 23 static
    */
-  End = 1
+  End
 }
 
 /**
@@ -215,7 +204,7 @@ export declare enum NavigationTitleMode {
    * @stagemodelonly
    * @since 23 static
    */
-  Full = 1,
+  Full,
 
   /**
    * The title is mini mode.
@@ -224,7 +213,7 @@ export declare enum NavigationTitleMode {
    * @stagemodelonly
    * @since 23 static
    */
-  Mini = 2
+  Mini
 }
 
 /**
@@ -519,7 +508,6 @@ export declare interface NavigationModuleInfo {
  * @since 23 static
  */
 export declare interface NavigationOptions {
-
   /**
    * Indicates the launchMode of stack operation.
    * Default value: LaunchMode.STANDARD.
@@ -1336,7 +1324,6 @@ export declare interface ScrollEffectOptions {
  * @since 23 static
  */
 export declare interface NavigationTitleOptions {
-
   /**
    * Background color.
    *
@@ -1465,7 +1452,6 @@ export declare interface NavigationTitleOptions {
  * @since 23 static
  */
 export declare enum BarStyle {
-
   /**
    * Standard style means that the bar and content area are column layouts.
    *
@@ -1502,7 +1488,6 @@ export declare enum BarStyle {
  * @since 23 static
  */
 export declare interface NavigationToolbarOptions {
-
   /**
    * Background color.
    *
@@ -1598,7 +1583,6 @@ export declare interface NavigationMenuOptions {
  * @since 23 static
  */
 export declare interface MoreButtonOptions {
-
   /**
    * Background blur style.
    *
@@ -1663,7 +1647,6 @@ export declare interface NavigationConfiguration {
  * @since 23 static
  */
 export declare interface NavigationAttribute extends CommonMethod {
-
   /**
    * Sets the width of navigation bar.
    *
@@ -1733,7 +1716,7 @@ export declare interface NavigationAttribute extends CommonMethod {
    * @since 23 static
    */
   default backButtonIcon(icon: string | PixelMap | Resource | SymbolGlyphModifier | undefined, accessibilityText?: ResourceStr | undefined): this;
-
+  
   /**
    * Hide the NavBar, which includes title bar, the child of Navigation and tool bar. Supported in all mode.
    * It will show top page in the NavPathStack directly or empty if there is no page in the NavPathStack.
@@ -1757,7 +1740,7 @@ export declare interface NavigationAttribute extends CommonMethod {
    * @since 23 static
    */
   default title(value: ResourceStr | CustomBuilder | NavigationCommonTitle | NavigationCustomTitle | undefined, options?: NavigationTitleOptions | undefined): this;
-
+  
   /**
    * Hide navigation title bar
    *
@@ -1814,7 +1797,7 @@ export declare interface NavigationAttribute extends CommonMethod {
    * @since 23 static
    */
   default menus(items: Array<NavigationMenuItem> | CustomBuilder | undefined, options?: NavigationMenuOptions | undefined): this;
-
+  
   /**
    * Configure toolbar with default style parameter or custom parameter.
    *
@@ -1826,7 +1809,7 @@ export declare interface NavigationAttribute extends CommonMethod {
    * @since 23 static
    */
   default toolbarConfiguration(value: Array<ToolbarItem> | CustomBuilder | undefined, options?: NavigationToolbarOptions | undefined): this;
-
+  
   /**
    * Hide tool bar
    *
@@ -1915,7 +1898,7 @@ export declare interface NavigationAttribute extends CommonMethod {
    * @since 23 static
    */
   default customNavContentTransition(delegate: ((from: NavContentInfo, to: NavContentInfo, operation: NavigationOperation) => NavigationAnimatedTransition | undefined) | undefined): this;
-
+  
   /**
    * Set navigation content expand types and edges.
    *
@@ -1927,7 +1910,7 @@ export declare interface NavigationAttribute extends CommonMethod {
    * @since 23 static
    */
   default ignoreLayoutSafeArea(types?: Array<LayoutSafeAreaType> | undefined, edges?: Array<LayoutSafeAreaEdge> | undefined): this;
-
+  
   /**
    * Set the style of system bar
    *
@@ -1965,14 +1948,14 @@ export declare interface NavigationAttribute extends CommonMethod {
   /**
    * Set the navigation divider style in split mode.
    *
-   * @param { NavigationDividerStyle | null } style - navigation divider style in split mode.
+   * @param { NavigationDividerStyle | null | undefined } style - navigation divider style in split mode.
    *      null indicates that the divider is hidden.
    * @returns { NavigationAttribute } - Returns the instance of the NavigationAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
-  default divider(style: NavigationDividerStyle | null): this;
+  default divider(style: NavigationDividerStyle | null | undefined): this;
 
   /**
    * whether to enable modeChangeAnimation
@@ -2051,13 +2034,13 @@ export declare interface NavigationAttribute extends CommonMethod {
   /**
    * Set placeholder in split mode.
    *
-   * @param { ComponentContent<T> } placeholder - Set placeholder in split mode.
+   * @param { ComponentContent<Object> | undefined } placeholder - Set placeholder in split mode.
    * @returns { NavigationAttribute } - Returns the instance of the NavigationAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
-  default splitPlaceholder<T extends Object>(placeholder: ComponentContent<T>): this;
+  default splitPlaceholder(placeholder: ComponentContent<Object> | undefined): this;
 }
 
 /**
@@ -2068,7 +2051,6 @@ export declare interface NavigationAttribute extends CommonMethod {
  * @since 23 static
  */
 export declare interface NavigationAnimatedTransition {
-
   /**
    * This method is called after the transition ends to notify whether the transition was successful.
    *
@@ -2119,7 +2101,6 @@ export declare interface NavigationAnimatedTransition {
  * @since 23 static
  */
 export declare interface NavigationTransitionProxy {
-
   /**
    * From navigation content info.
    *
@@ -2317,9 +2298,9 @@ export declare function Navigation(
  */
 @ComponentBuilder
 export declare function Navigation(
-   pathInfos?: NavPathStack, 
-   homeDestination?: HomePathInfo,
-   content_?: CustomBuilder
+    pathInfos?: NavPathStack, 
+    homeDestination?: HomePathInfo,
+    content_?: CustomBuilder
 ): NavigationAttribute;
 
 /**

@@ -33,7 +33,7 @@ declare namespace cdsm {
    *
    * @permission ohos.permission.ACCESS_NEARLINK
    * @param { string } address - Indicates the address of CDSM server.
-   *     <br>The length must be 17, The value consists of hexadecimal digits and colons (:),
+   *     <br>The length must be 17. Value constraint: The value consists of hexadecimal digits and colons (:),
    *     for example, 11:22:33:AA:BB:FF.
    * @returns { CdsmClient } Returns a CDSM client instance.
    * @throws { BusinessError } 201 - Permission denied.
@@ -73,12 +73,12 @@ declare namespace cdsm {
 
     /**
      * Subscribes to coordinated devices set information change event.
-     * If the user has the ohos.permission.GET_NEARLINK_PEER_MAC permission, the real device address is returned.
-     * Otherwise, a random device address is returned.
      *
-     * @permission ohos.permission.ACCESS_NEARLINK
+     * This event is accessible only to applications that granted the ohos.permission.NEARLINK_ACCESS permission.
+     * If the application is granted the ohos.permission.GET_NEARLINK_PEER_MAC permission,
+     * the callback returns the real device address; otherwise, a random device address is returned.
+     *
      * @param { Callback<CdsmInfo> } callback - Callback used to listen for the coordinated devices set information.
-     * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
@@ -87,12 +87,8 @@ declare namespace cdsm {
 
     /**
      * Unsubscribes from coordinated devices set information change event.
-     * If the user has the ohos.permission.GET_NEARLINK_PEER_MAC permission, the real device address is returned.
-     * Otherwise, a random device address is returned.
      *
-     * @permission ohos.permission.ACCESS_NEARLINK
      * @param { Callback<CdsmInfo> } [callback] - Callback used to listen for the coordinated devices set information.
-     * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic&static

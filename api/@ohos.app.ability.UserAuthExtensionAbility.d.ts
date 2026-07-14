@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file User Authentication Extension Ability
  * @kit UserAuthenticationKit
  */
 
@@ -30,5 +30,4 @@ import UIExtensionAbility from './@ohos.app.ability.UIExtensionAbility';
  * @since 10 dynamic
  * @since 23 static
  */
-export default class UserAuthExtensionAbility extends UIExtensionAbility {
-}
+export default class UserAuthExtensionAbility extends UIExtensionAbility {}

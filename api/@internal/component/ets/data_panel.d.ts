@@ -38,7 +38,7 @@ declare enum DataPanelType {
    * @atomicservice [since 11]
    * @since 8 dynamic
    */
-  Line = 0,
+  Line,
 
   /**
    * Circle data panel.

@@ -4158,14 +4158,14 @@ declare namespace wifiManager {
 
   /**
    * Wi-Fi Capability
-   * @syscap SystemCapability.Communication.WiFi.Core
+   * @syscap SystemCapability.Communication.WiFi.STA
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
   enum WifiCapability {  
     /**
      * Wi-Fi auto enable capability
-     * @syscap SystemCapability.Communication.WiFi.Core
+     * @syscap SystemCapability.Communication.WiFi.STA
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
@@ -5614,7 +5614,7 @@ declare namespace wifiManager {
    * @throws { BusinessError } 202 - System API is not allowed called by Non-system application.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2501000 - Operation failed.
-   * @syscap SystemCapability.Communication.WiFi.Core
+   * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
@@ -5631,7 +5631,7 @@ declare namespace wifiManager {
    * @throws { BusinessError } 202 - System API is not allowed called by Non-system application.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2501000 - Operation failed.
-   * @syscap SystemCapability.Communication.WiFi.Core
+   * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
@@ -5642,7 +5642,7 @@ declare namespace wifiManager {
    * Query whether Wi-Fi is available
    *
    * @returns { boolean } Returns {@code true} if the Wi-Fi is abailable, returns {@code false} otherwise.
-   * @throws { BusinessError } 2501000 - Operation failed.
+   * @throws { BusinessError } 2401000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.Core
    * @stagemodelonly
    * @since 26.0.0 dynamic&static

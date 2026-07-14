@@ -375,7 +375,7 @@ declare namespace screen {
   function destroyVirtualScreen(screenId:long): Promise<void>;
 
   /**
-   * 设置虚拟屏幕的surface，表示当前虚拟屏用于显示对应surface中的内容，使用callback异步回调。
+   * 设置虚拟屏幕的surface，使用callback异步回调。
    *
    * @permission ohos.permission.CAPTURE_SCREEN
    * @param { long } screenId - 屏幕的id，该参数仅支持整数输入。
@@ -395,7 +395,7 @@ declare namespace screen {
   function setVirtualScreenSurface(screenId:long, surfaceId: string, callback: AsyncCallback<void>): void;
 
   /**
-   * 设置虚拟屏幕的surface，表示当前虚拟屏用于显示对应surface中的内容，使用Promise异步回调。
+   * 设置虚拟屏幕的surface，使用Promise异步回调。
    *
    * @permission ohos.permission.CAPTURE_SCREEN
    * @param { long } screenId - 屏幕的id，该参数仅支持整数输入。

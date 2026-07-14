@@ -31,154 +31,59 @@ import { NotificationRequest } from './notification/notificationRequest';
  * Provides interfaces for acquiring location information, managing location switches,
  * geocoding, reverse geocoding, country code, fencing and other functions.
  *
- * @namespace geoLocationManager
- * @since 9
- */
-/**
- * Provides interfaces for acquiring location information, managing location switches,
- * geocoding, reverse geocoding, country code, fencing and other functions.
- *
- * @namespace geoLocationManager
- * @syscap SystemCapability.Location.Location.Core
- * @atomicservice
- * @since 11 dynamic
- */
-/**
- * Provides interfaces for acquiring location information, managing location switches,
- * geocoding, reverse geocoding, country code, fencing and other functions.
- *
- * @namespace geoLocationManager
- * @syscap SystemCapability.Location.Location.Core
- * @crossplatform
- * @atomicservice
- * @since 22 dynamic
+ * @syscap SystemCapability.Location.Location.Core [since 11]
+ * @crossplatform [since 22]
+ * @atomicservice [since 11]
+ * @since 9 dynamic
  * @since 23 static
  */
 declare namespace geoLocationManager {
   /**
    * Subscribe location changed.
+   * You are advised to use the {@link onLocationChange} instead.
    *
    * @permission ohos.permission.APPROXIMATELY_LOCATION
    * @param { 'locationChange' } type - Indicates the location service event to be subscribed to.
-   * @param { LocationRequest } request - Indicates the location request parameters.
+   * @param { LocationRequest } request - Indicates the location request parameters. [since 9 - 11]
+   * @param { LocationRequest | ContinuousLocationRequest } request - Indicates the location request
+   *     parameters. [since 12]
    * @param { Callback<Location> } callback - Indicates the callback for reporting the location result.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.on('locationChange')} due to limited device capabilities.
-   * @throws { BusinessError } 3301000 - The location service is unavailable.
-   * @throws { BusinessError } 3301100 - The location switch is off.
-   * @throws { BusinessError } 3301200 - Failed to obtain the geographical location.
-   * @syscap SystemCapability.Location.Location.Core
-   * @since 9
-   */
-  /**
-   * Subscribe location changed.
-   *
-   * @permission ohos.permission.APPROXIMATELY_LOCATION
-   * @param { 'locationChange' } type - Indicates the location service event to be subscribed to.
-   * @param { LocationRequest } request - Indicates the location request parameters.
-   * @param { Callback<Location> } callback - Indicates the callback for reporting the location result.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.on('locationChange')} due to limited device capabilities.
-   * @throws { BusinessError } 3301000 - The location service is unavailable.
-   * @throws { BusinessError } 3301100 - The location switch is off.
-   * @throws { BusinessError } 3301200 - Failed to obtain the geographical location.
-   * @syscap SystemCapability.Location.Location.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Subscribe location changed.
-   *
-   * @permission ohos.permission.APPROXIMATELY_LOCATION
-   * @param { 'locationChange' } type - Indicates the location service event to be subscribed to.
-   * @param { LocationRequest | ContinuousLocationRequest } request - Indicates the location request parameters.
-   * @param { Callback<Location> } callback - Indicates the callback for reporting the location result.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.on('locationChange')} due to limited device capabilities.
-   * @throws { BusinessError } 3301000 - The location service is unavailable.
-   * @throws { BusinessError } 3301100 - The location switch is off.
-   * @throws { BusinessError } 3301200 - Failed to obtain the geographical location.
-   * @syscap SystemCapability.Location.Location.Core
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Subscribe location changed.
-   *
-   * @permission ohos.permission.APPROXIMATELY_LOCATION
-   * @param { 'locationChange' } type - Indicates the location service event to be subscribed to.
-   * @param { LocationRequest | ContinuousLocationRequest } request - Indicates the location request parameters.
-   * @param { Callback<Location> } callback - Indicates the callback for reporting the location result.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.on('locationChange')} due to limited device capabilities.
-   * @throws { BusinessError } 3301000 - The location service is unavailable.
-   * @throws { BusinessError } 3301100 - The location switch is off.
-   * @syscap SystemCapability.Location.Location.Core
-   * @atomicservice
-   * @since 18 dynamic
-   */
-  /**
-   * Subscribe location changed.
-   *
-   * @permission ohos.permission.APPROXIMATELY_LOCATION
-   * @param { 'locationChange' } type - Indicates the location service event to be subscribed to.
-   * @param { LocationRequest | ContinuousLocationRequest } request - Indicates the location request parameters.
-   * @param { Callback<Location> } callback - Indicates the callback for reporting the location result.
-   * @throws { BusinessError } 201 - Permission verification failed. 
+   * @throws { BusinessError } 201 - Permission verification failed.
    *     The application does not have the permission required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters
    *     are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call 
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call
    *     ${geoLocationManager.on('locationChange')} due to limited device capabilities.
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @throws { BusinessError } 3301100 - The location switch is off.
+   * @throws { BusinessError } 3301200 - Failed to obtain the geographical location. [since 9 - 17]
    * @syscap SystemCapability.Location.Location.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 22 dynamic
+   * @crossplatform [since 22]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   function on(type: 'locationChange', request: LocationRequest | ContinuousLocationRequest,
-  callback: Callback<Location>): void;
+      callback: Callback<Location>): void;
 
   /**
    * Subscribe location changed.
    *
-   * @permission ohos.permission.APPROXIMATELY_LOCATION
-   * @param { LocationRequest | ContinuousLocationRequest } request - Indicates the location request parameters.
-   * @param { Callback<Location> } callback - Indicates the callback for reporting the location result.
+   * @permission ohos.permission.APPROXIMATELY_LOCATION [since 23]
+   * @param { LocationRequest | ContinuousLocationRequest } request - Indicates the location request
+   *     parameters. [since 23]
+   * @param { Callback<Location> } callback - Indicates the callback for reporting the location result. [since 23]
    * @throws { BusinessError } 201 - Permission verification failed.
-   *     The application does not have the permission required to call the API.
+   *     The application does not have the permission required to call the API. [since 23]
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
-   *     3. Parameter verification failed.
+   *     3. Parameter verification failed. [since 23]
    * @throws { BusinessError } 801 - Capability not supported.
-   *     Failed to call ${geoLocationManager.on('locationChange')} due to limited device capabilities.
-   * @throws { BusinessError } 3301000 - The location service is unavailable.
-   * @throws { BusinessError } 3301100 - The location switch is off.
-   * @syscap SystemCapability.Location.Location.Core
+   *     Failed to call ${geoLocationManager.on('locationChange')} due to limited device capabilities. [since 23]
+   * @throws { BusinessError } 3301000 - The location service is unavailable. [since 23]
+   * @throws { BusinessError } 3301100 - The location switch is off. [since 23]
+   * @syscap SystemCapability.Location.Location.Core [since 23]
    * @since 23 static
-   */
-  /**
-   * Subscribe location changed.
-   *
-   * @permission ohos.permission.APPROXIMATELY_LOCATION
-   * @param { LocationRequest | ContinuousLocationRequest } request - Indicates the location request parameters.
-   * @param { Callback<Location> } callback - Indicates the callback for reporting the location result.
-   * @throws { BusinessError } 201 - Permission verification failed.
-   *     The application does not have the permission required to call the API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     2. Incorrect parameter types;
-   *     3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported.
-   *     Failed to call ${geoLocationManager.on('locationChange')} due to limited device capabilities.
-   * @throws { BusinessError } 3301000 - The location service is unavailable.
-   * @throws { BusinessError } 3301100 - The location switch is off.
-   * @syscap SystemCapability.Location.Location.Core
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
   function onLocationChange(request: LocationRequest | ContinuousLocationRequest,
   callback: Callback<Location>): void;
@@ -188,20 +93,19 @@ declare namespace geoLocationManager {
    * You are advised to use the {@link offLocationChange} instead.
    *
    * @permission ohos.permission.APPROXIMATELY_LOCATION [since 9 - 24]
-   * @param { 'locationChange' } type - Indicates the location service event to be subscribed to. [since 9]
+   * @param { 'locationChange' } type - Indicates the location service event to be subscribed to.
    * @param { Callback<Location> } [callback] - Indicates the callback for reporting the location result.
-   *     [since 9]
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the
-   *     permission required to call the API. Introduced in API 9 and will not be threw above 
+   *     permission required to call the API. Introduced in API 9 and will not be threw above
    *     API 24. [since 9 - 24]
    * @throws { BusinessError } 801 - Capability not supported. Failed to call
-   *     ${geoLocationManager.off('locationChange')} due to limited device capabilities. [since 9]
-   * @throws { BusinessError } 3301000 - The location service is unavailable. [since 9]
+   *     ${geoLocationManager.off('locationChange')} due to limited device capabilities.
+   * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @throws { BusinessError } 3301100 - The location switch is off.
    *     Introduced in API 9 and will not be threw above API 17. [since 9 - 17]
    * @throws { BusinessError } 3301200 - Failed to obtain the geographical location.
    *     Introduced in API 9 and will not be threw above API 17. [since 9 - 17]
-   * @syscap SystemCapability.Location.Location.Core [since 9]
+   * @syscap SystemCapability.Location.Location.Core
    * @crossplatform [since 22]
    * @atomicservice [since 11]
    * @since 9 dynamic
@@ -212,14 +116,12 @@ declare namespace geoLocationManager {
    * Unsubscribe location changed.
    *
    * @permission ohos.permission.APPROXIMATELY_LOCATION [since 23 - 24]
-   * @param { Callback<Location> } [callback] - Indicates the callback for reporting the location result.
-   *     [since 23]
+   * @param { Callback<Location> } [callback] - Indicates the callback for reporting the location result. [since 23]
    * @throws { BusinessError } 201 - Permission verification failed.
    *     The application does not have the permission required to call the API. Introduced in API 9 and
    *     will not be threw above API 24. [since 23 - 24]
    * @throws { BusinessError } 801 - Capability not supported.
-   *     Failed to call ${geoLocationManager.off('locationChange')} due to limited device capabilities.
-   *     [since 23]
+   *     Failed to call ${geoLocationManager.off('locationChange')} due to limited device capabilities. [since 23]
    * @throws { BusinessError } 3301000 - The location service is unavailable. [since 23]
    * @syscap SystemCapability.Location.Location.Core [since 23]
    * @since 23 static
@@ -232,33 +134,19 @@ declare namespace geoLocationManager {
    *
    * @permission ohos.permission.APPROXIMATELY_LOCATION
    * @param { 'locationError' } type - Indicates the location service event to be subscribed to.
-   * @param { Callback<LocationError> } callback - Indicates the callback for reporting the continuous location error.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.on('locationError')} due to limited device capabilities.
-   * @throws { BusinessError } 3301000 - The location service is unavailable.
-   * @syscap SystemCapability.Location.Location.Core
-   * @atomicservice
-   * @since 12 dynamic
-   */
-  /**
-   * Subscribe continuous location error changed.
-   *
-   * @permission ohos.permission.APPROXIMATELY_LOCATION
-   * @param { 'locationError' } type - Indicates the location service event to be subscribed to.
-   * @param { Callback<LocationError> } callback - Indicates the callback for reporting the 
+   * @param { Callback<LocationError> } callback - Indicates the callback for reporting the
    *     continuous location error.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not 
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not
    *     have the permission required to call the API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters 
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters
    *     are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call 
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call
    *     ${geoLocationManager.on('locationError')} due to limited device capabilities.
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @syscap SystemCapability.Location.Location.Core
-   * @crossplatform
+   * @crossplatform [since 22]
    * @atomicservice
-   * @since 22 dynamic
+   * @since 12 dynamic
    */
   function on(type: 'locationError', callback: Callback<LocationError>): void;
 
@@ -284,33 +172,19 @@ declare namespace geoLocationManager {
    *
    * @permission ohos.permission.APPROXIMATELY_LOCATION
    * @param { 'locationError' } type - Indicates the location service event to be subscribed to.
-   * @param { Callback<LocationError> } [callback] - Indicates the callback for reporting the continuous location error.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.off('locationError')} due to limited device capabilities.
-   * @throws { BusinessError } 3301000 - The location service is unavailable.
-   * @syscap SystemCapability.Location.Location.Core
-   * @atomicservice
-   * @since 12 dynamic
-   */
-  /**
-   * Unsubscribe continuous location error changed.
-   *
-   * @permission ohos.permission.APPROXIMATELY_LOCATION
-   * @param { 'locationError' } type - Indicates the location service event to be subscribed to.
    * @param { Callback<LocationError> } [callback] - Indicates the callback for reporting the continuous
    *     location error.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the 
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the
    *     permission required to call the API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are 
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are
    *     left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call 
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call
    *     ${geoLocationManager.off('locationError')} due to limited device capabilities.
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @syscap SystemCapability.Location.Location.Core
-   * @crossplatform
+   * @crossplatform [since 22]
    * @atomicservice
-   * @since 22 dynamic
+   * @since 12 dynamic
    */
   function off(type: 'locationError', callback?: Callback<LocationError>): void;
 
@@ -336,25 +210,14 @@ declare namespace geoLocationManager {
    *
    * @param { 'locationEnabledChange' } type - Indicates the location service event to be subscribed to.
    * @param { Callback<boolean> } callback - Indicates the callback for reporting the location switch status.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.on('locationEnabledChange')} due to limited device capabilities.
-   * @throws { BusinessError } 3301000 - The location service is unavailable.
-   * @syscap SystemCapability.Location.Location.Core
-   * @since 9 dynamic
-   */
-  /**
-   * Subscribe location switch changed.
-   *
-   * @param { 'locationEnabledChange' } type - Indicates the location service event to be subscribed to.
-   * @param { Callback<boolean> } callback - Indicates the callback for reporting the location switch status.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left 
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left
    *     unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call 
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call
    *     ${geoLocationManager.on('locationEnabledChange')} due to limited device capabilities.
    * @throws { BusinessError } 3301000 - The location service is unavailable.
-   * @crossplatform
    * @syscap SystemCapability.Location.Location.Core
-   * @since 22 dynamic
+   * @crossplatform [since 22]
+   * @since 9 dynamic
    */
   function on(type: 'locationEnabledChange', callback: Callback<boolean>): void;
 
@@ -377,25 +240,14 @@ declare namespace geoLocationManager {
    *
    * @param { 'locationEnabledChange' } type - Indicates the location service event to be subscribed to.
    * @param { Callback<boolean> } [callback] - Indicates the callback for reporting the location switch status.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.off('locationEnabledChange')} due to limited device capabilities.
-   * @throws { BusinessError } 3301000 - The location service is unavailable.
-   * @syscap SystemCapability.Location.Location.Core
-   * @since 9 dynamic
-   */
-  /**
-   * Unsubscribe location switch changed.
-   *
-   * @param { 'locationEnabledChange' } type - Indicates the location service event to be subscribed to.
-   * @param { Callback<boolean> } [callback] - Indicates the callback for reporting the location switch status.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left 
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left
    *     unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call 
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call
    *     ${geoLocationManager.off('locationEnabledChange')} due to limited device capabilities.
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @syscap SystemCapability.Location.Location.Core
-   * @crossplatform
-   * @since 22 dynamic
+   * @crossplatform [since 22]
+   * @since 9 dynamic
    */
   function off(type: 'locationEnabledChange', callback?: Callback<boolean>): void;
 
@@ -420,37 +272,6 @@ declare namespace geoLocationManager {
    * @param { 'cachedGnssLocationsChange' } type - Indicates the location service event to be subscribed to.
    * @param { CachedGnssLocationsRequest } request - Indicates the cached GNSS locations request parameters.
    * @param { Callback<Array<Location>> } callback - Indicates the callback for reporting the cached GNSS locations.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.on('cachedGnssLocationsChange')} due to limited device capabilities.
-   * @throws { BusinessError } 3301000 - The location service is unavailable.
-   * @throws { BusinessError } 3301100 - The location switch is off.
-   * @throws { BusinessError } 3301200 - Failed to obtain the geographical location.
-   * @syscap SystemCapability.Location.Location.Gnss
-   * @since 9
-   */
-  /**
-   * Subscribe to cache GNSS locations update messages.
-   *
-   * @permission ohos.permission.APPROXIMATELY_LOCATION
-   * @param { 'cachedGnssLocationsChange' } type - Indicates the location service event to be subscribed to.
-   * @param { CachedGnssLocationsRequest } request - Indicates the cached GNSS locations request parameters.
-   * @param { Callback<Array<Location>> } callback - Indicates the callback for reporting the cached GNSS locations.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.on('cachedGnssLocationsChange')} due to limited device capabilities.
-   * @throws { BusinessError } 3301000 - The location service is unavailable.
-   * @throws { BusinessError } 3301100 - The location switch is off.
-   * @syscap SystemCapability.Location.Location.Gnss
-   * @since 18 dynamic
-   */
-  /**
-   * Subscribe to cache GNSS locations update messages.
-   *
-   * @permission ohos.permission.APPROXIMATELY_LOCATION
-   * @param { 'cachedGnssLocationsChange' } type - Indicates the location service event to be subscribed to.
-   * @param { CachedGnssLocationsRequest } request - Indicates the cached GNSS locations request parameters.
-   * @param { Callback<Array<Location>> } callback - Indicates the callback for reporting the cached GNSS locations.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
    *     required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -459,11 +280,13 @@ declare namespace geoLocationManager {
    *     ${geoLocationManager.on('cachedGnssLocationsChange')} due to limited device capabilities.
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @throws { BusinessError } 3301100 - The location switch is off.
+   * @throws { BusinessError } 3301200 - Failed to obtain the geographical location. [since 9 - 17]
    * @syscap SystemCapability.Location.Location.Gnss
-   * @crossplatform
-   * @since 22 dynamic
+   * @crossplatform [since 22]
+   * @since 9 dynamic
    */
-  function on(type: 'cachedGnssLocationsChange', request: CachedGnssLocationsRequest, callback: Callback<Array<Location>>): void;
+  function on(type: 'cachedGnssLocationsChange', request: CachedGnssLocationsRequest, 
+      callback: Callback<Array<Location>>): void;
 
   /**
    * Subscribe to cache GNSS locations update messages.
@@ -490,46 +313,18 @@ declare namespace geoLocationManager {
    * @permission ohos.permission.APPROXIMATELY_LOCATION
    * @param { 'cachedGnssLocationsChange' } type - Indicates the location service event to be subscribed to.
    * @param { Callback<Array<Location>> } [callback] - Indicates the callback for reporting the cached gnss locations.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.off('cachedGnssLocationsChange')} due to limited device capabilities.
-   * @throws { BusinessError } 3301000 - The location service is unavailable.
-   * @throws { BusinessError } 3301100 - The location switch is off.
-   * @throws { BusinessError } 3301200 - Failed to obtain the geographical location.
-   * @syscap SystemCapability.Location.Location.Gnss
-   * @since 9
-   */
-  /**
-   * Unsubscribe to cache GNSS locations update messages.
-   *
-   * @permission ohos.permission.APPROXIMATELY_LOCATION
-   * @param { 'cachedGnssLocationsChange' } type - Indicates the location service event to be subscribed to.
-   * @param { Callback<Array<Location>> } [callback] - Indicates the callback for reporting the cached gnss locations.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.off('cachedGnssLocationsChange')} due to limited device capabilities.
-   * @throws { BusinessError } 3301000 - The location service is unavailable.
-   * @throws { BusinessError } 3301100 - The location switch is off.
-   * @syscap SystemCapability.Location.Location.Gnss
-   * @since 18 dynamic
-   */
-  /**
-   * Unsubscribe to cache GNSS locations update messages.
-   *
-   * @permission ohos.permission.APPROXIMATELY_LOCATION
-   * @param { 'cachedGnssLocationsChange' } type - Indicates the location service event to be subscribed to.
-   * @param { Callback<Array<Location>> } [callback] - Indicates the callback for reporting the cached gnss locations.
-   * @throws { BusinessError } 201 - Permission verification failed. The application 
+   * @throws { BusinessError } 201 - Permission verification failed. The application
    *     does not have the permission required to call the API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory 
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory
    *     parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call 
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call
    *     ${geoLocationManager.off('cachedGnssLocationsChange')} due to limited device capabilities.
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @throws { BusinessError } 3301100 - The location switch is off.
+   * @throws { BusinessError } 3301200 - Failed to obtain the geographical location. [since 9 - 17]
    * @syscap SystemCapability.Location.Location.Gnss
-   * @crossplatform
-   * @since 22 dynamic
+   * @crossplatform [since 22]
+   * @since 9 dynamic
    */
   function off(type: 'cachedGnssLocationsChange', callback?: Callback<Array<Location>>): void;
 
@@ -557,31 +352,17 @@ declare namespace geoLocationManager {
    * @permission ohos.permission.APPROXIMATELY_LOCATION
    * @param { 'satelliteStatusChange' } type - Indicates the location service event to be subscribed to.
    * @param { Callback<SatelliteStatusInfo> } callback - Indicates the callback for reporting the satellite status.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.on('satelliteStatusChange')} due to limited device capabilities.
-   * @throws { BusinessError } 3301000 - The location service is unavailable.
-   * @throws { BusinessError } 3301100 - The location switch is off.
-   * @syscap SystemCapability.Location.Location.Gnss
-   * @since 9 dynamic
-   */
-  /**
-   * Subscribe satellite status changed.
-   *
-   * @permission ohos.permission.APPROXIMATELY_LOCATION
-   * @param { 'satelliteStatusChange' } type - Indicates the location service event to be subscribed to.
-   * @param { Callback<SatelliteStatusInfo> } callback - Indicates the callback for reporting the satellite status.
-   * @throws { BusinessError } 201 - Permission verification failed. The application 
+   * @throws { BusinessError } 201 - Permission verification failed. The application
    *     does not have the permission required to call the API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory 
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory
    *     parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call 
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call
    *     ${geoLocationManager.on('satelliteStatusChange')} due to limited device capabilities.
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @throws { BusinessError } 3301100 - The location switch is off.
    * @syscap SystemCapability.Location.Location.Gnss
-   * @crossplatform
-   * @since 22 dynamic
+   * @crossplatform [since 22]
+   * @since 9 dynamic
    */
   function on(type: 'satelliteStatusChange', callback: Callback<SatelliteStatusInfo>): void;
 
@@ -609,31 +390,17 @@ declare namespace geoLocationManager {
    * @permission ohos.permission.APPROXIMATELY_LOCATION
    * @param { 'satelliteStatusChange' } type - Indicates the location service event to be subscribed to.
    * @param { Callback<SatelliteStatusInfo> } [callback] - Indicates the callback for reporting the satellite status.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.off('satelliteStatusChange')} due to limited device capabilities.
-   * @throws { BusinessError } 3301000 - The location service is unavailable.
-   * @throws { BusinessError } 3301100 - The location switch is off.
-   * @syscap SystemCapability.Location.Location.Gnss
-   * @since 9 dynamic
-   */
-  /**
-   * Unsubscribe satellite status changed.
-   *
-   * @permission ohos.permission.APPROXIMATELY_LOCATION
-   * @param { 'satelliteStatusChange' } type - Indicates the location service event to be subscribed to.
-   * @param { Callback<SatelliteStatusInfo> } [callback] - Indicates the callback for reporting the satellite status.
-   * @throws { BusinessError } 201 - Permission verification failed. The application 
+   * @throws { BusinessError } 201 - Permission verification failed. The application
    *     does not have the permission required to call the API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory 
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory
    *     parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call 
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call
    *     ${geoLocationManager.off('satelliteStatusChange')} due to limited device capabilities.
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @throws { BusinessError } 3301100 - The location switch is off.
    * @syscap SystemCapability.Location.Location.Gnss
-   * @crossplatform
-   * @since 22 dynamic
+   * @crossplatform [since 22]
+   * @since 9 dynamic
    */
   function off(type: 'satelliteStatusChange', callback?: Callback<SatelliteStatusInfo>): void;
 
@@ -661,34 +428,20 @@ declare namespace geoLocationManager {
    * @permission ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
    * @param { 'nmeaMessage' } type - Indicates the location service event to be subscribed to.
    * @param { Callback<string> } callback - Indicates the callback for reporting the nmea message.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.on('nmeaMessage')} due to limited device capabilities.
-   * @throws { BusinessError } 3301000 - The location service is unavailable.
-   * @throws { BusinessError } 3301100 - The location switch is off.
-   * @syscap SystemCapability.Location.Location.Gnss
-   * @since 9 dynamic
-   */
-  /**
-   * Subscribe nmea message changed.
-   *
-   * @permission ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
-   * @param { 'nmeaMessage' } type - Indicates the location service event to be subscribed to.
-   * @param { Callback<string> } callback - Indicates the callback for reporting the nmea message.
-   * @throws { BusinessError } 201 - Permission verification failed. The application 
+   * @throws { BusinessError } 201 - Permission verification failed. The application
    *     does not have the permission required to call the API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory 
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory
    *     parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call 
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call
    *     ${geoLocationManager.on('nmeaMessage')} due to limited device capabilities.
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @throws { BusinessError } 3301100 - The location switch is off.
    * @syscap SystemCapability.Location.Location.Gnss
-   * @crossplatform
-   * @since 22 dynamic
+   * @crossplatform [since 22]
+   * @since 9 dynamic
    */
   function on(type: 'nmeaMessage', callback: Callback<string>): void;
-
+  
   /**
    * Subscribe nmea message changed.
    *
@@ -713,31 +466,17 @@ declare namespace geoLocationManager {
    * @permission ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
    * @param { 'nmeaMessage' } type - Indicates the location service event to be subscribed to.
    * @param { Callback<string> } [callback] - Indicates the callback for reporting the nmea message.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.off('nmeaMessage')} due to limited device capabilities.
-   * @throws { BusinessError } 3301000 - The location service is unavailable.
-   * @throws { BusinessError } 3301100 - The location switch is off.
-   * @syscap SystemCapability.Location.Location.Gnss
-   * @since 9 dynamic
-   */
-  /**
-   * Unsubscribe nmea message changed.
-   *
-   * @permission ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
-   * @param { 'nmeaMessage' } type - Indicates the location service event to be subscribed to.
-   * @param { Callback<string> } [callback] - Indicates the callback for reporting the nmea message.
-   * @throws { BusinessError } 201 - Permission verification failed. The application 
+   * @throws { BusinessError } 201 - Permission verification failed. The application
    *     does not have the permission required to call the API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory 
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory
    *     parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call 
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call
    *     ${geoLocationManager.off('nmeaMessage')} due to limited device capabilities.
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @throws { BusinessError } 3301100 - The location switch is off.
    * @syscap SystemCapability.Location.Location.Gnss
-   * @crossplatform
-   * @since 22 dynamic
+   * @crossplatform [since 22]
+   * @since 9 dynamic
    */
   function off(type: 'nmeaMessage', callback?: Callback<string>): void;
 
@@ -766,9 +505,12 @@ declare namespace geoLocationManager {
    * @param { 'gnssFenceStatusChange' } type - Indicates the location service event to be subscribed to.
    * @param { GeofenceRequest } request - Indicates the Geofence configuration parameters.
    * @param { WantAgent } want - Indicates which ability to start when the geofence event is triggered.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.on('gnssFenceStatusChange')} due to limited device capabilities.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.
+   *     Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.on('
+   *     gnssFenceStatusChange')} due to limited device capabilities.
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @throws { BusinessError } 3301100 - The location switch is off.
    * @throws { BusinessError } 3301600 - Failed to operate the geofence.
@@ -777,55 +519,78 @@ declare namespace geoLocationManager {
    */
   function on(type: 'gnssFenceStatusChange', request: GeofenceRequest, want: WantAgent): void;
 
-  
+  /**
+   * Add a geofence and subscribe geofence status changed.
+   *
+   * @permission ohos.permission.APPROXIMATELY_LOCATION
+   * @param { GeofenceRequest } request - Indicates the Geofence configuration parameters.
+   * @param { WantAgent } want - Indicates which ability to start when the geofence event is triggered.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   *     Failed to call ${geoLocationManager.on('gnssFenceStatusChange')} due to limited device capabilities.
+   * @throws { BusinessError } 3301000 - The location service is unavailable.
+   * @throws { BusinessError } 3301100 - The location switch is off.
+   * @throws { BusinessError } 3301600 - Failed to operate the geofence.
+   * @syscap SystemCapability.Location.Location.Geofence
+   * @since 26.1.0 static
+   */
+  function onGnssFenceStatusChange(request: GeofenceRequest, want: WantAgent): void;
 
   /**
    * Remove a geofence and unsubscribe geofence status changed.
    *
    * @permission ohos.permission.APPROXIMATELY_LOCATION [since 9 - 24]
-   * @param { 'gnssFenceStatusChange' } type - Indicates the location service event to be subscribed to. [since 9]
-   * @param { GeofenceRequest } request - Indicates the Geofence configuration parameters. [since 9]
-   * @param { WantAgent } want - Indicates which ability to start when the geofence event is triggered. [since 9]
+   * @param { 'gnssFenceStatusChange' } type - Indicates the location service event to be subscribed to.
+   * @param { GeofenceRequest } request - Indicates the Geofence configuration parameters.
+   * @param { WantAgent } want - Indicates which ability to start when the geofence event is triggered.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
    *     required to call the API. [since 9 - 24]
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 
-   *     2. Incorrect parameter types; 3. Parameter verification failed. [since 9]
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call 
-   *     ${geoLocationManager.off('gnssFenceStatusChange')} due to limited device capabilities. [since 9]
-   * @throws { BusinessError } 3301000 - The location service is unavailable. [since 9]
-   * @throws { BusinessError } 3301100 - The location switch is off. [since 9]
-   * @throws { BusinessError } 3301600 - Failed to operate the geofence. [since 9]
-   * @syscap SystemCapability.Location.Location.Geofence [since 9]
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call
+   *     ${geoLocationManager.off('gnssFenceStatusChange')} due to limited device capabilities.
+   * @throws { BusinessError } 3301000 - The location service is unavailable.
+   * @throws { BusinessError } 3301100 - The location switch is off.
+   * @throws { BusinessError } 3301600 - Failed to operate the geofence.
+   * @syscap SystemCapability.Location.Location.Geofence
    * @since 9 dynamic
    */
   function off(type: 'gnssFenceStatusChange', request: GeofenceRequest, want: WantAgent): void;
+
+  /**
+   * Remove a geofence and unsubscribe geofence status changed.
+   *
+   * @param { GeofenceRequest } request - Indicates the Geofence configuration parameters.
+   * @param { WantAgent } want - Indicates which ability to start when the geofence event is triggered.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   *     Failed to call ${geoLocationManager.off('gnssFenceStatusChange')} due to limited device capabilities.
+   * @throws { BusinessError } 3301000 - The location service is unavailable.
+   * @throws { BusinessError } 3301100 - The location switch is off.
+   * @throws { BusinessError } 3301600 - Failed to operate the geofence.
+   * @syscap SystemCapability.Location.Location.Geofence
+   * @since 26.1.0 static
+   */
+  function offGnssFenceStatusChange(request: GeofenceRequest, want: WantAgent): void;
 
   /**
    * Registering the callback function for listening to country code changes.
    *
    * @param { 'countryCodeChange' } type - Indicates the location service event to be subscribed to.
    * @param { Callback<CountryCode> } callback - Indicates the callback for reporting country code changes.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.on('countryCodeChange')} due to limited device capabilities.
-   * @throws { BusinessError } 3301000 - The location service is unavailable.
-   * @throws { BusinessError } 3301500 - Failed to query the area information.
-   * @syscap SystemCapability.Location.Location.Core
-   * @since 9 dynamic
-   */
-  /**
-   * Registering the callback function for listening to country code changes.
-   *
-   * @param { 'countryCodeChange' } type - Indicates the location service event to be subscribed to.
-   * @param { Callback<CountryCode> } callback - Indicates the callback for reporting country code changes.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory 
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory
    *     parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call 
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call
    *     ${geoLocationManager.on('countryCodeChange')} due to limited device capabilities.
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @throws { BusinessError } 3301500 - Failed to query the area information.
    * @syscap SystemCapability.Location.Location.Core
-   * @crossplatform
-   * @since 22 dynamic
+   * @crossplatform [since 22]
+   * @since 9 dynamic
    */
   function on(type: 'countryCodeChange', callback: Callback<CountryCode>): void;
 
@@ -849,27 +614,15 @@ declare namespace geoLocationManager {
    *
    * @param { 'countryCodeChange' } type - Indicates the location service event to be subscribed to.
    * @param { Callback<CountryCode> } [callback] - Indicates the callback for reporting country code changes.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.off('countryCodeChange')} due to limited device capabilities.
-   * @throws { BusinessError } 3301000 - The location service is unavailable.
-   * @throws { BusinessError } 3301500 - Failed to query the area information.
-   * @syscap SystemCapability.Location.Location.Core
-   * @since 9 dynamic
-   */
-  /**
-   * Unregistering the callback function for listening to country code changes.
-   *
-   * @param { 'countryCodeChange' } type - Indicates the location service event to be subscribed to.
-   * @param { Callback<CountryCode> } [callback] - Indicates the callback for reporting country code changes.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory 
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory
    *     parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call 
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call
    *     ${geoLocationManager.off('countryCodeChange')} due to limited device capabilities.
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @throws { BusinessError } 3301500 - Failed to query the area information.
    * @syscap SystemCapability.Location.Location.Core
-   * @crossplatform
-   * @since 22 dynamic
+   * @crossplatform [since 22]
+   * @since 9 dynamic
    */
   function off(type: 'countryCodeChange', callback?: Callback<CountryCode>): void;
 
@@ -895,17 +648,23 @@ declare namespace geoLocationManager {
    * @permission ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
    * @param { 'locatingRequiredDataChange' } type - Indicates the location service event to be subscribed to.
    * @param { LocatingRequiredDataConfig } config - Indicates the locating required data configuration parameters.
-   * @param { Callback<Array<LocatingRequiredData>> } [callback] - Indicates the callback for reporting WiFi/BT scan info.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.on('locatingRequiredDataChange')} due to limited device capabilities.
+   * @param { Callback<Array<LocatingRequiredData>> } [callback] - Indicates the
+   *     callback for reporting WiFi/BT scan info.
+   * @throws { BusinessError } 201 - Permission verification failed. The application
+   *     does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system
+   *     application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory
+   *     parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call
+   *     ${geoLocationManager.on('locatingRequiredDataChange')} due to limited device capabilities.
    * @throws { BusinessError } 3301800 - Failed to start WiFi or Bluetooth scanning.
    * @syscap SystemCapability.Location.Location.Core
    * @systemapi
    * @since 10 dynamic
    */
-  function on(type: 'locatingRequiredDataChange', config: LocatingRequiredDataConfig, callback: Callback<Array<LocatingRequiredData>>): void;
+  function on(type: 'locatingRequiredDataChange', config: LocatingRequiredDataConfig, 
+      callback: Callback<Array<LocatingRequiredData>>): void;
 
   /**
    * Subscribe to changes in WiFi/BT scanning information,
@@ -927,24 +686,29 @@ declare namespace geoLocationManager {
    * @systemapi
    * @since 23 static
    */
-  function onLocatingRequiredDataChange(config: LocatingRequiredDataConfig, callback: Callback<Array<LocatingRequiredData>>): void;
+  function onLocatingRequiredDataChange(config: LocatingRequiredDataConfig, 
+      callback: Callback<Array<LocatingRequiredData>>): void;
 
   /**
    * Stop WiFi/BT scanning and unsubscribe from WiFi/BT scanning information changes.
    *
    * @permission ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
    * @param { 'locatingRequiredDataChange' } type - Indicates the location service event to be subscribed to.
-   * @param { Callback<Array<LocatingRequiredData>> } [callback] - Indicates the callback for reporting WiFi/BT scan info.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @param { Callback<Array<LocatingRequiredData>> } [callback] - Indicates the callback for reporting WiFi/BT scan
+   *     info.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.off('locatingRequiredDataChange')} due to limited device capabilities.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.
+   *     Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.off('
+   *     locatingRequiredDataChange')} due to limited device capabilities.
    * @syscap SystemCapability.Location.Location.Core
    * @systemapi
    * @since 10 dynamic
    */
   function off(type: 'locatingRequiredDataChange', callback?: Callback<Array<LocatingRequiredData>>): void;
-
+  
   /**
    * Stop WiFi/BT scanning and unsubscribe from WiFi/BT scanning information changes.
    *
@@ -970,8 +734,10 @@ declare namespace geoLocationManager {
    * @param { 'locationIconStatusChange' } type - Indicates the location service event to be subscribed to.
    * @param { Callback<LocationIconStatus> } callback - Indicates the callback for reporting the location icon status.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.on('locationIconStatusChange')} due to limited device capabilities.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.
+   *     Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.on('
+   *     locationIconStatusChange')} due to limited device capabilities.
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @syscap SystemCapability.Location.Location.Core
    * @systemapi
@@ -1001,8 +767,10 @@ declare namespace geoLocationManager {
    * @param { 'locationIconStatusChange' } type - Indicates the location service event to be subscribed to.
    * @param { Callback<LocationIconStatus> } [callback] - Indicates the callback for reporting the location icon status.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.off('locationIconStatusChange')} due to limited device capabilities.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.
+   *     Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.off('
+   *     locationIconStatusChange')} due to limited device capabilities.
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @syscap SystemCapability.Location.Location.Core
    * @systemapi
@@ -1033,31 +801,17 @@ declare namespace geoLocationManager {
    * @permission ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
    * @param { 'bluetoothScanResultChange' } type - Indicates the location service event to be subscribed to.
    * @param { Callback<BluetoothScanResult> } callback - Indicates the callback for reporting Bluetooth scan info.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.on('bluetoothScanResultChange')} due to limited device capabilities.
-   * @throws { BusinessError } 3301000 - The location service is unavailable.
-   * @throws { BusinessError } 3301100 - The location switch is off.
-   * @syscap SystemCapability.Location.Location.Core
-   * @since 16 dynamic
-   */
-  /**
-   * Registers and listens to bluetooth scanning results for location services.
-   *
-   * @permission ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
-   * @param { 'bluetoothScanResultChange' } type - Indicates the location service event to be subscribed to.
-   * @param { Callback<BluetoothScanResult> } callback - Indicates the callback for reporting Bluetooth scan info.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does 
+   * @throws { BusinessError } 201 - Permission verification failed. The application does
    *     not have the permission required to call the API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory 
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory
    *     parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call 
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call
    *     ${geoLocationManager.on('bluetoothScanResultChange')} due to limited device capabilities.
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @throws { BusinessError } 3301100 - The location switch is off.
    * @syscap SystemCapability.Location.Location.Core
-   * @crossplatform
-   * @since 22 dynamic
+   * @crossplatform [since 22]
+   * @since 16 dynamic
    */
   function on(type: 'bluetoothScanResultChange', callback: Callback<BluetoothScanResult>): void;
 
@@ -1085,29 +839,16 @@ declare namespace geoLocationManager {
    * @permission ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
    * @param { 'bluetoothScanResultChange' } type - Indicates the location service event to be subscribed to.
    * @param { Callback<BluetoothScanResult> } [callback] - Indicates the callback for reporting Bluetooth scan info.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.off('bluetoothScanResultChange')} due to limited device capabilities.
-   * @throws { BusinessError } 3301000 - The location service is unavailable.
-   * @syscap SystemCapability.Location.Location.Core
-   * @since 16 dynamic
-   */
-  /**
-   * Stop bluetooth scanning and unregister to listen to bluetooth scanning result changes.
-   *
-   * @permission ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
-   * @param { 'bluetoothScanResultChange' } type - Indicates the location service event to be subscribed to.
-   * @param { Callback<BluetoothScanResult> } [callback] - Indicates the callback for reporting Bluetooth scan info.
-   * @throws { BusinessError } 201 - Permission verification failed. The application 
+   * @throws { BusinessError } 201 - Permission verification failed. The application
    *     does not have the permission required to call the API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory 
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory
    *     parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call 
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call
    *     ${geoLocationManager.off('bluetoothScanResultChange')} due to limited device capabilities.
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @syscap SystemCapability.Location.Location.Core
-   * @crossplatform
-   * @since 22 dynamic
+   * @crossplatform [since 22]
+   * @since 16 dynamic
    */
   function off(type: 'bluetoothScanResultChange', callback?: Callback<BluetoothScanResult>): void;
 
@@ -1132,68 +873,23 @@ declare namespace geoLocationManager {
    * Obtain current location.
    *
    * @permission ohos.permission.APPROXIMATELY_LOCATION
-   * @param { CurrentLocationRequest } request - Indicates the location request parameters.
+   * @param { CurrentLocationRequest } request - Indicates the location request parameters. [since 9 - 11]
+   * @param { CurrentLocationRequest | SingleLocationRequest } request - Indicates the location request
+   *     parameters. [since 12]
    * @param { AsyncCallback<Location> } callback - Indicates the callback for reporting the location result.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.getCurrentLocation} due to limited device capabilities.
-   * @throws { BusinessError } 3301000 - The location service is unavailable.
-   * @throws { BusinessError } 3301100 - The location switch is off.
-   * @throws { BusinessError } 3301200 - Failed to obtain the geographical location.
-   * @syscap SystemCapability.Location.Location.Core
-   * @since 9
-   */
-  /**
-   * Obtain current location.
-   *
-   * @permission ohos.permission.APPROXIMATELY_LOCATION
-   * @param { CurrentLocationRequest } request - Indicates the location request parameters.
-   * @param { AsyncCallback<Location> } callback - Indicates the callback for reporting the location result.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.getCurrentLocation} due to limited device capabilities.
-   * @throws { BusinessError } 3301000 - The location service is unavailable.
-   * @throws { BusinessError } 3301100 - The location switch is off.
-   * @throws { BusinessError } 3301200 - Failed to obtain the geographical location.
-   * @syscap SystemCapability.Location.Location.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Obtain current location.
-   *
-   * @permission ohos.permission.APPROXIMATELY_LOCATION
-   * @param { CurrentLocationRequest | SingleLocationRequest } request - Indicates the location request parameters.
-   * @param { AsyncCallback<Location> } callback - Indicates the callback for reporting the location result.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.getCurrentLocation} due to limited device capabilities.
-   * @throws { BusinessError } 3301000 - The location service is unavailable.
-   * @throws { BusinessError } 3301100 - The location switch is off.
-   * @throws { BusinessError } 3301200 - Failed to obtain the geographical location.
-   * @syscap SystemCapability.Location.Location.Core
-   * @atomicservice
-   * @since 12 dynamic
-   */
-  /**
-   * Obtain current location.
-   *
-   * @permission ohos.permission.APPROXIMATELY_LOCATION
-   * @param { CurrentLocationRequest | SingleLocationRequest } request - Indicates the location request parameters.
-   * @param { AsyncCallback<Location> } callback - Indicates the callback for reporting the location result.
-   * @throws { BusinessError } 201 - Permission verification failed. The application 
+   * @throws { BusinessError } 201 - Permission verification failed. The application
    *     does not have the permission required to call the API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory 
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory
    *     parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call 
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call
    *     ${geoLocationManager.getCurrentLocation} due to limited device capabilities.
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @throws { BusinessError } 3301100 - The location switch is off.
    * @throws { BusinessError } 3301200 - Failed to obtain the geographical location.
    * @syscap SystemCapability.Location.Location.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 22 dynamic
+   * @crossplatform [since 22]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   function getCurrentLocation(request: CurrentLocationRequest | SingleLocationRequest,
@@ -1204,48 +900,19 @@ declare namespace geoLocationManager {
    *
    * @permission ohos.permission.APPROXIMATELY_LOCATION
    * @param { AsyncCallback<Location> } callback - Indicates the callback for reporting the location result.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.getCurrentLocation} due to limited device capabilities.
-   * @throws { BusinessError } 3301000 - The location service is unavailable.
-   * @throws { BusinessError } 3301100 - The location switch is off.
-   * @throws { BusinessError } 3301200 - Failed to obtain the geographical location.
-   * @syscap SystemCapability.Location.Location.Core
-   * @since 9
-   */
-  /**
-   * Obtain current location.
-   *
-   * @permission ohos.permission.APPROXIMATELY_LOCATION
-   * @param { AsyncCallback<Location> } callback - Indicates the callback for reporting the location result.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.getCurrentLocation} due to limited device capabilities.
-   * @throws { BusinessError } 3301000 - The location service is unavailable.
-   * @throws { BusinessError } 3301100 - The location switch is off.
-   * @throws { BusinessError } 3301200 - Failed to obtain the geographical location.
-   * @syscap SystemCapability.Location.Location.Core
-   * @atomicservice
-   * @since 11 dynamic
-   */
-  /**
-   * Obtain current location.
-   *
-   * @permission ohos.permission.APPROXIMATELY_LOCATION
-   * @param { AsyncCallback<Location> } callback - Indicates the callback for reporting the location result.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the 
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the
    *     permission required to call the API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left 
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left
    *     unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call 
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call
    *     ${geoLocationManager.getCurrentLocation} due to limited device capabilities.
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @throws { BusinessError } 3301100 - The location switch is off.
    * @throws { BusinessError } 3301200 - Failed to obtain the geographical location.
    * @syscap SystemCapability.Location.Location.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 22 dynamic
+   * @crossplatform [since 22]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   function getCurrentLocation(callback: AsyncCallback<Location>): void;
@@ -1254,68 +921,23 @@ declare namespace geoLocationManager {
    * Obtain current location.
    *
    * @permission ohos.permission.APPROXIMATELY_LOCATION
-   * @param { CurrentLocationRequest } [request] - Indicates the location request parameters.
+   * @param { CurrentLocationRequest } [request] - Indicates the location request parameters. [since 9 - 11]
+   * @param { CurrentLocationRequest | SingleLocationRequest } [request] - Indicates the location request
+   *     parameters. [since 12]
    * @returns { Promise<Location> } The promise returned by the function.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.getCurrentLocation} due to limited device capabilities.
-   * @throws { BusinessError } 3301000 - The location service is unavailable.
-   * @throws { BusinessError } 3301100 - The location switch is off.
-   * @throws { BusinessError } 3301200 - Failed to obtain the geographical location.
-   * @syscap SystemCapability.Location.Location.Core
-   * @since 9
-   */
-  /**
-   * Obtain current location.
-   *
-   * @permission ohos.permission.APPROXIMATELY_LOCATION
-   * @param { CurrentLocationRequest } [request] - Indicates the location request parameters.
-   * @returns { Promise<Location> } The promise returned by the function.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.getCurrentLocation} due to limited device capabilities.
-   * @throws { BusinessError } 3301000 - The location service is unavailable.
-   * @throws { BusinessError } 3301100 - The location switch is off.
-   * @throws { BusinessError } 3301200 - Failed to obtain the geographical location.
-   * @syscap SystemCapability.Location.Location.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Obtain current location.
-   *
-   * @permission ohos.permission.APPROXIMATELY_LOCATION
-   * @param { CurrentLocationRequest | SingleLocationRequest } [request] - Indicates the location request parameters.
-   * @returns { Promise<Location> } The promise returned by the function.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.getCurrentLocation} due to limited device capabilities.
-   * @throws { BusinessError } 3301000 - The location service is unavailable.
-   * @throws { BusinessError } 3301100 - The location switch is off.
-   * @throws { BusinessError } 3301200 - Failed to obtain the geographical location.
-   * @syscap SystemCapability.Location.Location.Core
-   * @atomicservice
-   * @since 12 dynamic
-   */
-  /**
-   * Obtain current location.
-   *
-   * @permission ohos.permission.APPROXIMATELY_LOCATION
-   * @param { CurrentLocationRequest | SingleLocationRequest } [request] - Indicates the location request parameters.
-   * @returns { Promise<Location> } The promise returned by the function.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does 
+   * @throws { BusinessError } 201 - Permission verification failed. The application does
    *     not have the permission required to call the API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory 
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory
    *     parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call 
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call
    *     ${geoLocationManager.getCurrentLocation} due to limited device capabilities.
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @throws { BusinessError } 3301100 - The location switch is off.
    * @throws { BusinessError } 3301200 - Failed to obtain the geographical location.
    * @syscap SystemCapability.Location.Location.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 22 dynamic
+   * @crossplatform [since 22]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   function getCurrentLocation(request?: CurrentLocationRequest | SingleLocationRequest):
@@ -1326,44 +948,17 @@ declare namespace geoLocationManager {
    *
    * @permission ohos.permission.APPROXIMATELY_LOCATION
    * @returns { Location } The last known location information.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.getLastLocation} due to limited device capabilities.
-   * @throws { BusinessError } 3301000 - The location service is unavailable.
-   * @throws { BusinessError } 3301100 - The location switch is off.
-   * @throws { BusinessError } 3301200 - Failed to obtain the geographical location.
-   * @syscap SystemCapability.Location.Location.Core
-   * @since 9
-   */
-  /**
-   * Obtain last known location.
-   *
-   * @permission ohos.permission.APPROXIMATELY_LOCATION
-   * @returns { Location } The last known location information.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.getLastLocation} due to limited device capabilities.
-   * @throws { BusinessError } 3301000 - The location service is unavailable.
-   * @throws { BusinessError } 3301100 - The location switch is off.
-   * @throws { BusinessError } 3301200 - Failed to obtain the geographical location.
-   * @syscap SystemCapability.Location.Location.Core
-   * @atomicservice
-   * @since 11 dynamic
-   */
-  /**
-   * Obtain last known location.
-   *
-   * @permission ohos.permission.APPROXIMATELY_LOCATION
-   * @returns { Location } The last known location information.
-   * @throws { BusinessError } 201 - Permission verification failed. The application 
+   * @throws { BusinessError } 201 - Permission verification failed. The application
    *     does not have the permission required to call the API.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call 
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call
    *     ${geoLocationManager.getLastLocation} due to limited device capabilities.
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @throws { BusinessError } 3301100 - The location switch is off.
    * @throws { BusinessError } 3301200 - Failed to obtain the geographical location.
    * @syscap SystemCapability.Location.Location.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 22 dynamic
+   * @crossplatform [since 22]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   function getLastLocation(): Location;
@@ -1372,32 +967,13 @@ declare namespace geoLocationManager {
    * Obtain current location switch status.
    *
    * @returns { boolean } Returns {@code true} if the location switch on, returns {@code false} otherwise.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.isLocationEnabled} due to limited device capabilities.
-   * @throws { BusinessError } 3301000 - The location service is unavailable.
-   * @syscap SystemCapability.Location.Location.Core
-   * @since 9
-   */
-  /**
-   * Obtain current location switch status.
-   *
-   * @returns { boolean } Returns {@code true} if the location switch on, returns {@code false} otherwise.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.isLocationEnabled} due to limited device capabilities.
-   * @throws { BusinessError } 3301000 - The location service is unavailable.
-   * @syscap SystemCapability.Location.Location.Core
-   * @atomicservice
-   * @since 11 dynamic
-   */
-  /**
-   * Obtain current location switch status.
-   *
-   * @returns { boolean } Returns {@code true} if the location switch on, returns {@code false} otherwise.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call 
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call
    *     ${geoLocationManager.isLocationEnabled} due to limited device capabilities.
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @syscap SystemCapability.Location.Location.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 22 dynamic
+   * @crossplatform [since 22]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   function isLocationEnabled(): boolean;
@@ -1408,7 +984,8 @@ declare namespace geoLocationManager {
    * @param { int } userId - Indicates the ID of a specified user.
    * @returns { boolean } Returns {@code true} if the location switch on, returns {@code false} otherwise.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.isLocationEnabledByUserId} due to limited device capabilities.
+   * @throws { BusinessError } 801 - Capability not supported.
+   *     Failed to call ${geoLocationManager.isLocationEnabledByUserId} due to limited device capabilities.
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @syscap SystemCapability.Location.Location.Core
    * @systemapi
@@ -1420,30 +997,20 @@ declare namespace geoLocationManager {
   /**
    * Enable location switch.
    *
-   * @permission ohos.permission.MANAGE_SECURE_SETTINGS
+   * @permission ohos.permission.MANAGE_SECURE_SETTINGS [since 9 - 19]
+   * @permission ohos.permission.MANAGE_SECURE_SETTINGS and ohos.permission.CONTROL_LOCATION_SWITCH [since 20]
    * @param { AsyncCallback<void> } callback - Indicates the callback for reporting the error message.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.enableLocation} due to limited device capabilities.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.
+   *     Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.enableLocation} due
+   *     to limited device capabilities.
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @syscap SystemCapability.Location.Location.Core
    * @systemapi
-   * @since 9
-   */
-  /**
-   * Enable location switch.
-   *
-   * @permission ohos.permission.MANAGE_SECURE_SETTINGS and ohos.permission.CONTROL_LOCATION_SWITCH
-   * @param { AsyncCallback<void> } callback - Indicates the callback for reporting the error message.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.enableLocation} due to limited device capabilities.
-   * @throws { BusinessError } 3301000 - The location service is unavailable.
-   * @syscap SystemCapability.Location.Location.Core
-   * @systemapi
-   * @since 20 dynamic
+   * @since 9 dynamic
    * @since 23 static
    */
   function enableLocation(callback: AsyncCallback<void>): void;
@@ -1451,28 +1018,18 @@ declare namespace geoLocationManager {
   /**
    * Enable location switch.
    *
-   * @permission ohos.permission.MANAGE_SECURE_SETTINGS
+   * @permission ohos.permission.MANAGE_SECURE_SETTINGS [since 9 - 19]
+   * @permission ohos.permission.MANAGE_SECURE_SETTINGS and ohos.permission.CONTROL_LOCATION_SWITCH [since 20]
    * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.enableLocation} due to limited device capabilities.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.enableLocation} due
+   *     to limited device capabilities.
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @syscap SystemCapability.Location.Location.Core
    * @systemapi
-   * @since 9
-   */
-  /**
-   * Enable location switch.
-   *
-   * @permission ohos.permission.MANAGE_SECURE_SETTINGS and ohos.permission.CONTROL_LOCATION_SWITCH
-   * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.enableLocation} due to limited device capabilities.
-   * @throws { BusinessError } 3301000 - The location service is unavailable.
-   * @syscap SystemCapability.Location.Location.Core
-   * @systemapi
-   * @since 20 dynamic
+   * @since 9 dynamic
    * @since 23 static
    */
   function enableLocation(): Promise<void>;
@@ -1483,9 +1040,11 @@ declare namespace geoLocationManager {
    * @permission ohos.permission.MANAGE_SECURE_SETTINGS and ohos.permission.CONTROL_LOCATION_SWITCH
    * @param { int } userId - Indicates the ID of a specified user.
    * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.enableLocationByUserId} due to limited device capabilities.
+   * @throws { BusinessError } 801 - Capability not supported.
+   *     Failed to call ${geoLocationManager.enableLocationByUserId} due to limited device capabilities.
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @syscap SystemCapability.Location.Location.Core
    * @systemapi
@@ -1497,26 +1056,17 @@ declare namespace geoLocationManager {
   /**
    * Disable location switch.
    *
-   * @permission ohos.permission.MANAGE_SECURE_SETTINGS
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @permission ohos.permission.MANAGE_SECURE_SETTINGS [since 9 - 19]
+   * @permission ohos.permission.MANAGE_SECURE_SETTINGS and ohos.permission.CONTROL_LOCATION_SWITCH [since 20]
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.disableLocation} due to limited device capabilities.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.disableLocation} due
+   *     to limited device capabilities.
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @syscap SystemCapability.Location.Location.Core
    * @systemapi
-   * @since 9
-   */
-  /**
-   * Disable location switch.
-   *
-   * @permission ohos.permission.MANAGE_SECURE_SETTINGS and ohos.permission.CONTROL_LOCATION_SWITCH
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.disableLocation} due to limited device capabilities.
-   * @throws { BusinessError } 3301000 - The location service is unavailable.
-   * @syscap SystemCapability.Location.Location.Core
-   * @systemapi
-   * @since 20 dynamic
+   * @since 9 dynamic
    * @since 23 static
    */
   function disableLocation(): void;
@@ -1526,9 +1076,11 @@ declare namespace geoLocationManager {
    *
    * @permission ohos.permission.MANAGE_SECURE_SETTINGS and ohos.permission.CONTROL_LOCATION_SWITCH
    * @param { int } userId - Indicates the ID of a specified user.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.disableLocationByUserId} due to limited device capabilities.
+   * @throws { BusinessError } 801 - Capability not supported.
+   *     Failed to call ${geoLocationManager.disableLocationByUserId} due to limited device capabilities.
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @syscap SystemCapability.Location.Location.Core
    * @systemapi
@@ -1541,11 +1093,14 @@ declare namespace geoLocationManager {
    * Set the app locating behavior not controlled by the location switch.
    *
    * @permission ohos.permission.LOCATION_SWITCH_IGNORED
-   * @param { boolean } isIgnored - True indicates that the location behavior of the app is not controlled by the location switch.
-   *                                Otherwise, it's the opposite.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @param { boolean } isIgnored - True indicates that the location behavior of the app is not controlled by the
+   *     location switch.
+   *     Otherwise, it's the opposite.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.enableLocation} due to limited device capabilities.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.enableLocation} due
+   *     to limited device capabilities.
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @syscap SystemCapability.Location.Location.Core
    * @systemapi
@@ -1559,27 +1114,15 @@ declare namespace geoLocationManager {
    *
    * @param { ReverseGeoCodeRequest } request - Indicates the reverse geocode query parameters.
    * @param { AsyncCallback<Array<GeoAddress>> } callback - Indicates the callback for reporting the address info.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.getAddressesFromLocation} due to limited device capabilities.
-   * @throws { BusinessError } 3301000 - The location service is unavailable.
-   * @throws { BusinessError } 3301300 - Reverse geocoding query failed.
-   * @syscap SystemCapability.Location.Location.Geocoder
-   * @since 9 dynamic
-   */
-  /**
-   * Obtain address info from location.
-   *
-   * @param { ReverseGeoCodeRequest } request - Indicates the reverse geocode query parameters.
-   * @param { AsyncCallback<Array<GeoAddress>> } callback - Indicates the callback for reporting the address info.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory 
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory
    *     parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call 
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call
    *     ${geoLocationManager.getAddressesFromLocation} due to limited device capabilities.
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @throws { BusinessError } 3301300 - Reverse geocoding query failed.
    * @syscap SystemCapability.Location.Location.Geocoder
-   * @crossplatform
-   * @since 22 dynamic
+   * @crossplatform [since 22]
+   * @since 9 dynamic
    * @since 23 static
    */
   function getAddressesFromLocation(request: ReverseGeoCodeRequest, callback: AsyncCallback<Array<GeoAddress>>): void;
@@ -1589,27 +1132,15 @@ declare namespace geoLocationManager {
    *
    * @param { ReverseGeoCodeRequest } request - Indicates the reverse geocode query parameters.
    * @returns { Promise<Array<GeoAddress>> } The promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.getAddressesFromLocation} due to limited device capabilities.
-   * @throws { BusinessError } 3301000 - The location service is unavailable.
-   * @throws { BusinessError } 3301300 - Reverse geocoding query failed.
-   * @syscap SystemCapability.Location.Location.Geocoder
-   * @since 9 dynamic
-   */
-  /**
-   * Obtain address info from location.
-   *
-   * @param { ReverseGeoCodeRequest } request - Indicates the reverse geocode query parameters.
-   * @returns { Promise<Array<GeoAddress>> } The promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory 
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory
    *     parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call 
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call
    *     ${geoLocationManager.getAddressesFromLocation} due to limited device capabilities.
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @throws { BusinessError } 3301300 - Reverse geocoding query failed.
    * @syscap SystemCapability.Location.Location.Geocoder
-   * @crossplatform
-   * @since 22 dynamic
+   * @crossplatform [since 22]
+   * @since 9 dynamic
    * @since 23 static
    */
   function getAddressesFromLocation(request: ReverseGeoCodeRequest): Promise<Array<GeoAddress>>;
@@ -1618,29 +1149,17 @@ declare namespace geoLocationManager {
    * Obtain latitude and longitude info from location address.
    *
    * @param { GeoCodeRequest } request - Indicates the geocode query parameters.
-   * @param { AsyncCallback<Array<GeoAddress>> } callback - Indicates the callback for reporting the latitude and longitude result.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.getAddressesFromLocationName} due to limited device capabilities.
-   * @throws { BusinessError } 3301000 - The location service is unavailable.
-   * @throws { BusinessError } 3301400 - Geocoding query failed.
-   * @syscap SystemCapability.Location.Location.Geocoder
-   * @since 9 dynamic
-   */
-  /**
-   * Obtain latitude and longitude info from location address.
-   *
-   * @param { GeoCodeRequest } request - Indicates the geocode query parameters.
-   * @param { AsyncCallback<Array<GeoAddress>> } callback - Indicates the callback for reporting the 
+   * @param { AsyncCallback<Array<GeoAddress>> } callback - Indicates the callback for reporting the
    *     latitude and longitude result.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are 
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are
    *     left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call 
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call
    *     ${geoLocationManager.getAddressesFromLocationName} due to limited device capabilities.
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @throws { BusinessError } 3301400 - Geocoding query failed.
    * @syscap SystemCapability.Location.Location.Geocoder
-   * @crossplatform
-   * @since 22 dynamic
+   * @crossplatform [since 22]
+   * @since 9 dynamic
    * @since 23 static
    */
   function getAddressesFromLocationName(request: GeoCodeRequest, callback: AsyncCallback<Array<GeoAddress>>): void;
@@ -1650,40 +1169,19 @@ declare namespace geoLocationManager {
    *
    * @param { GeoCodeRequest } request - Indicates the geocode query parameters.
    * @returns { Promise<Array<GeoAddress>> } The promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.getAddressesFromLocationName} due to limited device capabilities.
-   * @throws { BusinessError } 3301000 - The location service is unavailable.
-   * @throws { BusinessError } 3301400 - Geocoding query failed.
-   * @syscap SystemCapability.Location.Location.Geocoder
-   * @since 9 dynamic
-   */
-  /**
-   * Obtain latitude and longitude info from location address.
-   *
-   * @param { GeoCodeRequest } request - Indicates the geocode query parameters.
-   * @returns { Promise<Array<GeoAddress>> } The promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory 
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory
    *     parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call 
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call
    *     ${geoLocationManager.getAddressesFromLocationName} due to limited device capabilities.
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @throws { BusinessError } 3301400 - Geocoding query failed.
    * @syscap SystemCapability.Location.Location.Geocoder
-   * @crossplatform
-   * @since 22 dynamic
+   * @crossplatform [since 22]
+   * @since 9 dynamic
    * @since 23 static
    */
   function getAddressesFromLocationName(request: GeoCodeRequest): Promise<Array<GeoAddress>>;
 
-  /**
-   * Obtain geocoding service status.
-   *
-   * @returns { boolean } Returns {@code true} if geocoding service is available, returns {@code false} otherwise.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.isGeocoderAvailable} due to limited device capabilities.
-   * @throws { BusinessError } 3301000 - The location service is unavailable.
-   * @syscap SystemCapability.Location.Location.Geocoder
-   * @since 9 dynamic
-   */
   /**
    * Obtain geocoding service status.
    *
@@ -1693,8 +1191,8 @@ declare namespace geoLocationManager {
    *     ${geoLocationManager.isGeocoderAvailable} due to limited device capabilities.
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @syscap SystemCapability.Location.Location.Geocoder
-   * @crossplatform
-   * @since 22 dynamic
+   * @crossplatform [since 22]
+   * @since 9 dynamic
    * @since 23 static
    */
   function isGeocoderAvailable(): boolean;
@@ -1704,30 +1202,17 @@ declare namespace geoLocationManager {
    *
    * @permission ohos.permission.APPROXIMATELY_LOCATION
    * @param { AsyncCallback<int> } callback - Indicates the callback for reporting the cached GNSS locations size.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.getCachedGnssLocationsSize} due to limited device capabilities.
-   * @throws { BusinessError } 3301000 - The location service is unavailable.
-   * @throws { BusinessError } 3301100 - The location switch is off.
-   * @syscap SystemCapability.Location.Location.Gnss
-   * @since 9 dynamic
-   */
-  /**
-   * Obtain the number of cached GNSS locations reported at a time.
-   *
-   * @permission ohos.permission.APPROXIMATELY_LOCATION
-   * @param { AsyncCallback<int> } callback - Indicates the callback for reporting the cached GNSS locations size.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission 
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
    *     required to call the API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call 
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call
    *     ${geoLocationManager.getCachedGnssLocationsSize} due to limited device capabilities.
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @throws { BusinessError } 3301100 - The location switch is off.
    * @syscap SystemCapability.Location.Location.Gnss
-   * @crossplatform
-   * @since 22 dynamic
+   * @crossplatform [since 22]
+   * @since 9 dynamic
    * @since 23 static
    */
   function getCachedGnssLocationsSize(callback: AsyncCallback<int>): void;
@@ -1737,27 +1222,15 @@ declare namespace geoLocationManager {
    *
    * @permission ohos.permission.APPROXIMATELY_LOCATION
    * @returns { Promise<int> } The promise returned by the function.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.getCachedGnssLocationsSize} due to limited device capabilities.
-   * @throws { BusinessError } 3301000 - The location service is unavailable.
-   * @throws { BusinessError } 3301100 - The location switch is off.
-   * @syscap SystemCapability.Location.Location.Gnss
-   * @since 9 dynamic
-   */
-  /**
-   * Obtain the number of cached GNSS locations.
-   *
-   * @permission ohos.permission.APPROXIMATELY_LOCATION
-   * @returns { Promise<int> } The promise returned by the function.
-   * @throws { BusinessError } 201 - Permission verification failed. The application 
+   * @throws { BusinessError } 201 - Permission verification failed. The application
    *     does not have the permission required to call the API.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call 
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call
    *     ${geoLocationManager.getCachedGnssLocationsSize} due to limited device capabilities.
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @throws { BusinessError } 3301100 - The location switch is off.
    * @syscap SystemCapability.Location.Location.Gnss
-   * @crossplatform
-   * @since 22 dynamic
+   * @crossplatform [since 22]
+   * @since 9 dynamic
    * @since 23 static
    */
   function getCachedGnssLocationsSize(): Promise<int>;
@@ -1768,38 +1241,21 @@ declare namespace geoLocationManager {
    *
    * @permission ohos.permission.APPROXIMATELY_LOCATION
    * @param { AsyncCallback<void> } callback - Indicates the callback for reporting the error message.
-   * If the function fails to execute, the error message will be carried in the first parameter err of AsyncCallback,
-   * If the function executes successfully, execute the callback function only, no data will be returned.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.flushCachedGnssLocations} due to limited device capabilities.
-   * @throws { BusinessError } 3301000 - The location service is unavailable.
-   * @throws { BusinessError } 3301100 - The location switch is off.
-   * @throws { BusinessError } 3301200 - Failed to obtain the geographical location.
-   * @syscap SystemCapability.Location.Location.Gnss
-   * @since 9 dynamic
-   */
-  /**
-   * All prepared GNSS locations are returned to the application through the callback function,
-   * and the bottom-layer buffer is cleared.
-   *
-   * @permission ohos.permission.APPROXIMATELY_LOCATION
-   * @param { AsyncCallback<void> } callback - Indicates the callback for reporting the error message.
-   *     If the function fails to execute, the error message will be carried in the first parameter 
+   *     If the function fails to execute, the error message will be carried in the first parameter
    *     err of AsyncCallback,
    *     If the function executes successfully, execute the callback function only, no data will be returned.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
    *     required to call the API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call 
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call
    *     ${geoLocationManager.flushCachedGnssLocations} due to limited device capabilities.
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @throws { BusinessError } 3301100 - The location switch is off.
    * @throws { BusinessError } 3301200 - Failed to obtain the geographical location.
    * @syscap SystemCapability.Location.Location.Gnss
-   * @crossplatform
-   * @since 22 dynamic
+   * @crossplatform [since 22]
+   * @since 9 dynamic
    * @since 23 static
    */
   function flushCachedGnssLocations(callback: AsyncCallback<void>): void;
@@ -1810,30 +1266,16 @@ declare namespace geoLocationManager {
    *
    * @permission ohos.permission.APPROXIMATELY_LOCATION
    * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.flushCachedGnssLocations} due to limited device capabilities.
-   * @throws { BusinessError } 3301000 - The location service is unavailable.
-   * @throws { BusinessError } 3301100 - The location switch is off.
-   * @throws { BusinessError } 3301200 - Failed to obtain the geographical location.
-   * @syscap SystemCapability.Location.Location.Gnss
-   * @since 9 dynamic
-   */
-  /**
-   * All prepared GNSS locations are returned to the application,
-   * and the bottom-layer buffer is cleared.
-   *
-   * @permission ohos.permission.APPROXIMATELY_LOCATION
-   * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 201 - Permission verification failed. The application 
+   * @throws { BusinessError } 201 - Permission verification failed. The application
    *     does not have the permission required to call the API.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call 
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call
    *     ${geoLocationManager.flushCachedGnssLocations} due to limited device capabilities.
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @throws { BusinessError } 3301100 - The location switch is off.
    * @throws { BusinessError } 3301200 - Failed to obtain the geographical location.
    * @syscap SystemCapability.Location.Location.Gnss
-   * @crossplatform
-   * @since 22 dynamic
+   * @crossplatform [since 22]
+   * @since 9 dynamic
    * @since 23 static
    */
   function flushCachedGnssLocations(): Promise<void>;
@@ -1843,10 +1285,13 @@ declare namespace geoLocationManager {
    *
    * @param { LocationCommand } command - Indicates the extended command message body.
    * @param { AsyncCallback<void> } callback - Indicates the callback for reporting the error message.
-   * If the function fails to execute, the error message will be carried in the first parameter err of AsyncCallback,
-   * If the function executes successfully, execute the callback function only, no data will be returned.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.sendCommand} due to limited device capabilities.
+   *     If the function fails to execute, the error message will be carried in the first parameter err of
+   *     AsyncCallback,
+   *     If the function executes successfully, execute the callback function only, no data will be returned.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory
+   *     parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call
+   *     ${geoLocationManager.sendCommand} due to limited device capabilities.
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @syscap SystemCapability.Location.Location.Core
    * @since 9 dynamic
@@ -1859,8 +1304,10 @@ declare namespace geoLocationManager {
    *
    * @param { LocationCommand } command - Indicates the extended command message body.
    * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.sendCommand} due to limited device capabilities.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory
+   *     parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call
+   *     ${geoLocationManager.sendCommand} due to limited device capabilities.
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @syscap SystemCapability.Location.Location.Core
    * @since 9 dynamic
@@ -1872,27 +1319,16 @@ declare namespace geoLocationManager {
    * Obtain the current country code.
    *
    * @param { AsyncCallback<CountryCode> } callback - Indicates the callback for reporting the country code.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.getCountryCode} due to limited device capabilities.
-   * @throws { BusinessError } 3301000 - The location service is unavailable.
-   * @throws { BusinessError } 3301500 - Failed to query the area information.
-   * @syscap SystemCapability.Location.Location.Core
-   * @since 9 dynamic
-   */
-  /**
-   * Obtain the current country code.
-   *
-   * @param { AsyncCallback<CountryCode> } callback - Indicates the callback for reporting the country code.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
-   *     1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1. Mandatory parameters are left unspecified; 2. Incorrect parameter types;
    *     3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call 
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call
    *     ${geoLocationManager.getCountryCode} due to limited device capabilities.
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @throws { BusinessError } 3301500 - Failed to query the area information.
    * @syscap SystemCapability.Location.Location.Core
-   * @crossplatform
-   * @since 22 dynamic
+   * @crossplatform [since 22]
+   * @since 9 dynamic
    * @since 23 static
    */
   function getCountryCode(callback: AsyncCallback<CountryCode>): void;
@@ -1901,23 +1337,13 @@ declare namespace geoLocationManager {
    * Obtain the current country code.
    *
    * @returns { Promise<CountryCode> } The promise returned by the function.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.getCountryCode} due to limited device capabilities.
-   * @throws { BusinessError } 3301000 - The location service is unavailable.
-   * @throws { BusinessError } 3301500 - Failed to query the area information.
-   * @syscap SystemCapability.Location.Location.Core
-   * @since 9 dynamic
-   */
-  /**
-   * Obtain the current country code.
-   *
-   * @returns { Promise<CountryCode> } The promise returned by the function.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call 
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call
    *     ${geoLocationManager.getCountryCode} due to limited device capabilities.
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @throws { BusinessError } 3301500 - Failed to query the area information.
    * @syscap SystemCapability.Location.Location.Core
-   * @crossplatform
-   * @since 22 dynamic
+   * @crossplatform [since 22]
+   * @since 9 dynamic
    * @since 23 static
    */
   function getCountryCode(): Promise<CountryCode>;
@@ -1925,26 +1351,17 @@ declare namespace geoLocationManager {
   /**
    * Enable the geographical location simulation function.
    *
+   * @permission ohos.permission.MOCK_LOCATION [since 20]
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.enableLocationMock} due to limited device capabilities.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.enableLocationMock}
+   *     due to limited device capabilities.
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @throws { BusinessError } 3301100 - The location switch is off.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API. [since 20]
    * @syscap SystemCapability.Location.Location.Core
    * @systemapi
-   * @since 9
-   */
-  /**
-   * Enable the geographical location simulation function.
-   *
-   * @permission ohos.permission.MOCK_LOCATION
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.enableLocationMock} due to limited device capabilities.
-   * @throws { BusinessError } 3301000 - The location service is unavailable.
-   * @throws { BusinessError } 3301100 - The location switch is off.
-   * @syscap SystemCapability.Location.Location.Core
-   * @systemapi
-   * @since 20 dynamic
+   * @since 9 dynamic
    * @since 23 static
    */
   function enableLocationMock(): void;
@@ -1952,26 +1369,17 @@ declare namespace geoLocationManager {
   /**
    * Disable the geographical location simulation function.
    *
+   * @permission ohos.permission.MOCK_LOCATION [since 20]
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.disableLocationMock} due to limited device capabilities.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.disableLocationMock}
+   *     due to limited device capabilities.
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @throws { BusinessError } 3301100 - The location switch is off.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API. [since 20]
    * @syscap SystemCapability.Location.Location.Core
    * @systemapi
-   * @since 9
-   */
-  /**
-   * Disable the geographical location simulation function.
-   *
-   * @permission ohos.permission.MOCK_LOCATION
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.disableLocationMock} due to limited device capabilities.
-   * @throws { BusinessError } 3301000 - The location service is unavailable.
-   * @throws { BusinessError } 3301100 - The location switch is off.
-   * @syscap SystemCapability.Location.Location.Core
-   * @systemapi
-   * @since 20 dynamic
+   * @since 9 dynamic
    * @since 23 static
    */
   function disableLocationMock(): void;
@@ -1979,32 +1387,21 @@ declare namespace geoLocationManager {
   /**
    * Set the configuration parameters for location simulation.
    *
+   * @permission ohos.permission.MOCK_LOCATION [since 20]
    * @param { LocationMockConfig } config - Indicates the configuration parameters for location simulation.
-   * Contains the array of locations and reporting intervals that need to be simulated.
+   *     Contains the array of locations and reporting intervals that need to be simulated.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.setMockedLocations} due to limited device capabilities.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.
+   *     Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.setMockedLocations}
+   *     due to limited device capabilities.
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @throws { BusinessError } 3301100 - The location switch is off.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API. [since 20]
    * @syscap SystemCapability.Location.Location.Core
    * @systemapi
-   * @since 9
-   */
-  /**
-   * Set the configuration parameters for location simulation.
-   *
-   * @permission ohos.permission.MOCK_LOCATION
-   * @param { LocationMockConfig } config - Indicates the configuration parameters for location simulation.
-   * Contains the array of locations and reporting intervals that need to be simulated.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.setMockedLocations} due to limited device capabilities.
-   * @throws { BusinessError } 3301000 - The location service is unavailable.
-   * @throws { BusinessError } 3301100 - The location switch is off.
-   * @syscap SystemCapability.Location.Location.Core
-   * @systemapi
-   * @since 20 dynamic
+   * @since 9 dynamic
    * @since 23 static
    */
   function setMockedLocations(config: LocationMockConfig): void;
@@ -2012,24 +1409,16 @@ declare namespace geoLocationManager {
   /**
    * Enable the reverse geocoding simulation function.
    *
+   * @permission ohos.permission.MOCK_LOCATION [since 20]
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.enableReverseGeocodingMock} due to limited device capabilities.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${
+   *     geoLocationManager.enableReverseGeocodingMock} due to limited device capabilities.
    * @throws { BusinessError } 3301000 - The location service is unavailable.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API. [since 20]
    * @syscap SystemCapability.Location.Location.Core
    * @systemapi
-   * @since 9
-   */
-  /**
-   * Enable the reverse geocoding simulation function.
-   *
-   * @permission ohos.permission.MOCK_LOCATION
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.enableReverseGeocodingMock} due to limited device capabilities.
-   * @throws { BusinessError } 3301000 - The location service is unavailable.
-   * @syscap SystemCapability.Location.Location.Core
-   * @systemapi
-   * @since 20 dynamic
+   * @since 9 dynamic
    * @since 23 static
    */
   function enableReverseGeocodingMock(): void;
@@ -2037,24 +1426,16 @@ declare namespace geoLocationManager {
   /**
    * Disable the reverse geocoding simulation function.
    *
+   * @permission ohos.permission.MOCK_LOCATION [since 20]
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.disableReverseGeocodingMock} due to limited device capabilities.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${
+   *     geoLocationManager.disableReverseGeocodingMock} due to limited device capabilities.
    * @throws { BusinessError } 3301000 - The location service is unavailable.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API. [since 20]
    * @syscap SystemCapability.Location.Location.Core
    * @systemapi
-   * @since 9
-   */
-  /**
-   * Disable the reverse geocoding simulation function.
-   *
-   * @permission ohos.permission.MOCK_LOCATION
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.disableReverseGeocodingMock} due to limited device capabilities.
-   * @throws { BusinessError } 3301000 - The location service is unavailable.
-   * @syscap SystemCapability.Location.Location.Core
-   * @systemapi
-   * @since 20 dynamic
+   * @since 9 dynamic
    * @since 23 static
    */
   function disableReverseGeocodingMock(): void;
@@ -2062,28 +1443,20 @@ declare namespace geoLocationManager {
   /**
    * Set the configuration parameters for simulating reverse geocoding.
    *
-   * @param { Array<ReverseGeocodingMockInfo> } mockInfos - Indicates the set of locations and place names to be simulated.
+   * @permission ohos.permission.MOCK_LOCATION [since 20]
+   * @param { Array<ReverseGeocodingMockInfo> } mockInfos - Indicates the set of locations and place names to be
+   *     simulated.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.setReverseGeocodingMockInfo} due to limited device capabilities.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.
+   *     Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${
+   *     geoLocationManager.setReverseGeocodingMockInfo} due to limited device capabilities.
    * @throws { BusinessError } 3301000 - The location service is unavailable.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API. [since 20]
    * @syscap SystemCapability.Location.Location.Core
    * @systemapi
-   * @since 9
-   */
-  /**
-   * Set the configuration parameters for simulating reverse geocoding.
-   *
-   * @permission ohos.permission.MOCK_LOCATION
-   * @param { Array<ReverseGeocodingMockInfo> } mockInfos - Indicates the set of locations and place names to be simulated.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.setReverseGeocodingMockInfo} due to limited device capabilities.
-   * @throws { BusinessError } 3301000 - The location service is unavailable.
-   * @syscap SystemCapability.Location.Location.Core
-   * @systemapi
-   * @since 20 dynamic
+   * @since 9 dynamic
    * @since 23 static
    */
   function setReverseGeocodingMockInfo(mockInfos: Array<ReverseGeocodingMockInfo>): void;
@@ -2092,10 +1465,13 @@ declare namespace geoLocationManager {
    * Querying location privacy protocol confirmation status.
    *
    * @param { LocationPrivacyType } type - Indicates location privacy protocol type.
-   * @returns { boolean } Returns {@code true} if the location privacy protocol has been confirmed, returns {@code false} otherwise.
+   * @returns { boolean } Returns {@code true} if the location privacy protocol has been confirmed, returns {@code false
+   *     } otherwise.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.isLocationPrivacyConfirmed} due to limited device capabilities.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.
+   *     Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${
+   *     geoLocationManager.isLocationPrivacyConfirmed} due to limited device capabilities.
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @syscap SystemCapability.Location.Location.Core
    * @systemapi
@@ -2110,10 +1486,14 @@ declare namespace geoLocationManager {
    * @permission ohos.permission.MANAGE_SECURE_SETTINGS
    * @param { LocationPrivacyType } type - Indicates location privacy protocol type.
    * @param { boolean } isConfirmed - Indicates whether the location privacy protocol has been confirmed.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.setLocationPrivacyConfirmStatus} due to limited device capabilities.
+   * @throws { BusinessError } 201 - Permission verification failed. The application
+   *     does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system
+   *     application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory
+   *     parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call
+   *     ${geoLocationManager.setLocationPrivacyConfirmStatus} due to limited device capabilities.
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @syscap SystemCapability.Location.Location.Core
    * @systemapi
@@ -2126,12 +1506,18 @@ declare namespace geoLocationManager {
    * Get WiFi/BT scanning information, and use the WiFi/BT scanning information for localization.
    *
    * @permission ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
-   * @param { LocatingRequiredDataConfig } config - Indicates the request parameters for obtaining the data required for locating.
-   * @returns { Promise<Array<LocatingRequiredData>> } The promise returned by the function, for reporting WiFi/BT scan info.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.getLocatingRequiredData} due to limited device capabilities.
+   * @param { LocatingRequiredDataConfig } config - Indicates the request parameters
+   *     for obtaining the data required for locating.
+   * @returns { Promise<Array<LocatingRequiredData>> } The promise returned by the function,
+   *     for reporting WiFi/BT scan info.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed.
+   *     A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory
+   *     parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call
+   *     ${geoLocationManager.getLocatingRequiredData} due to limited device capabilities.
    * @throws { BusinessError } 3301800 - Failed to start WiFi or Bluetooth scanning.
    * @syscap SystemCapability.Location.Location.Core
    * @systemapi
@@ -2146,33 +1532,18 @@ declare namespace geoLocationManager {
    * @permission ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
    * @param { GnssGeofenceRequest } fenceRequest - Indicates the Geofence configuration parameters.
    * @returns { Promise<int> } The promise returned by the function, for reporting the ID of geofence.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.addGnssGeofence} due to limited device capabilities.
-   * @throws { BusinessError } 3301000 - The location service is unavailable.
-   * @throws { BusinessError } 3301100 - The location switch is off.
-   * @throws { BusinessError } 3301601 - The number of geofences exceeds the maximum.
-   * @syscap SystemCapability.Location.Location.Geofence
-   * @since 12 dynamic
-   */
-  /**
-   * Add a geofence.
-   *
-   * @permission ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
-   * @param { GnssGeofenceRequest } fenceRequest - Indicates the Geofence configuration parameters.
-   * @returns { Promise<int> } The promise returned by the function, for reporting the ID of geofence.
-   * @throws { BusinessError } 201 - Permission verification failed. The application 
+   * @throws { BusinessError } 201 - Permission verification failed. The application
    *     does not have the permission required to call the API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory 
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory
    *     parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call 
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call
    *     ${geoLocationManager.addGnssGeofence} due to limited device capabilities.
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @throws { BusinessError } 3301100 - The location switch is off.
    * @throws { BusinessError } 3301601 - The number of geofences exceeds the maximum.
    * @syscap SystemCapability.Location.Location.Geofence
-   * @crossplatform
-   * @since 22 dynamic
+   * @crossplatform [since 22]
+   * @since 12 dynamic
    * @since 23 static
    */
   function addGnssGeofence(fenceRequest: GnssGeofenceRequest): Promise<int>;
@@ -2181,17 +1552,17 @@ declare namespace geoLocationManager {
    * Remove a geofence.
    *
    * @permission ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION [since 12 - 24]
-   * @param { int } geofenceId - Indicates the ID of geofence. [since 12]
-   * @returns { Promise<void> } The promise returned by the function. [since 12]
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not 
+   * @param { int } geofenceId - Indicates the ID of geofence.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not
    *     have the permission required to call the API. [since 12 - 24]
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters 
-   *     are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. [since 12]
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call 
-   *     ${geoLocationManager.removeGnssGeofence} due to limited device capabilities. [since 12]
-   * @throws { BusinessError } 3301000 - The location service is unavailable. [since 12]
-   * @throws { BusinessError } 3301602 - Failed to delete a geofence due to an incorrect ID. [since 12]
-   * @syscap SystemCapability.Location.Location.Geofence [since 12]
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters
+   *     are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call
+   *     ${geoLocationManager.removeGnssGeofence} due to limited device capabilities.
+   * @throws { BusinessError } 3301000 - The location service is unavailable.
+   * @throws { BusinessError } 3301602 - Failed to delete a geofence due to an incorrect ID.
+   * @syscap SystemCapability.Location.Location.Geofence
    * @crossplatform [since 22]
    * @since 12 dynamic
    * @since 23 static
@@ -2199,14 +1570,21 @@ declare namespace geoLocationManager {
   function removeGnssGeofence(geofenceId: int): Promise<void>;
 
   /**
-   * Obtains the coordinate system types supported by geofence.
+   * Get all active fences.
    *
-   * @returns { Array<CoordinateSystemType> } Return the coordinate system types supported by geofence.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.getGeofenceSupportedCoordTypes} due to limited device capabilities.
-   * @throws { BusinessError } 3301000 - The location service is unavailable.
+   * @permission ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
+   * @returns { Promise<Map<int, Geofence>> } The promise returned by the function.
+   *     The key of the map represents the fence ID. The value of the map represents
+   *     the detailed information of the fence.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not
+   *     have the permission required to call the API.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call
+   *     ${geoLocationManager.getActiveGeoFences} due to limited device capabilities.
    * @syscap SystemCapability.Location.Location.Geofence
-   * @since 12 dynamic
+   * @since 23 dynamic&static
    */
+  function getActiveGeoFences(): Promise<Map<int, Geofence>>;
+
   /**
    * Obtains the coordinate system types supported by geofence.
    *
@@ -2215,8 +1593,8 @@ declare namespace geoLocationManager {
    *     ${geoLocationManager.getGeofenceSupportedCoordTypes} due to limited device capabilities.
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @syscap SystemCapability.Location.Location.Geofence
-   * @crossplatform
-   * @since 22 dynamic
+   * @crossplatform [since 22]
+   * @since 12 dynamic
    * @since 23 static
    */
   function getGeofenceSupportedCoordTypes(): Array<CoordinateSystemType>;
@@ -2225,8 +1603,10 @@ declare namespace geoLocationManager {
    * Get location icon status.
    *
    * @returns { LocationIconStatus } The location icon status.
-   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.getLocationIconStatus} due to limited device capabilities.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system
+   *     application calls a system API.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call
+   *     ${geoLocationManager.getLocationIconStatus} due to limited device capabilities.
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @syscap SystemCapability.Location.Location.Core
    * @systemapi
@@ -2236,20 +1616,24 @@ declare namespace geoLocationManager {
   function getLocationIconStatus(): LocationIconStatus;
 
   /**
-   * Obtains the BSSID of the connected Wi-Fi hotspot.
-   * @permission ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
-   * @returns {string} Returns the BSSID of the connected Wi-Fi hotspot.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.getCurrentWifiBssidForLocating()} due to limited device capabilities.
-   * @throws { BusinessError } 3301000 - The location service is unavailable.
-   * @throws { BusinessError } 3301100 - The location switch is off.
-   * @throws { BusinessError } 3301900 - Failed to obtain the BSSID of the Wi-Fi hotspot. The Wi-Fi network is not connected.
-   * @syscap SystemCapability.Location.Location.Core
-   * @crossplatform
-   * @since 14 dynamic
-   * @since 23 static
-   */
-  function getCurrentWifiBssidForLocating(): string;
+     * Obtains the BSSID of the connected Wi-Fi hotspot.
+     *
+     * @permission ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
+     * @returns {string} Returns the BSSID of the connected Wi-Fi hotspot.
+     * @throws { BusinessError } 201 - Permission verification failed. The application
+     *     does not have the permission required to call the API.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call
+     *     ${geoLocationManager.getCurrentWifiBssidForLocating()} due to limited device capabilities.
+     * @throws { BusinessError } 3301000 - The location service is unavailable.
+     * @throws { BusinessError } 3301100 - The location switch is off.
+     * @throws { BusinessError } 3301900 - Failed to obtain the BSSID of the Wi-Fi hotspot.
+     *     The Wi-Fi network is not connected.
+     * @syscap SystemCapability.Location.Location.Core
+     * @crossplatform
+     * @since 14 dynamic
+     * @since 23 static
+     */
+    function getCurrentWifiBssidForLocating(): string;
 
   /**
    * Obtains the distance between two locations.
@@ -2258,19 +1642,9 @@ declare namespace geoLocationManager {
    * @param { Location } location2 - Indicates second location.
    * @returns { double } Returns the distance between two locations.
    * @syscap SystemCapability.Location.Location.Core
+   * @crossplatform [since 22]
    * @atomicservice
    * @since 20 dynamic
-   */
-  /**
-   * Obtains the distance between two locations.
-   *
-   * @param { Location } location1 - Indicates first location.
-   * @param { Location } location2 - Indicates second location.
-   * @returns { double } Returns the distance between two locations.
-   * @syscap SystemCapability.Location.Location.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 22 dynamic
    * @since 23 static
    */
   function getDistanceBetweenLocations(location1: Location, location2: Location): double;
@@ -2282,6 +1656,7 @@ declare namespace geoLocationManager {
    * @syscap SystemCapability.Location.Location.Core
    * @atomicservice
    * @since 20 dynamic
+   * @since 26.0.0 static
    */
   function isPoiServiceSupported(): boolean;
 
@@ -2290,14 +1665,16 @@ declare namespace geoLocationManager {
    *
    * @permission ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
    * @returns { Promise<PoiInfo> } The promise returned by the function, for reporting POI info.
-   * 
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.getPoiInfo} due to limited device capabilities.
+   * @throws { BusinessError } 201 - Permission verification failed. The application
+   *     does not have the permission required to call the API.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call
+   *     ${geoLocationManager.getPoiInfo} due to limited device capabilities.
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @throws { BusinessError } 3301100 - The location switch is off.
    * @syscap SystemCapability.Location.Location.Core
    * @atomicservice
    * @since 20 dynamic
+   * @since 26.1.0 static
    */
   function getPoiInfo(): Promise<PoiInfo>;
 
@@ -2306,35 +1683,37 @@ declare namespace geoLocationManager {
    *
    * @permission ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
    * @param { BeaconFenceRequest } fenceRequest - Indicates the details of the beacon fence.
-   * @returns { Promise<number> } The promise returned by the function, for reporting the ID of beacon fence.
+   * @returns { Promise<int> } The promise returned by the function, for reporting the ID of beacon fence.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the
-   * permission required to call the API.
+   *     permission required to call the API.
    * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.addBeaconFence}
-   * due to limited device capabilities.
+   *     due to limited device capabilities.
    * @throws { BusinessError } 3501100 - Failed to add a beacon fence because the location switch is off.
    * @throws { BusinessError } 3501101 - Failed to add a beacon fence because the bluetooth switch is off.
-   * @throws { BusinessError } 3501601 - The number of beacon fence exceeds the maximum.
+   * @throws { BusinessError } 3501601 - The number of beacon fences exceeds the maximum.
    * @throws { BusinessError } 3501603 - Duplicate beacon fence information.
    * @syscap SystemCapability.Location.Location.Geofence
    * @atomicservice
    * @since 20 dynamic
+   * @since 26.1.0 static
    */
-  function addBeaconFence(fenceRequest: BeaconFenceRequest): Promise<number>;
+  function addBeaconFence(fenceRequest: BeaconFenceRequest): Promise<int>;
 
   /**
    * Remove a beacon fence.
    *
-   * @permission ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
+   * @permission ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION [since 20 - 24]
    * @param { BeaconFence } [beaconFence] - Indicates the details of the beacon fence.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
-   * required to call the API.
+   *     required to call the API. [since 20 - 24]
    * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.removeBeaconFence}
-   * due to limited device capabilities.
+   *     due to limited device capabilities.
    * @throws { BusinessError } 3501602 - Failed to delete the fence due to incorrect beacon fence information.
    * @syscap SystemCapability.Location.Location.Geofence
    * @atomicservice
    * @since 20 dynamic
+   * @since 26.1.0 static
    */
   function removeBeaconFence(beaconFence?: BeaconFence): Promise<void>;
 
@@ -2345,6 +1724,7 @@ declare namespace geoLocationManager {
    * @syscap SystemCapability.Location.Location.Geofence
    * @atomicservice
    * @since 20 dynamic
+   * @since 26.1.0 static
    */
   function isBeaconFenceSupported(): boolean;
 
@@ -2354,13 +1734,13 @@ declare namespace geoLocationManager {
    * @permission ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
    * @param { Array<string> } wlanBssidArray - Indicates the list of WLAN BSSIDs that need to be matched.
    * @param { int } rssiThreshold - Indicates the WLAN RSSI threshold, only matching WLAN BSSID with
-   * RSSI greater than this threshold.
-   * @param { boolean } needStartScan - Indicates whether a WLAN scan needs to be initiated.
+   *     RSSI greater than this threshold.
+   * @param { boolean } needStartScan - Indicate whether a WLAN scan needs to be initiated.
    * @returns { Promise<boolean> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
-   * required to call the API.
+   *     required to call the API.
    * @throws { BusinessError } 801 - Capability not supported. Failed to call
-   * ${geoLocationManager.isWlanBssidMatched} due to limited device capabilities.
+   *     ${geoLocationManager.isWlanBssidMatched} due to limited device capabilities.
    * @throws { BusinessError } 3301100 - The location switch is off.
    * @throws { BusinessError } 3301800 - Failed to start WiFi scanning.
    * @syscap SystemCapability.Location.Location.Core
@@ -2369,7 +1749,7 @@ declare namespace geoLocationManager {
    * @since 23 static
    */
   function isWlanBssidMatched(
-    wlanBssidArray: Array<string>, rssiThreshold: int, needStartScan: boolean): Promise<boolean>;
+      wlanBssidArray: Array<string>, rssiThreshold: int, needStartScan: boolean): Promise<boolean>;
 
   /**
    * Check whether the GNSS service is supported.
@@ -2398,7 +1778,7 @@ declare namespace geoLocationManager {
   /**
    * Check whether the cached GNSS service is supported.
    *
-   * @returns { boolean } Returns {@code true} if cached service is available, returns {@code false} otherwise.
+   * @returns { boolean } Returns {@code true} if cached GNSS service is available, returns {@code false} otherwise.
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @syscap SystemCapability.Location.Location.Core
    * @stagemodelonly
@@ -2406,22 +1786,6 @@ declare namespace geoLocationManager {
    * @since 26.0.0 dynamic&static
    */
   function isCachedGnssServiceSupported(): boolean;
-
-  /**
-   * Get all active fences.
-   *
-   * @permission ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
-   * @returns { Promise<Map<int, Geofence>> } The promise returned by the function.
-   * The key of the map represents the fence ID.The value of the map represents
-   * the detailed information of the fence.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not
-   * have the permission required to call the API.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call
-   * ${geoLocationManager.getActiveGeoFences} due to limited device capabilities.
-   * @syscap SystemCapability.Location.Location.Geofence
-   * @since 23 dynamic&static
-   */
-  function getActiveGeoFences(): Promise<Map<int, Geofence>>;
 
   /**
    * Check whether the WLAN scan results match the WLAN BSSID list,
@@ -2464,7 +1828,8 @@ declare namespace geoLocationManager {
    * @syscap SystemCapability.Location.Location.Geocoder
    * @stagemodelonly
    * @atomicservice
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
+   * @since 26.1.0 static
    */
   function getCurrentDistrict(params?: DistrictRequestParams): Promise<DistrictInfo>;
 
@@ -2474,7 +1839,7 @@ declare namespace geoLocationManager {
    * device information is returned through the callback.
    *
    * @permission ohos.permission.APPROXIMATELY_LOCATION
-   * @param { BluetoothSearchRequest } request - Indicates the configuration parameters
+   * @param { BluetoothSearchRequestParams } request - Indicates the configuration parameters
    *     for the Bluetooth search function.
    * @param { Callback<BluetoothScanResult> } callback - Callback used to return ${BluetoothScanResult}.
    * @throws { BusinessError } 201 - Permission verification failed. The application does
@@ -2486,15 +1851,16 @@ declare namespace geoLocationManager {
    * @syscap SystemCapability.Location.Location.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
+   * @since 26.1.0 static
    */
   function startBluetoothSearch(
-      request: BluetoothSearchRequest, callback: Callback<BluetoothScanResult>): void;
+      request: BluetoothSearchRequestParams, callback: Callback<BluetoothScanResult>): void;
 	  
   /**
    * Stop Bluetooth scanning and searching.
    *
-   * @param { Callback<BluetoothScanResult> } [callback] - Callback used to return ${BluetoothScanResult}. 
+   * @param { Callback<BluetoothScanResult> } [callback] - Callback used to return ${BluetoothScanResult}.
    *     It should be the same as the callback passed to ${geoLocationManager.startBluetoothSearch}.
    * @throws { BusinessError } 801 - Capability not supported. Failed to call
    *     ${geoLocationManager.startBluetoothSearch} due to limited device capabilities.
@@ -2502,19 +1868,20 @@ declare namespace geoLocationManager {
    * @syscap SystemCapability.Location.Location.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
+   * @since 26.1.0 static
    */
   function stopBluetoothSearch(callback?: Callback<BluetoothScanResult>): void;
 
   /**
    * Obtain post-processing trajectory information under specific sport mode. Only
    * [SKIING]{@link geoLocationManager.SportsType.SKIING} is supported currently.
-   *
+   * 
    * Before calling this API, you need to call
    * [on('locationChange')]{@link geoLocationManager.on('locationChange')} and set the input parameter
    * [sportsType]{@link geoLocationManager.ContinuousLocationRequest.sportsType} to the specific sport mode to start
    * tracking.
-   *
+   * 
    * Returns data within 24 hours since tracking started; Subsequent calls return only new records.
    *
    * @permission ohos.permission.LOCATION
@@ -2522,18 +1889,76 @@ declare namespace geoLocationManager {
    * @returns { Promise<Array<Location>> } Promise used to return `Array<Location>`.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
    *     required to call the API.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call this API due to limited device 
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call this API due to limited device
    *     capabilities.
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @throws { BusinessError } 3301100 - The location switch is off.
-   * @throws { BusinessError } 3301200 - Failed to obtain the post processing track because sports type is not 
+   * @throws { BusinessError } 3301200 - Failed to obtain the post processing track because sports type is not
    *     supported.
    * @syscap SystemCapability.Location.Location.Gnss
    * @stagemodelonly
    * @atomicservice
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
+   * @since 26.1.0 static
    */
   function getPostProcessingTrack(sportsType: SportsType): Promise<Array<Location>>;
+
+  /**
+   * Add a fusion fence.
+   *
+   * @permission ohos.permission.LOCATION
+   * @param { FusionFenceRequestParams } fenceRequestParams - Indicates the fusion fence request parameters.
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 201 - Permission verification failed. The application
+   *     does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system
+   *     application calls a system API.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call this API due to limited device.
+   * @throws { BusinessError } 3301000 - The location service is unavailable.
+   * @throws { BusinessError } 3301100 - The location switch is off.
+   * @throws { BusinessError } 3501603 - Duplicate fusion fence identifier.
+   * @throws { BusinessError } 3301601 - The number of geofences exceeds the maximum.
+   * @syscap SystemCapability.Location.Location.Geofence
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   * @since 26.1.0 static
+   */
+  function addFusionFence(fenceRequestParams: FusionFenceRequestParams): Promise<void>;
+
+  /**
+   * Remove a fusion fence.
+   *
+   * @param { string } identifier - Indicates identifier of the fusion fence.
+   *     The string format should be a valid unique identifier (e.g., GUID or specific alphanumeric pattern).
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system
+   *     application calls a system API.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call this API due to limited device.
+   * @throws { BusinessError } 3301000 - The location service is unavailable.
+   * @throws { BusinessError } 3301602 - Failed to delete a fusion fence due to an incorrect identifier.
+   * @syscap SystemCapability.Location.Location.Geofence
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   * @since 26.1.0 static
+   */
+  function removeFusionFence(identifier: string): Promise<void>;
+  
+  /**
+   * Check whether the fusion fence service is supported.
+   *
+   * @returns { boolean } Returns {@code true} if fusion fence service is available, returns {@code false} otherwise.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system
+   *     application calls a system API.
+   * @throws { BusinessError } 3301000 - The location service is unavailable.
+   * @syscap SystemCapability.Location.Location.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   * @since 26.1.0 static
+   */
+  function isFusionFenceSupported(): boolean;
 
   /**
    * Indicates request parameters for Bluetooth search function.
@@ -2541,16 +1966,18 @@ declare namespace geoLocationManager {
    * @syscap SystemCapability.Location.Location.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
+   * @since 26.1.0 static
    */
-  export interface BluetoothSearchRequest {  
+  export interface BluetoothSearchRequestParams {  
     /**
      * Indicates the list of Bluetooth device ID that need to be search.
      *
      * @syscap SystemCapability.Location.Location.Core
      * @stagemodelonly
      * @atomicservice
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
+     * @since 26.1.0 static
      */
     deviceIdArray: Array<string>;
 
@@ -2562,7 +1989,8 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @stagemodelonly
      * @atomicservice
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
+     * @since 26.1.0 static
      */
     rssiThreshold?: int;
   }
@@ -2573,7 +2001,8 @@ declare namespace geoLocationManager {
    * @syscap SystemCapability.Location.Location.Geocoder
    * @stagemodelonly
    * @atomicservice
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
+   * @since 26.1.0 static
    */
   interface DistrictInfo {  
     /**
@@ -2583,7 +2012,8 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Geocoder
      * @stagemodelonly
      * @atomicservice
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
+     * @since 26.1.0 static
      */
     locale?: string;
 
@@ -2593,7 +2023,8 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Geocoder
      * @stagemodelonly
      * @atomicservice
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
+     * @since 26.1.0 static
      */
     countryCode?: string;
 
@@ -2603,7 +2034,8 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Geocoder
      * @stagemodelonly
      * @atomicservice
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
+     * @since 26.1.0 static
      */
     countryName?: string;
 
@@ -2613,7 +2045,8 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Geocoder
      * @stagemodelonly
      * @atomicservice
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
+     * @since 26.1.0 static
      */
     administrativeArea?: string;
 
@@ -2623,7 +2056,8 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Geocoder
      * @stagemodelonly
      * @atomicservice
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
+     * @since 26.1.0 static
      */
     subAdministrativeArea?: string;
 
@@ -2633,7 +2067,8 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Geocoder
      * @stagemodelonly
      * @atomicservice
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
+     * @since 26.1.0 static
      */
     locality?: string;
 
@@ -2643,7 +2078,8 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Geocoder
      * @stagemodelonly
      * @atomicservice
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
+     * @since 26.1.0 static
      */
     subLocality?: string;
   } 
@@ -2654,21 +2090,22 @@ declare namespace geoLocationManager {
    * @syscap SystemCapability.Location.Location.Geocoder
    * @stagemodelonly
    * @atomicservice
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
+   * @since 26.1.0 static
    */
   export interface DistrictRequestParams {  
     /**
      * Indicates the language area information.
      * ISO 639 alpha-2 or alpha-3 language code.
      * Example: "zh" (Chinese), "en" (English).
-     * 
      * The default value is obtained from the language settings of the device (settings/system/Language & region
-     *     /Language).
+     * /Language).
      *
      * @syscap SystemCapability.Location.Location.Geocoder
      * @stagemodelonly
      * @atomicservice
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
+     * @since 26.1.0 static
      */
     locale?: string;
 
@@ -2680,7 +2117,8 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Geocoder
      * @stagemodelonly
      * @atomicservice
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
+     * @since 26.1.0 static
      */
     timeoutMs?: int;
   }
@@ -2688,7 +2126,6 @@ declare namespace geoLocationManager {
   /**
    * Configuration parameters for simulating reverse geocoding.
    *
-   * @typedef ReverseGeocodingMockInfo
    * @syscap SystemCapability.Location.Location.Core
    * @systemapi
    * @since 9 dynamic
@@ -2698,7 +2135,6 @@ declare namespace geoLocationManager {
     /**
      * Location for which reverse geocoding query is required.
      *
-     * @type { ReverseGeoCodeRequest }
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
      * @since 9 dynamic
@@ -2709,7 +2145,6 @@ declare namespace geoLocationManager {
     /**
      * Actual address information corresponding to the location.
      *
-     * @type { GeoAddress }
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
      * @since 9 dynamic
@@ -2721,7 +2156,6 @@ declare namespace geoLocationManager {
   /**
    * Parameters for configuring the location simulation function.
    *
-   * @typedef LocationMockConfig
    * @syscap SystemCapability.Location.Location.Core
    * @systemapi
    * @since 9 dynamic
@@ -2731,7 +2165,6 @@ declare namespace geoLocationManager {
     /**
      * Interval for reporting simulated locations.
      *
-     * @type { int }
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
      * @since 9 dynamic
@@ -2742,7 +2175,6 @@ declare namespace geoLocationManager {
     /**
      * Mock location array.
      *
-     * @type { Array<Location> }
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
      * @since 9 dynamic
@@ -2754,34 +2186,18 @@ declare namespace geoLocationManager {
   /**
    * Satellite status information.
    *
-   * @typedef SatelliteStatusInfo
    * @syscap SystemCapability.Location.Location.Gnss
+   * @crossplatform [since 22]
    * @since 9 dynamic
-   */
-  /**
-   * Satellite status information.
-   *
-   * @typedef SatelliteStatusInfo
-   * @syscap SystemCapability.Location.Location.Gnss
-   * @crossplatform
-   * @since 22 dynamic
    * @since 23 static
    */
   export interface SatelliteStatusInfo {
     /**
      * Number of satellites.
      *
-     * @type { int }
      * @syscap SystemCapability.Location.Location.Gnss
+     * @crossplatform [since 22]
      * @since 9 dynamic
-     */
-    /**
-     * Number of satellites.
-     *
-     * @type { int }
-     * @syscap SystemCapability.Location.Location.Gnss
-     * @crossplatform
-     * @since 22 dynamic
      * @since 23 static
      */
     satellitesNumber: int;
@@ -2789,17 +2205,9 @@ declare namespace geoLocationManager {
     /**
      * Satellite ID array.
      *
-     * @type { Array<int> }
      * @syscap SystemCapability.Location.Location.Gnss
+     * @crossplatform [since 22]
      * @since 9 dynamic
-     */
-    /**
-     * Satellite ID array.
-     *
-     * @type { Array<int> }
-     * @syscap SystemCapability.Location.Location.Gnss
-     * @crossplatform
-     * @since 22 dynamic
      * @since 23 static
      */
     satelliteIds: Array<int>;
@@ -2807,17 +2215,9 @@ declare namespace geoLocationManager {
     /**
      * Carrier to noise density array.
      *
-     * @type { Array<double> }
      * @syscap SystemCapability.Location.Location.Gnss
+     * @crossplatform [since 22]
      * @since 9 dynamic
-     */
-    /**
-     * Carrier to noise density array.
-     *
-     * @type { Array<double> }
-     * @syscap SystemCapability.Location.Location.Gnss
-     * @crossplatform
-     * @since 22 dynamic
      * @since 23 static
      */
     carrierToNoiseDensitys: Array<double>;
@@ -2825,17 +2225,9 @@ declare namespace geoLocationManager {
     /**
      * Satellite altitude array.
      *
-     * @type { Array<double> }
      * @syscap SystemCapability.Location.Location.Gnss
+     * @crossplatform [since 22]
      * @since 9 dynamic
-     */
-    /**
-     * Satellite altitude array.
-     *
-     * @type { Array<double> }
-     * @syscap SystemCapability.Location.Location.Gnss
-     * @crossplatform
-     * @since 22 dynamic
      * @since 23 static
      */
     altitudes: Array<double>;
@@ -2843,17 +2235,9 @@ declare namespace geoLocationManager {
     /**
      * Satellite azimuth array.
      *
-     * @type { Array<double> }
      * @syscap SystemCapability.Location.Location.Gnss
+     * @crossplatform [since 22]
      * @since 9 dynamic
-     */
-    /**
-     * Satellite azimuth array.
-     *
-     * @type { Array<double> }
-     * @syscap SystemCapability.Location.Location.Gnss
-     * @crossplatform
-     * @since 22 dynamic
      * @since 23 static
      */
     azimuths: Array<double>;
@@ -2861,17 +2245,9 @@ declare namespace geoLocationManager {
     /**
      * Satellite carrier frequency array.
      *
-     * @type { Array<double> }
      * @syscap SystemCapability.Location.Location.Gnss
+     * @crossplatform [since 22]
      * @since 9 dynamic
-     */
-    /**
-     * Satellite carrier frequency array.
-     *
-     * @type { Array<double> }
-     * @syscap SystemCapability.Location.Location.Gnss
-     * @crossplatform
-     * @since 22 dynamic
      * @since 23 static
      */
     carrierFrequencies: Array<double>;
@@ -2879,17 +2255,9 @@ declare namespace geoLocationManager {
     /**
      * Satellite constellation type array.
      *
-     * @type { ?Array<SatelliteConstellationCategory> }
      * @syscap SystemCapability.Location.Location.Gnss
+     * @crossplatform [since 22]
      * @since 12 dynamic
-     */
-    /**
-     * Satellite constellation type array.
-     *
-     * @type { ?Array<SatelliteConstellationCategory> }
-     * @syscap SystemCapability.Location.Location.Gnss
-     * @crossplatform
-     * @since 22 dynamic
      * @since 23 static
      */
     satelliteConstellation?: Array<SatelliteConstellationCategory>;
@@ -2897,17 +2265,9 @@ declare namespace geoLocationManager {
     /**
      * Satellite additional information array.
      *
-     * @type { ?Array<int> }
      * @syscap SystemCapability.Location.Location.Gnss
+     * @crossplatform [since 22]
      * @since 12 dynamic
-     */
-    /**
-     * Satellite additional information array.
-     *
-     * @type { ?Array<int> }
-     * @syscap SystemCapability.Location.Location.Gnss
-     * @crossplatform
-     * @since 22 dynamic
      * @since 23 static
      */
     satelliteAdditionalInfo?: Array<int>;
@@ -2916,34 +2276,18 @@ declare namespace geoLocationManager {
   /**
    * Parameters for requesting to report cache location information.
    *
-   * @typedef CachedGnssLocationsRequest
    * @syscap SystemCapability.Location.Location.Gnss
+   * @crossplatform [since 22]
    * @since 9 dynamic
-   */
-  /**
-   * Parameters for requesting to report cache location information.
-   *
-   * @typedef CachedGnssLocationsRequest
-   * @syscap SystemCapability.Location.Location.Gnss
-   * @crossplatform
-   * @since 22 dynamic
    * @since 23 static
    */
   export interface CachedGnssLocationsRequest {
     /**
      * GNSS cache location report period.
      *
-     * @type { int }
      * @syscap SystemCapability.Location.Location.Gnss
+     * @crossplatform [since 22]
      * @since 9 dynamic
-     */
-    /**
-     * GNSS cache location report period.
-     *
-     * @type { int }
-     * @syscap SystemCapability.Location.Location.Gnss
-     * @crossplatform
-     * @since 22 dynamic
      * @since 23 static
      */
     reportingPeriodSec: int;
@@ -2951,17 +2295,9 @@ declare namespace geoLocationManager {
     /**
      * Indicates whether to wake up the listener when the GNSS cache location queue is full.
      *
-     * @type { boolean }
      * @syscap SystemCapability.Location.Location.Gnss
+     * @crossplatform [since 22]
      * @since 9 dynamic
-     */
-    /**
-     * Indicates whether to wake up the listener when the GNSS cache location queue is full.
-     *
-     * @type { boolean }
-     * @syscap SystemCapability.Location.Location.Gnss
-     * @crossplatform
-     * @since 22 dynamic
      * @since 23 static
      */
     wakeUpCacheQueueFull: boolean;
@@ -2970,17 +2306,15 @@ declare namespace geoLocationManager {
   /**
    * Cell information.
    *
-   * @typedef CellInfo
    * @syscap SystemCapability.Location.Location.Core
    * @systemapi
    * @stagemodelonly
    * @since 23 dynamic&static
    */
-  export interface CellInfo {
+  export interface CellInfo {  
     /**
      * Indicates timestamp since boot.
      *
-     * @type { long }
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
      * @stagemodelonly
@@ -2991,7 +2325,6 @@ declare namespace geoLocationManager {
     /**
      * Indicates ID of cell.
      *
-     * @type { long }
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
      * @stagemodelonly
@@ -3000,9 +2333,9 @@ declare namespace geoLocationManager {
     cellId: long;
 
     /**
-     * Indicates location area code (LAC).
+     * Indicates location area code(LAC).
+     * The value should be an integer.
      *
-     * @type { int }
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
      * @stagemodelonly
@@ -3012,8 +2345,8 @@ declare namespace geoLocationManager {
 
     /**
      * Indicates mobile country code (MCC).
+     * The value should be an integer.
      *
-     * @type { int }
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
      * @stagemodelonly
@@ -3023,8 +2356,8 @@ declare namespace geoLocationManager {
 
     /**
      * Indicates mobile network code (MNC).
+     * The value should be an integer.
      *
-     * @type { int }
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
      * @stagemodelonly
@@ -3034,8 +2367,8 @@ declare namespace geoLocationManager {
 
     /**
      * Indicates radio access technology (RAT).
+     * The value should be an integer.
      *
-     * @type { int }
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
      * @stagemodelonly
@@ -3045,8 +2378,8 @@ declare namespace geoLocationManager {
 
     /**
      * Indicates signal intensity.
+     * The value should be an integer.
      *
-     * @type { int }
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
      * @stagemodelonly
@@ -3056,8 +2389,8 @@ declare namespace geoLocationManager {
 
     /**
      * Indicates absolute radio frequency channel number (ARFCN).
+     * The value should be an integer.
      *
-     * @type { int }
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
      * @stagemodelonly
@@ -3067,8 +2400,8 @@ declare namespace geoLocationManager {
 
     /**
      * Indicates physical cell identifier (PCI).
+     * The value should be an integer.
      *
-     * @type { int }
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
      * @stagemodelonly
@@ -3077,9 +2410,20 @@ declare namespace geoLocationManager {
     pci: int;
 
     /**
+     * Indicates tracking area code (TAC).
+     * The value range is all integers.
+     *
+     * @syscap SystemCapability.Location.Location.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic
+     * @since 26.1.0 static
+     */
+    tac?: int;
+
+    /**
      * Indicates additional information map.
      *
-     * @type { ?Map<string, string> }
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
      * @stagemodelonly
@@ -3091,34 +2435,18 @@ declare namespace geoLocationManager {
   /**
    * Configuring parameters in GNSS geofence requests.
    *
-   * @typedef GnssGeofenceRequest
    * @syscap SystemCapability.Location.Location.Geofence
+   * @crossplatform [since 22]
    * @since 12 dynamic
-   */
-  /**
-   * Configuring parameters in GNSS geofence requests.
-   *
-   * @typedef GnssGeofenceRequest
-   * @syscap SystemCapability.Location.Location.Geofence
-   * @crossplatform
-   * @since 22 dynamic
    * @since 23 static
    */
   export interface GnssGeofenceRequest {
     /**
      * Circular fence information.
      *
-     * @type { Geofence }
      * @syscap SystemCapability.Location.Location.Geofence
+     * @crossplatform [since 22]
      * @since 12 dynamic
-     */
-    /**
-     * Circular fence information.
-     *
-     * @type { Geofence }
-     * @syscap SystemCapability.Location.Location.Geofence
-     * @crossplatform
-     * @since 22 dynamic
      * @since 23 static
      */
     geofence: Geofence;
@@ -3126,17 +2454,9 @@ declare namespace geoLocationManager {
     /**
      * Indicates geofence transition status monitored.
      *
-     * @type { Array<GeofenceTransitionEvent> }
      * @syscap SystemCapability.Location.Location.Geofence
+     * @crossplatform [since 22]
      * @since 12 dynamic
-     */
-    /**
-     * Indicates geofence transition status monitored.
-     *
-     * @type { Array<GeofenceTransitionEvent> }
-     * @syscap SystemCapability.Location.Location.Geofence
-     * @crossplatform
-     * @since 22 dynamic
      * @since 23 static
      */
     monitorTransitionEvents: Array<GeofenceTransitionEvent>;
@@ -3144,17 +2464,9 @@ declare namespace geoLocationManager {
     /**
      * Indicates the geofence notifications to publish.
      *
-     * @type { ?Array<NotificationRequest> }
      * @syscap SystemCapability.Location.Location.Geofence
+     * @crossplatform [since 22]
      * @since 12 dynamic
-     */
-    /**
-     * Indicates the geofence notifications to publish.
-     *
-     * @type { ?Array<NotificationRequest> }
-     * @syscap SystemCapability.Location.Location.Geofence
-     * @crossplatform
-     * @since 22 dynamic
      * @since 23 static
      */
     notifications?: Array<NotificationRequest>;
@@ -3162,17 +2474,9 @@ declare namespace geoLocationManager {
     /**
      * Indicates the callback for reporting the geofence transition status.
      *
-     * @type { AsyncCallback<GeofenceTransition> }
      * @syscap SystemCapability.Location.Location.Geofence
+     * @crossplatform [since 22]
      * @since 12 dynamic
-     */
-    /**
-     * Indicates the callback for reporting the geofence transition status.
-     *
-     * @type { AsyncCallback<GeofenceTransition> }
-     * @syscap SystemCapability.Location.Location.Geofence
-     * @crossplatform
-     * @since 22 dynamic
      * @since 23 static
      */
     geofenceTransitionCallback: AsyncCallback<GeofenceTransition>;
@@ -3181,8 +2485,8 @@ declare namespace geoLocationManager {
      * Indicates time for which a device is dwelling in the geofence, in milliseconds.
      * If the device dwelling time reaches the value specified by this parameter,
      * a GEOFENCE_TRANSITION_EVENT_DWELL event is reported.
+     * The value should be an integer.
      *
-     * @type { ?int }
      * @syscap SystemCapability.Location.Location.Geofence
      * @since 23 dynamic&static
      */
@@ -3191,7 +2495,6 @@ declare namespace geoLocationManager {
     /**
      * Indicates the name of FenceExtensionAbility.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Location.Location.Geofence
      * @since 23 dynamic&static
      */
@@ -3199,9 +2502,8 @@ declare namespace geoLocationManager {
   }
 
   /**
-   * Configuring parameters in geofence requests.
+   * Configuring parameters in geo fence requests.
    *
-   * @typedef GeofenceRequest
    * @syscap SystemCapability.Location.Location.Geofence
    * @since 9 dynamic
    * @since 23 static
@@ -3210,7 +2512,6 @@ declare namespace geoLocationManager {
     /**
      * Indicate the user scenario.
      *
-     * @type { LocationRequestScenario }
      * @syscap SystemCapability.Location.Location.Geofence
      * @since 9 dynamic
      * @since 23 static
@@ -3220,7 +2521,6 @@ declare namespace geoLocationManager {
     /**
      * Circular fence information.
      *
-     * @type { Geofence }
      * @syscap SystemCapability.Location.Location.Geofence
      * @since 9 dynamic
      * @since 23 static
@@ -3231,34 +2531,18 @@ declare namespace geoLocationManager {
   /**
    * Circular fence information.
    *
-   * @typedef Geofence
    * @syscap SystemCapability.Location.Location.Geofence
+   * @crossplatform [since 22]
    * @since 9 dynamic
-   */
-  /**
-   * Circular fence information.
-   *
-   * @typedef Geofence
-   * @syscap SystemCapability.Location.Location.Geofence
-   * @crossplatform
-   * @since 22 dynamic
    * @since 23 static
    */
   export interface Geofence {
     /**
      * Latitude of the center point of the circular fence.
      *
-     * @type { double }
      * @syscap SystemCapability.Location.Location.Geofence
+     * @crossplatform [since 22]
      * @since 9 dynamic
-     */
-    /**
-     * Latitude of the center point of the circular fence.
-     *
-     * @type { double }
-     * @syscap SystemCapability.Location.Location.Geofence
-     * @crossplatform
-     * @since 22 dynamic
      * @since 23 static
      */
     latitude: double;
@@ -3266,17 +2550,9 @@ declare namespace geoLocationManager {
     /**
      * Longitude of the center point of the circular fence.
      *
-     * @type { double }
      * @syscap SystemCapability.Location.Location.Geofence
+     * @crossplatform [since 22]
      * @since 9 dynamic
-     */
-    /**
-     * Longitude of the center point of the circular fence.
-     *
-     * @type { double }
-     * @syscap SystemCapability.Location.Location.Geofence
-     * @crossplatform
-     * @since 22 dynamic
      * @since 23 static
      */
     longitude: double;
@@ -3284,17 +2560,9 @@ declare namespace geoLocationManager {
     /**
      * Coordinate system type.
      *
-     * @type { ?CoordinateSystemType }
      * @syscap SystemCapability.Location.Location.Geofence
+     * @crossplatform [since 22]
      * @since 12 dynamic
-     */
-    /**
-     * Coordinate system type.
-     *
-     * @type { ?CoordinateSystemType }
-     * @syscap SystemCapability.Location.Location.Geofence
-     * @crossplatform
-     * @since 22 dynamic
      * @since 23 static
      */
     coordinateSystemType?: CoordinateSystemType;
@@ -3302,17 +2570,9 @@ declare namespace geoLocationManager {
     /**
      * Radius of the circular fence.
      *
-     * @type { double }
      * @syscap SystemCapability.Location.Location.Geofence
+     * @crossplatform [since 22]
      * @since 9 dynamic
-     */
-    /**
-     * Radius of the circular fence.
-     *
-     * @type { double }
-     * @syscap SystemCapability.Location.Location.Geofence
-     * @crossplatform
-     * @since 22 dynamic
      * @since 23 static
      */
     radius: double;
@@ -3320,17 +2580,9 @@ declare namespace geoLocationManager {
     /**
      * Expiration of the circular fence.
      *
-     * @type { double }
      * @syscap SystemCapability.Location.Location.Geofence
+     * @crossplatform [since 22]
      * @since 9 dynamic
-     */
-    /**
-     * Expiration of the circular fence.
-     *
-     * @type { double }
-     * @syscap SystemCapability.Location.Location.Geofence
-     * @crossplatform
-     * @since 22 dynamic
      * @since 23 static
      */
     expiration: double;
@@ -3339,34 +2591,18 @@ declare namespace geoLocationManager {
   /**
    * Configuring parameters in reverse geocode requests.
    *
-   * @typedef ReverseGeoCodeRequest
    * @syscap SystemCapability.Location.Location.Geocoder
+   * @crossplatform [since 22]
    * @since 9 dynamic
-   */
-  /**
-   * Configuring parameters in reverse geocode requests.
-   *
-   * @typedef ReverseGeoCodeRequest
-   * @syscap SystemCapability.Location.Location.Geocoder
-   * @crossplatform
-   * @since 22 dynamic
    * @since 23 static
    */
   export interface ReverseGeoCodeRequest {
     /**
      * Indicates the language area information.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Location.Location.Geocoder
+     * @crossplatform [since 22]
      * @since 9 dynamic
-     */
-    /**
-     * Indicates the language area information.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Location.Location.Geocoder
-     * @crossplatform
-     * @since 22 dynamic
      * @since 23 static
      */
     locale?: string;
@@ -3374,17 +2610,9 @@ declare namespace geoLocationManager {
     /**
      * Indicates the country information.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Location.Location.Geocoder
+     * @crossplatform [since 22]
      * @since 12 dynamic
-     */
-    /**
-     * Indicates the country information.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Location.Location.Geocoder
-     * @crossplatform
-     * @since 22 dynamic
      * @since 23 static
      */
     country?: string;
@@ -3392,17 +2620,9 @@ declare namespace geoLocationManager {
     /**
      * Latitude for reverse geocoding query.
      *
-     * @type { double }
      * @syscap SystemCapability.Location.Location.Geocoder
+     * @crossplatform [since 22]
      * @since 9 dynamic
-     */
-    /**
-     * Latitude for reverse geocoding query.
-     *
-     * @type { double }
-     * @syscap SystemCapability.Location.Location.Geocoder
-     * @crossplatform
-     * @since 22 dynamic
      * @since 23 static
      */
     latitude: double;
@@ -3410,17 +2630,9 @@ declare namespace geoLocationManager {
     /**
      * Longitude for reverse geocoding query.
      *
-     * @type { double }
      * @syscap SystemCapability.Location.Location.Geocoder
+     * @crossplatform [since 22]
      * @since 9 dynamic
-     */
-    /**
-     * Longitude for reverse geocoding query.
-     *
-     * @type { double }
-     * @syscap SystemCapability.Location.Location.Geocoder
-     * @crossplatform
-     * @since 22 dynamic
      * @since 23 static
      */
     longitude: double;
@@ -3428,17 +2640,9 @@ declare namespace geoLocationManager {
     /**
      * Indicates the maximum number of addresses returned by reverse geocoding query.
      *
-     * @type { ?int }
      * @syscap SystemCapability.Location.Location.Geocoder
+     * @crossplatform [since 22]
      * @since 9 dynamic
-     */
-    /**
-     * Indicates the maximum number of addresses returned by reverse geocoding query.
-     *
-     * @type { ?int }
-     * @syscap SystemCapability.Location.Location.Geocoder
-     * @crossplatform
-     * @since 22 dynamic
      * @since 23 static
      */
     maxItems?: int;
@@ -3447,34 +2651,18 @@ declare namespace geoLocationManager {
   /**
    * Configuring parameters in geocode requests.
    *
-   * @typedef GeoCodeRequest
    * @syscap SystemCapability.Location.Location.Geocoder
+   * @crossplatform [since 22]
    * @since 9 dynamic
-   */
-  /**
-   * Configuring parameters in geocode requests.
-   *
-   * @typedef GeoCodeRequest
-   * @syscap SystemCapability.Location.Location.Geocoder
-   * @crossplatform
-   * @since 22 dynamic
    * @since 23 static
    */
   export interface GeoCodeRequest {
     /**
      * Indicates the language area information.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Location.Location.Geocoder
+     * @crossplatform [since 22]
      * @since 9 dynamic
-     */
-    /**
-     * Indicates the language area information.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Location.Location.Geocoder
-     * @crossplatform
-     * @since 22 dynamic
      * @since 23 static
      */
     locale?: string;
@@ -3482,17 +2670,9 @@ declare namespace geoLocationManager {
     /**
      * Indicates the country information.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Location.Location.Geocoder
+     * @crossplatform [since 22]
      * @since 12 dynamic
-     */
-    /**
-     * Indicates the country information.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Location.Location.Geocoder
-     * @crossplatform
-     * @since 22 dynamic
      * @since 23 static
      */
     country?: string;
@@ -3500,17 +2680,9 @@ declare namespace geoLocationManager {
     /**
      * Address information.
      *
-     * @type { string }
      * @syscap SystemCapability.Location.Location.Geocoder
+     * @crossplatform [since 22]
      * @since 9 dynamic
-     */
-    /**
-     * Address information.
-     *
-     * @type { string }
-     * @syscap SystemCapability.Location.Location.Geocoder
-     * @crossplatform
-     * @since 22 dynamic
      * @since 23 static
      */
     description: string;
@@ -3518,17 +2690,9 @@ declare namespace geoLocationManager {
     /**
      * Indicates the maximum number of geocode query results.
      *
-     * @type { ?int }
      * @syscap SystemCapability.Location.Location.Geocoder
+     * @crossplatform [since 22]
      * @since 9 dynamic
-     */
-    /**
-     * Indicates the maximum number of geocode query results.
-     *
-     * @type { ?int }
-     * @syscap SystemCapability.Location.Location.Geocoder
-     * @crossplatform
-     * @since 22 dynamic
      * @since 23 static
      */
     maxItems?: int;
@@ -3536,17 +2700,9 @@ declare namespace geoLocationManager {
     /**
      * Indicates the minimum latitude for geocoding query results.
      *
-     * @type { ?double }
      * @syscap SystemCapability.Location.Location.Geocoder
+     * @crossplatform [since 22]
      * @since 9 dynamic
-     */
-    /**
-     * Indicates the minimum latitude for geocoding query results.
-     *
-     * @type { ?double }
-     * @syscap SystemCapability.Location.Location.Geocoder
-     * @crossplatform
-     * @since 22 dynamic
      * @since 23 static
      */
     minLatitude?: double;
@@ -3554,17 +2710,9 @@ declare namespace geoLocationManager {
     /**
      * Indicates the minimum longitude for geocoding query results.
      *
-     * @type { ?double }
      * @syscap SystemCapability.Location.Location.Geocoder
+     * @crossplatform [since 22]
      * @since 9 dynamic
-     */
-    /**
-     * Indicates the minimum longitude for geocoding query results.
-     *
-     * @type { ?double }
-     * @syscap SystemCapability.Location.Location.Geocoder
-     * @crossplatform
-     * @since 22 dynamic
      * @since 23 static
      */
     minLongitude?: double;
@@ -3572,17 +2720,9 @@ declare namespace geoLocationManager {
     /**
      * Indicates the maximum latitude for geocoding query results.
      *
-     * @type { ?double }
      * @syscap SystemCapability.Location.Location.Geocoder
+     * @crossplatform [since 22]
      * @since 9 dynamic
-     */
-    /**
-     * Indicates the maximum latitude for geocoding query results.
-     *
-     * @type { ?double }
-     * @syscap SystemCapability.Location.Location.Geocoder
-     * @crossplatform
-     * @since 22 dynamic
      * @since 23 static
      */
     maxLatitude?: double;
@@ -3590,17 +2730,9 @@ declare namespace geoLocationManager {
     /**
      * Indicates the maximum longitude for geocoding query results.
      *
-     * @type { ?double }
      * @syscap SystemCapability.Location.Location.Geocoder
+     * @crossplatform [since 22]
      * @since 9 dynamic
-     */
-    /**
-     * Indicates the maximum longitude for geocoding query results.
-     *
-     * @type { ?double }
-     * @syscap SystemCapability.Location.Location.Geocoder
-     * @crossplatform
-     * @since 22 dynamic
      * @since 23 static
      */
     maxLongitude?: double;
@@ -3609,17 +2741,9 @@ declare namespace geoLocationManager {
   /**
    * Data struct describes geographic locations.
    *
-   * @typedef GeoAddress
    * @syscap SystemCapability.Location.Location.Geocoder
+   * @crossplatform [since 22]
    * @since 9 dynamic
-   */
-  /**
-   * Data struct describes geographic locations.
-   *
-   * @typedef GeoAddress
-   * @syscap SystemCapability.Location.Location.Geocoder
-   * @crossplatform
-   * @since 22 dynamic
    * @since 23 static
    */
   export interface GeoAddress {
@@ -3628,19 +2752,9 @@ declare namespace geoLocationManager {
      * A positive value indicates north latitude,
      * and a negative value indicates south latitude.
      *
-     * @type { ?double }
      * @syscap SystemCapability.Location.Location.Geocoder
+     * @crossplatform [since 22]
      * @since 9 dynamic
-     */
-    /**
-     * Indicates latitude information.
-     * A positive value indicates north latitude,
-     * and a negative value indicates south latitude.
-     *
-     * @type { ?double }
-     * @syscap SystemCapability.Location.Location.Geocoder
-     * @crossplatform
-     * @since 22 dynamic
      * @since 23 static
      */
     latitude?: double;
@@ -3650,19 +2764,9 @@ declare namespace geoLocationManager {
      * A positive value indicates east longitude ,
      * and a negative value indicates west longitude.
      *
-     * @type { ?double }
      * @syscap SystemCapability.Location.Location.Geocoder
+     * @crossplatform [since 22]
      * @since 9 dynamic
-     */
-    /**
-     * Indicates longitude information.
-     * A positive value indicates east longitude ,
-     * and a negative value indicates west longitude.
-     *
-     * @type { ?double }
-     * @syscap SystemCapability.Location.Location.Geocoder
-     * @crossplatform
-     * @since 22 dynamic
      * @since 23 static
      */
     longitude?: double;
@@ -3671,18 +2775,9 @@ declare namespace geoLocationManager {
      * Indicates language used for the location description.
      * zh indicates Chinese, and en indicates English.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Location.Location.Geocoder
+     * @crossplatform [since 22]
      * @since 9 dynamic
-     */
-    /**
-     * Indicates language used for the location description.
-     * zh indicates Chinese, and en indicates English.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Location.Location.Geocoder
-     * @crossplatform
-     * @since 22 dynamic
      * @since 23 static
      */
     locale?: string;
@@ -3690,17 +2785,9 @@ declare namespace geoLocationManager {
     /**
      * Indicates detailed address information.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Location.Location.Geocoder
+     * @crossplatform [since 22]
      * @since 9 dynamic
-     */
-    /**
-     * Indicates detailed address information.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Location.Location.Geocoder
-     * @crossplatform
-     * @since 22 dynamic
      * @since 23 static
      */
     placeName?: string;
@@ -3708,17 +2795,9 @@ declare namespace geoLocationManager {
     /**
      * Indicates country code.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Location.Location.Geocoder
+     * @crossplatform [since 22]
      * @since 9 dynamic
-     */
-    /**
-     * Indicates country code.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Location.Location.Geocoder
-     * @crossplatform
-     * @since 22 dynamic
      * @since 23 static
      */
     countryCode?: string;
@@ -3726,17 +2805,9 @@ declare namespace geoLocationManager {
     /**
      * Indicates country name.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Location.Location.Geocoder
+     * @crossplatform [since 22]
      * @since 9 dynamic
-     */
-    /**
-     * Indicates country name.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Location.Location.Geocoder
-     * @crossplatform
-     * @since 22 dynamic
      * @since 23 static
      */
     countryName?: string;
@@ -3744,17 +2815,9 @@ declare namespace geoLocationManager {
     /**
      * Indicates administrative region name.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Location.Location.Geocoder
+     * @crossplatform [since 22]
      * @since 9 dynamic
-     */
-    /**
-     * Indicates administrative region name.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Location.Location.Geocoder
-     * @crossplatform
-     * @since 22 dynamic
      * @since 23 static
      */
     administrativeArea?: string;
@@ -3762,17 +2825,9 @@ declare namespace geoLocationManager {
     /**
      * Indicates sub-administrative region name.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Location.Location.Geocoder
+     * @crossplatform [since 22]
      * @since 9 dynamic
-     */
-    /**
-     * Indicates sub-administrative region name.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Location.Location.Geocoder
-     * @crossplatform
-     * @since 22 dynamic
      * @since 23 static
      */
     subAdministrativeArea?: string;
@@ -3780,17 +2835,9 @@ declare namespace geoLocationManager {
     /**
      * Indicates locality information.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Location.Location.Geocoder
+     * @crossplatform [since 22]
      * @since 9 dynamic
-     */
-    /**
-     * Indicates locality information.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Location.Location.Geocoder
-     * @crossplatform
-     * @since 22 dynamic
      * @since 23 static
      */
     locality?: string;
@@ -3798,17 +2845,9 @@ declare namespace geoLocationManager {
     /**
      * Indicates sub-locality information.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Location.Location.Geocoder
+     * @crossplatform [since 22]
      * @since 9 dynamic
-     */
-    /**
-     * Indicates sub-locality information.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Location.Location.Geocoder
-     * @crossplatform
-     * @since 22 dynamic
      * @since 23 static
      */
     subLocality?: string;
@@ -3816,17 +2855,9 @@ declare namespace geoLocationManager {
     /**
      * Indicates road name.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Location.Location.Geocoder
+     * @crossplatform [since 22]
      * @since 9 dynamic
-     */
-    /**
-     * Indicates road name.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Location.Location.Geocoder
-     * @crossplatform
-     * @since 22 dynamic
      * @since 23 static
      */
     roadName?: string;
@@ -3834,17 +2865,9 @@ declare namespace geoLocationManager {
     /**
      * Indicates auxiliary road information.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Location.Location.Geocoder
+     * @crossplatform [since 22]
      * @since 9 dynamic
-     */
-    /**
-     * Indicates auxiliary road information.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Location.Location.Geocoder
-     * @crossplatform
-     * @since 22 dynamic
      * @since 23 static
      */
     subRoadName?: string;
@@ -3852,17 +2875,9 @@ declare namespace geoLocationManager {
     /**
      * Indicates house information.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Location.Location.Geocoder
+     * @crossplatform [since 22]
      * @since 9 dynamic
-     */
-    /**
-     * Indicates house information.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Location.Location.Geocoder
-     * @crossplatform
-     * @since 22 dynamic
      * @since 23 static
      */
     premises?: string;
@@ -3870,17 +2885,9 @@ declare namespace geoLocationManager {
     /**
      * Indicates postal code.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Location.Location.Geocoder
+     * @crossplatform [since 22]
      * @since 9 dynamic
-     */
-    /**
-     * Indicates postal code.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Location.Location.Geocoder
-     * @crossplatform
-     * @since 22 dynamic
      * @since 23 static
      */
     postalCode?: string;
@@ -3888,17 +2895,9 @@ declare namespace geoLocationManager {
     /**
      * Indicates phone number.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Location.Location.Geocoder
+     * @crossplatform [since 22]
      * @since 9 dynamic
-     */
-    /**
-     * Indicates phone number.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Location.Location.Geocoder
-     * @crossplatform
-     * @since 22 dynamic
      * @since 23 static
      */
     phoneNumber?: string;
@@ -3906,17 +2905,9 @@ declare namespace geoLocationManager {
     /**
      * Indicates website URL.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Location.Location.Geocoder
+     * @crossplatform [since 22]
      * @since 9 dynamic
-     */
-    /**
-     * Indicates website URL.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Location.Location.Geocoder
-     * @crossplatform
-     * @since 22 dynamic
      * @since 23 static
      */
     addressUrl?: string;
@@ -3924,17 +2915,9 @@ declare namespace geoLocationManager {
     /**
      * Indicates additional information.
      *
-     * @type { ?Array<string> }
      * @syscap SystemCapability.Location.Location.Geocoder
+     * @crossplatform [since 22]
      * @since 9 dynamic
-     */
-    /**
-     * Indicates additional information.
-     *
-     * @type { ?Array<string> }
-     * @syscap SystemCapability.Location.Location.Geocoder
-     * @crossplatform
-     * @since 22 dynamic
      * @since 23 static
      */
     descriptions?: Array<string>;
@@ -3942,17 +2925,9 @@ declare namespace geoLocationManager {
     /**
      * Indicates the amount of additional descriptive information.
      *
-     * @type { ?int }
      * @syscap SystemCapability.Location.Location.Geocoder
+     * @crossplatform [since 22]
      * @since 9 dynamic
-     */
-    /**
-     * Indicates the amount of additional descriptive information.
-     *
-     * @type { ?int }
-     * @syscap SystemCapability.Location.Location.Geocoder
-     * @crossplatform
-     * @since 22 dynamic
      * @since 23 static
      */
     descriptionsSize?: int;
@@ -3960,7 +2935,6 @@ declare namespace geoLocationManager {
     /**
      * Indicates whether it is an mock GeoAddress
      *
-     * @type { ?Boolean }
      * @syscap SystemCapability.Location.Location.Geocoder
      * @systemapi
      * @since 9 dynamic
@@ -3972,52 +2946,20 @@ declare namespace geoLocationManager {
   /**
    * Configuring parameters in location requests.
    *
-   * @typedef LocationRequest
    * @syscap SystemCapability.Location.Location.Core
-   * @since 9
-   */
-  /**
-   * Configuring parameters in location requests.
-   *
-   * @typedef LocationRequest
-   * @syscap SystemCapability.Location.Location.Core
-   * @atomicservice
-   * @since 11 dynamic
-   */
-  /**
-   * Configuring parameters in location requests.
-   *
-   * @typedef LocationRequest
-   * @syscap SystemCapability.Location.Location.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 22 dynamic
+   * @crossplatform [since 22]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   export interface LocationRequest {
     /**
      * Priority of the location request.
      *
-     * @type { ?LocationRequestPriority }
      * @syscap SystemCapability.Location.Location.Core
-     * @since 9
-     */
-    /**
-     * Priority of the location request.
-     *
-     * @type { ?LocationRequestPriority }
-     * @syscap SystemCapability.Location.Location.Core
-     * @atomicservice
-     * @since 11 dynamic
-     */
-    /**
-     * Priority of the location request.
-     *
-     * @type { ?LocationRequestPriority }
-     * @syscap SystemCapability.Location.Location.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic
+     * @crossplatform [since 22]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      * @since 23 static
      */
     priority?: LocationRequestPriority;
@@ -4025,26 +2967,10 @@ declare namespace geoLocationManager {
     /**
      * User scenario of the location request.
      *
-     * @type { ?LocationRequestScenario }
      * @syscap SystemCapability.Location.Location.Core
-     * @since 9
-     */
-    /**
-     * User scenario of the location request.
-     *
-     * @type { ?LocationRequestScenario }
-     * @syscap SystemCapability.Location.Location.Core
-     * @atomicservice
-     * @since 11 dynamic
-     */
-    /**
-     * User scenario of the location request.
-     *
-     * @type { ?LocationRequestScenario }
-     * @syscap SystemCapability.Location.Location.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic
+     * @crossplatform [since 22]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      * @since 23 static
      */
     scenario?: LocationRequestScenario;
@@ -4052,26 +2978,12 @@ declare namespace geoLocationManager {
     /**
      * Location report interval.
      *
-     * @type { ?number }
+     * @type { ?number } [since 9 - 10]
+     * @type { ?int } [since 11]
      * @syscap SystemCapability.Location.Location.Core
-     * @since 9
-     */
-    /**
-     * Location report interval.
-     *
-     * @type { ?int }
-     * @syscap SystemCapability.Location.Location.Core
-     * @atomicservice
-     * @since 11 dynamic
-     */
-    /**
-     * Location report interval.
-     *
-     * @type { ?int }
-     * @syscap SystemCapability.Location.Location.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic
+     * @crossplatform [since 22]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      * @since 23 static
      */
     timeInterval?: int;
@@ -4079,26 +2991,12 @@ declare namespace geoLocationManager {
     /**
      * Location report distance interval.
      *
-     * @type { ?number }
+     * @type { ?number } [since 9 - 10]
+     * @type { ?double } [since 11]
      * @syscap SystemCapability.Location.Location.Core
-     * @since 9
-     */
-    /**
-     * Location report distance interval.
-     *
-     * @type { ?double }
-     * @syscap SystemCapability.Location.Location.Core
-     * @atomicservice
-     * @since 11 dynamic
-     */
-    /**
-     * Location report distance interval.
-     *
-     * @type { ?double }
-     * @syscap SystemCapability.Location.Location.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic
+     * @crossplatform [since 22]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      * @since 23 static
      */
     distanceInterval?: double;
@@ -4106,26 +3004,12 @@ declare namespace geoLocationManager {
     /**
      * Accuracy requirements for reporting locations.
      *
-     * @type { ?number }
+     * @type { ?number } [since 9 - 10]
+     * @type { ?double } [since 11]
      * @syscap SystemCapability.Location.Location.Core
-     * @since 9
-     */
-    /**
-     * Accuracy requirements for reporting locations.
-     *
-     * @type { ?double }
-     * @syscap SystemCapability.Location.Location.Core
-     * @atomicservice
-     * @since 11 dynamic
-     */
-    /**
-     * Accuracy requirements for reporting locations.
-     *
-     * @type { ?double }
-     * @syscap SystemCapability.Location.Location.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic
+     * @crossplatform [since 22]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      * @since 23 static
      */
     maxAccuracy?: double;
@@ -4134,52 +3018,20 @@ declare namespace geoLocationManager {
   /**
    * Configuring parameters in current location requests.
    *
-   * @typedef CurrentLocationRequest
    * @syscap SystemCapability.Location.Location.Core
-   * @since 9
-   */
-  /**
-   * Configuring parameters in current location requests.
-   *
-   * @typedef CurrentLocationRequest
-   * @syscap SystemCapability.Location.Location.Core
-   * @atomicservice
-   * @since 11 dynamic
-   */
-  /**
-   * Configuring parameters in current location requests.
-   *
-   * @typedef CurrentLocationRequest
-   * @syscap SystemCapability.Location.Location.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 22 dynamic
+   * @crossplatform [since 22]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   export interface CurrentLocationRequest {
     /**
      * Priority of the location request.
      *
-     * @type { ?LocationRequestPriority }
      * @syscap SystemCapability.Location.Location.Core
-     * @since 9
-     */
-    /**
-     * Priority of the location request.
-     *
-     * @type { ?LocationRequestPriority }
-     * @syscap SystemCapability.Location.Location.Core
-     * @atomicservice
-     * @since 11 dynamic
-     */
-    /**
-     * Priority of the location request.
-     *
-     * @type { ?LocationRequestPriority }
-     * @syscap SystemCapability.Location.Location.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic
+     * @crossplatform [since 22]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      * @since 23 static
      */
     priority?: LocationRequestPriority;
@@ -4187,26 +3039,10 @@ declare namespace geoLocationManager {
     /**
      * User scenario of the location request.
      *
-     * @type { ?LocationRequestScenario }
      * @syscap SystemCapability.Location.Location.Core
-     * @since 9
-     */
-    /**
-     * User scenario of the location request.
-     *
-     * @type { ?LocationRequestScenario }
-     * @syscap SystemCapability.Location.Location.Core
-     * @atomicservice
-     * @since 11 dynamic
-     */
-    /**
-     * User scenario of the location request.
-     *
-     * @type { ?LocationRequestScenario }
-     * @syscap SystemCapability.Location.Location.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic
+     * @crossplatform [since 22]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      * @since 23 static
      */
     scenario?: LocationRequestScenario;
@@ -4214,26 +3050,12 @@ declare namespace geoLocationManager {
     /**
      * Accuracy requirements for reporting locations.
      *
-     * @type { ?number }
+     * @type { ?number } [since 9 - 10]
+     * @type { ?double } [since 11]
      * @syscap SystemCapability.Location.Location.Core
-     * @since 9
-     */
-    /**
-     * Accuracy requirements for reporting locations.
-     *
-     * @type { ?double }
-     * @syscap SystemCapability.Location.Location.Core
-     * @atomicservice
-     * @since 11 dynamic
-     */
-    /**
-     * Accuracy requirements for reporting locations.
-     *
-     * @type { ?double }
-     * @syscap SystemCapability.Location.Location.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic
+     * @crossplatform [since 22]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      * @since 23 static
      */
     maxAccuracy?: double;
@@ -4241,26 +3063,12 @@ declare namespace geoLocationManager {
     /**
      * Timeout interval of a single location request.
      *
-     * @type { ?number }
+     * @type { ?number } [since 9 - 10]
+     * @type { ?int } [since 11]
      * @syscap SystemCapability.Location.Location.Core
-     * @since 9
-     */
-    /**
-     * Timeout interval of a single location request.
-     *
-     * @type { ?int }
-     * @syscap SystemCapability.Location.Location.Core
-     * @atomicservice
-     * @since 11 dynamic
-     */
-    /**
-     * Timeout interval of a single location request.
-     *
-     * @type { ?int }
-     * @syscap SystemCapability.Location.Location.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic
+     * @crossplatform [since 22]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      * @since 23 static
      */
     timeoutMs?: int;
@@ -4269,34 +3077,18 @@ declare namespace geoLocationManager {
   /**
    * Geofence transition status.
    *
-   * @typedef GeofenceTransition
    * @syscap SystemCapability.Location.Location.Geofence
+   * @crossplatform [since 22]
    * @since 12 dynamic
-   */
-  /**
-   * Geofence transition status.
-   *
-   * @typedef GeofenceTransition
-   * @syscap SystemCapability.Location.Location.Geofence
-   * @crossplatform
-   * @since 22 dynamic
    * @since 23 static
    */
   export interface GeofenceTransition {
     /**
      * ID of the geofence.
      *
-     * @type { int }
      * @syscap SystemCapability.Location.Location.Geofence
+     * @crossplatform [since 22]
      * @since 12 dynamic
-     */
-    /**
-     * ID of the geofence.
-     *
-     * @type { int }
-     * @syscap SystemCapability.Location.Location.Geofence
-     * @crossplatform
-     * @since 22 dynamic
      * @since 23 static
      */
     geofenceId: int;
@@ -4304,17 +3096,9 @@ declare namespace geoLocationManager {
     /**
      * Indicates the geofence transition status.
      *
-     * @type { GeofenceTransitionEvent }
      * @syscap SystemCapability.Location.Location.Geofence
+     * @crossplatform [since 22]
      * @since 12 dynamic
-     */
-    /**
-     * Indicates the geofence transition status.
-     *
-     * @type { GeofenceTransitionEvent }
-     * @syscap SystemCapability.Location.Location.Geofence
-     * @crossplatform
-     * @since 22 dynamic
      * @since 23 static
      */
     transitionEvent: GeofenceTransitionEvent;
@@ -4322,17 +3106,9 @@ declare namespace geoLocationManager {
     /**
      * Indicate the beaconFence which transitionEvent occurs.
      *
-     * @type { ?BeaconFence }
      * @syscap SystemCapability.Location.Location.Geofence
+     * @crossplatform [since 22]
      * @since 20 dynamic
-     */
-    /**
-     * Indicate the beaconFence which transitionEvent occurs.
-     *
-     * @type { ?BeaconFence }
-     * @syscap SystemCapability.Location.Location.Geofence
-     * @crossplatform
-     * @since 22 dynamic
      * @since 23 static
      */
     beaconFence?: BeaconFence;
@@ -4341,38 +3117,20 @@ declare namespace geoLocationManager {
   /**
    * Configuring parameters in continuous location requests.
    *
-   * @typedef ContinuousLocationRequest
    * @syscap SystemCapability.Location.Location.Core
+   * @crossplatform [since 22]
    * @atomicservice
    * @since 12 dynamic
-   */
-  /**
-   * Configuring parameters in continuous location requests.
-   *
-   * @typedef ContinuousLocationRequest
-   * @syscap SystemCapability.Location.Location.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 22 dynamic
    * @since 23 static
    */
   export interface ContinuousLocationRequest {
     /**
      * Location report interval, in seconds.
      *
-     * @type { int }
      * @syscap SystemCapability.Location.Location.Core
+     * @crossplatform [since 22]
      * @atomicservice
      * @since 12 dynamic
-     */
-    /**
-     * Location report interval, in seconds.
-     *
-     * @type { int }
-     * @syscap SystemCapability.Location.Location.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic
      * @since 23 static
      */
     interval: int;
@@ -4380,19 +3138,10 @@ declare namespace geoLocationManager {
     /**
      * Location scenario. You can select a user activity scenario or power consumption scenario.
      *
-     * @type { UserActivityScenario | PowerConsumptionScenario }
      * @syscap SystemCapability.Location.Location.Core
+     * @crossplatform [since 22]
      * @atomicservice
      * @since 12 dynamic
-     */
-    /**
-     * Location scenario. You can select a user activity scenario or power consumption scenario.
-     *
-     * @type { UserActivityScenario | PowerConsumptionScenario }
-     * @syscap SystemCapability.Location.Location.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic
      * @since 23 static
      */
     locationScenario: UserActivityScenario | PowerConsumptionScenario;
@@ -4401,11 +3150,10 @@ declare namespace geoLocationManager {
      * Indicates the type of sports.
      * This parameter is valid only when locationScenario is set to UserActivityScenario.SPORT.
      *
-     * @type { SportsType }
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi [since 18 - 24]
      * @publicapi [since 26.0.0]
-     * @atomicservice [since 18]
+     * @atomicservice
      * @since 18 dynamic
      * @since 23 static
      */
@@ -4414,19 +3162,10 @@ declare namespace geoLocationManager {
     /**
      * Indicates whether to obtain POI information near the current location.
      *
-     * @type { ?boolean }
      * @syscap SystemCapability.Location.Location.Core
+     * @crossplatform [since 22]
      * @atomicservice
      * @since 19 dynamic
-     */
-    /**
-     * Indicates whether to obtain POI information near the current location.
-     *
-     * @type { ?boolean }
-     * @syscap SystemCapability.Location.Location.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic
      * @since 23 static
      */
     needPoi?: boolean;
@@ -4435,38 +3174,20 @@ declare namespace geoLocationManager {
   /**
    * Configuring parameters in single location requests.
    *
-   * @typedef SingleLocationRequest
    * @syscap SystemCapability.Location.Location.Core
+   * @crossplatform [since 22]
    * @atomicservice
    * @since 12 dynamic
-   */
-  /**
-   * Configuring parameters in single location requests.
-   *
-   * @typedef SingleLocationRequest
-   * @syscap SystemCapability.Location.Location.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 22 dynamic
    * @since 23 static
    */
   export interface SingleLocationRequest {
     /**
      * Priority of the location request.
      *
-     * @type { LocatingPriority }
      * @syscap SystemCapability.Location.Location.Core
+     * @crossplatform [since 22]
      * @atomicservice
      * @since 12 dynamic
-     */
-    /**
-     * Priority of the location request.
-     *
-     * @type { LocatingPriority }
-     * @syscap SystemCapability.Location.Location.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic
      * @since 23 static
      */
     locatingPriority: LocatingPriority;
@@ -4474,19 +3195,10 @@ declare namespace geoLocationManager {
     /**
      * Timeout of a single location request, in milliseconds.
      *
-     * @type { int }
      * @syscap SystemCapability.Location.Location.Core
+     * @crossplatform [since 22]
      * @atomicservice
      * @since 12 dynamic
-     */
-    /**
-     * Timeout of a single location request, in milliseconds.
-     *
-     * @type { int }
-     * @syscap SystemCapability.Location.Location.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic
      * @since 23 static
      */
     locatingTimeoutMs: int;
@@ -4494,19 +3206,10 @@ declare namespace geoLocationManager {
     /**
      * Indicates whether to obtain POI information near the current location.
      *
-     * @type { ?boolean }
      * @syscap SystemCapability.Location.Location.Core
+     * @crossplatform [since 22]
      * @atomicservice
      * @since 19 dynamic
-     */
-    /**
-     * Indicates whether to obtain POI information near the current location.
-     *
-     * @type { ?boolean }
-     * @syscap SystemCapability.Location.Location.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic
      * @since 23 static
      */
     needPoi?: boolean;
@@ -4515,26 +3218,10 @@ declare namespace geoLocationManager {
   /**
    * Provides information about geographic locations.
    *
-   * @typedef Location
    * @syscap SystemCapability.Location.Location.Core
-   * @since 9
-   */
-  /**
-   * Provides information about geographic locations.
-   *
-   * @typedef Location
-   * @syscap SystemCapability.Location.Location.Core
-   * @atomicservice
-   * @since 11 dynamic
-   */
-  /**
-   * Provides information about geographic locations.
-   *
-   * @typedef Location
-   * @syscap SystemCapability.Location.Location.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 22 dynamic
+   * @crossplatform [since 22]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   export interface Location {
@@ -4543,30 +3230,10 @@ declare namespace geoLocationManager {
      * A positive value indicates north latitude,
      * and a negative value indicates south latitude.
      *
-     * @type { number }
      * @syscap SystemCapability.Location.Location.Core
-     * @since 9
-     */
-    /**
-     * Indicates latitude information.
-     * A positive value indicates north latitude,
-     * and a negative value indicates south latitude.
-     *
-     * @type { double }
-     * @syscap SystemCapability.Location.Location.Core
-     * @atomicservice
-     * @since 11 dynamic
-     */
-    /**
-     * Indicates latitude information.
-     * A positive value indicates north latitude,
-     * and a negative value indicates south latitude.
-     *
-     * @type { double }
-     * @syscap SystemCapability.Location.Location.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic
+     * @crossplatform [since 22]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      * @since 23 static
      */
     latitude: double;
@@ -4576,30 +3243,10 @@ declare namespace geoLocationManager {
      * A positive value indicates east longitude ,
      * and a negative value indicates west longitude.
      *
-     * @type { number }
      * @syscap SystemCapability.Location.Location.Core
-     * @since 9
-     */
-    /**
-     * Indicates Longitude information.
-     * A positive value indicates east longitude ,
-     * and a negative value indicates west longitude.
-     *
-     * @type { double }
-     * @syscap SystemCapability.Location.Location.Core
-     * @atomicservice
-     * @since 11 dynamic
-     */
-    /**
-     * Indicates Longitude information.
-     * A positive value indicates east longitude ,
-     * and a negative value indicates west longitude.
-     *
-     * @type { double }
-     * @syscap SystemCapability.Location.Location.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic
+     * @crossplatform [since 22]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      * @since 23 static
      */
     longitude: double;
@@ -4607,26 +3254,10 @@ declare namespace geoLocationManager {
     /**
      * Indicates location altitude, in meters.
      *
-     * @type { number }
      * @syscap SystemCapability.Location.Location.Core
-     * @since 9
-     */
-    /**
-     * Indicates location altitude, in meters.
-     *
-     * @type { double }
-     * @syscap SystemCapability.Location.Location.Core
-     * @atomicservice
-     * @since 11 dynamic
-     */
-    /**
-     * Indicates location altitude, in meters.
-     *
-     * @type { double }
-     * @syscap SystemCapability.Location.Location.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic
+     * @crossplatform [since 22]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      * @since 23 static
      */
     altitude: double;
@@ -4634,26 +3265,10 @@ declare namespace geoLocationManager {
     /**
      * Indicates location accuracy, in meters.
      *
-     * @type { number }
      * @syscap SystemCapability.Location.Location.Core
-     * @since 9
-     */
-    /**
-     * Indicates location accuracy, in meters.
-     *
-     * @type { double }
-     * @syscap SystemCapability.Location.Location.Core
-     * @atomicservice
-     * @since 11 dynamic
-     */
-    /**
-     * Indicates location accuracy, in meters.
-     *
-     * @type { double }
-     * @syscap SystemCapability.Location.Location.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic
+     * @crossplatform [since 22]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      * @since 23 static
      */
     accuracy: double;
@@ -4661,26 +3276,10 @@ declare namespace geoLocationManager {
     /**
      * Indicates speed, in m/s.
      *
-     * @type { number }
      * @syscap SystemCapability.Location.Location.Core
-     * @since 9
-     */
-    /**
-     * Indicates speed, in m/s.
-     *
-     * @type { double }
-     * @syscap SystemCapability.Location.Location.Core
-     * @atomicservice
-     * @since 11 dynamic
-     */
-    /**
-     * Indicates speed, in m/s.
-     *
-     * @type { double }
-     * @syscap SystemCapability.Location.Location.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic
+     * @crossplatform [since 22]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      * @since 23 static
      */
     speed: double;
@@ -4688,26 +3287,10 @@ declare namespace geoLocationManager {
     /**
      * Indicates location timestamp in the UTC format.
      *
-     * @type { number }
      * @syscap SystemCapability.Location.Location.Core
-     * @since 9
-     */
-    /**
-     * Indicates location timestamp in the UTC format.
-     *
-     * @type { long }
-     * @syscap SystemCapability.Location.Location.Core
-     * @atomicservice
-     * @since 11 dynamic
-     */
-    /**
-     * Indicates location timestamp in the UTC format.
-     *
-     * @type { long }
-     * @syscap SystemCapability.Location.Location.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic
+     * @crossplatform [since 22]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      * @since 23 static
      */
     timeStamp: long;
@@ -4715,26 +3298,10 @@ declare namespace geoLocationManager {
     /**
      * Indicates direction information.
      *
-     * @type { number }
      * @syscap SystemCapability.Location.Location.Core
-     * @since 9
-     */
-    /**
-     * Indicates direction information.
-     *
-     * @type { double }
-     * @syscap SystemCapability.Location.Location.Core
-     * @atomicservice
-     * @since 11 dynamic
-     */
-    /**
-     * Indicates direction information.
-     *
-     * @type { double }
-     * @syscap SystemCapability.Location.Location.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic
+     * @crossplatform [since 22]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      * @since 23 static
      */
     direction: double;
@@ -4742,26 +3309,10 @@ declare namespace geoLocationManager {
     /**
      * Indicates location timestamp since boot.
      *
-     * @type { number }
      * @syscap SystemCapability.Location.Location.Core
-     * @since 9
-     */
-    /**
-     * Indicates location timestamp since boot.
-     *
-     * @type { long }
-     * @syscap SystemCapability.Location.Location.Core
-     * @atomicservice
-     * @since 11 dynamic
-     */
-    /**
-     * Indicates location timestamp since boot.
-     *
-     * @type { long }
-     * @syscap SystemCapability.Location.Location.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic
+     * @crossplatform [since 22]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      * @since 23 static
      */
     timeSinceBoot: long;
@@ -4769,26 +3320,10 @@ declare namespace geoLocationManager {
     /**
      * Indicates additional information.
      *
-     * @type { ?Array<string> }
      * @syscap SystemCapability.Location.Location.Core
-     * @since 9
-     */
-    /**
-     * Indicates additional information.
-     *
-     * @type { ?Array<string> }
-     * @syscap SystemCapability.Location.Location.Core
-     * @atomicservice
-     * @since 11 dynamic
-     */
-    /**
-     * Indicates additional information.
-     *
-     * @type { ?Array<string> }
-     * @syscap SystemCapability.Location.Location.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic
+     * @crossplatform [since 22]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      * @since 23 static
      */
     additions?: Array<string>;
@@ -4796,19 +3331,10 @@ declare namespace geoLocationManager {
     /**
      * Indicates additional information map.
      *
-     * @type { ?Map<string, string> }
      * @syscap SystemCapability.Location.Location.Core
+     * @crossplatform [since 22]
      * @atomicservice
      * @since 12 dynamic
-     */
-    /**
-     * Indicates additional information map.
-     *
-     * @type { ?Map<string, string> }
-     * @syscap SystemCapability.Location.Location.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic
      * @since 23 static
      */
     additionsMap?: Map<string, string>;
@@ -4816,62 +3342,36 @@ declare namespace geoLocationManager {
     /**
      * Indicates the amount of additional descriptive information.
      *
-     * @type { ?number }
+     * @type { ?number } [since 9 - 10]
+     * @type { ?int } [since 11]
      * @syscap SystemCapability.Location.Location.Core
-     * @since 9
-     */
-    /**
-     * Indicates the amount of additional descriptive information.
-     *
-     * @type { ?int }
-     * @syscap SystemCapability.Location.Location.Core
-     * @atomicservice
-     * @since 11 dynamic
-     */
-    /**
-     * Indicates the amount of additional descriptive information.
-     *
-     * @type { ?int }
-     * @syscap SystemCapability.Location.Location.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic
+     * @crossplatform [since 22]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      * @since 23 static
      */
     additionSize?: int;
 
     /**
-     * Indicates whether it is a mock location.
-     * @type {?boolean}
+     * Indicates whether the location is mocked.
+     *
+     * @type {?boolean} [since 9 - 24]
      * @syscap SystemCapability.Location.Location.Core
-     * @systemapi
+     * @systemapi [since 9 - 24]
+     * @publicapi [since 26.0.0]
+     * @atomicservice [since 26.0.0]
      * @since 9 dynamic
      * @since 23 static
-     */
-    /**
-     * Indicates whether the location is mocked.
-     * @syscap SystemCapability.Location.Location.Core
-     * @atomicservice
-     * @since 26.0.0 dynamic&static
      */
     isFromMock?: boolean;
 
     /**
      * Indicates vertical position accuracy in meters.
      *
-     * @type { ?double }
      * @syscap SystemCapability.Location.Location.Core
+     * @crossplatform [since 22]
      * @atomicservice
      * @since 12 dynamic
-     */
-    /**
-     * Indicates vertical position accuracy in meters.
-     *
-     * @type { ?double }
-     * @syscap SystemCapability.Location.Location.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic
      * @since 23 static
      */
     altitudeAccuracy?: double;
@@ -4879,19 +3379,10 @@ declare namespace geoLocationManager {
     /**
      * Indicates speed accuracy in meter per seconds.
      *
-     * @type { ?double }
      * @syscap SystemCapability.Location.Location.Core
+     * @crossplatform [since 22]
      * @atomicservice
      * @since 12 dynamic
-     */
-    /**
-     * Indicates speed accuracy in meter per seconds.
-     *
-     * @type { ?double }
-     * @syscap SystemCapability.Location.Location.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic
      * @since 23 static
      */
     speedAccuracy?: double;
@@ -4899,19 +3390,10 @@ declare namespace geoLocationManager {
     /**
      * Indicates direction accuracy in degrees.
      *
-     * @type { ?double }
      * @syscap SystemCapability.Location.Location.Core
+     * @crossplatform [since 22]
      * @atomicservice
      * @since 12 dynamic
-     */
-    /**
-     * Indicates direction accuracy in degrees.
-     *
-     * @type { ?double }
-     * @syscap SystemCapability.Location.Location.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic
      * @since 23 static
      */
     directionAccuracy?: double;
@@ -4919,19 +3401,10 @@ declare namespace geoLocationManager {
     /**
      * Time uncertainty Of timeSinceBoot in nanosecond.
      *
-     * @type { ?long }
      * @syscap SystemCapability.Location.Location.Core
+     * @crossplatform [since 22]
      * @atomicservice
      * @since 12 dynamic
-     */
-    /**
-     * Time uncertainty Of timeSinceBoot in nanosecond.
-     *
-     * @type { ?long }
-     * @syscap SystemCapability.Location.Location.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic
      * @since 23 static
      */
     uncertaintyOfTimeSinceBoot?: long;
@@ -4939,19 +3412,10 @@ declare namespace geoLocationManager {
     /**
      * Indicates the source of the location.
      *
-     * @type { ?LocationSourceType }
      * @syscap SystemCapability.Location.Location.Core
+     * @crossplatform [since 22]
      * @atomicservice
      * @since 12 dynamic
-     */
-    /**
-     * Indicates the source of the location.
-     *
-     * @type { ?LocationSourceType }
-     * @syscap SystemCapability.Location.Location.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic
      * @since 23 static
      */
     sourceType?: LocationSourceType;
@@ -4959,19 +3423,10 @@ declare namespace geoLocationManager {
     /**
      * Indicates the poi information.
      *
-     * @type { ?PoiInfo }
      * @syscap SystemCapability.Location.Location.Core
+     * @crossplatform [since 22]
      * @atomicservice
      * @since 19 dynamic
-     */
-    /**
-     * Indicates the poi information.
-     *
-     * @type { ?PoiInfo }
-     * @syscap SystemCapability.Location.Location.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic
      * @since 23 static
      */
     poi?: PoiInfo;
@@ -4979,7 +3434,7 @@ declare namespace geoLocationManager {
 
   /**
    * Describes the request parameters for obtaining the data required for locating.
-   * @typedef LocatingRequiredDataConfig
+   *
    * @syscap SystemCapability.Location.Location.Core
    * @systemapi
    * @since 10 dynamic
@@ -4989,7 +3444,6 @@ declare namespace geoLocationManager {
     /**
      * Indicates the type of locating required data.
      *
-     * @type {LocatingRequiredDataType}
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
      * @since 10 dynamic
@@ -5000,7 +3454,6 @@ declare namespace geoLocationManager {
     /**
      * Indicates whether to start scanning.
      *
-     * @type {boolean}
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
      * @since 10 dynamic
@@ -5012,7 +3465,6 @@ declare namespace geoLocationManager {
      * Indicates the interval between scans. The unit is millisecond.
      * This parameter needs to be set only when scanning information is continuously monitored.
      *
-     * @type {?int}
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
      * @since 10 dynamic
@@ -5024,7 +3476,6 @@ declare namespace geoLocationManager {
      * Indicates the timeout period of a single scan. The unit is millisecond. The default value is 10000.
      * This parameter needs to be set only when getLocatingRequiredData is used.
      *
-     * @type {?int}
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
      * @since 10 dynamic
@@ -5034,8 +3485,8 @@ declare namespace geoLocationManager {
 
     /**
      * Indicates SIM card slot number.
+     * The value should be an integer.
      *
-     * @type { ?int }
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
      * @stagemodelonly
@@ -5047,7 +3498,6 @@ declare namespace geoLocationManager {
      * Indicates absolute radio frequency channel number (ARFCN).
      * Querying Cell Information by Specified ARFCN.
      *
-     * @type { ?int[] }
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
      * @stagemodelonly
@@ -5058,7 +3508,6 @@ declare namespace geoLocationManager {
     /**
      * Indicates PLMN number of the SIM card.
      *
-     * @type { ?int[] }
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
      * @stagemodelonly
@@ -5069,7 +3518,7 @@ declare namespace geoLocationManager {
 
   /**
    * Describes the structure of the data required for locating.
-   * @typedef LocatingRequiredData
+   *
    * @syscap SystemCapability.Location.Location.Core
    * @systemapi
    * @since 10 dynamic
@@ -5079,7 +3528,6 @@ declare namespace geoLocationManager {
     /**
      * WiFi scan info.
      *
-     * @type {?WifiScanInfo}
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
      * @since 10 dynamic
@@ -5090,7 +3538,6 @@ declare namespace geoLocationManager {
     /**
      * Bluetooth scan info.
      *
-     * @type {?BluetoothScanInfo}
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
      * @since 10 dynamic
@@ -5100,8 +3547,8 @@ declare namespace geoLocationManager {
 
     /**
      * Indicates the card slot index number.
+     * The value should be an integer.
      *
-     * @type { ?int }
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
      * @stagemodelonly
@@ -5112,7 +3559,6 @@ declare namespace geoLocationManager {
     /**
      * Indicates camped cell information.
      *
-     * @type { ?CellInfo }
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
      * @stagemodelonly
@@ -5123,7 +3569,6 @@ declare namespace geoLocationManager {
     /**
      * Indicates neighboring cell information.
      *
-     * @type { ?CellInfo[] }
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
      * @stagemodelonly
@@ -5134,7 +3579,7 @@ declare namespace geoLocationManager {
 
   /**
    * Describes the scanned WiFi information.
-   * @typedef WifiScanInfo
+   *
    * @syscap SystemCapability.Location.Location.Core
    * @systemapi
    * @since 10 dynamic
@@ -5144,7 +3589,6 @@ declare namespace geoLocationManager {
     /**
      * WiFi SSID: the maximum length is 32.
      *
-     * @type {string}
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
      * @since 10 dynamic
@@ -5155,7 +3599,6 @@ declare namespace geoLocationManager {
     /**
      * WiFi bssid(MAC): the length is 6.
      *
-     * @type {string}
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
      * @since 10 dynamic
@@ -5166,7 +3609,6 @@ declare namespace geoLocationManager {
     /**
      * Received signal strength indicator (RSSI).
      *
-     * @type {int}
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
      * @since 10 dynamic
@@ -5177,7 +3619,6 @@ declare namespace geoLocationManager {
     /**
      * Frequency
      *
-     * @type {int}
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
      * @since 10 dynamic
@@ -5188,7 +3629,6 @@ declare namespace geoLocationManager {
     /**
      * Time stamp.
      *
-     * @type {long}
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
      * @since 10 dynamic
@@ -5200,7 +3640,6 @@ declare namespace geoLocationManager {
   /**
    * Describes the contents of the Bluetooth scan results.
    *
-   * @typedef BluetoothScanInfo
    * @syscap SystemCapability.Location.Location.Core
    * @systemapi
    * @since 10 dynamic
@@ -5210,7 +3649,6 @@ declare namespace geoLocationManager {
     /**
      * The local name of the device.
      *
-     * @type {string}
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
      * @since 10 dynamic
@@ -5221,7 +3659,6 @@ declare namespace geoLocationManager {
     /**
      * Mac address of the scanned device.
      *
-     * @type {string}
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
      * @since 10 dynamic
@@ -5232,7 +3669,6 @@ declare namespace geoLocationManager {
     /**
      * RSSI of the remote device.
      *
-     * @type {int}
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
      * @since 10 dynamic
@@ -5243,7 +3679,6 @@ declare namespace geoLocationManager {
     /**
      * Time stamp.
      *
-     * @type {long}
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
      * @since 10 dynamic
@@ -5255,34 +3690,18 @@ declare namespace geoLocationManager {
   /**
    * Describes the contents of the bluetooth scan results.
    *
-   * @typedef BluetoothScanResult
    * @syscap SystemCapability.Location.Location.Core
+   * @crossplatform [since 22]
    * @since 16 dynamic
-   */
-  /**
-   * Describes the contents of the bluetooth scan results.
-   *
-   * @typedef BluetoothScanResult
-   * @syscap SystemCapability.Location.Location.Core
-   * @crossplatform
-   * @since 22 dynamic
    * @since 23 static
    */
   export interface BluetoothScanResult {
     /**
      * Address of the scanned device
      *
-     * @type { string }
      * @syscap SystemCapability.Location.Location.Core
+     * @crossplatform [since 22]
      * @since 16 dynamic
-     */
-    /**
-     * Address of the scanned device
-     *
-     * @type { string }
-     * @syscap SystemCapability.Location.Location.Core
-     * @crossplatform
-     * @since 22 dynamic
      * @since 23 static
      */
     deviceId: string;
@@ -5290,17 +3709,9 @@ declare namespace geoLocationManager {
     /**
      * RSSI of the scanned device
      *
-     * @type { int }
      * @syscap SystemCapability.Location.Location.Core
+     * @crossplatform [since 22]
      * @since 16 dynamic
-     */
-    /**
-     * RSSI of the scanned device
-     *
-     * @type { int }
-     * @syscap SystemCapability.Location.Location.Core
-     * @crossplatform
-     * @since 22 dynamic
      * @since 23 static
      */
     rssi: int;
@@ -5308,17 +3719,9 @@ declare namespace geoLocationManager {
     /**
      * The raw data of broadcast packet
      *
-     * @type { ?ArrayBuffer }
      * @syscap SystemCapability.Location.Location.Core
+     * @crossplatform [since 22]
      * @since 16 dynamic
-     */
-    /**
-     * The raw data of broadcast packet
-     *
-     * @type { ?ArrayBuffer }
-     * @syscap SystemCapability.Location.Location.Core
-     * @crossplatform
-     * @since 22 dynamic
      * @since 23 static
      */
     data?: ArrayBuffer;
@@ -5326,17 +3729,9 @@ declare namespace geoLocationManager {
     /**
      * The local name of the scanned device
      *
-     * @type { string }
      * @syscap SystemCapability.Location.Location.Core
+     * @crossplatform [since 22]
      * @since 16 dynamic
-     */
-    /**
-     * The local name of the scanned device
-     *
-     * @type { string }
-     * @syscap SystemCapability.Location.Location.Core
-     * @crossplatform
-     * @since 22 dynamic
      * @since 23 static
      */
     deviceName: string;
@@ -5344,17 +3739,9 @@ declare namespace geoLocationManager {
     /**
      * Connectable of the scanned device
      *
-     * @type { boolean }
      * @syscap SystemCapability.Location.Location.Core
+     * @crossplatform [since 22]
      * @since 16 dynamic
-     */
-    /**
-     * Connectable of the scanned device
-     *
-     * @type { boolean }
-     * @syscap SystemCapability.Location.Location.Core
-     * @crossplatform
-     * @since 22 dynamic
      * @since 23 static
      */
     connectable: boolean;
@@ -5363,7 +3750,6 @@ declare namespace geoLocationManager {
   /**
    * Describes the information about a single POI.
    *
-   * @typedef Poi
    * @syscap SystemCapability.Location.Location.Core
    * @atomicservice
    * @since 19 dynamic
@@ -5373,7 +3759,6 @@ declare namespace geoLocationManager {
     /**
      * Indicates the ID of a POI.
      *
-     * @type { string }
      * @syscap SystemCapability.Location.Location.Core
      * @atomicservice
      * @since 19 dynamic
@@ -5384,7 +3769,6 @@ declare namespace geoLocationManager {
     /**
      * Indicates the confidence of POI information.
      *
-     * @type { double }
      * @syscap SystemCapability.Location.Location.Core
      * @atomicservice
      * @since 19 dynamic
@@ -5395,7 +3779,6 @@ declare namespace geoLocationManager {
     /**
      * Indicates the name of the POI.
      *
-     * @type { string }
      * @syscap SystemCapability.Location.Location.Core
      * @atomicservice
      * @since 19 dynamic
@@ -5406,7 +3789,6 @@ declare namespace geoLocationManager {
     /**
      * Indicates the latitude of POI.
      *
-     * @type { double }
      * @syscap SystemCapability.Location.Location.Core
      * @atomicservice
      * @since 19 dynamic
@@ -5417,7 +3799,6 @@ declare namespace geoLocationManager {
     /**
      * Indicates the longitude of POI.
      *
-     * @type { double }
      * @syscap SystemCapability.Location.Location.Core
      * @atomicservice
      * @since 19 dynamic
@@ -5428,7 +3809,6 @@ declare namespace geoLocationManager {
     /**
      * Indicates administrative region name.
      *
-     * @type { string }
      * @syscap SystemCapability.Location.Location.Core
      * @atomicservice
      * @since 19 dynamic
@@ -5439,7 +3819,6 @@ declare namespace geoLocationManager {
     /**
      * Indicates sub-administrative region name.
      *
-     * @type { string }
      * @syscap SystemCapability.Location.Location.Core
      * @atomicservice
      * @since 19 dynamic
@@ -5450,7 +3829,6 @@ declare namespace geoLocationManager {
     /**
      * Indicates locality information.
      *
-     * @type { string }
      * @syscap SystemCapability.Location.Location.Core
      * @atomicservice
      * @since 19 dynamic
@@ -5461,7 +3839,6 @@ declare namespace geoLocationManager {
     /**
      * Indicates sub-locality information.
      *
-     * @type { string }
      * @syscap SystemCapability.Location.Location.Core
      * @atomicservice
      * @since 19 dynamic
@@ -5472,7 +3849,6 @@ declare namespace geoLocationManager {
     /**
      * Indicates the detailed address of the POI.
      *
-     * @type { string }
      * @syscap SystemCapability.Location.Location.Core
      * @atomicservice
      * @since 19 dynamic
@@ -5482,10 +3858,12 @@ declare namespace geoLocationManager {
 
     /**
      * Additional information about the POI.
+     *
      * @syscap SystemCapability.Location.Location.Core
      * @stagemodelonly
      * @atomicservice
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
+     * @since 26.1.0 static
      */
     additionalInfo?: string;
   }
@@ -5494,7 +3872,6 @@ declare namespace geoLocationManager {
   /**
    * Describes the POI information struct.
    *
-   * @typedef PoiInfo
    * @syscap SystemCapability.Location.Location.Core
    * @atomicservice
    * @since 19 dynamic
@@ -5504,7 +3881,6 @@ declare namespace geoLocationManager {
     /**
      * Indicates POI information list.
      *
-     * @type { Array<Poi> }
      * @syscap SystemCapability.Location.Location.Core
      * @atomicservice
      * @since 19 dynamic
@@ -5515,7 +3891,6 @@ declare namespace geoLocationManager {
     /**
      * Indicates the timestamp when the POI information is obtained.
      *
-     * @type { long }
      * @syscap SystemCapability.Location.Location.Core
      * @atomicservice
      * @since 19 dynamic
@@ -5527,7 +3902,6 @@ declare namespace geoLocationManager {
   /**
    * Beacon equipment manufacturer data.
    *
-   * @typedef BeaconManufactureData
    * @syscap SystemCapability.Location.Location.Geofence
    * @atomicservice
    * @since 20 dynamic
@@ -5537,7 +3911,6 @@ declare namespace geoLocationManager {
     /**
      * Manufacture id.
      *
-     * @type { int }
      * @syscap SystemCapability.Location.Location.Geofence
      * @atomicservice
      * @since 20 dynamic
@@ -5548,7 +3921,6 @@ declare namespace geoLocationManager {
     /**
      * Manufacture data.
      *
-     * @type { ArrayBuffer }
      * @syscap SystemCapability.Location.Location.Geofence
      * @atomicservice
      * @since 20 dynamic
@@ -5559,7 +3931,6 @@ declare namespace geoLocationManager {
     /**
      * Manufacture data mask.
      *
-     * @type { ArrayBuffer }
      * @syscap SystemCapability.Location.Location.Geofence
      * @atomicservice
      * @since 20 dynamic
@@ -5571,7 +3942,6 @@ declare namespace geoLocationManager {
   /**
    * Beacon fence details.
    *
-   * @typedef BeaconFence
    * @syscap SystemCapability.Location.Location.Geofence
    * @atomicservice
    * @since 20 dynamic
@@ -5581,7 +3951,6 @@ declare namespace geoLocationManager {
     /**
      * Identifier of the beacon fence.
      *
-     * @type { string }
      * @syscap SystemCapability.Location.Location.Geofence
      * @atomicservice
      * @since 20 dynamic
@@ -5592,7 +3961,6 @@ declare namespace geoLocationManager {
     /**
      * Beacon fence information type.
      *
-     * @type { BeaconFenceInfoType }
      * @syscap SystemCapability.Location.Location.Geofence
      * @atomicservice
      * @since 20 dynamic
@@ -5603,7 +3971,6 @@ declare namespace geoLocationManager {
     /**
      * Beacon equipment manufacture data.
      *
-     * @type { ?BeaconManufactureData }
      * @syscap SystemCapability.Location.Location.Geofence
      * @atomicservice
      * @since 20 dynamic
@@ -5615,39 +3982,39 @@ declare namespace geoLocationManager {
   /**
    * Configuring parameters in BeaconFence request.
    *
-   * @typedef BeaconFenceRequest
    * @syscap SystemCapability.Location.Location.Geofence
    * @atomicservice
    * @since 20 dynamic
+   * @since 26.1.0 static
    */
   export interface BeaconFenceRequest {
     /**
      * Beacon fence information.
      *
-     * @type { BeaconFence }
      * @syscap SystemCapability.Location.Location.Geofence
      * @atomicservice
      * @since 20 dynamic
+     * @since 26.1.0 static
      */
     beacon: BeaconFence;
 
     /**
      * Indicates the callback for reporting the BeaconFence transition status.
      *
-     * @type { ?Callback<GeofenceTransition> }
      * @syscap SystemCapability.Location.Location.Geofence
      * @atomicservice
      * @since 20 dynamic
+     * @since 26.1.0 static
      */
     transitionCallback?: Callback<GeofenceTransition>;
 
     /**
      * Indicates the name of FenceExtensionAbility.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Location.Location.Geofence
      * @atomicservice
      * @since 20 dynamic
+     * @since 26.1.0 static
      */
     fenceExtensionAbilityName?: string;
   }
@@ -5660,7 +4027,7 @@ declare namespace geoLocationManager {
    * @atomicservice
    * @since 26.0.0 dynamic&static
    */
-  export interface MatchingWlanInfo {
+  export interface MatchingWlanInfo {  
     /**
      * Indicates the index of the matched WLAN in the wlanBssidArray.
      *
@@ -5685,19 +4052,10 @@ declare namespace geoLocationManager {
   /**
    * Enum for the source of the location.
    *
-   * @enum { int }
    * @syscap SystemCapability.Location.Location.Core
+   * @crossplatform [since 22]
    * @atomicservice
    * @since 12 dynamic
-   */
-  /**
-   * Enum for the source of the location.
-   *
-   * @enum { int }
-   * @syscap SystemCapability.Location.Location.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 22 dynamic
    * @since 23 static
    */
   export enum LocationSourceType {
@@ -5705,16 +4063,9 @@ declare namespace geoLocationManager {
      * The location is obtained from the GNSS.
      *
      * @syscap SystemCapability.Location.Location.Core
+     * @crossplatform [since 22]
      * @atomicservice
      * @since 12 dynamic
-     */
-    /**
-     * The location is obtained from the GNSS.
-     *
-     * @syscap SystemCapability.Location.Location.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic
      * @since 23 static
      */
     GNSS = 1,
@@ -5723,16 +4074,9 @@ declare namespace geoLocationManager {
      * The location comes from the network positioning technology.
      *
      * @syscap SystemCapability.Location.Location.Core
+     * @crossplatform [since 22]
      * @atomicservice
      * @since 12 dynamic
-     */
-    /**
-     * The location comes from the network positioning technology.
-     *
-     * @syscap SystemCapability.Location.Location.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic
      * @since 23 static
      */
     NETWORK = 2,
@@ -5741,16 +4085,9 @@ declare namespace geoLocationManager {
      * The location comes from the indoor positioning technology.
      *
      * @syscap SystemCapability.Location.Location.Core
+     * @crossplatform [since 22]
      * @atomicservice
      * @since 12 dynamic
-     */
-    /**
-     * The location comes from the indoor positioning technology.
-     *
-     * @syscap SystemCapability.Location.Location.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic
      * @since 23 static
      */
     INDOOR = 3,
@@ -5759,16 +4096,9 @@ declare namespace geoLocationManager {
      * The location comes from the GNSS RTK technology.
      *
      * @syscap SystemCapability.Location.Location.Core
+     * @crossplatform [since 22]
      * @atomicservice
      * @since 12 dynamic
-     */
-    /**
-     * The location comes from the GNSS RTK technology.
-     *
-     * @syscap SystemCapability.Location.Location.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic
      * @since 23 static
      */
     RTK = 4
@@ -5777,17 +4107,9 @@ declare namespace geoLocationManager {
   /**
    * Enum for coordinate system type.
    *
-   * @enum { int }
    * @syscap SystemCapability.Location.Location.Geofence
+   * @crossplatform [since 22]
    * @since 12 dynamic
-   */
-  /**
-   * Enum for coordinate system type.
-   *
-   * @enum { int }
-   * @syscap SystemCapability.Location.Location.Geofence
-   * @crossplatform
-   * @since 22 dynamic
    * @since 23 static
    */
   export enum CoordinateSystemType {
@@ -5795,14 +4117,8 @@ declare namespace geoLocationManager {
      * WGS84 coordinates system.
      *
      * @syscap SystemCapability.Location.Location.Geofence
+     * @crossplatform [since 22]
      * @since 12 dynamic
-     */
-    /**
-     * WGS84 coordinates system.
-     *
-     * @syscap SystemCapability.Location.Location.Geofence
-     * @crossplatform
-     * @since 22 dynamic
      * @since 23 static
      */
     WGS84 = 1,
@@ -5811,14 +4127,8 @@ declare namespace geoLocationManager {
      * GCJ-02 coordinates system.
      *
      * @syscap SystemCapability.Location.Location.Geofence
+     * @crossplatform [since 22]
      * @since 12 dynamic
-     */
-    /**
-     * GCJ-02 coordinates system.
-     *
-     * @syscap SystemCapability.Location.Location.Geofence
-     * @crossplatform
-     * @since 22 dynamic
      * @since 23 static
      */
     GCJ02 = 2
@@ -5827,7 +4137,6 @@ declare namespace geoLocationManager {
   /**
    * Enum for location icon status.
    *
-   * @enum { int }
    * @syscap SystemCapability.Location.Location.Core
    * @systemapi
    * @since 12 dynamic
@@ -5868,19 +4177,10 @@ declare namespace geoLocationManager {
   /**
    * Enum for location error code.
    *
-   * @enum { int }
    * @syscap SystemCapability.Location.Location.Core
+   * @crossplatform [since 22]
    * @atomicservice
    * @since 12 dynamic
-   */
-  /**
-   * Enum for location error code.
-   *
-   * @enum { int }
-   * @syscap SystemCapability.Location.Location.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 22 dynamic
    * @since 23 static
    */
   export enum LocationError {
@@ -5888,16 +4188,9 @@ declare namespace geoLocationManager {
      * Default cause for location failure.
      *
      * @syscap SystemCapability.Location.Location.Core
+     * @crossplatform [since 22]
      * @atomicservice
      * @since 12 dynamic
-     */
-    /**
-     * Default cause for location failure.
-     *
-     * @syscap SystemCapability.Location.Location.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic
      * @since 23 static
      */
     LOCATING_FAILED_DEFAULT = -1,
@@ -5906,16 +4199,9 @@ declare namespace geoLocationManager {
      * Locating failed because the location permission fails to be verified.
      *
      * @syscap SystemCapability.Location.Location.Core
+     * @crossplatform [since 22]
      * @atomicservice
      * @since 12 dynamic
-     */
-    /**
-     * Locating failed because the location permission fails to be verified.
-     *
-     * @syscap SystemCapability.Location.Location.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic
      * @since 23 static
      */
     LOCATING_FAILED_LOCATION_PERMISSION_DENIED = -2,
@@ -5924,16 +4210,9 @@ declare namespace geoLocationManager {
      * Locating failed because the app is in the background and the background location permission verification failed.
      *
      * @syscap SystemCapability.Location.Location.Core
+     * @crossplatform [since 22]
      * @atomicservice
      * @since 12 dynamic
-     */
-    /**
-     * Locating failed because the app is in the background and the background location permission verification failed.
-     *
-     * @syscap SystemCapability.Location.Location.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic
      * @since 23 static
      */
     LOCATING_FAILED_BACKGROUND_PERMISSION_DENIED = -3,
@@ -5942,16 +4221,9 @@ declare namespace geoLocationManager {
      * Locating failed because the location switch is turned off.
      *
      * @syscap SystemCapability.Location.Location.Core
+     * @crossplatform [since 22]
      * @atomicservice
      * @since 12 dynamic
-     */
-    /**
-     * Locating failed because the location switch is turned off.
-     *
-     * @syscap SystemCapability.Location.Location.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic
      * @since 23 static
      */
     LOCATING_FAILED_LOCATION_SWITCH_OFF = -4,
@@ -5960,16 +4232,9 @@ declare namespace geoLocationManager {
      * Locating failed because internet access failure.
      *
      * @syscap SystemCapability.Location.Location.Core
+     * @crossplatform [since 22]
      * @atomicservice
      * @since 12 dynamic
-     */
-    /**
-     * Locating failed because internet access failure.
-     *
-     * @syscap SystemCapability.Location.Location.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic
      * @since 23 static
      */
     LOCATING_FAILED_INTERNET_ACCESS_FAILURE = -5
@@ -5978,17 +4243,9 @@ declare namespace geoLocationManager {
   /**
    * Enum for geofence transition status.
    *
-   * @enum { int }
    * @syscap SystemCapability.Location.Location.Geofence
+   * @crossplatform [since 22]
    * @since 12 dynamic
-   */
-  /**
-   * Enum for geofence transition status.
-   *
-   * @enum { int }
-   * @syscap SystemCapability.Location.Location.Geofence
-   * @crossplatform
-   * @since 22 dynamic
    * @since 23 static
    */
   export enum GeofenceTransitionEvent {
@@ -5996,14 +4253,8 @@ declare namespace geoLocationManager {
      * The device is within the geofence.
      *
      * @syscap SystemCapability.Location.Location.Geofence
+     * @crossplatform [since 22]
      * @since 12 dynamic
-     */
-    /**
-     * The device is within the geofence.
-     *
-     * @syscap SystemCapability.Location.Location.Geofence
-     * @crossplatform
-     * @since 22 dynamic
      * @since 23 static
      */
     GEOFENCE_TRANSITION_EVENT_ENTER = 1,
@@ -6012,14 +4263,8 @@ declare namespace geoLocationManager {
      * The device is out of the geofence.
      *
      * @syscap SystemCapability.Location.Location.Geofence
+     * @crossplatform [since 22]
      * @since 12 dynamic
-     */
-    /**
-     * The device is out of the geofence.
-     *
-     * @syscap SystemCapability.Location.Location.Geofence
-     * @crossplatform
-     * @since 22 dynamic
      * @since 23 static
      */
     GEOFENCE_TRANSITION_EVENT_EXIT = 2,
@@ -6028,14 +4273,8 @@ declare namespace geoLocationManager {
      * The device is in the geographical fence for a period of time.
      *
      * @syscap SystemCapability.Location.Location.Geofence
+     * @crossplatform [since 22]
      * @since 12 dynamic
-     */
-    /**
-     * The device is in the geographical fence for a period of time.
-     *
-     * @syscap SystemCapability.Location.Location.Geofence
-     * @crossplatform
-     * @since 22 dynamic
      * @since 23 static
      */
     GEOFENCE_TRANSITION_EVENT_DWELL = 4,
@@ -6047,7 +4286,8 @@ declare namespace geoLocationManager {
      * @systemapi
      * @stagemodelonly
      * @crossplatform
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
+     * @since 26.1.0 static
      */
     GEOFENCE_TRANSITION_EVENT_APPROACHING_GEOFENCE = 8,
 
@@ -6058,7 +4298,8 @@ declare namespace geoLocationManager {
      * @systemapi
      * @stagemodelonly
      * @crossplatform
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
+     * @since 26.1.0 static
      */
     GEOFENCE_TRANSITION_EVENT_LEAVING_GEOFENCE = 16,
 
@@ -6069,7 +4310,8 @@ declare namespace geoLocationManager {
      * @systemapi
      * @stagemodelonly
      * @crossplatform
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
+     * @since 26.1.0 static
      */
     GEOFENCE_TRANSITION_EVENT_NEAR_WANDER = 32
   }
@@ -6077,17 +4319,9 @@ declare namespace geoLocationManager {
   /**
    * Enum for satellite constellation category.
    *
-   * @enum { int }
    * @syscap SystemCapability.Location.Location.Gnss
+   * @crossplatform [since 22]
    * @since 12 dynamic
-   */
-  /**
-   * Enum for satellite constellation category.
-   *
-   * @enum { int }
-   * @syscap SystemCapability.Location.Location.Gnss
-   * @crossplatform
-   * @since 22 dynamic
    * @since 23 static
    */
   export enum SatelliteConstellationCategory {
@@ -6095,14 +4329,8 @@ declare namespace geoLocationManager {
      * Invalid value.
      *
      * @syscap SystemCapability.Location.Location.Gnss
+     * @crossplatform [since 22]
      * @since 12 dynamic
-     */
-    /**
-     * Invalid value.
-     *
-     * @syscap SystemCapability.Location.Location.Gnss
-     * @crossplatform
-     * @since 22 dynamic
      * @since 23 static
      */
     CONSTELLATION_CATEGORY_UNKNOWN = 0,
@@ -6111,14 +4339,8 @@ declare namespace geoLocationManager {
      * GPS.
      *
      * @syscap SystemCapability.Location.Location.Gnss
+     * @crossplatform [since 22]
      * @since 12 dynamic
-     */
-    /**
-     * GPS.
-     *
-     * @syscap SystemCapability.Location.Location.Gnss
-     * @crossplatform
-     * @since 22 dynamic
      * @since 23 static
      */
     CONSTELLATION_CATEGORY_GPS = 1,
@@ -6127,14 +4349,8 @@ declare namespace geoLocationManager {
      * SBAS.
      *
      * @syscap SystemCapability.Location.Location.Gnss
+     * @crossplatform [since 22]
      * @since 12 dynamic
-     */
-    /**
-     * SBAS.
-     *
-     * @syscap SystemCapability.Location.Location.Gnss
-     * @crossplatform
-     * @since 22 dynamic
      * @since 23 static
      */
     CONSTELLATION_CATEGORY_SBAS = 2,
@@ -6143,14 +4359,8 @@ declare namespace geoLocationManager {
      * GLONASS.
      *
      * @syscap SystemCapability.Location.Location.Gnss
+     * @crossplatform [since 22]
      * @since 12 dynamic
-     */
-    /**
-     * GLONASS.
-     *
-     * @syscap SystemCapability.Location.Location.Gnss
-     * @crossplatform
-     * @since 22 dynamic
      * @since 23 static
      */
     CONSTELLATION_CATEGORY_GLONASS = 3,
@@ -6159,14 +4369,8 @@ declare namespace geoLocationManager {
      * QZSS.
      *
      * @syscap SystemCapability.Location.Location.Gnss
+     * @crossplatform [since 22]
      * @since 12 dynamic
-     */
-    /**
-     * QZSS.
-     *
-     * @syscap SystemCapability.Location.Location.Gnss
-     * @crossplatform
-     * @since 22 dynamic
      * @since 23 static
      */
     CONSTELLATION_CATEGORY_QZSS = 4,
@@ -6175,14 +4379,8 @@ declare namespace geoLocationManager {
      * BEIDOU.
      *
      * @syscap SystemCapability.Location.Location.Gnss
+     * @crossplatform [since 22]
      * @since 12 dynamic
-     */
-    /**
-     * BEIDOU.
-     *
-     * @syscap SystemCapability.Location.Location.Gnss
-     * @crossplatform
-     * @since 22 dynamic
      * @since 23 static
      */
     CONSTELLATION_CATEGORY_BEIDOU = 5,
@@ -6191,14 +4389,8 @@ declare namespace geoLocationManager {
      * GALILEO.
      *
      * @syscap SystemCapability.Location.Location.Gnss
+     * @crossplatform [since 22]
      * @since 12 dynamic
-     */
-    /**
-     * GALILEO.
-     *
-     * @syscap SystemCapability.Location.Location.Gnss
-     * @crossplatform
-     * @since 22 dynamic
      * @since 23 static
      */
     CONSTELLATION_CATEGORY_GALILEO = 6,
@@ -6207,14 +4399,8 @@ declare namespace geoLocationManager {
      * IRNSS.
      *
      * @syscap SystemCapability.Location.Location.Gnss
+     * @crossplatform [since 22]
      * @since 12 dynamic
-     */
-    /**
-     * IRNSS.
-     *
-     * @syscap SystemCapability.Location.Location.Gnss
-     * @crossplatform
-     * @since 22 dynamic
      * @since 23 static
      */
     CONSTELLATION_CATEGORY_IRNSS = 7
@@ -6223,17 +4409,9 @@ declare namespace geoLocationManager {
   /**
    * Enum for satellite additional information.
    *
-   * @enum { int }
    * @syscap SystemCapability.Location.Location.Gnss
+   * @crossplatform [since 22]
    * @since 12 dynamic
-   */
-  /**
-   * Enum for satellite additional information.
-   *
-   * @enum { int }
-   * @syscap SystemCapability.Location.Location.Gnss
-   * @crossplatform
-   * @since 22 dynamic
    * @since 23 static
    */
   export enum SatelliteAdditionalInfo {
@@ -6241,14 +4419,8 @@ declare namespace geoLocationManager {
      * Default value.
      *
      * @syscap SystemCapability.Location.Location.Gnss
+     * @crossplatform [since 22]
      * @since 12 dynamic
-     */
-    /**
-     * Default value.
-     *
-     * @syscap SystemCapability.Location.Location.Gnss
-     * @crossplatform
-     * @since 22 dynamic
      * @since 23 static
      */
     SATELLITES_ADDITIONAL_INFO_NULL = 0,
@@ -6257,14 +4429,8 @@ declare namespace geoLocationManager {
      * Ephemeris data exist.
      *
      * @syscap SystemCapability.Location.Location.Gnss
+     * @crossplatform [since 22]
      * @since 12 dynamic
-     */
-    /**
-     * Ephemeris data exist.
-     *
-     * @syscap SystemCapability.Location.Location.Gnss
-     * @crossplatform
-     * @since 22 dynamic
      * @since 23 static
      */
     SATELLITES_ADDITIONAL_INFO_EPHEMERIS_DATA_EXIST = 1,
@@ -6273,14 +4439,8 @@ declare namespace geoLocationManager {
      * Almanac data exist.
      *
      * @syscap SystemCapability.Location.Location.Gnss
+     * @crossplatform [since 22]
      * @since 12 dynamic
-     */
-    /**
-     * Almanac data exist.
-     *
-     * @syscap SystemCapability.Location.Location.Gnss
-     * @crossplatform
-     * @since 22 dynamic
      * @since 23 static
      */
     SATELLITES_ADDITIONAL_INFO_ALMANAC_DATA_EXIST = 2,
@@ -6289,14 +4449,8 @@ declare namespace geoLocationManager {
      * This satellite is being used in location fix.
      *
      * @syscap SystemCapability.Location.Location.Gnss
+     * @crossplatform [since 22]
      * @since 12 dynamic
-     */
-    /**
-     * This satellite is being used in location fix.
-     *
-     * @syscap SystemCapability.Location.Location.Gnss
-     * @crossplatform
-     * @since 22 dynamic
      * @since 23 static
      */
     SATELLITES_ADDITIONAL_INFO_USED_IN_FIX = 4,
@@ -6305,14 +4459,8 @@ declare namespace geoLocationManager {
      * Carrier frequency exist.
      *
      * @syscap SystemCapability.Location.Location.Gnss
+     * @crossplatform [since 22]
      * @since 12 dynamic
-     */
-    /**
-     * Carrier frequency exist.
-     *
-     * @syscap SystemCapability.Location.Location.Gnss
-     * @crossplatform
-     * @since 22 dynamic
      * @since 23 static
      */
     SATELLITES_ADDITIONAL_INFO_CARRIER_FREQUENCY_EXIST = 8
@@ -6321,19 +4469,10 @@ declare namespace geoLocationManager {
   /**
    * Enum for user activity scenario.
    *
-   * @enum { int }
    * @syscap SystemCapability.Location.Location.Core
+   * @crossplatform [since 22]
    * @atomicservice
    * @since 12 dynamic
-   */
-  /**
-   * Enum for user activity scenario.
-   *
-   * @enum { int }
-   * @syscap SystemCapability.Location.Location.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 22 dynamic
    * @since 23 static
    */
   export enum UserActivityScenario {
@@ -6341,16 +4480,9 @@ declare namespace geoLocationManager {
      * Navigation scenario. High positioning precision and real-time performance are required.
      *
      * @syscap SystemCapability.Location.Location.Core
+     * @crossplatform [since 22]
      * @atomicservice
      * @since 12 dynamic
-     */
-    /**
-     * Navigation scenario. High positioning precision and real-time performance are required.
-     *
-     * @syscap SystemCapability.Location.Location.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic
      * @since 23 static
      */
     NAVIGATION = 0x401,
@@ -6359,16 +4491,9 @@ declare namespace geoLocationManager {
      * Sport scenario. High positioning precision is required.
      *
      * @syscap SystemCapability.Location.Location.Core
+     * @crossplatform [since 22]
      * @atomicservice
      * @since 12 dynamic
-     */
-    /**
-     * Sport scenario. High positioning precision is required.
-     *
-     * @syscap SystemCapability.Location.Location.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic
      * @since 23 static
      */
     SPORT = 0x402,
@@ -6377,16 +4502,9 @@ declare namespace geoLocationManager {
      * Transport scenario. High positioning precision and real-time performance are required.
      *
      * @syscap SystemCapability.Location.Location.Core
+     * @crossplatform [since 22]
      * @atomicservice
      * @since 12 dynamic
-     */
-    /**
-     * Transport scenario. High positioning precision and real-time performance are required.
-     *
-     * @syscap SystemCapability.Location.Location.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic
      * @since 23 static
      */
     TRANSPORT = 0x403,
@@ -6395,16 +4513,9 @@ declare namespace geoLocationManager {
      * Daily life scenarios. Low requirements on positioning precision.
      *
      * @syscap SystemCapability.Location.Location.Core
+     * @crossplatform [since 22]
      * @atomicservice
      * @since 12 dynamic
-     */
-    /**
-     * Daily life scenarios. Low requirements on positioning precision.
-     *
-     * @syscap SystemCapability.Location.Location.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic
      * @since 23 static
      */
     DAILY_LIFE_SERVICE = 0x404
@@ -6413,19 +4524,10 @@ declare namespace geoLocationManager {
   /**
    * Enum for locating priority.
    *
-   * @enum { int }
    * @syscap SystemCapability.Location.Location.Core
+   * @crossplatform [since 22]
    * @atomicservice
    * @since 12 dynamic
-   */
-  /**
-   * Enum for locating priority.
-   *
-   * @enum { int }
-   * @syscap SystemCapability.Location.Location.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 22 dynamic
    * @since 23 static
    */
   export enum LocatingPriority {
@@ -6433,16 +4535,9 @@ declare namespace geoLocationManager {
      * Preferentially ensure the highest locating accuracy.
      *
      * @syscap SystemCapability.Location.Location.Core
+     * @crossplatform [since 22]
      * @atomicservice
      * @since 12 dynamic
-     */
-    /**
-     * Preferentially ensure the highest locating accuracy.
-     *
-     * @syscap SystemCapability.Location.Location.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic
      * @since 23 static
      */
     PRIORITY_ACCURACY = 0x501,
@@ -6451,16 +4546,9 @@ declare namespace geoLocationManager {
      * Preferentially ensure the fastest locating speed.
      *
      * @syscap SystemCapability.Location.Location.Core
+     * @crossplatform [since 22]
      * @atomicservice
      * @since 12 dynamic
-     */
-    /**
-     * Preferentially ensure the fastest locating speed.
-     *
-     * @syscap SystemCapability.Location.Location.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic
      * @since 23 static
      */
     PRIORITY_LOCATING_SPEED = 0x502
@@ -6469,26 +4557,10 @@ declare namespace geoLocationManager {
   /**
    * Enum for location priority.
    *
-   * @enum { number }
    * @syscap SystemCapability.Location.Location.Core
-   * @since 9
-   */
-  /**
-   * Enum for location priority.
-   *
-   * @enum { int }
-   * @syscap SystemCapability.Location.Location.Core
-   * @atomicservice
-   * @since 11 dynamic
-   */
-  /**
-   * Enum for location priority.
-   *
-   * @enum { int }
-   * @syscap SystemCapability.Location.Location.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 22 dynamic
+   * @crossplatform [since 22]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   export enum LocationRequestPriority {
@@ -6496,22 +4568,9 @@ declare namespace geoLocationManager {
      * Default priority.
      *
      * @syscap SystemCapability.Location.Location.Core
-     * @since 9
-     */
-    /**
-     * Default priority.
-     *
-     * @syscap SystemCapability.Location.Location.Core
-     * @atomicservice
-     * @since 11 dynamic
-     */
-    /**
-     * Default priority.
-     *
-     * @syscap SystemCapability.Location.Location.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic
+     * @crossplatform [since 22]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      * @since 23 static
      */
     UNSET = 0x200,
@@ -6520,98 +4579,43 @@ declare namespace geoLocationManager {
      * Preferentially ensure the locating accuracy.
      *
      * @syscap SystemCapability.Location.Location.Core
-     * @since 9
-     */
-    /**
-     * Preferentially ensure the locating accuracy.
-     *
-     * @syscap SystemCapability.Location.Location.Core
-     * @atomicservice
-     * @since 11 dynamic
-     */
-    /**
-     * Preferentially ensure the locating accuracy.
-     *
-     * @syscap SystemCapability.Location.Location.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic
+     * @crossplatform [since 22]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      * @since 23 static
      */
-    ACCURACY,
+    ACCURACY = 0x201,
 
     /**
      * Preferentially ensure low power consumption for locating.
      *
      * @syscap SystemCapability.Location.Location.Core
-     * @since 9
-     */
-    /**
-     * Preferentially ensure low power consumption for locating.
-     *
-     * @syscap SystemCapability.Location.Location.Core
-     * @atomicservice
-     * @since 11 dynamic
-     */
-    /**
-     * Preferentially ensure low power consumption for locating.
-     *
-     * @syscap SystemCapability.Location.Location.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic
+     * @crossplatform [since 22]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      * @since 23 static
      */
-    LOW_POWER,
+    LOW_POWER = 0x202,
 
     /**
      * Preferentially ensure that the first location is time-consuming.
      *
      * @syscap SystemCapability.Location.Location.Core
-     * @since 9
-     */
-    /**
-     * Preferentially ensure that the first location is time-consuming.
-     *
-     * @syscap SystemCapability.Location.Location.Core
-     * @atomicservice
-     * @since 11 dynamic
-     */
-    /**
-     * Preferentially ensure that the first location is time-consuming.
-     *
-     * @syscap SystemCapability.Location.Location.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic
+     * @crossplatform [since 22]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      * @since 23 static
      */
-    FIRST_FIX
+    FIRST_FIX = 0x203
   }
 
   /**
    * Enum for location scenario.
    *
-   * @enum { number }
    * @syscap SystemCapability.Location.Location.Core
-   * @since 9
-   */
-  /**
-   * Enum for location scenario.
-   *
-   * @enum { int }
-   * @syscap SystemCapability.Location.Location.Core
-   * @atomicservice
-   * @since 11 dynamic
-   */
-  /**
-   * Enum for location scenario.
-   *
-   * @enum { int }
-   * @syscap SystemCapability.Location.Location.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 22 dynamic
+   * @crossplatform [since 22]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   export enum LocationRequestScenario {
@@ -6619,22 +4623,9 @@ declare namespace geoLocationManager {
      * Default scenario.
      *
      * @syscap SystemCapability.Location.Location.Core
-     * @since 9
-     */
-    /**
-     * Default scenario.
-     *
-     * @syscap SystemCapability.Location.Location.Core
-     * @atomicservice
-     * @since 11 dynamic
-     */
-    /**
-     * Default scenario.
-     *
-     * @syscap SystemCapability.Location.Location.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic
+     * @crossplatform [since 22]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      * @since 23 static
      */
     UNSET = 0x300,
@@ -6643,139 +4634,66 @@ declare namespace geoLocationManager {
      * Navigation scenario. High positioning precision and real-time performance are required.
      *
      * @syscap SystemCapability.Location.Location.Core
-     * @since 9
-     */
-    /**
-     * Navigation scenario. High positioning precision and real-time performance are required.
-     *
-     * @syscap SystemCapability.Location.Location.Core
-     * @atomicservice
-     * @since 11 dynamic
-     */
-    /**
-     * Navigation scenario. High positioning precision and real-time performance are required.
-     *
-     * @syscap SystemCapability.Location.Location.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic
+     * @crossplatform [since 22]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      * @since 23 static
      */
-    NAVIGATION,
+    NAVIGATION = 0x301,
+
 
     /**
      * Trajectory tracking scenario. High positioning precision is required.
      *
      * @syscap SystemCapability.Location.Location.Core
-     * @since 9
-     */
-    /**
-     * Trajectory tracking scenario. High positioning precision is required.
-     *
-     * @syscap SystemCapability.Location.Location.Core
-     * @atomicservice
-     * @since 11 dynamic
-     */
-    /**
-     * Trajectory tracking scenario. High positioning precision is required.
-     *
-     * @syscap SystemCapability.Location.Location.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic
+     * @crossplatform [since 22]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      * @since 23 static
      */
-    TRAJECTORY_TRACKING,
+    TRAJECTORY_TRACKING = 0x302,
 
     /**
      * Car hailing scenario. High positioning precision and real-time performance are required.
      *
      * @syscap SystemCapability.Location.Location.Core
-     * @since 9
-     */
-    /**
-     * Car hailing scenario. High positioning precision and real-time performance are required.
-     *
-     * @syscap SystemCapability.Location.Location.Core
-     * @atomicservice
-     * @since 11 dynamic
-     */
-    /**
-     * Car hailing scenario. High positioning precision and real-time performance are required.
-     *
-     * @syscap SystemCapability.Location.Location.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic
+     * @crossplatform [since 22]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      * @since 23 static
      */
-    CAR_HAILING,
+    CAR_HAILING = 0x303,
 
     /**
      * Daily life scenarios. Low requirements on positioning precision and real-time performance.
      *
      * @syscap SystemCapability.Location.Location.Core
-     * @since 9
-     */
-    /**
-     * Daily life scenarios. Low requirements on positioning precision and real-time performance.
-     *
-     * @syscap SystemCapability.Location.Location.Core
-     * @atomicservice
-     * @since 11 dynamic
-     */
-    /**
-     * Daily life scenarios. Low requirements on positioning precision and real-time performance.
-     *
-     * @syscap SystemCapability.Location.Location.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic
+     * @crossplatform [since 22]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      * @since 23 static
      */
-    DAILY_LIFE_SERVICE,
+    DAILY_LIFE_SERVICE = 0x304,
 
     /**
      * Power saving scenarios.
      *
      * @syscap SystemCapability.Location.Location.Core
-     * @since 9
-     */
-    /**
-     * Power saving scenarios.
-     *
-     * @syscap SystemCapability.Location.Location.Core
-     * @atomicservice
-     * @since 11 dynamic
-     */
-    /**
-     * Power saving scenarios.
-     *
-     * @syscap SystemCapability.Location.Location.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic
+     * @crossplatform [since 22]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      * @since 23 static
      */
-    NO_POWER
+    NO_POWER = 0x305
   }
 
   /**
    * Enum for power consumption scenario.
    *
-   * @enum { int }
    * @syscap SystemCapability.Location.Location.Core
+   * @crossplatform [since 22]
    * @atomicservice
    * @since 12 dynamic
-   */
-  /**
-   * Enum for power consumption scenario.
-   *
-   * @enum { int }
-   * @syscap SystemCapability.Location.Location.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 22 dynamic
    * @since 23 static
    */
   export enum PowerConsumptionScenario {
@@ -6783,16 +4701,9 @@ declare namespace geoLocationManager {
      * High power consumption mode.
      *
      * @syscap SystemCapability.Location.Location.Core
+     * @crossplatform [since 22]
      * @atomicservice
      * @since 12 dynamic
-     */
-    /**
-     * High power consumption mode.
-     *
-     * @syscap SystemCapability.Location.Location.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic
      * @since 23 static
      */
     HIGH_POWER_CONSUMPTION = 0x601,
@@ -6801,16 +4712,9 @@ declare namespace geoLocationManager {
      * Low power consumption mode.
      *
      * @syscap SystemCapability.Location.Location.Core
+     * @crossplatform [since 22]
      * @atomicservice
      * @since 12 dynamic
-     */
-    /**
-     * Low power consumption mode.
-     *
-     * @syscap SystemCapability.Location.Location.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic
      * @since 23 static
      */
     LOW_POWER_CONSUMPTION = 0x602,
@@ -6819,16 +4723,9 @@ declare namespace geoLocationManager {
      * Power saving scenarios.
      *
      * @syscap SystemCapability.Location.Location.Core
+     * @crossplatform [since 22]
      * @atomicservice
      * @since 12 dynamic
-     */
-    /**
-     * Power saving scenarios.
-     *
-     * @syscap SystemCapability.Location.Location.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic
      * @since 23 static
      */
     NO_POWER_CONSUMPTION = 0x603
@@ -6837,7 +4734,6 @@ declare namespace geoLocationManager {
   /**
    * Enum for location privacy type.
    *
-   * @enum { int }
    * @syscap SystemCapability.Location.Location.Core
    * @systemapi
    * @since 9 dynamic
@@ -6862,7 +4758,7 @@ declare namespace geoLocationManager {
      * @since 9 dynamic
      * @since 23 static
      */
-    STARTUP,
+    STARTUP = 1,
 
     /**
      * Privacy agreement pop-up when network location is enabled.
@@ -6872,25 +4768,16 @@ declare namespace geoLocationManager {
      * @since 9 dynamic
      * @since 23 static
      */
-    CORE_LOCATION
+    CORE_LOCATION = 2
   }
 
   /**
    * Enum for sports type
    *
-   * @enum { int }
    * @syscap SystemCapability.Location.Location.Core
+   * @crossplatform [since 22]
    * @atomicservice
    * @since 18 dynamic
-   */
-  /**
-   * Enum for sports type
-   *
-   * @enum { int }
-   * @syscap SystemCapability.Location.Location.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 22 dynamic
    * @since 23 static
    */
   export enum SportsType {
@@ -6898,16 +4785,9 @@ declare namespace geoLocationManager {
      * Indicates running.
      *
      * @syscap SystemCapability.Location.Location.Core
+     * @crossplatform [since 22]
      * @atomicservice
      * @since 18 dynamic
-     */
-    /**
-     * Indicates running.
-     *
-     * @syscap SystemCapability.Location.Location.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic
      * @since 23 static
      */
     RUNNING = 1,
@@ -6916,37 +4796,23 @@ declare namespace geoLocationManager {
      * Indicates walking.
      *
      * @syscap SystemCapability.Location.Location.Core
+     * @crossplatform [since 22]
      * @atomicservice
      * @since 18 dynamic
-     */
-    /**
-     * Indicates walking.
-     *
-     * @syscap SystemCapability.Location.Location.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic
      * @since 23 static
      */
-    WALKING,
+    WALKING = 2,
 
     /**
      * Indicates cycling.
      *
      * @syscap SystemCapability.Location.Location.Core
+     * @crossplatform [since 22]
      * @atomicservice
      * @since 18 dynamic
-     */
-    /**
-     * Indicates cycling.
-     *
-     * @syscap SystemCapability.Location.Location.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic
      * @since 23 static
      */
-    CYCLING,
+    CYCLING = 3,
 
     /**
      * Indicates Skiing.
@@ -6955,7 +4821,8 @@ declare namespace geoLocationManager {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
+     * @since 26.1.0 static
      */
     SKIING = 4
   }
@@ -6963,7 +4830,6 @@ declare namespace geoLocationManager {
   /**
    * Location subsystem command structure.
    *
-   * @typedef LocationCommand
    * @syscap SystemCapability.Location.Location.Core
    * @since 9 dynamic
    * @since 23 static
@@ -6972,7 +4838,6 @@ declare namespace geoLocationManager {
     /**
      * Information about the scenario where the command is sent.
      *
-     * @type { LocationRequestScenario }
      * @syscap SystemCapability.Location.Location.Core
      * @since 9 dynamic
      * @since 23 static
@@ -6982,7 +4847,6 @@ declare namespace geoLocationManager {
     /**
      * Sent command content.
      *
-     * @type { string }
      * @syscap SystemCapability.Location.Location.Core
      * @since 9 dynamic
      * @since 23 static
@@ -6993,34 +4857,18 @@ declare namespace geoLocationManager {
   /**
    * Country code structure.
    *
-   * @typedef CountryCode
    * @syscap SystemCapability.Location.Location.Core
+   * @crossplatform [since 22]
    * @since 9 dynamic
-   */
-  /**
-   * Country code structure.
-   *
-   * @typedef CountryCode
-   * @syscap SystemCapability.Location.Location.Core
-   * @crossplatform
-   * @since 22 dynamic
    * @since 23 static
    */
   export interface CountryCode {
     /**
      * Country code character string.
      *
-     * @type { string }
      * @syscap SystemCapability.Location.Location.Core
+     * @crossplatform [since 22]
      * @since 9 dynamic
-     */
-    /**
-     * Country code character string.
-     *
-     * @type { string }
-     * @syscap SystemCapability.Location.Location.Core
-     * @crossplatform
-     * @since 22 dynamic
      * @since 23 static
      */
     country: string;
@@ -7028,36 +4876,394 @@ declare namespace geoLocationManager {
     /**
      * Country code source.
      *
-     * @type { CountryCodeType }
      * @syscap SystemCapability.Location.Location.Core
+     * @crossplatform [since 22]
      * @since 9 dynamic
-     */
-    /**
-     * Country code source.
-     *
-     * @type { CountryCodeType }
-     * @syscap SystemCapability.Location.Location.Core
-     * @crossplatform
-     * @since 22 dynamic
      * @since 23 static
      */
     type: CountryCodeType;
   }
 
   /**
-   * Enum for country code type.
+   * Indicates fusion fence request params.
    *
-   * @enum { int }
-   * @syscap SystemCapability.Location.Location.Core
-   * @since 9 dynamic
+   * @syscap SystemCapability.Location.Location.Geofence
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   * @since 26.1.0 static
    */
+  export interface FusionFenceRequestParams {  
+    /**
+     * Identifier of the fusion fence.
+     * The string format should be a valid unique identifier (e.g., GUID or specific
+     * alphanumeric pattern).
+     *
+     * @syscap SystemCapability.Location.Location.Geofence
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic
+     * @since 26.1.0 static
+     */
+    identifier: string;
+
+    /**
+     * Indicates fusion fence scene.
+     *
+     * @syscap SystemCapability.Location.Location.Geofence
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic
+     * @since 26.1.0 static
+     */
+    scene: FusionFenceScene;
+
+    /**
+     * Indicates fusion fence type.
+     * This field is in bitmap format. Multiple types of fences can be transferred.
+     * The definition of each bit is as follows: [FusionFenceType]{@link geoLocationManager.FusionFenceType}.
+     * The value range is all integers.
+     *
+     * @syscap SystemCapability.Location.Location.Geofence
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic
+     * @since 26.1.0 static
+     */
+    fenceType: int;
+
+    /**
+     * Indicates the type of POI.
+     *
+     * @syscap SystemCapability.Location.Location.Geofence
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic
+     * @since 26.1.0 static
+     */
+    poiType?: string;
+
+    /**
+     * Indicates the location of POI.
+     *
+     * @syscap SystemCapability.Location.Location.Geofence
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic
+     * @since 26.1.0 static
+     */
+    poiLocation: Point;
+
+    /**
+     * Indicates geofence transition status monitored.
+     * This field is in bitmap format.
+     * The definition of each bit is as follows {@link geoLocationManager.GeofenceTransitionEvent}.
+     * The value range is all integers.
+     *
+     * @syscap SystemCapability.Location.Location.Geofence
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic
+     * @since 26.1.0 static
+     */
+    monitorTransitionEvents: int;
+	
+    /**
+     * Indicates time for which a device is dwelling in the geofence, in milliseconds.
+     * If the device dwelling time reaches the value specified by this parameter,
+     * a GEOFENCE_TRANSITION_EVENT_DWELL event is reported.
+     * The value range is all integers.
+     *
+     * @syscap SystemCapability.Location.Location.Geofence
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic
+     * @since 26.1.0 static
+     */
+    loiterTimeMs: int;
+	
+    /**
+     * Indicates GNSS fence array.
+     *
+     * @syscap SystemCapability.Location.Location.Geofence
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic
+     * @since 26.1.0 static
+     */
+    gnssFences?: Array<GnssFence>;
+	
+    /**
+     * Indicates CELL fence array.
+     *
+     * @syscap SystemCapability.Location.Location.Geofence
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic
+     * @since 26.1.0 static
+     */
+    cellFences?: Array<CellFence>;
+	
+    /**
+     * Indicates Wi-Fi fence array.
+     *
+     * @syscap SystemCapability.Location.Location.Geofence
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic
+     * @since 26.1.0 static
+     */
+    wifiFences?: Array<WifiFence>;
+
+    /**
+     * Indicates expiration of the circular fence.
+     *
+     * @syscap SystemCapability.Location.Location.Geofence
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic
+     * @since 26.1.0 static
+     */
+    expirationMs: double;
+
+    /**
+     * Indicates the callback for reporting the fence transition status.
+     *
+     * @syscap SystemCapability.Location.Location.Geofence
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic
+     * @since 26.1.0 static
+     */
+    fenceTransitionCallback: Callback<FusionFenceTransition>;
+  }
+
+  /**
+   * Indicates fusion fence transition information.
+   *
+   * @syscap SystemCapability.Location.Location.Geofence
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   * @since 26.1.0 static
+   */
+  export interface FusionFenceTransition {  
+    /**
+     * Identifier of the fusion fence.
+     *
+     * @syscap SystemCapability.Location.Location.Geofence
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic
+     * @since 26.1.0 static
+     */
+    identifier: string;
+
+    /**
+     * Indicates fusion fence scene.
+     *
+     * @syscap SystemCapability.Location.Location.Geofence
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic
+     * @since 26.1.0 static
+     */
+    scene: FusionFenceScene;
+
+    /**
+     * Indicates the fence transition event.
+     *
+     * @syscap SystemCapability.Location.Location.Geofence
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic
+     * @since 26.1.0 static
+     */
+    transitionEvent: GeofenceTransitionEvent;
+  }
+  
+  /**
+   * Indicates GNSS fence information.
+   *
+   * @syscap SystemCapability.Location.Location.Geofence
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   * @since 26.1.0 static
+   */
+  export interface GnssFence {  
+    /**
+     * Indicates GNSS fence type.
+     * The value range of this field is as follows: [GnssFenceType]{@link geoLocationManager.GnssFenceType}.
+     * The value range is all integers.
+     *
+     * @syscap SystemCapability.Location.Location.Geofence
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic
+     * @since 26.1.0 static
+     */
+    gnssFenceType: int;
+	
+    /**
+     * Indicates circular fence.
+     *
+     * @syscap SystemCapability.Location.Location.Geofence
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic
+     * @since 26.1.0 static
+     */
+    circularFence?: Geofence;
+	
+    /**
+     * Indicates polygonal fence.
+     *
+     * @syscap SystemCapability.Location.Location.Geofence
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic
+     * @since 26.1.0 static
+     */
+    polygon?: Array<Point>;
+  }
+
+  /**
+   * Indicates CELL fence information.
+   *
+   * @syscap SystemCapability.Location.Location.Geofence
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   * @since 26.1.0 static
+   */
+  export interface CellFence {  
+    /**
+     * Indicates CELL information array.
+     *
+     * @syscap SystemCapability.Location.Location.Geofence
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic
+     * @since 26.1.0 static
+     */
+    cellInfos: Array<CellInfo>;
+  }
+  
+  /**
+   * Indicates Wi-Fi fence information.
+   *
+   * @syscap SystemCapability.Location.Location.Geofence
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   * @since 26.1.0 static
+   */
+  export interface WifiFence {  
+    /**
+     * Indicates Wi-Fi fingerprint type.
+     *
+     * @syscap SystemCapability.Location.Location.Geofence
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic
+     * @since 26.1.0 static
+     */
+    type: WifiFingerprintType;
+
+    /**
+     * Indicates Wi-Fi features.
+     *
+     * @syscap SystemCapability.Location.Location.Geofence
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic
+     * @since 26.1.0 static
+     */
+    wifiFeatures: Array<WirelessSignalFeature>;
+  }
+  
+  /**
+   * Indicates wireless signal feature.
+   *
+   * @syscap SystemCapability.Location.Location.Geofence
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   * @since 26.1.0 static
+   */
+  export interface WirelessSignalFeature {  
+    /**
+     * Indicates average RSSI value.
+     * The value range is all integers.
+     *
+     * @syscap SystemCapability.Location.Location.Geofence
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic
+     * @since 26.1.0 static
+     */
+    rssiAvg: int;
+
+    /**
+     * Indicates RSSI standard deviation.
+     *
+     * @syscap SystemCapability.Location.Location.Geofence
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic
+     * @since 26.1.0 static
+     */
+    rssiStandardDeviation: double;
+	
+    /**
+     * Indicates MAC array.
+     *
+     * @syscap SystemCapability.Location.Location.Geofence
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic
+     * @since 26.1.0 static
+     */
+    mac: Array<string>;
+  }
+  
+  /**
+   * Indicates a location point, including the longitude and latitude.
+   *
+   * @syscap SystemCapability.Location.Location.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   * @since 26.1.0 static
+   */
+  export interface Point {  
+    /**
+     * Indicates latitude.
+     *
+     * @syscap SystemCapability.Location.Location.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic
+     * @since 26.1.0 static
+     */
+    latitude: double;
+	
+    /**
+     * Indicates longitude.
+     *
+     * @syscap SystemCapability.Location.Location.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic
+     * @since 26.1.0 static
+     */
+    longitude: double;
+  }
+
   /**
    * Enum for country code type.
    *
-   * @enum { int }
    * @syscap SystemCapability.Location.Location.Core
-   * @crossplatform
-   * @since 22 dynamic
+   * @crossplatform [since 22]
+   * @since 9 dynamic
    * @since 23 static
    */
   export enum CountryCodeType {
@@ -7065,14 +5271,8 @@ declare namespace geoLocationManager {
      * Country code obtained from the locale setting.
      *
      * @syscap SystemCapability.Location.Location.Core
+     * @crossplatform [since 22]
      * @since 9 dynamic
-     */
-    /**
-     * Country code obtained from the locale setting.
-     *
-     * @syscap SystemCapability.Location.Location.Core
-     * @crossplatform
-     * @since 22 dynamic
      * @since 23 static
      */
     COUNTRY_CODE_FROM_LOCALE = 1,
@@ -7081,55 +5281,36 @@ declare namespace geoLocationManager {
      * Country code obtained from the SIM information.
      *
      * @syscap SystemCapability.Location.Location.Core
+     * @crossplatform [since 22]
      * @since 9 dynamic
-     */
-    /**
-     * Country code obtained from the SIM information.
-     *
-     * @syscap SystemCapability.Location.Location.Core
-     * @crossplatform
-     * @since 22 dynamic
      * @since 23 static
      */
-    COUNTRY_CODE_FROM_SIM,
+    COUNTRY_CODE_FROM_SIM = 2,
 
     /**
      * Query the country code information from the reverse geocoding result.
      *
      * @syscap SystemCapability.Location.Location.Core
+     * @crossplatform [since 22]
      * @since 9 dynamic
-     */
-    /**
-     * Query the country code information from the reverse geocoding result.
-     *
-     * @syscap SystemCapability.Location.Location.Core
-     * @crossplatform
-     * @since 22 dynamic
      * @since 23 static
      */
-    COUNTRY_CODE_FROM_LOCATION,
+    COUNTRY_CODE_FROM_LOCATION = 3,
 
     /**
      * Obtain the country code from the cell registration information.
      *
      * @syscap SystemCapability.Location.Location.Core
+     * @crossplatform [since 22]
      * @since 9 dynamic
-     */
-    /**
-     * Obtain the country code from the cell registration information.
-     *
-     * @syscap SystemCapability.Location.Location.Core
-     * @crossplatform
-     * @since 22 dynamic
      * @since 23 static
      */
-    COUNTRY_CODE_FROM_NETWORK
+    COUNTRY_CODE_FROM_NETWORK = 4
   }
 
   /**
    * Enum for locating required data type.
    *
-   * @enum { int }
    * @syscap SystemCapability.Location.Location.Core
    * @systemapi
    * @since 10 dynamic
@@ -7169,7 +5350,6 @@ declare namespace geoLocationManager {
   /**
    * Enum for the beacon fence information type.
    *
-   * @enum { int }
    * @syscap SystemCapability.Location.Location.Geofence
    * @atomicservice
    * @since 20 dynamic
@@ -7185,6 +5365,182 @@ declare namespace geoLocationManager {
      * @since 23 static
      */
     BEACON_MANUFACTURE_DATA = 1
+  }
+
+  /**
+   * Enum for GNSS fence type.
+   *
+   * @syscap SystemCapability.Location.Location.Geofence
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   * @since 26.1.0 static
+   */
+  export enum GnssFenceType {  
+    /**
+     * Indicates the polygon fence.
+     *
+     * @syscap SystemCapability.Location.Location.Geofence
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic
+     * @since 26.1.0 static
+     */
+    POLYGON = 1,
+
+    /**
+     * Indicates the circular fence.
+     *
+     * @syscap SystemCapability.Location.Location.Geofence
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic
+     * @since 26.1.0 static
+     */
+    CIRCULAR = 2
+  }
+  
+  /**
+   * Enum for Wi-Fi fingerprint type.
+   *
+   * @syscap SystemCapability.Location.Location.Geofence
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   * @since 26.1.0 static
+   */
+  export enum WifiFingerprintType {  
+    /**
+     * Indicates the Wi-Fi fingerprint of semantic information.
+     *
+     * @syscap SystemCapability.Location.Location.Geofence
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic
+     * @since 26.1.0 static
+     */
+    SEMANTIC = 1,
+
+    /**
+     * Indicates the Wi-Fi fingerprint corresponding to a location.
+     *
+     * @syscap SystemCapability.Location.Location.Geofence
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic
+     * @since 26.1.0 static
+     */
+    LOCATION = 2
+  }
+
+  /**
+   * Enum for fusion fence type.
+   *
+   * @syscap SystemCapability.Location.Location.Geofence
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   * @since 26.1.0 static
+   */
+  export enum FusionFenceType {  
+    /**
+     * Indicates the GNSS fence.
+     *
+     * @syscap SystemCapability.Location.Location.Geofence
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic
+     * @since 26.1.0 static
+     */
+    GNSS = 1,
+	
+    /**
+     * Indicates the cellular fence.
+     *
+     * @syscap SystemCapability.Location.Location.Geofence
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic
+     * @since 26.1.0 static
+     */
+    CELLULAR = 2,
+	
+    /**
+     * Indicates the Wi-Fi fence.
+     *
+     * @syscap SystemCapability.Location.Location.Geofence
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic
+     * @since 26.1.0 static
+     */
+    WIFI = 4,
+	
+    /**
+     * Indicates the Bluetooth fence.
+     *
+     * @syscap SystemCapability.Location.Location.Geofence
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic
+     * @since 26.1.0 static
+     */
+    BLUETOOTH = 8
+  }
+  
+  /**
+   * Enum for fusion fence scene.
+   *
+   * @syscap SystemCapability.Location.Location.Geofence
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   * @since 26.1.0 static
+   */
+  export enum FusionFenceScene {  
+    /**
+     * Indicates the airport scene.
+     *
+     * @syscap SystemCapability.Location.Location.Geofence
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic
+     * @since 26.1.0 static
+     */
+    AIRPORT = 1,
+
+    /**
+     * Indicates the train station scene.
+     *
+     * @syscap SystemCapability.Location.Location.Geofence
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic
+     * @since 26.1.0 static
+     */
+    TRAIN_STATION = 2,
+	
+    /**
+     * Indicates the subway scene.
+     *
+     * @syscap SystemCapability.Location.Location.Geofence
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic
+     * @since 26.1.0 static
+     */
+    SUBWAY = 3,
+
+    /**
+     * Indicates the shop scene.
+     *
+     * @syscap SystemCapability.Location.Location.Geofence
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic
+     * @since 26.1.0 static
+     */
+    SHOP = 4
   }
 }
 

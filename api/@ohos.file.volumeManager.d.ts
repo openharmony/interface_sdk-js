@@ -943,6 +943,7 @@ declare namespace volumeManager {
    * @throws { BusinessError } 202 - The caller is not a system application.
    * @throws { BusinessError } 13600001 - IPC error.
    * @throws { BusinessError } 13600002 - Not supported filesystem.
+   * @throws { BusinessError } 13600027 - Eject operation failed.
    * @syscap SystemCapability.FileManagement.StorageService.Volume
    * @systemapi
    * @stagemodelonly

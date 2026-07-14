@@ -91,13 +91,12 @@ declare namespace remoteDevice {
 
   /**
    * Subscribes to pairing request events from remote NearLink devices.
-   * If the user is granted the ohos.permission.GET_NEARLINK_PEER_MAC permission,
+   *
+   * This event is accessible only to system applications that granted the ohos.permission.NEARLINK_ACCESS permission.
+   * If the application is granted the ohos.permission.GET_NEARLINK_PEER_MAC permission,
    * the callback returns the real device address; otherwise, a random device address is returned.
    *
-   * @permission ohos.permission.ACCESS_NEARLINK
    * @param { Callback<PairingRequestParam> } callback - Callback used to listen for the pairing request event.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
    * @throws { BusinessError } 801 - Capability not supported because the chip does not support it.
    * @throws { BusinessError } 36100099 - Operation failed.
    * @syscap SystemCapability.Communication.NearLink.Base
@@ -110,10 +109,7 @@ declare namespace remoteDevice {
   /**
    * Unsubscribes from pairing request events from remote NearLink devices.
    *
-   * @permission ohos.permission.ACCESS_NEARLINK
    * @param { Callback<PairingRequestParam> } [callback] - Callback used to listen for the pairing request event.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
    * @throws { BusinessError } 801 - Capability not supported because the chip does not support it.
    * @throws { BusinessError } 36100099 - Operation failed.
    * @syscap SystemCapability.Communication.NearLink.Base
@@ -125,12 +121,12 @@ declare namespace remoteDevice {
 
   /**
    * Subscribes to NearLink pairing state change events.
-   * If the user is granted the ohos.permission.GET_NEARLINK_PEER_MAC permission,
+   *
+   * This event is accessible only to applications that granted the ohos.permission.NEARLINK_ACCESS permission.
+   * If the application is granted the ohos.permission.GET_NEARLINK_PEER_MAC permission,
    * the callback returns the real device address; otherwise, a random device address is returned.
    *
-   * @permission ohos.permission.ACCESS_NEARLINK
    * @param { Callback<PairingStateParam> } callback - Callback function used to listen for the pairing state event.
-   * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 801 - Capability not supported because the chip does not support it.
    * @throws { BusinessError } 36100099 - Operation failed.
    * @syscap SystemCapability.Communication.NearLink.Base
@@ -142,9 +138,7 @@ declare namespace remoteDevice {
   /**
    * Unsubscribes from NearLink pairing state change events.
    *
-   * @permission ohos.permission.ACCESS_NEARLINK
    * @param { Callback<PairingStateParam> } [callback] - Callback function used to listen for the pairing state event.
-   * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 801 - Capability not supported because the chip does not support it.
    * @throws { BusinessError } 36100099 - Operation failed.
    * @syscap SystemCapability.Communication.NearLink.Base
@@ -155,13 +149,12 @@ declare namespace remoteDevice {
 
   /**
    * Subscribes to NearLink connection state change events.
-   * If the user is granted the ohos.permission.GET_NEARLINK_PEER_MAC permission,
+   *
+   * This event is accessible only to applications that granted the ohos.permission.NEARLINK_ACCESS permission.
+   * If the application is granted the ohos.permission.GET_NEARLINK_PEER_MAC permission,
    * the callback returns the real device address; otherwise, a random device address is returned.
    *
-   * @permission ohos.permission.ACCESS_NEARLINK
-   * @param { Callback<ConnectionStateParam> } callback -
-   *     Callback used to listen for the connection state changed event.
-   * @throws { BusinessError } 201 - Permission denied.
+   * @param { Callback<ConnectionStateParam> } callback - Callback used to listen for the connection state changed event.
    * @throws { BusinessError } 801 - Capability not supported because the chip does not support it.
    * @throws { BusinessError } 36100099 - Operation failed.
    * @syscap SystemCapability.Communication.NearLink.Base
@@ -173,10 +166,7 @@ declare namespace remoteDevice {
   /**
    * Unsubscribes from NearLink connection state change events.
    *
-   * @permission ohos.permission.ACCESS_NEARLINK
-   * @param { Callback<ConnectionStateParam> } [callback] -
-   *     Callback used to listen for the connection state changed event.
-   * @throws { BusinessError } 201 - Permission denied.
+   * @param { Callback<ConnectionStateParam> } [callback] - Callback used to listen for the connection state changed event.
    * @throws { BusinessError } 801 - Capability not supported because the chip does not support it.
    * @throws { BusinessError } 36100099 - Operation failed.
    * @syscap SystemCapability.Communication.NearLink.Base
@@ -187,12 +177,12 @@ declare namespace remoteDevice {
 
   /**
    * Subscribes to the NearLink ACB connection status change event.
-   * If the user is granted the ohos.permission.GET_NEARLINK_PEER_MAC permission,
+   *
+   * This event is accessible only to applications that granted the ohos.permission.NEARLINK_ACCESS permission.
+   * If the application is granted the ohos.permission.GET_NEARLINK_PEER_MAC permission,
    * the callback returns the real device address; otherwise, a random device address is returned.
    *
-   * @permission ohos.permission.ACCESS_NEARLINK
    * @param { Callback<AcbStateParam> } callback - Callback of the event to be listened to.
-   * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 801 - Capability not supported because the chip does not support it.
    * @throws { BusinessError } 36100099 - Operation failed.
    * @syscap SystemCapability.Communication.NearLink.Base
@@ -204,9 +194,7 @@ declare namespace remoteDevice {
   /**
    * Unsubscribes from the NearLink ACB connection status change event.
    *
-   * @permission ohos.permission.ACCESS_NEARLINK
    * @param { Callback<AcbStateParam> } [callback] - Callback of the event to be listened to.
-   * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 801 - Capability not supported because the chip does not support it.
    * @throws { BusinessError } 36100099 - Operation failed.
    * @syscap SystemCapability.Communication.NearLink.Base

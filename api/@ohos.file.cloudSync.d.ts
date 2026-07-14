@@ -182,7 +182,7 @@ declare namespace cloudSync {
      */
     REMOTE_SERVER_ABNORMAL = 8,
     /**
-     * upload aborted due to cloud response time out.
+     * Upload aborted due to cloud response time out.
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @systemapi
@@ -191,7 +191,7 @@ declare namespace cloudSync {
      */
     RESPONSE_TIME_OUT = 9,
     /**
-     * upload aborted due to unknown error.
+     * Upload aborted due to unknown error.
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @systemapi
@@ -479,7 +479,7 @@ declare namespace cloudSync {
    */
   enum UploadState {
     /**
-     * Indicates that the upload task in waiting now.
+     * Indicates that the upload task is in waiting state.
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @systemapi
@@ -488,7 +488,7 @@ declare namespace cloudSync {
      */
     WAITING = 0,
     /**
-     * Indicates that the upload task in process now.
+     * Indicates that the upload task is in process now.
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @systemapi
@@ -1227,7 +1227,7 @@ declare namespace cloudSync {
      * Registers to cloud file upload progress change. This method uses a callback to get upload progress changes.
      *
      * @permission ohos.permission.CLOUDFILE_SYNC
-     * @param { Callback<UploadProgress> } callback - Callback function.
+     * @param { Callback<UploadProgress> } callback - Callback function. The callback will be triggered when the upload progress changes, including state updates, processed size changes, and error occurrences.
      * @throws { BusinessError } 201 - Permission verification failed.
      * @throws { BusinessError } 202 - The caller is not a system application.
      * @throws { BusinessError } 13900010 - Try again.

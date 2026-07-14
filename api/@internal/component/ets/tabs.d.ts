@@ -169,7 +169,7 @@ declare enum BarPosition {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Start = 0,
+  Start,
 
   /**
    * If the **vertical** attribute is set to **true**, the tab is on the right of the container. If the **vertical**
@@ -180,7 +180,7 @@ declare enum BarPosition {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  End = 1
+  End
 }
 
 /**
@@ -1001,7 +1001,7 @@ declare type OnTabsAnimationEndCallback = (index: number, extraInfo: TabsAnimati
  * Defines the callback triggered on a frame-by-frame basis during a swipe-based page turn.
  *
  * @param { number } index - Index of the currently displayed element. The index is zero-based.<br>Value range:
- *     [0, Index value �C 1]
+ *     [0, Index value — 1]
  * @param { TabsAnimationEvent } extraInfo - Extra information of the animation, which is the offset of the currently
  *     displayed element relative to the start position of the **Tabs** along the main axis.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1016,10 +1016,10 @@ declare type OnTabsGestureSwipeCallback = (index: number, extraInfo: TabsAnimati
  * Defines the callback invoked when the custom tab transition animation starts.
  *
  * @param { number } from - Index of the currently displayed tab before the animation starts. The index is zero-based.<
- *     br>Value range: [0, Index value �C 1]. If the value exceeds the index value or is less than 0, no transition
+ *     br>Value range: [0, Index value — 1]. If the value exceeds the index value or is less than 0, no transition
  *     animation is displayed.
  * @param { number } to - Index of the target tab before the animation starts. The index is zero-based.<br>Value range:
- *     [0, Index value �C 1]. If the value exceeds the index value or is less than 0, no transition animation is
+ *     [0, Index value — 1]. If the value exceeds the index value or is less than 0, no transition animation is
  *     displayed.
  * @returns { TabContentAnimatedTransition | undefined } Information about the custom tab switching animation.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1632,7 +1632,6 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @form [since 11 - 17]
    * @atomicservice [since 12]
    * @since 11 dynamic
    */

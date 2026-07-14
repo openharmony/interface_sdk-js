@@ -646,6 +646,14 @@ export declare class DecorationStyle {
      */
     constructor(value: DecorationStyleInterface);
     /**
+     * @param { DecorationStyleInterface } value - text decoration value.
+     * @param { DecorationOptions } [options] - decoration options.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    constructor(value: DecorationStyleInterface, options?: DecorationOptions);
+    /**
      * Get the text decoration type of the StyledString.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -669,6 +677,22 @@ export declare class DecorationStyle {
      * @since 23 static
      */
     readonly style?: TextDecorationStyle;
+    /**
+     * Get the thickness scale of the StyledString.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    readonly thicknessScale?: double;
+    /**
+     * Get the DecorationOptions of the StyledString.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    readonly options?: DecorationOptions;
 }
 /**
  * DecorationStyleInterface
@@ -702,6 +726,14 @@ export declare interface DecorationStyleInterface {
      * @since 23 static
      */
     style?: TextDecorationStyle;
+    /**
+     * The thickness scale of the decoration
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    thicknessScale?: double;
 }
 /**
  * Defines BaselineOffsetStyle.
@@ -838,7 +870,6 @@ export declare interface GestureStyleInterface {
     /**
      * Trigger a click event when a click is clicked.
      *
-     * @type { ?Callback<ClickEvent> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -847,7 +878,6 @@ export declare interface GestureStyleInterface {
     /**
      * Trigger a gesture event when long press event is complete.
      *
-     * @type { ?Callback<GestureEvent> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -856,7 +886,6 @@ export declare interface GestureStyleInterface {
     /**
      * Trigger a touch event when touched.
      *
-     * @type { ?Callback<TouchEvent> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 24 static

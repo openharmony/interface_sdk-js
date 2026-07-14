@@ -119,7 +119,7 @@ declare enum ImageRenderMode {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Original = 0,
+  Original,
 
   /**
    * Render the image as a template image, ignoring the color information of the image.
@@ -131,7 +131,7 @@ declare enum ImageRenderMode {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Template = 1
+  Template
 }
 
 /**
@@ -219,7 +219,7 @@ declare enum ImageInterpolation {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  None = 0,
+  None,
 
   /**
    * Low usage of interpolated image data.
@@ -231,7 +231,7 @@ declare enum ImageInterpolation {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Low = 1,
+  Low,
 
   /**
    * Interpolated image data is used moderately.
@@ -243,7 +243,7 @@ declare enum ImageInterpolation {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Medium = 2,
+  Medium,
 
   /**
    * High usage of interpolated image data may affect the speed of image rendering.
@@ -255,7 +255,7 @@ declare enum ImageInterpolation {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  High = 3
+  High
 }
 
 /**

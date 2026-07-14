@@ -112,7 +112,7 @@ declare enum CancelButtonStyle {
    * @atomicservice [since 11]
    * @since 10 dynamic
    */
-  CONSTANT = 0,
+  CONSTANT,
 
   /**
    * The Cancel button is always hidden.
@@ -123,7 +123,7 @@ declare enum CancelButtonStyle {
    * @atomicservice [since 11]
    * @since 10 dynamic
    */
-  INVISIBLE = 1,
+  INVISIBLE,
 
   /**
    * The Cancel button is displayed when there is text input.
@@ -134,7 +134,7 @@ declare enum CancelButtonStyle {
    * @atomicservice [since 11]
    * @since 10 dynamic
    */
-  INPUT = 2,
+  INPUT,
 }
 
 /**

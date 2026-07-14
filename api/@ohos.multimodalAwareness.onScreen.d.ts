@@ -576,7 +576,7 @@ declare namespace onScreen {
      */
     resultCode: int;
     /**
-     * Timestamp for accessing a specified page.
+     * Timestamp for accessing a specified page, in milliseconds.
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
      * @stagemodelonly
@@ -713,7 +713,7 @@ declare namespace onScreen {
    * @param { OnscreenAwarenessCap } capability - Onscreen awareness capability list.
    * @param { Callback<OnscreenAwarenessInfo[]> } callback - Callback function, which returns the onscreen
    *     <br> awareness result. The returned onscreen awareness information list **OnscreenAwarenessInfo[]**
-   *     <br> contains a maximum of twoawareness information items.
+   *     <br> contains a maximum of two awareness information items.
    * @param { OnscreenAwarenessOptions } [options] - Onscreen awareness parameter list.
    * @throws { BusinessError } 201 - Permission denied. An attempt was made to get page content forbidden by
    *     <br> permission: ohos.permission.GET_SCREEN_CONTENT.
@@ -779,7 +779,7 @@ declare namespace onScreen {
    *
    * @permission ohos.permission.GET_SCREEN_CONTENT
    * @param { OnscreenAwarenessCap } capability - Onscreen awareness capability list. For details, see
-   *     <br> the followingsupported capability list.
+   *     <br> the following supported capability list.
    * @param { OnscreenAwarenessOptions } [options] - Onscreen awareness parameter list.
    * @returns { Promise<OnscreenAwarenessInfo[]> } Promise used to return the onscreen awareness result.
    *     <br>The returned onscreen awareness information list **OnscreenAwarenessInfo[]** contains a
@@ -801,7 +801,7 @@ declare namespace onScreen {
   
   /**
    * Proactively triggers screen behavior interaction to identify screen behaviors and return behavior receipts. For
-   *     <br> for example, after a link is clicked, the system accurately jumps to the specified paragraph and
+   *     <br> example, after a link is clicked, the system accurately jumps to the specified paragraph and
    *     <br> highlights the text based on the receipt information.
    *
    * @permission ohos.permission.GET_SCREEN_CONTENT
@@ -861,7 +861,7 @@ declare namespace onScreen {
    */
   export interface ReadingScreenPermissionStatus {  
     /**
-     * Whether screen reading is allowed. **0**: no**1**: yes.
+     * Whether screen reading is allowed. **0**: no; **1**: yes.
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
      * @stagemodelonly

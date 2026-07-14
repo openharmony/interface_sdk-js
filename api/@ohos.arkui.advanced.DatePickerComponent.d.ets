@@ -1,10 +1,10 @@
 /*
-* Copyright (C) 2026 Huawei Device Co., Ltd.
+* Copyright (c) 2026 Huawei Device Co., Ltd.
 * Licensed under the Apache License, Version 2.0 (the "License"),
 * you may not use this file except in compliance with the License.
 * You may obtain a copy of the License at
 *
-* http://www.apache.org/licenses/LICENSE-2.0
+*     http://www.apache.org/licenses/LICENSE-2.0
 *
 * Unless required by applicable law or agreed to in writing, software
 * distributed under the License is distributed on an "AS IS" BASIS,
@@ -19,7 +19,7 @@
  */
 
 /**
- * Defines mode of date picker.
+ * DateMode enum defines the mode of the date picker.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -29,7 +29,7 @@
  */
 export declare enum DateMode {
   /**
-   * The date displays three columns: year, month, and day.
+   * Date displays three columns: year, month, and day.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -40,7 +40,7 @@ export declare enum DateMode {
   DATE = 0,
 
   /**
-   * The date displays two columns: year and month.
+   * Date displays two columns: year and month.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -51,10 +51,9 @@ export declare enum DateMode {
   YEAR_AND_MONTH = 1,
 
   /**
-   * Defines a mode that displays dates in months and days of the month.
-   * In this mode, when the month changes from December to January,
-   * year does not increment by one; if month changes from January to December,
-   * the year does not decrement. The year remains fixed at its currently set value.
+   * Defines a mode that displays the date as month and day. In this mode, when the month changes from December to
+   * January, the year does not increment; when the month changes from January to December, the year does not decrement.
+   * The year remains unchanged at its current setting.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -66,7 +65,7 @@ export declare enum DateMode {
 }
 
 /**
- * Enum for DisplayMode
+ * DisplayMode enum defines the display mode of the picker.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -76,7 +75,7 @@ export declare enum DateMode {
  */
 export declare enum DisplayMode {
   /**
-   * Display date only.
+   * Displays only the date.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -87,7 +86,7 @@ export declare enum DisplayMode {
   DATE = 0,
 
   /**
-   * Display time only.
+   * Displays only the time.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -98,7 +97,7 @@ export declare enum DisplayMode {
   TIME = 1,
 
   /**
-   * Display both date and time.
+   * Displays both date and time.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -110,7 +109,7 @@ export declare enum DisplayMode {
 }
 
 /**
- * Defines result of DatePickerComponent.
+ * DatePickerComponentResult defines the selection result of the date time picker.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -120,7 +119,8 @@ export declare enum DisplayMode {
  */
 export declare class DatePickerComponentResult {
   /**
-   * Year of selected date.
+   * Year of the selected date.
+   * The value should be an integer.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -131,8 +131,8 @@ export declare class DatePickerComponentResult {
   year?: int;
 
   /**
-   * Month index of selected date.
-   * The index is zero-based. 0 indicates January, and 11 indicates December.
+   * Month index of the selected date, starting from 0, where 0 indicates January and 11 indicates December.
+   * The value should be an integer.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -143,7 +143,8 @@ export declare class DatePickerComponentResult {
   month?: int;
 
   /**
-   * Day of selected date.
+   * Day of the selected date.
+   * The value should be an integer.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -154,7 +155,8 @@ export declare class DatePickerComponentResult {
   day?: int;
 
   /**
-   * Hour portion of selected time.
+   * Hour part of the selected time.
+   * The value should be an integer.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -165,7 +167,8 @@ export declare class DatePickerComponentResult {
   hour?: int;
 
   /**
-   * Minute portion of selected time.
+   * Minute part of the selected time.
+   * The value should be an integer.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -176,7 +179,8 @@ export declare class DatePickerComponentResult {
   minute?: int;
 
   /**
-   * Second portion of selected time.
+   * Second part of the selected time.
+   * The value should be an integer.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -188,7 +192,7 @@ export declare class DatePickerComponentResult {
 }
 
 /**
- * Enum for TimeFormat
+ * TimeFormat enum defines the format of the time picker.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -198,7 +202,7 @@ export declare class DatePickerComponentResult {
  */
 export declare enum TimeFormat {
   /**
-   * Hour and minute.
+   * Displays hour and minute.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -209,7 +213,7 @@ export declare enum TimeFormat {
   HOUR_MINUTE = 0,
 
   /**
-   * Hour and minute and second.
+   * Displays hour, minute, and second.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -221,7 +225,22 @@ export declare enum TimeFormat {
 }
 
 /**
- * Defines common options for DatePickerComponent.
+ * CommonOptions defines common options for the date time picker.
+ *
+ * > **Description:**
+ * >
+ * > - For Date usage, refer to
+ * > [TimePickerOptions](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-timepicker.md#timepickeroptions)。
+ * >
+ * > - The text size of DatePickerComponent changes based on the total number of columns displayed. When the number of
+ * > columns is 6 or more, the text size is 14vp; in other cases, it is 16vp. When the component width is too narrow,
+ * > text may be truncated.
+ * >
+ * > - When parameters are omitted or set to undefined, default values are used.
+ * >
+ * > - In [DateOptions]{@link DateOptions}, setting start, end, and selected only takes effect for the date part (year,
+ * > month, day). In [TimeOptions]{@link TimeOptions}, setting start, end, and selected only takes effect for the time
+ * > part (hour, minute, second).
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -231,7 +250,15 @@ export declare enum TimeFormat {
  */
 export declare class CommonOptions {
   /**
-   * Start date or time of picker.
+   * Start date or time of the picker.
+   *
+   * Default value: Date(1970, 0, 1, 0, 0, 0)
+   *
+   * Value range: [Date(0, 0, 1, 0, 0, 0), Date(10000, 11, 31,23, 59, 59)]
+   *
+   * **Description:**
+   *
+   * When start is set to a valid value, loop does not take effect.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -242,7 +269,15 @@ export declare class CommonOptions {
   start?: Date;
 
   /**
-   * End date or time of picker.
+   * End date or time of the picker.
+   *
+   * Default value: Date(2100, 12, 31, 23, 59, 59)
+   *
+   * Value range: [Date(0, 0, 1, 0, 0, 0), Date(10000, 11, 31,23, 59, 59)]
+   *
+   * **Description:**
+   *
+   * When end is set to a valid value, loop does not take effect.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -254,6 +289,7 @@ export declare class CommonOptions {
 
   /**
    * Selected date.
+   * Default value is the current system date or time.
    *
    * @default current system date or time
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -265,7 +301,12 @@ export declare class CommonOptions {
   selected?: Date;
 
   /**
-   * Sets whether to enable the wheel mode.
+   * Sets whether to enable loop mode.
+   *
+   * - true: Enable loop mode.
+   * - false: Disable loop mode.
+   *
+   * Default value: true
    *
    * @default true
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -277,7 +318,7 @@ export declare class CommonOptions {
   loop?: boolean;
 
   /**
-   * This event is triggered when a DatePickerComponent value is selected.
+   * Callback triggered after date or time is selected.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -288,7 +329,7 @@ export declare class CommonOptions {
   onChange?: Callback<DatePickerComponentResult>;
 
   /**
-   * This event is triggered when a Picker item is selected and scrolling has stopped.
+   * Callback triggered when a picker item is selected and scrolling stops.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -299,7 +340,20 @@ export declare class CommonOptions {
   onScrollStop?: Callback<DatePickerComponentResult>;
 
   /**
-   * Enable or disable haptic feedback.
+   * Enables or disables haptic feedback.
+   *
+   * Default value: true
+   *
+   * - true: Enable haptic feedback.
+   * - false: Disable haptic feedback.
+   *
+   * **Description**:
+   *
+   * 1. When set to true, its effectiveness depends on whether the system's hardware supports it.
+   * 2. To enable haptic feedback, you need to configure the requestPermissions field in the project's
+   * [module.json5](docroot://quick-start/module-configuration-file.md) to enable vibration permission, as follows:
+   *
+   * "requestPermissions": [{"name": "ohos.permission.VIBRATE"}]
    *
    * @default true
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -312,7 +366,9 @@ export declare class CommonOptions {
 }
 
 /**
- * Defines date options for DatePickerComponent.
+ * DateOptions defines options for the date picker.
+ *
+ * Inherits from [CommonOptions]{@link CommonOptions}.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -322,7 +378,9 @@ export declare class CommonOptions {
  */
 export declare class DateOptions extends CommonOptions {
   /**
-   * Defines mode of date picker.
+   * Defines the mode of the date picker.
+   *
+   * Default value: DateMode.DATE
    *
    * @default DateMode.DATE
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -334,7 +392,17 @@ export declare class DateOptions extends CommonOptions {
   mode?: DateMode;
 
   /**
-   * Specifies whether to display lunar calendar.
+   * Specifies whether to display as lunar calendar.
+   *
+   * - true: Display as lunar calendar.
+   * - false: Do not display as lunar calendar.
+   *
+   * Default value: false
+   *
+   * **Description**:
+   *
+   * This only takes effect in Simplified Chinese and Traditional Chinese language environments.
+   * In other language environments, setting this property has no effect.
    *
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -347,7 +415,9 @@ export declare class DateOptions extends CommonOptions {
 }
 
 /**
- * Defines time options for DatePickerComponent.
+ * TimeOptions defines options for the time picker.
+ *
+ * Inherits from [CommonOptions]{@link CommonOptions}.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -357,7 +427,9 @@ export declare class DateOptions extends CommonOptions {
  */
 export declare class TimeOptions extends CommonOptions {
   /**
-   * Defines format of time picker.
+   * Defines the format of the time picker.
+   *
+   * Default value: TimeFormat.HOUR_MINUTE
    *
    * @default TimeFormat.HOUR_MINUTE
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -371,6 +443,11 @@ export declare class TimeOptions extends CommonOptions {
   /**
    * Specifies whether to display time in 24-hour format.
    *
+   * - true: Time is displayed in 24-hour format.
+   * - false: Time is displayed in 12-hour format.
+   *
+   * Default value: false
+   *
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -382,7 +459,7 @@ export declare class TimeOptions extends CommonOptions {
 }
 
 /**
- * Defines options for DatePickerComponent.
+ * DatePickerComponentOptions defines options for the date time picker component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -392,7 +469,9 @@ export declare class TimeOptions extends CommonOptions {
  */
 export declare class DatePickerComponentOptions {
   /**
-   * Display mode of picker.
+   * Display mode of the picker.
+   *
+   * Default value: DisplayMode.DATE
    *
    * @default DisplayMode.DATE
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -427,7 +506,7 @@ export declare class DatePickerComponentOptions {
 }
 
 /**
- * Defines DatePickerComponent.
+ * DatePickerComponent component is used to select date (year, month, day) and time (hour, minute, second).
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -437,15 +516,15 @@ export declare class DatePickerComponentOptions {
  */
 @Component
 export declare struct DatePickerComponent {
-    /**
-     * The options of a date picker view component.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 26.0.0 dynamic
-     */
-    @Prop
-    options: DatePickerComponentOptions;
+  /**
+   * Defines options for the date time picker component.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  @Prop
+  options: DatePickerComponentOptions;
 }
