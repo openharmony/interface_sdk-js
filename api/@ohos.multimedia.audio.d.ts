@@ -12155,6 +12155,28 @@ declare namespace audio {
      * @since 23 dynamic&static
      */
     capturerInfo: AudioCapturerInfo;
+    /**
+     * Prefered input device for this audio capturer.
+     * The preferred device must be an input device, and the source type in
+     * {@link captureInfo} must be {@link SourceType#SOURCE_TYPE_VOICE_RECOGNITION},
+     * {@link SourceType#SOURCE_TYPE_VOICE_TRANSCRIPTION} or {@link SourceType#SOURCE_TYPE_UNPROCESSED_VOICE_ASSISTANT},
+     * otherwise this parameter will be ignored.
+     * If the user does not specify a device, the system will automatically select the recording device for
+     * the audio capturer.
+     * When the user specifies a preferred device:
+     * 1) If the preferred device is online, the current audio capturer may use the preferred device for
+     * recording. If the preferred device becomes offline during recording, the system will select
+     * another device.
+     * 2) If the preferred device is offline, the system will select a recording device.
+     * If the preferred device becomes online during recording, it may switch to the preferred device.
+     * The user can query the selected device by {@link AudioCapturer#getCurrentAudioCapturerChangeInfo}.
+     *
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    preferredInputDevice?: AudioDeviceDescriptor;
   }
 
   /**
