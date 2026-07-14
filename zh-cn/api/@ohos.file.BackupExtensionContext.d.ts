@@ -21,9 +21,8 @@
 import ExtensionContext from './application/ExtensionContext';
 
 /**
- * The context of an ability or an application. It allows access to
- * application-specific resources.
- * Can only be obtained through the ability.
+ * BackupExtensionAbility的上下文环境，继承自ExtensionContext。
+ * 用于在备份恢复过程中获取EL1（设备级加密区）或EL2（用户级加密区）对应的临时目录。
  *
  * @extends ExtensionContext
  * @syscap SystemCapability.FileManagement.StorageService.Backup
@@ -33,7 +32,7 @@ import ExtensionContext from './application/ExtensionContext';
  */
 declare class BackupExtensionContext extends ExtensionContext {
   /**
-   * Indicates backup dir.
+   * 获取备份恢复时的临时路径。该路径仅允许在备份恢复过程中临时使用，目前仅支持EL1、EL2路径。
    *
    * @type { string }
    * @syscap SystemCapability.FileManagement.StorageService.Backup
@@ -43,9 +42,9 @@ declare class BackupExtensionContext extends ExtensionContext {
    readonly backupDir: string;
 
   /**
-   * Indicates the backup directory.
+   * 获取备份恢复时的临时路径。该路径仅允许在备份恢复过程中临时使用，目前仅支持EL1、EL2路径。
    *
-   * @returns { string } The backup directory.
+   * @returns { string } 备份恢复时的临时路径。
    * @syscap SystemCapability.FileManagement.StorageService.Backup
    * @stagemodelonly
    * @since 23 static

@@ -20,7 +20,7 @@
 import type BackupExtensionContext from './@ohos.file.BackupExtensionContext';
 
 /**
- * Describe bundle version
+ * 恢复时所需要的版本信息，开发者可根据配置的版本号来判断本次恢复时的应用版本数据。
  *
  * @interface BundleVersion
  * @syscap SystemCapability.FileManagement.StorageService.Backup
@@ -30,7 +30,7 @@ import type BackupExtensionContext from './@ohos.file.BackupExtensionContext';
  */
 export interface BundleVersion {
   /**
-   * Indicates bundle's version code.
+   * 应用的版本号。
    *
    * @type { long }
    * @syscap SystemCapability.FileManagement.StorageService.Backup
@@ -41,7 +41,7 @@ export interface BundleVersion {
   code: long;
 
   /**
-   * Indicates bundle's version name.
+   * 应用的版本名称。
    *
    * @type { string }
    * @syscap SystemCapability.FileManagement.StorageService.Backup
@@ -53,7 +53,7 @@ export interface BundleVersion {
 }
 
 /**
- * Class to be override for backup extension ability.
+ * 备份恢复扩展能力。应用可通过该类实现自定义备份、恢复、进度上报和安全退出逻辑。
  *
  * @syscap SystemCapability.FileManagement.StorageService.Backup
  * @StageModelOnly
@@ -62,7 +62,7 @@ export interface BundleVersion {
  */
 declare class BackupExtensionAbility {
   /**
-   * Indicates backup extension ability context.
+   * BackupExtensionAbility的上下文环境。
    *
    * @type { ExtensionContext }
    * @syscap SystemCapability.FileManagement.StorageService.Backup
@@ -70,7 +70,7 @@ declare class BackupExtensionAbility {
    * @since 11
    */
     /**
-   * Indicates backup extension ability context.
+   * BackupExtensionAbility的上下文环境，继承自ExtensionContext。
    *
    * @type { BackupExtensionContext }
    * @syscap SystemCapability.FileManagement.StorageService.Backup
@@ -81,8 +81,7 @@ declare class BackupExtensionAbility {
   context: BackupExtensionContext;
 
   /**
-   * Callback to be called when the backup procedure is started.
-   * Developer could override this method to build files to be backup.
+   * Extension生命周期回调，在执行备份数据时回调，由开发者实现自定义备份数据处理。
    *
    * @syscap SystemCapability.FileManagement.StorageService.Backup
    * @StageModelOnly
@@ -92,13 +91,11 @@ declare class BackupExtensionAbility {
   onBackup(): void;
 
   /**
-   * Callback to be called when the backup procedure is started.
-   * Developer could override this method to restore.
+   * 备份恢复框架在备份时向应用传递扩展参数，由开发者实现自定义备份处理。
    *
-   * @param { string } backupInfo BackupInfo to be backup, the param is a JSON string,
-   * it is an array, each array element includes detail and type now.
-   * @returns { string | Promise<string> } Return backup result, support promise, the result is a JSON string,
-   * it includes type, errorCode and errorInfo now.
+   * @param { string } backupInfo 备份时框架传递给应用的扩展信息，参数为JSON格式字符串。
+   * @returns { string | Promise<string> } 应用执行自定义备份操作的信息，返回值为JSON格式字符串，
+   * 包含type、errorCode和errorInfo字段，支持同步返回或使用Promise异步返回。
    * @syscap SystemCapability.FileManagement.StorageService.Backup
    * @StageModelOnly
    * @since 12 dynamic
@@ -107,10 +104,9 @@ declare class BackupExtensionAbility {
   onBackupEx(backupInfo: string): string | Promise<string>;
 
   /**
-   * Callback to be called when the restore procedure is started.
-   * Developer could override this method to restore from copies for various bundle versions.
+   * Extension生命周期回调，在执行恢复数据时回调，由开发者提供扩展的恢复数据操作。
    *
-   * @param { BundleVersion } bundleVersion Bundle version to be restore.
+   * @param { BundleVersion } bundleVersion 恢复时应用数据所在的版本信息。
    * @syscap SystemCapability.FileManagement.StorageService.Backup
    * @StageModelOnly
    * @since 10 dynamic
@@ -119,14 +115,12 @@ declare class BackupExtensionAbility {
   onRestore(bundleVersion: BundleVersion): void;
 
   /**
-   * Callback to be called when the restore procedure is started.
-   * Developer could override this method to restore.
+   * Extension生命周期回调，在执行恢复数据时回调，由开发者实现自定义恢复数据处理。
    *
-   * @param { BundleVersion } bundleVersion Bundle version to be restore.
-   * @param { string } restoreInfo RestoreInfo to be restore, the param is a JSON string,
-   * it is an array, each array element includes detail and type now.
-   * @returns { string | Promise<string> } Return restore result, support promise. the result is a JSON string,
-   * it includes type, errorCode and errorInfo now.
+   * @param { BundleVersion } bundleVersion 恢复时应用数据所在的版本信息。
+   * @param { string } restoreInfo 恢复时框架传递给应用的扩展信息，参数为JSON格式字符串。
+   * @returns { string | Promise<string> } 应用执行自定义恢复操作的信息，返回值为JSON格式字符串，
+   * 包含type、errorCode和errorInfo字段，支持同步返回或使用Promise异步返回。
    * @syscap SystemCapability.FileManagement.StorageService.Backup
    * @StageModelOnly
    * @since 12 dynamic
@@ -135,10 +129,9 @@ declare class BackupExtensionAbility {
   onRestoreEx(bundleVersion: BundleVersion, restoreInfo: string): string | Promise<string>;
 
   /**
-    * Callback to be called when getting application backupInfo.
-    * Developer could override this method to provide the backupInfo.
+    * 在调用方查询应用数据时执行，由应用返回自定义备份信息。
     *
-    * @returns { string } Return the backup application's info.
+    * @returns { string } 应用自定义的备份信息，具体格式和字段由应用自行定义。
     * @syscap SystemCapability.FileManagement.StorageService.Backup
     * @systemapi
     * @StageModelOnly
@@ -148,10 +141,9 @@ declare class BackupExtensionAbility {
   getBackupInfo(): string;
 
   /**
-    * Callback to be called when getting backup/restore process info.
-    * Developer could override this method to provide the backup/restore process info.
+    * 返回应用执行备份或恢复业务的进度信息。
     * 
-    * @returns { string } Return the backup/restore process info.
+    * @returns { string } 应用处理数据的进度信息，返回值为JSON格式字符串。
     * @syscap SystemCapability.FileManagement.StorageService.Backup
     * @StageModelOnly
     * @since 12 dynamic
@@ -160,11 +152,10 @@ declare class BackupExtensionAbility {
   onProcess(): string;
   
   /**
-   * Callback to be called before extension ability exits.
-   * Developer could override this method to clean abnormal data.
+   * 备份恢复框架安全退出回调，应用可在备份或恢复完成后清理临时文件。
    *
-   * @param { int } scenario - The value 1 indicates backup and the value 2 indicates restoration.
-   * @returns { Promise<void> } the promise returned by the function
+   * @param { int } scenario 当前操作场景，值为1表示备份，值为2表示恢复。
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @syscap SystemCapability.FileManagement.StorageService.Backup
    * @StageModelOnly
    * @since 20 dynamic
@@ -173,11 +164,10 @@ declare class BackupExtensionAbility {
   onRelease(scenario: int): Promise<void>;
 
   /**
-   * Callback to be called when getting application backup compatibilityInfo.
-   * Developer could override this method to provide the backup compatibilityInfo.
+   * 在应用备份阶段，调用方获取应用自定义兼容性信息时执行，由应用实现返回。
    *
-   * @param { string } extInfo Information about the capabilities of the peer.
-   * @returns { Promise<string> } Return backup compatibilityInfo, support promise.
+   * @param { string } extInfo 传递给应用的额外信息，由应用自行处理。
+   * @returns { Promise<string> } Promise对象，返回备份过程中应用自定义的兼容性信息。
    * @syscap SystemCapability.FileManagement.StorageService.Backup
    * @systemapi
    * @StageModelOnly
@@ -187,11 +177,10 @@ declare class BackupExtensionAbility {
   getBackupCompatibilityInfo(extInfo: string) : Promise<string>;
 
   /**
-   * Callback to be called when getting application restore compatibilityInfo.
-   * Developer could override this method to provide the restore compatibilityInfo.
+   * 在应用恢复阶段，调用方获取应用自定义兼容性信息时执行，由应用实现返回。
    *
-   * @param { string } extInfo Information about the capabilities of the peer.
-   * @returns { Promise<string> } Return restore compatibilityInfo, support promise.
+   * @param { string } extInfo 传递给应用的额外信息，由应用自行处理。
+   * @returns { Promise<string> } Promise对象，返回恢复过程中应用自定义的兼容性信息。
    * @syscap SystemCapability.FileManagement.StorageService.Backup
    * @systemapi
    * @StageModelOnly
