@@ -11632,8 +11632,9 @@ declare namespace audio {
     /**
      * Prefered input device for this audio capturer.
      * The preferred device must be an input device, and the source type in
-     * {@link captureInfo} must be {@link SourceType#SOURCE_TYPE_VOICE_RECOGNITION} or
-     * {@link SourceType#SOURCE_TYPE_VOICE_TRANSCRIPTION}, otherwise this parameter will be ignored.
+     * {@link captureInfo} must be {@link SourceType#SOURCE_TYPE_VOICE_RECOGNITION},
+     * {@link SourceType#SOURCE_TYPE_VOICE_TRANSCRIPTION} or {@link SourceType#SOURCE_TYPE_UNPROCESSED_VOICE_ASSISTANT},
+     * otherwise this parameter will be ignored.
      * If the user does not specify a device, the system will automatically select the recording device for
      * the audio capturer.
      * When the user specifies a preferred device:
