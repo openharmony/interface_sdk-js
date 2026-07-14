@@ -15,16 +15,23 @@
  */
 
 /**
- * @file
- * @kit ArkUI
+  * @file
+  * @kit ArkUI
  */
 
 import { CommonMethod, Callback } from './common';
+
 import { DotIndicator, DigitIndicator } from './swiper';
+
+import { CommonMethod, Callback } from "./common";
+
 import { Builder, ComponentBuilder, CustomBuilder, CustomBuilderT } from './builder';
+import { DotIndicator, DigitIndicator } from "./swiper";
+import { Builder, ComponentBuilder, CustomBuilderT } from './../stateManagement/runtime';
+import { CustomBuilder } from './builder';
 
 /**
- * Provides methods for switching components.
+ * Indicator组件的控制器，可以将此对象绑定至Indicator组件来控制翻页。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -32,7 +39,7 @@ import { Builder, ComponentBuilder, CustomBuilder, CustomBuilderT } from './buil
  */
 export declare class IndicatorComponentController {
   /**
-   * constructor.
+   * IndicatorComponentController的构造函数。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -41,7 +48,7 @@ export declare class IndicatorComponentController {
   constructor();
 
   /**
-   * Called when the next child component is displayed.
+   * 跳转到下一导航点。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -50,7 +57,7 @@ export declare class IndicatorComponentController {
   showNext(): void;
 
   /**
-   * Called when the previous subcomponent is displayed.
+   * 跳转到上一导航点。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -59,13 +66,10 @@ export declare class IndicatorComponentController {
   showPrevious(): void;
 
   /**
-   * Controlling IndicatorComponent to change to the specified subcomponent.
+   * 翻至指定页面。
    *
-   * @param { int | undefined } index - The index of item to be redirected, default value is 0.
-   *     undefined means set to default value.
-   * @param { boolean } [useAnimation] - If true, swipe to index item with animation.
-   *     If false, swipe to index item without animation.
-   *     The default value is false.
+   * @param { int | undefined } index - 指定页面在Swiper中的索引值。
+   * @param { boolean } [useAnimation] - 设置翻至指定页面时是否有动效，true表示有动效，false表示没有动效。<br/>默认值：false。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -74,7 +78,7 @@ export declare class IndicatorComponentController {
 }
 
 /**
- * Defines the IndicatorComponent attribute functions.
+ * 除支持[通用属性]{@link ./../../@internal/component/ets/common}外，还支持以下属性。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -82,76 +86,86 @@ export declare class IndicatorComponentController {
  */
 export declare interface IndicatorComponentAttribute extends CommonMethod {
   /**
-   * Called when the index value of the displayed subcomponent is set in the container.
+   * 设置首次显示时当前导航点的索引值。设置小于0或大于等于导航点数量时，按照默认值0处理。
+   * 
+   * 单独导航点组件和Swiper绑定的时候，该属性不生效。
    *
    * @param { int | undefined } index
    * @returns { IndicatorComponentAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+      * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
   initialIndex(index: int | undefined): this;
 
   /**
-   * Sets the total number of indicator.
+   * 设置导航点总数量。
+   * 
+   * 单独导航点组件和Swiper绑定的时候，以Swiper的页面数量为准。
    *
    * @param { int | undefined } totalCount
    * @returns { IndicatorComponentAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+      * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
   count(totalCount: int | undefined): this;
 
   /**
-   * Sets the indicator style.
+   * 设置可选导航点指示器样式。
    *
-   * @param { DotIndicator | DigitIndicator | undefined } indicatorStyle - the style value
+   * @param { DotIndicator | DigitIndicator | undefined } indicatorStyle - 可选导航点指示器样式。<br/> - DotIndicator：圆点指示器样式。<br/>
+   *     - DigitIndicator：数字指示器样式。<br/>  默认类型：DotIndicator。
    * @returns { IndicatorComponentAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+      * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
   style(indicatorStyle: DotIndicator | DigitIndicator | undefined): this;
 
   /**
-   * Called when setting whether to turn on cyclic sliding.
+   * 设置是否开启循环。
+   * 
+   * 单独导航点组件和Swiper绑定的时候，该属性不生效。
    *
    * @param { boolean | undefined } isLoop
    * @returns { IndicatorComponentAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+      * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
   loop(isLoop: boolean | undefined): this;
 
   /**
-   * Called when setting whether to slide vertically.
+   * 设置是否为纵向滑动。
+   * 
+   * 单独导航点组件和Swiper绑定的时候，该属性不生效。
    *
    * @param { boolean | undefined } isVertical
    * @returns { IndicatorComponentAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+      * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
   vertical(isVertical: boolean | undefined): this;
 
   /**
-   * Called when the index value changes.
+   * 当前显示的选中导航点索引变化时触发该事件，可通过回调函数获取当前选中导航点的索引值。
    *
    * @param { Callback<int> | undefined } event
    * @returns { IndicatorComponentAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+      * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
   onChange(event: Callback<int> | undefined): this;
 
+
   /**
-   * Set indicatorComponent options.
+   * 设置indicatorComponent组件配置项。
    *
-   * @param { IndicatorComponentController } [controller] - IndicatorComponent constructor options
-   * @returns { IndicatorComponentAttribute } Returns the instance of the IndicatorComponentAttribute.
+   * @param { IndicatorComponentController } [controller] - IndicatorComponent构造函数选项
+   * @returns { IndicatorComponentAttribute } 返回IndicatorComponentAttribute的实例。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.0.0 staticonly
@@ -160,11 +174,11 @@ export declare interface IndicatorComponentAttribute extends CommonMethod {
 }
 
 /**
- * Defines IndicatorComponent Component
+ * 单独导航点组件的构造函数，可配置该组件的控制器。
  *
  * @param { IndicatorComponentController } [controller] - IndicatorComponent constructor options
  * @returns { IndicatorComponentAttribute }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  * @noninterop
@@ -175,11 +189,11 @@ export declare function IndicatorComponent(
 ): IndicatorComponentAttribute;
 
 /**
- * Defines IndicatorComponent Component
+ * 定义IndicatorComponent组件
  *
- * @param { CustomBuilderT<IndicatorComponentAttribute> } style_ - indicatorComponent attribute instance
+ * @param { CustomBuilderT<IndicatorComponentAttribute> } style_ - indicatorComponent属性实例
  * @returns { IndicatorComponentAttribute }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 26.0.0 staticonly
  */
