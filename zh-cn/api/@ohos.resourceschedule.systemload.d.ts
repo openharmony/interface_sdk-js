@@ -14,15 +14,14 @@
  */
 
 /**
- * @file System Load Level Management
+ * @file 性能功耗热融合档位
  * @kit BasicServicesKit
  */
 
 import type { Callback } from './@ohos.base';
 
 /**
- * The **systemload** module allows the system to determine the system load level based on the current temperature,
- * load, and scenario, and notifies registered applications of level changes, if any.
+ * 系统根据当前温度、负载以及是否处于高负载场景等信息决策出系统负载融合档位，并在档位变化时通知已注册的应用。
  *
  * @syscap SystemCapability.ResourceSchedule.SystemLoad
  * @since 12 dynamic
@@ -30,7 +29,7 @@ import type { Callback } from './@ohos.base';
  */
 declare namespace systemLoad {
     /**
-     * Enumerates system load levels.
+     * 系统负载融合档位。
      *
      * @syscap SystemCapability.ResourceSchedule.SystemLoad
      * @since 12 dynamic
@@ -38,7 +37,7 @@ declare namespace systemLoad {
      */
     export enum SystemLoadLevel {
         /**
-         * The device temperature and load are low.
+         * 设备当前温度、负载比较低，无高负载场景。
          * 
          * @syscap SystemCapability.ResourceSchedule.SystemLoad
          * @since 12 dynamic
@@ -46,8 +45,7 @@ declare namespace systemLoad {
          */
         LOW = 0,
         /**
-         * The device temperature and load are normal but are approaching the medium range. You need to downgrade
-         * or reduce the load of imperceptible services.
+         * 设备温度、负载正常，但邻近中等状态，无感知业务应降低规格和负载。
          * 
          * @syscap SystemCapability.ResourceSchedule.SystemLoad
          * @since 12 dynamic
@@ -55,8 +53,7 @@ declare namespace systemLoad {
          */
         NORMAL = 1,
         /**
-         * One or more device temperature or load items are slightly high, or the device temperature is in the medium
-         * range but the load is high. You need to stop or delay some imperceptible services.
+         * 设备温度、负载有一项或多项稍高，或者当前处于高负载场景，无感知业务应暂停或延迟运行。
          * 
          * @syscap SystemCapability.ResourceSchedule.SystemLoad
          * @since 12 dynamic
@@ -64,8 +61,7 @@ declare namespace systemLoad {
          */
         MEDIUM = 2,
         /**
-         * The device temperature and load are relatively high. You need to stop all imperceptible services and
-         * downgrade or reduce the load of non-critical services.
+         * 设备当前发热明显或负载比较高，或处于负载温度中等但处于高负载场景，无感知业务应停止，非关键业务应降低规格及负载。
          * 
          * @syscap SystemCapability.ResourceSchedule.SystemLoad
          * @since 12 dynamic
@@ -73,8 +69,7 @@ declare namespace systemLoad {
          */
         HIGH = 3,
         /**
-         * The device temperature and load are high, and the device is overheated. You need to stop all imperceptible
-         * services and downgrade or reduce the load of major foreground services.
+         * 设备发热严重或者负载较重，无感知业务与非关键业务应停止，前台关键业务应降低规格及负载。
          * 
          * @syscap SystemCapability.ResourceSchedule.SystemLoad
          * @since 12 dynamic
@@ -82,8 +77,7 @@ declare namespace systemLoad {
          */
         OVERHEATED = 4,
         /**
-         * The device is overheated or heavily loaded and is about to enter the Warning state. You need to stop all
-         * imperceptible services and downgrade major foreground services to the maximum extent.
+         * 设备过热或负载过重，或者温度较高但处于高负载场景，即将进入紧急状态，整机资源供给大幅降低，停止所有非关键，前台关键业务应降低至最低规格。
          * 
          * @syscap SystemCapability.ResourceSchedule.SystemLoad
          * @since 12 dynamic
@@ -91,8 +85,7 @@ declare namespace systemLoad {
          */
         WARNING = 5,
         /**
-         * The device is overheated or significantly heavy loaded and is about to enter the Emergency state.
-         * You need to stop all services except those for fundamental use.
+         * 设备已经进入过热状态或负载极高紧急状态，或接近紧急状态但处于高负载场景，整机资源供给降至最低，设备功能受限，仅保留基础功能可用。
          * 
          * @syscap SystemCapability.ResourceSchedule.SystemLoad
          * @since 12 dynamic
@@ -100,8 +93,7 @@ declare namespace systemLoad {
          */
         EMERGENCY = 6,
         /**
-         * The device is overheated or extremely heavy loaded and is about to enter the Escape state.
-         * You need to stop all services and take necessary emergency measures such as data backup.
+         * 设备即将进入热逃生状态或当前负载已经不堪重负，或已经处于紧急状态且高负载状态，所有业务将被强制停止，业务需做好逃生措施，例如保存重要数据等。
          * 
          * @syscap SystemCapability.ResourceSchedule.SystemLoad
          * @since 12 dynamic
@@ -111,10 +103,10 @@ declare namespace systemLoad {
     }
 
     /**
-     * Enables listening for system load level changes. This API uses an asynchronous callback to return the result.
+     * 注册系统负载回调，感知系统负载融合档位变化，使用callback异步回调。
      *
-     * @param { 'systemLoadChange' } type - Change type. This parameter has a fixed value of **systemLoadChange**.
-     * @param { Callback<SystemLoadLevel> } callback - Callback used to return the system load level.
+     * @param { 'systemLoadChange' } type - 固定取值'systemLoadChange'，系统负载变化类型。
+     * @param { Callback<SystemLoadLevel> } callback - 回调函数，返回本次注册系统负载时的系统负载融合档位。
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Callback parameter error;
      *     <br> 2. Register a exist callback type; 3. Parameter verification failed.
      * @syscap SystemCapability.ResourceSchedule.SystemLoad
@@ -131,12 +123,12 @@ declare namespace systemLoad {
     function onSystemLoadChange(callback: Callback<SystemLoadLevel>): void;
 
     /**
-     * Disables listening for system load level changes. This API uses an asynchronous callback to return the result.
+     * 取消注册系统负载回调，使用callback异步回调。
      *
-     * @param { 'systemLoadChange' } type - Change type. This parameter has a fixed value of **systemLoadChange**.
-     * @param { Callback<SystemLoadLevel> } callback - Callback used to return the system load level.
+     * @param { 'systemLoadChange' } type - 固定取值'systemLoadChange'，系统负载变化类型。
+     * @param { Callback<SystemLoadLevel> } callback - 回调函数，返回本次取消注册系统负载时的系统负载融合档位。
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Callback parameter error;
-     * <br> 2. Unregister type has not register; 3. Parameter verification failed.
+     *     <br> 2. Unregister type has not register; 3. Parameter verification failed.
      * @syscap SystemCapability.ResourceSchedule.SystemLoad
      * @since 12 dynamic
      */
@@ -151,9 +143,9 @@ declare namespace systemLoad {
     function offSystemLoadChange(callback?: Callback<SystemLoadLevel>): void;
 
     /**
-     * Obtains the system load level. This API uses a promise to return the result.
+     * 获取系统负载融合档位，使用promise异步回调。
      *
-     * @returns { Promise<SystemLoadLevel> } Promise used to return the system load level.
+     * @returns { Promise<SystemLoadLevel> } Promise对象，返回系统负载融合档位。
      * @syscap SystemCapability.ResourceSchedule.SystemLoad
      * @since 12 dynamic
      * @since 23 static
