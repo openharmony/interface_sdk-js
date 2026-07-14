@@ -470,7 +470,8 @@ declare namespace reminderAgentManager {
   }
 
   /**
-   * Time zone type.
+   * Enumerates the time zone types. When the time zone is changed, the reminder time is recalculated based
+   * on the new time zone.
    *
    * @syscap SystemCapability.Notification.ReminderAgent
    * @stagemodelonly
@@ -478,7 +479,10 @@ declare namespace reminderAgentManager {
    */
   export enum TimeZoneType {  
     /**
-     * Default. It is the same as version 25 and earlier versions.
+     * Default value. When the time zone is changed, the reminder time is calculated in the same way as that
+     * for the time zone type of **FIXED_TIME_ZONE**. When the time is changed, the reminder time is calculated
+     * in the same way as that for the time zone type of **SYSTEM_TIME_ZONE**. You are advised to set the time
+     * zone type to **FIXED_TIME_ZONE** or **SYSTEM_TIME_ZONE** based on the service scenario.
      *
      * @syscap SystemCapability.Notification.ReminderAgent
      * @stagemodelonly
@@ -487,7 +491,10 @@ declare namespace reminderAgentManager {
     DEFAULT = 0,
 
     /**
-     * Fixed time zone, follows UTC time.
+     * Fixed time zone, which is used in scenarios such as ticket booking and meetings. For example, if the reminder
+     * time is set to 08:00 (GMT+8), the reminder will be triggered at 08:00 (GMT+8) no matter whether the device time
+     * zone is changed. If the device time zone is changed to GMT+4, the reminder will be triggered at 04:00. The
+     * reminder time is not affected by the change of the system time.
      *
      * @syscap SystemCapability.Notification.ReminderAgent
      * @stagemodelonly
@@ -496,7 +503,9 @@ declare namespace reminderAgentManager {
     FIXED_TIME_ZONE = 1,
 
     /**
-     * Follow the system's current time zone.
+     * System time zone, which is used in scenarios such as setting the alarm clock, fixed time for exercise, and sleep time.
+     * For example, if the reminder time is set to 08:00 (GMT+8), and the time zone is changed to GMT+4, the reminder will
+     * still be triggered at 08:00. The reminder time is not affected by the change of the system time.
      *
      * @syscap SystemCapability.Notification.ReminderAgent
      * @stagemodelonly
@@ -689,20 +698,15 @@ declare namespace reminderAgentManager {
   /**
    * Notification request proxy.
    *
-   * @interface NotificationRequestProxy
    * @syscap SystemCapability.Notification.ReminderAgent
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
   interface NotificationRequestProxy {
     /**
-     * Unique ID carried in a notification sent by an app, which is used for notification deduplication.
-     * If an app publishes notifications with the same appMessageId locally or on the cloud,
-     * the device displays only one message.
-     * Repeated notifications received later will be silenced and deduplicated, and will not be displayed or notified.
-     * The deduplication flag is valid only within 24 hours after the notification is published.
-     * After 24 hours or the device is restarted,
-     * the deduplication flag becomes invalid.
+     * Unique ID carried in a notification sent by an application, which is used for notification deduplication.
+     * This parameter is left empty by default. For details, see
+     * [NotificationRequest.appMessageId]{@link ./notification/notificationRequest:NotificationRequest}.
      *
      * @syscap SystemCapability.Notification.ReminderAgent
      * @stagemodelonly
@@ -711,10 +715,13 @@ declare namespace reminderAgentManager {
     appMessageId?: string;
 	
     /**
-     * Whether to send a notification only once when the notification is published or updated.
-     * - true: A notification is sent only when the notification is published for the first time. For subsequent update,
-     *         the notification mode is changed to LEVEL_MIN.
-     * - false (default): A notification is sent based on the configured notification mode.
+     * Whether to send a notification alert only once when a notification is published or updated. The default value is
+     * **false**. For details, see
+     * [NotificationRequest.isAlertOnce]{@link ./notification/notificationRequest:NotificationRequest}.
+     * 
+     * - **true**: An alert is sent only when the notification is published for the first time. For subsequent update,
+     * the alert mode is changed to [LEVEL_LOW]{@link @ohos.notificationManager:notificationManager.SlotLevel}.
+     * - **false**: The alert is sent in the configured alert mode.
      *
      * @syscap SystemCapability.Notification.ReminderAgent
      * @stagemodelonly
@@ -793,6 +800,10 @@ declare namespace reminderAgentManager {
      * set, the reminder rings on the specified channel 
      * [ReminderRequest.ringChannel]{@link reminderAgentManager.ReminderRequest}. Otherwise, the custom notification 
      * tone of the agent-powered reminder is used.
+     * 
+     * The device vibrates when the reminder rings. Since API version 26.0.0, long vibration is supported, and the
+     * vibration duration is the same as the ring duration. In versions earlier than API 26.0.0, the device vibrates
+     * once quickly when the reminder rings.
      *
      * @syscap SystemCapability.Notification.ReminderAgent
      * @since 9 dynamic
@@ -1005,8 +1016,7 @@ declare namespace reminderAgentManager {
     forceDistributed?: boolean;
 
     /**
-     * Time zone type.
-     * Default value: DEFAULT.
+     * Time zone type. The default value is **TimeZoneType.DEFAULT**.
      *
      * @syscap SystemCapability.Notification.ReminderAgent
      * @stagemodelonly
@@ -1015,7 +1025,7 @@ declare namespace reminderAgentManager {
     fixedTimeZone?: TimeZoneType;
 
     /**
-     * Notification request proxy.
+     * Notification request message. This parameter is left empty by default.
      *
      * @syscap SystemCapability.Notification.ReminderAgent
      * @stagemodelonly
@@ -1154,8 +1164,10 @@ declare namespace reminderAgentManager {
     triggerTimeInSeconds: long;
 
     /**
-     * The repeat interval.
-     * Unit: s.
+     * Repeat interval. There is no default value. If no value is set, there is no repeat interval. This parameter
+     * must be used together with **repeatCount**.
+     * 
+     * The value range is [86400, +∞), in seconds. If the value is out of range, error code 401 is returned.
      *
      * @syscap SystemCapability.Notification.ReminderAgent
      * @stagemodelonly
@@ -1164,7 +1176,10 @@ declare namespace reminderAgentManager {
     repeatInterval?: long;
 
     /**
-     * The repeat count.
+     * Number of repetitions. The default value is **0**, indicating infinite repetitions. This parameter must be used
+     * together with **repeatInterval**.
+     * 
+     * The value range is [0, +∞). If the value is out of range, error code 401 is returned.
      *
      * @syscap SystemCapability.Notification.ReminderAgent
      * @stagemodelonly
