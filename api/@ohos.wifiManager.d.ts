@@ -4812,7 +4812,7 @@ declare namespace wifiManager {
   
     /**
      * Whether to add the network to the system for connection.
-     * Default is false, if set to ture, the network will be added to the system
+     * Default is false, if set to true, the network will be added to the system
      * before connection and cannot be retrieved again.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @stagemodelonly
@@ -5641,7 +5641,7 @@ declare namespace wifiManager {
   /**
    * Query whether Wi-Fi is available
    *
-   * @returns { boolean } Returns {@code true} if the Wi-Fi is abailable, returns {@code false} otherwise.
+   * @returns { boolean } Returns {@code true} if the Wi-Fi is available, returns {@code false} otherwise.
    * @throws { BusinessError } 2401000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.Core
    * @stagemodelonly
