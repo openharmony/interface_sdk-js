@@ -1118,6 +1118,18 @@ export interface PageInfo {
 }
 
 /**
+ * Defines the callback type for intercepting a back-press event on an overlay.
+ *
+ * @returns { boolean } Whether to intercept the back-press event.
+ *     If **true** is returned, the event is intercepted and is prevented from reaching the lower-layer component.
+ *     If **false** is returned, the event is transparently transmitted to the lower-layer component.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+type OnOverlayBackPressCallback = () => boolean;
+
+/**
  * the property of OverlayManager.
  *
  * @interface OverlayManagerOptions
@@ -1148,6 +1160,23 @@ export interface OverlayManagerOptions {
    * @since 23 static
    */
   enableBackPressedEvent?: boolean;
+
+  /**
+   * Callback for intercepting back-press events on an overlay.
+   * 
+   * **NOTE**
+   * 1. When this callback is registered and **enableBackPressedEvent** is set to **true**,
+   *    the back-press event will not close the overlay automatically. Instead, the overlay invokes this callback
+   *    to decide whether the event should be propagated to the underlying components.
+   * 2. Return **true** to intercept the event (the event is consumed and will not be passed
+   *    to lower layers), or **false** to allow the event to propagate through to the components
+   *    below the overlay.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  onBackPress?: OnOverlayBackPressCallback;
 }
 
 /**
