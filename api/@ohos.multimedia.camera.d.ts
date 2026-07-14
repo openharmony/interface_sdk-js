@@ -4274,7 +4274,7 @@ declare namespace camera {
     getIso(): int;
 
     /**
-     * Sets ISO sensitivity value, within the range of getSupportedIsoRange. This control is only effective if
+     * Sets ISO sensitivity value, within the range of getSupportedIsoRange. This control can not be effective if
      * ExposureMode is set to EXPOSURE_MODE_LOCKED.
      *
      * @param { int } iso - ISO
@@ -9165,7 +9165,8 @@ declare namespace camera {
     setExposure(exposure: int): void;
 
     /**
-     * Sets Exposure duration value, units: microseconds.
+     * Sets Exposure duration value, units: microseconds.This control is only effective if
+     * ExposureMode is set to EXPOSURE_MODE_MANUAL.
      *
      * @param { int } exposureDuration - Exposure duration value
      * @throws { BusinessError } 7400103 - Session not config.
