@@ -312,6 +312,35 @@ declare namespace motion {
   }
 
   /**
+   * Enum for hover hand actions.
+   *
+   * @syscap SystemCapability.MultimodalAwareness.Motion
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  export enum HoverHandAction {
+    /**
+     * Indicates the hover hand enters the detection area.
+     *
+     * @syscap SystemCapability.MultimodalAwareness.Motion
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    DOWN = 0,
+    /**
+     * Indicates the hover hand leaves the detection area.
+     *
+     * @syscap SystemCapability.MultimodalAwareness.Motion
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    UP = 1
+  }
+
+  /**
    * The basic data structure of the smart rotate sensor event.
    *
    * @syscap SystemCapability.MultimodalAwareness.Motion
@@ -338,6 +367,60 @@ declare namespace motion {
      * @since 26.0.0 dynamic&static
      */
     logicalOrientation?: LogicalOrientation;
+  }
+
+  /**
+   * The basic data structure of the hover hand detection area.
+   *
+   * @syscap SystemCapability.MultimodalAwareness.Motion
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  export interface HoverHandDetectionArea {
+    /**
+     * Left boundary of the rectangle.
+     * Unit: px. The value must be an integer within [-2147483648,2147483647].
+     *
+     * @syscap SystemCapability.MultimodalAwareness.Motion
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    left: int;
+
+    /**
+     * Top boundary of the rectangle.
+     * Unit: px. The value must be an integer within [-2147483648,2147483647].
+     *
+     * @syscap SystemCapability.MultimodalAwareness.Motion
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    top: int;
+
+    /**
+     * Width of the rectangle.
+     * Unit: px. The value must be an integer within [1,2147483647].
+     *
+     * @syscap SystemCapability.MultimodalAwareness.Motion
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    width: int;
+
+    /**
+     * Height of the rectangle.
+     * Unit: px. The value must be an integer within [1,2147483647].
+     *
+     * @syscap SystemCapability.MultimodalAwareness.Motion
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    height: int;
   }
 
   /**
@@ -565,6 +648,71 @@ declare namespace motion {
    * @since 26.0.0 dynamic&static
    */
   function onSmartRotateChange(callback: Callback<SmartRotateEvent>): void;
+
+  /**
+   * Subscribes to hover hand events and immediately starts detection for five seconds.
+   *
+   * @param { HoverHandDetectionArea } detectionArea - Rectangular detection area for hover hand.
+   *     <br> Repeated calls will override the previously set detection area.
+   *     <br> If the area exceeds the screen bounds, it defaults to detecting the overlap.
+   * @param { Callback<HoverHandAction> } callback - Callback used to return hover hand action.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited
+   *     <br> device capabilities.
+   * @throws { BusinessError } 31500001 - Service exception. Possible causes: 1. A system error, such as null pointer,
+   *     <br> container-related exception; 2. N-API invocation exception, invalid N-API status.
+   * @throws { BusinessError } 31500002 - Subscription failed. Possible causes: 1. Callback registration failure;
+   *     <br> 2. Failed to bind native object to js wrapper; 3. N-API invocation exception, invalid N-API status; 4. IPC
+   *     <br> request exception.
+   * @syscap SystemCapability.MultimodalAwareness.Motion
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function onHoverHandChange(detectionArea: HoverHandDetectionArea, callback: Callback<HoverHandAction>): void;
+
+  /**
+   * Subscribes to hover hand events and immediately starts detection.
+   *
+   * @param { HoverHandDetectionArea } detectionArea - Rectangular detection area for hover hand.
+   *     <br> Repeated calls will override the previously set detection area.
+   *     <br> If the area exceeds the screen bounds, it defaults to detecting the overlap.
+   * @param { int } duration - Detection duration.
+   *     <br> Unit: Seconds. The value must be an integer within [1,10].
+   *     <br> Subscription ends automatically after duration expires. Call again to restart the detection.
+   *     <br> Hover hand events are high power consumption events, developers are advised to set the duration as needed.
+   * @param { Callback<HoverHandAction> } callback - Callback used to return hover hand action.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited
+   *     <br> device capabilities.
+   * @throws { BusinessError } 31500001 - Service exception. Possible causes: 1. A system error, such as null pointer,
+   *     <br> container-related exception; 2. N-API invocation exception, invalid N-API status.
+   * @throws { BusinessError } 31500002 - Subscription failed. Possible causes: 1. Callback registration failure;
+   *     <br> 2. Failed to bind native object to js wrapper; 3. N-API invocation exception, invalid N-API status; 4. IPC
+   *     <br> request exception.
+   * @syscap SystemCapability.MultimodalAwareness.Motion
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function onHoverHandChange(
+    detectionArea: HoverHandDetectionArea, duration: int, callback: Callback<HoverHandAction>): void;
+
+  /**
+   * Unsubscribe to hover hand event.
+   *
+   * @param { Callback<HoverHandAction> } [callback] - Callback used to return hover hand action.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 31500001 - Service exception. Possible causes: 1. A system error, such as null pointer,
+   *     <br> container-related exception; 2. N-API invocation exception, invalid N-API status.
+   * @throws { BusinessError } 31500003 - Unsubscription failed. Possible causes: 1. Callback failure;
+   *     <br> 2. N-API invocation exception, invalid N-API status; 3. IPC request exception.
+   * @syscap SystemCapability.MultimodalAwareness.Motion
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function offHoverHandChange(callback?: Callback<HoverHandAction>): void;
 
   /**
    * Unsubscribe to pick up sensor event.
