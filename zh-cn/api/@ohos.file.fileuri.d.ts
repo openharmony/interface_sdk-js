@@ -14,14 +14,14 @@
  */
 
 /**
- * @file
+ * @file 文件URI
  * @kit CoreFileKit
  */
 
 import uri from './@ohos.uri';
 
 /**
- * Provides fileUri APIS
+ * 提供文件URI相关接口。
  *
  * @namespace fileUri
  * @syscap SystemCapability.FileManagement.AppFileService
@@ -29,7 +29,7 @@ import uri from './@ohos.uri';
  */
 
 /**
- * Provides fileUri APIS
+ * 提供文件URI相关接口，可用于URI与应用沙箱路径之间的转换。
  *
  * @namespace fileUri
  * @syscap SystemCapability.FileManagement.AppFileService
@@ -39,14 +39,14 @@ import uri from './@ohos.uri';
  */
 declare namespace fileUri {
   /**
-   * FileUri represents the uri of the file.
+   * FileUri表示文件的URI，继承自uri.URI。
    *
    * @extends uri.URI
    * @syscap SystemCapability.FileManagement.AppFileService
    * @since 10
    */
   /**
-   * FileUri represents the uri of the file.
+   * FileUri表示文件的URI，继承自uri.URI。
    *
    * @extends uri.URI
    * @syscap SystemCapability.FileManagement.AppFileService
@@ -56,9 +56,9 @@ declare namespace fileUri {
    */
   class FileUri extends uri.URI {
     /**
-     * Constructor for obtaining the instance of the FileUri class.
+     * FileUri的构造函数，用于创建FileUri实例。
      *
-     * @param { string } uriOrPath - Uri or Path.
+     * @param { string } uriOrPath - URI或路径。
      * @throws { BusinessError } 13900005 - I/O error
      * @throws { BusinessError } 13900020 - Invalid argument
      * @throws { BusinessError } 13900042 - Unknown error
@@ -67,9 +67,9 @@ declare namespace fileUri {
      * @since 10
      */
     /**
-     * Constructor for obtaining the instance of the FileUri class.
+     * FileUri的构造函数，用于创建FileUri实例。
      *
-     * @param { string } uriOrPath - Uri or Path.
+     * @param { string } uriOrPath - URI或路径。
      * @throws { BusinessError } 13900005 - I/O error
      * @throws { BusinessError } 13900020 - Invalid argument
      * @throws { BusinessError } 13900042 - Unknown error
@@ -82,10 +82,10 @@ declare namespace fileUri {
     constructor(uriOrPath: string);
 
     /**
-     * Obtains the file name of uri.
+     * 通过传入的URI获取文件名称。如果文件名中存在百分号编码字符，将解码后拼接在原处。
      *
      * @returns { string }
-     * string: Return the file name of uri
+     * string：返回URI中的文件名称。
      * @readonly
      * @throws { BusinessError } 13900005 - I/O error
      * @throws { BusinessError } 13900042 - Unknown error
@@ -93,10 +93,10 @@ declare namespace fileUri {
      * @since 10
      */
     /**
-     * Obtains the file name of uri.
+     * 通过传入的URI获取文件名称。如果文件名中存在百分号编码字符，将解码后拼接在原处。
      *
      * @returns { string }
-     * string: Return the file name of uri
+     * string：返回URI中的文件名称。
      * @readonly
      * @throws { BusinessError } 13900005 - I/O error
      * @throws { BusinessError } 13900042 - Unknown error
@@ -108,9 +108,9 @@ declare namespace fileUri {
     get name(): string;
 
     /**
-     * Get the full directory uri where the file URI is located
+     * 获取当前文件URI所在路径的完整目录URI。URI指向目录时直接返回原URI。
      *
-     * @returns { string } Return the directory uri
+     * @returns { string } 返回文件所在路径的目录URI；URI指向目录时返回当前URI。
      * @throws { BusinessError } 13900002 - No such file or directory
      * @throws { BusinessError } 13900012 - Permission denied
      * @throws { BusinessError } 13900042 - Unknown error
@@ -118,9 +118,9 @@ declare namespace fileUri {
      * @since 11
      */
     /**
-     * Get the full directory uri where the file URI is located
+     * 获取当前文件URI所在路径的完整目录URI。URI指向目录时直接返回原URI。
      *
-     * @returns { string } Return the directory uri
+     * @returns { string } 返回文件所在路径的目录URI；URI指向目录时返回当前URI。
      * @throws { BusinessError } 13900002 - No such file or directory
      * @throws { BusinessError } 13900012 - Permission denied
      * @throws { BusinessError } 13900042 - Unknown error
@@ -132,17 +132,17 @@ declare namespace fileUri {
     getFullDirectoryUri(): string;
 
     /**
-     * Check whether the incoming URI is a remote URI
+     * 判断当前URI是否为包含远端标识networkid的远端URI。
      *
-     * @returns { boolean } Return true or false
+     * @returns { boolean } 返回true表示远端URI，返回false表示本地URI。
      * @throws { BusinessError } 13900042 - Unknown error
      * @syscap SystemCapability.FileManagement.AppFileService
      * @since 12
      */
     /**
-     * Check whether the incoming URI is a remote URI
+     * 判断当前URI是否为包含远端标识networkid的远端URI。
      *
-     * @returns { boolean } Return true or false
+     * @returns { boolean } 返回true表示远端URI，返回false表示本地URI。
      * @throws { BusinessError } 13900042 - Unknown error
      * @syscap SystemCapability.FileManagement.AppFileService
      * @atomicservice
@@ -152,9 +152,9 @@ declare namespace fileUri {
     isRemoteUri(): boolean;
 
     /**
-     * Converts this URI into an encoded string.
+     * 将当前URI转换为序列化字符串。
      *
-     * @returns { string } URI in a serialized string.
+     * @returns { string } 返回字符串类型的URI。
      * @syscap SystemCapability.Utils.Lang
      * @stagemodelonly   
      * @since 23 static
@@ -163,20 +163,20 @@ declare namespace fileUri {
   }
   
   /**
-   * Get the uri from the path of file in app sandbox
+   * 通过应用沙箱内的文件路径生成URI。路径中的中文及非数字字母的特殊字符会进行百分号编码。
    *
-   * @param { string } path the path of file in app sandbox
-   * @returns { string } Return the file uri
+   * @param { string } path 应用沙箱内的文件路径。
+   * @returns { string } 返回通过文件路径生成的URI。
    * @throws { BusinessError } 401 - The input parameter is invalidPossible causes:1.Mandatory parameters are left unspecified;
    * <br>2.Incorrect parameter types.
    * @syscap SystemCapability.FileManagement.AppFileService
    * @since 9
    */
   /**
-   * Get the uri from the path of file in app sandbox
+   * 通过应用沙箱内的文件路径生成URI。路径中的中文及非数字字母的特殊字符会进行百分号编码。
    *
-   * @param { string } path the path of file in app sandbox
-   * @returns { string } Return the file uri
+   * @param { string } path 应用沙箱内的文件路径。
+   * @returns { string } 返回通过文件路径生成的URI。
    * @throws { BusinessError } 401 - The input parameter is invalidPossible causes:1.Mandatory parameters are left unspecified;
    * <br>2.Incorrect parameter types.
    * @syscap SystemCapability.FileManagement.AppFileService
