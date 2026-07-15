@@ -2571,7 +2571,7 @@ declare namespace update {
    */
   export interface FactoryResetInfo {
     /**
-     * 恢复出厂设置所需持续时间。单位为秒。取值范围[0, 86400]。超出范围时抛出异常。
+     * 恢复出厂设置所需持续时间。单位为min。取值范围[0, 86400]。超出范围时抛出异常。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.

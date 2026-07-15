@@ -3396,7 +3396,7 @@ declare namespace update {
    */
   export interface FactoryResetInfo {
     /**
-     * Duration required for restoring factory settings, in second. The value range is [0, +∞]. An exception is thrown 
+     * Duration required for restoring factory settings, in minutes. The value range is [0, +∞]. An exception is thrown 
      * if the value is out of range.
      *
      * @syscap SystemCapability.Update.UpdateService
