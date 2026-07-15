@@ -1668,6 +1668,7 @@ declare namespace avSession {
    * @param { Record<string, Object> } args - arguments associated with event
    * @syscap SystemCapability.Multimedia.AVSession.Core
    * @since 23 static
+   * @since 24 dynamic
    */
   type EventProcess = (event: string, args: Record<string, Object>) => void;
 
