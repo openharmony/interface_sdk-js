@@ -2029,7 +2029,17 @@ declare namespace audio {
      * @stagemodelonly
      * @since 24 dynamic&static
      */
-    STREAM_USAGE_EMERGENCY = 23
+    STREAM_USAGE_EMERGENCY = 23,
+    /**
+     * Voice assistant broadcast usage for system app.
+     *
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @systemapi
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    STREAM_USAGE_VOICE_ASSISTANT_SYSTEM = 27
   }
 
   /**
