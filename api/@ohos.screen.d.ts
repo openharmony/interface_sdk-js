@@ -1082,6 +1082,57 @@ declare namespace screen {
      * @since 26.0.0 dynamic&static
      */
     readonly isInUse?: boolean;
+
+    /**
+     * Screen type
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    readonly screenType?: ScreenType;
+  }
+
+  /**
+   * Enumerates the types of screens.
+   *
+   * @syscap SystemCapability.Window.SessionManager
+   * @systemapi Hide this for inner system use.
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  enum ScreenType {
+    /**
+     * The built-in, on-board screen that is physically integrated into the device.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    BUILT_IN = 0,
+
+    /**
+     * An external physical display connected via a wired interface.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    EXTERNAL = 1,
+
+    /**
+     * An virtual display created by software, typically used for screen casting,
+     * screen recording, or multi-screen collaboration.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    VIRTUAL = 2
   }
 
   /**
