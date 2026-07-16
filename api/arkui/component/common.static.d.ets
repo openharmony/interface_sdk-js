@@ -7362,6 +7362,28 @@ export type TripleLengthDetents = [
     SheetSize | Length | undefined
 ];
 /**
+ * Defines the options for blur snapshot optimization.
+ * Setting this object enables blur optimization.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare interface BlurSnapshotOptions {
+  /**
+   * Whether to enable freeze optimization for the blur snapshot.
+   * When enabled, freeze optimization is applied to reduce rendering overhead during blur snapshot.
+   *
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  enableFreeze?: boolean;
+}
+/**
  * Component sheet options
  *
  * @extends BindOptions
@@ -7813,17 +7835,18 @@ export declare interface SheetOptions extends BindOptions {
      */
     edgeLightMode?: EdgeLightMode;
     /**
- 	 * Specifies whether to enable blur optimization for the sheet.
- 	 * When enabled, the sheet background will be rendered using a blur snapshot.
- 	 * This property cannot be dynamically switched after the sheet is presented.
- 	 *
- 	 * @default false
- 	 * @syscap SystemCapability.ArkUI.ArkUI.Full
- 	 * @systemapi
- 	 * @stagemodelonly
- 	 * @since 26.0.0 static
- 	 */
- 	enableBlurSnapshot?: boolean;
+     * Options for blur snapshot optimization of the sheet.
+     * When this property is set, blur optimization is enabled and the sheet background
+     * will be rendered using a blur snapshot.
+     * This property cannot be dynamically switched after the sheet is presented.
+     *
+     * @default undefined
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    blurSnapshot?: BlurSnapshotOptions;
 }
 /**
  * The custom styles function block.
