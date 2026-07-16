@@ -890,6 +890,8 @@ declare namespace screen {
      * @param { OrientationOptions } [orientationOptions] - Options of setting orientation.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 1400001 - Invalid display or screen. Possible cause: The screen is not an external
+     *     display in extended mode.
      * @throws { BusinessError } 1400003 - This display manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
