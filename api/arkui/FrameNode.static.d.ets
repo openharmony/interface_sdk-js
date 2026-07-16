@@ -1235,7 +1235,7 @@ export declare class FrameNode {
    * Get if the FrameNode is attached to the root node tree.
    *
    * @returns { boolean } - Returns if the FrameNode is attached to the root node tree.
-   * @throws { BusinessError } 100026 - The curent FrameNode has been disposed.
+   * @throws { BusinessError } 100026 - The current FrameNode has been disposed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
