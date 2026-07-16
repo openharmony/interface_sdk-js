@@ -52,7 +52,7 @@ declare namespace backgroundLoader {
      */
     SYSTEM_ERROR = 1,
     /**
-     * 任务之心中发生可感知任务错误
+     * 任务执行中发生可感知任务错误
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @stagemodelonly
@@ -60,7 +60,7 @@ declare namespace backgroundLoader {
      */
     PERCEPTIBLE_ERROR = 2,
     /**
-     * 任务之心超时。
+     * 任务执行超时。
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @stagemodelonly
