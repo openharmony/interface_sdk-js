@@ -1127,7 +1127,7 @@ declare namespace mechanicManager {
      * @systemapi
      * @since 26.0.0 dynamic&static
      */
-    TERMINATE_OBSTACLE  = 4,
+    TERMINATE_OBSTACLE = 4,
 
     /**
      * Termination caused by a cliff.
