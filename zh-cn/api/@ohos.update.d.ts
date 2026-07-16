@@ -30,7 +30,7 @@ import type { AsyncCallback } from './@ohos.base';
  * 
  * 各升级类型的设计逻辑和适用场景如下：
  * 
- * - **本地SD卡升级**：详见[术语](https://gitcode.com/openharmony/docs/blob/master/zh-cn/application-dev/basic-services/update/update-kit-term.md)。
+ * - **本地SD卡升级**：详见[术语](docroot://basic-services/update/update-kit-term.md)。
  * 
  * 使用场景：需要从本地存储设备进行系统升级。
  * 
@@ -38,7 +38,7 @@ import type { AsyncCallback } from './@ohos.base';
  * 
  * 解决无法联网自动升级的问题，适合离线环境或网络不稳定场景下的系统升级需求，无需依赖升级包管理服务器，降低升级成本。
  * 
- * - **在线升级**：详见[术语](https://gitcode.com/openharmony/docs/blob/master/zh-cn/application-dev/basic-services/update/update-kit-term.md)。
+ * - **在线升级**：详见[术语](docroot://basic-services/update/update-kit-term.md)。
  * 
  * 使用场景：需要通过网络自动检查和升级系统。
  * 
@@ -67,7 +67,7 @@ import type { AsyncCallback } from './@ohos.base';
  */
 declare namespace update {
   /**
-   * 获取在线升级对象，可用于在线检查新版本、下载升级包、安装升级包等操作。适用于设备厂商的OTA(详见[术语](https://gitcode.com/openharmony/docs/blob/master/zh-cn/application-dev/basic-services/update/update-kit-term.md))升级客户端应用、在
+   * 获取在线升级对象，可用于在线检查新版本、下载升级包、安装升级包等操作。适用于设备厂商的OTA(详见[术语](docroot://basic-services/update/update-kit-term.md))升级客户端应用、在
    * 线系统升级等场景，帮助用户及时获取系统更新，提升升级效率和用户体验。
    * 
    * **原理说明**：
@@ -92,10 +92,10 @@ declare namespace update {
   /**
    * 获取恢复出厂设置对象，用于执行恢复出厂设置相关操作。调用此方法后，系统返回Restorer工具类对象，提供三种恢复出厂方式：
    * 
-   * - factoryReset（普通恢复出厂，用于清除用户数据分区。详见[术语](https://gitcode.com/openharmony/docs/blob/master/zh-cn/application-dev/basic-services/update/update-kit-term.md)）。
-   * - forceFactoryReset（强制恢复出厂，用于清除用户数据分区并同步清除文件密钥。详见[术语](https://gitcode.com/openharmony/docs/blob/master/zh-cn/application-dev/basic-services/update/update-kit-term.md)）。
+   * - factoryReset（普通恢复出厂，用于清除用户数据分区。详见[术语](docroot://basic-services/update/update-kit-term.md)）。
+   * - forceFactoryReset（强制恢复出厂，用于清除用户数据分区并同步清除文件密钥。详见[术语](docroot://basic-services/update/update-kit-term.md)）。
    * - deepFactoryReset（深度恢复出厂，用于通过scope参数指定清除范围：DATA仅清除用户数据分区，DATA_AND_OS同时清除用户数据和操作系统分区。详见
-   * [术语](https://gitcode.com/openharmony/docs/blob/master/zh-cn/application-dev/basic-services/update/update-kit-term.md)）。
+   * [术语](docroot://basic-services/update/update-kit-term.md)）。
    * 
    * 获取对象后可调用相应方法执行恢复出厂操作，设备将重启恢复到出厂初始状态。
    * 
@@ -2626,7 +2626,7 @@ declare namespace update {
    */
   export enum BusinessSubType {
     /**
-     * 固件。表示升级类型为固件升级，用于升级系统固件而非应用。详见[术语](https://gitcode.com/openharmony/docs/blob/master/zh-cn/application-dev/basic-services/update/update-kit-term.md)。
+     * 固件。表示升级类型为固件升级，用于升级系统固件而非应用。详见[术语](docroot://basic-services/update/update-kit-term.md)。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -2666,7 +2666,7 @@ declare namespace update {
    */
   export enum UpgradeAction {
     /**
-     * 差分包，仅包含与当前版本的差异部分，适用于已安装基础版本的增量升级场景。详见[术语](https://gitcode.com/openharmony/docs/blob/master/zh-cn/application-dev/basic-services/update/update-kit-term.md)。
+     * 差分包，仅包含与当前版本的差异部分，适用于已安装基础版本的增量升级场景。详见[术语](docroot://basic-services/update/update-kit-term.md)。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -2676,7 +2676,7 @@ declare namespace update {
     UPGRADE = 'upgrade',
 
     /**
-     * 修复包，用于修复系统异常或恢复系统功能的特殊升级包，适用于系统故障修复场景。详见[术语](https://gitcode.com/openharmony/docs/blob/master/zh-cn/application-dev/basic-services/update/update-kit-term.md)。
+     * 修复包，用于修复系统异常或恢复系统功能的特殊升级包，适用于系统故障修复场景。详见[术语](docroot://basic-services/update/update-kit-term.md)。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -2696,7 +2696,7 @@ declare namespace update {
    */
   export enum EffectiveMode {
     /**
-     * 冷升级，需重启设备生效，适用于需要完整系统重置或固件升级的场景。详见[术语](https://gitcode.com/openharmony/docs/blob/master/zh-cn/application-dev/basic-services/update/update-kit-term.md)。
+     * 冷升级，需重启设备生效，适用于需要完整系统重置或固件升级的场景。详见[术语](docroot://basic-services/update/update-kit-term.md)。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -2706,7 +2706,7 @@ declare namespace update {
     COLD = 1,
 
     /**
-     * 热升级，无需重启即可生效，适用于应用层组件升级或需要保持设备运行的场景。详见[术语](https://gitcode.com/openharmony/docs/blob/master/zh-cn/application-dev/basic-services/update/update-kit-term.md)。
+     * 热升级，无需重启即可生效，适用于应用层组件升级或需要保持设备运行的场景。详见[术语](docroot://basic-services/update/update-kit-term.md)。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -2716,7 +2716,7 @@ declare namespace update {
     LIVE = 2,
 
     /**
-     * 融合升级，结合两者特性，适用于同时包含热升级和冷升级组件的场景。详见[术语](https://gitcode.com/openharmony/docs/blob/master/zh-cn/application-dev/basic-services/update/update-kit-term.md)。
+     * 融合升级，结合两者特性，适用于同时包含热升级和冷升级组件的场景。详见[术语](docroot://basic-services/update/update-kit-term.md)。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -2746,7 +2746,7 @@ declare namespace update {
     REGULAR_OTA = 0,
 
     /**
-     * 流式升级，边下载边升级，无需等待完整下载，适用于存储空间受限或需要快速升级的场景。详见[术语](https://gitcode.com/openharmony/docs/blob/master/zh-cn/application-dev/basic-services/update/update-kit-term.md)。
+     * 流式升级，边下载边升级，无需等待完整下载，适用于存储空间受限或需要快速升级的场景。详见[术语](docroot://basic-services/update/update-kit-term.md)。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -2756,7 +2756,7 @@ declare namespace update {
     STREAM_OTA = 1,
 
     /**
-     * AB正常升级，适用于A/B分区设备。详见[术语](https://gitcode.com/openharmony/docs/blob/master/zh-cn/application-dev/basic-services/update/update-kit-term.md)。
+     * AB正常升级，适用于A/B分区设备。详见[术语](docroot://basic-services/update/update-kit-term.md)。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -2766,7 +2766,7 @@ declare namespace update {
     AB_REGULAR_OTA = 2,
 
     /**
-     * AB流式升级，适用于A/B分区设备。详见[术语](https://gitcode.com/openharmony/docs/blob/master/zh-cn/application-dev/basic-services/update/update-kit-term.md)。
+     * AB流式升级，适用于A/B分区设备。详见[术语](docroot://basic-services/update/update-kit-term.md)。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
