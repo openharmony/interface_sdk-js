@@ -505,6 +505,9 @@ declare namespace abilityAccessCtrl {
      * @throws { BusinessError } 12100001 - Invalid parameter. The permissionName exceeds 256 characters, the specified
      *     permission is not a user_grant permission, or the status value is invalid.
      * @throws { BusinessError } 12100003 - The specified permission does not exist.
+     * @throws { BusinessError } 12100006 - Operation not allowed. The toggle status of the specified permission
+     *     has already been set by
+     *     [setPermissionRequestToggleStatus]{@link abilityAccessCtrl.AtManager.setPermissionRequestToggleStatus(permissionName: Permissions, status: PermissionRequestToggleStatus, subProfileId: int)}. [since 26.1.0]
      * @throws { BusinessError } 12100007 - Service exception.
      * @throws { BusinessError } 12100009 - Common inner error. A database error occurs.
      * @syscap SystemCapability.Security.AccessToken
@@ -514,6 +517,35 @@ declare namespace abilityAccessCtrl {
      * @since 23 static
      */
     setPermissionRequestToggleStatus(permissionName: Permissions, status: PermissionRequestToggleStatus): Promise<void>;
+    /**
+     * 设置指定子身份资料下指定权限的弹窗开关状态。调用成功后，该权限的弹窗开关状态将被设置为指定值。当状态为CLOSED时，应用请求该权限时不会弹出权限弹窗；当状态为OPEN时，应用请求该权限时会正常弹出权限弹窗。使用Promise异步回调。
+     *
+     * @permission ohos.permission.DISABLE_PERMISSION_DIALOG
+     * @param { Permissions } permissionName - 待设置弹窗开关状态的权限名称。传入无效值时返回错误码12100001。
+     *     <br>取值约束：权限名长度不能超过256个字符。
+     * @param { PermissionRequestToggleStatus } status - 指定权限的弹窗开关状态值。
+     * @param { int } subProfileId - 子身份资料的标识符。可以通过[OsAccountSubProfile.id]{@link @ohos.account.osAccount:osAccount.OsAccountSubProfile.id}获取。
+     *     <br>取值限定为整数。取值约束：该参数必须为大于0的整数。
+     * @returns { Promise<void> } Promise对象，无返回结果
+     * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission specified below.
+     * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 12100001 - Invalid parameter. The permissionName exceeds 256 characters, the specified
+     *     permission is not a user_grant permission, the status value is invalid, or the specified subProfileId does
+     *     not exist for the current user.
+     * @throws { BusinessError } 12100003 - The specified permission does not exist.
+     * @throws { BusinessError } 12100006 - Operation not allowed. The toggle status of the specified permission has already been set by [setPermissionRequestToggleStatus]{@link abilityAccessCtrl.AtManager.setPermissionRequestToggleStatus(permissionName: Permissions, status: PermissionRequestToggleStatus, subProfileId: int)}.
+     * @throws { BusinessError } 12100007 - Service exception.
+     * @throws { BusinessError } 12100009 - Common inner error. A database error occurs.
+     * @syscap SystemCapability.Security.AccessToken
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamiconly
+     */
+    setPermissionRequestToggleStatus(
+      permissionName: Permissions,
+      status: PermissionRequestToggleStatus,
+      subProfileId: int): Promise<void>;
     /**
      * 获取当前用户指定权限的弹窗开关状态。使用Promise异步回调。
      *
@@ -528,6 +560,7 @@ declare namespace abilityAccessCtrl {
      * @throws { BusinessError } 12100001 - Invalid parameter. The permissionName exceeds 256 characters, or the
      *     specified permission is not a user_grant permission.
      * @throws { BusinessError } 12100003 - The specified permission does not exist.
+     * @throws { BusinessError } 12100004 - This API must be used together with [setPermissionRequestToggleStatus]{@link abilityAccessCtrl.AtManager.setPermissionRequestToggleStatus(permissionName: Permissions, status: PermissionRequestToggleStatus)}. [since 26.1.0]
      * @throws { BusinessError } 12100007 - Service exception.
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
@@ -536,6 +569,32 @@ declare namespace abilityAccessCtrl {
      * @since 23 static
      */
     getPermissionRequestToggleStatus(permissionName: Permissions): Promise<PermissionRequestToggleStatus>;
+    /**
+     * 获取指定子身份资料下指定权限的弹窗开关状态。使用Promise异步回调。
+     *
+     * @permission ohos.permission.GET_SENSITIVE_PERMISSIONS
+     * @param { Permissions } permissionName - 待查询弹窗开关状态的权限名称。传入无效值时返回错误码12100001。
+     *     <br>取值约束：权限名长度不能超过256个字。
+     * @param { int } subProfileId - 子身份资料的标识符。可以通过[OsAccountSubProfile.id]{@link @ohos.account.osAccount:osAccount.OsAccountSubProfile.id}获取。
+     *     <br>取值限定为整数。取值约束：该参数必须为大于0的整数。
+     * @returns { Promise<PermissionRequestToggleStatus> } Promise对象，返回指定权限的弹窗开关状态值
+     * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission specified below.
+     * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 12100001 - Invalid parameter. The permissionName exceeds 256 characters, the specified
+     *     permission is not a user_grant permission, or the specified subProfileId does not exist for the current user.
+     * @throws { BusinessError } 12100003 - The specified permission does not exist.
+     * @throws { BusinessError } 12100007 - Service exception.
+     * @throws { BusinessError } 12100009 - Common inner error. A database error occurs.
+     * @syscap SystemCapability.Security.AccessToken
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamiconly
+     */
+    getPermissionRequestToggleStatus(
+      permissionName: Permissions,
+      subProfileId: int): Promise<PermissionRequestToggleStatus>;
+
     /**
      * 获取当前权限管理的数据版本号。使用Promise异步回调。
      *
@@ -929,7 +988,7 @@ declare namespace abilityAccessCtrl {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     2. Incorrect parameter types.
      * @throws { BusinessError } 12100001 - Invalid parameter. Possible causes: 1. The context is invalid because
-     *     it does not belong to the application itself; 2. The type of global switch is not support.
+     *     it does not belong to the application itself; 2. The type of global switch is not supported.
      * @throws { BusinessError } 12100009 - Common inner error. An error occurs when creating the pop-up window
      *     or obtaining user operation result.
      * @throws { BusinessError } 12100013 - The specific global switch is already open.
