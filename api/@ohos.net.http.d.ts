@@ -853,7 +853,7 @@ declare namespace http {
    * Remote Validation Type.
    * @unionmember { 'system' } use system validation.
    * @unionmember { 'skip' } skip validation.
-   * @unionmember { ValidationCallback } [ since 26.0.0 dynamic&static ] use custom validation.
+   * @unionmember { ValidationCallback } [since 26.0.0] use custom validation.
    * @syscap SystemCapability.Communication.NetStack
    * @atomicservice
    * @since 18 dynamic
