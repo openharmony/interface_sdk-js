@@ -35,6 +35,8 @@ import type {
   FocusRule as _FocusRule,
   FocusCondition as _FocusCondition,
   FocusMoveResult as _FocusMoveResult,
+  AccessibilityVirtualNode as _AccessibilityVirtualNode,
+  TouchPosition as _TouchPosition
 } from './application/AccessibilityExtensionContext';
 import type * as _AccessibilityExtensionContext from './application/AccessibilityExtensionContext';
 /*** endif */
@@ -48,6 +50,8 @@ import type {
   FocusRule as _FocusRule,
   FocusCondition as _FocusCondition,
   FocusMoveResult as _FocusMoveResult,
+  AccessibilityVirtualNode as _AccessibilityVirtualNode,
+  TouchPosition as _TouchPosition
 } from './application/AccessibilityExtensionContext';
 import AccessibilityExtensionContext from './application/AccessibilityExtensionContext';
 /*** endif */
@@ -164,6 +168,26 @@ export type FocusCondition = _FocusCondition;
  * @since 23 dynamic&static
  */
 export type FocusMoveResult = _FocusMoveResult;
+
+/**
+ * Indicates the accessibility virtual node.
+ *
+ * @syscap SystemCapability.BarrierFree.Accessibility.Core
+ * @systemapi
+ * @stagemodelonly
+ * @since 26.0.0 dynamic&static
+ */
+export type AccessibilityVirtualNode = _AccessibilityVirtualNode;
+
+/**
+ * The touch position of an accessibility virtual node.
+ *
+ * @syscap SystemCapability.BarrierFree.Accessibility.Core
+ * @systemapi
+ * @stagemodelonly
+ * @since 26.0.0 dynamic&static
+ */
+export type TouchPosition = _TouchPosition;
 
 /**
  * The accessibility extension context. Used to configure, query information, and inject gestures.
@@ -496,7 +520,8 @@ type PageUpdateType = 'pageContentUpdate' | 'pageStateUpdate';
  *
  * @unionmember { 'touchBegin' } Start of touch.
  * @unionmember { 'touchEnd' } End of touch.
+ * @unionmember { 'touchGuideGesture' } Event indicating the touchGuide gesture. [since 26.0.0]
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @since 9 dynamiconly
  */
-type TouchGuideType = 'touchBegin' | 'touchEnd';
+type TouchGuideType = 'touchBegin' | 'touchEnd' | 'touchGuideGesture';

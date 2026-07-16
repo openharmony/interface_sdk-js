@@ -21,63 +21,42 @@
 /**
  * Span container interface.
  *
- * @interface ContainerSpanInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @since 11
- */
-/**
- * Span container interface.
- *
- * @interface ContainerSpanInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 12 dynamic
+ * @atomicservice [since 12]
+ * @since 11 dynamic
+ * @noninterop [since 12]
  */
 interface ContainerSpanInterface {
+
   /**
-   * Called when container is entered in span.
+   * Defines the constructor of ContainerSpan.
    *
    * @returns { ContainerSpanAttribute } The attribute of the container span.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Called when container is entered in span.
-   *
-   * @returns { ContainerSpanAttribute } The attribute of the container span.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   (): ContainerSpanAttribute;
 }
 
 /**
- * Define the ContainerSpan attribute functions.
+ * Only the following attributes are supported.
+ *
+ * The [universal events]{@link common} are not supported.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @since 11
- */
-/**
- * Define the ContainerSpan attribute functions.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 12 dynamic
+ * @atomicservice [since 12]
+ * @since 11 dynamic
+ * @noninterop [since 12]
  */
 declare class ContainerSpanAttribute {
+
   /**
    * Span background style.
    *
@@ -86,25 +65,16 @@ declare class ContainerSpanAttribute {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Span background style.
-   *
-   * @param { TextBackgroundStyle } style - The background style of span.
-   * @returns { ContainerSpanAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   textBackgroundStyle(style: TextBackgroundStyle): ContainerSpanAttribute;
 
   /**
-   * Sets the attribute modifier.
-   * 
-   * @param { AttributeModifier<ContainerSpanAttribute> } modifier - The instance of contain span modifier.
+   * Creates an attribute modifier.
+   *
+   * @param { AttributeModifier<ContainerSpanAttribute> } modifier - Modifier for dynamically setting attributes on the
+   *     current component.
    * @returns { ContainerSpanAttribute } the attribute of the ContainerSpanAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -116,21 +86,16 @@ declare class ContainerSpanAttribute {
 }
 
 /**
- * Defines ContainerSpan Component instance.
+ * As a child of the [Text]{@link text} component, the **ContainerSpan** component is used to manage the background
+ * colors and rounded corners of multiple [Span]{@link span} and [ImageSpan]{@link image_span} components in a unified
+ * manner.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @since 11
- */
-/**
- * Defines ContainerSpan Component instance.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 12 dynamic
+ * @atomicservice [since 12]
+ * @since 11 dynamic
+ * @noninterop [since 12]
  */
 declare const ContainerSpan: ContainerSpanInterface;
 
@@ -140,15 +105,8 @@ declare const ContainerSpan: ContainerSpanInterface;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @since 11
- */
-/**
- * Defines ContainerSpan Component.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 12 dynamic
+ * @atomicservice [since 12]
+ * @since 11 dynamic
+ * @noninterop [since 12]
  */
 declare const ContainerSpanInstance: ContainerSpanAttribute;

@@ -1254,6 +1254,36 @@ declare namespace webview {
          * @since 23 static
          */
         static fetchAllCookies(incognito: boolean): Promise<Array<WebHttpCookie>>;
+
+        /**
+         * Gets all cookies for the given URL Asynchronously.
+         *
+         * @param { string } url - The URL for which to fetch cookies.
+         * @param { boolean } incognito - Whether to fetch cookies in incognito mode.
+         * @param { boolean } includePartitionedCookies - If true, allows fetching first-party partitioned cookies.
+         * @returns { Promise<string> } A promise resolved with the cookie string.
+         * @throws { BusinessError } 17100002 - URL error. No valid cookie found for the specified URL.
+         * @syscap SystemCapability.Web.Webview.Core
+         * @stagemodelonly
+         * @since 26.0.0 static
+         */
+        static fetchCookie(url: string, incognito: boolean, includePartitionedCookies: boolean): Promise<string>;
+
+        /**
+         * Gets all cookies for the given URL.
+         *
+         * @param { string } url - The URL for which the cookies are requested.
+         * @param { boolean } [incognito] - {@code true} gets all cookies for the given URL
+         *     in incognito mode; {@code false} otherwise.
+         * @param { boolean } [includePartitionedCookies] - If true, allows fetching first-party partitioned
+         *     cookies.
+         * @returns { string } - The cookie value for the given URL.
+         * @throws { BusinessError } 17100002 - URL error. No valid cookie found for the specified URL.
+         * @syscap SystemCapability.Web.Webview.Core
+         * @stagemodelonly
+         * @since 26.0.0 static
+         */
+        static fetchCookieSync(url: string, incognito?: boolean, includePartitionedCookies?: boolean): string;
     }
 
     /**
@@ -4515,6 +4545,33 @@ declare namespace webview {
          * @since 23 static
          */
         setErrorPageEnabled(enable: boolean): void;
+
+        /**
+         * Set whether to enable error page. onOverrideErrorPage will be triggered when the page error.
+         *
+         * @param { boolean } enable - Whether enable error page.
+         * @param { boolean } includeSubframe - If true, error page is displayed in iframe
+         *     when a subframe fails to load.
+         * @throws { BusinessError } 17100001 - Init error.
+         *     The WebviewController must be associated with a Web component.
+         * @syscap SystemCapability.Web.Webview.Core
+         * @stagemodelonly
+         * @since 26.0.0 static
+         */
+        setErrorPageEnabled(enable: boolean, includeSubframe: boolean): void;
+
+        /**
+         * Get whether default error page feature is enabled for subframes.
+         *
+         * @returns { boolean } - True if the default error page function of the subframe
+         *     is enabled; Otherwise, the value is false.
+         * @throws { BusinessError } 17100001 - Init error.
+         *     The WebviewController must be associated with a Web component.
+         * @syscap SystemCapability.Web.Webview.Core
+         * @stagemodelonly
+         * @since 26.0.0 static
+         */
+        getSubframeErrorPageEnabled(): boolean;
 
         /**
          * After enable PrivateNetworkAccess feature, ArkWeb will send a CORS preflight request before issuing any

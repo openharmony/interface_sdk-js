@@ -208,9 +208,12 @@ interface PatternLockInterface {
 }
 
 /**
- * In addition to the [universal attributes]{@link common}, the following attributes are supported.
+ * In addition to the 
+ * [universal attributes](docroot://reference/apis-arkui/arkui-ts/ts-component-general-attributes.md), the following
+ * attributes are supported.
  *
- * In addition to the [universal events]{@link common}, the following events are supported.
+ * In addition to the [universal events](docroot://reference/apis-arkui/arkui-ts/ts-component-general-events.md), the
+ * following events are supported.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
@@ -325,9 +328,9 @@ declare class PatternLockAttribute extends CommonMethod<PatternLockAttribute> {
    * Sets the width of the path stroke. If this attribute is set to **0** or a negative value, the path stroke is not
    * displayed.
    *
-   * @param { number | string } value - Width of the path stroke.<br>Default value: **12vp**<br>Value range: (0,
-   *     sideLength/3]. If the value is set to **0** or a negative number, the line is not displayed. If the value
-   *     exceeds the maximum value, the maximum value is used.
+   * @param { number | string } value - Width of the path stroke.
+   *     <br>Value constraint: (0, sideLength/3]. Default value: 12vp.
+   *     <br>Unit: vp.
    * @returns { PatternLockAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]

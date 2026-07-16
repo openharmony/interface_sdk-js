@@ -768,8 +768,7 @@ declare namespace display {
   function destroyVirtualScreen(screenId: long): Promise<void>;
 
   /**
-   * Sets a surface for a virtual screen. **surfaceId** identifies a surface, the content of which will be shown on this
-   * virtual screen. This API uses a promise to return the result.
+   * Sets a surface for a virtual screen. This API uses a promise to return the result.
    *
    * @permission ohos.permission.ACCESS_VIRTUAL_SCREEN
    * @param { long } screenId - Screen ID, which must match the ID of the virtual screen created by calling the
@@ -796,12 +795,18 @@ declare namespace display {
    * Add surface for the virtual screen.
    *
    * @param { long } screenId - Indicates the screen id of the virtual screen.
-   * @param { string } surfaceId - Indicates the surface id.
-   * @param { Rect } [surfaceRegion] - Rectangular area of the virtual screen used to display the surface.
-   *     Default value: the full region of the virtual screen.
-   * @returns { Promise<void> } Promise that returns no value
+   * @param { string } surfaceId - ID of the surface bound to the virtual screen. You can specify the ID of an existing
+   *     surface. The maximum length for this parameter is 4096 bytes. If it goes beyond that, only the first 4096 bytes
+   *     are used.
+   * @param { Rect } [surfaceRegion] - Rectangular area of the virtual screen displayed by the surface.
+   *     If the virtual screen has not bound any surface via
+   *     [setVirtualScreenSurface()]{@link display.setVirtualScreenSurface} or 
+   *     [addVirtualScreenSurface()]{@link display.addVirtualScreenSurface}, the surfaceRegion is invalid
+   *     and defaults to full screen. In mirror mode, the surfaceRegion is invalid and defaults to full screen.
+   *     In independent display mode, the surfaceRegion is valid.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 801 - Capability not supported.function addVirtualScreenSurface
+   * @throws { BusinessError } 801 - Capability not supported. Function addVirtualScreenSurface
    *     can not work correctly due to limited device capabilities.
    * @throws { BusinessError } 1400001 - Invalid display or screen.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
@@ -817,10 +822,12 @@ declare namespace display {
    * Remove surface for the virtual screen.
    *
    * @param { long } screenId - Indicates the screen id of the virtual screen.
-   * @param { string } surfaceId - Indicates the surface id.
-   * @returns { Promise<void> } Promise that returns no value
+   * @param { string } surfaceId - ID of the surface bound to the virtual screen. You can specify the ID of an existing
+   *     surface. The maximum length for this parameter is 4096 bytes. If it goes beyond that, only the first 4096 bytes
+   *     are used.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 801 - Capability not supported.function removeVirtualScreenSurface
+   * @throws { BusinessError } 801 - Capability not supported. Function removeVirtualScreenSurface
    *     can not work correctly due to limited device capabilities.
    * @throws { BusinessError } 1400001 - Invalid display or screen.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
@@ -1824,6 +1831,12 @@ declare namespace display {
 
     /**
      * Width of the available area, in px. The value is an integer greater than 0.
+     * 
+     * This API can be properly called on devices running OpenHarmony 7.0.0 or later.
+     * For devices running versions earlier than OpenHarmony 7.0.0,
+     * this API can be properly called on PCs/2-in-1 devices and tablets,
+     * but does not work for other device types.
+     * To obtain the width of the available area on the current device screen, you can use the width attribute.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
@@ -1835,6 +1848,12 @@ declare namespace display {
 
     /**
      * eight of the available area, in px. The value is an integer greater than 0.
+     * 
+     * This API can be properly called on devices running OpenHarmony 7.0.0 or later.
+     * For devices running versions earlier than OpenHarmony 7.0.0,
+     * this API can be properly called on PCs/2-in-1 devices and tablets,
+     * but does not work for other device types.
+     * To obtain the height of the available area on the current device screen, you can use the height attribute.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
@@ -2007,6 +2026,12 @@ declare namespace display {
      *
      * The available area is the space left for applications after the system UI (such as the status bar and dock bar)
      * is accounted for.
+     * 
+     * This API can be properly called on devices running OpenHarmony 7.0.0 or later.
+     * For devices running versions earlier than OpenHarmony 7.0.0,
+     * this API can be properly called on PCs/2-in-1 devices and tablets,
+     * but does not work for other device types. To obtain the available area on the current device screen,
+     * you can use the width and height attributes in Display.
      *
      * @returns { Promise<Rect> } Promise used to return the available area, which is a rectangle.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
@@ -2038,14 +2063,17 @@ declare namespace display {
      * Subscribes to changes of the available area on the display of the current device. This callback function is
      * triggered when the screen rotates, the freeform mode is enabled or disabled, or the visibility of system
      * components such as the dock bar and status bar changes, and returns the available area information.
+     * 
+     * This API can be properly called on devices running OpenHarmony 7.0.0 or later.
+     * For devices running versions earlier than OpenHarmony 7.0.0,
+     * this API can be properly called on PCs/2-in-1 devices and tablets.
+     * If being called on other device types, it does not take effect and no error is reported.
      *
      * @param { 'availableAreaChange' } type - Event type. The event **'availableAreaChange'** is triggered when the
      *     available area of the display changes.
      * @param { Callback<Rect> } callback - Callback used to return the new available area.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     <br>2. Incorrect parameter types.
-     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
-     *     capabilities.
      * @throws { BusinessError } 1400003 - This display manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
@@ -2055,10 +2083,13 @@ declare namespace display {
 
     /**
      * Register the callback for available area changes.
+     * 
+     * This API can be properly called on devices running OpenHarmony 7.0.0 or later.
+     * For devices running versions earlier than OpenHarmony 7.0.0,
+     * this API can be properly called on PCs/2-in-1 devices and tablets.
+     * If being called on other device types, it does not take effect and no error is reported.
      *
      * @param { Callback<Rect> } callback - Callback used to return the available area
-     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
-     *     capabilities.
      * @throws { BusinessError } 1400003 - This display manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
      * @since 23 static
@@ -2067,6 +2098,11 @@ declare namespace display {
 
     /**
      * Unsubscribes from changes of the available area on the display of the current device.
+     * 
+     * This API can be properly called on devices running OpenHarmony 7.0.0 or later.
+     * For devices running versions earlier than OpenHarmony 7.0.0,
+     * this API can be properly called on PCs/2-in-1 devices and tablets.
+     * If being called on other device types, it does not take effect and no error is reported.
      *
      * @param { 'availableAreaChange' } type - Event type. The event **'availableAreaChange'** is triggered when the
      *     available area of the display changes.
@@ -2074,8 +2110,6 @@ declare namespace display {
      *     specified, all subscriptions to the specified event are canceled.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     <br>2. Incorrect parameter types.
-     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
-     *     capabilities.
      * @throws { BusinessError } 1400003 - This display manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
@@ -2085,11 +2119,14 @@ declare namespace display {
 
     /**
      * Unregister the callback for available area changes.
+     * 
+     * This API can be properly called on devices running OpenHarmony 7.0.0 or later.
+     * For devices running versions earlier than OpenHarmony 7.0.0,
+     * this API can be properly called on PCs/2-in-1 devices and tablets.
+     * If being called on other device types, it does not take effect and no error is reported.
      *
      * @param { Callback<Rect> } [callback] - Unregister the callback function.
      *     If not provided, all callbacks for the given event type will be removed.
-     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
-     *     capabilities.
      * @throws { BusinessError } 1400003 - This display manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
      * @since 23 static

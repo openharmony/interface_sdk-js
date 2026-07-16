@@ -24,10 +24,10 @@
  * > **NOTE**
  * >
  * > - Module maintenance policy:
- * > >
- * > >    \- For lite wearables, this module is constantly maintained and available.
- * > >
- * > >    \- For other device types, this module is no longer maintained since API version 6. You are advised to use 
+ * >
+ * >    - For lite wearables, this module is constantly maintained and available.
+ * >
+ * >    - For other device types, this module is no longer maintained since API version 6. You are advised to use 
  * > [@ohos.batteryInfo]{@link @ohos.batteryInfo:batteryInfo} instead.
  *
  */
@@ -37,6 +37,7 @@
  * Defines a response that returns the charging status and remaining power of the device.
  *
  * @syscap SystemCapability.PowerManager.BatteryManager.Lite
+ * @FaAndStageModel
  * @since 3 dynamiconly
  * @deprecated since 6
  * @reserved ["liteWearable"]
@@ -51,6 +52,7 @@ export interface BatteryResponse {
    * instead.
    *
    * @syscap SystemCapability.PowerManager.BatteryManager.Lite
+   * @FaAndStageModel
    * @since 3 dynamiconly
    * @deprecated since 6
    * @reserved ["liteWearable"]
@@ -65,6 +67,7 @@ export interface BatteryResponse {
    * [batteryInfo.batterySOC](docroot://reference/apis-basic-services-kit/js-apis-battery-info.md#constants) instead.
    *
    * @syscap SystemCapability.PowerManager.BatteryManager.Lite
+   * @FaAndStageModel
    * @since 3 dynamiconly
    * @deprecated since 6
    * @reserved ["liteWearable"]
@@ -77,6 +80,7 @@ export interface BatteryResponse {
  * Object that contains the API calling result.
  *
  * @syscap SystemCapability.PowerManager.BatteryManager.Lite
+ * @FaAndStageModel
  * @since 3 dynamiconly
  * @deprecated since 6
  * @reserved ["liteWearable"]
@@ -84,9 +88,10 @@ export interface BatteryResponse {
 export interface GetStatusOptions {
   /**
    * Called when an API call is successful. **data** is a return value of the
-   *     [BatteryResponse](#batteryresponsedeprecated) type.
+   *     {@link BatteryResponse} type.
    *
    * @syscap SystemCapability.PowerManager.BatteryManager.Lite
+   * @FaAndStageModel
    * @since 3 dynamiconly
    * @deprecated since 6
    * @reserved ["liteWearable"]
@@ -98,6 +103,7 @@ export interface GetStatusOptions {
    *     code.
    *
    * @syscap SystemCapability.PowerManager.BatteryManager.Lite
+   * @FaAndStageModel
    * @since 3 dynamiconly
    * @deprecated since 6
    * @reserved ["liteWearable"]
@@ -108,6 +114,7 @@ export interface GetStatusOptions {
    * Called when an API call is complete.
    *
    * @syscap SystemCapability.PowerManager.BatteryManager.Lite
+   * @FaAndStageModel
    * @since 3 dynamiconly
    * @deprecated since 6
    * @reserved ["liteWearable"]
@@ -119,6 +126,7 @@ export interface GetStatusOptions {
  * The module allows you to query the charging status and remaining power of a device.
  *
  * @syscap SystemCapability.PowerManager.BatteryManager.Lite
+ * @FaAndStageModel
  * @since 3 dynamiconly
  * @deprecated since 6
  * @reserved ["liteWearable"]
@@ -130,6 +138,7 @@ export default class Battery {
    * @param { GetStatusOptions } options Object that contains the API calling result. This parameter is optional and
    *     is left blank by default.
    * @syscap SystemCapability.PowerManager.BatteryManager.Lite
+   * @FaAndStageModel
    * @since 3 dynamiconly
    * @deprecated since 6
    * @reserved ["liteWearable"]

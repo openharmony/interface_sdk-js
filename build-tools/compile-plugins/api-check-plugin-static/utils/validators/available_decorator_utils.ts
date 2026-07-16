@@ -23,7 +23,9 @@ import {
   AVAILABLE_OSNAME_ERROR,
   AVAILABLE_VERSION_FORMAT_ERROR_PREFIX,
   RUNTIME_OS_OH,
-  VersionValidationResult
+  VersionValidationResult,
+  ERROR_CODE_INFO,
+  DISTINGUISH_FUNCTION_NAME
 } from '../api_check_plugin_define';
 import {
   parseVersionString,
@@ -113,8 +115,10 @@ export function getValidAnnotationFromNode(
     annotationArray.push(...node.annotations);
   }
 
-  if (arkts.isMethodDefinition(node) && !!node.function) {
-    annotationArray.push(...node.function.annotations);
+  if (arkts.isMethodDefinition(node) && node.parent?.ident?.name === DISTINGUISH_FUNCTION_NAME) {
+    if (node.function && node.function.annotations && Array.isArray(node.function.annotations)) {
+      annotationArray.push(...node.function.annotations);
+    }
   }
 
   const validAnnotation = annotationArray.find(annotation => predicate(annotation));
@@ -303,7 +307,8 @@ function checkFormatResult(parseVersion: ParsedVersion | null): ConditionCheckRe
   } else if (parseVersion.os === globalObject.projectConfig.runtimeOS) {
     checkResult = getFormatChecker(AVAILABLE_TAG_NAME)(parseVersion.formatVersion);
   } else {
-    const msg = AVAILABLE_OSNAME_ERROR
+    const diagnosticMessage: string = `${ERROR_CODE_INFO.get(AVAILABLE_OSNAME_ERROR)?.code}#${AVAILABLE_OSNAME_ERROR}`;
+    const msg = diagnosticMessage
       .replace('$RUNTIMEOS', globalObject.projectConfig.runtimeOS || '')
       .replace('$OSNAME', parseVersion.os!);
     return {
@@ -314,7 +319,8 @@ function checkFormatResult(parseVersion: ParsedVersion | null): ConditionCheckRe
   }
 
   if (checkResult && !checkResult.result) {
-    const msg = AVAILABLE_VERSION_FORMAT_ERROR_PREFIX
+    const diagnosticMessage: string = `${ERROR_CODE_INFO.get(AVAILABLE_VERSION_FORMAT_ERROR_PREFIX)?.code}#${AVAILABLE_VERSION_FORMAT_ERROR_PREFIX}`;
+    const msg = diagnosticMessage
       .replace('$RUNTIMEOS', globalObject.projectConfig.runtimeOS || '')
       .replace('$VERSION', parseVersion.version);
     return {

@@ -1292,22 +1292,15 @@ declare interface FullScreenEnterEvent {
    */
   videoWidth?: number;
 
-  /**
-   * The intrinsic height of the video if the fullscreen element contains video element, expressed in CSS pixels, Unit: px.
+   /**
+   * Video height, in px. If the element that enters fulls screen mode is a **<video>** element, the value represents its
+   * height; if the element that enters fulls screen mode contains a **<video>** element, the value represents the height
+   * of the first sub-video element; in other cases, the value is **0**.
    *
-   * @type { ?number }
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * The intrinsic height of the video if the fullscreen element contains video element, expressed in CSS pixels, Unit: px.
-   *
-   * @type { ?number }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    */
   videoHeight?: number;
 }
@@ -7398,26 +7391,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onInterceptKeyEvent(callback: (event: KeyEvent) => boolean): WebAttribute;
 
   /**
-   * Set the font of webview standard font library. The default font is "sans serif".
-   *
-   * @param { string } family Standard font set series.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Sets the standard font family for the web page.
-   *
-   * @param { string } family Sets the standard font family for the web page.
-   *    Default value: sans-serif.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11 dynamic
-   */
-  webStandardFont(family: string): WebAttribute;
-
-  /**
    * Sets the standard font family of the web page to render HTML elements whose font style is not specified.
    * 
    * When this attribute is not explicitly called, the default standard font family of the web page is **sans-serif**.
@@ -8856,6 +8829,20 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 26.0.0 dynamic
    */
   enableFullscreenVideoOverlay(enabled: boolean): WebAttribute;
+
+  /**
+   * Set whether to enable media network proxy for Web components.
+   * When enabled, network requests for media resources are routed through the web components network stack.
+   * This attribute takes effect for HLS media, other media formats are unaffected.
+   *
+   * @param { boolean } enabled - {@code true} to enable media network proxy, {@code false} to disable it.
+   *     The default value is false.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  enableMediaNetworkProxy(enabled: boolean): WebAttribute;
 }
 
 /**

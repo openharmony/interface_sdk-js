@@ -122,9 +122,9 @@ declare namespace dataTransfer {
   /**
    * Subscribes to the connection state change event.
    *
-   * @permission ohos.permission.ACCESS_NEARLINK
+   * This event is accessible only to applications that granted the ohos.permission.NEARLINK_ACCESS permission.
+   *
    * @param { Callback<ConnectionResult> } callback - Callback used to listen for the state change event.
-   * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 801 - Capability not supported because the chip does not support it.
    * @throws { BusinessError } 36100099 - Operation failed.
    * @syscap SystemCapability.Communication.NearLink.Base
@@ -136,9 +136,7 @@ declare namespace dataTransfer {
   /**
    * Unsubscribes from the connection state change event.
    *
-   * @permission ohos.permission.ACCESS_NEARLINK
    * @param { Callback<ConnectionResult> } [callback] - Callback used to listen for the state change event.
-   * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 801 - Capability not supported because the chip does not support it.
    * @throws { BusinessError } 36100099 - Operation failed.
    * @syscap SystemCapability.Communication.NearLink.Base
@@ -170,9 +168,9 @@ declare namespace dataTransfer {
   /**
    * Subscribes to the event reported when data is read from the port.
    *
-   * @permission ohos.permission.ACCESS_NEARLINK
+   * This event is accessible only to applications that granted the ohos.permission.NEARLINK_ACCESS permission.
+   *
    * @param { Callback<DataParams> } callback - Callback used to listen for the port read event.
-   * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 801 - Capability not supported because the chip does not support it.
    * @throws { BusinessError } 36100099 - Operation failed.
    * @syscap SystemCapability.Communication.NearLink.Base
@@ -184,9 +182,7 @@ declare namespace dataTransfer {
   /**
    * Unsubscribes from the event reported when data is read from the port.
    *
-   * @permission ohos.permission.ACCESS_NEARLINK
    * @param { Callback<DataParams> } [callback] - Callback used to listen for the port read event.
-   * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 801 - Capability not supported because the chip does not support it.
    * @throws { BusinessError } 36100099 - Operation failed.
    * @syscap SystemCapability.Communication.NearLink.Base

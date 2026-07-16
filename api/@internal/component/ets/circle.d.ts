@@ -117,11 +117,12 @@ interface CircleInterface {
  */
 declare class CircleAttribute extends CommonShapeMethod<CircleAttribute> {
   /**
-   * Sets the stroke color.
-   * If this attribute is not set, the component does not have any stroke.
-   * If the value is invalid, no stroke will be drawn.
+   * Sets the stroke color. This attribute can be dynamically set using attributeModifier. If this attribute is not set,
+   * the default stroke opacity is 0, meaning no stroke is displayed.
    *
-   * @param { ResourceColor | ColorMetrics } value - Stroke color.
+   * @param { ResourceColor | ColorMetrics } value - Stroke color.<br>Default value: Color.Transparent.<br>Invalid
+   *     values **undefined** and **null** values are treated as the default value, and invalid values **NaN** and
+   *     **Infinity** are treated as Color.Black.
    * @returns { CircleAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel

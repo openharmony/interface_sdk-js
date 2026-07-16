@@ -2237,6 +2237,22 @@ declare namespace commonEventManager {
     COMMON_EVENT_DISK_UNMOUNTABLE = 'usual.event.data.DISK_UNMOUNTABLE',
 
     /**
+     * Indicates that the state of a system data disk volume has changed.
+     *
+     * This common event is triggered when the state of a system data disk volume changes,
+     * such as during format or repair operations (started, succeeded, or failed).
+     *
+     * To subscribe to this common event, your application must have the **ohos.permission.STORAGE_MANAGER** permission.
+     * (This permission is available only for system applications.)
+     *
+     * @syscap SystemCapability.Notification.CommonEvent
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    COMMON_EVENT_DISK_VOLUME_STATE_CHANGE = 'usual.event.data.DISK_VOLUME_STATE_CHANGE',
+
+    /**
      * (Reserved, not supported yet) Indicates that an external storage device was ejected.
      *
      * To subscribe to this common event, your application must have the **ohos.permission.STORAGE_MANAGER** permission.
@@ -2829,6 +2845,16 @@ declare namespace commonEventManager {
      *
      * The following table lists the enum values and their corresponding connection status.
      *
+     * > **NOTE**
+     * > The following table lists the enum values and their corresponding connection status
+     * >
+     * > | Value |  Connection State |
+     * > | ------ | ---------- |
+     * > |    2   |   Connecting.  |
+     * > |    3   |   Connected.  |
+     * > |    4   |   Disconnecting.|
+     * > |    5   |   Disconnected.  |.
+     *
      * @syscap SystemCapability.Notification.CommonEvent
      * @atomicservice [since 11]
      * @since 10 dynamic
@@ -3300,7 +3326,27 @@ declare namespace commonEventManager {
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 23 dynamic&static
      */
-    COMMON_EVENT_LID_STATE_CHANGED = 'usual.event.LID_STATE_CHANGED'
+    COMMON_EVENT_LID_STATE_CHANGED = 'usual.event.LID_STATE_CHANGED',
+
+    /**
+     * Indicates that the sandbox application has been installed on the device.
+     *
+     * @syscap SystemCapability.Notification.CommonEvent
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    COMMON_EVENT_SANDBOX_BUNDLE_ADDED = 'usual.event.SANDBOX_BUNDLE_ADDED',
+
+    /**
+     * Indicates that the sandbox application has been uninstalled on the device.
+     *
+     * @syscap SystemCapability.Notification.CommonEvent
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    COMMON_EVENT_SANDBOX_BUNDLE_REMOVED = 'usual.event.SANDBOX_BUNDLE_REMOVED'
   }
 
   /**

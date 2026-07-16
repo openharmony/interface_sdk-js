@@ -29,7 +29,6 @@ import { ComponentContentBase } from '../ComponentContent';
 /**
  * Provides the method of switching the cursor position.
  *
- * @extends TextContentControllerBase
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -64,13 +63,14 @@ export declare class TextAreaController extends TextContentControllerBase {
      * </p>
      *
      * @param { int } selectionStart - The start position of the selected text.
-     * The start position of text in the text box is 0.
-     * A value less than 0 is handled as 0.
-     * A value greater than the maximum text length is handled as the maximum text length.
+     *     The start position of text in the text box is 0.
+     *     A value less than 0 is handled as 0.
+     *     A value greater than the maximum text length is handled as the maximum text length.
      * @param { int } selectionEnd - The end position of the selected text.
-     * A value less than 0 is handled as the value 0.
-     * A value greater than the maximum text length is handled as the maximum text length.
-     * @param { SelectionOptions } [options] - Indicates the options of the text selection.Default value is MenuPolicy.DEFAULT.
+     *     A value less than 0 is handled as the value 0.
+     *     A value greater than the maximum text length is handled as the maximum text length.
+     * @param { SelectionOptions } [options] - Indicates the options of the text selection.
+     *     Default value is MenuPolicy.DEFAULT.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -88,7 +88,6 @@ export declare class TextAreaController extends TextContentControllerBase {
 /**
  * Defines the options of TextArea.
  *
- * @interface TextAreaOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -103,7 +102,6 @@ export declare interface TextAreaOptions {
      * <br>The caret stays at the beginning of the placeholder text when the handle is released.
      * </p>
      *
-     * @type { ?ResourceStr }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -112,7 +110,6 @@ export declare interface TextAreaOptions {
     /**
      * Sets the current value of TextArea.
      *
-     * @type { ?(ResourceStr | Bindable<ResourceStr> | Bindable<Resource> | Bindable<string>) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -121,7 +118,6 @@ export declare interface TextAreaOptions {
     /**
      * Called when the position of the insertion cursor is set.
      *
-     * @type { ?TextAreaController }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -131,7 +127,6 @@ export declare interface TextAreaOptions {
 /**
  * Declare the type of input box
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -140,6 +135,7 @@ export declare enum TextAreaType {
     /**
      * Basic input mode.
      * The value can contain digits, letters, underscores (_), spaces, and special characters.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -155,8 +151,10 @@ export declare enum TextAreaType {
     NUMBER = 2,
     /**
      * Phone number entry mode.
-     * In this mode, the following are allowed: digits, spaces, plus signs (+), hyphens (-), asterisks (*), and number signs (#).
+     * In this mode, the following are allowed: digits, spaces, plus signs (+), hyphens (-), asterisks (*), and number
+     * signs (#).
      * the length is not limited.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -166,6 +164,7 @@ export declare enum TextAreaType {
      * E-mail address input mode.
      * This mode accepts only digits, letters, underscores (_), dots (.),
      * and the following special characters: ! # $ % & ' * + - / = ? ^ ` { | } ~ @ (which can only appear once).
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -174,6 +173,7 @@ export declare enum TextAreaType {
     /**
      * Number decimal entry mode.
      * The value can contain digits and one decimal point.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -199,9 +199,8 @@ export declare enum TextAreaType {
 /**
  * Declare the event listener callback of the enter key.
  *
- * @typedef { function } TextAreaSubmitCallback
  * @param { EnterKeyType } enterKeyType - The enter key type of soft keyboard.
- * If the type is EnterKeyType.NEW_LINE, onSubmit is not triggered.
+ *     If the type is EnterKeyType.NEW_LINE, onSubmit is not triggered.
  * @param { SubmitEvent } [event] - Provides the method of keeping textArea editable state when submitted.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -211,7 +210,6 @@ export type TextAreaSubmitCallback = (enterKeyType: EnterKeyType, event?: Submit
 /**
  * Defines the attribute functions of TextArea.
  *
- * @extends CommonMethod
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -381,7 +379,7 @@ export declare interface TextAreaAttribute extends CommonMethod {
      * </p>
      *
      * @param { ResourceStr | undefined } value
-     * @param { function | undefined } error
+     * @param { function | undefined } [error]
      * @returns { TextAreaAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -439,7 +437,7 @@ export declare interface TextAreaAttribute extends CommonMethod {
      * Called when the text selection changes.
      *
      * @param { function | undefined } callback - callback of the listened event.
-     * { int } selectionStart - The start position of text is 0.
+     *     { int } selectionStart - The start position of text is 0.
      * @returns { TextAreaAttribute } returns the instance of the TextAreaAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -450,8 +448,9 @@ export declare interface TextAreaAttribute extends CommonMethod {
      * Called when the content scrolls.
      *
      * @param { function | undefined } callback - callback of the listened event.
-     * { double } totalOffsetX - The unit is px.
-     * { double } totalOffsetY - The unit is px.
+     *     { double } totalOffsetX - The unit is px.
+     *     { double
+     *     } totalOffsetY - The unit is px.
      * @returns { TextAreaAttribute } returns the instance of the TextAreaAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -460,10 +459,11 @@ export declare interface TextAreaAttribute extends CommonMethod {
     default onContentScroll(callback: ((totalOffsetX: double, totalOffsetY: double) => void) | undefined): this;
     /**
      * Called when judging whether the text editing change finished.
-     * The text box is in the editing state when it has the caret placed in it, and is in the non-editing state otherwise.
+     * The text box is in the editing state when it has the caret placed in it, and is in the non-editing state
+     * otherwise.
      *
      * @param { function | undefined } callback - Triggered when the text area status changes.
-     * If the value of isEditing is true, text area is in progress.
+     *     If the value of isEditing is true, text area is in progress.
      * @returns { TextAreaAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -643,7 +643,8 @@ export declare interface TextAreaAttribute extends CommonMethod {
      *
      * <p><strong>NOTE</strong>:
      * <br>For the string type, numeric string values with optional units, for example, "10" or "10fp", are supported.
-     * <br>For the setting to take effect, this attribute must be used together with maxFontSize and maxLines,or layout constraint settings.
+     * <br>For the setting to take effect, this attribute must be used together with maxFontSize and maxLines,
+     *     or layout constraint settings.
      * <br>When the adaptive font size is used, the fontSize settings do not take effect.
      * </p>
      *
@@ -659,7 +660,8 @@ export declare interface TextAreaAttribute extends CommonMethod {
      *
      * <p><strong>NOTE</strong>:
      * <br>For the string type, numeric string values with optional units, for example, "10" or "10fp", are supported.
-     * <br>For the setting to take effect, this attribute must be used together with minFontSize and maxLines, or layout constraint settings.
+     * <br>For the setting to take effect, this attribute must be used together with minFontSize and maxLines,
+     *     or layout constraint settings.
      * <br>When the adaptive font size is used, the fontSize settings do not take effect.
      * </p>
      *
@@ -726,7 +728,8 @@ export declare interface TextAreaAttribute extends CommonMethod {
      * </ul>
      * </p>
      *
-     * @param { TextHeightAdaptivePolicy | undefined } value - The height adaptive policy.Default value is TextHeightAdaptivePolicy.MAX_LINES_FIRST.
+     * @param { TextHeightAdaptivePolicy | undefined } value - The height adaptive policy.Default value is
+     *     TextHeightAdaptivePolicy.MAX_LINES_FIRST.
      * @returns { TextAreaAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -780,7 +783,8 @@ export declare interface TextAreaAttribute extends CommonMethod {
      * <br>This attribute takes effect when wordBreak is not set to breakAll. Hyphens are not supported.
      * </p>
      *
-     * @param { LineBreakStrategy | undefined } strategy - The text line break strategy type.Default value is LineBreakStrategy.GREEDY.
+     * @param { LineBreakStrategy | undefined } strategy - The text line break strategy type.Default value is
+     *     LineBreakStrategy.GREEDY.
      * @returns { TextAreaAttribute } The attribute of the TextAreaAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -802,7 +806,7 @@ export declare interface TextAreaAttribute extends CommonMethod {
      * <br>You can also use the TextAreaController.stopEditing API to close the keyboard.
      * <br>When a custom keyboard is set, the text box does not support camera input, even when the device supports.
      * <br>When setting a custom keyboard,
-     * you can bind the onKeyPreIme event to prevent input from the physical keyboard.
+     * you can bind the onKeyPrelme event to prevent input from the physical keyboard.
      * </p>
      *
      * @param { CustomBuilder | ComponentContentBase | undefined } value - Set up a custom keyboard of TextArea.
@@ -817,7 +821,8 @@ export declare interface TextAreaAttribute extends CommonMethod {
     /**
      * Called when the text decoration of the text is set.
      *
-     * @param { TextDecorationOptions | undefined } value - Default value is { type: TextDecorationType.None, color: Color.Black, style: TextDecorationStyle.SOLID }.
+     * @param { TextDecorationOptions | undefined } value - Default value is { type: TextDecorationType.None, color:
+     *     Color.Black, style: TextDecorationStyle.SOLID }.
      * @returns { TextAreaAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -885,7 +890,8 @@ export declare interface TextAreaAttribute extends CommonMethod {
     /**
      * Sets whether enable auto fill or not.
      *
-     * @param { boolean | undefined } value - Indicates the flag whether autofill is enabled.Default value is true.True: enable, false: disable.
+     * @param { boolean | undefined } value - Indicates the flag whether autofill is enabled.Default value is true.True:
+     *     enable, false: disable.
      * @returns { TextAreaAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -925,7 +931,8 @@ export declare interface TextAreaAttribute extends CommonMethod {
      * <br>It is available only for system input methods.
      * </p>
      *
-     * @param { Callback<InsertValue, boolean> | undefined } callback - The triggered function when text content is about to insert.
+     * @param { Callback<InsertValue, boolean> | undefined } callback - The triggered function when text content is
+     *     about to insert.
      * @returns { TextAreaAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -939,7 +946,8 @@ export declare interface TextAreaAttribute extends CommonMethod {
      * <br>It is available only for system input methods.
      * </p>
      *
-     * @param { Callback<InsertValue> | undefined } callback - The triggered function when text content has been inserted.
+     * @param { Callback<InsertValue> | undefined } callback - The triggered function when text content has been
+     *     inserted.
      * @returns { TextAreaAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -955,7 +963,8 @@ export declare interface TextAreaAttribute extends CommonMethod {
      * <br>It is available only for system input methods.
      * </p>
      *
-     * @param { Callback<DeleteValue, boolean> | undefined } callback - The triggered function when text content is about to delete.
+     * @param { Callback<DeleteValue, boolean> | undefined } callback - The triggered function when text content is
+     *     about to delete.
      * @returns { TextAreaAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -969,7 +978,8 @@ export declare interface TextAreaAttribute extends CommonMethod {
      * <br>It is available only for system input methods.
      * </p>
      *
-     * @param { Callback<DeleteValue> | undefined } callback - The triggered function when text content has been deleted.
+     * @param { Callback<DeleteValue> | undefined } callback - The triggered function when text content has been
+     *     deleted.
      * @returns { TextAreaAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -1038,7 +1048,8 @@ export declare interface TextAreaAttribute extends CommonMethod {
     /**
      * Set the text with half leading.
      *
-     * @param { Optional<boolean> | undefined } halfLeading - Default value is false.The value true means that half leading is enabled, and false means the opposite.
+     * @param { boolean | undefined } halfLeading - Default value is false.The value true means that half leading
+     *     is enabled, and false means the opposite.
      * @returns { TextAreaAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -1078,8 +1089,9 @@ export declare interface TextAreaAttribute extends CommonMethod {
      * <br>This callback is triggered after onWillInsert and onWillDelete, but before onDidInsert and onDidDelete.
      * </p>
      *
-     * @param { Callback<EditableTextChangeValue, boolean> | undefined } callback - The triggered function when text content is about to change.
-     * Returning true allows the change to proceed, while returning false cancels the change.
+     * @param { Callback<EditableTextChangeValue, boolean> | undefined } callback - The triggered function when text
+     *     content is about to change.
+     *     Returning true allows the change to proceed, while returning false cancels the change.
      * @returns { TextAreaAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -1089,8 +1101,8 @@ export declare interface TextAreaAttribute extends CommonMethod {
     /**
      * Set the keyboard appearance.
      *
-     * @param { Optional<KeyboardAppearance> | undefined } appearance - Default value is KeyboardAppearance.NONE_IMMERSIVE
-     * @returns { TextAreaAttribute } returns the instance of the TextAreaAttribute.
+     * @param { KeyboardAppearance | undefined } appearance - Default value is KeyboardAppearance.NONE_IMMERSIVE
+     * @returns { TextAreaAttribute } - returns the instance of the TextAreaAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -1101,7 +1113,7 @@ export declare interface TextAreaAttribute extends CommonMethod {
      *
      * @param { boolean | undefined } include - Whether enable the feature, the default value is false.
      *     Passing `undefined` resets it to the default value.
-     * @returns { TextAreaAttribute } returns the instance of the TextInputAttribute.
+     * @returns { TextAreaAttribute } - returns the instance of the TextInputAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -1112,12 +1124,13 @@ export declare interface TextAreaAttribute extends CommonMethod {
      *
      * @param { boolean | undefined } enabled - Whether enable the feature, the default value is false.
      *     Passing `undefined` resets it to the default value.
-     * @returns { TextAreaAttribute } returns the instance of the TextInputAttribute.
+     * @returns { TextAreaAttribute } - returns the instance of the TextInputAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
      */
     default fallbackLineSpacing(enabled: boolean | undefined): this;
+
     /**
      * Define min lines of the text area.
      *
@@ -1275,7 +1288,7 @@ export declare interface TextAreaAttribute extends CommonMethod {
      * The default value is false, and text will be wrapped by the view.
      *
      * @param { boolean | undefined } enabled - whether to enable horizontal scrolling.
-     * True means enable this feature, false means disable this feature.
+     *     True means enable this feature, false means disable this feature.
      * @returns { TextAreaAttribute } returns the instance of the TextAreaAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -1286,9 +1299,9 @@ export declare interface TextAreaAttribute extends CommonMethod {
     /**
      * Whether to avoid an orphan word on the last line of the paragraph.
      *
-     * @param { boolean | undefined } enabled - The default value is false,
-     *     indicates the flag whether to enable this feature.
-     * @returns { TextAreaAttribute } returns the instance of the TextAreaAttribute.
+     * @param { boolean | undefined } enabled - If true, enables the feature; if false, disables it.
+     *     The default value is false.
+     * @returns { TextAreaAttribute } - returns the instance of the TextAreaAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 26.0.0 static
      */
@@ -1339,6 +1352,7 @@ export declare interface TextAreaAttribute extends CommonMethod {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
+ * @noninterop
  */
 @ComponentBuilder
 export declare function TextArea(

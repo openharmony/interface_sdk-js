@@ -3095,9 +3095,7 @@ declare namespace window {
    * @returns { Window } 当前查找的窗口对象。如果查找指定名称对应的窗口不存在，会抛出1300002错误码
    * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types.
-   * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause:
-   *     1. The window is not created or destroyed.
-   *     2. Window not found.
+   * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause: The window is not created or destroyed.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @crossplatform [since 10]
    * @atomicservice [since 11]
@@ -11410,17 +11408,17 @@ declare namespace window {
 
     /**
      * 应用部分界面支持横向布局时，在进入该界面时使能，使能后可支持进入横向多窗。不建议竖向布局界面使用。
-     * 
+     *
      * 此接口只对应用主窗口生效，且需要在module.json5配置文件中[abilities](docroot://quick-start/module-configuration-file.md#abilities标签)标签中配
      * 置preferMultiWindowOrientation属性为"landscape_auto"。
      *
      * @returns { Promise<void> } 无返回结果的Promise对象。
-     * @throws {BusinessError} 1300002 - This window state is abnormal.
-     * @throws {BusinessError} 1300003 - This window manager service works abnormally.
+     * @throws { BusinessError } 1300002  - 该窗口状态异常。可能原因：窗口未创建或已销毁。
+     * @throws { BusinessError } 1300003  - 窗口管理器服务运行异常。可能原因：内部错误。
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
-     * @since 24 static
+     * @since 26.0.0 static
      */
     enableLandscapeMultiWindow(): Promise<void>;
 
@@ -11524,17 +11522,17 @@ declare namespace window {
 
     /**
      * 应用部分界面支持横向布局时，在退出该界面时去使能，去使能后不支持进入横向多窗。
-     * 
+     *
      * 此接口只对应用主窗口生效，且需要在module.json5配置文件中[abilities](docroot://quick-start/module-configuration-file.md#abilities标签)标签中配
      * 置preferMultiWindowOrientation属性为"landscape_auto"。
      *
      * @returns { Promise<void> } 无返回结果的Promise对象。
-     * @throws {BusinessError} 1300002 - This window state is abnormal.
-     * @throws {BusinessError} 1300003 - This window manager service works abnormally.
+     * @throws { BusinessError } 1300002  - 该窗口状态异常。可能原因：窗口未创建或已销毁。
+     * @throws { BusinessError } 1300003  - 窗口管理器服务运行异常。可能原因：内部错误。
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
-     * @since 24 static
+     * @since 26.0.0 static
      */
     disableLandscapeMultiWindow(): Promise<void>;
 
@@ -11967,7 +11965,7 @@ declare namespace window {
      *     4. It is not allowed to create non-secure window when secure extension exists.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @throws { BusinessError } 1300004 - Unauthorized operation. Possible cause:
-     *     1. Invalid window type. Only main windows, subwindows, and floating windows are supported.
+     *     1. Invalid window type. Only main windows, subwindows, and floating windows are supported;
      *     2. When SubWindowOptions.zLevelAboveParentLoosened is true, only main windows are supported.
      * @syscap SystemCapability.Window.SessionManager
      * @StageModelOnly
@@ -11994,7 +11992,7 @@ declare namespace window {
      *     2. Internal task error.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @throws { BusinessError } 1300004 - Unauthorized operation. Possible cause:
-     *     Invalid window type. Only subwindow are supported.
+     *     Invalid window type. Only subwindows are supported.
      * @throws { BusinessError } 1300009 - The parent window is invalid. Possible cause:
      *     The parent window does not exist or has been destroyed.
      * @syscap SystemCapability.Window.SessionManager
@@ -13552,80 +13550,53 @@ declare namespace window {
      * > 调用该接口前，建议先通过[loadContent](#loadcontent9)方法或者[setUIContent](arkts-apis-window-Window.md#setuicontent9-1)
      * > 方法完成页面加载。如果应用窗口未完成页面加载就直接调用该接口，功能将不会生效。此时多任务中只显示应用启动页。
      *
-     * @param { long | image.PixelMap } imageResource - 应用自定义的图片资源，可传入资源id或PixelMap位图。传入资源id时，
-     *     图片资源需放在resources/base/media目录下，通过$r资源访问方式获取对应图片的资源id，这里以获取startIcon图片的资源id
-     *     为例给出示意：$r("app.media.startIcon").id。
-     * @param { ImageFit } value - 应用自定义图片的填充方式。
-     * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-     * @throws { BusinessError } 801 - Capability not supported.
-     *     Failed to call the API due to limited device capabilities.
-     * @throws { BusinessError } 1300002 - This window state is abnormal.
-     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
-     * @throws { BusinessError } 1300016 - Parameter error. Possible cause:
-     *     1. Invalid parameter range. 2. Invalid parameter length.
-     * @syscap SystemCapability.Window.SessionManager
-     * @systemapi Hide this for inner system use.
-     * @stagemodelonly
-     * @since 22 dynamic
-     * @since 23 static
-     */
-    /**
-     * 设置应用在多任务中和Dock栏悬停时显示的图片，使用Promise异步回调。
-     * > **说明：**
-     * >
-     * > 调用该接口前，建议先通过[loadContent](#loadcontent9)方法或者[setUIContent](arkts-apis-window-Window.md#setuicontent9-1)
-     * > 方法完成页面加载。如果应用窗口未完成页面加载就直接调用该接口，功能将不会生效。此时多任务中只显示应用启动页。
-     *
-     * @permission ohos.permission.MANAGE_RECENT_SNAPSHOT
+     * @permission ohos.permission.MANAGE_RECENT_SNAPSHOT [since 26.0.0]
      * @param { long | image.PixelMap } imageResource - 应用自定义的图片资源，可传入资源id或PixelMap位图。传入资源id时，
      *     图片资源需放在resources/base/media目录下，通过$r资源访问方式获取对应图片的资源id，这里以获取startIcon图片的资源id
      *     为例给出示意：$r("app.media.startIcon").id。
      * @param { ImageFit } value - 应用自定义图片的填充方式。
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have
-     *     the permission required or a non-system application calls the API.
+     *     the permission required or a non-system application calls the API. [since 26.0.0]
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system
+     *     API. [since 22 - 24]
      * @throws { BusinessError } 801 - Capability not supported.
      *     Failed to call the API due to limited device capabilities.
-     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause:
+     *     1. The window is not created or destroyed.
+     *     2. The WindowStage is running in the background.
+     *     3. Internal task error.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @throws { BusinessError } 1300016 - Parameter error. Possible cause:
      *     1. Invalid parameter range. 2. Invalid parameter length.
      * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use. [since 22 - 24]
+     * @publciapi [since 26.0.0]
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     setImageForRecent(imageResource: long | image.PixelMap, value: ImageFit): Promise<void>;
 
     /**
      * 移除应用设置的在多任务中和Dock栏悬停时显示的图片，下次进多任务查看应用卡片时生效，使用Promise异步回调。
      *
+     * @permission ohos.permission.MANAGE_RECENT_SNAPSHOT [since 26.0.0]
      * @returns { Promise<void> } Promise对象，无返回结果。
-     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have
+     *     the permission required or a non-system application calls the API. [since 26.0.0]
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system
+     *     API. [since 22 - 24]
      * @throws { BusinessError } 801 - Capability not supported.
      *     Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
-     * @systemapi Hide this for inner system use.
+     * @systemapi Hide this for inner system use. [since 22 - 24]
+     * @publicapi [since 26.0.0]
      * @stagemodelonly
      * @since 22 dynamic
      * @since 23 static
-     */
-    /**
-     * 移除应用设置的在多任务中和Dock栏悬停时显示的图片，下次进多任务查看应用卡片时生效，使用Promise异步回调。
-     *
-     * @permission ohos.permission.MANAGE_RECENT_SNAPSHOT
-     * @returns { Promise<void> } Promise对象，无返回结果。
-     * @throws { BusinessError } 201 - Permission verification failed. The application does not have
-     *     the permission required or a non-system application calls the API.
-     * @throws { BusinessError } 801 - Capability not supported.
-     *     Failed to call the API due to limited device capabilities.
-     * @throws { BusinessError } 1300002 - This window state is abnormal.
-     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
-     * @syscap SystemCapability.Window.SessionManager
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
      */
     removeImageForRecent(): Promise<void>;
 

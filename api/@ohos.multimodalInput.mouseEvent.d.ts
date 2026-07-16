@@ -14,24 +14,30 @@
  */
 
 /**
- * @file
+ * The **mouseEvent** module provides mouse events reported by a device. It is inherited from 
+ * [InputEvent]{@link @ohos.multimodalInput.inputEvent:InputEvent}.
+ *
+ * @file Mouse Event
  * @kit InputKit
  */
 
 import type { InputEvent } from './@ohos.multimodalInput.inputEvent';
+
 import type { KeyCode } from './@ohos.multimodalInput.keyCode';
 
 /**
- * Action
+ * Enumerates mouse event types.
  *
- * @enum { number }
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @since 9 dynamic
  * @since 23 static
  */
 export declare enum Action {
+
   /**
-   * Cancel
+   * Canceled. The down event of the mouse is interrupted unexpectedly and does not close normally. For example, the
+   * **CANCEL** event is triggered when the mouse button is pressed but not released, the window transitions to the
+   * background, or an abnormal destruction occurs.
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -40,7 +46,7 @@ export declare enum Action {
   CANCEL = 0,
 
   /**
-   * Moving of the mouse pointer
+   * Moving of the mouse pointer.
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -49,7 +55,7 @@ export declare enum Action {
   MOVE = 1,
 
   /**
-   * Pressing down of the mouse
+   * Mouse button press.
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -58,7 +64,7 @@ export declare enum Action {
   BUTTON_DOWN = 2,
 
   /**
-   * Lifting of the mouse button
+   * Mouse button release.
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -67,7 +73,7 @@ export declare enum Action {
   BUTTON_UP = 3,
 
   /**
-   * Beginning of the axis event associated with the mouse
+   * Beginning of the mouse axis event.
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -76,7 +82,7 @@ export declare enum Action {
   AXIS_BEGIN = 4,
 
   /**
-   * Updating of the axis event associated with the mouse
+   * Updating of the mouse axis event.
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -85,7 +91,7 @@ export declare enum Action {
   AXIS_UPDATE = 5,
 
   /**
-   * Ending of the axis event associated with the mouse
+   * Mouse axis event ended.
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -94,7 +100,7 @@ export declare enum Action {
   AXIS_END = 6,
 
   /**
-   * Indicates a pointer action representing that a finger is pressed on touchpad.
+   * Touchpad press.
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 11 dynamic
@@ -103,26 +109,26 @@ export declare enum Action {
   ACTION_DOWN = 7,
 
   /**
-   * Indicates a pointer action representing that a finger leaves touchpad.
+   * Touchpad release.
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 11 dynamic
    * @since 23 static
    */
-  ACTION_UP = 8,
+  ACTION_UP = 8
 }
 
 /**
- * Mouse button
+ * Enumerates mouse buttons.
  *
- * @enum { number }
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @since 9 dynamic
  * @since 23 static
  */
 export declare enum Button {
+
   /**
-   * Left button on the mouse
+   * Left button.
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -131,7 +137,7 @@ export declare enum Button {
   LEFT = 0,
 
   /**
-   * Middle button on the mouse
+   * Middle button.
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -140,7 +146,7 @@ export declare enum Button {
   MIDDLE = 1,
 
   /**
-   * Right button on the mouse
+   * Right button
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -149,7 +155,7 @@ export declare enum Button {
   RIGHT = 2,
 
   /**
-   * Side button on the mouse
+   * Side button.
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -158,7 +164,7 @@ export declare enum Button {
   SIDE = 3,
 
   /**
-   * Extended button on the mouse
+   * Extended button.
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -167,7 +173,7 @@ export declare enum Button {
   EXTRA = 4,
 
   /**
-   * Forward button on the mouse
+   * Forward button.
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -176,7 +182,7 @@ export declare enum Button {
   FORWARD = 5,
 
   /**
-   * Back button on the mouse
+   * Back button.
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -185,7 +191,7 @@ export declare enum Button {
   BACK = 6,
 
   /**
-   * Task key on the mouse
+   * Task button.
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -195,16 +201,16 @@ export declare enum Button {
 }
 
 /**
- * Axis
+ * Enumerates mouse axis types.
  *
- * @enum { number }
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @since 9 dynamic
  * @since 23 static
  */
 export declare enum Axis {
+
   /**
-   * Vertical scroll axis
+   * Vertical scroll axis of the mouse.
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -213,7 +219,7 @@ export declare enum Axis {
   SCROLL_VERTICAL = 0,
 
   /**
-   * Horizontal scroll axis
+   * Horizontal scroll axis of the mouse.
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -222,7 +228,7 @@ export declare enum Axis {
   SCROLL_HORIZONTAL = 1,
 
   /**
-   * Pinch axis
+   * Pinch axis of the mouse.
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -232,17 +238,17 @@ export declare enum Axis {
 }
 
 /**
- * AxisValue
+ * Defines the mouse axis type and axis value.
  *
- * @interface AxisValue
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @since 9 dynamic
  * @since 23 static
  */
 export declare interface AxisValue {
+
   /**
-   * Axis type
-   * @type { Axis }
+   * Mouse axis type.
+   *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
    * @since 23 static
@@ -250,8 +256,8 @@ export declare interface AxisValue {
   axis: Axis;
 
   /**
-   * Axis value
-   * @type { int }
+   * Mouse axis value.
+   *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
    * @since 23 static
@@ -260,16 +266,16 @@ export declare interface AxisValue {
 }
 
 /**
- * ToolType
+ * Enumerates tool types.
  *
- * @enum { number }
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @since 11 dynamic
  * @since 23 static
  */
 export declare enum ToolType {
+
   /**
-   * Unknown type
+   * Unknown type.
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 11 dynamic
@@ -278,7 +284,7 @@ export declare enum ToolType {
   UNKNOWN = 0,
 
   /**
-   * Mouse
+   * Mouse.
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 11 dynamic
@@ -287,7 +293,7 @@ export declare enum ToolType {
   MOUSE = 1,
 
   /**
-   * Joystick
+   * Joystick.
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 11 dynamic
@@ -296,28 +302,27 @@ export declare enum ToolType {
   JOYSTICK = 2,
 
   /**
-   * Touch pad
+   * Touchpad.
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 11 dynamic
    * @since 23 static
    */
-  TOUCHPAD = 3,
+  TOUCHPAD = 3
 }
 
 /**
- * MouseEvent
+ * Defines the mouse event.
  *
- * @extends InputEvent
- * @interface MouseEvent
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @since 9 dynamic
  * @since 23 static
  */
 export declare interface MouseEvent extends InputEvent {
+
   /**
-   * Mouse event action
-   * @type { Action }
+   * Enumerates mouse event types.
+   *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
    * @since 23 static
@@ -325,8 +330,9 @@ export declare interface MouseEvent extends InputEvent {
   action: Action;
 
   /**
-   * X coordinate of the mouse pointer on the screen
-   * @type { int }
+   * X coordinate of the mouse event in the relative coordinate system with the upper left corner of the specified
+   * screen as the origin, in px. Currently, the value can only be an integer.
+   *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
    * @since 23 static
@@ -334,8 +340,9 @@ export declare interface MouseEvent extends InputEvent {
   screenX: int;
 
   /**
-   * Y coordinate of the mouse pointer on the screen
-   * @type { int }
+   * Y coordinate of the mouse event in the relative coordinate system with the upper left corner of the specified
+   * screen as the origin, in px. Currently, the value can only be an integer.
+   *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
    * @since 23 static
@@ -343,8 +350,9 @@ export declare interface MouseEvent extends InputEvent {
   screenY: int;
 
   /**
-   * X coordinate of the mouse pointer in the window
-   * @type { int }
+   * X coordinate in the relative coordinate system with the upper left corner of the window where the mouse is located
+   * as the origin, in px. Currently, the value can only be an integer.
+   *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
    * @since 23 static
@@ -352,8 +360,9 @@ export declare interface MouseEvent extends InputEvent {
   windowX: int;
 
   /**
-   * Y coordinate of the mouse pointer in the window
-   * @type { int }
+   * Y coordinate in the relative coordinate system with the upper left corner of the window where the mouse is located
+   * as the origin, in px. Currently, the value can only be an integer.
+   *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
    * @since 23 static
@@ -361,9 +370,9 @@ export declare interface MouseEvent extends InputEvent {
   windowY: int;
 
   /**
-   * X axis offset relative to the previous reported mouse pointer position. When the mouse pointer is at
-   * the edge of the screen, the value may be less than the difference of the X coordinate reported twice.
-   * @type { int }
+   * X coordinate offset of the current mouse event relative to the previous event, in px. Currently, the value can only
+   * be an integer.
+   *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
    * @since 23 static
@@ -371,8 +380,9 @@ export declare interface MouseEvent extends InputEvent {
   rawDeltaX: int;
 
   /**
-   * Y axis offset relative to the previous reported mouse pointer position
-   * @type { int }
+   * Y coordinate offset of the current mouse event relative to the previous event, in px. Currently, the value can only
+   * be an integer.
+   *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
    * @since 23 static
@@ -380,8 +390,8 @@ export declare interface MouseEvent extends InputEvent {
   rawDeltaY: int;
 
   /**
-   * Button that is currently pressed or released
-   * @type { Button }
+   * Enumerates mouse buttons.
+   *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
    * @since 23 static
@@ -389,8 +399,8 @@ export declare interface MouseEvent extends InputEvent {
   button: Button;
 
   /**
-   * Button that is being pressed
-   * @type { Button[] }
+   * Button being pressed.
+   *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
    * @since 23 static
@@ -398,8 +408,8 @@ export declare interface MouseEvent extends InputEvent {
   pressedButtons: Button[];
 
   /**
-   * All axis data contained in the event
-   * @type { AxisValue[] }
+   * Defines the mouse axis type and axis value.
+   *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
    * @since 23 static
@@ -407,8 +417,8 @@ export declare interface MouseEvent extends InputEvent {
   axes: AxisValue[];
 
   /**
-   * List of pressed keys
-   * @type { KeyCode[] }
+   * List of pressed keys.
+   *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
    * @since 23 static
@@ -416,8 +426,10 @@ export declare interface MouseEvent extends InputEvent {
   pressedKeys: KeyCode[];
 
   /**
-   * Whether ctrlKey is being pressed
-   * @type { boolean }
+   * Whether ctrlKey is being pressed.
+   *
+   * The value **true** indicates that the key is pressed, and the value **false** indicates the opposite.
+   *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
    * @since 23 static
@@ -425,8 +437,10 @@ export declare interface MouseEvent extends InputEvent {
   ctrlKey: boolean;
 
   /**
-   * Whether altKey is being pressed
-   * @type { boolean }
+   * Whether altKey is being pressed.
+   *
+   * The value **true** indicates that the key is pressed, and the value **false** indicates the opposite.
+   *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
    * @since 23 static
@@ -434,8 +448,10 @@ export declare interface MouseEvent extends InputEvent {
   altKey: boolean;
 
   /**
-   * Whether shiftKey is being pressed
-   * @type { boolean }
+   * Whether shiftKey is being pressed.
+   *
+   * The value **true** indicates that the key is pressed, and the value **false** indicates the opposite.
+   *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
    * @since 23 static
@@ -443,8 +459,10 @@ export declare interface MouseEvent extends InputEvent {
   shiftKey: boolean;
 
   /**
-   * Whether logoKey is being pressed
-   * @type { boolean }
+   * Whether logoKey is being pressed.
+   *
+   * The value **true** indicates that the key is pressed, and the value **false** indicates the opposite.
+   *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
    * @since 23 static
@@ -452,8 +470,10 @@ export declare interface MouseEvent extends InputEvent {
   logoKey: boolean;
 
   /**
-   * Whether fnKey is being pressed
-   * @type { boolean }
+   * Whether fnKey is being pressed.
+   *
+   * The value **true** indicates that the key is pressed, and the value **false** indicates the opposite.
+   *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
    * @since 23 static
@@ -461,8 +481,10 @@ export declare interface MouseEvent extends InputEvent {
   fnKey: boolean;
 
   /**
-   * Whether capsLock is active
-   * @type { boolean }
+   * Whether capsLock is enabled.
+   *
+   * The value **true** indicates that capsLock is enabled, and the value **false** indicates the opposite.
+   *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
    * @since 23 static
@@ -470,8 +492,10 @@ export declare interface MouseEvent extends InputEvent {
   capsLock: boolean;
 
   /**
-   * Whether numLock is active
-   * @type { boolean }
+   * Whether numLock is enabled.
+   *
+   * The value **true** indicates that numLock is enabled, and the value **false** indicates the opposite.
+   *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
    * @since 23 static
@@ -479,8 +503,10 @@ export declare interface MouseEvent extends InputEvent {
   numLock: boolean;
 
   /**
-   * Whether scrollLock is active
-   * @type { boolean }
+   * Whether scrollLock is enabled.
+   *
+   * The value **true** indicates that scrollLock is enabled, and the value **false** indicates the opposite.
+   *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
    * @since 23 static
@@ -488,9 +514,8 @@ export declare interface MouseEvent extends InputEvent {
   scrollLock: boolean;
 
   /**
-   * Tool type
+   * Tool type.
    *
-   * @type { ToolType }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 11 dynamic
    * @since 23 static
@@ -498,8 +523,14 @@ export declare interface MouseEvent extends InputEvent {
   toolType: ToolType;
 
   /**
-   * globalX - Global X coordinate.
-   * @type { ?int }
+   * X coordinate of the mouse event in the global coordinate system with the upper left corner of the primary screen as
+   * the origin, in px. When this parameter is used as an input parameter, it is mandatory and supports only integers if
+   * [MouseEventData.useGlobalCoordinate]{@link @ohos.multimodalInput.inputEventClient:inputEventClient.MouseEventData}
+   * is set to **true**. If **MouseEventData.useGlobalCoordinate** is set to **false**, this parameter is optional, and
+   * the X coordinate in the relative coordinate system with the upper left corner of the specified screen as the origin
+   * is used to calculate the injected event. When this parameter is used as an output parameter, it is reported by the
+   * system.
+   *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 20 dynamic
    * @since 23 static
@@ -507,8 +538,14 @@ export declare interface MouseEvent extends InputEvent {
   globalX?: int;
 
   /**
-   * globalY - Global Y coordinate.
-   * @type { ?int }
+   * Y coordinate of the mouse event in the global coordinate system with the upper left corner of the primary screen as
+   * the origin, in px. When this parameter is used as an input parameter, it is mandatory and supports only integers if
+   * [MouseEventData.useGlobalCoordinate]{@link @ohos.multimodalInput.inputEventClient:inputEventClient.MouseEventData}
+   * is set to **true**. If **MouseEventData.useGlobalCoordinate** is set to **false**, this parameter is optional, and
+   * the Y coordinate in the relative coordinate system with the upper left corner of the specified screen as the origin
+   * is used to calculate the injected event. When this parameter is used as an output parameter, it is reported by the
+   * system.
+   *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 20 dynamic
    * @since 23 static

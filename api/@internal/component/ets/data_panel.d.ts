@@ -38,7 +38,7 @@ declare enum DataPanelType {
    * @atomicservice [since 11]
    * @since 8 dynamic
    */
-  Line = 0,
+  Line,
 
   /**
    * Circle data panel.
@@ -280,7 +280,11 @@ declare interface DataPanelConfiguration extends CommonConfiguration<DataPanelCo
 }
 
 /**
- * In addition to the [universal attributes]{@link common}, the following attributes are supported.
+ * In addition to the 
+ * [universal attributes](docroot://reference/apis-arkui/arkui-ts/ts-component-general-attributes.md), the following
+ * attributes are supported.
+ *
+ * The [universal events](docroot://reference/apis-arkui/arkui-ts/ts-component-general-events.md) are supported.
  *
  * @extends CommonMethod [since 7 - 10]
  * @extends CommonMethod<DataPanelAttribute> [since 11]

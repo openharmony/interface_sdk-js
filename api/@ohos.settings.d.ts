@@ -1515,7 +1515,7 @@ declare namespace settings {
   /**
    * Open the network manager settings page.
    *
-   * @param { Context } context - Application context. Only UIAbilityContext and ExtensionContext are supported.
+   * @param { Context } context - Application context. Only UIAbilityContext and UIExtensionContext are supported.
    * @returns { Promise<boolean> } The promise returned by the function.
    * @throws { BusinessError } 14800000 - Parameter error.
    * @throws { BusinessError } 14800010 - Original service error.
@@ -1528,7 +1528,7 @@ declare namespace settings {
   /**
    * Open the input method settings page.
    *
-   * @param { Context } context - Application context. Only UIAbilityContext and ExtensionContext are supported.
+   * @param { Context } context - Application context. Only UIAbilityContext and UIExtensionContext are supported.
    * @throws { BusinessError } 16900010 - Parameter error.
    * @syscap SystemCapability.Applications.Settings.Core
    * @StageModelOnly
@@ -1539,7 +1539,7 @@ declare namespace settings {
   /**
    * Open the input method detail page.
    *
-   * @param { Context } context - Application context. Only UIAbilityContext and ExtensionContext are supported.
+   * @param { Context } context - Application context. Only UIAbilityContext and UIExtensionContext are supported.
    * @param { string } bundleName - bundle name of the input method.
    * @param { string } inputMethodId - id of the input method.
    * @throws { BusinessError } 16900010 - Parameter error.
@@ -1552,7 +1552,7 @@ declare namespace settings {
   /**
    * Open the mobile network settings page.
    *
-   * @param { Context } context - Application context. Only UIAbilityContext and ExtensionContext are supported.
+   * @param { Context } context - Application context. Only UIAbilityContext and UIExtensionContext are supported.
    * @throws { BusinessError } 16900010 - Parameter error.
    * @throws { BusinessError } 16900020 - Failed to open the settings page via redirection.
    * @syscap SystemCapability.Applications.Settings.Core
@@ -1564,7 +1564,7 @@ declare namespace settings {
   /**
    * Open the display settings page.
    *
-   * @param { Context } context - Application context. Only UIAbilityContext and ExtensionContext are supported.
+   * @param { Context } context - Application context. Only UIAbilityContext and UIExtensionContext are supported.
    * @throws { BusinessError } 16900010 - Parameter error.
    * @throws { BusinessError } 16900020 - Failed to open the settings page via redirection.
    * @syscap SystemCapability.Applications.Settings.Core
@@ -1576,7 +1576,7 @@ declare namespace settings {
   /**
    * Open the screen refresh rate settings page.
    *
-   * @param { Context } context - Application context. Only UIAbilityContext and ExtensionContext are supported.
+   * @param { Context } context - Application context. Only UIAbilityContext and UIExtensionContext are supported.
    * @throws { BusinessError } 16900010 - Parameter error.
    * @throws { BusinessError } 16900020 - Failed to open the settings page via redirection.
    * @syscap SystemCapability.Applications.Settings.Core
@@ -1588,7 +1588,7 @@ declare namespace settings {
   /**
    * Open the sound settings page.
    *
-   * @param { Context } context - Application context. Only UIAbilityContext and ExtensionContext are supported.
+   * @param { Context } context - Application context. Only UIAbilityContext and UIExtensionContext are supported.
    * @throws { BusinessError } 16900010 - Parameter error.
    * @throws { BusinessError } 16900020 - Failed to open the settings page via redirection.
    * @syscap SystemCapability.Applications.Settings.Core
@@ -1600,7 +1600,7 @@ declare namespace settings {
   /**
    * Open the biometrics and password settings page.
    *
-   * @param { Context } context - Application context. Only UIAbilityContext and ExtensionContext are supported.
+   * @param { Context } context - Application context. Only UIAbilityContext and UIExtensionContext are supported.
    * @throws { BusinessError } 16900010 - Parameter error.
    * @throws { BusinessError } 16900020 - Failed to open the settings page via redirection.
    * @syscap SystemCapability.Applications.Settings.Core
@@ -1612,7 +1612,7 @@ declare namespace settings {
   /**
    * Open the about device settings page.
    *
-   * @param { Context } context - Application context. Only UIAbilityContext and ExtensionContext are supported.
+   * @param { Context } context - Application context. Only UIAbilityContext and UIExtensionContext are supported.
    * @throws { BusinessError } 16900010 - Parameter error.
    * @throws { BusinessError } 16900020 - Failed to open the settings page via redirection.
    * @syscap SystemCapability.Applications.Settings.Core
@@ -1624,7 +1624,7 @@ declare namespace settings {
   /**
    * Open the NFC settings page.
    *
-   * @param { Context } context - Application context. Only UIAbilityContext and ExtensionContext are supported.
+   * @param { Context } context - Application context. Only UIAbilityContext and UIExtensionContext are supported.
    * @throws { BusinessError } 16900010 - Parameter error.
    * @throws { BusinessError } 16900020 - Failed to open the settings page via redirection.
    * @syscap SystemCapability.Applications.Settings.Core
@@ -1636,7 +1636,7 @@ declare namespace settings {
   /**
    * Open the app detail settings page.
    *
-   * @param { Context } context - Application context. Only UIAbilityContext and ExtensionContext are supported.
+   * @param { Context } context - Application context. Only UIAbilityContext and UIExtensionContext are supported.
    * @param { string } bundleName - Application bundle name.
    * @param { int } [appIndex] - Application index.
    * @throws { BusinessError } 16900010 - Parameter error.

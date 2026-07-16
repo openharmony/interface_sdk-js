@@ -126,7 +126,7 @@ declare class StackAttribute extends CommonMethod<StackAttribute> {
    * Set whether to synchronously load child nodes within one frame.
    *
    * @param { boolean } enable - Whether to synchronously load child nodes within one frame.
-   *     <br>Default value: <em>true</em>
+   *     <br>Default value: **true**
    * @returns { StackAttribute } The attribute of the Stack.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly

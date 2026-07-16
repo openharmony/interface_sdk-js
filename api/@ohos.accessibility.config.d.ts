@@ -615,6 +615,52 @@ declare namespace config {
   function offSeniorModeStateChangeForApp(callback?: Callback<AppSeniorModeInfo>): void;
 
   /**
+   * Enable the flash or screen to blink for flash alert.
+   *
+   * @permission ohos.permission.WRITE_ACCESSIBILITY_CONFIG
+   * @param { BlinkingMode } mode - Indicates the mode of screen flickering or flash light flashing.
+   * @param { BlinkingScenario } scenario - Indicates the scenario that blinking is triggered.
+   * @returns { BlinkResultCode } Returns the result code.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     <br>The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed.
+   *     <br>A non-system application calls a system API.
+   * @throws { BusinessError } 9300000 - System abnormality.Possible causes:
+   *     <br>1.Internal operation failed.
+   *     <br>2.Failed to obtain the required service or client object (null pointer).
+   *     <br>3.IPC communication failed.
+   *     <br>4.Failed to obtain the accessibility service proxy.
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function startBlinking(mode: BlinkingMode, scenario: BlinkingScenario): BlinkResultCode;
+
+  /**
+   * Stop the flash or screen to blink for flash alert.
+   *
+   * @permission ohos.permission.WRITE_ACCESSIBILITY_CONFIG
+   * @param { BlinkingMode } mode - Indicates the mode of screen flickering or flash light flashing.
+   * @param { BlinkingScenario } scenario - Indicates the scenario that blinking is triggered.
+   * @returns { BlinkResultCode } Returns the result code.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     <br>The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed.
+   *     <br>A non-system application calls a system API.
+   * @throws { BusinessError } 9300000 - System abnormality.Possible causes:
+   *     <br>1.Internal operation failed.
+   *     <br>2.Failed to obtain the required service or client object (null pointer).
+   *     <br>3.IPC communication failed.
+   *     <br>4.Failed to obtain the accessibility service proxy.
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function stopBlinking(mode: BlinkingMode, scenario: BlinkingScenario): BlinkResultCode;
+
+  /**
    * Implements configuration, acquisition, and listening for properties.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
@@ -845,5 +891,146 @@ declare namespace config {
    * @since 23 static
    */
   type RepeatClickInterval = 'Shortest' | 'Short' | 'Medium' | 'Long' | 'Longest';
+
+  /**
+   * Blinking Mode Enumeration
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  export enum BlinkingMode {  
+    /**
+     * Indicates a single blink.
+     *
+     * @syscap SystemCapability.BarrierFree.Accessibility.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    SINGLE_BLINK = 1,
+    /**
+     * Indicates continuous blink.
+     *
+     * @syscap SystemCapability.BarrierFree.Accessibility.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    CONTINUOUS_BLINK = 2
+  }
+
+  /**
+   * Blinking Scenario Enumeration
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  export enum BlinkingScenario {
+    /**
+     * Indicates that the alarm clock triggers blinking.
+     *
+     * @syscap SystemCapability.BarrierFree.Accessibility.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    ALARM = 1,
+    /**
+     * Indicates that the notification triggers blinking.
+     *
+     * @syscap SystemCapability.BarrierFree.Accessibility.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    NOTIFICATION = 2,
+    /**
+     * Indicates that the phone call triggers blinking.
+     *
+     * @syscap SystemCapability.BarrierFree.Accessibility.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    CALL = 3,
+    /**
+     * Indicates that triggers blinking for testing.
+     *
+     * @syscap SystemCapability.BarrierFree.Accessibility.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    TESTING = 4
+  }
+
+  /**
+   * Enumerates the result codes for blinking operations.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  export enum BlinkResultCode {
+    /**
+     * Success.
+     *
+     * @syscap SystemCapability.BarrierFree.Accessibility.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    SUCCESS = 0,
+    /**
+     * Currently flashing.
+     *
+     * @syscap SystemCapability.BarrierFree.Accessibility.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    ALREADY_FLASHING = 1,
+    /**
+     * Device is in use.
+     *
+     * @syscap SystemCapability.BarrierFree.Accessibility.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    DEVICE_IN_USE = 2,
+    /**
+     * Flash blinking is unsupported.
+     *
+     * @syscap SystemCapability.BarrierFree.Accessibility.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    FLASH_BLINKING_UNSUPPORTED = 3,
+    /**
+     * Screen blinking is unsupported.
+     *
+     * @syscap SystemCapability.BarrierFree.Accessibility.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    SCREEN_BLINKING_UNSUPPORTED = 4,
+    /**
+     * Feature switch is disabled.
+     *
+     * @syscap SystemCapability.BarrierFree.Accessibility.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    FEATURE_DISABLED = 5
+  }
 }
 export default config;

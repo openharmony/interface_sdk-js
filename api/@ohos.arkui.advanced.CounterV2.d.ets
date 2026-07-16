@@ -145,7 +145,8 @@ declare class CounterV2CommonOptions {
 /**
  * The change callback of the inline CounterV2.
  *
- * @param { int } value - value
+ * @param { int } value - value.
+ *     <br>The value should be an integer.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform

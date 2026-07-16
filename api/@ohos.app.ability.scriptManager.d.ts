@@ -135,21 +135,6 @@ declare namespace scriptManager {
    * @since 26.0.0 dynamiconly
    */
   function completeArkTSScriptInApp(context: Context, requestCode: string, result: ExecuteResult): Promise<void>;
-
-  /**
-   * complete arkTS script for standalone skills.
-   *
-   * @param { ExecuteResult } result - The result of arkTS script execution.
-   * @returns { Promise<void> } - The promise returned by the function.
-   * @throws { BusinessError } 16000050 - Internal error. Possible causes: 1. Connect to system service failed;
-   *     2.Send restart message to system service failed;
-   *     3.System service failed to communicate with dependency module.
-   * @syscap SystemCapability.Ability.AgentRuntime.Core
-   * @stagemodelonly
-   * @atomicservice
-   * @since 26.0.0 dynamiconly
-   */
-  function completeArkTSScript(result: ExecuteResult): Promise<void>;
 }
 
 export default scriptManager;

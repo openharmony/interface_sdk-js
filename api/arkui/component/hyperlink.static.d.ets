@@ -25,7 +25,6 @@ import { Builder, ComponentBuilder, CustomBuilder, CustomBuilderT } from './buil
 /**
  * Defines the hyperlink attribute functions
  *
- * @extends CommonMethod
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -35,7 +34,7 @@ export declare interface HyperlinkAttribute extends CommonMethod {
     /**
      * Set Color
      *
-     * @param { Color | int | string | Resource } value
+     * @param { Color | int | string | Resource | undefined } value
      * @returns { HyperlinkAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly

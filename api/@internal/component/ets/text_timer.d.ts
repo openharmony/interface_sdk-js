@@ -30,7 +30,6 @@
  * ```
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
  * @crossplatform [since 10]
  * @form [since 10]
  * @atomicservice [since 11]
@@ -282,7 +281,6 @@ interface TextTimerInterface {
  * following events are supported.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
  * @crossplatform [since 10]
  * @form [since 10]
  * @atomicservice [since 11]

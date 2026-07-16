@@ -23,9 +23,15 @@ import { RunningAppClone } from './RunningAppClone';
 import { RunningMultiInstanceInfo } from './RunningMultiInstanceInfo';
 
 /**
- * The class of running multi app information.
+ * # How to Use
+ * 
+ * The RunningMultiAppInfo struct is obtained from 
+ * [getRunningMultiAppInfo]{@link ./../@ohos.app.ability.appManager:appManager.getRunningMultiAppInfo} of 
+ * **appManager**.
+ */
+/**
+ * The RunningMultiAppInfo module defines the information of an application in multi-app mode in the running state.
  *
- * @typedef RunningMultiAppInfo
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @systemapi
  * @since 12 dynamic
@@ -33,11 +39,9 @@ import { RunningMultiInstanceInfo } from './RunningMultiInstanceInfo';
  */
 export interface RunningMultiAppInfo {
 
-
   /**
-   * The name of the bundle.
+   * Bundle name of the application.
    *
-   * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 12 dynamic
@@ -46,9 +50,8 @@ export interface RunningMultiAppInfo {
   bundleName: string;
 
   /**
-   * The app multi mode.
+   * Multi-app mode.
    *
-   * @type { MultiAppMode }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 12 dynamic
@@ -57,9 +60,8 @@ export interface RunningMultiAppInfo {
   mode: MultiAppMode;
 
   /**
-   * All running instance info for bundle if mode is {@link MULTI_INSTANCE}.
+   * Information about a multi-instance application with the specific bundle name in the running state.
    *
-   * @type { ?Array<RunningMultiInstanceInfo> }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 14 dynamic
@@ -68,9 +70,8 @@ export interface RunningMultiAppInfo {
   runningMultiInstances?: Array<RunningMultiInstanceInfo>;
 
   /**
-   * All running app info for bundle if mode is {@link APP_CLONE}.
+   * Information about application clones with the specific bundle name in the running state.
    *
-   * @type { ?Array<RunningAppClone> }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 12 dynamic

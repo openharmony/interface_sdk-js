@@ -31,12 +31,13 @@
 declare type DrawingCanvas = import('../api/@ohos.graphics.drawing').default.Canvas;
 
 /**
- * Filling style algorithm, which determines whether a point is within or outside the path.
+ * Defines the fill pattern algorithm used to determine whether a point is inside or outside a path. The value type is a
+ * union of the types listed in the table below.
  *
- * @unionmember { "evenodd" } The inside part of a shape is determined based on whether the counting
- *     result is an odd number or not. This rule determines whether a point is inside a shape by casting
- *     a ray from the point on the canvas in any direction and counting the number of intersections between
- *     the ray and the shape path. If the number of intersections is odd, the point is inside the shape.
+ * @unionmember { "evenodd" } The inside part of a shape is determined based on whether the counting result is an odd
+ *     number or not. This rule determines whether a point is inside a shape by casting a ray from the point on the
+ *     canvas in any direction and counting the number of intersections between the ray and the shape path. If the
+ *     number of intersections is odd, the point is inside the shape.
  *     Otherwise, the point is outside the shape.
  * @unionmember { "nonzero" } The inside part of a shape is determined based on whether the counting result
  *     is zero or not. This rule determines whether a point is inside a shape by casting a ray from the
@@ -73,8 +74,8 @@ declare type CanvasFillRule = "evenodd" | "nonzero";
 declare type CanvasLineCap = "butt" | "round" | "square";
 
 /**
- * Sets the attribute of how two connected parts (line segments, arcs, and curves) whose length
- * is not 0 are connected together.
+ * Defines the type of join between two non-zero-length segments (lines, arcs, and curves). The value type is a union of
+ * the types listed in the table below.
  *
  * @unionmember { "bevel" } The intersection is a triangle. The rectangular corner of each line
  *     is independent.
@@ -92,7 +93,7 @@ declare type CanvasLineCap = "butt" | "round" | "square";
 declare type CanvasLineJoin = "bevel" | "miter" | "round";
 
 /**
- * Indicates the attribute of the current text direction.
+ * Defines the current text direction. The value type is a union of the types listed in the table below.
  *
  * @unionmember { "inherit" } Inherits the text direction set in the general attributes of the canvas
  *     component. If the **direction** attribute is not set on the canvas component, the system text
@@ -109,7 +110,7 @@ declare type CanvasLineJoin = "bevel" | "miter" | "round";
 declare type CanvasDirection = "inherit" | "ltr" | "rtl";
 
 /**
- * Describes the alignment mode for drawing text.
+ * Defines the type of text alignment. The value type is a union of the types listed in the table below.
  *
  * @unionmember { "center" } The text is center-aligned.
  * @unionmember { "end" } The text is aligned with the end bound (left alignment refers to the local
@@ -128,7 +129,7 @@ declare type CanvasDirection = "inherit" | "ltr" | "rtl";
 declare type CanvasTextAlign = "center" | "end" | "left" | "right" | "start";
 
 /**
- * Text baseline, which supports the following configurations.
+ * Defines the text baseline type. The value type is a union of the types listed in the table below.
  *
  * @unionmember { "alphabetic" } The text baseline is the normal alphabetic baseline.
  * @unionmember { "bottom" } The text baseline is at the bottom of the text bounding box. Its difference
@@ -200,7 +201,7 @@ declare class CanvasGradient {
    *    to be invalid.
    * @param { string } color - Gradient color to set. For details about the color notation,
    *    see the description of the string type in
-   *    [ResourceColor](@ResourceColor).<br>
+   *    [ResourceColor]{@link ResourceColor}.<br>
    *    Invalid values result in no gradient effect being displayed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -215,21 +216,21 @@ declare class CanvasGradient {
    * Adds a color stop for the **CanvasGradient** object based on the specified offset
    * and gradient color. Colors in RGB or ARGB format can be set. You can set P3 color
    * gamut values by passing in the
-   * [ColorMetrics](docroot://reference/apis-arkui/js-apis-arkui-graphics.md#colormetrics12)
+   * [ColorMetrics]{@link ColorMetrics}
    * type, which can achieve richer color reproduction on devices that support high color gamut.
    *
    * > **NOTE**
    * >
    * > Only the
-   * > [fillStyle](docroot://reference/apis-arkui/arkui-ts/ts-canvasrenderingcontext2d.md#fillstyle)
+   * > [fillStyle]{@link CanvasRenderingContext2D#fillStyle}
    * > and
-   * > [strokeStyle](docroot://reference/apis-arkui/arkui-ts/ts-canvasrenderingcontext2d.md#strokestyle)
+   * > [strokeStyle]{@link CanvasRenderingContext2D#strokeStyle}
    * > attributes of the
-   * > [CanvasRenderingContext2D](docroot://reference/apis-arkui/arkui-ts/ts-canvasrenderingcontext2d.md)
+   * > [CanvasRenderingContext2D]{@link CanvasRenderingContext2D}
    * > object support the **CanvasGradient** object with the P3 wide color gamut. In addition,
    * > the color gamut mode of the window where the **Canvas** component is located must be set
    * > to wide color gamut mode **WIDE_GAMUT** via the
-   * > [setWindowColorSpace](docroot://reference/apis-arkui/arkts-apis-window-Window.md#setwindowcolorspace9)
+   * > [setWindowColorSpace]{@link Window#setWindowColorSpace}
    * > method.
    *
    * @param { number } offset - Relative position of the gradient stop along the gradient vector,
@@ -241,9 +242,9 @@ declare class CanvasGradient {
    *     to be invalid.
    * @param { string | ColorMetrics } color - Color of the gradient fill.<br>
    *     You can use the
-   *     [colorWithSpace](docroot://reference/apis-arkui/js-apis-arkui-graphics.md#colorwithspace20)
+   *     [colorWithSpace]{@link ColorMetrics#colorWithSpace}
    *     method to construct a color with the color gamut attribute
-   *     [ColorSpace](docroot://reference/apis-arkui/arkui-ts/ts-appendix-enums.md#colorspace20)
+   *     [ColorSpace]{@link ColorSpace}
    *     set to **SRGB** or **DISPLAY_P3**. The color gamut attributes of each gradient ColorMetrics
    *     must be the same. If different color gamut attributes are set, an exception is thrown,
    *     and the error code is 103701.<br>
@@ -349,7 +350,7 @@ declare class CanvasPath {
   arcTo(x1: number, y1: number, x2: number, y2: number, radius: number): void;
 
   /**
-   * Creates a path for a cubic Bezier curve.
+   * Draws a cubic Bezier curve on the canvas.
    *
    * @param { number } cp1x - X-coordinate of the first parameter of the Bezier curve.<br>In versions
    *     earlier than API version 18, **NaN** or **Infinity** value prevents the entire path from rendering,
@@ -391,7 +392,9 @@ declare class CanvasPath {
   bezierCurveTo(cp1x: number, cp1y: number, cp2x: number, cp2y: number, x: number, y: number): void;
 
   /**
-   * Draws a closed path.
+   * Moves the current point of the path back to the start point of the path, and draws a straight line between the
+   * current point and the start point. If the shape has already been closed or has only one point, this method does
+   * nothing.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -485,6 +488,14 @@ declare class CanvasPath {
 
   /**
    * Moves a drawing path from the current position to a target position on the canvas.
+   * > **NOTE**
+   * >
+   * > In versions earlier than API version 18, if the **moveTo** API is not called or invalid arguments
+   * > are passed to it, the path starts from (0,0).
+   * >
+   * > Starting from API version 18, if the **moveTo** API is not executed or invalid arguments are passed
+   * > to it, the path will begin at the start point of the first valid call to **lineTo**, **arcTo**,
+   * > **bezierCurveTo**, or **quadraticCurveTo**.
    *
    * @param { number } x - X-coordinate of the target position.<br>In versions earlier than API version 18,
    *     **NaN** or **Infinity** value prevents the entire path from rendering, and **null** or **undefined**
@@ -496,14 +507,6 @@ declare class CanvasPath {
    *     value causes the current API to have no effect. Since API version 18, **NaN**, **Infinity**, **null**,
    *     or **undefined** causes the current API to have no effect, and other path APIs with valid arguments
    *     continue to render correctly.<br>Default unit: vp
-   *     > **NOTE**
-   *     >
-   *     > In versions earlier than API version 18, if the **moveTo** API is not called or invalid arguments
-   *     > are passed to it, the path starts from (0,0).
-   *     >
-   *     > Starting from API version 18, if the **moveTo** API is not executed or invalid arguments are passed
-   *     > to it, the path will begin at the start point of the first valid call to **lineTo**, **arcTo**,
-   *     > **bezierCurveTo**, or **quadraticCurveTo**.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform [since 10]
@@ -631,9 +634,9 @@ declare class CanvasPath {
  * > is required, you can create an empty Path2D object.
  * >
  * > The methods of the Path2D object do not take effect for the paths set in the
- * > [CanvasRenderingContext2D](docroot://reference/apis-arkui/arkui-ts/ts-canvasrenderingcontext2d.md)
+ * > [CanvasRenderingContext2D]{@link CanvasRenderingContext2D}
  * > and
- * > [OffscreenCanvasRenderingContext2D](docroot://reference/apis-arkui/arkui-ts/ts-offscreencanvasrenderingcontext2d.md)
+ * > [OffscreenCanvasRenderingContext2D]{@link OffscreenCanvasRenderingContext2D}
  * > objects.
  *
  * @extends CanvasPath
@@ -680,7 +683,7 @@ declare class Path2D extends CanvasPath {
    * @param { LengthMetricsUnit } [unit] - Unit mode of the Path2D object.
    *     The value cannot be dynamically changed once set. The configuration method is the same
    *     as that of
-   *     [CanvasRenderingContext2D](docroot://reference/apis-arkui/arkui-ts/ts-canvasrenderingcontext2d.md).<br>
+   *     [CanvasRenderingContext2D]{@link CanvasRenderingContext2D}.<br>
    *     Invalid values **NaN** and **Infinity** are treated as the default value.<br>
    *     Default value: **DEFAULT**
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -713,7 +716,7 @@ declare class Path2D extends CanvasPath {
    * @param { LengthMetricsUnit } [unit] - Unit mode of the Path2D object.
    *     The value cannot be dynamically changed once set. The configuration method is the same
    *     as that of
-   *     [CanvasRenderingContext2D](docroot://reference/apis-arkui/arkui-ts/ts-canvasrenderingcontext2d.md).<br>
+   *     [CanvasRenderingContext2D]{@link CanvasRenderingContext2D}.<br>
    *     Invalid values **NaN** and **Infinity** are treated as the default value.<br>
    *     Default value: **DEFAULT**
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -730,7 +733,7 @@ declare class Path2D extends CanvasPath {
    * description specifications.
    *
    * @param { string } d - Path that complies with the
-   *     [SVG path syntax](docroot://reference/apis-arkui/arkui-ts/ts-drawing-components-path.md#svg-path-syntax).
+   *     [SVG path syntax]{@link Path2D}.
    *     Invalid values are treated as invalid inputs.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -746,12 +749,12 @@ declare class Path2D extends CanvasPath {
    * specifications. The unit mode of the Path2D object can be configured.
    *
    * @param { string } description - Path that complies with the
-   *     [SVG path syntax](docroot://reference/apis-arkui/arkui-ts/ts-drawing-components-path.md#svg-path-syntax).
+   *     [SVG path syntax]{@link Path2D}.
    *     Invalid values are treated as invalid inputs.
    * @param { LengthMetricsUnit } [unit] - Unit mode of the Path2D object.
    *     The value cannot be dynamically changed once set. The configuration method is the same
    *     as that of
-   *     [CanvasRenderingContext2D](docroot://reference/apis-arkui/arkui-ts/ts-canvasrenderingcontext2d.md).<br>
+   *     [CanvasRenderingContext2D]{@link CanvasRenderingContext2D}.<br>
    *     Invalid values **NaN** and **Infinity** are treated as the default value.<br>
    *     Default value: **DEFAULT**
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -766,7 +769,7 @@ declare class Path2D extends CanvasPath {
 
 /**
  * **CanvasPattern** represents an object, created by the
- * [createPattern](docroot://reference/apis-arkui/arkui-ts/ts-canvasrenderingcontext2d.md#createpattern)
+ * [createPattern]{@link CanvasRenderingContext2D#createPattern}
  * API, describing an image filling pattern based on the image and repetition mode.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -963,6 +966,10 @@ declare interface TextMetrics {
   /**
    * Width of the text. Read-only.
    *
+   * Default unit: vp.
+   *
+   * If the unit mode of the **CanvasRenderingContext2D** object is set to px, the unit is px.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform [since 10]
@@ -974,6 +981,10 @@ declare interface TextMetrics {
 
   /**
    * Height of the text. Read-only.
+   *
+   * Default unit: vp.
+   *
+   * If the unit mode of the **CanvasRenderingContext2D** object is set to px, the unit is px.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -1050,7 +1061,7 @@ declare class ImageBitmap {
    *     the start point of the image path for loading is the **ets** folder of the module.
    *     For HAR and shared modules, the start point is the **ets** folder of the entry or
    *     feature module into which they are built.<br>
-   *     For modules whose **type** is **"har"** or **"shared**", you are advised to use
+   *     For modules whose **type** is **"har"** or **"shared"**, you are advised to use
    *     [ImageSource](docroot://media/image/image-decoding.md) to decode resource images
    *     into a unified **PixelMap** object for loading and use.<br>
    *     2. Supported image formats: BMP, JPG, PNG, SVG, and WEBP.<br>
@@ -1076,7 +1087,7 @@ declare class ImageBitmap {
    *     the start point of the image path for loading is the **ets** folder of the module.
    *     For HAR and shared modules, the start point is the **ets** folder of the entry or
    *     feature module into which they are built.<br>
-   *     For modules whose **type** is **"har"** or **"shared**", you are advised to use
+   *     For modules whose **type** is **"har"** or **"shared"**, you are advised to use
    *     [ImageSource](docroot://media/image/image-decoding.md) to decode resource images
    *     into a unified **PixelMap** object for loading and use.<br>
    *     2. Supported image formats: BMP, JPG, PNG, SVG, and WEBP.<br>
@@ -1086,7 +1097,7 @@ declare class ImageBitmap {
    * @param { LengthMetricsUnit } [unit] - Unit mode of the **ImageBitmap** object.
    *     The value cannot be dynamically changed once set. The configuration method is the
    *     same as that of
-   *     [CanvasRenderingContext2D](docroot://reference/apis-arkui/arkui-ts/ts-canvasrenderingcontext2d.md).<br>
+   *     [CanvasRenderingContext2D]{@link CanvasRenderingContext2D}.<br>
    *     If the value is **undefined**, **NaN**, or **Infinity**, the default value will be used.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1117,7 +1128,7 @@ declare class ImageBitmap {
    * @param { LengthMetricsUnit } [unit] - Unit mode of the **ImageBitmap** object.
    *     The value cannot be dynamically changed once set. The configuration method is the
    *     same as that of
-   *     [CanvasRenderingContext2D](docroot://reference/apis-arkui/arkui-ts/ts-canvasrenderingcontext2d.md).
+   *     [CanvasRenderingContext2D]{@link CanvasRenderingContext2D}.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1192,7 +1203,7 @@ declare class ImageData {
    *
    * > **NOTE**
    * >
-   * > The [px2vp](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#px2vp12)
+   * > The [px2vp]{@link UIContext#px2vp}
    * > API can be used for unit conversion.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1241,7 +1252,7 @@ declare class ImageData {
    * @param { LengthMetricsUnit } [unit] - Unit mode of the **ImageData** object.
    *     The value cannot be dynamically changed once set. The configuration method is
    *     the same as that of
-   *     [CanvasRenderingContext2D](docroot://reference/apis-arkui/arkui-ts/ts-canvasrenderingcontext2d.md).<br>
+   *     [CanvasRenderingContext2D]{@link CanvasRenderingContext2D}.<br>
    *     Invalid values **undefined**, **NaN** and **Infinity** are treated as the default value.<br>
    *     Default value: **DEFAULT**.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1307,7 +1318,7 @@ declare class RenderingContextSettings {
 }
 
 /**
- * Defines the options for rendering context.
+ * Defines the specific configuration parameters for the rendering context.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1682,11 +1693,11 @@ declare class CanvasRenderer extends CanvasPath {
    *
    * - When the type is string, this attribute indicates the color of the fill area. For details about
    *   the color format, see the description for the string type in
-   *   [ResourceColor](docroot://reference/apis-arkui/arkui-ts/ts-types.md#resourcecolor).
+   *   [ResourceColor]{@link ResourceColor}.
    *
    * - When the type is number, this attribute indicates the color of the fill area. Fully transparent
    *   colors are not supported. For details about the color format, see the description for the number
-   *   type in [ResourceColor](docroot://reference/apis-arkui/arkui-ts/ts-types.md#resourcecolor).
+   *   type in [ResourceColor]{@link ResourceColor}.
    *
    * - When the type is **CanvasGradient**, this attribute indicates a gradient object, which is created
    *   via the [createLinearGradient](#createlineargradient) API.
@@ -1716,18 +1727,18 @@ declare class CanvasRenderer extends CanvasPath {
    *
    * - When the type is string, this attribute indicates the stroke color. For details about
    *   the color format, see the description for the string type in
-   *   [ResourceColor](docroot://reference/apis-arkui/arkui-ts/ts-types.md#resourcecolor).
+   *   [ResourceColor]{@link ResourceColor}.
    *
    * - When the type is number, this attribute indicates the stroke color. Fully transparent
    *   colors are not supported. For details about the color format, see the description for
    *   the number type in
-   *   [ResourceColor](docroot://reference/apis-arkui/arkui-ts/ts-types.md#resourcecolor).
+   *   [ResourceColor]{@link ResourceColor}.
    *
    * - When the type is **CanvasGradient**, this attribute indicates a gradient object, which is
    *   created via the [createLinearGradient](#createlineargradient) API.
    *
    * - When the type is **CanvasPattern**, this attribute indicates a pattern, which is created
-   *   via the [createPattern](docroot://reference/apis-arkui/arkui-ts/ts-canvasrenderingcontext2d.md#createpattern) API.
+   *   via the [createPattern]{@link CanvasRenderingContext2D#createPattern} API.
    *
    *   Default value: **'#000000'** (black)
    *
@@ -1852,33 +1863,41 @@ declare class CanvasRenderer extends CanvasPath {
    * write-only. You can set its value through an assignment statement, but cannot obtain its
    * current value through a read operation. If you attempt to read its current value,
    * **undefined** will be returned.
+   * 
+   * > **NOTE**
+   * >
+   * > The resources used in this example are not located in the **src** > **main** > **resource** directory. Starting
+   * > from DevEco Studio 6.0.0 Beta2, the resources that are located outside the **resources** directory are not
+   * > packaged by default when a project or module is created. To package these resources, go to **buildOption** in the
+   * > module's **build-profile.json5** file > **resOptions** > **copyCodeResource**, and set **enable** to **true**.
+   * > For details, see the description of copyCodeResource.
    *
    * Available values are as follows:
    *
    * - **'none'**: no filter effect.
-   * - **'blur(\<length>)'**: applies the Gaussian blur to the image. The value must be greater
+   * - **'blur(`<length>`)'**: applies the Gaussian blur to the image. The value must be greater
    *   than or equal to 0. The unit can be px, vp, or rem. The default value is **blur(0px)**.
-   * - **'brightness([\<number>\|\<percentage>])'**: applies a linear multiplier to the image to
+   * - **'brightness([`<number>`\|`<percentage>`])'**: applies a linear multiplier to the image to
    *   adjust its brightness. The value can be a number or a percentage, and must be greater than
    *   or equal to 0. The default value is **brightness(1)**.
-   * - **'contrast([\<number>\|\<percentage>])'**: adjusts the contrast of the image. The value
+   * - **'contrast([`<number>`\|`<percentage>`])'**: adjusts the contrast of the image. The value
    *   can be a number or a percentage, and must be greater than or equal to 0. The default value
    *   is **contrast(1)**.
-   * - **'grayscale([\<number>\|\<percentage>])'**: converts the image to grayscale. The value can
+   * - **'grayscale([`<number>`\|`<percentage>`])'**: converts the image to grayscale. The value can
    *   be a number or a percentage, and must be within the range of [0, 1]. The default value is
    *   **grayscale(0)**.
-   * - **'hue-rotate(\<angle>)'**: applies hue rotation to the image. The value ranges from
+   * - **'hue-rotate(`<angle>`)'**: applies hue rotation to the image. The value ranges from
    *   **0deg** to **360deg**. The default value is **hue-rotate(0deg)**.
-   * - **'invert([\<number>\|\<percentage>])'**: inverts the input image. The value can be a number
+   * - **'invert([`<number>`\|`<percentage>`])'**: inverts the input image. The value can be a number
    *   or a percentage, and must be within the range of [0, 1]. The default value is
    *   **invert(0)**.
-   * - **'opacity([\<number>\|\<percentage>])'**: adjusts the opacity of the image. The value can be
+   * - **'opacity([`<number>`\|`<percentage>`])'**: adjusts the opacity of the image. The value can be
    *   a number or a percentage, and must be within the range of [0, 1]. The default value is
    *   **opacity(1)**.
-   * - **'saturate([\<number>\|\<percentage>])'**: adjusts the saturation of the image. The value
+   * - **'saturate([`<number>`\|`<percentage>`])'**: adjusts the saturation of the image. The value
    *   can be a number or a percentage, and must be greater than or equal to 0. The default value
    *   is **saturate(1)**.
-   * - **'sepia([\<number>\|\<percentage>])'**: converts the image to sepia. The value can be a
+   * - **'sepia([`<number>`\|`<percentage>`])'**: converts the image to sepia. The value can be a
    *   number or a percentage, and must be within the range of [0, 1]. The default value is
    *   **sepia(0)**.
    *
@@ -1894,8 +1913,8 @@ declare class CanvasRenderer extends CanvasPath {
   filter: string;
 
   /**
-   * Creates a blank **ImageData** object of a specified size. This API involves
-   * time-consuming memory copy. Therefore, avoid frequent calls to it.
+   * Creates a blank ImageData object of a specified size. This API involves time-consuming memory copy. Therefore,
+   * avoid frequent calls to it. The createImageData example is identical to the putImageData example.
    *
    * @param { number } sw - Width of the **ImageData** object.<br>Invalid values **undefined**,
    *     **null**, **NaN**, and **Infinity** are treated as **0**.<br>Default unit: vp
@@ -2039,9 +2058,15 @@ declare class CanvasRenderer extends CanvasPath {
    * **true** means to enable smoothing, and **false** means to disable it. This attribute is
    * write-only. You can set its value through an assignment statement, but cannot obtain its
    * current value through a read operation. If you attempt to read its current value,
-   * **undefined** will be returned.
+   * **undefined** will be returned. Default value: **true**.
+   * > **NOTE**
+   * >
+   * > The resources used in this example are not located in the **src** > **main** > **resource** directory. Starting
+   * > from DevEco Studio 6.0.0 Beta2, the resources that are located outside the **resources** directory are not
+   * > packaged by default when a project or module is created. To package these resources, go to **buildOption** in the
+   * > module's **build-profile.json5** file > **resOptions** > **copyCodeResource**, and set **enable** to **true**.
+   * > For details, see the description of copyCodeResource in **resOptions**.
    *
-   * Default value: **true**
    * @default true
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -2057,9 +2082,15 @@ declare class CanvasRenderer extends CanvasPath {
    * This attribute is write-only. You can set its value through an assignment statement, but
    * cannot obtain its current value through a read operation. If you attempt to read its
    * current value, **undefined** will be returned. For details, see
-   * {@link ImageSmoothingQuality}.
-   *
-   * Default value: **"low"**
+   * {@link ImageSmoothingQuality}. Default value: **"low"**
+   * > **NOTE**
+   * >
+   * > The resources used in this example are not located in the **src** > **main** > **resource** directory. Starting
+   * > from DevEco Studio 6.0.0 Beta2, the resources that are located outside the **resources** directory are not
+   * > packaged by default when a project or module is created. To package these resources, go to **buildOption** in the
+   * > module's **build-profile.json5** file > **resOptions** > **copyCodeResource**, and set **enable** to **true**.
+   * > For details, see the description of copyCodeResource in **resOptions**.
+   * 
    * @default low
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -2071,7 +2102,9 @@ declare class CanvasRenderer extends CanvasPath {
   imageSmoothingQuality: ImageSmoothingQuality;
 
   /**
-   * Sets the line caps. For details, see {@link CanvasLineCap}.
+   * Sets the line caps. This attribute is write-only. You can set its value through an assignment statement, but cannot
+   * obtain its current value through a read operation. If you attempt to read its current value, undefined will be
+   * returned.
    * @default butt
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -2087,11 +2120,6 @@ declare class CanvasRenderer extends CanvasPath {
    * takes effect only when **setLineDash** is set. This attribute is write-only. You can set
    * its value through an assignment statement, but cannot obtain its current value through a
    * read operation. If you attempt to read its current value, **undefined** will be returned.
-   *
-   * In versions earlier than API version 18, if **NaN** or **Infinity** is set, dashed lines
-   * are rendered as solid lines. In API version 18 and later versions, if **NaN** or
-   * **Infinity** is set, the current API does not take effect, and dashed lines are rendered
-   * normally.
    *
    * Default value: **0.0**
    *
@@ -2184,8 +2212,8 @@ declare class CanvasRenderer extends CanvasPath {
   /**
    * Obtains the dash line style.
    *
-   * @returns { number[] } Interval of alternate line segments and the length of spacing.<br>
-   *     Default unit: vp
+   * @returns { number[] } Interval of alternate line segments and the length of spacing.<br>Values undefined and null
+   *     are treated as invalid.<br>Default unit: vp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform [since 10]
@@ -2308,7 +2336,7 @@ declare class CanvasRenderer extends CanvasPath {
    * attempt to read its current value, **undefined** will be returned.
    *
    * For details about the color format, see the description for the string type in
-   * [ResourceColor](docroot://reference/apis-arkui/arkui-ts/ts-types.md#resourcecolor).
+   * [ResourceColor]{@link ResourceColor}.
    *
    * Default value: **'#00000000'** (transparent black)
    *
@@ -2388,8 +2416,7 @@ declare class CanvasRenderer extends CanvasPath {
   restore(): void;
 
   /**
-   * Saves all states of the canvas in the stack. This API is usually called when the drawing
-   * state needs to be saved.
+   * Saves the current drawing context.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -2427,9 +2454,9 @@ declare class CanvasRenderer extends CanvasPath {
    * Returns a **TextMetrics** object used to obtain the width of specified text. Note that the width
    * obtained may vary by device.
    *
-   * @param { string } text - Text to measure.<br>If the input value is **undefined** or **null**, the
+   * @param { string } text - Text to measure.
+   * @returns { TextMetrics } **TextMetrics** object.<br>If the input value is **undefined** or **null**, the
    *     value is calculated based on "undefined" or "null".
-   * @returns { TextMetrics } **TextMetrics** object.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform [since 10]
@@ -2504,7 +2531,7 @@ declare class CanvasRenderer extends CanvasPath {
    * of the following ways:
    *
    * Register a custom font by calling the asynchronous API
-   * this.uiContext.getFont().[registerFont](docroot://reference/apis-arkui/arkts-apis-uicontext-font.md#registerfont)
+   * this.uiContext.getFont().[registerFont]{@link Font#registerFont}
    * of ArkUI. Immediate rendering after calling this API may result in the custom font not
    * taking effect.
    *
@@ -2641,9 +2668,9 @@ declare class CanvasRenderer extends CanvasPath {
    * > **x** and **y** represent coordinates before transformation, and **x'** and **y'**
    * > represent coordinates after transformation.
    * >
-   * > - x' = a * x + c * y + e
+   * > - x' = `a * x + c * y + e`
    * >
-   * > - y' = b * x + d * y + f
+   * > - y' = `b * x + d * y + f`
    *
    * @param { number } a - **scaleX**: horizontal scaling value. A negative value is supported.<br>
    *     In versions earlier than API version 18, values **NaN** and **Infinity** cause the failure
@@ -2719,9 +2746,9 @@ declare class CanvasRenderer extends CanvasPath {
    * > **x** and **y** represent coordinates before transformation, and **x'** and **y'**
    * > represent coordinates after transformation.
    * >
-   * > - x' = a * x + c * y + e
+   * > - x' = `a * x + c * y + e`
    * >
-   * > - y' = b * x + d * y + f
+   * > - y' = `b * x + d * y + f`
    *
    * @param { number } a - Cell at row 1, column 1 of the transformation matrix. **scaleX**:
    *     horizontal scaling value. A negative value is supported.<br>In versions earlier than API version 18,
@@ -2897,8 +2924,8 @@ declare class CanvasRenderer extends CanvasPath {
  * >
  * > * The following path-related APIs apply only to paths created within **CanvasRenderingContext2D**
  * > and do not affect paths defined in
- * > [OffscreenCanvasRenderingContext2D](docroot://reference/apis-arkui/arkui-ts/ts-offscreencanvasrenderingcontext2d.md)
- * > or [Path2D](docroot://reference/apis-arkui/arkui-ts/ts-components-canvas-path2d.md):
+ * > [OffscreenCanvasRenderingContext2D]{@link OffscreenCanvasRenderingContext2D}
+ * > or [Path2D]{@link Path2D}:
  * > [beginPath](#beginpath), [moveTo](#moveto), [lineTo](#lineto), [closePath](#closepath),
  * > [bezierCurveTo](#beziercurveto), [quadraticCurveTo](#quadraticcurveto), [arc](#arc),
  * > [arcTo](#arcto), [ellipse](#ellipse), [rect](#rect), and [roundRect](#roundrect20).
@@ -2982,7 +3009,7 @@ declare class CanvasRenderingContext2D extends CanvasRenderer {
 
   /**
    * Configures and starts the AI analyzer. This API uses a promise to return the result.
-   * Before use, set [enableAnalyzer](docroot://reference/apis-arkui/arkui-ts/ts-components-canvas-canvas.md#enableanalyzer12)
+   * Before use, set [enableAnalyzer]{@link CanvasAttribute#enableAnalyzer}
    * to **true** to enable the image AI analyzer.<br>Because the image frame used for analysis is
    * the one captured when this API is called, pay attention to the invoking time of this API.<br>
    * Repeated calls to this method before completion trigger an error callback. For the sample code,
@@ -3073,11 +3100,11 @@ declare class CanvasRenderingContext2D extends CanvasRenderer {
    * > at a time.<br>
    * > When a **CanvasRenderingContext2D** object is bound to a **Canvas** component, the
    * > **onAttach** callback is triggered, indicating that the
-   * > [canvas](docroot://reference/apis-arkui/arkui-ts/ts-canvasrenderingcontext2d.md#canvas13)
+   * > [canvas]{@link CanvasRenderingContext2D#canvas}
    * > object is accessible.<br>
    * > Avoid performing drawing operations in the **onAttach** callback. Make sure the
    * > **Canvas** component has completed its
-   * > [onReady](docroot://reference/apis-arkui/arkui-ts/ts-components-canvas-canvas.md#events)
+   * > [onReady]{@link CanvasAttribute#onReady}
    * > event before performing any drawing.<br>
    * > The **onAttach** callback is triggered when:<br>
    * > 1. A **Canvas** component is created and bound to a **CanvasRenderingContext2D**
@@ -3186,7 +3213,7 @@ declare class CanvasRenderingContext2D extends CanvasRenderer {
    * > **NOTE**
    * >
    * > - The **CanvasRenderingContext2D** object obtained via this API cannot be used as a
-   * > parameter to create a [Canvas](docroot://reference/apis-arkui/arkui-ts/ts-components-canvas-canvas.md)
+   * > parameter to create a [Canvas]{@link Canvas}
    * > component. Otherwise, the application crashes.
    * >
    * > - If the input **DrawingRenderingContext** object is not bound to a **Canvas** component,
@@ -3224,8 +3251,8 @@ declare class CanvasRenderingContext2D extends CanvasRenderer {
  * >
  * > The following path-related APIs apply only to paths created within
  * > **OffscreenCanvasRenderingContext2D** and do not affect paths defined in
- * > [CanvasRenderingContext2D](docroot://reference/apis-arkui/arkui-ts/ts-canvasrenderingcontext2d.md)
- * > or [Path2D](docroot://reference/apis-arkui/arkui-ts/ts-components-canvas-path2d.md):
+ * > [CanvasRenderingContext2D]{@link CanvasRenderingContext2D}
+ * > or [Path2D]{@link Path2D}:
  * > [beginPath](#beginpath), [moveTo](#moveto), [lineTo](#lineto), [closePath](#closepath),
  * > [bezierCurveTo](#beziercurveto), [quadraticCurveTo](#quadraticcurveto), [arc](#arc),
  * > [arcTo](#arcto), [ellipse](#ellipse), [rect](#rect), and [roundRect](#roundrect20).
@@ -3326,7 +3353,7 @@ declare class OffscreenCanvasRenderingContext2D extends CanvasRenderer {
  * The **OffscreenCanvas** component is used to draw custom graphics.
  *
  * When the
- * [Canvas](docroot://reference/apis-arkui/arkui-ts/ts-components-canvas-canvas.md)
+ * [Canvas]{@link Canvas}
  * component or **CanvasRenderingContext2D** object is used, rendering, animation,
  * and user interaction usually occur on the main thread of the application.
  * Calculations related to canvas animation and rendering may affect application
@@ -3445,7 +3472,7 @@ declare class OffscreenCanvas {
    * @param { LengthMetricsUnit } [unit] - Unit mode of the OffscreenCanvas object.
    *     The value cannot be dynamically changed once set. The configuration method is the same
    *     as that of
-   *     [CanvasRenderingContext2D](docroot://reference/apis-arkui/arkui-ts/ts-canvasrenderingcontext2d.md).<br>
+   *     [CanvasRenderingContext2D]{@link CanvasRenderingContext2D}.<br>
    *     Invalid values **NaN** and **Infinity** are treated as the default value.<br>
    *     Default value: **DEFAULT**.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -3472,6 +3499,10 @@ declare interface Size {
    * Width of the **DrawingRenderingContext** object, which corresponds to the width of the
    * associated **Canvas** component.
    *
+   * Default unit: vp.
+   *
+   * If the unit mode of the **DrawingRenderingContext** object is set to px, the unit is px.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3483,6 +3514,10 @@ declare interface Size {
   /**
    * Height of the **DrawingRenderingContext** object, which corresponds to the height of the
    * associated **Canvas** component.
+   *    
+   * Default unit: vp.
+   *
+   * If the unit mode of the **DrawingRenderingContext** object is set to px, the unit is px.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3546,7 +3581,7 @@ declare class DrawingRenderingContext {
    *
    * @param { LengthMetricsUnit } [unit] - Unit mode of the **DrawingRenderingContext** object.
    *     The value cannot be changed once set. The configuration method is the same as that of
-   *     [CanvasRenderingContext2D](docroot://reference/apis-arkui/arkui-ts/ts-canvasrenderingcontext2d.md).
+   *     [CanvasRenderingContext2D]{@link CanvasRenderingContext2D}.
    *     <br>Invalid values **undefined**, **NaN** and **Infinity** are treated as the default value.
    *     <br>Default value: **DEFAULT**.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -3660,7 +3695,7 @@ interface CanvasInterface {
    * >
    * > * Scenarios where the component is not visible mainly include: the page containing the
    * > component moves to the background, the component slides outside the window, or the
-   * > [visibility](@link CommonMethod#visibility)
+   * > [visibility]{@link CommonMethod#visibility}
    * > attribute is set to hidden. This does not include scenarios where the component is obscured
    * > by other components or windows.
    *
@@ -3677,10 +3712,10 @@ interface CanvasInterface {
 
 /**
  * In addition to the
- * [universal attributes](@link common),
+ * [universal attributes]{@link common},
  * the following attributes are supported.
  *
- * The [universal events](@link common) are supported.
+ * The [universal events]{@link common} are supported.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -3720,9 +3755,9 @@ declare class CanvasAttribute extends CommonMethod<CanvasAttribute> {
    * When this event is triggered, the canvas is cleared. The width and height of the **Canvas**
    * component are then determined and can be obtained, allowing you to use APIs related to the
    * **Canvas** component for drawing. If only the position of the canvas changes, only the
-   * [onAreaChange](docroot://reference/apis-arkui/arkui-ts/ts-universal-component-area-change-event.md#onareachange)
+   * [onAreaChange]{@link CommonMethod#onAreaChange}
    * event is triggered, not the **onReady** event. The
-   * [onAreaChange](docroot://reference/apis-arkui/arkui-ts/ts-universal-component-area-change-event.md#onareachange)
+   * [onAreaChange]{@link CommonMethod#onAreaChange}
    * event is triggered after the **onReady** event.
    *
    * @param { Callback<DrawingRenderingContext | undefined> | undefined } event - Triggered when
@@ -3800,4 +3835,3 @@ declare const Canvas: CanvasInterface;
  * @noninterop [since 11]
  */
 declare const CanvasInstance: CanvasAttribute;
-

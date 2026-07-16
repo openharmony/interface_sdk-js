@@ -19,7 +19,7 @@ import { createOrCleanProjectConfig, readCardPageSet, readPermissions, readSysca
 import { ApiCheckWrapperServiceHost } from './api-check-wrapper';
 import { getApiCheckWrapperServiceHost } from './src/api_check_config';
 import { checkApiExpression, WrapperApi } from './api-check-wrapper/src/api_check_wrapper';
-import { getGlobalMonitor } from './utils/performance_monitor';
+import { getGlobalMonitor, API_CHECK_PLUGIN_ENABLED } from './utils/performance_monitor';
 import { PERF } from './utils/perf_constants';
 
 export let externalApiCheckPlugin = new Map();
@@ -54,6 +54,9 @@ export function apiCheckPlugin(): Plugins {
  * @param { PluginContext } this PluginContext对象
  */
 function apiCheckCallback(this: PluginContext): void {
+  if (!API_CHECK_PLUGIN_ENABLED) {
+    return;
+  }
   const monitor = getGlobalMonitor();
   monitor.startGlobal();
   monitor.start(PERF.CALLBACK);

@@ -28,7 +28,6 @@ import { Builder, ComponentBuilder, CustomBuilder, CustomBuilderT } from './buil
 /**
  * Define the ImageSpan attribute functions.
  *
- * @extends BaseSpan
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -133,7 +132,6 @@ export declare interface ImageSpanAttribute extends BaseSpan {
 /**
  * Callback function triggered when the image is successfully loaded.
  *
- * @typedef { function } ImageCompleteCallback
  * @param { ImageLoadResult } result - the information about the successfully loaded image.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -143,7 +141,6 @@ export type ImageCompleteCallback = (result: ImageLoadResult) => void;
 /**
  * The information about the successfully loaded image.
  *
- * @interface ImageLoadResult
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -151,8 +148,8 @@ export type ImageCompleteCallback = (result: ImageLoadResult) => void;
 export declare interface ImageLoadResult {
     /**
      * The width of the image source.
+     * Unit: px.
      *
-     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -160,8 +157,8 @@ export declare interface ImageLoadResult {
     width: double;
     /**
      * The height of the image source.
+     * Unit: px.
      *
-     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -169,8 +166,8 @@ export declare interface ImageLoadResult {
     height: double;
     /**
      * The width of the component source.
+     * Unit: px.
      *
-     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -178,8 +175,8 @@ export declare interface ImageLoadResult {
     componentWidth: double;
     /**
      * The height of the component source.
+     * Unit: px.
      *
-     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -190,7 +187,6 @@ export declare interface ImageLoadResult {
      * If the returned status value is 0, the image data is successfully loaded.
      * If the returned status value is 1, the image is successfully decoded.
      *
-     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -198,8 +194,8 @@ export declare interface ImageLoadResult {
     loadingStatus: double;
     /**
      * The width of the picture that is actually drawn.
+     * Unit: px.
      *
-     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -207,8 +203,8 @@ export declare interface ImageLoadResult {
     contentWidth: double;
     /**
      * The height of the picture that is actually drawn.
+     * Unit: px.
      *
-     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -216,8 +212,8 @@ export declare interface ImageLoadResult {
     contentHeight: double;
     /**
      * The offset between image content and image component on the X-axis.
+     * Unit: px.
      *
-     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -225,8 +221,8 @@ export declare interface ImageLoadResult {
     contentOffsetX: double;
     /**
      * The offset between image content and image component on the Y-axis.
+     * Unit: px.
      *
-     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static

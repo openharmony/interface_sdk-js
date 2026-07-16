@@ -32,8 +32,8 @@ declare type WindowStatusType = import('../api/@ohos.window').default.WindowStat
  * > **NOTE**
  * >
  * > To standardize anonymous object definitions, the element definitions here have been revised in API version 18. 
- * > While historical version information is preserved for anonymous objects, there may be cases where the outer element
- * > 's @since version number is higher than inner elements'. This does not affect interface usability.
+ * > While historical version information is preserved for anonymous objects, there may be cases where the outer
+ * > element's @since version number is higher than inner elements'. This does not affect interface usability.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -89,8 +89,8 @@ interface FolderStackInterface {
  * > **NOTE**
  * >
  * > To standardize anonymous object definitions, the element definitions here have been revised in API version 18. 
- * > While historical version information is preserved for anonymous objects, there may be cases where the outer element
- * > 's @since version number is higher than inner elements'. This does not affect interface usability.
+ * > While historical version information is preserved for anonymous objects, there may be cases where the outer
+ * > element's @since version number is higher than inner elements'. This does not affect interface usability.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -124,7 +124,7 @@ interface OnFoldStatusChangeInfo {
 declare type OnFoldStatusChangeCallback = (event: OnFoldStatusChangeInfo) => void;
 
 /**
- * Defines the current allback invoked when the hover state of the device changes.
+ * Defines the current callback invoked when the hover state of the device changes.
  *
  * @param { HoverEventParam } param - Parameters related to the hover state of the device, including the fold state,
  *     hover state, application orientation, and window mode enumeration of the device.
@@ -148,7 +148,7 @@ declare type OnHoverStatusChangeCallback = (param: HoverEventParam) => void;
 declare class FolderStackAttribute extends CommonMethod<FolderStackAttribute> {
   /**
    * Sets the alignment of child components in the container. When both this attribute and the
-   * [align](@link CommonMethod#align) attribute are set, whichever is set last takes effect.
+   * [align]{@link CommonMethod#align} attribute are set, whichever is set last takes effect.
    *
    * @param { Alignment } value - Alignment of child components in the container.
    *     <br>Default value: **Alignment.Center**.
@@ -166,9 +166,9 @@ declare class FolderStackAttribute extends CommonMethod<FolderStackAttribute> {
    * Triggered when the fold state of the device changes. This API takes effect only in
    * landscape mode.
    *
-   * @param { function } callback - Callback invoked when the fold state of the device changes.[since 11 - 17]
+   * @param { function } callback - Callback invoked when the fold state of the device changes. [since 11 - 17]
    * @param { OnFoldStatusChangeCallback } callback
-   *     - Callback invoked when the fold state of the device changes.[since 18]
+   *     - Callback invoked when the fold state of the device changes. [since 18]
    * @returns { FolderStackAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -181,9 +181,9 @@ declare class FolderStackAttribute extends CommonMethod<FolderStackAttribute> {
   /**
    * Triggered when the hover state of the device changes.
    *
-   * @param { function } handler - Callback invoked when the hover state of the device changes.[since 12 - 17]
+   * @param { function } handler - Callback invoked when the hover state of the device changes. [since 12 - 17]
    * @param { OnHoverStatusChangeCallback } handler
-   *     - Callback invoked when the hover state of the device changes.[since 18]
+   *     - Callback invoked when the hover state of the device changes. [since 18]
    * @returns { FolderStackAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly

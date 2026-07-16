@@ -38,6 +38,7 @@ declare namespace advertising {
    * @throws { BusinessError } 801 - Capability not supported because the chip does not support it.
    * @throws { BusinessError } 36100003 - NearLink disabled.
    * @throws { BusinessError } 36100040 - Integer out of range.
+   * @throws { BusinessError } 36100043 - Invalid UUID.
    * @throws { BusinessError } 36100099 - Operation failed.
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
@@ -66,9 +67,9 @@ declare namespace advertising {
   /**
    * Subscribes to the advertising state change event.
    *
-   * @permission ohos.permission.ACCESS_NEARLINK
+   * This event is accessible only to applications that granted the ohos.permission.NEARLINK_ACCESS permission.
+   *
    * @param { Callback<AdvertisingStateChangeInfo> } callback - Callback used to listen for the advertising state.
-   * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 801 - Capability not supported because the chip does not support it.
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
@@ -79,9 +80,7 @@ declare namespace advertising {
   /**
    * Unsubscribes from the advertising state change event.
    *
-   * @permission ohos.permission.ACCESS_NEARLINK
    * @param { Callback<AdvertisingStateChangeInfo> } [callback] - Callback used to listen for the advertising state.
-   * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 801 - Capability not supported because the chip does not support it.
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly

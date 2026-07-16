@@ -154,8 +154,6 @@ declare interface TextClockOptions {
    * The value is not rounded when it is a floating point number in the { 9.5, 3.5, -3.5, -4.5, -5.5, -5.75, -6.5, -9.5,
    * -10.5, -12.75 } set.
    *
-   * **Widget capability**: Since API version 11, this feature is supported in ArkTS widgets.
-   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @form [since 11]
@@ -166,8 +164,6 @@ declare interface TextClockOptions {
 
   /**
    * Controller to control the status of the **<TextClock>** component.
-   *
-   * **Widget capability**: Since API version 11, this feature is supported in ArkTS widgets.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]

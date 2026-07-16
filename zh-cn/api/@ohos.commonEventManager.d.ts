@@ -2095,6 +2095,20 @@ declare namespace commonEventManager {
     COMMON_EVENT_DISK_UNMOUNTABLE = 'usual.event.data.DISK_UNMOUNTABLE',
 
     /**
+     * 表示系统数据盘卷状态发生变化的公共事件。
+     *
+     * 当系统数据盘卷在格式化或修复等操作过程中状态发生变化（如操作开始、成功或失败）时，会发送此公共事件。
+     *
+     * 要订阅此事件，您的应用必须具备ohos.permission.STORAGE_MANAGER权限（该权限仅系统应用可申请）。
+     *
+     * @syscap SystemCapability.Notification.CommonEvent
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    COMMON_EVENT_DISK_VOLUME_STATE_CHANGE = 'usual.event.data.DISK_VOLUME_STATE_CHANGE',
+
+    /**
      * （预留事件，暂未支持）用户已表示希望删除外部存储介质时发送此公共事件。
      *
      * 要订阅此事件，您的应用必须具备ohos.permission.STORAGE_MANAGER权限（该权限仅系统应用可申请）。
@@ -2634,6 +2648,16 @@ declare namespace commonEventManager {
      *
      * 具体枚举值及其对应的连接状态如下表所示：
      *
+     * > **说明**
+     * > 具体枚举值及其对应的连接状态如下表所示：
+     * >
+     * > | 枚举值  |  连接状态  |
+     * > | ------ | ---------- |
+     * > |    2   |   连接中   |
+     * > |    3   |   已连接   |
+     * > |    4   |   正在断开 |
+     * > |    5   |   已断开   |。
+     *
      * @syscap SystemCapability.Notification.CommonEvent
      * @atomicservice [since 11]
      * @since 10 dynamic
@@ -3067,6 +3091,26 @@ declare namespace commonEventManager {
      * @since 26.0.0 dynamic&static
      */
     COMMON_EVENT_VOLUME_ENCRYPTION_POLICY_SET = 'usual.event.VOLUME_ENCRYPTION_POLICY_SET',
+
+    /**
+     * 表示设备上已安装新的沙箱应用的公共事件.
+     *
+     * @syscap SystemCapability.Notification.CommonEvent
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    COMMON_EVENT_SANDBOX_BUNDLE_ADDED = 'usual.event.SANDBOX_BUNDLE_ADDED',
+
+    /**
+     * 表示设备上安装的沙箱应用被卸载的公共事件.
+     *
+     * @syscap SystemCapability.Notification.CommonEvent
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    COMMON_EVENT_SANDBOX_BUNDLE_REMOVED = 'usual.event.SANDBOX_BUNDLE_REMOVED'
   }
 
   /**

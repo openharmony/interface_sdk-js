@@ -301,7 +301,7 @@ interface Vector4 {
 
 /**
  * 设置四阶矩阵。
- * 用于设置组件的变换信息，该类型为一个 4x4 矩阵，使用一个长度为16的`number[]`进行表示，例如：
+ * 用于设置组件的变换信息，该类型为一个 4x4 矩阵，使用一个长度为16的`number[]`进行表示，各number取值范围：(-∞, +∞)。例如：
  * ```
  * const transform: Matrix4 = [
  * 1, 0, 45, 0,
@@ -370,7 +370,7 @@ export type Position = Vector2;
 export type PositionT<T> = Vector2T<T>;
 
 /**
- * 用于设置组件的轴心坐标，轴心会作为组件的旋转/缩放中心点，影响旋转和缩放效果。
+ * 用于设置组件的轴心坐标，轴心会作为组件的旋转/缩放中心点，影响旋转和缩放效果。轴心的x和y轴坐标为浮点数，默认值为0.5， 取值范围为[0.0, 1.0]。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly

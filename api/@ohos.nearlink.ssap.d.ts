@@ -193,8 +193,13 @@ declare namespace ssap {
     /**
      * Writes the descriptor of a server.
      *
+     * This method does not support writing client property configuration descriptors. To write client property
+     * configuration descriptors, call [setPropertyNotification]{@link setPropertyNotification} or
+     * [setPropertyIndication]{@link setPropertyIndication} instead.
+     *
      * @permission ohos.permission.ACCESS_NEARLINK
      * @param { PropertyDescriptor } descriptor - Indicates the descriptor to write.
+     *     <br>The descriptor type should not be CLIENT_PROPERTY_CONFIG.
      * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
@@ -254,7 +259,7 @@ declare namespace ssap {
      *
      * @permission ohos.permission.ACCESS_NEARLINK
      * @param { int } mtu - The maximum transmission unit.
-     *     <br>The value must be an integer within [22,1024].
+     *     <br>Unit: byte. Recommended value range: [22, 1024].
      * @returns { Promise<void> } Returns the promise object.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 36100003 - NearLink disabled.
@@ -287,9 +292,9 @@ declare namespace ssap {
     /**
      * Subscribe property value changed event.
      *
-     * @permission ohos.permission.ACCESS_NEARLINK
+     * This event is accessible only to applications that granted the ohos.permission.NEARLINK_ACCESS permission.
+     *
      * @param { Callback<Property> } callback - Callback used to listen for the property value changed event.
-     * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
@@ -299,9 +304,7 @@ declare namespace ssap {
     /**
      * Unsubscribe property value changed event.
      *
-     * @permission ohos.permission.ACCESS_NEARLINK
      * @param { Callback<Property> } [callback] - Callback used to listen for the property value changed event.
-     * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
@@ -311,10 +314,9 @@ declare namespace ssap {
     /**
      * Subscribes to event notifications.
      *
-     * @permission ohos.permission.ACCESS_NEARLINK
+     * This event is accessible only to system applications that granted the ohos.permission.NEARLINK_ACCESS permission.
+     *
      * @param { Callback<Event> } callback - Callback used to listen for the event notified event.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
      * @syscap SystemCapability.Communication.NearLink.Base
      * @systemapi
      * @stagemodelonly
@@ -325,10 +327,7 @@ declare namespace ssap {
     /**
      * Unsubscribes from event notifications.
      *
-     * @permission ohos.permission.ACCESS_NEARLINK
      * @param { Callback<Event> } [callback] - Callback used to listen for the event notified event.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
      * @syscap SystemCapability.Communication.NearLink.Base
      * @systemapi
      * @stagemodelonly
@@ -338,13 +337,13 @@ declare namespace ssap {
 
     /**
      * Subscribes to client connection state changed events.
-     * If the user has the ohos.permission.GET_NEARLINK_PEER_MAC permission, the real device address is returned.
-     * Otherwise, a random device address is returned.
      *
-     * @permission ohos.permission.ACCESS_NEARLINK
+     * This event is accessible only to applications that granted the ohos.permission.NEARLINK_ACCESS permission.
+     * If the application is granted the ohos.permission.GET_NEARLINK_PEER_MAC permission,
+     * the callback returns the real device address; otherwise, a random device address is returned.
+     *
      * @param { Callback<ConnectionChangeState> } callback -
      *     Callback used to listen for the SSAP connection state changed event.
-     * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
@@ -354,10 +353,8 @@ declare namespace ssap {
     /**
      * Unsubscribes from client connection state changed events.
      *
-     * @permission ohos.permission.ACCESS_NEARLINK
      * @param { Callback<ConnectionChangeState> } [callback] -
      *     Callback used to listen for the SSAP connection state changed event.
-     * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
@@ -367,9 +364,9 @@ declare namespace ssap {
     /**
      * Subscribes to MTU changed events.
      *
-     * @permission ohos.permission.ACCESS_NEARLINK
+     * This event is accessible only to applications that granted the ohos.permission.NEARLINK_ACCESS permission.
+     *
      * @param { Callback<int> } callback - Callback used to listen for the MTU changed event.
-     * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
@@ -379,9 +376,7 @@ declare namespace ssap {
     /**
      * Unsubscribes from MTU changed events.
      *
-     * @permission ohos.permission.ACCESS_NEARLINK
      * @param { Callback<int> } [callback] - Callback used to listen for the MTU changed event.
-     * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
@@ -405,7 +400,6 @@ declare namespace ssap {
      * @param { Service } service - ssap service need to be added and registered.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 36100003 - NearLink disabled.
-     * @throws { BusinessError } 36100042 - Property array is empty.
      * @throws { BusinessError } 36100043 - Invalid UUID.
      * @throws { BusinessError } 36100044 - NearLink standard UUID not allowed.
      * @throws { BusinessError } 36100099 - Operation failed.
@@ -485,13 +479,13 @@ declare namespace ssap {
 
     /**
      * Subscribes to server connection state changed events.
-     * If the user has the ohos.permission.GET_NEARLINK_PEER_MAC permission, the real device address is returned.
-     * Otherwise, a random device address is returned.
      *
-     * @permission ohos.permission.ACCESS_NEARLINK
+     * This event is accessible only to applications that granted the ohos.permission.NEARLINK_ACCESS permission.
+     * If the application is granted the ohos.permission.GET_NEARLINK_PEER_MAC permission,
+     * the callback returns the real device address; otherwise, a random device address is returned.
+     *
      * @param { Callback<ConnectionChangeState> } callback -
      *     Callback used to listen for the SSAP connection state changed event.
-     * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
@@ -501,10 +495,8 @@ declare namespace ssap {
     /**
      * Unsubscribes from server connection state changed events.
      *
-     * @permission ohos.permission.ACCESS_NEARLINK
      * @param { Callback<ConnectionChangeState> } [callback] -
      *     Callback used to listen for the SSAP connection state changed event.
-     * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
@@ -513,12 +505,12 @@ declare namespace ssap {
 
     /**
      * Subscribes to property read events from the client.
-     * If the user has the ohos.permission.GET_NEARLINK_PEER_MAC permission, the real device address is returned.
-     * Otherwise, a random device address is returned.
      *
-     * @permission ohos.permission.ACCESS_NEARLINK
+     * This event is accessible only to applications that granted the ohos.permission.NEARLINK_ACCESS permission.
+     * If the application is granted the ohos.permission.GET_NEARLINK_PEER_MAC permission,
+     * the callback returns the real device address; otherwise, a random device address is returned.
+     *
      * @param { Callback<PropertyReadRequest> } callback - Callback used to listen for the property operation event.
-     * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
@@ -528,9 +520,7 @@ declare namespace ssap {
     /**
      * Unsubscribes from property read events from the client.
      *
-     * @permission ohos.permission.ACCESS_NEARLINK
      * @param { Callback<PropertyReadRequest> } [callback] - Callback used to listen for the property operation event.
-     * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
@@ -539,12 +529,12 @@ declare namespace ssap {
 
     /**
      * Subscribes to property write events from the client.
-     * If the user has the ohos.permission.GET_NEARLINK_PEER_MAC permission, the real device address is returned.
-     * Otherwise, a random device address is returned.
      *
-     * @permission ohos.permission.ACCESS_NEARLINK
+     * This event is accessible only to applications that granted the ohos.permission.NEARLINK_ACCESS permission.
+     * If the application is granted the ohos.permission.GET_NEARLINK_PEER_MAC permission,
+     * the callback returns the real device address; otherwise, a random device address is returned.
+     *
      * @param { Callback<PropertyWriteRequest> } callback - Callback used to listen for the property operation event.
-     * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
@@ -554,9 +544,7 @@ declare namespace ssap {
     /**
      * Unsubscribes from property write events from the client.
      *
-     * @permission ohos.permission.ACCESS_NEARLINK
      * @param { Callback<PropertyWriteRequest> } [callback] - Callback used to listen for the property operation event.
-     * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
@@ -566,9 +554,9 @@ declare namespace ssap {
     /**
      * Subscribes to MTU changed events.
      *
-     * @permission ohos.permission.ACCESS_NEARLINK
-     * @param { Callback<int> } callback - Callback used to listen for the MTU changed event
-     * @throws { BusinessError } 201 - Permission denied.
+     * This event is accessible only to applications that granted the ohos.permission.NEARLINK_ACCESS permission.
+     *
+     * @param { Callback<int> } callback - Callback used to listen for the MTU changed event.
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
@@ -578,9 +566,7 @@ declare namespace ssap {
     /**
      * Unsubscribes from MTU changed events.
      *
-     * @permission ohos.permission.ACCESS_NEARLINK
      * @param { Callback<int> } [callback] - Callback used to listen for the MTU changed event.
-     * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
@@ -617,6 +603,7 @@ declare namespace ssap {
     properties: Property[];
     /**
      * The methods belong to this service.
+     * <br>This field is not supported in [addService]{@link ssap.Server.addService} method.
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @systemapi
@@ -626,6 +613,7 @@ declare namespace ssap {
     methods?: Method[];
     /**
      * The events belong to this service.
+     * <br>This field is not supported in [addService]{@link ssap.Server.addService} method.
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @systemapi
@@ -838,7 +826,7 @@ declare namespace ssap {
     descriptorType: PropertyDescriptorType;
     /**
      * Indicates whether the descriptor is writable.
-     * Default value: false.
+     * Default value: true.
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly

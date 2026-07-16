@@ -14,6 +14,16 @@
  */
 
 /**
+ * The lifecycle of a [UIAbility]{@link ./@ohos.app.ability.UIAbility} dynamically changes from creation to 
+ * destruction. 
+ * The AbilityLifecycleCallback module provides the capability to listen for these lifecycle changes, which can be used 
+ * for scenarios such as tracking the runtime duration of each UIAbility and performing data loading decoupled from the 
+ * service logic of UIAbility.
+ * 
+ * > **NOTE**
+ * >
+ * > The APIs provided by this module can listen for lifecycle changes of the UIAbility within the same process.
+ *
  * @file
  * @kit AbilityKit
  */
@@ -24,7 +34,6 @@ import window from './@ohos.window';
 /**
  * Defines a OnAbilityWillCreate function.
  *
- * @typedef {function} OnAbilityWillCreateFn
  * @param { UIAbility } ability - Indicates the ability to register for listening.
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @since 23 static
@@ -34,7 +43,6 @@ type OnAbilityWillCreateFn = (ability: UIAbility) => void;
 /**
  * Defines a onWindowStageWillCreate function.
  *
- * @typedef {function} OnWindowStageWillCreateFn
  * @param { UIAbility } ability - Indicates the ability to register for listening.
  * @param { window.WindowStage } windowStage - window stage to create
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
@@ -45,7 +53,6 @@ type OnWindowStageWillCreateFn = (ability: UIAbility, windowStage: window.Window
 /**
  * Defines a onWillNewWant function.
  *
- * @typedef {function} OnWillNewWantFn
  * @param { UIAbility } ability - Indicates the ability to register for listening.
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @since 23 static
@@ -55,7 +62,6 @@ type OnWillNewWantFn = (ability: UIAbility) => void;
 /**
  * Defines a onNewWant function.
  *
- * @typedef {function} OnNewWantFn
  * @param { UIAbility } ability - Indicates the ability to register for listening.
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @since 23 static
@@ -65,7 +71,6 @@ type OnNewWantFn = (ability: UIAbility) => void;
 /**
  * Defines a onWindowStageWillDestroy function.
  *
- * @typedef {function} OnWindowStageWillDestroyFn
  * @param { UIAbility } ability - Indicates the ability to register for listening.
  * @param { window.WindowStage } windowStage - window stage to create
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
@@ -76,7 +81,6 @@ type OnWindowStageWillDestroyFn = (ability: UIAbility, windowStage: window.Windo
 /**
  * Defines a onAbilityWillDestroy function.
  *
- * @typedef {function} OnAbilityWillDestroyFn
  * @param { UIAbility } ability - Indicates the ability to register for listening.
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @since 23 static
@@ -86,7 +90,6 @@ type OnAbilityWillDestroyFn = (ability: UIAbility) => void;
 /**
  * Defines a onAbilityWillForeground function.
  *
- * @typedef {function} OnAbilityWillForegroundFn
  * @param { UIAbility } ability - Indicates the ability to register for listening.
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @since 23 static
@@ -96,7 +99,6 @@ type OnAbilityWillForegroundFn = (ability: UIAbility) => void;
 /**
  * Defines a onAbilityWillBackground function.
  *
- * @typedef {function} OnAbilityWillBackgroundFn
  * @param { UIAbility } ability - Indicates the ability to register for listening.
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @since 23 static
@@ -106,7 +108,6 @@ type OnAbilityWillBackgroundFn = (ability: UIAbility) => void;
 /**
  * Defines a onAbilityWillContinue function.
  *
- * @typedef {function} OnAbilityWillContinueFn
  * @param { UIAbility } ability - Indicates the ability to register for listening.
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @since 23 static
@@ -116,7 +117,6 @@ type OnAbilityWillContinueFn = (ability: UIAbility) => void;
 /**
  * Defines a onWindowStageWillRestore function.
  *
- * @typedef {function} OnWindowStageWillRestoreFn
  * @param { UIAbility } ability - Indicates the ability to register for listening.
  * @param { window.WindowStage } windowStage - window stage to create
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
@@ -127,7 +127,6 @@ type OnWindowStageWillRestoreFn = (ability: UIAbility, windowStage: window.Windo
 /**
  * Defines a onWindowStageRestore function.
  *
- * @typedef {function} OnWindowStageRestoreFn
  * @param { UIAbility } ability - Indicates the ability to register for listening.
  * @param { window.WindowStage } windowStage - window stage to create
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
@@ -138,7 +137,6 @@ type OnWindowStageRestoreFn = (ability: UIAbility, windowStage: window.WindowSta
 /**
  * Defines a onAbilityWillSaveState function.
  *
- * @typedef {function} OnAbilityWillSaveStateFn
  * @param { UIAbility } ability - Indicates the ability to register for listening.
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @since 23 static
@@ -148,7 +146,6 @@ type OnAbilityWillSaveStateFn = (ability: UIAbility) => void;
 /**
  * Defines a onAbilitySaveState function.
  *
- * @typedef {function} OnAbilitySaveStateFn
  * @param { UIAbility } ability - Indicates the ability to register for listening.
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @since 23 static
@@ -156,65 +153,39 @@ type OnAbilityWillSaveStateFn = (ability: UIAbility) => void;
 type OnAbilitySaveStateFn = (ability: UIAbility) => void;
 
 /**
- * The ability lifecycle callback.
+ * The lifecycle of a [UIAbility]{@link ./@ohos.app.ability.UIAbility} dynamically changes from creation to
+ * destruction.
+ * The AbilityLifecycleCallback module provides the capability to listen for these lifecycle changes, which can be used
+ * for scenarios such as tracking the runtime duration of each UIAbility and performing data loading decoupled from the
+ * service logic of UIAbility.
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
- * @StageModelOnly
- * @since 9
- */
-/**
- * The ability lifecycle callback.
- *
- * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
- * @StageModelOnly
- * @crossplatform
- * @since 10
- */
-/**
- * The ability lifecycle callback.
- *
- * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
- * @StageModelOnly
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @stagemodelonly
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 9 dynamic
  * @since 23 static
  */
 declare class AbilityLifecycleCallback {
   /**
-   * Called back when an ability is started for initialization.
+   * Called after the [onCreate]{@link ./@ohos.app.ability.UIAbility:UIAbility#onCreate} callback of the UIAbility is
+   * triggered.
    *
-   * @param { UIAbility } ability - Indicates the ability to register for listening.
+   * @param { UIAbility } ability - UIAbility object associated with the callback event.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @StageModelOnly
-   * @since 9
-   */
-  /**
-   * Called back when an ability is started for initialization.
-   *
-   * @param { UIAbility } ability - Indicates the ability to register for listening.
-   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @StageModelOnly
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Called back when an ability is started for initialization.
-   *
-   * @param { UIAbility } ability - Indicates the ability to register for listening.
-   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @StageModelOnly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @stagemodelonly
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   onAbilityCreate(ability: UIAbility): void;
 
   /**
-   * Called back before an ability is started for initialization.
+   * Called before the [onCreate]{@link ./@ohos.app.ability.UIAbility:UIAbility#onCreate} callback of the UIAbility is
+   * triggered.
    *
-   * @param { UIAbility } ability - Indicates the ability to register for listening.
+   * @param { UIAbility } ability - UIAbility object associated with the callback event.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @atomicservice
@@ -223,9 +194,9 @@ declare class AbilityLifecycleCallback {
   onAbilityWillCreate?(ability: UIAbility): void;
 
   /**
-   * Called back before an ability is started for initialization.
+   * Called before the [onCreate]{@link ./@ohos.app.ability.UIAbility:UIAbility#onCreate} callback of the UIAbility is
+   * triggered.
    *
-   * @type { ?OnAbilityWillCreateFn }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @since 23 static
@@ -233,43 +204,26 @@ declare class AbilityLifecycleCallback {
   onAbilityWillCreate?: OnAbilityWillCreateFn;
 
   /**
-   * Called back when a window stage is created.
+   * Called after the [onWindowStageCreate]{@link ./@ohos.app.ability.UIAbility:UIAbility#onWindowStageCreate} callback of
+   *  the UIAbility is triggered.
    *
-   * @param { UIAbility } ability - Indicates the ability to register for listening.
-   * @param { window.WindowStage } windowStage - window stage to create
+   * @param { UIAbility } ability - UIAbility object associated with the callback event.
+   * @param { window.WindowStage } windowStage - Main window manager of the UIAbility associated with the callback event.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @StageModelOnly
-   * @since 9
-   */
-  /**
-   * Called back when a window stage is created.
-   *
-   * @param { UIAbility } ability - Indicates the ability to register for listening.
-   * @param { window.WindowStage } windowStage - window stage to create
-   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @StageModelOnly
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Called back when a window stage is created.
-   *
-   * @param { UIAbility } ability - Indicates the ability to register for listening.
-   * @param { window.WindowStage } windowStage - window stage to create
-   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @StageModelOnly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @stagemodelonly
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   onWindowStageCreate(ability: UIAbility, windowStage: window.WindowStage): void;
 
   /**
-   * Called back before a window stage is created.
+   * Called before the [onWindowStageCreate]{@link ./@ohos.app.ability.UIAbility:UIAbility#onWindowStageCreate}
+   * callback of the UIAbility is triggered.
    *
-   * @param { UIAbility } ability - Indicates the ability to register for listening.
-   * @param { window.WindowStage } windowStage - window stage to create
+   * @param { UIAbility } ability - UIAbility object associated with the callback event.
+   * @param { window.WindowStage } windowStage - Main window manager of the UIAbility associated with the callback event.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @atomicservice
@@ -278,9 +232,9 @@ declare class AbilityLifecycleCallback {
   onWindowStageWillCreate?(ability: UIAbility, windowStage: window.WindowStage): void;
 
   /**
-   * Called back before a window stage will create.
+   * Called before the [onWindowStageCreate]{@link ./@ohos.app.ability.UIAbility:UIAbility#onWindowStageCreate}
+   * callback of the UIAbility is triggered.
    *
-   * @type { ?OnWindowStageWillCreateFn }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @since 23 static
@@ -288,9 +242,10 @@ declare class AbilityLifecycleCallback {
   onWindowStageWillCreate?: OnWindowStageWillCreateFn;
 
   /**
-   * Called back before the UIAbility will called onNewWant.
+   * Called before the [onNewWant]{@link ./@ohos.app.ability.UIAbility:UIAbility#onNewWant} callback of the UIAbility
+   * is triggered.
    *
-   * @param { UIAbility } ability - Indicates the ability to register for listening.
+   * @param { UIAbility } ability - UIAbility object associated with the callback event.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @atomicservice
@@ -299,9 +254,9 @@ declare class AbilityLifecycleCallback {
   onWillNewWant?(ability: UIAbility): void;
 
   /**
-   * Called back before the UIAbility will called onNewWant.
+   * Called before the [onNewWant]{@link ./@ohos.app.ability.UIAbility:UIAbility#onNewWant} callback of the UIAbility
+   * is triggered.
    *
-   * @type { ?OnWillNewWantFn }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @since 23 static
@@ -309,9 +264,10 @@ declare class AbilityLifecycleCallback {
   onWillNewWant?: OnWillNewWantFn;
 
   /**
-   * Called back after the UIAbility called onNewWant.
+   * Called after the [onNewWant]{@link ./@ohos.app.ability.UIAbility:UIAbility#onNewWant} callback of the UIAbility
+   * is triggered.
    *
-   * @param { UIAbility } ability - Indicates the ability to register for listening.
+   * @param { UIAbility } ability - UIAbility object associated with the callback event.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @atomicservice
@@ -320,9 +276,9 @@ declare class AbilityLifecycleCallback {
   onNewWant?(ability: UIAbility): void;
 
   /**
-   * Called back after the UIAbility called onNewWant.
+   * Called after the [onNewWant]{@link ./@ohos.app.ability.UIAbility:UIAbility#onNewWant} callback of the UIAbility
+   * is triggered.
    *
-   * @type { ?OnNewWantFn }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @since 23 static
@@ -330,87 +286,52 @@ declare class AbilityLifecycleCallback {
   onNewWant?: OnNewWantFn;
 
   /**
-   * Called back when a window stage is active.
+   * Called when the main window of the UIAbility gains focus.
    *
-   * @param { UIAbility } ability - Indicates the ability to register for listening.
-   * @param { window.WindowStage } windowStage - window stage to active
+   * @param { UIAbility } ability - UIAbility object associated with the callback event.
+   * @param { window.WindowStage } windowStage - Main window manager of the UIAbility associated with the callback event.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @StageModelOnly
-   * @since 9
-   */
-  /**
-   * Called back when a window stage is active.
-   *
-   * @param { UIAbility } ability - Indicates the ability to register for listening.
-   * @param { window.WindowStage } windowStage - window stage to active
-   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @StageModelOnly
-   * @atomicservice
-   * @since 11 dynamic
+   * @stagemodelonly
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   onWindowStageActive(ability: UIAbility, windowStage: window.WindowStage): void;
 
   /**
-   * Called back when a window stage is inactive.
+   * Called when the main window of the UIAbility loses focus.
    *
-   * @param { UIAbility } ability - Indicates the ability to register for listening.
-   * @param { window.WindowStage } windowStage - window stage to inactive
+   * @param { UIAbility } ability - UIAbility object associated with the callback event.
+   * @param { window.WindowStage } windowStage - Main window manager of the UIAbility associated with the callback event.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @StageModelOnly
-   * @since 9
-   */
-  /**
-   * Called back when a window stage is inactive.
-   *
-   * @param { UIAbility } ability - Indicates the ability to register for listening.
-   * @param { window.WindowStage } windowStage - window stage to inactive
-   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @StageModelOnly
-   * @atomicservice
-   * @since 11 dynamic
+   * @stagemodelonly
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   onWindowStageInactive(ability: UIAbility, windowStage: window.WindowStage): void;
 
   /**
-   * Called back when a window stage is destroyed.
+   * Called after the [onWindowStageDestroy]{@link ./@ohos.app.ability.UIAbility:UIAbility#onWindowStageDestroy}
+   * callback of the UIAbility is triggered.
    *
-   * @param { UIAbility } ability - Indicates the ability to register for listening.
-   * @param { window.WindowStage } windowStage - window stage to destroy
+   * @param { UIAbility } ability - UIAbility object associated with the callback event.
+   * @param { window.WindowStage } windowStage - Main window manager of the UIAbility associated with the callback event.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @StageModelOnly
-   * @since 9
-   */
-  /**
-   * Called back when a window stage is destroyed.
-   *
-   * @param { UIAbility } ability - Indicates the ability to register for listening.
-   * @param { window.WindowStage } windowStage - window stage to destroy
-   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @StageModelOnly
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Called back when a window stage is destroyed.
-   *
-   * @param { UIAbility } ability - Indicates the ability to register for listening.
-   * @param { window.WindowStage } windowStage - window stage to destroy
-   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @StageModelOnly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @stagemodelonly
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   onWindowStageDestroy(ability: UIAbility, windowStage: window.WindowStage): void;
 
   /**
-   * Called back before a window stage is destroyed.
+   * Called before the [onWindowStageDestroy]{@link ./@ohos.app.ability.UIAbility:UIAbility#onWindowStageDestroy}
+   * callback of the UIAbility is triggered.
    *
-   * @param { UIAbility } ability - Indicates the ability to register for listening.
-   * @param { window.WindowStage } windowStage - window stage to destroy
+   * @param { UIAbility } ability - UIAbility object associated with the callback event.
+   * @param { window.WindowStage } windowStage - Main window manager of the UIAbility associated with the callback event.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @atomicservice
@@ -419,9 +340,9 @@ declare class AbilityLifecycleCallback {
   onWindowStageWillDestroy?(ability: UIAbility, windowStage: window.WindowStage): void;
 
   /**
-   * Called back before a window stage will destroy.
+   * Called before the [onWindowStageDestroy]{@link ./@ohos.app.ability.UIAbility:UIAbility#onWindowStageDestroy}
+   * callback of the UIAbility is triggered.
    *
-   * @type { ?OnWindowStageWillDestroyFn }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @since 23 static
@@ -429,39 +350,24 @@ declare class AbilityLifecycleCallback {
   onWindowStageWillDestroy?: OnWindowStageWillDestroyFn;
 
   /**
-   * Called back when an ability is destroyed.
+   * Called after the [onDestroy]{@link ./@ohos.app.ability.UIAbility:UIAbility.onDestroy} callback of the UIAbility
+   * is triggered.
    *
-   * @param { UIAbility } ability - Indicates the ability to register for listening.
+   * @param { UIAbility } ability - UIAbility object associated with the callback event.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @StageModelOnly
-   * @since 9
-   */
-  /**
-   * Called back when an ability is destroyed.
-   *
-   * @param { UIAbility } ability - Indicates the ability to register for listening.
-   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @StageModelOnly
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Called back when an ability is destroyed.
-   *
-   * @param { UIAbility } ability - Indicates the ability to register for listening.
-   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @StageModelOnly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @stagemodelonly
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   onAbilityDestroy(ability: UIAbility): void;
 
   /**
-   * Called back before an ability is destroyed.
+   * Called before the [onDestroy]{@link ./@ohos.app.ability.UIAbility:UIAbility.onDestroy} callback of the UIAbility
+   * is triggered.
    *
-   * @param { UIAbility } ability - Indicates the ability to register for listening.
+   * @param { UIAbility } ability - UIAbility object associated with the callback event.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @atomicservice
@@ -470,9 +376,9 @@ declare class AbilityLifecycleCallback {
   onAbilityWillDestroy?(ability: UIAbility): void;
 
   /**
-   * Called back before an ability will destroy.
+   * Called before the [onDestroy]{@link ./@ohos.app.ability.UIAbility:UIAbility.onDestroy} callback of the UIAbility
+   * is triggered.
    *
-   * @type { ?OnAbilityWillDestroyFn }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @since 23 static
@@ -480,39 +386,24 @@ declare class AbilityLifecycleCallback {
   onAbilityWillDestroy?: OnAbilityWillDestroyFn;
 
   /**
-   * Called back when the state of an ability changes to foreground.
+   * Called after the [onForeground]{@link ./@ohos.app.ability.UIAbility:UIAbility#onForeground} callback of the
+   * UIAbility is triggered.
    *
-   * @param { UIAbility } ability - Indicates the ability to register for listening.
+   * @param { UIAbility } ability - UIAbility object associated with the callback event.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @StageModelOnly
-   * @since 9
-   */
-  /**
-   * Called back when the state of an ability changes to foreground.
-   *
-   * @param { UIAbility } ability - Indicates the ability to register for listening.
-   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @StageModelOnly
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Called back when the state of an ability changes to foreground.
-   *
-   * @param { UIAbility } ability - Indicates the ability to register for listening.
-   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @StageModelOnly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @stagemodelonly
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   onAbilityForeground(ability: UIAbility): void;
 
   /**
-   * Called back before the state of an ability changes to foreground.
+   * Called before the [onForeground]{@link ./@ohos.app.ability.UIAbility:UIAbility#onForeground} callback of the
+   * UIAbility is triggered.
    *
-   * @param { UIAbility } ability - Indicates the ability to register for listening.
+   * @param { UIAbility } ability - UIAbility object associated with the callback event.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @atomicservice
@@ -521,9 +412,9 @@ declare class AbilityLifecycleCallback {
   onAbilityWillForeground?(ability: UIAbility): void;
 
   /**
-   * Called back before the state of an ability willl changes to foreground.
+   * Called before the [onForeground]{@link ./@ohos.app.ability.UIAbility:UIAbility#onForeground} callback of the
+   * UIAbility is triggered.
    *
-   * @type { ?OnAbilityWillForegroundFn }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @since 23 static
@@ -531,39 +422,24 @@ declare class AbilityLifecycleCallback {
   onAbilityWillForeground?: OnAbilityWillForegroundFn;
 
   /**
-   * Called back when the state of an ability changes to background.
+   * Called after the [onBackground]{@link ./@ohos.app.ability.UIAbility:UIAbility#onBackground} callback of the
+   * UIAbility is triggered.
    *
-   * @param { UIAbility } ability - Indicates the ability to register for listening.
+   * @param { UIAbility } ability - UIAbility object associated with the callback event.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @StageModelOnly
-   * @since 9
-   */
-  /**
-   * Called back when the state of an ability changes to background.
-   *
-   * @param { UIAbility } ability - Indicates the ability to register for listening.
-   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @StageModelOnly
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Called back when the state of an ability changes to background.
-   *
-   * @param { UIAbility } ability - Indicates the ability to register for listening.
-   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @StageModelOnly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @stagemodelonly
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   onAbilityBackground(ability: UIAbility): void;
 
   /**
-   * Called back before the state of an ability changes to background.
+   * Called before the [onBackground]{@link ./@ohos.app.ability.UIAbility:UIAbility#onBackground} callback of the
+   * UIAbility is triggered.
    *
-   * @param { UIAbility } ability - Indicates the ability to register for listening.
+   * @param { UIAbility } ability - UIAbility object associated with the callback event.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @atomicservice
@@ -572,9 +448,9 @@ declare class AbilityLifecycleCallback {
   onAbilityWillBackground?(ability: UIAbility): void;
 
   /**
-   * Called back before the state of an ability willl changes to background.
+   * Called before the [onBackground]{@link ./@ohos.app.ability.UIAbility:UIAbility#onBackground} callback of the
+   * UIAbility is triggered.
    *
-   * @type { ?OnAbilityWillBackgroundFn }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @since 23 static
@@ -582,29 +458,23 @@ declare class AbilityLifecycleCallback {
   onAbilityWillBackground?: OnAbilityWillBackgroundFn;
 
   /**
-   * Called back when an ability prepares to continue.
+   * Called after the [onContinue]{@link ./@ohos.app.ability.UIAbility:UIAbility#onContinue} callback of the UIAbility
+   * is triggered.
    *
-   * @param { UIAbility } ability - Indicates the ability to register for listening.
+   * @param { UIAbility } ability - UIAbility object associated with the callback event.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @StageModelOnly
-   * @since 9
-   */
-  /**
-   * Called back when an ability prepares to continue.
-   *
-   * @param { UIAbility } ability - Indicates the ability to register for listening.
-   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @StageModelOnly
-   * @atomicservice
-   * @since 11 dynamic
+   * @stagemodelonly
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   onAbilityContinue(ability: UIAbility): void;
 
   /**
-   * Called back when the ability prepares to call onContinue.
+   * Called before the [onContinue]{@link ./@ohos.app.ability.UIAbility:UIAbility#onContinue} callback of the UIAbility
+   * is triggered.
    *
-   * @param { UIAbility } ability - Indicates the ability to register for listening.
+   * @param { UIAbility } ability - UIAbility object associated with the callback event.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @atomicservice
@@ -613,9 +483,9 @@ declare class AbilityLifecycleCallback {
   onAbilityWillContinue?(ability: UIAbility): void;
 
   /**
-   * Called back when the ability prepares to call onContinue.
+   * Called before the [onContinue]{@link ./@ohos.app.ability.UIAbility:UIAbility#onContinue} callback of the UIAbility
+   * is triggered.
    *
-   * @type { ?OnAbilityWillContinueFn }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @since 23 static
@@ -623,10 +493,11 @@ declare class AbilityLifecycleCallback {
   onAbilityWillContinue?: OnAbilityWillContinueFn;
 
   /**
-   * Called back when the ability prepares to call onWindowStageRestore.
+   * Called before the [onWindowStageRestore]{@link ./@ohos.app.ability.UIAbility:UIAbility#onWindowStageRestore}
+   * callback of the UIAbility is triggered.
    *
-   * @param { UIAbility } ability - Indicates the ability to register for listening.
-   * @param { window.WindowStage } windowStage - window stage to restore.
+   * @param { UIAbility } ability - UIAbility object associated with the callback event.
+   * @param { window.WindowStage } windowStage - Main window manager of the UIAbility associated with the callback event.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @atomicservice
@@ -635,9 +506,9 @@ declare class AbilityLifecycleCallback {
   onWindowStageWillRestore?(ability: UIAbility, windowStage: window.WindowStage): void;
 
   /**
-   * Called back when the ability prepares to call onWindowStageRestore.
+   * Called before the [onWindowStageRestore]{@link ./@ohos.app.ability.UIAbility:UIAbility#onWindowStageRestore}
+   * callback of the UIAbility is triggered.
    *
-   * @type { ?OnWindowStageWillRestoreFn }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @since 23 static
@@ -645,10 +516,11 @@ declare class AbilityLifecycleCallback {
   onWindowStageWillRestore?: OnWindowStageWillRestoreFn;
 
   /**
-   * Called back when the ability has called onWindowStageRestore.
+   * Called after the [onWindowStageRestore]{@link ./@ohos.app.ability.UIAbility:UIAbility#onWindowStageRestore}
+   * callback of the UIAbility is triggered.
    *
-   * @param { UIAbility } ability - Indicates the ability to register for listening.
-   * @param { window.WindowStage } windowStage - window stage to restore.
+   * @param { UIAbility } ability - UIAbility object associated with the callback event.
+   * @param { window.WindowStage } windowStage - Main window manager of the UIAbility associated with the callback event.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @atomicservice
@@ -657,9 +529,9 @@ declare class AbilityLifecycleCallback {
   onWindowStageRestore?(ability: UIAbility, windowStage: window.WindowStage): void;
 
   /**
-   * Called back when the ability has called onWindowStageRestore.
+   * Called after the [onWindowStageRestore]{@link ./@ohos.app.ability.UIAbility:UIAbility#onWindowStageRestore}
+   * callback of the UIAbility is triggered.
    *
-   * @type { ?OnWindowStageRestoreFn }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @since 23 static
@@ -667,9 +539,10 @@ declare class AbilityLifecycleCallback {
   onWindowStageRestore?: OnWindowStageRestoreFn;
 
   /**
-   * Called back when the ability prepares to call onSaveState.
+   * Called before the [onSaveState]{@link ./@ohos.app.ability.UIAbility:UIAbility.onSaveState} callback of the
+   * UIAbility is triggered.
    *
-   * @param { UIAbility } ability - Indicates the ability to register for listening.
+   * @param { UIAbility } ability - UIAbility object associated with the callback event.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @atomicservice
@@ -678,9 +551,9 @@ declare class AbilityLifecycleCallback {
   onAbilityWillSaveState?(ability: UIAbility): void;
 
   /**
-   * Called back when the ability prepares to call onSaveState.
+   * Called before the [onSaveState]{@link ./@ohos.app.ability.UIAbility:UIAbility.onSaveState} callback of the
+   * UIAbility is triggered.
    *
-   * @type { ?OnAbilityWillSaveStateFn }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @since 23 static
@@ -688,9 +561,10 @@ declare class AbilityLifecycleCallback {
   onAbilityWillSaveState?: OnAbilityWillSaveStateFn;
 
   /**
-   * Called back when the ability has called onSaveState.
+   * Called after the [onSaveState]{@link ./@ohos.app.ability.UIAbility:UIAbility.onSaveState} callback of the
+   * UIAbility is triggered.
    *
-   * @param { UIAbility } ability - Indicates the ability to register for listening.
+   * @param { UIAbility } ability - UIAbility object associated with the callback event.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @atomicservice
@@ -699,9 +573,9 @@ declare class AbilityLifecycleCallback {
   onAbilitySaveState?(ability: UIAbility): void;
 
   /**
-   * Called back when the ability has called onSaveState.
+   * Called after the [onSaveState]{@link ./@ohos.app.ability.UIAbility:UIAbility.onSaveState} callback of the
+   * UIAbility is triggered.
    *
-   * @type { ?OnAbilitySaveStateFn }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @since 23 static

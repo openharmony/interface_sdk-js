@@ -21,11 +21,8 @@
  */
 
 import { Resource } from '../../global/resource';
-
 import { Length, ResourceColor, Dimension } from './units';
-
 import { CommonMethod, PixelMap, Bindable, AttributeModifier, DividerStyle } from './common';
-
 import { Builder, ComponentBuilder, CustomBuilder, CustomBuilderT } from './builder';
 
 /**
@@ -36,7 +33,6 @@ import { Builder, ComponentBuilder, CustomBuilder, CustomBuilderT } from './buil
  * @since 23 static
  */
 export declare enum SideBarContainerType {
-
   /**
    * The sidebar invisible
    *
@@ -63,7 +59,7 @@ export declare enum SideBarContainerType {
    * @since 23 static
    */
   AUTO = 2,
-
+  
   /**
    * The sideBar Displace. Sidebar is visible, content will offscreen to make space for sideBar.
    *
@@ -90,7 +86,7 @@ export declare enum SideBarPosition {
    * @stagemodelonly
    * @since 23 static
    */
-  Start = 0,
+  Start,
 
   /**
    * The sidebar is on the End of the container
@@ -99,7 +95,7 @@ export declare enum SideBarPosition {
    * @stagemodelonly
    * @since 23 static
    */
-  End = 1
+  End
 }
 
 /**

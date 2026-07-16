@@ -1910,21 +1910,21 @@ function mkdtemp(prefix: string, callback: AsyncCallback<string>): void;
 function mkdtempSync(prefix: string): string;
 
 /**
- * Creates a file mapping object based on a file descriptor or file object by using the synchronization method.
- * Maps file content to memory for efficient reading and writing.
- * Note: In the read/write mode (MappingMode.READ_WRITE), if the mapping range exceeds the raw file size, the file
- * size will be automatically expanded.
+ * Creates a file mapping object based on a file descriptor or file object, using promise asynchronous callback. Maps
+ * file contents to memory for efficient read and write access to files.
+ * Note: In the read/write mode (MappingMode.READ_WRITE), if the mapping range exceeds the raw file size, the file size
+ * will be automatically expanded.
  *
- * @param { int | File } file - File object or file descriptor fd that has been opened.
- * @param { MappingMode } mode - Option to create a file memory-mapped object. You must specify one of the
- *     following options:
- *      <br>MappingMode.READ_ONLY(0): read-only mode. The file mapping area is not writable. An exception is thrown
- * when the file mapping area is modified.
- *      <br>MappingMode.READ_WRITE(1): read/write mode. The modification is written to the file mapping area and
- * then synchronized to the file by the operating system (non-real-time).
- *      <br>MappingMode.PRIVATE(2): private mode. It is a copy-on-write mapping mechanism. Modifications to the
- * mapping area are visible only to the current process and do not affect the raw file.
- * @param { long } offset - Start position of the file mapping area.
+ * @param { int | File } file - File object or open file descriptor fd that has been opened.
+ * @param { MappingMode } mode - Option to create a file memory-mapped object. You must specify one of the following
+ *     options:
+ *     <br>MappingMode.READ_ONLY(0): read-only mode. The file mapping area is not writable. An exception is thrown
+ *     when the file mapping area is modified.
+ *     <br>MappingMode.READ_WRITE(1): read/write mode. The modification is written to the file mapping area and then
+ *     synchronized to the file by the operating system (non-real-time).
+ *     <br>MappingMode.PRIVATE(2): private mode. It is a copy-on-write mapping mechanism. Modifications to the mapping
+ *     area are visible only to the current process and do not affect the original file.
+ * @param { long } offset - Start position of the file mapping area, in bytes.
  * @param { int } size - Size of the file mapping area, in bytes.
  * @returns { Promise<FileMapping> } - Promise object. Returns a FileMapping object.
  * @throws { BusinessError } 13900001 - Operation not permitted
@@ -1950,23 +1950,23 @@ function mkdtempSync(prefix: string): string;
 function mmap(file: int | File, mode: MappingMode, offset: long, size: int): Promise<FileMapping>;
 
 /**
- * Creates a file mapping object based on a file descriptor or file object, using promise asynchronous callback.
- * Maps file contents to memory for efficient read and write access to files.
- * Note: In the read/write mode (MappingMode.READ_WRITE), if the mapping range exceeds the raw file size, the file
- * size will be automatically expanded.
+ * Creates a file mapping object based on a file descriptor or file object by using the synchronization method. Maps
+ * file contents to memory for efficient read and write access to files.
+ * Note: In the read/write mode (MappingMode.READ_WRITE), if the mapping range exceeds the raw file size, the file size
+ * will be automatically expanded.
  *
  * @param { int | File } file - File object or open file descriptor fd that has been opened.
- * @param { MappingMode } mode - Option to create a file memory-mapped object. You must specify one of the
- *     following options:
- *      <br>MappingMode.READ_ONLY(0): read-only mode. The file mapping area is not writable. An exception is thrown
- * when the file mapping area is modified.
- *      <br>MappingMode.READ_WRITE(1): read/write mode. The modification is written to the file mapping area and
- * then synchronized to the file by the operating system (non-real-time).
- *      <br>MappingMode.PRIVATE(2): private mode. It is a copy-on-write mapping mechanism. Modifications to the
- * mapping area are visible only to the current process and do not affect the raw file.
- * @param { long } offset - Start position of the file mapping area.
+ * @param { MappingMode } mode - Option to create a file memory-mapped object. You must specify one of the following
+ *     options:
+ *     <br>MappingMode.READ_ONLY(0): read-only mode. The file mapping area is not writable. An exception is thrown
+ *     when the file mapping area is modified.
+ *     <br>MappingMode.READ_WRITE(1): read/write mode. The modification is written to the file mapping area and then
+ *     synchronized to the file by the operating system (non-real-time).
+ *     <br>MappingMode.PRIVATE(2): private mode. It is a copy-on-write mapping mechanism. Modifications to the mapping
+ *     area are visible only to the current process and do not affect the original file.
+ * @param { long } offset - Start position of the file mapping area, in bytes.
  * @param { int } size - Size of the file mapping area, in bytes.
- * @returns { FileMapping - FileMapping object.
+ * @returns { FileMapping } - FileMapping object.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
@@ -3882,8 +3882,8 @@ interface FileMapping {
   /**
    * Sets the current location of the file mapping area.
    *
-   * @param { int } position - Expected target location. The value must be a non-negative number
-   *     <br>and cannot be greater than the current upper limit.
+   * @param { int } position - Target location, in bytes. The value must be a non-negative number and cannot 
+   *     be greater than the current upper bound (limit).
    * @throws { BusinessError } 13900020 - Invalid argument
    * @throws { BusinessError } 13900050 - Internal resource error
    * @throws { BusinessError } 13900052 - Mmap buffer released
@@ -3896,7 +3896,7 @@ interface FileMapping {
   /**
    * Gets the current location of the file mapping area.
    *
-   * @returns { int } Current location of the file mapping area.
+   * @returns { int } Current location of the file mapping area, in bytes.
    * @throws { BusinessError } 13900020 - Invalid argument
    * @throws { BusinessError } 13900050 - Internal resource error
    * @throws { BusinessError } 13900052 - Mmap buffer released
@@ -3920,11 +3920,11 @@ interface FileMapping {
   capacity(): int;
 
   /**
-   * Sets the upper bound of the readable and writable area of the file mapping area.
-   * The upper bound does not exceed the total capacity of the mapping area (0 �? limit �? capacity).
+   * Sets the upper bound of the readable and writable area of the file mapping area. The upper bound does not exceed
+   * the total capacity of the mapping area (0 <= limit <= capacity).
    *
-   * @param { int } limit - Upper limit of the readable and writable region to be set. If the current position
-   *     <br>is greater than the new upper limit, the value is automatically adjusted to limit.
+   * @param { int } limit - Upper bound of the readable and writable area to be set, in bytes. If the current 
+   *     position is greater than the new upper bound, the value is automatically adjusted to limit.
    * @throws { BusinessError } 13900020 - Invalid argument
    * @throws { BusinessError } 13900050 - Internal resource error
    * @throws { BusinessError } 13900052 - Mmap buffer released
@@ -3937,7 +3937,7 @@ interface FileMapping {
   /**
    * Obtains the upper bound of the readable and writable area of the file mapping area.
    *
-   * @returns { int } Upper limit of the current readable and writable region.
+   * @returns { int } Upper bound of the current readable and writable area, in bytes.
    * @throws { BusinessError } 13900020 - Invalid argument
    * @throws { BusinessError } 13900050 - Internal resource error
    * @throws { BusinessError } 13900052 - Mmap buffer released
@@ -3948,8 +3948,8 @@ interface FileMapping {
   getLimit(): int;
 
   /**
-   * Mode reversal. That is, the limit attribute is set to the current position,
-   * and then the current position is set to 0.
+   * Mode reversal. That is, the limit attribute is set to the current position, and then the current position is set
+   * to 0.
    *
    * @throws { BusinessError } 13900020 - Invalid argument
    * @throws { BusinessError } 13900050 - Internal resource error
@@ -3961,10 +3961,10 @@ interface FileMapping {
   flip(): void;
 
   /**
-   * Obtains the number of remaining bytes between the current position
-   * and the upper bound (limit) of the readable and writable region.
+   * Obtains the number of remaining bytes between the current position (position) and the upper bound (limit) of the
+   * readable and writable area.
    *
-   * @returns { int } Number of remaining bytes that can be read and written.
+   * @returns { int } Number of remaining readable or writable bytes.
    * @throws { BusinessError } 13900020 - Invalid argument
    * @throws { BusinessError } 13900050 - Internal resource error
    * @throws { BusinessError } 13900052 - Mmap buffer released
@@ -3975,12 +3975,12 @@ interface FileMapping {
   remaining(): int;
 
   /**
-   * Reads data from the specified location without affecting the current location.
+   * Reads data from the current position and moves the position backward by the number of bytes actually read.
    *
    * @param { ArrayBuffer } buffer - Buffer for storing the read file data.
-   * @param { int } [length] - Start position to read from.
-   * @returns { int } [length] - Length of the data to be read. This parameter is optional. The default value is
-   *     the buffer length.
+   * @param { int } [length] - Length of the data to be read, in bytes. This parameter is optional. 
+   *     The default value is the buffer length.
+   * @returns { int } - Length of the actually read data, in bytes.
    * @throws { BusinessError } 13900020 - Invalid argument
    * @throws { BusinessError } 13900050 - Internal resource error
    * @throws { BusinessError } 13900051 - Buffer read/write out of bounds
@@ -3997,8 +3997,8 @@ interface FileMapping {
    *
    * @param { int } position - Start position to read from.
    * @param { ArrayBuffer } buffer - Buffer for storing the read file data.
-   * @param { int } [length] - Length of the data to be read. This parameter is optional. The default value is
-   *     the buffer length.
+   * @param { int } [length] - Length of the data to be read, in bytes. This parameter is optional.
+   *     The default value is the buffer length.
    * @returns { int } - Length of the actually read data, in bytes.
    * @throws { BusinessError } 13900020 - Invalid argument
    * @throws { BusinessError } 13900050 - Internal resource error
@@ -4012,13 +4012,12 @@ interface FileMapping {
   read(position: int, buffer: ArrayBuffer, length?: int): int;
 
   /**
-   * Writes data from the current location and moves the location backward by the number of bytes actually
-   * written.
+   * Writes data from the current location and moves the location backward by the number of bytes actually written.
    *
    * @param { ArrayBuffer } data - Buffer data to be written to the file.
-   * @param { int } [length] - Length of the data to be written. This parameter is optional. The default value is
-   *     the buffer length.
-   * @returns { int } - Length of the data written.
+   * @param { int } [length] - Length of the data to be written, in bytes. This parameter is optional. 
+   *     The default value is the buffer length.
+   * @returns { int } - Length of the data written, in bytes.
    * @throws { BusinessError } 13900020 - Invalid argument
    * @throws { BusinessError } 13900050 - Internal resource error
    * @throws { BusinessError } 13900051 - Buffer read/write out of bounds
@@ -4034,11 +4033,11 @@ interface FileMapping {
   /**
    * Writes data from the specified location without affecting the current location.
    *
-   * @param { int } position - Start position for writing data.
+   * @param { int } position - Start position of the expected write.
    * @param { ArrayBuffer } data - Buffer data to be written to the file.
-   * @param { int } [length] - Length of the data to be written. This parameter is optional. The default value is
-   *     the buffer length.
-   * @returns { int } - Length of the data written.
+   * @param { int } [length] - Length of the data to be written, in bytes. This parameter is optional. 
+   *     The default value is the buffer length.
+   * @returns { int } - Length of the data written, in bytes.
    * @throws { BusinessError } 13900020 - Invalid argument
    * @throws { BusinessError } 13900050 - Internal resource error
    * @throws { BusinessError } 13900051 - Buffer read/write out of bounds
@@ -4052,10 +4051,10 @@ interface FileMapping {
   write(position: int, data: ArrayBuffer, length?: int): int;
 
   /**
-   * Synchronize the dirty page data in the entire file mapping area to the disk file
-   * and use the promise asynchronous callback function.
-   * Note: If the file is not stored on the local device, calling this interface does not ensure
-   * that all changes are stored persistently.
+   * Synchronizes the dirty page data in the entire file mapping area to the disk file and uses the promise
+   * asynchronous callback function.
+   * Note: If the file is not stored on the local device, calling this API does not ensure that all changes are
+   * stored persistently.
    *
    * @returns { Promise<void> } Promise object. No return value.
    * @throws { BusinessError } 13900011 - Out of memory
@@ -4071,13 +4070,13 @@ interface FileMapping {
   msync(): Promise<void>;
 
   /**
-   * Synchronizes the dirty page data in the specified range of the file mapping area to the disk file
-   * and uses the promise asynchronous callback function.
-   * Note: If the file is not stored on the local device, calling this interface does not ensure
-   * that all changes are stored persistently.
+   * Synchronizes the dirty page data in the specified range of the file mapping area to the disk file and uses the
+   * promise asynchronous callback function.
+   * Note: If the file is not stored on the local device, calling this API does not ensure that all changes are
+   * stored persistently.
    *
-   * @param { int } position - Indicates the start position of the expected synchronization.
-   * @param { int } length - Length of the data to be synchronized.
+   * @param { int } position - Start position to synchronize from, in bytes.
+   * @param { int } length - Length of the data to be synchronized, in bytes.
    * @returns { Promise<void> } Promise object. No return value.
    * @throws { BusinessError } 13900011 - Out of memory
    * @throws { BusinessError } 13900014 - Device or resource busy
@@ -4092,10 +4091,10 @@ interface FileMapping {
   msync(position: int, length: int): Promise<void>;
 
   /**
-   * Synchronize the dirty page data of the entire file mapping area to the disk file
-   * by using the synchronization method.
-   * Note: If the file is not stored on the local device, calling this interface does not ensure
-   * that all changes are stored persistently.
+   * Synchronizes the dirty page data of the entire file mapping area to the disk file by using the synchronization
+   * method.
+   * Note: If the file is not stored on the local device, calling this API does not ensure that all changes are
+   * stored persistently.
    *
    * @throws { BusinessError } 13900011 - Out of memory
    * @throws { BusinessError } 13900014 - Device or resource busy
@@ -4110,13 +4109,13 @@ interface FileMapping {
   msyncSync(): void;
 
   /**
-   * Synchronize the dirty page data in the specified range of the file mapping area to the disk file
-   * by using the synchronization method.
-   * Note: If the file is not stored on the local device, calling this interface does not ensure
-   * that all changes are stored persistently.
+   * Synchronize the dirty page data in the specified range of the file mapping area to the disk file by using the
+   * synchronization method.
+   * Note: If the file is not stored on the local device, calling this API does not ensure that all changes are
+   * stored persistently.
    *
-   * @param { int } position - Indicates the start position of the expected synchronization.
-   * @param { int } length - Length of the data to be synchronized.
+   * @param { int } position - Start position to synchronize from, in bytes.
+   * @param { int } length - Length of the data to be synchronized, in bytes.
    * @throws { BusinessError } 13900011 - Out of memory
    * @throws { BusinessError } 13900014 - Device or resource busy
    * @throws { BusinessError } 13900020 - Invalid argument
@@ -4130,7 +4129,7 @@ interface FileMapping {
   msyncSync(position: int, length: int): void;
 
   /**
-   * Releases the file mapping area and uses the promise asynchronous callback function.
+   * Releases the file mapping area and use the promise asynchronous callback function.
    *
    * @returns { Promise<void> } - Promise object. No return value.
    * @throws { BusinessError } 13900020 - Invalid argument
@@ -5362,8 +5361,8 @@ enum MappingMode {
   READ_ONLY = 0,
 
   /**
-   * Read/Write mode. The modification is written to the file mapping area and then synchronized to the file by
-   * the operating system (non-real-time).
+   * Read/Write mode. The modification is written to the file mapping area and then synchronized to the file by the
+   * operating system (non-real-time).
    *
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @stagemodelonly
@@ -5372,8 +5371,8 @@ enum MappingMode {
   READ_WRITE = 1,
 
   /**
-   * Private mode. It is a copy-on-write mapping mechanism. Modifications to the mapping area are visible only to
-   * the current process and do not affect the raw file.
+   * Private mode. It is a copy-on-write mapping mechanism. Modifications to the mapping area are visible only to the
+   * current process and do not affect the raw file.
    *
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @stagemodelonly

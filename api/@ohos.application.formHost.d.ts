@@ -15,6 +15,7 @@
 
 /**
  * @file
+ * @kit API10LessDeprecatedModules
  */
 
 import { AsyncCallback } from './@ohos.base';
@@ -23,395 +24,373 @@ import Want from './@ohos.app.ability.Want';
 import formInfo from './@ohos.app.form.formInfo';
 
 /**
- * interface of formHost.
+ * The **formHost** module provides APIs related to the widget host, which is an application that displays the widget
+ * content and controls the position where the widget is displayed. You can use the APIs to delete, release, and
+ * update widgets installed by the same user, and obtain widget information and status.
  *
- * @namespace formHost
  * @syscap SystemCapability.Ability.Form
  * @systemapi
  * @since 8
  * @deprecated since 9
- * @useinstead ohos.app.form.formHost/formHost
+ * @useinstead @ohos.app.form.formHost:formHost
  */
 declare namespace formHost {
   /**
-   * Deletes an obtained form by its ID.
-   * <p>After this method is called, the form won't be available for use by the application and the Form Manager
-   * Service no longer keeps the cache information about the form.</p>
+   * Deletes a widget. After this API is called, the application can no longer use the widget, and the Widget Manager 
+   * will not retain the widget information. This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { string } formId - Indicates the form ID
-   * @param { AsyncCallback<void> } callback - Callback function, when the specified card is successfully deleted,
-   *                                           the error is undefined,otherwise it is an error object.
+   * @param { string } formId - Widget ID.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the widget is deleted, **error**
+   *     is undefined; otherwise, **error** is an error object.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.app.form.formHost/formHost#deleteForm
+   * @useinstead @ohos.app.form.formHost:formHost#deleteForm
    */
   function deleteForm(formId: string, callback: AsyncCallback<void>): void;
 
   /**
-   * Deletes an obtained form by its ID.
-   * <p>After this method is called, the form won't be available for use by the application and the Form Manager
-   * Service no longer keeps the cache information about the form.</p>
+   * Deletes a widget. After this API is called, the application can no longer use the widget, and the Widget Manager 
+   * will not retain the widget information. This API uses a promise to return the result.
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { string } formId - Indicates the form ID
-   * @returns { Promise<void> } The promise returned by the function.
+   * @param { string } formId - Widget ID.
+   * @returns { Promise<void> } Promise that returns no value.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.app.form.formHost/formHost#deleteForm
+   * @useinstead @ohos.app.form.formHost:formHost#deleteForm
    */
   function deleteForm(formId: string): Promise<void>;
 
   /**
-   * Releases an obtained form by its ID.
-   * <p>After this method is called, the form won't be available for use by the application, but the Form Manager
-   * Service still keeps the cache information about the form, so that the application can quickly obtain it based on
-   * the {@code formId}.</p>
+   * Releases a widget. After this API is called, the application can no longer use the widget, but the Widget Manager 
+   * still retains the widget cache and storage information. This API uses an asynchronous callback to return the 
+   * result.
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { string } formId - Indicates the form ID
-   * @param { AsyncCallback<void> } callback - Callback function, when the specified card is successfully released,
-   *                                           the error is undefined,otherwise it is an error object.
+   * @param { string } formId - Widget ID.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the widget is released,
+   *     **error** is undefined; otherwise, **error** is an error object.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.app.form.formHost/formHost#releaseForm
+   * @useinstead @ohos.app.form.formHost:formHost#releaseForm
    */
   function releaseForm(formId: string, callback: AsyncCallback<void>): void;
 
   /**
-   * Releases an obtained form by its ID.
-   * <p>After this method is called, the form won't be available for use by the application, but the Form Manager
-   * Service still keeps the cache information about the form, so that the application can quickly obtain it based on
-   * the {@code formId}.</p>
+   * Releases a widget. After this API is called, the application can no longer use the widget, but the Widget Manager 
+   * retains the storage information about the widget and retains or releases the cache information based on the 
+   * setting. This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { string } formId - Indicates the form ID
-   * @param { boolean } isReleaseCache - Indicates whether or not release cache
-   * @param { AsyncCallback<void> } callback - Callback function, when the specified card is successfully released,
-   *                                           the error is undefined,otherwise it is an error object.
+   * @param { string } formId - Widget ID.
+   * @param { boolean } isReleaseCache - Whether to release the cache.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the widget is released,
+   *     **error** is undefined; otherwise, **error** is an error object.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.app.form.formHost/formHost#releaseForm
+   * @useinstead @ohos.app.form.formHost:formHost#releaseForm
    */
   function releaseForm(formId: string, isReleaseCache: boolean, callback: AsyncCallback<void>): void;
 
   /**
-   * Releases an obtained form by its ID.
-   * <p>After this method is called, the form won't be available for use by the application, but the Form Manager
-   * Service still keeps the cache information about the form, so that the application can quickly obtain it based on
-   * the {@code formId}.</p>
+   * Releases a widget. After this API is called, the application can no longer use the widget, but the Widget Manager 
+   * retains the storage information about the widget and retains or releases the cache information based on the 
+   * setting. This API uses a promise to return the result.
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { string } formId - Indicates the form ID
-   * @param { boolean } [isReleaseCache] - Indicates whether or not release cache
-   * @returns { Promise<void> } The promise returned by the function.
+   * @param { string } formId - Widget ID.
+   * @param { boolean } [isReleaseCache] - Whether to release the cache. The default value is **false**.
+   * @returns { Promise<void> } Promise that returns no value.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.app.form.formHost/formHost#releaseForm
+   * @useinstead @ohos.app.form.formHost:formHost#releaseForm
    */
   function releaseForm(formId: string, isReleaseCache?: boolean): Promise<void>;
 
   /**
-   * Requests for form update.
-   * <p>This method must be called when the application has detected that a system setting item (such as the language,
-   * resolution, or screen orientation) being listened for has changed. Upon receiving the update request, the form
-   * provider automatically updates the form data (if there is any update) through the form framework, with the update
-   * process being unperceivable by the application.</p>
+   * Requests a widget update. This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { string } formId - Indicates the ID of the form to update.
-   * @param { AsyncCallback<void> } callback - Callback function, when the specified card is successfully requested,
-   *                                           the error is undefined,otherwise it is an error object.
+   * @param { string } formId - Widget ID.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the widget is updated,
+   *     **error** is undefined; otherwise, **error** is an error object.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.app.form.formHost/formHost#requestForm
+   * @useinstead @ohos.app.form.formHost:formHost#requestForm
    */
   function requestForm(formId: string, callback: AsyncCallback<void>): void;
 
   /**
-   * Requests for form update.
-   * <p>This method must be called when the application has detected that a system setting item (such as the language,
-   * resolution, or screen orientation) being listened for has changed. Upon receiving the update request, the form
-   * provider automatically updates the form data (if there is any update) through the form framework, with the update
-   * process being unperceivable by the application.</p>
+   * Requests a widget update. This API uses a promise to return the result.
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { string } formId - Indicates the ID of the form to update.
-   * @returns { Promise<void> } The promise returned by the function.
+   * @param { string } formId - Widget ID.
+   * @returns { Promise<void> } Promise that returns no value.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.app.form.formHost/formHost#requestForm
+   * @useinstead @ohos.app.form.formHost:formHost#requestForm
    */
   function requestForm(formId: string): Promise<void>;
 
   /**
-   * Converts a specified temporary form that has been obtained by the application into a normal form.
+   * Converts a temporary widget to a normal one. This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { string } formId - Indicates the ID of the temporary form to convert.
-   * @param { AsyncCallback<void> } callback - Callback function, when the specified temporary card is successfully
-   *                                           converted to a regular card, the error is undefined, otherwise it is
-   *                                           an error object.
+   * @param { string } formId - Widget ID.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the widget is converted to a
+   *     normal one, **error** is undefined; otherwise, **error** is an error object.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.app.form.formHost/formHost#castTempForm
+   * @useinstead @ohos.app.form.formHost:formHost#castTempForm
    */
   function castTempForm(formId: string, callback: AsyncCallback<void>): void;
 
   /**
-   * Converts a specified temporary form that has been obtained by the application into a normal form.
+   * Converts a temporary widget to a normal one. This API uses a promise to return the result.
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { string } formId - Indicates the ID of the temporary form to convert.
-   * @returns { Promise<void> } The promise returned by the function.
+   * @param { string } formId - Widget ID.
+   * @returns { Promise<void> } Promise that returns no value.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.app.form.formHost/formHost#castTempForm
+   * @useinstead @ohos.app.form.formHost:formHost#castTempForm
    */
   function castTempForm(formId: string): Promise<void>;
 
   /**
-   * Sends a notification to the form framework to make the specified forms visible.
-   * <p>After this method is successfully called, onVisibilityChange will be called to notify the form provider of
-   * the form visibility change event.</p>
+   * Instructs the widget framework to make a widget visible. After this API is called, **onVisibilityChange** is 
+   * invoked to notify the widget provider. This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { Array<string> } formIds - Indicates the IDs of the forms to be made visible.
-   * @param { AsyncCallback<void> } callback - Callback function, when the specified temporary card is successfully
-   *                                           converted to a regular card, the error is undefined, otherwise it is
-   *                                           an error object.
+   * @param { Array<string> } formIds - List of widget IDs.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If a notification is sent to the
+   *     widget framework to make the widget visible, **error** is undefined; otherwise, **error** is an error object.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.app.form.formHost/formHost#notifyVisibleForms
+   * @useinstead @ohos.app.form.formHost:formHost#notifyVisibleForms
    */
   function notifyVisibleForms(formIds: Array<string>, callback: AsyncCallback<void>): void;
 
   /**
-   * Sends a notification to the form framework to make the specified forms visible.
-   * <p>After this method is successfully called, onVisibilityChange will be called to notify the form provider of
-   * the form visibility change event.</p>
+   * Instructs the widget framework to make a widget visible. After this API is called, **onVisibilityChange** is 
+   * invoked to notify the widget provider. This API uses a promise to return the result.
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { Array<string> } formIds - Indicates the IDs of the forms to be made visible.
-   * @returns { Promise<void> } The promise returned by the function.
+   * @param { Array<string> } formIds - List of widget IDs.
+   * @returns { Promise<void> } Promise that returns no value.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.app.form.formHost/formHost#notifyVisibleForms
+   * @useinstead @ohos.app.form.formHost:formHost#notifyVisibleForms
    */
   function notifyVisibleForms(formIds: Array<string>): Promise<void>;
 
   /**
-   * Sends a notification to the form framework to make the specified forms invisible.
-   * <p>After this method is successfully called, onVisibilityChange will be called to notify the form provider of
-   * the form visibility change event.</p>
+   * Instructs the widget framework to make a widget invisible. After this API is called, **onVisibilityChange** is 
+   * invoked to notify the widget provider. This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { Array<string> } formIds - Indicates the IDs of the forms to be made invisible.
-   * @param { AsyncCallback<void> } callback - Callback function, when sending a notification to the card framework to
-   *                                           make the specified card invisible, the error is undefined, otherwise
-   *                                           it is an error object.
+   * @param { Array<string> } formIds - List of widget IDs.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If a notification is sent to the
+   *     widget framework to make the widget invisible, **error** is undefined; otherwise, **error** is an error
+   *     object.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.app.form.formHost/formHost#notifyInvisibleForms
+   * @useinstead @ohos.app.form.formHost:formHost#notifyInvisibleForms
    */
   function notifyInvisibleForms(formIds: Array<string>, callback: AsyncCallback<void>): void;
 
   /**
-   * Sends a notification to the form framework to make the specified forms invisible.
-   * <p>After this method is successfully called, onVisibilityChange will be called to notify the form provider of
-   * the form visibility change event.</p>
+   * Instructs the widget framework to make a widget invisible. After this API is called, **onVisibilityChange** is 
+   * invoked to notify the widget provider. This API uses a promise to return the result.
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { Array<string> } formIds - Indicates the IDs of the forms to be made invisible.
-   * @returns { Promise<void> } The promise returned by the function.
+   * @param { Array<string> } formIds - List of widget IDs.
+   * @returns { Promise<void> } Promise that returns no value.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.app.form.formHost/formHost#notifyInvisibleForms
+   * @useinstead @ohos.app.form.formHost:formHost#notifyInvisibleForms
    */
   function notifyInvisibleForms(formIds: Array<string>): Promise<void>;
 
   /**
-   * Notify the form framework to make the specified forms updatable.
-   * <p>You can use this method to set form refresh state to true, the form can receive new
-   * update from service.</p>
+   * Instructs the widget framework to make a widget updatable. After this API is called, the widget is in the enabled 
+   * state and can receive updates from the widget provider. This API uses an asynchronous callback to return the 
+   * result.
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { Array<string> } formIds - Indicates the IDs of the forms to be made invisible.
-   * @param { AsyncCallback<void> } callback - function, when sending a notification to the card framework so that the
-   *                                           specified card can be successfully updated, the error is undefined,
-   *                                           otherwise it is an error object.
+   * @param { Array<string> } formIds - List of widget IDs.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If a notification is sent to the
+   *     widget framework to make the widget updatable, **error** is undefined; otherwise, **error** is an error
+   *     object.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.app.form.formHost/formHost#enableFormsUpdate
+   * @useinstead @ohos.app.form.formHost:formHost#enableFormsUpdate
    */
   function enableFormsUpdate(formIds: Array<string>, callback: AsyncCallback<void>): void;
 
   /**
-   * Notify the form framework to make the specified forms updatable.
-   * <p>You can use this method to set form refresh state to true, the form can receive new
-   * update from service.</p>
+   * Instructs the widget framework to make a widget updatable. After this API is called, the widget is in the enabled 
+   * state and can receive updates from the widget provider. This API uses a promise to return the result.
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { Array<string> } formIds - Indicates the IDs of the forms to be made invisible.
-   * @returns { Promise<void> } The promise returned by the function.
+   * @param { Array<string> } formIds - List of widget IDs.
+   * @returns { Promise<void> } Promise that returns no value.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.app.form.formHost/formHost#enableFormsUpdate
+   * @useinstead @ohos.app.form.formHost:formHost#enableFormsUpdate
    */
   function enableFormsUpdate(formIds: Array<string>): Promise<void>;
 
   /**
-   * Notify the form framework to make the specified forms non updatable.
-   * <p>You can use this method to set form refresh state to false, the form do not receive
-   * new update from service.</p>
+   * Instructs the widget framework to make a widget not updatable. After this API is called, the widget cannot receive 
+   * updates from the widget provider. This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { Array<string> } formIds - Indicates the IDs of the forms to be made invisible.
-   * @param { AsyncCallback<void> } callback - Callback function, when sending a notification to the card framework to
-   *                                           prevent the specified card from being successfully updated, the error
-   *                                           is undefined, otherwise it is error object.
+   * @param { Array<string> } formIds - List of widget IDs.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If a notification is sent to the
+   *     widget framework to make the widget not updatable, **error** is undefined; otherwise, **error** is an error
+   *     object.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.app.form.formHost/formHost#disableFormsUpdate
+   * @useinstead @ohos.app.form.formHost:formHost#disableFormsUpdate
    */
   function disableFormsUpdate(formIds: Array<string>, callback: AsyncCallback<void>): void;
 
   /**
-   * Notify the form framework to make the specified forms non updatable.
-   * <p>You can use this method to set form refresh state to false, the form do not receive
-   * new update from service.</p>
+   * Instructs the widget framework to make a widget not updatable. After this API is called, the widget cannot receive
+   * updates from the widget provider. This API uses a promise to return the result.
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { Array<string> } formIds - Indicates the IDs of the forms to be made invisible.
-   * @returns { Promise<void> } The promise returned by the function.
+   * @param { Array<string> } formIds - List of widget IDs.
+   * @returns { Promise<void> } Promise that returns no value.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.app.form.formHost/formHost#disableFormsUpdate
+   * @useinstead @ohos.app.form.formHost:formHost#disableFormsUpdate
    */
   function disableFormsUpdate(formIds: Array<string>): Promise<void>;
 
   /**
-   * Checks whether the system is ready.
-   * <p>You can use this method to obtain the system is ready.</p>
+   * Checks whether the system is ready. This API uses an asynchronous callback to return the result.
    *
-   * @param { AsyncCallback<void> } callback - Callback function, when checking whether the system is ready for success,
-   *                                           error is undefined,otherwise it is an error object.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the check is successful,
+   *     **error** is undefined; otherwise, **error** is an error object.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.app.form.formHost/formHost#isSystemReady
+   * @useinstead @ohos.app.form.formHost:formHost#isSystemReady
    */
   function isSystemReady(callback: AsyncCallback<void>): void;
 
   /**
-   * Checks whether the system is ready.
-   * <p>You can use this method to obtain the system is ready.</p>
+   * Checks whether the system is ready. This API uses a promise to return the result.
    *
-   * @returns { Promise<void> } The promise returned by the function.
+   * @returns { Promise<void> } Promise that returns no value.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.app.form.formHost/formHost#isSystemReady
+   * @useinstead @ohos.app.form.formHost:formHost#isSystemReady
    */
   function isSystemReady(): Promise<void>;
 
   /**
-   * Obtains the FormInfo objects provided by all applications on the device.
+   * Obtains the widget information provided by all applications on the device. This API uses an asynchronous callback 
+   * to return the result.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-   * @param { AsyncCallback<Array<formInfo.FormInfo>> } callback - Callback function, when obtaining card information
-   *                                                               provided by all applications on the device
-   *                                                               successfully, the error is undefined, otherwise it
-   *                                                               is an error object.
+   * @param { AsyncCallback<Array<formInfo.FormInfo>> } callback - Callback used to return the result. If the widget 
+   *     information is obtained, **error** is undefined and **data** is the information obtained; otherwise, **error**
+   *     is an error object.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.app.form.formHost/formHost#getAllFormsInfo
+   * @useinstead @ohos.app.form.formHost:formHost#getAllFormsInfo
    */
   function getAllFormsInfo(callback: AsyncCallback<Array<formInfo.FormInfo>>): void;
 
   /**
-   * Obtains the FormInfo objects provided by all applications on the device.
+   * Obtains the widget information provided by all applications on the device. This API uses a promise to return the 
+   * result.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-   * @returns { Promise<Array<formInfo.FormInfo>> } Returns the {@link FormInfo}
+   * @returns { Promise<Array<formInfo.FormInfo>> } Promise used to return the information obtained.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.app.form.formHost/formHost#getAllFormsInfo
+   * @useinstead @ohos.app.form.formHost:formHost#getAllFormsInfo
    */
   function getAllFormsInfo(): Promise<Array<formInfo.FormInfo>>;
 
   /**
-   * Obtains the FormInfo objects provided by a specified application on the device.
+   * Obtains the widget information provided by a given application on the device. This API uses an asynchronous 
+   * callback to return the result.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-   * @param { string } bundleName - Indicates the bundle name of the application.
-   * @param { AsyncCallback<Array<formInfo.FormInfo>> } callback - Callback function, when card information provided by
-   *                                                               specified application on the device is successfully
-   *                                                               obtained, error is undefined, otherwise it is
-   *                                                               error object.
+   * @param { string } bundleName - Bundle name of the application.
+   * @param { AsyncCallback<Array<formInfo.FormInfo>> } callback - Callback used to return the result. If the widget 
+   *     information is obtained, **error** is undefined and **data** is the information obtained; otherwise, **error**
+   *     is an error object.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.app.form.formHost/formHost#getFormsInfo
+   * @useinstead @ohos.app.form.formHost:formHost#getFormsInfo
    */
   function getFormsInfo(bundleName: string, callback: AsyncCallback<Array<formInfo.FormInfo>>): void;
 
   /**
-   * Obtains the FormInfo objects provided by a specified application on the device.
+   * Obtains the widget information provided by a given application on the device. This API uses an asynchronous 
+   * callback to return the result.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-   * @param { string } bundleName - Indicates the bundle name of the application.
-   * @param { string } moduleName - Indicates the module name of the application.
-   * @param { AsyncCallback<Array<formInfo.FormInfo>> } callback - Callback function, when the card information provided
-   *                                                               by the specified application on the device is
-   *                                                               successfully obtained, the error is undefined,
-   *                                                               otherwise it is an error object.
+   * @param { string } bundleName - Bundle name of the application.
+   * @param { string } moduleName - Module name.
+   * @param { AsyncCallback<Array<formInfo.FormInfo>> } callback - Callback used to return the result. If the widget 
+   *     information is obtained, **error** is undefined and **data** is the information obtained; otherwise, **error**
+   *     is an error object.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.app.form.formHost/formHost#getFormsInfo
+   * @useinstead @ohos.app.form.formHost:formHost#getFormsInfo
    */
   function getFormsInfo(
     bundleName: string,
@@ -420,164 +399,166 @@ declare namespace formHost {
   ): void;
 
   /**
-   * Obtains the FormInfo objects provided by a specified application on the device.
+   * Obtains the widget information provided by a given application on the device. This API uses a promise to return
+   * the result.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-   * @param { string } bundleName - Indicates the bundle name of the application.
-   * @param { string } [moduleName] - Indicates the module name of the application.
-   * @returns { Promise<Array<formInfo.FormInfo>> } Returns the {@link FormInfo}
+   * @param { string } bundleName - Bundle name of the application.
+   * @param { string } [moduleName] - Module name.
+   * @returns { Promise<Array<formInfo.FormInfo>> } Promise used to return the information obtained.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.app.form.formHost/formHost#getFormsInfo
+   * @useinstead @ohos.app.form.formHost:formHost#getFormsInfo
    */
   function getFormsInfo(bundleName: string, moduleName?: string): Promise<Array<formInfo.FormInfo>>;
 
   /**
-   * Deletes invalid forms of the application in the Form Manager Service based on the list of.
-   * <p>You can use this method to delete invalid forms of the application.</p>
+   * Deletes invalid widgets from the list. This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { Array<string> } formIds - Indicates the specify form id.
-   * @param { AsyncCallback<number> } callback - Callback function, when deleting invalid cards from the application
-   *                                             program based on the list is successful, error is undefined, and
-   *                                             data is the number of deleted cards; Otherwise,
-   *                                             it is the wrong object.
+   * @param { Array<string> } formIds - List of valid widget IDs.
+   * @param { AsyncCallback<number> } callback - Callback used to return the result. If the invalid widgets are
+   *     deleted, **error** is undefined and **data** is the number of widgets deleted; otherwise, **error** is
+   *     an error object.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.app.form.formHost/formHost#deleteInvalidForms
+   * @useinstead @ohos.app.form.formHost:formHost#deleteInvalidForms
    */
   function deleteInvalidForms(formIds: Array<string>, callback: AsyncCallback<number>): void;
 
   /**
-   * Deletes invalid forms of the application in the Form Manager Service based on the list of.
-   * <p>You can use this method to delete invalid forms of the application.</p>
+   * Deletes invalid widgets from the list. This API uses a promise to return the result.
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { Array<string> } formIds - Indicates the specify form id.
-   * @returns { Promise<number> } Returns the number of invalid forms deleted by the Form Manager Service
+   * @param { Array<string> } formIds - List of valid widget IDs.
+   * @returns { Promise<number> } Promise used to return the number of widgets deleted.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.app.form.formHost/formHost#deleteInvalidForms
+   * @useinstead @ohos.app.form.formHost:formHost#deleteInvalidForms
    */
   function deleteInvalidForms(formIds: Array<string>): Promise<number>;
 
   /**
-   * Obtains the Form state.
-   * <p>You can use this method to obtains the form state.</p>
+   * Obtains the widget state. This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.REQUIRE_FORM and ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-   * @param { Want } want - Indicates want of the form.
-   * @param { AsyncCallback<formInfo.FormStateInfo> } callback - Callback function, when deleting invalid cards from
-   *                                                             application program based on the list is successful,
-   *                                                             error is undefined, and data is the number of deleted
-   *                                                             cards;Otherwise, it is the wrong object.
+   * @param { Want } want - **Want** information carried to query the widget state. The information must contain the
+   *     bundle name, ability name, module name, widget name, and widget dimensions.
+   * @param { AsyncCallback<formInfo.FormStateInfo> } callback - Callback used to return the result. If the widget
+   *     state is obtained, **error** is undefined and **data** is the widget state obtained; otherwise, **error**
+   *     is an error object.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.app.form.formHost/formHost#acquireFormState
+   * @useinstead @ohos.app.form.formHost:formHost#acquireFormState
    */
   function acquireFormState(want: Want, callback: AsyncCallback<formInfo.FormStateInfo>): void;
 
   /**
-   * Obtains the Form state.
-   * <p>You can use this method to obtains the form state.</p>
+   * Obtains the widget state. This API uses a promise to return the result.
    *
    * @permission ohos.permission.REQUIRE_FORM and ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-   * @param { Want } want - Indicates want of the form.
-   * @returns { Promise<formInfo.FormStateInfo> } Returns form state {@link FormStateInfo}
+   * @param { Want } want - **Want** information carried to query the widget state.
+   * @returns { Promise<formInfo.FormStateInfo> } Promise used to return the widget state obtained.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.app.form.formHost/formHost#acquireFormState
+   * @useinstead @ohos.app.form.formHost:formHost#acquireFormState
    */
   function acquireFormState(want: Want): Promise<formInfo.FormStateInfo>;
 
   /**
-   * Listens to the event of uninstall form.
-   * <p>You can use this method to listen to the event of uninstall form.</p>
+   * Subscribes to widget uninstall events. This API uses an asynchronous callback to return the result.
+   * 
+   * > **NOTE**
+   * >
+   * > Widget uninstall is different from widget removal. When an application is uninstalled, the corresponding widget 
+   * > is automatically uninstalled.
    *
-   * @param { 'formUninstall' } type - Indicates event type.
-   * @param { Callback<string> } callback - Callback function that returns the card identifier.
+   * @param { 'formUninstall' } type - Event type. The value **'formUninstall'** indicates a widget uninstallation
+   *     event.
+   * @param { Callback<string> } callback - Callback used to return the widget ID.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.app.form.formHost/formHost#on
+   * @useinstead @ohos.app.form.formHost:formHost#on
    */
   function on(type: 'formUninstall', callback: Callback<string>): void;
 
   /**
-   * Cancels listening to the event of uninstall form.
-   * <p>You can use this method to cancel listening to the event of uninstall form.</p>
+   * Unsubscribes from widget uninstall events. This API uses an asynchronous callback to return the result.
+   * 
+   * > **NOTE**
+   * >
+   * > Widget uninstall is different from widget removal. When an application is uninstalled, the corresponding widget 
+   * > is automatically uninstalled.
    *
-   * @param { 'formUninstall' } type - Indicates event type.
-   * @param { Callback<string> } [callback] - Callback function that returns the card identifier. By default, it
-   *                                           indicates the cancellation of all registered event callbacks, which
-   *                                           must be consistent with the corresponding
-   *                                           callback for on('formUninstall').
+   * @param { 'formUninstall' } type - Event type. The value **'formUninstall'** indicates a widget uninstallation
+   *     event.
+   * @param { Callback<string> } [callback] - Callback used to return the widget ID. If it is left unspecified, it
+   *     indicates the callback for all the events that have been subscribed.
+   *     <br> The value must be the same as that in **on('formUninstall')**.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.app.form.formHost/formHost#off
+   * @useinstead @ohos.app.form.formHost:formHost#off
    */
   function off(type: 'formUninstall', callback?: Callback<string>): void;
 
   /**
-   * Notify form is Visible
-   * <p>You can use this method to notify form visible state.</p>
+   * Instructs the widgets to make themselves visible. This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { Array<string> } formIds - Indicates the specify form id.
-   * @param { boolean } isVisible - Indicates whether visible.
-   * @param { AsyncCallback<void> } callback - Callback function, when the notification card is visible and successful,
-   *                                           the error is undefined,otherwise it is an error object.
+   * @param { Array<string> } formIds - List of widget IDs.
+   * @param { boolean } isVisible - Whether to make the widgets visible.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the notification is sent,
+   *     **error** is undefined; otherwise, **error** is an error object.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.app.form.formHost/formHost#notifyFormsVisible
+   * @useinstead @ohos.app.form.formHost:formHost#notifyFormsVisible
    */
   function notifyFormsVisible(formIds: Array<string>, isVisible: boolean, callback: AsyncCallback<void>): void;
 
   /**
-   * Notify form is Visible
-   * <p>You can use this method to notify form visible state.</p>
+   * Instructs the widgets to make themselves visible. This API uses a promise to return the result.
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { Array<string> } formIds - Indicates the specify form id.
-   * @param { boolean } isVisible - Indicates whether visible.
-   * @returns { Promise<void> } The promise returned by the function.
+   * @param { Array<string> } formIds - List of widget IDs.
+   * @param { boolean } isVisible - Whether to make the widgets visible.
+   * @returns { Promise<void> } Promise that returns no value.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.app.form.formHost/formHost#notifyFormsVisible
+   * @useinstead @ohos.app.form.formHost:formHost#notifyFormsVisible
    */
   function notifyFormsVisible(formIds: Array<string>, isVisible: boolean): Promise<void>;
 
   /**
-   * Notify form enable update state.
-   * <p>You can use this method to notify form enable update state.</p>
+   * Instructs the widgets to enable or disable updates. This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { Array<string> } formIds - Indicates the specify form id.
-   * @param { boolean } isEnableUpdate - Indicates whether enable update.
-   * @param { AsyncCallback<void> } callback - Callback function, when the notification card is successfully enabled
-   *                                           for updating status, the error is undefined, otherwise is error object.
+   * @param { Array<string> } formIds - List of widget IDs.
+   * @param { boolean } isEnableUpdate - Whether to make the widgets updatable.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the notification is sent,
+   *     **error** is undefined; otherwise, **error** is an error object.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.app.form.formHost/formHost#notifyFormsEnableUpdate
+   * @useinstead @ohos.app.form.formHost:formHost#notifyFormsEnableUpdate
    */
   function notifyFormsEnableUpdate(
     formIds: Array<string>,
@@ -586,18 +567,17 @@ declare namespace formHost {
   ): void;
 
   /**
-   * Notify form enable update state.
-   * <p>You can use this method to notify form enable update state.</p>
+   * Instructs the widgets to enable or disable updates. This API uses a promise to return the result.
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { Array<string> } formIds - Indicates the specify form id.
-   * @param { boolean } isEnableUpdate - Indicates whether enable update.
-   * @returns { Promise<void> } The promise returned by the function.
+   * @param { Array<string> } formIds - List of widget IDs.
+   * @param { boolean } isEnableUpdate - Whether to make the widgets updatable.
+   * @returns { Promise<void> } Promise that returns no value.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.app.form.formHost/formHost#notifyFormsEnableUpdate
+   * @useinstead @ohos.app.form.formHost:formHost#notifyFormsEnableUpdate
    */
   function notifyFormsEnableUpdate(formIds: Array<string>, isEnableUpdate: boolean): Promise<void>;
 }

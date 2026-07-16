@@ -114,8 +114,8 @@ declare class StepperAttribute extends CommonMethod<StepperAttribute> {
    *
    * @param { function } callback - Callback triggered when the page is switched.<br/>prevIndex: Index of the step page
    *     before the switching.<br>Value range:
-   *     [0, +¡Þ).<br/>index: Index of the step page after the switching, that is, index of the previous or next page.
-   *     <br>Value range: [0, +¡Þ).
+   *     [0, +âˆž).<br/>index: Index of the step page after the switching, that is, index of the previous or next page.
+   *     <br>Value range: [0, +âˆž).
    * @returns { StepperAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2025 Huawei Device Co., Ltd.
+ * Copyright (c) 2025-2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -37,8 +37,16 @@ declare class FormEditExtensionAbility extends UIExtensionAbility {
   * @syscap SystemCapability.Ability.Form
   * @stagemodelonly
   * @since 18 dynamic
-  * @since 23 static
   */
 	context: FormEditExtensionContext;
+
+/**
+  * Indicates configuration information about a form edit extension ability context.
+  *
+  * @syscap SystemCapability.Ability.Form
+  * @stagemodelonly
+  * @since 23 static
+  */
+	formEditContext: FormEditExtensionContext;
 }
 export default FormEditExtensionAbility;

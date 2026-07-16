@@ -276,7 +276,7 @@ export declare class MultiNavPathStack extends NavPathStack {
    * Removes the navigation destination pages specified by **indexes** from the navigation stack.
    *
    * @param { Array<number> } indexes - Array of indexes of the navigation destination pages to remove.<br>Value range
-   *     of the number type: [0, +¡Þ).
+   *     of the number type: [0, +âˆž).
    * @returns { number } Number of the navigation destination pages removed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -348,7 +348,7 @@ export declare class MultiNavPathStack extends NavPathStack {
    *     **true**: The transition animation is supported.<br>**false**: The transition animation is not supported.
    * @returns { number } Returns the index of the first navigation destination page that matches **name** from the
    *     bottom of the navigation stack; returns **-1** if no such a page is found.
-   *     <br>Value range: [-1, +¡Þ).
+   *     <br>Value range: [-1, +âˆž).
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -367,7 +367,7 @@ export declare class MultiNavPathStack extends NavPathStack {
    *     **true**: The transition animation is supported.<br>**false**: The transition animation is not supported.
    * @returns { number } Returns the index of the first navigation destination page that matches **name** from the
    *     bottom of the navigation stack; returns **-1** if no such a page is found.
-   *     <br>Value range: [-1, +¡Þ).
+   *     <br>Value range: [-1, +âˆž).
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -379,7 +379,7 @@ export declare class MultiNavPathStack extends NavPathStack {
   /**
    * Returns the navigation stack to the page specified by **index**.
    *
-   * @param { number } index - Index of the navigation destination page.<br>Value range: [0, +¡Þ).
+   * @param { number } index - Index of the navigation destination page.<br>Value range: [0, +âˆž).
    * @param { boolean } [animated] - Whether to support the transition animation.<br>Default value: **true**.<br>
    *     **true**: The transition animation is supported.<br>**false**: The transition animation is not supported.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -394,7 +394,7 @@ export declare class MultiNavPathStack extends NavPathStack {
    * Returns the navigation stack to the page specified by **index** and invokes the **onPop** callback to pass the page
    * processing result.
    *
-   * @param { number } index - Index of the navigation destination page.<br>Value range: [0, +¡Þ).
+   * @param { number } index - Index of the navigation destination page.<br>Value range: [0, +âˆž).
    * @param { Object } result - Custom processing result on the page.
    * @param { boolean } [animated] - Whether to support the transition animation.<br>Default value: **true**.<br>
    *     **true**: The transition animation is supported.<br>**false**: The transition animation is not supported.
@@ -436,7 +436,7 @@ export declare class MultiNavPathStack extends NavPathStack {
    * > Depending on the type of page found, **MultiNavigation** performs different actions:
    *
    *
-   * @param { number } index - Index of the navigation destination page.<br>Value range: [0, +¡Þ).
+   * @param { number } index - Index of the navigation destination page.<br>Value range: [0, +âˆž).
    * @param { boolean } [animated] - Whether to support the transition animation.<br>Default value: **true**.<br>
    *     **true**: The transition animation is supported.<br>**false**: The transition animation is not supported.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -480,7 +480,7 @@ export declare class MultiNavPathStack extends NavPathStack {
   /**
    * Obtains the parameter information of the navigation destination page specified by **index**.
    *
-   * @param { number } index - Index of the navigation destination page.<br>Value range: [0, +¡Þ).
+   * @param { number } index - Index of the navigation destination page.<br>Value range: [0, +âˆž).
    * @returns { unknown | undefined } **Object**: parameter information of the matching navigation destination page.
    *     <br>**undefined**: returned when an invalid index is provided.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -509,7 +509,7 @@ export declare class MultiNavPathStack extends NavPathStack {
    *
    * @param { string } name - Name of the navigation destination page.
    * @returns { Array<number> } Indexes of all the matching navigation destination pages.
-   *     <br>Value range of the number type: [0, +¡Þ).
+   *     <br>Value range of the number type: [0, +âˆž).
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -522,7 +522,7 @@ export declare class MultiNavPathStack extends NavPathStack {
    * Obtains the stack size.
    *
    * @returns { number } Stack size.
-   *     <br>Value range: [0, +¡Þ).
+   *     <br>Value range: [0, +âˆž).
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform

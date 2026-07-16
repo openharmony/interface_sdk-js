@@ -18,52 +18,68 @@
  * @kit ArkUI
  */
 
-
 import font from './@ohos.font';
+
 import mediaQuery from './@ohos.mediaquery';
+
 import type inspector from './@ohos.arkui.inspector';
+
 import promptAction, { LevelOrder, LevelMode } from './@ohos.promptAction';
+
 import router from './@ohos.router';
+
 import type componentUtils from './@ohos.arkui.componentUtils';
+
 import { ComponentContent, FrameNode, Frame, LengthMetrics, Edges } from './@ohos.arkui.node';
+
 import type { AnimatorOptions, AnimatorResult } from './@ohos.animator';
+
 import type observer from './@ohos.arkui.observer';
+
+import dialog from './@ohos.arkui.dialog';
 import { SimpleAnimatorOptions } from './@ohos.animator';
+
 import type { Callback, AsyncCallback } from './@ohos.base';
+
 import { MeasureOptions } from './@ohos.measure';
+
 import type componentSnapshot from './@ohos.arkui.componentSnapshot';
+
 import type dragController from './@ohos.arkui.dragController';
+
 import image from './@ohos.multimedia.image';
+
 import type common from './@ohos.app.ability.common';
+
 import type pointer from './@ohos.multimodalInput.pointer';
 
 /**
- * class Font
+ * Provides APIs for registering custom fonts.
+ *
+ * > **NOTE**
+ * >
+ * > - In the following API examples, you must first use [getFont()]{@link UIContext.getFont} in **UIContext** to obtain
+ * > a **Font** instance, and then call the APIs using the obtained instance.
+ * >
+ * > - You are advised to use the [loadFontSync]{@link @ohos.graphics.text:text.FontCollection#loadFontSync} API of the
+ * > font engine to register custom fonts.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @since 10
- */
-/**
- * class Font
- *
- * <p><strong>NOTE</strong>:
- * <br>You must first use getFont() in UIContext to obtain a Font instance,
- * and then call the APIs using the obtained instance.
- * </p>
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @atomicservice [since 11]
+ * @since 10 dynamic
  */
 export class Font {
   /**
-   * Register a customized font in the FontManager.
+   * Registers a custom font with the font manager.
    *
-   * @param { font.FontOptions } options - FontOptions
+   * This API is asynchronous and does not support concurrent calls.
+   *
+   * @param { font.FontOptions } options - Information about the custom font to register.<br>**NOTE**<br>When setting
+   *     the path to the font file, you are advised to use a string with the **file://** path prefix for resources
+   *     within the system sandbox path. Ensure that the file exists in the sandbox directory path and has read
+   *     permissions.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -73,13 +89,15 @@ export class Font {
   registerFont(options: font.FontOptions): void;
 
   /**
-   * Gets a list of fonts supported by system.
-   * 
-   * <p><strong>NOTE</strong>:
-   * <br>This API takes effect only on 2-in-1 devices.
-   * </p>
+   * Obtains the list of supported fonts.
    *
-   * @returns { Array<string> } A list of font names
+   * This API only takes effect on PCs/2-in-1 devices and returns an empty array on other devices.
+   *
+   * You are advised to use the
+   * [getSystemFontFullNamesByType]{@link @ohos.graphics.text:text.getSystemFontFullNamesByType} API to obtain the
+   * latest system-supported font list data.
+   *
+   * @returns { Array<string> } List of supported fonts.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform [since 11]
@@ -89,10 +107,11 @@ export class Font {
   getSystemFontList(): Array<string>;
 
   /**
-   * Get font details according to the font name.
+   * Obtains information about a system font based on the font name.
    *
-   * @param { string } fontName - font name
-   * @returns { font.FontInfo } Returns the font info
+   * @param { string } fontName - System font name.
+   * @returns { font.FontInfo } Detailed information of the font.
+   *     <br>If no font is found, **undefined** is returned.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform [since 11]
@@ -112,6 +131,7 @@ export class Font {
  * @since 10 dynamic
  */
 export class MediaQuery {
+
   /**
    * Sets the media query criteria and returns the corresponding listening handle
    *
@@ -120,64 +140,50 @@ export class MediaQuery {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Sets the media query criteria and returns the corresponding listening handle
-   *
-   * @param { string } condition - media conditions
-   * @returns { mediaQuery.MediaQueryListener } the corresponding listening handle
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   matchMediaSync(condition: string): mediaQuery.MediaQueryListener;
 }
 
 /**
- * class UIInspector
+ * Provides APIs for registering the component layout and drawing display completion callbacks.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @since 10
- */
-/**
- * class UIInspector
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @atomicservice [since 11]
+ * @since 10 dynamic
  */
 export class UIInspector {
+
   /**
-   * Sets the component after layout or draw criteria and returns the corresponding listening handle
-   * @param { string } id - component id.
-   * @returns { inspector.ComponentObserver } create listener for observer component event.
+   * Registers a callback for layout and drawing display completion notifications for a specific component.
+   * @param { string } id - ID of the target component, set using the universal attributes [id]{@link CommonMethod#id}
+   *     or [key]{@link CommonMethod#key}.
+   * @returns { inspector.ComponentObserver } Component observer, which is used to register or unregister listeners
+   *     for completion of component layout or drawing display.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Sets the component after layout or draw criteria and returns the corresponding listening handle
-   * @param { string } id - component id.
-   * @returns { inspector.ComponentObserver } create listener for observer component event.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   createComponentObserver(id: string): inspector.ComponentObserver;
 
   /**
-   * Sets the component after layout or draw criteria and returns the corresponding listening handle.
+   * Registers a callback for layout and drawing display completion notifications for a specific component.
+   * <br>Display refers to the process of sending the drawing command of a node to the graphics service and completing
+   * <br>the display. Compared with createComponentObserver, this API supports the input of **UniqueID** (the unique ID
+   * <br>allocated by the system to a node).
    *
-   * @param { string | number } id - component id or uniqueId of the component.
-   * @returns { inspector.ComponentObserver } create listener for observer component event.
+   * @param { string | number } id - When the type is string, it indicates the ID of the specified component, set using
+   *     the universal attributes [id]{@link CommonMethod#id} or [key]{@link CommonMethod#key}.
+   *     <br>When the type is number, it indicates the unique ID of the node allocated by the system, obtained through
+   *     <br>[getUniqueId]{@link FrameNode#getUniqueId}. When using the unique ID to create a listener handle,
+   *     <br>ensure that the node corresponding to the unique ID exists. Otherwise, the listener does not take effect.
+   *     <br>The value of the parameter in the number type is an integer ranging from 1 to 2147483647.
+   * @returns { inspector.ComponentObserver } Component observer, which is used to register or unregister listeners
+   *     for completion of component layout or drawing display.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -739,11 +745,12 @@ declare type CustomBuilderWithId = (id: number) => void;
  * @since 18 dynamic
  */
 export interface TargetInfo {
+
   /**
    * Target node for binding popups or menus.<br>**NOTE**<br>1. When **id** is a number, it corresponds to the component's **UniqueID**,
-   * whose uniqueness is guaranteed by the system.<br>2. When **id** is a string, 
-   * it corresponds to the component specified by the universal attribute 
-   * [id]{@link CommonMethod#id}. You must ensure the uniqueness of this ID, 
+   * whose uniqueness is guaranteed by the system.<br>2. When **id** is a string,
+   * it corresponds to the component specified by the universal attribute
+   * [id]{@link CommonMethod#id}. You must ensure the uniqueness of this ID,
    * although there may be multiple instances.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -755,8 +762,8 @@ export interface TargetInfo {
   id: string | number;
 
   /**
-   * Unique ID of the custom component where the target node is located. 
-   * When the above **id** is specified as a string, this property can be used to narrow down the scope, 
+   * Unique ID of the custom component where the target node is located.
+   * When the above **id** is specified as a string, this property can be used to narrow down the scope,
    * helping you ensure the uniqueness of **id: string** within a certain range.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -777,6 +784,7 @@ export interface TargetInfo {
  * @since 23 dynamic
  */
 export interface BackgroundLuminanceSamplingConfigs {
+
   /**
    * Color sampling interval, in milliseconds. The minimum value is 180 ms.
    *
@@ -787,8 +795,9 @@ export interface BackgroundLuminanceSamplingConfigs {
    * @since 23 dynamic
    */
   samplingInterval?: number;
+
   /**
-   * Light color brightness threshold. The value must be an integer in the range of [0, 255]. The dark color brightness 
+   * Light color brightness threshold. The value must be an integer in the range of [0, 255]. The dark color brightness
    * threshold must be less than the light color brightness threshold.
    *
    * @default 220
@@ -798,8 +807,9 @@ export interface BackgroundLuminanceSamplingConfigs {
    * @since 23 dynamic
    */
   brightThreshold?: number;
+
   /**
-   * Dark color brightness threshold. The value must be an integer in the range of [0, 255]. The dark color brightness 
+   * Dark color brightness threshold. The value must be an integer in the range of [0, 255]. The dark color brightness
    * threshold must be less than the light color brightness threshold.
    *
    * @default 150
@@ -809,10 +819,11 @@ export interface BackgroundLuminanceSamplingConfigs {
    * @since 23 dynamic
    */
   darkThreshold?: number;
+
   /**
-   * Sample area offset relative to the component, calculated from the component's upper left corner as the reference 
+   * Sample area offset relative to the component, calculated from the component's upper left corner as the reference
    * point.
-   * 
+   *
    * The component's own area is used by default.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -824,12 +835,12 @@ export interface BackgroundLuminanceSamplingConfigs {
 }
 
 /**
- * Sets the background luminance color picking parameters, registers the luminance change listening callback, and 
+ * Sets the background luminance color picking parameters, registers the luminance change listening callback, and
  * unregisters the listening callback.
- * 
+ *
  * > **NOTE**
  * >
- * > In the following API examples, you must first use [getLuminanceSampler]{@link UIContext#getLuminanceSampler} in 
+ * > In the following API examples, you must first use [getLuminanceSampler]{@link UIContext#getLuminanceSampler} in
  * > **UIContext** to obtain a **LuminanceSampler** object, and then call the APIs using the obtained object.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -838,8 +849,9 @@ export interface BackgroundLuminanceSamplingConfigs {
  * @since 23 dynamic
  */
 export class LuminanceSampler {
+
   /**
-   * Sets the color picking parameters. If the luminance threshold is not within the specified range or the dark 
+   * Sets the color picking parameters. If the luminance threshold is not within the specified range or the dark
    * threshold is greater than the luminance threshold, an exception is thrown.
    *
    * @param { BackgroundLuminanceSamplingConfigs } configs - Color picking parameters.
@@ -852,14 +864,15 @@ export class LuminanceSampler {
    * @since 23 dynamic
    */
   setBackgroundLuminanceSamplingConfigs(configs: BackgroundLuminanceSamplingConfigs): void;
+
   /**
    * Registers the callback for listening to color picking.
-   * 
-   * The background luminance is divided into three ranges based on the luminance threshold and dark threshold set by 
-   * the [setBackgroundLuminanceSamplingConfigs]{@link LuminanceSampler#setBackgroundLuminanceSamplingConfigs} API: 
-   * [0, Dark threshold], (Dark threshold, Luminance threshold], and (Luminance threshold, 255]. The callback is 
-   * triggered when the background luminance range changes (or the listener callback is registered for the first time) 
-   * and the interval between the current color picking and the last color picking reaches the specified interval, and 
+   *
+   * The background luminance is divided into three ranges based on the luminance threshold and dark threshold set by
+   * the [setBackgroundLuminanceSamplingConfigs]{@link LuminanceSampler#setBackgroundLuminanceSamplingConfigs} API:
+   * [0, Dark threshold], (Dark threshold, Luminance threshold], and (Luminance threshold, 255]. The callback is
+   * triggered when the background luminance range changes (or the listener callback is registered for the first time)
+   * and the interval between the current color picking and the last color picking reaches the specified interval, and
    * the current background luminance is returned.
    *
    * @param { Callback<number> } samplingCallback - Callback used to return the current background luminance.<br>Note:
@@ -870,6 +883,7 @@ export class LuminanceSampler {
    * @since 23 dynamic
    */
   onBackgroundLuminanceChange(samplingCallback: Callback<number>): void;
+
   /**
    * Unregisters the callback for listening to color picking. If no callback is specified, all listeners are canceled.
    *
@@ -884,12 +898,12 @@ export class LuminanceSampler {
 
 /**
  * Provides APIs to create and display toasts, dialog boxes, action menus, and custom popups.
- * 
+ *
  * > **NOTE**
  * >
  * > - The initial APIs of this class are supported since API version 10.
  * >
- * > - In the following API examples, you must first use [getPromptAction()]{@link UIContext#getPromptAction} in 
+ * > - In the following API examples, you must first use [getPromptAction()]{@link UIContext#getPromptAction} in
  * > **UIContext** to obtain a **PromptAction** instance, and then call the APIs using the obtained instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -899,6 +913,7 @@ export class LuminanceSampler {
  * @since 10 dynamic
  */
 export class PromptAction {
+
   /**
    * Creates and displays a toast.
    *
@@ -956,8 +971,8 @@ export class PromptAction {
    * Creates and displays a dialog box. This API uses an asynchronous callback to return the result.
    *
    * @param { promptAction.ShowDialogOptions } options - Dialog box configuration options.
-   * @param { AsyncCallback<promptAction.ShowDialogSuccessResponse> } callback - Callback used to return the result. 
-   *      On success, **err** is **undefined** and **data** contains the dialog box response. 
+   * @param { AsyncCallback<promptAction.ShowDialogSuccessResponse> } callback - Callback used to return the result.
+   *      On success, **err** is **undefined** and **data** contains the dialog box response.
    *      On failure, **err** provides error details.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
@@ -1002,6 +1017,7 @@ export class PromptAction {
    * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Internal error.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10 dynamiconly
    * @deprecated since 11
@@ -1013,8 +1029,8 @@ export class PromptAction {
    * Creates and displays an action menu. This API uses an asynchronous callback to return the result.
    *
    * @param { promptAction.ActionMenuOptions } options - Action menu options.
-   * @param { AsyncCallback<promptAction.ActionMenuSuccessResponse> } callback -  Callback used to return the result. 
-   *    On success, **err** is **undefined** and **data** contains the action menu response. 
+   * @param { AsyncCallback<promptAction.ActionMenuSuccessResponse> } callback -  Callback used to return the result.
+   *    On success, **err** is **undefined** and **data** contains the action menu response.
    *    On failure, **err** provides error details.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
@@ -1048,14 +1064,14 @@ export class PromptAction {
   showActionMenu(options: promptAction.ActionMenuOptions): Promise<promptAction.ActionMenuSuccessResponse>;
 
   /**
-   * Opens a custom dialog box corresponding to **dialogContent**. This API uses a promise to return the result. 
-   * The dialog box displayed through this API has its content fully following style settings of **dialogContent**. 
+   * Opens a custom dialog box corresponding to **dialogContent**. This API uses a promise to return the result.
+   * The dialog box displayed through this API has its content fully following style settings of **dialogContent**.
    * It is displayed in the same way where **customStyle** is set to **true**.
    *
    * @param { ComponentContent<T> } dialogContent - Content of the custom dialog box.
    * @param { promptAction.BaseDialogOptions } options - Dialog box style.<br>
    *    Note: If both [isModal]{@link @ohos.promptAction:promptAction.BaseDialogOptions} and [showInSubWindow]{@link @ohos.promptAction:promptAction.BaseDialogOptions}
-   *    in **BaseDialogOptions** are set to **true**, only **showInSubWindow** takes effect. 
+   *    in **BaseDialogOptions** are set to **true**, only **showInSubWindow** takes effect.
    *    In this case, the non-modal dialog box is displayed without mask in the subwindow.
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -1074,14 +1090,14 @@ export class PromptAction {
 
   /**
    * Opens a custom dialog box corresponding to **dialogContent**. This API uses a promise to return the result. A dialog box controller can be bound to the custom dialog box, allowing for subsequent control of the dialog box through the controller.
-   * 
+   *
    * The dialog box displayed through this API has its content fully following style settings of **dialogContent**. It is displayed in the same way where **customStyle** is set to **true**.
    *
    * @param { ComponentContent<T> } dialogContent - Content of the custom dialog box.
    * @param { promptAction.DialogController } controller - Controller of the custom dialog box.
    * @param { promptAction.BaseDialogOptions } options - Style of the custom dialog box.<br>
-   *    Note: If both [isModal]{@link @ohos.promptAction:promptAction.BaseDialogOptions} 
-   *    and [showInSubWindow]{@link @ohos.promptAction:promptAction.BaseDialogOptions} in **BaseDialogOptions** are set to **true**, 
+   *    Note: If both [isModal]{@link @ohos.promptAction:promptAction.BaseDialogOptions}
+   *    and [showInSubWindow]{@link @ohos.promptAction:promptAction.BaseDialogOptions} in **BaseDialogOptions** are set to **true**,
    *    only **showInSubWindow** takes effect. In this case, the non-modal dialog box is displayed without mask in the subwindow.
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -1103,7 +1119,7 @@ export class PromptAction {
    * Updates a custom dialog box corresponding to **dialogContent**. This API uses a promise to return the result.
    *
    * @param { ComponentContent<T> } dialogContent - Content of the custom dialog box.
-   * @param { promptAction.BaseDialogOptions } options - Dialog box style. Currently, 
+   * @param { promptAction.BaseDialogOptions } options - Dialog box style. Currently,
    *    only **alignment**, **offset**, **autoCancel**, and **maskColor** can be updated.
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -1142,11 +1158,11 @@ export class PromptAction {
   /**
    * Creates and displays a custom dialog box. This API uses a promise to return the dialog box ID for use with **closeCustomDialog**.
    *
-+   * @param { promptAction.CustomDialogOptions } options - Content of the custom dialog box.<br>
-+   *    Note: If both [isModal]{@link @ohos.promptAction:promptAction.BaseDialogOptions} 
-+   *    and [showInSubWindow]{@link @ohos.promptAction:promptAction.BaseDialogOptions} in **BaseDialogOptions** are set to **true**, 
-+   *    only **showInSubWindow** takes effect. In this case, the non-modal dialog box is displayed without mask in the subwindow.
-+   * @returns { Promise<number> } Promise that returns the dialog box ID for use with **closeCustomDialog**.
+  +   * @param { promptAction.CustomDialogOptions } options - Content of the custom dialog box.<br>
+  +   *    Note: If both [isModal]{@link @ohos.promptAction:promptAction.BaseDialogOptions}
+  +   *    and [showInSubWindow]{@link @ohos.promptAction:promptAction.BaseDialogOptions} in **BaseDialogOptions** are set to **true**,
+  +   *    only **showInSubWindow** takes effect. In this case, the non-modal dialog box is displayed without mask in the subwindow.
+  +   * @returns { Promise<number> } Promise that returns the dialog box ID for use with **closeCustomDialog**.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
@@ -1162,14 +1178,14 @@ export class PromptAction {
 
   /**
    * Creates and displays a custom dialog box. This API uses a promise to return the dialog box ID for use with **closeCustomDialog**.
-   * 
+   *
    * The dialog box ID can be included in the dialog box content for related operations. A dialog box controller can be bound to the custom dialog box, allowing for subsequent control of the dialog box through the controller.
    *
    * @param { CustomBuilder | CustomBuilderWithId } builder - Content of the custom dialog box.
    * @param { promptAction.DialogController } [controller] - Controller of the custom dialog box.
    * @param { promptAction.DialogOptions } [options] - Style of the custom dialog box.<br>
-   *    Note: If both [isModal]{@link @ohos.promptAction:promptAction.BaseDialogOptions} 
-   *    and [showInSubWindow]{@link @ohos.promptAction:promptAction.BaseDialogOptions} in **BaseDialogOptions** are set to **true**, 
+   *    Note: If both [isModal]{@link @ohos.promptAction:promptAction.BaseDialogOptions}
+   *    and [showInSubWindow]{@link @ohos.promptAction:promptAction.BaseDialogOptions} in **BaseDialogOptions** are set to **true**,
    *    only **showInSubWindow** takes effect. In this case, the non-modal dialog box is displayed without mask in the subwindow.
    * @returns { Promise<number> } Promise Promise used to return the custom dialog box ID.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -1206,7 +1222,7 @@ export class PromptAction {
   /**
    * Obtains the order of the topmost dialog box.
    *
-   * This API returns the order of the dialog box currently at the top layer. This information can be used to specify 
+   * This API returns the order of the dialog box currently at the top layer. This information can be used to specify
    * the desired order for subsequent dialog boxes.
    *
    * @returns { LevelOrder } Order of the topmost dialog box.
@@ -1219,7 +1235,7 @@ export class PromptAction {
   getTopOrder(): LevelOrder;
 
   /**
-   * This API returns the order of the dialog box currently at the bottom layer. This information can be used to specify 
+   * This API returns the order of the dialog box currently at the bottom layer. This information can be used to specify
    * the desired order for subsequent dialog boxes.
    *
    * @returns { LevelOrder } Order of the topmost dialog box.
@@ -1233,19 +1249,19 @@ export class PromptAction {
 
   /**
    * Creates and displays a popup with the specified content. This API uses a promise to return the result.
-   * 
+   *
    * > **NOTE**
    * >
    * > - If an invalid **target** is provided, the popup will not be displayed.
    * >
-   * > - You must maintain the provided **content**, on which [updatePopup]{@link PromptAction#updatePopup} and 
+   * > - You must maintain the provided **content**, on which [updatePopup]{@link PromptAction#updatePopup} and
    * > [closePopup]{@link PromptAction#closePopup} rely to identify the target popup.
    * >
-   * > - If your **wrapBuilder** includes other components (such as [Popup]{@link @ohos.arkui.advanced.Popup} or 
-   * > [Chip]{@link @ohos.arkui.advanced.Chip}), the [ComponentContent]{@link ComponentContent:ComponentContent} 
-   * > constructor must include four parameters, and the **options** parameter must be 
+   * > - If your **wrapBuilder** includes other components (such as [Popup]{@link @ohos.arkui.advanced.Popup} or
+   * > [Chip]{@link @ohos.arkui.advanced.Chip}), the [ComponentContent]{@link ComponentContent:ComponentContent}
+   * > constructor must include four parameters, and the **options** parameter must be
    * > **{ nestingBuilderSupported: true }**.
-   * 
+   *
    * @param { ComponentContent<T> } content - Content displayed in the popup.
    * @param { TargetInfo } target - Information about the target component to bind.
    * @param { PopupCommonOptions } [options] - Style of the popup.
@@ -1268,7 +1284,7 @@ export class PromptAction {
 
   /**
    * Updates the style of the popup corresponding to the provided **content**. This API uses a promise to return the result.
-   * 
+   *
    * > **NOTE**
    * >
    * > Updating the following properties is not supported: **showInSubWindow**, **focusable**, **onStateChange**, **onWillDismiss**, and **transition**.
@@ -1276,7 +1292,7 @@ export class PromptAction {
    * @param { ComponentContent<T> } content - Content displayed in the popup.
    * @param { PopupCommonOptions } options - Style of the popup.<br>
    *    **NOTE**<br>
-   *      Updating the following properties is not supported: **showInSubWindow**, **focusable**, **onStateChange**, 
+   *      Updating the following properties is not supported: **showInSubWindow**, **focusable**, **onStateChange**,
    *      **onWillDismiss**, and **transition**.
    * @param { boolean } [partialUpdate] - Whether to update the popup in incremental mode.<br>
    *    Default value: **false**<br>
@@ -1284,7 +1300,7 @@ export class PromptAction {
    *    **true**: Incremental update. Only specified attributes in **options** are updated, and the other attributes retain
    *         their current values. If the attribute value passed in **options** is invalid or **undefined**, the attribute
    *         is not updated.<br>
-   *    **false**: Full update. Specified attributes in **options** are updated, and the other attributes are restored to 
+   *    **false**: Full update. Specified attributes in **options** are updated, and the other attributes are restored to
    *         their default values.
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -1322,22 +1338,22 @@ export class PromptAction {
 
   /**
    * Opens a menu with the specified content. This API uses a promise to return the result.
-   * 
+   *
    * > **NOTE**
    * >
    * > - If an invalid **target** is provided, the menu will not be displayed.
    * >
-   * > - You must maintain the provided **content**, on which [updateMenu]{@link PromptAction#updateMenu} and 
+   * > - You must maintain the provided **content**, on which [updateMenu]{@link PromptAction#updateMenu} and
    * > [closeMenu]{@link PromptAction#closeMenu} rely to identify the target menu.
    * >
-   * > - If your **wrapBuilder** includes other components (such as [Popup]{@link @ohos.arkui.advanced.Popup} or 
-   * > [Chip]{@link @ohos.arkui.advanced.Chip}), the [ComponentContent]{@link ComponentContent:ComponentContent} 
-   * > constructor must include four parameters, and the **options** parameter must be 
+   * > - If your **wrapBuilder** includes other components (such as [Popup]{@link @ohos.arkui.advanced.Popup} or
+   * > [Chip]{@link @ohos.arkui.advanced.Chip}), the [ComponentContent]{@link ComponentContent:ComponentContent}
+   * > constructor must include four parameters, and the **options** parameter must be
    * > **{ nestingBuilderSupported: true }**.
    * >
-   * > - Nested subwindow dialog boxes are not supported. For example, when [openMenu]{@link PromptAction#openMenu} has 
+   * > - Nested subwindow dialog boxes are not supported. For example, when [openMenu]{@link PromptAction#openMenu} has
    * > **showInSubWindow** set to **true**, another dialog box with **showInSubWindow=true** cannot be displayed.
-   * 
+   *
    * @param { ComponentContent<T> } content - Content displayed in the menu.
    * @param { TargetInfo } target - Information about the target component to bind.
    * @param { MenuOptions } [options] - Style of the menu.<br>**NOTE**<br>The **title** property is not effective.<br>
@@ -1360,17 +1376,17 @@ export class PromptAction {
   openMenu<T extends Object>(content: ComponentContent<T>, target: TargetInfo, options?: MenuOptions): Promise<void>;
 
   /**
-   * Updates the style of the menu corresponding to the provided **content**. This API uses a promise to return the 
+   * Updates the style of the menu corresponding to the provided **content**. This API uses a promise to return the
    * result.
-   * 
+   *
    * > **NOTE**
    * >
-   * > - Updating for the following is not supported: **showInSubWindow**, **preview**, **previewAnimationOptions**, 
-   * > **transition**, **onAppear**, **aboutToAppear**, **onDisappear**, **aboutToDisappear**, **onWillAppear**, 
+   * > - Updating for the following is not supported: **showInSubWindow**, **preview**, **previewAnimationOptions**,
+   * > **transition**, **onAppear**, **aboutToAppear**, **onDisappear**, **aboutToDisappear**, **onWillAppear**,
    * > **onDidAppear**, **onWillDisappear**, and **onDidDisappear**.
    * >
-   * > - The mask style can be updated by configuring [MenuMaskType]{@link MenuMaskType}. However, this API does not 
-   * > support mask presence toggling (that is, switching the mask from non-existent to existent or vice versa) by 
+   * > - The mask style can be updated by configuring [MenuMaskType]{@link MenuMaskType}. However, this API does not
+   * > support mask presence toggling (that is, switching the mask from non-existent to existent or vice versa) by
    * > setting a boolean value.
    *
    * @param { ComponentContent<T> } content - Content displayed in the menu.
@@ -1417,6 +1433,88 @@ export class PromptAction {
    * @since 18 dynamic
    */
   closeMenu<T extends Object>(content: ComponentContent<T>): Promise<void>;
+}
+
+/**
+ * Provides unified dialog APIs.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 26.1.0 dynamic
+ */
+export class DialogPresenter {
+  /**
+   * Presents a fixed-style dialog box.
+   *
+   * @param { dialog.DialogStyleOptions } [options] - Dialog options.
+   * @returns { Promise<DialogResult> } Promise used to return the dialog result.
+   * @throws { BusinessError } 103306 - The dialog cannot be opened due to node mount failure.
+   * @throws { BusinessError } 103308 - The dialog cannot be opened due to subwindow create failure.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.1.0 dynamic
+   */
+  present(options?: dialog.DialogStyleOptions): Promise<DialogResult>;
+
+  /**
+   * Presents a custom-style dialog box with the provided content.
+   *
+   * The content parameter accepts CustomBuilder or ComponentContent via union type:
+   * - CustomBuilder: Builder function for custom dialog content.
+   * - ComponentContent: ComponentContent supporting state-driven updates.
+   *
+   * isModal = true and showInSubWindow = true cannot be used at the same time.
+   *
+   * @param { CustomBuilder | CustomBuilderWithId | ComponentContent<Object> } content - Custom dialog content.
+   * @param { dialog.DialogCustomOptions } [options] - Custom dialog options.
+   * @returns { Promise<DialogResult> } Promise used to return the dialog result.
+   * @throws { BusinessError } 103301 - Dialog content error. The ComponentContent is incorrect.
+   * @throws { BusinessError } 103302 - Dialog content already exist. The ComponentContent has already been opened.
+   * @throws { BusinessError } 103306 - The dialog cannot be opened due to node mount failure.
+   * @throws { BusinessError } 103308 - The dialog cannot be opened due to subwindow create failure.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.1.0 dynamic
+   */
+  present(content: CustomBuilder | CustomBuilderWithId | ComponentContent<Object>, options?: dialog.DialogCustomOptions): Promise<DialogResult>;
+
+  /**
+   * Updates a presented custom dialog box.
+   *
+   * @param { ComponentContent<Object> } content - The content used to identify the dialog.
+   * @param { dialog.DialogBaseOptions } [options] - Options to update.
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 103301 - Dialog content error. The ComponentContent is incorrect.
+   * @throws { BusinessError } 103303 - Dialog content not found. The ComponentContent cannot be found.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.1.0 dynamic
+   */
+  update(content: ComponentContent<Object>, options?: dialog.DialogBaseOptions): Promise<void>;
+
+  /**
+   * Dismisses a dialog box.
+   * Accepts either the dialog ID (returned by present) or the ComponentContent reference.
+   *
+   * @param { int | ComponentContent<Object> } target - The dialog ID or ComponentContent to dismiss.
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 103301 - Dialog content error. The ComponentContent is incorrect.
+   * @throws { BusinessError } 103303 - Dialog content not found. The ComponentContent cannot be found.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.1.0 dynamic
+   */
+  dismiss(target: int | ComponentContent<Object>): Promise<void>;
 }
 
 /**
@@ -1501,7 +1599,7 @@ export declare type NodeRenderStateChangeCallback = (state: NodeRenderState, nod
 export declare type GestureListenerCallback = (info: GestureTriggerInfo) => void;
 
 /**
- * Represents the page information of the router or navigation destination. 
+ * Represents the page information of the router or navigation destination.
  * If there is no related page information, **undefined** is returned.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1547,8 +1645,9 @@ export interface PageInfo {
  * @since 15 dynamic
  */
 export interface OverlayManagerOptions {
+
   /**
-   *  Whether to render the overlay root node. The value **true** means to render the overlay root node, 
+   *  Whether to render the overlay root node. The value **true** means to render the overlay root node,
    * and **false** means the opposite. The default value is **true**.<br>
    * **Atomic service API**: This API can be used in atomic services since API version 15.
    *
@@ -1562,7 +1661,7 @@ export interface OverlayManagerOptions {
   renderRootOverlay?: boolean;
 
   /**
-   * hether to enable the swipe-to-dismiss gesture for **ComponentContent** under **OverlayManager**. 
+   * hether to enable the swipe-to-dismiss gesture for **ComponentContent** under **OverlayManager**.
    * The value **true** means to enable the swipe-to-dismiss gesture, and **false** means the opposite. Default value: **false**.<br>
    * **Atomic service API**: This API can be used in atomic services since API version 19.
    *
@@ -1586,6 +1685,7 @@ export interface OverlayManagerOptions {
  * @since 26.0.0 dynamic
  */
 export interface OrderOverlayOptions {
+
   /**
    * The display order of the overlay.
    *
@@ -1642,6 +1742,7 @@ export interface OrderOverlayOptions {
  * @since 11 dynamic
  */
 export class UIObserver {
+
   /**
    * Subscribes to status changes of this **NavDestination** component.
    *
@@ -1740,18 +1841,18 @@ export class UIObserver {
    * @crossplatform
    * @since 11
    */
-   /**
-    * Removes a callback function that was previously registered with `on()`.
-    *
-    * @param { 'navDestinationUpdate'} type - The type of event to remove the listener for. Must be 'navDestinationUpdate'.
-    * @param { Callback<observer.NavDestinationInfo> } [callback] - The callback function to remove. If not provided, all callbacks for the given event type
-    *                                                               will be removed.
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @crossplatform
-    * @atomicservice
-    * @since 12 dynamic
-    */
+  /**
+   * Removes a callback function that was previously registered with `on()`.
+   *
+   * @param { 'navDestinationUpdate'} type - The type of event to remove the listener for. Must be 'navDestinationUpdate'.
+   * @param { Callback<observer.NavDestinationInfo> } [callback] - The callback function to remove. If not provided, all callbacks for the given event type
+   *                                                               will be removed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
   off(type: 'navDestinationUpdate', callback?: Callback<observer.NavDestinationInfo>): void;
 
   /**
@@ -1771,10 +1872,10 @@ export class UIObserver {
   /**
    * Removes a callback function that was previously registered with `on()`.
    *
-    * @param { 'navDestinationUpdateByUniqueId'} type - The type of event to remove the listener for. Must be 'navDestinationUpdateByUniqueId'.
+   * @param { 'navDestinationUpdateByUniqueId'} type - The type of event to remove the listener for. Must be 'navDestinationUpdateByUniqueId'.
    * @param { number } navigationUniqueId - The uniqueId of the navigation.
-    * @param { Callback<observer.NavDestinationInfo> } [callback] - The callback function to remove. If not provided, all callbacks for the given event type
-    *                                                      will be removed.
+   * @param { Callback<observer.NavDestinationInfo> } [callback] - The callback function to remove. If not provided, all callbacks for the given event type
+   *                                                      will be removed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1788,7 +1889,7 @@ export class UIObserver {
    *
    * @param { 'scrollEvent' } type - The type of event to listen for. Must be 'scrollEvent'.
    * @param { observer.ObserverOptions } options - The options object.
-    * @param { Callback<observer.ScrollEventInfo> } callback - The callback function to be called when the scroll event start or stop.
+   * @param { Callback<observer.ScrollEventInfo> } callback - The callback function to be called when the scroll event start or stop.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2513,6 +2614,7 @@ export class UIObserver {
    * @since 22 dynamic
    */
   on(type: 'textChange', callback: Callback<observer.TextChangeEventInfo>): void;
+
   /**
    * Removes a callback function that was previously registered with `on()`.
    *
@@ -2526,7 +2628,6 @@ export class UIObserver {
    * @since 22 dynamic
    */
   off(type: 'textChange', callback?: Callback<observer.TextChangeEventInfo>): void;
-
 
   /**
    * Registers a callback function to be called when text field's content is changed.
@@ -2852,21 +2953,21 @@ export class ComponentUtils {
 
 /**
  * Provides the capability to draw overlays.
- * 
+ *
  * > **NOTE**
  * >
  * > - The initial APIs of this class are supported since API version 12.
  * >
- * > - In the following API examples, you must first use [getOverlayManager()]{@link UIContext#getOverlayManager} in 
+ * > - In the following API examples, you must first use [getOverlayManager()]{@link UIContext#getOverlayManager} in
  * > **UIContext** to obtain an **OverlayManager** instance, and then call the APIs using the obtained instance.
  * >
- * > - The nodes on **OverlayManager** are above the page level, but below such components as created through 
+ * > - The nodes on **OverlayManager** are above the page level, but below such components as created through
  * > **Dialog**, **Popup**, **Menu**, **BindSheet**, **BindContentCover**, and **Toast**.
  * >
  * > - The drawing method inside and outside the safe area of nodes on **OverlayManager** is consistent with that of the
  * > page, and the keyboard avoidance method is also the same as that of the page.
  * >
- * > - For properties related to **OverlayManager**, you are advised to use AppStorage for global storage across the 
+ * > - For properties related to **OverlayManager**, you are advised to use AppStorage for global storage across the
  * > application to prevent changes in property values when switching pages, which could lead to service errors.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2876,16 +2977,17 @@ export class ComponentUtils {
  * @since 12 dynamic
  */
 export class OverlayManager {
+
   /**
    * Adds a specified **ComponentContent** node to the **OverlayManager**.
    *
    * @param { ComponentContent } content - 	Content to add to the target node on the **OverlayManager**.<br>
-   *      **NOTE**<br> 
+   *      **NOTE**<br>
    *      By default, the new node is centered on the page and stacked according to its stacking level.
    * @param { number } [ index ] - Stacking level of the new node on the **OverlayManager**.<br>
-   *      **NOTE**<br> 
-   *      If the value is greater than or equal to 0, a larger value means a higher layer for the **ComponentContent** node. 
-   *      If multiple **ComponentContent** nodes have the same index, the later-added ones appear above earlier ones.<br> 
+   *      **NOTE**<br>
+   *      If the value is greater than or equal to 0, a larger value means a higher layer for the **ComponentContent** node.
+   *      If multiple **ComponentContent** nodes have the same index, the later-added ones appear above earlier ones.<br>
    *      If the value is less than 0, **null**, or **undefined**, the **ComponentContent** node is added at the highest level by default.<br>
    *      If the same **ComponentContent** node is added multiple times, only the last added one is retained.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2902,7 +3004,7 @@ export class OverlayManager {
    * This API allows you to define the stacking order of the nodes when they are created.
    *
    * @param { ComponentContent } content - Content to add to the target node on the **OverlayManager**.
-   *    <br>**NOTE**<br> 
+   *    <br>**NOTE**<br>
    *    By default, the new node is centered on the page and stacked according to its stacking level.
    * @param { LevelOrder } [ levelOrder ] - Display order of the new floating layer node.<br>
    *    **NOTE**<br>
@@ -2993,7 +3095,16 @@ export class OverlayManager {
 }
 
 /**
- * Provides the method for magnifier capabilities.
+ * Provides the capability of displaying and hiding of the magnifier. The magnifier enlarges the component content for
+ * you to view the component details.
+ *
+ * > **NOTE**
+ * >
+ * > - In the following API examples, you must first use [getMagnifier()]{@link UIContext.getMagnifier} in **UIContext**
+ * > to obtain a **Magnifier** instance, and then call the APIs using the obtained instance.
+ * >
+ * > - The magnifier capability of this class does not affect that of text components. For text components, you are
+ * > advised to use the built-in magnifier capability.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -3002,10 +3113,13 @@ export class OverlayManager {
  * @since 22 dynamic
  */
 export class Magnifier {
+
   /**
-   * Bind magnifier to a component.
+   * Binds the magnifier to the component with the specified ID.
    *
-   * @param { string } id - component id.
+   * @param { string } id - Component ID, which can be set through the universal attribute [id]{@link CommonMethod#id}
+   *     or [key]{@link CommonMethod#key}. If the component ID is an empty string or no component is found based on the
+   *     specified ID, the magnifier is not displayed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3015,12 +3129,22 @@ export class Magnifier {
   bind(id: string): void;
 
   /**
-   * Set the position of the magnified content.
+   * Sets the position of the component content displayed by the magnifier relative to the upper left corner of the
+   * component. After the setting is successful, the magnifier displays the content centered at the coordinate point.
    *
-   * @param { number } x - the x position of the magnified content relative to the component.
-   *     The unit of x is vp.
-   * @param { number } y - the y position of the magnified content relative to the component.
-   *     The unit of y is vp.
+   * > **NOTE**
+   * >
+   * > When the content of the component bound to the magnifier changes, the magnifier does not automatically update the
+   * > displayed content. You need to call the **show** API to update the displayed content of the magnifier.
+   *
+   * @param { number } x - Horizontal coordinate of the component content displayed by the magnifier, relative to the
+   *     component itself, in vp. If the coordinate value is greater than the component width or less than 0, the
+   *     magnifier is not displayed. If the value is **undefined**, the current display status of the magnifier is
+   *     retained.
+   * @param { number } y - Vertical coordinate of the component content displayed by the magnifier, relative to the
+   *     component itself, in vp. If the coordinate value is greater than the component height or less than 0, the
+   *     magnifier is not displayed. If the value is **undefined**, the current display status of the magnifier is
+   *     retained.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3030,7 +3154,7 @@ export class Magnifier {
   show(x: number, y: number): void;
 
   /**
-   * Unbind the magnifier from its associated component.
+   * Unbinds the magnifier from the current component.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3051,6 +3175,7 @@ export class Magnifier {
  * @since 11 dynamic
  */
 export interface AtomicServiceBar {
+
   /**
    * Set the visibility of the bar, except the icon.
    *
@@ -3223,6 +3348,7 @@ export interface GestureObserverConfigs {
  * @since 12 dynamic
  */
 export class DynamicSyncScene {
+
   /**
    * Sets the FrameRateRange of the DynamicSyncScene.
    *
@@ -3284,6 +3410,7 @@ export class SwiperDynamicSyncScene extends DynamicSyncScene {
  * @since 14 dynamic
  */
 export class MarqueeDynamicSyncScene extends DynamicSyncScene {
+
   /**
    * Type of the MarqueeDynamicSyncSceneType.
    * @type { MarqueeDynamicSyncSceneType }
@@ -3487,12 +3614,25 @@ export class DragController {
 }
 
 /**
- * class MeasureUtils
+ * Provides APIs for measuring text metrics, such as text height and width.
  *
- * <p><strong>NOTE</strong>:
- * <br>You must first use getMeasureUtils() in UIContext to obtain a MeasureUtils instance,
- * and then call the APIs using the obtained instance.
- * </p>
+ * > **NOTE**
+ * >
+ * > - In the following API examples, you must first use [getMeasureUtils()]{@link UIContext.getMeasureUtils} in
+ * > **UIContext** to obtain a **MeasureUtils** instance, and then call the APIs using the obtained instance.
+ * >
+ * > - To perform more complex text measurements, use the [Paragraph]{@link @ohos.graphics.text:text.Paragraph} API.
+ * >
+ * > - Avoid using
+ * > [ApplicationContext.setFontSizeScale]{@link ./application/ApplicationContext:ApplicationContext.setFontSizeScale}
+ * > during text measurement API calls. To ensure timing correctness and the accuracy of measurement results, manually
+ * > listen for font scale changes.
+ * >
+ * > - For measuring text after truncation, direct use of the string length for truncation may lead to inaccuracies.
+ * > This is because certain Unicode characters (for example, emojis) have code points with a length greater than 1, and
+ * > truncating by string length can split these multi-code-point characters, resulting in incorrect text display or
+ * > measurement errors. As such, you are advised to perform iterative truncation processing based on Unicode code
+ * > points. For details, see [Example 2 in measureTextSize]{@link MeasureUtils.measureTextSize}.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -3502,10 +3642,20 @@ export class DragController {
  */
 export class MeasureUtils {
   /**
-   * Obtains the width of the specified text in a single line layout.
+   * Measures the single-line display width of the specified text. For multi-line text (separated by newline characters
+   * **\n**), this API returns the width of the longest line.
    *
-   * @param { MeasureOptions } options - Options.
-   * @returns { number } - The unit is px.
+   * > **NOTE**
+   * >
+   * > **measureText** always measures single-line text width. Layout constraints in **options** (**constraintWidth**,
+   * > **maxLines**, and more) do not affect results. For layout-constrained width measurement, use
+   * > [measureTextSize]{@link MeasureUtils.measureTextSize}.
+   *
+   * @param { MeasureOptions } options - Options of the target text.
+   * @returns { number } Text width.
+   *     <br>**NOTE**
+   *     <br>Floating-point results are rounded up.
+   *     <br>Unit: px.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3515,11 +3665,13 @@ export class MeasureUtils {
   measureText(options: MeasureOptions): number;
 
   /**
-   * Obtains the width and height of the specified text in a single line layout.
+   * Measures the width and height of the given single-line text.
    *
-   * @param { MeasureOptions } options - Options of measure area occupied by text.
-   * @returns { SizeOptions } width and height for text to display.The return values for text width and height are both
-   *     in px.
+   * @param { MeasureOptions } options - Options of the target text.
+   * @returns { SizeOptions } Width and height of the text.
+   *     <br>**NOTE**
+   *     <br>If **constraintWidth** is not specified, the floating-point value of the text width will be rounded up.
+   *     <br>The return values for text width and height are both in px.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3529,11 +3681,12 @@ export class MeasureUtils {
   measureTextSize(options: MeasureOptions): SizeOptions;
 
   /**
-   * Get layout info of the styled string.
+   * Converts a styled string into an array of corresponding [Paragraph]{@link @ohos.graphics.text:text.Paragraph}
+   * objects based on text layout options.
    *
-   * @param { StyledString } styledString - The styled string value.
-   * @param { TextLayoutOptions } [options] - The layout options.
-   * @returns { Array<Paragraph> } paragraph result
+   * @param { StyledString } styledString - Styled string to be converted.
+   * @param { TextLayoutOptions } [options] - Text layout options.
+   * @returns { Array<Paragraph> } Array of [Paragraph]{@link @ohos.graphics.text:text.Paragraph} objects.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3723,13 +3876,13 @@ export class CursorController {
 
 /**
  * Provides the capability to control the closing of context menus.
- * 
+ *
  * > **NOTE**
  * >
  * > - The initial APIs of this class are supported since API version 12.
  * >
- * > - In the following API examples, you must first use 
- * > [getContextMenuController()]{@link UIContext#getContextMenuController} in **UIContext** to obtain a 
+ * > - In the following API examples, you must first use
+ * > [getContextMenuController()]{@link UIContext#getContextMenuController} in **UIContext** to obtain a
  * > **ContextMenuController** instance, and then call the APIs using the obtained instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -3739,6 +3892,7 @@ export class CursorController {
  * @since 12 dynamic
  */
 export declare class ContextMenuController {
+
   /**
    * Closes this context menu.
    *
@@ -3768,6 +3922,7 @@ export declare class ContextMenuController {
  * @since 12 dynamic
  */
 export abstract class FrameCallback {
+
   /**
    * Called when the next frame is rendered.
    *
@@ -4597,6 +4752,7 @@ export class SmartGestureController {
  * @since 22 dynamic
  */
 export const enum ResolveStrategy {
+
   /**
    * Obtain the UIContext of the current calling scope.
    *
@@ -4681,6 +4837,7 @@ export const enum ResolveStrategy {
  * @since 22 dynamic
  */
 export class ResolvedUIContext extends UIContext {
+
   /**
    * Resolving strategy of the UIContext.
    *
@@ -4716,6 +4873,7 @@ export class ResolvedUIContext extends UIContext {
  * @since 10 dynamic
  */
 export class UIContext {
+
   /**
    * Construct a **UIContext** object.
    *
@@ -4846,9 +5004,9 @@ export class UIContext {
   isAvailable(): boolean;
 
   /**
-   * get object font.
+   * Obtains a **Font** object.
    *
-   * @returns { Font } object Font.
+   * @returns { Font } **Font** object.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -4864,36 +5022,19 @@ export class UIContext {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * get object mediaQuery.
-   *
-   * @returns { MediaQuery } object MediaQuery.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   getMediaQuery(): MediaQuery;
 
   /**
-   * get object UIInspector.
-   * @returns { UIInspector } object UIInspector.
+   * Obtains the **UIInspector** object.
+   * @returns { UIInspector } **UIInspector** object.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-/**
-   * get object UIInspector.
-   * @returns { UIInspector } object UIInspector.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   getUIInspector(): UIInspector;
 
@@ -4910,10 +5051,29 @@ export class UIContext {
   getLuminanceSampler(target: TargetInfo): LuminanceSampler | undefined;
 
   /**
-   * get the filtered attributes of the component tree.
-   *
-   * @param { Array<string> } [filters] - the list of filters used to filter out component tree to be obtained.
-   * @returns { string } the specified attributes of the component tree in json string.
+   * Obtains the component tree and component attributes. This API has a long processing time and is intended for
+   * <br>testing scenarios only.
+   * @param { Array<string> } [filters] - List of component attributes used for filtering. Currently, only the following
+   *     filter fields are supported:
+   *     <br>**"id"**: unique ID of the component.
+   *     <br>**"src"**: source of the resource.
+   *     <br>**"content"**: information or data contained in the element, component, or object.
+   *     <br>**"editable"**: whether the component is editable.
+   *     <br>**"scrollable"**: whether the component is scrollable.
+   *     <br>**"selectable"**: whether the component is selectable.
+   *     <br>**"focusable"**: whether the component is focusable.
+   *     <br>**"focused"**: whether the component is currently focused.
+   *     <br>If **filters** includes one or more fields, unspecified fields will be filtered out from the results.
+   *     <br>If **filters** is not provided or is an empty array, none of the aforementioned fields
+   *     <br>will be filtered out.
+   *     <br>The following filter field is supported since API version 20:
+   *     <br>**"isLayoutInspector"**: whether the component tree contains custom components.
+   *     <br>If **filters** is omitted or
+   *     <br>does not contain **"isLayoutInspector"**, the returned component tree
+   *     <br>will not include custom component details.
+   *     <br>Other filter fields are used only in testing scenarios.
+   * @returns { string } JSON string of the component tree and component attributes. For details about each field in
+   *     the component, see the return value description of [getInspectorInfo]{@link FrameNode#getInspectorInfo}.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
    *     <br> 2. Incorrect parameters types.
@@ -4921,18 +5081,37 @@ export class UIContext {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
- * @atomicservice
- * @since 12 dynamic
- */
+   * @atomicservice
+   * @since 12 dynamic
+   */
   getFilteredInspectorTree(filters?: Array<string>): string;
 
   /**
-   * get the filtered attributes of the component tree with the specified id and depth
-   *
-   * @param { string } id - ID of the specified component tree to be obtained.
-   * @param { number } depth - depth of the component tree to be obtained.
-   * @param { Array<string> } [filters] - the list of filters used to filter out component tree to be obtained.
-   * @returns { string } the specified attributes of the component tree in json string.
+   * Obtains the attributes of the specified component and its child components. This API has a long processing time
+   * <br>and is intended for testing scenarios only.
+   * @param { string } id - [ID]{@link CommonMethod#id} of the target component.
+   * @param { number } depth - Number of layers of child components. If the value is **0**, the attributes of the
+   *     specified component and all its child components are obtained. If the value is **1**, only the attributes of
+   *     <br>the specified component are obtained. If the value is **2**, the attributes of
+   *     <br>the specified component and its
+   *     <br>level-1 child components are obtained. The rest can be deduced by analogy.
+   * @param { Array<string> } [filters] - List of component attributes used for filtering. Currently, only the following
+   *     filter fields are supported:
+   *     <br>**"id"**: unique ID of the component.
+   *     <br>**"src"**: source of the resource.
+   *     <br>**"content"**: information or data contained in the element, component, or object.
+   *     <br>**"editable"**: whether the component is editable.
+   *     <br>**"scrollable"**: whether the component is scrollable.
+   *     <br>**"selectable"**: whether the component is selectable.
+   *     <br>**"focusable"**: whether the component is focusable.
+   *     <br>**"focused"**: whether the component is currently focused.
+   *     <br>If **filters** includes one or more fields, unspecified fields will be filtered out from the results.
+   *     <br>If **filters** is not provided or is an empty array, none of the aforementioned fields
+   *     <br>will be filtered out.
+   *     <br>Other filter fields are used only in testing scenarios.
+   * @returns { string } JSON string of the attributes of the specified component and its child components. For details
+   *     about each field in the component, see the return value
+   *     <br>description of [getInspectorInfo]{@link FrameNode#getInspectorInfo}.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
    *     <br> 2. Incorrect parameters types.
@@ -4970,6 +5149,18 @@ export class UIContext {
   getPromptAction(): PromptAction;
 
   /**
+   * Get the Dialog object.
+   *
+   * @returns { DialogPresenter } Dialog object.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.1.0 dynamic
+   */
+  getDialogPresenter(): DialogPresenter;
+
+  /**
    * get object ComponentUtils.
    *
    * @returns { ComponentUtils } object ComponentUtils.
@@ -5005,16 +5196,16 @@ export class UIContext {
    */
   getOverlayManager(): OverlayManager;
 
-/**
-   * Obtains the Magnifier object.
- *
-   * @returns { Magnifier } Magnifier instance obtained.
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
+  /**
+   * Obtains a [Magnifier]{@link Magnifier} object, which can be used to control the display and hiding of a magnifier.
+   *
+   * @returns { Magnifier } **Magnifier** object, which can be used to control the display and hiding of a magnifier.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
- * @atomicservice
+   * @atomicservice
    * @since 22 dynamic
- */
+   */
   getMagnifier(): Magnifier;
 
   /**
@@ -5031,16 +5222,16 @@ export class UIContext {
    */
   setOverlayManagerOptions(options: OverlayManagerOptions): boolean;
 
-/**
+  /**
    * Get object OverlayManagerOptions.
- *
+   *
    * @returns { OverlayManagerOptions } object OverlayManagerOptions.
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
    * @since 15 dynamic
- */
+   */
   getOverlayManagerOptions(): OverlayManagerOptions;
 
   /**
@@ -5061,8 +5252,8 @@ export class UIContext {
   createAnimator(options: AnimatorOptions): AnimatorResult;
 
   /**
-   * Creates an **AnimatorResult** object for animations. Compared to the previous 
-   * [createAnimator]{@link UIContext#createAnimator(options: AnimatorOptions)} API, this API adds support for the 
+   * Creates an **AnimatorResult** object for animations. Compared to the previous
+   * [createAnimator]{@link UIContext#createAnimator(options: AnimatorOptions)} API, this API adds support for the
    * [SimpleAnimatorOptions]{@link @ohos.animator:SimpleAnimatorOptions} type.
    *
    * @param { AnimatorOptions | SimpleAnimatorOptions } options - Animator options.
@@ -5081,39 +5272,39 @@ export class UIContext {
 
   /**
    * Adds transition animations for state changes in closure code.
-   * 
+   *
    * > **NOTE**
    * >
    * > - Avoid using **animateTo** in **aboutToAppear** or **aboutToDisappear**.
    * >
-   * > - When **animateTo** is called in 
-   * > [aboutToAppear](docroot://reference/apis-arkui/arkui-ts/ts-custom-component-lifecycle.md#abouttoappear), the 
-   * > component's build method is not executed yet, and internal components are not created. This means the animation 
+   * > - When **animateTo** is called in
+   * > [aboutToAppear](docroot://reference/apis-arkui/arkui-ts/ts-custom-component-lifecycle.md#abouttoappear), the
+   * > component's build method is not executed yet, and internal components are not created. This means the animation
    * > has no initial values to work with and will not function as expected.
    * >
-   * > - During execution of 
-   * > [aboutToDisappear](docroot://reference/apis-arkui/arkui-ts/ts-custom-component-lifecycle.md#abouttodisappear), 
+   * > - During execution of
+   * > [aboutToDisappear](docroot://reference/apis-arkui/arkui-ts/ts-custom-component-lifecycle.md#abouttodisappear),
    * > the component is being destroyed, so animations should not be used.
    * >
-   * > - When a component appears or disappears, animation effects can be added through 
+   * > - When a component appears or disappears, animation effects can be added through
    * > [component transition]{@link common}.
    * >
-   * > - For properties that component transitions do not support, refer to 
+   * > - For properties that component transitions do not support, refer to
    * > [Example 2: Enabling Component Disappearance After Animation Completion](docroot://reference/apis-arkui/arkui-ts/ts-explicit-animation.md#example-2-enabling-component-disappearance-after-animation-completion),
    * > which uses **animateTo** to achieve the effect of the component disappearing after the animation finishes.
    * >
-   * > - In certain scenarios, using animateTo with 
-   * > [state management V2](docroot://ui/state-management/arkts-state-management-overview.md#state-management-v2) may 
-   * > produce unexpected results. For details, see 
+   * > - In certain scenarios, using animateTo with
+   * > [state management V2](docroot://ui/state-management/arkts-state-management-overview.md#state-management-v2) may
+   * > produce unexpected results. For details, see
    * > [Using animateTo Failed in State Management V2](docroot://ui/state-management/arkts-new-local.md#using-animateto-failed-in-state-management-v2).
-   * > 
    * >
-   * > - When a UIAbility switches from the foreground to the background, any limited iteration animations that are 
-   * > currently running will end immediately, thereby triggering the 
+   * >
+   * > - When a UIAbility switches from the foreground to the background, any limited iteration animations that are
+   * > currently running will end immediately, thereby triggering the
    * > [onFinish animation completion callback]{@link AnimateParam}.
    * >
-   * > - If transition animations are turned off in Developer options, animations end on the current frame, and the 
-   * > **onFinish** callback is executed immediately. Avoid placing timing-dependent functional logic inside this 
+   * > - If transition animations are turned off in Developer options, animations end on the current frame, and the
+   * > **onFinish** callback is executed immediately. Avoid placing timing-dependent functional logic inside this
    * > callback.
    *
    * @param { AnimateParam } value - Animation settings.
@@ -5132,23 +5323,14 @@ export class UIContext {
    *
    * @param { AlertDialogParamWithConfirm | AlertDialogParamWithButtons | AlertDialogParamWithOptions } options - Shows
    * an AlertDialog component in the given settings.
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
-   * @atomicservice [since 11]
-   * @since 10 dynamic
- */
-  showAlertDialog(options: AlertDialogParamWithConfirm | AlertDialogParamWithButtons | AlertDialogParamWithOptions): void;
-
-  /**
-   * actionSheet display.
-   *
-   * @param { ActionSheetOptions } value - Options.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
+  showAlertDialog(options: AlertDialogParamWithConfirm | AlertDialogParamWithButtons | AlertDialogParamWithOptions): void;
+
   /**
    * Shows an action sheet in the given settings.
    *
@@ -5156,8 +5338,8 @@ export class UIContext {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   showActionSheet(value: ActionSheetOptions): void;
 
@@ -5354,9 +5536,9 @@ export class UIContext {
   getDragController(): DragController;
 
   /**
-   * Get MeasureUtils.
+   * Obtains a **MeasureUtils** object for text calculation.
    *
-   * @returns { MeasureUtils } the MeasureUtils
+   * @returns { MeasureUtils } Text metrics, such as text height and width.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -5380,27 +5562,20 @@ export class UIContext {
 
   /**
    * Get FocusController.
-   * @returns { FocusController } the FocusController
+   *
+   * @returns { FocusController } - the FocusController
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform [since 22]
    * @atomicservice
    * @since 12 dynamic
-   */
-  /**
-   * Get FocusController.
-   * @returns { FocusController } the FocusController
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 22 dynamic
    */
   getFocusController(): FocusController;
 
   /**
-   * Specifies a clear animation host instance context via the UIContext object and triggers the explicit animation to 
-   * be dispatched immediately. This avoids issues where animations are not executed or animation end callbacks are not 
-   * triggered due to inability to locate the instance or using an incorrect instance. This API uses an asynchronous 
+   * Specifies a clear animation host instance context via the UIContext object and triggers the explicit animation to
+   * be dispatched immediately. This avoids issues where animations are not executed or animation end callbacks are not
+   * triggered due to inability to locate the instance or using an incorrect instance. This API uses an asynchronous
    * callback to return the result.
    *
    * @param { AnimateParam } param - Animation settings.
@@ -5523,21 +5698,21 @@ export class UIContext {
 
   /**
    * Registers a local input event monitor.
-   * 
+   *
    * The "Local" in the interface name indicates that the monitor is only valid within the current UIContext,
    * and does not affect other UIContext instances. Each UIContext maintains its own independent list of monitors.
-   * 
+   *
    * Performance Warning: Do not perform time-consuming operations in the callback!
-   * 
+   *
    * Monitor Object Notes:
-   * 
+   *
    * - The returned Monitor object is a unique identifier created by the system.
    * - Developers cannot actively construct or forge this object.
    * - Must save the returned monitor object reference for subsequent cancellation.
    * - It is recommended to use a variable to save it to avoid losing the reference.
-   * 
+   *
    * Usage Examples:
-   * 
+   *
    * ```typescript
    * // Monitor a single event type
    * const monitor1 = uiContext.addLocalInputEventMonitor(
@@ -5580,12 +5755,12 @@ export class UIContext {
    * @since 26.0.0 dynamic
    */
   addLocalInputEventMonitor(eventMask: int, listener: InputEventListener): InputEventMonitor;
-  
+
   /**
    * Removes a local input event monitor.
-   * 
+   *
    * **Important Notes**:
-   * 
+   *
    * - Only Monitor objects returned by addLocalInputEventMonitor can be removed.
    * - Cannot unregister a monitor by manually constructing an object.
    * - If an invalid object is passed, the system silently ignores it.
@@ -5791,14 +5966,14 @@ export class UIContext {
 
   /**
    * Creates a sheet whose content is as defined in **bindSheetContent** and displays the sheet. This API uses a promise
-   * to return the result.  
-   * 
+   * to return the result.
+   *
    * > **NOTE**
    * >
-   * > 1. When calling this API, if no valid value is provided for **targetId**, you won't be able to set 
+   * > 1. When calling this API, if no valid value is provided for **targetId**, you won't be able to set
    * > **SheetOptions.preferType** to **POPUP** or **SheetOptions.mode** to **EMBEDDED**.
    * >
-   * > 2. Since [updateBindSheet]{@link UIContext#updateBindSheet} and [closeBindSheet]{@link UIContext#closeBindSheet} 
+   * > 2. Since [updateBindSheet]{@link UIContext#updateBindSheet} and [closeBindSheet]{@link UIContext#closeBindSheet}
    * > depend on **bindSheetContent**, you need to maintain the passed **bindSheetContent** yourself.
    * >
    * > 3. Setting **SheetOptions.UIContext** is not supported.
@@ -5832,9 +6007,9 @@ export class UIContext {
   openBindSheet<T extends Object>(bindSheetContent: ComponentContent<T>, sheetOptions?: SheetOptions, targetId?: number): Promise<void>;
 
   /**
-   * Updates the style of the sheet corresponding to the provided **bindSheetContent**. This API uses a promise to 
+   * Updates the style of the sheet corresponding to the provided **bindSheetContent**. This API uses a promise to
    * return the result.
-   * 
+   *
    * > **NOTE**
    * >
    * > **SheetOptions.UIContext**, **SheetOptions.mode**, and callback functions cannot be updated.
@@ -5863,7 +6038,7 @@ export class UIContext {
 
   /**
    * Closes the sheet corresponding to **bindSheetContent**. This API uses a promise to return the result.
-   * 
+   *
    * > **NOTE**
    * >
    * > Closing a sheet using this API will not invoke the **shouldDismiss** callback.
@@ -6054,9 +6229,10 @@ export class UIContext {
   freezeUINode(uniqueId: number, isFrozen: boolean): void;
 
   /**
-   * Get object text menu controller.
+   * Obtains a [TextMenuController]{@link TextMenuController} object, which can be used to control the context menu on
+   * selection.
    *
-   * @returns { TextMenuController } object text menu controller.
+   * @returns { TextMenuController } Obtained **TextMenuController** object.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -6074,7 +6250,7 @@ export class UIContext {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
-   * @since 20 dynamic
+   * @since 20 dynamiconly
    */
   setKeyboardAppearanceConfig(uniqueId: number, config: KeyboardAppearanceConfig): void;
 
@@ -6115,7 +6291,7 @@ export class UIContext {
 
   /**
    * Set the upper limit for the cache count of HSP resource management objects.
-   * 
+   *
    * If the upper limit of the cache is set too high, there is a risk of excessive memory overhead.
    * It is recommended to configure it according to actual needs.
    *
@@ -6183,17 +6359,17 @@ export class UIContext {
    */
   getPageRootNode(): FrameNode | null;
 
-   /**
-    * Checks whether the current UI instance is in easy split mode.
-    *
-    * @returns { boolean } Returns true if the current UI instance is in easy split mode; returns false otherwise.
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @crossplatform
-    * @atomicservice
-    * @since 24 dynamic
-    */
-   isEasySplit(): boolean;
+  /**
+   * Checks whether the current UI instance is in easy split mode.
+   *
+   * @returns { boolean } Returns true if the current UI instance is in easy split mode; returns false otherwise.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 24 dynamic
+   */
+  isEasySplit(): boolean;
 
   /**
    * Whether to enable or disable event passthrough.
@@ -6304,6 +6480,7 @@ export const enum KeyboardAvoidMode {
  * @since 26.0.0 dynamic
  */
 export const enum TextSelectionClearPolicy {
+
   /**
    * Keep the selected text when touch outside of text component.
    *
@@ -6324,7 +6501,7 @@ export const enum TextSelectionClearPolicy {
    * @atomicservice
    * @since 26.0.0 dynamic
    */
-  CLEAR_SELECTED_TEXT_ON_EXTERNAL_TOUCH = 1,
+  CLEAR_SELECTED_TEXT_ON_EXTERNAL_TOUCH = 1
 }
 
 /**
@@ -6336,6 +6513,7 @@ export const enum TextSelectionClearPolicy {
  * @since 12 dynamic
  */
 export const enum SwiperDynamicSyncSceneType {
+
   /**
    * Scene type is GESTURE.
    *
@@ -6366,6 +6544,7 @@ export const enum SwiperDynamicSyncSceneType {
  * @since 14 dynamic
  */
 export const enum MarqueeDynamicSyncSceneType {
+
   /**
    * Scene type is ANIMATION.
    *
@@ -6378,7 +6557,13 @@ export const enum MarqueeDynamicSyncSceneType {
 }
 
 /**
- * class TextMenuController
+ * Provides the capability to control text menus.
+ *
+ * > **NOTE**
+ * >
+ * > - In the following non-static API examples, you must first use
+ * > [getTextMenuController()]{@link UIContext.getTextMenuController} in **UIContext** to obtain a
+ * > **TextMenuController** instance, and then call the APIs using the obtained instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -6387,10 +6572,12 @@ export const enum MarqueeDynamicSyncSceneType {
  * @since 16 dynamic
  */
 export class TextMenuController {
+
   /**
-   * Set text menu options.
+   * Set menu options.
    *
-   * @param { TextMenuOptions } options - the options of the text menu.
+   * @param { TextMenuOptions } options - Menu options.
+   *     <br>Default value: {showMode: TextMenuShowMode.DEFAULT}.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -6400,9 +6587,43 @@ export class TextMenuController {
   setMenuOptions(options: TextMenuOptions): void;
 
   /**
-   * Disable all system service menus, such as translation and ai writer.
-   * True means disable, false means enable.
+   * Disables all system service menu items in the text selection menu.
    *
+   * > **NOTE**
+   * >
+   * > - This API takes effect globally for the entire application process after being called.
+   * >
+   * > - This API can be used in [UIAbility]{@link @ohos.app.ability.UIAbility}.
+   * >
+   * > - After this API is called, the [editMenuOptions]{@link TextAttribute#editMenuOptions} API of text components
+   * > will be affected. The parameter list of its [onCreateMenu]{@link EditMenuOptions.onCreateMenu} callback will not
+   * > include the disabled menu options.
+   * >
+   * > - Components involving text selection menus include the following: [Text]{@link ./@internal/component/ets/text},
+   * > [TextArea]{@link ./@internal/component/ets/text_area}, [TextInput]{@link ./@internal/component/ets/text_input},
+   * > [Search]{@link ./@internal/component/ets/search}, [RichEditor]{@link ./@internal/component/ets/rich_editor}, and
+   * > [Web]{@link ./@internal/component/ets/web}.
+   * >
+   * > - System service menu items refer to menu items other than copy, cut, select all, and paste in
+   * > [TextMenuItemId]{@link TextMenuItemId}.
+   * >
+   * > - When both **disableSystemServiceMenuItems** and **disableMenuItems** are set, the earlier-set
+   * > **disableSystemServiceMenuItems** takes precedence.
+   * >
+   * > - This API takes effect globally, and multiple calls are subject to the last call.
+   * >
+   * > - Disabled menus can be restored in the following ways:
+   * >
+   * > - If only **disableSystemServiceMenuItems(true)** is used to disable menus, set it to **false** to restore.
+   * >
+   * > - If only **disableMenuItems** is used to disable menus, set it to an empty array to restore.
+   * >
+   * > - If both **disableSystemServiceMenuItems** and **disableMenuItems** are used, set the former to **false** and
+   * > the latter to an empty array to restore.
+   *
+   * @param { boolean } disable - Whether to disable system service menu items. The value **true** means to disable
+   *     system service menu items, and **false** means the opposite.
+   *     <br>Default value: false.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -6412,8 +6633,50 @@ export class TextMenuController {
   static disableSystemServiceMenuItems(disable: boolean): void;
 
   /**
-   * Disable menu action by action id.
+   * Disables specified system service menu items in the text selection menu.
    *
+   * > **NOTE**
+   * >
+   * > - This API takes effect globally for the entire application process after being called.
+   * >
+   * > - This API can be used in [UIAbility]{@link @ohos.app.ability.UIAbility}.
+   * >
+   * > - After this API is called, the [editMenuOptions]{@link TextAttribute#editMenuOptions} API of text components
+   * > will be affected. The parameter list of its [onCreateMenu]{@link EditMenuOptions.onCreateMenu} callback will not
+   * > include the disabled menu options.
+   * >
+   * > - Components involving text selection menus include the following: [Text]{@link ./@internal/component/ets/text},
+   * > [TextArea]{@link ./@internal/component/ets/text_area}, [TextInput]{@link ./@internal/component/ets/text_input},
+   * > [Search]{@link ./@internal/component/ets/search}, [RichEditor]{@link ./@internal/component/ets/rich_editor}, and
+   * > [Web]{@link ./@internal/component/ets/web}.
+   * >
+   * > - System service menu items refer to menu items other than copy, cut, select all, and paste in
+   * > [TextMenuItemId]{@link TextMenuItemId}.
+   * >
+   * > - When both **disableSystemServiceMenuItems** and **disableMenuItems** are set, the earlier-set
+   * > **disableSystemServiceMenuItems** takes precedence.
+   * >
+   * > - This API takes effect globally, and multiple calls are subject to the last call.
+   * >
+   * > - Disabling a first-level menu item will also disable all its second-level menu items. For example, disabling the
+   * > first-level menu item **autoFill** (parent item) in [TextMenuItemId]{@link TextMenuItemId} will simultaneously
+   * > disable the second-level menu item **passwordVault** (child item) in **TextMenuItemId**.
+   * >
+   * > - Disabling individual second-level menu items is not supported. If required, this can be achieved by disabling
+   * > the corresponding first-level menu item.
+   * >
+   * > - Disabled menus can be restored in the following ways:
+   * >
+   * > - If only **disableSystemServiceMenuItems(true)** is used to disable menus, set it to **false** to restore.
+   * >
+   * > - If only **disableMenuItems** is used to disable menus, set it to an empty array to restore.
+   * >
+   * > - If both **disableSystemServiceMenuItems** and **disableMenuItems** are used, set the former to **false** and
+   * > the latter to an empty array to restore.
+   *
+   * @param { Array<TextMenuItemId> } items - List of menu items to disable.
+   *     <br>Default value: [].
+   *     <br>By default, no  menu item is disabled.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -6439,6 +6702,7 @@ export class TextMenuController {
  * @since 20 dynamic
  */
 export const enum NodeRenderState {
+
   /**
    * The node has been mount on to the render tree and will soon be rendered. Generally, after the next frame,
    * the user will be able to see this node. However, this is not always the case, as in reality, the node may be
@@ -6586,15 +6850,15 @@ export const enum GestureListenerType {
 }
 
 /**
-  * Enum of CustomKeyboardContinueFeature
-  *
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @stagemodelonly
-  * @crossplatform
-  * @atomicservice
-  * @since 23 dynamic
-  */
- export const enum CustomKeyboardContinueFeature {
+ * Enum of CustomKeyboardContinueFeature
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 23 dynamic
+ */
+export const enum CustomKeyboardContinueFeature {
 
   /**
    * Enable custom keyboard continuation.

@@ -38,7 +38,7 @@ declare enum InputType {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Normal = 0,
+  Normal,
 
   /**
    * Digit input mode.
@@ -50,7 +50,7 @@ declare enum InputType {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Number = 1,
+  Number,
 
   /**
    * Phone number input mode.
@@ -63,7 +63,7 @@ declare enum InputType {
    * @atomicservice [since 11]
    * @since 9 dynamic
    */
-  PhoneNumber = 2,
+  PhoneNumber,
 
   /**
    * Email address input mode.
@@ -76,7 +76,7 @@ declare enum InputType {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Email = 3,
+  Email,
 
   /**
    * Password input mode.
@@ -96,7 +96,7 @@ declare enum InputType {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Password = 4,
+  Password,
 
   /**
    * Numeric password input mode.
@@ -738,7 +738,6 @@ declare interface SubmitEvent {
  * [deleteBackward]{@link TextContentControllerBase#deleteBackward}.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full [since 10]
- * @stagemodelonly
  * @crossplatform [since 10]
  * @atomicservice [since 11]
  * @since 8 dynamic
@@ -865,7 +864,7 @@ declare enum TextInputStyle {
    * @atomicservice [since 11]
    * @since 9 dynamic
    */
-  Default = 0,
+  Default,
 
   /**
    * Inline style. The background height of the selected text is the same as the height of the text box.
@@ -883,7 +882,7 @@ declare enum TextInputStyle {
    * @atomicservice [since 11]
    * @since 9 dynamic
    */
-  Inline = 1,
+  Inline,
 }
 
 /**

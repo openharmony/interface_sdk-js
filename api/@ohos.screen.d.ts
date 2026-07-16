@@ -424,7 +424,7 @@ declare namespace screen {
   function destroyVirtualScreen(screenId:long): Promise<void>;
 
   /**
-   * Sets a surface for a virtual screen. The virtual screen displays the content of the surface. This API uses an
+   * Sets a surface for a virtual screen. This API uses an
    * asynchronous callback to return the result.
    *
    * @permission ohos.permission.CAPTURE_SCREEN
@@ -447,7 +447,7 @@ declare namespace screen {
   function setVirtualScreenSurface(screenId:long, surfaceId: string, callback: AsyncCallback<void>): void;
 
   /**
-   * Sets a surface for a virtual screen. The virtual screen displays the content of the surface. This API uses a
+   * Sets a surface for a virtual screen. This API uses a
    * promise to return the result.
    *
    * @permission ohos.permission.CAPTURE_SCREEN

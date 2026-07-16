@@ -66,7 +66,7 @@ declare namespace FaultLogger {
      */
     NO_SPECIFIC = 0,
     /**
-     * C++ program crash.
+     * Native program crash.
      *
      * @syscap SystemCapability.HiviewDFX.Hiview.FaultLogger
      * @since 8 dynamiconly

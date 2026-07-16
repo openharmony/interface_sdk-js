@@ -21,11 +21,11 @@
 import { ErrorCallback, AsyncCallback, Callback, BusinessError } from './@ohos.base';
 
 /**
- * The module provides basic audio control capabilities, including volume adjustment, device management, data capture, 
+ * The module provides basic audio control capabilities, including volume adjustment, device management, data capture,
  * and rendering.
- * 
+ *
  * This module provides the following common audio-related functions:
- * 
+ *
  * - [AudioManager]{@link @ohos.multimedia.audio:audio}: audio manager.
  * - [AudioRenderer]{@link @ohos.multimedia.audio:audio}: audio renderer, used to play Pulse Code Modulation (PCM) audio
  * data.
@@ -250,19 +250,19 @@ declare namespace audio {
   /**
    * Obtains an {@link AudioRenderer} instance.
    * This method uses a promise to return the renderer instance.
-   * 
+   *
    * The AudioRenderer instance is used to play streaming audio data.
    * When using AudioRenderer apis, there are many instructions for application
    * to achieve better performance and lower power consumption:
    * In music or audiobook background playback situation, you can have low power
    * consumption by following this best practices document **Low-Power Rules in Music Playback Scenarios**.
    * And for navigation situation, you can follow **Low-Power Rules in Navigation and Positioning Scenarios**.
-   * 
+   *
    * Application developer should also be careful when app goes to background, please check if your audio playback
    * is still needed, see **Audio Resources** in best practices document.
    * And avoiding to send silence audio data continuously to waste system resources, otherwise system will take
    * control measures when this behavior is detected, see **Audio Playback** in best practices document.
-   * 
+   *
    * If you want to use AudioRenderer api to implement a music playback application, there are also many interactive
    * scenes to consider, see **Developing an Audio Application** in best practices document.
    *
@@ -279,19 +279,19 @@ declare namespace audio {
   /**
    * Obtains an {@link AudioRenderer} instance.
    * This method uses a promise to return the renderer instance.
-   * 
+   *
    * The AudioRenderer instance is used to play streaming audio data.
    * When using AudioRenderer apis, there are many instructions for application
    * to achieve better performance and lower power consumption:
    * In music or audiobook background playback situation, you can have low power
    * consumption by following this best practices document **Low-Power Rules in Music Playback Scenarios**.
    * And for navigation situation, you can follow **Low-Power Rules in Navigation and Positioning Scenarios**.
-   * 
+   *
    * Application developer should also be careful when app goes to background, please check if your audio playback
    * is still needed, see **Audio Resources** in best practices document.
    * And avoiding to send silence audio data continuously to waste system resources, otherwise system will take
    * control measures when this behavior is detected, see **Audio Playback** in best practices document.
-   * 
+   *
    * If you want to use AudioRenderer api to implement a music playback application, there are also many interactive
    * scenes to consider, see **Developing an Audio Application** in best practices document.
    *
@@ -307,19 +307,19 @@ declare namespace audio {
   /**
    * Obtains an {@link AudioRenderer} instance.
    * This method uses a promise to return the renderer instance.
-   * 
+   *
    * The AudioRenderer instance is used to play streaming audio data.
    * When using AudioRenderer apis, there are many instructions for application
    * to achieve better performance and lower power consumption:
    * In music or audiobook background playback situation, you can have low power
    * consumption by following this best practices document **Low-Power Rules in Music Playback Scenarios**.
    * And for navigation situation, you can follow **Low-Power Rules in Navigation and Positioning Scenarios**.
-   * 
+   *
    * Application developer should also be careful when app goes to background, please check if your audio playback
    * is still needed, see **Audio Resources** in best practices document.
    * And avoiding to send silence audio data continuously to waste system resources, otherwise system will take
    * control measures when this behavior is detected, see **Audio Playback** in best practices document.
-   * 
+   *
    * If you want to use AudioRenderer api to implement a music playback application, there are also many interactive
    * scenes to consider, see **Developing an Audio Application** in best practices document.
    *
@@ -334,19 +334,19 @@ declare namespace audio {
   /**
    * Obtains an {@link AudioRenderer} instance.
    * This method uses a promise to return the renderer instance.
-   * 
+   *
    * The AudioRenderer instance is used to play streaming audio data.
    * When using AudioRenderer apis, there are many instructions for application
    * to achieve better performance and lower power consumption:
    * In music or audiobook background playback situation, you can have low power
    * consumption by following this best practices document **Low-Power Rules in Music Playback Scenarios**.
    * And for navigation situation, you can follow **Low-Power Rules in Navigation and Positioning Scenarios**.
-   * 
+   *
    * Application developer should also be careful when app goes to background, please check if your audio playback
    * is still needed, see **Audio Resources** in best practices document.
    * And avoiding to send silence audio data continuously to waste system resources, otherwise system will take
    * control measures when this behavior is detected, see **Audio Playback** in best practices document.
-   * 
+   *
    * If you want to use AudioRenderer api to implement a music playback application, there are also many interactive
    * scenes to consider, see **Developing an Audio Application** in best practices document.
    *
@@ -586,7 +586,7 @@ declare namespace audio {
    */
   enum AudioLoopbackStatus {
     /**
-     * Loopback is unavailable due to issues with the input or output device (for example, changes in the audio output 
+     * Loopback is unavailable due to issues with the input or output device (for example, changes in the audio output
      * device).
      *
      * @syscap SystemCapability.Multimedia.Audio.Capturer
@@ -595,7 +595,7 @@ declare namespace audio {
      */
     UNAVAILABLE_DEVICE = -2,
     /**
-     * Loopback is unavailable due to restrictions in the audio scene (for example, audio focus or low-latency 
+     * Loopback is unavailable due to restrictions in the audio scene (for example, audio focus or low-latency
      * management).
      *
      * @syscap SystemCapability.Multimedia.Audio.Capturer
@@ -1399,7 +1399,7 @@ declare namespace audio {
     SAMPLE_FORMAT_S16LE = 1,
     /**
      * Signed 24-bit integer, little endian.
-     * 
+     *
      * Due to system restrictions, only some devices support this sampling format.
      *
      * @syscap SystemCapability.Multimedia.Audio.Core
@@ -1410,7 +1410,7 @@ declare namespace audio {
     SAMPLE_FORMAT_S24LE = 2,
     /**
      * Signed 32-bit integer, little endian.
-     * 
+     *
      * Due to system restrictions, only some devices support this sampling format.
      *
      * @syscap SystemCapability.Multimedia.Audio.Core
@@ -1421,7 +1421,7 @@ declare namespace audio {
     SAMPLE_FORMAT_S32LE = 3,
     /**
      * Signed 32-bit floating-point number, little endian.
-     * 
+     *
      * Due to system restrictions, only some devices support this sampling format.
      *
      * @syscap SystemCapability.Multimedia.Audio.Core
@@ -1694,7 +1694,7 @@ declare namespace audio {
     SAMPLE_RATE_192000 = 192000,
     /**
      * The sampling rate is 384000.
-     * 
+     *
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
@@ -3510,7 +3510,7 @@ declare namespace audio {
      * @since 26.0.0 dynamic&static
      */
     getDeviceEnhanceManager(): AudioDeviceEnhanceManager;
-    
+
     /**
      * Obtains an AudioDebuggingManager instance.
      * <p><strong>NOTE</strong>:
@@ -3523,6 +3523,16 @@ declare namespace audio {
      * @since 26.0.0 dynamic&static
      */
     getDebuggingManager(): AudioDebuggingManager;
+
+    /**
+     * Obtains a recording manager instance. Provides recording strategy management, including collaborative recording and recording control capabilities.
+     *
+     * @returns { AudioRecordingManager } Returns an instance of audio record manager.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    getRecordingManager(): AudioRecordingManager;
 
     /**
      * user disable the safe media volume state.
@@ -4506,7 +4516,7 @@ declare namespace audio {
      * @since 23 static
      */
     getExcludedDevices(usage: DeviceUsage): AudioDeviceDescriptors;
-    
+
     /**
      * Declares the original device types that the application has adapted to.
      * By default, the system returns anonymous device types. This method allows applications to
@@ -5560,7 +5570,9 @@ declare namespace audio {
      *     1.Mandatory parameters unspecified.
      *     2.Incorrect parameter types.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
-     * @throws { BusinessError } 6800301 - System error. Returned by promise.
+     * @throws { BusinessError } 6800301 - System error. Possible causes:
+     *     1.Focus preemption failure.
+     *     2.Audio server process died.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
      * @atomicservice [since 26.0.0]
@@ -5573,7 +5585,9 @@ declare namespace audio {
      * Deactivates this audio session. This API uses a promise to return the result.
      *
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 6800301 - System error. Returned by promise.
+     * @throws { BusinessError } 6800301 - System error. Possible causes:
+     *     1.The audio session is not existed or has been released.
+     *     2.Audio server process died.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
      * @atomicservice [since 26.0.0]
@@ -5799,7 +5813,10 @@ declare namespace audio {
      * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 6800101 - Parameter verification failed, for example,
      *     the selected device type is not supported.
-     * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
+     * @throws { BusinessError } 6800301 - System error. Possible causes:
+     *     1.Internal variable memory allocation failed.
+     *     2.Audio server process died.
+     *     3.Speaker device is not available.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
@@ -6769,11 +6786,11 @@ declare namespace audio {
      * @since 23 static
      */
     offSystemVolumeChange(callback?: Callback<VolumeEvent>): void;
-    
+
     /**
      * Subscribes to system volume change events.
      * When the system volume for the target filter changes, registered clients will receive a callback.
-     * 
+     *
      * @param { SystemVolumeFilter } filter - Filter for system volume changes.
      * @param { Callback<VolumeEvent> } callback - Callback to receive information about
      *     the system volume.
@@ -7827,6 +7844,67 @@ declare namespace audio {
   }
 
   /**
+    * This interface is used to notify the listener of personalized spatialization enabled
+    * state change of any device.
+    *
+    * @syscap SystemCapability.Multimedia.Audio.Spatialization
+    * @systemapi
+    * @stagemodelonly
+    * @since 26.0.0 dynamic&static
+    */
+  interface AudioPersonalizedSpatialEnabledChangeForAnyDevice {
+    /**
+     * Audio device description.
+     *
+     * @syscap SystemCapability.Multimedia.Audio.Spatialization
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+     deviceDescriptor: AudioDeviceDescriptor;
+
+    /**
+      * Personalized spatialization enable state.
+      *
+      * @syscap SystemCapability.Multimedia.Audio.Spatialization
+      * @systemapi
+      * @stagemodelonly
+      * @since 26.0.0 dynamic&static
+      */
+     enabled: boolean;
+  }
+
+  /**
+    * Anonymous personalzied HRTF file descriptor for cross-process transfer.
+    *
+    * @syscap SystemCapability.Multimedia.Audio.Spatialization
+    * @systemapi
+    * @stagemodelonly
+    * @since 26.0.0 dynamic&static
+  */
+  interface AudioHRTFAnonymousDescriptor {
+    /**
+     * The file descriptor of personalzied HRTF.
+     * @syscap SystemCapability.Multimedia.Audio.Spatialization
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    fd: int;
+
+    /**
+     * Total size of personalzied HRTF data in bytes.
+     * @syscap SystemCapability.Multimedia.Audio.Spatialization
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    length: long;
+  }
+
+  /**
+   * Implements audio spatialization management.
+   * @typedef AudioSpatializationManager
    * This interface implements spatial audio management.
    *
    * Before calling any API in AudioSpatializationManager, you must use
@@ -7899,6 +7977,18 @@ declare namespace audio {
      * @since 23 static
      */
     isHeadTrackingSupportedForDevice(deviceDescriptor: AudioDeviceDescriptor): boolean;
+
+    /**
+     * Checks whether personalized spatialization is supported by system.
+     *
+     * @returns { boolean } Whether personalized spatialization is supported by system.
+     * @throws { BusinessError } 202 - Caller is not a system application.
+     * @syscap SystemCapability.Multimedia.Audio.Spatialization
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    isPersonalizedSpatializationSupported(): boolean;
 
     /**
      * Sets the spatialization enabled or disabled. This method uses an asynchronous callback to return the result.
@@ -8480,11 +8570,85 @@ declare namespace audio {
      * @since 24 dynamic&static
      */
     offSpatialAudioSourceTypeChange(callback?: Callback<SpatialAudioSourceType>): void;
+
+    /**
+     * Checks whether the personalized spatialization is enabled by the specified device.
+     * @param { AudioDeviceDescriptor } selectedAudioDevice - Audio device description.
+     * @returns { boolean } Returns true if the Personalized spatialization is successfully enabled;
+     *     returns false otherwise.
+     * @throws { BusinessError } 202 - Not system App.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Spatialization
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    isPersonalizedSpatializationEnabled(selectedAudioDevice: AudioDeviceDescriptor): boolean;
+
+    /**
+     * Set the personalized spatialization enabled or disabled by the specified device.
+     * @permission ohos.permission.MANAGE_SYSTEM_AUDIO_EFFECTS
+     * @param { AudioDeviceDescriptor } selectedAudioDevice - Audio device description.
+     * @param { boolean } enable - Whether to enable personalized spatialization.
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 201 - Permission denied. Return by promise.
+ 	 * @throws { BusinessError } 202 - Not system App.
+ 	 * @throws { BusinessError } 801 - Capability not supported on the device.
+     * @syscap SystemCapability.Multimedia.Audio.Spatialization
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    setPersonalizedSpatializationEnabled(selectedAudioDevice: AudioDeviceDescriptor, enable: boolean): Promise<void>;
+
+    /**
+     * Subscribes to the personalized spatialization enable state change events by the specified device.
+     * When the state changes, registered clients will receive the callback.
+     * @param { AudioPersonalizedSpatialEnabledChangeForAnyDevice } callback - Callback used to get the personalized
+     *     spatialization enable state by the specified device.
+     * @throws { BusinessError } 202 - Caller is not a system application.
+     * @syscap SystemCapability.Multimedia.Audio.Spatialization
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    onPersonalizedSpatializationEnabledChangeForAnyDevice(
+        callback: Callback<AudioPersonalizedSpatialEnabledChangeForAnyDevice>): void;
+
+    /**
+     * Unsubscribes to the personalized spatialization enable state change events by the specified device.
+     * @param { AudioPersonalizedSpatialEnabledChangeForAnyDevice } callback - Callback used to get the personalized
+     *     spatialization enable state by the specified device.
+     * @throws { BusinessError } 202 - Not system App.
+     * @syscap SystemCapability.Multimedia.Audio.Spatialization
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    offPersonalizedSpatializationEnabledChangeForAnyDevice(
+        callback?: Callback<AudioPersonalizedSpatialEnabledChangeForAnyDevice>): void;
+
+    /**
+     * Downloads personalized HRTF data from anonymous file descriptor.
+     * @permission ohos.permission.MANAGE_SYSTEM_AUDIO_EFFECTS
+     * @param { AudioHRTFAnonymousDescriptor } hrtfDescriptor - Personalized HRTF data descriptor.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system App.
+     * @throws { BusinessError } 801 - Capability not supported on the device.
+     * @throws { BusinessError } 6800101 - Parameter verification failed, fd or length wrong.
+     * @throws { BusinessError } 6800105 - Time out when saving HRTF on disk.
+     * @throws { BusinessError } 6800301 - System error, fail to save HRTF on disk.
+     * @syscap SystemCapability.Multimedia.Audio.Spatialization
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    downloadPersonalizedHRTF(hrtfDescriptor: AudioHRTFAnonymousDescriptor): Promise<void>;
   }
 
   /**
    * Volume type for audio separation effect.
-   * 
+   *
    * @syscap SystemCapability.Multimedia.Audio.Core
    * @systemapi
    * @stagemodelonly
@@ -8575,7 +8739,7 @@ declare namespace audio {
      * Sets audio separation effect enable or disable for specific application process,
      * or for specific audio playback stream.
      * This API uses a promise to return the result.
-     * 
+     *
      * @permission ohos.permission.MANAGE_SYSTEM_AUDIO_EFFECTS
      * @param { boolean } enabled - The required effect state, true for enabled, false for disabled.
      * @param { int } uid - The uid of target application process to add effect.
@@ -8599,7 +8763,7 @@ declare namespace audio {
      * Subscribes to system audio separation effect enabled state change event.
      * The audio separation effect state in system can be set by system playback controller application,
      * other applications can use this function to listen the change event.
-     * 
+     *
      * @param { Callback<boolean> } callback - Callback used to listen the system audio separation effect
      *     enabled state change event.
      * @throws { BusinessError } 202 - Caller is not a system application.
@@ -8612,7 +8776,7 @@ declare namespace audio {
 
     /**
      * Unsubscribes from the system audio separation effect enabled state change event.
-     * 
+     *
      * @param { Callback<boolean> } [callback] - The callback used in subscription function for unsubscribing.
      *     If not using this parameter, all callbacks subscribed in current process before will be unsubscribed.
      * @throws { BusinessError } 202 - Caller is not a system application.
@@ -8627,7 +8791,7 @@ declare namespace audio {
     /**
      * Sets audio separation effect volume for specific volume type.
      * This API uses a promise to return the result.
-     * 
+     *
      * @permission ohos.permission.MANAGE_SYSTEM_AUDIO_EFFECTS
      * @param { AudioSeparationVolumeType } type - The type to set volume.
      * @param { double } volume - The target volume value.
@@ -8644,6 +8808,42 @@ declare namespace audio {
      * @since 26.0.0 dynamic&static
      */
     setAudioSeparationEffectVolume(type: AudioSeparationVolumeType, volume: double): Promise<void>;
+  }
+
+  /**
+   * Enumerates the noise reduction modes.
+   *
+   * @syscap SystemCapability.Multimedia.Audio.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  enum NoiseReductionMode {
+    /**
+     * Fidelity mode, no noise cancellation.
+     *
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    FIDELITY = 0,
+
+    /**
+     * Pure vocals mode, enhanced noise reduction.
+     *
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    PURE_VOCALS = 1,
+
+    /**
+     * Standard mode, weak noise reduction.
+     *
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    STANDARD = 2
   }
 
   /**
@@ -8717,6 +8917,137 @@ declare namespace audio {
      * @since 23 static
      */
     isCollaborativePlaybackEnabledForDevice(deviceDescriptor: AudioDeviceDescriptor): boolean;
+  }
+
+  /**
+   * Defines the configuration for the system recording controller panel.
+   *
+   * @syscap SystemCapability.Multimedia.Audio.Capturer
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  interface SystemRecordControllerConfig {
+    /**
+     * The system uses this to determine the recording scenario of the application according to
+     * the SourceType that the application expects to use for streaming, and provides users with
+     * the ability to select matching noise reduction modes. The supported source types include
+     * {@link SourceType#SOURCE_TYPE_MIC}, {@link SourceType#SOURCE_TYPE_CAMCORDER}, and
+     * {@link SourceType#SOURCE_TYPE_LIVE}.
+     *
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    sourceType: SourceType;
+  }
+
+  /**
+   * Defines the information carried when the system recording controller state changes.
+   * It includes the enable status, application UID and expected audio source type.
+   *
+   * @syscap SystemCapability.Multimedia.Audio.Capturer
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  interface SystemRecordControllerChangeInfo {
+    /**
+     * Whether the system recording controller panel is enabled.
+     * The value true means the panel is enabled, and false means disabled.
+     *
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    enabled: boolean;
+
+    /**
+     * The UID of the application that triggers the system recording controller state change.
+     * The value range is all integers.
+     *
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    uid?: int;
+
+    /**
+     * The expected audio source type configured by the application when enabling the recording controller.
+     * It is used to match the corresponding recording scenario and noise reduction mode.
+     *
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    sourceType?: SourceType;
+  }
+
+  /**
+   * Provides recording strategy management, including collaborative recording
+   * and recording control capabilities.
+   *
+   * @syscap SystemCapability.Multimedia.Audio.Capturer
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  interface AudioRecordingManager {
+    /**
+     * Enables or disables the system recording controller panel.
+     * The application can call this API to pull up the recording controller panel before starting the recording stream,
+     * allowing the user to finish selecting the recording device or audio effect parameters.
+     * The recording service can then be started to avoid inconsistent audio effects caused by switching during the
+     * recording process.
+     * The application must be in the foreground to enable the panel; the enable operation does not take effect
+     * if the application is in the background. Disabling the panel is not restricted by the application's
+     * foreground or background status.
+     * The API uses a promise to return the result.
+     *
+     * @param { boolean } show - A boolean value indicating whether to show (true) or hide (false)
+     *     the system recording controller panel.
+     * @param { SystemRecordControllerConfig } config - Configuration for the system recording controller panel.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @throws { BusinessError } 6800301 - Audio service error occurs like service died.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    enableSystemRecordController(show: boolean, config: SystemRecordControllerConfig): Promise<void>;
+
+    /**
+     * Subscribes to the system recording controller panel enabled state change event.
+     *
+     * @param { Callback<SystemRecordControllerChangeInfo> } callback - Callback used to listen
+     *     whether the system recording controller panel enabled state change event.
+     * @throws { BusinessError } 202 - Caller is not a system application.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @throws { BusinessError } 6800102 - Memory allocation failed.
+     * @throws { BusinessError } 6800301 - Audio service error occurs like service died.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    onSystemRecordControllerEnabledChange(callback: Callback<SystemRecordControllerChangeInfo>): void;
+
+    /**
+     * Unsubscribes from the system recording controller panel enabled state change event.
+     *
+     * @param { Callback<SystemRecordControllerChangeInfo> } [callback] - The Callback used in subscription
+     *     function for unsubscribing. If not using this parameter, all callbacks subscribed in current
+     *     process before will be unsubscribed.
+     * @throws { BusinessError } 202 - Caller is not a system application.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @throws { BusinessError } 6800301 - Audio service error occurs like service died.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    offSystemRecordControllerEnabledChange(callback?: Callback<SystemRecordControllerChangeInfo>): void;
   }
 
   /**
@@ -8849,7 +9180,7 @@ declare namespace audio {
      */
     selectInputDeviceForAudioCapturer(capturer: AudioCapturer, inputDevice: AudioDeviceDescriptor): Promise<void>;
   }
-  
+
   /**
    * Provides audio debug management capabilities.
    *
@@ -9605,7 +9936,7 @@ declare namespace audio {
      */
     previousVolume?: int;
   }
-  
+
   /**
    * Describes the system volume filter.
    *
@@ -11608,6 +11939,20 @@ declare namespace audio {
      */
     MODE_MEDIA = 0x1,
     /**
+     * Only voip mode. Capture only voice/video communication streams.
+     * If {@link AudioCapturerOptions#playbackCaptureUid} is set, only the
+     * voice/video communication stream of the specified application is captured.
+     * The {@link AudioCapturerOptions#playbackCaptureUid} takes effect only when
+     * this mode is set.
+     * This mode requires the `ohos.permission.CAPTURE_VOICE_DOWNLINK_AUDIO`
+     * permission; otherwise {@link createAudioCapturer} fails.
+     * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+    */
+    MODE_ONLY_VOIP = 0x4000,
+    /**
      * Excluding self mode. Capture streams excluding the audio played by application itself.
      * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
      * @stagemodelonly
@@ -11748,6 +12093,19 @@ declare namespace audio {
      * @since 26.0.0 dynamic&static
      */
     playbackCaptureMode?: AudioPlaybackCaptureMode;
+
+    /**
+    * The target application uid for voice/video communication playback capture.
+    * This parameter takes effect only when {@link AudioPlaybackCaptureMode#MODE_ONLY_VOIP}
+    * is set in {@link AudioCapturerOptions#playbackCaptureMode}. In other playback capture modes,
+    * this parameter is ignored.
+    * The value should be an integer.
+    * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
+    * @systemapi
+    * @stagemodelonly
+    * @since 26.0.0 dynamic&static
+    */
+    playbackCaptureUid?: int;
   }
 
   /**
@@ -11797,6 +12155,28 @@ declare namespace audio {
      * @since 23 dynamic&static
      */
     capturerInfo: AudioCapturerInfo;
+    /**
+     * Prefered input device for this audio capturer.
+     * The preferred device must be an input device, and the source type in
+     * {@link captureInfo} must be {@link SourceType#SOURCE_TYPE_VOICE_RECOGNITION},
+     * {@link SourceType#SOURCE_TYPE_VOICE_TRANSCRIPTION} or {@link SourceType#SOURCE_TYPE_UNPROCESSED_VOICE_ASSISTANT},
+     * otherwise this parameter will be ignored.
+     * If the user does not specify a device, the system will automatically select the recording device for
+     * the audio capturer.
+     * When the user specifies a preferred device:
+     * 1) If the preferred device is online, the current audio capturer may use the preferred device for
+     * recording. If the preferred device becomes offline during recording, the system will select
+     * another device.
+     * 2) If the preferred device is offline, the system will select a recording device.
+     * If the preferred device becomes online during recording, it may switch to the preferred device.
+     * The user can query the selected device by {@link AudioCapturer#getCurrentAudioCapturerChangeInfo}.
+     *
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    preferredInputDevice?: AudioDeviceDescriptor;
   }
 
   /**
@@ -12739,6 +13119,53 @@ declare namespace audio {
      * @since 24 dynamic&static
      */
     setIndependentAudioSessionStrategy(strategy: AudioSessionStrategy, behavior: int): void;
+
+    /**
+     * Sets noise reduction mode for current audio capturer.
+     * The supported mode should be obtained by {@link #getSupportedNoiseReductionModes}.
+     * The actual effect may vary from different audio devices, and will be invalid when there are multiple
+     * recording streams running simultaneously.
+     * The mode can only be changed in created and stopped state.
+     *
+     * @param { NoiseReductionMode } noiseReductionMode - The noise reduction mode to set.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @throws { BusinessError } 6800103 - Illegal state, audio capturer is in running or released state.
+     * @throws { BusinessError } 6800104 - The setted mode is not supported.
+     * @throws { BusinessError } 6800301 - Audio server process died.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    setNoiseReductionMode(noiseReductionMode: NoiseReductionMode): void;
+
+    /**
+     * Gets the noise reduction mode for current audio capturer.
+     * The mode will only consider the default and setted status, audio input device and stream concurrency will
+     * not be considered.
+     *
+     * @returns { NoiseReductionMode } The noise reduction mode for current audio capturer,
+     *     the default value is {@link NoiseReductionMode#FIDELITY}.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    getNoiseReductionMode(): NoiseReductionMode;
+
+    /**
+     * Gets all the supported noise reduction modes for current device platform.
+     * Currently the noise reduction effect is only supported when using
+     * {@link SourceType#SOURCE_TYPE_VOICE_MESSAGE}, other supported usage may be extened later.
+     * The supported modes will only consider the audio format and device platform,
+     * audio input device and stream concurrency will not be considered.
+     *
+     * @returns { Array<NoiseReductionMode> } The supported noise reduction mode array, at least
+     *     {@link NoiseReductionMode#FIDELITY} is supported.
+     * @throws { BusinessError } 6800301 - Audio server process died.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    getSupportedNoiseReductionModes(): Array<NoiseReductionMode>;
   }
 
   /**

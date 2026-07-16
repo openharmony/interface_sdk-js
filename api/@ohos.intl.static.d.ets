@@ -22,7 +22,7 @@
 /**
  * Provides internationalization related APIs.
  *
- * @syscap SystemCapability.Global.I18n [since 23]
+ * @syscap SystemCapability.Global.I18n
  * @since 23 static
  */
 declare namespace intl {
@@ -619,7 +619,7 @@ declare namespace intl {
   }
 
   /**
-   * Enable language-sensitive string comparison.
+   * Provides the string collation capability.
    *
    * @syscap SystemCapability.Global.I18n
    * @crossplatform

@@ -985,9 +985,16 @@ declare namespace PiPWindow {
      * Starts a PiP window. This API uses a promise to return the result.
      *
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 1300012 - The PiP window state is abnormal.
-     * @throws { BusinessError } 1300013 - Failed to create the PiP window.
-     * @throws { BusinessError } 1300014 - PiP internal error.
+     * @throws { BusinessError } 1300012 - The PiP window state is abnormal. Possible causes:
+     *     <br>1.The PiP controller has been destroyed.
+     *     <br>2.The PiP window is not created or has been destroyed.
+     * @throws { BusinessError } 1300013 - Failed to create the PiP window. Possible causes:
+     *     <br>1.PiP configuration parameters are invalid, such as pipOption or context is null.
+     *     <br>2.The XComponentController or main window is null.
+     *     <br>3.The main window is not shown (non-auto-start scenario).
+     *     <br>4.Navigation component operation failed.
+     * @throws { BusinessError } 1300014 - PiP internal error. Possible cause:
+     *     Internal error, failed to show the PiP window. such as insufficient resources or abnormal window service.
      * @throws { BusinessError } 1300015 - Repeated PiP operation.
      * @throws { BusinessError } 1300034 - This operation conflicts with other floating windows. Possible cause:
      *     App has already started float view. [since 26.0.0]
@@ -1002,8 +1009,10 @@ declare namespace PiPWindow {
      * Stops a PiP window. This API uses a promise to return the result.
      *
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 1300011 - Failed to destroy the PiP window.
-     * @throws { BusinessError } 1300012 - The PiP window state is abnormal.
+     * @throws { BusinessError } 1300011 - Failed to destroy the PiP window. Possible cause:
+     *     Internal error, the window type is not a PiP window.
+     * @throws { BusinessError } 1300012 - The PiP window state is abnormal. Possible cause:
+     *     The PiP window is not created or has been destroyed.
      * @throws { BusinessError } 1300015 - Repeated PiP operation.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice [since 12]
@@ -1013,17 +1022,18 @@ declare namespace PiPWindow {
     stopPiP(): Promise<void>;
 
     /**
-     * Sets whether to automatically start a PiP window when the user returns to the home screen. By default, no PiP
-     * window is started.
+     * Sets whether to automatically start the PiP window when the application's main window which can start the
+     * PiP window transitions to the background. By default, the PiP window is not automatically started.
      *
      * If the XComponent approach is used to implement PiP and the **Navigation** component is used for route management
      * , the system caches the top stack information with the specified navigation ID upon the first call of
      * **setAutoStartEnabled(true)**.
      *
-     * @param { boolean } enable - Whether to automatically start a PiP window when the user returns to the home screen.
-     *     **true** to start, **false** otherwise. If the PiP feature under **Settings** > **System** > **Multi-window**
-     *     is disabled, the PiP window will not be automatically started when the user returns to the home screen even
-     *     if this parameter is set to **true**.
+     * @param { boolean } enable - If the PiP window needs to be automatically started when the application's
+     *     main window transitions to the background, set this parameter to **true**. Otherwise,
+     *     set this parameter to **false**. If the PiP feature under **Settings** > **System** > **Multi-window**
+     *     is disabled, the PiP window will not be automatically started when the application's main window transitions
+     *     to the background even if this parameter is set to **true**.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice [since 12]
      * @since 11 dynamic
@@ -1073,7 +1083,8 @@ declare namespace PiPWindow {
      *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
      *     capabilities.
-     * @throws { BusinessError } 1300014 - PiP internal error.
+     * @throws { BusinessError } 1300014 - PiP internal error. Possible cause:
+     *     The PiP controller has been destroyed.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 18 dynamic
@@ -1101,7 +1112,9 @@ declare namespace PiPWindow {
      * @returns { Promise<PiPWindowInfo> } Promise used to return the information about the current PIP window.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
      *     capabilities.
-     * @throws { BusinessError } 1300014 - PiP internal error.
+     * @throws { BusinessError } 1300014 - PiP internal error. Possible causes:
+     *     <br>1.The PiP controller has been destroyed.
+     *     <br>2.The PiP window is not created or has been destroyed.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 15 dynamic
@@ -1116,7 +1129,8 @@ declare namespace PiPWindow {
      *     **false** otherwise.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
      *     capabilities.
-     * @throws { BusinessError } 1300014 - PiP internal error.
+     * @throws { BusinessError } 1300014 - PiP internal error. Possible cause:
+     *     The PiP controller has been destroyed.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 20 dynamic
@@ -1131,7 +1145,9 @@ declare namespace PiPWindow {
      *     window is visible, and **false** is returned if the PiP window is invisible (hidden in the sidebar). If this
      *     API is called when the PiP lifecycle is not [STARTED]{@link PiPWindow.PiPState}, **false** is always
      *     returned.
-     * @throws { BusinessError } 1300014 - PiP internal error.
+     * @throws { BusinessError } 1300014 - PiP internal error. Possible causes:
+     *     <br>1.The PiP controller has been destroyed.
+     *     <br>2.The PiP window is not created or has been destroyed.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 23 dynamic
@@ -1296,7 +1312,8 @@ declare namespace PiPWindow {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: Callback is already registered.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
      *     capabilities.
-     * @throws { BusinessError } 1300014 - PiP internal error.
+     * @throws { BusinessError } 1300014 - PiP internal error. Possible cause:
+     *     The PiP controller has been destroyed.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 15 dynamic
@@ -1309,7 +1326,8 @@ declare namespace PiPWindow {
      * @param { Callback<PiPWindowSize> } callback - Callback used to return the picture-in-picture window size.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
      *     capabilities.
-     * @throws { BusinessError } 1300014 - PiP internal error.
+     * @throws { BusinessError } 1300014 - PiP internal error. Possible cause:
+     *     <br>The PiP controller has been destroyed.
      * @syscap SystemCapability.Window.SessionManager
      * @since 26.0.0 static
      */

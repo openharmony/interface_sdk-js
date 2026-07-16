@@ -105,6 +105,7 @@ export class DrawableDescriptor {
    * @throws { BusinessError } 111002 - The native memory referenced by
    *     the drawableDescriptor has been released. [since 26.0.0]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 21 dynamic
@@ -119,6 +120,7 @@ export class DrawableDescriptor {
    * @throws { BusinessError } 111002 - The native memory referenced by
    *     the drawableDescriptor has been released. [since 26.0.0]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 21 dynamic

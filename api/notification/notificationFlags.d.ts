@@ -42,7 +42,7 @@ export enum NotificationFlagStatus {
   TYPE_NONE = 0,
 
   /**
-   * The notification flag is enabled.
+   * The notification flag is opened.
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi [since 8 - 10]
@@ -53,7 +53,7 @@ export enum NotificationFlagStatus {
   TYPE_OPEN = 1,
 
   /**
-   * The notification flag is disabled.
+   * The notification flag is closed.
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi [since 8 - 10]
@@ -73,8 +73,8 @@ export enum NotificationFlagStatus {
  */
 export interface NotificationFlags {
   /**
-   * Settings of sound for the notification. The default value is **TYPE_NONE**. This parameter becomes writable 
-   * starting from API version 23. Only [TYPE_CLOSE]{@link NotificationFlagStatus} takes effect.
+   * Settings of sound for the notification. The default value is **TYPE_NONE**. This parameter becomes writable
+   * starting from API version 23. Only TYPE_CLOSE takes effect.
    *
    * @readonly [since 8 - 22]
    * @syscap SystemCapability.Notification.Notification
@@ -84,8 +84,8 @@ export interface NotificationFlags {
   soundEnabled?: NotificationFlagStatus;
 
   /**
-   * Settings of vibration for the notification. The default value is **TYPE_NONE**. This parameter becomes writable 
-   * starting from API version 23. Only [TYPE_CLOSE]{@link NotificationFlagStatus} takes effect.
+   * Settings of vibration for the notification. The default value is **TYPE_NONE**. This parameter becomes writable
+   * starting from API version 23. Only TYPE_CLOSE takes effect.
    *
    * @readonly [since 8 - 22]
    * @syscap SystemCapability.Notification.Notification
@@ -95,8 +95,7 @@ export interface NotificationFlags {
   vibrationEnabled?: NotificationFlagStatus;
 
   /**
-   * Settings of banner for the notification. The default value is **TYPE_NONE**. Only 
-   * [TYPE_CLOSE]{@link NotificationFlagStatus} takes effect.
+   * Settings of banner for the notification. The default value is **TYPE_NONE**. Only TYPE_CLOSE takes effect.
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 23 dynamic&static
@@ -104,8 +103,7 @@ export interface NotificationFlags {
   bannerEnabled?: NotificationFlagStatus;
 
   /**
-   * Settings of screen lock for the notification. The default value is **TYPE_NONE**. Only 
-   * [TYPE_CLOSE]{@link NotificationFlagStatus} takes effect.
+   * Settings of screen lock for the notification. The default value is **TYPE_NONE**. Only TYPE_CLOSE takes effect.
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 23 dynamic&static

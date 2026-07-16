@@ -35,7 +35,7 @@ declare enum PanDirection {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  None = 0,
+  None,
 
   /**
    * Horizontal direction.
@@ -125,7 +125,7 @@ declare enum SwipeDirection {
    * @atomicservice [since 11]
    * @since 8 dynamic
    */
-  None = 0,
+  None,
 
   /**
    * Horizontal direction. The gesture is triggered when the angle between the finger moving direction and the x-axis is
@@ -180,7 +180,7 @@ declare enum GestureMode {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Sequence = 0,
+  Sequence,
 
   /**
    * Parallel recognition. Registered gestures are recognized concurrently until all gestures are recognized. The 
@@ -222,7 +222,7 @@ declare enum GestureMask {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Normal = 0,
+  Normal,
 
   /**
    * The gestures of child components are disabled, including the built-in gestures, such as the built-in swipe gesture 
@@ -1612,15 +1612,17 @@ declare class PanGestureOptions {
    * Creates a pan gesture configuration object. The **PanGestureOptions** API enables dynamic updates to pan gesture 
    * properties without requiring state variable modifications that would trigger UI re-renders.
    *
-   * @param { object } value - Pan gesture configuration.<br>**fingers**: minimum number of fingers required. The value
-   *     ranges from 1 to 10.<br>Default value: **1**<br>**direction**: pan direction. The value supports the AND (&)
-   *     and OR (|) operations.<br>Default value: **PanDirection.All**<br>**distance**: minimum pan distance to trigger
-   *     the gesture, in vp.<br>Default value: **8** for the stylus and **5** for other input sources.<br>**NOTE**<br>If
-   *     a pan gesture and a [tab]{@link tabs} swipe occur at the same time, set **distance** to **1** to make the
-   *     gesture more easily recognizable.<br>If the value specified is less than **0**, the default value is used.<br>
-   *     To avoid slow response and lagging during scrolling, set a reasonable pan distance.<br>When the
-   *     [scale]{@link CommonMethod#scale(value: ScaleOptions)} attribute is applied to the component, the actual pan
-   *     distance is adjusted based on the **scale** ratio.
+   * @param { object } value - Pan gesture configuration.
+   *     <br>**fingers**: minimum number of fingers required. The value ranges from 1 to 10.<br>Default value: **1**
+   *     <br>**direction**: pan direction. The value supports the AND (&) and OR (|) operations.<br>Default value:
+   *     **PanDirection.All**
+   *     <br>**distance**: minimum pan distance to trigger the gesture, in vp.<br>Default value: **8** for the stylus
+   *     and **5** for other input sources.
+   *     <br>**NOTE**<br>If a pan gesture and a [tab]{@link tabs} swipe occur at the same time, set **distance** to
+   *     **1** to make the gesture more easily recognizable.<br>If the value specified is less than **0**, the default
+   *     value is used.<br>To avoid slow response and lagging during scrolling, set a reasonable pan distance.<br>When
+   *     the [scale]{@link CommonMethod#scale(value: ScaleOptions)} attribute is applied to the component, the actual
+   *     pan distance is adjusted based on the **scale** ratio.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @atomicservice [since 11]
@@ -2548,6 +2550,8 @@ interface PanGestureHandlerOptions extends BaseHandlerOptions {
    * Value range: [0, +∞). If the value specified is less than 0, the default value is used.
    * 
    * Since API version 19, the default value is **8**, in vp, for the stylus.
+   *
+   * When configuring this field with [gestureModifier]{@link CommonMethod#gestureModifier}, the unit is px.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly

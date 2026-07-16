@@ -153,6 +153,8 @@ declare namespace deviceSettings {
    * @systemapi
    * @stagemodelonly
    * @since 10
+   * @deprecated since 26.0.0
+   * @useinstead @ohos.enterprise.securityManager:securityManager.CertBlob
    */
   export interface CertBlob {
     /**
@@ -162,6 +164,8 @@ declare namespace deviceSettings {
      * @systemapi
      * @stagemodelonly
      * @since 10
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.enterprise.securityManager:securityManager.inData
      */
     inData: Uint8Array;
 
@@ -172,6 +176,8 @@ declare namespace deviceSettings {
      * @systemapi
      * @stagemodelonly
      * @since 10
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.enterprise.securityManager:securityManager.alias
      */
     alias: string;
   }
@@ -699,6 +705,8 @@ declare namespace deviceSettings {
    * @systemapi
    * @stagemodelonly
    * @since 11
+   * @deprecated since 26.0.0
+   * @useinstead deviceSettings.setValue
    */
   function setScreenOffTime(admin: Want, time: number): void;
 
@@ -722,6 +730,8 @@ declare namespace deviceSettings {
    * @systemapi
    * @StageModelOnly
    * @since 10
+   * @deprecated since 26.0.0
+   * @useinstead deviceSettings.getValue
    */
   function getScreenOffTime(admin: Want, callback: AsyncCallback<number>): void;
 
@@ -743,6 +753,8 @@ declare namespace deviceSettings {
    * @systemapi
    * @StageModelOnly
    * @since 10
+   * @deprecated since 26.0.0
+   * @useinstead deviceSettings.getValue
    */
   function getScreenOffTime(admin: Want): Promise<number>;
 
@@ -771,6 +783,8 @@ declare namespace deviceSettings {
    * @systemapi
    * @stagemodelonly
    * @since 10
+   * @deprecated since 26.0.0
+   * @useinstead @ohos.enterprise.securityManager:securityManager.installUserCertificate
    */
   function installUserCertificate(admin: Want, certificate: CertBlob, callback: AsyncCallback<string>): void;
 
@@ -799,6 +813,8 @@ declare namespace deviceSettings {
    * @systemapi
    * @stagemodelonly
    * @since 10
+   * @deprecated since 26.0.0
+   * @useinstead @ohos.enterprise.securityManager:securityManager.installUserCertificate
    */
   function installUserCertificate(admin: Want, certificate: CertBlob): Promise<string>;
 
@@ -825,6 +841,8 @@ declare namespace deviceSettings {
    * @systemapi
    * @stagemodelonly
    * @since 10
+   * @deprecated since 26.0.0
+   * @useinstead @ohos.enterprise.securityManager:securityManager.uninstallUserCertificate
    */
   function uninstallUserCertificate(admin: Want, certUri: string, callback: AsyncCallback<void>): void;
 
@@ -851,6 +869,8 @@ declare namespace deviceSettings {
    * @systemapi
    * @stagemodelonly
    * @since 10
+   * @deprecated since 26.0.0
+   * @useinstead @ohos.enterprise.securityManager:securityManager.uninstallUserCertificate
    */
   function uninstallUserCertificate(admin: Want, certUri: string): Promise<void>;
 
@@ -874,6 +894,8 @@ declare namespace deviceSettings {
    * @systemapi
    * @stagemodelonly
    * @since 11
+   * @deprecated since 26.0.0
+   * @useinstead deviceSettings.setValue
    */
   function setPowerPolicy(admin: Want, powerScene: PowerScene, powerPolicy: PowerPolicy): void;
 
@@ -897,6 +919,8 @@ declare namespace deviceSettings {
    * @systemapi
    * @stagemodelonly
    * @since 11
+   * @deprecated since 26.0.0
+   * @useinstead deviceSettings.getValue
    */
   function getPowerPolicy(admin: Want, powerScene: PowerScene): PowerPolicy;
 
@@ -992,7 +1016,7 @@ declare namespace deviceSettings {
    *     fails to be set.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 9200012 - The parameter validation failed.
+   * @throws { BusinessError } 9200012 - Parameter verification failed.
    * @throws { BusinessError } 201 - Permission verification failed.
    *     The application does not have the permission required to call the API
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
@@ -1015,7 +1039,7 @@ declare namespace deviceSettings {
    *     fails to be set.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 9200012 - The parameter validation failed.
+   * @throws { BusinessError } 9200012 - Parameter verification failed.
    * @throws { BusinessError } 201 - Permission verification failed.
    *     The application does not have the permission required to call the API
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager

@@ -48,7 +48,7 @@ declare enum SelectedMode {
    * @atomicservice [since 11]
    * @since 10 dynamic
    */
-  INDICATOR = 0,
+  INDICATOR,
 
   /**
    * 使用背板模式。
@@ -59,7 +59,7 @@ declare enum SelectedMode {
    * @atomicservice [since 11]
    * @since 10 dynamic
    */
-  BOARD = 1
+  BOARD
 }
 
 /**
@@ -592,17 +592,6 @@ declare interface TabBarOptions {
    * @since 7 dynamic
    */
   text?: string | Resource;
-
-  /**
-   * TabBar 信息标记组件。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
-   */
-  badge?: BadgeParamWithNumber | BadgeParamWithString;
 }
 
 /**

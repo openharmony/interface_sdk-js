@@ -58,7 +58,15 @@ export declare enum BadgePosition {
     Left
 }
 /**
- * BadgeStyle object
+ * Describes the badge style. It includes the font color, font size, badge color, badge size, etc.
+ *
+ * > **NOTE**
+ * >
+ * > - When **borderWidth** is set to a value greater than 0 and **borderColor** is different from **badgeColor**, the
+ * > badge is drawn before the border. Edge pixels are anti-aliased, which produces semi-transparent pixels. This causes
+ * > the border in **badgeColor** to become visible at the four corners. To implement related scenarios, it is
+ * > recommended that you use the [Text]{@link text} component with its
+ * > [outline]{@link CommonMethod#outline(value: OutlineOptions)} attribute instead of the **Badge** component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -128,7 +136,7 @@ export declare interface BadgeStyle {
      * Default value: FontWeight.Normal.
      * <br>Value range of the number type: [100, 900], with an interval of 100. A larger value indicates a thicker font.
      * If the number type is out of the value range, the default value 400 is used. The value of the string type must be a
-     *  string of values of the number type, for example, 400. The values of bold, bolter, lighter, regular, and medium
+     * string of values of the number type, for example, 400. The values of bold, bolter, lighter, regular, and medium
      * correspond to the corresponding enumerated values in FontWeight, respectively.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full

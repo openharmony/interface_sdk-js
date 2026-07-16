@@ -43,6 +43,7 @@ declare namespace scan {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 801 - Capability not supported because the chip does not support it.
    * @throws { BusinessError } 36100003 - NearLink disabled.
+   * @throws { BusinessError } 36100040 - Integer out of range.
    * @throws { BusinessError } 36100041 - Invalid address.
    * @throws { BusinessError } 36100042 - Empty array.
    * @throws { BusinessError } 36100099 - Operation failed.
@@ -69,12 +70,12 @@ declare namespace scan {
 
   /**
    * Subscribes to NearLink scan results.
-   * If the user is granted the ohos.permission.GET_NEARLINK_PEER_MAC permission,
-   * the callback will return real device addresses; otherwise, random device addresses will be returned.
    *
-   * @permission ohos.permission.ACCESS_NEARLINK
+   * This event is accessible only to applications that granted the ohos.permission.NEARLINK_ACCESS permission.
+   * If the application is granted the ohos.permission.GET_NEARLINK_PEER_MAC permission,
+   * the callback returns the real device address; otherwise, a random device address is returned.
+   *
    * @param { Callback<ScanResults[]> } callback - Callback used to listen for the scan result event.
-   * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 801 - Capability not supported because the chip does not support it.
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
@@ -85,9 +86,7 @@ declare namespace scan {
   /**
    * Unsubscribes from NearLink scan results.
    *
-   * @permission ohos.permission.ACCESS_NEARLINK
    * @param { Callback<ScanResults[]> } [callback] - Callback used to listen for the scan result event.
-   * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 801 - Capability not supported because the chip does not support it.
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly

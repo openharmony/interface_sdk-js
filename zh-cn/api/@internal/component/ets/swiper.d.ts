@@ -814,7 +814,7 @@ declare enum SwiperDisplayMode {
    * @deprecated since 10
    * @useinstead SwiperDisplayMode#STRETCH
    */
-  Stretch = 0,
+  Stretch,
 
   /**
    *
@@ -824,7 +824,7 @@ declare enum SwiperDisplayMode {
    * @deprecated since 10
    * @useinstead SwiperDisplayMode#AUTO_LINEAR
    */
-  AutoLinear = 1,
+  AutoLinear,
 
   /**
    * Carousel map extension.
@@ -836,7 +836,7 @@ declare enum SwiperDisplayMode {
    * @atomicservice [since 11]
    * @since 10 dynamic
    */
-  STRETCH = 2,
+  STRETCH,
 
   /**
    *
@@ -849,7 +849,7 @@ declare enum SwiperDisplayMode {
    * @deprecated since 12
    * @useinstead Scroller#scrollTo
    */
-  AUTO_LINEAR = 3
+  AUTO_LINEAR
 }
 
 /**

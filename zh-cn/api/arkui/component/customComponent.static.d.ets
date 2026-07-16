@@ -395,18 +395,6 @@ export declare abstract class CustomComponent<T extends CustomComponent<T, T_Opt
    * @since 23 static
    */
   aboutToReuse(params: ReuseObject): void;
-
-  /**
-   * 重新初始化@消费变量。
-   *
-   * @param { string } alias - @Consume别名
-   * @param { string } varName - 变量名
-   * @param { T } [defaultValue] - 默认值
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 26.0.0 static
-   */
-  reInitializeConsume<T>(alias: string, varName: string, defaultValue?: T): void;
 }
 
 /**
@@ -587,7 +575,6 @@ export interface LayoutCallbacks {
 /** 
  * Defining interface for _invokeImpl options. 
  * 
- * @typedef CustomComponentInvokeOptions 
  * @syscap SystemCapability.ArkUI.ArkUI.Full 
  * @stagemodelonly 
  * @since 24 static 

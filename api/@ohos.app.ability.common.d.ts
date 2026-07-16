@@ -41,6 +41,7 @@ import * as _UIServiceExtensionContext from './application/UIServiceExtensionCon
 import * as _UIServiceProxy from './application/UIServiceProxy';
 import * as _UIServiceHostProxy from './application/UIServiceHostProxy';
 import * as _UIServiceExtensionConnectCallback from './application/UIServiceExtensionConnectCallback';
+import { FunctionInfo as _FunctionInfo } from './application/FunctionInfo';
 import { ToolInfo as _ToolInfo } from './application/ToolInfo';
 import { ToolSummary as _ToolSummary } from './application/ToolInfo';
 import { CliToolEvent as _CliToolEvent } from './application/CliToolEvent';
@@ -742,6 +743,16 @@ declare namespace common {
    * @since 26.0.0 dynamiconly
    */
   export type ToolEventCallback = _ToolEventCallback;
+
+  /**
+   * Describes the basic information of a function.
+   *
+   * @syscap SystemCapability.Ability.AgentRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamiconly
+   */
+  export type FunctionInfo = _FunctionInfo;
 }
 
 export default common;

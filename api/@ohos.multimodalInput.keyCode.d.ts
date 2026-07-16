@@ -14,29 +14,22 @@
  */
 
 /**
- * @file
+ * @file Keycode
  * @kit InputKit
  */
 
 /**
- * The keyCode module provides keycode values for key devices, such as the keyboard, power key, camera key, and the like.
+ * The **keyCode** module provides key codes of key devices, including keyboards, CDs, and gamepads.
  *
- * @enum { number }
  * @syscap SystemCapability.MultimodalInput.Input.Core
- * @since 9
- */
-/**
- * The keyCode module provides keycode values for key devices, such as the keyboard, power key, camera key, and the like.
- *
- * @enum { number }
- * @syscap SystemCapability.MultimodalInput.Input.Core
- * @atomicservice
- * @since 12 dynamic
+ * @atomicservice [since 12]
+ * @since 9 dynamic
  * @since 23 static
  */
 export declare enum KeyCode {
+
   /**
-   * KEYCODE_FN
+   * Function (Fn) key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -45,7 +38,7 @@ export declare enum KeyCode {
   KEYCODE_FN = 0,
 
   /**
-   * KEYCODE_UNKNOWN
+   * Unknown key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -54,7 +47,7 @@ export declare enum KeyCode {
   KEYCODE_UNKNOWN = -1,
 
   /**
-   * KEYCODE_HOME
+   * Function (Home) key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -63,7 +56,7 @@ export declare enum KeyCode {
   KEYCODE_HOME = 1,
 
   /**
-   * KEYCODE_BACK
+   * Back key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -72,7 +65,7 @@ export declare enum KeyCode {
   KEYCODE_BACK = 2,
 
   /**
-   * KEYCODE_SEARCH
+   * Search key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 13 dynamic
@@ -81,103 +74,72 @@ export declare enum KeyCode {
   KEYCODE_SEARCH = 9,
 
   /**
-   * KEYCODE_MEDIA_PLAY_PAUSE
+   * Play/Pause key
+   *
+   * Difference between this key and **KEYCODE_PLAYPAUSE**:
+   *
+   * **KEYCODE_PLAYPAUSE** is an earlier definition, while **KEYCODE_MEDIA_PLAY_PAUSE** is designed for modern media key
+   * devices.
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 9
-   */
-  /**
-   * KEYCODE_MEDIA_PLAY_PAUSE
-   *
-   * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 9 dynamic
    * @since 23 static
    */
   KEYCODE_MEDIA_PLAY_PAUSE = 10,
 
   /**
-   * KEYCODE_MEDIA_STOP
+   * Media: Stop Key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 9
-   */
-  /**
-   * KEYCODE_MEDIA_STOP
-   *
-   * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 9 dynamic
    * @since 23 static
    */
   KEYCODE_MEDIA_STOP = 11,
 
   /**
-   * KEYCODE_MEDIA_NEXT
+   * Next key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 9
-   */
-  /**
-   * KEYCODE_MEDIA_NEXT
-   *
-   * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 9 dynamic
    * @since 23 static
    */
   KEYCODE_MEDIA_NEXT = 12,
 
   /**
-   * KEYCODE_MEDIA_PREVIOUS
+   * Previous key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 9
-   */
-  /**
-   * KEYCODE_MEDIA_PREVIOUS
-   *
-   * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 9 dynamic
    * @since 23 static
    */
   KEYCODE_MEDIA_PREVIOUS = 13,
 
   /**
-   * KEYCODE_MEDIA_REWIND
+   * Rewind key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 9
-   */
-  /**
-   * KEYCODE_MEDIA_REWIND
-   *
-   * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 9 dynamic
    * @since 23 static
    */
   KEYCODE_MEDIA_REWIND = 14,
 
   /**
-   * KEYCODE_MEDIA_FAST_FORWARD
+   * Fast forward key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 9
-   */
-  /**
-   * KEYCODE_MEDIA_FAST_FORWARD
-   *
-   * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 9 dynamic
    * @since 23 static
    */
   KEYCODE_MEDIA_FAST_FORWARD = 15,
 
   /**
-   * KEYCODE_VOLUME_UP
+   * Volume Up key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -186,7 +148,7 @@ export declare enum KeyCode {
   KEYCODE_VOLUME_UP = 16,
 
   /**
-   * KEYCODE_VOLUME_DOWN
+   * Volume Down key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -195,7 +157,7 @@ export declare enum KeyCode {
   KEYCODE_VOLUME_DOWN = 17,
 
   /**
-   * KEYCODE_POWER
+   * Power key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -204,7 +166,7 @@ export declare enum KeyCode {
   KEYCODE_POWER = 18,
 
   /**
-   * KEYCODE_CAMERA
+   * Camera key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -213,7 +175,7 @@ export declare enum KeyCode {
   KEYCODE_CAMERA = 19,
 
   /**
-   * KEYCODE_VOLUME_MUTE
+   * Speaker Mute key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -222,7 +184,7 @@ export declare enum KeyCode {
   KEYCODE_VOLUME_MUTE = 22,
 
   /**
-   * KEYCODE_MUTE
+   * Mute key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -231,7 +193,7 @@ export declare enum KeyCode {
   KEYCODE_MUTE = 23,
 
   /**
-   * KEYCODE_BRIGHTNESS_UP
+   * Brightness Up key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -240,7 +202,7 @@ export declare enum KeyCode {
   KEYCODE_BRIGHTNESS_UP = 40,
 
   /**
-   * KEYCODE_BRIGHTNESS_DOWN
+   * Brightness Down key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -249,7 +211,7 @@ export declare enum KeyCode {
   KEYCODE_BRIGHTNESS_DOWN = 41,
 
   /**
-   * KEYCODE_0
+   * Key 0
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -258,7 +220,7 @@ export declare enum KeyCode {
   KEYCODE_0 = 2000,
 
   /**
-   * KEYCODE_1
+   * Key 1
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -267,7 +229,7 @@ export declare enum KeyCode {
   KEYCODE_1 = 2001,
 
   /**
-   * KEYCODE_2
+   * Key 2
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -276,7 +238,7 @@ export declare enum KeyCode {
   KEYCODE_2 = 2002,
 
   /**
-   * KEYCODE_3
+   * Key 3
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -285,7 +247,7 @@ export declare enum KeyCode {
   KEYCODE_3 = 2003,
 
   /**
-   * KEYCODE_4
+   * Key 4
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -294,7 +256,7 @@ export declare enum KeyCode {
   KEYCODE_4 = 2004,
 
   /**
-   * KEYCODE_5
+   * Key 5
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -303,7 +265,7 @@ export declare enum KeyCode {
   KEYCODE_5 = 2005,
 
   /**
-   * KEYCODE_6
+   * Key 6
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -312,7 +274,7 @@ export declare enum KeyCode {
   KEYCODE_6 = 2006,
 
   /**
-   * KEYCODE_7
+   * Key 7
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -321,7 +283,7 @@ export declare enum KeyCode {
   KEYCODE_7 = 2007,
 
   /**
-   * KEYCODE_8
+   * Key 8
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -330,7 +292,7 @@ export declare enum KeyCode {
   KEYCODE_8 = 2008,
 
   /**
-   * KEYCODE_9
+   * Key 9
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -339,7 +301,7 @@ export declare enum KeyCode {
   KEYCODE_9 = 2009,
 
   /**
-   * KEYCODE_STAR
+   * Key /
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -348,7 +310,7 @@ export declare enum KeyCode {
   KEYCODE_STAR = 2010,
 
   /**
-   * KEYCODE_POUND
+   * Key /
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -357,7 +319,7 @@ export declare enum KeyCode {
   KEYCODE_POUND = 2011,
 
   /**
-   * KEYCODE_DPAD_UP
+   * Up key on D-pad
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -366,7 +328,7 @@ export declare enum KeyCode {
   KEYCODE_DPAD_UP = 2012,
 
   /**
-   * KEYCODE_DPAD_DOWN
+   * Down key on D-pad
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -375,7 +337,7 @@ export declare enum KeyCode {
   KEYCODE_DPAD_DOWN = 2013,
 
   /**
-   * KEYCODE_DPAD_LEFT
+   * Left key on D-pad
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -384,7 +346,7 @@ export declare enum KeyCode {
   KEYCODE_DPAD_LEFT = 2014,
 
   /**
-   * KEYCODE_DPAD_RIGHT
+   * Right key on D-pad
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -393,7 +355,7 @@ export declare enum KeyCode {
   KEYCODE_DPAD_RIGHT = 2015,
 
   /**
-   * KEYCODE_DPAD_CENTER
+   * Center key on D-pad
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -402,7 +364,7 @@ export declare enum KeyCode {
   KEYCODE_DPAD_CENTER = 2016,
 
   /**
-   * KEYCODE_A
+   * Key A
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -411,7 +373,7 @@ export declare enum KeyCode {
   KEYCODE_A = 2017,
 
   /**
-   * KEYCODE_B
+   * Key B
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -420,7 +382,7 @@ export declare enum KeyCode {
   KEYCODE_B = 2018,
 
   /**
-   * KEYCODE_C
+   * Key C
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -429,7 +391,7 @@ export declare enum KeyCode {
   KEYCODE_C = 2019,
 
   /**
-   * KEYCODE_D
+   * Key D
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -438,7 +400,7 @@ export declare enum KeyCode {
   KEYCODE_D = 2020,
 
   /**
-   * KEYCODE_E
+   * Key E
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -447,7 +409,7 @@ export declare enum KeyCode {
   KEYCODE_E = 2021,
 
   /**
-   * KEYCODE_F
+   * Key F
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -456,7 +418,7 @@ export declare enum KeyCode {
   KEYCODE_F = 2022,
 
   /**
-   * KEYCODE_G
+   * Key G
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -465,7 +427,7 @@ export declare enum KeyCode {
   KEYCODE_G = 2023,
 
   /**
-   * KEYCODE_H
+   * Key H
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -474,7 +436,7 @@ export declare enum KeyCode {
   KEYCODE_H = 2024,
 
   /**
-   * KEYCODE_I
+   * Key I
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -483,7 +445,7 @@ export declare enum KeyCode {
   KEYCODE_I = 2025,
 
   /**
-   * KEYCODE_J
+   * Key J
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -492,7 +454,7 @@ export declare enum KeyCode {
   KEYCODE_J = 2026,
 
   /**
-   * KEYCODE_K
+   * Key K
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -501,7 +463,7 @@ export declare enum KeyCode {
   KEYCODE_K = 2027,
 
   /**
-   * KEYCODE_L
+   * Key L
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -510,7 +472,7 @@ export declare enum KeyCode {
   KEYCODE_L = 2028,
 
   /**
-   * KEYCODE_M
+   * Key M
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -519,7 +481,7 @@ export declare enum KeyCode {
   KEYCODE_M = 2029,
 
   /**
-   * KEYCODE_N
+   * Key N
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -528,7 +490,7 @@ export declare enum KeyCode {
   KEYCODE_N = 2030,
 
   /**
-   * KEYCODE_O
+   * Key O
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -537,7 +499,7 @@ export declare enum KeyCode {
   KEYCODE_O = 2031,
 
   /**
-   * KEYCODE_P
+   * Key P
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -546,7 +508,7 @@ export declare enum KeyCode {
   KEYCODE_P = 2032,
 
   /**
-   * KEYCODE_Q
+   * Key Q
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -555,7 +517,7 @@ export declare enum KeyCode {
   KEYCODE_Q = 2033,
 
   /**
-   * KEYCODE_R
+   * Key R
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -564,7 +526,7 @@ export declare enum KeyCode {
   KEYCODE_R = 2034,
 
   /**
-   * KEYCODE_S
+   * Key S
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -573,7 +535,7 @@ export declare enum KeyCode {
   KEYCODE_S = 2035,
 
   /**
-   * KEYCODE_T
+   * Key T
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -582,7 +544,7 @@ export declare enum KeyCode {
   KEYCODE_T = 2036,
 
   /**
-   * KEYCODE_U
+   * Key U
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -591,7 +553,7 @@ export declare enum KeyCode {
   KEYCODE_U = 2037,
 
   /**
-   * KEYCODE_V
+   * Key V
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -600,7 +562,7 @@ export declare enum KeyCode {
   KEYCODE_V = 2038,
 
   /**
-   * KEYCODE_W
+   * Key W
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -609,7 +571,7 @@ export declare enum KeyCode {
   KEYCODE_W = 2039,
 
   /**
-   * KEYCODE_X
+   * Key X
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -618,7 +580,7 @@ export declare enum KeyCode {
   KEYCODE_X = 2040,
 
   /**
-   * KEYCODE_Y
+   * Key Y
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -627,7 +589,7 @@ export declare enum KeyCode {
   KEYCODE_Y = 2041,
 
   /**
-   * KEYCODE_Z
+   * Key Z
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -636,7 +598,7 @@ export declare enum KeyCode {
   KEYCODE_Z = 2042,
 
   /**
-   * KEYCODE_COMMA
+   * Key ,
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -645,7 +607,7 @@ export declare enum KeyCode {
   KEYCODE_COMMA = 2043,
 
   /**
-   * KEYCODE_PERIOD
+   * Key .
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -654,7 +616,7 @@ export declare enum KeyCode {
   KEYCODE_PERIOD = 2044,
 
   /**
-   * KEYCODE_ALT_LEFT
+   * Left Alt key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -663,7 +625,7 @@ export declare enum KeyCode {
   KEYCODE_ALT_LEFT = 2045,
 
   /**
-   * KEYCODE_ALT_RIGHT
+   * Right Alt key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -672,7 +634,7 @@ export declare enum KeyCode {
   KEYCODE_ALT_RIGHT = 2046,
 
   /**
-   * KEYCODE_SHIFT_LEFT
+   * Left Shift key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -681,7 +643,7 @@ export declare enum KeyCode {
   KEYCODE_SHIFT_LEFT = 2047,
 
   /**
-   * KEYCODE_SHIFT_RIGHT
+   * Right Shift key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -690,7 +652,7 @@ export declare enum KeyCode {
   KEYCODE_SHIFT_RIGHT = 2048,
 
   /**
-   * KEYCODE_TAB
+   * Tab key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -699,7 +661,7 @@ export declare enum KeyCode {
   KEYCODE_TAB = 2049,
 
   /**
-   * KEYCODE_SPACE
+   * Space key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -708,7 +670,7 @@ export declare enum KeyCode {
   KEYCODE_SPACE = 2050,
 
   /**
-   * KEYCODE_SYM
+   * Symbol key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -735,7 +697,7 @@ export declare enum KeyCode {
   KEYCODE_ENVELOPE = 2053,
 
   /**
-   * KEYCODE_ENTER
+   * Enter key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -744,7 +706,7 @@ export declare enum KeyCode {
   KEYCODE_ENTER = 2054,
 
   /**
-   * KEYCODE_DEL
+   * Delete key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -753,7 +715,7 @@ export declare enum KeyCode {
   KEYCODE_DEL = 2055,
 
   /**
-   * Key `
+   * Key /
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -834,7 +796,7 @@ export declare enum KeyCode {
   KEYCODE_SLASH = 2064,
 
   /**
-   * Key @
+   * Key /
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -852,7 +814,7 @@ export declare enum KeyCode {
   KEYCODE_PLUS = 2066,
 
   /**
-   * KEYCODE_MENU
+   * Menu key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -861,7 +823,7 @@ export declare enum KeyCode {
   KEYCODE_MENU = 2067,
 
   /**
-   * KEYCODE_PAGE_UP
+   * Page Up key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -870,7 +832,7 @@ export declare enum KeyCode {
   KEYCODE_PAGE_UP = 2068,
 
   /**
-   * KEYCODE_PAGE_DOWN
+   * Page Down key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -879,7 +841,7 @@ export declare enum KeyCode {
   KEYCODE_PAGE_DOWN = 2069,
 
   /**
-   * KEYCODE_ESCAPE
+   * Esc key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -888,7 +850,7 @@ export declare enum KeyCode {
   KEYCODE_ESCAPE = 2070,
 
   /**
-   * KEYCODE_FORWARD_DEL
+   * Forward Delete key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -897,7 +859,7 @@ export declare enum KeyCode {
   KEYCODE_FORWARD_DEL = 2071,
 
   /**
-   * KEYCODE_CTRL_LEFT
+   * Left Ctrl key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -906,7 +868,7 @@ export declare enum KeyCode {
   KEYCODE_CTRL_LEFT = 2072,
 
   /**
-   * KEYCODE_CTRL_RIGHT
+   * Right Ctrl key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -915,7 +877,7 @@ export declare enum KeyCode {
   KEYCODE_CTRL_RIGHT = 2073,
 
   /**
-   * KEYCODE_CAPS_LOCK
+   * Caps Lock key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -924,7 +886,7 @@ export declare enum KeyCode {
   KEYCODE_CAPS_LOCK = 2074,
 
   /**
-   * KEYCODE_SCROLL_LOCK
+   * Scroll Lock key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -933,7 +895,7 @@ export declare enum KeyCode {
   KEYCODE_SCROLL_LOCK = 2075,
 
   /**
-   * KEYCODE_META_LEFT
+   * Left Meta key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -942,7 +904,7 @@ export declare enum KeyCode {
   KEYCODE_META_LEFT = 2076,
 
   /**
-   * KEYCODE_META_RIGHT
+   * Right Meta key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -951,7 +913,7 @@ export declare enum KeyCode {
   KEYCODE_META_RIGHT = 2077,
 
   /**
-   * KEYCODE_FUNCTION
+   * Function key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -960,7 +922,7 @@ export declare enum KeyCode {
   KEYCODE_FUNCTION = 2078,
 
   /**
-   * KEYCODE_SYSRQ
+   * System Request/Print Screen key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -969,7 +931,7 @@ export declare enum KeyCode {
   KEYCODE_SYSRQ = 2079,
 
   /**
-   * KEYCODE_BREAK
+   * Break/Pause key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -978,7 +940,7 @@ export declare enum KeyCode {
   KEYCODE_BREAK = 2080,
 
   /**
-   * KEYCODE_MOVE_HOME
+   * Move to Home key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -987,7 +949,7 @@ export declare enum KeyCode {
   KEYCODE_MOVE_HOME = 2081,
 
   /**
-   * KEYCODE_MOVE_END
+   * Move to End key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -996,7 +958,7 @@ export declare enum KeyCode {
   KEYCODE_MOVE_END = 2082,
 
   /**
-   * KEYCODE_INSERT
+   * Insert key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -1005,7 +967,7 @@ export declare enum KeyCode {
   KEYCODE_INSERT = 2083,
 
   /**
-   * KEYCODE_FORWARD
+   * Forward key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -1014,39 +976,27 @@ export declare enum KeyCode {
   KEYCODE_FORWARD = 2084,
 
   /**
-   * KEYCODE_MEDIA_PLAY
+   * Play key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 9
-   */
-  /**
-   * KEYCODE_MEDIA_PLAY
-   *
-   * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 9 dynamic
    * @since 23 static
    */
   KEYCODE_MEDIA_PLAY = 2085,
 
   /**
-   * KEYCODE_MEDIA_PAUSE
+   * Media: Pause Key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 9
-   */
-  /**
-   * KEYCODE_MEDIA_PAUSE
-   *
-   * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 9 dynamic
    * @since 23 static
    */
   KEYCODE_MEDIA_PAUSE = 2086,
 
   /**
-   * KEYCODE_MEDIA_CLOSE
+   * Media: Close Key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -1055,7 +1005,7 @@ export declare enum KeyCode {
   KEYCODE_MEDIA_CLOSE = 2087,
 
   /**
-   * KEYCODE_MEDIA_EJECT
+   * Media: Eject Key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -1064,7 +1014,7 @@ export declare enum KeyCode {
   KEYCODE_MEDIA_EJECT = 2088,
 
   /**
-   * KEYCODE_MEDIA_RECORD
+   * Record key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -1073,7 +1023,7 @@ export declare enum KeyCode {
   KEYCODE_MEDIA_RECORD = 2089,
 
   /**
-   * KEYCODE_F1
+   * F1 key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -1082,7 +1032,7 @@ export declare enum KeyCode {
   KEYCODE_F1 = 2090,
 
   /**
-   * KEYCODE_F2
+   * F2 key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -1091,7 +1041,7 @@ export declare enum KeyCode {
   KEYCODE_F2 = 2091,
 
   /**
-   * KEYCODE_F3
+   * F3 key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -1100,7 +1050,7 @@ export declare enum KeyCode {
   KEYCODE_F3 = 2092,
 
   /**
-   * KEYCODE_F4
+   * F4 key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -1109,7 +1059,7 @@ export declare enum KeyCode {
   KEYCODE_F4 = 2093,
 
   /**
-   * KEYCODE_F5
+   * F5 key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -1118,7 +1068,7 @@ export declare enum KeyCode {
   KEYCODE_F5 = 2094,
 
   /**
-   * KEYCODE_F6
+   * F6 key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -1127,7 +1077,7 @@ export declare enum KeyCode {
   KEYCODE_F6 = 2095,
 
   /**
-   * KEYCODE_F7
+   * F7 key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -1136,7 +1086,7 @@ export declare enum KeyCode {
   KEYCODE_F7 = 2096,
 
   /**
-   * KEYCODE_F8
+   * F8 key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -1145,7 +1095,7 @@ export declare enum KeyCode {
   KEYCODE_F8 = 2097,
 
   /**
-   * KEYCODE_F9
+   * F9 key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -1154,7 +1104,7 @@ export declare enum KeyCode {
   KEYCODE_F9 = 2098,
 
   /**
-   * KEYCODE_F10
+   * F10 key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -1163,7 +1113,7 @@ export declare enum KeyCode {
   KEYCODE_F10 = 2099,
 
   /**
-   * KEYCODE_F11
+   * F11 key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -1172,7 +1122,7 @@ export declare enum KeyCode {
   KEYCODE_F11 = 2100,
 
   /**
-   * KEYCODE_F12
+   * F12 key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -1370,7 +1320,7 @@ export declare enum KeyCode {
   KEYCODE_NUMPAD_RIGHT_PAREN = 2122,
 
   /**
-   * KEYCODE_VIRTUAL_MULTITASK
+   * Multi-task key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -1478,7 +1428,7 @@ export declare enum KeyCode {
   KEYCODE_BUTTON_MODE = 2313,
 
   /**
-   *Joystick key THUMBL
+   * Joystick key THUMBL
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 15 dynamic
@@ -1496,7 +1446,7 @@ export declare enum KeyCode {
   KEYCODE_BUTTON_THUMBR = 2315,
 
   /**
-   * KEYCODE_SLEEP
+   * Sleep key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -1505,7 +1455,7 @@ export declare enum KeyCode {
   KEYCODE_SLEEP = 2600,
 
   /**
-   * KEYCODE_ZENKAKU_HANKAKU
+   * Zenkaku/Hankaku key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -1514,7 +1464,7 @@ export declare enum KeyCode {
   KEYCODE_ZENKAKU_HANKAKU = 2601,
 
   /**
-   * KEYCODE_102ND
+   * International Keyboard Extension key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -1523,7 +1473,7 @@ export declare enum KeyCode {
   KEYCODE_102ND = 2602,
 
   /**
-   * KEYCODE_RO
+   * Ro key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -1532,7 +1482,7 @@ export declare enum KeyCode {
   KEYCODE_RO = 2603,
 
   /**
-   * KEYCODE_KATAKANA
+   * Katakana key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -1541,7 +1491,7 @@ export declare enum KeyCode {
   KEYCODE_KATAKANA = 2604,
 
   /**
-   * KEYCODE_HIRAGANA
+   * Hiragana key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -1550,7 +1500,7 @@ export declare enum KeyCode {
   KEYCODE_HIRAGANA = 2605,
 
   /**
-   * KEYCODE_HENKAN
+   * Henkan key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -1559,7 +1509,7 @@ export declare enum KeyCode {
   KEYCODE_HENKAN = 2606,
 
   /**
-   * KEYCODE_KATAKANA_HIRAGANA
+   * Katakana/Hiragana key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -1568,7 +1518,7 @@ export declare enum KeyCode {
   KEYCODE_KATAKANA_HIRAGANA = 2607,
 
   /**
-   * KEYCODE_MUHENKAN
+   * Muhenkan key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -1577,7 +1527,7 @@ export declare enum KeyCode {
   KEYCODE_MUHENKAN = 2608,
 
   /**
-   * KEYCODE_LINEFEED
+   * Linefeed key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -1586,7 +1536,7 @@ export declare enum KeyCode {
   KEYCODE_LINEFEED = 2609,
 
   /**
-   * KEYCODE_MACRO
+   * Macro key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -1595,7 +1545,7 @@ export declare enum KeyCode {
   KEYCODE_MACRO = 2610,
 
   /**
-   * KEYCODE_NUMPAD_PLUSMINUS
+   * Plus/Minus key on the numeric keypad
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -1604,7 +1554,7 @@ export declare enum KeyCode {
   KEYCODE_NUMPAD_PLUSMINUS = 2611,
 
   /**
-   * KEYCODE_SCALE
+   * Scale key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -1613,7 +1563,7 @@ export declare enum KeyCode {
   KEYCODE_SCALE = 2612,
 
   /**
-   * KEYCODE_HANGUEL
+   * Hanguel key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -1622,7 +1572,7 @@ export declare enum KeyCode {
   KEYCODE_HANGUEL = 2613,
 
   /**
-   * KEYCODE_HANJA
+   * Hanja key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -1631,7 +1581,7 @@ export declare enum KeyCode {
   KEYCODE_HANJA = 2614,
 
   /**
-   * KEYCODE_YEN
+   * Yen key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -1640,7 +1590,7 @@ export declare enum KeyCode {
   KEYCODE_YEN = 2615,
 
   /**
-   * KEYCODE_STOP
+   * Stop key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -1649,7 +1599,7 @@ export declare enum KeyCode {
   KEYCODE_STOP = 2616,
 
   /**
-   * KEYCODE_AGAIN
+   * Again key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -1658,7 +1608,7 @@ export declare enum KeyCode {
   KEYCODE_AGAIN = 2617,
 
   /**
-   * KEYCODE_PROPS
+   * Props key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -1667,7 +1617,7 @@ export declare enum KeyCode {
   KEYCODE_PROPS = 2618,
 
   /**
-   * KEYCODE_UNDO
+   * Undo key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -1676,7 +1626,7 @@ export declare enum KeyCode {
   KEYCODE_UNDO = 2619,
 
   /**
-   * KEYCODE_COPY
+   * Copy key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -1685,7 +1635,7 @@ export declare enum KeyCode {
   KEYCODE_COPY = 2620,
 
   /**
-   * KEYCODE_OPEN
+   * Open key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -1694,7 +1644,7 @@ export declare enum KeyCode {
   KEYCODE_OPEN = 2621,
 
   /**
-   * KEYCODE_PASTE
+   * Paste key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -1703,7 +1653,7 @@ export declare enum KeyCode {
   KEYCODE_PASTE = 2622,
 
   /**
-   * KEYCODE_FIND
+   * Find key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -1712,7 +1662,7 @@ export declare enum KeyCode {
   KEYCODE_FIND = 2623,
 
   /**
-   * KEYCODE_CUT
+   * Cut key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -1721,7 +1671,7 @@ export declare enum KeyCode {
   KEYCODE_CUT = 2624,
 
   /**
-   * KEYCODE_HELP
+   * Help key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -1739,7 +1689,7 @@ export declare enum KeyCode {
   KEYCODE_CALC = 2626,
 
   /**
-   * KEYCODE_FILE
+   * File key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -1748,7 +1698,7 @@ export declare enum KeyCode {
   KEYCODE_FILE = 2627,
 
   /**
-   * KEYCODE_BOOKMARKS
+   * Bookmarks key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -1757,7 +1707,7 @@ export declare enum KeyCode {
   KEYCODE_BOOKMARKS = 2628,
 
   /**
-   * KEYCODE_NEXT
+   * Page Down key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -1766,7 +1716,12 @@ export declare enum KeyCode {
   KEYCODE_NEXT = 2629,
 
   /**
-   * KEYCODE_PLAYPAUSE
+   * Play/Pause key
+   *
+   * Difference between this key and **KEYCODE_MEDIA_PLAY_PAUSE**:
+   *
+   * **KEYCODE_PLAYPAUSE** is an earlier definition, while **KEYCODE_MEDIA_PLAY_PAUSE** is designed for modern media key
+   * devices.
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -1775,7 +1730,7 @@ export declare enum KeyCode {
   KEYCODE_PLAYPAUSE = 2630,
 
   /**
-   * KEYCODE_PREVIOUS
+   * Page Up key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -1784,7 +1739,7 @@ export declare enum KeyCode {
   KEYCODE_PREVIOUS = 2631,
 
   /**
-   * KEYCODE_STOPCD
+   * Stop CD key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -1793,7 +1748,7 @@ export declare enum KeyCode {
   KEYCODE_STOPCD = 2632,
 
   /**
-   * KEYCODE_CONFIG
+   * Config key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -1802,7 +1757,7 @@ export declare enum KeyCode {
   KEYCODE_CONFIG = 2634,
 
   /**
-   * KEYCODE_REFRESH
+   * Refresh key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -1811,7 +1766,7 @@ export declare enum KeyCode {
   KEYCODE_REFRESH = 2635,
 
   /**
-   * KEYCODE_EXIT
+   * Exit key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -1820,7 +1775,7 @@ export declare enum KeyCode {
   KEYCODE_EXIT = 2636,
 
   /**
-   * KEYCODE_EDIT
+   * Edit key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -1829,7 +1784,7 @@ export declare enum KeyCode {
   KEYCODE_EDIT = 2637,
 
   /**
-   * KEYCODE_SCROLLUP
+   * Scroll Up key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -1838,7 +1793,7 @@ export declare enum KeyCode {
   KEYCODE_SCROLLUP = 2638,
 
   /**
-   * KEYCODE_SCROLLDOWN
+   * Scroll Down key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -1847,7 +1802,7 @@ export declare enum KeyCode {
   KEYCODE_SCROLLDOWN = 2639,
 
   /**
-   * KEYCODE_NEW
+   * New key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -1856,7 +1811,7 @@ export declare enum KeyCode {
   KEYCODE_NEW = 2640,
 
   /**
-   * KEYCODE_REDO
+   * Redo key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -1865,7 +1820,7 @@ export declare enum KeyCode {
   KEYCODE_REDO = 2641,
 
   /**
-   * KEYCODE_CLOSE
+   * Close key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -1874,7 +1829,7 @@ export declare enum KeyCode {
   KEYCODE_CLOSE = 2642,
 
   /**
-   * KEYCODE_PLAY
+   * Play key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -1883,7 +1838,7 @@ export declare enum KeyCode {
   KEYCODE_PLAY = 2643,
 
   /**
-   * KEYCODE_BASSBOOST
+   * Bass Boost key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -1892,7 +1847,7 @@ export declare enum KeyCode {
   KEYCODE_BASSBOOST = 2644,
 
   /**
-   * KEYCODE_PRINT
+   * Print key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -1901,7 +1856,7 @@ export declare enum KeyCode {
   KEYCODE_PRINT = 2645,
 
   /**
-   * KEYCODE_CHAT
+   * Chat key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -1910,7 +1865,7 @@ export declare enum KeyCode {
   KEYCODE_CHAT = 2646,
 
   /**
-   * KEYCODE_FINANCE
+   * Finance key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -1919,7 +1874,7 @@ export declare enum KeyCode {
   KEYCODE_FINANCE = 2647,
 
   /**
-   * KEYCODE_CANCEL
+   * Cancel key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -1928,7 +1883,7 @@ export declare enum KeyCode {
   KEYCODE_CANCEL = 2648,
 
   /**
-   * KEYCODE_KBDILLUM_TOGGLE
+   * Keyboard Illumination Toggle key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -1937,7 +1892,7 @@ export declare enum KeyCode {
   KEYCODE_KBDILLUM_TOGGLE = 2649,
 
   /**
-   * KEYCODE_KBDILLUM_DOWN
+   * Keyboard Illumination Down key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -1946,7 +1901,7 @@ export declare enum KeyCode {
   KEYCODE_KBDILLUM_DOWN = 2650,
 
   /**
-   * KEYCODE_KBDILLUM_UP
+   * Keyboard Illumination Up key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -1955,7 +1910,7 @@ export declare enum KeyCode {
   KEYCODE_KBDILLUM_UP = 2651,
 
   /**
-   * KEYCODE_SEND
+   * Send key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -1964,7 +1919,7 @@ export declare enum KeyCode {
   KEYCODE_SEND = 2652,
 
   /**
-   * KEYCODE_REPLY
+   * Reply key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -1973,7 +1928,7 @@ export declare enum KeyCode {
   KEYCODE_REPLY = 2653,
 
   /**
-   * KEYCODE_FORWARDMAIL
+   * Forward Mail key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -1982,7 +1937,7 @@ export declare enum KeyCode {
   KEYCODE_FORWARDMAIL = 2654,
 
   /**
-   * KEYCODE_SAVE
+   * Save key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -1991,7 +1946,7 @@ export declare enum KeyCode {
   KEYCODE_SAVE = 2655,
 
   /**
-   * KEYCODE_DOCUMENTS
+   * Documents key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -2000,7 +1955,7 @@ export declare enum KeyCode {
   KEYCODE_DOCUMENTS = 2656,
 
   /**
-   * KEYCODE_VIDEO_NEXT
+   * Next Video key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -2009,7 +1964,7 @@ export declare enum KeyCode {
   KEYCODE_VIDEO_NEXT = 2657,
 
   /**
-   * KEYCODE_VIDEO_PREV
+   * Previous Video key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -2018,7 +1973,7 @@ export declare enum KeyCode {
   KEYCODE_VIDEO_PREV = 2658,
 
   /**
-   * KEYCODE_BRIGHTNESS_CYCLE
+   * Brightness Cycle key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -2027,7 +1982,7 @@ export declare enum KeyCode {
   KEYCODE_BRIGHTNESS_CYCLE = 2659,
 
   /**
-   * KEYCODE_BRIGHTNESS_ZERO
+   * Brightness Zero key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -2036,7 +1991,7 @@ export declare enum KeyCode {
   KEYCODE_BRIGHTNESS_ZERO = 2660,
 
   /**
-   * KEYCODE_DISPLAY_OFF
+   * Display Off key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -2045,7 +2000,7 @@ export declare enum KeyCode {
   KEYCODE_DISPLAY_OFF = 2661,
 
   /**
-   * KEYCODE_BTN_MISC
+   * Misc Button key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -2054,7 +2009,7 @@ export declare enum KeyCode {
   KEYCODE_BTN_MISC = 2662,
 
   /**
-   * KEYCODE_GOTO
+   * Goto key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -2063,7 +2018,7 @@ export declare enum KeyCode {
   KEYCODE_GOTO = 2663,
 
   /**
-   * KEYCODE_INFO
+   * Info key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -2072,7 +2027,7 @@ export declare enum KeyCode {
   KEYCODE_INFO = 2664,
 
   /**
-   * KEYCODE_PROGRAM
+   * Program key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -2081,7 +2036,7 @@ export declare enum KeyCode {
   KEYCODE_PROGRAM = 2665,
 
   /**
-   * KEYCODE_PVR
+   * PVR key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -2090,7 +2045,7 @@ export declare enum KeyCode {
   KEYCODE_PVR = 2666,
 
   /**
-   * KEYCODE_SUBTITLE
+   * Subtitle key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -2099,7 +2054,7 @@ export declare enum KeyCode {
   KEYCODE_SUBTITLE = 2667,
 
   /**
-   * KEYCODE_FULL_SCREEN
+   * Full Screen key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -2108,7 +2063,7 @@ export declare enum KeyCode {
   KEYCODE_FULL_SCREEN = 2668,
 
   /**
-   * KEYCODE_KEYBOARD
+   * Keyboard.
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -2117,7 +2072,7 @@ export declare enum KeyCode {
   KEYCODE_KEYBOARD = 2669,
 
   /**
-   * KEYCODE_ASPECT_RATIO
+   * Aspect Ratio key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -2126,7 +2081,7 @@ export declare enum KeyCode {
   KEYCODE_ASPECT_RATIO = 2670,
 
   /**
-   * KEYCODE_PC
+   * Port Control key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -2135,7 +2090,7 @@ export declare enum KeyCode {
   KEYCODE_PC = 2671,
 
   /**
-   * KEYCODE_TV
+   * TV key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -2144,7 +2099,7 @@ export declare enum KeyCode {
   KEYCODE_TV = 2672,
 
   /**
-   * KEYCODE_TV2
+   * TV key 2
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -2153,7 +2108,7 @@ export declare enum KeyCode {
   KEYCODE_TV2 = 2673,
 
   /**
-   * KEYCODE_VCR
+   * VCR key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -2162,7 +2117,7 @@ export declare enum KeyCode {
   KEYCODE_VCR = 2674,
 
   /**
-   * KEYCODE_VCR2
+   * VCR key 2
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -2171,7 +2126,7 @@ export declare enum KeyCode {
   KEYCODE_VCR2 = 2675,
 
   /**
-   * KEYCODE_SAT
+   * SAT key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -2180,7 +2135,7 @@ export declare enum KeyCode {
   KEYCODE_SAT = 2676,
 
   /**
-   * KEYCODE_CD
+   * CD key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -2189,7 +2144,7 @@ export declare enum KeyCode {
   KEYCODE_CD = 2677,
 
   /**
-   * KEYCODE_TAPE
+   * Tape key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -2198,7 +2153,7 @@ export declare enum KeyCode {
   KEYCODE_TAPE = 2678,
 
   /**
-   * KEYCODE_TUNER
+   * Tuner key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -2207,7 +2162,7 @@ export declare enum KeyCode {
   KEYCODE_TUNER = 2679,
 
   /**
-   * KEYCODE_PLAYER
+   * Player key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -2216,7 +2171,7 @@ export declare enum KeyCode {
   KEYCODE_PLAYER = 2680,
 
   /**
-   * KEYCODE_DVD
+   * DVD key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -2225,7 +2180,7 @@ export declare enum KeyCode {
   KEYCODE_DVD = 2681,
 
   /**
-   * KEYCODE_AUDIO
+   * Audio key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -2234,7 +2189,7 @@ export declare enum KeyCode {
   KEYCODE_AUDIO = 2682,
 
   /**
-   * KEYCODE_VIDEO
+   * Video key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -2243,7 +2198,7 @@ export declare enum KeyCode {
   KEYCODE_VIDEO = 2683,
 
   /**
-   * KEYCODE_MEMO
+   * Memo key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -2252,7 +2207,7 @@ export declare enum KeyCode {
   KEYCODE_MEMO = 2684,
 
   /**
-   * KEYCODE_CALENDAR
+   * Calendar key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -2261,7 +2216,7 @@ export declare enum KeyCode {
   KEYCODE_CALENDAR = 2685,
 
   /**
-   * KEYCODE_RED
+   * Red indicator.
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -2270,7 +2225,7 @@ export declare enum KeyCode {
   KEYCODE_RED = 2686,
 
   /**
-   * KEYCODE_GREEN
+   * Green indicator.
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -2279,7 +2234,7 @@ export declare enum KeyCode {
   KEYCODE_GREEN = 2687,
 
   /**
-   * KEYCODE_YELLOW
+   * Yellow indicator.
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -2288,7 +2243,7 @@ export declare enum KeyCode {
   KEYCODE_YELLOW = 2688,
 
   /**
-   * KEYCODE_BLUE
+   * Blue indicator.
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -2297,7 +2252,7 @@ export declare enum KeyCode {
   KEYCODE_BLUE = 2689,
 
   /**
-   * KEYCODE_CHANNELUP
+   * Channel Up key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -2306,7 +2261,7 @@ export declare enum KeyCode {
   KEYCODE_CHANNELUP = 2690,
 
   /**
-   * KEYCODE_CHANNELDOWN
+   * Channel Down key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -2315,7 +2270,7 @@ export declare enum KeyCode {
   KEYCODE_CHANNELDOWN = 2691,
 
   /**
-   * KEYCODE_LAST
+   * Last key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -2324,7 +2279,7 @@ export declare enum KeyCode {
   KEYCODE_LAST = 2692,
 
   /**
-   * KEYCODE_RESTART
+   * Restart key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -2333,7 +2288,7 @@ export declare enum KeyCode {
   KEYCODE_RESTART = 2693,
 
   /**
-   * KEYCODE_SLOW
+   * Slow key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -2342,7 +2297,7 @@ export declare enum KeyCode {
   KEYCODE_SLOW = 2694,
 
   /**
-   * KEYCODE_SHUFFLE
+   * Shuffle key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -2351,7 +2306,7 @@ export declare enum KeyCode {
   KEYCODE_SHUFFLE = 2695,
 
   /**
-   * KEYCODE_VIDEOPHONE
+   * Videophone key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -2360,7 +2315,7 @@ export declare enum KeyCode {
   KEYCODE_VIDEOPHONE = 2696,
 
   /**
-   * KEYCODE_GAMES
+   * Games key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -2369,7 +2324,7 @@ export declare enum KeyCode {
   KEYCODE_GAMES = 2697,
 
   /**
-   * KEYCODE_ZOOMIN
+   * Zoom in
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -2378,7 +2333,7 @@ export declare enum KeyCode {
   KEYCODE_ZOOMIN = 2698,
 
   /**
-   * KEYCODE_ZOOMOUT
+   * Zoom out
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -2387,7 +2342,7 @@ export declare enum KeyCode {
   KEYCODE_ZOOMOUT = 2699,
 
   /**
-   * KEYCODE_ZOOMRESET
+   * Zoom Reset key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -2396,7 +2351,7 @@ export declare enum KeyCode {
   KEYCODE_ZOOMRESET = 2700,
 
   /**
-   * KEYCODE_WORDPROCESSOR
+   * Word Processor key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -2405,7 +2360,7 @@ export declare enum KeyCode {
   KEYCODE_WORDPROCESSOR = 2701,
 
   /**
-   * KEYCODE_EDITOR
+   * Editor key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -2414,7 +2369,7 @@ export declare enum KeyCode {
   KEYCODE_EDITOR = 2702,
 
   /**
-   * KEYCODE_SPREADSHEET
+   * Spreadsheet key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -2423,7 +2378,7 @@ export declare enum KeyCode {
   KEYCODE_SPREADSHEET = 2703,
 
   /**
-   * KEYCODE_GRAPHICSEDITOR
+   * Graphics Editor key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -2432,7 +2387,7 @@ export declare enum KeyCode {
   KEYCODE_GRAPHICSEDITOR = 2704,
 
   /**
-   * KEYCODE_PRESENTATION
+   * Presentation key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -2441,7 +2396,7 @@ export declare enum KeyCode {
   KEYCODE_PRESENTATION = 2705,
 
   /**
-   * KEYCODE_DATABASE
+   * Database key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -2450,7 +2405,7 @@ export declare enum KeyCode {
   KEYCODE_DATABASE = 2706,
 
   /**
-   * KEYCODE_NEWS
+   * News key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -2459,7 +2414,7 @@ export declare enum KeyCode {
   KEYCODE_NEWS = 2707,
 
   /**
-   * KEYCODE_VOICEMAIL
+   * Voicemail key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -2468,7 +2423,7 @@ export declare enum KeyCode {
   KEYCODE_VOICEMAIL = 2708,
 
   /**
-   * KEYCODE_ADDRESSBOOK
+   * Address book key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -2477,7 +2432,7 @@ export declare enum KeyCode {
   KEYCODE_ADDRESSBOOK = 2709,
 
   /**
-   * KEYCODE_MESSENGER
+   * Messenger key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -2486,7 +2441,7 @@ export declare enum KeyCode {
   KEYCODE_MESSENGER = 2710,
 
   /**
-   * KEYCODE_BRIGHTNESS_TOGGLE
+   * Brightness Toggle key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -2495,7 +2450,7 @@ export declare enum KeyCode {
   KEYCODE_BRIGHTNESS_TOGGLE = 2711,
 
   /**
-   * KEYCODE_SPELLCHECK
+   * Spell Check key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -2504,7 +2459,7 @@ export declare enum KeyCode {
   KEYCODE_SPELLCHECK = 2712,
 
   /**
-   * KEYCODE_COFFEE
+   * Coffee key, which is used to launch screen lock or screen saver
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -2513,7 +2468,7 @@ export declare enum KeyCode {
   KEYCODE_COFFEE = 2713,
 
   /**
-   * KEYCODE_MEDIA_REPEAT
+   * Media Repeat key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -2522,7 +2477,7 @@ export declare enum KeyCode {
   KEYCODE_MEDIA_REPEAT = 2714,
 
   /**
-   * KEYCODE_IMAGES
+   * Images key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -2531,7 +2486,7 @@ export declare enum KeyCode {
   KEYCODE_IMAGES = 2715,
 
   /**
-   * KEYCODE_BUTTONCONFIG
+   * Button Configuration key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -2540,7 +2495,7 @@ export declare enum KeyCode {
   KEYCODE_BUTTONCONFIG = 2716,
 
   /**
-   * KEYCODE_TASKMANAGER
+   * Task Manager key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -2549,7 +2504,7 @@ export declare enum KeyCode {
   KEYCODE_TASKMANAGER = 2717,
 
   /**
-   * KEYCODE_JOURNAL
+   * Log key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -2558,7 +2513,7 @@ export declare enum KeyCode {
   KEYCODE_JOURNAL = 2718,
 
   /**
-   * KEYCODE_CONTROLPANEL
+   * Control Panel key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -2567,7 +2522,7 @@ export declare enum KeyCode {
   KEYCODE_CONTROLPANEL = 2719,
 
   /**
-   * KEYCODE_APPSELECT
+   * App Select key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -2576,7 +2531,7 @@ export declare enum KeyCode {
   KEYCODE_APPSELECT = 2720,
 
   /**
-   * KEYCODE_SCREENSAVER
+   * Screen Saver key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -2585,7 +2540,7 @@ export declare enum KeyCode {
   KEYCODE_SCREENSAVER = 2721,
 
   /**
-   * KEYCODE_ASSISTANT
+   * Smart key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -2594,7 +2549,7 @@ export declare enum KeyCode {
   KEYCODE_ASSISTANT = 2722,
 
   /**
-   * KEYCODE_KBD_LAYOUT_NEXT
+   * Next Keyboard Layout key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -2603,7 +2558,7 @@ export declare enum KeyCode {
   KEYCODE_KBD_LAYOUT_NEXT = 2723,
 
   /**
-   * KEYCODE_BRIGHTNESS_MIN
+   * Min Brightness key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -2612,7 +2567,7 @@ export declare enum KeyCode {
   KEYCODE_BRIGHTNESS_MIN = 2724,
 
   /**
-   * KEYCODE_BRIGHTNESS_MAX
+   * Max Brightness key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -2657,7 +2612,7 @@ export declare enum KeyCode {
   KEYCODE_KBDINPUTASSIST_NEXTGROUP = 2729,
 
   /**
-   * KEYCODE_KBDINPUTASSIST_ACCEPT
+   * Keyboard Input-assisted Accept key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -2666,7 +2621,7 @@ export declare enum KeyCode {
   KEYCODE_KBDINPUTASSIST_ACCEPT = 2730,
 
   /**
-   * KEYCODE_KBDINPUTASSIST_CANCEL
+   * Keyboard Input-assisted Cancel key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -2675,7 +2630,11 @@ export declare enum KeyCode {
   KEYCODE_KBDINPUTASSIST_CANCEL = 2731,
 
   /**
-   * KEYCODE_MOUSE_ASSISTANT
+   * Mouse AI assistant key.
+   *
+   * **Starting Version:** 26.0.0
+   *
+   * **Model constraint:** This API can only be used in the stage model.
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @stagemodelonly
@@ -2684,7 +2643,11 @@ export declare enum KeyCode {
   KEYCODE_MOUSE_ASSISTANT = 2732,
 
   /**
-   * KEYCODE_MOUSE_INTELLIGENCE_SELECTION
+   * Mouse smart selection key.
+   *
+   * **Starting Version:** 26.0.0
+   *
+   * **Model constraint:** This API can only be used in the stage model.
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @stagemodelonly
@@ -2693,7 +2656,11 @@ export declare enum KeyCode {
   KEYCODE_MOUSE_INTELLIGENCE_SELECTION = 2733,
 
   /**
-   * KEYCODE_AOD_SINGLE_CLICK
+   * Phone touchscreen single-click event, used in Always-On Display (AOD) mode.
+   *
+   * **Starting Version:** 26.0.0
+   *
+   * **Model constraint:** This API can only be used in the stage model.
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @stagemodelonly
@@ -2702,7 +2669,7 @@ export declare enum KeyCode {
   KEYCODE_AOD_SINGLE_CLICK = 2740,
 
   /**
-   * KEYCODE_FRONT
+   * Front key, which is used to launch the windshield defogger
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -2711,7 +2678,7 @@ export declare enum KeyCode {
   KEYCODE_FRONT = 2800,
 
   /**
-   * KEYCODE_SETUP
+   * Setup key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -2720,7 +2687,7 @@ export declare enum KeyCode {
   KEYCODE_SETUP = 2801,
 
   /**
-   * KEYCODE_WAKEUP
+   * Wakeup key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -2729,7 +2696,7 @@ export declare enum KeyCode {
   KEYCODE_WAKEUP = 2802,
 
   /**
-   * KEYCODE_SENDFILE
+   * Send File key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -2738,7 +2705,7 @@ export declare enum KeyCode {
   KEYCODE_SENDFILE = 2803,
 
   /**
-   * KEYCODE_DELETEFILE
+   * Delete File key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -2747,7 +2714,7 @@ export declare enum KeyCode {
   KEYCODE_DELETEFILE = 2804,
 
   /**
-   * KEYCODE_XFER
+   * XFER key, which is used to start file transfer
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -2756,7 +2723,7 @@ export declare enum KeyCode {
   KEYCODE_XFER = 2805,
 
   /**
-   * KEYCODE_PROG1
+   * Program key 1
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -2765,7 +2732,7 @@ export declare enum KeyCode {
   KEYCODE_PROG1 = 2806,
 
   /**
-   * KEYCODE_PROG2
+   * Program key 2
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -2774,7 +2741,7 @@ export declare enum KeyCode {
   KEYCODE_PROG2 = 2807,
 
   /**
-   * KEYCODE_MSDOS
+   * DOS key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -2783,7 +2750,7 @@ export declare enum KeyCode {
   KEYCODE_MSDOS = 2808,
 
   /**
-   * KEYCODE_SCREENLOCK
+   * Screen Lock key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -2792,7 +2759,7 @@ export declare enum KeyCode {
   KEYCODE_SCREENLOCK = 2809,
 
   /**
-   * KEYCODE_DIRECTION_ROTATE_DISPLAY
+   * Directional Rotation Display key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -2801,7 +2768,7 @@ export declare enum KeyCode {
   KEYCODE_DIRECTION_ROTATE_DISPLAY = 2810,
 
   /**
-   * KEYCODE_CYCLEWINDOWS
+   * Window Cycle key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -2810,7 +2777,7 @@ export declare enum KeyCode {
   KEYCODE_CYCLEWINDOWS = 2811,
 
   /**
-   * KEYCODE_COMPUTER
+   * Key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -2819,7 +2786,7 @@ export declare enum KeyCode {
   KEYCODE_COMPUTER = 2812,
 
   /**
-   * KEYCODE_EJECTCLOSECD
+   * Eject CD key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -2828,7 +2795,7 @@ export declare enum KeyCode {
   KEYCODE_EJECTCLOSECD = 2813,
 
   /**
-   * KEYCODE_ISO
+   * ISO key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -2837,7 +2804,7 @@ export declare enum KeyCode {
   KEYCODE_ISO = 2814,
 
   /**
-   * KEYCODE_MOVE
+   * Move key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -2846,7 +2813,7 @@ export declare enum KeyCode {
   KEYCODE_MOVE = 2815,
 
   /**
-   * KEYCODE_F13
+   * F13 key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -2855,7 +2822,7 @@ export declare enum KeyCode {
   KEYCODE_F13 = 2816,
 
   /**
-   * KEYCODE_F14
+   * F14 key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -2864,7 +2831,7 @@ export declare enum KeyCode {
   KEYCODE_F14 = 2817,
 
   /**
-   * KEYCODE_F15
+   * F15 key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -2873,7 +2840,7 @@ export declare enum KeyCode {
   KEYCODE_F15 = 2818,
 
   /**
-   * KEYCODE_F16
+   * F16 key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -2882,7 +2849,7 @@ export declare enum KeyCode {
   KEYCODE_F16 = 2819,
 
   /**
-   * KEYCODE_F17
+   * F17 key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -2891,7 +2858,7 @@ export declare enum KeyCode {
   KEYCODE_F17 = 2820,
 
   /**
-   * KEYCODE_F18
+   * F18 key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -2900,7 +2867,7 @@ export declare enum KeyCode {
   KEYCODE_F18 = 2821,
 
   /**
-   * KEYCODE_F19
+   * F19 key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -2909,7 +2876,7 @@ export declare enum KeyCode {
   KEYCODE_F19 = 2822,
 
   /**
-   * KEYCODE_F20
+   * F20 key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -2918,7 +2885,7 @@ export declare enum KeyCode {
   KEYCODE_F20 = 2823,
 
   /**
-   * KEYCODE_F21
+   * F21 key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -2927,7 +2894,7 @@ export declare enum KeyCode {
   KEYCODE_F21 = 2824,
 
   /**
-   * KEYCODE_F22
+   * F22 key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -2936,7 +2903,7 @@ export declare enum KeyCode {
   KEYCODE_F22 = 2825,
 
   /**
-   * KEYCODE_F23
+   * F23 key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -2945,7 +2912,7 @@ export declare enum KeyCode {
   KEYCODE_F23 = 2826,
 
   /**
-   * KEYCODE_F24
+   * F24 key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -2954,7 +2921,7 @@ export declare enum KeyCode {
   KEYCODE_F24 = 2827,
 
   /**
-   * KEYCODE_PROG3
+   * Program key 3
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -2963,7 +2930,7 @@ export declare enum KeyCode {
   KEYCODE_PROG3 = 2828,
 
   /**
-   * KEYCODE_PROG4
+   * Program key 4
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -2972,7 +2939,7 @@ export declare enum KeyCode {
   KEYCODE_PROG4 = 2829,
 
   /**
-   * KEYCODE_DASHBOARD
+   * Dashboard key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -2981,7 +2948,7 @@ export declare enum KeyCode {
   KEYCODE_DASHBOARD = 2830,
 
   /**
-   * KEYCODE_SUSPEND
+   * Suspend key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -2990,7 +2957,7 @@ export declare enum KeyCode {
   KEYCODE_SUSPEND = 2831,
 
   /**
-   * KEYCODE_HP
+   * HP key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -2999,7 +2966,7 @@ export declare enum KeyCode {
   KEYCODE_HP = 2832,
 
   /**
-   * KEYCODE_SOUND
+   * Sound key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -3008,7 +2975,7 @@ export declare enum KeyCode {
   KEYCODE_SOUND = 2833,
 
   /**
-   * KEYCODE_QUESTION
+   * Question key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -3017,7 +2984,7 @@ export declare enum KeyCode {
   KEYCODE_QUESTION = 2834,
 
   /**
-   * KEYCODE_CONNECT
+   * Connect key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -3026,7 +2993,7 @@ export declare enum KeyCode {
   KEYCODE_CONNECT = 2836,
 
   /**
-   * KEYCODE_SPORT
+   * Sport key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -3035,7 +3002,7 @@ export declare enum KeyCode {
   KEYCODE_SPORT = 2837,
 
   /**
-   * KEYCODE_SHOP
+   * Shop key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -3044,7 +3011,7 @@ export declare enum KeyCode {
   KEYCODE_SHOP = 2838,
 
   /**
-   * KEYCODE_ALTERASE
+   * Alternate key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -3053,7 +3020,7 @@ export declare enum KeyCode {
   KEYCODE_ALTERASE = 2839,
 
   /**
-   * KEYCODE_SWITCHVIDEOMODE
+   * Switch Video Mode key (monitor, LCD, and TV, etc.)
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -3062,7 +3029,7 @@ export declare enum KeyCode {
   KEYCODE_SWITCHVIDEOMODE = 2841,
 
   /**
-   * KEYCODE_BATTERY
+   * Battery key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -3071,7 +3038,7 @@ export declare enum KeyCode {
   KEYCODE_BATTERY = 2842,
 
   /**
-   * KEYCODE_BLUETOOTH
+   * Bluetooth key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -3080,7 +3047,7 @@ export declare enum KeyCode {
   KEYCODE_BLUETOOTH = 2843,
 
   /**
-   * KEYCODE_WLAN
+   * WLAN key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -3089,7 +3056,7 @@ export declare enum KeyCode {
   KEYCODE_WLAN = 2844,
 
   /**
-   * KEYCODE_UWB
+   * Ultra-wideband key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -3098,7 +3065,7 @@ export declare enum KeyCode {
   KEYCODE_UWB = 2845,
 
   /**
-   * KEYCODE_WWAN_WIMAX
+   * Mobile Network Control key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -3107,7 +3074,7 @@ export declare enum KeyCode {
   KEYCODE_WWAN_WIMAX = 2846,
 
   /**
-   * KEYCODE_RFKILL
+   * RF Kill key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -3116,7 +3083,7 @@ export declare enum KeyCode {
   KEYCODE_RFKILL = 2847,
 
   /**
-   * KEYCODE_CHANNEL
+   * Channel key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -3125,7 +3092,7 @@ export declare enum KeyCode {
   KEYCODE_CHANNEL = 3001,
 
   /**
-   * KEYCODE_BTN_0
+   * Button 0
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -3134,7 +3101,7 @@ export declare enum KeyCode {
   KEYCODE_BTN_0 = 3100,
 
   /**
-   * KEYCODE_BTN_1
+   * Button 1
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -3143,7 +3110,7 @@ export declare enum KeyCode {
   KEYCODE_BTN_1 = 3101,
 
   /**
-   * KEYCODE_BTN_2
+   * Button 2
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -3152,7 +3119,7 @@ export declare enum KeyCode {
   KEYCODE_BTN_2 = 3102,
 
   /**
-   * KEYCODE_BTN_3
+   * Button 3
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -3161,7 +3128,7 @@ export declare enum KeyCode {
   KEYCODE_BTN_3 = 3103,
 
   /**
-   * KEYCODE_BTN_4
+   * Button 4
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -3170,7 +3137,7 @@ export declare enum KeyCode {
   KEYCODE_BTN_4 = 3104,
 
   /**
-   * KEYCODE_BTN_5
+   * Button 5
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -3179,7 +3146,7 @@ export declare enum KeyCode {
   KEYCODE_BTN_5 = 3105,
 
   /**
-   * KEYCODE_BTN_6
+   * Button 6
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -3188,7 +3155,7 @@ export declare enum KeyCode {
   KEYCODE_BTN_6 = 3106,
 
   /**
-   * KEYCODE_BTN_7
+   * Button 7
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -3197,7 +3164,7 @@ export declare enum KeyCode {
   KEYCODE_BTN_7 = 3107,
 
   /**
-   * KEYCODE_BTN_8
+   * Button 8
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -3206,7 +3173,7 @@ export declare enum KeyCode {
   KEYCODE_BTN_8 = 3108,
 
   /**
-   * KEYCODE_BTN_9
+   * Button 9
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -3215,7 +3182,7 @@ export declare enum KeyCode {
   KEYCODE_BTN_9 = 3109,
 
   /**
-   * KEYCODE_DAGGER_CLICK
+   * Single tapping the smart watch's X-TAP sensor
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 18 dynamic
@@ -3224,7 +3191,7 @@ export declare enum KeyCode {
   KEYCODE_DAGGER_CLICK = 3211,
 
   /**
-   * KEYCODE_DAGGER_DOUBLE_CLICK
+   * Double tapping the smart watch's X-TAP sensor
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 18 dynamic
@@ -3233,7 +3200,7 @@ export declare enum KeyCode {
   KEYCODE_DAGGER_DOUBLE_CLICK = 3212,
 
   /**
-   * KEYCODE_DAGGER_LONG_PRESS
+   * Long-pressing the smart watch's X-TAP sensor
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 18 dynamic
@@ -3242,7 +3209,7 @@ export declare enum KeyCode {
   KEYCODE_DAGGER_LONG_PRESS = 3213,
 
   /**
-   * KEYCODE_DIV
+   * Left button of the smart watch
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 20 dynamic
@@ -3251,25 +3218,37 @@ export declare enum KeyCode {
   KEYCODE_DIV = 3220,
 
   /**
-   * KEYCODE_XKEY
+   * Custom hotkey
+   *
+   * **Since:** 26.0.0
+   *
+   * **Model restriction:** This API can only be used in the stage model.
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
   KEYCODE_XKEY = 3232,
- 
+
   /**
-   * KEYCODE_FINGERPRINT_SLIDE_UP
+   * Smart control key slide-up
+   *
+   * **Since:** 26.0.0
+   *
+   * **Model restriction:** This API can only be used in the stage model.
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
   KEYCODE_FINGERPRINT_SLIDE_UP = 3233,
- 
+
   /**
-   * KEYCODE_FINGERPRINT_SLIDE_DOWN
+   * Smart control key slide-down
+   *
+   * **Since:** 26.0.0
+   *
+   * **Model restriction:** This API can only be used in the stage model.
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @stagemodelonly

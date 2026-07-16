@@ -354,8 +354,8 @@ declare namespace bundleResourceManager {
    * @throws { BusinessError } 202 - Permission denied. A non-system application is not allowed to call a system API.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 17700001 - The specified bundle is not found.
-   * @throws { BusinessError } 17700002 - The specified module is not existed.
-   * @throws { BusinessError } 17700003 - The specified ability is not existed.
+   * @throws { BusinessError } 17700002 - The specified module is not found.
+   * @throws { BusinessError } 17700003 - The specified ability is not found.
    * @throws { BusinessError } 17700061 - The specified app index is invalid.
    * @syscap SystemCapability.BundleManager.BundleFramework.Resource
    * @systemapi

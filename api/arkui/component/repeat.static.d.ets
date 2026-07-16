@@ -174,14 +174,14 @@ export interface VirtualScrollOptions {
    * @since 23 static
    */
   disableVirtualScroll?: boolean;
-
   /**
-   * Memory optimization strategy for Repeat.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 26.0.0 static
-   */
+  * Memory optimization strategy for Repeat
+  *
+  * @type { ?RepeatMemOptStrategy }
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @stagemodelonly
+  * @since 26.0.0 static
+  */
   memoryOptimizationStrategy?: RepeatMemOptStrategy;
 }
 

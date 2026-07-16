@@ -144,6 +144,7 @@
     "SystemCapability.FileManagement.AppFileService",
     "SystemCapability.FileManagement.AppFileService.FolderAuthorization",
     "SystemCapability.FileManagement.UserFileService",
+    "SystemCapability.FileManagement.UserFileService.FolderSelection",
     "SystemCapability.FileManagement.UserFileManager.Core",
     "SystemCapability.FileManagement.PhotoAccessHelper.Core",
     "SystemCapability.FileManagement.DistributedFileService.CloudSyncManager",
@@ -230,6 +231,7 @@
     "SystemCapability.Ability.AppExtension.PhotoEditorExtension",
     "SystemCapability.Resourceschedule.BackgroundProcessManager",
     "SystemCapability.Test.PerfTest",
-    "SystemCapability.ResourceSchedule.SystemLoad"
+    "SystemCapability.ResourceSchedule.SystemLoad",
+    "SystemCapability.Communication.SoftBus.Core"
   ]
 }

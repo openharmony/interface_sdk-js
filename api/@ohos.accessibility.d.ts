@@ -1009,7 +1009,17 @@ export enum AccessibilityEventType {
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
-  TYPE_ONE_FINGER_DOUBLE_TAP = 72
+  TYPE_ONE_FINGER_DOUBLE_TAP = 72,
+  
+  /**
+   * Event indicating the touchGuide gesture.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  TYPE_TOUCH_GUIDE_GESTURE = 73
 }
 
 /**
@@ -2873,4 +2883,163 @@ export enum AccessibilityFocusScene {
    * @since 26.0.0 dynamic&static
    */
   SCROLL_FOCUS = 3
+}
+
+/**
+ * Focus Rule Type Enumeration
+ *
+ * @syscap SystemCapability.BarrierFree.Accessibility.Core
+ * @systemapi
+ * @stagemodelonly
+ * @since 26.0.0 dynamic&static
+ */
+export enum FocusRuleType {
+  /**
+   * Default focus type.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  DEFAULT = 1,
+  /**
+   * Focus by link type, for example, an element that can be clicked to jump on the web page.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  FOCUS_BY_LINK = 2,
+  /**
+   * Focus by title type.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  FOCUS_BY_TITLE = 3
+}
+
+/**
+ * Result Code Enumeration
+ *
+ * @syscap SystemCapability.BarrierFree.Accessibility.Core
+ * @systemapi
+ * @stagemodelonly
+ * @since 26.0.0 dynamic&static
+ */
+export enum OperateVirtualNodeResult {
+  /**
+   * Add, remove or update accessibility virtual node successfully.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  SUCCESS = 0,
+  /**
+   * The accessibility element does not exist.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  ACCESSIBILITY_ELEMENT_NOT_EXIST = 1,
+  /**
+   * Cannot modify root node.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  CANNOT_MODIFY_ROOT_NODE = 2,
+  /**
+   * Accessibility property is empty.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  ACCESSIBILITY_PROPERTY_IS_EMPTY = 3,
+  /**
+   * Allocate id failed.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  ALLOCATE_ID_FAILED = 4,
+  /**
+   * Virtual node parameter is empty.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  VIRTUAL_NODE_PARAMETER_IS_EMPTY = 5,
+  /**
+   * Internal error.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  INTERNAL_ERROR = 6,
+  /**
+   * Virtual node is not supported.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  VIRTUAL_NODE_NOT_SUPPORTED = 7
+}
+
+/**
+ * Accessibility Element Source Type Enumeration
+ *
+ * @syscap SystemCapability.BarrierFree.Accessibility.Core
+ * @systemapi
+ * @stagemodelonly
+ * @since 26.0.0 dynamic&static
+ */
+export enum AccessibilitySourceType {
+  /**
+   * Default type.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  DEFAULT = 1,
+  /**
+   * Indicates that the accessibility element was added from a virtual node.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  ADDED_FROM_ACCESSIBILITY_VIRTUAL_NODE = 2,
+  /**
+   * Indicates that the accessibility element was updated from a virtual node.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  UPDATED_FROM_ACCESSIBILITY_VIRTUAL_NODE = 3
 }

@@ -135,6 +135,10 @@ interface MarqueeOptions {
   /**
    * The waiting time between each round of the marquee.
    *
+   * Default value: 0.
+   *
+   * Unit: ms.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform

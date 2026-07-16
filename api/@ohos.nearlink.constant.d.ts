@@ -111,6 +111,14 @@ declare namespace nearlinkConstant {
    */
   export enum DeviceClass {
     /**
+     * Invalid device class. Missing device class information.
+     *
+     * @syscap SystemCapability.Communication.NearLink.Base
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    DEVICE_INVALID_CLASS = -1,
+    /**
      * Unclassified device.
      *
      * @syscap SystemCapability.Communication.NearLink.Base

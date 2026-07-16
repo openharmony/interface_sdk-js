@@ -36,77 +36,77 @@ declare enum PanDirection {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  None = 0,
+  None,
 
   /**
-   * Sliding horizontally.
+   * 水平方向。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Horizontal = 1,
+  Horizontal,
 
   /**
-   * Sliding left.
+   * 向左滑动。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Left = 2,
+  Left,
 
   /**
-   * Sliding right.
+   * 向右滑动。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Right = 3,
+  Right,
 
   /**
-   * 垂直滑动
+   * 竖直方向。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Vertical = 4,
+  Vertical,
 
   /**
-   * Sliding up.
+   * 向上滑动。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Up = 5,
+  Up,
 
   /**
-   * Sliding Down.
+   * 向下滑动。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Down = 6,
+  Down,
 
   /**
-   * Sliding in all directions.
+   * 所有方向。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  All = 7
+  All
 }
 
 /**
@@ -127,37 +127,37 @@ declare enum SwipeDirection {
    * @atomicservice [since 11]
    * @since 8 dynamic
    */
-  None = 0,
+  None,
 
   /**
-   * Sliding horizontally.
+   * 水平方向，手指滑动方向与x轴夹角小于45度时触发。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @atomicservice [since 11]
    * @since 8 dynamic
    */
-  Horizontal = 1,
+  Horizontal,
 
   /**
-   * 垂直滑动
+   * 竖直方向，手指滑动方向与y轴夹角小于45度时触发。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @atomicservice [since 11]
    * @since 8 dynamic
    */
-  Vertical = 2,
+  Vertical,
 
   /**
-   * Sliding in all directions.
+   * 所有方向。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @atomicservice [since 11]
    * @since 8 dynamic
    */
-  All = 3
+  All
 }
 
 /**
@@ -180,27 +180,27 @@ declare enum GestureMode {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Sequence = 0,
+  Sequence,
 
   /**
-   * Simultaneous recognition. Registration gestures participate in recognition. Everything can be triggered.
+   * 并行识别，注册的手势同时识别，直到所有手势识别结束，手势识别互相不影响。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Parallel = 1,
+  Parallel,
 
   /**
-   * Mutually exclusive recognition. Only one gesture is successfully recognized.
+   * 互斥识别，注册的手势同时识别，若有一个手势识别成功，则结束手势识别，其他手势识别均失败。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Exclusive = 2
+  Exclusive
 }
 
 /**
@@ -221,17 +221,17 @@ declare enum GestureMask {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Normal = 0,
+  Normal,
 
   /**
-   * Ignore internal gestures and recognize the current gesture first.
+   * 屏蔽子组件的手势，包括子组件上系统内置的手势，如子组件为List组件时，内置的滑动手势同样会被屏蔽。 若父子组件区域存在部分重叠，则只会屏蔽父子组件重叠的部分。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  IgnoreInternal = 1
+  IgnoreInternal
 }
 
 /**
@@ -2446,6 +2446,8 @@ interface PanGestureHandlerOptions extends BaseHandlerOptions {
    * 取值范围：[0, +∞)，当设定的值小于0时，按默认值处理。
    * 
    * 从API version 19开始，手写笔默认值为8，单位为vp。
+   * 
+   * 使用[gestureModifier]{@link CommonMethod#gestureModifier}配置该字段时，单位为px。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly

@@ -21,21 +21,13 @@
  */
 
 import { CommonMethod } from './common';
-
 import { Builder, CustomBuilder, CustomBuilderT } from './builder';
-
 import { TextHeightAdaptivePolicy, TextOverflow, VerticalAlign } from './enums';
-
 import { Dimension, Font, Length, LocalizedPadding, Padding, Resource, ResourceColor, ResourceStr, VoidCallback } from './units';
-
 import { ComponentContentBase } from '../ComponentContent';
-
 import { SymbolGlyphModifier } from '../SymbolGlyphModifier';
-
 import { ComponentBuilder } from './builder';
-
 import { AttributeModifier, CommonMethod } from './common';
-
 import { DrawableDescriptor } from '../../@ohos.arkui.drawableDescriptor';
 
 /**
@@ -46,7 +38,6 @@ import { DrawableDescriptor } from '../../@ohos.arkui.drawableDescriptor';
  * @since 23 static
  */
 export declare enum SelectedMode {
-
   /**
    * Indicator mode.
    *
@@ -54,7 +45,7 @@ export declare enum SelectedMode {
    * @stagemodelonly
    * @since 23 static
    */
-  INDICATOR = 0,
+  INDICATOR,
 
   /**
    * Board mode.
@@ -63,7 +54,7 @@ export declare enum SelectedMode {
    * @stagemodelonly
    * @since 23 static
    */
-  BOARD = 1
+  BOARD
 }
 
 /**

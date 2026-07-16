@@ -111,7 +111,8 @@ declare class CounterV2CommonOptions {
   focusable?: boolean;
 
   /**
-   * Set the step of the counter component, ranges greater than or equal to 1
+   * Set the step of the counter component, ranges greater than or equal to 1.
+   * The value should be an integer.
    *
    * @default 1
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -145,7 +146,8 @@ declare class CounterV2CommonOptions {
 /**
  * The change callback of the inline CounterV2.
  *
- * @param { int } value - value
+ * @param { int } value - value.
+ *     <br>The value should be an integer.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 26.0.0 static
@@ -164,6 +166,7 @@ export type OnInlineCounterV2Change = (value: int) => void;
 declare class CounterV2InlineStyleOptions extends CounterV2CommonOptions {
   /**
    * Set initial value of the CounterV2 component, ranges from min to max.
+   * The value should be an integer.
    *
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -175,6 +178,7 @@ declare class CounterV2InlineStyleOptions extends CounterV2CommonOptions {
 
   /**
    * Set minimum value of the CounterV2 component, ranges greater than equal to 0.
+   * The value should be an integer.
    *
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -186,6 +190,7 @@ declare class CounterV2InlineStyleOptions extends CounterV2CommonOptions {
 
   /**
    * Set maximum value of the CounterV2 component, ranges greater than equal to 0.
+   * The value should be an integer.
    *
    * @default 999
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -321,8 +326,11 @@ declare class CounterV2DateData {
    * Constructor of the DateData.
    *
    * @param { int } year - set the year of the DateData.
+   *     <br>The value should be an integer.
    * @param { int } month - set the month of the DateData.
+   *     <br>The value should be an integer.
    * @param { int } day - set the day of the DateData.
+   *     <br>The value should be an integer.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.0.0 static

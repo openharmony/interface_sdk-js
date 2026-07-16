@@ -23,9 +23,8 @@ import type notificationManager from '../@ohos.notificationManager';
 import { NotificationExtensionContent } from './NotificationExtensionContent';
 
 /**
- * The **NotificationInfo** module describes the notification information delivered to the 
- * [onReceiveMessage]{@link @ohos.application.NotificationSubscriberExtensionAbility:NotificationSubscriberExtensionAbility#onReceiveMessage}
- * callback of ExtensionAbility for notification subscriptions.
+ * The **NotificationInfo** module describes the notification information delivered to the onReceiveMessage callback
+ * of ExtensionAbility for notification subscriptions.
  *
  * @syscap SystemCapability.Notification.Notification
  * @since 22 dynamic
@@ -42,7 +41,8 @@ export interface NotificationInfo {
   readonly hashCode: string;
 
   /**
-   * Notification slot type.
+   * Notification slot type, which identifies the channel category to which the notification belongs (such as social
+   * communication, service reminder, etc.). Different slot types correspond to different reminder methods.
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 22 dynamic
@@ -51,7 +51,7 @@ export interface NotificationInfo {
   readonly notificationSlotType: notificationManager.SlotType;
 
   /**
-   * Notification content.
+   * Notification content, which includes the title and body of the notification.
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 22 dynamic
@@ -78,7 +78,7 @@ export interface NotificationInfo {
   readonly appName?: string;
 
   /**
-   * Timestamp (in milliseconds) when the notification is published.
+   * Timestamp when the notification is published. Data format: timestamp. Unit: millisecond.
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 22 dynamic
@@ -87,7 +87,7 @@ export interface NotificationInfo {
   readonly deliveryTime?: long;
 
   /**
-   * Notification group name, which is left empty by default.
+   * Name of the notification group.
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 22 dynamic

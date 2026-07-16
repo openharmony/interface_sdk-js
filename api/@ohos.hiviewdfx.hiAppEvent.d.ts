@@ -399,7 +399,7 @@ declare namespace hiAppEvent {
    * @param { ConfigOption } config - Configuration items for application event logging.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types.
-   * @throws { BusinessError } 11103001 - Invalid max storage quota value. Possible caused by incorrectly formatted.
+   * @throws { BusinessError } 11103001 - Invalid max storage quota value. Possibly caused by incorrectly formatted.
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @crossplatform [since 19]
    * @atomicservice [since 11]
@@ -431,7 +431,7 @@ declare namespace hiAppEvent {
     disable?: boolean;
 
     /**
-     * Quota for the directory that stores event logging files. The default value is **10M**. It is recommended that the
+     * Quota for the directory that stores event logging files. The default value is **10MB**. It is recommended that the
      * quota be less than or equal to 10 MB. Otherwise, the API efficiency may be affected.
      *
      * If the directory size exceeds the specified quota when application event logging is performed, event logging
@@ -561,13 +561,13 @@ declare namespace hiAppEvent {
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types.
-   * @throws { BusinessError } 11100001 - Function disabled. Possible caused by the param disable in ConfigOption is
+   * @throws { BusinessError } 11100001 - Function disabled. Possibly caused by the param disable in ConfigOption is
    *     true.
    * @throws { BusinessError } 11101001 - Invalid event domain. Possible causes: 1. Contain invalid characters;
    *     <br>2. Length is invalid.
    * @throws { BusinessError } 11101002 - Invalid event name. Possible causes: 1. Contain invalid characters;
    *     <br>2. Length is invalid.
-   * @throws { BusinessError } 11101003 - Invalid number of event parameters. Possible caused by the number of
+   * @throws { BusinessError } 11101003 - Invalid number of event parameters. Possibly caused by the number of
    *     parameters
    *     <br>is over 32.
    * @throws { BusinessError } 11101004 - Invalid string length of the event parameter.
@@ -593,13 +593,13 @@ declare namespace hiAppEvent {
    * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types.
-   * @throws { BusinessError } 11100001 - Function disabled. Possible caused by the param disable in ConfigOption is
+   * @throws { BusinessError } 11100001 - Function disabled. Possibly caused by the param disable in ConfigOption is
    *     true.
    * @throws { BusinessError } 11101001 - Invalid event domain. Possible causes: 1. Contain invalid characters;
    *     <br>2. Length is invalid.
    * @throws { BusinessError } 11101002 - Invalid event name. Possible causes: 1. Contain invalid characters;
    *     <br>2. Length is invalid.
-   * @throws { BusinessError } 11101003 - Invalid number of event parameters. Possible caused by the number of
+   * @throws { BusinessError } 11101003 - Invalid number of event parameters. Possibly caused by the number of
    *     parameters
    *     <br>is over 32.
    * @throws { BusinessError } 11101004 - Invalid string length of the event parameter.
@@ -654,7 +654,7 @@ declare namespace hiAppEvent {
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types.
-   * @throws { BusinessError } 11100001 - Function disabled. Possible caused by the param disable in ConfigOption is
+   * @throws { BusinessError } 11100001 - Function disabled. Possibly caused by the param disable in ConfigOption is
    *     true.
    * @throws { BusinessError } 11101001 - Invalid event domain. Possible causes: 1. Contain invalid characters;
    *     <br>2. Length is invalid.
@@ -811,7 +811,7 @@ declare namespace hiAppEvent {
      *     range, an exception is thrown.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     2. Incorrect parameter types.
-     * @throws { BusinessError } 11104001 - Invalid size value. Possible caused by the size value is less than or equal
+     * @throws { BusinessError } 11104001 - Invalid size value. Possibly caused by the size value is less than or equal
      *     to zero.
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @crossplatform [since 19]
@@ -829,7 +829,7 @@ declare namespace hiAppEvent {
      *     exception is thrown.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     2. Incorrect parameter types.
-     * @throws { BusinessError } 11104001 - Invalid size value. Possible caused by the size value is less than or equal
+     * @throws { BusinessError } 11104001 - Invalid size value. Possibly caused by the size value is less than or equal
      *     to zero.
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @crossplatform [since 19]
@@ -1112,9 +1112,9 @@ declare namespace hiAppEvent {
    * @throws { BusinessError } 11102002 - Invalid filtering event domain. Possible causes: 1. Contain invalid
    *     characters;
    *     <br>2. Length is invalid.
-   * @throws { BusinessError } 11102003 - Invalid row value. Possible caused by the row value is less than zero.
-   * @throws { BusinessError } 11102004 - Invalid size value. Possible caused by the size value is less than zero.
-   * @throws { BusinessError } 11102005 - Invalid timeout value. Possible caused by the timeout value is less than zero.
+   * @throws { BusinessError } 11102003 - Invalid row value. Possibly caused by the row value is less than zero.
+   * @throws { BusinessError } 11102004 - Invalid size value. Possibly caused by the size value is less than zero.
+   * @throws { BusinessError } 11102005 - Invalid timeout value. Possibly caused by the timeout value is less than zero.
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @crossplatform [since 19]
    * @atomicservice [since 11]

@@ -1,5 +1,4 @@
-
-'use static';
+'use static'
 /*
 * Copyright (C) 2025 Huawei Device Co., Ltd.
 * Licensed under the Apache License, Version 2.0 (the "License");
@@ -33,11 +32,7 @@ import {
   Resource,
   LocalizedPadding,
 } from './@ohos.arkui.component';
-
 import { SymbolGlyphModifier } from './@ohos.arkui.modifier';
-
-import { PropRef, Require } from './arkui/stateManagement/decorator';
-
 import uiMaterial from './@ohos.arkui.uiMaterial';
 
 /**
@@ -68,7 +63,7 @@ export declare enum ChipSize {
    * @since 23 static
    * @noninterop
    */
-  SMALL = 'SMALL',
+  SMALL = 'SMALL'
 }
 
 /**
@@ -80,7 +75,6 @@ export declare enum ChipSize {
  * @noninterop
  */
 export declare enum AccessibilitySelectedType {
-
   /**
    * Default type.
    *
@@ -234,7 +228,6 @@ export interface PrefixIconOptions extends IconCommonOptions {}
  * @noninterop
  */
 export interface AccessibilityOptions {
-
   /**
    * Set accessibility level for accessibility icon.
    *
@@ -276,7 +269,6 @@ export interface AccessibilityOptions {
  * @noninterop
  */
 export interface CloseOptions extends AccessibilityOptions {
-
   /**
    * Set font size for the close icon.
    *
@@ -327,7 +319,6 @@ export interface ChipSymbolGlyphOptions {
  * @noninterop
  */
 export interface ChipSuffixSymbolGlyphOptions {
-
   /**
    * Set normal accessibility options for suffix symbol.
    *
@@ -511,7 +502,6 @@ export interface LabelOptions {
  * @noninterop
  */
 export interface ChipOptions {
-
   /**
    * Chip prefix icon.
    *
@@ -643,16 +633,16 @@ export interface ChipOptions {
    */
   activatedBackgroundColor?: ResourceColor;
 
-  /**
-   * Set system-styled materials for the component which is activated. Different materials have different effects,
-   * which can influence
-   * the backgroundColor, border, shadow, and other visual attributes of the component.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 26.0.0 static
-   * @noninterop
-   */
+   /**
+    * Set system-styled materials for the component which is activated. Different materials have different effects,
+    * which can influence
+    * the backgroundColor, border, shadow, and other visual attributes of the component.
+    *
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
+    * @since 26.0.0 static
+    * @noninterop
+    */
   activatedBackgroundSystemMaterial?: uiMaterial.Material;
 
   /**

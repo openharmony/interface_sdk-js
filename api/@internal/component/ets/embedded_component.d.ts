@@ -185,7 +185,7 @@ interface EmbeddedComponentInterface {
   (
     loader: import('../api/@ohos.app.ability.Want').default,
     type: EmbeddedType,
-    options: EmbeddedOptions
+    options?: EmbeddedOptions
   ): EmbeddedComponentAttribute;
 }
 

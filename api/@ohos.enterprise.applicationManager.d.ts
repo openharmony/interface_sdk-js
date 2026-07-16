@@ -313,6 +313,8 @@ declare namespace applicationManager {
    * @systemapi
    * @stagemodelonly
    * @since 10
+   * @deprecated since 26.0.0
+   * @useinstead applicationManager.addDisallowedRunningBundlesSync
    */
   function addDisallowedRunningBundles(admin: Want, appIds: Array<string>, callback: AsyncCallback<void>): void;
 
@@ -344,6 +346,8 @@ declare namespace applicationManager {
    * @systemapi
    * @stagemodelonly
    * @since 10
+   * @deprecated since 26.0.0
+   * @useinstead applicationManager.addDisallowedRunningBundlesSync
    */
   function addDisallowedRunningBundles(admin: Want, appIds: Array<string>, userId: number, callback: AsyncCallback<void>): void;
 
@@ -377,6 +381,8 @@ declare namespace applicationManager {
    * @systemapi
    * @stagemodelonly
    * @since 10
+   * @deprecated since 26.0.0
+   * @useinstead applicationManager.addDisallowedRunningBundlesSync
    */
   function addDisallowedRunningBundles(admin: Want, appIds: Array<string>, userId?: number): Promise<void>;
 
@@ -437,6 +443,8 @@ declare namespace applicationManager {
    * @systemapi
    * @stagemodelonly
    * @since 10
+   * @deprecated since 26.0.0
+   * @useinstead applicationManager.removeDisallowedRunningBundlesSync
    */
   function removeDisallowedRunningBundles(admin: Want, appIds: Array<string>, callback: AsyncCallback<void>): void;
 
@@ -465,6 +473,8 @@ declare namespace applicationManager {
    * @systemapi
    * @stagemodelonly
    * @since 10
+   * @deprecated since 26.0.0
+   * @useinstead applicationManager.removeDisallowedRunningBundlesSync
    */
   function removeDisallowedRunningBundles(admin: Want, appIds: Array<string>, userId: number, callback: AsyncCallback<void>): void;
 
@@ -495,6 +505,8 @@ declare namespace applicationManager {
    * @systemapi
    * @StageModelOnly
    * @since 10
+   * @deprecated since 26.0.0
+   * @useinstead applicationManager.removeDisallowedRunningBundlesSync
    */
   function removeDisallowedRunningBundles(admin: Want, appIds: Array<string>, userId?: number): Promise<void>;
 
@@ -546,6 +558,8 @@ declare namespace applicationManager {
    * @systemapi
    * @StageModelOnly
    * @since 10
+   * @deprecated since 26.0.0
+   * @useinstead applicationManager.getDisallowedRunningBundlesSync
    */
   function getDisallowedRunningBundles(admin: Want, callback: AsyncCallback<Array<string>>): void;
 
@@ -572,6 +586,8 @@ declare namespace applicationManager {
    * @systemapi
    * @StageModelOnly
    * @since 10
+   * @deprecated since 26.0.0
+   * @useinstead applicationManager.getDisallowedRunningBundlesSync
    */
   function getDisallowedRunningBundles(admin: Want, userId: number, callback: AsyncCallback<Array<string>>): void;
 
@@ -600,6 +616,8 @@ declare namespace applicationManager {
    * @systemapi
    * @StageModelOnly
    * @since 10
+   * @deprecated since 26.0.0
+   * @useinstead applicationManager.getDisallowedRunningBundlesSync
    */
   function getDisallowedRunningBundles(admin: Want, userId?: number): Promise<Array<string>>;
 
@@ -1143,7 +1161,7 @@ declare namespace applicationManager {
    *     and side dock are disabled.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 9200012 - The parameter verification failed.
+   * @throws { BusinessError } 9200012 - Parameter verification failed.
    * @throws { BusinessError } 201 - Permission verification failed.The application does not have the permission
    *     required to call the API.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager

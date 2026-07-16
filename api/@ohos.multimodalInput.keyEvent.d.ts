@@ -14,351 +14,243 @@
  */
 
 /**
- * @file
+ * The **keyEvent** module provides key events reported by a device. It is inherited from 
+ * [InputEvent]{@link @ohos.multimodalInput.inputEvent:InputEvent}.
+ *
+ * @file Key Event
  * @kit InputKit
  */
 
 import type { InputEvent } from './@ohos.multimodalInput.inputEvent';
+
 import type { KeyCode } from './@ohos.multimodalInput.keyCode';
 
 /**
- * Action
+ * Key event type.
  *
- * @enum { number }
  * @syscap SystemCapability.MultimodalInput.Input.Core
- * @since 9
- */
-/**
- * Action
- *
- * @enum { number }
- * @syscap SystemCapability.MultimodalInput.Input.Core
- * @atomicservice
- * @since 12 dynamic
+ * @atomicservice [since 12]
+ * @since 9 dynamic
  * @since 23 static
  */
 export declare enum Action {
+
   /**
-   * Cancel key
+   * Cancellation of a key action.
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 9
-   */
-  /**
-   * Cancel key
-   *
-   * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 9 dynamic
    * @since 23 static
    */
   CANCEL = 0,
 
   /**
-   * Down key
+   * Key press.
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 9
-   */
-  /**
-   * Down key
-   *
-   * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 9 dynamic
    * @since 23 static
    */
   DOWN = 1,
 
   /**
-   * Up key
+   * Key release.
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 9
-   */
-  /**
-   * Up key
-   *
-   * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 9 dynamic
    * @since 23 static
    */
   UP = 2
 }
 
 /**
- * Key
+ * Defines a key.
  *
- * @interface Key
+ * @interface Key [since 9 - 11]
  * @syscap SystemCapability.MultimodalInput.Input.Core
- * @since 9
- */
-/**
- * Key
- *
- * @typedef Key
- * @syscap SystemCapability.MultimodalInput.Input.Core
- * @atomicservice
- * @since 12 dynamic
+ * @atomicservice [since 12]
+ * @since 9 dynamic
  * @since 23 static
  */
 export declare interface Key {
+
   /**
-   * Key code
-   * @type { KeyCode }
+   * Key code.
+   *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 9
-   */
-  /**
-   * Key code
-   * @type { KeyCode }
-   * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 9 dynamic
    * @since 23 static
    */
   code: KeyCode;
 
   /**
-   * Time when the key is pressed
-   * @type { number }
+   * Time when the key is pressed, in microseconds (μs) since the system starts.
+   *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 9
-   */
-  /**
-   * Time when the key is pressed
-   * @type { long }
-   * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 9 dynamic
    * @since 23 static
    */
   pressedTime: long;
 
   /**
-   * Device to which the key belongs
-   * @type { number }
+   * Unique ID of the input device. If a physical device is repeatedly reinstalled or restarted, its ID may change.
+   *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 9
-   */
-  /**
-   * Device to which the key belongs
-   * @type { int }
-   * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 9 dynamic
    * @since 23 static
    */
   deviceId: int;
 }
 
 /**
- * KeyEvent
+ * Key event.
  *
- * @interface KeyEvent
+ * @interface KeyEvent [since 9 - 11]
  * @syscap SystemCapability.MultimodalInput.Input.Core
- * @since 9
- */
-/**
- * KeyEvent
- *
- * @typedef KeyEvent
- * @extends InputEvent
- * @syscap SystemCapability.MultimodalInput.Input.Core
- * @atomicservice
- * @since 12 dynamic
+ * @atomicservice [since 12]
+ * @since 9 dynamic
  * @since 23 static
  */
 export declare interface KeyEvent extends InputEvent {
+
   /**
-   * Key action
-   * @type { Action }
+   * Key event type.
+   *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 9
-   */
-  /**
-   * Key action
-   * @type { Action }
-   * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 9 dynamic
    * @since 23 static
    */
   action: Action;
 
   /**
-   * Key that has changed
-   * @type { Key }
+   * Defines a key.
+   *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 9
-   */
-  /**
-   * Key that has changed
-   * @type { Key }
-   * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 9 dynamic
    * @since 23 static
    */
   key: Key;
 
   /**
-   * Unicode character corresponding to the key
-   * @type { number }
+   * Unicode character corresponding to the key.
+   *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 9
-   */
-  /**
-   * Unicode character corresponding to the key
-   * @type { int }
-   * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 9 dynamic
    * @since 23 static
    */
   unicodeChar: int;
 
   /**
-   * List of pressed keys
-   * @type { Key[] }
+   * List of pressed keys.
+   *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 9
-   */
-  /**
-   * List of pressed keys
-   * @type { Key[] }
-   * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 9 dynamic
    * @since 23 static
    */
   keys: Key[];
 
   /**
-   * Whether ctrlKey is being pressed
-   * @type { boolean }
+   * Whether ctrlKey is being pressed.
+   *
+   * The value **true** indicates that the key is pressed, and the value **false** indicates the opposite.
+   *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 9
-   */
-  /**
-   * Whether ctrlKey is being pressed
-   * @type { boolean }
-   * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 9 dynamic
    * @since 23 static
    */
   ctrlKey: boolean;
 
   /**
-   * Whether altKey is being pressed
-   * @type { boolean }
+   * Whether altKey is being pressed.
+   *
+   * The value **true** indicates that the key is pressed, and the value **false** indicates the opposite.
+   *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 9
-   */
-  /**
-   * Whether altKey is being pressed
-   * @type { boolean }
-   * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 9 dynamic
    * @since 23 static
    */
   altKey: boolean;
 
   /**
-   * Whether shiftKey is being pressed
-   * @type { boolean }
+   * Whether shiftKey is being pressed.
+   *
+   * The value **true** indicates that the key is pressed, and the value **false** indicates the opposite.
+   *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 9
-   */
-  /**
-   * Whether shiftKey is being pressed
-   * @type { boolean }
-   * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 9 dynamic
    * @since 23 static
    */
   shiftKey: boolean;
 
   /**
-   * Whether logoKey is being pressed
-   * @type { boolean }
+   * Whether logoKey is being pressed.
+   *
+   * The value **true** indicates that the key is pressed, and the value **false** indicates the opposite.
+   *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 9
-   */
-  /**
-   * Whether logoKey is being pressed
-   * @type { boolean }
-   * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 9 dynamic
    * @since 23 static
    */
   logoKey: boolean;
 
   /**
-   * Whether fnKey is being pressed
-   * @type { boolean }
+   * Whether fnKey is being pressed.
+   *
+   * The value **true** indicates that the key is pressed, and the value **false** indicates the opposite.
+   *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 9
-   */
-  /**
-   * Whether fnKey is being pressed
-   * @type { boolean }
-   * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 9 dynamic
    * @since 23 static
    */
   fnKey: boolean;
 
   /**
-   * Whether capsLock is active
-   * @type { boolean }
+   * Whether capsLock is enabled.
+   *
+   * The value **true** indicates that capsLock is enabled, and the value **false** indicates the opposite.
+   *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 9
-   */
-  /**
-   * Whether capsLock is active
-   * @type { boolean }
-   * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 9 dynamic
    * @since 23 static
    */
   capsLock: boolean;
 
   /**
-   * Whether numLock is active
-   * @type { boolean }
+   * Whether numLock is enabled.
+   *
+   * The value **true** indicates that numLock is enabled, and the value **false** indicates the opposite.
+   *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 9
-   */
-  /**
-   * Whether numLock is active
-   * @type { boolean }
-   * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 9 dynamic
    * @since 23 static
    */
   numLock: boolean;
 
   /**
-   * Whether scrollLock is active
-   * @type { boolean }
+   * Whether scrollLock is enabled.
+   *
+   * The value **true** indicates that scrollLock is enabled, and the value **false** indicates the opposite.
+   *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 9
-   */
-  /**
-   * Whether scrollLock is active
-   * @type { boolean }
-   * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 9 dynamic
    * @since 23 static
    */
   scrollLock: boolean;

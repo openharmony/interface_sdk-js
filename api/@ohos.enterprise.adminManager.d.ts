@@ -533,7 +533,7 @@ declare namespace adminManager {
    *     **EnterpriseAdminExtensionAbility** component of the current application can be passed.
    * @returns { boolean } The value **true** indicates the application is activated as a BYOD device administrator
    *     application, and the value **false** indicates the opposite.
-   * @throws { BusinessError } 9200012 - The parameter validation failed.
+   * @throws { BusinessError } 9200012 - Parameter verification failed.
    * @throws { BusinessError } 201 - Permission verification failed.
    *     The application does not have the permission required to call the API.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
@@ -683,6 +683,8 @@ declare namespace adminManager {
    * @systemapi
    * @stagemodelonly
    * @since 9
+   * @deprecated since 26.0.0
+   * @useinstead adminManager.subscribeManagedEventSync
    */
   function subscribeManagedEvent(admin: Want, managedEvents: Array<ManagedEvent>, callback: AsyncCallback<void>): void;
 
@@ -706,6 +708,8 @@ declare namespace adminManager {
    * @systemapi
    * @stagemodelonly
    * @since 9
+   * @deprecated since 26.0.0
+   * @useinstead adminManager.subscribeManagedEventSync
    */
   function subscribeManagedEvent(admin: Want, managedEvents: Array<ManagedEvent>): Promise<void>;
 
@@ -729,6 +733,8 @@ declare namespace adminManager {
    * @systemapi
    * @stagemodelonly
    * @since 9
+   * @deprecated since 26.0.0
+   * @useinstead adminManager.unsubscribeManagedEventSync
    */
   function unsubscribeManagedEvent(admin: Want, managedEvents: Array<ManagedEvent>, callback: AsyncCallback<void>): void;
 
@@ -752,6 +758,8 @@ declare namespace adminManager {
    * @systemapi
    * @stagemodelonly
    * @since 9
+   * @deprecated since 26.0.0
+   * @useinstead adminManager.unsubscribeManagedEventSync
    */
   function unsubscribeManagedEvent(admin: Want, managedEvents: Array<ManagedEvent>): Promise<void>;
 
@@ -1102,7 +1110,6 @@ declare namespace adminManager {
    * @param { Want } admin - admin indicates the enterprise admin extension ability information.
    *     The admin must have the corresponding permission.
    * @param { string } credential - credential indicates the credential for activating self as an administrator.
-   * @returns { Promise<void> } the promise returned by the enableSelfDeviceAdmin.
    * @throws { BusinessError } 9200003 - The administrator ability component is invalid.
    * @throws { BusinessError } 9200004 - Failed to activate the administrator application of the device.
    * @throws { BusinessError } 9200012 - Parameter verification failed.
@@ -1117,7 +1124,7 @@ declare namespace adminManager {
    * @stagemodelonly
    * @since 26.0.0
    */
-  function enableSelfDeviceAdmin(admin: Want, credential: string): Promise<void>;
+  function enableSelfDeviceAdmin(admin: Want, credential: string): void;
 }
 
 export default adminManager;

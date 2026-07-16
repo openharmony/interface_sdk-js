@@ -910,7 +910,7 @@ declare enum SwiperDisplayMode {
    * @deprecated since 10
    * @useinstead SwiperDisplayMode#STRETCH
    */
-  Stretch = 0,
+  Stretch,
 
   /**
    * The width of each page in the **Swiper** component equals the maximum width
@@ -928,7 +928,7 @@ declare enum SwiperDisplayMode {
    * @deprecated since 10
    * @useinstead SwiperDisplayMode#AUTO_LINEAR
    */
-  AutoLinear = 1,
+  AutoLinear,
 
   /**
    * The width of each page in the **Swiper** component equals the component's
@@ -941,7 +941,7 @@ declare enum SwiperDisplayMode {
    * @atomicservice [since 11]
    * @since 10 dynamic
    */
-  STRETCH = 2,
+  STRETCH,
 
   /**
    * The width of each page in the **Swiper** component equals the width of the
@@ -962,7 +962,7 @@ declare enum SwiperDisplayMode {
    * @deprecated since 12
    * @useinstead Scroller#scrollTo
    */
-  AUTO_LINEAR = 3
+  AUTO_LINEAR
 }
 
 /**
@@ -1714,7 +1714,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * >
    * > - In continuous scrolling scenarios where one **Swiper** child component is displayed per screen, setting
    * > **cachedCount** to **1** or **2** is typically sufficient. For best practices, see
-   * > [Optimizing Frame Loss During Swiper Component Loading �C Caching Data Items](https://developer.huawei.com/consumer/en/doc/best-practices/bpta-swiper_high_performance_development_guide#section143504547145).
+   * > [Optimizing Frame Loss During Swiper Component Loading — Caching Data Items](https://developer.huawei.com/consumer/en/doc/best-practices/bpta-swiper_high_performance_development_guide#section143504547145).
    * >
    * >
    * > - This parameter takes effect only when used with
@@ -1846,13 +1846,13 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    *     of child elements by the number of visible child elements, with rounding up if there is a remainder).|
    *     Not effective when **displayCount** is set to **'auto'**.|
    * | Yes  | No | **loop** set to **true** | Equals the actual number of page turns available
-   *     (that is, the total number of child elements).| ���� |
+   *     (that is, the total number of child elements).| —— |
    * | Yes | No | **loop** set to **false**| Equals the actual number of page turns available
    *     (calculated as total number of child elements minus the number of visible child elements, plus 1).|
    *     Not effective when **displayCount** is set to **'auto'**.|
-   * | No (while the total number of child elements is greater than 0)| ���� | ���� | 1 |
+   * | No (while the total number of child elements is greater than 0)| —— | —— | 1 |
    *     Not effective when **displayCount** is set to **'auto'**.|
-   * | No (while the total number of child elements is 0)| ���� | ���� | 0| ���� |
+   * | No (while the total number of child elements is 0)| —— | —— | 0| —— |
    *
    * @param { number | string } value - Number of elements to display per page.<br> Default value: **1**<br>Value range:
    *     (0, +∞). If this parameter is set to a value less than or equal to 0, the default value is used. [since 8 - 9]
@@ -2128,7 +2128,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * > - When this callback is invoked, the page transition animation logic is executed in the rendering thread,
    * > allowing the idle main thread to load resources required by child components. This reduces preloading time for
    * > nodes within the **cachedCount** range. For best practices, see
-   * > [Optimizing Frame Loss During Swiper Component Loading �C Preloading Data](https://developer.huawei.com/consumer/en/doc/best-practices/bpta-swiper_high_performance_development_guide#section8783121513246).
+   * > [Optimizing Frame Loss During Swiper Component Loading — Preloading Data](https://developer.huawei.com/consumer/en/doc/best-practices/bpta-swiper_high_performance_development_guide#section8783121513246).
    * >
    * >
    * > - When the duration of the page transition animation is set to **0**, this callback is triggered only in the

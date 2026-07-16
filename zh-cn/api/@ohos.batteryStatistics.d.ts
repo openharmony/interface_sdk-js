@@ -192,7 +192,7 @@ declare namespace batteryStats {
   function getAppPowerPercent(uid: int): double;
 
   /**
-   * 根据耗电类型获取硬件单元的耗电量。
+   * 根据耗电类型获取硬件单元的耗电量，单位毫安时。
    *
    * @param { ConsumptionType } type - 电量消耗类型；该参数类型是枚举类。
    * @returns { double } 电量消耗类型对应硬件的耗电量，单位毫安时。

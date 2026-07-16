@@ -38,7 +38,7 @@ declare enum BadgePosition {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  RightTop = 0,
+  RightTop,
 
   /**
    * The badge is vertically centered on the right of the parent component.
@@ -71,8 +71,8 @@ declare enum BadgePosition {
  * > - When **borderWidth** is set to a value greater than 0 and **borderColor** is different from **badgeColor**, the
  * > badge is drawn before the border. Edge pixels are anti-aliased, which produces semi-transparent pixels. This causes
  * > the border in **badgeColor** to become visible at the four corners. To implement related scenarios, it is
- * > recommended that you use the [Text]{@link text} component with its [outline]{@link common} attribute instead of the
- * > **Badge** component.
+ * > recommended that you use the [Text]{@link text} component with its 
+ * > [outline]{@link CommonMethod#outline(value: OutlineOptions)} attribute instead of the **Badge** component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
@@ -102,13 +102,14 @@ declare interface BadgeStyle {
    *
    * Default value: **10vp**
    *
+   * Default unit: fp
+   *
    * The value must be greater than 0. If the value is **0**, the text is not displayed. If the value is less than 0,
    * the default value is used.
    *
    * **NOTE**
    *
    * 1. Percentage values are not supported. If a percentage value is set, the default value is used.
-   * 2. The ResourceStr type is supported since API version 20.
    *
    * @type { ?(number | string) } [since 7 - 19]
    * @type { ?(number | ResourceStr) } [since 20]
@@ -123,18 +124,15 @@ declare interface BadgeStyle {
 
   /**
    * Badge size. The value of this parameter is a string of the number type. The unit can be px, vp, fp, or lpx, for
-   * example, 10 or 16fp. If no unit is specified, fp is used by default.
+   * example, 10 or 16fp. If no unit is specified, fp is used by default. If the value is **0**, the badge is not
+   * displayed.
    *
-   * Default value: **16vp**
-   *
-   * The value must be greater than 0. If the value is **0**, the badge is not displayed. If the value is less than 0,
-   * the default value is used.
+   * Unit: fp. Default value: **16vp**.
    *
    * **NOTE**
    *
    * 1. Percentage values are not supported. If a percentage value is set, the default value is used.
-   * 2. The ResourceStr type is supported since API version 20.
-   * 3. If **fontSize** is set and **badgeSize** is smaller than fontSize, **badgeSize** will take effect based on the
+   * 2. If **fontSize** is set and **badgeSize** is smaller than fontSize, **badgeSize** will take effect based on the
    * value of **fontSize**.
    *
    * @type { ?(number | string) } [since 7 - 19]
@@ -459,9 +457,9 @@ interface BadgeInterface {
 }
 
 /**
- * The [universal attributes]{@link common} are supported.
+ * The [universal attributes](docroot://reference/apis-arkui/arkui-ts/ts-component-general-attributes.md) are supported.
  *
- * The [universal events]{@link common} are supported.
+ * The [universal events](docroot://reference/apis-arkui/arkui-ts/ts-component-general-events.md) are supported.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]

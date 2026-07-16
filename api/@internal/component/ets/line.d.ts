@@ -24,8 +24,8 @@
  * > **NOTE**
  * >
  * > To standardize anonymous object definitions, the element definitions here have been revised in API version 18.
- * > While historical version information is preserved for anonymous objects, there may be cases where the outer element
- * > 's @since version number is higher than inner elements'. This does not affect interface usability.
+ * > While historical version information is preserved for anonymous objects, there may be cases where the outer element's
+ * > @since version number is higher than inner elements'. This does not affect interface usability.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -97,10 +97,10 @@ interface LineInterface {
   new (options?: LineOptions): LineAttribute;
 
   /**
-   * Defines the contructor of Line component.
+   * Defines the constructor of Line component.
    *
    * @param { object } value - [since 7 - 17]
-   * @param { LineOptions } [options] - - Options of the line.<br>The **undefined** and **null** values are treated as
+   * @param { LineOptions } [options] - Options of the line.<br>The **undefined** and **null** values are treated as
    *     invalid and will not take effect. [since 18]
    * @returns { LineAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -145,7 +145,7 @@ declare class LineAttribute extends CommonShapeMethod<LineAttribute> {
    * Sets the coordinates (relative coordinates) of the end point of the line. This attribute can be dynamically set
    * using [attributeModifier]{@link CommonMethod#attributeModifier}. Invalid values are treated as the default value.
    *
-   * @param { Array<any> } value - - Coordinates (relative coordinates) of the end point of the line, in vp.<br>Default
+   * @param { Array<any> } value - Coordinates (relative coordinates) of the end point of the line, in vp.<br>Default
    *     value: **[0, 0]**<br>The **undefined** and **null** values are treated as the default value.
    * @returns { LineAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full

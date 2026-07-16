@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2025 Huawei Device Co., Ltd.
+ * Copyright (c) 2025-2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -96,9 +96,18 @@ declare class LiveFormExtensionAbility extends ExtensionAbility {
    * @stagemodelonly
    * @atomicservice
    * @since 20 dynamic
-   * @since 23 static
    */
   context: LiveFormExtensionContext;
+
+  /**
+   * Context of the **LiveFormExtensionAbility**. This context is inherited from 
+   * [ExtensionContext]{@link ./application/ExtensionContext:ExtensionContext}.
+   *
+   * @syscap SystemCapability.Ability.Form
+   * @stagemodelonly
+   * @since 23 static
+   */
+  liveFormContext: LiveFormExtensionContext;
 
   /**
    * Called after the UI content of **LiveFormExtensionAbility** is created.

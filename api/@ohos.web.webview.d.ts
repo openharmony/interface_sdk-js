@@ -1019,7 +1019,7 @@ declare namespace webview {
      *     **undefined** is passed in, the value is **false**. [since 11]
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     <br>2. Incorrect parameter types. 3.Parameter verification failed.
-     * @throws { BusinessError } 17100011 - Invalid origin.
+     * @throws { BusinessError } 17100011 - Invalid origin. The origin format must follow defined in RFC 6454.
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform [since 18]
      * @atomicservice [since 11]
@@ -1037,7 +1037,7 @@ declare namespace webview {
      *     **undefined** is passed in, the value is **false**. [since 11]
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     <br>2. Incorrect parameter types. 3.Parameter verification failed.
-     * @throws { BusinessError } 17100011 - Invalid origin.
+     * @throws { BusinessError } 17100011 - Invalid origin. The origin format must follow defined in RFC 6454.
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform [since 18]
      * @atomicservice [since 11]
@@ -1073,7 +1073,7 @@ declare namespace webview {
      *     <br>If the operation fails, the geolocation permission status of the specified origin is not found.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     <br>2. Incorrect parameter types. 3.Parameter verification failed.
-     * @throws { BusinessError } 17100011 - Invalid origin.
+     * @throws { BusinessError } 17100011 - Invalid origin. The origin format must follow defined in RFC 6454.
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform [since 18]
      * @atomicservice [since 11]
@@ -1096,7 +1096,7 @@ declare namespace webview {
      *     **undefined** is passed, error code **401** is thrown. [since 11]
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     <br>2. Incorrect parameter types. 3.Parameter verification failed.
-     * @throws { BusinessError } 17100011 - Invalid origin.
+     * @throws { BusinessError } 17100011 - Invalid origin. The origin format must follow defined in RFC 6454.
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform [since 18]
      * @atomicservice [since 11]
@@ -1595,6 +1595,41 @@ declare namespace webview {
      * @since 23 dynamic
      */
     static fetchAllCookies(incognito: boolean): Promise<Array<WebHttpCookie>>;
+
+    /**
+     * Gets all cookies for the given URL Asynchronously.
+     *
+     * @param { string } url - The URL for which to fetch cookies.
+     * @param { boolean } incognito - Whether to fetch cookies in incognito mode.
+     * @param { boolean } includePartitionedCookies - If true, allows fetching first-party partitioned cookies.
+     * @returns { Promise<string> } A promise resolved with the cookie string.
+     * @throws { BusinessError } 17100002 - URL error. No valid cookie found for the specified URL.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic
+     */
+    static fetchCookie(url: string, incognito: boolean, includePartitionedCookies: boolean): Promise<string>;
+
+    /**
+     * Gets all cookies for the given URL.
+     *
+     * <strong>API Note</strong>:<br>
+     *
+     * **fetchCookieSync()** is used to obtain all cookie values. Cookie values are separated by semicolons. However,
+     * a specific cookie value cannot be obtained separately.
+     *
+     * @param { string } url - The URL for which the cookies are requested.
+     * @param { boolean } [incognito] - {@code true} gets all cookies for the given URL
+     *     in incognito mode; {@code false} otherwise. Default is false.
+     * @param { boolean } [includePartitionedCookies] - If true, allows fetching first-party partitioned cookies.
+     *     Default is false.
+     * @returns { string } - The cookie value for the given URL.
+     * @throws { BusinessError } 17100002 - URL error. No valid cookie found for the specified URL.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic
+     */
+    static fetchCookieSync(url: string, incognito?: boolean, includePartitionedCookies?: boolean): string;
   }
 
   /**
@@ -5354,6 +5389,33 @@ declare namespace webview {
     setErrorPageEnabled(enable: boolean): void;
 
     /**
+     * Set whether to enable error page. onOverrideErrorPage will be triggered when the page error.
+     *
+     * @param { boolean } enable - Whether enable error page.
+     * @param { boolean } includeSubframe - If true, error page is displayed in iframe
+     *     when a subframe fails to load.
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic
+     */
+    setErrorPageEnabled(enable: boolean, includeSubframe: boolean): void;
+
+    /**
+     * Get whether default error page feature is enabled for subframes.
+     *
+     * @returns { boolean } - True if the default error page function of the subframe
+     *     is enabled; Otherwise, the value is false.
+     * @throws { BusinessError } 17100001 - Init error.
+     *     The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic
+     */
+    getSubframeErrorPageEnabled(): boolean;
+
+    /**
      * After enable PrivateNetworkAccess feature, ArkWeb will send a CORS preflight request before issuing any
      * sub-resource private network requests to request explicit permission from the target server. After disable
      * PrivateNetworkAccess, ArkWeb will no longer check whether the private network request is legitimate.
@@ -7152,28 +7214,28 @@ declare namespace webview {
   }
 
   /**
-   * The scenarios for suspending the media player.
+   * Enumerates the suspension types of the player.
    * @enum {number}
    * @syscap SystemCapability.Web.Webview.Core
    * @since 12 dynamic
    */
   enum SuspendType {
     /**
-     * Page enters the BackForwardCache.
+     * The page enters the BFCache.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 12 dynamic
      */
     ENTER_BACK_FORWARD_CACHE = 0,
 
     /**
-     * Page enters background.
+     * The page is displayed in the background.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 12 dynamic
      */
     ENTER_BACKGROUND,
 
     /**
-     * Cleanup when the number of paused media player over limit.
+     * The page is automatically cleaned up by the system.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 12 dynamic
      */

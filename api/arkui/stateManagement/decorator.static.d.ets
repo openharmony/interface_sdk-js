@@ -441,8 +441,8 @@ export declare @interface Env {
    * Key value input by the user.
    * On API 26.0.0 and above, it can also support a string literal in the
    * format "ReadonlyEnvKey.<keyName>" or "WritableEnvKey.<keyName>".
-   * The key name must be one declared in {@link ReadonlyEnvKey} or
-   * {@link WritableEnvKey}. Arbitrary strings are not supported.
+   * The key name must be one declared in [ReadonlyEnvKey]{@link ReadonlyEnvKey} or
+   * [WritableEnvKey]{@link WritableEnvKey}. Arbitrary strings are not supported.
    *
    * @type { SystemProperties } key - key value input by the user. [since 22 - 24]
    * @type { string } key - key value input by the user, only support . [since 26.0.0]
@@ -1486,16 +1486,17 @@ export declare interface IStateMgmtFactory {
   /**
    * Create a CustomEnv variable instance.
    *
-   * @param { IVariableOwner } owner - custom component owner
-   * @param { CustomEnvKey<T> } envKey - custom env key
-   * @param { string } varName - variable name that is decorated by @CustomEnv
+   * @param { IVariableOwner } owner - custom component owner.
+   * @param { CustomEnvKey<T> } envKey - custom env key.
+   * @param { string } varName - variable name that is decorated by @CustomEnv.
    * @param { T } localInitValue - custom env variable initValue.
+   * @param { CustomEnvOptions<T> } [customEnvOptions] - additional options for makeCustomEnv.
    * @returns { ICustomEnvDecoratedVariable<T> } CustomEnv variable instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.0.0 static
    */
-  makeCustomEnv<T>(owner: IVariableOwner, envKey: CustomEnvKey<T>, varName: string, localInitValue: T): ICustomEnvDecoratedVariable<T>;
+  makeCustomEnv<T>(owner: IVariableOwner, envKey: CustomEnvKey<T>, varName: string, localInitValue: T, customEnvOptions?: CustomEnvOptions<T>): ICustomEnvDecoratedVariable<T>;
 
   /**
    * Create a synchronous monitored variable instance.
@@ -1779,25 +1780,6 @@ export declare interface IMonitorPathInfo {
 }
 
 /**
- * Defines Env options to create Env variables.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @since 24 static
- */
-export declare interface EnvOptions<T> {
-
-  /**
-   * Init value for user defined Env.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 24 static
-   */
-  initValue?: T;
-}
-
-/**
  * Defines makeMonitor options to create Monitor variables.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1826,6 +1808,50 @@ export declare interface MakeMonitorOptions {
 }
 
 /**
+ * Defines Env options to create Env variables.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 24 static
+ */
+export declare interface EnvOptions<T> {
+  /**
+   * Init value for user defined Env.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 24 static
+   */
+  initValue?: T;
+  /**
+   * Watch Function.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  watchFunc?: WatchFuncType;
+ }
+
+/**
+ * Defines CustomEnv options to create CustomEnv variables.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare interface CustomEnvOptions<T> {
+  /**
+   * Watch Function.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  watchFunc?: WatchFuncType;
+}
+
+/**
  * Defines IObservedAnyProp type.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1843,15 +1869,6 @@ export declare interface IObservedAnyProp {
    */
   addRefAnyProp(): void;
 }
-
-/**
- * Global reuse pool handle.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @since 26.0.0 static
- */
-export declare interface IGlobalReusePoolVariable {}
 
 /**
  * Defines the custom environment Key.
@@ -2027,6 +2044,15 @@ export declare class ReadonlyEnvKey {
    */
   static readonly WINDOW_IS_HIGHLIGHTED: ReadonlySystemEnvKey<boolean>;
 }
+
+/**
+ * Global reuse pool handle.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare interface IGlobalReusePoolVariable {}
 
 /**
  * Defining CustomEnv PropertyDecorator.
