@@ -1861,10 +1861,7 @@ declare class MutableStyledString extends StyledString {
    *     original style. If the **StyledStringValue** types are the same, the new style overwrites the old one.<br>If
    *     **styledKey** of **SpanStyle** is **IMAGE** or **CUSTOM_SPAN**, this API takes effect only when an image or
    *     custom span with the length of 1 is at the **start** position.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     <br> 1. Mandatory parameters are left unspecified.
-   *     <br> 2. Incorrect parameters types.
-   *     <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 401 - The parameter check failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
