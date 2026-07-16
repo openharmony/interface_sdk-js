@@ -23,12 +23,12 @@
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
+ * @crossplatform
  * @atomicservice
  * @since 26.0.0 dynamic
  */
 export declare class WithEnvAttribute {
-
-/**
+  /**
    * Defining System Environment Variables
    *
    * @param { WritableSystemEnvKey<T> } key - Key for system environment variables.
@@ -56,7 +56,6 @@ export declare class WithEnvAttribute {
   customEnv<T>(key: CustomEnvKey<T>,  value: T): WithEnvAttribute;
 }
 
-
 /**
  * Define the WithEnv component's type.
  *
@@ -64,6 +63,7 @@ export declare class WithEnvAttribute {
  * @returns { WithEnvAttribute } WithEnvAttribute object
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
+ * @crossplatform
  * @atomicservice
  * @since 26.0.0 dynamic
  */
@@ -74,6 +74,7 @@ export declare type WithEnvInterface = () => WithEnvAttribute;
  * @type { WithEnvInterface }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
+ * @crossplatform
  * @atomicservice
  * @uicomponent
  * @since 26.0.0 dynamic
@@ -85,6 +86,7 @@ export declare const WithEnv: WithEnvInterface;
  * @type { WithEnvAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
+ * @crossplatform
  * @atomicservice
  * @uicomponent
  * @since 26.0.0 dynamic
