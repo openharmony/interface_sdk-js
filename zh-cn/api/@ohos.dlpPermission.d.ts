@@ -1931,5 +1931,48 @@ declare namespace dlpPermission {
          */
         classificationLabel?: string;
     }
+    /**
+     * 设置受企业DLP控制的应用程序列表。使用Promise异步回调。
+     *
+     * @permission ohos.permission.DLP_POLICY_MANAGER
+     * @param { Array<string> } appLists - 被管控的应用的appIdentifier列表。
+     *     <br>数组最大长度为100，超过最大长度返回19100001错误码。
+     *     <br>数组中每个元素为应用的appIdentifier，获取方法参见获取应用的appIdentifier，单个appIdentifier最
+     *     大长度为4096字节，超过最大长度返回19100001错误码。
+     * @param { number } [userId] - 为其配置受控应用列表的用户ID。
+     *     <br>若参数未指定，则默认使用当前用户。
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 19100001 - Invalid parameter value.
+     * @throws { BusinessError } 19100011 - The system ability works abnormally.
+     * @throws { BusinessError } 19100023 - The specified userId is inconsistent with the current userId.
+     * @throws { BusinessError } 19100024 - The specified userId belongs to a personal space user and
+     *     cannot be managed.
+     * @syscap SystemCapability.Security.DataLossPrevention
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    function setControlledAppLists(appLists: Array<string>, userId?: number): Promise<void>;
+
+    /**
+     * 获取当前用户受企业DLP控制的应用程序列表。使用Promise异步回调。
+     * > **说明：**
+     * >
+     * > 该接口仅能查询通过
+     * > [setControlledAppLists]{@link dlpPermission.setControlledAppLists(appLists: Array<string>, userId?: number)}
+     * > 设置的受企业DLP控制的应用程序列表。
+     *
+     * @permission ohos.permission.DLP_POLICY_MANAGER
+     * @returns { Promise<Array<string>> } Promise that returns the appIdentifiers of controlled application
+     *     for the current user.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 19100011 - The system ability works abnormally.
+     * @syscap SystemCapability.Security.DataLossPrevention
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    function getControlledAppLists(): Promise<Array<string>>;
 }
 export default dlpPermission;
