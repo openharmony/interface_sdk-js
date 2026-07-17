@@ -317,6 +317,7 @@ declare namespace mechanicManager {
    */
   function getRotationAxesStatus(mechId: int): RotationAxesStatus;
 
+
   /**
    * Register a listener for axis state changes.
    * The status of the rotation axis changes dynamically, which needs to be monitored.
@@ -517,6 +518,40 @@ declare namespace mechanicManager {
   function isControlSupported(mechDeviceType?: MechDeviceType): boolean;
 
   /**
+   * Connecting devices based on addresses
+   *
+   * @permission ohos.permission.CONNECT_MECHANIC_HARDWARE
+   * @param { AddressInfo } addrInfo - Address information.
+   * @param { ConnectParam } params - Connect Parameters.
+   * @returns { Promise<AttachStateChangeInfo> } Promise used to return the attach state change information.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 33300001 - Service exception.
+   * @syscap SystemCapability.Mechanic.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function connectDevice(addrInfo: AddressInfo, params: ConnectParam): Promise<AttachStateChangeInfo>;
+
+  /**
+   * Disconnect a device with mechanic id.
+   *
+   * @permission ohos.permission.CONNECT_MECHANIC_HARDWARE
+   * @param { int } mechId - mechanic device id.
+   *     <br>The value should be an integer.
+   * @returns { Promise<Result> } Promise used to return the execution result.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 33300001 - Service exception.
+   * @syscap SystemCapability.Mechanic.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function disconnectDevice(mechId: int): Promise<Result>;
+
+  /**
    * Mechanical device information.
    * @typedef MechInfo
    * @syscap SystemCapability.Mechanic.Core
@@ -524,7 +559,6 @@ declare namespace mechanicManager {
    * @since 23 static
    */
   export interface MechInfo {
-
     /**
      * ID of the mechanical device.
      * @type { int }
@@ -533,6 +567,7 @@ declare namespace mechanicManager {
      * @since 23 static
      */
     mechId: int;
+
 
     /**
      * Type of the mechanical device.
@@ -553,6 +588,7 @@ declare namespace mechanicManager {
     mechName: string;
   }
 
+
   /**
    * The rotion angles, relative to the current position.
    * @typedef RotationAngles
@@ -562,7 +598,6 @@ declare namespace mechanicManager {
    * @since 23 static
    */
   export interface RotationAngles {
-
     /**
      * Yaw angle, ranging from -2*Math.PI to 2*Math.PI, measured in radians.
      * @type { ?double }
@@ -604,7 +639,6 @@ declare namespace mechanicManager {
    * @since 23 static
    */
   export interface EulerAngles {
-
     /**
      * Yaw angle, ranging from -Math.PI to Math.PI, measured in radians.
      * @type { ?double }
@@ -646,7 +680,6 @@ declare namespace mechanicManager {
    * @since 23 static
    */
   export interface RotationSpeed {
-
     /**
      * Yaw speed, measured in radians per second.
      * @type { ?double }
@@ -678,6 +711,7 @@ declare namespace mechanicManager {
     pitchSpeed?: double;
   }
 
+
   /**
    * Rotation angle limits relative to the reference point.
    * @typedef RotationLimits
@@ -687,7 +721,6 @@ declare namespace mechanicManager {
    * @since 23 static
    */
   export interface RotationLimits {
-
     /**
      * Maximum yaw rotation angles in the negative direction, ranging from -2*Math.PI to 0, measured in radians.
      * If the value is less than or equal to -2*Math.PI, there is no restriction.
@@ -765,7 +798,6 @@ declare namespace mechanicManager {
    * @since 23 static
    */
   export interface RotationAxesStatus {
-
     /**
      * Whether the yaw axis is enabled.
      * @type { boolean }
@@ -836,7 +868,6 @@ declare namespace mechanicManager {
    * @since 23 static
    */
   export enum RotationAxisLimited {
-
     /**
      * Not limited.
      * @syscap SystemCapability.Mechanic.Core
@@ -874,7 +905,6 @@ declare namespace mechanicManager {
    * @since 23 static
    */
   export interface RotationAxesStateChangeInfo {
-
     /**
      * ID of the mechanical device.
      * @type { int }
@@ -905,7 +935,6 @@ declare namespace mechanicManager {
    * @since 23 static
    */
   export interface TrackingEventInfo {
-
     /**
      * Tracking event.
      * @type { TrackingEvent } Tracking event.
@@ -954,7 +983,6 @@ declare namespace mechanicManager {
    * @since 23 static
    */
   export interface TargetInfo {
-
     /**
      * Target type.
      * @type { TargetType }
@@ -998,7 +1026,6 @@ declare namespace mechanicManager {
    * @since 23 static
    */
   export interface SearchResult {
-
     /**
      * Search result. Returns the number of targets found.0 means not found.
      * @type { int }
@@ -1019,7 +1046,6 @@ declare namespace mechanicManager {
    * @since 23 static
    */
   export enum Operation {
-
     /**
      * Connection operation.
      * @syscap SystemCapability.Mechanic.Core
@@ -1047,7 +1073,6 @@ declare namespace mechanicManager {
    * @since 23 static
    */
   export enum TrackingEvent {
-
     /**
      * Camera tracking enabled by user.
      * @syscap SystemCapability.Mechanic.Core
@@ -1083,7 +1108,6 @@ declare namespace mechanicManager {
    * @since 23 static
    */
   export enum Result {
-
     /**
      * Rotation completed.
      * @syscap SystemCapability.Mechanic.Core
@@ -1156,7 +1180,6 @@ declare namespace mechanicManager {
    * @since 23 static
    */
   export enum MechDeviceType {
-
     /**
      * Gimbal device.
      * @syscap SystemCapability.Mechanic.Core
@@ -1219,7 +1242,6 @@ declare namespace mechanicManager {
    * @since 23 static
    */
   export enum CameraTrackingLayout {
-
     /**
      * Default layout.
      * @syscap SystemCapability.Mechanic.Core
@@ -1263,7 +1285,6 @@ declare namespace mechanicManager {
    * @since 23 static
    */
   export enum TargetType {
-
     /**
      * human Face type.
      * @syscap SystemCapability.Mechanic.Core
@@ -1284,7 +1305,6 @@ declare namespace mechanicManager {
    * @since 23 static
    */
   export enum SearchDirection {
-
     /**
      * System Default Direction.
      * @syscap SystemCapability.Mechanic.Core
@@ -1321,7 +1341,6 @@ declare namespace mechanicManager {
    * @since 26.0.0 dynamic&static
    */
   export interface MoveParams {
-
     /**
      * Moving distance, unit cm.
      * The value should be an integer.
@@ -1358,7 +1377,7 @@ declare namespace mechanicManager {
      * @since 26.0.0 dynamic&static
      */
     mode?: MarchingMode;
-  }
+    }
 
   /**
    * Speed gear definition.
@@ -1368,7 +1387,6 @@ declare namespace mechanicManager {
    * @since 26.0.0 dynamic&static
    */
   export enum SpeedGear {
-
     /**
      * Low speed definition.
      *
@@ -1405,7 +1423,6 @@ declare namespace mechanicManager {
    * @since 26.0.0 dynamic&static
    */
   export enum MarchingMode {
-
     /**
      * Turn first, then move.
      *
@@ -1433,7 +1450,6 @@ declare namespace mechanicManager {
    * @since 26.0.0 dynamic&static
    */
   export interface SpeedParams {
-
     /**
      * Turning or moving speed, unit cm.
      * The value should be an integer.
@@ -1471,7 +1487,6 @@ declare namespace mechanicManager {
    * @since 26.0.0 dynamic&static
    */
   export enum ActionType {
-
     /**
      * Landscape-to-Portrait switching.
      *
@@ -1679,7 +1694,6 @@ declare namespace mechanicManager {
    * @since 26.0.0 dynamic&static
    */
   export enum MechEventType {
-
     /**
      * Mechanic device attached on base.
      *
@@ -1734,7 +1748,6 @@ declare namespace mechanicManager {
    * @since 26.0.0 dynamic&static
    */
   export interface MechEvent {
-
     /**
      * ID of the mechanical device.
      * The value should be an integer.
@@ -1753,6 +1766,111 @@ declare namespace mechanicManager {
      * @since 26.0.0 dynamic&static
      */
     event: MechEventType;
+  }
+
+  /**
+   * Mechanic device address type.
+   *
+   * @syscap SystemCapability.Mechanic.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  export enum AddressType {
+    /**
+     * Mechanic device ble address type.
+     *
+     * @syscap SystemCapability.Mechanic.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    BLE_ADDR = 0
+  }
+
+  /**
+   * Definition of device adress information.
+   *
+   * @syscap SystemCapability.Mechanic.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  export interface AddressInfo {
+    /**
+     * Address of device.
+     *
+     * @syscap SystemCapability.Mechanic.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    address: string;
+
+    /**
+     * Type of address.
+     *
+     * @syscap SystemCapability.Mechanic.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    addressType: AddressType;
+  }
+
+  /**
+   * Definition of connect parameter.
+   *
+   * @syscap SystemCapability.Mechanic.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  export interface ConnectParam {
+    /**
+     * Name of the mechanical device.
+     *
+     * @syscap SystemCapability.Mechanic.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    deviceName?: string;
+
+    /**
+     * Identifer of current device.
+     * The value should be an integer.
+     *
+     * @syscap SystemCapability.Mechanic.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    identifier?: int;
+
+    /**
+     * Data carried during device discovery
+     * Data must be in the following format:|type|value|type|value|..
+     * value'len for each specific type is predefined length
+     * The following table lists the supported types and versions.
+     * -----------------------------------------------------------------
+     * type |        value                       | value len |api level
+     * -----------------------------------------------------------------
+     * 0x01 | 3-axis gravity sensor value        |    3Byte  |26.0.0
+     * -----------------------------------------------------------------
+     * 0x02 | 1st byte offset of the MAC address |    1Byte  |26.0.0
+     * -----------------------------------------------------------------
+     * 0x03 | Pairing broadcast                  |    1Byte  |26.0.0
+     * -----------------------------------------------------------------
+     * 0x04 | Target device identifer            |    4Byte  |26.0.0
+     * -----------------------------------------------------------------.
+     *
+     * @syscap SystemCapability.Mechanic.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    custdata: string;
   }
 }
 
