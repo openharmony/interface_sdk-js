@@ -135,7 +135,6 @@ export interface ToolInfo {
    * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @systemapi
    * @stagemodelonly
-
    * @since 26.0.0 dynamiconly
    */
   readonly subcommands?: Record<string, SubCommandInfo>;

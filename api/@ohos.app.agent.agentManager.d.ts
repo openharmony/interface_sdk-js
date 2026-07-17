@@ -135,7 +135,7 @@ declare namespace agentManager {
    * Gets all AgentCards within specified bundleName.
    *
    * @permission ohos.permission.GET_AGENT_CARD
-   * @param { string } bundleName - The bundle name of the AgentCard belongs to.
+   * @param { string } bundleName - The bundle name the AgentCard belongs to.
    * @returns { Promise<Array<AgentCard>> } Returns the array of AgentCard.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application.
@@ -153,7 +153,7 @@ declare namespace agentManager {
    * Gets the AgentCard within specified agent id.
    *
    * @permission ohos.permission.GET_AGENT_CARD
-   * @param { string } bundleName - The bundle name of the AgentCard belongs to.
+   * @param { string } bundleName - The bundle name the AgentCard belongs to.
    * @param { string } agentId - The agent id the AgentCard belongs to.
    * @returns { Promise<AgentCard> } Returns the specified AgentCard.
    * @throws { BusinessError } 201 - Permission denied.
