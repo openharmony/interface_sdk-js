@@ -112,6 +112,26 @@ declare namespace application {
   export function createModuleContext(context: Context, moduleName: string): Promise<Context>;
 
   /**
+    * 创建指定模块的上下文。创建出的模块上下文中[resourceManager.Configuration]{@link @ohos.resourceManager:resourceManager.Configuration}资源继承
+    * 自入参上下文，便于开发者获取[跨HAP/HSP包应用资源](docroot://quick-start/resource-categories-and-access.md#跨haphsp包应用资源)。
+    * 
+    * > **说明：**
+    * >
+    * > 由于创建模块上下文的过程涉及资源查询与初始化，耗时相对较长，在对应用流畅性要求较高的场景下，不建议频繁或多次调用createModuleContext接口创建多个Context实例，以免影响用户体验。
+    * 
+    * @param { Context } context - 表示应用上下文。
+    * @param { string } moduleName - 表示应用模块名。
+    * @returns { Context } 返回创建的上下文。
+    * @throws { BusinessError } 16000011 - 上下文不存在。
+    * @throws { BusinessError } 16000021 - 模块不存在。
+    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+    * @stagemodelonly
+    * @atomicservice
+    * @since 26.1.0 dynamic&static
+    */
+   export function createModuleContextSync(context: Context, moduleName: string): Context;
+
+  /**
    * 根据入参Context创建相应模块的Context。使用Promise异步回调。
    * 
    * > **说明：**
