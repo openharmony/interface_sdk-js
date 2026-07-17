@@ -4083,6 +4083,21 @@ declare namespace camera {
      * @since 26.0.0 dynamic&static
      */
     getColorTintRange(): Array<int>;
+
+    /**
+      * Checks whether the RGB gain is supported.
+      *
+      * @returns { boolean } Check result for the support of the RGB gain. **true** if supported, **false**
+      *     otherwise. If the operation fails, an error code defined in
+      *     [CameraErrorCode]{@link camera.CameraErrorCode} is returned.
+      * @throws { BusinessError } 202 - Not System Application.
+      * @throws { BusinessError } 7400103 - Session not config.
+      * @syscap SystemCapability.Multimedia.Camera.Core
+      * @systemapi
+      * @stagemodelonly
+      * @since 26.1.0 dynamic&static
+      */
+     isWhiteBalanceGainsSupported(): boolean;
   }
 
   /**
@@ -4189,6 +4204,32 @@ declare namespace camera {
      * @since 26.0.0 dynamic&static
      */
     getColorTint(): int;
+
+    /**
+     * Gets RGB white balance gain values.
+     *
+     * @returns { WhiteBalanceGains } The current RGB white balance gain values.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 7400103 - Session not config.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    getWhiteBalanceGains(): WhiteBalanceGains;
+
+    /**
+     * Sets RGB white balance gain values.
+     *
+     * @param { WhiteBalanceGains } gains - RGB white balance gain values.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 7400103 - Session not config.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    setWhiteBalanceGains(gains: WhiteBalanceGains): void;
   }
 
   /**
@@ -8242,6 +8283,70 @@ declare namespace camera {
      * @since 26.0.0 dynamic&static
      */
     offExposureInfoChange(callback?: Callback<ExposureInfo>): void;
+
+    /**
+     * Subscribes aperture info event callback.
+     *
+     * @param { Callback<ApertureInfo> } callback - Callback used to get the aperture info.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    onApertureInfoChange(callback: Callback<ApertureInfo>): void;
+
+    /**
+     * Unsubscribes from aperture info event callback.
+     *
+     * @param { Callback<ApertureInfo> } [callback] - Callback used to get the aperture info.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    offApertureInfoChange(callback?: Callback<ApertureInfo>): void;
+  }
+
+  /**
+   * RGB white balance gain values.
+   *
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  interface WhiteBalanceGains {  
+    /**
+     * The red gain component of the white balance value.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    redGain: double;
+
+    /**
+     * The green gain component of the white balance value.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    greenGain: double;
+
+    /**
+     * The blue gain component of the white balance value.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    blueGain: double;
   }
 
   /**
