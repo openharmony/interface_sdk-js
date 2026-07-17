@@ -295,8 +295,9 @@ export declare interface BadgeAttribute extends CommonMethod {
      * @param { BadgeParamWithNumber | BadgeParamWithString } value - badge constructor options
      * @returns { BadgeAttribute } Returns the instance of the BadgeAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @unpublished
      * @stagemodelonly
-     * @since 26.0.0 staticonly
+     * @since 26.1.0 staticonly
      */
     default setBadgeOptions(value: BadgeParamWithNumber | BadgeParamWithString): this;
 }
@@ -325,8 +326,9 @@ export declare function Badge(
  * @param { CustomBuilder } [content_] - Child component
  * @returns { BadgeAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @unpublished
  * @stagemodelonly
- * @since 26.0.0 staticonly
+ * @since 26.1.0 staticonly
  * @noninterop
  */
 @Builder

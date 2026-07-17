@@ -144,8 +144,9 @@ export declare interface SymbolSpanAttribute {
      * @param { Resource } value - symbol span value
      * @returns { SymbolSpanAttribute } Returns the instance of the SymbolSpanAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @unpublished
      * @stagemodelonly
-     * @since 26.0.0 staticonly
+     * @since 26.1.0 staticonly
      */
     default setSymbolSpanOptions(value: Resource): this;
 
@@ -153,8 +154,9 @@ export declare interface SymbolSpanAttribute {
      * Notify the component is finished setting up its attributes.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @unpublished
      * @stagemodelonly
-     * @since 26.0.0 staticonly
+     * @since 26.1.0 staticonly
      */
     default applyAttributesFinish(): void;
 }
@@ -180,8 +182,9 @@ export declare function SymbolSpan(
  * @param { CustomBuilderT<SymbolSpanAttribute> } style - SymbolSpan attribute instance
  * @returns { SymbolSpanAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @unpublished
  * @stagemodelonly
- * @since 26.0.0 staticonly
+ * @since 26.1.0 staticonly
  * @noninterop
  */
 @Builder

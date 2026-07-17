@@ -277,11 +277,12 @@ export declare interface TextClockAttribute extends CommonMethod {
     /**
      * Set TextClock options.
      *
-     * @param { TextClockOptions } [options] - TextClock constructor options
+     * @param { TextClockOptions } [options] - TextClock constructor options.
      * @returns { TextClockAttribute } Returns the instance of the TextClockAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @unpublished
      * @stagemodelonly
-     * @since 26.0.0 staticonly
+     * @since 26.1.0 staticonly
      */
     default setTextClockOptions(options?: TextClockOptions): this;
 }
@@ -306,8 +307,9 @@ export declare function TextClock(
  * @param { CustomBuilderT<TextClockAttribute> } style - TextClock attribute instance
  * @returns { TextClockAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @unpublished
  * @stagemodelonly
- * @since 26.0.0 staticonly
+ * @since 26.1.0 staticonly
  * @noninterop
  */
 @Builder

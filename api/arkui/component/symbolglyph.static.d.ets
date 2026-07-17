@@ -596,11 +596,12 @@ export declare interface SymbolGlyphAttribute extends CommonMethod {
     /**
      * Set SymbolGlyph options.
      *
-     * @param { Resource } [value] - SymbolGlyph constructor options
+     * @param { Resource } [value] - SymbolGlyph constructor options.
      * @returns { SymbolGlyphAttribute } Returns the instance of the SymbolGlyphAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @unpublished
      * @stagemodelonly
-     * @since 26.0.0 staticonly
+     * @since 26.1.0 staticonly
      */
     default setSymbolGlyphOptions(value?: Resource): this;
 }
@@ -626,8 +627,9 @@ export declare function SymbolGlyph(
  * @param { CustomBuilderT<SymbolGlyphAttribute> } style - SymbolGlyph attribute instance
  * @returns { SymbolGlyphAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @unpublished
  * @stagemodelonly
- * @since 26.0.0 staticonly
+ * @since 26.1.0 staticonly
  * @noninterop
  */
 @Builder

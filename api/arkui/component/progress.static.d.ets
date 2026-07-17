@@ -518,8 +518,9 @@ export declare interface ProgressAttribute extends CommonMethod {
      * @param { ProgressOptions } options - Progress constructor options
      * @returns { ProgressAttribute } Returns the instance of the ProgressAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @unpublished
      * @stagemodelonly
-     * @since 26.0.0 staticonly
+     * @since 26.1.0 staticonly
      */
     default setProgressOptions(options: ProgressOptions): this;
 }
@@ -569,8 +570,9 @@ export declare function Progress(
  * @param { CustomBuilderT<ProgressAttribute> } style - Progress attribute instance
  * @returns { ProgressAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @unpublished
  * @stagemodelonly
- * @since 26.0.0 staticonly
+ * @since 26.1.0 staticonly
  * @noninterop
  */
 @Builder
