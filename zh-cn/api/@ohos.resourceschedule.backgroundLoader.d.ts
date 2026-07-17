@@ -24,7 +24,7 @@
  *
  * @syscap SystemCapability.ResourceSchedule.WorkScheduler
  * @stagemodelonly
- * @since 26.0.0 dynamic & static
+ * @since 26.0.0 dynamic&static
  */
 declare namespace backgroundLoader {
   /**
@@ -32,7 +32,7 @@ declare namespace backgroundLoader {
    *
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @stagemodelonly
-   * @since 26.0.0 dynamic & static
+   * @since 26.0.0 dynamic&static
    */
   export enum StopCode {
     /**
@@ -40,7 +40,7 @@ declare namespace backgroundLoader {
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @stagemodelonly
-     * @since 26.0.0 dynamic & static
+     * @since 26.0.0 dynamic&static
      */
     SUCCESS = 0,
     /**
@@ -48,7 +48,7 @@ declare namespace backgroundLoader {
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @stagemodelonly
-     * @since 26.0.0 dynamic & static
+     * @since 26.0.0 dynamic&static
      */
     SYSTEM_ERROR = 1,
     /**
@@ -56,7 +56,7 @@ declare namespace backgroundLoader {
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @stagemodelonly
-     * @since 26.0.0 dynamic & static
+     * @since 26.0.0 dynamic&static
      */
     PERCEPTIBLE_ERROR = 2,
     /**
@@ -64,7 +64,7 @@ declare namespace backgroundLoader {
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @stagemodelonly
-     * @since 26.0.0 dynamic & static
+     * @since 26.0.0 dynamic&static
      */
     TIMEOUT_ERROR = 3,
     /**
@@ -72,7 +72,7 @@ declare namespace backgroundLoader {
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @stagemodelonly
-     * @since 26.0.0 dynamic & static
+     * @since 26.0.0 dynamic&static
      */
     EXECUTE_ERROR = 4
   }
@@ -215,7 +215,7 @@ declare namespace backgroundLoader {
    *
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @stagemodelonly
-   * @since 26.0.0 dynamic & static
+   * @since 26.0.0 dynamic&static
    */
   const ON_START: string;
 
@@ -224,7 +224,7 @@ declare namespace backgroundLoader {
    *
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @stagemodelonly
-   * @since 26.0.0 dynamic & static
+   * @since 26.0.0 dynamic&static
    */
   const ON_STOP: string;
 }
