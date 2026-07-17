@@ -16,53 +16,34 @@
 /**
  * ###### Core Enum Types
  *
- * - **[PermissionUsageFlag]{@link privacyManager.PermissionUsageFlag}:** Enum for querying permission usage records,
- * used to specify querying summary data or detailed data.
- * - **[PermissionActiveStatus]{@link privacyManager.PermissionActiveStatus}:** Enum for permission usage status change
- * types, used to indicate unused, foreground use, or background use status.
- * - **[PermissionUsedType]{@link privacyManager.PermissionUsedType}:** Enum for sensitive permission usage types, used
- * to indicate the use of sensitive permissions through normal authorization, Picker, or security components.
+ * - **[PermissionUsageFlag]{@link privacyManager.PermissionUsageFlag}:** 权限使用记录查询方式枚举，用于指定查询汇总数据或明细数据。
+ * - **[PermissionActiveStatus]{@link privacyManager.PermissionActiveStatus}:** 权限使用状态变化类型枚举，用于表示未使用、前台使用或后台使用状态。
+ * - **[PermissionUsedType]{@link privacyManager.PermissionUsedType}:** 敏感权限使用类型枚举，用于表示通过普通授权、Picker或安全控件方式使用敏感权限。
  *
  * ###### Core Interface Types
  *
- * - **[PermissionUsedRequest]{@link privacyManager.PermissionUsedRequest}:** Permission usage record query request
- * object, used to specify the query application, permission, time range, and query method.
- * - **[PermissionUsedResponse]{@link privacyManager.PermissionUsedResponse}:** Permission usage record query response
- * object, used to return the query time range and a collection of application-level records.
- * - **[BundleUsedRecord]{@link privacyManager.BundleUsedRecord}:** Application or device-level permission usage record
- * object, used to return the permission access records of a specific application or remote device.
- * - **[PermissionUsedRecord]{@link privacyManager.PermissionUsedRecord}:** Access record object for a single
- * permission, used to return the number of accesses, number of denials, last access time, and detailed records.
- * - **[UsedRecordDetail]{@link privacyManager.UsedRecordDetail}:** Single access record detail object, used to return
- * information such as access status, timestamp, access duration, and usage type.
- * - **[ActiveChangeResponse]{@link privacyManager.ActiveChangeResponse}:** Permission usage status change event
- * object, to return details of permission active status changes.
- * - **[PermissionUsedTypeInfo]{@link privacyManager.PermissionUsedTypeInfo}:** Permission usage type information
- * object, used to return the usage type when an application accesses a sensitive permission.
- * - **[AddPermissionUsedRecordOptions]{@link privacyManager.AddPermissionUsedRecordOptions}:** Optional parameter
- * object for adding a permission usage record, used to specify the sensitive permission usage type and extension
- * identity.
- * - **[PermissionUsingOptions]{@link privacyManager.PermissionUsingOptions}:** Optional parameter object for
- * permission usage, used to specify the extension identity.
+ * - **[PermissionUsedRequest]{@link privacyManager.PermissionUsedRequest}:** 权限使用记录查询请求对象，用于指定查询应用、权限、时间范围和查询方式。
+ * - **[PermissionUsedResponse]{@link privacyManager.PermissionUsedResponse}:** 权限使用记录查询响应对象，用于返回查询时间范围和应用维度记录集合。
+ * - **[BundleUsedRecord]{@link privacyManager.BundleUsedRecord}:** 应用或设备维度的权限使用记录对象，用于返回某个应用或远端设备的权限访问记录。
+ * - **[PermissionUsedRecord]{@link privacyManager.PermissionUsedRecord}:** 单个权限的访问记录对象，用于返回访问次数、拒绝次数、最后访问时间和明细记录。
+ * - **[UsedRecordDetail]{@link privacyManager.UsedRecordDetail}:** 单次访问记录详情对象，用于返回访问状态、时间戳、访问时长和使用类型等信息。
+ * - **[ActiveChangeResponse]{@link privacyManager.ActiveChangeResponse}:** 权限使用状态变化事件对象，用于返回权限活跃状态变化详情。
+ * - **[PermissionUsedTypeInfo]{@link privacyManager.PermissionUsedTypeInfo}:** 权限使用类型信息对象，用于返回应用访问敏感权限时的使用类型。
+ * - **[AddPermissionUsedRecordOptions]{@link privacyManager.AddPermissionUsedRecordOptions}:** 添加权限使用记录可选参数对象，用于指定敏感权限使用类型和扩展身份。
+ * - **[PermissionUsingOptions]{@link privacyManager.PermissionUsingOptions}:** 权限使用可选参数对象，用于指定扩展身份。
  *
  * ###### Core Function Types
  *
- * - **[addPermissionUsedRecord]{@link privacyManager.addPermissionUsedRecord}:** Adds a permission usage record.
- * - **[getPermissionUsedRecord]{@link privacyManager.getPermissionUsedRecord}:** Queries permission usage records.
- * - **[setPermissionUsedRecordToggleStatus]{@link privacyManager.setPermissionUsedRecordToggleStatus}:** Sets the
- * permission usage record toggle status.
- * - **[getPermissionUsedRecordToggleStatus]{@link privacyManager.getPermissionUsedRecordToggleStatus}:** Queries the
- * permission usage record toggle status.
- * - **[startUsingPermission]{@link privacyManager.startUsingPermission}:** Marks the start of using a sensitive
- * permission.
- * - **[stopUsingPermission]{@link privacyManager.stopUsingPermission}:** Marks the stop of using a sensitive
- * permission.
- * - **[checkPermissionInUse]{@link privacyManager.checkPermissionInUse}:** Checks whether a specified permission is
- * currently being used.
- * - **[on]{@link privacyManager.on}:** Subscribes to permission usage status change events.
- * - **[off]{@link privacyManager.off}:** Unsubscribes from permission usage status change events.
- * - **[getPermissionUsedTypeInfos]{@link privacyManager.getPermissionUsedTypeInfos}:** Queries sensitive permission
- * access type information.
+ * - **[addPermissionUsedRecord]{@link privacyManager.addPermissionUsedRecord}:** 添加权限使用记录。
+ * - **[getPermissionUsedRecord]{@link privacyManager.getPermissionUsedRecord}:** 查询权限使用记录。
+ * - **[setPermissionUsedRecordToggleStatus]{@link privacyManager.setPermissionUsedRecordToggleStatus}:** 设置权限使用记录开关状态。
+ * - **[getPermissionUsedRecordToggleStatus]{@link privacyManager.getPermissionUsedRecordToggleStatus}:** 查询权限使用记录开关状态。
+ * - **[startUsingPermission]{@link privacyManager.startUsingPermission}:** 标记开始使用敏感权限。
+ * - **[stopUsingPermission]{@link privacyManager.stopUsingPermission}:** 标记停止使用敏感权限。
+ * - **[checkPermissionInUse]{@link privacyManager.checkPermissionInUse}:** C检查指定权限当前是否正在被使用。
+ * - **[on]{@link privacyManager.on}:** 订阅权限使用状态变化事件。
+ * - **[off]{@link privacyManager.off}:** 取消订阅权限使用状态变化事件。
+ * - **[getPermissionUsedTypeInfos]{@link privacyManager.getPermissionUsedTypeInfos}:** 查询敏感权限访问类型信息。
  *
  * ###### Core Class
  *
@@ -89,6 +70,7 @@ import { Permissions } from './permissions';
  * - 查询某个权限当前是否正在被使用。
  *
  * @syscap SystemCapability.Security.AccessToken
+ * @FaAndStageModel
  * @since 9 dynamic
  * @since 23 static
  */
@@ -114,10 +96,10 @@ declare namespace privacyManager {
    * @param { int } failCount - 访问失败的次数。传入无效值时返回错误码12100001。
    *     <br>取值限定为整数。取值约束：取值必须为非负整数。
    * @param { AddPermissionUsedRecordOptions } [options] - 添加权限使用记录可选参数，用于指定敏感权限使用类型和扩展身份。当需要区分权限访问方式（如通过Picker或安全控件访问）或标识调用方扩展身份时传入此参数。[since 12]
-   *     <br>默认值：结构体中每个属性的默认值请参考[AddPermissionUsedRecordOptions]{@link privateManager.AddPermissionUsedRecordOptions}。
+   *     <br>默认值：结构内每个属性的默认值请参考[AddPermissionUsedRecordOptions]{@link privacyManager.AddPermissionUsedRecordOptions}。
    * @returns { Promise<void> } Promise对象，无返回结果。
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
-   *     2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types.
    * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission
    *     "ohos.permission.PERMISSION_USED_STATS".
    * @throws { BusinessError } 202 - Not system app. Interface caller is not a system app.
@@ -131,6 +113,7 @@ declare namespace privacyManager {
    * @throws { BusinessError } 12100009 - Common inner error. A database error occurs.
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
+   * @FaAndStageModel
    * @since 9 dynamic
    * @since 23 static
    */
@@ -162,8 +145,8 @@ declare namespace privacyManager {
    * @param { int } failCount - 访问失败的次数。传入无效值时返回错误码12100001。
    *     <br>取值限定为整数。取值约束：取值必须为非负整数。
    * @param { AsyncCallback<void> } callback - 回调函数。当添加使用记录成功时，err为undefined；否则为错误对象。
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
-   *     2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types.
    * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission
    *     "ohos.permission.PERMISSION_USED_STATS".
    * @throws { BusinessError } 202 - Not system app. Interface caller is not a system app.
@@ -176,6 +159,7 @@ declare namespace privacyManager {
    * @throws { BusinessError } 12100009 - Common inner error. A database error occurs.
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
+   * @FaAndStageModel
    * @since 9 dynamic
    * @since 23 static
    */
@@ -193,8 +177,8 @@ declare namespace privacyManager {
    * @permission ohos.permission.PERMISSION_USED_STATS
    * @param { PermissionUsedRequest } request - 查询权限使用记录的请求。
    * @returns { Promise<PermissionUsedResponse> } Promise对象，返回查询的权限使用记录。
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
-   *     2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types.
    * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission
    *     "ohos.permission.PERMISSION_USED_STATS".
    * @throws { BusinessError } 202 - Not system app. Interface caller is not a system app.
@@ -202,6 +186,7 @@ declare namespace privacyManager {
    * @throws { BusinessError } 12100007 - Service exception.
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
+   * @FaAndStageModel
    * @since 9 dynamic
    * @since 23 static
    */
@@ -213,8 +198,8 @@ declare namespace privacyManager {
    * @permission ohos.permission.PERMISSION_USED_STATS
    * @param { PermissionUsedRequest } request - 查询权限使用记录的请求。
    * @param { AsyncCallback<PermissionUsedResponse> } callback - 回调函数。当查询记录成功，err为undefined，data为获取到的权限使用记录；否则为错误对象。
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
-   *     2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types.
    * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission
    *     "ohos.permission.PERMISSION_USED_STATS".
    * @throws { BusinessError } 202 - Not system app. Interface caller is not a system app.
@@ -222,6 +207,7 @@ declare namespace privacyManager {
    * @throws { BusinessError } 12100007 - Service exception.
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
+   * @FaAndStageModel
    * @since 9 dynamic
    * @since 23 static
    */
@@ -242,8 +228,8 @@ declare namespace privacyManager {
    * @param { Permissions } permissionName - 需要使用的权限名称。传入无效值时返回错误码12100001。
    *     <br>取值约束：权限名长度不能超过256个字符。
    * @returns { Promise<void> } Promise对象，无返回结果。
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
-   *     2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types.
    * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission
    *     "ohos.permission.PERMISSION_USED_STATS".
    * @throws { BusinessError } 202 - Not system app. Interface caller is not a system app.
@@ -258,6 +244,7 @@ declare namespace privacyManager {
    * @throws { BusinessError } 12100008 - Out of memory.
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
+   * @FaAndStageModel
    * @since 9 dynamic
    */
   function startUsingPermission(tokenID: int, permissionName: Permissions): Promise<void>;
@@ -278,14 +265,14 @@ declare namespace privacyManager {
    *     <br>BundleInfo获取可参考：[bundleManager.getBundleInfoSync]{@link @ohos.bundle.bundleManager:bundleManager.getBundleInfoSync}。
    * @param { Permissions } permissionName - 需要使用的权限名称。传入无效值时返回错误码12100001。
    *     <br>取值约束：权限名长度不能超过256个字符。
-   * @param { int } [pid] - 调用方的进程pid，用于根据进程生命周期管理权限使用状态。当需要精确控制特定进程的权限使用状态（例如进程退出时自动停止权限使用）时传入此参数。需要与[stopUsingPermission]{@link
-   *     privacyManager.stopUsingPermission}传入的pid相同。
+   * @param { int } [pid] - 调用方的进程pid，用于根据进程生命周期管理权限使用状态。当需要精确控制特定进程的权限使用状态（例如进程退出时自动停止权限使用）时传入此参数。需要与[stopUsingPermission]{@link privacyManager.stopUsingPermission}传入的pid相同。
    *     <br>取值限定为整数。默认值：-1，表示不根据进程生命周期响应。
    * @param { PermissionUsedType } [usedType] - 敏感权限访问方式。
    *     <br>默认值：NORMAL_TYPE。
+   *     <br>Default value: NORMAL_TYPE.
    * @returns { Promise<void> } Promise对象，无返回结果
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
-   *     2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types.
    * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission
    *     "ohos.permission.PERMISSION_USED_STATS".
    * @throws { BusinessError } 202 - Not system app. Interface caller is not a system app.
@@ -298,6 +285,7 @@ declare namespace privacyManager {
    * @throws { BusinessError } 12100008 - Out of memory.
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
+   * @FaAndStageModel
    * @since 18 dynamic
    * @since 23 static
    */
@@ -381,8 +369,8 @@ declare namespace privacyManager {
    * @param { Permissions } permissionName - 需要使用的权限名称。传入无效值时返回错误码12100001。
    *     <br>取值约束：权限名长度不能超过256个字符。
    * @param { AsyncCallback<void> } callback - 回调函数。当开始使用权限成功时，err为undefined；否则为错误对象。
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
-   *     2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types.
    * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission
    *     "ohos.permission.PERMISSION_USED_STATS".
    * @throws { BusinessError } 202 - Not system app. Interface caller is not a system app.
@@ -397,6 +385,7 @@ declare namespace privacyManager {
    * @throws { BusinessError } 12100008 - Out of memory.
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
+   * @FaAndStageModel
    * @since 9 dynamic
    * @since 23 static
    */
@@ -420,8 +409,8 @@ declare namespace privacyManager {
    * @param { Permissions } permissionName - 需要停止使用的权限名称。传入无效值时返回错误码12100001。
    *     <br>取值约束：权限名长度不能超过256个字符。
    * @returns { Promise<void> } Promise对象，无返回结果。
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
-   *     2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types.
    * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission
    *     "ohos.permission.PERMISSION_USED_STATS".
    * @throws { BusinessError } 202 - Not system app. Interface caller is not a system app.
@@ -433,6 +422,7 @@ declare namespace privacyManager {
    * @throws { BusinessError } 12100008 - Out of memory.
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
+   * @FaAndStageModel
    * @since 9 dynamic
    */
   function stopUsingPermission(tokenID: int, permissionName: Permissions): Promise<void>;
@@ -451,8 +441,8 @@ declare namespace privacyManager {
    * @param { Permissions } permissionName - 需要停止使用的权限名称。传入无效值时返回错误码12100001。
    *     <br>取值约束：权限名长度不能超过256个字符。
    * @param { AsyncCallback<void> } callback - 回调函数。当停止使用权限成功时，err为undefined；否则为错误对象。
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
-   *     2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types.
    * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission
    *     "ohos.permission.PERMISSION_USED_STATS".
    * @throws { BusinessError } 202 - Not system app. Interface caller is not a system app.
@@ -464,6 +454,7 @@ declare namespace privacyManager {
    * @throws { BusinessError } 12100008 - Out of memory.
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
+   * @FaAndStageModel
    * @since 9 dynamic
    * @since 23 static
    */
@@ -526,8 +517,8 @@ declare namespace privacyManager {
    * @param { Array<Permissions> } permissionList - 订阅的权限名列表。为空时表示订阅所有的权限使用状态变化。传入无效值时返回错误码12100001。
    *     <br>取值约束：数组长度不能超过1024。
    * @param { Callback<ActiveChangeResponse> } callback - 回调函数，返回订阅指定权限使用状态变更事件的对象。
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
-   *     2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types.
    * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission
    *     "ohos.permission.PERMISSION_USED_STATS".
    * @throws { BusinessError } 202 - Not system app. Interface caller is not a system app.
@@ -539,6 +530,7 @@ declare namespace privacyManager {
    * @throws { BusinessError } 12100008 - Out of memory.
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
+   * @FaAndStageModel
    * @since 9 dynamic
    */
   function on(type: 'activeStateChange',
@@ -573,6 +565,7 @@ declare namespace privacyManager {
    * @throws { BusinessError } 12100008 - Out of memory.
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
+   * @stagemodelonly
    * @since 23 static
    */
   function onActiveStateChange(
@@ -596,8 +589,8 @@ declare namespace privacyManager {
    *     Callback<ActiveChangeResponse>)}
    *     传入的callback一致；不传入此参数时，将批量删除permissionList下的所有回调函数。
    *     <br>取值约束：数组长度不能超过1024。
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left
-   *     unspecified; 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left
+   *     unspecified; 2. Incorrect parameter types.
    * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission
    *     "ohos.permission.PERMISSION_USED_STATS".
    * @throws { BusinessError } 202 - Not system app. Interface caller is not a system app.
@@ -607,6 +600,7 @@ declare namespace privacyManager {
    * @throws { BusinessError } 12100008 - Out of memory.
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
+   * @FaAndStageModel
    * @since 9 dynamic
    */
   function off(
@@ -637,6 +631,7 @@ declare namespace privacyManager {
    * @throws { BusinessError } 12100008 - Out of memory.
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
+   * @stagemodelonly
    * @since 23 static
    */
   function offActiveStateChange(
@@ -664,6 +659,7 @@ declare namespace privacyManager {
    * @throws { BusinessError } 12100009 - Common inner error. A database error occurs.
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
+   * @FaAndStageModel
    * @since 12 dynamic
    * @since 23 static
    */
@@ -676,6 +672,7 @@ declare namespace privacyManager {
    *
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
+   * @FaAndStageModel
    * @since 9 dynamic
    * @since 23 static
    */
@@ -685,6 +682,7 @@ declare namespace privacyManager {
      *
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
+     * @FaAndStageModel
      * @since 9 dynamic
      * @since 23 static
      */
@@ -695,6 +693,7 @@ declare namespace privacyManager {
      *
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
+     * @FaAndStageModel
      * @since 9 dynamic
      * @since 23 static
      */
@@ -705,6 +704,7 @@ declare namespace privacyManager {
      *
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
+     * @FaAndStageModel
      * @since 9 dynamic
      * @since 23 static
      */
@@ -716,6 +716,7 @@ declare namespace privacyManager {
    *
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
+   * @FaAndStageModel
    * @since 9 dynamic
    * @since 23 static
    */
@@ -727,6 +728,7 @@ declare namespace privacyManager {
      *
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
+     * @FaAndStageModel
      * @since 18 dynamic
      * @since 23 static
      */
@@ -737,6 +739,7 @@ declare namespace privacyManager {
      *
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
+     * @FaAndStageModel
      * @since 9 dynamic
      * @since 23 static
      */
@@ -747,6 +750,7 @@ declare namespace privacyManager {
      *
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
+     * @FaAndStageModel
      * @since 9 dynamic
      * @since 23 static
      */
@@ -757,6 +761,7 @@ declare namespace privacyManager {
      *
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
+     * @FaAndStageModel
      * @since 9 dynamic
      * @since 23 static
      */
@@ -767,6 +772,7 @@ declare namespace privacyManager {
      *
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
+     * @FaAndStageModel
      * @since 9 dynamic
      * @since 23 static
      */
@@ -779,6 +785,7 @@ declare namespace privacyManager {
      *
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
+     * @FaAndStageModel
      * @since 18 dynamic
      * @since 23 static
      */
@@ -800,6 +807,7 @@ declare namespace privacyManager {
    *
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
+   * @FaAndStageModel
    * @since 9 dynamic
    * @since 23 static
    */
@@ -809,6 +817,7 @@ declare namespace privacyManager {
      *
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
+     * @FaAndStageModel
      * @since 9 dynamic
      * @since 23 static
      */
@@ -818,6 +827,7 @@ declare namespace privacyManager {
      *
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
+     * @FaAndStageModel
      * @since 9 dynamic
      * @since 23 static
      */
@@ -829,6 +839,7 @@ declare namespace privacyManager {
    *
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
+   * @FaAndStageModel
    * @since 9 dynamic
    * @since 23 static
    */
@@ -843,6 +854,7 @@ declare namespace privacyManager {
      *
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
+     * @FaAndStageModel
      * @since 9 dynamic
      * @since 23 static
      */
@@ -856,6 +868,7 @@ declare namespace privacyManager {
      * @default false
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
+     * @FaAndStageModel
      * @since 9 dynamic
      * @since 23 static
      */
@@ -868,6 +881,7 @@ declare namespace privacyManager {
      *
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
+     * @FaAndStageModel
      * @since 9 dynamic
      * @since 23 static
      */
@@ -880,6 +894,7 @@ declare namespace privacyManager {
      *
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
+     * @FaAndStageModel
      * @since 9 dynamic
      * @since 23 static
      */
@@ -891,6 +906,7 @@ declare namespace privacyManager {
      *
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
+     * @FaAndStageModel
      * @since 9 dynamic
      * @since 23 static
      */
@@ -903,6 +919,7 @@ declare namespace privacyManager {
      * @default 0
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
+     * @FaAndStageModel
      * @since 9 dynamic
      * @since 23 static
      */
@@ -915,6 +932,7 @@ declare namespace privacyManager {
      * @default 0
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
+     * @FaAndStageModel
      * @since 9 dynamic
      * @since 23 static
      */
@@ -925,6 +943,7 @@ declare namespace privacyManager {
      *
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
+     * @FaAndStageModel
      * @since 9 dynamic
      * @since 23 static
      */
@@ -936,6 +955,7 @@ declare namespace privacyManager {
    *
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
+   * @FaAndStageModel
    * @since 9 dynamic
    * @since 23 static
    */
@@ -946,6 +966,7 @@ declare namespace privacyManager {
      *
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
+     * @FaAndStageModel
      * @since 9 dynamic
      * @since 23 static
      */
@@ -957,6 +978,7 @@ declare namespace privacyManager {
      *
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
+     * @FaAndStageModel
      * @since 9 dynamic
      * @since 23 static
      */
@@ -967,6 +989,7 @@ declare namespace privacyManager {
      *
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
+     * @FaAndStageModel
      * @since 9 dynamic
      * @since 23 static
      */
@@ -978,6 +1001,7 @@ declare namespace privacyManager {
    *
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
+   * @FaAndStageModel
    * @since 9 dynamic
    * @since 23 static
    */
@@ -987,6 +1011,7 @@ declare namespace privacyManager {
      *
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
+     * @FaAndStageModel
      * @since 9 dynamic
      * @since 23 static
      */
@@ -997,6 +1022,7 @@ declare namespace privacyManager {
      *
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
+     * @FaAndStageModel
      * @since 9 dynamic
      * @since 23 static
      */
@@ -1007,6 +1033,7 @@ declare namespace privacyManager {
      *
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
+     * @FaAndStageModel
      * @since 9 dynamic
      * @since 23 static
      */
@@ -1017,6 +1044,7 @@ declare namespace privacyManager {
      *
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
+     * @FaAndStageModel
      * @since 9 dynamic
      * @since 23 static
      */
@@ -1027,6 +1055,7 @@ declare namespace privacyManager {
      *
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
+     * @FaAndStageModel
      * @since 9 dynamic
      * @since 23 static
      */
@@ -1037,6 +1066,7 @@ declare namespace privacyManager {
      *
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
+     * @FaAndStageModel
      * @since 24 dynamic&static
      */
     deviceName?: string;
@@ -1047,6 +1077,7 @@ declare namespace privacyManager {
    *
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
+   * @FaAndStageModel
    * @since 9 dynamic
    * @since 23 static
    */
@@ -1056,6 +1087,7 @@ declare namespace privacyManager {
      *
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
+     * @FaAndStageModel
      * @since 9 dynamic
      * @since 23 static
      */
@@ -1065,6 +1097,7 @@ declare namespace privacyManager {
      *
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
+     * @FaAndStageModel
      * @since 9 dynamic
      * @since 23 static
      */
@@ -1074,6 +1107,7 @@ declare namespace privacyManager {
      *
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
+     * @FaAndStageModel
      * @since 9 dynamic
      * @since 23 static
      */
@@ -1084,6 +1118,7 @@ declare namespace privacyManager {
      *
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
+     * @FaAndStageModel
      * @since 9 dynamic
      * @since 23 static
      */
@@ -1094,6 +1129,7 @@ declare namespace privacyManager {
      *
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
+     * @FaAndStageModel
      * @since 9 dynamic
      * @since 23 static
      */
@@ -1105,6 +1141,7 @@ declare namespace privacyManager {
      *
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
+     * @FaAndStageModel
      * @since 9 dynamic
      * @since 23 static
      */
@@ -1117,6 +1154,7 @@ declare namespace privacyManager {
      *
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
+     * @FaAndStageModel
      * @since 9 dynamic
      * @since 23 static
      */
@@ -1129,6 +1167,7 @@ declare namespace privacyManager {
      *
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
+     * @FaAndStageModel
      * @since 9 dynamic
      * @since 23 static
      */
@@ -1149,6 +1188,7 @@ declare namespace privacyManager {
    *
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
+   * @FaAndStageModel
    * @since 9 dynamic
    * @since 23 static
    */
@@ -1158,6 +1198,7 @@ declare namespace privacyManager {
      *
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
+     * @FaAndStageModel
      * @since 9 dynamic
      * @since 23 static
      */
@@ -1173,6 +1214,7 @@ declare namespace privacyManager {
      *
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
+     * @FaAndStageModel
      * @since 11 dynamic
      * @since 23 static
      */
@@ -1184,6 +1226,7 @@ declare namespace privacyManager {
      *
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
+     * @FaAndStageModel
      * @since 9 dynamic
      * @since 23 static
      */
@@ -1196,6 +1239,7 @@ declare namespace privacyManager {
      *
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
+     * @FaAndStageModel
      * @since 11 dynamic
      * @since 23 static
      */
@@ -1207,6 +1251,7 @@ declare namespace privacyManager {
      *
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
+     * @FaAndStageModel
      * @since 9 dynamic
      * @since 23 static
      */
@@ -1218,6 +1263,7 @@ declare namespace privacyManager {
      *
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
+     * @FaAndStageModel
      * @since 12 dynamic
      * @since 23 static
      */
@@ -1235,35 +1281,39 @@ declare namespace privacyManager {
    *
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
+   * @FaAndStageModel
    * @since 12 dynamic
    * @since 23 static
    */
   enum PermissionUsedType {
     /**
-     * Sensitive resources are accessed with the declared permission or permission granted by the user.
+     *
      *
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
+     * @FaAndStageModel
      * @since 12 dynamic
      * @since 23 static
      */
     NORMAL_TYPE = 0,
 
     /**
-     * Sensitive resources are accessed through a picker.
+     *
      *
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
+     * @FaAndStageModel
      * @since 12 dynamic
      * @since 23 static
      */
     PICKER_TYPE = 1,
 
     /**
-     * Sensitive resources are accessed through a security component.
+     *
      *
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
+     * @FaAndStageModel
      * @since 12 dynamic
      * @since 23 static
      */
@@ -1275,6 +1325,7 @@ declare namespace privacyManager {
    *
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
+   * @FaAndStageModel
    * @since 12 dynamic
    * @since 23 static
    */
@@ -1284,6 +1335,7 @@ declare namespace privacyManager {
      *
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
+     * @FaAndStageModel
      * @since 12 dynamic
      * @since 23 static
      */
@@ -1294,6 +1346,7 @@ declare namespace privacyManager {
      *
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
+     * @FaAndStageModel
      * @since 12 dynamic
      * @since 23 static
      */
@@ -1304,6 +1357,7 @@ declare namespace privacyManager {
      *
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
+     * @FaAndStageModel
      * @since 12 dynamic
      * @since 23 static
      */
@@ -1315,6 +1369,7 @@ declare namespace privacyManager {
    *
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
+   * @FaAndStageModel
    * @since 12 dynamic
    * @since 23 static
    */
@@ -1326,6 +1381,7 @@ declare namespace privacyManager {
      *
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
+     * @FaAndStageModel
      * @since 12 dynamic
      * @since 23 static
      */
@@ -1374,14 +1430,35 @@ declare namespace privacyManager {
    * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission
    *     "ohos.permission.PERMISSION_USED_STATS".
    * @throws { BusinessError } 202 - Not system app. Interface caller is not a system app.
+   * @throws { BusinessError } 12100004 - This API must be used together with
+   *     [setPermissionUsedRecordToggleStatus]{@link privacyManager.setPermissionUsedRecordToggleStatus(status: boolean)}. [since 26.1.0]
    * @throws { BusinessError } 12100007 - Service exception.
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
+   * @FaAndStageModel
    * @since 18 dynamic
    * @since 23 static
    */
   function getPermissionUsedRecordToggleStatus(): Promise<boolean>;
-
+  /**
+   * 系统应用调用此接口，可以获取指定子身份资料的权限使用记录开关状态，例如在权限管理界面展示当前开关设置状态。使用Promise异步回调。
+   *
+   * @permission ohos.permission.PERMISSION_USED_STATS
+   * @param { int } subProfileId - 子身份资料的标识符。可以通过[OsAccountSubProfile.id]{@link @ohos.account.osAccount:osAccount.OsAccountSubProfile.id}获取。
+   *     <br>取值限定为整数。取值约束：该参数必须为大于0的整数。
+   * @returns { Promise<boolean> } Promise对象，返回true，表示指定子身份资料的开关状态值为开启。返回false，表示指定子身份资料的开关状态值为关闭
+   * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission
+   *     "ohos.permission.PERMISSION_USED_STATS".
+   * @throws { BusinessError } 202 - Not system app. Interface caller is not a system app.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 12100001 - Invalid parameter. The specified subProfileId does not exist for the current user.
+   * @throws { BusinessError } 12100007 - Service exception.
+   * @syscap SystemCapability.Security.AccessToken
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.1.0 dynamiconly
+   */
+  function getPermissionUsedRecordToggleStatus(subProfileId: int): Promise<boolean>;
   /**
    * 系统应用调用此接口，标记不再使用指定权限。调用成功后，隐私服务将此状态变化通知所有该权限使用状态变更事件的订阅者。适用于应用完成敏感操作后或退出前台时，通知系统权限使用结束。使用Promise异步回调。
    *
@@ -1396,12 +1473,13 @@ declare namespace privacyManager {
    *     <br>BundleInfo获取可参考：[bundleManager.getBundleInfoSync]{@link @ohos.bundle.bundleManager:bundleManager.getBundleInfoSync}。
    * @param { Permissions } permissionName - 需要停止使用的权限名称。传入无效值时返回错误码12100001。
    *     <br>取值约束：权限名长度不能超过256个字符。
-   * @param { int } [pid] - 调用方的进程pid。与[startUsingPermission]{@link
-   *     privacyManager.startUsingPermission}传入的pid相同。不满足配套关系可能导致API调用失败(错误码12100004)。
-   *     <br>取值限定为整数。默认值：-1，表示不根据进程生命周期响应。
+   * @param { int } [pid] - Process PID of the caller. Must be the same as the pid passed to
+   *     [startUsingPermission]{@link privacyManager.startUsingPermission}. A mismatch may cause the API call to fail
+   *     (error code 12100004).
+   *     <br>The value should be an integer. Default value: -1, indicating no response based on process lifecycle.
    * @returns { Promise<void> } Promise对象，无返回结果。
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
-   *     2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types.
    * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission
    *     "ohos.permission.PERMISSION_USED_STATS".
    * @throws { BusinessError } 202 - Not system app. Interface caller is not a system app.
@@ -1413,6 +1491,7 @@ declare namespace privacyManager {
    * @throws { BusinessError } 12100008 - Out of memory.
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
+   * @FaAndStageModel
    * @since 18 dynamic
    * @since 23 static
    */
@@ -1436,15 +1515,44 @@ declare namespace privacyManager {
    * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission
    *     "ohos.permission.PERMISSION_RECORD_TOGGLE".
    * @throws { BusinessError } 202 - Not system app. Interface caller is not a system app.
+   * @throws { BusinessError } 12100006 - Operation not allowed. The toggle status of the specified permission has
+   *     already been set by [setPermissionUsedRecordToggleStatus]{@link privacyManager.setPermissionUsedRecordToggleStatus(status: boolean, subProfileId: int)}. [since 26.1.0]
    * @throws { BusinessError } 12100007 - Service exception.
    * @throws { BusinessError } 12100009 - Common inner error. Possible causes: 1. Database error. 2. Failed to query
    *     all applications under the user.
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
+   * @FaAndStageModel
    * @since 18 dynamic
    * @since 23 static
    */
   function setPermissionUsedRecordToggleStatus(status: boolean): Promise<void>;
+  /**
+   * 设置是否记录指定子身份资料的权限使用情况。系统应用调用此接口，可以设置指定子身份资料的权限使用记录开关状态。使用Promise异步回调。
+   *
+   * status为true时，[addPermissionUsedRecord]{@link privacyManager.addPermissionUsedRecord}接口可以正常添加使用记录；status为false时，addPermissionUsedRecord]{@link privacyManager.addPermissionUsedRecord}接口不产生权限使用记录，并且删除指定子身份资料的历史记录。
+   *
+   * @permission ohos.permission.PERMISSION_RECORD_TOGGLE
+   * @param { boolean } status - 权限使用记录开关状态。true为开，false为关。
+   * @param { int } subProfileId - 子身份资料的标识符。可以通过[OsAccountSubProfile.id]{@link @ohos.account.osAccount:osAccount.OsAccountSubProfile.id}获取。
+   *     <br>取值限定为整数。取值约束：该参数必须为大于0的整数。
+   * @returns { Promise<void> } Promise对象，无返回结果
+   * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission
+   *     "ohos.permission.PERMISSION_RECORD_TOGGLE".
+   * @throws { BusinessError } 202 - Not system app. Interface caller is not a system app.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 12100001 - Invalid parameter. The specified subProfileId does not exist for the current user.
+   * @throws { BusinessError } 12100006 - Operation not allowed. The toggle status of the specified permission has
+   *     already been set by [setPermissionUsedRecordToggleStatus]{@link privacyManager.setPermissionUsedRecordToggleStatus(status:boolean)}.
+   * @throws { BusinessError } 12100007 - Service exception.
+   * @throws { BusinessError } 12100009 - Common inner error. Possible causes: 1. Database error. 2. Failed to query
+   *     all applications under the user.
+   * @syscap SystemCapability.Security.AccessToken
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.1.0 dynamiconly
+   */
+  function setPermissionUsedRecordToggleStatus(status: boolean, subProfileId: int): Promise<void>;
   /**
    * 查询指定敏感权限是否正在被使用，可用于权限管理界面展示权限实时使用状态场景。
    * 判断依据为当前是否存在通过[startUsingPermission]{@link privacyManager.startUsingPermission}

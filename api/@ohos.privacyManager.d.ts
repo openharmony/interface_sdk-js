@@ -92,6 +92,7 @@ import { Permissions } from './permissions';
  * - Querying whether a certain permission is currently being used.
  *
  * @syscap SystemCapability.Security.AccessToken
+ * @FaAndStageModel
  * @since 9 dynamic
  * @since 23 static
  */
@@ -126,8 +127,8 @@ declare namespace privacyManager {
    *     <br>The value should be an integer. Value constraint: The value must be a non-negative integer.
    * @param { AddPermissionUsedRecordOptions } [options] - Optional parameter for adding a permission usage record, used
    *     to specify the sensitive permission usage type and extension identity. Pass this parameter when you need to
-   *     distinguish the permission access method (such as access via Picker or security control) or identify the
-   *     caller's extension identity. [since 12]
+   *     distinguish the permission access method (such as access via Picker or security control) or identify the caller's
+   *     extension identity. [since 12]
    *     <br>Default value: Please refer to [AddPermissionUsedRecordOptions]{@link
    *     privacyManager.AddPermissionUsedRecordOptions} for the default values of each property in the structure.
    * @returns { Promise<void> } Promise that returns no value.
@@ -146,6 +147,7 @@ declare namespace privacyManager {
    * @throws { BusinessError } 12100009 - Common inner error. A database error occurs.
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
+   * @FaAndStageModel
    * @since 9 dynamic
    * @since 23 static
    */
@@ -199,6 +201,7 @@ declare namespace privacyManager {
    * @throws { BusinessError } 12100009 - Common inner error. A database error occurs.
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
+   * @FaAndStageModel
    * @since 9 dynamic
    * @since 23 static
    */
@@ -227,6 +230,7 @@ declare namespace privacyManager {
    * @throws { BusinessError } 12100007 - Service exception.
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
+   * @FaAndStageModel
    * @since 9 dynamic
    * @since 23 static
    */
@@ -251,6 +255,7 @@ declare namespace privacyManager {
    * @throws { BusinessError } 12100007 - Service exception.
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
+   * @FaAndStageModel
    * @since 9 dynamic
    * @since 23 static
    */
@@ -294,6 +299,7 @@ declare namespace privacyManager {
    * @throws { BusinessError } 12100008 - Out of memory.
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
+   * @FaAndStageModel
    * @since 9 dynamic
    */
   function startUsingPermission(tokenID: int, permissionName: Permissions): Promise<void>;
@@ -339,6 +345,7 @@ declare namespace privacyManager {
    * @throws { BusinessError } 12100008 - Out of memory.
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
+   * @FaAndStageModel
    * @since 18 dynamic
    * @since 23 static
    */
@@ -446,6 +453,7 @@ declare namespace privacyManager {
    * @throws { BusinessError } 12100008 - Out of memory.
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
+   * @FaAndStageModel
    * @since 9 dynamic
    * @since 23 static
    */
@@ -487,6 +495,7 @@ declare namespace privacyManager {
    * @throws { BusinessError } 12100008 - Out of memory.
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
+   * @FaAndStageModel
    * @since 9 dynamic
    */
   function stopUsingPermission(tokenID: int, permissionName: Permissions): Promise<void>;
@@ -524,6 +533,7 @@ declare namespace privacyManager {
    * @throws { BusinessError } 12100008 - Out of memory.
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
+   * @FaAndStageModel
    * @since 9 dynamic
    * @since 23 static
    */
@@ -617,6 +627,7 @@ declare namespace privacyManager {
    * @throws { BusinessError } 12100008 - Out of memory.
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
+   * @FaAndStageModel
    * @since 9 dynamic
    */
   function on(type: 'activeStateChange',
@@ -658,6 +669,7 @@ declare namespace privacyManager {
    * @throws { BusinessError } 12100008 - Out of memory.
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
+   * @stagemodelonly
    * @since 23 static
    */
   function onActiveStateChange(
@@ -696,6 +708,7 @@ declare namespace privacyManager {
    * @throws { BusinessError } 12100008 - Out of memory.
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
+   * @FaAndStageModel
    * @since 9 dynamic
    */
   function off(
@@ -731,6 +744,7 @@ declare namespace privacyManager {
    * @throws { BusinessError } 12100008 - Out of memory.
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
+   * @stagemodelonly
    * @since 23 static
    */
   function offActiveStateChange(
@@ -763,6 +777,7 @@ declare namespace privacyManager {
    * @throws { BusinessError } 12100009 - Common inner error. A database error occurs.
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
+   * @FaAndStageModel
    * @since 12 dynamic
    * @since 23 static
    */
@@ -778,6 +793,7 @@ declare namespace privacyManager {
    *
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
+   * @FaAndStageModel
    * @since 9 dynamic
    * @since 23 static
    */
@@ -787,6 +803,7 @@ declare namespace privacyManager {
      *
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
+     * @FaAndStageModel
      * @since 9 dynamic
      * @since 23 static
      */
@@ -797,6 +814,7 @@ declare namespace privacyManager {
      *
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
+     * @FaAndStageModel
      * @since 9 dynamic
      * @since 23 static
      */
@@ -807,6 +825,7 @@ declare namespace privacyManager {
      *
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
+     * @FaAndStageModel
      * @since 9 dynamic
      * @since 23 static
      */
@@ -818,6 +837,7 @@ declare namespace privacyManager {
    *
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
+   * @FaAndStageModel
    * @since 9 dynamic
    * @since 23 static
    */
@@ -829,6 +849,7 @@ declare namespace privacyManager {
      *
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
+     * @FaAndStageModel
      * @since 18 dynamic
      * @since 23 static
      */
@@ -839,6 +860,7 @@ declare namespace privacyManager {
      *
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
+     * @FaAndStageModel
      * @since 9 dynamic
      * @since 23 static
      */
@@ -849,6 +871,7 @@ declare namespace privacyManager {
      *
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
+     * @FaAndStageModel
      * @since 9 dynamic
      * @since 23 static
      */
@@ -859,6 +882,7 @@ declare namespace privacyManager {
      *
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
+     * @FaAndStageModel
      * @since 9 dynamic
      * @since 23 static
      */
@@ -869,6 +893,7 @@ declare namespace privacyManager {
      *
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
+     * @FaAndStageModel
      * @since 9 dynamic
      * @since 23 static
      */
@@ -881,6 +906,7 @@ declare namespace privacyManager {
      *
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
+     * @FaAndStageModel
      * @since 18 dynamic
      * @since 23 static
      */
@@ -904,6 +930,7 @@ declare namespace privacyManager {
    *
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
+   * @FaAndStageModel
    * @since 9 dynamic
    * @since 23 static
    */
@@ -913,6 +940,7 @@ declare namespace privacyManager {
      *
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
+     * @FaAndStageModel
      * @since 9 dynamic
      * @since 23 static
      */
@@ -922,6 +950,7 @@ declare namespace privacyManager {
      *
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
+     * @FaAndStageModel
      * @since 9 dynamic
      * @since 23 static
      */
@@ -933,6 +962,7 @@ declare namespace privacyManager {
    *
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
+   * @FaAndStageModel
    * @since 9 dynamic
    * @since 23 static
    */
@@ -945,6 +975,7 @@ declare namespace privacyManager {
      *
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
+     * @FaAndStageModel
      * @since 9 dynamic
      * @since 23 static
      */
@@ -959,6 +990,7 @@ declare namespace privacyManager {
      * @default false
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
+     * @FaAndStageModel
      * @since 9 dynamic
      * @since 23 static
      */
@@ -971,6 +1003,7 @@ declare namespace privacyManager {
      *
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
+     * @FaAndStageModel
      * @since 9 dynamic
      * @since 23 static
      */
@@ -983,6 +1016,7 @@ declare namespace privacyManager {
      *
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
+     * @FaAndStageModel
      * @since 9 dynamic
      * @since 23 static
      */
@@ -994,6 +1028,7 @@ declare namespace privacyManager {
      *
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
+     * @FaAndStageModel
      * @since 9 dynamic
      * @since 23 static
      */
@@ -1006,6 +1041,7 @@ declare namespace privacyManager {
      * @default 0
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
+     * @FaAndStageModel
      * @since 9 dynamic
      * @since 23 static
      */
@@ -1018,6 +1054,7 @@ declare namespace privacyManager {
      * @default 0
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
+     * @FaAndStageModel
      * @since 9 dynamic
      * @since 23 static
      */
@@ -1029,6 +1066,7 @@ declare namespace privacyManager {
      *
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
+     * @FaAndStageModel
      * @since 9 dynamic
      * @since 23 static
      */
@@ -1040,6 +1078,7 @@ declare namespace privacyManager {
    *
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
+   * @FaAndStageModel
    * @since 9 dynamic
    * @since 23 static
    */
@@ -1050,6 +1089,7 @@ declare namespace privacyManager {
      *
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
+     * @FaAndStageModel
      * @since 9 dynamic
      * @since 23 static
      */
@@ -1061,6 +1101,7 @@ declare namespace privacyManager {
      *
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
+     * @FaAndStageModel
      * @since 9 dynamic
      * @since 23 static
      */
@@ -1072,6 +1113,7 @@ declare namespace privacyManager {
      *
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
+     * @FaAndStageModel
      * @since 9 dynamic
      * @since 23 static
      */
@@ -1083,6 +1125,7 @@ declare namespace privacyManager {
    *
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
+   * @FaAndStageModel
    * @since 9 dynamic
    * @since 23 static
    */
@@ -1093,6 +1136,7 @@ declare namespace privacyManager {
      *
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
+     * @FaAndStageModel
      * @since 9 dynamic
      * @since 23 static
      */
@@ -1104,6 +1148,7 @@ declare namespace privacyManager {
      *
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
+     * @FaAndStageModel
      * @since 9 dynamic
      * @since 23 static
      */
@@ -1115,6 +1160,7 @@ declare namespace privacyManager {
      *
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
+     * @FaAndStageModel
      * @since 9 dynamic
      * @since 23 static
      */
@@ -1126,6 +1172,7 @@ declare namespace privacyManager {
      *
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
+     * @FaAndStageModel
      * @since 9 dynamic
      * @since 23 static
      */
@@ -1138,6 +1185,7 @@ declare namespace privacyManager {
      *
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
+     * @FaAndStageModel
      * @since 9 dynamic
      * @since 23 static
      */
@@ -1149,6 +1197,7 @@ declare namespace privacyManager {
      *
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
+     * @FaAndStageModel
      * @since 24 dynamic&static
      */
     deviceName?: string;
@@ -1159,6 +1208,7 @@ declare namespace privacyManager {
    *
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
+   * @FaAndStageModel
    * @since 9 dynamic
    * @since 23 static
    */
@@ -1168,6 +1218,7 @@ declare namespace privacyManager {
      *
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
+     * @FaAndStageModel
      * @since 9 dynamic
      * @since 23 static
      */
@@ -1178,6 +1229,7 @@ declare namespace privacyManager {
      *
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
+     * @FaAndStageModel
      * @since 9 dynamic
      * @since 23 static
      */
@@ -1188,6 +1240,7 @@ declare namespace privacyManager {
      *
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
+     * @FaAndStageModel
      * @since 9 dynamic
      * @since 23 static
      */
@@ -1198,6 +1251,7 @@ declare namespace privacyManager {
      *
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
+     * @FaAndStageModel
      * @since 9 dynamic
      * @since 23 static
      */
@@ -1208,6 +1262,7 @@ declare namespace privacyManager {
      *
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
+     * @FaAndStageModel
      * @since 9 dynamic
      * @since 23 static
      */
@@ -1219,6 +1274,7 @@ declare namespace privacyManager {
      *
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
+     * @FaAndStageModel
      * @since 9 dynamic
      * @since 23 static
      */
@@ -1231,6 +1287,7 @@ declare namespace privacyManager {
      *
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
+     * @FaAndStageModel
      * @since 9 dynamic
      * @since 23 static
      */
@@ -1243,6 +1300,7 @@ declare namespace privacyManager {
      *
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
+     * @FaAndStageModel
      * @since 9 dynamic
      * @since 23 static
      */
@@ -1263,6 +1321,7 @@ declare namespace privacyManager {
    *
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
+   * @FaAndStageModel
    * @since 9 dynamic
    * @since 23 static
    */
@@ -1272,6 +1331,7 @@ declare namespace privacyManager {
      *
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
+     * @FaAndStageModel
      * @since 9 dynamic
      * @since 23 static
      */
@@ -1287,6 +1347,7 @@ declare namespace privacyManager {
      *
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
+     * @FaAndStageModel
      * @since 11 dynamic
      * @since 23 static
      */
@@ -1298,6 +1359,7 @@ declare namespace privacyManager {
      *
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
+     * @FaAndStageModel
      * @since 9 dynamic
      * @since 23 static
      */
@@ -1311,6 +1373,7 @@ declare namespace privacyManager {
      *
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
+     * @FaAndStageModel
      * @since 11 dynamic
      * @since 23 static
      */
@@ -1322,6 +1385,7 @@ declare namespace privacyManager {
      *
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
+     * @FaAndStageModel
      * @since 9 dynamic
      * @since 23 static
      */
@@ -1333,6 +1397,7 @@ declare namespace privacyManager {
      *
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
+     * @FaAndStageModel
      * @since 12 dynamic
      * @since 23 static
      */
@@ -1350,6 +1415,7 @@ declare namespace privacyManager {
    *
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
+   * @FaAndStageModel
    * @since 12 dynamic
    * @since 23 static
    */
@@ -1359,6 +1425,7 @@ declare namespace privacyManager {
      *
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
+     * @FaAndStageModel
      * @since 12 dynamic
      * @since 23 static
      */
@@ -1369,6 +1436,7 @@ declare namespace privacyManager {
      *
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
+     * @FaAndStageModel
      * @since 12 dynamic
      * @since 23 static
      */
@@ -1379,6 +1447,7 @@ declare namespace privacyManager {
      *
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
+     * @FaAndStageModel
      * @since 12 dynamic
      * @since 23 static
      */
@@ -1390,6 +1459,7 @@ declare namespace privacyManager {
    *
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
+   * @FaAndStageModel
    * @since 12 dynamic
    * @since 23 static
    */
@@ -1399,6 +1469,7 @@ declare namespace privacyManager {
      *
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
+     * @FaAndStageModel
      * @since 12 dynamic
      * @since 23 static
      */
@@ -1409,6 +1480,7 @@ declare namespace privacyManager {
      *
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
+     * @FaAndStageModel
      * @since 12 dynamic
      * @since 23 static
      */
@@ -1419,6 +1491,7 @@ declare namespace privacyManager {
      *
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
+     * @FaAndStageModel
      * @since 12 dynamic
      * @since 23 static
      */
@@ -1430,6 +1503,7 @@ declare namespace privacyManager {
    *
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
+   * @FaAndStageModel
    * @since 12 dynamic
    * @since 23 static
    */
@@ -1441,6 +1515,7 @@ declare namespace privacyManager {
      *
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
+     * @FaAndStageModel
      * @since 12 dynamic
      * @since 23 static
      */
@@ -1497,14 +1572,39 @@ declare namespace privacyManager {
    * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission
    *     "ohos.permission.PERMISSION_USED_STATS".
    * @throws { BusinessError } 202 - Not system app. Interface caller is not a system app.
+   * @throws { BusinessError } 12100004 - This API must be used together with
+   *     [setPermissionUsedRecordToggleStatus]{@link privacyManager.setPermissionUsedRecordToggleStatus(status: boolean)}. [since 26.1.0]
    * @throws { BusinessError } 12100007 - Service exception.
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
+   * @FaAndStageModel
    * @since 18 dynamic
    * @since 23 static
    */
   function getPermissionUsedRecordToggleStatus(): Promise<boolean>;
-
+  /**
+   * A system application can call this API to obtain the permission usage record toggle status for a specified
+   * sub-profile, for example, to display the current toggle setting status on the permission management interface.
+   * This API uses a promise to return the result.
+   *
+   * @permission ohos.permission.PERMISSION_USED_STATS
+   * @param { int } subProfileId - ID of the sub-profile. It can be obtained from
+   *     [OsAccountSubProfile.id]{@link @ohos.account.osAccount:osAccount.OsAccountSubProfile.id}.
+   *     <br>The value should be an integer. Value constraint: This parameter must be an integer greater than 0.
+   * @returns { Promise<boolean> } Promise used to return the result. The value **true** indicates that the toggle is
+   *     enabled for the specified sub-profile, and **false** indicates that it is disabled.
+   * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission
+   *     "ohos.permission.PERMISSION_USED_STATS".
+   * @throws { BusinessError } 202 - Not system app. Interface caller is not a system app.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 12100001 - Invalid parameter. The specified subProfileId does not exist for the current user.
+   * @throws { BusinessError } 12100007 - Service exception.
+   * @syscap SystemCapability.Security.AccessToken
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.1.0 dynamiconly
+   */
+  function getPermissionUsedRecordToggleStatus(subProfileId: int): Promise<boolean>;
   /**
    * A system application calls this API to mark that the specified permission is no longer in use. After a successful
    * call, the privacy service notifies all subscribers of this permission usage status change event of this status
@@ -1541,6 +1641,7 @@ declare namespace privacyManager {
    * @throws { BusinessError } 12100008 - Out of memory.
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
+   * @FaAndStageModel
    * @since 18 dynamic
    * @since 23 static
    */
@@ -1568,15 +1669,50 @@ declare namespace privacyManager {
    * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission
    *     "ohos.permission.PERMISSION_RECORD_TOGGLE".
    * @throws { BusinessError } 202 - Not system app. Interface caller is not a system app.
+   * @throws { BusinessError } 12100006 - Operation not allowed. The toggle status of the specified permission has
+   *     already been set by [setPermissionUsedRecordToggleStatus]{@link privacyManager.setPermissionUsedRecordToggleStatus(status: boolean, subProfileId: int)}. [since 26.1.0]
    * @throws { BusinessError } 12100007 - Service exception.
    * @throws { BusinessError } 12100009 - Common inner error. Possible causes: 1. Database error. 2. Failed to query
    *     all applications under the user.
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
+   * @FaAndStageModel
    * @since 18 dynamic
    * @since 23 static
    */
   function setPermissionUsedRecordToggleStatus(status: boolean): Promise<void>;
+  /**
+   * Sets whether permission usage records are collected for a specified sub-profile. A system application can call this
+   * API to set the permission usage record switch status for the specified sub-profile. This API uses a promise to
+   * return the result.
+   *
+   * When **status** is **true**, the [addPermissionUsedRecord]{@link privacyManager.addPermissionUsedRecord} API can
+   * add usage records normally; when **status** is **false**, the
+   * [addPermissionUsedRecord]{@link privacyManager.addPermissionUsedRecord} API does not generate permission usage
+   * records, and deletes the historical records of the specified sub-profile.
+   *
+   * @permission ohos.permission.PERMISSION_RECORD_TOGGLE
+   * @param { boolean } status - Setting of the permission usage record switch. The value **true** means the switch is
+   *     toggled on; the value **false** means the opposite.
+   * @param { int } subProfileId - ID of the sub-profile. It can be obtained from [OsAccountSubProfile.id]{@link @ohos.account.osAccount:osAccount.OsAccountSubProfile.id}.
+   *     <br>The value should be an integer. Value constraint: This parameter must be an integer greater than 0.
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission
+   *     "ohos.permission.PERMISSION_RECORD_TOGGLE".
+   * @throws { BusinessError } 202 - Not system app. Interface caller is not a system app.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 12100001 - Invalid parameter. The specified subProfileId does not exist for the current user.
+   * @throws { BusinessError } 12100006 - Operation not allowed. The toggle status of the specified permission has
+   *     already been set by [setPermissionUsedRecordToggleStatus]{@link privacyManager.setPermissionUsedRecordToggleStatus(status:boolean)}.
+   * @throws { BusinessError } 12100007 - Service exception.
+   * @throws { BusinessError } 12100009 - Common inner error. Possible causes: 1. Database error. 2. Failed to query
+   *     all applications under the user.
+   * @syscap SystemCapability.Security.AccessToken
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.1.0 dynamiconly
+   */
+  function setPermissionUsedRecordToggleStatus(status: boolean, subProfileId: int): Promise<void>;
   /**
    * Queries whether a specified sensitive permission is currently being used. It can be used in scenarios such as
    * displaying the real-time permission usage status on the permission management interface. The judgment is based on

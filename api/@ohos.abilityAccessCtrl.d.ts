@@ -219,7 +219,7 @@ declare namespace abilityAccessCtrl {
      *     <br>Value constraint: The permission name length cannot exceed 256 characters.
      * @returns { Promise<GrantStatus> } Promise used to return the authorization status result.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     2. Incorrect parameter types.
+     *     2.Incorrect parameter types.
      * @throws { BusinessError } 12100001 - Invalid parameter. The tokenID is 0, or the permissionName exceeds 256
      *     characters.
      * @syscap SystemCapability.Security.AccessToken
@@ -636,6 +636,9 @@ declare namespace abilityAccessCtrl {
      * @throws { BusinessError } 12100001 - Invalid parameter. The permissionName exceeds 256 characters, the specified
      *     permission is not a user_grant permission, or the status value is invalid.
      * @throws { BusinessError } 12100003 - The specified permission does not exist.
+     * @throws { BusinessError } 12100006 - Operation not allowed. The toggle status of the specified permission
+     *     has already been set by
+     *     [setPermissionRequestToggleStatus]{@link abilityAccessCtrl.AtManager.setPermissionRequestToggleStatus(permissionName: Permissions, status: PermissionRequestToggleStatus, subProfileId: int)}. [since 26.1.0]
      * @throws { BusinessError } 12100007 - Service exception.
      * @throws { BusinessError } 12100009 - Common inner error. A database error occurs.
      * @syscap SystemCapability.Security.AccessToken
@@ -645,6 +648,41 @@ declare namespace abilityAccessCtrl {
      * @since 23 static
      */
     setPermissionRequestToggleStatus(permissionName: Permissions, status: PermissionRequestToggleStatus): Promise<void>;
+    /**
+     * Sets the dialog toggle status for a specified permission under a specified sub-profile. After the call is
+     * successful, the dialog toggle status of the permission will be set to the specified value. When the status is
+     * CLOSED, no permission dialog will pop up when the app requests the permission. When the status is OPEN, the
+     * permission dialog will pop up normally when the app requests the permission. This API uses a promise to return
+     * the result.
+     *
+     * @permission ohos.permission.DISABLE_PERMISSION_DIALOG
+     * @param { Permissions } permissionName - Name of the permission for which the dialog box switch status is to be
+     *     set. Passing an invalid value returns error code 12100001.
+     *     <br>Value constraint: The permission name length cannot exceed 256 characters.
+     * @param { PermissionRequestToggleStatus } status - Toggle state to set.
+     * @param { int } subProfileId - ID of the sub-profile. It can be obtained from
+     *     [OsAccountSubProfile.id]{@link @ohos.account.osAccount:osAccount.OsAccountSubProfile.id}.
+     *     <br>The value should be an integer. Value constraint: This parameter must be an integer greater than 0.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission specified below.
+     * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 12100001 - Invalid parameter. The permissionName exceeds 256 characters, the specified
+     *     permission is not a user_grant permission, the status value is invalid, or the specified subProfileId does
+     *     not exist for the current user.
+     * @throws { BusinessError } 12100003 - The specified permission does not exist.
+     * @throws { BusinessError } 12100006 - Operation not allowed. The toggle status of the specified permission has already been set by [setPermissionRequestToggleStatus]{@link abilityAccessCtrl.AtManager.setPermissionRequestToggleStatus(permissionName: Permissions, status: PermissionRequestToggleStatus, subProfileId: int)}.
+     * @throws { BusinessError } 12100007 - Service exception.
+     * @throws { BusinessError } 12100009 - Common inner error. A database error occurs.
+     * @syscap SystemCapability.Security.AccessToken
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamiconly
+     */
+    setPermissionRequestToggleStatus(
+      permissionName: Permissions,
+      status: PermissionRequestToggleStatus,
+      subProfileId: int): Promise<void>;
     /**
      * Obtains the toggle state of a permission. This API uses a promise to return the result.
      *
@@ -661,6 +699,7 @@ declare namespace abilityAccessCtrl {
      * @throws { BusinessError } 12100001 - Invalid parameter. The permissionName exceeds 256 characters, or the
      *     specified permission is not a user_grant permission.
      * @throws { BusinessError } 12100003 - The specified permission does not exist.
+     * @throws { BusinessError } 12100004 - This API must be used together with [setPermissionRequestToggleStatus]{@link abilityAccessCtrl.AtManager.setPermissionRequestToggleStatus(permissionName: Permissions, status: PermissionRequestToggleStatus)}. [since 26.1.0]
      * @throws { BusinessError } 12100007 - Service exception.
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
@@ -669,6 +708,37 @@ declare namespace abilityAccessCtrl {
      * @since 23 static
      */
     getPermissionRequestToggleStatus(permissionName: Permissions): Promise<PermissionRequestToggleStatus>;
+    /**
+     * Obtains the permission dialog toggle status for a specified permission under a specified sub-profile. This API
+     * uses a promise to return the
+     * result.
+     *
+     * @permission ohos.permission.GET_SENSITIVE_PERMISSIONS
+     * @param { Permissions } permissionName - Name of the permission whose pop-up switch status is to be queried.
+     *     Passing an invalid value returns error code 12100001.
+     *     <br>Value constraint: The permission name length cannot exceed 256 characters.
+     * @param { int } subProfileId - ID of the sub-profile. It can be obtained from
+     *     [OsAccountSubProfile.id]{@link @ohos.account.osAccount:osAccount.OsAccountSubProfile.id}.
+     *     <br>The value should be an integer. Value constraint: This parameter must be an integer greater than 0.
+     * @returns { Promise<PermissionRequestToggleStatus> } Promise used to return the toggle status of the dialog box
+     *     for the specified permission.
+     * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission specified below.
+     * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 12100001 - Invalid parameter. The permissionName exceeds 256 characters, the specified
+     *     permission is not a user_grant permission, or the specified subProfileId does not exist for the current user.
+     * @throws { BusinessError } 12100003 - The specified permission does not exist.
+     * @throws { BusinessError } 12100007 - Service exception.
+     * @throws { BusinessError } 12100009 - Common inner error. A database error occurs.
+     * @syscap SystemCapability.Security.AccessToken
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamiconly
+     */
+    getPermissionRequestToggleStatus(
+      permissionName: Permissions,
+      subProfileId: int): Promise<PermissionRequestToggleStatus>;
+
     /**
      * Obtains the data version number of the current permission management. This API uses a promise to return the
      * result.
@@ -1178,7 +1248,7 @@ declare namespace abilityAccessCtrl {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     2. Incorrect parameter types.
      * @throws { BusinessError } 12100001 - Invalid parameter. Possible causes: 1. The context is invalid because
-     *     it does not belong to the application itself; 2. The type of global switch is not support.
+     *     it does not belong to the application itself; 2. The type of global switch is not supported.
      * @throws { BusinessError } 12100009 - Common inner error. An error occurs when creating the pop-up window
      *     or obtaining user operation result.
      * @throws { BusinessError } 12100013 - The specific global switch is already open.
