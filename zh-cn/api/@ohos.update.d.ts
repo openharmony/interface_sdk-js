@@ -94,8 +94,7 @@ declare namespace update {
    * 
    * - factoryReset（普通恢复出厂，用于清除用户数据分区。详见[术语](docroot://basic-services/update/update-kit-term.md)）。
    * - forceFactoryReset（强制恢复出厂，用于清除用户数据分区并同步清除文件密钥。详见[术语](docroot://basic-services/update/update-kit-term.md)）。
-   * - deepFactoryReset（深度恢复出厂，用于通过scope参数指定清除范围：DATA仅清除用户数据分区，DATA_AND_OS同时清除用户数据和操作系统分区。详见
-   * [术语](docroot://basic-services/update/update-kit-term.md)）。
+   * - deepFactoryReset（深度恢复出厂，用于通过scope参数指定清除范围：DATA仅清除用户数据分区，DATA_AND_OS同时清除用户数据和操作系统分区。详见[术语](docroot://basic-services/update/update-kit-term.md)）。
    * 
    * 获取对象后可调用相应方法执行恢复出厂操作，设备将重启恢复到出厂初始状态。
    * 

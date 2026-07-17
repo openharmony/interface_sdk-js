@@ -34,8 +34,7 @@ import type { AsyncCallback } from './@ohos.base';
  *
  * The design logic and use scenarios of each update type are as follows:
  *
- * - **Local SD card update:** For details, see [Upgrading Service Terms]
- * (docroot://basic-services/update/update-kit-term.md)
+ * - **Local SD card update:** For details, see [Upgrading Service Terms](docroot://basic-services/update/update-kit-term.md)
  *
  * Use scenarios: The system needs to be updated from a local storage device.
  *
@@ -44,8 +43,7 @@ import type { AsyncCallback } from './@ohos.base';
  * This update mode applies to system update offline or with poor network connection when automatic update cannot be 
  * implemented. This mode does not depend on the upgrade package management server, reducing the update cost.
  *
- * - **Online update:** For details, see [Upgrading Service Terms]
- * (docroot://basic-services/update/update-kit-term.md.)
+ * - **Online update:** For details, see [Upgrading Service Terms](docroot://basic-services/update/update-kit-term.md.)
  *
  * Use scenarios: The system needs to be automatically checked and updated by connecting to the network.
  *
@@ -91,8 +89,7 @@ declare namespace update {
   /**
    * Obtains an **OnlineUpdater** object, which can be used to check for new versions online, download update packages, 
    * and install update packages. This API can be used in scenarios such as OTA upgrade (for details, see 
-   * [Upgrading Service Terms]
-   * (docroot://basic-services/update/update-kit-term.md))
+   * [Upgrading Service Terms](docroot://basic-services/update/update-kit-term.md))
    * of client applications and online system upgrade. This API can help users obtain system updates in a timely manner,
    * improving upgrade efficiency and user experience.
    *
@@ -126,15 +123,12 @@ declare namespace update {
    * **Restorer** utility object. Three factory reset methods are provided:
    *
    * - **factoryReset**: Common factory reset. Only data in the user partition is cleared in this mode. For details, see
-   * [Upgrading Service Terms]
-   * (docroot://basic-services/update/update-kit-term.md).
+   * [Upgrading Service Terms](docroot://basic-services/update/update-kit-term.md).
    * - **forceFactoryReset**: Forcible factory reset. Both data in the user partition and file keys are cleared in this
-   *  mode. For details, see [Upgrading Service Terms]
-   * (docroot://basic-services/update/update-kit-term.md).
+   *  mode. For details, see [Upgrading Service Terms](docroot://basic-services/update/update-kit-term.md).
    * - **deepFactoryReset**: Deep factory reset. Data in the scope specified by **scope** is cleared in this mode. 
    * **DATA**: Clear data in the user partition only; **DATA_AND_OS**: Clear data in both the user partition and OS 
-   * partition. For details, see [Upgrading Service Terms]
-   * (docroot://basic-services/update/update-kit-term.md).
+   * partition. For details, see [Upgrading Service Terms](docroot://basic-services/update/update-kit-term.md).
    *
    * After obtaining the object, you can call the corresponding method to restore the device to its factory settings. 
    * The device will restart and restore to its initial factory settings.
@@ -3453,8 +3447,7 @@ declare namespace update {
   export enum BusinessSubType {
     /**
      * Firmware, indicating firmware upgrade,which is applicable to upgrade of the system firmware instead of the app. 
-     * For details, see [Upgrading Service Terms]
-     * (docroot://basic-services/update/update-kit-term.md)
+     * For details, see [Upgrading Service Terms](docroot://basic-services/update/update-kit-term.md)
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -3496,8 +3489,7 @@ declare namespace update {
     /**
      * Difference package, which contains only the different parts between the current version and the target version. 
      * It is applicable to the incremental upgrade when the basic version has been installed. For details, see 
-     * [Upgrading Service Terms]
-     * (docroot://basic-services/update/update-kit-term.md)
+     * [Upgrading Service Terms](docroot://basic-services/update/update-kit-term.md)
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -3543,8 +3535,7 @@ declare namespace update {
     /**
      * Hot upgrade, which takes effect without requiring restarting the device. This mode applies to scenarios where app
      * -layer components need to be upgraded or the device needs to keep running. For details, see
-     * [Upgrading Service Terms]
-     * (docroot://basic-services/update/update-kit-term.md)
+     * [Upgrading Service Terms](docroot://basic-services/update/update-kit-term.md)
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -3589,8 +3580,7 @@ declare namespace update {
     /**
      * Streaming OTA. In this mode, the upgrade is performed while the package is being downloaded. This mode applies to
      * scenarios where the storage space is limited or a quick upgrade is required. For details, see 
-     * [Upgrading Service Terms]
-     * (docroot://basic-services/update/update-kit-term.md)
+     * [Upgrading Service Terms](docroot://basic-services/update/update-kit-term.md)
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -3601,8 +3591,7 @@ declare namespace update {
 
     /**
      * Regular A/B OTA. This mode applies to devices with A/B partitions. For details, see 
-     * [Upgrading Service Terms]
-     * (docroot://basic-services/update/update-kit-term.md)
+     * [Upgrading Service Terms](docroot://basic-services/update/update-kit-term.md)
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -3613,8 +3602,7 @@ declare namespace update {
 
     /**
      * Streaming A/B OTA. This mode applies to devices with A/B partitions. For details, see 
-     * [Upgrading Service Terms]
-     * (docroot://basic-services/update/update-kit-term.md)
+     * [Upgrading Service Terms](docroot://basic-services/update/update-kit-term.md)
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
