@@ -7298,7 +7298,10 @@ declare namespace media {
      * the recording audio stream is interrupted by a higher-priority audio source, recording will capture silence
      * instead of stopping, which is suitable for scenarios requiring recording continuity during interruptions (e.g.,
      * meeting recordings, voice memos). When set to false, the default interruption mode is retained. This API uses a 
-     * promise to return the result. Must be called before the prepare interface.
+     * promise to return the result.
+     *
+     * This API can be called only after the [prepare()]{@link media.AVRecorder.prepare(config: AVRecorderConfig)} API
+     * is called.
      *
      * @param { boolean } muteWhenInterrupted - Whether to mute the current audio recording stream during an audio
      *     interruption. When set to true, recording captures silence when the audio stream is interrupted; when set to
@@ -8282,12 +8285,9 @@ declare namespace media {
   }
 
   /**
-   * AudioRecorder is a class for audio recording management. It provides APIs to record audio. AudioRecorder follows a
-   * state machine model for recording control. The typical recording flow is: prepare (prepare recording) →
-   * start (start recording) → pause/resume (pause/resume recording) → stop (stop recording) →
-   * release (release resources). You can also call reset after stop to reset and then prepare again. Before calling any
-   * API in AudioRecorder, you must use [createAudioRecorder()]{@link @ohos.multimedia.media:media.createAudioRecorder}
-   * to create an AudioRecorder instance.
+   * AudioRecorder is a class for audio recording management. It provides APIs to record audio. Before calling any API 
+   * in AudioRecorder, you must use [createAudioRecorder()]{@link @ohos.multimedia.media:media.createAudioRecorder} to 
+   * create an AudioRecorder instance.
    *
    * @syscap SystemCapability.Multimedia.Media.AudioRecorder
    * @since 6 dynamiconly
@@ -8296,8 +8296,7 @@ declare namespace media {
    */
   interface AudioRecorder {
     /**
-     * Prepares recording, allocates recording resources and initializes the encoding pipeline based on the provided
-     * AudioRecorderConfig parameters. After completion, start() can be called to begin recording.
+     * Prepares for recording.
      *
      * @permission ohos.permission.MICROPHONE
      * @param { AudioRecorderConfig } config - Audio recording parameters, including the audio output URI, encoding
@@ -8311,8 +8310,7 @@ declare namespace media {
     prepare(config: AudioRecorderConfig): void;
 
     /**
-     * Starts recording. The start() interface can only be called after the prepare() interface has been called
-     * successfully.
+     * Starts audio recording. This API can be called only after the **'prepare'** event is triggered.
      *
      * @syscap SystemCapability.Multimedia.Media.AudioRecorder
      * @since 6 dynamiconly
@@ -8322,8 +8320,7 @@ declare namespace media {
     start(): void;
 
     /**
-     * Pauses recording. The pause() interface can only be called after the start() interface has been called
-     * successfully.
+     * Pauses audio recording. This API can be called only after the **'start'** event is triggered.
      *
      * @syscap SystemCapability.Multimedia.Media.AudioRecorder
      * @since 6 dynamiconly
@@ -8333,8 +8330,7 @@ declare namespace media {
     pause(): void;
 
     /**
-     * Resumes recording. The resume() interface can only be called after the pause() interface has been called
-     * successfully.
+     * Resumes audio recording. This API can be called only after the **'pause'** event is triggered.
      *
      * @syscap SystemCapability.Multimedia.Media.AudioRecorder
      * @since 6 dynamiconly
@@ -8344,9 +8340,7 @@ declare namespace media {
     resume(): void;
 
     /**
-     * Stops recording. After stopping, the recorder enters the stopped state, and reset() can be called to reset the
-     * recording configuration or release() to release the recording resources. The stop() interface can only be called
-     * after the start() interface has been called successfully.
+     * Stops audio recording.
      *
      * @syscap SystemCapability.Multimedia.Media.AudioRecorder
      * @since 6 dynamiconly
@@ -8356,10 +8350,7 @@ declare namespace media {
     stop(): void;
 
     /**
-     * Releases recording resources. Used in conjunction with createAudioRecorder(). The release() method must be called
-     * after the AudioRecorder instance is no longer needed to release resources; otherwise, recording resource leaks
-     * may occur, affecting subsequent recording functionality. After calling release(), no other recording interfaces
-     * can be called.
+     * Releases the audio recording resources.
      *
      * @syscap SystemCapability.Multimedia.Media.AudioRecorder
      * @since 6 dynamiconly
@@ -8369,7 +8360,7 @@ declare namespace media {
     release(): void;
 
     /**
-     * Resets recording.
+     * Resets audio recording.
      * 
      * Before resetting audio recording, you must call **stop()** to stop recording. After audio recording is reset, you
      * must call **prepare()** to set the recording configurations for another recording.
@@ -8385,14 +8376,14 @@ declare namespace media {
      * Subscribes to the audio recording events.
      *
      * @param { 'prepare' | 'start' | 'pause' | 'resume' | 'stop' | 'release' | 'reset' } type - Event type. The
-     *     following events are supported: 'prepare' | 'start' | 'pause' | 'resume' | 'stop' | 'release' | 'reset'
-     *     <br>- 'prepare': triggered when the **prepare()** API is called and the audio recording parameters are set.
-     *     <br>- 'start': triggered when the **start()** API is called and audio recording starts.
-     *     <br>- 'pause': triggered whenthe **pause()** API is called and audio recording is paused.
-     *     <br>- 'resume': triggered when the **resume()** API is called and audio recording is resumed.
-     *     <br>- 'stop': triggered when the **stop()** API is called and audio recording stops.
-     *     <br>- 'release': triggered when the **release()** API is called and the recording resources are released.
-     *     <br>- 'reset': triggered when the **reset()** API is called and audio recording is reset.
+     *     following events are supported: 'prepare'|'start'|  'pause' | 'resume' |'stop'|'release'|'reset'<br>- '
+     *     prepare': triggered when the **prepare()** API is called and the audio recording parameters are set.<br>- '
+     *     start': triggered when the **start()** API is called and audio recording starts.<br>- 'pause': triggered when
+     *     the **pause()** API is called and audio recording is paused.<br>- 'resume': triggered when the **resume()**
+     *     API is called and audio recording is resumed.<br>- 'stop': triggered when the **stop()** API is called and
+     *     audio recording stops.<br>- 'release': triggered when the **release()** API is called and the recording
+     *     resources are released.<br>- 'reset': triggered when the **reset()** API is called and audio recording is
+     *     reset.
      * @param { function } callback - Callback invoked when the event is triggered.
      * @syscap SystemCapability.Multimedia.Media.AudioRecorder
      * @since 6 dynamiconly
@@ -8402,8 +8393,8 @@ declare namespace media {
     on(type: 'prepare' | 'start' | 'pause' | 'resume' | 'stop' | 'release' | 'reset', callback: () => void): void;
 
     /**
-     * Subscribes to audio recording error events. When an error event is reported, the user needs to confirm the error
-     * cause based on the error information and call release() to release the recording resources to exit the recording.
+     * Subscribes to audio recording error events. After an error event is reported, you must handle the event and exit 
+     * the recording.
      *
      * @param { 'error' } type - Event type, which is **'error'** in this case.<br>This event is triggered when an error
      *     occurs during audio recording.
