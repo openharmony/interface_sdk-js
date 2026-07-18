@@ -1957,6 +1957,7 @@ declare namespace dlpPermission {
 
     /**
      * 获取当前用户受企业DLP控制的应用程序列表。使用Promise异步回调。
+     * 
      * > **说明：**
      * >
      * > 该接口仅能查询通过
