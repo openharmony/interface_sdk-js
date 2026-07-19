@@ -2029,7 +2029,17 @@ declare namespace audio {
      * @stagemodelonly
      * @since 24 dynamic&static
      */
-    STREAM_USAGE_EMERGENCY = 23
+    STREAM_USAGE_EMERGENCY = 23,
+    /**
+     * Voice assistant broadcast usage for system app.
+     *
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @systemapi
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    STREAM_USAGE_VOICE_ASSISTANT_SYSTEM = 27
   }
 
   /**
@@ -3528,9 +3538,7 @@ declare namespace audio {
      * Obtains a recording manager instance. Provides recording strategy management, including collaborative recording and recording control capabilities.
      *
      * @returns { AudioRecordingManager } Returns an instance of audio record manager.
-     * @throws { BusinessError } 202 - Caller is not a system application.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
-     * @systemapi
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
@@ -11941,6 +11949,20 @@ declare namespace audio {
      */
     MODE_MEDIA = 0x1,
     /**
+     * Only voip mode. Capture only voice/video communication streams.
+     * If {@link AudioCapturerOptions#playbackCaptureUid} is set, only the
+     * voice/video communication stream of the specified application is captured.
+     * The {@link AudioCapturerOptions#playbackCaptureUid} takes effect only when
+     * this mode is set.
+     * This mode requires the `ohos.permission.CAPTURE_VOICE_DOWNLINK_AUDIO`
+     * permission; otherwise {@link createAudioCapturer} fails.
+     * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+    */
+    MODE_ONLY_VOIP = 0x4000,
+    /**
      * Excluding self mode. Capture streams excluding the audio played by application itself.
      * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
      * @stagemodelonly
@@ -12081,6 +12103,19 @@ declare namespace audio {
      * @since 26.0.0 dynamic&static
      */
     playbackCaptureMode?: AudioPlaybackCaptureMode;
+
+    /**
+    * The target application uid for voice/video communication playback capture.
+    * This parameter takes effect only when {@link AudioPlaybackCaptureMode#MODE_ONLY_VOIP}
+    * is set in {@link AudioCapturerOptions#playbackCaptureMode}. In other playback capture modes,
+    * this parameter is ignored.
+    * The value should be an integer.
+    * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
+    * @systemapi
+    * @stagemodelonly
+    * @since 26.0.0 dynamic&static
+    */
+    playbackCaptureUid?: int;
   }
 
   /**
@@ -12130,6 +12165,28 @@ declare namespace audio {
      * @since 23 dynamic&static
      */
     capturerInfo: AudioCapturerInfo;
+    /**
+     * Prefered input device for this audio capturer.
+     * The preferred device must be an input device, and the source type in
+     * {@link captureInfo} must be {@link SourceType#SOURCE_TYPE_VOICE_RECOGNITION},
+     * {@link SourceType#SOURCE_TYPE_VOICE_TRANSCRIPTION} or {@link SourceType#SOURCE_TYPE_UNPROCESSED_VOICE_ASSISTANT},
+     * otherwise this parameter will be ignored.
+     * If the user does not specify a device, the system will automatically select the recording device for
+     * the audio capturer.
+     * When the user specifies a preferred device:
+     * 1) If the preferred device is online, the current audio capturer may use the preferred device for
+     * recording. If the preferred device becomes offline during recording, the system will select
+     * another device.
+     * 2) If the preferred device is offline, the system will select a recording device.
+     * If the preferred device becomes online during recording, it may switch to the preferred device.
+     * The user can query the selected device by {@link AudioCapturer#getCurrentAudioCapturerChangeInfo}.
+     *
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    preferredInputDevice?: AudioDeviceDescriptor;
   }
 
   /**

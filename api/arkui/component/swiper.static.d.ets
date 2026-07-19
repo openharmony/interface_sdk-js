@@ -602,7 +602,7 @@ export declare enum SwiperDisplayMode {
    * @stagemodelonly
    * @since 23 static
    */
-  STRETCH = 0
+  STRETCH
 }
 
 /**

@@ -134,7 +134,7 @@ export declare enum NavigationMode {
    * @stagemodelonly
    * @since 23 static
    */
-  Stack = 0,
+  Stack,
 
   /**
      * The navigation bar and the content area are displayed side by side.
@@ -143,7 +143,7 @@ export declare enum NavigationMode {
    * @stagemodelonly
    * @since 23 static
    */
-  Split = 1,
+  Split,
 
   /**
    * If the window width is greater than the sum of minNavBarWidth and minContentWidth, the navigation component is displayed in split mode.
@@ -153,7 +153,7 @@ export declare enum NavigationMode {
    * @stagemodelonly
    * @since 23 static
    */
-  Auto = 2,
+  Auto,
 
   /**
    * 如果导航宽度大于minNavBarWidth和minContentWidth之和。
@@ -164,7 +164,7 @@ export declare enum NavigationMode {
    * @stagemodelonly
    * @since 24 static
    */
-  AUTO_WITH_ASPECT_RATIO = 3
+  AUTO_WITH_ASPECT_RATIO
 }
 
 /**
@@ -183,7 +183,7 @@ export declare enum NavBarPosition {
    * @stagemodelonly
    * @since 23 static
    */
-  Start = 0,
+  Start,
 
   /**
      * The navigation bar is on the End of the container
@@ -192,7 +192,7 @@ export declare enum NavBarPosition {
    * @stagemodelonly
    * @since 23 static
    */
-  End = 1
+  End
 }
 
 /**
@@ -228,7 +228,7 @@ export declare enum NavigationTitleMode {
    * @stagemodelonly
    * @since 23 static
    */
-  Full = 1,
+  Full,
 
   /**
      * The title is mini mode.
@@ -237,7 +237,7 @@ export declare enum NavigationTitleMode {
    * @stagemodelonly
    * @since 23 static
    */
-  Mini = 2
+  Mini
 }
 
 /**

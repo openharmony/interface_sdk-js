@@ -4083,6 +4083,21 @@ declare namespace camera {
      * @since 26.0.0 dynamic&static
      */
     getColorTintRange(): Array<int>;
+
+    /**
+      * Checks whether the RGB gain is supported.
+      *
+      * @returns { boolean } Check result for the support of the RGB gain. **true** if supported, **false**
+      *     otherwise. If the operation fails, an error code defined in
+      *     [CameraErrorCode]{@link camera.CameraErrorCode} is returned.
+      * @throws { BusinessError } 202 - Not System Application.
+      * @throws { BusinessError } 7400103 - Session not config.
+      * @syscap SystemCapability.Multimedia.Camera.Core
+      * @systemapi
+      * @stagemodelonly
+      * @since 26.1.0 dynamic&static
+      */
+     isWhiteBalanceGainsSupported(): boolean;
   }
 
   /**
@@ -4189,6 +4204,32 @@ declare namespace camera {
      * @since 26.0.0 dynamic&static
      */
     getColorTint(): int;
+
+    /**
+     * Gets RGB white balance gain values.
+     *
+     * @returns { WhiteBalanceGains } The current RGB white balance gain values.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 7400103 - Session not config.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    getWhiteBalanceGains(): WhiteBalanceGains;
+
+    /**
+     * Sets RGB white balance gain values.
+     *
+     * @param { WhiteBalanceGains } gains - RGB white balance gain values.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 7400103 - Session not config.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    setWhiteBalanceGains(gains: WhiteBalanceGains): void;
   }
 
   /**
@@ -4274,7 +4315,7 @@ declare namespace camera {
     getIso(): int;
 
     /**
-     * Sets ISO sensitivity value, within the range of getSupportedIsoRange. This control is only effective if
+     * Sets ISO sensitivity value, within the range of getSupportedIsoRange. This control can not be effective if
      * ExposureMode is set to EXPOSURE_MODE_LOCKED.
      *
      * @param { int } iso - ISO
@@ -6874,7 +6915,7 @@ declare namespace camera {
    * @since 11 dynamic
    * @since 23 static
    */
-  interface PhotoSessionForSys extends PhotoSession, Beauty, ColorEffect, ColorManagement, Macro, SceneDetection, EffectSuggestion, DepthFusion{
+  interface PhotoSessionForSys extends PhotoSession, Beauty, ColorEffect, ColorManagement, Macro, SceneDetection, EffectSuggestion, DepthFusion {
   }
 
   /**
@@ -7547,7 +7588,7 @@ declare namespace camera {
    *     AutoDeviceSwitch, Macro [since 19 - 19]
    * @extends Session, Flash, AutoExposure, WhiteBalance, Focus, Zoom, Stabilization, ColorManagement, ControlCenter,
    *     AutoDeviceSwitch, Macro [since 20 - 24]
- * @extends Session, Flash, AutoExposure, WhiteBalance, Focus, Zoom, Stabilization, ColorManagement, ControlCenter,
+   * @extends Session, Flash, AutoExposure, WhiteBalance, Focus, Zoom, Stabilization, ColorManagement, ControlCenter,
    *     AutoDeviceSwitch, Macro, ManualExposure, ManualFocus, ManualIso, OIS, Aperture [since 26.0.0]
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice [since 19]
@@ -7555,8 +7596,8 @@ declare namespace camera {
    * @since 23 static
    */
   interface VideoSession extends Session, Flash, AutoExposure, WhiteBalance, Focus, Zoom, Stabilization,
-      ColorManagement, ControlCenter, AutoDeviceSwitch, Macro, ManualExposure, ManualFocus, ManualIso, OIS,
-      Aperture {
+    ColorManagement, ControlCenter, AutoDeviceSwitch, Macro, ManualExposure, ManualFocus, ManualIso, OIS,
+    Aperture {
     /**
      * Checks whether this session supports a preconfigured resolution.
      *
@@ -8242,6 +8283,70 @@ declare namespace camera {
      * @since 26.0.0 dynamic&static
      */
     offExposureInfoChange(callback?: Callback<ExposureInfo>): void;
+
+    /**
+     * Subscribes aperture info event callback.
+     *
+     * @param { Callback<ApertureInfo> } callback - Callback used to get the aperture info.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    onApertureInfoChange(callback: Callback<ApertureInfo>): void;
+
+    /**
+     * Unsubscribes from aperture info event callback.
+     *
+     * @param { Callback<ApertureInfo> } [callback] - Callback used to get the aperture info.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    offApertureInfoChange(callback?: Callback<ApertureInfo>): void;
+  }
+
+  /**
+   * RGB white balance gain values.
+   *
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  interface WhiteBalanceGains {  
+    /**
+     * The red gain component of the white balance value.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    redGain: double;
+
+    /**
+     * The green gain component of the white balance value.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    greenGain: double;
+
+    /**
+     * The blue gain component of the white balance value.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    blueGain: double;
   }
 
   /**
@@ -9165,7 +9270,8 @@ declare namespace camera {
     setExposure(exposure: int): void;
 
     /**
-     * Sets Exposure duration value, units: microseconds.
+     * Sets Exposure duration value, units: microseconds.This control is only effective if
+     * ExposureMode is set to EXPOSURE_MODE_MANUAL.
      *
      * @param { int } exposureDuration - Exposure duration value
      * @throws { BusinessError } 7400103 - Session not config.
@@ -10836,7 +10942,7 @@ declare namespace camera {
    * [CameraInput]{@link camera.CameraInput} and [CameraOutput]{@link camera.CameraOutput}
    * instances required to run the camera. It inherits from [Session]{@link camera.Session}.
    *
-* @extends Session, Flash, AutoExposure, Focus, Zoom, ColorEffect, ManualFocus [since 12 - 17]
+   * @extends Session, Flash, AutoExposure, Focus, Zoom, ColorEffect, ManualFocus [since 12 - 17]
    * @extends Session, Flash, AutoExposure, Focus, Zoom, ColorEffect, ManualFocus, ColorManagement [since 18]
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi

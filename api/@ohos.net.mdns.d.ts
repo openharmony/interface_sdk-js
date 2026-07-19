@@ -30,7 +30,6 @@ import Context from './application/Context';
  * @syscap SystemCapability.Communication.NetManager.MDNS
  * @atomicservice [since 11]
  * @since 10 dynamic
- * @since 26.1.0 static
  */
 declare namespace mdns {
   /**
@@ -39,7 +38,6 @@ declare namespace mdns {
    * @syscap SystemCapability.Communication.NetManager.Core
    * @atomicservice [since 12]
    * @since 10 dynamic
-   * @since 26.1.0 static
    */
   type NetAddress = connection.NetAddress;
 
@@ -62,7 +60,6 @@ declare namespace mdns {
    * @syscap SystemCapability.Communication.NetManager.MDNS
    * @atomicservice [since 11]
    * @since 10 dynamic
-   * @since 26.1.0 static
    */
   function addLocalService(context: Context, serviceInfo: LocalServiceInfo,
                            callback: AsyncCallback<LocalServiceInfo>): void;
@@ -85,7 +82,6 @@ declare namespace mdns {
    * @syscap SystemCapability.Communication.NetManager.MDNS
    * @atomicservice [since 11]
    * @since 10 dynamic
-   * @since 26.1.0 static
    */
   function addLocalService(context: Context, serviceInfo: LocalServiceInfo): Promise<LocalServiceInfo>;
 
@@ -108,7 +104,6 @@ declare namespace mdns {
    * @syscap SystemCapability.Communication.NetManager.MDNS
    * @atomicservice [since 11]
    * @since 10 dynamic
-   * @since 26.1.0 static
    */
   function removeLocalService(context: Context, serviceInfo: LocalServiceInfo,
                               callback: AsyncCallback<LocalServiceInfo>): void;
@@ -131,7 +126,6 @@ declare namespace mdns {
    * @syscap SystemCapability.Communication.NetManager.MDNS
    * @atomicservice [since 11]
    * @since 10 dynamic
-   * @since 26.1.0 static
    */
   function removeLocalService(context: Context, serviceInfo: LocalServiceInfo): Promise<LocalServiceInfo>;
 
@@ -149,7 +143,6 @@ declare namespace mdns {
    * @syscap SystemCapability.Communication.NetManager.MDNS
    * @atomicservice [since 11]
    * @since 10 dynamic
-   * @since 26.1.0 static
    */
   function createDiscoveryService(context: Context, serviceType: string): DiscoveryService;
 
@@ -172,7 +165,6 @@ declare namespace mdns {
    * @syscap SystemCapability.Communication.NetManager.MDNS
    * @atomicservice [since 11]
    * @since 10 dynamic
-   * @since 26.1.0 static
    */
   function resolveLocalService(context: Context, serviceInfo: LocalServiceInfo,
                                callback: AsyncCallback<LocalServiceInfo>): void;
@@ -195,7 +187,6 @@ declare namespace mdns {
    * @syscap SystemCapability.Communication.NetManager.MDNS
    * @atomicservice [since 11]
    * @since 10 dynamic
-   * @since 26.1.0 static
    */
   function resolveLocalService(context: Context, serviceInfo: LocalServiceInfo): Promise<LocalServiceInfo>;
 
@@ -205,7 +196,6 @@ declare namespace mdns {
    * @syscap SystemCapability.Communication.NetManager.MDNS
    * @atomicservice [since 11]
    * @since 10 dynamic
-   * @since 26.1.0 static
    */
   export interface DiscoveryService {
     /**
@@ -222,16 +212,6 @@ declare namespace mdns {
      * @since 10 dynamic
      */
     on(type: 'discoveryStart', callback: Callback<DiscoveryEventInfo>): void;
-
-    /**
-     * Enables listening for discoveryStart events of mDNS services.
-     *
-     * @param { Callback<DiscoveryEventInfo> } callback - the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetManager.MDNS
-     * @atomicservice
-     * @since 26.1.0 static
-     */
-    onDiscoveryStart(callback: Callback<DiscoveryEventInfo>): void;
 
     /**
      * Disables listening for **discoveryStart** events.
@@ -252,16 +232,6 @@ declare namespace mdns {
     off(type: 'discoveryStart', callback?: Callback<DiscoveryEventInfo>): void;
 
     /**
-     * Cancels listening for discoveryStart events of mDNS services.
-     *
-     * @param { Callback<DiscoveryEventInfo> } [callback] - the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetManager.MDNS
-     * @atomicservice
-     * @since 26.1.0 static
-     */
-    offDiscoveryStart(callback?: Callback<DiscoveryEventInfo>): void;
-
-    /**
      * Enables listening for **discoveryStop** events.
      *
      * @param { 'discoveryStop' } type - Event type. This field has a fixed value of **discoveryStop**.
@@ -275,16 +245,6 @@ declare namespace mdns {
      * @since 10 dynamic
      */
     on(type: 'discoveryStop', callback: Callback<DiscoveryEventInfo>): void;
-
-    /**
-     * Enables listening for discoveryStop events of mDNS services.
-     *
-     * @param { Callback<DiscoveryEventInfo> } callback - the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetManager.MDNS
-     * @atomicservice
-     * @since 26.1.0 static
-     */
-    onDiscoveryStop(callback: Callback<DiscoveryEventInfo>): void;
 
     /**
      * Disables listening for **discoveryStop** events.
@@ -305,16 +265,6 @@ declare namespace mdns {
     off(type: 'discoveryStop', callback?: Callback<DiscoveryEventInfo>): void;
 
     /**
-     * Cancels listening for discoveryStop events of mDNS services.
-     *
-     * @param { Callback<DiscoveryEventInfo> } [callback] - the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetManager.MDNS
-     * @atomicservice
-     * @since 26.1.0 static
-     */
-    offDiscoveryStop(callback?: Callback<DiscoveryEventInfo>): void;
-
-    /**
      * Enables listening for **serviceFound** events.
      *
      * @param { 'serviceFound' } type - Event type. This field has a fixed value of **serviceFound**.
@@ -326,16 +276,6 @@ declare namespace mdns {
      * @since 10 dynamic
      */
     on(type: 'serviceFound', callback: Callback<LocalServiceInfo>): void;
-
-    /**
-     * Enables listening for serviceFound events of mDNS services.
-     *
-     * @param { Callback<LocalServiceInfo> } callback - the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetManager.MDNS
-     * @atomicservice
-     * @since 26.1.0 static
-     */
-    onServiceFound(callback: Callback<LocalServiceInfo>): void;
 
     /**
      * Disables listening for **serviceFound** events.
@@ -355,16 +295,6 @@ declare namespace mdns {
     off(type: 'serviceFound', callback?: Callback<LocalServiceInfo>): void;
 
     /**
-     * Cancels listening for serviceFound events of mDNS services.
-     *
-     * @param { Callback<LocalServiceInfo> } [callback] - the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetManager.MDNS
-     * @atomicservice
-     * @since 26.1.0 static
-     */
-    offServiceFound(callback?: Callback<LocalServiceInfo>): void;
-
-    /**
      * Enables listening for **serviceLost** events.
      *
      * @param { 'serviceLost' } type - Event type. This field has a fixed value of **serviceLost**.
@@ -375,16 +305,6 @@ declare namespace mdns {
      * @since 10 dynamic
      */
     on(type: 'serviceLost', callback: Callback<LocalServiceInfo>): void;
-
-    /**
-     * Enables listening for serviceLost events of mDNS services.
-     *
-     * @param { Callback<LocalServiceInfo> } callback - the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetManager.MDNS
-     * @atomicservice
-     * @since 26.1.0 static
-     */
-    onServiceLost(callback: Callback<LocalServiceInfo>): void;
 
     /**
      * Disables listening for **serviceLost** events.
@@ -401,22 +321,11 @@ declare namespace mdns {
     off(type: 'serviceLost', callback?: Callback<LocalServiceInfo>): void;
 
     /**
-     * Cancels listening for serviceLost events of mDNS services.
-     *
-     * @param { Callback<LocalServiceInfo> } [callback] - the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetManager.MDNS
-     * @atomicservice
-     * @since 26.1.0 static
-     */
-    offServiceLost(callback?: Callback<LocalServiceInfo>): void;
-
-    /**
      * Searches for MDNS services on the LAN.
      *
      * @syscap SystemCapability.Communication.NetManager.MDNS
      * @atomicservice [since 11]
      * @since 10 dynamic
-     * @since 26.1.0 static
      */
     startSearchingMDNS(): void;
 
@@ -426,7 +335,6 @@ declare namespace mdns {
      * @syscap SystemCapability.Communication.NetManager.MDNS
      * @atomicservice [since 11]
      * @since 10 dynamic
-     * @since 26.1.0 static
      */
     stopSearchingMDNS(): void;
   }
@@ -437,7 +345,6 @@ declare namespace mdns {
    * @syscap SystemCapability.Communication.NetManager.MDNS
    * @atomicservice [since 11]
    * @since 10 dynamic
-   * @since 26.1.0 static
    */
   export interface LocalServiceInfo {
     /**
@@ -447,7 +354,6 @@ declare namespace mdns {
      * @syscap SystemCapability.Communication.NetManager.MDNS
      * @atomicservice [since 11]
      * @since 10 dynamic
-     * @since 26.1.0 static
      */
     serviceType: string;
     /**
@@ -456,7 +362,6 @@ declare namespace mdns {
      * @syscap SystemCapability.Communication.NetManager.MDNS
      * @atomicservice [since 11]
      * @since 10 dynamic
-     * @since 26.1.0 static
      */
     serviceName: string;
     /**
@@ -465,7 +370,6 @@ declare namespace mdns {
      * @syscap SystemCapability.Communication.NetManager.MDNS
      * @atomicservice [since 11]
      * @since 10 dynamic
-     * @since 26.1.0 static
      */
     port?: int;
     /**
@@ -475,7 +379,6 @@ declare namespace mdns {
      * @syscap SystemCapability.Communication.NetManager.MDNS
      * @atomicservice [since 11]
      * @since 10 dynamic
-     * @since 26.1.0 static
      */
     host?: NetAddress;
     /**
@@ -484,7 +387,6 @@ declare namespace mdns {
      * @syscap SystemCapability.Communication.NetManager.MDNS
      * @atomicservice [since 11]
      * @since 10 dynamic
-     * @since 26.1.0 static
      */
     serviceAttribute?: Array<ServiceAttribute>;
   }
@@ -495,7 +397,6 @@ declare namespace mdns {
    * @syscap SystemCapability.Communication.NetManager.MDNS
    * @atomicservice [since 11]
    * @since 10 dynamic
-   * @since 26.1.0 static
    */
   export interface ServiceAttribute {
     /**
@@ -504,7 +405,6 @@ declare namespace mdns {
      * @syscap SystemCapability.Communication.NetManager.MDNS
      * @atomicservice [since 11]
      * @since 10 dynamic
-     * @since 26.1.0 static
      */
     key: string;
 
@@ -514,7 +414,6 @@ declare namespace mdns {
      * @syscap SystemCapability.Communication.NetManager.MDNS
      * @atomicservice [since 11]
      * @since 10 dynamic
-     * @since 26.1.0 static
      */
     value: Array<int>;
   }
@@ -525,7 +424,6 @@ declare namespace mdns {
    * @syscap SystemCapability.Communication.NetManager.MDNS
    * @atomicservice
    * @since 11 dynamic
-   * @since 26.1.0 static
    */
   export interface DiscoveryEventInfo {
     /**
@@ -534,7 +432,6 @@ declare namespace mdns {
      * @syscap SystemCapability.Communication.NetManager.MDNS
      * @atomicservice
      * @since 11 dynamic
-     * @since 26.1.0 static
      */
     serviceInfo: LocalServiceInfo;
 
@@ -544,7 +441,6 @@ declare namespace mdns {
      * @syscap SystemCapability.Communication.NetManager.MDNS
      * @atomicservice
      * @since 11 dynamic
-     * @since 26.1.0 static
      */
     errorCode?: MdnsError;
   }
@@ -555,7 +451,6 @@ declare namespace mdns {
    * @syscap SystemCapability.Communication.NetManager.MDNS
    * @atomicservice [since 11]
    * @since 10 dynamic
-   * @since 26.1.0 static
    */
   export enum MdnsError {
     /**
@@ -564,7 +459,6 @@ declare namespace mdns {
      * @syscap SystemCapability.Communication.NetManager.MDNS
      * @atomicservice [since 11]
      * @since 10 dynamic
-     * @since 26.1.0 static
      */
     INTERNAL_ERROR = 0,
 
@@ -574,7 +468,6 @@ declare namespace mdns {
      * @syscap SystemCapability.Communication.NetManager.MDNS
      * @atomicservice [since 11]
      * @since 10 dynamic
-     * @since 26.1.0 static
      */
     ALREADY_ACTIVE = 1,
 
@@ -584,7 +477,6 @@ declare namespace mdns {
      * @syscap SystemCapability.Communication.NetManager.MDNS
      * @atomicservice [since 11]
      * @since 10 dynamic
-     * @since 26.1.0 static
      */
     MAX_LIMIT = 2
   }

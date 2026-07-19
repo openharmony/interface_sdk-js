@@ -375,7 +375,7 @@ declare namespace screen {
   function destroyVirtualScreen(screenId:long): Promise<void>;
 
   /**
-   * 设置虚拟屏幕的surface，表示当前虚拟屏用于显示对应surface中的内容，使用callback异步回调。
+   * 设置虚拟屏幕的surface，使用callback异步回调。
    *
    * @permission ohos.permission.CAPTURE_SCREEN
    * @param { long } screenId - 屏幕的id，该参数仅支持整数输入。
@@ -395,7 +395,7 @@ declare namespace screen {
   function setVirtualScreenSurface(screenId:long, surfaceId: string, callback: AsyncCallback<void>): void;
 
   /**
-   * 设置虚拟屏幕的surface，表示当前虚拟屏用于显示对应surface中的内容，使用Promise异步回调。
+   * 设置虚拟屏幕的surface，使用Promise异步回调。
    *
    * @permission ohos.permission.CAPTURE_SCREEN
    * @param { long } screenId - 屏幕的id，该参数仅支持整数输入。
@@ -890,6 +890,8 @@ declare namespace screen {
      * @param { OrientationOptions } [orientationOptions] - Options of setting orientation.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 1400001 - Invalid display or screen. Possible cause: The screen is not an external
+     *     display in extended mode.
      * @throws { BusinessError } 1400003 - This display manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
@@ -972,6 +974,56 @@ declare namespace screen {
      * @since 23 static
      */
     readonly serialNumber?: string;
+
+    /**
+     * 屏幕类型
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    readonly screenType?: ScreenType;
+  }
+
+  /**
+   * 屏幕类型枚举
+   *
+   * @syscap SystemCapability.Window.SessionManager
+   * @systemapi Hide this for inner system use.
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  enum ScreenType {
+    /**
+     * 物理集成到设备中的内置屏幕
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    BUILT_IN = 0,
+
+    /**
+     * 通过有线接口连接的外部物理显示屏
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    EXTERNAL = 1,
+
+    /**
+     * 由软件创建的虚拟显示屏，通常用于投屏、屏幕录制或多屏协作
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    VIRTUAL = 2
   }
 
   /**

@@ -86,7 +86,7 @@ export interface ConnectionInfo {
  */
 export default class WebNativeMessagingExtensionAbility extends ExtensionAbility {
   /**
-   * Indicates web native messaging extension ability context.
+   * Indicates the context of this web native messaging extension ability.
    *
    * @type { WebNativeMessagingExtensionContext }
    * @syscap SystemCapability.Web.Webview.Core

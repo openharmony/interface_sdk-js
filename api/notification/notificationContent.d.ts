@@ -14,8 +14,11 @@
  */
 
 /**
- * The **NotificationContent** module provides APIs for defining the notification content.
- * 
+ * The **NotificationContent** defines the content structure of a notification and provides content description API
+ * of multiple notification types. When an application needs to publish a notification, it can select the
+ * corresponding content type API to construct the notification content based on the display requirements (such as
+ * plain text, long text, multi-line text, picture, or live view).
+ *
  * @file Some notification types and content
  * @kit NotificationKit
  */
@@ -45,7 +48,9 @@ import { RecordData } from '../@ohos.base';
 type IconType = Resource | image.PixelMap;
 
 /**
- * Describes the normal text notification.
+ * Describes the basic text notification, which is used to display the title and body content. It serves as the
+ * basic content structure for other notification types. Other notification types (such as long text, multi-line
+ * text, picture, and live view) inherit this API and extend their own specific fields on this basis.
  *
  * @crossplatform [since 12]
  * @syscap SystemCapability.Notification.Notification
@@ -54,7 +59,8 @@ type IconType = Resource | image.PixelMap;
  */
 export interface NotificationBasicContent {
   /**
-   * Notification title. It cannot be empty or exceed 1,024 bytes. Excess content will be truncated.
+   * Notification title, displayed at the top of the notification. It cannot be an empty string. The size does not
+   * exceed 1024 bytes, and the excess part will be truncated.
    *
    * @crossplatform [since 12]
    * @syscap SystemCapability.Notification.Notification
@@ -64,7 +70,8 @@ export interface NotificationBasicContent {
   title: string;
 
   /**
-   * Notification content. It cannot be empty or exceed 3,072 bytes. Excess content will be truncated.
+   * Notification body content, displayed below the title. It cannot be an empty string. The size does not exceed
+   * 3072 bytes, and the excess part will be truncated.
    *
    * @crossplatform [since 12]
    * @syscap SystemCapability.Notification.Notification
@@ -74,8 +81,9 @@ export interface NotificationBasicContent {
   text: string;
 
   /**
-   * Additional information of the notification. It cannot exceed 3,072 bytes. Excess content will be truncated. This 
-   * parameter is left empty by default.
+   * Additional notification content, which supplements the notification content and is not displayed in the
+   * notification center. It defaults to empty. The size does not exceed 3072 bytes, and the excess part will be
+   * truncated.
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
@@ -84,10 +92,10 @@ export interface NotificationBasicContent {
   additionalText?: string;
 
   /**
-   * Picture displayed on the lock screen. This parameter is left empty by default. Currently, only the live view 
-   * notification is supported. The total number of the icon pixel bytes cannot exceed 192 KB (which is obtained through
-   * [getPixelBytesNumber]{@link @ohos.multimedia.image:image.PixelMap.getPixelBytesNumber}). The recommended icon size 
-   * is 128 × 128 pixels. The display effect depends on the device capability and notification center UI style.
+   * Picture displayed on the lock screen. This parameter is left empty by default. Currently, only the live view
+   * notification is supported. The total number of the icon pixel bytes cannot exceed 192 KB (which is obtained
+   * through getPixelBytesNumber). The recommended icon size is 128 x 128 pixels. The display effect depends on
+   * the device capability and notification center UI style.
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 12 dynamic
@@ -96,9 +104,10 @@ export interface NotificationBasicContent {
   lockscreenPicture?: image.PixelMap;
 
   /**
-   * Structured notification. Currently, only service reminder messages can be displayed in structured format in the 
-   * notification center. This parameter is left empty by default. (The size of key or value cannot exceed 512 bytes; 
-   * otherwise, the excess part will be truncated. Only a maximum of three pairs of structured data are supported.)
+   * Structured notification. Currently, only service reminder messages can be displayed in structured format in the
+   * notification center. This parameter is left empty by default. (The size of key or value cannot exceed 512
+   * bytes; otherwise, the excess part will be truncated. Only a maximum of three pairs of structured data are
+   * supported.)
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -109,12 +118,20 @@ export interface NotificationBasicContent {
 }
 
 /**
- * Describes the long text notification. This API is inherited from 
- * [NotificationBasicContent]{@link NotificationBasicContent}.
- * 
+ * Describes the long text notification. This API is inherited from NotificationBasicContent.
+ *
  * > **NOTE**
  * >
- * > The display effect depends on the device capability and notification center UI style.
+ * > - When this notification type forms a group notification with other notifications, its display effect defaults
+ * > to the collapsed state, and the displayed title and body are the **title** and **text** inherited from
+ * > NotificationBasicContent. When this notification type is displayed alone and does not form a group notification
+ * > with other notifications, its display effect defaults to the expanded state, where the displayed title is the
+ * > expanded title **expandedTitle**, and the displayed body content is the long text **longText**.
+ * >
+ * > - When a user taps a group notification to view the notification details, the display effect of this
+ * > notification changes to the expanded state.
+ * >
+ * > - The actual display effect depends on the device capabilities and the notification center UI style.
  *
  * @crossplatform [since 12]
  * @syscap SystemCapability.Notification.Notification
@@ -123,7 +140,8 @@ export interface NotificationBasicContent {
  */
 export interface NotificationLongTextContent extends NotificationBasicContent {
   /**
-   * Long text of the notification. It cannot be empty or exceed 3,072 bytes. Excess content will be truncated.
+   * Full long text content displayed after the notification is expanded. It cannot be an empty string. The size
+   * does not exceed 3072 bytes, and the excess part will be truncated.
    *
    * @crossplatform [since 12]
    * @syscap SystemCapability.Notification.Notification
@@ -133,7 +151,9 @@ export interface NotificationLongTextContent extends NotificationBasicContent {
   longText: string;
 
   /**
-   * Brief text of the notification. It cannot be empty or exceed 1,024 bytes. Excess content will be truncated.
+   * Notification summary content, which is a summary of the notification content and is not displayed in the
+   * notification center. It cannot be an empty string. The size does not exceed 1024 bytes, and the excess part
+   * will be truncated.
    *
    * @crossplatform [since 12]
    * @syscap SystemCapability.Notification.Notification
@@ -143,8 +163,8 @@ export interface NotificationLongTextContent extends NotificationBasicContent {
   briefText: string;
 
   /**
-   * Title of the notification in the expanded state. It cannot be empty or exceed 1,024 bytes. Excess content will be 
-   * truncated.
+   * Title when the notification is expanded. It cannot be an empty string. The size does not exceed 1024 bytes,
+   * and the excess part will be truncated.
    *
    * @crossplatform [since 12]
    * @syscap SystemCapability.Notification.Notification
@@ -277,8 +297,8 @@ export interface NotificationLiveViewContent extends NotificationBasicContent {
   status: LiveViewStatus;
 
   /**
-   * If the version number stored in the database is not **0xffffffff**, the version number needs to be verified when 
-   * the live view is updated or ended to ensure that the current version number is greater than the version number 
+   * If the version number stored in the database is not **0xffffffff**, the version number needs to be verified when
+   * the live view is updated or ended to ensure that the current version number is greater than the version number
    * stored in the database. The default value is **0xffffffff**.
    *
    * @syscap SystemCapability.Notification.Notification
@@ -341,20 +361,20 @@ export interface NotificationLiveViewContent extends NotificationBasicContent {
 }
 
 /**
- * Describes the multi-line text notification. This API is inherited from 
- * [NotificationBasicContent]{@link NotificationBasicContent}.
- * 
+ * Describes the multi-line text notification. This API is inherited from NotificationBasicContent.
+ *
  * > **NOTE**
  * >
- * > - When the multi-line text notification and another notification form a group notification, the group notification 
- * > is displayed as a [normal text notification]{@link NotificationBasicContent} by default. After the group 
- * > notification is expanded, the value of **longTitle** is used as the title, and the value of **lines** is used as 
- * > the multi-line text content.
- * 
- * When the multi-line text notification is displayed independently, the value of **longTitle** is used as the title, 
- * and the value of **lines** is used as the multi-line text content.
- * 
- * > - The display effect depends on the device capability and notification center UI style.
+ * > - When this notification type forms a group notification with other notifications, its display effect defaults
+ * > to the collapsed state, and the displayed title and body are the **title** and **text** inherited from
+ * > NotificationBasicContent. When this notification type is displayed alone and does not form a group notification
+ * > with other notifications, its display effect defaults to the expanded state, where the displayed title is the
+ * > expanded title **longTitle**, and the multi-line text content **lines** is displayed as the body.
+ * >
+ * > - When a user taps a group notification to view the notification details, the display effect of this
+ * > notification changes to the expanded state.
+ * >
+ * > - The actual display effect depends on the device capabilities and the notification center UI style.
  *
  * @crossplatform [since 12]
  * @syscap SystemCapability.Notification.Notification
@@ -363,7 +383,9 @@ export interface NotificationLiveViewContent extends NotificationBasicContent {
  */
 export interface NotificationMultiLineContent extends NotificationBasicContent {
   /**
-   * Brief text of the notification. It cannot be empty or exceed 1,024 bytes. Excess content will be truncated.
+   * Notification summary content, which is a summary of the notification content and is not displayed in the
+   * notification center. It cannot be an empty string. The size does not exceed 1024 bytes, and the excess part
+   * will be truncated.
    *
    * @crossplatform [since 12]
    * @syscap SystemCapability.Notification.Notification
@@ -373,8 +395,8 @@ export interface NotificationMultiLineContent extends NotificationBasicContent {
   briefText: string;
 
   /**
-   * Title of the notification in the expanded state. It cannot be empty or exceed 1,024 bytes. Excess content will be 
-   * truncated.
+   * Title when the notification is expanded. It cannot be an empty string. The size does not exceed 1024 bytes,
+   * and the excess part will be truncated.
    *
    * @crossplatform [since 12]
    * @syscap SystemCapability.Notification.Notification
@@ -384,8 +406,8 @@ export interface NotificationMultiLineContent extends NotificationBasicContent {
   longTitle: string;
 
   /**
-   * Multi-line text of a notification. A maximum of three lines are supported, and each line cannot exceed 1,024 bytes.
-   * Excess content will be truncated.
+   * List of multi-line text displayed after the notification is expanded. Each line is displayed as an independent
+   * entry and supports up to three lines. Each line size does not exceed 1024 bytes, excess part will be truncated.
    *
    * @crossplatform [since 12]
    * @syscap SystemCapability.Notification.Notification
@@ -395,10 +417,9 @@ export interface NotificationMultiLineContent extends NotificationBasicContent {
   lines: Array<string>;
 
   /**
-   * **wantAgent**s triggered when a line of text in the multi-line text is tapped. The text in different lines 
-   * corresponds to different **wantAgent**s. The maximum number of lines configured for this field is equal to the 
-   * value of [lines]{@link ./notification/notificationContent:NotificationMultiLineContent}. This parameter is left 
-   * empty by default.
+   * **wantAgent**s triggered when a line of text in the multi-line text is tapped. The text in different lines
+   * corresponds to different **wantAgent**s. The maximum number of lines configured for this field is equal to the
+   * value of lines. This parameter is left empty by default.
    *
    * @permission ohos.permission.NOTIFICATION_AGENT_CONTROLLER
    * @syscap SystemCapability.Notification.Notification
@@ -410,12 +431,21 @@ export interface NotificationMultiLineContent extends NotificationBasicContent {
 }
 
 /**
- * Describes the picture-attached notification. This API is inherited from 
- * [NotificationBasicContent]{@link NotificationBasicContent}.
- * 
+ * Describes the picture-attached notification. This API is inherited from NotificationBasicContent.
+ *
  * > **NOTE**
  * >
- * > The display effect depends on the device capability and notification center UI style.
+ * > - When this notification type forms a group notification with other notifications, its display effect defaults
+ * > to the collapsed state, and the displayed title and body are the **title** and **text** inherited from
+ * > NotificationBasicContent. When this notification type is displayed alone and does not form a group notification
+ * > with other notifications, its display effect defaults to the expanded state, where the displayed title is the
+ * > expanded title **expandedTitle**, and the displayed body is the **text** inherited from
+ * > NotificationBasicContent and the picture content **picture** of this type.
+ * >
+ * > - When a user taps a group notification to view the notification details, the display effect of this
+ * > notification changes to the expanded state.
+ * >
+ * > - The actual display effect depends on the device capabilities and the notification center UI style.
  *
  * @syscap SystemCapability.Notification.Notification
  * @since 7 dynamic
@@ -423,7 +453,9 @@ export interface NotificationMultiLineContent extends NotificationBasicContent {
  */
 export interface NotificationPictureContent extends NotificationBasicContent {
   /**
-   * Brief text of the notification. It cannot be empty or exceed 1,024 bytes. Excess content will be truncated.
+   * Notification summary content, which is a summary of the notification content and is not displayed in the
+   * notification center. It cannot be an empty string. The size does not exceed 1024 bytes, and the excess part
+   * will be truncated.
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
@@ -432,8 +464,8 @@ export interface NotificationPictureContent extends NotificationBasicContent {
   briefText: string;
 
   /**
-   * Title of the notification in the expanded state. It cannot be empty or exceed 1,024 bytes. Excess content will be 
-   * truncated.
+   * Title when the notification is expanded. It cannot be an empty string. The size does not exceed 1024 bytes,
+   * and the excess part will be truncated.
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
@@ -442,7 +474,8 @@ export interface NotificationPictureContent extends NotificationBasicContent {
   expandedTitle: string;
 
   /**
-   * Picture content of the notification. The total pixel data size of the image cannot exceed 2 MB.
+   * Picture content displayed after the notification is expanded. The total bytes of the image pixels cannot exceed
+   * 2 MB.
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
@@ -452,10 +485,14 @@ export interface NotificationPictureContent extends NotificationBasicContent {
 }
 
 /**
- * Describes the system live view notification. A third-party application cannot directly create a notification of this 
- * type. After the system proxy creates a system live view, the third-party application releases a notification with the
- * same ID to update the specified content. This API is inherited from 
- * [NotificationBasicContent]{@link NotificationBasicContent}.
+ * Describes the system live view notification content, which is used to display real-time status information in
+ * the live view. Third-party applications are not supported to directly create this notification type. After the
+ * system proxy creates a system live view notification, a third-party application can publish a notification with
+ * the same ID to update the specified content. This API is inherited from NotificationBasicContent.
+ *
+ * > **NOTE**
+ * >
+ * > The actual display effect depends on the device capabilities and the notification center UI style.
  *
  * @syscap SystemCapability.Notification.Notification
  * @since 11 dynamic
@@ -463,7 +500,8 @@ export interface NotificationPictureContent extends NotificationBasicContent {
  */
 export interface NotificationSystemLiveViewContent extends NotificationBasicContent {
   /**
-   * Type code, which identifies the type of the service that invokes the API.
+   * Type identifier for marking the caller's service type, which is used to distinguish different live view service
+   * scenarios.
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 11 dynamic
@@ -529,7 +567,11 @@ export interface NotificationSystemLiveViewContent extends NotificationBasicCont
 }
 
 /**
- * Describe the notification capsule.
+ * Describes the notification capsule, which is used to display the capsule form in the live view.
+ *
+ * > **NOTE**
+ * >
+ * > The actual display effect depends on the device capabilities and the notification center UI style.
  *
  * @syscap SystemCapability.Notification.Notification
  * @since 11 dynamic
@@ -537,7 +579,8 @@ export interface NotificationSystemLiveViewContent extends NotificationBasicCont
  */
 export interface NotificationCapsule {
   /**
-   * Title of the capsule, with a maximum of 200 bytes. Excess part will be truncated.
+   * Capsule title. The size does not exceed 202 bytes, and the excess part will be truncated. The value defaults to
+   * empty.
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 11 dynamic
@@ -546,7 +589,8 @@ export interface NotificationCapsule {
   title?: string;
 
   /**
-   * Icon of the capsule.
+   * Capsule icon. The total bytes of the icon pixel does not exceed 192 KB (the total bytes of the icon pixel is
+   * obtained through getPixelBytesNumber). It is recommended that the icon pixel dimensions be 128 x 128.
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 11 dynamic
@@ -555,7 +599,10 @@ export interface NotificationCapsule {
   icon?: image.PixelMap;
 
   /**
-   * Background color of the capsule.
+   * Capsule background color. Colors in rgb, rgba, or argb format are supported. Example of rgb format color:
+   * **#ffffff**, **rgb(255, 100, 255)**. Example of rgba format color: **rgba(255, 100, 255, 0.5)**. Example of
+   * argb format color: **#ff000000**. The size does not exceed 202 bytes, and the excess part will be truncated.
+   * The value defaults to empty.
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 11 dynamic
@@ -574,7 +621,7 @@ export interface NotificationCapsule {
   content?: string;
 
   /**
-   * Display duration of the notification capsule of an instant task, in seconds. The default value is **0**.
+   * Display duration of the notification capsule of an instant task. The default value is **0**. Unit: second.
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -584,8 +631,8 @@ export interface NotificationCapsule {
   time?: int;
 
   /**
-   * Buttons of the notification capsule of an instant task. A maximum of two buttons are supported. This parameter is 
-   * left empty by default.
+   * Buttons of the notification capsule of an instant task. A maximum of two buttons are supported. This parameter
+   * is left empty by default.
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -606,7 +653,8 @@ export interface NotificationCapsule {
 export interface NotificationIconButton {
 
   /**
-   * Button ID, which is used to distinguish multiple buttons of the same notification.
+   * Button identifier, used to distinguish multiple different buttons for the same notification. The string length
+   * cannot exceed 202 bytes, and the exceeding part will be truncated. It cannot be an empty string.
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -626,7 +674,8 @@ export interface NotificationIconButton {
   iconResource: IconType;
 
   /**
-   * Text displayed on the button. This parameter is left empty by default.
+   * Text displayed on the button, which defaults to empty. The string length cannot exceed 202 bytes, and the
+   * exceeding part will be truncated.
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -637,7 +686,7 @@ export interface NotificationIconButton {
 
   /**
    * Whether to hide the notification panel when the button is tapped. The default value is **false**.
-   * 
+   *
    * - **true**: Yes.
    * - **false**: No.
    *
@@ -650,7 +699,11 @@ export interface NotificationIconButton {
 }
 
 /**
- * Describes the notification button.
+ * Describes the notification button, which is used to display an interactive button in the live view.
+ *
+ * > **NOTE**
+ * >
+ * > The actual display effect depends on the device capabilities and the notification center UI style.
  *
  * @syscap SystemCapability.Notification.Notification
  * @since 11 dynamic
@@ -658,7 +711,9 @@ export interface NotificationIconButton {
  */
 export interface NotificationButton {
   /**
-   * Button names. A maximum of three names are supported.
+   * List of button names. Each name corresponds to the text displayed on a notification button. A maximum of 3
+   * buttons is supported. The size of each name does not exceed 202 bytes, and the excess part will be truncated.
+   * The value defaults to empty.
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 11 dynamic
@@ -667,7 +722,11 @@ export interface NotificationButton {
   names?: Array<string>;
 
   /**
-   * Button icons. A maximum of three icons are supported.
+   * List of button icons, corresponding one-to-one with **names**, with each icon displayed on its corresponding
+   * button. A maximum of 3 icons is supported. The total bytes of icon pixels does not exceed 192 KB (the total
+   * bytes of icon pixels is obtained through getPixelBytesNumber). It is recommended that the icon pixel dimensions
+   * be 128 x 128. The value defaults to empty. This parameter is mutually exclusive with **iconsResource**; only
+   * one of them can be used.
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 11 dynamic
@@ -676,7 +735,9 @@ export interface NotificationButton {
   icons?: Array<image.PixelMap>;
 
   /**
-   * Button icon resources. A maximum of three icon resources are supported.
+   * List of button icon resources, corresponding one-to-one with **names** via Resource references. A maximum of 3
+   * resources is supported. The value defaults to empty. This parameter is mutually exclusive with **icons**; only
+   * one of them can be used.
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 12 dynamic
@@ -688,13 +749,18 @@ export interface NotificationButton {
 /**
  * Describes the notification timing information.
  *
+ * > **NOTE**
+ * >
+ * > The actual display effect depends on the device capabilities and the notification center UI style.
+ *
  * @syscap SystemCapability.Notification.Notification
  * @since 11 dynamic
  * @since 23 static
  */
 export interface NotificationTime {
   /**
-   * Start time, in milliseconds.
+   * Initial time for the timer, used to set the starting point of the timer in the Live View. The value range is
+   * all non-negative integers. The default value is **0**. Unit: millisecond.
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 11 dynamic
@@ -703,10 +769,10 @@ export interface NotificationTime {
   initialTime?: int;
 
   /**
-   * Whether to count down. The default value is **false**.
-   * 
-   * - **true**: Yes.
-   * - **false**: No.
+   * Whether it is countdown mode. The default value is **false**.
+   *
+   * - **true**: The time is displayed decreasing from initialTime.
+   * - **false**: The time is displayed increasing from initialTime.
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 11 dynamic
@@ -715,10 +781,10 @@ export interface NotificationTime {
   isCountDown?: boolean;
 
   /**
-   * Whether to pause the progress. The default value is **false**.
-   * 
-   * - **true**: Yes.
-   * - **false**: No.
+   * Whether the timer is paused. The default value is **false**.
+   *
+   * - **true**: The timer is paused at the current value.
+   * - **false**: The timer runs normally.
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 11 dynamic
@@ -727,10 +793,10 @@ export interface NotificationTime {
   isPaused?: boolean;
 
   /**
-   * Whether the time is displayed in the title. The default value is **false**.
-   * 
-   * - **true**: Yes.
-   * - **false**: No.
+   * Whether the time information is displayed in the notification title. The default value is **false**.
+   *
+   * - **true**: The timer information will be embedded in the title area.
+   * - **false**: The timer information is displayed in a separate area.
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 11 dynamic
@@ -740,7 +806,11 @@ export interface NotificationTime {
 }
 
 /**
- * Describes the notification progress.
+ * Describes the notification progress, which is used to display progress bar information in the live view.
+ *
+ * > **NOTE**
+ * >
+ * > The actual display effect depends on the device capabilities and the notification center UI style.
  *
  * @syscap SystemCapability.Notification.Notification
  * @since 11 dynamic
@@ -748,7 +818,7 @@ export interface NotificationTime {
  */
 export interface NotificationProgress {
   /**
-   * Maximum progress value.
+   * Maximum value of the progress. The value range is all non-negative integers.
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 11 dynamic
@@ -757,7 +827,7 @@ export interface NotificationProgress {
   maxValue?: int;
 
   /**
-   * Current progress value.
+   * Current value of the progress. The value range is all non-negative integers.
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 11 dynamic
@@ -766,10 +836,10 @@ export interface NotificationProgress {
   currentValue?: int;
 
   /**
-   * Whether to show the progress in percentage. The default value is **false**.
-   * 
-   * - **true**: Yes.
-   * - **false**: No.
+   * Whether to display the progress as a percentage. The value defaults to **false**.
+   *
+   * - **true**: The progress is displayed as a percentage.
+   * - **false**: The progress is displayed as an absolute value.
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 11 dynamic
@@ -801,7 +871,10 @@ export interface NotificationContent {
   contentType?: notification.ContentType;
 
   /**
-   * Notification content type.
+   * Notification content type, used to specify the content layout type of the notification, which determines the
+   * display style of the notification in the notification center. It must be used together with the corresponding
+   * notification content object. For example, when this parameter is set to **NOTIFICATION_CONTENT_BASIC_TEXT**, the
+   * **normal** field must be specified at the same time.
    *
    * @crossplatform [since 12]
    * @syscap SystemCapability.Notification.Notification
@@ -811,7 +884,8 @@ export interface NotificationContent {
   notificationContentType?: notificationManager.ContentType;
 
   /**
-   * Normal text.
+   * Basic notification content. This parameter is used when **notificationContentType** is
+   * **NOTIFICATION_CONTENT_BASIC_TEXT**. The notification displays the title and body in a plain text style.
    *
    * @crossplatform [since 12]
    * @syscap SystemCapability.Notification.Notification
@@ -821,7 +895,9 @@ export interface NotificationContent {
   normal?: NotificationBasicContent;
 
   /**
-   * Long text.
+   * Long text notification content. This parameter is used when **notificationContentType** is
+   * **NOTIFICATION_CONTENT_LONG_TEXT**. The complete long text content can be displayed after the notification is
+   * expanded.
    *
    * @crossplatform [since 12]
    * @syscap SystemCapability.Notification.Notification
@@ -831,7 +907,8 @@ export interface NotificationContent {
   longText?: NotificationLongTextContent;
 
   /**
-   * Multi-line text.
+   * Multi-line notification content. This parameter is used when **notificationContentType** is
+   * **NOTIFICATION_CONTENT_MULTILINE**. The notification is displayed in a multi-line list style after expansion.
    *
    * @crossplatform [since 12]
    * @syscap SystemCapability.Notification.Notification
@@ -841,7 +918,8 @@ export interface NotificationContent {
   multiLine?: NotificationMultiLineContent;
 
   /**
-   * Picture-attached.
+   * Picture notification content. This parameter is used when **notificationContentType** is
+   * **NOTIFICATION_CONTENT_PICTURE**. The picture can be displayed after the notification is expanded.
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
@@ -850,9 +928,9 @@ export interface NotificationContent {
   picture?: NotificationPictureContent;
 
   /**
-   * System live view. A third-party application cannot directly create a notification of this type. After the system 
-   * proxy creates a system live view, the third-party application releases a notification with the same ID to update 
-   * the specified content.
+   * System live view notification content. Third-party applications are not supported to directly create this type
+   * of notification. After a system agent creates a system live view notification, a third-party application can
+   * publish a notification with the same ID to update the specified content.
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 11 dynamic
@@ -862,7 +940,7 @@ export interface NotificationContent {
 
   /**
    * Common live view.
-   * 
+   *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 11 dynamic

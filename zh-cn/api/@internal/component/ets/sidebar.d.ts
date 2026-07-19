@@ -102,7 +102,7 @@ declare enum SideBarPosition {
    * @atomicservice [since 11]
    * @since 9 dynamic
    */
-  Start = 0,
+  Start,
 
   /**
    * 侧边栏位于容器右侧。
@@ -112,7 +112,7 @@ declare enum SideBarPosition {
    * @atomicservice [since 11]
    * @since 9 dynamic
    */
-  End = 1
+  End
 }
 
 /**

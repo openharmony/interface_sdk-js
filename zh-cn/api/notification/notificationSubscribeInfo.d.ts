@@ -25,6 +25,8 @@ import type notificationManager from '../@ohos.notificationManager';
  * 
  * > **说明：**
  * >
+ * > 本模块首批接口从API version 7开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
+ * >
  * > 本模块为系统接口。
  *
  * @syscap SystemCapability.Notification.Notification
@@ -169,8 +171,9 @@ export interface PictureOptions {
  */
 export interface VoiceContentOptions {
   /**
-   * 是否订阅通知语音播报内容。true表示订阅通知语音播报内容，false表示禁用。
-   * 默认值：false。
+   * 是否订阅通知语音播报内容。
+   * - true：订阅。
+   * - false：不订阅。默认值为false。
    * 
    * @default false
    * @syscap SystemCapability.Notification.Notification

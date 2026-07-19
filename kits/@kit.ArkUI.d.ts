@@ -304,7 +304,9 @@ import {
   SelectionContainerEditMenuOptions,
   SelectionContainerInstance,
   SelectionContainerMenuOptions,
-  SelectionContainerTextJoinStyle
+  SelectionContainerTextJoinStyle,
+  SelectionContainerOptions,
+  SelectionContainerController
 } from '@ohos.arkui.components.SelectionContainer';
 export {
   AtomicServiceSearch, InputFilterParams, SearchButtonParams, MenuAlignParams, SearchParams, SelectParams, OperationParams,
@@ -405,7 +407,7 @@ export {
   CustomComponentContext, IReusePool, IReusableInfo, PopupV2, PopupV2InitInfo, PopupV2Button,
   BackPressActionProposal, BaseGestureHandlingProposal, ClickActionProposal, GestureHandlingResolution, NoneActionProposal, PageSwitchActionProposal, ScrollActionProposal, SelectActionProposal, SmartGestureController, TargetedGestureProposal,
   LazyVWaterFlowLayout, LazyVWaterFlowLayoutAttribute, LazyWaterFlowLayoutAttribute,
-  SelectionContainer, SelectionContainerAttribute, SelectionContainerInstance, SelectionContainerTextJoinStyle, SelectionContainerMenuOptions, SelectionContainerEditMenuOptions, OnMenuItemClickWithTextCallback,
+  SelectionContainer, SelectionContainerAttribute, SelectionContainerInstance, SelectionContainerTextJoinStyle, SelectionContainerMenuOptions, SelectionContainerEditMenuOptions, OnMenuItemClickWithTextCallback, SelectionContainerOptions, SelectionContainerController,
   DatePickerComponent, DatePickerComponentOptions, DisplayMode, DateMode, TimeFormat, DatePickerComponentResult,
   ComposeListItemV2, ContentItemV2, ContentItemV2Options, IconTypeV2, OperateButtonV2,
   OperateButtonV2Options, OperateCheckV2, OperateCheckV2Options, OperateIconV2, OperateIconV2Options,

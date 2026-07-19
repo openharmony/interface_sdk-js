@@ -33,7 +33,7 @@
  * 
  * getInfo(options?: GetDeviceOptions): void
  * 
- * 获取当前设备的信息。
+ * 获取当前设备的信息。该接口异步读取系统设备信息，通过回调函数返回设备品牌、型号、屏幕参数等数据。
  * 
  * > **说明：**<br>
  * > > 在首页的onShow生命周期之前不建议调用device.getInfo接口。
@@ -44,7 +44,7 @@
  * 
  * | 参数名 | 类型 | 必填 | 说明 |
  * | -------- | -------- | -------- | -------- |
- * | options | [GetDeviceOptions]{@link GetDeviceOptions} | 否 | 定义设备信息获取的参数选项。 |
+ * | options | [GetDeviceOptions]{@link GetDeviceOptions} | 否 | 定义设备信息获取的参数选项。省略时使用默认配置获取设备基本信息。 |
  */
 
 /**
@@ -87,7 +87,7 @@ export interface DeviceResponse {
   model: string;
 
   /**
-   * 代号。
+   * 产品代号。
    *
    * @syscap SystemCapability.Startup.SystemInfo.Lite
    * @since 3 dynamiconly
@@ -117,7 +117,7 @@ export interface DeviceResponse {
   region: string;
 
   /**
-   * 可使用的窗口宽度。
+   * 可使用的窗口宽度，单位px。不同设备的可使用窗口尺寸存在差异。
    *
    * @syscap SystemCapability.Startup.SystemInfo.Lite
    * @since 3 dynamiconly
@@ -127,7 +127,7 @@ export interface DeviceResponse {
   windowWidth: number;
 
   /**
-   * 可使用的窗口高度。
+   * 可使用的窗口宽度，单位px。不同设备的可使用窗口尺寸存在差异。
    *
    * @syscap SystemCapability.Startup.SystemInfo.Lite
    * @since 3 dynamiconly
@@ -137,7 +137,7 @@ export interface DeviceResponse {
   windowHeight: number;
 
   /**
-   * 屏幕密度。
+   * 屏幕像素密度。表示屏幕每英寸的像素点数量，单位为dpi(dots per inch)。不同设备的屏幕像素密度存在差异。
    *
    * @syscap SystemCapability.Startup.SystemInfo.Lite
    * @since 4 dynamiconly
@@ -171,7 +171,7 @@ export interface DeviceResponse {
   apiVersion: number;
 
   /**
-   * 设备类型。
+   * 设备类型。常见取值：phone（手机）、tablet（平板）、tv（电视）、wearable（可穿戴设备）等。
    *
    * @syscap SystemCapability.Startup.SystemInfo.Lite
    * @since 4 dynamiconly
@@ -191,7 +191,7 @@ export interface DeviceResponse {
  */
 export interface GetDeviceOptions {
   /**
-   * 接口调用成功的回调函数。 data为成功返回的设备信息，具体参考[DeviceResponse]{@link DeviceResponse}。
+   * 接口调用成功的回调函数，在接口调用成功时执行。data 为成功返回的设备信息。不传入时无法获取设备信息，建议设置此回调。
    *
    * @syscap SystemCapability.Startup.SystemInfo.Lite
    * @since 3 dynamiconly
@@ -201,7 +201,7 @@ export interface GetDeviceOptions {
   success?: (data: DeviceResponse) => void;
 
   /**
-   * 接口调用失败的回调函数。 code为失败返回的错误码。
+   * 接口调用失败的回调函数，在接口调用失败时执行。data为失败时返回的错误信息对象或错误描述字符串，code为失败返回的错误码。
    * 
    * code:200，表示返回结果中存在无法获得的信息。
    *
@@ -213,7 +213,7 @@ export interface GetDeviceOptions {
   fail?: (data: any, code: number) => void;
 
   /**
-   * 接口调用结束的回调函数。
+   * 接口调用结束的回调函数，在接口调用完成后（无论成功或失败）执行，适用于需执行清理或收尾工作的场景。不传入时不执行结束回调。
    *
    * @syscap SystemCapability.Startup.SystemInfo.Lite
    * @since 3 dynamiconly

@@ -131,7 +131,7 @@ declare enum NavRouteMode {
    * @deprecated since 13
    * @useinstead Navigation#LaunchMode
    */
-  PUSH_WITH_RECREATE = 0,
+  PUSH_WITH_RECREATE,
 
   /**
    * The new navigation destination page overwrites the current one. The current page is not destroyed, and the
@@ -145,7 +145,7 @@ declare enum NavRouteMode {
    * @deprecated since 13
    * @useinstead Navigation#LaunchMode
    */
-  PUSH = 1,
+  PUSH,
 
   /**
    * The new navigation destination page replaces the current one. The current page is destroyed, and the information
@@ -159,7 +159,7 @@ declare enum NavRouteMode {
    * @deprecated since 13
    * @useinstead Navigation#LaunchMode
    */
-  REPLACE = 2
+  REPLACE
 }
 
 /**

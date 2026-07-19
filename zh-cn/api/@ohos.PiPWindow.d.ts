@@ -916,9 +916,16 @@ declare namespace PiPWindow {
      * 启动画中画，使用Promise异步回调。
      *
      * @returns { Promise<void> } 无返回结果的Promise对象。
-     * @throws { BusinessError } 1300012 - The PiP window state is abnormal.
-     * @throws { BusinessError } 1300013 - Failed to create the PiP window.
-     * @throws { BusinessError } 1300014 - PiP internal error.
+     * @throws { BusinessError } 1300012 - The PiP window state is abnormal. Possible causes:
+     *     <br>1.The PiP controller has been destroyed.
+     *     <br>2.The PiP window is not created or has been destroyed.
+     * @throws { BusinessError } 1300013 - Failed to create the PiP window. Possible causes:
+     *     <br>1.PiP configuration parameters are invalid, such as pipOption or context is null.
+     *     <br>2.The XComponentController or main window is null.
+     *     <br>3.The main window is not shown (non-auto-start scenario).
+     *     <br>4.Navigation component operation failed.
+     * @throws { BusinessError } 1300014 - PiP internal error. Possible cause:
+     *     Internal error, failed to show the PiP window. such as insufficient resources or abnormal window service.
      * @throws { BusinessError } 1300015 - Repeated PiP operation.
      * @throws { BusinessError } 1300034 - This operation conflicts with other floating windows. Possible cause:
      *     App has already started float view. [since 26.0.0]
@@ -933,8 +940,10 @@ declare namespace PiPWindow {
      * 停止画中画，使用Promise异步回调。
      *
      * @returns { Promise<void> } 无返回结果的Promise对象。
-     * @throws { BusinessError } 1300011 - Failed to destroy the PiP window.
-     * @throws { BusinessError } 1300012 - The PiP window state is abnormal.
+     * @throws { BusinessError } 1300011 - Failed to destroy the PiP window. Possible cause:
+     *     Internal error, the window type is not a PiP window.
+     * @throws { BusinessError } 1300012 - The PiP window state is abnormal. Possible cause:
+     *     The PiP window is not created or has been destroyed.
      * @throws { BusinessError } 1300015 - Repeated PiP operation.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice [since 12]
@@ -989,7 +998,8 @@ declare namespace PiPWindow {
      * @returns { Promise<void> } 无返回结果的Promise对象。
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
      *     capabilities.
-     * @throws { BusinessError } 1300014 - PiP internal error.
+     * @throws { BusinessError } 1300014 - PiP internal error. Possible cause:
+     *     The PiP controller has been destroyed.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 18 dynamic
@@ -1015,7 +1025,9 @@ declare namespace PiPWindow {
      * @returns { Promise<PiPWindowInfo> } Promise对象，返回当前画中画窗口信息。
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
      *     capabilities.
-     * @throws { BusinessError } 1300014 - PiP internal error.
+     * @throws { BusinessError } 1300014 - PiP internal error. Possible causes:
+     *     <br>1.The PiP controller has been destroyed.
+     *     <br>2.The PiP window is not created or has been destroyed.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 15 dynamic
@@ -1029,7 +1041,8 @@ declare namespace PiPWindow {
      * @returns { Promise<boolean> } Promise对象，返回当前自动启动画中画开关状态，true表示开启，false表示关闭。
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
      *     capabilities.
-     * @throws { BusinessError } 1300014 - PiP internal error.
+     * @throws { BusinessError } 1300014 - PiP internal error. Possible cause:
+     *     The PiP controller has been destroyed.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 20 dynamic
@@ -1042,7 +1055,9 @@ declare namespace PiPWindow {
      *
      * @returns { Promise<boolean> } Promise对象，返回当前画中画的隐藏状态。true表示前台可见，false表示前台不可见（收入侧边栏）。画中画生命周期不为
      *     [STARTED]{@link PiPWindow.PiPState}时调用本接口总是返回false。
-     * @throws { BusinessError } 1300014 - PiP internal error.
+     * @throws { BusinessError } 1300014 - PiP internal error. Possible causes:
+     *     <br>1.The PiP controller has been destroyed.
+     *     <br>2.The PiP window is not created or has been destroyed.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 23 dynamic
@@ -1202,7 +1217,8 @@ declare namespace PiPWindow {
      * @param { Callback<PiPWindowSize> } callback - Callback used to return the picture-in-picture window size.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
      *     capabilities.
-     * @throws { BusinessError } 1300014 - PiP internal error.
+     * @throws { BusinessError } 1300014 - PiP internal error. Possible cause:
+     *     The PiP controller has been destroyed.
      * @syscap SystemCapability.Window.SessionManager
      * @since 26.0.0 static
      */
@@ -1253,7 +1269,8 @@ declare namespace PiPWindow {
      *     <br>画中画显示状态变化回调函数
      * @throws { BusinessError } 801 - Capability not supported.
      *     function onActiveStatusChange(callback) can not work correctly due to limited device capabilities.
-     * @throws { BusinessError } 1300014 - PiP internal error.
+     * @throws { BusinessError } 1300014 - PiP internal error. Possible cause:
+     *     The PiP controller has been destroyed.
      * @syscap SystemCapability.Window.SessionManager
      * @since 26.0.0 static
      */

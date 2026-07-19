@@ -73,7 +73,6 @@ export default class WebNativeMessagingExtensionContext extends ExtensionContext
   /**
    * Starts an ability and returns the execution result when the ability is destroyed.
    *
-   * @permission ohos.permission.WEB_NATIVE_MESSAGING
    * @param { Want } want - Indicates the ability to start.
    * @param { StartOptions } [options] - Indicates the start options.
    * @returns { Promise<AbilityResult> } Returns the result of startAbility.

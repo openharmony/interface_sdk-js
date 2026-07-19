@@ -2214,7 +2214,6 @@ declare namespace i18n {
    * @syscap SystemCapability.Global.I18n
    * @since 7 dynamiconly
    * @deprecated since 9
-   * @useinstead i18n.System.set24HourClock
    */
   export function set24HourClock(option: boolean): boolean;
 
@@ -2229,7 +2228,6 @@ declare namespace i18n {
    * @syscap SystemCapability.Global.I18n
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead i18n.System.addPreferredLanguage
    */
   export function addPreferredLanguage(language: string, index?: int): boolean;
 
@@ -2243,7 +2241,6 @@ declare namespace i18n {
    * @syscap SystemCapability.Global.I18n
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead i18n.System.removePreferredLanguage
    */
   export function removePreferredLanguage(index: int): boolean;
 

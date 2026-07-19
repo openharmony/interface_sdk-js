@@ -1009,7 +1009,17 @@ export enum AccessibilityEventType {
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
-  TYPE_ONE_FINGER_DOUBLE_TAP = 72
+  TYPE_ONE_FINGER_DOUBLE_TAP = 72,
+  
+  /**
+   * Event indicating the touchGuide gesture.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  TYPE_TOUCH_GUIDE_GESTURE = 73
 }
 
 /**

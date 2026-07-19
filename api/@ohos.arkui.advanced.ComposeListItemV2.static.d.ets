@@ -26,7 +26,6 @@ import { Param, ObservedV2, Require, Trace } from '@ohos.arkui.stateManagement';
 /**
  * Declare enum IconTypeV2
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 26.0.0 static
@@ -100,7 +99,6 @@ export declare enum IconTypeV2 {
 /**
  * Callback function when operate the icon.
  *
- * @typedef { function } OnActionCallback
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 26.0.0 static
@@ -109,7 +107,6 @@ declare type OnActionCallback = () => void;
 /**
  * Callback function when operate the checkbox/switch/radio.
  *
- * @typedef { function } OnChangeCallback
  * @param { boolean } value - The value  of checkbox/switch/radio.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -860,7 +857,6 @@ export declare class OperateItemV2 {
 /**
  * Declare ComposeListItemV2
  *
- * @struct { ComposeListItemV2 }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 26.0.0 static

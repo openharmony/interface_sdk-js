@@ -118,6 +118,31 @@ declare namespace application {
    */
   export function createModuleContext(context: Context, moduleName: string): Promise<Context>;
 
+  /** 
+    * Creates the context for a module. The
+    * [resourceManager.Configuration]{@link @ohos.resourceManager:resourceManager.Configuration} in the created module
+    * context inherits from the input context, making it convenient for you to access
+    * [application resources across HAP/HSP packages](docroot://quick-start/resource-categories-and-access.md#cross-haphsp-resources)
+    * 
+    * 
+    * > **NOTE**
+    * >
+    * > Creating a module context involves resource querying and initialization, which can be time-consuming. In
+    * > scenarios where application fluidity is critical, avoid frequently or repeatedly calling the
+    * > **createModuleContext** API to create multiple context instances, as this may negatively impact user experience.
+    * 
+    * @param { Context } context - Application context.
+    * @param { string } moduleName - Module name.
+    * @returns { Context } Return the context created.
+    * @throws { BusinessError } 16000011 - The context does not exitst.
+    * @throws { BusinessError } 16000021 - The module does not exitst.
+    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+    * @stagemodelonly
+    * @atomicservice
+    * @since 26.1.0 dynamic&static
+    */
+   export function createModuleContextSync(context: Context, moduleName: string): Context;
+
   /**
    * Creates the context for a module. This API uses a promise to return the result.
    *

@@ -46,7 +46,7 @@ declare enum ItemState {
    * @deprecated since 22
    * @useinstead Swiper.SwiperAttribute#index
    */
-  Normal = 0,
+  Normal,
 
   /**
    * 不可用状态，右侧文本按钮灰度显示，不可点击进入下一个StepperItem。
@@ -62,7 +62,7 @@ declare enum ItemState {
    * @deprecated since 22
    * @useinstead Swiper.SwiperAttribute#indicatorInteractive
    */
-  Disabled = 1,
+  Disabled,
 
   /**
    * 等待状态，右侧文本按钮不显示，显示等待进度条，不可点击进入下一个StepperItem。
@@ -78,7 +78,7 @@ declare enum ItemState {
    * @deprecated since 22
    * @useinstead Swiper
    */
-  Waiting = 2,
+  Waiting,
 
   /**
    * 跳过状态，右侧文本按钮默认显示“跳过”，此时可在Stepper的onSkip回调中自定义相关逻辑。
@@ -94,7 +94,7 @@ declare enum ItemState {
    * @deprecated since 22
    * @useinstead Swiper.SwiperAttribute#index
    */
-  Skip = 3
+  Skip
 }
 
 /**

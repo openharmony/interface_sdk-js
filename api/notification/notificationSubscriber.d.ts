@@ -14,9 +14,9 @@
  */
 
 /**
- * The **NotificationSubscriber** module provides callbacks for receiving or 
- * removing notifications and serves as the input parameter of [subscribe]{@link @ohos.notificationSubscribe}.
- * 
+ * The **NotificationSubscriber** module serves as the input parameter of subscribeNotification and provides
+ * callbacks for receiving or removing notifications.
+ *
  * @file Provides methods that will be called back when the subscriber receives a new notification or a notification is canceled
  * @kit NotificationKit
  */
@@ -210,8 +210,8 @@ export interface NotificationSubscriber {
 }
 
 /**
- * Notification information that carries the system property value.
- * 
+ * Returns notification information carrying system property values.
+ *
  * @syscap SystemCapability.Notification.Notification
  * @systemapi
  * @since 7 dynamic
@@ -240,8 +240,9 @@ export interface SubscribeCallbackData {
 
   /**
    * Reason for deletion. The options are as follows:
-   * **1**: The notification is deleted after being clicked.
-   * **2**: The notification is deleted by the user.
+   *
+   * - **1**: The notification is deleted after being tapped.
+   * - **2**: The notification is deleted by the user.
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -251,7 +252,7 @@ export interface SubscribeCallbackData {
   readonly reason?: int;
 
   /**
-   * Sound used for notification.
+   * Notification sound.
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -261,7 +262,7 @@ export interface SubscribeCallbackData {
   readonly sound?: string;
 
   /**
-   * Vibration used for notification.
+   * Notification vibration.
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -271,8 +272,8 @@ export interface SubscribeCallbackData {
   readonly vibrationValues?: Array<long>;
 
   /**
-   * Generated voice content for audio playback.
-   * Only present when voiceContentoptions.enabled is true in NotificationSubscribeInfo.
+   * Voice broadcast content of the notification. It exists only when voiceContentOptions.enabled is true in
+   * NotificationSubscribeInfo.
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -282,9 +283,8 @@ export interface SubscribeCallbackData {
   readonly voiceContent?: VoiceContent;
 
   /**
-   * Notification classification information. Only exists if the
-   * [NotificationSubscribeInfo.enableClassification]{@link
-   * notificationSubscribeInfo:NotificationSubscribeInfo.enableClassification} is true.
+   * Notification classification information. It exists only when enableClassification in
+   * NotificationSubscribeInfo is true.
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -295,8 +295,8 @@ export interface SubscribeCallbackData {
 }
 
 /**
- * Defines a callback function to listen for the enabling state changes of the application badge.
- * 
+ * Returns the changes of the application badge enabling state.
+ *
  * @syscap SystemCapability.Notification.Notification
  * @systemapi
  * @since 8 dynamic
@@ -337,7 +337,7 @@ export interface EnabledNotificationCallbackData {
 }
 
 /**
- * Defines a callback function to listen for the enabling state changes of the application's silent reminder.
+ * Returns the application notification silent reminder switch state.
  *
  * @syscap SystemCapability.Notification.Notification
  * @systemapi
@@ -381,8 +381,8 @@ export interface EnabledSilentReminderCallbackData {
 }
 
 /**
- * Callback used to return the result.
- * 
+ * Returns the notification priority master switch state.
+ *
  * @syscap SystemCapability.Notification.Notification
  * @systemapi
  * @since 23 dynamic&static
@@ -401,8 +401,8 @@ export interface EnabledPriorityNotificationCallbackData {
 }
 
 /**
- * Describes the switch state to Restrict notification capability.
- * 
+ * Returns the notification priority switch state.
+ *
  * @syscap SystemCapability.Notification.Notification
  * @systemapi
  * @since 23 dynamic&static
@@ -441,8 +441,8 @@ export interface EnabledPriorityNotificationByBundleCallbackData {
 }
 
 /**
- * Describes the badge number of the application has changed.
- * 
+ * Returns the changes of the application badge number.
+ *
  * @syscap SystemCapability.Notification.Notification
  * @systemapi
  * @since 10 dynamic
@@ -513,7 +513,7 @@ export interface BadgeEnabledChangedCallback {
   /**
    * Callback used to return the listened badge enabling state.
    *
-   * @param { EnabledNotificationCallbackData } data - Notification information that carries the system property value.
+   * @param { EnabledNotificationCallbackData } data - Callback used to return the listened badge enabling state.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 12 dynamic
@@ -522,7 +522,7 @@ export interface BadgeEnabledChangedCallback {
 }
 
 /**
- * Describes the generated voice content for notification.
+ * Returns the notification voice broadcast content.
  *
  * @syscap SystemCapability.Notification.Notification
  * @systemapi
@@ -531,7 +531,7 @@ export interface BadgeEnabledChangedCallback {
  */
 export interface VoiceContent {
   /**
-   * The voice content text for audio playback.
+   * Text voice broadcast content.
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -542,7 +542,7 @@ export interface VoiceContent {
 }
 
 /**
- * Describes the notification classification information.
+ * Returns the notification classification information.
  *
  * @syscap SystemCapability.Notification.Notification
  * @systemapi
@@ -551,7 +551,7 @@ export interface VoiceContent {
  */
 export interface NotificationClassification {
   /**
-   * Classification of the notification identified by the system.
+   * Notification classification identified by the system.
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -561,7 +561,7 @@ export interface NotificationClassification {
   readonly classification?: string;
 
   /**
-   * Sub-classification of the notification identified by the system.
+   * Notification sub-classification identified by the system.
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -624,7 +624,7 @@ export type EnabledSilentReminderChangedCallback = (callbackData: EnabledSilentR
 export type NotificationSwitchChangedCallback = (callbackData: NotificationSwitchChangedCallbackData) => void;
  
 /**
- * Describes the notification switch state changes callback data.
+ * Returns the changes of the notification switch state.
  *
  * @syscap SystemCapability.Notification.Notification
  * @systemapi
@@ -633,8 +633,7 @@ export type NotificationSwitchChangedCallback = (callbackData: NotificationSwitc
  */
 export interface NotificationSwitchChangedCallbackData {
   /**
-   * User ID.
-   * The value range is all integers.
+   * User ID. The value range is all integers.
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -644,8 +643,8 @@ export interface NotificationSwitchChangedCallbackData {
   readonly userId: int;
 
   /**
-   * Notification switch name. Values ​​are: DEAL (transaction-related notification aggregation switch) and LOGISTICS
-   * (logistics-related notification aggregation switch).
+   * Notification switch name. The value can be **DEAL** (aggregated switch for transaction notifications) or
+   * **LOGISTICS** (aggregated switch for logistics notifications).
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi

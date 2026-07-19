@@ -6904,32 +6904,18 @@ declare namespace media {
     on(type: 'error', callback: ErrorCallback): void;
   }
 
-    /**
+  /**
    * Enumerates the AVRecorder states. You can obtain the state through the **state** property.
    *
    * @unionmember { 'idle' } The AVRecorder enters this state after it is just created or the
    *     [AVRecorder.reset()]{@link @ohos.multimedia.media:media.AVRecorder.reset(callback: AsyncCallback<void>)} API is
    *     called when the AVRecorder is in any state except released. In this state, you can call
    *     [AVRecorder.prepare()]{@link @ohos.multimedia.media:media.AVRecorder.prepare(config: AVRecorderConfig, callback: AsyncCallback<void>)}
-   *     to set recording parameters. The AVRecorder enters this state after it is just created or the
-   *     [AVRecorder.reset()]{@link @ohos.multimedia.media:media.AVRecorder.reset(callback: AsyncCallback<void>) } The
-   *     AVRecorder enters this state after it is just created or the
-   *     [AVRecorder.reset()]{@link @ohos.multimedia.media:media.AVRecorder.reset(callback: AsyncCallback<void>)} API is
-   *     called when the AVRecorder is in any state except released. In this state, you can call
-   *     [AVRecorder.prepare()]{@link @ohos.multimedia.media:media.AVRecorder.prepare(config: AVRecorderConfig, callback: AsyncCallback<void>)}
-   *     to set recording parameters. The AVRecorder enters this state after it is just created or the
-   *     [AVRecorder.reset()]{@link @ohos.multimedia.media:media.AVRecorder.reset(callback: AsyncCallback<void>)} API is
-   *     called when the AVRecorder is in any state except released.
+   *     to set recording parameters.
    * @unionmember { 'prepared' } The AVRecorder enters this state when the parameters are set. In this state, you can
-   *     call [AVRecorder.start()]{@link @ohos.multimedia.media:media.AVRecorder.start(callback: AsyncCallback<void>) }
-   *     The AVRecorder enters this state when the parameters are set. In this state, you can call
-   *     [AVRecorder.start()]{@link @ohos.multimedia.media:media.AVRecorder.start(callback: AsyncCallback<void>)} to
-   *     start recording.
+   *     call [AVRecorder.start()]{@link @ohos.multimedia.media:media.AVRecorder.start(callback: AsyncCallback<void>)}
+   *     to start recording.
    * @unionmember { 'started' } The AVRecorder enters this state when the recording starts. In this state, you can call
-   *     [AVRecorder.pause()]{@link @ohos.multimedia.media:media.AVRecorder.pause(callback: AsyncCallback<void>)} to
-   *     pause recording or call
-   *     [AVRecorder.stop()]{@link @ohos.multimedia.media:media.AVRecorder.stop(callback: AsyncCallback<void>) } The
-   *     AVRecorder enters this state when the recording starts. In this state, you can call
    *     [AVRecorder.pause()]{@link @ohos.multimedia.media:media.AVRecorder.pause(callback: AsyncCallback<void>)} to
    *     pause recording or call
    *     [AVRecorder.stop()]{@link @ohos.multimedia.media:media.AVRecorder.stop(callback: AsyncCallback<void>)} to stop
@@ -6937,33 +6923,18 @@ declare namespace media {
    * @unionmember { 'paused' } The AVRecorder enters this state when the recording is paused. In this state, you can
    *     call [AVRecorder.resume()]{@link @ohos.multimedia.media:media.AVRecorder.resume(callback: AsyncCallback<void>)}
    *     to continue recording or call
-   *     [AVRecorder.stop()]{@link @ohos.multimedia.media:media.AVRecorder.stop(callback: AsyncCallback<void>) } The
-   *     AVRecorder enters this state when the recording is paused. In this state, you can call
-   *     [AVRecorder.resume()]{@link @ohos.multimedia.media:media.AVRecorder.resume(callback: AsyncCallback<void>)} to
-   *     continue recording or call
    *     [AVRecorder.stop()]{@link @ohos.multimedia.media:media.AVRecorder.stop(callback: AsyncCallback<void>)} to stop
    *     recording.
    * @unionmember { 'stopped' } The AVRecorder enters this state when the recording stops. In this state, you can call
-   *     [AVRecorder.prepare()]{@link @ohos.multimedia.media:media.AVRecorder.prepare(config: AVRecorderConfig, callback: AsyncCallback<void>) }
-   *     The AVRecorder enters this state when the recording stops. In this state, you can call
    *     [AVRecorder.prepare()]{@link @ohos.multimedia.media:media.AVRecorder.prepare(config: AVRecorderConfig, callback: AsyncCallback<void>)}
    *     to set recording parameters so that the AVRecorder enters the prepared state again.
    * @unionmember { 'released' } The AVRecorder enters this state when the recording resources are released. In this
    *     state, no operation can be performed. In any other state, you can call
-   *     [AVRecorder.release()]{@link @ohos.multimedia.media:media.AVRecorder.release(callback: AsyncCallback<void>) }
-   *     The AVRecorder enters this state when the recording resources are released. In this state, no operation can be
-   *     performed. In any other state, you can call
    *     [AVRecorder.release()]{@link @ohos.multimedia.media:media.AVRecorder.release(callback: AsyncCallback<void>)} to
    *     enter the released state.
    * @unionmember { 'error' } The AVRecorder enters this state when an irreversible error occurs in the AVRecorder
    *     instance. In this state, the
    *     [AVRecorder.on('error') event]{@link @ohos.multimedia.media:media.AVRecorder.on(type: 'error', callback: ErrorCallback)}
-   *     is reported, with the detailed error cause. In the error state, you must call
-   *     [AVRecorder.reset()]{@link @ohos.multimedia.media:media.AVRecorder.reset(callback: AsyncCallback<void>)} to
-   *     reset the AVRecorder instance or call
-   *     [AVRecorder.release()]{@link @ohos.multimedia.media:media.AVRecorder.release(callback: AsyncCallback<void>) }
-   *     The AVRecorder enters this state when an irreversible error occurs in the AVRecorder instance. In this state,
-   *     the [AVRecorder.on('error') event]{@link @ohos.multimedia.media:media.AVRecorder.on(type: 'error', callback: ErrorCallback)}
    *     is reported, with the detailed error cause. In the error state, you must call
    *     [AVRecorder.reset()]{@link @ohos.multimedia.media:media.AVRecorder.reset(callback: AsyncCallback<void>)} to
    *     reset the AVRecorder instance or call
@@ -7034,10 +7005,9 @@ declare namespace media {
 
     /**
      * Sets audio and video recording parameters. This API uses a promise to return the result.
-     *
-     * @permission ohos.permission.MICROPHONE [since 9 - 11]
+     * The MICROPHONE permission is required only if audio recording is involved.
+     * 
      * @permission ohos.permission.MICROPHONE
-     *     This permission is required only if audio recording is involved. [since 12]
      * @param { AVRecorderConfig } config - Audio and video recording parameters to set.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 201 - Permission denied. Return by promise.
@@ -10287,7 +10257,7 @@ declare namespace media {
     audioBitrate?: int;
 
     /**
-     * Number of audio channels. This parameter is mandatory for audio recording.<br>- Range [1 - 8] for the
+     * Number of audio channels. This parameter is mandatory for audio recording.<br>- Range [1 - 2] for the
      * AAC encoding format.<br>- Range [1] for the G.711 μ-law encoding format.<br>- Range [1 - 2] for the MP3 encoding
      * format.<br>- Range [1] for the AMR-NB and AMR-WB encoding formats.<br>**Atomic service API**: This API can be
      * used in atomic services since API version 12.
@@ -10340,9 +10310,9 @@ declare namespace media {
     audioSampleRate?: int;
 
     /**
-     * Container format of a file. This parameter is mandatory. Currently, the MP4, M4A, MP3, WAV, and AMR container
-     * formats are supported. The AUDIO_MP3 encoding format cannot be used in the MP4 container format.<br>**Atomic
-     * service API**: This API can be used in atomic services since API version 12.
+     * Container format of a file. This parameter is mandatory. Currently, the MP4, M4A, MP3, WAV, AMR, and AAC
+     * container formats are supported. The AUDIO_MP3 encoding format cannot be used in the MP4 container format.
+     * <br>**Atomic service API**: This API can be used in atomic services since API version 12.
      *
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform [since 12]
@@ -10364,7 +10334,8 @@ declare namespace media {
     videoBitrate?: int;
 
     /**
-     * Video encoding format. This parameter is mandatory for video recording. Currently, VIDEO_AVC is supported.
+     * Video encoding format. This parameter is mandatory for video recording.
+     * Currently, VIDEO_AVC and VIDEO_HEVC is supported.
      *
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform [since 12]

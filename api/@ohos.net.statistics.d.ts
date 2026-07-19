@@ -644,7 +644,7 @@ declare namespace statistics {
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hidethisfor inner system use.
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
   function setCalibrationTraffic(simId: int, remainTraffic: long, totalTraffic?: long): Promise<void>;
 
@@ -664,7 +664,7 @@ declare namespace statistics {
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hidethis for inner system use.
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
   function setTrafficPlanInfo(simId: int, planParam: TrafficPlanParam, value: long): Promise<void>;
 
@@ -683,7 +683,7 @@ declare namespace statistics {
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hidethis for inner system use.
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
   function getTrafficPlanInfo(simId: int, planParam: TrafficPlanParam): Promise<long>;
 
@@ -699,7 +699,7 @@ declare namespace statistics {
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
   function updateStatsData(): Promise<void>;
 
@@ -720,7 +720,7 @@ declare namespace statistics {
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
   function updateIfacesStats(iface: string, start: int, end: int, stats: NetStatsInfo): Promise<void>;
 
@@ -909,7 +909,7 @@ declare namespace statistics {
      * @since 12
      */
     info: NetStatsInfo;
-  }[]
+  }[];
 
   /**
    * Array of {@link NetStatsInfoSequenceItem}.
@@ -1097,7 +1097,6 @@ declare namespace statistics {
    * @throws { BusinessError } 2103019 - The timestamp in param is invalid.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 22 dynamic
-   * @since 26.1.0 static
    */
   function getSelfTrafficStats(networkInfo: NetworkInfo): Promise<NetStatsInfo>;
 
@@ -1117,14 +1116,13 @@ declare namespace statistics {
    * @since 23 dynamic&static
    */
   function getMonthTrafficStats(simId: int): Promise<long>;
-
   /**
    * Defines the fields related to the traffic plan.
    *
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
   export enum TrafficPlanParam {
     /**
@@ -1133,7 +1131,7 @@ declare namespace statistics {
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     DISPLAY_TRAFFIC_SWITCH = 1,
     /**
@@ -1142,7 +1140,7 @@ declare namespace statistics {
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     UNLIMIT_TRAFFIC_SWITCH = 2,
     /**
@@ -1151,7 +1149,7 @@ declare namespace statistics {
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     TRAFFIC_LIMIT = 3,
     /**
@@ -1160,7 +1158,7 @@ declare namespace statistics {
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     START_DATE = 4,
     /**
@@ -1169,7 +1167,7 @@ declare namespace statistics {
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     OVER_LIMIT_BEHAVIOR = 5,
     /**
@@ -1178,7 +1176,7 @@ declare namespace statistics {
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     MONTHLY_LIMIT_PERCENTAGE = 6,
     /**
@@ -1187,7 +1185,7 @@ declare namespace statistics {
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     DAILY_LIMIT_PERCENTAGE = 7
   }

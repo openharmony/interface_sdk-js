@@ -28,7 +28,10 @@ import { RecordData } from '../@ohos.base';
 /*** endif */
 
 /**
- * The **NotificationActionButton** module provides APIs for describing the button displayed in the notification.
+ * The **NotificationActionButton** module defines the action buttons displayed in a notification. It is used to add
+ * interactive action buttons in NotificationRequest, allowing users to trigger a **WantAgent** action by tapping the
+ * button. This module is used when you need to provide interactive action buttons (such as **Reply** and
+ * **Mark as read**) in a notification.
  *
  * @syscap SystemCapability.Notification.Notification
  * @since 7 dynamic
@@ -36,7 +39,8 @@ import { RecordData } from '../@ohos.base';
  */
 export interface NotificationActionButton {
   /**
-   * Button title. It cannot be an empty string or exceed 200 bytes. Excess content will be truncated.
+   * Title of the button, displayed on the action button of the notification. The string length cannot exceed 202
+   * bytes; the excess part will be truncated. It cannot be an empty string.
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
@@ -45,7 +49,9 @@ export interface NotificationActionButton {
   title: string;
 
   /**
-   * **WantAgent** of the button.
+   * **WantAgent** triggered when the button is tapped, which encapsulates the application's behavioral intent. After
+   * the user taps the button, the system will execute the action in the method specified by the **WantAgent** (such
+   * as navigating to a specified UIAbility or sending a common event).
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
@@ -54,7 +60,7 @@ export interface NotificationActionButton {
   wantAgent: WantAgent;
 
   /**
-   * Extra information of the button. Not supported currently.
+   * Extended information of the button. The default value is empty.
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
@@ -62,7 +68,7 @@ export interface NotificationActionButton {
   extras?: { [key: string]: any };
 
   /**
-   * Extra information of the button. Not supported currently.
+   * Extended information of the button. The default value is empty.
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 23 static

@@ -36,7 +36,7 @@ declare enum IndexerAlign {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Left = 0,
+  Left,
 
   /**
    * 提示弹窗显示在索引条左侧。
@@ -46,7 +46,7 @@ declare enum IndexerAlign {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Right = 1,
+  Right,
 
   /**
    * 在从左到右（LTR）场景下，提示弹窗显示在索引条右侧的位置。在RTL场景下，提示弹窗显示在索引条左侧的位置。
@@ -57,7 +57,7 @@ declare enum IndexerAlign {
    * @atomicservice
    * @since 12 dynamic
    */
-  START = 2,
+  START,
 
   /**
    * 在从左到右（LTR）场景下，提示弹窗显示在索引条左侧的位置。在RTL场景下，提示弹窗显示在索引条右侧的位置。
@@ -68,7 +68,7 @@ declare enum IndexerAlign {
    * @atomicservice
    * @since 12 dynamic
    */
-  END = 3
+  END
 }
 
 /**

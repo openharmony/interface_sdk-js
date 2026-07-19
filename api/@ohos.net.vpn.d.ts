@@ -29,7 +29,6 @@ import type _AbilityContext from './application/UIAbilityContext';
  *
  * @syscap SystemCapability.Communication.NetManager.Vpn
  * @since 10 dynamic
- * @since 26.1.0 static
  */
 declare namespace vpn {
   /**
@@ -37,7 +36,6 @@ declare namespace vpn {
    *
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 10 dynamic
-   * @since 26.1.0 static
    */
   export type LinkAddress = connection.LinkAddress;
 
@@ -46,7 +44,6 @@ declare namespace vpn {
    *
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 10 dynamic
-   * @since 26.1.0 static
    */
   export type RouteInfo = connection.RouteInfo;
 
@@ -54,7 +51,6 @@ declare namespace vpn {
    * The context of an ability. It allows access to ability-specific resources.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 10 dynamic
-   * @since 26.1.0 static
    */
   export type AbilityContext = _AbilityContext;
 
@@ -68,7 +64,6 @@ declare namespace vpn {
    * @syscap SystemCapability.Communication.NetManager.Vpn
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
-   * @since 26.1.0 static
    */
   function createVpnConnection(context: AbilityContext): VpnConnection;
 
@@ -94,22 +89,6 @@ declare namespace vpn {
    * Subscribes to vpn connect state changes.
    *
    * @permission ohos.permission.MANAGE_VPN
-   * @param { Callback<VpnConnectState> } callback - The callback of the vpn connect state.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @throws { BusinessError } 2200001 - Invalid parameter value.
-   * @throws { BusinessError } 2200002 - Operation failed. Cannot connect to service.
-   * @throws { BusinessError } 2200003 - System internal error.
-   * @syscap SystemCapability.Communication.NetManager.Vpn
-   * @systemapi Hide this for inner system use.
-   * @since 26.1.0 static
-   */
-  function onConnect(callback: Callback<VpnConnectState>): void;
-
-  /**
-   * Subscribes to vpn connect state changes.
-   *
-   * @permission ohos.permission.MANAGE_VPN
    * @param { 'connectMulti' } type - Indicates multi vpn connect state changes.
    * @param { Callback<MultiVpnConnectState> } callback - The callback of the multi vpn connect state.
    * @throws { BusinessError } 201 - Permission denied.
@@ -121,21 +100,6 @@ declare namespace vpn {
    * @since 20 dynamic
    */
   function on(type: 'connectMulti', callback: Callback<MultiVpnConnectState>): void;
-
-  /**
-   * Subscribes to vpn connect state changes.
-   *
-   * @permission ohos.permission.MANAGE_VPN
-   * @param { Callback<MultiVpnConnectState> } callback - The callback of the multi vpn connect state.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @throws { BusinessError } 19900001 - Invalid parameter value.
-   * @throws { BusinessError } 19900002 - System internal error.
-   * @syscap SystemCapability.Communication.NetManager.Vpn
-   * @systemapi Hide this for inner system use.
-   * @since 26.1.0 static
-   */
-  function onConnectMulti(callback: Callback<MultiVpnConnectState>): void;
 
   /**
    * Unsubscribes from vpn connect state changes.
@@ -159,22 +123,6 @@ declare namespace vpn {
    * Unsubscribes from vpn connect state changes.
    *
    * @permission ohos.permission.MANAGE_VPN
-   * @param { Callback<VpnConnectState> } [callback] - The callback of the vpn connect state.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @throws { BusinessError } 2200001 - Invalid parameter value.
-   * @throws { BusinessError } 2200002 - Operation failed. Cannot connect to service.
-   * @throws { BusinessError } 2200003 - System internal error.
-   * @syscap SystemCapability.Communication.NetManager.Vpn
-   * @systemapi Hide this for inner system use.
-   * @since 26.1.0 static
-   */
-  function offConnect(callback?: Callback<VpnConnectState>): void;
-
-  /**
-   * Unsubscribes from vpn connect state changes.
-   *
-   * @permission ohos.permission.MANAGE_VPN
    * @param { 'connectMulti' } type - Indicates multi vpn connect state changes.
    * @param { Callback<MultiVpnConnectState> } [callback] - The callback of the multi vpn connect state.
    * @throws { BusinessError } 201 - Permission denied.
@@ -186,21 +134,6 @@ declare namespace vpn {
    * @since 20 dynamic
    */
   function off(type: 'connectMulti', callback?: Callback<MultiVpnConnectState>): void;
-
-  /**
-   * Unsubscribes from vpn connect state changes.
-   *
-   * @permission ohos.permission.MANAGE_VPN
-   * @param { Callback<MultiVpnConnectState> } [callback] - The callback of the multi vpn connect state.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @throws { BusinessError } 19900001 - Invalid parameter value.
-   * @throws { BusinessError } 19900002 - System internal error.
-   * @syscap SystemCapability.Communication.NetManager.Vpn
-   * @systemapi Hide this for inner system use.
-   * @since 26.1.0 static
-   */
-  function offConnectMulti(callback?: Callback<MultiVpnConnectState>): void;
 
   /**
    * Add a system VPN network configuration.
@@ -217,7 +150,6 @@ declare namespace vpn {
    * @syscap SystemCapability.Communication.NetManager.Vpn
    * @systemapi Hide this for inner system use.
    * @since 12 dynamic
-   * @since 26.1.0 static
    */
   function addSysVpnConfig(config: SysVpnConfig): Promise<void>;
 
@@ -236,7 +168,6 @@ declare namespace vpn {
    * @syscap SystemCapability.Communication.NetManager.Vpn
    * @systemapi Hide this for inner system use.
    * @since 12 dynamic
-   * @since 26.1.0 static
    */
   function deleteSysVpnConfig(vpnId: string): Promise<void>;
 
@@ -252,7 +183,6 @@ declare namespace vpn {
    * @syscap SystemCapability.Communication.NetManager.Vpn
    * @systemapi Hide this for inner system use.
    * @since 12 dynamic
-   * @since 26.1.0 static
    */
   function getSysVpnConfigList(): Promise<Array<SysVpnConfig>>;
 
@@ -271,7 +201,6 @@ declare namespace vpn {
    * @syscap SystemCapability.Communication.NetManager.Vpn
    * @systemapi Hide this for inner system use.
    * @since 12 dynamic
-   * @since 26.1.0 static
    */
   function getSysVpnConfig(vpnId: string): Promise<SysVpnConfig>;
 
@@ -287,7 +216,6 @@ declare namespace vpn {
    * @syscap SystemCapability.Communication.NetManager.Vpn
    * @systemapi Hide this for inner system use.
    * @since 12 dynamic
-   * @since 26.1.0 static
    */
   function getConnectedSysVpnConfig(): Promise<SysVpnConfig>;
 
@@ -303,7 +231,6 @@ declare namespace vpn {
    * @syscap SystemCapability.Communication.NetManager.Vpn
    * @systemapi Hide this for inner system use.
    * @since 20 dynamic
-   * @since 26.1.0 static
    */
   function getConnectedVpnAppInfo(): Promise<Array<string>>;
 
@@ -314,7 +241,6 @@ declare namespace vpn {
    * @syscap SystemCapability.Communication.NetManager.Vpn
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
-   * @since 26.1.0 static
    */
   export interface VpnConnection {
     /**
@@ -336,7 +262,6 @@ declare namespace vpn {
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
-     * @since 26.1.0 static
      */
     setUp(config: VpnConfig, callback: AsyncCallback<int>): void;
 
@@ -357,7 +282,6 @@ declare namespace vpn {
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
-     * @since 26.1.0 static
      */
     setUp(config: VpnConfig): Promise<int>;
 
@@ -381,7 +305,6 @@ declare namespace vpn {
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
-     * @since 26.1.0 static
      */
     protect(socketFd: int, callback: AsyncCallback<void>): void;
 
@@ -405,7 +328,6 @@ declare namespace vpn {
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
-     * @since 26.1.0 static
      */
     protect(socketFd: int): Promise<void>;
 
@@ -423,7 +345,6 @@ declare namespace vpn {
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
-     * @since 26.1.0 static
      */
     destroy(callback: AsyncCallback<void>): void;
 
@@ -441,7 +362,6 @@ declare namespace vpn {
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
-     * @since 26.1.0 static
      */
     destroy(): Promise<void>;
   }
@@ -452,7 +372,6 @@ declare namespace vpn {
    * @syscap SystemCapability.Communication.NetManager.Vpn
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
-   * @since 26.1.0 static
    */
   export interface VpnConfig {
     /**
@@ -461,7 +380,6 @@ declare namespace vpn {
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
      * @since 20 dynamic
-     * @since 26.1.0 static
      */
     vpnId?: string;
     /**
@@ -470,7 +388,6 @@ declare namespace vpn {
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
-     * @since 26.1.0 static
      */
     addresses: Array<LinkAddress>;
 
@@ -480,7 +397,6 @@ declare namespace vpn {
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
-     * @since 26.1.0 static
      */
     routes?: Array<RouteInfo>;
 
@@ -490,7 +406,6 @@ declare namespace vpn {
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
-     * @since 26.1.0 static
      */
     dnsAddresses?: Array<string>;
 
@@ -500,7 +415,6 @@ declare namespace vpn {
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
-     * @since 26.1.0 static
      */
     searchDomains?: Array<string>;
 
@@ -510,7 +424,6 @@ declare namespace vpn {
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
-     * @since 26.1.0 static
      */
     mtu?: int;
 
@@ -521,7 +434,6 @@ declare namespace vpn {
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
-     * @since 26.1.0 static
      */
     isIPv4Accepted?: boolean;
 
@@ -532,7 +444,6 @@ declare namespace vpn {
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
-     * @since 26.1.0 static
      */
     isIPv6Accepted?: boolean;
 
@@ -543,7 +454,6 @@ declare namespace vpn {
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
-     * @since 26.1.0 static
      */
     isLegacy?: boolean;
 
@@ -554,7 +464,6 @@ declare namespace vpn {
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
-     * @since 26.1.0 static
      */
     isBlocking?: boolean;
 
@@ -564,7 +473,6 @@ declare namespace vpn {
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
-     * @since 26.1.0 static
      */
     trustedApplications?: Array<string>;
 
@@ -574,7 +482,6 @@ declare namespace vpn {
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
-     * @since 26.1.0 static
      */
     blockedApplications?: Array<string>;
   }
@@ -585,7 +492,6 @@ declare namespace vpn {
    * @syscap SystemCapability.Communication.NetManager.Vpn
    * @systemapi Hide this for inner system use.
    * @since 12 dynamic
-   * @since 26.1.0 static
    */
   export interface SysVpnConfig extends VpnConfig {
     /**
@@ -594,7 +500,6 @@ declare namespace vpn {
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 26.1.0 static
      */
     vpnId?: string;
 
@@ -604,7 +509,6 @@ declare namespace vpn {
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 26.1.0 static
      */
     vpnName?: string;
 
@@ -614,7 +518,6 @@ declare namespace vpn {
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 26.1.0 static
      */
     vpnType?: SysVpnType;
 
@@ -624,7 +527,6 @@ declare namespace vpn {
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 26.1.0 static
      */
     userName?: string;
 
@@ -634,7 +536,6 @@ declare namespace vpn {
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 26.1.0 static
      */
     password?: string;
 
@@ -644,7 +545,6 @@ declare namespace vpn {
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 26.1.0 static
      */
     saveLogin?: boolean;
 
@@ -654,7 +554,6 @@ declare namespace vpn {
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 26.1.0 static
      */
     userId?: int;
 
@@ -664,7 +563,6 @@ declare namespace vpn {
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 26.1.0 static
      */
     forwardingRoutes?: string;
 
@@ -674,7 +572,6 @@ declare namespace vpn {
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
      * @since 20 dynamic
-     * @since 26.1.0 static
      */
     remoteAddresses?: Array<string>;
 
@@ -684,7 +581,7 @@ declare namespace vpn {
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     localAddresses?: Array<LinkAddress>;
 
@@ -694,7 +591,6 @@ declare namespace vpn {
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
      * @since 20 dynamic
-     * @since 26.1.0 static
      */
     pkcs12Password?: string;
 
@@ -704,7 +600,6 @@ declare namespace vpn {
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
      * @since 20 dynamic
-     * @since 26.1.0 static
      */
     pkcs12FileData?: Uint8Array;
   }
@@ -715,7 +610,6 @@ declare namespace vpn {
    * @syscap SystemCapability.Communication.NetManager.Vpn
    * @systemapi Hide this for inner system use.
    * @since 12 dynamic
-   * @since 26.1.0 static
    */
   export interface OpenVpnConfig extends SysVpnConfig {
     /**
@@ -724,7 +618,6 @@ declare namespace vpn {
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 26.1.0 static
      */
     ovpnPort?: string;
 
@@ -734,7 +627,6 @@ declare namespace vpn {
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 26.1.0 static
      */
     ovpnProtocol?: int;
 
@@ -744,7 +636,6 @@ declare namespace vpn {
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 26.1.0 static
      */
     ovpnConfig?: string;
 
@@ -754,7 +645,6 @@ declare namespace vpn {
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 26.1.0 static
      */
     ovpnAuthType?: int;
 
@@ -764,7 +654,6 @@ declare namespace vpn {
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 26.1.0 static
      */
     askpass?: string;
 
@@ -774,7 +663,6 @@ declare namespace vpn {
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 26.1.0 static
      */
     ovpnConfigFilePath?: string;
 
@@ -784,7 +672,6 @@ declare namespace vpn {
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 26.1.0 static
      */
     ovpnCaCertFilePath?: string;
 
@@ -794,7 +681,6 @@ declare namespace vpn {
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 26.1.0 static
      */
     ovpnUserCertFilePath?: string;
 
@@ -804,7 +690,6 @@ declare namespace vpn {
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 26.1.0 static
      */
     ovpnPrivateKeyFilePath?: string;
   }
@@ -815,7 +700,6 @@ declare namespace vpn {
    * @syscap SystemCapability.Communication.NetManager.Vpn
    * @systemapi Hide this for inner system use.
    * @since 12 dynamic
-   * @since 26.1.0 static
    */
   export interface IpsecVpnConfig extends SysVpnConfig {
     /**
@@ -824,7 +708,6 @@ declare namespace vpn {
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 26.1.0 static
      */
     ipsecPreSharedKey?: string;
 
@@ -834,7 +717,6 @@ declare namespace vpn {
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 26.1.0 static
      */
     ipsecIdentifier?: string;
 
@@ -844,7 +726,6 @@ declare namespace vpn {
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 26.1.0 static
      */
     swanctlConfig?: string;
 
@@ -854,7 +735,6 @@ declare namespace vpn {
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 26.1.0 static
      */
     strongSwanConfig?: string;
 
@@ -864,7 +744,6 @@ declare namespace vpn {
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 26.1.0 static
      */
     ipsecCaCertConfig?: string;
 
@@ -874,7 +753,6 @@ declare namespace vpn {
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 26.1.0 static
      */
     ipsecPrivateUserCertConfig?: string;
 
@@ -884,7 +762,6 @@ declare namespace vpn {
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 26.1.0 static
      */
     ipsecPublicUserCertConfig?: string;
 
@@ -894,7 +771,6 @@ declare namespace vpn {
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 26.1.0 static
      */
     ipsecPrivateServerCertConfig?: string;
 
@@ -904,7 +780,6 @@ declare namespace vpn {
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 26.1.0 static
      */
     ipsecPublicServerCertConfig?: string;
 
@@ -914,7 +789,6 @@ declare namespace vpn {
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 26.1.0 static
      */
     ipsecCaCertFilePath?: string;
 
@@ -924,7 +798,6 @@ declare namespace vpn {
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 26.1.0 static
      */
     ipsecPrivateUserCertFilePath?: string;
 
@@ -934,7 +807,6 @@ declare namespace vpn {
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 26.1.0 static
      */
     ipsecPublicUserCertFilePath?: string;
 
@@ -944,7 +816,6 @@ declare namespace vpn {
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 26.1.0 static
      */
     ipsecPrivateServerCertFilePath?: string;
 
@@ -954,7 +825,6 @@ declare namespace vpn {
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 26.1.0 static
      */
     ipsecPublicServerCertFilePath?: string;
   }
@@ -965,7 +835,6 @@ declare namespace vpn {
    * @syscap SystemCapability.Communication.NetManager.Vpn
    * @systemapi Hide this for inner system use.
    * @since 12 dynamic
-   * @since 26.1.0 static
    */
   export interface L2tpVpnConfig extends SysVpnConfig {
     /**
@@ -974,7 +843,6 @@ declare namespace vpn {
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 26.1.0 static
      */
     ipsecPreSharedKey?: string;
 
@@ -984,7 +852,6 @@ declare namespace vpn {
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 26.1.0 static
      */
     ipsecIdentifier?: string;
 
@@ -994,7 +861,6 @@ declare namespace vpn {
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 26.1.0 static
      */
     strongSwanConfig?: string;
 
@@ -1004,7 +870,6 @@ declare namespace vpn {
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 26.1.0 static
      */
     ipsecCaCertConfig?: string;
 
@@ -1014,7 +879,6 @@ declare namespace vpn {
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 26.1.0 static
      */
     ipsecPrivateUserCertConfig?: string;
 
@@ -1024,7 +888,6 @@ declare namespace vpn {
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 26.1.0 static
      */
     ipsecPublicUserCertConfig?: string;
 
@@ -1034,7 +897,6 @@ declare namespace vpn {
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 26.1.0 static
      */
     ipsecPrivateServerCertConfig?: string;
 
@@ -1044,7 +906,6 @@ declare namespace vpn {
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 26.1.0 static
      */
     ipsecPublicServerCertConfig?: string;
 
@@ -1054,7 +915,6 @@ declare namespace vpn {
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 26.1.0 static
      */
     ipsecCaCertFilePath?: string;
 
@@ -1064,7 +924,6 @@ declare namespace vpn {
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 26.1.0 static
      */
     ipsecPrivateUserCertFilePath?: string;
 
@@ -1074,7 +933,6 @@ declare namespace vpn {
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 26.1.0 static
      */
     ipsecPublicUserCertFilePath?: string;
 
@@ -1084,7 +942,6 @@ declare namespace vpn {
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 26.1.0 static
      */
     ipsecPrivateServerCertFilePath?: string;
 
@@ -1094,7 +951,6 @@ declare namespace vpn {
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 26.1.0 static
      */
     ipsecPublicServerCertFilePath?: string;
 
@@ -1104,7 +960,6 @@ declare namespace vpn {
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 26.1.0 static
      */
     ipsecConfig?: string;
 
@@ -1114,7 +969,6 @@ declare namespace vpn {
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 26.1.0 static
      */
     ipsecSecrets?: string;
 
@@ -1124,7 +978,6 @@ declare namespace vpn {
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 26.1.0 static
      */
     optionsL2tpdClient?: string;
 
@@ -1134,7 +987,6 @@ declare namespace vpn {
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 26.1.0 static
      */
     xl2tpdConfig?: string;
 
@@ -1144,7 +996,6 @@ declare namespace vpn {
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 26.1.0 static
      */
     l2tpSharedKey?: string;
   }
@@ -1155,7 +1006,6 @@ declare namespace vpn {
    * @syscap SystemCapability.Communication.NetManager.Vpn
    * @systemapi Hide this for inner system use.
    * @since 12 dynamic
-   * @since 26.1.0 static
    */
   export enum SysVpnType {
     /**
@@ -1164,7 +1014,6 @@ declare namespace vpn {
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 26.1.0 static
      */
     IKEV2_IPSEC_MSCHAPV2 = 1,
 
@@ -1174,7 +1023,6 @@ declare namespace vpn {
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 26.1.0 static
      */
     IKEV2_IPSEC_PSK = 2,
 
@@ -1184,7 +1032,6 @@ declare namespace vpn {
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 26.1.0 static
      */
     IKEV2_IPSEC_RSA = 3,
 
@@ -1194,7 +1041,6 @@ declare namespace vpn {
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 26.1.0 static
      */
     L2TP_IPSEC_PSK = 4,
 
@@ -1204,7 +1050,6 @@ declare namespace vpn {
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 26.1.0 static
      */
     L2TP_IPSEC_RSA = 5,
 
@@ -1214,7 +1059,6 @@ declare namespace vpn {
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 26.1.0 static
      */
     IPSEC_XAUTH_PSK = 6,
 
@@ -1224,7 +1068,6 @@ declare namespace vpn {
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 26.1.0 static
      */
     IPSEC_XAUTH_RSA = 7,
 
@@ -1234,7 +1077,6 @@ declare namespace vpn {
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 26.1.0 static
      */
     IPSEC_HYBRID_RSA = 8,
 
@@ -1244,7 +1086,6 @@ declare namespace vpn {
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 26.1.0 static
      */
     OPENVPN = 9
   }

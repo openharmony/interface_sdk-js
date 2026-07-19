@@ -162,7 +162,7 @@ export declare enum BarPosition {
    * @stagemodelonly
    * @since 23 static
    */
-  Start = 0,
+  Start,
 
   /**
    * vertical属性方法设置为true时，页签位于容器右侧；vertical属性方法设置为false时，页签位于容器底部。
@@ -171,7 +171,7 @@ export declare enum BarPosition {
    * @stagemodelonly
    * @since 23 static
    */
-  End = 1
+  End
 }
 
 /**

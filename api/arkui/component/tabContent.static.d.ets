@@ -45,7 +45,7 @@ export declare enum SelectedMode {
    * @stagemodelonly
    * @since 23 static
    */
-  INDICATOR = 0,
+  INDICATOR,
 
   /**
    * Board mode.
@@ -54,7 +54,7 @@ export declare enum SelectedMode {
    * @stagemodelonly
    * @since 23 static
    */
-  BOARD = 1
+  BOARD
 }
 
 /**

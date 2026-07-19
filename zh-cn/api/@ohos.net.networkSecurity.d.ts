@@ -163,7 +163,7 @@ declare namespace networkSecurity {
    * @throws { BusinessError } 2305069 - Invalid certificate verification context.
    * @syscap SystemCapability.Communication.NetStack
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
   export function verifyCertChain(cert: CertBlob[], caCert?: CertBlob, hostname?: string): Promise<CertBlob[]>;
 

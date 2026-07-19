@@ -48,7 +48,7 @@ declare enum SelectedMode {
    * @atomicservice [since 11]
    * @since 10 dynamic
    */
-  INDICATOR = 0,
+  INDICATOR,
 
   /**
    * Board mode.
@@ -59,7 +59,7 @@ declare enum SelectedMode {
    * @atomicservice [since 11]
    * @since 10 dynamic
    */
-  BOARD = 1
+  BOARD
 }
 
 /**

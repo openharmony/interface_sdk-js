@@ -138,7 +138,7 @@ declare enum NavigationMode {
    * @atomicservice [since 11]
    * @since 9 dynamic
    */
-  Stack = 0,
+  Stack,
 
   /**
    * 导航页与内容区分两栏显示。
@@ -160,7 +160,7 @@ declare enum NavigationMode {
    * @atomicservice [since 11]
    * @since 9 dynamic
    */
-  Split = 1,
+  Split,
 
   /**
    * API version 9及之前版本，Navigation宽度>=520vp时，采用Split模式显示；Navigation宽度<520vp时，采用Stack模式显示。
@@ -173,7 +173,7 @@ declare enum NavigationMode {
    * @atomicservice [since 11]
    * @since 9 dynamic
    */
-  Auto = 2,
+  Auto,
 
   /**
    * Navigation宽度>=600vp且高宽比小于等于1.2时，采用Split模式显示；否则采用Stack模式显示。600vp等于minNavBarWidth(240vp) + minContentWidth (360vp)。
@@ -184,7 +184,7 @@ declare enum NavigationMode {
    * @atomicservice
    * @since 24 dynamic
    */
-  AUTO_WITH_ASPECT_RATIO = 3
+  AUTO_WITH_ASPECT_RATIO
 }
 
 /**
@@ -205,7 +205,7 @@ declare enum NavBarPosition {
    * @atomicservice [since 11]
    * @since 9 dynamic
    */
-  Start = 0,
+  Start,
 
   /**
    * 双栏显示时，主列在主轴方向尾部。
@@ -215,7 +215,7 @@ declare enum NavBarPosition {
    * @atomicservice [since 11]
    * @since 9 dynamic
    */
-  End = 1
+  End
 }
 
 /**
@@ -255,7 +255,7 @@ declare enum NavigationTitleMode {
    * @atomicservice [since 11]
    * @since 8 dynamic
    */
-  Full = 1,
+  Full,
 
   /**
    * 固定为小标题模式。
@@ -267,7 +267,7 @@ declare enum NavigationTitleMode {
    * @atomicservice [since 11]
    * @since 8 dynamic
    */
-  Mini = 2
+  Mini
 }
 
 /**

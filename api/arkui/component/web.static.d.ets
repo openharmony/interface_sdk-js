@@ -6685,6 +6685,20 @@ export declare interface WebAttribute extends CommonMethod {
      * @since 26.0.0 static
      */
     default enableFullscreenVideoOverlay(enabled: boolean | undefined): this;
+
+    /**
+     * Set whether to enable media network proxy for Web components.
+     * When enabled, network requests for media resources are routed through the web components network stack.
+     * This attribute takes effect for HLS media, other media formats are unaffected.
+     *
+     * @param { boolean | undefined } enabled - {@code true} to enable media network proxy, {@code false} to disable it.
+     *     The default value is false.
+     * @returns { WebAttribute }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    default enableMediaNetworkProxy(enabled: boolean | undefined): this;
 }
 
 /**

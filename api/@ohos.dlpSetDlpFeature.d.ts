@@ -120,7 +120,7 @@ declare namespace dlpSetDlpFeature {
      * @param { DlpFeatureStatus } status - DLP status. The value **ENABLED_FEATURE** indicates the DLP feature is
      *     enabled, and the encryption option is displayed in the menu. The value **NOT_ENABLED_FEATURE**
      *     indicates the DLP feature is disabled, and the encryption option  is not displayed in the menu.
-     *     If the value is out of range, error code 19100001 is thrown.
+     *     If the value is out of range, error code 401 is thrown.
      * @returns { Promise<StatusInfoResult> } Promise used to return the DLP status that is set.
      * @throws { BusinessError } 202 - Non-system applications use system APIs.
      * @throws { BusinessError } 19100001 - Invalid parameter value.

@@ -77,7 +77,7 @@ declare namespace cliManager {
    * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.1.0 dynamiconly
+   * @since 26.0.0 dynamiconly
    */
   interface ExecCmdOptions {
     /**
@@ -86,7 +86,7 @@ declare namespace cliManager {
      * @syscap SystemCapability.Ability.AgentRuntime.Core
      * @systemapi
      * @stagemodelonly
-     * @since 26.1.0 dynamiconly
+     * @since 26.0.0 dynamiconly
      */
     workDir?: string;
 
@@ -96,7 +96,7 @@ declare namespace cliManager {
      * @syscap SystemCapability.Ability.AgentRuntime.Core
      * @systemapi
      * @stagemodelonly
-     * @since 26.1.0 dynamiconly
+     * @since 26.0.0 dynamiconly
      */
     env?: Record<string, string>;
 
@@ -107,7 +107,7 @@ declare namespace cliManager {
      * @syscap SystemCapability.Ability.AgentRuntime.Core
      * @systemapi
      * @stagemodelonly
-     * @since 26.1.0 dynamiconly
+     * @since 26.0.0 dynamiconly
      */
     background?: boolean;
 
@@ -118,7 +118,7 @@ declare namespace cliManager {
      * @syscap SystemCapability.Ability.AgentRuntime.Core
      * @systemapi
      * @stagemodelonly
-     * @since 26.1.0 dynamiconly
+     * @since 26.0.0 dynamiconly
      */
     yieldMs?: long;
 
@@ -129,7 +129,7 @@ declare namespace cliManager {
      * @syscap SystemCapability.Ability.AgentRuntime.Core
      * @systemapi
      * @stagemodelonly
-     * @since 26.1.0 dynamiconly
+     * @since 26.0.0 dynamiconly
      */
     timeout?: long;
 
@@ -139,7 +139,7 @@ declare namespace cliManager {
      * @syscap SystemCapability.Ability.AgentRuntime.Core
      * @systemapi
      * @stagemodelonly
-     * @since 26.1.0 dynamiconly
+     * @since 26.0.0 dynamiconly
      */
     policy?: string;
 
@@ -149,7 +149,7 @@ declare namespace cliManager {
      * @syscap SystemCapability.Ability.AgentRuntime.Core
      * @systemapi
      * @stagemodelonly
-     * @since 26.1.0 dynamiconly
+     * @since 26.0.0 dynamiconly
      */
     callback?: ToolEventCallback;
   }
@@ -403,7 +403,7 @@ declare namespace cliManager {
    * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.1.0 dynamiconly
+   * @since 26.0.0 dynamiconly
    */
   function execCmd(cmd: string, execCmdOptions?: ExecCmdOptions): Promise<CliSessionInfo>;
 

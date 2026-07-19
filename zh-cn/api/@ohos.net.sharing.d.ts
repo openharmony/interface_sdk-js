@@ -432,19 +432,6 @@ declare namespace sharing {
   function on(type: 'sharingStateChange', callback: Callback<boolean>): void;
 
   /**
-   * 注册网络共享状态变化事件，使用 callback 异步回调。
-   *
-   * @permission ohos.permission.CONNECTIVITY_INTERNAL
-   * @param { Callback<boolean> } callback - the callback function that returns the status.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @syscap SystemCapability.Communication.NetManager.NetSharing
-   * @systemapi Hide this for inner system use.
-   * @since 26.1.0 static
-   */
-  function onSharingStateChange(callback: Callback<boolean>): void;
-
-  /**
    * 注销网络共享状态变化事件，使用 callback 异步回调。
    *
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
@@ -458,19 +445,6 @@ declare namespace sharing {
    * @since 9 dynamic
    */
   function off(type: 'sharingStateChange', callback?: Callback<boolean>): void;
-
-  /**
-   * 取消注册网络共享状态变化事件，使用 callback 异步回调。
-   *
-   * @permission ohos.permission.CONNECTIVITY_INTERNAL
-   * @param { Callback<boolean> } [callback] - the callback function that returns the status.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @syscap SystemCapability.Communication.NetManager.NetSharing
-   * @systemapi Hide this for inner system use.
-   * @since 26.1.0 static
-   */
-  function offSharingStateChange(callback?: Callback<boolean>): void;
 
   /**
    * 注册网卡网络共享状态变化事件，使用 callback 异步回调。
@@ -490,19 +464,6 @@ declare namespace sharing {
   function on(type: 'interfaceSharingStateChange', callback: Callback<InterfaceSharingStateInfo>): void;
 
   /**
-   * 注册网卡网络共享状态变化事件，使用 callback 异步回调。
-   *
-   * @permission ohos.permission.CONNECTIVITY_INTERNAL
-   * @param { Callback<InterfaceSharingStateInfo> } callback - the callback function that returns the message.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @syscap SystemCapability.Communication.NetManager.NetSharing
-   * @systemapi Hide this for inner system use.
-   * @since 26.1.0 static
-   */
-  function onInterfaceSharingStateChange(callback: Callback<InterfaceSharingStateInfo>): void;
-
-  /**
    * 注销网卡网络共享状态变化事件，使用 callback 异步回调。
    *
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
@@ -520,19 +481,6 @@ declare namespace sharing {
   function off(type: 'interfaceSharingStateChange', callback?: Callback<InterfaceSharingStateInfo>): void;
 
   /**
-   * 取消注册网卡网络共享状态变化事件，使用 callback 异步回调。
-   *
-   * @permission ohos.permission.CONNECTIVITY_INTERNAL
-   * @param { Callback<InterfaceSharingStateInfo> } [callback] - the callback function that returns the message.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @syscap SystemCapability.Communication.NetManager.NetSharing
-   * @systemapi Hide this for inner system use.
-   * @since 26.1.0 static
-   */
-  function offInterfaceSharingStateChange(callback?: Callback<InterfaceSharingStateInfo>): void;
-
-  /**
    * 注册上行网络变化事件，使用 callback 异步回调。
    *
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
@@ -548,19 +496,6 @@ declare namespace sharing {
   function on(type: 'sharingUpstreamChange', callback: Callback<NetHandle>): void;
 
   /**
-   * 注册上行网络变化事件，使用 callback 异步回调。
-   *
-   * @permission ohos.permission.CONNECTIVITY_INTERNAL
-   * @param { Callback<NetHandle> } callback - the callback function that returns the network handle.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @syscap SystemCapability.Communication.NetManager.NetSharing
-   * @systemapi Hide this for inner system use.
-   * @since 26.1.0 static
-   */
-  function onSharingUpstreamChange(callback: Callback<NetHandle>): void;
-
-  /**
    * 注销上行网络变化事件，使用 callback 异步回调。
    *
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
@@ -574,19 +509,6 @@ declare namespace sharing {
    * @since 9 dynamic
    */
   function off(type: 'sharingUpstreamChange', callback?: Callback<NetHandle>): void;
-
-  /**
-   * 取消注册上行网络变化事件，使用 callback 异步回调。
-   *
-   * @permission ohos.permission.CONNECTIVITY_INTERNAL
-   * @param { Callback<NetHandle> } [callback] - the callback function that returns the network handle.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @syscap SystemCapability.Communication.NetManager.NetSharing
-   * @systemapi Hide this for inner system use.
-   * @since 26.1.0 static
-   */
-  function offSharingUpstreamChange(callback?: Callback<NetHandle>): void;
 
   /**
    * 网络共享状态。

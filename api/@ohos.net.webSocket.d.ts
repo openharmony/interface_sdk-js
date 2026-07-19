@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Copyright (c) 2022-2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -141,7 +141,7 @@ declare namespace webSocket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 24]
      * @since 20 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.0 static
      */
     skipServerCertVerification?: boolean;
 
@@ -183,7 +183,7 @@ declare namespace webSocket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 24]
      * @since 21 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.0 static
      */
     pingInterval?: int;
 
@@ -195,7 +195,7 @@ declare namespace webSocket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 24]
      * @since 21 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.0 static
      */
     pongTimeout?: int;
 
@@ -205,7 +205,7 @@ declare namespace webSocket {
      *
      * @syscap SystemCapability.Communication.NetStack
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     minSupportTlsProtocol?: TlsProtocol;
 
@@ -214,7 +214,7 @@ declare namespace webSocket {
      *
      * @syscap SystemCapability.Communication.NetStack
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     supportOriginPort?: boolean;
   }
@@ -368,7 +368,7 @@ declare namespace webSocket {
    *
    * @syscap SystemCapability.Communication.NetStack
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
   export interface WebSocketOpenInfo {
     /**
@@ -376,7 +376,7 @@ declare namespace webSocket {
      *
      * @syscap SystemCapability.Communication.NetStack
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     status: int;
 
@@ -385,7 +385,7 @@ declare namespace webSocket {
      *
      * @syscap SystemCapability.Communication.NetStack
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     message: string;
 
@@ -394,7 +394,7 @@ declare namespace webSocket {
      *
      * @syscap SystemCapability.Communication.NetStack
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     protocol?: string;
  	}
@@ -716,16 +716,6 @@ declare namespace webSocket {
     on(type: 'openInfo', callback: AsyncCallback<WebSocketOpenInfo>): void;
 
     /**
-     * Enables listening for the open info events of a WebSocket connection.
-     *
-     * @param { Callback<WebSocketOpenInfo> } callback - the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetStack
-     * @stagemodelonly
-     * @since 26.1.0 static
-     */
-    onOpenInfo(callback: Callback<WebSocketOpenInfo>): void;
-
-    /**
      * Cancels listening for the open info events of a WebSocket connection.
      *
      * @param { 'openInfo' } type - event indicating that the open info of a WebSocket connection is returned.
@@ -735,16 +725,6 @@ declare namespace webSocket {
      * @since 26.0.0 dynamic
      */
     off(type: 'openInfo', callback?: AsyncCallback<WebSocketOpenInfo>): void;
-
-    /**
-     * Cancels listening for the open info events of a WebSocket connection.
-     *
-     * @param { Callback<WebSocketOpenInfo> } [callback] - the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetStack
-     * @stagemodelonly
-     * @since 26.1.0 static
-     */
-    offOpenInfo(callback?: Callback<WebSocketOpenInfo>): void;
 
     /**
      * Enables listening for the message events of a WebSocket connection.
@@ -1434,11 +1414,10 @@ declare namespace webSocket {
 
     /**
      * Enables listening for events that a connection from a given client has been closed.
-     *
      * @param { ClientConnectionCloseCallback } callback - the callback function when a client connection is closed.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
-     * @since 26.1.0 static
+     * @since 26.0.0 static
      */
     onWebSocketServerClose(callback: ClientConnectionCloseCallback): void;
 
@@ -1463,11 +1442,10 @@ declare namespace webSocket {
 
     /**
      * Cancels listening for events that a connection from a given client has been closed.
-     *
-     * @param { ClientConnectionCloseCallback } [callback] - the callback used to return the result.
+     * @param { ClientConnectionCloseCallback } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
-     * @since 26.1.0 static
+     * @since 26.0.0 static
      */
     offWebSocketServerClose(callback?: ClientConnectionCloseCallback): void;
 
@@ -1526,7 +1504,7 @@ declare namespace webSocket {
    *
    * @syscap SystemCapability.Communication.NetStack
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
   export enum TlsProtocol {
     /**
@@ -1534,7 +1512,7 @@ declare namespace webSocket {
      *
      * @syscap SystemCapability.Communication.NetStack
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     TLS_V_1_0 = 0,
 
@@ -1543,7 +1521,7 @@ declare namespace webSocket {
      *
      * @syscap SystemCapability.Communication.NetStack
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     TLS_V_1_1 = 1,
 
@@ -1552,7 +1530,7 @@ declare namespace webSocket {
      *
      * @syscap SystemCapability.Communication.NetStack
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     TLS_V_1_2 = 2,
 
@@ -1561,7 +1539,7 @@ declare namespace webSocket {
      *
      * @syscap SystemCapability.Communication.NetStack
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     TLS_V_1_3 = 3
   }

@@ -15,7 +15,7 @@
 
 /**
  * @file
- * @kit BasicServiceKit
+ * @kit BasicServicesKit
  */
 
 import ExtensionContext from './ExtensionContext';

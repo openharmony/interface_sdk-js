@@ -33,10 +33,6 @@ import type cert from './@ohos.security.cert';
  * @syscap SystemCapability.Communication.NetStack
  * @crossplatform [since 10]
  * @since 7 dynamic
- * @since 26.1.0 static
- */
-declare namespace socket {
-  export { NetAddress };
  */
 declare namespace socket {
   /**
@@ -54,7 +50,6 @@ declare namespace socket {
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform [since 10]
    * @since 9 dynamic
-   * @since 26.1.0 static
    */
   export type X509CertRawData = cert.EncodingBlob;
 
@@ -65,7 +60,6 @@ declare namespace socket {
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform [since 10]
    * @since 7 dynamic
-   * @since 26.1.0 static
    */
   function constructUDPSocketInstance(): UDPSocket;
 
@@ -76,7 +70,6 @@ declare namespace socket {
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform [since 12]
    * @since 11 dynamic
-   * @since 26.1.0 static
    */
   function constructMulticastSocketInstance(): MulticastSocket;
 
@@ -87,7 +80,6 @@ declare namespace socket {
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform [since 10]
    * @since 7 dynamic
-   * @since 26.1.0 static
    */
   function constructTCPSocketInstance(): TCPSocket;
 
@@ -98,7 +90,6 @@ declare namespace socket {
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform [since 10]
    * @since 9 dynamic
-   * @since 26.1.0 static
    */
   function constructTLSSocketInstance(): TLSSocket;
 
@@ -120,7 +111,6 @@ declare namespace socket {
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform [since 24]
    * @since 12 dynamic
-   * @since 26.1.0 static
    */
   function constructTLSSocketInstance(tcpSocket: TCPSocket): TLSSocket;
 
@@ -131,7 +121,6 @@ declare namespace socket {
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform [since 24]
    * @since 10 dynamic
-   * @since 26.1.0 static
    */
   function constructTCPSocketServerInstance(): TCPSocketServer;
 
@@ -142,7 +131,6 @@ declare namespace socket {
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform [since 24]
    * @since 10 dynamic
-   * @since 26.1.0 static
    */
   function constructTLSSocketServerInstance(): TLSSocketServer;
 
@@ -153,7 +141,6 @@ declare namespace socket {
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform [since 12]
    * @since 11 dynamic
-   * @since 26.1.0 static
    */
   function constructLocalSocketInstance(): LocalSocket;
 
@@ -164,7 +151,6 @@ declare namespace socket {
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform [since 12]
    * @since 11 dynamic
-   * @since 26.1.0 static
    */
   function constructLocalSocketServerInstance(): LocalSocketServer;
 
@@ -174,7 +160,6 @@ declare namespace socket {
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform [since 10]
    * @since 7 dynamic
-   * @since 26.1.0 static
    */
   export interface UDPSendOptions {
     /**
@@ -183,7 +168,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
      * @since 7 dynamic
-     * @since 26.1.0 static
      */
     data: string | ArrayBuffer;
 
@@ -193,7 +177,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
      * @since 7 dynamic
-     * @since 26.1.0 static
      */
     address: NetAddress;
 
@@ -203,7 +186,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 18 dynamic
-     * @since 26.1.0 static
      */
     proxy?: ProxyOptions;
   }
@@ -214,7 +196,6 @@ declare namespace socket {
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform
    * @since 18 dynamic
-   * @since 26.1.0 static
    */
   export enum ProxyTypes {
     /**
@@ -223,7 +204,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 18 dynamic
-     * @since 26.1.0 static
      */
     NONE = 0,
 
@@ -233,7 +213,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 18 dynamic
-     * @since 26.1.0 static
      */
     SOCKS5 = 1
   }
@@ -244,7 +223,6 @@ declare namespace socket {
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform
    * @since 18 dynamic
-   * @since 26.1.0 static
    */
   export interface ProxyOptions {
     /**
@@ -253,7 +231,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 18 dynamic
-     * @since 26.1.0 static
      */
     type: ProxyTypes;
 
@@ -263,7 +240,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 18 dynamic
-     * @since 26.1.0 static
      */
     address: NetAddress;
 
@@ -273,7 +249,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 18 dynamic
-     * @since 26.1.0 static
      */
     username?: string;
 
@@ -283,7 +258,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 18 dynamic
-     * @since 26.1.0 static
      */
     password?: string;
   }
@@ -294,7 +268,6 @@ declare namespace socket {
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform [since 10]
    * @since 7 dynamic
-   * @since 26.1.0 static
    */
   export interface ExtraOptionsBase {
     /**
@@ -304,7 +277,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
      * @since 7 dynamic
-     * @since 26.1.0 static
      */
     receiveBufferSize?: int;
 
@@ -315,7 +287,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
      * @since 7 dynamic
-     * @since 26.1.0 static
      */
     sendBufferSize?: int;
 
@@ -326,7 +297,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
      * @since 7 dynamic
-     * @since 26.1.0 static
      */
     reuseAddress?: boolean;
 
@@ -336,7 +306,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
      * @since 7 dynamic
-     * @since 26.1.0 static
      */
     socketTimeout?: int;
   }
@@ -348,7 +317,6 @@ declare namespace socket {
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform [since 10]
    * @since 7 dynamic
-   * @since 26.1.0 static
    */
   export interface UDPExtraOptions extends ExtraOptionsBase {
     /**
@@ -358,7 +326,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
      * @since 7 dynamic
-     * @since 26.1.0 static
      */
     broadcast?: boolean;
   }
@@ -369,7 +336,6 @@ declare namespace socket {
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform [since 10]
    * @since 7 dynamic
-   * @since 26.1.0 static
    */
   export interface SocketStateBase {
     /**
@@ -379,7 +345,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
      * @since 7 dynamic
-     * @since 26.1.0 static
      */
     isBound: boolean;
 
@@ -390,7 +355,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
      * @since 7 dynamic
-     * @since 26.1.0 static
      */
     isClose: boolean;
 
@@ -401,7 +365,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
      * @since 7 dynamic
-     * @since 26.1.0 static
      */
     isConnected: boolean;
   }
@@ -412,7 +375,6 @@ declare namespace socket {
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform [since 10]
    * @since 7 dynamic
-   * @since 26.1.0 static
    */
   export interface SocketRemoteInfo {
     /**
@@ -421,7 +383,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
      * @since 7 dynamic
-     * @since 26.1.0 static
      */
     address: string;
 
@@ -436,7 +397,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
      * @since 7 dynamic
-     * @since 26.1.0 static
      */
     family: 'IPv4' | 'IPv6';
 
@@ -446,7 +406,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
      * @since 7 dynamic
-     * @since 26.1.0 static
      */
     port: int;
 
@@ -456,7 +415,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
      * @since 7 dynamic
-     * @since 26.1.0 static
      */
     size: int;
   }
@@ -467,7 +425,6 @@ declare namespace socket {
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform [since 12]
    * @since 11 dynamic
-   * @since 26.1.0 static
    */
   export interface LocalSocketMessageInfo {
     /**
@@ -476,7 +433,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 12]
      * @since 11 dynamic
-     * @since 26.1.0 static
      */
     message: ArrayBuffer;
 
@@ -486,7 +442,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 12]
      * @since 11 dynamic
-     * @since 26.1.0 static
      */
     address: string;
 
@@ -496,7 +451,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 12]
      * @since 11 dynamic
-     * @since 26.1.0 static
      */
     size: int;
   }
@@ -508,7 +462,6 @@ declare namespace socket {
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform [since 12]
    * @since 11 dynamic
-   * @since 26.1.0 static
    */
   export interface LocalAddress {
     /**
@@ -517,7 +470,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 12]
      * @since 11 dynamic
-     * @since 26.1.0 static
      */
     address: string;
   }
@@ -528,7 +480,6 @@ declare namespace socket {
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform [since 12]
    * @since 11 dynamic
-   * @since 26.1.0 static
    */
   export interface LocalConnectOptions {
     /**
@@ -537,7 +488,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 12]
      * @since 11 dynamic
-     * @since 26.1.0 static
      */
     address: LocalAddress;
 
@@ -548,7 +498,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 12]
      * @since 11 dynamic
-     * @since 26.1.0 static
      */
     timeout?: int;
   }
@@ -559,7 +508,6 @@ declare namespace socket {
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform [since 12]
    * @since 11 dynamic
-   * @since 26.1.0 static
    */
   export interface LocalSendOptions {
     /**
@@ -568,7 +516,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 12]
      * @since 11 dynamic
-     * @since 26.1.0 static
      */
     data: string | ArrayBuffer;
 
@@ -578,7 +525,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 12]
      * @since 11 dynamic
-     * @since 26.1.0 static
      */
     encoding?: string;
   }
@@ -590,7 +536,6 @@ declare namespace socket {
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform [since 10]
    * @since 7 dynamic
-   * @since 26.1.0 static
    */
   export interface UDPSocket {
     /**
@@ -607,7 +552,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
      * @since 7 dynamic
-     * @since 26.1.0 static
      */
     bind(address: NetAddress, callback: AsyncCallback<void>): void;
 
@@ -624,7 +568,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
      * @since 7 dynamic
-     * @since 26.1.0 static
      */
     bind(address: NetAddress): Promise<void>;
 
@@ -642,7 +585,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 24]
      * @since 12 dynamic
-     * @since 26.1.0 static
      */
     getLocalAddress(): Promise<NetAddress>;
 
@@ -671,7 +613,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
      * @since 7 dynamic
-     * @since 26.1.0 static
      */
     send(options: UDPSendOptions, callback: AsyncCallback<void>): void;
 
@@ -699,7 +640,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
      * @since 7 dynamic
-     * @since 26.1.0 static
      */
     send(options: UDPSendOptions): Promise<void>;
 
@@ -712,7 +652,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
      * @since 7 dynamic
-     * @since 26.1.0 static
      */
     close(callback: AsyncCallback<void>): void;
 
@@ -725,7 +664,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
      * @since 7 dynamic
-     * @since 26.1.0 static
      */
     close(): Promise<void>;
 
@@ -744,7 +682,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
      * @since 7 dynamic
-     * @since 26.1.0 static
      */
     getState(callback: AsyncCallback<SocketStateBase>): void;
 
@@ -761,7 +698,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
      * @since 7 dynamic
-     * @since 26.1.0 static
      */
     getState(): Promise<SocketStateBase>;
 
@@ -782,7 +718,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
      * @since 7 dynamic
-     * @since 26.1.0 static
      */
     setExtraOptions(options: UDPExtraOptions, callback: AsyncCallback<void>): void;
 
@@ -802,7 +737,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
      * @since 7 dynamic
-     * @since 26.1.0 static
      */
     setExtraOptions(options: UDPExtraOptions): Promise<void>;
 
@@ -819,16 +753,6 @@ declare namespace socket {
      * @since 7 dynamic
      */
     on(type: 'message', callback: Callback<SocketMessageInfo>): void;
-
-    /**
-     * Listens for message receiving events of the UDPSocket connection.
-     *
-     * @param { Callback<SocketMessageInfo> } callback - the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 26.1.0 static
-     */
-    onUdpMessage(callback: Callback<SocketMessageInfo>): void;
 
     /**
      * Unsubscribes from **message** events of the **UDPSocket** object. This API uses an asynchronous callback to
@@ -848,16 +772,6 @@ declare namespace socket {
     off(type: 'message', callback?: Callback<SocketMessageInfo>): void;
 
     /**
-     * Cancels listening for message receiving events of the UDPSocket connection.
-     *
-     * @param { Callback<SocketMessageInfo> } [callback] - the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 26.1.0 static
-     */
-    offUdpMessage(callback?: Callback<SocketMessageInfo>): void;
-
-    /**
      * Subscribes to **listening** events or **close** events of the **UDPSocket** object. This API uses an asynchronous
      * callback to return the result.
      *
@@ -870,26 +784,6 @@ declare namespace socket {
      * @since 7 dynamic
      */
     on(type: 'listening' | 'close', callback: Callback<void>): void;
-
-    /**
-     * Listens for data packet message events or close events of the UDPSocket connection.
-     *
-     * @param { Callback<void> } callback - the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 26.1.0 static
-     */
-    onListening(callback: Callback<void>): void;
-
-    /**
-     * Listens for data packet message events or close events of the UDPSocket connection.
-     *
-     * @param { Callback<void> } callback - the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 26.1.0 static
-     */
-    onClose(callback: Callback<void>): void;
 
     /**
      * Unsubscribes from **listening** events or **close** events of the **UDPSocket** object. This API uses an
@@ -908,26 +802,6 @@ declare namespace socket {
     off(type: 'listening' | 'close', callback?: Callback<void>): void;
 
     /**
-     * Cancels listening for data packet message events or close events of the UDPSocket connection.
-     *
-     * @param { Callback<void> } [callback] - the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 26.1.0 static
-     */
-    offListening(callback?: Callback<void>): void;
-
-    /**
-     * Cancels listening for data packet message events or close events of the UDPSocket connection.
-     *
-     * @param { Callback<void> } [callback] - the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 26.1.0 static
-     */
-    offClose(callback?: Callback<void>): void;
-
-    /**
      * Subscribes to **error** events of the **UDPSocket** object. This API uses an asynchronous callback to return the
      * result.
      *
@@ -938,16 +812,6 @@ declare namespace socket {
      * @since 7 dynamic
      */
     on(type: 'error', callback: ErrorCallback): void;
-
-    /**
-     * Listens for error events of the UDPSocket connection.
-     *
-     * @param { ErrorCallback } callback - the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 26.1.0 static
-     */
-    onUdpError(callback: ErrorCallback): void;
 
     /**
      * Unsubscribes from **error** events of the **UDPSocket** object. This API uses an asynchronous callback to return
@@ -962,16 +826,6 @@ declare namespace socket {
      * @since 7 dynamic
      */
     off(type: 'error', callback?: ErrorCallback): void;
-
-    /**
-     * Cancels listening for error events of the UDPSocket connection.
-     *
-     * @param { ErrorCallback } [callback] - the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 26.1.0 static
-     */
-    offUdpError(callback?: ErrorCallback): void;
 
     /**
      * Obtains the UDPSocket file descriptor. This API uses a promise to return the result.
@@ -994,7 +848,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 24]
      * @since 23 dynamic
-     * @since 26.1.0 static
      */
     getSocketFd(): Promise<int>;
   }
@@ -1007,7 +860,6 @@ declare namespace socket {
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform [since 12]
    * @since 11 dynamic
-   * @since 26.1.0 static
    */
   export interface MulticastSocket extends UDPSocket {
     /**
@@ -1033,7 +885,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 12]
      * @since 11 dynamic
-     * @since 26.1.0 static
      */
     addMembership(multicastAddress: NetAddress, callback: AsyncCallback<void>): void;
 
@@ -1058,7 +909,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 12]
      * @since 11 dynamic
-     * @since 26.1.0 static
      */
     addMembership(multicastAddress: NetAddress): Promise<void>;
 
@@ -1084,7 +934,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 12]
      * @since 11 dynamic
-     * @since 26.1.0 static
      */
     dropMembership(multicastAddress: NetAddress, callback: AsyncCallback<void>): void;
 
@@ -1109,7 +958,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 12]
      * @since 11 dynamic
-     * @since 26.1.0 static
      */
     dropMembership(multicastAddress: NetAddress): Promise<void>;
 
@@ -1138,7 +986,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 12]
      * @since 11 dynamic
-     * @since 26.1.0 static
      */
     setMulticastTTL(ttl: int, callback: AsyncCallback<void>): void;
 
@@ -1166,7 +1013,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 12]
      * @since 11 dynamic
-     * @since 26.1.0 static
      */
     setMulticastTTL(ttl: int): Promise<void>;
 
@@ -1193,7 +1039,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 12]
      * @since 11 dynamic
-     * @since 26.1.0 static
      */
     getMulticastTTL(callback: AsyncCallback<int>): void;
 
@@ -1219,7 +1064,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 12]
      * @since 11 dynamic
-     * @since 26.1.0 static
      */
     getMulticastTTL(): Promise<int>;
 
@@ -1247,7 +1091,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 12]
      * @since 11 dynamic
-     * @since 26.1.0 static
      */
     setLoopbackMode(flag: boolean, callback: AsyncCallback<void>): void;
 
@@ -1273,7 +1116,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 12]
      * @since 11 dynamic
-     * @since 26.1.0 static
      */
     setLoopbackMode(flag: boolean): Promise<void>;
 
@@ -1299,7 +1141,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 12]
      * @since 11 dynamic
-     * @since 26.1.0 static
      */
     getLoopbackMode(callback: AsyncCallback<boolean>): void;
 
@@ -1324,7 +1165,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 12]
      * @since 11 dynamic
-     * @since 26.1.0 static
      */
     getLoopbackMode(): Promise<boolean>;
 
@@ -1350,7 +1190,6 @@ declare namespace socket {
      * @stagemodelonly
      * @crossplatform [since 24]
      * @since 23 dynamic
-     * @since 26.1.0 static
      */
     getSocketFd(): Promise<int>;
 
@@ -1369,7 +1208,7 @@ declare namespace socket {
      * @param { boolean } reuse - Whether to enable address reuse. **true** to enable, **false** otherwise.
      * @syscap SystemCapability.Communication.NetStack
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     setReuseAddress(reuse: boolean): void;
   }
@@ -1382,7 +1221,6 @@ declare namespace socket {
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform [since 12]
    * @since 11 dynamic
-   * @since 26.1.0 static
    */
   export interface LocalSocket {
     /**
@@ -1403,7 +1241,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 12]
      * @since 11 dynamic
-     * @since 26.1.0 static
      */
     bind(address: LocalAddress): Promise<void>;
 
@@ -1425,7 +1262,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 12]
      * @since 11 dynamic
-     * @since 26.1.0 static
      */
     connect(options: LocalConnectOptions): Promise<void>;
 
@@ -1444,7 +1280,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 12]
      * @since 11 dynamic
-     * @since 26.1.0 static
      */
     send(options: LocalSendOptions): Promise<void>;
 
@@ -1456,7 +1291,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 12]
      * @since 11 dynamic
-     * @since 26.1.0 static
      */
     close(): Promise<void>;
 
@@ -1471,7 +1305,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 12]
      * @since 11 dynamic
-     * @since 26.1.0 static
      */
     getState(): Promise<SocketStateBase>;
 
@@ -1492,7 +1325,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 12]
      * @since 11 dynamic
-     * @since 26.1.0 static
      */
     getSocketFd(): Promise<int>;
 
@@ -1511,7 +1343,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 12]
      * @since 11 dynamic
-     * @since 26.1.0 static
      */
     setExtraOptions(options: ExtraOptionsBase): Promise<void>;
 
@@ -1527,7 +1358,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 12]
      * @since 11 dynamic
-     * @since 26.1.0 static
      */
     getExtraOptions(): Promise<ExtraOptionsBase>;
 
@@ -1545,7 +1375,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 24]
      * @since 12 dynamic
-     * @since 26.1.0 static
      */
     getLocalAddress(): Promise<string>;
 
@@ -1563,16 +1392,6 @@ declare namespace socket {
     on(type: 'message', callback: Callback<LocalSocketMessageInfo>): void;
 
     /**
-     * Listens for message receiving events of the LocalSocket connection.
-     *
-     * @param { Callback<LocalSocketMessageInfo> } callback - the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 26.1.0 static
-     */
-    onLocalSocketMessage(callback: Callback<LocalSocketMessageInfo>): void;
-
-    /**
      * Unsubscribes from **message** events of the **LocalSocket** object. This API uses an asynchronous callback to
      * return the result.
      *
@@ -1588,16 +1407,6 @@ declare namespace socket {
     off(type: 'message', callback?: Callback<LocalSocketMessageInfo>): void;
 
     /**
-     * Cancels listening for message receiving events of the LocalSocket connection.
-     *
-     * @param { Callback<LocalSocketMessageInfo> } [callback] - the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 26.1.0 static
-     */
-    offLocalSocketMessage(callback?: Callback<LocalSocketMessageInfo>): void;
-
-    /**
      * Subscribes to **connect** events of the **LocalSocket** object. This API uses an asynchronous callback to return
      * the result.
      *
@@ -1609,16 +1418,6 @@ declare namespace socket {
      * @since 11 dynamic
      */
     on(type: 'connect', callback: Callback<void>): void;
-
-    /**
-     * Listens for connection events of the LocalSocket connection.
-     *
-     * @param { Callback<void> } callback - the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 26.1.0 static
-     */
-    onConnect(callback: Callback<void>): void;
 
     /**
      * Unsubscribes from **connect** events of the **LocalSocket** object. This API uses an asynchronous callback to
@@ -1636,16 +1435,6 @@ declare namespace socket {
     off(type: 'connect', callback?: Callback<void>): void;
 
     /**
-     * Cancels listening for connection events of the LocalSocket connection.
-     *
-     * @param { Callback<void> } [callback] - the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 26.1.0 static
-     */
-    offConnect(callback?: Callback<void>): void;
-
-    /**
      * Subscribes to **close** events of the **LocalSocket** object. This API uses an asynchronous callback to return
      * the result.
      *
@@ -1657,16 +1446,6 @@ declare namespace socket {
      * @since 11 dynamic
      */
     on(type: 'close', callback: Callback<void>): void;
-
-    /**
-     * Listens for close events of the LocalSocket connection.
-     *
-     * @param { Callback<void> } callback - the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 26.1.0 static
-     */
-    onLocalSocketClose(callback: Callback<void>): void;
 
     /**
      * Unsubscribes from **close** events of the **LocalSocket** object. This API uses an asynchronous callback to
@@ -1684,16 +1463,6 @@ declare namespace socket {
     off(type: 'close', callback?: Callback<void>): void;
 
     /**
-     * Cancels listening for close events of the LocalSocket connection.
-     *
-     * @param { Callback<void> } [callback] - the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 26.1.0 static
-     */
-    offLocalSocketClose(callback?: Callback<void>): void;
-
-    /**
      * Subscribes to **error** events of the **LocalSocket** object. This API uses an asynchronous callback to return
      * the result.
      *
@@ -1705,16 +1474,6 @@ declare namespace socket {
      * @since 11 dynamic
      */
     on(type: 'error', callback: ErrorCallback): void;
-
-    /**
-     * Listens for error events of the LocalSocket connection.
-     *
-     * @param { ErrorCallback } callback - the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 26.1.0 static
-     */
-    onLocalSocketError(callback: ErrorCallback): void;
 
     /**
      * Unsubscribes from **error** events of the **LocalSocket** object. This API uses an asynchronous callback to
@@ -1731,15 +1490,6 @@ declare namespace socket {
      */
     off(type: 'error', callback?: ErrorCallback): void;
 
-    /**
-     * Cancels listening for error events of the LocalSocket connection.
-     *
-     * @param { ErrorCallback } [callback] - the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 26.1.0 static
-     */
-    offLocalSocketError(callback?: ErrorCallback): void;
   }
 
   /**
@@ -1754,7 +1504,6 @@ declare namespace socket {
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform [since 12]
    * @since 11 dynamic
-   * @since 26.1.0 static
    */
   export interface LocalSocketConnection {
     /**
@@ -1763,7 +1512,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 12]
      * @since 11 dynamic
-     * @since 26.1.0 static
      */
     clientId: int;
 
@@ -1782,7 +1530,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 12]
      * @since 11 dynamic
-     * @since 26.1.0 static
      */
     send(options: LocalSendOptions): Promise<void>;
 
@@ -1794,7 +1541,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 12]
      * @since 11 dynamic
-     * @since 26.1.0 static
      */
     close(): Promise<void>;
 
@@ -1809,7 +1555,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 24]
      * @since 12 dynamic
-     * @since 26.1.0 static
      */
     getLocalAddress(): Promise<string>;
 
@@ -1827,16 +1572,6 @@ declare namespace socket {
     on(type: 'message', callback: Callback<LocalSocketMessageInfo>): void;
 
     /**
-     * Listens for message receiving events of the LocalSocketConnection.
-     *
-     * @param { Callback<LocalSocketMessageInfo> } callback - The callback of on.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 26.1.0 static
-     */
-    onLocalConnMessage(callback: Callback<LocalSocketMessageInfo>): void;
-
-    /**
      * Unsubscribes from **message** events of the **LocalSocketConnection** object. This API uses an asynchronous
      * callback to return the result.
      *
@@ -1852,16 +1587,6 @@ declare namespace socket {
     off(type: 'message', callback?: Callback<LocalSocketMessageInfo>): void;
 
     /**
-     * Cancels listening for message receiving events of the LocalSocketConnection.
-     *
-     * @param { Callback<LocalSocketMessageInfo> } [callback] - The callback of off.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 26.1.0 static
-     */
-    offLocalConnMessage(callback?: Callback<LocalSocketMessageInfo>): void;
-
-    /**
      * Unsubscribes from **close** events of the **LocalSocketConnection** object. This API uses an asynchronous
      * callback to return the result.
      *
@@ -1873,16 +1598,6 @@ declare namespace socket {
      * @since 11 dynamic
      */
     on(type: 'close', callback: Callback<void>): void;
-
-    /**
-     * Listens for close events of the LocalSocketConnection.
-     *
-     * @param { Callback<void> } callback - The callback of on.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 26.1.0 static
-     */
-    onLocalConnClose(callback: Callback<void>): void;
 
     /**
      * Unsubscribes from **close** events of the **LocalSocketConnection** object. This API uses an asynchronous
@@ -1900,16 +1615,6 @@ declare namespace socket {
     off(type: 'close', callback?: Callback<void>): void;
 
     /**
-     * Cancels listening for close events of the LocalSocketConnection.
-     *
-     * @param { Callback<void> } [callback] - The callback of off.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 26.1.0 static
-     */
-    offLocalConnClose(callback?: Callback<void>): void;
-
-    /**
      * Subscribes to **error** events of the **LocalSocketConnection** object. This API uses an asynchronous callback to
      * return the result.
      *
@@ -1921,16 +1626,6 @@ declare namespace socket {
      * @since 11 dynamic
      */
     on(type: 'error', callback: ErrorCallback): void;
-
-    /**
-     * Listens for error events of the LocalSocketConnection.
-     *
-     * @param { ErrorCallback } callback - The callback of on.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 26.1.0 static
-     */
-    onLocalConnError(callback: ErrorCallback): void;
 
     /**
      * Unsubscribes from **error** events of the **LocalSocketConnection** object. This API uses an asynchronous
@@ -1946,16 +1641,6 @@ declare namespace socket {
      * @since 11 dynamic
      */
     off(type: 'error', callback?: ErrorCallback): void;
-
-    /**
-     * Cancels listening for error events of the LocalSocketConnection.
-     *
-     * @param { ErrorCallback } [callback] - The callback of off.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 26.1.0 static
-     */
-    offLocalConnError(callback?: ErrorCallback): void;
 
     /**
      * Obtains the file descriptor of a LocalSocketConnection connection. This API uses a promise to return the result.
@@ -1975,7 +1660,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 24]
      * @since 23 dynamic
-     * @since 26.1.0 static
      */
     getSocketFd(): Promise<int>;
   }
@@ -1988,7 +1672,6 @@ declare namespace socket {
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform [since 12]
    * @since 11 dynamic
-   * @since 26.1.0 static
    */
   export interface LocalSocketServer {
     /**
@@ -2012,7 +1695,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 12]
      * @since 11 dynamic
-     * @since 26.1.0 static
      */
     listen(address: LocalAddress): Promise<void>;
 
@@ -2027,7 +1709,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 12]
      * @since 11 dynamic
-     * @since 26.1.0 static
      */
     getState(): Promise<SocketStateBase>;
 
@@ -2045,7 +1726,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 12]
      * @since 11 dynamic
-     * @since 26.1.0 static
      */
     setExtraOptions(options: ExtraOptionsBase): Promise<void>;
 
@@ -2061,7 +1741,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 12]
      * @since 11 dynamic
-     * @since 26.1.0 static
      */
     getExtraOptions(): Promise<ExtraOptionsBase>;
 
@@ -2080,7 +1759,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 24]
      * @since 12 dynamic
-     * @since 26.1.0 static
      */
     getLocalAddress(): Promise<string>;
 
@@ -2098,7 +1776,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 24]
      * @since 20 dynamic
-     * @since 26.1.0 static
      */
     close(): Promise<void>;
 
@@ -2120,16 +1797,6 @@ declare namespace socket {
     on(type: 'connect', callback: Callback<LocalSocketConnection>): void;
 
     /**
-     * Listens for connect events of the LocalSocketServer connection.
-     *
-     * @param { Callback<LocalSocketConnection> } callback - The callback of on.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 26.1.0 static
-     */
-    onConnect(callback: Callback<LocalSocketConnection>): void;
-
-    /**
      * Unsubscribes from **connect** events of the **LocalSocketServer** object. This API uses an asynchronous callback
      * to return the result.
      *
@@ -2143,16 +1810,6 @@ declare namespace socket {
      * @since 11 dynamic
      */
     off(type: 'connect', callback?: Callback<LocalSocketConnection>): void;
-
-    /**
-     * Cancels listening for connect events of the LocalSocketServer connection.
-     *
-     * @param { Callback<LocalSocketConnection> } [callback] - The callback of off.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 26.1.0 static
-     */
-    offConnect(callback?: Callback<LocalSocketConnection>): void;
 
     /**
      * Subscribes to **error** events of the **LocalSocketServer** object. This API uses an asynchronous callback to
@@ -2172,16 +1829,6 @@ declare namespace socket {
     on(type: 'error', callback: ErrorCallback): void;
 
     /**
-     * Listens for error events of the LocalSocketServer connection.
-     *
-     * @param { ErrorCallback } callback - The callback of on.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 26.1.0 static
-     */
-    onLocalServerError(callback: ErrorCallback): void;
-
-    /**
      * Unsubscribes from **error** events of the **LocalSocketServer** object. This API uses an asynchronous callback to
      * return the result.
      *
@@ -2195,16 +1842,6 @@ declare namespace socket {
      * @since 11 dynamic
      */
     off(type: 'error', callback?: ErrorCallback): void;
-
-    /**
-     * Cancels listening for error events of the LocalSocketServer connection.
-     *
-     * @param { ErrorCallback } [callback] - The callback of off.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 26.1.0 static
-     */
-    offLocalServerError(callback?: ErrorCallback): void;
 
     /**
      * Obtains the file descriptor bound to the LocalSocketServer listening port. This API uses a promise to return the
@@ -2226,7 +1863,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 24]
      * @since 23 dynamic
-     * @since 26.1.0 static
      */
     getSocketFd(): Promise<int>;
   }
@@ -2237,7 +1873,6 @@ declare namespace socket {
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform [since 10]
    * @since 7 dynamic
-   * @since 26.1.0 static
    */
   export interface TCPConnectOptions {
     /**
@@ -2246,7 +1881,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
      * @since 7 dynamic
-     * @since 26.1.0 static
      */
     address: NetAddress;
 
@@ -2256,7 +1890,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
      * @since 7 dynamic
-     * @since 26.1.0 static
      */
     timeout?: int;
 
@@ -2266,7 +1899,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 18 dynamic
-     * @since 26.1.0 static
      */
     proxy?: ProxyOptions;
   }
@@ -2277,7 +1909,6 @@ declare namespace socket {
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform [since 10]
    * @since 7 dynamic
-   * @since 26.1.0 static
    */
   export interface TCPSendOptions {
     /**
@@ -2286,7 +1917,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
      * @since 7 dynamic
-     * @since 26.1.0 static
      */
     data: string | ArrayBuffer;
 
@@ -2297,7 +1927,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
      * @since 7 dynamic
-     * @since 26.1.0 static
      */
     encoding?: string;
   }
@@ -2309,7 +1938,6 @@ declare namespace socket {
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform [since 10]
    * @since 7 dynamic
-   * @since 26.1.0 static
    */
   export interface TCPExtraOptions extends ExtraOptionsBase {
     /**
@@ -2319,7 +1947,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
      * @since 7 dynamic
-     * @since 26.1.0 static
      */
     keepAlive?: boolean;
 
@@ -2330,7 +1957,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
      * @since 7 dynamic
-     * @since 26.1.0 static
      */
     OOBInline?: boolean;
 
@@ -2341,7 +1967,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
      * @since 7 dynamic
-     * @since 26.1.0 static
      */
     TCPNoDelay?: boolean;
 
@@ -2357,7 +1982,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 7 dynamic
-     * @since 26.1.0 static
      */
     socketLinger?: {on: boolean, linger: int};
 
@@ -2371,7 +1995,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @stagemodelonly
      * @since 24 dynamic
-     * @since 26.1.0 static
      */
     tcpFastOpen?: boolean;
   }
@@ -2383,7 +2006,6 @@ declare namespace socket {
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform [since 10]
    * @since 7 dynamic
-   * @since 26.1.0 static
    */
   export interface TCPSocket {
     /**
@@ -2411,7 +2033,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
      * @since 7 dynamic
-     * @since 26.1.0 static
      */
     bind(address: NetAddress, callback: AsyncCallback<void>): void;
 
@@ -2439,7 +2060,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
      * @since 7 dynamic
-     * @since 26.1.0 static
      */
     bind(address: NetAddress): Promise<void>;
 
@@ -2469,7 +2089,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
      * @since 7 dynamic
-     * @since 26.1.0 static
      */
     connect(options: TCPConnectOptions, callback: AsyncCallback<void>): void;
 
@@ -2497,7 +2116,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
      * @since 7 dynamic
-     * @since 26.1.0 static
      */
     connect(options: TCPConnectOptions): Promise<void>;
 
@@ -2519,7 +2137,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
      * @since 7 dynamic
-     * @since 26.1.0 static
      */
     send(options: TCPSendOptions, callback: AsyncCallback<void>): void;
 
@@ -2540,7 +2157,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
      * @since 7 dynamic
-     * @since 26.1.0 static
      */
     send(options: TCPSendOptions): Promise<void>;
 
@@ -2554,7 +2170,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
      * @since 7 dynamic
-     * @since 26.1.0 static
      */
     close(callback: AsyncCallback<void>): void;
 
@@ -2567,7 +2182,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
      * @since 7 dynamic
-     * @since 26.1.0 static
      */
     close(): Promise<void>;
 
@@ -2585,7 +2199,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
      * @since 7 dynamic
-     * @since 26.1.0 static
      */
     getRemoteAddress(callback: AsyncCallback<NetAddress>): void;
 
@@ -2602,7 +2215,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
      * @since 7 dynamic
-     * @since 26.1.0 static
      */
     getRemoteAddress(): Promise<NetAddress>;
 
@@ -2620,7 +2232,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
      * @since 7 dynamic
-     * @since 26.1.0 static
      */
     getState(callback: AsyncCallback<SocketStateBase>): void;
 
@@ -2637,7 +2248,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
      * @since 7 dynamic
-     * @since 26.1.0 static
      */
     getState(): Promise<SocketStateBase>;
 
@@ -2658,7 +2268,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 24]
      * @since 10 dynamic
-     * @since 26.1.0 static
      */
     getSocketFd(callback: AsyncCallback<int>): void;
 
@@ -2677,7 +2286,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 24]
      * @since 10 dynamic
-     * @since 26.1.0 static
      */
     getSocketFd(): Promise<int>;
 
@@ -2698,7 +2306,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
      * @since 7 dynamic
-     * @since 26.1.0 static
      */
     setExtraOptions(options: TCPExtraOptions, callback: AsyncCallback<void>): void;
 
@@ -2718,7 +2325,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
      * @since 7 dynamic
-     * @since 26.1.0 static
      */
     setExtraOptions(options: TCPExtraOptions): Promise<void>;
 
@@ -2736,7 +2342,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 24]
      * @since 12 dynamic
-     * @since 26.1.0 static
      */
     getLocalAddress(): Promise<NetAddress>;
 
@@ -2753,16 +2358,6 @@ declare namespace socket {
      * @since 7 dynamic
      */
     on(type: 'message', callback: Callback<SocketMessageInfo>): void;
-
-    /**
-     * Listens for message receiving events of the TCPSocket connection.
-     *
-     * @param { Callback<SocketMessageInfo> } callback - the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 26.1.0 static
-     */
-    onTcpMessage(callback: Callback<SocketMessageInfo>): void;
 
     /**
      * Unsubscribes from **message** events of the **TCPSocket** object. This API uses an asynchronous callback to
@@ -2782,16 +2377,6 @@ declare namespace socket {
     off(type: 'message', callback?: Callback<SocketMessageInfo>): void;
 
     /**
-     * Cancels listening for message receiving events of the TCPSocket connection.
-     *
-     * @param { Callback<SocketMessageInfo> } [callback] - the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 26.1.0 static
-     */
-    offTcpMessage(callback?: Callback<SocketMessageInfo>): void;
-
-    /**
      * Subscribes to **connect** or **close** events of the **TCPSocket** object. This API uses an asynchronous callback
      * to return the result.
      *
@@ -2804,26 +2389,6 @@ declare namespace socket {
      * @since 7 dynamic
      */
     on(type: 'connect' | 'close', callback: Callback<void>): void;
-
-    /**
-     * Listens for connection or close events of the TCPSocket connection.
-     *
-     * @param { Callback<void> } callback - the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 26.1.0 static
-     */
-    onTcpConnect(callback: Callback<void>): void;
-
-    /**
-     * Listens for connection or close events of the TCPSocket connection.
-     *
-     * @param { Callback<void> } callback - the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 26.1.0 static
-     */
-    onTcpClose(callback: Callback<void>): void;
 
     /**
      * Unsubscribes from **connect** or **close** events of the **TCPSocket** object. This API uses an asynchronous
@@ -2842,26 +2407,6 @@ declare namespace socket {
     off(type: 'connect' | 'close', callback?: Callback<void>): void;
 
     /**
-     * Cancels listening for connection or close events of the TCPSocket connection.
-     *
-     * @param { Callback<void> } [callback] - the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 26.1.0 static
-     */
-    offTcpConnect(callback?: Callback<void>): void;
-
-    /**
-     * Cancels listening for connection or close events of the TCPSocket connection.
-     *
-     * @param { Callback<void> } [callback] - the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 26.1.0 static
-     */
-    offTcpClose(callback?: Callback<void>): void;
-
-    /**
      * Subscribes to **error** events of the **TCPSocket** object. This API uses an asynchronous callback to return the
      * result.
      *
@@ -2872,16 +2417,6 @@ declare namespace socket {
      * @since 7 dynamic
      */
     on(type: 'error', callback: ErrorCallback): void;
-
-    /**
-     * Listens for error events of the TCPSocket connection.
-     *
-     * @param { ErrorCallback } callback - the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 26.1.0 static
-     */
-    onTcpError(callback: ErrorCallback): void;
 
     /**
      * Unsubscribes from **error** events of the **TCPSocket** object. This API uses an asynchronous callback to return
@@ -2897,15 +2432,6 @@ declare namespace socket {
      */
     off(type: 'error', callback?: ErrorCallback): void;
 
-    /**
-     * Cancels listening for error events of the TCPSocket connection.
-     *
-     * @param { ErrorCallback } [callback] - the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 26.1.0 static
-     */
-    offTcpError(callback?: ErrorCallback): void;
   }
 
   /**
@@ -2915,7 +2441,6 @@ declare namespace socket {
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform [since 10]
    * @since 9 dynamic
-   * @since 26.1.0 static
    */
   export interface TLSSocket {
     /**
@@ -2939,7 +2464,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
      * @since 9 dynamic
-     * @since 26.1.0 static
      */
     bind(address: NetAddress, callback: AsyncCallback<void>): void;
 
@@ -2963,7 +2487,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
      * @since 9 dynamic
-     * @since 26.1.0 static
      */
     bind(address: NetAddress): Promise<void>;
 
@@ -2978,7 +2501,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
      * @since 9 dynamic
-     * @since 26.1.0 static
      */
     getRemoteAddress(callback: AsyncCallback<NetAddress>): void;
 
@@ -2992,7 +2514,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
      * @since 9 dynamic
-     * @since 26.1.0 static
      */
     getRemoteAddress(): Promise<NetAddress>;
 
@@ -3007,7 +2528,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
      * @since 9 dynamic
-     * @since 26.1.0 static
      */
     getState(callback: AsyncCallback<SocketStateBase>): void;
 
@@ -3021,7 +2541,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
      * @since 9 dynamic
-     * @since 26.1.0 static
      */
     getState(): Promise<SocketStateBase>;
 
@@ -3040,7 +2559,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
      * @since 9 dynamic
-     * @since 26.1.0 static
      */
     setExtraOptions(options: TCPExtraOptions, callback: AsyncCallback<void>): void;
 
@@ -3057,7 +2575,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
      * @since 9 dynamic
-     * @since 26.1.0 static
      */
     setExtraOptions(options: TCPExtraOptions): Promise<void>;
 
@@ -3075,7 +2592,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 24]
      * @since 12 dynamic
-     * @since 26.1.0 static
      */
     getLocalAddress(): Promise<NetAddress>;
 
@@ -3099,16 +2615,6 @@ declare namespace socket {
     on(type: 'message', callback: Callback<SocketMessageInfo>): void;
 
     /**
-     * Listens for message receiving events of the TLSSocket connection.
-     *
-     * @param { Callback<SocketMessageInfo> } callback - the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 26.1.0 static
-     */
-    onTlsMessage(callback: Callback<SocketMessageInfo>): void;
-
-    /**
      * Unsubscribes from **message** events of the **TLSSocket** object. This API uses an asynchronous callback to
      * return the result.
      *
@@ -3122,16 +2628,6 @@ declare namespace socket {
      * @since 9 dynamic
      */
     off(type: 'message', callback?: Callback<SocketMessageInfo>): void;
-
-    /**
-     * Cancels listening for message receiving events of the TLSSocket connection.
-     *
-     * @param { Callback<SocketMessageInfo> } [callback] - the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 26.1.0 static
-     */
-    offTlsMessage(callback?: Callback<SocketMessageInfo>): void;
 
     /**
      * Subscribes to **connect** or **close** events of the **TLSSocket** object. This API uses an asynchronous callback
@@ -3153,27 +2649,6 @@ declare namespace socket {
     on(type: 'connect' | 'close', callback: Callback<void>): void;
 
     /**
-     * Listens for connection or close events of the TLSSocket connection.
-     *
-     * @param { Callback<void> } callback - the callback used to return the result.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 26.1.0 static
-     */
-    onTlsConnect(callback: Callback<void>): void;
-
-    /**
-     * Listens for connection or close events of the TLSSocket connection.
-     *
-     * @param { Callback<void> } callback - the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 26.1.0 static
-     */
-    onTlsClose(callback: Callback<void>): void;
-
-    /**
      * Unsubscribes from **connect** or **close** events of the **TLSSocket** object. This API uses an asynchronous
      * callback to return the result.
      *
@@ -3187,26 +2662,6 @@ declare namespace socket {
      * @since 9 dynamic
      */
     off(type: 'connect' | 'close', callback?: Callback<void>): void;
-
-    /**
-     * Cancels listening for connection or close events of the TLSSocket connection.
-     *
-     * @param { Callback<void> } [callback] - the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 26.1.0 static
-     */
-    offTlsConnect(callback?: Callback<void>): void;
-
-    /**
-     * Cancels listening for connection or close events of the TLSSocket connection.
-     *
-     * @param { Callback<void> } [callback] - the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 26.1.0 static
-     */
-    offTlsClose(callback?: Callback<void>): void;
 
     /**
      * Subscribes to **error** events of the **TLSSocket** object. This API uses an asynchronous callback to return the
@@ -3226,16 +2681,6 @@ declare namespace socket {
     on(type: 'error', callback: ErrorCallback): void;
 
     /**
-     * Listens for error events of the TLSSocket connection.
-     *
-     * @param { ErrorCallback } callback - the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 26.1.0 static
-     */
-    onTlsError(callback: ErrorCallback): void;
-
-    /**
      * Unsubscribes from **error** events of the **TLSSocket** object. This API uses an asynchronous callback to return
      * the result.
      *
@@ -3249,16 +2694,6 @@ declare namespace socket {
     off(type: 'error', callback?: ErrorCallback): void;
 
     /**
-     * Cancels listening for error events of the TLSSocket connection.
-     *
-     * @param { ErrorCallback } [callback] - the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 26.1.0 static
-     */
-    offTlsError(callback?: ErrorCallback): void;
-
-    /**
      * Obtains the local digital certificate after a **TLSSocket** connection is established. This API is applicable to
      * two-way authentication. It uses an asynchronous callback to return the result.
      *
@@ -3270,7 +2705,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
      * @since 9 dynamic
-     * @since 26.1.0 static
      */
     getCertificate(callback: AsyncCallback<X509CertRawData>): void;
 
@@ -3286,7 +2720,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
      * @since 9 dynamic
-     * @since 26.1.0 static
      */
     getCertificate(): Promise<X509CertRawData>;
 
@@ -3301,7 +2734,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
      * @since 9 dynamic
-     * @since 26.1.0 static
      */
     getRemoteCertificate(callback: AsyncCallback<X509CertRawData>): void;
 
@@ -3316,7 +2748,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
      * @since 9 dynamic
-     * @since 26.1.0 static
      */
     getRemoteCertificate(): Promise<X509CertRawData>;
 
@@ -3332,7 +2763,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
      * @since 9 dynamic
-     * @since 26.1.0 static
      */
     getProtocol(callback: AsyncCallback<string>): void;
 
@@ -3348,7 +2778,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
      * @since 9 dynamic
-     * @since 26.1.0 static
      */
     getProtocol(): Promise<string>;
 
@@ -3365,7 +2794,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
      * @since 9 dynamic
-     * @since 26.1.0 static
      */
     getCipherSuite(callback: AsyncCallback<Array<string>>): void;
 
@@ -3382,7 +2810,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
      * @since 9 dynamic
-     * @since 26.1.0 static
      */
     getCipherSuite(): Promise<Array<string>>;
 
@@ -3397,7 +2824,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
      * @since 9 dynamic
-     * @since 26.1.0 static
      */
     getSignatureAlgorithms(callback: AsyncCallback<Array<string>>): void;
 
@@ -3411,7 +2837,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
      * @since 9 dynamic
-     * @since 26.1.0 static
      */
     getSignatureAlgorithms(): Promise<Array<string>>;
 
@@ -3430,7 +2855,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 24]
      * @since 16 dynamic
-     * @since 26.1.0 static
      */
     getSocketFd(): Promise<int>;
 
@@ -3471,7 +2895,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
      * @since 9 dynamic
-     * @since 26.1.0 static
      */
     connect(options: TLSConnectOptions, callback: AsyncCallback<void>): void;
 
@@ -3513,7 +2936,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
      * @since 9 dynamic
-     * @since 26.1.0 static
      */
     connect(options: TLSConnectOptions): Promise<void>;
 
@@ -3534,7 +2956,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
      * @since 9 dynamic
-     * @since 26.1.0 static
      */
     send(data: string | ArrayBuffer, callback: AsyncCallback<void>): void;
 
@@ -3555,7 +2976,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
      * @since 9 dynamic
-     * @since 26.1.0 static
      */
     send(data: string | ArrayBuffer): Promise<void>;
 
@@ -3572,7 +2992,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
      * @since 9 dynamic
-     * @since 26.1.0 static
      */
     close(callback: AsyncCallback<void>): void;
 
@@ -3589,7 +3008,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
      * @since 9 dynamic
-     * @since 26.1.0 static
      */
     close(): Promise<void>;
   }
@@ -3601,7 +3019,6 @@ declare namespace socket {
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform [since 10]
    * @since 9 dynamic
-   * @since 26.1.0 static
    */
   export interface TLSSecureOptions {
     /**
@@ -3613,7 +3030,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
      * @since 9 dynamic
-     * @since 26.1.0 static
      */
     ca?: string | Array<string>;
 
@@ -3626,7 +3042,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
      * @since 9 dynamic
-     * @since 26.1.0 static
      */
     cert?: string | Array<string>;
 
@@ -3636,7 +3051,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
      * @since 9 dynamic
-     * @since 26.1.0 static
      */
     key?: string;
 
@@ -3646,7 +3060,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
      * @since 9 dynamic
-     * @since 26.1.0 static
      */
     password?: string;
 
@@ -3658,7 +3071,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
      * @since 9 dynamic
-     * @since 26.1.0 static
      */
     protocols?: Protocol | Array<Protocol>;
 
@@ -3669,7 +3081,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
      * @since 9 dynamic
-     * @since 26.1.0 static
      */
     useRemoteCipherPrefer?: boolean;
 
@@ -3679,7 +3090,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
      * @since 9 dynamic
-     * @since 26.1.0 static
      */
     signatureAlgorithms?: string;
 
@@ -3689,7 +3099,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
      * @since 9 dynamic
-     * @since 26.1.0 static
      */
     cipherSuite?: string;
 
@@ -3700,7 +3109,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 24]
      * @since 12 dynamic
-     * @since 26.1.0 static
      */
     isBidirectionalAuthentication?: boolean;
   }
@@ -3711,7 +3119,6 @@ declare namespace socket {
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform [since 10]
    * @since 9 dynamic
-   * @since 26.1.0 static
    */
   export interface TLSConnectOptions {
     /**
@@ -3720,7 +3127,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
      * @since 9 dynamic
-     * @since 26.1.0 static
      */
     address: NetAddress;
 
@@ -3730,7 +3136,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
      * @since 9 dynamic
-     * @since 26.1.0 static
      */
     secureOptions: TLSSecureOptions;
 
@@ -3740,7 +3145,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
      * @since 9 dynamic
-     * @since 26.1.0 static
      */
     ALPNProtocols?: Array<string>;
 
@@ -3751,7 +3155,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 24]
      * @since 12 dynamic
-     * @since 26.1.0 static
      */
     skipRemoteValidation?: boolean;
 
@@ -3761,7 +3164,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 18 dynamic
-     * @since 26.1.0 static
      */
     proxy?: ProxyOptions;
 
@@ -3772,7 +3174,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 22 dynamic
-     * @since 26.1.0 static
      */
     timeout?: int;
   }
@@ -3783,7 +3184,6 @@ declare namespace socket {
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform [since 10]
    * @since 9 dynamic
-   * @since 26.1.0 static
    */
   export enum Protocol {
     /**
@@ -3792,7 +3192,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
      * @since 9 dynamic
-     * @since 26.1.0 static
      */
     TLSv12 = "TLSv1.2",
 
@@ -3802,7 +3201,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
      * @since 9 dynamic
-     * @since 26.1.0 static
      */
     TLSv13 = "TLSv1.3"
   }
@@ -3819,7 +3217,6 @@ declare namespace socket {
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform [since 24]
    * @since 10 dynamic
-   * @since 26.1.0 static
    */
   export interface TCPSocketConnection {
     /**
@@ -3828,7 +3225,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 24]
      * @since 10 dynamic
-     * @since 26.1.0 static
      */
     clientId: int;
 
@@ -3849,7 +3245,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 24]
      * @since 10 dynamic
-     * @since 26.1.0 static
      */
     send(options: TCPSendOptions, callback: AsyncCallback<void>): void;
 
@@ -3869,7 +3264,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 24]
      * @since 10 dynamic
-     * @since 26.1.0 static
      */
     send(options: TCPSendOptions): Promise<void>;
 
@@ -3885,7 +3279,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 24]
      * @since 10 dynamic
-     * @since 26.1.0 static
      */
     close(callback: AsyncCallback<void>): void;
 
@@ -3899,7 +3292,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 24]
      * @since 10 dynamic
-     * @since 26.1.0 static
      */
     close(): Promise<void>;
 
@@ -3920,7 +3312,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 24]
      * @since 10 dynamic
-     * @since 26.1.0 static
      */
     getRemoteAddress(callback: AsyncCallback<NetAddress>): void;
 
@@ -3939,7 +3330,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 24]
      * @since 10 dynamic
-     * @since 26.1.0 static
      */
     getRemoteAddress(): Promise<NetAddress>;
 
@@ -3954,7 +3344,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 24]
      * @since 12 dynamic
-     * @since 26.1.0 static
      */
     getLocalAddress(): Promise<NetAddress>;
 
@@ -3975,16 +3364,6 @@ declare namespace socket {
     on(type: 'message', callback: Callback<SocketMessageInfo>): void;
 
     /**
-     * Listens for message receiving events of the TCPSocketConnection.
-     *
-     * @param { Callback<SocketMessageInfo> } callback - The callback of on.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 26.1.0 static
-     */
-    onTcpConnMessage(callback: Callback<SocketMessageInfo>): void;
-
-    /**
      * Unsubscribes from **message** events of the **TCPSocketConnection** object. This API uses an asynchronous
      * callback to return the result.
      *
@@ -4003,16 +3382,6 @@ declare namespace socket {
     off(type: 'message', callback?: Callback<SocketMessageInfo>): void;
 
     /**
-     * Cancels listening for message receiving events of the TCPSocketConnection.
-     *
-     * @param { Callback<SocketMessageInfo> } [callback] - The callback of off.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 26.1.0 static
-     */
-    offTcpConnMessage(callback?: Callback<SocketMessageInfo>): void;
-
-    /**
      * Subscribes to **close** events of the **TCPSocketConnection** object. This API uses an asynchronous callback to
      * return the result.
      *
@@ -4025,16 +3394,6 @@ declare namespace socket {
      * @since 10 dynamic
      */
     on(type: 'close', callback: Callback<void>): void;
-
-    /**
-     * Listens for close events of the TCPSocketConnection.
-     *
-     * @param { Callback<void> } callback - The callback of on.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 26.1.0 static
-     */
-    onTcpConnClose(callback: Callback<void>): void;
 
     /**
      * Unsubscribes from **close** events of the **TCPSocketConnection** object. This API uses an asynchronous callback
@@ -4052,16 +3411,6 @@ declare namespace socket {
     off(type: 'close', callback?: Callback<void>): void;
 
     /**
-     * Cancels listening for close events of the TCPSocketConnection.
-     *
-     * @param { Callback<void> } [callback] - The callback of off.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 26.1.0 static
-     */
-    offTcpConnClose(callback?: Callback<void>): void;
-
-    /**
      * Subscribes to **error** events of the **TCPSocketConnection** object. This API uses an asynchronous callback to
      * return the result.
      *
@@ -4073,15 +3422,6 @@ declare namespace socket {
      * @since 10 dynamic
      */
     on(type: 'error', callback: ErrorCallback): void;
-
-    /**
-     * Listens for error events of the TCPSocketConnection.
-     *
-     * @param { ErrorCallback } callback - The callback of on.
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 26.1.0 static
-     */
-    onTcpConnError(callback: ErrorCallback): void;
 
     /**
      * Unsubscribes from **error** events of the **TCPSocketConnection** object. This API uses an asynchronous callback
@@ -4096,15 +3436,6 @@ declare namespace socket {
      * @since 10 dynamic
      */
     off(type: 'error', callback?: ErrorCallback): void;
-
-    /**
-     * Cancels listening for error events of the TCPSocketConnection.
-     *
-     * @param { ErrorCallback } [callback] - The callback of off.
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 26.1.0 static
-     */
-    offTcpConnError(callback?: ErrorCallback): void;
 
     /**
      * Obtains the file descriptor of a TCPSocketConnection connection. This API uses a promise to return the result.
@@ -4126,7 +3457,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 24]
      * @since 23 dynamic
-     * @since 26.1.0 static
      */
     getSocketFd(): Promise<int>;
   }
@@ -4139,7 +3469,6 @@ declare namespace socket {
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform [since 24]
    * @since 10 dynamic
-   * @since 26.1.0 static
    */
   export interface TCPSocketServer {
     /**
@@ -4166,7 +3495,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 24]
      * @since 10 dynamic
-     * @since 26.1.0 static
      */
     listen(address: NetAddress, callback: AsyncCallback<void>): void;
 
@@ -4193,7 +3521,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 24]
      * @since 10 dynamic
-     * @since 26.1.0 static
      */
     listen(address: NetAddress): Promise<void>;
 
@@ -4217,7 +3544,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 24]
      * @since 20 dynamic
-     * @since 26.1.0 static
      */
     close(): Promise<void>;
 
@@ -4239,7 +3565,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 24]
      * @since 10 dynamic
-     * @since 26.1.0 static
      */
     getState(callback: AsyncCallback<SocketStateBase>): void;
 
@@ -4258,7 +3583,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 24]
      * @since 10 dynamic
-     * @since 26.1.0 static
      */
     getState(): Promise<SocketStateBase>;
 
@@ -4281,7 +3605,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 24]
      * @since 10 dynamic
-     * @since 26.1.0 static
      */
     setExtraOptions(options: TCPExtraOptions, callback: AsyncCallback<void>): void;
 
@@ -4302,7 +3625,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 24]
      * @since 10 dynamic
-     * @since 26.1.0 static
      */
     setExtraOptions(options: TCPExtraOptions): Promise<void>;
 
@@ -4321,7 +3643,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 24]
      * @since 12 dynamic
-     * @since 26.1.0 static
      */
     getLocalAddress(): Promise<NetAddress>;
 
@@ -4344,16 +3665,6 @@ declare namespace socket {
     on(type: 'connect', callback: Callback<TCPSocketConnection>): void;
 
     /**
-     * Listens for connect events of the TCPSocketServer connection.
-     *
-     * @param { Callback<TCPSocketConnection> } callback - The callback of on.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 26.1.0 static
-     */
-    onTcpServerConnect(callback: Callback<TCPSocketConnection>): void;
-
-    /**
      * Unsubscribes from **connect** events of the **TCPSocketServer** object. This API uses an asynchronous callback to
      * return the result.
      *
@@ -4367,16 +3678,6 @@ declare namespace socket {
      * @since 10 dynamic
      */
     off(type: 'connect', callback?: Callback<TCPSocketConnection>): void;
-
-    /**
-     * Cancels listening for connect events of the TCPSocketServer connection.
-     *
-     * @param { Callback<TCPSocketConnection> } [callback] - The callback of off.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 26.1.0 static
-     */
-    offTcpServerConnect(callback?: Callback<TCPSocketConnection>): void;
 
     /**
      * Subscribes to **error** events of the **TCPSocketServer** object. This API uses an asynchronous callback to
@@ -4396,15 +3697,6 @@ declare namespace socket {
     on(type: 'error', callback: ErrorCallback): void;
 
     /**
-     * Listens for error events of the TCPSocketServer connection.
-     *
-     * @param { ErrorCallback } callback - The callback of on.
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 26.1.0 static
-     */
-    onTcpServerError(callback: ErrorCallback): void;
-
-    /**
      * Unsubscribes from **error** events of the **TCPSocketServer** object. This API uses an asynchronous callback to
      * return the result.
      *
@@ -4417,15 +3709,6 @@ declare namespace socket {
      * @since 10 dynamic
      */
     off(type: 'error', callback?: ErrorCallback): void;
-
-    /**
-     * Cancels listening for error events of the TCPSocketServer connection.
-     *
-     * @param { ErrorCallback } [callback] - The callback of off.
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 26.1.0 static
-     */
-    offTcpServerError(callback?: ErrorCallback): void;
 
     /**
      * Obtains the file descriptor bound to the TCPSocketServer listening port. This API uses a promise to return the
@@ -4451,7 +3734,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 24]
      * @since 23 dynamic
-     * @since 26.1.0 static
      */
     getSocketFd(): Promise<int>;
   }
@@ -4468,7 +3750,6 @@ declare namespace socket {
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform [since 24]
    * @since 10 dynamic
-   * @since 26.1.0 static
    */
   export interface TLSSocketConnection {
     /**
@@ -4477,7 +3758,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 24]
      * @since 10 dynamic
-     * @since 26.1.0 static
      */
     clientId: int;
 
@@ -4498,7 +3778,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 24]
      * @since 10 dynamic
-     * @since 26.1.0 static
      */
     send(data: string | ArrayBuffer, callback: AsyncCallback<void>): void;
 
@@ -4519,7 +3798,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 24]
      * @since 10 dynamic
-     * @since 26.1.0 static
      */
     send(data: string | ArrayBuffer): Promise<void>;
 
@@ -4536,7 +3814,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 24]
      * @since 10 dynamic
-     * @since 26.1.0 static
      */
     close(callback: AsyncCallback<void>): void;
 
@@ -4553,7 +3830,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 24]
      * @since 10 dynamic
-     * @since 26.1.0 static
      */
     close(): Promise<void>;
 
@@ -4569,7 +3845,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 24]
      * @since 10 dynamic
-     * @since 26.1.0 static
      */
     getRemoteAddress(callback: AsyncCallback<NetAddress>): void;
 
@@ -4583,7 +3858,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 24]
      * @since 10 dynamic
-     * @since 26.1.0 static
      */
     getRemoteAddress(): Promise<NetAddress>;
 
@@ -4600,7 +3874,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 24]
      * @since 10 dynamic
-     * @since 26.1.0 static
      */
     getRemoteCertificate(callback: AsyncCallback<X509CertRawData>): void;
 
@@ -4616,7 +3889,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 24]
      * @since 10 dynamic
-     * @since 26.1.0 static
      */
     getRemoteCertificate(): Promise<X509CertRawData>;
 
@@ -4634,7 +3906,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 24]
      * @since 10 dynamic
-     * @since 26.1.0 static
      */
     getCipherSuite(callback: AsyncCallback<Array<string>>): void;
 
@@ -4651,7 +3922,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 24]
      * @since 10 dynamic
-     * @since 26.1.0 static
      */
     getCipherSuite(): Promise<Array<string>>;
 
@@ -4666,7 +3936,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 24]
      * @since 10 dynamic
-     * @since 26.1.0 static
      */
     getSignatureAlgorithms(callback: AsyncCallback<Array<string>>): void;
 
@@ -4680,7 +3949,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 24]
      * @since 10 dynamic
-     * @since 26.1.0 static
      */
     getSignatureAlgorithms(): Promise<Array<string>>;
 
@@ -4699,7 +3967,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 24]
      * @since 12 dynamic
-     * @since 26.1.0 static
      */
     getLocalAddress(): Promise<NetAddress>;
 
@@ -4722,16 +3989,6 @@ declare namespace socket {
     on(type: 'message', callback: Callback<SocketMessageInfo>): void;
 
     /**
-     * Listens for message receiving events of the TLSSocketConnection.
-     *
-     * @param { Callback<SocketMessageInfo> } callback - The callback of on.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 26.1.0 static
-     */
-    onTlsConnMessage(callback: Callback<SocketMessageInfo>): void;
-
-    /**
      * Unsubscribes from **message** events of the **TLSSocketConnection** object. This API uses an asynchronous
      * callback to return the result.
      *
@@ -4750,16 +4007,6 @@ declare namespace socket {
     off(type: 'message', callback?: Callback<SocketMessageInfo>): void;
 
     /**
-     * Cancels listening for message receiving events of the TLSSocketConnection.
-     *
-     * @param { Callback<SocketMessageInfo> } [callback] - The callback of off.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 26.1.0 static
-     */
-    offTlsConnMessage(callback?: Callback<SocketMessageInfo>): void;
-
-    /**
      * Subscribes to **close** events of the **TLSSocketConnection** object. This API uses an asynchronous callback to
      * return the result.
      *
@@ -4772,16 +4019,6 @@ declare namespace socket {
      * @since 10 dynamic
      */
     on(type: 'close', callback: Callback<void>): void;
-
-    /**
-     * Listens for close events of the TLSSocketConnection.
-     *
-     * @param { Callback<void> } callback - The callback of on.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 26.1.0 static
-     */
-    onTlsConnClose(callback: Callback<void>): void;
 
     /**
      * Unsubscribes from **close** events of the **TLSSocketConnection** object. This API uses an asynchronous callback
@@ -4798,16 +4035,6 @@ declare namespace socket {
     off(type: 'close', callback?: Callback<void>): void;
 
     /**
-     * Cancels listening for close events of the TLSSocketConnection.
-     *
-     * @param { Callback<void> } [callback] - The callback of off.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 26.1.0 static
-     */
-    offTlsConnClose(callback?: Callback<void>): void;
-
-    /**
      * Subscribes to **error** events of the **TLSSocketConnection** object. This API uses an asynchronous callback to
      * return the result.
      *
@@ -4821,15 +4048,6 @@ declare namespace socket {
     on(type: 'error', callback: ErrorCallback): void;
 
     /**
-     * Listens for error events of the TLSSocketConnection.
-     *
-     * @param { ErrorCallback } callback - The callback of on.
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 26.1.0 static
-     */
-    onTlsConnError(callback: ErrorCallback): void;
-
-    /**
      * Unsubscribes from **error** events of the **TLSSocketConnection** object. This API uses an asynchronous callback
      * to return the result.
      *
@@ -4841,15 +4059,6 @@ declare namespace socket {
      * @since 10 dynamic
      */
     off(type: 'error', callback?: ErrorCallback): void;
-
-    /**
-     * Cancels listening for error events of the TLSSocketConnection.
-     *
-     * @param { ErrorCallback } [callback] - The callback of off.
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 26.1.0 static
-     */
-    offTlsConnError(callback?: ErrorCallback): void;
 
     /**
      * Obtains the file descriptor of a TLSSocketConnection connection. This API uses a promise to return the result.
@@ -4871,7 +4080,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 24]
      * @since 23 dynamic
-     * @since 26.1.0 static
      */
     getSocketFd(): Promise<int>;
   }
@@ -4882,7 +4090,6 @@ declare namespace socket {
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform
    * @since 11 dynamic
-   * @since 26.1.0 static
    */
   export interface SocketMessageInfo {
     /**
@@ -4891,7 +4098,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 11 dynamic
-     * @since 26.1.0 static
      */
     message: ArrayBuffer;
     /**
@@ -4900,7 +4106,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 11 dynamic
-     * @since 26.1.0 static
      */
     remoteInfo: SocketRemoteInfo;
   }
@@ -4913,7 +4118,6 @@ declare namespace socket {
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform [since 24]
    * @since 10 dynamic
-   * @since 26.1.0 static
    */
   export interface TLSSocketServer {
     /**
@@ -4944,7 +4148,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 24]
      * @since 10 dynamic
-     * @since 26.1.0 static
      */
     listen(options: TLSConnectOptions, callback: AsyncCallback<void>): void;
 
@@ -4972,7 +4175,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 24]
      * @since 10 dynamic
-     * @since 26.1.0 static
      */
     listen(options: TLSConnectOptions): Promise<void>;
 
@@ -4993,7 +4195,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 24]
      * @since 20 dynamic
-     * @since 26.1.0 static
      */
     close(): Promise<void>;
 
@@ -5014,7 +4215,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 24]
      * @since 10 dynamic
-     * @since 26.1.0 static
      */
     getState(callback: AsyncCallback<SocketStateBase>): void;
 
@@ -5033,7 +4233,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 24]
      * @since 10 dynamic
-     * @since 26.1.0 static
      */
     getState(): Promise<SocketStateBase>;
 
@@ -5054,7 +4253,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 24]
      * @since 10 dynamic
-     * @since 26.1.0 static
      */
     setExtraOptions(options: TCPExtraOptions, callback: AsyncCallback<void>): void;
 
@@ -5075,7 +4273,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 24]
      * @since 10 dynamic
-     * @since 26.1.0 static
      */
     setExtraOptions(options: TCPExtraOptions): Promise<void>;
 
@@ -5096,7 +4293,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 24]
      * @since 10 dynamic
-     * @since 26.1.0 static
      */
     getCertificate(callback: AsyncCallback<X509CertRawData>): void;
 
@@ -5116,7 +4312,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 24]
      * @since 10 dynamic
-     * @since 26.1.0 static
      */
     getCertificate(): Promise<X509CertRawData>;
 
@@ -5137,7 +4332,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 24]
      * @since 10 dynamic
-     * @since 26.1.0 static
      */
     getProtocol(callback: AsyncCallback<string>): void;
 
@@ -5157,7 +4351,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 24]
      * @since 10 dynamic
-     * @since 26.1.0 static
      */
     getProtocol(): Promise<string>;
 
@@ -5176,7 +4369,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 24]
      * @since 12 dynamic
-     * @since 26.1.0 static
      */
     getLocalAddress(): Promise<NetAddress>;
 
@@ -5196,16 +4388,6 @@ declare namespace socket {
      * @since 10 dynamic
      */
     on(type: 'connect', callback: Callback<TLSSocketConnection>): void;
-
-    /**
-     * Listens for connect events of the TLSSocketServer connection.
-     *
-     * @param { Callback<TLSSocketConnection> } callback - The callback of on.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 26.1.0 static
-     */
-    onTlsServerConnect(callback: Callback<TLSSocketConnection>): void;
 
     /**
      * Unsubscribes from **connect** events of the **TLSSocketServer** object. This API uses an asynchronous callback to
@@ -5229,16 +4411,6 @@ declare namespace socket {
     off(type: 'connect', callback?: Callback<TLSSocketConnection>): void;
 
     /**
-     * Cancels listening for connect events of the TLSSocketServer connection.
-     *
-     * @param { Callback<TLSSocketConnection> } [callback] - The callback of off.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 26.1.0 static
-     */
-    offTlsServerConnect(callback?: Callback<TLSSocketConnection>): void;
-
-    /**
      * Subscribes to **error** events of the **TLSSocketServer** object. This API uses an asynchronous callback to
      * return the result.
      *
@@ -5255,16 +4427,6 @@ declare namespace socket {
      * @since 10 dynamic
      */
     on(type: 'error', callback: ErrorCallback): void;
-
-    /**
-     * Listens for error events of the TLSSocketServer connection.
-     *
-     * @param { ErrorCallback } callback - The callback of on.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 26.1.0 static
-     */
-    onTlsServerError(callback: ErrorCallback): void;
 
     /**
      * Unsubscribes from **error** events of the **TLSSocketServer** object. This API uses an asynchronous callback to
@@ -5286,16 +4448,6 @@ declare namespace socket {
      * @since 10 dynamic
      */
     off(type: 'error', callback?: ErrorCallback): void;
-
-    /**
-     * Cancels listening for error events of the TLSSocketServer connection.
-     *
-     * @param { ErrorCallback } [callback] - The callback of off.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 26.1.0 static
-     */
-    offTlsServerError(callback?: ErrorCallback): void;
 
     /**
      * Obtains the file descriptor bound to the TLSSocketServer listening port. This API uses a promise to return the
@@ -5320,7 +4472,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 24]
      * @since 23 dynamic
-     * @since 26.1.0 static
      */
     getSocketFd(): Promise<int>;
   }

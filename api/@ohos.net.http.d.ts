@@ -1,4 +1,4 @@
-﻿/*
+/*
  * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -53,7 +53,7 @@ declare namespace http {
    *
    * @syscap SystemCapability.Communication.NetStack
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
   type Socks5Proxy = connection.Socks5Proxy;
 
@@ -140,15 +140,6 @@ declare namespace http {
     extraData?: string | Object | ArrayBuffer;
 
     /**
-     * Additional data of the request.
-     * extraData can be a string or an Object (API 6) or an ArrayBuffer(API 8).
-     *
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 26.1.0 static
-     */
-    extraData?: string | RecordData | ArrayBuffer;
-
-    /**
      * Type of the returned data. This parameter is not used by default. If this parameter is set, the system returns
      * the specified type of data preferentially. If the specified type is **Object**, the value can contain a maximum
      * of 65536 characters.
@@ -202,15 +193,6 @@ declare namespace http {
      * @since 23 static
      */
     header?: Object;
-
-    /**
-     * HTTP request header. default is 'content-type': 'application/json'
-     *
-     * @syscap SystemCapability.Communication.NetStack
-     * @FaAndStageModel
-     * @since 26.1.0 static
-     */
-    header?: Record<string, string>;
 
     /**
      * Read timeout duration. The default value is **60000**, in ms. The input value must be an uint32_t integer.
@@ -277,7 +259,6 @@ declare namespace http {
      * @crossplatform [since 12]
      * @atomicservice [since 11]
      * @since 10 dynamic
-     * @since 26.1.0 static
      */
     caPath?: string;
 
@@ -295,7 +276,6 @@ declare namespace http {
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
-     * @since 26.1.0 static
      */
     caData?: string;
 
@@ -306,7 +286,6 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @atomicservice
      * @since 20 dynamic
-     * @since 26.1.0 static
      */
     sslType?: SslType;
 
@@ -316,7 +295,6 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @atomicservice
      * @since 20 dynamic
-     * @since 26.1.0 static
      */
     clientEncCert?: ClientCert;
 
@@ -331,7 +309,6 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 12]
      * @since 11 dynamic
-     * @since 26.1.0 static
      */
     resumeFrom?: long;
 
@@ -346,7 +323,6 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 12]
      * @since 11 dynamic
-     * @since 26.1.0 static
      */
     resumeTo?: long;
 
@@ -368,7 +344,6 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 12]
      * @since 11 dynamic
-     * @since 26.1.0 static
      */
     dnsOverHttps?: string;
 
@@ -382,7 +357,6 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 12]
      * @since 11 dynamic
-     * @since 26.1.0 static
      */
     dnsServers?: Array<string>;
 
@@ -394,7 +368,6 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 12]
      * @since 11 dynamic
-     * @since 26.1.0 static
      */
     maxLimit?: int;
 
@@ -413,7 +386,6 @@ declare namespace http {
      *
      * @syscap SystemCapability.Communication.NetStack
      * @since 12 dynamic
-     * @since 26.1.0 static
      */
     certificatePinning?: CertificatePinning | CertificatePinning[];
 
@@ -424,7 +396,6 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @atomicservice
      * @since 18 dynamic
-     * @since 26.1.0 static
      */
     remoteValidation?: RemoteValidation;
 
@@ -434,7 +405,6 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @atomicservice
      * @since 18 dynamic
-     * @since 26.1.0 static
      */
     tlsOptions?: TlsOptions;
 
@@ -444,7 +414,6 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @atomicservice
      * @since 18 dynamic
-     * @since 26.1.0 static
      */
     serverAuthentication?: ServerAuthentication;
 
@@ -453,7 +422,6 @@ declare namespace http {
      *
      * @syscap SystemCapability.Communication.NetStack
      * @since 15 dynamic
-     * @since 26.1.0 static
      */
     addressFamily?: AddressFamily;
 
@@ -467,7 +435,6 @@ declare namespace http {
      *
      * @syscap SystemCapability.Communication.NetStack
      * @since 23 dynamic
-     * @since 26.1.0 static
      */
     sniHostName?: string;
 
@@ -481,7 +448,6 @@ declare namespace http {
      *
      * @syscap SystemCapability.Communication.NetStack
      * @since 23 dynamic
-     * @since 26.1.0 static
      */
     maxRedirects?: int;
 
@@ -499,7 +465,6 @@ declare namespace http {
      *
      * @syscap SystemCapability.Communication.NetStack
      * @since 23 dynamic
-     * @since 26.1.0 static
      */
     customMethod?: string;
 
@@ -508,7 +473,6 @@ declare namespace http {
      *
      * @syscap SystemCapability.Communication.NetStack
      * @since 23 dynamic
-     * @since 26.1.0 static
      */
     pathPreference?: PathPreference;
 
@@ -525,7 +489,7 @@ declare namespace http {
      *
      * @syscap SystemCapability.Communication.NetStack
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     reuseConnections?: boolean;
 
@@ -541,7 +505,7 @@ declare namespace http {
      *
      * @syscap SystemCapability.Communication.NetStack
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     inactivityMs?: int;
 
@@ -551,7 +515,7 @@ declare namespace http {
      *
      * @syscap SystemCapability.Communication.NetStack
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     usingSocks5Proxy?: Socks5Proxy;
 
@@ -564,7 +528,7 @@ declare namespace http {
      *
      * @syscap SystemCapability.Communication.NetStack
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     enablePartialChain?: boolean;
 
@@ -582,7 +546,7 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @stagemodelonly
      * @crossplatform
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     queryParams?: string | QueryParamObject;
 
@@ -599,7 +563,7 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @stagemodelonly
      * @crossplatform
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     body?: string | Object | ArrayBuffer;
   }
@@ -718,7 +682,7 @@ declare namespace http {
    *
    * @unionmember { 'system' } Use of the system CA. This field is defaulted to **system** when the value is not set.
    * @unionmember { 'skip' } Skipping of CA verification. This field has a fixed value of **skip**.
-   * @unionmember { ValidationCallback } [since 26.0.0] use custom validation.
+   * @unionmember { ValidationCallback } use custom validation. [since 26.0.0]
    * @syscap SystemCapability.Communication.NetStack
    * @atomicservice
    * @since 18 dynamic
@@ -763,7 +727,6 @@ declare namespace http {
    * @syscap SystemCapability.Communication.NetStack
    * @atomicservice
    * @since 20 dynamic
-   * @since 26.1.0 static
    */
   export type SslType = 'TLS' | 'TLCP';
 
@@ -783,7 +746,6 @@ declare namespace http {
    *     request when dual cellular networks are activated.
    * @syscap SystemCapability.Communication.NetStack
    * @since 23 dynamic
-   * @since 26.1.0 static
    */
   export type PathPreference = 'auto' | 'primaryCellular' | 'secondaryCellular';
 
@@ -798,7 +760,7 @@ declare namespace http {
    * @syscap SystemCapability.Communication.NetStack
    * @stagemodelonly
    * @crossplatform
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
   export type QueryParamValue = string | int | boolean | null | undefined;
 
@@ -822,7 +784,7 @@ declare namespace http {
    * @syscap SystemCapability.Communication.NetStack
    * @stagemodelonly
    * @crossplatform
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
   export type QueryParamObject = Record<string, QueryParamValue | QueryParamValue[]>;
 
@@ -840,7 +802,6 @@ declare namespace http {
    * @syscap SystemCapability.Communication.NetStack
    * @atomicservice
    * @since 22 dynamic
-   * @since 26.1.0 static
    */
   export enum InterceptorType {
     /**
@@ -849,7 +810,6 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @atomicservice
      * @since 22 dynamic
-     * @since 26.1.0 static
      */
     INITIAL_REQUEST = 'INITIAL_REQUEST',
 
@@ -859,7 +819,6 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @atomicservice
      * @since 22 dynamic
-     * @since 26.1.0 static
      */
     REDIRECTION = 'REDIRECTION',
 
@@ -869,7 +828,6 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @atomicservice
      * @since 22 dynamic
-     * @since 26.1.0 static
      */
     CACHE_CHECKED = 'READ_CACHE',
 
@@ -879,7 +837,6 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @atomicservice
      * @since 22 dynamic
-     * @since 26.1.0 static
      */
     NETWORK_CONNECT = 'CONNECT_NETWORK',
 
@@ -889,7 +846,6 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @atomicservice
      * @since 22 dynamic
-     * @since 26.1.0 static
      */
     FINAL_RESPONSE = 'FINAL_RESPONSE'
   }
@@ -902,7 +858,6 @@ declare namespace http {
    * @syscap SystemCapability.Communication.NetStack
    * @atomicservice
    * @since 22 dynamic
-   * @since 26.1.0 static
    */
   export interface HttpRequestContext {
     /**
@@ -911,7 +866,6 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @atomicservice
      * @since 22 dynamic
-     * @since 26.1.0 static
      */
     url: string;
 
@@ -921,7 +875,6 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @atomicservice
      * @since 22 dynamic
-     * @since 26.1.0 static
      */
     header: Object;
 
@@ -931,7 +884,6 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @atomicservice
      * @since 22 dynamic
-     * @since 26.1.0 static
      */
     body: Object;
   }
@@ -942,7 +894,6 @@ declare namespace http {
    * @syscap SystemCapability.Communication.NetStack
    * @atomicservice
    * @since 22 dynamic
-   * @since 26.1.0 static
    */
   export type ChainContinue = boolean;
 
@@ -952,7 +903,6 @@ declare namespace http {
    * @syscap SystemCapability.Communication.NetStack
    * @atomicservice
    * @since 22 dynamic
-   * @since 26.1.0 static
    */
   export interface HttpInterceptor {
     /**
@@ -961,7 +911,6 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @atomicservice
      * @since 22 dynamic
-     * @since 26.1.0 static
      */
     interceptorType: InterceptorType;
 
@@ -974,7 +923,6 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @atomicservice
      * @since 22 dynamic
-     * @since 26.1.0 static
      */
     interceptorHandle(reqContext: HttpRequestContext, rspContext: HttpResponse): Promise<ChainContinue>;
   }
@@ -985,7 +933,6 @@ declare namespace http {
    * @syscap SystemCapability.Communication.NetStack
    * @atomicservice
    * @since 22 dynamic
-   * @since 26.1.0 static
    * @class HttpInterceptorChain
    */
   export class HttpInterceptorChain {
@@ -997,7 +944,6 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @atomicservice
      * @since 22 dynamic
-     * @since 26.1.0 static
      */
     public getChain(): HttpInterceptor[];
 
@@ -1019,7 +965,6 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @atomicservice
      * @since 22 dynamic
-     * @since 26.1.0 static
      */
     public addChain(chain: HttpInterceptor[]): boolean;
 
@@ -1050,7 +995,6 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @atomicservice
      * @since 22 dynamic
-     * @since 26.1.0 static
      */
     public apply(httpRequest: HttpRequest): boolean;
   }
@@ -1355,14 +1299,6 @@ declare namespace http {
     data?: string | Object | ArrayBuffer;
 
     /**
-     * This parameter sets a mime part's body content from memory data.
-     *
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 26.1.0 static
-     */
-    data?: string | RecordData | ArrayBuffer;
-
-    /**
      * File path of the form data. If **data** is not specified, **filePath** must be set.
      *
      * **Note**: The file format supported by the file management module must be passed. You can call
@@ -1421,7 +1357,6 @@ declare namespace http {
    *
    * @syscap SystemCapability.Communication.NetStack
    * @since 15 dynamic
-   * @since 26.1.0 static
    */
   export enum AddressFamily {
     /**
@@ -1429,7 +1364,6 @@ declare namespace http {
      *
      * @syscap SystemCapability.Communication.NetStack
      * @since 15 dynamic
-     * @since 26.1.0 static
      */
     DEFAULT = 'CURL_IPRESOLVE_WHATEVER',
 
@@ -1438,7 +1372,6 @@ declare namespace http {
      *
      * @syscap SystemCapability.Communication.NetStack
      * @since 15 dynamic
-     * @since 26.1.0 static
      */
     ONLY_V4 = 'CURL_IPRESOLVE_V4',
 
@@ -1447,7 +1380,6 @@ declare namespace http {
      *
      * @syscap SystemCapability.Communication.NetStack
      * @since 15 dynamic
-     * @since 26.1.0 static
      */
     ONLY_V6 = 'CURL_IPRESOLVE_V6'
   }
@@ -1507,7 +1439,6 @@ declare namespace http {
    *
    * @syscap SystemCapability.Communication.NetStack
    * @since 12 dynamic
-   * @since 26.1.0 static
    */
   interface CertificatePinning {
     /**
@@ -1515,7 +1446,6 @@ declare namespace http {
      *
      * @syscap SystemCapability.Communication.NetStack
      * @since 12 dynamic
-     * @since 26.1.0 static
      */
     publicKeyHash: string;
     /**
@@ -1523,7 +1453,6 @@ declare namespace http {
      *
      * @syscap SystemCapability.Communication.NetStack
      * @since 12 dynamic
-     * @since 26.1.0 static
      */
     hashAlgorithm: 'SHA-256';
   }
@@ -1795,12 +1724,12 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @stagemodelonly
      * @crossplatform
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     requestSync(url: string, options?: HttpRequestOptions): HttpResponse;
 
     /**
-     * Initiates an HTTP request containing specified options to a given URL. This API uses an asynchronous callback to
+     * Initiates an HTTP request containing specified options to a given URL. This API uses an asynchronous callback to 
      * return the result, which is a streaming response.
      *
      * @permission ohos.permission.INTERNET
@@ -1846,12 +1775,11 @@ declare namespace http {
      * @crossplatform [since 18]
      * @atomicservice [since 15]
      * @since 10 dynamic
-     * @since 26.1.0 static
      */
     requestInStream(url: string, callback: AsyncCallback<int>): void;
 
     /**
-     * Initiates an HTTP request containing specified options to a given URL. This API uses an asynchronous callback to
+     * Initiates an HTTP request containing specified options to a given URL. This API uses an asynchronous callback to 
      * return the result, which is a streaming response.
      *
      * @permission ohos.permission.INTERNET
@@ -1900,12 +1828,11 @@ declare namespace http {
      * @crossplatform [since 18]
      * @atomicservice [since 15]
      * @since 10 dynamic
-     * @since 26.1.0 static
      */
     requestInStream(url: string, options: HttpRequestOptions, callback: AsyncCallback<int>): void;
 
     /**
-     * Initiates an HTTP request containing specified options to a given URL. This API uses a promise to return the
+     * Initiates an HTTP request containing specified options to a given URL. This API uses a promise to return the 
      * result, which is a streaming response.
      *
      * @permission ohos.permission.INTERNET
@@ -1952,7 +1879,6 @@ declare namespace http {
      * @crossplatform [since 18]
      * @atomicservice [since 15]
      * @since 10 dynamic
-     * @since 26.1.0 static
      */
     requestInStream(url: string, options?: HttpRequestOptions): Promise<int>;
 
@@ -2008,17 +1934,6 @@ declare namespace http {
     on(type: "headersReceive", callback: Callback<Object>): void;
 
     /**
-     * Registers an observer for HTTP Response Header events.
-     *
-     * @param { Callback<Record<string, string>> } callback - the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @atomicservice
-     * @since 26.1.0 static
-     */
-    onHeadersReceive(callback: Callback<Record<string, string>>): void;
-
-    /**
      * Unregisters the observer for HTTP Response Header events.
      *
      * @param { "headersReceive" } type - Event type. The value is **headersReceive**.
@@ -2036,17 +1951,6 @@ declare namespace http {
     off(type: "headersReceive", callback?: Callback<Object>): void;
 
     /**
-     * Unregisters the observer for HTTP Response Header events.
-     *
-     * @param { Callback<Record<string, string>> } [callback] - the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @atomicservice
-     * @since 26.1.0 static
-     */
-    offHeadersReceive(callback?: Callback<Record<string, string>>): void;
-
-    /**
      * Registers a one-time observer for HTTP Response Header events. Once triggered, the observer will be removed. This
      * API uses an asynchronous callback to return the result.
      *
@@ -2058,17 +1962,6 @@ declare namespace http {
      * @since 8 dynamic
      */
     once(type: "headersReceive", callback: Callback<Object>): void;
-
-    /**
-     * Registers a one-time observer for HTTP Response Header events.
-     *
-     * @param { Callback<Record<string, string>> } callback - the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @atomicservice
-     * @since 26.1.0 static
-     */
-    onceHeadersReceive(callback: Callback<Record<string, string>>): void;
 
     /**
      * Registers an observer for events indicating receiving of HTTP streaming responses.
@@ -2085,17 +1978,6 @@ declare namespace http {
     on(type: "dataReceive", callback: Callback<ArrayBuffer>): void;
 
     /**
-     * Registers an observer for receiving HTTP Response data events continuously.
-     *
-     * @param { Callback<ArrayBuffer> } callback - the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @atomicservice
-     * @since 26.1.0 static
-     */
-    onDataReceive(callback: Callback<ArrayBuffer>): void;
-
-    /**
      * Unregisters the observer for events indicating receiving of HTTP streaming responses.
      *
      * @param { "dataReceive" } type - Event type. The value is **dataReceive**.
@@ -2108,17 +1990,6 @@ declare namespace http {
      * @since 10 dynamic
      */
     off(type: "dataReceive", callback?: Callback<ArrayBuffer>): void;
-
-    /**
-     * Unregisters an observer for receiving HTTP Response data events continuously.
-     *
-     * @param { Callback<ArrayBuffer> } [callback] - the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @atomicservice
-     * @since 26.1.0 static
-     */
-    offDataReceive(callback?: Callback<ArrayBuffer>): void;
 
     /**
      * Registers an observer for events indicating completion of receiving HTTP streaming responses.
@@ -2134,17 +2005,6 @@ declare namespace http {
     on(type: "dataEnd", callback: Callback<void>): void;
 
     /**
-     * Registers an observer for receiving HTTP Response data ends events.
-     *
-     * @param { Callback<void> } callback - the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @atomicservice
-     * @since 26.1.0 static
-     */
-    onDataEnd(callback: Callback<void>): void;
-
-    /**
      * Unregisters the observer for events indicating completion of receiving HTTP streaming responses.
      *
      * @param { "dataEnd" } type - Event type. The value is **dataEnd**.
@@ -2157,17 +2017,6 @@ declare namespace http {
      * @since 10 dynamic
      */
     off(type: "dataEnd", callback?: Callback<void>): void;
-
-    /**
-     * Unregisters an observer for receiving HTTP Response data ends events.
-     *
-     * @param { Callback<void> } [callback] - the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @atomicservice
-     * @since 26.1.0 static
-     */
-    offDataEnd(callback?: Callback<void>): void;
 
     /**
      * Registers an observer for events indicating progress of receiving HTTP streaming responses.
@@ -2188,17 +2037,6 @@ declare namespace http {
     on(type: 'dataReceiveProgress', callback: Callback<DataReceiveProgressInfo>): void;
 
     /**
-     * Registers an observer for progress of receiving HTTP Response data events.
-     *
-     * @param { Callback<DataReceiveProgressInfo> } callback - the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @atomicservice
-     * @since 26.1.0 static
-     */
-    onDataReceiveProgress(callback: Callback<DataReceiveProgressInfo>): void;
-
-    /**
      * Unregisters the observer for events indicating progress of receiving HTTP streaming responses.
      *
      * @param { 'dataReceiveProgress' } type - Event type. The value is **dataReceiveProgress**.
@@ -2216,17 +2054,6 @@ declare namespace http {
     off(type: 'dataReceiveProgress', callback?: Callback<DataReceiveProgressInfo>): void;
 
     /**
-     * Unregisters an observer for progress of receiving HTTP Response data events.
-     *
-     * @param { Callback<DataReceiveProgressInfo> } [callback] - the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @atomicservice
-     * @since 26.1.0 static
-     */
-    offDataReceiveProgress(callback?: Callback<DataReceiveProgressInfo>): void;
-
-    /**
      * Registers an observer for events indicating progress of sending HTTP requests.
      *
      * @param { 'dataSendProgress' } type - Event type. The value is **dataSendProgress**.
@@ -2241,17 +2068,6 @@ declare namespace http {
     on(type: 'dataSendProgress', callback: Callback<DataSendProgressInfo>): void;
 
     /**
-     * Registers an observer for progress of sendSize HTTP Response data events.
-     *
-     * @param { Callback<DataSendProgressInfo> } callback - the callback of on.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @atomicservice
-     * @since 26.1.0 static
-     */
-    onDataSendProgress(callback: Callback<DataSendProgressInfo>): void;
-
-    /**
      * Unregisters the observer for events indicating progress of sending HTTP requests.
      *
      * @param { 'dataSendProgress' } type - Event type. The value is **dataSendProgress**.
@@ -2264,17 +2080,6 @@ declare namespace http {
      * @since 11 dynamic
      */
     off(type: 'dataSendProgress', callback?: Callback<DataSendProgressInfo>): void;
-
-    /**
-     * Unregisters an observer for progress of sendSize HTTP Response data events.
-     *
-     * @param { Callback<DataSendProgressInfo> } [callback] - the callback of off.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @atomicservice
-     * @since 26.1.0 static
-     */
-    offDataSendProgress(callback?: Callback<DataSendProgressInfo>): void;
 
     /**
      * Sets whether to automatically carry and share cookies. That is, whether to automatically reuse the cookies
@@ -2293,7 +2098,7 @@ declare namespace http {
      * @param { boolean } enable - Whether to automatically carry cookies. **true**: yes; **false**: no.
      * @syscap SystemCapability.Communication.NetStack
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     enableAutoCookie(enable: boolean): void;
   }
@@ -2405,7 +2210,7 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @stagemodelonly
      * @crossplatform
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     PATCH = "PATCH"
   }
@@ -2753,7 +2558,6 @@ declare namespace http {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 26.1.0 static
      */
     RANGE_NOT_SATISFIABLE = 416,
 
@@ -2953,15 +2757,6 @@ declare namespace http {
     result: string | Object | ArrayBuffer;
 
     /**
-     * result can be a string (API 6) or an ArrayBuffer(API 8). Object is deprecated from API 8.
-     * If {@link HttpRequestOptions#expectDataType} is set, the system preferentially returns this parameter.
-     *
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 26.1.0 static
-     */
-    result: string | RecordData | ArrayBuffer;
-
-    /**
      * Type of the return value.
      *
      * @syscap SystemCapability.Communication.NetStack
@@ -3003,15 +2798,6 @@ declare namespace http {
     header: Object;
 
     /**
-     * All headers in the response from the server.
-     *
-     * @syscap SystemCapability.Communication.NetStack
-     * @FaAndStageModel
-     * @since 26.1.0 static
-     */
-    header: Record<string, string>;
-
-    /**
      * Original cookies returned by the server. How to process the cookies is up to your decision.
      *
      * @syscap SystemCapability.Communication.NetStack
@@ -3037,7 +2823,6 @@ declare namespace http {
      *
      * @syscap SystemCapability.Communication.NetStack
      * @since 24 dynamic
-     * @since 26.1.0 static
      */
     connectionExtraInfo?: ConnectionExtraInfo;
   }
@@ -3048,7 +2833,6 @@ declare namespace http {
    * @syscap SystemCapability.Communication.NetStack
    * @stagemodelonly
    * @since 24 dynamic
-   * @since 26.1.0 static
    */
   export interface ConnectionExtraInfo {
     /**
@@ -3059,7 +2843,6 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @stagemodelonly
      * @since 24 dynamic
-     * @since 26.1.0 static
      */
     networkProtocolName: string;
 
@@ -3069,7 +2852,6 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @stagemodelonly
      * @since 24 dynamic
-     * @since 26.1.0 static
      */
     tlsVersion?: TlsVersion;
 
@@ -3079,7 +2861,6 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @stagemodelonly
      * @since 24 dynamic
-     * @since 26.1.0 static
      */
     cipherSuite?: CipherSuite;
 
@@ -3089,7 +2870,6 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @stagemodelonly
      * @since 24 dynamic
-     * @since 26.1.0 static
      */
     localAddress: string;
 
@@ -3099,7 +2879,6 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @stagemodelonly
      * @since 24 dynamic
-     * @since 26.1.0 static
      */
     remoteAddress: string;
 
@@ -3109,7 +2888,6 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @stagemodelonly
      * @since 24 dynamic
-     * @since 26.1.0 static
      */
     localPort: int;
 
@@ -3119,7 +2897,6 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @stagemodelonly
      * @since 24 dynamic
-     * @since 26.1.0 static
      */
     remotePort: int;
 
@@ -3129,7 +2906,6 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @stagemodelonly
      * @since 24 dynamic
-     * @since 26.1.0 static
      */
     isReusedConnection: boolean;
 
@@ -3139,7 +2915,6 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @stagemodelonly
      * @since 24 dynamic
-     * @since 26.1.0 static
      */
     isProxyConnection: boolean;
 
@@ -3149,7 +2924,6 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @stagemodelonly
      * @since 24 dynamic
-     * @since 26.1.0 static
      */
     isCacheHit: boolean;
 
@@ -3159,7 +2933,6 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @stagemodelonly
      * @since 24 dynamic
-     * @since 26.1.0 static
      */
     redirectCount: int;
   }
@@ -3301,7 +3074,6 @@ declare namespace http {
    * @crossplatform [since 12]
    * @atomicservice [since 15]
    * @since 11 dynamic
-   * @since 26.1.0 static
    */
   export interface DataReceiveProgressInfo {
     /**
@@ -3311,7 +3083,6 @@ declare namespace http {
      * @crossplatform [since 12]
      * @atomicservice [since 15]
      * @since 11 dynamic
-     * @since 26.1.0 static
      */
     receiveSize: int;
     /**
@@ -3321,7 +3092,6 @@ declare namespace http {
      * @crossplatform [since 12]
      * @atomicservice [since 15]
      * @since 11 dynamic
-     * @since 26.1.0 static
      */
     totalSize: int;
   }
@@ -3333,7 +3103,6 @@ declare namespace http {
    * @crossplatform [since 12]
    * @atomicservice [since 15]
    * @since 11 dynamic
-   * @since 26.1.0 static
    */
   export interface DataSendProgressInfo {
     /**
@@ -3343,7 +3112,6 @@ declare namespace http {
      * @crossplatform [since 12]
      * @atomicservice [since 15]
      * @since 11 dynamic
-     * @since 26.1.0 static
      */
     sendSize: int;
     /**
@@ -3353,7 +3121,6 @@ declare namespace http {
      * @crossplatform [since 12]
      * @atomicservice [since 15]
      * @since 11 dynamic
-     * @since 26.1.0 static
      */
     totalSize: int;
   }
@@ -3447,7 +3214,6 @@ declare namespace http {
      * @crossplatform [since 10]
      * @atomicservice [since 11]
      * @since 9 dynamic
-     * @since 26.1.0 static
      */
     flush(): Promise<void>;
 

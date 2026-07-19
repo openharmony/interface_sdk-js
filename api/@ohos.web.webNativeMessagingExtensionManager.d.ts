@@ -162,7 +162,7 @@ declare namespace webNativeMessagingExtensionManager {
    * Connects the current ability to the specified web native message extension ability.
    *
    * @permission ohos.permission.WEB_NATIVE_MESSAGING
-   * @param { UIAbilityContext } context - Context of the web native message extension.
+   * @param { UIAbilityContext } context - Context of the caller UIAbility.
    * @param { Want } want - Want information about the target ability.
    * @param { WebExtensionConnectionCallback } callback - Callback object of the WebExtensionConnection status.
    * @returns { number } Connection ID.

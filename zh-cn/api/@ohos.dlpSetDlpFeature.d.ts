@@ -114,7 +114,7 @@ declare namespace dlpSetDlpFeature {
      * 企业策略开启或关闭数据防泄漏功能时使用此接口。
      *
      * @param { DlpFeatureStatus } status - DLP特性开关状态。ENABLED_FEATURE用于开启DLP特性，菜单中显示"加密保护"选项；NOT_ENABLED_FEATURE用于关闭DLP特性
-     *     ，菜单中不显示"加密保护"选项。超出此范围抛出错误码19100001。
+     *     ，菜单中不显示"加密保护"选项。超出此范围抛出错误码401。
      * @returns { Promise<StatusInfoResult> } Promise对象。设置DLP特性开关状态，返回DLP特性开关状态设置的结果信息。
      * @throws { BusinessError } 202 - Non-system applications use system APIs.
      * @throws { BusinessError } 19100001 - Invalid parameter value.
