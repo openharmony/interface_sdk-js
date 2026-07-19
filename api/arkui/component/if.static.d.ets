@@ -76,8 +76,9 @@ export declare interface IfAttribute {
    * @param { boolean } condition - condition of the branch.
    * @returns { this } IfAttribute instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @unpublished
    * @stagemodelonly
-   * @since 26.0.0 staticonly
+   * @since 26.1.0 staticonly
    */
   setIfOptions(condition: boolean): this;
 
@@ -85,8 +86,9 @@ export declare interface IfAttribute {
    * Notify If has finished setting up its attributes.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @unpublished
    * @stagemodelonly
-   * @since 26.0.0 staticonly
+   * @since 26.1.0 staticonly
    */
   applyAttributesFinish(): void;
 }
@@ -115,8 +117,9 @@ export declare function If(
  * @param { CustomBuilder } content_ - code for the branch
  * @returns { IfAttribute } The attribute of If.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @unpublished
  * @stagemodelonly
- * @since 26.0.0 staticonly
+ * @since 26.1.0 staticonly
  */
 @Builder
 export declare function If(
