@@ -25,7 +25,7 @@ import { LengthMetrics } from './arkui/Graphics';
 import { StickyStyle } from '@ohos.arkui.component';
 
 /**
- * The LazyWaterFlowLayoutAttribute
+ * 懒加载瀑布流布局属性
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -34,7 +34,7 @@ import { StickyStyle } from '@ohos.arkui.component';
  */
 export declare interface LazyWaterFlowLayoutAttribute extends CommonMethod {
   /**
-   * The spacing between rows.
+   * 行之间的间距。
    *
    * @param { LengthMetrics | undefined } value - The spacing between rows.
    *     <br>Default value: LengthMetrics.vp(0)
@@ -45,10 +45,10 @@ export declare interface LazyWaterFlowLayoutAttribute extends CommonMethod {
    */
   default rowsGap(value: LengthMetrics | undefined): this;
   /**
-   * The spacing between columns.
+   * 列之间的间距。
    *
-   * @param { LengthMetrics | undefined } value - The spacing between columns.
-   *     <br>Default value: LengthMetrics.vp(0)
+   * @param { LengthMetrics | undefined } value - 列之间的间距。
+   *     <br>默认值：LengthMetrics.vp(0)
    * @returns { this }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -56,10 +56,10 @@ export declare interface LazyWaterFlowLayoutAttribute extends CommonMethod {
    */
   default columnsGap(value: LengthMetrics | undefined): this;
   /**
-   * Sets the header of the lazy lazy water layout.
+   * 设置懒加载瀑布流布局的header。
    *
-   * @param { CustomBuilder | undefined } builder - The header builder function
-   *     <br>Passing undefined will remove the header.
+   * @param { CustomBuilder | undefined } builder - header生成器函数
+   *     <br>传递undefined将删除header。
    * @returns { this }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -67,10 +67,10 @@ export declare interface LazyWaterFlowLayoutAttribute extends CommonMethod {
    */
   default header(builder: CustomBuilder | undefined): this;
   /**
-   * Sets the footer of the lazy water flow layout.
+   * 设置懒加载瀑布流布局的footer。
    *
-   * @param { CustomBuilder | undefined } builder - The footer builder function
-   *     <br>Passing undefined will remove the footer.
+   * @param { CustomBuilder | undefined } builder - footer生成器函数
+   *     <br>传递undefined将删除footer。
    * @returns { this }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -78,9 +78,9 @@ export declare interface LazyWaterFlowLayoutAttribute extends CommonMethod {
    */
   default footer(builder: CustomBuilder | undefined): this;
   /**
-   * Sets sticky style for header and footer.
+   * 设置header和footer的吸顶吸底样式。
    *
-   * @param { StickyStyle | undefined } sticky - The sticky style for header and footer.
+   * @param { StickyStyle | undefined } sticky - header和footer的吸顶吸底样式。
    * @returns { this }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -88,12 +88,11 @@ export declare interface LazyWaterFlowLayoutAttribute extends CommonMethod {
    */
   default sticky(sticky: StickyStyle | undefined): this;
   /**
-   * Called when the first or last item displayed in the component changes.
-   * It is triggered once when the component is initialized.
+   * 当组件中显示的第一个或最后一个项目更改时调用。
+   * 它在组件初始化时会触发一次。
    *
-   * @param { OnVisibleIndexesChangeCallback | undefined } callback - callback function, triggered
-   *     when the index of child components in the visible area changes.
-   *     <br>Passing undefined will unregister the callback.
+   * @param { OnVisibleIndexesChangeCallback | undefined } callback - 回调函数，当可见区域中子组件的索引发生变化时触发。
+   *     <br>传递undefined将取消注册回调。
    * @returns { this }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -103,7 +102,7 @@ export declare interface LazyWaterFlowLayoutAttribute extends CommonMethod {
 }
 
 /**
- * The LazyVWaterFlowLayoutAttribute
+ * LazyV WaterFlowLayout属性
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -112,10 +111,10 @@ export declare interface LazyWaterFlowLayoutAttribute extends CommonMethod {
  */
 export declare interface LazyVWaterFlowLayoutAttribute extends LazyWaterFlowLayoutAttribute {
   /**
-   * This parameter specifies the number of columns in the current waterflow layout.
+   * 该参数用于指定当前瀑布流布局中的列数。
    *
-   * @param { string | ItemFillPolicy | undefined } value - Number of columns in the layout.
-   *     <br>Default value: '1fr'
+   * @param { string | ItemFillPolicy | undefined } value - 布局中的列数。
+   *     <br>默认值：'1fr'
    * @returns { this }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -123,7 +122,7 @@ export declare interface LazyVWaterFlowLayoutAttribute extends LazyWaterFlowLayo
    */
   default columnsTemplate(value: string | ItemFillPolicy | undefined): this;
   /**
-   * Set LazyVWaterFlowLayout options.
+   * 设置LazyVWaterFlowLayout选项。
    *
    * @returns { this }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -132,7 +131,7 @@ export declare interface LazyVWaterFlowLayoutAttribute extends LazyWaterFlowLayo
    */
   default setLazyVWaterFlowLayoutOptions(): this;
   /**
-   * Sets the attribute modifier.
+   * 设置属性修饰符。
    *
    * @param { AttributeModifier<LazyVWaterFlowLayoutAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
    * @returns { this }
@@ -145,7 +144,7 @@ export declare interface LazyVWaterFlowLayoutAttribute extends LazyWaterFlowLayo
 }
 
 /**
- * Defines LazyVWaterFlowLayout Component.
+ * 定义LazyVWaterFlowLayout组件。
  *
  * @param { CustomBuilder } [content_]
  * @returns { LazyVWaterFlowLayoutAttribute }
@@ -160,11 +159,11 @@ export declare function LazyVWaterFlowLayout (
 ): LazyVWaterFlowLayoutAttribute;
 
 /**
- * Defines LazyVWaterFlowLayout Component.
+ * 定义LazyVWaterFlowLayout组件。
  *
  * @param { CustomBuilderT<LazyVWaterFlowLayoutAttribute> } style_ - The style to create a LazyVWaterFlowLayout.
  * @param { CustomBuilder } [content_]
- * @returns { LazyVWaterFlowLayoutAttribute } The attribute of the LazyVWaterFlowLayout.
+ * @returns { LazyVWaterFlowLayoutAttribute } LazyVWaterFlowLayout的属性。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 26.0.0 staticonly
