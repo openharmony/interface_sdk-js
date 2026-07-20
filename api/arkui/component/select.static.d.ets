@@ -619,8 +619,9 @@ export declare interface SelectAttribute extends CommonMethod {
      * @param { Array<SelectOption> } optionArray - select constructor options
      * @returns { SelectAttribute } Returns the instance of the SelectAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @unpublished
      * @stagemodelonly
-     * @since 26.0.0 staticonly
+     * @since 26.1.0 staticonly
      */
     default setSelectOptions(optionArray: Array<SelectOption>): this;
 }
@@ -713,8 +714,9 @@ export declare function Select(
  * @param { CustomBuilder } [content_] - container
  * @returns { SelectAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @unpublished
  * @stagemodelonly
- * @since 26.0.0 staticonly
+ * @since 26.1.0 staticonly
  * @noninterop
  */
 @Builder
