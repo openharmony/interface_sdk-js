@@ -179,6 +179,26 @@ declare namespace systemSoundManager {
      * @since 23 static
      */
     RINGTONE_TYPE_SIM_CARD_1 = 1,
+    	 
+    /**
+     * Ringtone type for esim card 0.
+     *
+     * @syscap SystemCapability.Multimedia.SystemSound.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    RINGTONE_TYPE_ESIM_CARD_0 = 2,
+  
+    /**
+     * Ringtone type for esim card 1.
+     *
+     * @syscap SystemCapability.Multimedia.SystemSound.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    RINGTONE_TYPE_ESIM_CARD_1 = 3,
   }
 
   /**
@@ -209,6 +229,26 @@ declare namespace systemSoundManager {
      * @since 23 static
      */
     SYSTEM_TONE_TYPE_SIM_CARD_1 = 1,
+
+    /**
+     * System tone type for esim card 0.
+     *
+     * @syscap SystemCapability.Multimedia.SystemSound.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    SYSTEM_TONE_TYPE_ESIM_CARD_0 = 2,
+  
+    /**
+     * System tone type for esim card 1.
+     *
+     * @syscap SystemCapability.Multimedia.SystemSound.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    SYSTEM_TONE_TYPE_ESIM_CARD_1 = 3,
 
     /**
      * System tone type notification.
@@ -610,6 +650,26 @@ declare namespace systemSoundManager {
     CALL_SIM_CARD_1 = 1,
 
     /**
+     * Haptics in incoming call scenario for esim card 0.
+     *
+     * @syscap SystemCapability.Multimedia.SystemSound.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    CALL_ESIM_CARD_0 = 2,
+  
+    /**
+     * Haptics in incoming call scenario for esim card 1.
+     *
+     * @syscap SystemCapability.Multimedia.SystemSound.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    CALL_ESIM_CARD_1 = 3,
+
+    /**
      * Haptics in text message scenario for sim card 0.
      *
      * @syscap SystemCapability.Multimedia.SystemSound.Core
@@ -628,6 +688,26 @@ declare namespace systemSoundManager {
      * @since 23 static
      */
     TEXT_MESSAGE_SIM_CARD_1 = 21,
+
+    /**
+     * Haptics in text message scenario for esim card 0.
+     *
+     * @syscap SystemCapability.Multimedia.SystemSound.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    TEXT_MESSAGE_ESIM_CARD_0 = 22,
+ 	 
+    /**
+     * Haptics in text message scenario for esim card 1.
+     *
+     * @syscap SystemCapability.Multimedia.SystemSound.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    TEXT_MESSAGE_ESIM_CARD_1 = 23,
 
     /**
      * Haptics in notification scenario.
