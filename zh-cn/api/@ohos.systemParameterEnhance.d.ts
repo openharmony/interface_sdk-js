@@ -41,6 +41,14 @@ import { AsyncCallback, BusinessError } from './@ohos.base';
 declare namespace systemParameterEnhance {
   /**
    * 获取系统参数key对应的值。
+   * 
+   * > **说明：**
+ 	 * >
+ 	 * > getSync和get方法都用于获取系统参数值：
+ 	 * > - getSync：同步方法，直接返回系统参数值，适用于简单同步场景。
+ 	 * > - get：异步方法，使用callback或Promise异步返回结果，适用于需要异步处理的场景。
+ 	 * >
+ 	 * > 开发者应根据具体场景选择合适的方法。
    *
    * @param { string } key - 待查询的系统参数key。最大长度128字节，只允许字母数字加"."，"-"，"@"，":"或"_"，不允许".."。
    * @param { string } def - def为所要获取的系统参数的默认值； <br> def为可选参数，仅当系统参数不存在时生效； <br> def可以传undefined或任意字符串值。
@@ -115,6 +123,14 @@ declare namespace systemParameterEnhance {
   /**
    * 设置系统参数key对应的值。
    *
+   * > **说明：**
+ 	 * >
+ 	 * > setSync和set方法都用于设置系统参数值：
+ 	 * > - setSync：同步方法，直接设置系统参数并立即返回，适用于简单同步场景。
+ 	 * > - set：异步方法，使用callback或Promise异步返回结果，适用于需要异步处理的场景。
+ 	 * >
+ 	 * > 开发者应根据具体场景选择合适的方法。
+   * 
    * @param { string } key - 待设置的系统参数key。最大长度128字节，只允许字母数字加"."，"-"，"@"，":"或"_"，不允许".."。
    * @param { string } value - 待设置的系统参数值。最大长度96字节（包括结束符）。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
