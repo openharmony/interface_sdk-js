@@ -39,7 +39,7 @@ import AutoFillRect from './AutoFillRect';
  */
 export default interface ViewData {
   /**
-   * Bundle name.
+   * Bundle name.The value cannot exceed 512 characters.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi [since 11 - 24]
