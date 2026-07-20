@@ -13029,14 +13029,15 @@ declare namespace photoAccessHelper {
     /**
      * Operates album attribute.
      *
-     * @permission ohos.permission.ACCESS_MEDIALIB_THUMB_DB
+     * @permission ohos.permission.ACCESS_MEDIALIB_THUMB_DB [since 26.0.0 - since 26.0.0]
+     * @permission ohos.permission.ACCESS_MEDIALIB_THUMB_DB or ohos.permission.WRITE_IMAGEVIDEO [since 26.1.0]
      * @param { AlbumOperation } operation - operation to execute for the album.
      * @throws { BusinessError } 201 - Permission denied
      * @throws { BusinessError } 202 - Called by non-system application.
      * @throws { BusinessError } 23800151 - The scenario parameter verification fails. Possible causes:
      *     <br>1. The attr of operation is invalid;
      *     <br>2. The type of operation is invalid;
-     *     <br>3. The values or operation is incorrect;
+     *     <br>3. The values of operation is incorrect;
      * @throws { BusinessError } 23800201 - Unsupported operation type. It is recommended to check the logs.
      *     Possible causes:
      *     <br>1. Unsupported AlbumAttribute for the album.
@@ -16654,7 +16655,16 @@ declare namespace photoAccessHelper {
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
-    IS_REMOVED_ATTR = 'is_removed'
+    IS_REMOVED_ATTR = 'is_removed',
+    /**
+     * The album friend_id operation attribute.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    FRIEND_ID_ATTR = 'friend_id'
   }
 
   /**
