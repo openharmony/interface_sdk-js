@@ -21,8 +21,8 @@
 import type { Callback } from './@ohos.base';
 
 /**
- * Provides capabilities for controlling and interacting with mechanical devices connected to this device.
- * The capabilities cover connection management, control, and monitoring.
+ * 提供与本设备连接的机械设备的控制和交互能力。
+ * 包括连接管理、控制和监控功能
  *
  * @namespace mechanicManager
  * @syscap SystemCapability.Mechanic.Core
@@ -70,8 +70,8 @@ declare namespace mechanicManager {
   function offAttachStateChange(callback?: Callback<AttachStateChangeInfo>): void;
 
   /**
-   * Obtain the list of connected mechanical devices.
-   * @returns { MechInfo[] } List of connected mechanical devices.
+   * 获取已连接的机械设备列表
+   * @returns { MechInfo[] } 返回已连接的机械设备列表
    * @throws { BusinessError } 33300001 - Service exception.
    * @syscap SystemCapability.Mechanic.Core
    * @since 20 dynamic
@@ -80,9 +80,10 @@ declare namespace mechanicManager {
   function getAttachedMechDevices(): MechInfo[];
 
   /**
-   * Sets a user operation.
+   * 设置用户操作
+   *
    * @permission ohos.permission.CONNECT_MECHANIC_HARDWARE
-   * @param { Operation } operation Operation type.
+   * @param { Operation } operation 操作类型
    * @param { string } mac MAC address.
    * @param { string } params Operation parameters.
    * @throws { BusinessError } 201 - Permission denied.
@@ -96,8 +97,8 @@ declare namespace mechanicManager {
   function setUserOperation(operation: Operation, mac: string, params: string): void;
 
   /**
-   * Enables or disables camera tracking.
-   * @param { boolean } isEnabled Whether to enable camera tracking.
+   * 启用或禁用摄像机跟踪
+   * @param { boolean } isEnabled 是否启用摄像机跟踪
    * @throws { BusinessError } 33300001 - Service exception.
    * @throws { BusinessError } 33300002 - Device not connected.
    * @throws { BusinessError } 33300003 - Feature not supported.
@@ -108,9 +109,8 @@ declare namespace mechanicManager {
   function setCameraTrackingEnabled(isEnabled: boolean): void;
 
   /**
-   * Checks whether camera tracking is enabled for this mechanical device.
-   * @returns { boolean } Enabled status. The value true means that camera tracking is enabled, and false means
-   * the opposite.
+   * 获取相机跟踪状态
+   * @returns { boolean } 返回是否启用摄像机跟踪
    * @throws { BusinessError } 33300001 - Service exception.
    * @throws { BusinessError } 33300002 - Device not connected.
    * @syscap SystemCapability.Mechanic.Core
@@ -139,7 +139,7 @@ declare namespace mechanicManager {
   function onTrackingStateChange(callback: Callback<TrackingEventInfo>): void;
 
   /**
-   * Unsubscribes from tracking events.
+   * 设置相机跟踪布局
    * @param { 'trackingStateChange' } type Event type.
    * @param { Callback<TrackingEventInfo> } [callback] Callback used to return the tracking event information.
    * @throws { BusinessError } 33300001 - Service exception.
@@ -149,7 +149,7 @@ declare namespace mechanicManager {
   function off(type: 'trackingStateChange', callback?: Callback<TrackingEventInfo>): void;
 
   /**
-   * Unsubscribes from tracking events.
+   * 设置相机跟踪布局
    * @param { Callback<TrackingEventInfo> } [callback] Callback used to return the tracking event information.
    * @throws { BusinessError } 33300001 - Service exception.
    * @syscap SystemCapability.Mechanic.Core
@@ -158,8 +158,8 @@ declare namespace mechanicManager {
   function offTrackingStateChange(callback?: Callback<TrackingEventInfo>): void;
 
   /**
-   * Sets the camera tracking layout for this mechanical device.
-   * @param { CameraTrackingLayout } trackingLayout Camera tracking layout.
+   * 设置相机跟踪布局
+   * @param { CameraTrackingLayout } trackingLayout 跟踪布局
    * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 33300001 - Service exception.
    * @throws { BusinessError } 33300002 - Device not connected.
@@ -172,8 +172,8 @@ declare namespace mechanicManager {
   function setCameraTrackingLayout(trackingLayout: CameraTrackingLayout): void;
 
   /**
-   * Obtains the camera tracking layout of this mechanical device.
-   * @returns { CameraTrackingLayout } Camera tracking layout obtained.
+   * 获取当前摄像头跟踪布局
+   * @returns { CameraTrackingLayout } 返回当前布局
    * @throws { BusinessError } 33300001 - Service exception.
    * @throws { BusinessError } 33300002 - Device not connected.
    * @syscap SystemCapability.Mechanic.Core
@@ -183,7 +183,7 @@ declare namespace mechanicManager {
   function getCameraTrackingLayout(): CameraTrackingLayout;
 
   /**
-   * Rotates a mechanical device to the relative angles.
+   * 将机械设备旋转到相对角度
    * @param { int } mechId ID of the mechanical device.
    * @param { RotationAngles } angles Relative angles.
    * @param { int } duration Rotation duration. Unit: millisecond.
@@ -199,11 +199,11 @@ declare namespace mechanicManager {
   function rotate(mechId: int, angles: RotationAngles, duration: int): Promise<Result>;
 
   /**
-   * Rotates a mechanical device to the absolute angles.
-   * @param { int } mechId ID of the mechanical device.
-   * @param { EulerAngles } angles Absolute angles.
-   * @param { int } duration Rotation duration. Unit: millisecond.
-   * @returns { Promise<Result> } Promise that return the execution result.
+   * 将机械设备旋转到绝对角度
+   * @param { int } mechId 机械设备ID
+   * @param { EulerAngles } angles 绝对角度位置
+   * @param { int } duration 执行时间
+   * @returns { Promise<Result> } 返回执行结果
    * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 33300001 - Service exception.
    * @throws { BusinessError } 33300002 - Device not connected.
@@ -217,7 +217,7 @@ declare namespace mechanicManager {
   /**
    * Obtains the maximum continuous rotation duration of a mechanical device.
    *
-   * @param { int } mechId ID of the mechanical device.
+   * @param { int } mechId 机械设备ID
    * @returns { int } Maximum rotation duration. Unit: millisecond.
    * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 33300001 - Service exception.
@@ -232,8 +232,8 @@ declare namespace mechanicManager {
   /**
    * Obtains the maximum rotation speed of a mechanical device.
    *
-   * @param { int } mechId ID of the mechanical device.
-   * @returns { RotationSpeed } Maximum speed. Only the absolute value of the speed is returned.
+   * @param { int } mechId 机械设备ID
+   * @returns { RotationSpeed } 返回最大速度，只返回速度的绝对值
    * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 33300001 - Service exception.
    * @throws { BusinessError } 33300002 - Device not connected.
@@ -245,11 +245,11 @@ declare namespace mechanicManager {
   function getMaxRotationSpeed(mechId: int): RotationSpeed;
 
   /**
-   * Rotates a mechanical device at the specified speed.
-   * @param { int } mechId ID of the mechanical device.
-   * @param { RotationSpeed } speed Rotation speed.
-   * @param { int } duration Rotation duration. Unit: millisecond.
-   * @returns { Promise<Result> } Promise that return the execution result.
+   * 以指定的速度旋转机械设备
+   * @param { int } mechId 机械设备ID
+   * @param { RotationSpeed } speed 旋转速度
+   * @param { int } duration 执行时间
+   * @returns { Promise<Result> } 返回执行结果
    * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 33300001 - Service exception.
    * @throws { BusinessError } 33300002 - Device not connected.
@@ -261,9 +261,9 @@ declare namespace mechanicManager {
   function rotateBySpeed(mechId: int, speed: RotationSpeed, duration: int): Promise<Result>;
 
   /**
-   * Stops a mechanical device from moving.
-   * @param { int } mechId ID of the mechanical device.
-   * @returns { Promise<void> } Promise that returns no value.
+   * 停止转动
+   * @param { int } mechId 机械设备ID
+   * @returns { Promise<void> } 返回操作结果
    * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 33300001 - Service exception.
    * @throws { BusinessError } 33300002 - Device not connected.
@@ -275,9 +275,9 @@ declare namespace mechanicManager {
   function stopMoving(mechId: int): Promise<void>;
 
   /**
-   * Obtains the current angles of a mechanical device.
-   * @param { int } mechId ID of the mechanical device.
-   * @returns { EulerAngles } Rotation angles.
+   * 获取机械设备的当前角度
+   * @param { int } mechId 机械设备ID
+   * @returns { EulerAngles } 返回当前角度
    * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 33300001 - Service exception.
    * @throws { BusinessError } 33300002 - Device not connected.
@@ -291,8 +291,8 @@ declare namespace mechanicManager {
   /**
    * Obtains the maximum rotation angles relative to the reference point for the specified mechanical device.
    *
-   * @param { int } mechId ID of the mechanical device.
-   * @returns { RotationLimits } Maximum rotation angles.
+   * @param { int } mechId 机械设备ID
+   * @returns { RotationLimits } 最大旋转角度
    * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 33300001 - Service exception.
    * @throws { BusinessError } 33300002 - Device not connected.
@@ -304,8 +304,8 @@ declare namespace mechanicManager {
   function getRotationLimits(mechId: int): RotationLimits;
 
   /**
-   * Obtains the status of the rotation axes.
-   * @param { int } mechId ID of the mechanical device.
+   * 获取当前转轴状态
+   * @param { int } mechId 机械设备ID
    * @returns { RotationAxesStatus } Rotation axis status.
    * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 33300001 - Service exception.
@@ -316,6 +316,7 @@ declare namespace mechanicManager {
    * @since 23 static
    */
   function getRotationAxesStatus(mechId: int): RotationAxesStatus;
+
 
   /**
    * Register a listener for axis state changes.
@@ -388,12 +389,12 @@ declare namespace mechanicManager {
   function searchTarget(target: TargetInfo, params: SearchParams): Promise<SearchResult>;
 
   /**
-   * Move a mechanical device with the specified parameters.
+   * 以特定参数移动一个具身设备
    *
-   * @param { int } mechId - ID of the mechanical device.
-   *     <br>The value should be an integer.
-   * @param { MoveParams } params - Parameters to use when moving.
-   * @returns { Promise<Result> } Promise that returns the execution result.
+   * @param { int } mechId - 具身设备ID。
+   *     <br>取值限定为整数。
+   * @param { MoveParams } params - 移动参数。
+   * @returns { Promise<Result> } 202 - 非系统应用
    * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 33300001 - Service exception.
    * @throws { BusinessError } 33300002 - Device not connected.
@@ -405,14 +406,14 @@ declare namespace mechanicManager {
   function move(mechId: int, params: MoveParams): Promise<Result>;
 
   /**
-   * Move a mechanical device at the specified speed.
+   * 以特定速度移动一个具身设备
    *
-   * @param { int } mechId - ID of the mechanical device.
-   *     <br>The value should be an integer.
-   * @param { SpeedParams } params - Parameters to use when moving.
-   * @param { int } duration - Duration of movement, in ms.
-   *     <br>The value should be an integer.
-   * @returns { Promise<Result> } Promise that returns the execution result.
+   * @param { int } mechId - 具身设备ID。
+   *     <br>取值限定为整数。
+   * @param { SpeedParams } params - 移动参数。
+   * @param { int } duration - 移动时长，单位ms。
+   *     <br>取值限定为整数。
+   * @returns { Promise<Result> } 202 - 非系统应用
    * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 33300001 - Service exception.
    * @throws { BusinessError } 33300002 - Device not connected.
@@ -424,14 +425,14 @@ declare namespace mechanicManager {
   function moveBySpeed(mechId: int, params: SpeedParams, duration: int): Promise<Result>;
 
   /**
-   * Rotate in place according to the speed.
+   * 以固定速度原地旋转
    *
-   * @param { int } mechId - ID of the mechanical device.
-   *     <br>The value should be an integer.
-   * @param { double } angleSpeed - angular velocity.
-   * @param { int } duration - Duration of movement, unit ms.
-   *     <br>The value should be an integer.
-   * @returns { Promise<Result> } Promise that returns the execution result.
+   * @param { int } mechId - 具身设备ID。
+   *     <br>取值限定为整数。
+   * @param { double } angleSpeed - 角速度。
+   * @param { int } duration - 转动时长，单位ms。
+   *     <br>取值限定为整数。
+   * @returns { Promise<Result> } 202 - 非系统应用
    * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 33300001 - Service exception.
    * @throws { BusinessError } 33300002 - Device not connected.
@@ -443,12 +444,12 @@ declare namespace mechanicManager {
   function turnBySpeed(mechId: int, angleSpeed: double, duration: int): Promise<Result>;
 
   /**
-   * Check whether the specific action type is supported.
+   * 判断是否支持某个动作
    *
-   * @param { int } mechId - ID of the mechanical device.
-   *     <br>The value should be an integer.
-   * @param { ActionType } actionType - Type of action sequence.
-   * @returns { boolean } Indicates whether the action type is supported.
+   * @param { int } mechId - 具身设备ID。
+   *     <br>取值限定为整数。
+   * @param { ActionType } actionType - 动作序列类型。
+   * @returns { boolean } 是否支持该特定动作
    * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 33300001 - Service exception.
    * @throws { BusinessError } 33300002 - Device not connected.
@@ -459,12 +460,12 @@ declare namespace mechanicManager {
   function isSupportAction(mechId: int, actionType: ActionType): boolean;
 
   /**
-   * Execute an action sequence.
+   * 执行一个动作序列
    *
-   * @param { int } mechId - ID of the mechanical device.
-   *     <br>The value should be an integer.
-   * @param { ActionType } actionType - Type of action sequence.
-   * @returns { Promise<Result> } Promise that returns the execution result.
+   * @param { int } mechId - 具身设备ID。
+   *     <br>取值限定为整数。
+   * @param { ActionType } actionType - 动作序列类型。
+   * @returns { Promise<Result> } 202 - 非系统应用
    * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 33300001 - Service exception.
    * @throws { BusinessError } 33300002 - Device not connected.
@@ -476,10 +477,10 @@ declare namespace mechanicManager {
   function doAction(mechId: int, actionType: ActionType): Promise<Result>;
 
   /**
-   * Subscribe to the specified events.
+   * 订阅具身设备事件回调
    *
-   * @param { MechEventType[] } events - Events to subscribe to.
-   * @param { Callback<MechEvent> } callback - Callback of event.
+   * @param { MechEventType[] } events - 订阅的事件列表。
+   * @param { Callback<MechEvent> } callback - 事件回调函数。
    * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 33300001 - Service exception.
    * @throws { BusinessError } 33300002 - Device not connected.
@@ -491,9 +492,9 @@ declare namespace mechanicManager {
   function subscribe(events: MechEventType[], callback: Callback<MechEvent>): void;
 
   /**
-   * Unsubscribes the specified events.
+   * 取消事件注册
    *
-   * @param { MechEventType[] } events - Events to be unsubscribed.
+   * @param { MechEventType[] } events - 取消注册的事件列表。
    * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 33300001 - Service exception.
    * @throws { BusinessError } 33300002 - Device not connected.
@@ -505,28 +506,61 @@ declare namespace mechanicManager {
   function unSubscribe(events: MechEventType[]): void;
 
   /**
-   * Checks whether the current device supports embodied control for a specific type of device.
+   * 判断当前设备是否支持某类设备的具身控制
    *
-   * @param { MechDeviceType } [mechDeviceType]  - Associated device type.
-   *     <br>Default: If this parameter is not provided, it represents all device types. As long as one or more types
-   * are supported, the result returned will be supported.
-   * @returns { boolean } Returns whether embodied control is supported.
+   * @param { MechDeviceType } [mechDeviceType]  - 关联的设备类型
+   *     <br>默认值:如果未提供该参数，则代表所有类型设备，只要支持其中一种以上则返回支持
+   * @returns { boolean } Returns whether control is supported.
    * @syscap SystemCapability.Mechanic.Core
    * @since 26.0.0 dynamic&static
    */
   function isControlSupported(mechDeviceType?: MechDeviceType): boolean;
 
   /**
-   * Mechanical device information.
+   * 基于地址连接设备
+   *
+   * @permission ohos.permission.CONNECT_MECHANIC_HARDWARE
+   * @param { AddressInfo } addrInfo - 地址信息。
+   * @param { ConnectParam } params - 操作参数。
+   * @returns { Promise<AttachStateChangeInfo> } Promise used to return the attach state change information.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 33300001 - Service exception.
+   * @syscap SystemCapability.Mechanic.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function connectDevice(addrInfo: AddressInfo, params: ConnectParam): Promise<AttachStateChangeInfo>;
+
+  /**
+   * 基于具身设备ID断开设备
+   *
+   * @permission ohos.permission.CONNECT_MECHANIC_HARDWARE
+   * @param { int } mechId - 具身设备ID。
+   *     <br>取值限定为整数。
+   * @returns { Promise<Result> } Promise used to return the execution result.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 33300001 - Service exception.
+   * @syscap SystemCapability.Mechanic.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function disconnectDevice(mechId: int): Promise<Result>;
+
+  /**
+   * 机械设备信息
    * @typedef MechInfo
    * @syscap SystemCapability.Mechanic.Core
    * @since 20 dynamic
    * @since 23 static
    */
   export interface MechInfo {
-
     /**
-     * ID of the mechanical device.
+     * 机械设备ID
+     *
      * @type { int }
      * @syscap SystemCapability.Mechanic.Core
      * @since 20 dynamic
@@ -534,8 +568,11 @@ declare namespace mechanicManager {
      */
     mechId: int;
 
+
     /**
-     * Type of the mechanical device.
+     * 机械设备类型
+     *
+     *
      * @type { MechDeviceType }
      * @syscap SystemCapability.Mechanic.Core
      * @since 20 dynamic
@@ -544,7 +581,7 @@ declare namespace mechanicManager {
     mechDeviceType: MechDeviceType;
 
     /**
-     * Name of the mechanical device.
+     * 机械设备名称
      * @type { string }
      * @syscap SystemCapability.Mechanic.Core
      * @since 20 dynamic
@@ -552,6 +589,7 @@ declare namespace mechanicManager {
      */
     mechName: string;
   }
+
 
   /**
    * The rotion angles, relative to the current position.
@@ -562,9 +600,9 @@ declare namespace mechanicManager {
    * @since 23 static
    */
   export interface RotationAngles {
-
     /**
-     * Yaw angle, ranging from -2*Math.PI to 2*Math.PI, measured in radians.
+     * 偏航角，范围从-2π到2*π，以弧度为单位。
+     *
      * @type { ?double }
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
@@ -574,7 +612,8 @@ declare namespace mechanicManager {
     yaw?: double;
 
     /**
-     * Roll angle, ranging from -2*Math.PI to 2*Math.PI, measured in radians.
+     * 滚动角度，范围从-2π到2*π，以弧度为单位。
+     *
      * @type { ?double }
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
@@ -584,7 +623,8 @@ declare namespace mechanicManager {
     roll?: double;
 
     /**
-     * Pitch angle, ranging from -2*Math.PI to 2*Math.PI, measured in radians.
+     * 俯仰角，范围从-2π到2*π，以弧度为单位。
+     *
      * @type { ?double }
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
@@ -604,9 +644,9 @@ declare namespace mechanicManager {
    * @since 23 static
    */
   export interface EulerAngles {
-
     /**
-     * Yaw angle, ranging from -Math.PI to Math.PI, measured in radians.
+     * 偏航角，范围从-π到π，以弧度为单位。
+     *
      * @type { ?double }
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
@@ -616,7 +656,8 @@ declare namespace mechanicManager {
     yaw?: double;
 
     /**
-     * Roll angle, ranging from -Math.PI to Math.PI, measured in radians.
+     * 滚动角，范围从-π到π，以弧度为单位。
+     *
      * @type { ?double }
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
@@ -626,7 +667,8 @@ declare namespace mechanicManager {
     roll?: double;
 
     /**
-     * Pitch angle, ranging from -Math.PI to Math.PI, measured in radians.
+     * 俯仰角，范围从-π到π，以弧度为单位。
+     *
      * @type { ?double }
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
@@ -637,8 +679,7 @@ declare namespace mechanicManager {
   }
 
   /**
-   * Rotational speed. A negative value indicates a clockwise rotation, and a positive value indicates a
-   * counterclockwise rotation.
+   * 转速，负值表示顺时针旋转。正值表示逆时针旋转。
    * @typedef RotationSpeed
    * @syscap SystemCapability.Mechanic.Core
    * @systemapi
@@ -646,9 +687,9 @@ declare namespace mechanicManager {
    * @since 23 static
    */
   export interface RotationSpeed {
-
     /**
-     * Yaw speed, measured in radians per second.
+     * 偏航速度，单位为弧度每秒。
+     *
      * @type { ?double }
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
@@ -658,7 +699,8 @@ declare namespace mechanicManager {
     yawSpeed?: double;
 
     /**
-     * Roll speed, measured in radians per second.
+     * 滚动速度，单位为弧度每秒。
+     *
      * @type { ?double }
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
@@ -668,7 +710,8 @@ declare namespace mechanicManager {
     rollSpeed?: double;
 
     /**
-     * Pitch speed, measured in radians per second.
+     * 俯仰速度，单位为弧度每秒。
+     *
      * @type { ?double }
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
@@ -678,8 +721,9 @@ declare namespace mechanicManager {
     pitchSpeed?: double;
   }
 
+
   /**
-   * Rotation angle limits relative to the reference point.
+   * 相对于参考点的旋转角度限制
    * @typedef RotationLimits
    * @syscap SystemCapability.Mechanic.Core
    * @systemapi
@@ -687,7 +731,6 @@ declare namespace mechanicManager {
    * @since 23 static
    */
   export interface RotationLimits {
-
     /**
      * Maximum yaw rotation angles in the negative direction, ranging from -2*Math.PI to 0, measured in radians.
      * If the value is less than or equal to -2*Math.PI, there is no restriction.
@@ -765,9 +808,8 @@ declare namespace mechanicManager {
    * @since 23 static
    */
   export interface RotationAxesStatus {
-
     /**
-     * Whether the yaw axis is enabled.
+     * 是否启用偏航轴
      * @type { boolean }
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
@@ -777,7 +819,7 @@ declare namespace mechanicManager {
     yawEnabled: boolean;
 
     /**
-     * Whether the roll axis is enabled.
+     * 是否启用滚动轴
      * @type { boolean }
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
@@ -787,7 +829,7 @@ declare namespace mechanicManager {
     rollEnabled: boolean;
 
     /**
-     * Whether the pitch axis is enabled.
+     * 是否使能俯仰轴
      * @type { boolean }
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
@@ -797,7 +839,7 @@ declare namespace mechanicManager {
     pitchEnabled: boolean;
 
     /**
-     * Whether the yaw axis is limited.
+     * 偏航轴是否限位
      * @type { ?RotationAxisLimited } RotationAxisLimited
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
@@ -828,7 +870,9 @@ declare namespace mechanicManager {
   }
 
   /**
-   * Enumerates the rotation axis limit states.
+   * 旋转轴限位状态
+   *
+   *
    * @enum { int }
    * @syscap SystemCapability.Mechanic.Core
    * @systemapi
@@ -836,9 +880,8 @@ declare namespace mechanicManager {
    * @since 23 static
    */
   export enum RotationAxisLimited {
-
     /**
-     * Not limited.
+     * 不限位
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
      * @since 20 dynamic
@@ -847,7 +890,7 @@ declare namespace mechanicManager {
     NOT_LIMITED = 0,
 
     /**
-     * Negative limited.
+     * 负限位
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
      * @since 20 dynamic
@@ -866,7 +909,7 @@ declare namespace mechanicManager {
   }
 
   /**
-   * Rotation axes state change information.
+   * 旋转轴状态变更信息
    * @typedef RotationAxesStateChangeInfo
    * @syscap SystemCapability.Mechanic.Core
    * @systemapi
@@ -874,9 +917,9 @@ declare namespace mechanicManager {
    * @since 23 static
    */
   export interface RotationAxesStateChangeInfo {
-
     /**
-     * ID of the mechanical device.
+     * 机械设备唯一ID
+     *
      * @type { int }
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
@@ -905,9 +948,8 @@ declare namespace mechanicManager {
    * @since 23 static
    */
   export interface TrackingEventInfo {
-
     /**
-     * Tracking event.
+     * 跟踪事件
      * @type { TrackingEvent } Tracking event.
      * @syscap SystemCapability.Mechanic.Core
      * @since 20 dynamic
@@ -917,7 +959,7 @@ declare namespace mechanicManager {
   }
 
   /**
-   * Callback information about the device attachment state change.
+   * 设备吸附状态回调信息
    * @typedef AttachStateChangeInfo
    * @syscap SystemCapability.Mechanic.Core
    * @since 20 dynamic
@@ -926,7 +968,7 @@ declare namespace mechanicManager {
   export interface AttachStateChangeInfo {
 
     /**
-     * Device attachment state.
+     * 吸附状态
      * @type { AttachState }
      * @syscap SystemCapability.Mechanic.Core
      * @since 20 dynamic
@@ -954,7 +996,6 @@ declare namespace mechanicManager {
    * @since 23 static
    */
   export interface TargetInfo {
-
     /**
      * Target type.
      * @type { TargetType }
@@ -998,9 +1039,8 @@ declare namespace mechanicManager {
    * @since 23 static
    */
   export interface SearchResult {
-
     /**
-     * Search result. Returns the number of targets found.0 means not found.
+    * Search result. Returns the number of targets found.0 means not found.
      * @type { int }
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
@@ -1011,7 +1051,9 @@ declare namespace mechanicManager {
   }
 
   /**
-   * Enumerates the user operations.
+   * 用户操作
+   *
+   *
    * @enum { int }
    * @syscap SystemCapability.Mechanic.Core
    * @systemapi
@@ -1019,9 +1061,8 @@ declare namespace mechanicManager {
    * @since 23 static
    */
   export enum Operation {
-
     /**
-     * Connection operation.
+     * 连接操作
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
      * @since 20 dynamic
@@ -1030,7 +1071,7 @@ declare namespace mechanicManager {
     CONNECT = 0,
 
     /**
-     * Disconnection operation.
+     * 断开操作
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
      * @since 20 dynamic
@@ -1040,16 +1081,17 @@ declare namespace mechanicManager {
   }
 
   /**
-   * Enumerates the tracking events.
+   * 跟踪事件
+   *
+   *
    * @enum { int }
    * @syscap SystemCapability.Mechanic.Core
    * @since 20 dynamic
    * @since 23 static
    */
   export enum TrackingEvent {
-
     /**
-     * Camera tracking enabled by user.
+     * 用户操作相机跟踪使能
      * @syscap SystemCapability.Mechanic.Core
      * @since 20 dynamic
      * @since 23 static
@@ -1057,7 +1099,7 @@ declare namespace mechanicManager {
     CAMERA_TRACKING_USER_ENABLED = 0,
 
     /**
-     * Camera tracking disabled by user.
+     * 用户操作相机跟踪关闭
      * @syscap SystemCapability.Mechanic.Core
      * @since 20 dynamic
      * @since 23 static
@@ -1083,7 +1125,6 @@ declare namespace mechanicManager {
    * @since 23 static
    */
   export enum Result {
-
     /**
      * Rotation completed.
      * @syscap SystemCapability.Mechanic.Core
@@ -1121,16 +1162,16 @@ declare namespace mechanicManager {
     TIMEOUT = 3,
 
     /**
-     * Termination caused by an obstacle.
+     * 障碍物导致终止
      *
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
      * @since 26.0.0 dynamic&static
      */
-    TERMINATE_OBSTACLE = 4,
+    TERMINATE_OBSTACLE  = 4,
 
     /**
-     * Termination caused by a cliff.
+     * 悬崖导致终止
      *
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
@@ -1156,9 +1197,8 @@ declare namespace mechanicManager {
    * @since 23 static
    */
   export enum MechDeviceType {
-
     /**
-     * Gimbal device.
+     * 云台设备类型
      * @syscap SystemCapability.Mechanic.Core
      * @since 20 dynamic
      * @since 23 static
@@ -1166,7 +1206,7 @@ declare namespace mechanicManager {
     GIMBAL_DEVICE = 0,
 
     /**
-     * Desktop gimbal device.
+     * 桌面云台
      *
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
@@ -1175,7 +1215,7 @@ declare namespace mechanicManager {
     DESKTOP_GIMBAL_DEVICE = 1,
 
     /**
-     * Wheeled?mounted base device.
+     * 轮式底座
      *
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
@@ -1195,7 +1235,7 @@ declare namespace mechanicManager {
   export enum AttachState {
 
     /**
-     * Device attached.
+     * 设备挂载
      * @syscap SystemCapability.Mechanic.Core
      * @since 20 dynamic
      * @since 23 static
@@ -1203,7 +1243,7 @@ declare namespace mechanicManager {
     ATTACHED = 0,
 
     /**
-     * Device detached.
+     * 设备卸载
      * @syscap SystemCapability.Mechanic.Core
      * @since 20 dynamic
      * @since 23 static
@@ -1212,16 +1252,17 @@ declare namespace mechanicManager {
   }
 
   /**
-   * Enumerates the camera tracking layouts.
+   * 相机跟踪布局
+   *
+   *
    * @enum { int }
    * @syscap SystemCapability.Mechanic.Core
    * @since 20 dynamic
    * @since 23 static
    */
   export enum CameraTrackingLayout {
-
     /**
-     * Default layout.
+     * 系统默认布局
      * @syscap SystemCapability.Mechanic.Core
      * @since 20 dynamic
      * @since 23 static
@@ -1229,7 +1270,7 @@ declare namespace mechanicManager {
     DEFAULT = 0,
 
     /**
-     * Left-side layout.
+     * 左侧布局
      * @syscap SystemCapability.Mechanic.Core
      * @since 20 dynamic
      * @since 23 static
@@ -1237,7 +1278,7 @@ declare namespace mechanicManager {
     LEFT = 1,
 
     /**
-     * Middle layout.
+     * 中间布局
      * @syscap SystemCapability.Mechanic.Core
      * @since 20 dynamic
      * @since 23 static
@@ -1245,7 +1286,7 @@ declare namespace mechanicManager {
     MIDDLE = 2,
 
     /**
-     * Right-side layout.
+     * 右侧布局
      * @syscap SystemCapability.Mechanic.Core
      * @since 20 dynamic
      * @since 23 static
@@ -1263,7 +1304,6 @@ declare namespace mechanicManager {
    * @since 23 static
    */
   export enum TargetType {
-
     /**
      * human Face type.
      * @syscap SystemCapability.Mechanic.Core
@@ -1284,7 +1324,6 @@ declare namespace mechanicManager {
    * @since 23 static
    */
   export enum SearchDirection {
-
     /**
      * System Default Direction.
      * @syscap SystemCapability.Mechanic.Core
@@ -1314,17 +1353,16 @@ declare namespace mechanicManager {
   }
 
   /**
-   * Parameters for moving the target.
+   * 设备移动参数
    *
    * @syscap SystemCapability.Mechanic.Core
    * @systemapi
    * @since 26.0.0 dynamic&static
    */
   export interface MoveParams {
-
     /**
-     * Moving distance, unit cm.
-     * The value should be an integer.
+     * 移动距离。
+     * 取值限定为整数。
      *
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
@@ -1333,7 +1371,7 @@ declare namespace mechanicManager {
     distance: int;
 
     /**
-     * Turning angle, unit degree.
+     * 转动角度。
      *
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
@@ -1342,7 +1380,7 @@ declare namespace mechanicManager {
     angle: double;
 
     /**
-     * Speed gear.
+     * 速度档位。
      *
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
@@ -1351,26 +1389,25 @@ declare namespace mechanicManager {
     speedGear?: SpeedGear;
 
     /**
-     * Movement mode.
+     * 行进方式。
      *
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
      * @since 26.0.0 dynamic&static
      */
     mode?: MarchingMode;
-  }
+    }
 
   /**
-   * Speed gear definition.
+   * 速度档位定义
    *
    * @syscap SystemCapability.Mechanic.Core
    * @systemapi
    * @since 26.0.0 dynamic&static
    */
   export enum SpeedGear {
-
     /**
-     * Low speed definition.
+     * 低速档定义
      *
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
@@ -1379,7 +1416,7 @@ declare namespace mechanicManager {
     LOW_SPEED = 0,
 
     /**
-     * Middle speed definition, default speed.
+     * 中速档定义，默认值即为中速
      *
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
@@ -1388,7 +1425,7 @@ declare namespace mechanicManager {
     MIDDLE_SPEED = 1,
 
     /**
-     * High speed definition.
+     * 高速档定义
      *
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
@@ -1398,16 +1435,15 @@ declare namespace mechanicManager {
   }
 
   /**
-   * Marching mode definition.
+   * 行进模式定义
    *
    * @syscap SystemCapability.Mechanic.Core
    * @systemapi
    * @since 26.0.0 dynamic&static
    */
   export enum MarchingMode {
-
     /**
-     * Turn first, then move.
+     * 先转动再移动
      *
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
@@ -1416,7 +1452,7 @@ declare namespace mechanicManager {
     TURN_THEN_MOVE = 0,
 
     /**
-     * Move and rotate simultaneously.
+     * 边移动边转动
      *
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
@@ -1426,17 +1462,16 @@ declare namespace mechanicManager {
   }
 
   /**
-   * Parameters for moving or turning at a speed.
+   * 速度控制参数
    *
    * @syscap SystemCapability.Mechanic.Core
    * @systemapi
    * @since 26.0.0 dynamic&static
    */
   export interface SpeedParams {
-
     /**
-     * Turning or moving speed, unit cm.
-     * The value should be an integer.
+     * 转动或移动速度。
+     * 取值限定为整数。
      *
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
@@ -1445,7 +1480,7 @@ declare namespace mechanicManager {
     speed: int;
 
     /**
-     * Turning angle, unit degree.
+     * 转动角度。
      *
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
@@ -1454,7 +1489,7 @@ declare namespace mechanicManager {
     angle: double;
 
     /**
-     * Movement mode.
+     * 行进方式。
      *
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
@@ -1464,16 +1499,15 @@ declare namespace mechanicManager {
   }
 
   /**
-   * Type of action sequence.
+   * 动作序列类型
    *
    * @syscap SystemCapability.Mechanic.Core
    * @systemapi
    * @since 26.0.0 dynamic&static
    */
   export enum ActionType {
-
     /**
-     * Landscape-to-Portrait switching.
+     * 横竖屏旋转
      *
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
@@ -1482,7 +1516,7 @@ declare namespace mechanicManager {
     LANDSCAPE_PORTRAIT_SWITCH = 0,
 
     /**
-     * Action of patrol on the ground.
+     * 巡桌模式
      *
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
@@ -1491,7 +1525,7 @@ declare namespace mechanicManager {
     PATROL_MODE = 1,
 
     /**
-     * Action of greeting the owner.
+     * 迎人模式
      *
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
@@ -1500,7 +1534,7 @@ declare namespace mechanicManager {
     GREET_MODE = 2,
 
     /**
-     * Action of tilting head up.
+     * 仰头
      *
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
@@ -1509,7 +1543,7 @@ declare namespace mechanicManager {
     HEAD_UP = 3,
 
     /**
-     * Action of tilting head up slightly.
+     * 微抬
      *
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
@@ -1518,7 +1552,7 @@ declare namespace mechanicManager {
     HEAD_UP_SLIGHTLY = 4,
 
     /**
-     * Action of looking straight ahead.
+     * 平视
      *
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
@@ -1527,7 +1561,7 @@ declare namespace mechanicManager {
     EYE_LEVEL = 5,
 
     /**
-     * Action of tilting head down slightly.
+     * 微低
      *
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
@@ -1536,7 +1570,7 @@ declare namespace mechanicManager {
     HEAD_DOWN_SLIGHTLY = 6,
 
     /**
-     * Action of tilting head down completely.
+     * 下俯到底
      *
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
@@ -1545,7 +1579,7 @@ declare namespace mechanicManager {
     HEAD_DOWN = 7,
 
     /**
-     * Action of wiggling head.
+     * 晃头
      *
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
@@ -1554,7 +1588,7 @@ declare namespace mechanicManager {
     HEAD_WIGGLE = 8,
 
     /**
-     * Action of nodding.
+     * 点头
      *
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
@@ -1563,7 +1597,7 @@ declare namespace mechanicManager {
     NOD = 9,
 
     /**
-     * Action of shaking head.
+     * 摇头
      *
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
@@ -1572,7 +1606,7 @@ declare namespace mechanicManager {
     HEAD_SHAKE = 10,
 
     /**
-     * Action of happy.
+     * 开心动作
      *
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
@@ -1581,7 +1615,7 @@ declare namespace mechanicManager {
     HAPPY = 1000,
 
     /**
-     * Action of angry.
+     * 生气动作
      *
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
@@ -1590,7 +1624,7 @@ declare namespace mechanicManager {
     ANGRY = 1001,
 
     /**
-     * Action of sad.
+     * 悲伤动作
      *
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
@@ -1599,7 +1633,7 @@ declare namespace mechanicManager {
     SAD = 1002,
 
     /**
-     * Action of scared.
+     * 惊吓动作
      *
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
@@ -1608,7 +1642,7 @@ declare namespace mechanicManager {
     SCARED = 1003,
 
     /**
-     * Action of dance.
+     * 舞蹈动作
      *
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
@@ -1617,7 +1651,7 @@ declare namespace mechanicManager {
     DANCE = 2000,
 
     /**
-     * Action of acting cute.
+     * 卖萌动作
      *
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
@@ -1626,7 +1660,7 @@ declare namespace mechanicManager {
     ACTING_CUTE = 2001,
 
     /**
-     * Action of celebrate.
+     * 庆祝动作
      *
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
@@ -1635,7 +1669,7 @@ declare namespace mechanicManager {
     CELEBRATE = 2002,
 
     /**
-     * Action of wakeup.
+     * 唤醒动作
      *
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
@@ -1644,7 +1678,7 @@ declare namespace mechanicManager {
     WAKEUP = 2003,
 
     /**
-     * Action of sleep.
+     * 休眠动作
      *
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
@@ -1653,7 +1687,7 @@ declare namespace mechanicManager {
     SLEEP = 2004,
 
     /**
-     * Action of low power.
+     * 低电量动作
      *
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
@@ -1662,7 +1696,7 @@ declare namespace mechanicManager {
     LOW_POWER = 2005,
 
     /**
-     * Action of thinking.
+     * 思考中动作
      *
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
@@ -1672,16 +1706,15 @@ declare namespace mechanicManager {
   }
 
   /**
-   * Mechanic event definition.
+   * 具身设备事件定义
    *
    * @syscap SystemCapability.Mechanic.Core
    * @systemapi
    * @since 26.0.0 dynamic&static
    */
   export enum MechEventType {
-
     /**
-     * Mechanic device attached on base.
+     * 吸附事件
      *
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
@@ -1690,7 +1723,7 @@ declare namespace mechanicManager {
     DEVICE_ADSORBED = 0,
 
     /**
-     * Mechanic device detached from the base.
+     * 未吸附事件
      *
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
@@ -1699,7 +1732,7 @@ declare namespace mechanicManager {
     DEVICE_UNADSORBED = 1,
 
     /**
-     * Mechanic device hits a cliff while moving.
+     * 移动中遇到悬崖
      *
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
@@ -1708,7 +1741,7 @@ declare namespace mechanicManager {
     REACH_CLIFF = 2,
 
     /**
-     * Mechanic device hits an obstacle while moving.
+     * 移动中遇到障碍
      *
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
@@ -1717,7 +1750,7 @@ declare namespace mechanicManager {
     REACH_OBSTACLE = 3,
 
     /**
-     * Mechanic device is low on power.
+     * 设备低电量
      *
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
@@ -1727,17 +1760,16 @@ declare namespace mechanicManager {
   }
 
   /**
-   * Definition of Mechanic device event.
+   * 具身设备事件定义
    *
    * @syscap SystemCapability.Mechanic.Core
    * @systemapi
    * @since 26.0.0 dynamic&static
    */
   export interface MechEvent {
-
     /**
-     * ID of the mechanical device.
-     * The value should be an integer.
+     * 具身设备ID。
+     * 取值限定为整数。
      *
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
@@ -1746,13 +1778,118 @@ declare namespace mechanicManager {
     mechId: int;
 
     /**
-     * Event type of this event.
+     * 事件类型
      *
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
      * @since 26.0.0 dynamic&static
      */
     event: MechEventType;
+  }
+
+  /**
+   * 具身设备地址类型
+   *
+   * @syscap SystemCapability.Mechanic.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  export enum AddressType {
+    /**
+     * 具身设备蓝牙地址类型
+     *
+     * @syscap SystemCapability.Mechanic.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    BLE_ADDR = 0
+  }
+
+  /**
+   * 配件设备信息定义
+   *
+   * @syscap SystemCapability.Mechanic.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  export interface AddressInfo {
+    /**
+     * 配件设备地址。
+     *
+     * @syscap SystemCapability.Mechanic.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    address: string;
+
+    /**
+     * 地址类型。
+     *
+     * @syscap SystemCapability.Mechanic.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    addressType: AddressType;
+  }
+
+  /**
+   * 连接参数定义
+   *
+   * @syscap SystemCapability.Mechanic.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  export interface ConnectParam {
+    /**
+     * 具身设备名称。
+     *
+     * @syscap SystemCapability.Mechanic.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    deviceName?: string;
+
+    /**
+     * 当前设备标识。
+     * 取值限定为整数。
+     *
+     * @syscap SystemCapability.Mechanic.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    identifier?: int;
+
+    /**
+     * 发现设备时携带的数据
+     * 数据必须符合以下格式：|类型|值|类型|值|。
+     * 每个特定类型的value'len是预定义的长度
+     * 支持的类型和版本如下表所示。
+     * -----------------------------------------------------------------
+     * 类型|值|值len |api级别
+     * -----------------------------------------------------------------
+     * 0x01 |三轴重力传感器值| 3Byte |26.0.0
+     * -----------------------------------------------------------------
+     * 0x02|MAC地址第1字节偏移|1字节|26.0.0
+     * -----------------------------------------------------------------
+     * 0x03 |配对广播|1字节|26.0.0
+     * -----------------------------------------------------------------
+     * 0x04 |目标设备标识|4字节|26.0.0
+     * -----------------------------------------------------------------。
+     *
+     * @syscap SystemCapability.Mechanic.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    custdata: string;
   }
 }
 
