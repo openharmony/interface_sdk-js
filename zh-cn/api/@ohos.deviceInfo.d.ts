@@ -126,8 +126,6 @@ declare namespace deviceInfo {
 
   /**
    * 设备厂家名称。
-   * 
-   * 示例：HUAWEI
    *
    * @syscap SystemCapability.Startup.SystemInfo
    * @crossplatform [since 10]
@@ -137,8 +135,6 @@ declare namespace deviceInfo {
 
   /**
    * 设备品牌名称。
-   * 
-   * 示例：HUAWEI
    *
    * @syscap SystemCapability.Startup.SystemInfo
    * @crossplatform [since 10]
@@ -247,7 +243,7 @@ declare namespace deviceInfo {
   const serial: string;
 
   /**
-   * Bootloader版本号。
+   * Bootloader版本号，用于标识设备启动引导程序的版本信息。
    * 
    * 示例：bootloader
    *
@@ -291,7 +287,7 @@ declare namespace deviceInfo {
   const displayVersion: string;
 
   /**
-   * 差异版本号。
+   * 差异版本号，是编译时生成的ohos的版本号。
    * 
    * 示例：default
    *
@@ -389,7 +385,7 @@ declare namespace deviceInfo {
   const sdkApiVersion: number;
 
   /**
-   * 系统软件Minor API版本。**从** API 26 版本开始，系统API版本格式：sdkApiVersion.sdkMinorApiVersion.sdkPatchApiVersion。
+   * 系统软件Minor API版本。从API 26 版本开始，系统API版本格式：sdkApiVersion.sdkMinorApiVersion.sdkPatchApiVersion。
    * 
    * 26.0.0
    * 
@@ -404,7 +400,7 @@ declare namespace deviceInfo {
   const sdkMinorApiVersion: number;
 
   /**
-   * 系统软件Patch API版本。**从** API 26 版本开始，系统API版本格式：sdkApiVersion.sdkMinorApiVersion.sdkPatchApiVersion。
+   * 系统软件Patch API版本。从API 26 版本开始，系统API版本格式：sdkApiVersion.sdkMinorApiVersion.sdkPatchApiVersion。
    * 
    * 26.0.0
    * 
@@ -432,8 +428,6 @@ declare namespace deviceInfo {
   /**
    * 版本ID。由deviceType、manufacture、brand、productSeries、osFullName、productModel、softwareModel、sdkApiVersion、
    * incrementalVersion、buildType拼接组成。如果需要获取其中的某个字段值，建议直接使用对应的字段（如deviceType、manufacture等），可提升效率，不建议解析versionId获取。
-   * 
-   * 示例：wearable/HUAWEI/HUAWEI/TAS/OpenHarmony-5.0.0.1/TAS-AL00/TAS-AL00/12/default/release:nolog
    *
    * @syscap SystemCapability.Startup.SystemInfo
    * @crossplatform [since 10]
