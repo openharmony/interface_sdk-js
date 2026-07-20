@@ -19,7 +19,7 @@
  */
 
 /**
- * Enumerates display types for nodes in the **GridObjectSortComponent** component.
+ * 配置网格对象排序组件节点的类型，配置名称 IMAGE_TEXT 为图片文字类型，TEXT 为文字类型。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -30,7 +30,7 @@
  */
 export declare enum GridObjectSortComponentType {
   /**
-   * Image with text.
+   * 图片文字类型。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -41,7 +41,7 @@ export declare enum GridObjectSortComponentType {
   IMAGE_TEXT = "image_text",
 
   /**
-   * Text only.
+   * 文字类型。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -53,7 +53,7 @@ export declare enum GridObjectSortComponentType {
 }
 
 /**
- * Provides data item configuration for the **GridObjectSortComponent** component.
+ * 网格对象排序组件的组件数据配置信息。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -64,9 +64,9 @@ export declare enum GridObjectSortComponentType {
  */
 export interface GridObjectSortComponentItem {
   /**
-   * Data ID, which must be unique.
+   * 数据id序号，不可重复。
    *
-   * The default value is an empty string.
+   * 默认值：空字符串。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -77,7 +77,7 @@ export interface GridObjectSortComponentItem {
   id: number | string;
 
   /**
-   * Text information.
+   * 显示文本信息。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -88,8 +88,7 @@ export interface GridObjectSortComponentItem {
   text: ResourceStr;
 
   /**
-   * Whether the grid object has been added. The value **true** means that the grid object has been added, and **false**
-   * means the opposite.
+   * 是否已经被添加，已添加：true，未添加：false。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -100,11 +99,11 @@ export interface GridObjectSortComponentItem {
   selected: boolean;
 
   /**
-   * Sequence number.
+   * 顺序序号。
    *
-   * The value must be greater than or equal to 0.
+   * 取值范围：大于等于0。
    *
-   * Default value: **0**.
+   * 默认值：0
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -115,7 +114,7 @@ export interface GridObjectSortComponentItem {
   order: number;
 
   /**
-   * URL of the image. Required when **GridObjectSortComponentType** is set to **IMAGE_TEXT**.
+   * GridObjectSortComponentType类型为IMAGE_TEXT时，需要传入图片地址。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -126,8 +125,7 @@ export interface GridObjectSortComponentItem {
   url?: ResourceStr;
 
   /**
-   * Symbol resource of the image. Required when **GridObjectSortComponentType** is set to **IMAGE_TEXT**. The priority
-   * of this property is higher than that of **url**.
+   * GridObjectSortComponentType类型为IMAGE_TEXT时，需要传入Symbol图标资源。配置优先级高于url。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -139,7 +137,7 @@ export interface GridObjectSortComponentItem {
 }
 
 /**
- * Provides configuration options for the **GridObjectSortComponent** component.
+ * 网格对象排序组件的组件配置信息。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -150,9 +148,9 @@ export interface GridObjectSortComponentItem {
  */
 export interface GridObjectSortComponentOptions {
   /**
-   * Component display type: text only or image with text
+   * 组件展示形态：文字|图片+文字。
    *
-   * Default value: **GridObjectSortComponentType.TEXT**
+   * 默认值：GridObjectSortComponentType.TEXT
    *
    * @default GridObjectSortComponentType.TEXT
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -164,11 +162,11 @@ export interface GridObjectSortComponentOptions {
   type?: GridObjectSortComponentType;
 
   /**
-   * Image size, in vp.
+   * 图片的尺寸，单位vp。
    *
-   * The value must be greater than or equal to 0.
+   * 取值范围：大于等于0。
    *
-   * Default value: **56vp**.
+   * 默认值：56vp
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -179,9 +177,9 @@ export interface GridObjectSortComponentOptions {
   imageSize?: number | Resource;
 
   /**
-   * Title displayed in the non-editing state.
+   * 未编辑状态下显示的标题。
    *
-   * Default value: **Channel**
+   * 默认值：频道。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -192,9 +190,9 @@ export interface GridObjectSortComponentOptions {
   normalTitle?: ResourceStr;
 
   /**
-   * Title displayed in the editing state.
+   * 编辑状态下头部标题显示。
    *
-   * Default value: **Edit**
+   * 默认值：编辑。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -205,9 +203,9 @@ export interface GridObjectSortComponentOptions {
   editTitle?: ResourceStr;
 
   /**
-   * First subtitle of the display area.
+   * 展示区域标题，第一个子标题。
    *
-   * Default value: **Drag to sort**
+   * 默认值：长按拖动排序。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -218,9 +216,9 @@ export interface GridObjectSortComponentOptions {
   showAreaTitle?: ResourceStr;
 
   /**
-   * Second subtitle of the display area.
+   * 添加区域标题，第二个子标题。
    *
-   * Default value: **Tap to add**
+   * 默认值：点击添加。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -232,19 +230,15 @@ export interface GridObjectSortComponentOptions {
 }
 
 /**
- * **GridObjectSortComponent** is a grid object organizer that you can use to edit, drag to sort, add, and delete grid
- * objects.
+ * 网格对象排序组件，用于网格对象的编辑、拖动排序、新增和删除。
  *
- * > **NOTE**
+ * > **说明：**
  * >
- * > - This component can be used only in the stage model.
+ * > - 该组件仅可在Stage模型下使用。
  * >
- * > - If the **GridObjectSortComponent** component has [universal attributes]{@link ./@internal/component/ets/common}
- * > and [universal events]{@link ./@internal/component/ets/common} configured, the compiler toolchain automatically
- * > generates an additional **__Common__** node and mounts the universal attributes and universal events on this node
- * > rather than the **GridObjectSortComponent** component itself. As a result, the configured universal attributes and
- * > universal events may fail to take effect or behave as intended. For this reason, avoid using universal attributes
- * > and events with the **GridObjectSortComponent** component.
+ * > - 如果GridObjectSortComponent设置[通用属性]{@link ./@internal/component/ets/common}和
+ * > [通用事件]{@link ./@internal/component/ets/common}，编译工具链会额外生成节点__Common__，并将通用属性或通用事件挂载在__Common__上，而不是直接应用到
+ * > GridObjectSortComponent本身。这可能导致开发者设置的通用属性或通用事件不生效或不符合预期，因此，不建议GridObjectSortComponent设置通用属性和通用事件。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -256,7 +250,7 @@ export interface GridObjectSortComponentOptions {
 @Component
 export declare struct GridObjectSortComponent {
   /**
-   * Component configuration.
+   * 组件配置信息。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -268,7 +262,7 @@ export declare struct GridObjectSortComponent {
   options: GridObjectSortComponentOptions;
 
   /**
-   * Data to pass. The maximum data length is 50 characters. If it is exceeded, only the first 50 characters are used.
+   * 传入的数据，最大长度为50，数据长度超过50，只会取前50的数据。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -279,7 +273,7 @@ export declare struct GridObjectSortComponent {
   dataList: Array<GridObjectSortComponentItem>;
 
   /**
-   * Callback invoked when changes are saved. The data after the changes is returned.
+   * 保存编辑排序的回调函数，返回编辑后的数据。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -290,7 +284,7 @@ export declare struct GridObjectSortComponent {
   onSave: (select: Array<GridObjectSortComponentItem>, unselect: Array<GridObjectSortComponentItem>) => void;
 
   /**
-   * Callback invoked when changes are canceled.
+   * 取消保存数据的回调。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
