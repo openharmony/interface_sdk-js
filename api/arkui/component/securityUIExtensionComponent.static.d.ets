@@ -33,24 +33,24 @@ import { Builder } from '@ohos.arkui.component';
  * @since 26.0.0 static
  */
 export declare enum SecurityDpiFollowStrategy {
-    /**
-     * Follow host DPI
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @systemapi
-     * @stagemodelonly
-     * @since 26.0.0 static
-     */
-    FOLLOW_HOST_DPI = 0,
-    /**
-     * DPI following provider UIExtensionAbility
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @systemapi
-     * @stagemodelonly
-     * @since 26.0.0 static
-     */
-    FOLLOW_UI_EXTENSION_ABILITY_DPI = 1
+  /**
+   * Follow host DPI
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  FOLLOW_HOST_DPI = 0,
+  /**
+   * DPI following provider UIExtensionAbility
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  FOLLOW_UI_EXTENSION_ABILITY_DPI = 1
 }
 /**
  * This interface is used to set the options for SecurityUIExtensionComponentAttribute during construction
@@ -61,37 +61,37 @@ export declare enum SecurityDpiFollowStrategy {
  * @since 26.0.0 static
  */
 export declare interface SecurityUIExtensionOptions {
-    /**
-     * Set whether the current capability is used as a Caller.<br/>
-     * If set to true, as a Caller, the current token of SecurityUIExtensionComponent is set to rootToken.
-     *
-     * @default false
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @systemapi
-     * @stagemodelonly
-     * @since 26.0.0 static
-     */
-    isTransferringCaller?: boolean;
-    /**
-     * Set placeholder.
-     * If set placeholder ComponentContent, show placeholder node when connection is not established.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @systemapi
-     * @stagemodelonly
-     * @since 26.0.0 static
-     */
-    placeholder?: ComponentContent;
-    /**
-     * Set SecurityUIExtensionComponent Content Dpi Follow Strategy.
-     *
-     * @default SecurityDpiFollowStrategy.FOLLOW_UI_EXTENSION_ABILITY_DPI
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @systemapi
-     * @stagemodelonly
-     * @since 26.0.0 static
-     */
-    dpiFollowStrategy?: SecurityDpiFollowStrategy;
+  /**
+   * Set whether the current capability is used as a Caller.<br/>
+   * If set to true, as a Caller, the current token of SecurityUIExtensionComponent is set to rootToken.
+   *
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  isTransferringCaller?: boolean;
+  /**
+   * Set placeholder.
+   * If set placeholder ComponentContent, show placeholder node when connection is not established.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  placeholder?: ComponentContent;
+  /**
+   * Set SecurityUIExtensionComponent Content Dpi Follow Strategy.
+   *
+   * @default SecurityDpiFollowStrategy.FOLLOW_UI_EXTENSION_ABILITY_DPI
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  dpiFollowStrategy?: SecurityDpiFollowStrategy;
 }
 /**
  * Define ReceiveCallback
@@ -113,75 +113,75 @@ export type ReceiveCallback = Callback<Record<string, RecordData>>;
  * @since 26.0.0 static
  */
 export declare interface SecurityUIExtensionProxy {
-    /**
-     * This function is for sending data to the UIExtensionAbility.
-     * AnonyMous Object Rectification
-     *
-     * @param { Record<string, RecordData> } data
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @systemapi
-     * @stagemodelonly
-     * @since 26.0.0 static
-     */
-    send(data: Record<string, RecordData>): void;
-    /**
-     * This function is for sending data to the UIExtensionAbility and waiting for the result in blocking mode.
-     * AnonyMous Object Rectification
-     *
-     * @param { Record<string, RecordData> } data - Data send to the UIExtensionAbility.
-     * @returns { Record<string, RecordData> } data - Data transferred from the UIExtensionAbility.
-     * @throws { BusinessError } 100011 - No callback has been registered to respond to this request.
-     * @throws { BusinessError } 100012 - Transferring data failed.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @systemapi
-     * @stagemodelonly
-     * @since 26.0.0 static
-     */
-    sendSync(data: Record<string, RecordData>): Record<string, RecordData>;
-    /**
-     * Register the listener that watches for async data receiver callback being registered by UIExtensionAbility.
-     * AnonyMous Object Rectification
-     *
-     * @param { Callback<SecurityUIExtensionProxy> } callback - Callback of the listened event.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @systemapi
-     * @stagemodelonly
-     * @since 26.0.0 static
-     */
-    onAsyncReceiverRegister(callback: Callback<SecurityUIExtensionProxy>): void;
-    /**
-     * Register the listener that watches for sync data receiver callback being registered by UIExtensionAbility.
-     * AnonyMous Object Rectification
-     *
-     * @param { Callback<SecurityUIExtensionProxy> } callback - Callback of the listened event.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @systemapi
-     * @stagemodelonly
-     * @since 26.0.0 static
-     */
-    onSyncReceiverRegister(callback: Callback<SecurityUIExtensionProxy>): void;
-    /**
-     * Deregisters the listener that watches for async data receiver callback being registered by UIExtensionAbility.
-     * AnonyMous Object Rectification
-     *
-     * @param { Callback<SecurityUIExtensionProxy> } [callback] - Callback of the listened event.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @systemapi
-     * @stagemodelonly
-     * @since 26.0.0 static
-     */
-    offAsyncReceiverRegister(callback?: Callback<SecurityUIExtensionProxy>): void;
-    /**
-     * Deregisters the listener that watches for sync data receiver callback being registered by UIExtensionAbility.
-     * AnonyMous Object Rectification
-     *
-     * @param { Callback<SecurityUIExtensionProxy> } [callback] - Callback of the listened event.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @systemapi
-     * @stagemodelonly
-     * @since 26.0.0 static
-     */
-    offSyncReceiverRegister(callback?: Callback<SecurityUIExtensionProxy>): void;
+  /**
+   * This function is for sending data to the UIExtensionAbility.
+   * AnonyMous Object Rectification
+   *
+   * @param { Record<string, RecordData> } data
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  send(data: Record<string, RecordData>): void;
+  /**
+   * This function is for sending data to the UIExtensionAbility and waiting for the result in blocking mode.
+   * AnonyMous Object Rectification
+   *
+   * @param { Record<string, RecordData> } data - Data send to the UIExtensionAbility.
+   * @returns { Record<string, RecordData> } data - Data transferred from the UIExtensionAbility.
+   * @throws { BusinessError } 100011 - No callback has been registered to respond to this request.
+   * @throws { BusinessError } 100012 - Transferring data failed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  sendSync(data: Record<string, RecordData>): Record<string, RecordData>;
+  /**
+   * Register the listener that watches for async data receiver callback being registered by UIExtensionAbility.
+   * AnonyMous Object Rectification
+   *
+   * @param { Callback<SecurityUIExtensionProxy> } callback - Callback of the listened event.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  onAsyncReceiverRegister(callback: Callback<SecurityUIExtensionProxy>): void;
+  /**
+   * Register the listener that watches for sync data receiver callback being registered by UIExtensionAbility.
+   * AnonyMous Object Rectification
+   *
+   * @param { Callback<SecurityUIExtensionProxy> } callback - Callback of the listened event.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  onSyncReceiverRegister(callback: Callback<SecurityUIExtensionProxy>): void;
+  /**
+   * Deregisters the listener that watches for async data receiver callback being registered by UIExtensionAbility.
+   * AnonyMous Object Rectification
+   *
+   * @param { Callback<SecurityUIExtensionProxy> } [callback] - Callback of the listened event.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  offAsyncReceiverRegister(callback?: Callback<SecurityUIExtensionProxy>): void;
+  /**
+   * Deregisters the listener that watches for sync data receiver callback being registered by UIExtensionAbility.
+   * AnonyMous Object Rectification
+   *
+   * @param { Callback<SecurityUIExtensionProxy> } [callback] - Callback of the listened event.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  offSyncReceiverRegister(callback?: Callback<SecurityUIExtensionProxy>): void;
 }
 
 /**
@@ -288,6 +288,7 @@ export declare function SecurityUIExtensionComponent(
  *
  * @param { CustomBuilderT<SecurityUIExtensionComponentAttribute> } style - the callback to set up
  *     SecurityUIExtensionComponent's attributes.
+ * @param { CustomBuilder } [content_] - container
  * @returns { SecurityUIExtensionComponentAttribute } The attribute of the SecurityUIExtensionComponent.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi

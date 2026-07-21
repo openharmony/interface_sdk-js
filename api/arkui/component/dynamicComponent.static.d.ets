@@ -26,67 +26,62 @@ import { Builder } from '@ohos.arkui.component';
 /**
  * This interface is used to set the options for DynamicComponentAttribute during construction
  *
- * @interface DynamicOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @stagemodelonly
  * @since 26.0.0 static
  */
 export declare interface DynamicOptions {
-    /**
-     * Indicates entryPoint of the DynamicOptions
-     *
-     * @type { string }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @systemapi
-     * @stagemodelonly
-     * @since 26.0.0 static
-     */
-    entryPoint: string;
-    /**
-     * Indicates restricted worker for run abc.
-     *
-     * @type { EAWorker | undefined } worker - worker which run abc
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @systemapi
-     * @stagemodelonly
-     * @since 26.0.0 static
-     */
-    worker: EAWorker | undefined;
-    /**
-     * Indicates backgroundTransparent of the DynamicComponent.
-     *
-     * @type { ?boolean }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @systemapi
-     * @stagemodelonly
-     * @since 26.0.0 static
-     */
-    backgroundTransparent?: boolean;
-    /**
-     * Indicates allow Inter-process UEC of the DynamicComponent.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @systemapi
-     * @stagemodelonly
-     * @since 26.0.0 static
-     */
-    allowCrossProcessNesting?: boolean;
-    /**
-     * Indicates allow keyboard avoidance inside the DynamicComponent.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @systemapi
-     * @stagemodelonly
-     * @since 26.0.0 static
-     */
-    allowOccupied?: boolean;
+  /**
+   * Indicates entryPoint of the DynamicOptions.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  entryPoint: string;
+  /**
+   * Indicates restricted worker for run abc.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  worker: EAWorker | undefined;
+  /**
+   * Indicates backgroundTransparent of the DynamicComponent.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  backgroundTransparent?: boolean;
+  /**
+   * Indicates allow Inter-process UEC of the DynamicComponent.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  allowCrossProcessNesting?: boolean;
+  /**
+   * Indicates allow keyboard avoidance inside the DynamicComponent.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  allowOccupied?: boolean;
 }
 
 /**
  * Define the attribute functions of DynamicComponent.
  *
- * @extends CommonMethod
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @stagemodelonly
