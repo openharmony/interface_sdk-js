@@ -14,14 +14,13 @@
  */
 
 /**
- * @file 定义isolated组件
+ * @file System API
  * @kit ArkUI
  */
 
 /**
- * 表示用于运行abc的受限worker。
+ * 用于运行Abc的受限Worker。
  *
- * @typedef { import('../api/@ohos.worker').default.RestrictedWorker } RestrictedWorker
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @stagemodelonly
@@ -30,9 +29,8 @@
 declare type RestrictedWorker = import('../api/@ohos.worker').default.RestrictedWorker;
 
 /**
- * 表示错误回调。
+ * 错误回调类型，用于接收异常信息。
  *
- * @typedef { import('../api/@ohos.base').ErrorCallback } ErrorCallback
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @stagemodelonly
@@ -43,7 +41,6 @@ declare type ErrorCallback = import('../api/@ohos.base').ErrorCallback;
 /**
  * 表示Want。
  *
- * @typedef { import('../api/@ohos.app.ability.Want').default } Want
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @stagemodelonly
@@ -52,9 +49,8 @@ declare type ErrorCallback = import('../api/@ohos.base').ErrorCallback;
 declare type Want = import('../api/@ohos.app.ability.Want').default;
 
 /**
- * 该接口用于在构造时设置IsolatedComponentAttribute的选项。
+ * 用于在IsolatedComponent构造时传递构造参数。
  *
- * @interface IsolatedOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @stagemodelonly
@@ -62,8 +58,12 @@ declare type Want = import('../api/@ohos.app.ability.Want').default;
  */
 declare interface IsolatedOptions {
   /**
-   * 表示IsolatedOptions的Want。
-   * @type { Want }
+   * 要加载的Abc信息。
+   * Want对象的parameters中需包含以下字段：
+   * <br/>resourcePath：资源路径，需为.hap文件路径；
+   * <br/>abcPath：经verifyAbc校验后的Abc文件路径，需以'/abcs'开头；
+   * <br/>entryPoint：Abc入口，格式为'bundleName/页面路径'。
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -71,8 +71,8 @@ declare interface IsolatedOptions {
    */
   want: Want;
   /**
-   * 表示用于运行abc的受限worker。
-   * @type { RestrictedWorker } worker - 运行abc的worker
+   * 运行Abc的受限Worker。
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -82,10 +82,9 @@ declare interface IsolatedOptions {
 }
 
 /**
- * 提供IsolatedComponent的接口，用于渲染其他ABC的UI。
+ * 创建IsolatedComponent组件，用于显示受限Worker运行的Abc。
  *
- * @typedef { function } IsolatedComponentInterface
- * @param { IsolatedOptions } options - IsolatedComponentAttribute的构造配置
+ * @param { IsolatedOptions } options - 需要传递的构造参数，仅首次传入有效，不支持构造参数更新。
  * @returns { IsolatedComponentAttribute } IsolatedComponent的属性
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
@@ -96,9 +95,12 @@ declare interface IsolatedOptions {
 declare type IsolatedComponentInterface = (options: IsolatedOptions) => IsolatedComponentAttribute;
 
 /**
- * 定义IsolatedComponent的属性方法。
+ * 仅支持[width]{@link CommonMethod#width(value: Length)}、[height]{@link CommonMethod#height(value: Length)}和[backgroundColor]{@link CommonMethod#backgroundColor(value: ResourceColor)}通用属性。
  *
- * @extends CommonMethod<IsolatedComponentAttribute>
+ * 不支持[通用事件]{@link ./common}。
+ *
+ * 事件经过坐标转换后异步传递给受限Worker线程处理。不支持线程之间的事件冒泡，线程之间的UI交互存在事件冲突现象。
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @stagemodelonly
@@ -107,8 +109,9 @@ declare type IsolatedComponentInterface = (options: IsolatedOptions) => Isolated
  */
 declare class IsolatedComponentAttribute extends CommonMethod<IsolatedComponentAttribute> {
   /**
-   * @param { ErrorCallback } callback
-   * - 当发生除与IsolatedAbility断开连接之外的错误时回调。
+   * IsolatedComponent加载的Abc（以Ability扩展形式运行）在运行过程中发生异常时触发本回调。可通过回调参数中的code、name和message获取错误信息并做处理。
+   *
+   * @param { ErrorCallback } callback - 异常发生时的错误回调，可通过回调参数获取code、name和message错误信息。
    * @returns { IsolatedComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -121,7 +124,15 @@ declare class IsolatedComponentAttribute extends CommonMethod<IsolatedComponentA
 }
 
 /**
- * 定义IsolatedComponent组件。
+ * IsolatedComponent用于支持在本页面内嵌入显示独立Abc（方舟字节码，.abc文件）提供的UI，展示的内容在受限Worker线程中运行。
+ *
+ * 通常用于有Abc热更新（可动态替换IsolatedComponent加载的Abc文件，无需通过重新安装应用的方式实现内容更新）诉求的模块化开发场景。
+ *
+ * > **说明：**
+ * >
+ * > - 使用前需确保Abc已通过verifyAbc校验，且已在module.json5中配置ohos.permission.RUN_DYN_CODE权限。
+ * > - 不支持构造参数更新，仅首次传入有效。
+ * > - 不支持IsolatedComponent组件嵌套场景。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
