@@ -1,3 +1,4 @@
+'use static';
 /*
  * Copyright (c) 2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -16,53 +17,52 @@
  * @file Defines toolbar attributes.
  * @kit ArkUI
  */
+
 import { ComponentBuilder, CustomBuilder, CustomBuilderT } from './builder';
 import { Builder } from '@ohos.arkui.component';
 /**
  * Declare the placement of the toolbar item.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  */
 export declare enum ToolBarItemPlacement {
-    /**
-     * Place toolbar item at the leading of top bar.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     */
-    TOP_BAR_LEADING = 0,
-    /**
-     * Place toolbar item at the trailing of top bar.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     */
-    TOP_BAR_TRAILING = 1
+  /**
+   * Place toolbar item at the leading of top bar.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  TOP_BAR_LEADING = 0,
+  /**
+   * Place toolbar item at the trailing of top bar.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  TOP_BAR_TRAILING = 1
 }
 /**
  * ToolBarItem constructor options.
  *
- * @interface ToolBarItemOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  */
 export interface ToolBarItemOptions {
-    /**
-     * Vertical layout element spacing.
-     *
-     * @type { ?ToolBarItemPlacement }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     */
-    placement?: ToolBarItemPlacement;
+  /**
+   * Vertical layout element spacing.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  placement?: ToolBarItemPlacement;
 }
+
 /**
  * Defines the ToolBarItem component attribute functions.
  *
@@ -71,40 +71,41 @@ export interface ToolBarItemOptions {
  * @since 23 static
  */
 export declare interface ToolBarItemAttribute {
-    /**
-     * Set the component's source code redirection information. 
-     * @param { string } sourceLine - the source code line.
-     * @param { string } [moduleName] - module to which the component belongs.
-     * @returns { this }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 26.0.0 staticonly
-     */
-    debugLine(sourceLine: string, moduleName?: string): this;
-    /**
-     * Sets toolbar item options.
-     *
-     * @param { ToolBarItemOptions } [options] - column options
-     * @returns { this } ToolBarItemAttribute instance
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 26.0.0 staticonly
-     */
-    setToolBarItemOptions(options?: ToolBarItemOptions): this;
-    /**
-     * Notify ToolBarItem has finished setting up its attributes.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 26.0.0 staticonly
-     */
-    applyAttributesFinish(): void;
+  /**
+   * Set the component's source code redirection information.
+   *
+   * @param { string } sourceLine - the source code line.
+   * @param { string } [moduleName] - module to which the component belongs.
+   * @returns { this }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 staticonly
+   */
+  debugLine(sourceLine: string, moduleName?: string): this;
+  /**
+   * Sets toolbar item options.
+   *
+   * @param { ToolBarItemOptions } [options] - column options
+   * @returns { this } ToolBarItemAttribute instance
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 staticonly
+   */
+  setToolBarItemOptions(options?: ToolBarItemOptions): this;
+  /**
+   * Notify ToolBarItem has finished setting up its attributes.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 staticonly
+   */
+  applyAttributesFinish(): void;
 }
 
 /**
  * Defines ToolBarItem Component.
  *
- * @param { ToolBarItemOptions } options - column options
+ * @param { ToolBarItemOptions } [options] - column options
  * @param { CustomBuilder } [content_] - container
  * @returns { ToolBarItemAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -115,10 +116,11 @@ export declare interface ToolBarItemAttribute {
 export declare function ToolBarItem(
     options?: ToolBarItemOptions,
     content_?: CustomBuilder,
-): ToolBarItemAttribute
+): ToolBarItemAttribute;
 
 /**
- * Defines ToolBarItem Component.It requires call setToolBarItemOptions at start of the component attribute set-up,
+ * Defines ToolBarItem Component.It requires call setToolBarItemOptions at start of
+ * the component attribute set-up,
  * and it requires call applyAttributeFinish at the end of the component attribute set-up.
  *
  * @param { CustomBuilderT<ToolBarItemAttribute> } style - the callback to set up toolbaritem's attributes.
@@ -132,4 +134,4 @@ export declare function ToolBarItem(
 export declare function ToolBarItem(
     style: CustomBuilderT<ToolBarItemAttribute>,
     content_?: CustomBuilder,
-): ToolBarItemAttribute
+): ToolBarItemAttribute;

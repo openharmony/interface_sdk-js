@@ -25,7 +25,6 @@ import { Callback } from '../../@ohos.base';
 /**
  * Profiler tools for inspectors.
  *
- * @namespace Profiler
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @stagemodelonly
@@ -33,27 +32,28 @@ import { Callback } from '../../@ohos.base';
  * @test
  */
 export declare namespace Profiler {
-    /**
-     * Registers vsync callback for profiler.
-     * AnonyMous Object Rectification.
-     * @param { Callback<string> } callback - the callback info is json string with ui update info.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @systemapi
-     * @stagemodelonly
-     * @since 23 static
-     * @test
-     */
-    function registerVsyncCallback(callback: Callback<string>): void;
-    /**
-     * Unregisters vsync callback.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @systemapi
-     * @stagemodelonly
-     * @since 23 static
-     * @test
-     */
-    function unregisterVsyncCallback(): void;
+  /**
+   * Registers vsync callback for profiler.
+   * AnonyMous Object Rectification.
+   *
+   * @param { Callback<string> } callback - the callback info is json string with ui update info.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 static
+   * @test
+   */
+  function registerVsyncCallback(callback: Callback<string>): void;
+  /**
+   * Unregisters vsync callback.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 static
+   * @test
+   */
+  function unregisterVsyncCallback(): void;
 }
 /**
  * Set app background color.
