@@ -1280,7 +1280,8 @@ export declare interface SwiperAttribute extends CommonMethod {
    * @returns { SwiperAttribute } Returns the instance of the SwiperAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 26.0.0 staticonly
+   * @since 26.1.0 staticonly
+   * @unpublished
    */
   default setSwiperOptions(controller?: SwiperController): this;
 }
@@ -1468,7 +1469,8 @@ export declare function Swiper(
  * @returns { SwiperAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 26.0.0 staticonly
+ * @since 26.1.0 staticonly
+ * @unpublished
  */
 @Builder
 export declare function Swiper(

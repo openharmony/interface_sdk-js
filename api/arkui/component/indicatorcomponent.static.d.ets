@@ -154,7 +154,8 @@ export declare interface IndicatorComponentAttribute extends CommonMethod {
    * @returns { IndicatorComponentAttribute } Returns the instance of the IndicatorComponentAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 26.0.0 staticonly
+   * @since 26.1.0 staticonly
+   * @unpublished
    */
   default setIndicatorComponentOptions(controller?: IndicatorComponentController): this;
 }
@@ -181,7 +182,8 @@ export declare function IndicatorComponent(
  * @returns { IndicatorComponentAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 26.0.0 staticonly
+ * @since 26.1.0 staticonly
+ * @unpublished
  */
 @Builder
 export declare function IndicatorComponent(

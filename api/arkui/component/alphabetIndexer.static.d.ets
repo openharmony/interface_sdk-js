@@ -455,7 +455,8 @@ export declare interface AlphabetIndexerAttribute extends CommonMethod {
    * @returns { AlphabetIndexerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 26.0.0 staticonly
+   * @since 26.1.0 staticonly
+   * @unpublished
    */
   default setAlphabetIndexerOptions(info: AlphabetIndexerOptions): this;
 }
@@ -481,7 +482,8 @@ export declare function AlphabetIndexer(
  * @returns { AlphabetIndexerAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 26.0.0 staticonly
+ * @since 26.1.0 staticonly
+ * @unpublished
  */
 @Builder
 export declare function AlphabetIndexer(
