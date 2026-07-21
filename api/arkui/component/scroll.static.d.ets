@@ -1093,8 +1093,9 @@ export declare interface ScrollAttribute extends ScrollableCommonMethod {
    * @param { Scroller } [scroller] - scroller
    * @returns { ScrollAttribute } Returns the instance of the ScrollAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @unpublished
    * @stagemodelonly
-   * @since 26.0.0 staticonly
+   * @since 26.1.0 staticonly
    */
   default setScrollOptions(scroller?: Scroller): this;
 
@@ -1182,8 +1183,9 @@ export declare function Scroll(
  * @param { CustomBuilder } [content_]
  * @returns { ScrollAttribute } The attribute of the Scroll.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @unpublished
  * @stagemodelonly
- * @since 26.0.0 staticonly
+ * @since 26.1.0 staticonly
  * @noninterop
  */
 @Builder

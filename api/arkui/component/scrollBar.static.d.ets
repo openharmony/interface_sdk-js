@@ -128,8 +128,9 @@ export declare interface ScrollBarAttribute extends CommonMethod {
    * @param { ScrollBarOptions } value - ScrollBar constructor options
    * @returns { ScrollBarAttribute } Returns the instance of the ScrollBarAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @unpublished
    * @stagemodelonly
-   * @since 26.0.0 staticonly
+   * @since 26.1.0 staticonly
    */
   default setScrollBarOptions(value: ScrollBarOptions): this;
 
@@ -169,8 +170,9 @@ export declare function ScrollBar(
  * @param { CustomBuilder } [content_]
  * @returns { ScrollBarAttribute } The attribute of the ScrollBar.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @unpublished
  * @stagemodelonly
- * @since 26.0.0 staticonly
+ * @since 26.1.0 staticonly
  * @noninterop
  */
 @Builder

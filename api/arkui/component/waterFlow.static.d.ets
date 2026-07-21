@@ -575,8 +575,9 @@ export declare interface WaterFlowAttribute extends ScrollableCommonMethod {
    * @param { WaterFlowOptions } [options] - WaterFlow constructor options
    * @returns { WaterFlowAttribute } Returns the instance of the WaterFlowAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @unpublished
    * @stagemodelonly
-   * @since 26.0.0 staticonly
+   * @since 26.1.0 staticonly
    */
   default setWaterFlowOptions(options?: WaterFlowOptions): this;
 
@@ -616,8 +617,9 @@ export declare function WaterFlow(
  * @param { CustomBuilder } [content_]
  * @returns { WaterFlowAttribute } The attribute of the WaterFlow.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @unpublished
  * @stagemodelonly
- * @since 26.0.0 staticonly
+ * @since 26.1.0 staticonly
  * @noninterop
  */
 @Builder
