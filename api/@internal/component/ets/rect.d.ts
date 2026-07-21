@@ -40,14 +40,14 @@ declare interface RectOptions {
    * Unit: vp, The value must be greater than or equal to 0, The **undefined**, **null**, **NaN**, and
    * **Infinity** values are invalid and treated as the default value. Default value: **0**.
    *
-   * @type { ?(number | string) } [since 18 - 19]
+   * @type { ?(number | string) } [since 7 - 19]
    * @type { ?Length } [since 20]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   width?: Length;
 
@@ -60,10 +60,10 @@ declare interface RectOptions {
    * @type { ?Length } [since 20]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   height?: Length;
 
@@ -74,14 +74,14 @@ declare interface RectOptions {
    * Unit: vp, The **undefined**, **null**, **NaN**, and **Infinity** values are invalid and treated as the
    * default value. Default value: **0**.
    *
-   * @type { ?(number | string | Array<any>) } [since 18 - 19]
+   * @type { ?(number | string | Array<any>) } [since 7 - 19]
    * @type { ?(Length | Array<any>) } [since 20]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   radius?: Length | Array<any>;
 }
@@ -108,14 +108,14 @@ declare interface RoundedRectOptions {
    * Unit: vp, The **undefined**, **null**, **NaN**, and **Infinity**
    * values are invalid and treated as the default value. Default value: **0**.
    *
-   * @type { ?(number | string) } [since 18 - 19]
+   * @type { ?(number | string) } [since 7 - 19]
    * @type { ?Length } [since 20]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   width?: Length;
 
@@ -124,14 +124,14 @@ declare interface RoundedRectOptions {
    * Unit: vp, The value must be greater than or equal to 0, The **undefined**, **null**, **NaN**, and
    * **Infinity** values are invalid and treated as the default value. Default value: **0**.
    *
-   * @type { ?(number | string) } [since 18 - 19]
+   * @type { ?(number | string) } [since 7 - 19]
    * @type { ?Length } [since 20]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   height?: Length;
 
@@ -140,14 +140,14 @@ declare interface RoundedRectOptions {
    * Unit: vp, Invalid values are treated as the default value.
    * Default value: **0**.
    *
-   * @type { ?(number | string) } [since 18 - 19]
+   * @type { ?(number | string) } [since 7 - 19]
    * @type { ?Length } [since 20]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   radiusWidth?: Length;
 
@@ -155,14 +155,14 @@ declare interface RoundedRectOptions {
    * Height of the rounded corner. The value must be greater than or equal to 0.
    * Unit: vp, Invalid values are treated as the default value. Default value: **0**.
    *
-   * @type { ?(number | string) } [since 18 - 19]
+   * @type { ?(number | string) } [since 7 - 19]
    * @type { ?Length } [since 20]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   radiusHeight?: Length;
 }
