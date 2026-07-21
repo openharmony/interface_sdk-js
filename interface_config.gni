@@ -40,3 +40,8 @@ ohos_ets_static_path = "${root_build_dir}/ohos_static"
 ohos_ets_static_api_path = "${ohos_ets_static_path}/api"
 ohos_ets_static_arkts_path = "${ohos_ets_static_path}/arkts"
 ohos_ets_static_kits_path = "${ohos_ets_static_path}/kits"
+
+ohos_ets_runtimeapi_path =
+    "${ohos_ets_static_path}/build-tools/ets-loader/runtimeapi"
+ohos_ets_runtimeapi_sdk_path =
+    "${root_build_dir}/ohos_ets/build-tools/ets-loader/runtimeapi"
