@@ -40,14 +40,14 @@ interface LineOptions {
    * If the value is invalid or the default value is used, the width required for the content is used.
    * Unit: vp.
    *
-   * @type { ?(string | number) } [since 18 - 19]
+   * @type { ?(string | number) } [since 7 - 19]
    * @type { ?Length } [since 20]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   width?: Length;
 
@@ -56,14 +56,14 @@ interface LineOptions {
    * If the value is invalid or the default value is used, the height required for the content is used.
    * Unit: vp.
    *
-   * @type { ?(string | number) } [since 18 - 19]
+   * @type { ?(string | number) } [since 7 - 19]
    * @type { ?Length } [since 20]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   height?: Length;
 }

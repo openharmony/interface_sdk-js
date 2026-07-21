@@ -43,14 +43,14 @@ declare interface ViewportRect {
    * 
    * Invalid values are treated as the default value.
    *
-   * @type { ?(number | string) } [since 18 - 19]
+   * @type { ?(number | string) } [since 7 - 19]
    * @type { ?Length } [since 20]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   x?: Length;
 
@@ -63,14 +63,14 @@ declare interface ViewportRect {
    * 
    * Invalid values are treated as the default value.
    *
-   * @type { ?(number | string) } [since 18 - 19]
+   * @type { ?(number | string) } [since 7 - 19]
    * @type { ?Length } [since 20]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   y?: Length;
 
@@ -83,14 +83,14 @@ declare interface ViewportRect {
    * 
    * Invalid values are treated as the default value.
    *
-   * @type { ?(number | string) } [since 18 - 19]
+   * @type { ?(number | string) } [since 7 - 19]
    * @type { ?Length } [since 20]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   width?: Length;
 
@@ -103,14 +103,14 @@ declare interface ViewportRect {
    * 
    * Invalid values are treated as the default value.
    *
-   * @type { ?(number | string) } [since 18 - 19]
+   * @type { ?(number | string) } [since 7 - 19]
    * @type { ?Length } [since 20]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   height?: Length;
 }
