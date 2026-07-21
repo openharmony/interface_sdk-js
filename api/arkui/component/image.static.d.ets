@@ -509,8 +509,9 @@ export declare interface ImageAttribute extends CommonMethod {
    * @param { ImageAIOptions } [imageAIOptions] - Options for AI analyzer.
    * @returns { ImageAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @unpublished
    * @stagemodelonly
-   * @since 26.0.0 staticonly
+   * @since 26.1.0 staticonly
    */
   default setImageOptions(
         src: PixelMap | ResourceStr | DrawableDescriptor | ImageContent | undefined, 
@@ -525,8 +526,9 @@ export declare interface ImageAttribute extends CommonMethod {
    * @param { string } [reloadKey] - Options for image reload.
    * @returns { ImageAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @unpublished
    * @stagemodelonly
-   * @since 26.0.0 staticonly
+   * @since 26.1.0 staticonly
    */
   default setImageOptions(
         src: PixelMap | ResourceStr | DrawableDescriptor | ImageContent | undefined, 
@@ -541,8 +543,9 @@ export declare interface ImageAttribute extends CommonMethod {
    * @param { string } [reloadKey] - Options for image reload.
    * @returns { ImageAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @unpublished
    * @stagemodelonly
-   * @since 26.0.0 staticonly
+   * @since 26.1.0 staticonly
    */
   default setImageOptions(
         src: PixelMap | ResourceStr | DrawableDescriptor | ImageContent | undefined, 
@@ -1207,8 +1210,9 @@ export declare function Image(
  * @param { CustomBuilderT<ImageAttribute> } style - the callback to set up component's attribute.
  * @returns { ImageAttribute } The attribute of the Image.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @unpublished
  * @stagemodelonly
- * @since 26.0.0 staticonly
+ * @since 26.1.0 staticonly
  * @noninterop
  */
 @Builder
