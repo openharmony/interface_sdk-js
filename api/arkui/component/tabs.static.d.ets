@@ -162,7 +162,7 @@ export declare enum BarPosition {
    * @stagemodelonly
    * @since 23 static
    */
-  Start = 0,
+  Start,
 
   /**
    * When the vertical attribute method is set to true, the tab is located on the right of the container.
@@ -172,7 +172,7 @@ export declare enum BarPosition {
    * @stagemodelonly
    * @since 23 static
    */
-  End = 1
+  End
 }
 
 /**
