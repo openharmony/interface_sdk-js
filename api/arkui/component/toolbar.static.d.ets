@@ -87,16 +87,18 @@ export declare interface ToolBarItemAttribute {
      * @param { ToolBarItemOptions } [options] - column options
      * @returns { this } ToolBarItemAttribute instance
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @unpublished
      * @stagemodelonly
-     * @since 26.0.0 staticonly
+     * @since 26.1.0 staticonly
      */
     setToolBarItemOptions(options?: ToolBarItemOptions): this;
     /**
      * Notify ToolBarItem has finished setting up its attributes.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @unpublished
      * @stagemodelonly
-     * @since 26.0.0 staticonly
+     * @since 26.1.0 staticonly
      */
     applyAttributesFinish(): void;
 }
@@ -125,8 +127,9 @@ export declare function ToolBarItem(
  * @param { CustomBuilder } [content_] - container.
  * @returns { ToolBarItemAttribute } The attribute of the ToolBarItem.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @unpublished
  * @stagemodelonly
- * @since 26.0.0 staticonly
+ * @since 26.1.0 staticonly
  */
 @Builder
 export declare function ToolBarItem(

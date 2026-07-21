@@ -149,8 +149,9 @@ export declare interface EmbeddedComponentAttribute extends CommonMethod {
    * @param { EmbeddedType } [type] - indicates type of the EmbeddedComponent.
    * @returns { this } EmbeddedComponentAttribute instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @unpublished
    * @stagemodelonly
-   * @since 26.0.0 staticonly
+   * @since 26.1.0 staticonly
    */
   setEmbeddedComponentOptions(loader: Want, type?: EmbeddedType): this;
 
@@ -162,8 +163,9 @@ export declare interface EmbeddedComponentAttribute extends CommonMethod {
    * @param { EmbeddedOptions } [options] - indicates type of the EmbeddedComponent options.
    * @returns { this } EmbeddedComponentAttribute instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @unpublished
    * @stagemodelonly
-   * @since 26.0.0 staticonly
+   * @since 26.1.0 staticonly
    */
   setEmbeddedComponentOptions(loader: Want, type?: EmbeddedType, options?: EmbeddedOptions): this;
 
@@ -250,8 +252,9 @@ export declare function EmbeddedComponent(
  * @param { CustomBuilderT<EmbeddedComponentAttribute> } style - the callback to set up embeddedcomponent's attributes.
  * @returns { EmbeddedComponentAttribute } The attribute of the EmbeddedComponent.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @unpublished
  * @stagemodelonly
- * @since 26.0.0 staticonly
+ * @since 26.1.0 staticonly
  */
 @Builder
 export declare function EmbeddedComponent(
