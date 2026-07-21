@@ -29,14 +29,16 @@
 declare enum SideBarContainerType {
 
   /**
-   * 侧边栏嵌入到组件内，和内容区并列显示。
+   * 侧边栏嵌入到组件内，和内容区并列显示。适用于需要同时展示侧边栏和内容区的场景。
    *
    * 整体容器大小不变时，显示侧边栏会导致内容区缩小，隐藏侧边栏会扩大内容区。
    *
    * 组件尺寸小于[minContentWidth]{@link SideBarContainerAttribute#minContentWidth} +
    * [minSideBarWidth]{@link SideBarContainerAttribute#minSideBarWidth(value: number)}，并且未设置showSideBar时，侧边栏自动隐藏。
    *
-   * 未设置minSideBarWidth或者minContentWidth采用未设置接口的默认值进行计算。
+   * 设置了showSideBar属性时，以showSideBar属性设置的值为准。
+   * 
+   * 未设置minSideBarWidth或minContentWidth时，采用对应接口的默认值进行计算。
    *
    * 组件在自动隐藏后，如果通过点击控制按钮唤出侧边栏，则侧边栏悬浮在内容区上显示。
    *
@@ -48,7 +50,7 @@ declare enum SideBarContainerType {
   Embed = 0,
 
   /**
-   * 侧边栏浮在内容区上面，不会影响内容区的大小。
+   * 侧边栏浮在内容区上面，不会影响内容区的大小。适用于需要临时展示侧边栏的场景。<br/>组件尺寸小于minContentWidth时，内容区会被截断显示。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -60,9 +62,9 @@ declare enum SideBarContainerType {
   /**
    * 组件尺寸大于等于minSideBarWidth + minContentWidth时，采用Embed模式显示。
    *
-   * 组件尺寸小于minSideBarWidth + minContentWidth时，采用Overlay模式显示。
+   * 组件尺寸小于minSideBarWidth + minContentWidth时，采用Overlay模式显示。适用于需要响应式布局或多设备适配的场景。
    *
-   * 未设置minSideBarWidth或minContentWidth时，会使用未设置接口的默认值进行计算，若计算的值小于600vp，则使用600vp做为模式切换的断点值。
+   * 未设置minSideBarWidth或minContentWidth时，会使用未设置接口的默认值进行计算，若计算的值小于600vp，则使用600vp作为模式切换的临界值。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -268,6 +270,7 @@ declare interface ButtonStyle {
 
 /**
 * 提供侧边栏可以显示和隐藏的容器，通过子组件定义侧边栏和内容区，第一个子组件表示侧边栏，第二个子组件表示内容区。
+* 支持侧边栏导航布局场景，通过控制按钮或手势切换侧边栏显隐，可提升应用导航效率。
 *
 * > **说明：**
 *
@@ -408,7 +411,9 @@ interface DividerStyle {
 declare class SideBarContainerAttribute extends CommonMethod<SideBarContainerAttribute> {
 
   /**
-   * 设置是否显示侧边栏。
+   * 设置是否显示侧边栏。设置该属性值后会触发侧边栏的显示/
+   * 
+   * 当showSideBar属性未设置时，依据组件大小进行自动显示：小于minSideBarWidth + minContentWidth时默认不显示侧边栏，大于等于时默认显示侧边栏。
    *
    * 从API version 10开始，该属性支持[$$](docroot://ui/state-management/arkts-two-way-sync.md)双向绑定变量。
    *
@@ -422,9 +427,9 @@ declare class SideBarContainerAttribute extends CommonMethod<SideBarContainerAtt
   showSideBar(value: boolean): SideBarContainerAttribute;
 
   /**
-   * 设置侧边栏控制按钮的属性。
+   * 设置侧边栏控制按钮的属性。控制按钮用于切换侧边栏的显示和隐藏状态。
    *
-   * @param { ButtonStyle } value - 侧边栏控制按钮的属性。
+   * @param { ButtonStyle } value - 侧边栏控制按钮的属性，用于配置控制按钮的位置、大小和图标。
    * @returns { SideBarContainerAttribute }
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -434,7 +439,7 @@ declare class SideBarContainerAttribute extends CommonMethod<SideBarContainerAtt
   controlButton(value: ButtonStyle): SideBarContainerAttribute;
 
   /**
-   * 设置是否显示控制按钮。
+   * 设置是否显示控制按钮。控制按钮用于控制showSideBar属性的切换，点击可显示或隐藏侧边栏。
    *
    * @param { boolean } value - 是否显示控制按钮。<br/>true：显示控制按钮<br/>false：不显示控制按钮<br/>默认值：true
    * @returns { SideBarContainerAttribute }
@@ -464,12 +469,12 @@ declare class SideBarContainerAttribute extends CommonMethod<SideBarContainerAtt
   onChange(callback: (value: boolean) => void): SideBarContainerAttribute;
 
   /**
-   * 设置侧边栏的宽度。设置为小于0的值时按默认值显示。受最小宽度和最大宽度限制，不在限制区域内取最近的点。
+   * 设置侧边栏的宽度。设置为小于0的值时按默认值显示。受minSideBarWidth和maxSideBarWidth限制，当设置的值不在限制范围内时，取最近的边界值。
    *
    * 从API version 18开始，该参数支持[!!](docroot://ui/state-management/arkts-new-binding.md)双向绑定变量。
    *
    * @param { number } value - 侧边栏的宽度。<br/>默认值：240vp<br/>单位：vp<br/>取值范围：
-   *     [0, +∞)<br/>**说明：** <br/>API version 10以下版本的默认值为200vp，API version 10及以上版本的默认值为240vp。
+   *     [0, +∞)<br/>异常值时取默认值。<br/>**说明：** <br/>API version 10以下版本的默认值为200vp，API version 10及以上版本的默认值为240vp。
    * @returns { SideBarContainerAttribute }
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -498,7 +503,8 @@ declare class SideBarContainerAttribute extends CommonMethod<SideBarContainerAtt
    *
    * maxSideBarWidth优先于侧边栏子组件maxWidth，maxSideBarWidth未设置时默认值优先级高于侧边栏子组件maxWidth。
    *
-   * @param { number } value - 设置侧边栏最大宽度。<br/>默认值：280vp<br/>单位：vp<br/>取值范围：[0, +∞)
+   * @param { number } value - 设置侧边栏最大宽度。<br/>默认值：280vp<br/>单位：vp<br/>取值范围：
+   *     [0, +∞)<br/>异常值时取默认值。<br/>值不能超过侧边栏容器本身宽度，超过则使用侧边栏容器本身宽度。
    * @returns { SideBarContainerAttribute }
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -508,14 +514,13 @@ declare class SideBarContainerAttribute extends CommonMethod<SideBarContainerAtt
   maxSideBarWidth(value: number): SideBarContainerAttribute;
 
   /**
-   * 设置侧边栏的宽度。设置为小于0的值时按默认值显示。受最小宽度和最大宽度限制，不在限制区域内取最近的点。与
-   * [sideBarWidth]{@link SideBarContainerAttribute#sideBarWidth(value: number)}相比，value参数新增了对百分比字符串和其他
-   * [像素单位]{@link common}的支持。
+   * 设置侧边栏的宽度。设置为小于0的值时按默认值显示。受minSideBarWidth和maxSideBarWidth限制，当设置的值不在限制范围内时，取最近的边界值。
+   * 与[sideBarWidth](#sidebarwidth)相比，value参数新增了对百分比字符串和其他[像素单位](ts-pixel-units.md)的支持。
    *
    * 从API version 18开始，该参数支持[!!](docroot://ui/state-management/arkts-new-binding.md)双向绑定变量。
    *
    * @param { Length } value - 侧边栏的宽度。<br/>默认值：240vp<br/>单位：vp<br/>取值范围：
-   *     [0, +∞)<br/>**说明：** <br/>API version 9的默认值为200vp，API version 10及以上版本的默认值为240vp。
+   *     [0, +∞)<br/>异常值时取默认值。<br/>**说明：** <br/>API version 9的默认值为200vp，API version 10及以上版本的默认值为240vp。
    * @returns { SideBarContainerAttribute }
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -531,7 +536,8 @@ declare class SideBarContainerAttribute extends CommonMethod<SideBarContainerAtt
    *
    * minSideBarWidth优先于侧边栏子组件minWidth，minSideBarWidth未设置时默认值优先级高于侧边栏子组件minWidth。
    *
-   * @param { Length } value - 侧边栏最小宽度。<br/>默认值：API version 9及以下版本默认值为200vp，API version 10的默认值为240vp。<br/>取值范围：[0, +∞)
+   * @param { Length } value - 侧边栏最小宽度。<br/>默认值：API version 9及以下版本默认值为200vp，
+   *     API version 10的默认值为240vp。<br/>单位：vp<br/>取值范围：[0, +∞)<br/>异常值时取默认值。
    * @returns { SideBarContainerAttribute }
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -547,7 +553,8 @@ declare class SideBarContainerAttribute extends CommonMethod<SideBarContainerAtt
    *
    * maxSideBarWidth优先于侧边栏子组件maxWidth，maxSideBarWidth未设置时默认值优先级高于侧边栏子组件maxWidth。
    *
-   * @param { Length } value - 设置侧边栏最大宽度。<br/>默认值：280vp<br/>单位：vp<br/>取值范围：[0, +∞)
+   * @param { Length } value - 设置侧边栏最大宽度。<br/>默认值：280vp<br/>单位：vp<br/>取值范围：
+   *     [0, +∞)<br/>异常值时取默认值。<br/>值不能超过侧边栏容器本身宽度，超过则使用侧边栏容器本身宽度。
    * @returns { SideBarContainerAttribute }
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -558,8 +565,9 @@ declare class SideBarContainerAttribute extends CommonMethod<SideBarContainerAtt
 
   /**
    * 设置当侧边栏拖拽到小于最小宽度后，是否自动隐藏。受minSideBarWidth属性方法影响，minSideBarWidth属性方法未设置值使用默认值。
+   * 自动隐藏后showSideBar属性值同步更新为false，并触发onChange事件。
    *
-   * 拖拽过程中判断是否要自动隐藏。小于最小宽度时需要阻尼效果触发隐藏（越界一段距离）。
+   * 拖拽过程中判断是否要自动隐藏。小于最小宽度时需要拖拽越界一定距离（具体距离由系统实现决定）后触发自动隐藏，具有阻尼效果，避免误操作。
    *
    * @param { boolean } value - 侧边栏拖拽到小于最小宽度后，是否自动隐藏。<br/>true：会自动隐藏<br/>false：不会自动隐藏<br/>默认值：true
    * @returns { SideBarContainerAttribute }
@@ -585,8 +593,8 @@ declare class SideBarContainerAttribute extends CommonMethod<SideBarContainerAtt
   /**
    * 设置分割线的样式。
    *
-   * @param { DividerStyle | null } value - 分割线的样式。<br/>默认为DividerStyle：显示分割线。<br/>- null或undefined：行为不做处理，分割线样式与默认值保持一
-   *     致。<br/>**说明：** <br/>API version 11及以下版本，null效果为不显示分割线。
+   * @param { DividerStyle | null } value - 分割线的样式。<br/>默认为DividerStyle：显示分割线。<br/>- null或undefined：行为不做处理，分割线样式保持默认值，不做任何改
+   *     变。<br/>**说明：** <br/>API version 11及以下版本，null效果为不显示分割线。
    * @returns { SideBarContainerAttribute }
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -615,7 +623,7 @@ declare class SideBarContainerAttribute extends CommonMethod<SideBarContainerAtt
    * minContentWidth优先于侧边栏的[maxSideBarWidth]{@link SideBarContainerAttribute#maxSideBarWidth(value: number)}与
    * sideBarWidth属性，minContentWidth未设置时默认值优先级低于设置的minSideBarWidth与maxSideBarWidth属性。
    *
-   * @param { Dimension } value - SideBarContainer组件内容区可显示的最小宽度。<br/>默认值：360vp<br/>单位：vp
+   * @param { Dimension } value - SideBarContainer组件内容区可显示的最小宽度。<br/>默认值：360vp<br/>取值范围：[0, +∞)<br/>设置为小于0时按默认值处理。
    * @returns { SideBarContainerAttribute }
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -640,7 +648,7 @@ declare class SideBarContainerAttribute extends CommonMethod<SideBarContainerAtt
    * > >   - 侧边栏隐藏时可向左滑动展开侧边栏。
    * > >   - 侧边栏显示时可向右滑动关闭侧边栏。
    *
-   * @param { boolean } value - 设置是否支持通过手势滑动显示或隐藏侧边栏。<br/>true：支持通过手势滑动显示或隐藏侧边栏。<br/>false：不支持通过手势滑动显示或隐藏侧边栏。
+   * @param { boolean } value - 设置是否支持通过手势滑动显示或隐藏侧边栏。<br/>true：支持手势滑动控制。<br/>false：不支持手势滑动控制。<br/>默认值：false
    * @returns { SideBarContainerAttribute }
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly

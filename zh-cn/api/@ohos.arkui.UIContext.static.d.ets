@@ -225,8 +225,8 @@ export declare class Router {
   /**
    * 跳转到应用内的指定页面，使用Promise异步回调。
    *
-   * @param { router.RouterOptions } options - 跳转页面描述信息。
-   * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
+   * @param { router.RouterOptions } options - 跳转页面描述信息，包含url（目标页面路径）和params（传递的参数）等字段。
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
    *     <br> 2. Incorrect parameters types.
@@ -246,7 +246,7 @@ export declare class Router {
    * AsyncCallback<void>)}相比，新增了mode参数，即支持设置跳转页面使用的模式。
    *
    * @param { router.RouterOptions } options - 跳转页面描述信息。
-   * @param { router.RouterMode } mode - 跳转页面使用的模式。
+   * @param { router.RouterMode } mode - 跳转页面使用的模式，可选Standard（标准模式）或Single（单例模式）。建议根据页面栈管理需求选择：Standard模式适用于常规页面跳转；Single模式可避免相同页面重复入栈，适合登录页、主页等单例场景。
    * @param { AsyncCallback<void> } callback - router跳转结果回调函数。<br/>当路由跳转成功时，error为undefined。当路由跳转失败时，error为系统返回的错误对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
@@ -266,8 +266,8 @@ export declare class Router {
    * router.RouterOptions)}相比，新增了mode参数，即支持设置跳转页面使用的模式。
    *
    * @param { router.RouterOptions } options - 跳转页面描述信息。
-   * @param { router.RouterMode } mode - 跳转页面使用的模式。
-   * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
+   * @param { router.RouterMode } mode - 跳转页面使用的模式，可选Standard（标准模式）或Single（单例模式）。建议根据页面栈管理需求选择：Standard模式适用于常规页面跳转；Single模式可避免相同页面重复入栈，适合登录页、主页等单例场景。
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
    *     <br> 2. Incorrect parameters types.
@@ -302,7 +302,7 @@ export declare class Router {
    * 用应用内的某个页面替换当前页面，并销毁被替换的页面，使用Promise异步回调。
    *
    * @param { router.RouterOptions } options - 替换页面描述信息。
-   * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
    *     <br> 2. Incorrect parameters types.
@@ -320,7 +320,7 @@ export declare class Router {
    * callback: AsyncCallback<void>)}相比，新增了mode参数，即支持设置跳转页面使用的模式。
    *
    * @param { router.RouterOptions } options - 替换页面描述信息。
-   * @param { router.RouterMode } mode - 跳转页面使用的模式。
+   * @param { router.RouterMode } mode - 跳转页面使用的模式，可选Standard（标准模式）或Single（单例模式）。建议根据页面栈管理需求选择：Standard模式适用于常规页面跳转；Single模式可避免相同页面重复入栈，适合登录页、主页等单例场景。
    * @param { AsyncCallback<void> } callback - router跳转结果回调函数。<br/>当路由跳转成功时，error为undefined。当路由跳转失败时，error为系统返回的错误对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
@@ -339,8 +339,8 @@ export declare class Router {
    * router.RouterOptions)}相比，新增了mode参数，即支持设置跳转页面使用的模式。
    *
    * @param { router.RouterOptions } options - 替换页面描述信息。
-   * @param { router.RouterMode } mode - 跳转页面使用的模式。
-   * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
+   * @param { router.RouterMode } mode - 跳转页面使用的模式，可选Standard（标准模式）或Single（单例模式）。建议根据页面栈管理需求选择：Standard模式适用于常规页面跳转；Single模式可避免相同页面重复入栈，适合登录页、主页等单例场景。
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
    *     <br> 2. Incorrect parameters types.
@@ -356,8 +356,7 @@ export declare class Router {
   /**
    * 返回上一页面或指定的页面。
    *
-   * @param { router.RouterOptions } options - 返回页面描述信息，其中参数url指路由跳转时返回到指定url的页面，如果页面栈中没有对应url的页面，则不响应该操作；如果栈中存在对应url的页面，则返回至index最大的同名页面。<br/>如果url未设置，则返回上一页，页面不
-   *     会重新构建，页面栈里面的page不会回收，出栈后会被回收。
+   * @param { router.RouterOptions } options - 返回页面描述信息。当需要返回到指定的页面时传入此参数（通过url指定目标页面）；当只需返回上一页时可以不传入此参数。url指定返回的目标页面：若页面栈中存在该url，则返回至index最大的同名页面；若不存在则不响应操作。若url未设置，则返回上一页（页面不会重新构建，出栈后会被回收）。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -367,9 +366,9 @@ export declare class Router {
   /**
    * 返回指定页面。
    *
-   * @param { int } index - 页面的索引。
-   *     <br>取值范围:[0, +∞)
-   * @param { Object } [params] - 页面跳转参数。
+   * @param { int } index - 跳转目标页面的索引值，从0开始计数（注意：与getStateByIndex的index参数不同，后者从1开始计数）。
+   *     <br>取值范围:[0, +∞)。如果index超出页面栈范围或不存在对应页面，则不响应用户操作。
+   * @param { Object } [params] - 页面返回时携带的参数。不传入时不携带参数。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -430,9 +429,9 @@ export declare class Router {
   getStateByIndex(index: int): router.RouterState | undefined;
 
   /**
-   * 通过url获取当前页面的状态信息。
+   * 通过url获取匹配指定url的页面的状态信息。
    *
-   * @param { string } url - 表示要获取对应页面信息的url。
+   * @param { string } url - 表示要获取对应页面信息的url，需使用应用内页面路径格式。如果页面栈中没有对应url的页面，返回空数组。
    * @returns { Array<router.RouterState> } Page state.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2595,7 +2594,7 @@ export declare class DynamicSyncScene {
 }
 
 /**
-* 提供Swiper组件相关帧率的配置，继承自[DynamicSyncScene]{@link DynamicSyncScene}。
+* 提供Swiper组件动态帧率场景的相关配置，适用于为动画过渡和手势跟手等不同交互场景设置差异化帧率范围，以兼顾流畅度和功耗，继承自[DynamicSyncScene]{@link DynamicSyncScene}。
 *
  * @extends DynamicSyncScene
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2605,7 +2604,7 @@ export declare class DynamicSyncScene {
 export declare class SwiperDynamicSyncScene extends DynamicSyncScene {
 
   /**
-   * Swiper的动态帧率场景。
+   * Swiper的动态帧率场景类型。
    *
    * @type { SwiperDynamicSyncSceneType }
    * @readonly
