@@ -2910,6 +2910,24 @@ declare namespace photoAccessHelper {
      * @since 23 static
      */
     getKeyFrameThumbnail(beginFrameTimeMs: long, type: ThumbnailType): Promise<image.PixelMap>;
+    /**
+     * Open the file and cache it in the gallery sandbox when streaming video from the cloud.
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @returns { Promise<int> } Promise used to return the file fd.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Called by non-system application.
+     * @throws { BusinessError } 23800151 - Scene parameters validate failed, possible causes:
+     *     The image and video files corresponding to the photoasset do not exist.
+     * @throws { BusinessError } 23800302 - Failed to open the file. Possible causes:
+     *     1. Unable to access cloud images due to network connectivity issues;
+     *     2. File system malfunction.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @FaAndStageModel
+     * @since 26.0.0 dynamic&static
+     */
+    getReadOnlyFdWithCached(): Promise<int>;
   }
 
   /**
