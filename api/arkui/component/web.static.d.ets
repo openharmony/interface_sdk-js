@@ -2611,6 +2611,14 @@ export declare class WebResourceError {
      * @since 23 static
      */
     getErrorCode(): int;
+    /**
+      * Gets the custom error code of the Web resource.
+      *
+      * @returns { int } Return the custom error code of the Web resource.
+      * @syscap SystemCapability.Web.Webview.Core
+      * @since 26.1.0 static
+      */
+    getCustomErrorCode(): int;
 }
 /**
  * Defines the js geolocation request.
