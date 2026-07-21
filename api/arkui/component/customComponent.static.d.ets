@@ -464,8 +464,9 @@ export declare abstract class CustomComponent<T extends CustomComponent<T, T_Opt
      * @param { CustomBuilder } [content] - tail closure for custom component
      * @param { CustomBuilder } [options] - additional invoke options
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @unpublished
      * @stagemodelonly
-     * @since 26.0.0 static
+     * @since 26.1.0 static
      */
     @Builder
     static _invokeImpl<S extends CustomComponent<S, S_Options>, S_Options>(
@@ -688,8 +689,9 @@ export interface CustomComponentInvokeOptions extends CustomComponentBaseOptions
  *
  * @typedef CustomComponentV1InvokeOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @unpublished
  * @stagemodelonly
- * @since 26.0.0 static
+ * @since 26.1.0 static
  */
 export interface CustomComponentV1InvokeOptions extends CustomComponentBaseOptions {}
 
