@@ -160,8 +160,9 @@ export declare interface TimePickerAttribute extends CommonMethod {
    * @param { TimePickerOptions } [options] - time picker options.
    * @returns { TimePickerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @unpublished
    * @stagemodelonly
-   * @since 26.0.0 staticonly
+   * @since 26.1.0 staticonly
    */
   default setTimePickerOptions(options?: TimePickerOptions): this;
   /**
@@ -598,8 +599,9 @@ export declare function TimePicker(
  * @param { CustomBuilderT<TimePickerAttribute> } style - the callback to set up component's attribute.
  * @returns { TimePickerAttribute } The attribute of the TimePicker.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @unpublished
  * @stagemodelonly
- * @since 26.0.0 staticonly
+ * @since 26.1.0 staticonly
  * @noninterop
  */
 @Builder

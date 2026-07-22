@@ -187,8 +187,9 @@ export declare interface DatePickerAttribute extends CommonMethod {
    * @param { DatePickerOptions } [options] - date picker options.
    * @returns { DatePickerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @unpublished
    * @stagemodelonly
-   * @since 26.0.0 staticonly
+   * @since 26.1.0 staticonly
    */
   default setDatePickerOptions(options?: DatePickerOptions): this;
   /**
@@ -767,8 +768,9 @@ export declare function DatePicker(
  * @param { CustomBuilderT<DatePickerAttribute> } style - the callback to set up component's attribute.
  * @returns { DatePickerAttribute } The attribute of the DatePicker.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @unpublished
  * @stagemodelonly
- * @since 26.0.0 staticonly
+ * @since 26.1.0 staticonly
  * @noninterop
  */
 @Builder

@@ -175,8 +175,9 @@ export declare interface UIPickerComponentAttribute extends CommonMethod {
    * @param { UIPickerComponentOptions } [options] - picker options.
    * @returns { UIPickerComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @unpublished
    * @stagemodelonly
-   * @since 26.0.0 staticonly
+   * @since 26.1.0 staticonly
    */
   default setUIPickerComponentOptions(options?: UIPickerComponentOptions): this;
   /**
@@ -285,8 +286,9 @@ export declare function UIPickerComponent(
  * @param { CustomBuilder } [content_]
  * @returns { UIPickerComponentAttribute } The attribute of the UIPickerComponent.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @unpublished
  * @stagemodelonly
- * @since 26.0.0 static
+ * @since 26.1.0 staticonly
  * @noninterop
  */
 @Builder
