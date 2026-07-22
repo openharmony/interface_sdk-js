@@ -290,8 +290,9 @@ export interface RepeatAttribute<T> extends DynamicNode {
    * @param { RepeatArray<T> } arr - Data source array.
    * @returns { this } RepeatAttribute instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @unpublished
    * @stagemodelonly
-   * @since 26.0.0 staticonly
+   * @since 26.1.0 staticonly
    */
   setRepeatOptions<T>(arr: RepeatArray<T>): this;
 
@@ -299,8 +300,9 @@ export interface RepeatAttribute<T> extends DynamicNode {
    * Notify the Repeat has finished setting up its attributes.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @unpublished
    * @stagemodelonly
-   * @since 26.0.0 staticonly
+   * @since 26.1.0 staticonly
    */
   applyAttributesFinish(): void;
 }
@@ -325,8 +327,9 @@ export declare function Repeat<T>(arr: RepeatArray<T>): RepeatAttribute<T>;
  * @param { CustomBuilderT<RepeatAttribute<T>> } style - callback to set up Repeat's attributes.
  * @returns { RepeatAttribute<T> } The attribute of Repeat.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @unpublished
  * @stagemodelonly
- * @since 26.0.0 staticonly
+ * @since 26.1.0 staticonly
  */
 @Builder
 export declare function Repeat<T>(

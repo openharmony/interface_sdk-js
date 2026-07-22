@@ -694,8 +694,9 @@ export interface LazyForEachAttribute extends DynamicNode {
    * @param { KeyGeneratorFunc<T> } [keyGenerator] - Key generator function.
    * @returns { this } LazyForEachAttribute instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @unpublished
    * @stagemodelonly
-   * @since 26.0.0 staticonly
+   * @since 26.1.0 staticonly
    */
   setLazyForEachOptions<T>(dataSource: IDataSource<T>,
         itemGenerator: ItemGeneratorFunc<T>,
@@ -710,8 +711,9 @@ export interface LazyForEachAttribute extends DynamicNode {
    * @param { LazyForEachOptions } [options] - options for LazyForEach behavior
    * @returns { this } LazyForEachAttribute instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @unpublished
    * @stagemodelonly
-   * @since 26.0.0 staticonly
+   * @since 26.1.0 staticonly
    */
   setLazyForEachOptions<T>(dataSource: IDataSource<T>,
         itemGenerator: ItemGeneratorFunc<T>,
@@ -722,8 +724,9 @@ export interface LazyForEachAttribute extends DynamicNode {
    * Notify LazyForEach has finished setting up its attributes.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @unpublished
    * @stagemodelonly
-   * @since 26.0.0 staticonly
+   * @since 26.1.0 staticonly
    */
   applyAttributesFinish(): void;
 }
@@ -797,8 +800,9 @@ export declare function LazyForEach<T = Any>(dataSource: IDataSource<T>,
  * @param { CustomBuilderT<LazyForEachAttribute> } style - callback to set up LazyForEach's attributes.
  * @returns { LazyForEachAttribute } The attribute of LazyForEach.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @unpublished
  * @stagemodelonly
- * @since 26.0.0 staticonly
+ * @since 26.1.0 staticonly
  */
 @Builder
 export declare function LazyForEach<T = Any>(
