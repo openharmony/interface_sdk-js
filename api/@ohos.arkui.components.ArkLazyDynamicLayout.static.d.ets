@@ -19,7 +19,7 @@
  * @kit ArkUI
  */
 
-import { ComponentBuilder, CustomBuilder, CustomBuilderT, Builder } from '@ohos.arkui.component';
+import { ComponentBuilder, CustomBuilder } from '@ohos.arkui.component';
 import { AttributeModifier, CommonMethod, Callback } from './arkui/component/common';
 import { LazyLayoutAlgorithm } from './arkui/LazyLayoutAlgorithm';
 
@@ -55,16 +55,7 @@ export declare interface LazyDynamicLayoutAttribute extends CommonMethod {
    * @since 26.0.0 static
    */
   default onVisibleIndexesChange(callback: Callback<int[]> | undefined): this;
-  /**
-   * Set LazyDynamicLayout options.
-   *
-   * @param { LazyLayoutAlgorithm } algorithm - Lazy layout algorithm.
-   * @returns { this } Returns the instance of the LazyDynamicLayoutAttribute.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 26.0.0 staticonly
-   */
-  default setLazyDynamicLayoutOptions(algorithm: LazyLayoutAlgorithm): this;
+
 }
 /**
  * Defines LazyDynamicLayout Component.
@@ -81,21 +72,4 @@ export declare interface LazyDynamicLayoutAttribute extends CommonMethod {
 export declare function LazyDynamicLayout (
     algorithm: LazyLayoutAlgorithm,
     content_: CustomBuilder,
-): LazyDynamicLayoutAttribute;
-
-/**
- * Defines LazyDynamicLayout Component.
- *
- * @param { CustomBuilderT<LazyDynamicLayoutAttribute> } style_ - The style to create a LazyDynamicLayout.
- * @param { CustomBuilder } [content_] - content
- * @returns { LazyDynamicLayoutAttribute } The attribute of the LazyDynamicLayout.
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @since 26.0.0 staticonly
- * @noninterop
- */
-@Builder
-export declare function LazyDynamicLayout(
-    style_: CustomBuilderT<LazyDynamicLayoutAttribute>,
-    content_?: CustomBuilder
 ): LazyDynamicLayoutAttribute;

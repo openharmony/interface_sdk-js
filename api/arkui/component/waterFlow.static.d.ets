@@ -18,7 +18,7 @@
  * @kit ArkUI
  */
 import { AttributeModifier, UIScrollableCommonEvent, ScrollableCommonMethod, NestedScrollOptions, CommonMethod, OnWillScrollCallback, OnScrollCallback } from './common';
-import { Builder, CustomBuilder, ComponentBuilder, CustomBuilderT } from './builder';
+import { CustomBuilder, ComponentBuilder } from './builder';
 import { Length, Dimension, Margin, ConstraintSizeOptions, Resource, ItemFillPolicy } from './units';
 import { Scroller, OnScrollFrameBeginCallback } from "./scroll";
 import { ScrollState } from "./list";
@@ -570,17 +570,6 @@ export declare interface WaterFlowAttribute extends ScrollableCommonMethod {
   default onDidScroll(handler: OnScrollCallback | undefined): this;
 
   /**
-   * Set WaterFlow options.
-   *
-   * @param { WaterFlowOptions } [options] - WaterFlow constructor options
-   * @returns { WaterFlowAttribute } Returns the instance of the WaterFlowAttribute.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 26.0.0 staticonly
-   */
-  default setWaterFlowOptions(options?: WaterFlowOptions): this;
-
-  /**
    * Called attributeModifier.
    *
    * @param { AttributeModifier<WaterFlowAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
@@ -607,21 +596,4 @@ export declare interface WaterFlowAttribute extends ScrollableCommonMethod {
 export declare function WaterFlow(
     options?: WaterFlowOptions,
     content_?: CustomBuilder,
-): WaterFlowAttribute;
-
-/**
- * Defines WaterFlow Component.
- *
- * @param { CustomBuilderT<WaterFlowAttribute> } style_ - The style to create a WaterFlow.
- * @param { CustomBuilder } [content_]
- * @returns { WaterFlowAttribute } The attribute of the WaterFlow.
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @since 26.0.0 staticonly
- * @noninterop
- */
-@Builder
-export declare function WaterFlow(
-    style_: CustomBuilderT<WaterFlowAttribute>,
-    content_?: CustomBuilder
 ): WaterFlowAttribute;

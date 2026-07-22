@@ -19,7 +19,7 @@
  * @kit ArkUI
  */
 
-import { ComponentBuilder, CustomBuilder, Builder, CustomBuilderT } from '@ohos.arkui.component';
+import { ComponentBuilder, CustomBuilder } from '@ohos.arkui.component';
 import { AttributeModifier, CommonMethod, OnVisibleIndexesChangeCallback, ItemFillPolicy} from '@ohos.arkui.component';
 import { LengthMetrics } from './arkui/Graphics';
 import { StickyStyle } from '@ohos.arkui.component';
@@ -123,15 +123,6 @@ export declare interface LazyVWaterFlowLayoutAttribute extends LazyWaterFlowLayo
    */
   default columnsTemplate(value: string | ItemFillPolicy | undefined): this;
   /**
-   * Set LazyVWaterFlowLayout options.
-   *
-   * @returns { this }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 26.0.0 staticonly
-   */
-  default setLazyVWaterFlowLayoutOptions(): this;
-  /**
    * Sets the attribute modifier.
    *
    * @param { AttributeModifier<LazyVWaterFlowLayoutAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
@@ -157,21 +148,4 @@ export declare interface LazyVWaterFlowLayoutAttribute extends LazyWaterFlowLayo
 @ComponentBuilder
 export declare function LazyVWaterFlowLayout (
     content_?: CustomBuilder,
-): LazyVWaterFlowLayoutAttribute;
-
-/**
- * Defines LazyVWaterFlowLayout Component.
- *
- * @param { CustomBuilderT<LazyVWaterFlowLayoutAttribute> } style_ - The style to create a LazyVWaterFlowLayout.
- * @param { CustomBuilder } [content_]
- * @returns { LazyVWaterFlowLayoutAttribute } The attribute of the LazyVWaterFlowLayout.
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @since 26.0.0 staticonly
- * @noninterop
- */
-@Builder
-export declare function LazyVWaterFlowLayout(
-    style_: CustomBuilderT<LazyVWaterFlowLayoutAttribute>,
-    content_?: CustomBuilder
 ): LazyVWaterFlowLayoutAttribute;

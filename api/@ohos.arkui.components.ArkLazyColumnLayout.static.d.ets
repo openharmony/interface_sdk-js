@@ -18,7 +18,7 @@
  * @file
  * @kit ArkUI
  */
-import { ComponentBuilder, CustomBuilder, Builder, CustomBuilderT } from './arkui/component/builder';
+import { ComponentBuilder, CustomBuilder } from './arkui/component/builder';
 import { AttributeModifier, CommonMethod, OnVisibleIndexesChangeCallback } from './arkui/component/common';
 import { HorizontalAlign } from './arkui/component/enums';
 import { StickyStyle } from './arkui/component/list';
@@ -105,16 +105,6 @@ export declare interface LazyColumnLayoutAttribute extends CommonMethod {
     default onVisibleIndexesChange(callback: OnVisibleIndexesChangeCallback | undefined): this;
 
     /**
-     * Set LazyColumnLayout options.
-     *
-     * @returns { this }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 26.0.0 staticonly
-     */
-    default setLazyColumnLayoutOptions(): this;
-
-    /**
      * Sets the attribute modifier.
      *
      * @param { AttributeModifier<LazyColumnLayoutAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
@@ -138,21 +128,4 @@ export declare interface LazyColumnLayoutAttribute extends CommonMethod {
 @ComponentBuilder
 export declare function LazyColumnLayout(
     content_?: CustomBuilder,
-): LazyColumnLayoutAttribute;
-
-/**
- * Defines LazyColumnLayout Component.
- *
- * @param { CustomBuilderT<LazyColumnLayoutAttribute> } style_ - The style to create a LazyColumnLayout.
- * @param { CustomBuilder } [content_] - content
- * @returns { LazyColumnLayoutAttribute } The attribute of the LazyColumnLayout.
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @since 26.0.0 staticonly
- * @noninterop
- */
-@Builder
-export declare function LazyColumnLayout(
-    style_: CustomBuilderT<LazyColumnLayoutAttribute>,
-    content_?: CustomBuilder
 ): LazyColumnLayoutAttribute;

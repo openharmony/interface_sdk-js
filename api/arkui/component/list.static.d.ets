@@ -1288,17 +1288,6 @@ export declare interface ListAttribute extends ScrollableCommonMethod {
   default onDidScroll(handler: OnScrollCallback | undefined): this;
 
   /**
-   * Set List options.
-   *
-   * @param { ListOptions } [options] - List constructor options
-   * @returns { ListAttribute } Returns the instance of the ListAttribute.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 26.0.0 staticonly
-   */
-  default setListOptions(options?: ListOptions): this;
-
-  /**
    * Called attributeModifier.
    *
    * @param { AttributeModifier<ListAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
@@ -1382,20 +1371,3 @@ export declare abstract class ExtendableList implements ListAttribute {
    */
   public setListOptions(options?: ListOptions): this;
 }
-
-/**
- * Defines List Component.
- *
- * @param { CustomBuilderT<ListAttribute> } style_ - The style to create a List.
- * @param { CustomBuilder } [content_]
- * @returns { ListAttribute } The attribute of the List.
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @since 26.0.0 staticonly
- * @noninterop
- */
-@Builder
-export declare function List(
-    style_: CustomBuilderT<ListAttribute>,
-    content_?: CustomBuilder
-): ListAttribute;
