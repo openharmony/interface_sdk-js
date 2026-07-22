@@ -636,6 +636,7 @@ export interface ContentItemV2Options {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
+   * @atomicservice
    * @since 26.0.0 dynamic
    */
   primaryText?: ResourceStr;
@@ -716,6 +717,7 @@ export declare class ContentItemV2 {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
+   * @atomicservice
    * @since 26.0.0 dynamic
    */
   @Trace
