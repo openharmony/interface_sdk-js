@@ -708,6 +708,7 @@ const ANNOTATION = `'use static'
  * @file
  * @kit ArkUI
  */
+import { ReusePoolOwnership } from "arkui.component.customComponent";
 
 /**
  * Defining State annotation
@@ -1127,7 +1128,10 @@ export @interface Entry {
  * @since 22
  */
 @Retention({policy: "SOURCE"})
-export @interface Component {}
+export @interface Component {
+  reusePool: ReusePoolOwnership = ReusePoolOwnership.OFF;
+  poolAccepts: string[] = [];
+}
 
 /**
  * Defining ComponentV2 Annotation
@@ -1137,7 +1141,10 @@ export @interface Component {}
  * @since 22
  */
 @Retention({policy: "SOURCE"})
-export @interface ComponentV2 {}
+export @interface ComponentV2 {
+  reusePool: ReusePoolOwnership = ReusePoolOwnership.OFF;
+  poolAccepts: string[] = [];
+}
 
 /**
  * Defining CustomDialog Annotation
