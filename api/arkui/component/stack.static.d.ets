@@ -175,8 +175,9 @@ export declare abstract class ExtendableStack implements StackAttribute {
      * @param { ConstructorT<T> } factory
      * @param { CustomBuilder } [content_]
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @unpublished
      * @stagemodelonly
-     * @since 26.0.0 staticonly
+     * @since 26.1.0 staticonly
      */
     @Builder
     static _instantiateImpl<T extends ExtendableStack>(
