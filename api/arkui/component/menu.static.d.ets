@@ -157,8 +157,9 @@ export declare interface MenuAttribute extends CommonMethod {
      *
      * @returns { MenuAttribute } Returns the instance of the MenuAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @unpublished
      * @stagemodelonly
-     * @since 26.0.0 staticonly
+     * @since 26.1.0 staticonly
      */
     default setMenuOptions(): this;
  }
@@ -185,8 +186,9 @@ export declare function Menu(
  * @param { CustomBuilder } [content_] - container
  * @returns { MenuAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @unpublished
  * @stagemodelonly
- * @since 26.0.0 staticonly
+ * @since 26.1.0 staticonly
  * @noninterop
  */
 @Builder

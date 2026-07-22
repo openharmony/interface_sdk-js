@@ -879,8 +879,9 @@ export declare interface SliderAttribute extends CommonMethod {
      * @param { SliderOptions } [options] - slider constructor options
      * @returns { SliderAttribute } Returns the instance of the SliderAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @unpublished
      * @stagemodelonly
-     * @since 26.0.0 staticonly
+     * @since 26.1.0 staticonly
      */
     default setSliderOptions(options?: SliderOptions): this;
  }
@@ -908,8 +909,9 @@ export declare function Slider(
  * @param { CustomBuilder } [content_] - container
  * @returns { SliderAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @unpublished
  * @stagemodelonly
- * @since 26.0.0 staticonly
+ * @since 26.1.0 staticonly
  * @noninterop
  */
 @Builder
