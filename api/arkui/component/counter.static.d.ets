@@ -92,8 +92,9 @@ export declare interface CounterAttribute extends CommonMethod {
      *
      * @returns { CounterAttribute } Returns the instance of the CounterAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @unpublished
      * @stagemodelonly
-     * @since 26.0.0 staticonly
+     * @since 26.1.0 staticonly
      */
     default setCounterOptions(): this;
 }
@@ -119,8 +120,9 @@ export declare function Counter(
  * @param { CustomBuilder } [content_] - Child component
  * @returns { CounterAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @unpublished
  * @stagemodelonly
- * @since 26.0.0 staticonly
+ * @since 26.1.0 staticonly
  * @noninterop
  */
 @Builder
