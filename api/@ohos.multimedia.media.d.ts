@@ -11442,7 +11442,6 @@ declare namespace media {
      * @param { boolean } enable - Indicates whether to enable automatic rotation. The default value is **false**.
      *     A value of **true** indicates automatic rotation and the image content in the output frame remains upright.
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 801 - Capability not supported. Return by promise.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
