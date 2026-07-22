@@ -100,8 +100,9 @@ export declare interface DynamicComponentAttribute extends CommonMethod {
      * @returns { this } DynamicComponentAttribute instance
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
+     * @unpublished
      * @stagemodelonly
-     * @since 26.0.0 staticonly
+     * @since 26.1.0 staticonly
      */
     default setDynamicComponentOptions(options: DynamicOptions): this;
     /**
@@ -142,8 +143,9 @@ export declare function DynamicComponent(
  * @returns { DynamicComponentAttribute } The attribute of the DynamicComponent.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
+ * @unpublished
  * @stagemodelonly
- * @since 26.0.0 staticonly
+ * @since 26.1.0 staticonly
  */
 @Builder
 export declare function DynamicComponent(

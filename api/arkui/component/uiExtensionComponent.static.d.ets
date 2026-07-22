@@ -266,9 +266,10 @@ export declare interface UIExtensionComponentAttribute extends CommonMethod {
      * @param { UIExtensionOptions } [options] - The options
      * @returns { this } UIExtensionComponentAttribute instance
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
      * @systemapi
-     * @since 26.0.0 staticonly
+     * @unpublished
+     * @stagemodelonly
+     * @since 26.1.0 staticonly
      */
     setUIExtensionComponentOptions(want: Want, options?: UIExtensionOptions): this;
 
@@ -364,9 +365,10 @@ export declare function UIExtensionComponent(
  * @param { CustomBuilderT<UIExtensionComponentAttribute> } style - the callback to set up uiextensioncomponent's attributes.
  * @returns { UIExtensionComponentAttribute } The attribute of the UIExtensionComponent.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
  * @systemapi
- * @since 26.0.0 staticonly
+ * @unpublished
+ * @stagemodelonly
+ * @since 26.1.0 staticonly
  */
 @Builder
 export declare function UIExtensionComponent(

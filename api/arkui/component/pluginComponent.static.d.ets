@@ -151,9 +151,10 @@ export declare interface PluginComponentAttribute extends CommonMethod {
      * @param { PluginComponentOptions } options - The options
      * @returns { this } PluginComponentAttribute instance
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
      * @systemapi
-     * @since 26.0.0 staticonly
+     * @unpublished
+     * @stagemodelonly
+     * @since 26.1.0 staticonly
      */
     setPluginComponentOptions(options: PluginComponentOptions): this;
 
@@ -215,9 +216,10 @@ export declare function PluginComponent(
  * @param { CustomBuilderT<PluginComponentAttribute> } style - the callback to set up plugincomponent's attributes.
  * @returns { PluginComponentAttribute } The attribute of the PluginComponent.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
  * @systemapi
- * @since 26.0.0 staticonly
+ * @unpublished
+ * @stagemodelonly
+ * @since 26.1.0 staticonly
  */
 @Builder
 export declare function PluginComponent(

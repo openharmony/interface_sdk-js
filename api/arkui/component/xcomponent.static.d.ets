@@ -386,8 +386,9 @@ export declare interface XComponentAttribute extends CommonMethod {
      * @param { XComponentParameters | XComponentOptions | NativeXComponentParameters } params - The options to create an XComponent
      * @returns { this } XComponentAttribute instance
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @unpublished
      * @stagemodelonly
-     * @since 26.0.0 staticonly
+     * @since 26.1.0 staticonly
      */
     setXComponentOptions(params: XComponentParameters | XComponentOptions | NativeXComponentParameters): this;
 
@@ -545,8 +546,9 @@ export declare function XComponent(
  * @param { CustomBuilderT<XComponentAttribute> } style - the callback to set up xcomponent's attributes.
  * @returns { XComponentAttribute } The attribute of the XComponent.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @unpublished
  * @stagemodelonly
- * @since 26.0.0 staticonly
+ * @since 26.1.0 staticonly
  */
 @Builder
 export declare function XComponent(

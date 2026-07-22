@@ -202,8 +202,9 @@ export declare interface SecurityUIExtensionComponentAttribute extends CommonMet
      * @returns { this } SecurityUIExtensionComponentAttribute instance
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
+     * @unpublished
      * @stagemodelonly
-     * @since 26.0.0 staticonly
+     * @since 26.1.0 staticonly
      */
     default setSecurityUIExtensionComponentOptions(want: Want, options?: SecurityUIExtensionOptions): this;
     /**
@@ -290,8 +291,9 @@ export declare function SecurityUIExtensionComponent(
  * @returns { SecurityUIExtensionComponentAttribute } The attribute of the SecurityUIExtensionComponent.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
+ * @unpublished
  * @stagemodelonly
- * @since 26.0.0 staticonly
+ * @since 26.1.0 staticonly
  */
 @Builder
 export declare function SecurityUIExtensionComponent(
