@@ -114,11 +114,12 @@ export declare interface ContainerReaderAttribute extends CommonMethod {
    * Set ContainerReader options.
    *
    * @param { ContainerReaderInfo } value - Used to specify the parameters for container dimension reading and
-   *     breakpoint analysis
+   *     breakpoint analysis.
    * @returns { this }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @unpublished
    * @stagemodelonly
-   * @since 26.0.0 staticonly
+   * @since 26.1.0 staticonly
    */
   default setContainerReaderOptions(value: ContainerReaderInfo): this;
 
@@ -154,12 +155,13 @@ export declare function ContainerReader(
 /**
  * Defines ContainerReader Component.
  *
- * @param { CustomBuilderT<ContainerReaderInfo> } style_ - The custom builder function for container content
- * @param { CustomBuilder } [content_] - The configuration options for containerreader
+ * @param { CustomBuilderT<ContainerReaderInfo> } style_ - The custom builder function for container content.
+ * @param { CustomBuilder } [content_] - The configuration options for containerreader.
  * @returns { ContainerReaderAttribute } The attribute of the containerreader
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @unpublished
  * @stagemodelonly
- * @since 26.0.0 staticonly
+ * @since 26.1.0 staticonly
  */
 @Builder
 export declare function ContainerReader(

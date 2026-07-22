@@ -73,11 +73,12 @@ export declare interface PolygonAttribute extends CommonShapeMethod {
     /**
  	 * Set Polygon options.
  	 *
- 	 * @param { PolygonOptions } [options] - Polygon constructor options
- 	 * @returns { PolygonAttribute } Returns the instance of the PolygonAttribute.
- 	 * @syscap SystemCapability.ArkUI.ArkUI.Full
- 	 * @stagemodelonly
- 	 * @since 26.0.0 staticonly
+     * @param { PolygonOptions } [options] - Polygon constructor options.
+     * @returns { PolygonAttribute } Returns the instance of the PolygonAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @unpublished
+     * @stagemodelonly
+     * @since 26.1.0 staticonly
  	 */
  	default setPolygonOptions(options?: PolygonOptions): this;
     /**
@@ -113,8 +114,9 @@ export declare function Polygon(
  * @param { CustomBuilderT<PolygonAttribute> } style - the callback to set up component's attributes.
  * @returns { PolygonAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @unpublished
  * @stagemodelonly
- * @since 26.0.0 staticonly
+ * @since 26.1.0 staticonly
  * @noninterop
  */
 @Builder
