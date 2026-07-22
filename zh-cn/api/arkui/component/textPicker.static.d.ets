@@ -1,4 +1,3 @@
-
 'use static';
 /*
  * Copyright (c) 2025 Huawei Device Co., Ltd.
@@ -19,101 +18,80 @@
  * @file
  * @kit ArkUI
  */
-
 import { VoidCallback, Resource, ResourceColor, Offset, Dimension, ResourceStr, BorderRadiuses, LocalizedBorderRadiuses } from "./units";
-
 import { CommonMethod, PickerTextStyle, PickerDialogButtonStyle, Rectangle, BlurStyle, ShadowOptions, ShadowStyle, HoverModeAreaType, BackgroundBlurStyleOptions, BackgroundEffectOptions, Callback, Bindable, BindableResourceStr, BindableResourceStrArray, DistortionMode, EdgeLightMode, SystemUiMaterial } from './common';
-
 import { DialogAlignment } from "./alertDialog";
-
 import { CrownSensitivity, TextOverflow } from "./enums";
-
 import { LengthMetrics } from './../Graphics';
-
 import { ComponentBuilder, CustomBuilder } from './builder';
-
 import { AttributeModifier } from "./common";
 
 /**
  * 单列数据选择器的数据选项内容。
  *
- * @interface TextPickerRangeContent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  */
 export declare interface TextPickerRangeContent {
-
-  /**
+    /**
      * 图片资源。 icon是string类型时，表示图片存放的路径，例如"/common/hello.png"。
      *
-   * @type { string | Resource }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 23 static
-   */
-  icon: string | Resource;
-
-  /**
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    icon: string | Resource;
+    /**
      * 文本信息。
      * 
      * 默认值：空字符串
      * 
      * **说明**：当文本长度大于列宽时，文本被截断。
      *
-   * @type { ?(string | Resource) }
-   * @default ""
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 23 static
-   */
-  text?: string | Resource;
+     * @default ""
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    text?: string | Resource;
 }
-
 /**
  * 多列联动数据选择器的数据选项内容。
  *
- * @interface TextCascadePickerRangeContent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  */
 export declare interface TextCascadePickerRangeContent {
-
-  /**
+    /**
      * 文本信息。
      * 
      * **说明**：当文本长度大于列宽时，文本被截断。
      *
-   * @type { string | Resource }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 23 static
-   */
-  text: string | Resource;
-
-  /**
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    text: string | Resource;
+    /**
      * 联动数据。
      *
-   * @type { ?TextCascadePickerRangeContent[] }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 23 static
-   */
-  children?: TextCascadePickerRangeContent[];
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    children?: TextCascadePickerRangeContent[];
 }
-
 /**
  * 文本选择器的参数说明。
  *
- * @interface TextPickerOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  */
 export declare interface TextPickerOptions {
-
-  /**
+    /**
      * 选择器的数据选择列表。不可设置为空数组，若设置为空数组，则不显示；若动态变化为空数组，则保持当前正常值显示。
      * 
      * **说明**：
@@ -125,14 +103,12 @@ export declare interface TextPickerOptions {
      * 4. Resource类型只支持[strarray.json](docroot://quick-start/resource-categories-and-access.md#资源组目录)。
      * 5. range的类型及列数不可以动态修改。
      *
-   * @type {string[] | string[][] | Resource | TextPickerRangeContent[] | TextCascadePickerRangeContent[]}
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 23 static
-   */
-  range: string[] | string[][] | Resource | TextPickerRangeContent[] | TextCascadePickerRangeContent[];
-
-  /**
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    range: string[] | string[][] | Resource | TextPickerRangeContent[] | TextCascadePickerRangeContent[];
+    /**
      * 设置选中项的值，优先级低于selected。
      * 
      * 默认值：数据选择列表中第一个元素的值。
@@ -144,14 +120,12 @@ export declare interface TextPickerOptions {
      * 3. 单列数据选择器使用[ResourceStr]{@link ResourceStr}类型。
      * 4. 多列数据选择器使用[ResourceStr]{@link ResourceStr}[]类型。
      *
-   * @type { ?(BindableResourceStr | BindableResourceStrArray) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 23 static
-   */
-  value?: BindableResourceStr | BindableResourceStrArray;
-
-  /**
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    value?: BindableResourceStr | BindableResourceStrArray;
+    /**
      * 设置选中项在数据选择列表中的索引值，索引从0开始。
      * 
      * 默认值：0 
@@ -162,14 +136,12 @@ export declare interface TextPickerOptions {
      * 2. 多列数据选择器使用int[]类型。
      * 3. 从API version 23开始，该参数支持[$$](docroot://ui/state-management/arkts-two-way-sync-static.md)双向绑定变量。
      *
-   * @type { ?(int | int[] | Bindable<int> | Bindable<int[]>) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 23 static
-   */
-  selected?: int | int[] | Bindable<int> | Bindable<int[]>;
-
-  /**
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    selected?: int | int[] | Bindable<int> | Bindable<int[]>;
+    /**
      * 设置每一列的列宽。
      * 
      * 默认值：每一列的列宽相等，为组件宽度除以列数。
@@ -180,25 +152,21 @@ export declare interface TextPickerOptions {
      * 2. 当设置为异常值时，使用默认值。
      * 3. 支持设置为Undefined和Null，不支持Undefined[]和Null[]。
      *
-   * @type { ?LengthMetrics[] }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 23 static
-   */
-  columnWidths?: LengthMetrics[];
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    columnWidths?: LengthMetrics[];
 }
-
 /**
  * 分割线的信息。
  *
- * @interface DividerOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  */
 export declare interface DividerOptions {
-
-  /**
+    /**
      * 分割线的线宽。
      * 
      * 默认值：2.0px
@@ -207,28 +175,24 @@ export declare interface DividerOptions {
      * 
      * 取值范围：strokeWidth小于0取默认值，最大不得超过列高的一半。不支持“百分比”类型。
      *
-   * @type { ?Dimension }
-   * @default 2.0px
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 23 static
-   */
-  strokeWidth?: Dimension;
-
-  /**
+     * @default 2.0px
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    strokeWidth?: Dimension;
+    /**
      * 分割线的颜色。
      * 
      * 默认值：'#33000000'
      *
-   * @type { ?ResourceColor }
-   * @default "#33000000"
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 23 static
-   */
-  color?: ResourceColor;
-
-  /**
+     * @default "#33000000"
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    color?: ResourceColor;
+    /**
      * 分割线与TextPicker侧边起始端的距离。
      * 
      * 默认值：0
@@ -237,15 +201,13 @@ export declare interface DividerOptions {
      * 
      * 取值范围：startMargin小于0时无效，最大值不得超过TextPicker列宽。不支持“百分比”类型。
      *
-   * @type { ?Dimension }
-   * @default 0
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 23 static
-   */
-  startMargin?: Dimension;
-
-  /**
+     * @default 0
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    startMargin?: Dimension;
+    /**
      * 分割线与TextPicker侧边结束端的距离。
      * 
      * 默认值：0
@@ -254,75 +216,61 @@ export declare interface DividerOptions {
      * 
      * 取值范围：endMargin小于0时无效，最大值不得超过TextPicker列宽。不支持“百分比”类型。
      *
-   * @type { ?Dimension }
-   * @default 0
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 23 static
-   */
-  endMargin?: Dimension;
+     * @default 0
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    endMargin?: Dimension;
 }
-
 /**
  * 文本样式选项，继承自[PickerTextStyle]{@link PickerTextStyle}。
  *
- * @extends PickerTextStyle
- * @interface TextPickerTextStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  */
 export declare interface TextPickerTextStyle extends PickerTextStyle {
-
-  /**
+    /**
      * 文本最小显示字号，与maxFontSize配合使用。当设置minFontSize和maxFontSize时，font中的size将不生效。默认最大行数为1，
      * 自适应高度方式为MIN_FONT_SIZE_FIRST。详细规则请参考Text组件的[minFontSize]{@link TextAttribute#minFontSize}属性。
      *
-   * @type { ?(double | string | Resource) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 23 static
-   */
-  minFontSize?: double | string | Resource;
-
-  /**
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    minFontSize?: double | string | Resource;
+    /**
      * 文本最大显示字号。详细规则请参考Text组件的[maxFontSize]{@link TextAttribute#maxFontSize}属性。
      *
-   * @type { ?(double | string | Resource) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 23 static
-   */
-  maxFontSize?: double | string | Resource;
-
-  /**
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    maxFontSize?: double | string | Resource;
+    /**
      * 文本截断方式。当设置为MARQUEE时，该属性不生效。
      * 详细规则请参考Text组件的[textOverflow]{@link TextAttribute#textOverflow}属性。
      *
-   * @type { ?TextOverflow }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 23 static
-   */
-  overflow?: TextOverflow;
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    overflow?: TextOverflow;
 }
-
 /**
  * 选择器选中项的背景样式，包括选中项的背景颜色和边框圆角半径。
  *
- * @interface PickerBackgroundStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  */
 export declare interface PickerBackgroundStyle {
-
   /**
    * 选中项的背景颜色。
    * 
    * 默认值： 'sys.color.comp_background_tertiary'
    *
-   * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -342,7 +290,6 @@ export declare interface PickerBackgroundStyle {
    * 3. [LocalizedBorderRadiuses]{@link LocalizedBorderRadiuses}类型可以设置四个不同值的圆角半径，
    * 并且可以单独设置每个圆角的单位。
    *
-   * @type { ?(LengthMetrics | BorderRadiuses | LocalizedBorderRadiuses) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -355,7 +302,6 @@ export declare interface PickerBackgroundStyle {
  * 
  * 当显示文本或图片加文本列表时，value值为选中项中的文本值，当显示图片列表时，value值为空。
  *
- * @typedef {function} TextPickerScrollStopCallback
  * @param { string | string[] } value - 当前选中项的文本。多列数据选择器的value为数组类型。
  * <br/>**说明：**<br/>当选择器内容为文本或图文混排时，value值为选中项中的文本值；当选择器内容为图片时，value值为空。
  * @param { int | int[] } index - 当前选中项的索引值，索引从0开始。多列数据选择器的index为数组类型。
@@ -364,12 +310,10 @@ export declare interface PickerBackgroundStyle {
  * @since 23 static
  */
 export type TextPickerScrollStopCallback = (value: string | string[], index: int | int[]) => void;
-
 /**
  * 滑动选中TextPicker文本内容后，触发该回调。当显示文本或图片加文本列表时，选中项的文本值为选中项中的文本值，当显示图片列表时，
  * 选中项的文本值为空。
  *
- * @typedef {function} OnTextPickerChangeCallback
  * @param { string | string[] } selectItem - 当前选中项的文本。多列数据选择器的selectItem为数组类型。<br/>**说明：**<br/>
  * 当选择器内容为文本或图文混排时，selectItem值为选中项中的文本值；当选择器内容为图片时，selectItem值为空。
  * @param { int | int[] } index - 当前选中项的索引值，索引从0开始。多列数据选择器的index为数组类型。
@@ -378,14 +322,12 @@ export type TextPickerScrollStopCallback = (value: string | string[], index: int
  * @since 23 static
  */
 export type OnTextPickerChangeCallback = (selectItem: string | string[], index: int | int[]) => void;
-
 /**
  * 定义触发onEnterSelectedArea事件的回调类型。
  * 
  * 在多列联动场景中，不建议使用该回调，由于该回调标识的是滑动过程中选项进入分割线区域内的节点，而跟随变化的选项并不涉及滑动，因此，
  * 回调的返回值中，仅当前滑动列的值会正常变化，其余未滑动列的值保持不变。
  *
- * @typedef {function} TextPickerEnterSelectedAreaCallback
  * @param { string | string[] } value - 当前选中项的文本。多列数据选择器的value为数组类型。<br/>**说明：**<br/>当选择器内容为
  * 文本或图文混排时，value值为选中项中的文本值；当选择器内容为图片时，value值为空。
  * @param { int | int[] } index - 当前选中项的索引值，索引从0开始。多列数据选择器的index为数组类型。
@@ -394,142 +336,136 @@ export type OnTextPickerChangeCallback = (selectItem: string | string[], index: 
  * @since 23 static
  */
 export type TextPickerEnterSelectedAreaCallback = (value: string | string[], index: int | int[]) => void;
-
 /**
  * 除支持[通用属性]{@link ./common}外，还支持以下属性：
  *
- * @extends CommonMethod
- * @interface TextPickerAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  * @noninterop
  */
 export declare interface TextPickerAttribute extends CommonMethod {
-  /**
+    /**
      * 设置选择项的高度。
      *
-   * @param { double | string | undefined } value - 选择项的高度。double类型取值范围：
+     * @default 56 vp (selected) and 36 vp (unselected).
+     * @param { double | string | undefined } value - 选择项的高度。double类型取值范围：
      *     [0, +∞)，string类型仅支持number类型取值的字符串形式，例如"56"。<br />默认值：选中项56vp，非选中项36vp。
      *      <br />**说明：**<br />设置该参数后，选中项与非选中项的高度均为所设置的值。<br/>当value的值为undefined时，
      *      维持上次取值；若从未设置过有效值，使用默认值。
-   * @returns { TextPickerAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 23 static
-   */
-  default defaultPickerItemHeight(value: double | string | undefined): this;
-
-  /**
+     * @returns { TextPickerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    default defaultPickerItemHeight(value: double | string | undefined): this;
+    /**
      * 设置是否可循环滚动。
      *
-   * @param { boolean | undefined } value - 是否可循环滚动。<br/>true：可循环，false：不可循环。<br/>默认值：true<br/>
+     * @default true
+     * @param { boolean | undefined } value - 是否可循环滚动。<br/>true：可循环，false：不可循环。<br/>默认值：true<br/>
      *      当value的值为undefined时，使用默认值。
-   * @default true
-   * @returns { TextPickerAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 23 static
-   */
-  default canLoop(value: boolean | undefined): this;
-
-  /**
+     * @returns { TextPickerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    default canLoop(value: boolean | undefined): this;
+    /**
      * 设置边缘项（以选中项为基准向上或向下的第二项）的文本颜色、字号、字体粗细、最大字号、最小字号、超长文本截断方式。
      *
-   * @param { PickerTextStyle | TextPickerTextStyle | undefined } value - 边缘项的文本颜色、字号、字体粗细、最大字号、
+     * @default { color: '#ff182431', font: { size: '14fp', weight: FontWeight.Regular } }
+     * @param { PickerTextStyle | TextPickerTextStyle | undefined } value - 边缘项的文本颜色、字号、字体粗细、最大字号、
      *     最小字号、超长文本截断方式。<br/>当value的值为undefined时，边缘项的文本样式为默认值。<br/>默认值：<br/>{<br/>color:
      *     '#ff182431',<br/>font: {<br/>size: '14fp', <br/>weight: FontWeight.Regular<br/>}<br/>}
-   * @returns { TextPickerAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 23 static
-   */
-  default disappearTextStyle(value: PickerTextStyle | TextPickerTextStyle | undefined): this;
-
-  /**
+     * @returns { TextPickerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    default disappearTextStyle(value: PickerTextStyle | TextPickerTextStyle | undefined): this;
+    /**
      * 设置待选项（以选中项为基准向上或向下的第一项）的文本颜色、字号、字体粗细、最大字号、最小字号、超长文本截断方式。
      *
-   * @param { PickerTextStyle | TextPickerTextStyle | undefined } value - 待选项的文本颜色、字号、字体粗细、最大字号、
+     * @param { PickerTextStyle | TextPickerTextStyle | undefined } value - 待选项的文本颜色、字号、字体粗细、最大字号、
      *     最小字号、超长文本截断方式。<br/>当value的值为undefined时，待选项的文本样式为默认值。<br/>默认值：<br/>{<br/>color:
      *     '#ff182431',<br/>font: {<br/>size: '16fp', <br/>weight: FontWeight.Regular<br/>}<br/>}
-   * @returns { TextPickerAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 23 static
-   */
-  default textStyle(value: PickerTextStyle | TextPickerTextStyle | undefined): this;
-
-  /**
+     * @returns { TextPickerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    default textStyle(value: PickerTextStyle | TextPickerTextStyle | undefined): this;
+    /**
      * 设置选中项的文本颜色、字号、字体粗细、最大字号、最小字号、超长文本截断方式。Wearable设备不支持设置该属性。
      *
-   * @param { PickerTextStyle | TextPickerTextStyle | undefined } value - 选中项的文本颜色、字号、字体粗细、最大字号、
+     * @param { PickerTextStyle | TextPickerTextStyle | undefined } value - 选中项的文本颜色、字号、字体粗细、最大字号、
      *     最小字号、超长文本截断方式。<br/>当value的值为undefined时，选中项的文本样式为默认值。<br/>默认值：<br/>{<br/>color:
      *     '#ff007dff',<br/>font: {<br/>size: '20fp', <br/>weight: FontWeight.Medium<br/>}<br/>}
-   * @returns { TextPickerAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 23 static
-   */
-  default selectedTextStyle(value: PickerTextStyle | TextPickerTextStyle | undefined): this;
-
-  /**
+     * @returns { TextPickerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    default selectedTextStyle(value: PickerTextStyle | TextPickerTextStyle | undefined): this;
+    /**
      * 设置滑动过程中是否有文本样式变化动效。设置为true时，滑动过程中无字号、字重、字体颜色等变化动效，且文本均显示为
      * [defaultTextStyle]{@link defaultTextStyle}属性设置样式。如未设置
      * [defaultTextStyle]{@link defaultTextStyle}，则显示为[Text]{@link ./text}组件默认样式。
      *
-   * @param { boolean | undefined } disabled
-   * @default false
-   * @returns { TextPickerAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 23 static
-   */
-  default disableTextStyleAnimation(disabled: boolean | undefined): this;
-
-  /**
+     * @default false
+     * @param { boolean | undefined } disabled - 是否关闭滑动过程中文本样式变化的动效。<br/>- true：关闭文本样式变化动效。
+     *     <br/>- false：不关闭文本样式变化动效。<br/>默认值：false<br />**说明：**<br/>设置为true时，滑动过程中无字号、字重、
+     *     字体颜色等变化动效，且文本均显示为[defaultTextStyle]{@link defaultTextStyle}属性设置的样式。如未设置
+     *     [defaultTextStyle]{@link defaultTextStyle}，则显示为[Text]{@link ./text}组件默认样式。<br/>当disabled的值为
+     *     undefined时，使用默认值。
+     * @returns { TextPickerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    default disableTextStyleAnimation(disabled: boolean | undefined): this;
+    /**
      * 设置关闭滑动过程中文本样式变化的动效时，各个选项的文本样式。
      * 仅当[disableTextStyleAnimation]{@link disableTextStyleAnimation}为true时生效。
      *
-   * @param { TextPickerTextStyle | undefined } style
-   * @returns { TextPickerAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 23 static
-   */
-  default defaultTextStyle(style: TextPickerTextStyle | undefined): this;
-
-  /**
+     * @param { TextPickerTextStyle | undefined } style - 设置关闭滑动过程中文本样式变化的动效时，各个选项的文本样式。
+     *     <br/>默认值：与[Text]{@link ./text}组件默认值相同。<br/>当style的值为undefined时，使用默认值。
+     * @returns { TextPickerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    default defaultTextStyle(style: TextPickerTextStyle | undefined): this;
+    /**
      * 滑动TextPicker文本内容后，选项归位至选中项位置时，触发该回调。不能通过双向绑定的状态变量触发。当显示文本或图片加文本列表时，
      * selectItem值为选中项中的文本值，当显示图片列表时，selectItem值为空。
      * 
      * 回调会在滑动动画结束后触发，如果需要快速获取索引值变化，建议使用[onEnterSelectedArea]
      * (docroot://reference/apis-arkui/arkui-ts/ts-basic-components-textpicker.md#onenterselectedarea18)接口。
      *
-   * @param { OnTextPickerChangeCallback | undefined } callback - 滑动选中TextPicker文本内容后，触发的回调。
+     * @param { OnTextPickerChangeCallback | undefined } callback - 滑动选中TextPicker文本内容后，触发的回调。
      *     <br/>当callback的值为undefined时，不使用回调函数。
-   * @returns { TextPickerAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 23 static
-   */
-  default onChange(callback: OnTextPickerChangeCallback | undefined): this;
-
-  /**
+     * @returns { TextPickerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    default onChange(callback: OnTextPickerChangeCallback | undefined): this;
+    /**
      * 文本选择器的选项列滑动停止时触发该事件。
      * 
      * 手指拖动选项列触发的滑动，手指离开屏幕且滑动停止时会触发该事件。
      *
-   * @param { TextPickerScrollStopCallback | undefined } callback - 文本选择器的选项列滑动停止时触发该事件。
+     * @param { TextPickerScrollStopCallback | undefined } callback - 文本选择器的选项列滑动停止时触发该事件。
      *     <br/>当callback的值为undefined时，不使用回调函数。
-   * @returns { TextPickerAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 23 static
-   */
-  default onScrollStop(callback: TextPickerScrollStopCallback | undefined): this;
-
-  /**
+     * @returns { TextPickerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    default onScrollStop(callback: TextPickerScrollStopCallback | undefined): this;
+    /**
      * 滑动TextPicker过程中，选项进入分割线区域内（当前列的滑动距离超过选中项高度的一半）时，触发该回调。
      * 
      * > **说明：**
@@ -541,120 +477,116 @@ export declare interface TextPickerAttribute extends CommonMethod {
      * >
      * > - 该接口不支持在[attributeModifier]{@link CommonMethod#attributeModifier}中调用。
      *
-   * @param { TextPickerEnterSelectedAreaCallback | undefined } callback - 滑动TextPicker过程中，选项进入分割线区域时触
+     * @param { TextPickerEnterSelectedAreaCallback | undefined } callback - 滑动TextPicker过程中，选项进入分割线区域时触
      *     发的回调。<br/>当callback的值为undefined时，不使用回调函数。
-   * @returns { TextPickerAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 23 static
-   */
-  default onEnterSelectedArea(callback: TextPickerEnterSelectedAreaCallback | undefined): this;
-
-  /**
+     * @returns { TextPickerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    default onEnterSelectedArea(callback: TextPickerEnterSelectedAreaCallback | undefined): this;
+    /**
      * 设置默认选中项在数组中的索引值，优先级高于[TextPickerOptions]{@link TextPickerOptions}中的选中值。单列数据选择器
      * 使用int类型。多列、多列联动数据选择器使用int[]类型。
      *
-   * @param { int | int[] | undefined } value - 默认选中项在数组中的索引值，索引从0开始。<br/>默认值：0 <br/>当value的值
+     * @default 0
+     * @param { int | int[] | undefined } value - 默认选中项在数组中的索引值，索引从0开始。<br/>默认值：0 <br/>当value的值
      *     为undefined时，默认值与[TextPickerOptions]{@link TextPickerOptions}中的selected值保持一致。如果
      *     [TextPickerOptions]{@link TextPickerOptions}中的selected值为undefined，则默认值为0。
      *     <br/>当value的值为负数或者超过数据选择列表的最大索引值时，使用默认值。<br/>
-   * @default 0
-   * @returns { TextPickerAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 23 static
-   */
-  default selectedIndex(value: int | int[] | undefined): this;
-
-  /**
+     * @returns { TextPickerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    default selectedIndex(value: int | int[] | undefined): this;
+    /**
      * 设置分割线样式，不设置该属性则按“默认值”展示分割线。
      * 
      * [DividerOptions]{@link DividerOptions}中startMargin + endMargin 超过组件宽度后，startMargin和endMargin会被置0。
      *
-   * @param { DividerOptions | null | undefined } value
-   * @returns { TextPickerAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 23 static
-   */
-  default divider(value: DividerOptions | null | undefined): this;
-
-  /**
+     * @param { DividerOptions | null | undefined } value - 1.设置[DividerOptions]{@link DividerOptions}，则按设置的样式
+     *     显示分割线。<br/>默认值：<br/>{<br/>strokeWidth: '2px', <br/>startMargin: 0, <br/>endMargin: 0, <br/>color:
+     *     '#33000000'<br/>}<br/>2.设置为null不显示分割线。<br/>3.当value的值为undefined时，使用默认值。
+     * @returns { TextPickerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    default divider(value: DividerOptions | null | undefined): this;
+    /**
      * 设置渐隐效果的高度。若未设置该属性，则显示默认渐隐效果。
      *
-   * @param { Dimension | undefined } value - 内容区上下边缘的渐隐高度（支持百分比，100%为TextPicker高度的一半即最大值），
+     * @default 36vp
+     * @param { Dimension | undefined } value - 内容区上下边缘的渐隐高度（支持百分比，100%为TextPicker高度的一半即最大值），
      *     设置为0时不显示渐隐效果，负数等非法值显示默认渐隐效果。默认值为36vp。<br/>当value的值为undefined时，默认值为36vp。
-   * @default 36vp
-   * @returns { TextPickerAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 23 static
-   */
-  default gradientHeight(value: Dimension | undefined): this;
-
-  /**
+     * @returns { TextPickerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    default gradientHeight(value: Dimension | undefined): this;
+    /**
      * 设置是否开启触控反馈。
      *
-   * @param { boolean | undefined } enable - 设置是否开启触控反馈。<br/>- true：开启触控反馈。<br/>- false：不开启触控反馈。
+     * @default true
+     * @param { boolean | undefined } enable - 设置是否开启触控反馈。<br/>- true：开启触控反馈。<br/>- false：不开启触控反馈。
      *     <br/>默认值：true<br/>设置为true后，其生效情况取决于系统的硬件是否支持。<br/>当enable的值为undefined时，使用默认值。
-   * @default true
-   * @returns { TextPickerAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 23 static
-   */
-  default enableHapticFeedback(enable: boolean | undefined): this;
-
-  /**
+     * @returns { TextPickerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    default enableHapticFeedback(enable: boolean | undefined): this;
+    /**
      * 设置表冠灵敏度。
      *
-   * @param { CrownSensitivity | undefined } sensitivity - 表冠响应灵敏度。<br/>默认值：CrownSensitivity.MEDIUM，
+     * @default CrownSensitivity.MEDIUM
+     * @param { CrownSensitivity | undefined } sensitivity - 表冠响应灵敏度。<br/>默认值：CrownSensitivity.MEDIUM，
      *     响应速度适中。<br/>当sensitivity的值为undefined时，使用默认值。
-   * @default CrownSensitivity.MEDIUM
-   * @returns { TextPickerAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 23 static
-   */
-  default digitalCrownSensitivity(sensitivity: CrownSensitivity | undefined): this;
-
-  /**
+     * @returns { TextPickerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    default digitalCrownSensitivity(sensitivity: CrownSensitivity | undefined): this;
+    /**
      * 设置选中项的背景样式。
      *
-   * @param { PickerBackgroundStyle | undefined } style - 选中项背景的颜色和边框圆角半径，多列模式时会同时设置所有列的选中项
+     * @param { PickerBackgroundStyle | undefined } style - 选中项背景的颜色和边框圆角半径，多列模式时会同时设置所有列的选中项
      *     背景的颜色和圆角半径。<br/>当style的值为undefined时，选中项背景的颜色和边框圆角半径为默认值。<br/>默认值：
      *     <br/>{ <br/>color: $r('sys.color.comp_background_tertiary'),<br/>
      *     borderRadius: $r('sys.float.corner_radius_level12')<br/>}
-   * @returns { TextPickerAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 23 static
-   */
-  default selectedBackgroundStyle(style: PickerBackgroundStyle | undefined): this;
-
-  /**
+     * @returns { TextPickerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    default selectedBackgroundStyle(style: PickerBackgroundStyle | undefined): this;
+    /**
      * 设置属性修改器。
      *
-   * @param { AttributeModifier<TextPickerAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
-   * @returns { TextPickerAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 23 static
-   */
-  default attributeModifier(modifier: AttributeModifier<TextPickerAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+     * @param { AttributeModifier<TextPickerAttribute> | AttributeModifier<CommonMethod> | undefined } modifier - 设置属
+     *     性修改器。<br/>当modifier的值为undefined时，不设置属性修改器。CommonMethod表示[通用属性]{@link ./common}和
+     *     [通用事件]{@link ./common}。<br/>TextPickerAttribute表示当前组件的
+     *     [属性](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-textpicker.md#属性)和
+     *     [事件](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-textpicker.md#事件)。
+     * @returns { TextPickerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    default attributeModifier(modifier: AttributeModifier<TextPickerAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
-
 /**
  * 文本选择器结果。
  *
- * @interface TextPickerResult
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  */
 export declare interface TextPickerResult {
-
-  /**
+    /**
      * 选中项的文本内容。
      * 
      * **说明**：当显示文本或图片加文本列表时，value值为选中项中的文本值。（文本选择器显示多列时，value为数组类型。）
@@ -663,51 +595,42 @@ export declare interface TextPickerResult {
      * 
      * value值不支持包含转义字符'\'。
      *
-   * @type { string | string[] }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 23 static
-   */
-  value: string | string[];
-
-  /**
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    value: string | string[];
+    /**
      * 选中项在选择范围数组中的索引值，索引从0开始。（文本选择器显示多列时，index为数组类型。）
      *
-   * @type { int | int[] }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 23 static
-   */
-  index: int | int[];
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    index: int | int[];
 }
-
 /**
  * 文本选择器弹窗的参数继承自[TextPickerOptions]{@link TextPickerOptions}。
  *
  * 默认值： { color: $r('sys.color.comp_background_tertiary'), borderRadius: $r('sys.float.corner_radius_level12') }
  *
- * @extends TextPickerOptions
- * @interface TextPickerDialogOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  */
 export declare interface TextPickerDialogOptions extends TextPickerOptions {
-
-  /**
+    /**
      * 设置选择器中选项的高度。number/double类型取值范围：[0, +∞)，string类型仅支持number/double类型取值的字符串形式，例如"56"。
      * 
      * 默认值：选中项56vp，非选中项36vp。设置该参数后，选中项与非选中项的高度均为所设置的值。
      *
-   * @type { ?(double | string) }
-   * @default 56 vp (selected) and 36 vp (unselected)
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 23 static
-   */
-  defaultPickerItemHeight?: double | string;
-
-  /**
+     * @default 56 vp (selected) and 36 vp (unselected)
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    defaultPickerItemHeight?: double | string;
+    /**
      * 设置是否可循环滚动。
      * 
      * - true：可循环。
@@ -715,39 +638,33 @@ export declare interface TextPickerDialogOptions extends TextPickerOptions {
      * 
      * 默认值：true
      *
-   * @type { ?boolean }
-   * @default true
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 23 static
-   */
-  canLoop?: boolean;
-
-  /**
+     * @default true
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    canLoop?: boolean;
+    /**
      * 设置边缘项（以选中项为基准向上或向下的第二项）的文本颜色、字号、字体粗细。
      * 
      * 默认值： { color: '#ff182431', font: { size: '14fp', weight: FontWeight.Regular } }
      *
-   * @type { ?PickerTextStyle }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 23 static
-   */
-  disappearTextStyle?: PickerTextStyle;
-
-  /**
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    disappearTextStyle?: PickerTextStyle;
+    /**
      * 设置待选项（以选中项为基准向上或向下的第一项）的文本颜色、字号、字体粗细。
      * 
      * 默认值：{ color: '#ff182431',font: {size: '16fp',weight: FontWeight.Regular } }
      *
-   * @type { ?PickerTextStyle }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 23 static
-   */
-  textStyle?: PickerTextStyle;
-
-  /**
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    textStyle?: PickerTextStyle;
+    /**
      * 设置确认按钮显示样式、样式和重要程度、角色、背景色、圆角、文本颜色、字号、字体粗细、字体样式、字体列表、
      * 按钮是否默认响应Enter键。
      * 
@@ -761,14 +678,12 @@ export declare interface TextPickerDialogOptions extends TextPickerOptions {
      * 呈现效果依然是胶囊型按钮
      * [Capsule](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-button.md#buttontype枚举说明)。
      *
-   * @type { ?PickerDialogButtonStyle }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 23 static
-   */
-  acceptButtonStyle?: PickerDialogButtonStyle;
-
-  /**
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    acceptButtonStyle?: PickerDialogButtonStyle;
+    /**
      * 设置取消按钮显示样式、样式和重要程度、角色、背景色、圆角、文本颜色、字号、字体粗细、字体样式、字体列表、
      * 按钮是否默认响应Enter键。
      * 
@@ -782,26 +697,22 @@ export declare interface TextPickerDialogOptions extends TextPickerOptions {
      * 呈现效果依然是胶囊型按钮
      * [Capsule](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-button.md#buttontype枚举说明)。
      *
-   * @type { ?PickerDialogButtonStyle }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 23 static
-   */
-  cancelButtonStyle?: PickerDialogButtonStyle;
-
-  /**
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    cancelButtonStyle?: PickerDialogButtonStyle;
+    /**
      * 设置选中项的文本颜色、字号、字体粗细。
      * 
      * 默认值：{ color: '#ff007dff',font: {size: '20fp',weight: FontWeight.Medium } }
      *
-   * @type { ?PickerTextStyle }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 23 static
-   */
-  selectedTextStyle?: PickerTextStyle;
-
-  /**
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    selectedTextStyle?: PickerTextStyle;
+    /**
      * 设置是否关闭滑动过程中文本样式变化的动效。
      * 
      * - true：关闭文本样式变化动效。
@@ -814,69 +725,57 @@ export declare interface TextPickerDialogOptions extends TextPickerOptions {
      * 设置为true时，滑动过程中无字号、字重、字体颜色等变化动效，且文本均显示为defaultTextStyle属性设置的样式。
      * 如未设置defaultTextStyle，则显示为[Text]{@link ./text}组件默认样式。
      *
-   * @type { ?boolean }
-   * @default false
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 23 static
-   */
-  disableTextStyleAnimation?: boolean;
-
-  /**
+     * @default false
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    disableTextStyleAnimation?: boolean;
+    /**
      * 设置关闭滑动过程中文本样式变化动效时的各个选项的文本样式，仅当disableTextStyleAnimation为true时生效。
      * 
      * 默认值：与[Text]{@link ./text}组件默认值相同。
      *
-   * @type { ?TextPickerTextStyle }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 23 static
-   */
-  defaultTextStyle?: TextPickerTextStyle;
-
-  /**
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    defaultTextStyle?: TextPickerTextStyle;
+    /**
      * 点击弹窗中的“确定”按钮时触发该回调。
      *
-   * @type { ?function }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 23 static
-   */
-  onAccept?: (value: TextPickerResult) => void;
-
-  /**
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    onAccept?: (value: TextPickerResult) => void;
+    /**
      * 点击弹窗中的“取消”按钮时触发该回调。
      *
-   * @type { ?function }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 23 static
-   */
-  onCancel?: () => void;
-
-  /**
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    onCancel?: () => void;
+    /**
      * 滑动弹窗中的选择器后，选项归位至选中项位置时，触发该回调。
      * 
      * 回调会在滑动动画结束后触发，如果需要快速获取索引值变化，建议使用onEnterSelectedArea接口。
      *
-   * @type { ?function }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 23 static
-   */
-  onChange?: (value: TextPickerResult) => void;
-
-  /**
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    onChange?: (value: TextPickerResult) => void;
+    /**
      * 滑动弹窗中的选择器的选择列停止时，触发该回调。
      *
-   * @type { ?Callback<TextPickerResult> }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 23 static
-   */
-  onScrollStop?: Callback<TextPickerResult>;
-
-  /**
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    onScrollStop?: Callback<TextPickerResult>;
+    /**
      * 滑动过程中，选项进入分割线区域内，触发该回调。与onChange事件的差别在于，该事件的触发时机早于onChange事件，当当前滑动列滑动
      * 距离超过选中项高度的一半时，选项此时已经进入分割线区域内，会触发该事件。
      * 
@@ -885,53 +784,45 @@ export declare interface TextPickerDialogOptions extends TextPickerOptions {
      * 在多列联动场景中，不建议使用该回调，由于该回调标识的是滑动过程中选项进入分割线区域内的节点，而跟随变化的选项并不涉及滑动，
      * 因此，回调的返回值中，仅当前滑动列的值会正常变化，其余未滑动列的值保持不变。
      *
-   * @type { ?Callback<TextPickerResult> }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 23 static
-   */
-  onEnterSelectedArea?: Callback<TextPickerResult>;
-
-  /**
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    onEnterSelectedArea?: Callback<TextPickerResult>;
+    /**
      * 弹窗遮蔽层区域，在遮蔽层区域内的事件不透传，在遮蔽层区域外的事件透传。
      * 
      * 默认值：{ x: 0, y: 0, width: '100%', height: '100%' }
      *
-   * @type { ?Rectangle }
-   * @default { x: 0, y: 0, width: '100%', height: '100%' }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 23 static
-   */
-  maskRect?: Rectangle;
-
-  /**
+     * @default { x: 0, y: 0, width: '100%', height: '100%' }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    maskRect?: Rectangle;
+    /**
      * 弹窗在竖直方向上的对齐方式。
      * 
      * 默认值：DialogAlignment.Default
      *
-   * @type { ?DialogAlignment }
-   * @default DialogAlignment.Default
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 23 static
-   */
-  alignment?: DialogAlignment;
-
-  /**
+     * @default DialogAlignment.Default
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    alignment?: DialogAlignment;
+    /**
      * 弹窗相对alignment所在位置的偏移量。
      * 
      * 默认值：{ dx: 0 , dy: 0 }
      *
-   * @type { ?Offset }
-   * @default { dx: 0 , dy: 0 }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 23 static
-   */
-  offset?: Offset;
-
-  /**
+     * @default { dx: 0 , dy: 0 }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    offset?: Offset;
+    /**
      * 弹窗背板颜色。
      * 
      * 默认值：Color.Transparent
@@ -940,15 +831,13 @@ export declare interface TextPickerDialogOptions extends TextPickerOptions {
      * 
      * 当设置了backgroundColor为非透明色时，backgroundBlurStyle需要设置为BlurStyle.NONE，否则显示的颜色将不符合预期效果。
      *
-   * @type { ?ResourceColor }
-   * @default Color.Transparent
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 23 static
-   */
-  backgroundColor?: ResourceColor;
-
-  /**
+     * @default Color.Transparent
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    backgroundColor?: ResourceColor;
+    /**
      * 弹窗背板模糊材质。
      * 
      * 默认值：BlurStyle.COMPONENT_ULTRA_THICK
@@ -958,35 +847,29 @@ export declare interface TextPickerDialogOptions extends TextPickerOptions {
      * 设置为BlurStyle.NONE即可关闭背景虚化。当设置了backgroundBlurStyle为非NONE值时，则不要设置backgroundColor，
      * 否则显示的颜色将不符合预期效果。
      *
-   * @type { ?BlurStyle }
-   * @default BlurStyle.COMPONENT_ULTRA_THICK
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 23 static
-   */
-  backgroundBlurStyle?: BlurStyle;
-
-  /**
+     * @default BlurStyle.COMPONENT_ULTRA_THICK
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    backgroundBlurStyle?: BlurStyle;
+    /**
      * 背景模糊效果。
      *
-   * @type { ?BackgroundBlurStyleOptions }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 23 static
-   */
-  backgroundBlurStyleOptions?: BackgroundBlurStyleOptions;
-
-  /**
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    backgroundBlurStyleOptions?: BackgroundBlurStyleOptions;
+    /**
      * 背景效果参数。
      *
-   * @type { ?BackgroundEffectOptions }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 23 static
-   */
-  backgroundEffect?: BackgroundEffectOptions;
-
-  /**
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    backgroundEffect?: BackgroundEffectOptions;
+    /**
      * 弹窗弹出后的事件回调。
      * 
      * **说明：**
@@ -1000,14 +883,12 @@ export declare interface TextPickerDialogOptions extends TextPickerOptions {
      * 
      * 4. 当弹窗入场动效未完成时关闭弹窗，该回调不会触发。
      *
-   * @type { ?function }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 23 static
-   */
-  onDidAppear?: () => void;
-
-  /**
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    onDidAppear?: () => void;
+    /**
      * 弹窗消失后的事件回调。
      * 
      * **说明：**
@@ -1015,14 +896,12 @@ export declare interface TextPickerDialogOptions extends TextPickerOptions {
      * 1.正常时序依次为：
      * onWillAppear>>onDidAppear>>(onAccept/onCancel/onChange/onScrollStop)>>onWillDisappear>>onDidDisappear。
      *
-   * @type { ?function }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 23 static
-   */
-  onDidDisappear?: () => void;
-
-  /**
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    onDidDisappear?: () => void;
+    /**
      * 弹窗显示动效前的事件回调。
      * 
      * **说明：**
@@ -1032,14 +911,12 @@ export declare interface TextPickerDialogOptions extends TextPickerOptions {
      * 
      * 2.在onWillAppear内设置改变弹窗显示效果的回调事件，二次弹出生效。
      *
-   * @type { ?function }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 23 static
-   */
-  onWillAppear?: () => void;
-
-  /**
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    onWillAppear?: () => void;
+    /**
      * 弹窗退出动效前的事件回调。
      * 
      * **说明：**
@@ -1049,26 +926,22 @@ export declare interface TextPickerDialogOptions extends TextPickerOptions {
      * 
      * 2.快速点击弹出，消失弹窗时，存在onWillDisappear在onDidAppear前生效。
      *
-   * @type { ?function }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 23 static
-   */
-  onWillDisappear?: () => void;
-
-  /**
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    onWillDisappear?: () => void;
+    /**
      * 设置弹窗背板的阴影。
      * 
      * 当设备为2in1时，默认场景下获焦阴影值为ShadowStyle.OUTER_FLOATING_MD，失焦为ShadowStyle.OUTER_FLOATING_SM
      *
-   * @type { ?(ShadowOptions | ShadowStyle) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 23 static
-   */
-  shadow?: ShadowOptions | ShadowStyle;
-
-  /**
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    shadow?: ShadowOptions | ShadowStyle;
+    /**
      * 是否响应悬停态。
      * 
      * - true：响应悬停态。
@@ -1076,28 +949,24 @@ export declare interface TextPickerDialogOptions extends TextPickerOptions {
      * 
      * 默认值：false
      *
-   * @type { ?boolean }
-   * @default false - meaning not to enable the hover mode.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 23 static
-   */
-  enableHoverMode?: boolean;
-
-  /**
+     * @default false - meaning not to enable the hover mode.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    enableHoverMode?: boolean;
+    /**
      * 设置悬停态下弹窗默认展示区域。
      * 
      * 默认值：HoverModeAreaType.BOTTOM_SCREEN
      *
-   * @type { ?HoverModeAreaType }
-   * @default HoverModeAreaType.BOTTOM_SCREEN
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 23 static
-   */
-  hoverModeArea?: HoverModeAreaType;
-
-  /**
+     * @default HoverModeAreaType.BOTTOM_SCREEN
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    hoverModeArea?: HoverModeAreaType;
+    /**
      * 设置是否开启触控反馈。
      * 
      * - true：开启触控反馈。
@@ -1110,30 +979,26 @@ export declare interface TextPickerDialogOptions extends TextPickerOptions {
      * 1. 设置为true后，其生效情况取决于系统的硬件是否支持。
      * 2. 开启触控反馈时，需要在工程的src/main/module.json5文件的"module"内配置requestPermissions字段开启振动权限，配置如下：
      *
-   * @type { ?boolean }
-   * @default true
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 23 static
-   */
-  enableHapticFeedback?: boolean;
+     * @default true
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    enableHapticFeedback?: boolean;
 }
-
 /**
  * 文本选择器弹窗的参数继承自[TextPickerOptions]{@link TextPickerOptions}。
  *
- * @extends TextPickerOptions
- * @interface TextPickerDialogOptionsExt
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  */
 export declare interface TextPickerDialogOptionsExt extends TextPickerOptions {
-
   /**
-   * Called when the default height of the selected element is set.
+   * 设置选择器中选项的高度。number/double类型取值范围：[0, +∞)，string类型仅支持number/double类型取值的字符串形式，例如"56"。
    *
-   * @type { ?(double | string) }
+   * 默认值：选中项56vp，非选中项36vp。设置该参数后，选中项与非选中项的高度均为所设置的值。
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -1148,7 +1013,6 @@ export declare interface TextPickerDialogOptionsExt extends TextPickerOptions {
    * 
    * 默认值：true
    *
-   * @type { ?boolean }
    * @default true
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1162,7 +1026,6 @@ export declare interface TextPickerDialogOptionsExt extends TextPickerOptions {
    * 默认值： { color: '#ff182431', font: {size: '14fp', weight: FontWeight.Regular }, minFontSize: 0, maxFontSize: 0,
    * overflow: TextOverflow.CLIP }
    *
-   * @type { ?TextPickerTextStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -1175,7 +1038,6 @@ export declare interface TextPickerDialogOptionsExt extends TextPickerOptions {
    * 默认值：{ color: '#ff182431', font: { size: '16fp', weight: FontWeight.Regular }, minFontSize: 0, maxFontSize: 0,
    * overflow: TextOverflow.CLIP }
    *
-   * @type { ?TextPickerTextStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -1196,7 +1058,6 @@ export declare interface TextPickerDialogOptionsExt extends TextPickerOptions {
    * 呈现效果依然是胶囊型按钮
    * [Capsule](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-button.md#buttontype枚举说明)。
    *
-   * @type { ?PickerDialogButtonStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -1217,7 +1078,6 @@ export declare interface TextPickerDialogOptionsExt extends TextPickerOptions {
    * 呈现效果依然是胶囊型按钮
    * [Capsule](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-button.md#buttontype枚举说明)。
    *
-   * @type { ?PickerDialogButtonStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -1230,7 +1090,6 @@ export declare interface TextPickerDialogOptionsExt extends TextPickerOptions {
    * 默认值： { color: '#ff007dff', font: { size: '20fp', weight: FontWeight.Medium }, minFontSize: 0, maxFontSize: 0,
    * overflow: TextOverflow.CLIP }
    *
-   * @type { ?TextPickerTextStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -1250,7 +1109,6 @@ export declare interface TextPickerDialogOptionsExt extends TextPickerOptions {
    * 设置为true时，滑动过程中无字号、字重、字体颜色等变化动效，且文本均显示为defaultTextStyle属性设置的样式。
    * 如未设置defaultTextStyle，则显示为[Text]{@link ./text}组件默认样式。
    *
-   * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -1262,7 +1120,6 @@ export declare interface TextPickerDialogOptionsExt extends TextPickerOptions {
    * 
    * 默认值：与[Text]{@link ./text}组件默认值相同。
    *
-   * @type { ?TextPickerTextStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -1272,7 +1129,6 @@ export declare interface TextPickerDialogOptionsExt extends TextPickerOptions {
   /**
    * 点击弹窗中的“确定”按钮时触发该回调。
    *
-   * @type { ?Callback<TextPickerResult> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -1282,7 +1138,6 @@ export declare interface TextPickerDialogOptionsExt extends TextPickerOptions {
   /**
    * 点击弹窗中的“取消”按钮时触发该回调。
    *
-   * @type { ?VoidCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -1294,7 +1149,6 @@ export declare interface TextPickerDialogOptionsExt extends TextPickerOptions {
    * 
    * 回调会在滑动动画结束后触发，如果需要快速获取索引值变化，建议使用onEnterSelectedArea接口。
    *
-   * @type { ?Callback<TextPickerResult> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -1304,7 +1158,6 @@ export declare interface TextPickerDialogOptionsExt extends TextPickerOptions {
   /**
    * 滑动弹窗中的选择器的选择列停止时，触发该回调。
    *
-   * @type { ?Callback<TextPickerResult> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -1320,7 +1173,6 @@ export declare interface TextPickerDialogOptionsExt extends TextPickerOptions {
    * 在多列联动场景中，不建议使用该回调，由于该回调标识的是滑动过程中选项进入分割线区域内的节点，而跟随变化的选项并不涉及滑动，因此，
    * 回调的返回值中，仅当前滑动列的值会正常变化，其余未滑动列的值保持不变。
    *
-   * @type { ?Callback<TextPickerResult> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -1332,7 +1184,6 @@ export declare interface TextPickerDialogOptionsExt extends TextPickerOptions {
    * 
    * 默认值：{ x: 0, y: 0, width: '100%', height: '100%' }
    *
-   * @type { ?Rectangle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -1344,7 +1195,6 @@ export declare interface TextPickerDialogOptionsExt extends TextPickerOptions {
    * 
    * 默认值： DialogAlignment.Default
    *
-   * @type { ?DialogAlignment }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -1356,7 +1206,6 @@ export declare interface TextPickerDialogOptionsExt extends TextPickerOptions {
    * 
    * 默认值：{ dx: 0 , dy: 0 }
    *
-   * @type { ?Offset }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -1372,7 +1221,6 @@ export declare interface TextPickerDialogOptionsExt extends TextPickerOptions {
    * 
    * 当设置了backgroundColor为非透明色时，backgroundBlurStyle需要设置为BlurStyle.NONE，否则显示的颜色将不符合预期效果。
    *
-   * @type { ?ResourceColor }
    * @default Color.Transparent
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1390,7 +1238,6 @@ export declare interface TextPickerDialogOptionsExt extends TextPickerOptions {
    * 设置为BlurStyle.NONE即可关闭背景虚化。当设置了backgroundBlurStyle为非NONE值时，则不要设置backgroundColor，
    * 否则显示的颜色将不符合预期效果。
    *
-   * @type { ?BlurStyle }
    * @default BlurStyle.COMPONENT_ULTRA_THICK
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1402,7 +1249,6 @@ export declare interface TextPickerDialogOptionsExt extends TextPickerOptions {
    * 背景模糊效果。
    *
    *
-   * @type { ?BackgroundBlurStyleOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -1412,7 +1258,6 @@ export declare interface TextPickerDialogOptionsExt extends TextPickerOptions {
   /**
    * 背景效果参数。
    *
-   * @type { ?BackgroundEffectOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -1433,7 +1278,6 @@ export declare interface TextPickerDialogOptionsExt extends TextPickerOptions {
    * 
    * 4. 当弹窗入场动效未完成时关闭弹窗，该回调不会触发。
    *
-   * @type { ?VoidCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -1448,7 +1292,6 @@ export declare interface TextPickerDialogOptionsExt extends TextPickerOptions {
    * 1.正常时序依次为：
    * onWillAppear>>onDidAppear>>(onAccept/onCancel/onChange/onScrollStop)>>onWillDisappear>>onDidDisappear。
    *
-   * @type { ?VoidCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -1465,7 +1308,6 @@ export declare interface TextPickerDialogOptionsExt extends TextPickerOptions {
    * 
    * 2.在onWillAppear内设置改变弹窗显示效果的回调事件，二次弹出生效。
    *
-   * @type { ?VoidCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -1482,7 +1324,6 @@ export declare interface TextPickerDialogOptionsExt extends TextPickerOptions {
    * 
    * 2.快速点击弹出，消失弹窗时，存在onWillDisappear在onDidAppear前生效。
    *
-   * @type { ?VoidCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -1494,7 +1335,6 @@ export declare interface TextPickerDialogOptionsExt extends TextPickerOptions {
    * 
    * 当设备为2in1时，默认场景下获焦阴影值为ShadowStyle.OUTER_FLOATING_MD，失焦为ShadowStyle.OUTER_FLOATING_SM
    *
-   * @type { ?(ShadowOptions | ShadowStyle) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -1509,7 +1349,6 @@ export declare interface TextPickerDialogOptionsExt extends TextPickerOptions {
    * 
    * 默认值：false
    *
-   * @type { ?boolean }
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1522,7 +1361,6 @@ export declare interface TextPickerDialogOptionsExt extends TextPickerOptions {
    * 
    * 默认值：HoverModeAreaType.BOTTOM_SCREEN
    *
-   * @type { ?HoverModeAreaType }
    * @default HoverModeAreaType.BOTTOM_SCREEN
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1543,7 +1381,6 @@ export declare interface TextPickerDialogOptionsExt extends TextPickerOptions {
    * 1. 设置为true后，其生效情况取决于系统的硬件是否支持。
    * 2. 开启触控反馈时，需要在工程的src/main/module.json5文件的"module"内配置requestPermissions字段开启振动权限。
    *
-   * @type { ?boolean }
    * @default true
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1556,7 +1393,6 @@ export declare interface TextPickerDialogOptionsExt extends TextPickerOptions {
    * 
    * 默认值： { color: $r('sys.color.comp_background_tertiary'), borderRadius: $r('sys.float.corner_radius_level12') }
    *
-   * @type { ?PickerBackgroundStyle }
    * @default { color: $r('sys.color.comp_background_tertiary'), borderRadius: $r('sys.float.corner_radius_level12') }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
