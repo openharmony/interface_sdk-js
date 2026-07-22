@@ -1750,6 +1750,7 @@ declare namespace window {
    * size.
    *
    * @syscap SystemCapability.Window.SessionManager
+   * @crossplatform [since 26.1.0]
    * @atomicservice
    * @since 15 dynamic
    * @since 23 static
@@ -1760,6 +1761,7 @@ declare namespace window {
      * and varies according to user settings.
      *
      * @syscap SystemCapability.Window.SessionManager
+     * @crossplatform [since 26.1.0]
      * @atomicservice
      * @since 15 dynamic
      * @since 23 static
@@ -1771,6 +1773,7 @@ declare namespace window {
      * and varies with the screen.
      *
      * @syscap SystemCapability.Window.SessionManager
+     * @crossplatform [since 26.1.0]
      * @atomicservice
      * @since 15 dynamic
      * @since 23 static
@@ -1784,6 +1787,7 @@ declare namespace window {
      * **systemDensity**).
      *
      * @syscap SystemCapability.Window.SessionManager
+     * @crossplatform [since 26.1.0]
      * @atomicservice
      * @since 15 dynamic
      * @since 23 static
@@ -6544,6 +6548,7 @@ declare namespace window {
      *     Possible cause: 1. The window is not created or destroyed;
      *     2. Internal task error.
      * @syscap SystemCapability.Window.SessionManager
+     * @crossplatform [since 26.1.0]
      * @atomicservice
      * @since 15 dynamic
      * @since 23 static
