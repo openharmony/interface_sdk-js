@@ -96,11 +96,12 @@ export declare interface LineAttribute extends CommonShapeMethod {
     /**
  	 * Set Line options.
  	 *
- 	 * @param { LineOptions } [options] - Line constructor options
- 	 * @returns { LineAttribute } Returns the instance of the LineAttribute.
- 	 * @syscap SystemCapability.ArkUI.ArkUI.Full
- 	 * @stagemodelonly
- 	 * @since 26.0.0 staticonly
+     * @param { LineOptions } [options] - Line constructor options.
+     * @returns { LineAttribute } Returns the instance of the LineAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @unpublished
+     * @stagemodelonly
+     * @since 26.1.0 staticonly
  	 */
  	default setLineOptions(options?: LineOptions): this;
     /**
@@ -136,8 +137,9 @@ export declare function Line(
  * @param { CustomBuilderT<LineAttribute> } style - the callback to set up component's attributes.
  * @returns { LineAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @unpublished
  * @stagemodelonly
- * @since 26.0.0 staticonly
+ * @since 26.1.0 staticonly
  * @noninterop
  */
 @Builder
