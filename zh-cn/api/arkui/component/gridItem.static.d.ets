@@ -161,17 +161,6 @@ export declare interface GridItemAttribute extends CommonMethod {
   default onSelect(event: ((isSelected: boolean) => void) | undefined): this;
 
   /**
-   * 设置GridItem选项。
-   *
-   * @param { GridItemOptions } [value] - GridItem构造函数选项
-   * @returns { GridItemAttribute } 返回GridItemAttribute的实例。
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 26.0.0 staticonly
-   */
-  default setGridItemOptions(value?: GridItemOptions): this;
-
-  /**
    * 动态设置GridItem组件的属性方法。
    *
    * @param { AttributeModifier<GridItemAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
@@ -198,23 +187,6 @@ export declare interface GridItemAttribute extends CommonMethod {
 export declare function GridItem(
     value?: GridItemOptions, 
     content_?: CustomBuilder,
-): GridItemAttribute;
-
-/**
- * 可扩展的GridItem组件的入口。
- *
- * @param { CustomBuilderT<GridItemAttribute> } style_ - The style to create a GridItem.
- * @param { CustomBuilder } [content_]
- * @returns { GridItemAttribute } The attribute of the GridItem.
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @since 26.0.0 staticonly
- * @noninterop
- */
-@Builder
-export declare function GridItem(
-    style_: CustomBuilderT<GridItemAttribute>,
-    content_?: CustomBuilder
 ): GridItemAttribute;
 
 /**

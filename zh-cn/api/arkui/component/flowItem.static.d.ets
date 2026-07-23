@@ -18,7 +18,7 @@
  * @kit ArkUI
  */
 import { CommonMethod } from './common';
-import { Builder, ComponentBuilder, CustomBuilder, CustomBuilderT } from './builder';
+import { ComponentBuilder, CustomBuilder } from './builder';
 import { AttributeModifier, CommonMethod } from "./common";
 /**
  * The FlowItemAttribute.
@@ -29,16 +29,6 @@ import { AttributeModifier, CommonMethod } from "./common";
  * @noninterop
  */
 export declare interface FlowItemAttribute extends CommonMethod {
-
-  /**
-   * 设置FlowItem选项。
-   *
-   * @returns { FlowItemAttribute } 返回FlowItemAttribute的实例。
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 26.0.0 staticonly
-   */
-  default setFlowItemOptions(): this;
 
   /**
    * 动态设置FlowItem组件的属性方法。
@@ -65,21 +55,4 @@ export declare interface FlowItemAttribute extends CommonMethod {
 @ComponentBuilder
 export declare function FlowItem(
     content_?: CustomBuilder,
-): FlowItemAttribute;
-
-/**
- * 定义FlowItem组件。
- *
- * @param { CustomBuilderT<FlowItemAttribute> } style_ - 用于创建FlowItem的样式
- * @param { CustomBuilder } [content_]
- * @returns { FlowItemAttribute } FlowItem的属性。
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @since 26.0.0 staticonly
- * @noninterop
- */
-@Builder
-export declare function FlowItem(
-    style_: CustomBuilderT<FlowItemAttribute>,
-    content_?: CustomBuilder
-): FlowItemAttribute;
+): FlowItemAttribute

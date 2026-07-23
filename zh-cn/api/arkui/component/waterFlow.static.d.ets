@@ -17,13 +17,15 @@
  * @file
  * @kit ArkUI
  */
-import { AttributeModifier, UIScrollableCommonEvent, ScrollableCommonMethod, NestedScrollOptions, CommonMethod, OnWillScrollCallback, OnScrollCallback } from './common';
-import { Builder, CustomBuilder, ComponentBuilder, CustomBuilderT } from './builder';
+import { ScrollableCommonMethod, NestedScrollOptions, CommonMethod, OnWillScrollCallback, OnScrollCallback } from './common';
+import { CustomBuilder } from './builder';
 import { Length, Dimension, Margin, ConstraintSizeOptions, Resource, ItemFillPolicy } from './units';
 import { Scroller, OnScrollFrameBeginCallback } from "./scroll";
 import { ScrollState } from "./list";
 import { FlexDirection } from './enums';
 import { ComponentContentBase } from '../../arkui/ComponentContent';
+import { ComponentBuilder } from './builder';
+import { AttributeModifier, CommonMethod, UIScrollableCommonEvent } from "./common";
 /**
  * 根据index获取指定Item的主轴大小。
  *
@@ -602,17 +604,6 @@ export declare interface WaterFlowAttribute extends ScrollableCommonMethod {
   default onDidScroll(handler: OnScrollCallback | undefined): this;
 
   /**
-   * 设置WaterFlow选项。
-   *
-   * @param { WaterFlowOptions } [options] - WaterFlow构造函数选项
-   * @returns { WaterFlowAttribute } 返回WaterFlowAttribute的实例。
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 26.0.0 staticonly
-   */
-  default setWaterFlowOptions(options?: WaterFlowOptions): this;
-
-  /**
    * 动态设置WaterFlow组件的属性方法。
    *
    * @param { AttributeModifier<WaterFlowAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
@@ -639,21 +630,4 @@ export declare interface WaterFlowAttribute extends ScrollableCommonMethod {
 export declare function WaterFlow(
     options?: WaterFlowOptions, 
     content_?: CustomBuilder,
-): WaterFlowAttribute;
-
-/**
- * 定义WaterFlow组件。
- *
- * @param { CustomBuilderT<WaterFlowAttribute> } style_ - 创建WaterFlow的样式
- * @param { CustomBuilder } [content_]
- * @returns { WaterFlowAttribute } WaterFlow的属性。
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @since 26.0.0 staticonly
- * @noninterop
- */
-@Builder
-export declare function WaterFlow(
-    style_: CustomBuilderT<WaterFlowAttribute>, 
-    content_?: CustomBuilder
-): WaterFlowAttribute;
+): WaterFlowAttribute

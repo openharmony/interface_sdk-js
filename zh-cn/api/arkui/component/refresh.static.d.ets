@@ -17,10 +17,12 @@
  * @file
  * @kit ArkUI
  */
-import { AttributeModifier, Callback, CommonMethod, Bindable } from './common';
-import { Builder, ComponentBuilder, CustomBuilder, CustomBuilderT } from './builder';
+import { Callback, CommonMethod, Bindable } from './common';
+import { CustomBuilder } from './builder';
 import { ResourceStr, Resource } from './units';
 import { ComponentContentBase } from '../ComponentContent';
+import { ComponentBuilder } from './builder';
+import { AttributeModifier, CommonMethod } from "./common";
 /**
  * 下拉刷新的刷新状态。
  *
@@ -166,6 +168,17 @@ export declare interface RefreshAttribute extends CommonMethod {
   default refreshOffset(value: double | undefined): this;
 
   /**
+   * 设置当下拉距离超过[refreshOffset]{@link default refreshOffset(value: double | undefined)}时是否能触发刷新。
+   *
+   * @param { boolean | undefined } value
+   * @returns { this }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  default pullToRefresh(value: boolean | undefined): this;
+
+  /**
    * 设置触发刷新的下拉偏移量，当下拉距离小于该属性设置值时离手不会触发刷新，支持Resource资源类型。
    *
    * 未通过该接口设置时，当未设置[promptText](docroot://reference/apis-arkui/arkui-ts/ts-container-refresh.md#refreshoptions对象说明)参数
@@ -180,17 +193,6 @@ export declare interface RefreshAttribute extends CommonMethod {
    * @since 26.0.0 static
    */
   default refreshOffset(value: Resource | undefined): this;
-
-  /**
-   * 设置当下拉距离超过[refreshOffset]{@link default refreshOffset(value: double | undefined)}时是否能触发刷新。
-   *
-   * @param { boolean | undefined } value
-   * @returns { this }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 23 static
-   */
-  default pullToRefresh(value: boolean | undefined): this;
 
   /**
    * 设置上划是否取消刷新。
@@ -257,17 +259,6 @@ export declare interface RefreshAttribute extends CommonMethod {
   default maxPullDownDistance(distance: Resource | undefined): this;
 
   /**
-   * 设置刷新选项。
-   *
-   * @param { RefreshOptions } options - Refresh constructor options
-   * @returns { RefreshAttribute } 返回RefreshAttribute的实例。
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 26.0.0 staticonly
-   */
-  default setRefreshOptions(options: RefreshOptions): this;
-
-  /**
    * 动态设置Refresh组件的属性方法。
    *
    * @param { AttributeModifier<RefreshAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
@@ -294,21 +285,4 @@ export declare interface RefreshAttribute extends CommonMethod {
 export declare function Refresh(
     value: RefreshOptions, 
     content_?: CustomBuilder,
-): RefreshAttribute;
-
-/**
- * 定义刷新组件。
- *
- * @param { CustomBuilderT<RefreshAttribute> } style_ - 创建刷新的样式。
- * @param { CustomBuilder } [content_]
- * @returns { RefreshAttribute } Refresh的属性。
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @since 26.0.0 staticonly
- * @noninterop
- */
-@Builder
-export declare function Refresh(
-    style_: CustomBuilderT<RefreshAttribute>,
-    content_?: CustomBuilder
-): RefreshAttribute;
+): RefreshAttribute

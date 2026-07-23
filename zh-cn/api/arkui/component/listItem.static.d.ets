@@ -377,17 +377,6 @@ export declare interface ListItemAttribute extends CommonMethod {
   default onSelect(event: ((isSelected: boolean) => void) | undefined): this;
 
   /**
-   * 设置ListItem选项。
-   *
-   * @param { ListItemOptions } [value] - ListItem构造函数选项
-   * @returns { this }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 26.0.0 staticonly
-   */
-  default setListItemOptions(value?: ListItemOptions): this;
-
-  /**
    * 动态设置ListItem组件的属性方法。
    *
    * @param { AttributeModifier<ListAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
@@ -414,23 +403,6 @@ export declare interface ListItemAttribute extends CommonMethod {
 export declare function ListItem(
     value?: ListItemOptions, 
     content_?: CustomBuilder,
-): ListItemAttribute;
-
-/**
- * 可扩展的ListItem组件的入口。
- *
- * @param { CustomBuilderT<ListItemAttribute> } style_ - The style to create a ListItem.
- * @param { CustomBuilder } [content_]
- * @returns { ListItemAttribute } The attribute of the ListItem.
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @since 26.0.0 staticonly
- * @noninterop
- */
-@Builder
-export declare function ListItem(
-    style_: CustomBuilderT<ListItemAttribute>,
-    content_?: CustomBuilder
 ): ListItemAttribute;
 
 /**

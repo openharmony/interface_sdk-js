@@ -17,8 +17,8 @@
  * @file
  * @kit ArkUI
  */
-import { AttributeModifier, CommonMethod, OnVisibleIndexesChangeCallback } from './common';
 import { LengthMetrics } from '../Graphics';
+import { AttributeModifier, CommonMethod, OnVisibleIndexesChangeCallback } from './common';
 import { Builder, ComponentBuilder, CustomBuilder, CustomBuilderT } from './builder';
 import { StickyStyle } from './list';
 /**
@@ -170,16 +170,6 @@ export declare interface LazyVGridLayoutAttribute extends LazyGridLayoutAttribut
   default columnsTemplate(value: string | undefined): this;
 
   /**
-   * 设置LazyVGrid选项。
-   *
-   * @returns { LazyVGridLayoutAttribute } 返回LazyVGridLayoutAttribute的实例。
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 26.0.0 staticonly
-   */
-  default setLazyVGridLayoutOptions(): this;
-
-  /**
    * 动态设置LazyVGridLayout组件的属性方法。
    *
    * @param { AttributeModifier<LazyVGridLayoutAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
@@ -204,21 +194,4 @@ export declare interface LazyVGridLayoutAttribute extends LazyGridLayoutAttribut
 @ComponentBuilder
 export declare function LazyVGridLayout(
     content_?: CustomBuilder,
-): LazyVGridLayoutAttribute;
-
-/**
- * 定义LazyVGridLayout组件。
- *
- * @param { CustomBuilderT<LazyVGridLayoutAttribute> } style_ - 创建LazyVGridLayout的样式
- * @param { CustomBuilder } [content_]
- * @returns { LazyVGridLayoutAttribute } LazyVGridLayout的属性。
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @since 26.0.0 staticonly
- * @noninterop
- */
-@Builder
-export declare function LazyVGridLayout(
-    style_: CustomBuilderT<LazyVGridLayoutAttribute>,
-    content_?: CustomBuilder
-): LazyVGridLayoutAttribute;
+): LazyVGridLayoutAttribute

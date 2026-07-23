@@ -21,7 +21,7 @@ import { BarState, Edge, Color, EdgeEffect, ScrollSource, Curve } from './enums'
 import { ICurve, RectResult, ScrollableCommonMethod, EdgeEffectOptions, NestedScrollOptions, CommonMethod } from './common';
 import { Dimension, Length, VoidCallback, Resource, LengthMetrics } from './units';
 import { ScrollSnapAlign, ScrollState } from "./list";
-import { Builder, ComponentBuilder, CustomBuilder, CustomBuilderT } from './builder';
+import { ComponentBuilder, CustomBuilder } from './builder';
 import { AttributeModifier, CommonMethod, UIScrollableCommonEvent, SizeResult, Bindable } from "./common";
 import { FrameNode } from 'arkui.FrameNode';
 /**
@@ -1176,17 +1176,6 @@ export declare interface ScrollAttribute extends ScrollableCommonMethod {
   default initialOffset(value: OffsetOptions | undefined): this;
 
   /**
-   * 设置滚动选项。
-   *
-   * @param { Scroller } [滚动控制器] - 滚动控制器
-   * @returns { ScrollAttribute } 返回ScrollAttribute的实例。
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 26.0.0 staticonly
-   */
-  default setScrollOptions(scroller?: Scroller): this;
-
-  /**
    * 动态设置Scroll组件的属性方法。
    *
    * @param { AttributeModifier<ScrollAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
@@ -1258,21 +1247,4 @@ export type ScrollOnDidZoomCallback = (scale: double) => void;
 export declare function Scroll(
     scroller?: Scroller, 
     content_?: CustomBuilder,
-): ScrollAttribute;
-
-/**
- * 定义滚动组件。
- *
- * @param { CustomBuilderT<ScrollAttribute> } style_ - 创建滚动的样式
- * @param { CustomBuilder } [content_]
- * @returns { ScrollAttribute } Scroll的属性。
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @since 26.0.0 staticonly
- * @noninterop
- */
-@Builder
-export declare function Scroll(
-    style_: CustomBuilderT<ScrollAttribute>, 
-    content_?: CustomBuilder
 ): ScrollAttribute;
