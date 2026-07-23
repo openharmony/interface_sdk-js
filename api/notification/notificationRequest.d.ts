@@ -187,7 +187,7 @@ export interface Geofence {
   latitude:double;
 
   /**
-   * Geofence radius, in meters. The value ranges from 200 to 2000.
+   * Radius of the geofence, in meters. Value range: [200, 2000].
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -196,8 +196,8 @@ export interface Geofence {
   radius:double;
 
   /**
-   * Delay time from geofence entry to event trigger, in seconds. 
-   * The value ranges from 0 to 300. The default value is **0**.
+   * Delay time of the geofence, in seconds. That is, the delay time before the geofence is triggered after entering
+   * the geofence. Value range: [0, 300]. Default value: **0**.
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -261,7 +261,8 @@ export interface Trigger {
 }
 
 /**
- * The **NotificationRequest** module provides APIs for defining the notification request.
+ * Defines the data structure of a notification request, which is used to describe all information about a
+ * notification, including the notification content, identifier, display style, and interaction behavior.
  *
  * @crossplatform [since 12]
  * @syscap SystemCapability.Notification.Notification
@@ -407,15 +408,11 @@ export interface NotificationRequest {
   tapDismissed?: boolean;
 
   /**
-   * Scheduled time for clearing a notification. If this parameter is set, the notification will be automatically 
-   * cleared after the specified time. The default value is **0**.
-   * 
-   * Data format: timestamp,
-   * 
-   * in milliseconds.
-   * 
-   * For example, if a notification is to be cleared after being displayed for 3 seconds (3000 ms), you can set 
-   * **new Date().getTime() + 3000** to meet this requirement.
+   * Scheduled auto-delete time for the notification. You can set this parameter to automatically delete the
+   * notification after the specified time. Default value: **0**. This parameter does not take effect if a value less
+   * than 0 or a past time is passed in.
+   * Data format: timestamp. Unit: millisecond. For example, to delete a notification after it has been retained for
+   * 3 seconds (3000 ms), the corresponding deletion time is: **new Date().getTime()** + 3000.
    *
    * @crossplatform [since 12]
    * @syscap SystemCapability.Notification.Notification
@@ -589,10 +586,12 @@ export interface NotificationRequest {
   actionButtons?: Array<NotificationActionButton>;
 
   /**
-   * Small notification icon. This parameter is left empty by default. The total number of the icon pixel bytes cannot 
-   * exceed 192 KB (which is obtained through 
-   * [getPixelBytesNumber]{@link @ohos.multimedia.image:image.PixelMap.getPixelBytesNumber}). The recommended icon size 
-   * is 128 × 128 pixels. The display effect depends on the device capability and notification center UI style.
+   * Small notification icon. This parameter is left empty by default. The total number of the icon pixel bytes cannot
+   * exceed 192 KB (which is obtained through
+   * [getPixelBytesNumber]{@link @ohos.multimedia.image:image.PixelMap.getPixelBytesNumber}). The setting does not take
+   * effect if the limit is exceeded. When **smallIcon** is not set, the notification displays the default application
+   * icon. The recommended icon size is 128 × 128 pixels. The display effect depends on the device capability and
+   * notification center UI style.
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
@@ -601,10 +600,12 @@ export interface NotificationRequest {
   smallIcon?: image.PixelMap;
 
   /**
-   * Large notification icon. This parameter is left empty by default. The total number of the icon pixel bytes cannot 
-   * exceed 192 KB (which is obtained through 
-   * [getPixelBytesNumber]{@link @ohos.multimedia.image:image.PixelMap.getPixelBytesNumber}). The recommended icon size 
-   * is 128 × 128 pixels. The display effect depends on the device capability and notification center UI style.
+   * Large notification icon. This parameter is left empty by default. The total number of the icon pixel bytes cannot
+   * exceed 192 KB (which is obtained through
+   * [getPixelBytesNumber]{@link @ohos.multimedia.image:image.PixelMap.getPixelBytesNumber}). The setting does not take
+   * effect if the limit is exceeded. When **largeIcon** is not set, the notification does not display a large icon. The
+   * recommended icon size is 128 × 128 pixels. The display effect depends on the device capability and notification
+   * center UI style.
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
@@ -613,13 +614,8 @@ export interface NotificationRequest {
   largeIcon?: image.PixelMap;
 
   /**
-   * Notification overlay icon. This parameter is left empty by default. The total number of the icon pixel bytes cannot
-   * exceed 192 KB (which is obtained through 
-   * [getPixelBytesNumber]{@link @ohos.multimedia.image:image.PixelMap.getPixelBytesNumber}).
-   * 
-   * This API takes effect only when [notificationSlotType]{@link NotificationRequest} is set to 
-   * **SOCIAL_COMMUNICATION**. The recommended icon size is 128 × 128 pixels. The display effect depends on the device 
-   * capability and notification center UI style.
+   * Notification overlay icon. This parameter is left empty by default. The total bytes of the icon pixels cannot
+   * exceed 192 KB.
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi [since 11 - 22]
@@ -630,8 +626,9 @@ export interface NotificationRequest {
   overlayIcon?: image.PixelMap;
 
   /**
-   * Group to which a notification belongs. If the group names of different notifications are the same, these 
-   * notifications are displayed in a group. This parameter is left blank by default.
+   * Group to which the notification belongs. When different notifications have the same **groupName**, these
+   * notifications will be displayed as a group. The size does not exceed 202 bytes, and the excess part will be
+   * truncated. The value is empty by default.
    *
    * @crossplatform [since 12]
    * @syscap SystemCapability.Notification.Notification
@@ -712,8 +709,7 @@ export interface NotificationRequest {
   sound?: string;
 
   /**
-   * Notification category.
-   * Not supported currently.
+   * Notification classification. Not supported currently.
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -788,9 +784,9 @@ export interface NotificationRequest {
   readonly deviceId?: string;
 
   /**
-   * Notification flags to be set or obtained. This parameter is left empty by default. This parameter is writable
-   * since API version 23. You can set this parameter to reduce the notification modes. When the notification channel
-   * type is LIVE_VIEW, this parameter does not take effect.
+   * Notification flags. The default value is empty. This parameter is writable since API version 23. You can set
+   * this parameter to reduce the notification modes. This parameter does not take effect when the notification slot
+   * type is LIVE_VIEW.
    *
    * @readonly [since 8 - 22]
    * @syscap SystemCapability.Notification.Notification
@@ -881,7 +877,7 @@ export interface NotificationRequest {
   readonly appInstanceKey?: string;
 
   /**
-   * Whether notifications are forcibly displayed in all scenario across devices.
+   * Whether notifications are forcibly displayed in all scenario across devices. The default value is **false**.
    * **NOTE**
    * This field takes effect only when the application is in the cross-device collaborative management list and **notDistributed** is set to **false**. Check whether the **collaborationFilter** field in the **notification_config.json** file contains the UID or bundle name of the application. For details about the file configuration path, see the **NOTIFICATION_CONFIG_FILE** property in [notification_config_parse.h](https://gitcode.com/openharmony/notification_distributed_notification_service/blob/master/services/ans/include/notification_config_parse.h). If yes, the application is on the cross-device collaborative management list.
    * - **true**: Notifications are displayed on all collaboration devices.
@@ -896,7 +892,7 @@ export interface NotificationRequest {
   forceDistributed?: boolean;
 
   /**
-   * Whether notifications are not displayed in all scenarios across devices.
+   * Whether notifications are not displayed in all scenarios across devices. The default value is **false**.
    * **NOTE**
    * This field is mutually exclusive with the **forceDistributed** field. 
    * When both fields are set to **true**, only the **notDistributed** field takes effect.
@@ -931,7 +927,7 @@ export interface NotificationRequest {
  */
 export interface DistributedOptions {
   /**
-   * Whether cross-device notifications are supported.
+   * Whether cross-device notifications are supported. The default value is **true**.
    * 
    * - **true**: cross-device notifications are supported.
    * - **false**: cross-device notifications are not supported.

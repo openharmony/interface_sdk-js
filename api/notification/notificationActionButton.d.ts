@@ -51,7 +51,7 @@ export interface NotificationActionButton {
   /**
    * **WantAgent** triggered when the button is tapped, which encapsulates the application's behavioral intent. After
    * the user taps the button, the system will execute the action in the method specified by the **WantAgent** (such
-   * as navigating to a specified UIAbility or sending a common event).
+   * as navigating to a specified **UIAbility** or sending a common event).
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
@@ -60,7 +60,7 @@ export interface NotificationActionButton {
   wantAgent: WantAgent;
 
   /**
-   * Extended information of the button. The default value is empty.
+   * Extension information of the button. The default value is empty. It is used to store custom extension data of the button. An application can add any key-value pair information as needed, such as the specific identifier and additional data of the button.
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
@@ -68,7 +68,7 @@ export interface NotificationActionButton {
   extras?: { [key: string]: any };
 
   /**
-   * Extended information of the button. The default value is empty.
+   * Extension information of the button. The default value is empty. It is used to store custom extension data of the button. An application can add any key-value pair information as needed, such as the specific identifier and additional data of the button.
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 23 static

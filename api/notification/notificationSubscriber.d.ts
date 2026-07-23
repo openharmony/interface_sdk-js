@@ -38,7 +38,7 @@ import notification from '../@ohos.notification';
  */
 export interface NotificationSubscriber {
   /**
-   * Information about the notification received.
+   * Called when a new notification is received.
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -48,7 +48,7 @@ export interface NotificationSubscriber {
   onConsume?:(data: SubscribeCallbackData) => void;
 
   /**
-   * Information about the notification to cancel.
+   * Called when a notification is canceled.
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -58,7 +58,7 @@ export interface NotificationSubscriber {
   onCancel?:(data: SubscribeCallbackData) => void;
 
   /**
-   * Latest notification sorting list.
+   * Called when notification sorting is updated. Not supported currently.
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -68,7 +68,7 @@ export interface NotificationSubscriber {
   onUpdate?:(data: NotificationSortingMap) => void;
 
   /**
-   * Callback invoked when subscription is complete.
+   * Called when subscription is complete.
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -78,7 +78,7 @@ export interface NotificationSubscriber {
   onConnect?:() => void;
 
   /**
-   * Callback invoked when unsubscription is complete.
+   * Called when unsubscription is complete.
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -88,7 +88,7 @@ export interface NotificationSubscriber {
   onDisconnect?:() => void;
 
   /**
-   * Callback to be invoked when the service is disconnected.
+   * Called when the service is disconnected.
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -98,7 +98,7 @@ export interface NotificationSubscriber {
   onDestroy?:() => void;
 
   /**
-   * Callback used to return DND time setting updates.
+   * Called when the DND time settings are changed.
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -109,7 +109,7 @@ export interface NotificationSubscriber {
   onDoNotDisturbDateChange?: (mode: notification.DoNotDisturbDate) => void;
 
   /**
-   * Callback used to return DND time setting updates.
+   * Called when the DND time settings are changed.
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -119,7 +119,7 @@ export interface NotificationSubscriber {
   onDoNotDisturbChanged?: (mode: notificationManager.DoNotDisturbDate) => void;
 
   /**
-   * Callback used to return the listened application information.
+   * Listens for the notification enabled state changes.
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -139,7 +139,7 @@ export interface NotificationSubscriber {
   onEnabledSilentReminderChanged?: EnabledSilentReminderChangedCallback;
 
   /**
-   * Callback used to return the result.
+   * Called when the enabling state of the priority notification changes.
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -148,7 +148,7 @@ export interface NotificationSubscriber {
   onEnabledPriorityChanged?: (callbackData: EnabledPriorityNotificationCallbackData) => void;
  
   /**
-   * Callback used to return the result.
+   * Called when the enabling state of the application priority notification changes.
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -157,7 +157,7 @@ export interface NotificationSubscriber {
   onEnabledPriorityByBundleChanged?: (callbackData: EnabledPriorityNotificationByBundleCallbackData) => void;
 
   /**
-   * Callback used to return the listened application information.
+   * Listens for changes of the application badge number.
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -177,7 +177,7 @@ export interface NotificationSubscriber {
   onBadgeEnabledChanged?: BadgeEnabledChangedCallback;
 
   /**
-   * Notification information of batch deletion.
+   * Called for batch deletion.
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -197,7 +197,7 @@ export interface NotificationSubscriber {
   onSystemUpdate?: SystemUpdateCallback;
 
   /**
-   * Returns the notification switch state change set by the interface of
+   * Returns the changes of the notification switch status set by
    * [notificationManager.setNotificationSwitch]{@link
    * ../@ohos.notificationManager:notificationManager.setNotificationSwitch}.
    *
@@ -272,8 +272,7 @@ export interface SubscribeCallbackData {
   readonly vibrationValues?: Array<long>;
 
   /**
-   * Voice broadcast content of the notification. It exists only when voiceContentOptions.enabled is true in
-   * NotificationSubscribeInfo.
+   * Voice broadcast content of the notification.
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -283,8 +282,8 @@ export interface SubscribeCallbackData {
   readonly voiceContent?: VoiceContent;
 
   /**
-   * Notification classification information. It exists only when enableClassification in
-   * NotificationSubscribeInfo is true.
+   * Notification classification information. It exists only when **enableClassification** in
+   * NotificationSubscribeInfo is **true**.
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -295,7 +294,7 @@ export interface SubscribeCallbackData {
 }
 
 /**
- * Returns the changes of the application badge enabling state.
+ * Returns the changes of the application enabling state.
  *
  * @syscap SystemCapability.Notification.Notification
  * @systemapi
@@ -428,10 +427,6 @@ export interface EnabledPriorityNotificationByBundleCallbackData {
 
   /**
    * Whether the priority notification for an application is enabled.
-   * - **DISABLE**: The priority notification is disabled.
-   * - **ENABLE_BY_INTELLIGENT**: The priority notification can be enabled through intelligent recognition,
-   * user keyword matching, or application rule matching.
-   * - **ENABLE**: The priority notification is enabled for all applications.
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -480,8 +475,7 @@ export interface BadgeNumberCallbackData {
   readonly badgeNumber: int;
 
   /**
-   * Key value of an application instance. This parameter is supported since API version 12 and
-   * deprecated since API version 15.You are advised to use **appInstanceKey** instead.
+   * Key value of an application instance. This parameter is supported since API version 12 and deprecated since API version 15. You are advised to use **appInstanceKey** instead.
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -584,10 +578,10 @@ export interface NotificationClassification {
 export type BadgeEnabledChangedCallback = (data: EnabledNotificationCallbackData) => void;
 
 /**
- * Defines the SystemUpdateCallback callback.
+ * Returns the notification information carrying system property values.
  * type SystemUpdateCallback = (data: SubscribeCallbackData) => void
  *
- * @param { SubscribeCallbackData } data -Notification information that carries the system property value.
+ * @param { SubscribeCallbackData } data - Notification information that carries the system property value.
  * @syscap SystemCapability.Notification.Notification
  * @systemapi
  * @stagemodelonly
@@ -609,13 +603,11 @@ export type SystemUpdateCallback = (data: SubscribeCallbackData) => void;
 export type EnabledSilentReminderChangedCallback = (callbackData: EnabledSilentReminderCallbackData) => void;
 
 /**
- * Register the callback function type for notification switch state changes set by the interface of
- * [notificationManager.setNotificationSwitch]{@link
- * ../@ohos.notificationManager:notificationManager.setNotificationSwitch}.
+ * Registers the callback for notification switch state changes set by
+ * [notificationManager.setNotificationSwitch]{@link ../@ohos.notificationManager:notificationManager.setNotificationSwitch} API.
  *
- * @param { NotificationSwitchChangedCallbackData } callbackData - The callback returns information about the status
- *     change of the notification switch set by the interface of
- *     [notificationManager.setNotificationSwitch]{@link ../@ohos.notificationManager:notificationManager.setNotificationSwitch}.
+ * @param { NotificationSwitchChangedCallbackData } callbackData - Callback that returns the notification switch state change information set by
+ * [notificationManager.setNotificationSwitch]{@link ../@ohos.notificationManager:notificationManager.setNotificationSwitch} API.
  * @syscap SystemCapability.Notification.Notification
  * @systemapi
  * @stagemodelonly
@@ -633,7 +625,7 @@ export type NotificationSwitchChangedCallback = (callbackData: NotificationSwitc
  */
 export interface NotificationSwitchChangedCallbackData {
   /**
-   * User ID. The value range is all integers.
+   * User ID.
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi

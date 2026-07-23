@@ -429,22 +429,24 @@ declare namespace notificationManager {
   function cancel(id: int, callback: AsyncCallback<void>): void;
 
   /**
-   * Cancels a notification with the specified ID and label. This API uses an asynchronous callback to
+   * Cancels a published notification based on the notification ID and label. This API uses an asynchronous callback to
    * return the result.
    *
    * After cancellation, the corresponding notification will be removed from the notification center, status
    * bar, and other locations, and will no longer be visible to the user. This is suitable for scenarios
    * where a specific notification with a particular tag needs to be precisely canceled.
    *
-   * Compared with notificationManager.cancel(id, callback), which only passes in the notification ID, this
-   * API additionally passes in the **label** parameter, allowing precise cancellation of notifications
-   * with different tags under the same ID.
+   * Compared with notificationManager.cancel(id, callback), which requires only the notification ID, this
+   * API additionally has the **label** parameter, allowing precise cancellation of notifications with the
+   * same ID but different labels.
    *
    * @param { int } id - Notification ID, used to identify the target notification. This value is
    *     specified by the **id** field of NotificationRequest when a notification is published.
-   * @param { string } label - Notification tag, used to distinguish notifications with different tags
-   *     under the same ID. This value is specified by the **label** field of NotificationRequest when a
-   *     notification is published.
+   * @param { string } label - Notification label. This value is specified by the **label** field of
+   *     NotificationRequest during the notification publishment. If the **label** field is empty, the
+   *     published notification that matches the specified notification ID and has an empty label is
+   *     canceled. If the **label** field is not empty, the published notification that matches both the
+   *     specified notification ID and label is canceled.
    * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
    *     **err** is **undefined**; otherwise, **err** is an error object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -460,16 +462,19 @@ declare namespace notificationManager {
   function cancel(id: int, label: string, callback: AsyncCallback<void>): void;
 
   /**
-   * Cancels a published notification based on the notification ID and label. If the label is empty, it
-   * cancels the published notification that matches the specified notification ID and has an empty
-   * label. This API uses a promise to return the result.
+   * Cancels a published notification based on the notification ID and label. This API uses a promise to
+   * return the result.
    *
    * After cancellation, the corresponding notification will be removed from the notification center, status
    * bar, and other locations, and will no longer be visible to the user.
    *
    * @param { int } id - Notification ID, used to identify the target notification. This value is
    *     specified by the id field of NotificationRequest when publishing a notification.
-   * @param { string } [label] - Notification label. This parameter is left empty by default.
+   * @param { string } [label] - Notification label. The default value is empty. This value is specified
+   *     by the **label** field of NotificationRequest during the notification publishment. If the
+   *     **label** field is empty, the published notification that matches the specified notification ID
+   *     and has an empty label is canceled. If the **label** field is not empty, the published
+   *     notification that matches both the specified notification ID and label is canceled.
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types. 3. Parameter verification failed.
@@ -863,7 +868,8 @@ declare namespace notificationManager {
    *
    * This API is used to batch query the configuration information of all notification slots created by the
    * current application, including settings such as the type, reminder method, and level of each slot.
-   * This is suitable for scenarios where all slot configurations need to be viewed.
+   * This is suitable for scenarios where all slot configurations need to be viewed. The corresponding
+   * notification slots must be created through addSlot first; otherwise, the obtained result will be empty.
    *
    * @param { AsyncCallback<Array<NotificationSlot>> } callback - Callback used to return the result. If
    *     the notification slots are obtained successfully, **err** is **undefined** and **data** is the
@@ -884,7 +890,8 @@ declare namespace notificationManager {
    *
    * This API is used to batch query the configuration information of all notification slots created by the
    * current application, including settings such as the type, reminder method, and level of each slot.
-   * This is suitable for scenarios where all slot configurations need to be viewed.
+   * This is suitable for scenarios where all slot configurations need to be viewed. The corresponding
+   * notification slots must be created through addSlot first; otherwise, the obtained result will be empty.
    *
    * @returns { Promise<Array<NotificationSlot>> } Promise used to return the result.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -1566,9 +1573,9 @@ declare namespace notificationManager {
    * Obtains the number of active notifications of this application. This API uses an asynchronous callback to return 
    * the result.
    *
-   * This API is used to query the number of notifications of the current application that are still active in the
-   * notification center (not deleted by the user or canceled by the program). This is suitable for scenarios where
-   * an unread notification count prompt needs to be displayed.
+   * This API is used to query the number of active notifications published by the current application in the
+   * notification center. This is suitable for scenarios where an unread notification count prompt needs to be
+   * displayed.
    *
    * @param { AsyncCallback<long> } callback - Callback used to return the result. If the operation is successful,
    *     **err** is **undefined** and data is the obtained number of active notifications; otherwise, **err** is an
@@ -1587,8 +1594,9 @@ declare namespace notificationManager {
   /**
    * Obtains the number of active notifications of this application. This API uses a promise to return the result.
    *
-   * This API is used to query the number of notifications of the current application in the notification center. This
-   * is suitable for scenarios where an unread notification count prompt needs to be displayed.
+   * This API is used to query the number of active notifications published by the current application in the
+   * notification center. This is suitable for scenarios where an unread notification count prompt needs to be
+   * displayed.
    *
    * @returns { Promise<long> } Promise used to return the result.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -2919,8 +2927,8 @@ declare namespace notificationManager {
    * This API can be properly called on devices other than wearables. If it is called on wearables, error code 801 is
    * returned.
    *
-   * @param { int } badgeNumber - Notification badge number to set. If **badgeNumber** is set to **0**, badges are
-   *     cleared; if the value is greater than **99**, **99+** is displayed on the badge.
+   * @param { int } badgeNumber - Notification badge number to set. If **badgeNumber** is set to a value less than or
+   *     equal to **0**, badges are cleared; if the value is greater than **99**, **99+** is displayed on the badge.
    * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
    *     **err** is **undefined**; otherwise, **err** is an error object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -2948,8 +2956,8 @@ declare namespace notificationManager {
    * This API can be properly called on devices other than wearables. If it is called on wearables, error code 801 is
    * returned.
    *
-   * @param { int } badgeNumber - Notification badge number to set. If **badgeNumber** is set to **0**, badges are
-   *     cleared; if the value is greater than **99**, **99+** is displayed on the badge.
+   * @param { int } badgeNumber - Notification badge number to set. If **badgeNumber** is set to a value less than or
+   *     equal to **0**, badges are cleared; if the value is greater than **99**, **99+** is displayed on the badge.
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types. 3. Parameter verification failed.
@@ -4416,7 +4424,7 @@ declare namespace notificationManager {
     /**
      * Whether to enable vibration.
      * 
-     * - **true**: enabled.
+     * - **true**: enable.
      * - **false**: disable.
      *
      * @syscap SystemCapability.Notification.Notification
@@ -4428,7 +4436,7 @@ declare namespace notificationManager {
     /**
      * Whether to enable ringtone.
      * 
-     * - **true**: enabled.
+     * - **true**: enable.
      * - **false**: disable.
      *
      * @syscap SystemCapability.Notification.Notification
@@ -4440,7 +4448,7 @@ declare namespace notificationManager {
     /**
      * Whether to enable lock screen notification.
      * 
-     * - **true**: enabled.
+     * - **true**: enable.
      * - **false**: disable.
      *
      * @syscap SystemCapability.Notification.Notification
@@ -4452,7 +4460,7 @@ declare namespace notificationManager {
     /**
      * Whether to enable banner notification.
      * 
-     * - **true**: enabled.
+     * - **true**: enable.
      * - **false**: disable.
      *
      * @syscap SystemCapability.Notification.Notification
@@ -4464,7 +4472,7 @@ declare namespace notificationManager {
     /**
      * Whether to enable the display of notification badges.
      * 
-     * - **true**: enabled.
+     * - **true**: enable.
      * - **false**: disable.
      *
      * @syscap SystemCapability.Notification.Notification
@@ -4476,7 +4484,7 @@ declare namespace notificationManager {
     /**
      * Whether to enable the application notification.
      * 
-     * - **true**: enabled.
+     * - **true**: enable.
      * - **false**: disable.
      *
      * @syscap SystemCapability.Notification.Notification
@@ -4653,7 +4661,7 @@ declare namespace notificationManager {
     NOTIFICATION_CONTENT_MULTILINE,
 
     /**
-     * Live view notification. A third-party application cannot directly create a notification of this type. After the 
+     * System live view notification. A third-party application cannot directly create a notification of this type. After the 
      * system proxy creates a system live view, the third-party application publishes a notification with the same ID to
      * update the specified content.
      *

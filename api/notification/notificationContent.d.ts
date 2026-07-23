@@ -278,7 +278,7 @@ export enum LiveViewTypes {
 }
 
 /**
- * Describes the common live view.
+ * Describes the normal live notification content. This API inherits from NotificationBasicContent.
  *
  * @syscap SystemCapability.Notification.Notification
  * @systemapi
@@ -474,8 +474,8 @@ export interface NotificationPictureContent extends NotificationBasicContent {
   expandedTitle: string;
 
   /**
-   * Picture content displayed after the notification is expanded. The total bytes of the image pixels cannot exceed
-   * 2 MB.
+   * Picture content displayed after the notification is expanded. The total bytes of the image pixels (obtained
+   * through getPixelBytesNumber) cannot exceed 2 MB.
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
@@ -519,7 +519,7 @@ export interface NotificationSystemLiveViewContent extends NotificationBasicCont
   capsule?: NotificationCapsule;
 
   /**
-   * Button in the notification. This parameter is left empty by default.
+   * Button of the notification. This parameter is left empty by default.
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 11 dynamic
@@ -643,7 +643,7 @@ export interface NotificationCapsule {
 }
 
 /**
- * Describes the information of a system notification button.
+ * Describes the system notification button.
  *
  * @syscap SystemCapability.Notification.Notification
  * @systemapi
@@ -759,8 +759,8 @@ export interface NotificationButton {
  */
 export interface NotificationTime {
   /**
-   * Initial time for the timer, used to set the starting point of the timer in the Live View. The value range is
-   * all non-negative integers. The default value is **0**. Unit: millisecond.
+   * Initial time for the timer, which is used to set the starting point of the timer in the live view. The default
+   * value is **0**. Unit: ms.
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 11 dynamic
@@ -818,7 +818,7 @@ export interface NotificationTime {
  */
 export interface NotificationProgress {
   /**
-   * Maximum value of the progress. The value range is all non-negative integers.
+   * Maximum value of the progress.
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 11 dynamic
@@ -827,7 +827,7 @@ export interface NotificationProgress {
   maxValue?: int;
 
   /**
-   * Current value of the progress. The value range is all non-negative integers.
+   * Current value of the progress.
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 11 dynamic

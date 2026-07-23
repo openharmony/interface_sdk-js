@@ -14,7 +14,7 @@
  */
 
 /**
- * @file Provides sorting information about the active notifications among all the notifications that have been subscribed to
+ * @file The **NotificationSortingMap** module provides APIs for defining the sorting information of active notifications in all subscribed notifications.
  * @kit NotificationKit
  */
 
@@ -25,6 +25,8 @@ import { NotificationSorting } from './notificationSorting';
  * all subscribed notifications.
  * 
  * > **NOTE**
+ * >
+ * > The initial APIs of this module are supported since API version 7. Newly added APIs will be marked with a superscript to indicate their earliest API version.
  * >
  * > The APIs provided by this module are system APIs.
  *

@@ -14,7 +14,7 @@
  */
 
 /**
- * The **NotificationFlags** module implements a **NotificationFlags** instance.
+ * The **NotificationFlags** module describes the notification flags. An application can use **NotificationFlags** to reduce the notification reminder types as needed.
  * 
  * @file Some states and flags for notifications
  * @kit NotificationKit
@@ -31,7 +31,7 @@
  */
 export enum NotificationFlagStatus {
   /**
-   * Default flag, which has the same effect as **TYPE_OPEN**.
+   * Default flag when no flag is set. It has the same effect as **TYPE_OPEN**.
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi [since 8 - 10]

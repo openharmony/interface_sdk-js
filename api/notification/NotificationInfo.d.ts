@@ -41,8 +41,8 @@ export interface NotificationInfo {
   readonly hashCode: string;
 
   /**
-   * Notification slot type, which identifies the channel category to which the notification belongs (such as social
-   * communication, service reminder, etc.). Different slot types correspond to different reminder methods.
+   * Notification slot type, which identifies the slot category of the notification (such as social communication and
+   * service reminder). Different slot types correspond to different reminder types.
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 22 dynamic
@@ -60,7 +60,7 @@ export interface NotificationInfo {
   readonly content: NotificationExtensionContent;
   
   /**
-   * Name of the bundle that creates the notification.
+   * Bundle name of the application that creates the notification.
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 22 dynamic
