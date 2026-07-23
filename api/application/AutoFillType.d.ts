@@ -26,7 +26,8 @@
  * @publicapi [since 26.0.0]
  * @stagemodelonly
  * @atomicservice
- * @since 26.0.0 dynamic&static
+ * @since 11 dynamic
+ * @since 23 static
  */
 export enum AutoFillType {
   /**
@@ -37,7 +38,8 @@ export enum AutoFillType {
    * @publicapi [since 26.0.0]
    * @stagemodelonly
    * @atomicservice
-   * @since 26.0.0 dynamic&static
+   * @since 11 dynamic
+   * @since 23 static
    */
   UNSPECIFIED = 0,
 
@@ -49,7 +51,8 @@ export enum AutoFillType {
    * @publicapi [since 26.0.0]
    * @stagemodelonly
    * @atomicservice
-   * @since 26.0.0 dynamic&static
+   * @since 11 dynamic
+   * @since 23 static
    */
   PASSWORD = 1,
 
@@ -61,7 +64,8 @@ export enum AutoFillType {
    * @publicapi [since 26.0.0]
    * @stagemodelonly
    * @atomicservice
-   * @since 26.0.0 dynamic&static
+   * @since 11 dynamic
+   * @since 23 static
    */
   USER_NAME = 2,
 
@@ -73,7 +77,8 @@ export enum AutoFillType {
    * @publicapi [since 26.0.0]
    * @stagemodelonly
    * @atomicservice
-   * @since 26.0.0 dynamic&static
+   * @since 11 dynamic
+   * @since 23 static
    */
   NEW_PASSWORD = 3,
 
