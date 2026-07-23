@@ -77,7 +77,7 @@ declare class SwiperController {
   changeIndex(index: number, useAnimation?: boolean);
 
   /**
-   * 翻页至指定页面。
+   * 翻页至指定页面。翻页带动效切换过程，时长通过Swiper的[duration](#duration)属性设置。
    *
    * > **说明：**
    *
@@ -85,7 +85,7 @@ declare class SwiperController {
    * > finishAnimation接口打断来实现页面不带动画跳转。
    *
    * @param { number } index - 指定页面在Swiper中的索引值。<br/>**说明：** <br/>设置的值小于0或大于最大页面索引时，取0。
-   * @param { SwiperAnimationMode | boolean } [animationMode] - 设置翻页至指定页面时的动效模式。<br/>默认值：
+   * @param { SwiperAnimationMode | boolean } [animationMode] - 设置翻页到指定页面的动效模式。<br/>默认值：
    *     SwiperAnimationMode.NO_ANIMATION<br/> **说明：** <br/>当传入true时有动效，等同于SwiperAnimationMode.DEFAULT_ANIMATION；当传入
    *     false时无动效，等同于SwiperAnimationMode.NO_ANIMATION。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -264,7 +264,7 @@ declare class Indicator<T> {
    * 导航点右侧相对于Swiper的位置。
    *
    * @param { Length } value - 设置导航点右侧相对于Swiper的位置。<br/>未设置left和right时，进行自适应大小布局，按照指示器本身大小和Swiper的大小在主轴方向上进行居中对齐。<br/>设置
-   *     为0时：按照0位置布局计算。<br/>优先级：低于left属性。<br/>取值范围：[0,Swiper宽度-导航点区域宽度]，超出该范围 时，取最近的边界值。
+   *     为0时：按照0位置布局计算。<br/>优先级：低于left属性。<br/>取值范围：[0,Swiper宽度-导航点区域宽度]，超出该范围时，取最近的边界值。
    * @returns { T } 返回当前导航点指示器，用于支持链式调用配置其他导航点属性。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -457,7 +457,7 @@ declare class DotIndicator extends Indicator<DotIndicator> {
   /**
    * 是否显示Swiper组件圆点导航指示器的蒙版样式。
    *
-   * @param { boolean } value - 设置是否显示Swiper组件圆点导航指示器的蒙版样式。true为显示Swiper组件圆点导航指示器的蒙版样式，false为不显示。<br/>默认值：false
+   * @param { boolean } value - 设置是否显示Swiper组件圆点导航指示器的蒙版样式。为true时显示Swiper组件圆点导航指示器的蒙版样式，为false时不显示。<br/>默认值：false
    * @returns { DotIndicator } 返回当前圆点指示器，用于支持链式调用配置其他导航点属性。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -636,7 +636,7 @@ declare class DigitIndicator extends Indicator<DigitIndicator> {
   selectedFontColor(value: ResourceColor): DigitIndicator;
 
   /**
-   * Swiper组件数字导航点的字体样式。
+   * Swiper组件数字导航点的字体样式。按组翻页时，数字导航点显示的子节点数量不包括占位节点。
    *
    * @param { Font } value - 设置Swiper组件数字导航点的字体样式。<br/>只支持Font中size和weight参数，family和style设置不生效。<br/>默认值：<br/>{ size: 14,
    *      weight: FontWeight.Normal }
@@ -1170,7 +1170,7 @@ declare interface CachedCountOptions {
   isShown?: boolean;
 
   /**
-   * [cachedCount]{@link SwiperAttribute#cachedCount(count: number, options: CachedCountOptions)}是否按组计算。
+   * [cachedCount]{@link SwiperAttribute#cachedCount(count: number, options: CachedCountOptions)}是否按实际子组件个数计算。
    *
    * 设置为true时，cachedCount按实际子组件个数计算，不按组计算。
    *
@@ -1589,7 +1589,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    *
    * @param { number } count - 预加载子组件个数。<br/>。
    *     <br>取值范围：[0, +∞)。
-   * @param { CachedCountOptions } options - 预加载子组件的配置选项。
+   * @param { CachedCountOptions } options - 预加载子组件的配置选项。对象属性包括：isShown（预加载范围内的节点是否进行绘制）和independent（是否按实际子组件个数计算）。
    * @returns { SwiperAttribute } the attribute of the swiper.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1744,8 +1744,8 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    *
    * > **说明：**
    *
-   * > 如果是动画引起的索引变化，回调在动画结束时触发。
-   *
+   * > - 如果是动画引起的索引变化，回调在动画结束时触发。
+   * > - 与onSelected的区别：onSelected在选中状态改变时立即触发，onChange在动画结束后触发。
    * @param { function } event - Index of the currently displayed element. [since 7 - 17]
    * @param { Callback<number> } event - 当前显示元素的索引。 [since 18]
    * @returns { SwiperAttribute }
@@ -1961,7 +1961,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * 的两个页面时，页面水平滑动过程中，可以逐帧设置第0页的translate属性在x轴上的值为-position * mainAxisLength来抵消第0页的位移，设置第1页的translate属性在x轴上的值为-(position
    * - 1) * mainAxisLength来抵消第1页的位移。
    *
-   * @param { SwiperContentAnimatedTransition } transition - Swiper自定义切换动画相关信息。
+   * @param { SwiperContentAnimatedTransition } transition - Swiper自定义切换动画相关信息。对象属性包括：timeout（超时时间）和transition（自定义切换动画具体内容回调）。
    * @returns { SwiperAttribute } the attribute of the swiper.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1984,7 +1984,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    *
    * 3、设置displayCount属性的swipeByGroup参数为true时，若同组中至少有一个页面在视窗内时，则会对同组中所有页面触发回调。
    *
-   * @param { ContentDidScrollCallback } handler - Swiper滑动时触发的回调。
+   * @param { ContentDidScrollCallback } handler - Swiper滑动时触发的回调，返回true表示允许滑动，false表示不允许滑动。
    * @returns { SwiperAttribute } the attribute of the swiper.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly

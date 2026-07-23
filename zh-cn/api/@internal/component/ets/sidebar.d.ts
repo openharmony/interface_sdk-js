@@ -34,7 +34,7 @@ declare enum SideBarContainerType {
    * 整体容器大小不变时，显示侧边栏会导致内容区缩小，隐藏侧边栏会扩大内容区。
    *
    * 组件尺寸小于[minContentWidth]{@link SideBarContainerAttribute#minContentWidth} +
-   * [minSideBarWidth]{@link SideBarContainerAttribute#minSideBarWidth(value: number)}，并且未设置showSideBar时，侧边栏自动隐藏。
+   * [minSideBarWidth]{@link SideBarContainerAttribute#minSideBarWidth(value: number)}，并且未设置showSideBar时，默认不显示侧边栏。
    *
    * 设置了showSideBar属性时，以showSideBar属性设置的值为准。
    * 
@@ -429,7 +429,7 @@ declare class SideBarContainerAttribute extends CommonMethod<SideBarContainerAtt
   /**
    * 设置侧边栏控制按钮的属性。控制按钮用于切换侧边栏的显示和隐藏状态。
    *
-   * @param { ButtonStyle } value - 侧边栏控制按钮的属性，用于配置控制按钮的位置、大小和图标。
+   * @param { ButtonStyle } value - 侧边栏控制按钮的样式，用于配置控制按钮的位置、大小和图标。
    * @returns { SideBarContainerAttribute }
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -489,7 +489,7 @@ declare class SideBarContainerAttribute extends CommonMethod<SideBarContainerAtt
    * minSideBarWidth优先于侧边栏子组件minWidth，minSideBarWidth未设置时默认值优先级高于侧边栏子组件minWidth。
    *
    * @param { number } value - 侧边栏最小宽度。<br/>。
-   *     <br>单位为：vp。取值范围：[0, +∞)。默认值：API version 9及以下版本默认值为200vp，API version 10的默认值为240vp。
+   *     <br>单位为：vp。取值范围：[0, +∞)。默认值：API version 9及以下版本默认值为200vp，API version 10及以上版本的默认值为240vp。
    * @returns { SideBarContainerAttribute }
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -503,7 +503,7 @@ declare class SideBarContainerAttribute extends CommonMethod<SideBarContainerAtt
    *
    * maxSideBarWidth优先于侧边栏子组件maxWidth，maxSideBarWidth未设置时默认值优先级高于侧边栏子组件maxWidth。
    *
-   * @param { number } value - 设置侧边栏最大宽度。<br/>默认值：280vp<br/>单位：vp<br/>取值范围：
+   * @param { number } value - 侧边栏最大宽度。<br/>默认值：280vp<br/>单位：vp<br/>取值范围：
    *     [0, +∞)<br/>异常值时取默认值。<br/>值不能超过侧边栏容器本身宽度，超过则使用侧边栏容器本身宽度。
    * @returns { SideBarContainerAttribute }
       * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -553,7 +553,7 @@ declare class SideBarContainerAttribute extends CommonMethod<SideBarContainerAtt
    *
    * maxSideBarWidth优先于侧边栏子组件maxWidth，maxSideBarWidth未设置时默认值优先级高于侧边栏子组件maxWidth。
    *
-   * @param { Length } value - 设置侧边栏最大宽度。<br/>默认值：280vp<br/>单位：vp<br/>取值范围：
+   * @param { Length } value - 侧边栏最大宽度。<br/>默认值：280vp<br/>单位：vp<br/>取值范围：
    *     [0, +∞)<br/>异常值时取默认值。<br/>值不能超过侧边栏容器本身宽度，超过则使用侧边栏容器本身宽度。
    * @returns { SideBarContainerAttribute }
       * @syscap SystemCapability.ArkUI.ArkUI.Full
