@@ -73,7 +73,7 @@ namespace reflect {
      * @since 24 staticonly
      */
     invoke(proxy: Proxy, method: InstanceMethod, args: FixedArray<Any>): Any;
-}
+  }
 
   /**
    * A base class for creating proxy objects that delegate method calls and property access
@@ -108,6 +108,6 @@ namespace reflect {
      * @since 24 staticonly
      */
     static create(linker: RuntimeLinker, interfaces: FixedArray<Class>, handler: InvocationHandler): Proxy;
-}
+  }
 
 }
