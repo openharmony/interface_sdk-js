@@ -18,8 +18,6 @@
  * @kit DistributedServiceKit
  */
 
-import { Callback } from './@ohos.base';
-
 /**
  * The DSoftBus module **conversation** provides APIs for cross-device interaction of apps, including obtaining the
  * trusted device list, and sending and receiving session data. With this module, your app can obtain trusted devices
@@ -73,7 +71,6 @@ declare namespace conversation {
      * Device type ID, which indicates the device type. The value is an integer, for example, **0x0E** is the mobile
      * phone ID, **0x11** is the tablet ID, **0x9C** is the TV ID, and **0x0C** is the PC ID. The specific value is
      * subject to the system definition.
-     * The value should be an integer.
      *
      * @syscap SystemCapability.Communication.SoftBus.Core
      * @systemapi
@@ -109,7 +106,7 @@ declare namespace conversation {
   /**
    * Defines a callback for receiving data.
    *
-   * @param { string } networkId - Network ID of the source device that sends data.
+   * @param { string } deviceId - Network ID or UDID of the source device that sends data.
    * @param { ArrayBuffer } msg - Message received, which is binary data in **ArrayBuffer** format. The data format is
    *     the same as that of the data sent and is defined by the application layer protocol.
    * @returns { void } Returns void.
@@ -118,7 +115,7 @@ declare namespace conversation {
    * @stagemodelonly
    * @since 26.1.0 dynamic&static
    */
-  type DataCallback = (networkId: string, msg: ArrayBuffer) => void;
+  type DataCallback = (deviceId: string, msg: ArrayBuffer) => void;
 
   /**
    * Obtains the list of historical trusted devices. Typical use scenarios include querying available target devices
