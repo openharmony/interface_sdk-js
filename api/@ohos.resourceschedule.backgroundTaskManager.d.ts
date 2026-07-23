@@ -179,7 +179,7 @@ declare namespace backgroundTaskManager {
      * API. If notifications need to be combined for an existing task, request the task again and set the value to 
      * **true**.
      *
-     * @returns { boolean | undefined } whethre to merge notifications.
+     * @returns { boolean | undefined } whether to merge notifications.
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @stagemodelonly
      * @since 24 static
