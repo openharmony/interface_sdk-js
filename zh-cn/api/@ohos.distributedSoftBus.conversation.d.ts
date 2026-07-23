@@ -18,8 +18,6 @@
   * @kit DistributedServiceKit
  */
 
-import { Callback } from './@ohos.base';
-
 /**
  * 分布式软总线conversation模块为应用提供跨设备交互能力，包括获取可信设备列表、发送和接收会话数据。通过本模块，
  * 应用可以获取同一账号下的可信设备，注册监听器以接收跨设备数据，并通过会话通道向指定设备发送数据。适用于需要跨设备协作和
@@ -67,7 +65,6 @@ declare namespace conversation {
 
     /**
      * 设备类型标识符，表示设备的类别，取值为整数，例如：0x0E-手机，0x11-平板，0x9C-电视，0x0C-PC等（具体数值以系统定义为准）。
-     * 取值限定为整数。
      *
      * @syscap SystemCapability.Communication.SoftBus.Core
      * @systemapi
@@ -101,7 +98,7 @@ declare namespace conversation {
   /**
    * 数据接收回调函数类型。
    *
-   * @param { string } networkId - 发送数据的源设备的networkId。
+   * @param { string } deviceId - 发送数据的源设备的networkId或UDID。
    * @param { ArrayBuffer } msg - 接收到的数据内容，为ArrayBuffer格式的二进制数据，数据格式与发送端发送的数据格式一致，
    *     由应用层协议定义。
    * @returns { void } Returns void.
@@ -110,7 +107,7 @@ declare namespace conversation {
    * @stagemodelonly
    * @since 26.1.0 dynamic&static
    */
-  type DataCallback = (networkId: string, msg: ArrayBuffer) => void;
+  type DataCallback = (deviceId: string, msg: ArrayBuffer) => void;
 
   /**
    * 获取历史可信设备列表。典型使用场景包括：跨设备数据发送前查询可用目标设备。
