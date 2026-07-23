@@ -18,9 +18,10 @@
  * @kit ArkUI
  */
 import { ChildrenMainSize, CommonMethod } from './common';
-import { Builder, CustomBuilder, ComponentBuilder, CustomBuilderT } from './builder';
+import { CustomBuilder } from './builder';
 import { ComponentContentBase } from '../ComponentContent';
 import { ListDividerOptions } from "./list";
+import { ComponentBuilder } from './builder';
 import { AttributeModifier, CommonMethod } from "./common";
 import { Resource, Dimension} from './units';
 /**
@@ -217,17 +218,6 @@ export declare interface ListItemGroupAttribute extends CommonMethod {
   default childrenMainSize(value: ChildrenMainSize | undefined): this;
 
   /**
-   * 设置ListItemGroup选项。
-   *
-   * @param { ListItemGroupOptions } [options] - ListItemGroup构造函数选项
-   * @returns { ListItemGroupAttribute } 返回ListItemGroupAttribute的实例。
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 26.0.0 staticonly
-   */
-  default setListItemGroupOptions(options?: ListItemGroupOptions): this;
-
-  /**
    * 动态设置ListItemGroup组件的属性方法。
    *
    * @param { AttributeModifier<ListItemGroupAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
@@ -254,21 +244,4 @@ export declare interface ListItemGroupAttribute extends CommonMethod {
 export declare function ListItemGroup(
     options?: ListItemGroupOptions, 
     content_?: CustomBuilder,
-): ListItemGroupAttribute;
-
-/**
- * 定义ListItemGroup组件。
- *
- * @param { CustomBuilderT<ListItemGroupAttribute> } style_ - 创建ListItemGroup的样式
- * @param { CustomBuilder } [content_]
- * @returns { ListItemGroupAttribute } ListItemGroup的属性。
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @since 26.0.0 staticonly
- * @noninterop
- */
-@Builder
-export declare function ListItemGroup(
-    style_: CustomBuilderT<ListItemGroupAttribute>,
-    content_?: CustomBuilder
-): ListItemGroupAttribute;
+): ListItemGroupAttribute

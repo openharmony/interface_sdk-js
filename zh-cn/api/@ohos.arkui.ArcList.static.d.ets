@@ -23,7 +23,7 @@ import { Axis, CrownSensitivity, BarState } from '@ohos.arkui.component';
 import { Scroller } from '@ohos.arkui.component';
 import { VoidCallback } from '@ohos.arkui.component';
 import { LengthMetrics, ColorMetrics } from './arkui/Graphics';
-import { Builder, ComponentBuilder, CustomBuilder, CustomBuilderT } from '@ohos.arkui.component';
+import { ComponentBuilder, CustomBuilder } from '@ohos.arkui.component';
 import { ComponentContentBase } from './arkui/ComponentContent';
 import { AttributeModifier, CommonMethod } from '@ohos.arkui.component';
 import { SwipeActionOptions } from '@ohos.arkui.component';
@@ -282,17 +282,6 @@ export declare interface ArcListAttribute extends CommonMethod {
   default onDidScroll(handler: OnScrollCallback | undefined): this;
 
   /**
-   * 设置ArcList选项。
-   *
-   * @param { ArkListOptions } [options] - ArcList构造函数选项
-   * @returns { ArcListAttribute } 返回ArcListAttribute的实例。
-   * @syscap SystemCapability.ArkUI.ArkUI.Circle
-   * @stagemodelonly
-   * @since 26.0.0 staticonly
-   */
-  default setArcListOptions(options?: ArkListOptions): this;
-
-  /**
    * 设置属性修改器。
    *
    * @param { AttributeModifier<ArcListAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
@@ -333,16 +322,6 @@ export declare interface ArcListItemAttribute extends CommonMethod {
   default swipeAction(options: SwipeActionOptions | undefined): this;
 
   /**
-   * 设置ArcListItem选项。
-   *
-   * @returns { ArcListItemAttribute } 返回ArcListItemAttribute的实例。
-   * @syscap SystemCapability.ArkUI.ArkUI.Circle
-   * @stagemodelonly
-   * @since 26.0.0 staticonly
-   */
-  default setArcListItemOptions(): this;
-
-  /**
    * 设置属性修改器。
    *
    * @param { AttributeModifier<ArcListItemAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
@@ -370,23 +349,6 @@ export declare function ArcList(
 ): ArcListAttribute;
 
 /**
- * 定义ArcList组件。
- *
- * @param { CustomBuilderT<ArcListAttribute> } style_ - The style to create an ArcList.
- * @param { CustomBuilder } [content_]
- * @returns { ArcListAttribute } ArcList的属性。
- * @syscap SystemCapability.ArkUI.ArkUI.Circle
- * @stagemodelonly
- * @since 26.0.0 staticonly
- * @noninterop
- */
-@Builder
-export declare function ArcList(
-    style_: CustomBuilderT<ArcListAttribute>,
-    content_?: CustomBuilder
-): ArcListAttribute;
-
-/**
 * 创建弧形列表子组件。
 *
  * @param { CustomBuilder } [content_]
@@ -398,21 +360,4 @@ export declare function ArcList(
 @ComponentBuilder
 export declare function ArcListItem(
     content_?: CustomBuilder,
-): ArcListItemAttribute;
-
-/**
- * 定义ArcListItem组件。
- *
- * @param { CustomBuilderT<ArcListItemAttribute> } style_ - 创建ArcListItem的样式
- * @param { CustomBuilder } [content_]
- * @returns { ArcListItemAttribute } ArcListItem的属性。
- * @syscap SystemCapability.ArkUI.ArkUI.Circle
- * @stagemodelonly
- * @since 26.0.0 staticonly
- * @noninterop
- */
-@Builder
-export declare function ArcListItem(
-    style_: CustomBuilderT<ArcListItemAttribute>,
-    content_?: CustomBuilder
-): ArcListItemAttribute;
+): ArcListItemAttribute

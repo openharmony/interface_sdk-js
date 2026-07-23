@@ -905,18 +905,6 @@ export declare interface GridAttribute extends ScrollableCommonMethod {
   default onDidScroll(handler: OnScrollCallback | undefined): this;
 
   /**
-   * 设置网格选项。
-   *
-   * @param { Scroller } [scroller] - 与网格绑定的控制器
-   * @param { GridLayoutOptions } [layoutOptions] - 帮助网格布局的选项
-   * @returns { GridAttribute } 返回GridAttribute的实例。
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 26.0.0 staticonly
-   */
-  default setGridOptions(scroller?: Scroller, layoutOptions?: GridLayoutOptions): this;
-
-  /**
    * 动态设置Grid组件的属性方法。
    *
    * @param { AttributeModifier<GridAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
@@ -1007,20 +995,3 @@ export declare abstract class ExtendableGrid implements GridAttribute {
     layoutOptions?: GridLayoutOptions
   ): this;
 }
-
-/**
-* 可扩展Grid组件入口。
-*
- * @param { CustomBuilderT<GridAttribute> } style_ - The style to create a Grid.
- * @param { CustomBuilder } [content_]
- * @returns { GridAttribute } The attribute of the Grid.
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @since 26.0.0 staticonly
- * @noninterop
- */
-@Builder
-export declare function Grid(
-    style_: CustomBuilderT<GridAttribute>,
-    content_?: CustomBuilder
-): GridAttribute;

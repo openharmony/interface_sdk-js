@@ -21,7 +21,7 @@
 import { Scroller } from '@ohos.arkui.component';
 import { BarState } from '@ohos.arkui.component';
 import { CommonMethod } from '@ohos.arkui.component';
-import { Builder, ComponentBuilder, CustomBuilder, CustomBuilderT } from '@ohos.arkui.component';
+import { ComponentBuilder, CustomBuilder } from '@ohos.arkui.component';
 import { AttributeModifier, CommonMethod } from '@ohos.arkui.component';
 /**
  * ArcScrollBar的构造函数参数。
@@ -62,17 +62,6 @@ export declare interface ArcScrollBarOptions {
 export declare interface ArcScrollBarAttribute extends CommonMethod {
 
   /**
-   * 设置ArcScrollBar选项。
-   *
-   * @param { ArcScrollBarOptions } options - ArcScrollBar constructor options
-   * @returns { ArcScrollBarAttribute } 返回ArcScrollBarAttribute的实例。
-   * @syscap SystemCapability.ArkUI.ArkUI.Circle
-   * @stagemodelonly
-   * @since 26.0.0 staticonly
-   */
-  default setArcScrollBarOptions(options: ArcScrollBarOptions): this;
-
-  /**
    * 设置属性修饰器。
    *
    * @param { AttributeModifier<ArcScrollBarAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
@@ -97,21 +86,4 @@ export declare interface ArcScrollBarAttribute extends CommonMethod {
 export declare function ArcScrollBar(
     options: ArcScrollBarOptions, 
     content_?: CustomBuilder,
-): ArcScrollBarAttribute;
-
-/**
- * 定义ArcScrollBar组件。
- *
- * @param { CustomBuilderT<ArcScrollBarAttribute> } style_ - 用于创建ArcScrollBar的样式
- * @param { CustomBuilder } [content_]
- * @returns { ArcScrollBarAttribute } ArcScrollBar的属性。
- * @syscap SystemCapability.ArkUI.ArkUI.Circle
- * @stagemodelonly
- * @since 26.0.0 staticonly
- * @noninterop
- */
-@Builder
-export declare function ArcScrollBar(
-    style_: CustomBuilderT<ArcScrollBarAttribute>,
-    content_?: CustomBuilder
-): ArcScrollBarAttribute;
+): ArcScrollBarAttribute
