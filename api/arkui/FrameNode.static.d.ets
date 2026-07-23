@@ -2644,7 +2644,7 @@ export declare namespace typeNode {
   export function getTextAttribute(node: FrameNode): TextAttribute | undefined;
 
   /**
-   * Bind the controller of FrameNode whose type is Text.
+   * Bind the controller of FrameNode which type is Text.
    *
    * @param { FrameNode } node - the target FrameNode.
    * @param { TextController } controller - the controller which is bind to the target FrameNode.
@@ -2754,7 +2754,7 @@ export declare namespace typeNode {
   export function getTextInputAttribute(node: FrameNode): TextInputAttribute | undefined;
 
   /**
-   * Bind the controller of FrameNode whose type is TextInput.
+   * Bind the controller of FrameNode which type is TextInput.
    *
    * @param { FrameNode } node - the target FrameNode.
    * @param { TextInputController } controller - the controller which is bind to the target FrameNode.
@@ -2823,7 +2823,7 @@ export declare namespace typeNode {
   export function getTextAreaAttribute(node: FrameNode): TextAreaAttribute | undefined;
 
   /**
-   * Bind the controller of FrameNode whose type is TextArea.
+   * Bind the controller of FrameNode which type is TextArea.
    *
    * @param { FrameNode } node - the target FrameNode.
    * @param { TextAreaController } controller - the controller which is bind to the target FrameNode.

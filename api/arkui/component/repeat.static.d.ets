@@ -1,3 +1,4 @@
+'use static';
 /*
  * Copyright (c) 2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -175,9 +176,8 @@ export interface VirtualScrollOptions {
    */
   disableVirtualScroll?: boolean;
   /**
-  * Memory optimization strategy for Repeat
+  * Memory optimization strategy for Repeat.
   *
-  * @type { ?RepeatMemOptStrategy }
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @stagemodelonly
   * @since 26.0.0 static
@@ -321,22 +321,6 @@ export interface RepeatAttribute<T> extends DynamicNode {
 export declare function Repeat<T>(arr: RepeatArray<T>): RepeatAttribute<T>;
 
 /**
- * Defines Repeat Component. It requires call setRepeatOptions at start of component attribute set-up,
- * and it requires call applyAttributeFinish at end of component attribute set-up.
- *
- * @param { CustomBuilderT<RepeatAttribute<T>> } style - callback to set up Repeat's attributes.
- * @returns { RepeatAttribute<T> } The attribute of Repeat.
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @unpublished
- * @stagemodelonly
- * @since 26.1.0 staticonly
- */
-@Builder
-export declare function Repeat<T>(
-     style: CustomBuilderT<RepeatAttribute<T>>
- ): RepeatAttribute<T>;
-
-/**
  * Defines type for memory optimization strategy.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -363,3 +347,19 @@ export enum RepeatMemOptStrategy {
    */
   ENABLE_AUTO_CACHE_OPTIMIZATION = 1 << 0
 }
+
+/**
+ * Defines Repeat Component. It requires call setRepeatOptions at start of component attribute set-up,
+ * and it requires call applyAttributeFinish at end of component attribute set-up.
+ *
+ * @param { CustomBuilderT<RepeatAttribute<T>> } style - callback to set up Repeat's attributes.
+ * @returns { RepeatAttribute<T> } The attribute of Repeat.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @unpublished
+ * @stagemodelonly
+ * @since 26.1.0 staticonly
+ */
+@Builder
+export declare function Repeat<T>(
+    style: CustomBuilderT<RepeatAttribute<T>>
+): RepeatAttribute<T>;
