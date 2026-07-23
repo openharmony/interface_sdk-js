@@ -71,7 +71,7 @@ export class ArcSwiperController {
   /**
    * 停止播放动画。
    *
-   * @param { FinishAnimationHandler } handler - 动画结束的回调。<br>默认值：不传入的情况，无回调
+   * @param { FinishAnimationHandler } handler - 动画结束的回调。<br>默认值：不传入时无回调。
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
@@ -288,7 +288,7 @@ declare interface SwiperContentAnimatedTransition {
    * ArcSwiper自定义切换动画超时时间。从页面执行默认动画（页面滑动）至移出视窗外的第一帧开始计时，如果到达该时间后，开发者仍未调用
    * [SwiperContentTransitionProxy]{@link SwiperContentTransitionProxy}的
    * [finishTransition]{@link SwiperContentTransitionProxy.finishTransition}接口通知ArcSwiper组件此页面的自定义动画已结束，那么组件就会认为此页面的自定义动
-   * 画已结束，立即在该页面节点下渲染树。单位ms，默认值为0。
+   * 画已结束，立即在该页面节点下渲染树。<br/>单位：ms<br/>默认值：0。
    *
    * @default 0 ms
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
@@ -440,9 +440,9 @@ declare class ArcSwiperAttribute extends CommonMethod<ArcSwiperAttribute> {
   vertical(isVertical: Optional<boolean>): ArcSwiperAttribute;
 
   /**
-   * 是否禁用组件滑动切换功能。
+   * 设置是否禁用组件滑动切换功能。
    *
-   * @param { Optional<boolean> } disabled - 是否禁用组件滑动切换功能。设置为true禁用，false不禁用。<br/>默认值：false
+   * @param { Optional<boolean> } disabled - 设置是否禁用组件滑动切换功能。设置为true禁用，false不禁用。<br/>默认值：false
    * @returns { ArcSwiperAttribute }
       * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
@@ -454,7 +454,7 @@ declare class ArcSwiperAttribute extends CommonMethod<ArcSwiperAttribute> {
   /**
    * 设置旋转表冠的灵敏度。
    *
-   * @param { Optional<CrownSensitivity> } sensitivity - 旋转表冠的灵敏度。<br/>默认值：CrownSensitivity.MEDIUM
+   * @param { Optional<CrownSensitivity> } sensitivity - 旋转表冠的灵敏度。设置不同灵敏度级别可调整表冠滚动的响应速度。<br/>默认值：CrownSensitivity.MEDIUM
    * @returns { ArcSwiperAttribute }
       * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
@@ -518,9 +518,10 @@ declare class ArcSwiperAttribute extends CommonMethod<ArcSwiperAttribute> {
   onGestureSwipe(handler: Optional<GestureSwipeHandler>): ArcSwiperAttribute;
 
   /**
-   * 设置边缘滑动效果。 目前支持的滑动效果参见[EdgeEffect]{@link EdgeEffect}的。调用控制器接口时回弹不生效。
+   * 设置边缘滑动效果。目前支持的滑动效果参见[EdgeEffect]{@link EdgeEffect}的枚举说明。
+   * 通过[ArcSwiperController]{@link ArcSwiperController}的showNext、showPrevious、finishAnimation接口控制翻页时，回弹效果不生效。
    *
-   * @param {  Optional<EdgeEffect> } edgeEffect - 边缘滑动效果。<br/>默认值：EdgeEffect.Spring
+   * @param {  Optional<EdgeEffect> } edgeEffect - 边缘滑动效果。通过ArcSwiperController接口控制翻页时，回弹效果不生效。<br/>默认值：EdgeEffect.Spring
    * @returns { ArcSwiperAttribute }
       * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
@@ -530,7 +531,7 @@ declare class ArcSwiperAttribute extends CommonMethod<ArcSwiperAttribute> {
   effectMode(edgeEffect: Optional<EdgeEffect>): ArcSwiperAttribute;
 
   /**
-   * 自定义ArcSwiper页面切换动画。在页面跟手滑动和离手后执行切换动画的过程中，会对视窗内所有页面逐帧触发回调。开发者可以在回调中设置透明度、缩放比例、位移等属性来自定义切换动画。
+   * 自定义ArcSwiper页面切换动画。在页面跟手滑动和离手后执行切换动画的过程中，会对视窗内所有页面逐帧触发回调，开发者可在回调中设置透明度、缩放比例、位移等属性。
    *
    * 在页面跟手滑动和离手后执行切换动画的过程中，会对视窗内所有页面逐帧触发[SwiperContentTransitionProxy]{@link SwiperContentTransitionProxy}回调。例如，当视窗内有下标为
    * 0、1的两个页面时，会每帧触发两次index值分别为0和1的回调。
@@ -547,7 +548,7 @@ declare class ArcSwiperAttribute extends CommonMethod<ArcSwiperAttribute> {
   /**
    * 是否关闭特殊动效效果。
    *
-   * @param { Optional<boolean> } disabled - 是否关闭特殊动效效果。<br>true：关闭特殊动效效果；false：不关闭特殊动效效果。<br>传入参数非法时，按false处理。
+   * @param { Optional<boolean> } disabled - 是否关闭特殊动效效果。<br/>true：关闭特殊动效效果；false：不关闭特殊动效效果。<br/>传入参数非法时，按false处理。
    * @returns { ArcSwiperAttribute }
       * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform

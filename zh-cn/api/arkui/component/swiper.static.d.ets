@@ -293,7 +293,7 @@ export declare class Indicator {
    * 返回一个DotIndicator对象。
    *
    * @returns { DotIndicator }
-   圆点指示器。
+   圆点指示器对象，用于设置Swiper组件的圆点导航样式。
    * @stagemodelonly
    * @since 23 static
    */
@@ -303,7 +303,7 @@ export declare class Indicator {
    * 返回一个DigitIndicator对象。
    *
    * @returns { DigitIndicator }
-   数字指示器。
+   数字指示器对象，用于设置Swiper组件的数字导航样式。
    * @stagemodelonly
    * @since 23 static
    */
@@ -897,7 +897,7 @@ export declare interface SwiperAttribute extends CommonMethod {
   /**
    * 设置子组件是否自动播放。轮播方向为索引从小到大。
    *
-   * [loop]{@link SwiperAttribute.loop}为false时，自动轮播到最后一页时停止轮播。手势切换后不是最后一页时继续播放。当Swiper不可见时会停止轮播。
+   * [loop]{@link SwiperAttribute.loop}为false时，自动轮播到最后一页时停止轮播。手势切换完成后，如果当前页面不是最后一页，自动轮播将继续播放。当Swiper不可见时会停止轮播。
    *
    * @param { boolean | undefined } value - 子组件是否自动播放。<br/>true：自动播放；false：不自动播放。<br/>传入非法值时，按false处理。<br/>取值为undefined时
    *     ，按默认值处理。
@@ -909,13 +909,13 @@ export declare interface SwiperAttribute extends CommonMethod {
   default autoPlay(value: boolean | undefined): this;
 
   /**
-   * 设置子组件是否自动播放。options入参控制手指或者鼠标等按下屏幕时子组件是否停止自动播放。
+   * 设置子组件是否自动播放。options入参控制手指或鼠标按下屏幕时子组件是否停止自动播放。
    *
    * 当[loop]{@link SwiperAttribute.loop}设置为false时，自动轮播将在到达最后一页时停止。在通过手势切换且未处于最后一页的情况下，轮播将继续进行。Swiper在不可见时，轮播也将停止。
    *
    * @param { boolean | undefined } autoPlay - 子组件是否自动播放。<br/>true：自动播放；false：不自动播放。<br/>传入非法值时，按false处理。<br/>取值为
    *     undefined时，按默认值处理。
-   * @param { AutoPlayOptions | undefined } options - 配置手指或者鼠标等按下屏幕时子组件是否停止自动播放。当stopWhenTouched设置为true时，多指按下场景中任意一个手指抬起
+   * @param { AutoPlayOptions | undefined } options - 配置手指或鼠标按下屏幕时子组件是否停止自动播放。当stopWhenTouched设置为true时，多指按下场景中任意一个手指抬起
    *     后，将自动继续播放。<br/>默认值：{ stopWhenTouched: true }，停止自动播放。<br/>取值为undefined时，按默认值处理。
    * @returns { SwiperAttribute }
       * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -969,7 +969,7 @@ export declare interface SwiperAttribute extends CommonMethod {
   default displayArrow(value: ArrowStyle | boolean | undefined, isHoverShow?: boolean | undefined): this;
 
   /**
-   * 设置是否开启循环。在LazyForEach懒循环加载模式下，加载的组件数量建议大于5个。
+   * 设置是否开启循环。在LazyForEach懒循环加载模式下，加载的组件数量建议大于5个。预加载的组件数量不足时，可能会导致快速切换时出现空白或卡顿。
    *
    * @param { boolean | undefined } value
    * @returns { SwiperAttribute }
@@ -1035,7 +1035,7 @@ export declare interface SwiperAttribute extends CommonMethod {
   default displayMode(value: SwiperDisplayMode | undefined): this;
 
   /**
-   * 设置预加载子组件个数，以当前页面为基准，加载当前显示页面的前后个数。前面item删除，后面会向前补位。例如cachedCount=1时，会将当前显示的页面的前面一页和后面一页的子组件都预加载。如果设置为按组翻页，即
+   * 设置预加载子组件个数，以当前页面为基准，加载当前显示页面的前后个数。前面item删除，后面会向前补位。例如cachedCount=1时，会将当前显示页面在索引序号上相邻的前一页和后一页的子组件都预加载。如果设置为按组翻页，即
    * displayCount的swipeByGroup参数设为true，预加载时会以组为基本单位。例如cachedCount=1，swipeByGroup=true时，会将当前组的前面一组和后面一组的子组件都预加载。
    *
    * > **说明：**
@@ -1169,7 +1169,7 @@ export declare interface SwiperAttribute extends CommonMethod {
   default effectMode(value: EdgeEffect | undefined): this;
 
   /**
-   * 设置禁用组件滑动切换功能。
+   * 设置禁用组件滑动切换功能。适用于仅通过按钮或导航点控制翻页的场景，或需要限制用户滑动操作的场景。
    *
    * @param { boolean | undefined } value
    * @returns { SwiperAttribute }
@@ -1346,7 +1346,7 @@ export declare interface SwiperAttribute extends CommonMethod {
   default onGestureSwipe(event: OnSwiperGestureSwipeCallback | undefined): this;
 
   /**
-   * 设置Swiper组件和父组件的嵌套滚动模式。[loop]{@link SwiperAttribute.loop}为true时Swiper组件没有边缘，不会触发父组件嵌套滚动。
+   * 设置Swiper组件和父组件的嵌套滚动模式。当Swiper嵌套在滚动容器（如List、Scroll）中时，需要根据业务需求选择合适的嵌套滚动模式。[loop]{@link SwiperAttribute.loop}为true时Swiper组件没有边缘，不会触发父组件嵌套滚动。
    *
    * > **说明：**
    * >
@@ -1367,7 +1367,7 @@ export declare interface SwiperAttribute extends CommonMethod {
    *
    * 使用说明：
    *
-   * 1、循环场景下，设置prevMargin和nextMargin属性，使得Swiper前后端显示同一页面时，该接口不生效。
+   * 1、循环场景下，设置prevMargin和nextMargin属性，使得Swiper视窗的前后两端区域显示同一页面时，该接口不生效。
    *
    * 2、在页面跟手滑动和离手后执行切换动画的过程中，会对视窗内所有页面逐帧触发[SwiperContentTransitionProxy]{@link SwiperContentTransitionProxy}回调。例如，当视窗内有下
    * 标为0、1的两个页面时，会每帧触发两次index值分别为0和1的回调。
@@ -1391,7 +1391,7 @@ export declare interface SwiperAttribute extends CommonMethod {
    *
    * 使用说明：
    *
-   * 1、循环场景下，设置prevMargin和nextMargin属性，使得Swiper前后端显示同一页面时，该接口不生效。
+   * 1、循环场景下，设置prevMargin和nextMargin属性，使得Swiper视窗的前后两端区域显示同一页面时，该接口不生效。
    *
    * 2、在页面滑动过程中，会对视窗内所有页面逐帧触发[ContentDidScrollCallback]{@link ContentDidScrollCallback}回调。例如，当视窗内有下标为0、1的两个页面时，会每帧触发两次
    * index值分别为0和1的回调。
@@ -1407,7 +1407,7 @@ export declare interface SwiperAttribute extends CommonMethod {
   default onContentDidScroll(handler: ContentDidScrollCallback | undefined): this;
 
   /**
-   * 设置禁用组件导航点交互功能。设置为true时表示导航点可交互。
+   * 设置导航点是否可交互。适用于需要通过其他方式（如按钮）控制翻页，或需要禁止用户通过导航点点击翻页的场景。
    *
    * @param { boolean | undefined } value - 导航点是否可交互。<br/>true：导航点可交互；false：导航点不可交互。<br/>传入参数非法时，按true处理。<br/>取值为
    *     undefined时，按true处理。

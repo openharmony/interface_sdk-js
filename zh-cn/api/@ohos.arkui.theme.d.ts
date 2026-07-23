@@ -726,7 +726,7 @@ export declare interface CustomTheme {
   /**
      * 自定义深色主题颜色资源。
      * 
-     * **说明**：如果未设置darkColors，颜色值将与浅色模式下的colors配置相同，并且不会随着颜色模式的变化而变化，除非该颜色是通过dark目录下的资源进行设置的。</br>
+     * **说明**：如果未设置darkColors，则使用浅色模式下的colors配置，并且不会随着系统深浅色模式的切换而变化；如果对应颜色通过dark目录下的资源进行设置，则会优先使用dark目录下的资源。
      *
    * @default If not set darkColors, color value will same as colors under light mode and will not change with color
    *     mode, unless the color is setted by resource in dark directory.
