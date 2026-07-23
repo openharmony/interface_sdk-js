@@ -62,6 +62,7 @@ export interface NotificationActionButton {
 
   /**
    * 按钮扩展信息。默认为空。
+   * 用于存储按钮的自定义扩展数据，应用可按需添加任意键值对信息，如按钮的特定标识、附加数据等。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
@@ -70,6 +71,7 @@ export interface NotificationActionButton {
 
   /**
    * 按钮扩展信息。默认为空。
+   * 用于存储按钮的自定义扩展数据，应用可按需添加任意键值对信息，如按钮的特定标识、附加数据等。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 23 static

@@ -14,7 +14,8 @@
  */
 
 /**
- * The **NotificationFlags** module describes the notification flags. An application can use **NotificationFlags** to reduce the notification reminder types as needed.
+ * The **NotificationFlags** module describes the notification flags. An application can use **NotificationFlags**
+ * to reduce the notification reminder types as needed.
  * 
  * @file Some states and flags for notifications
  * @kit NotificationKit

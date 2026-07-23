@@ -60,7 +60,7 @@ declare class NotificationSubscriberExtensionAbility {
   /**
    * 收到通知时回调。
    *
-   * @param { NotificationInfo } notificationInfo - 通知订阅扩展能力中onReceiveMessage回调的通知信息。
+   * @param { NotificationInfo } notificationInfo - 通知订阅扩展能力中收到通知的回调信息。
    * @syscap SystemCapability.Notification.Notification
    * @stagemodelonly
    * @since 22 dynamic

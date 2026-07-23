@@ -33,7 +33,8 @@ import type notificationExtensionSubscription from '../@ohos.notificationExtensi
  */
 export interface NotificationExtensionSubscriptionInfo {
   /**
-   * 表示设备的唯一标识符。例如："11:22:33:AA:BB:FF"
+   * 表示设备的唯一标识符。
+   * 当type为`SubscribeType.BLUETOOTH`时，指定对应的蓝牙设备地址。例如："11:22:33:AA:BB:FF"。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 22 dynamic
@@ -42,7 +43,7 @@ export interface NotificationExtensionSubscriptionInfo {
   addr: string;
 
   /**
-   * 表示订阅的类型，包括通过蓝牙订阅通知。
+   * 订阅的类型，指定通知扩展的订阅方式。当前仅支持`SubscribeType.BLUETOOTH`，表示通过蓝牙订阅通知。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 22 dynamic

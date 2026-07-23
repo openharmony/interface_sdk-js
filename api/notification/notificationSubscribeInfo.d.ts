@@ -26,7 +26,8 @@ import type notificationManager from '../@ohos.notificationManager';
  * 
  * > **NOTE**
  * >
- * > The initial APIs of this module are supported since API version 7. Newly added APIs will be marked with a superscript to indicate their earliest API version.
+ * > The initial APIs of this module are supported since API version 7. Newly added APIs will be marked with a
+ * > superscript to indicate their earliest API version.
  * >
  * > The APIs provided by this module are system APIs.
  *
@@ -182,10 +183,12 @@ export interface VoiceContentOptions {
  */
 export interface PictureOptions {
   /**
-   * Subscribes to the image information in **extraInfo** of [NotificationLiveViewContent]{@link ./notification/notificationContent:NotificationLiveViewContent} in a common live
+   * Subscribes to the image information in **extraInfo** of
+   * [NotificationLiveViewContent]{@link ./notification/notificationContent:NotificationLiveViewContent} in a common live
    * notification. The input parameter is the **Key** of the image file name that needs to be parsed into the
    * pixelMap format in **extraInfo**.<br>When the application publishes a common live notification, the parsed image
-   * information is called back to the subscriber through [onConsume]{@link ./notification/notificationSubscriber:NotificationSubscriber.onConsume} and stored in **pictureInfo** of
+   * information is called back to the subscriber through
+   * [onConsume]{@link ./notification/notificationSubscriber:NotificationSubscriber.onConsume} and stored in **pictureInfo** of
    * **NotificationLiveViewContent**.
    *
    * @syscap SystemCapability.Notification.Notification

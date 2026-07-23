@@ -60,7 +60,9 @@ export interface NotificationActionButton {
   wantAgent: WantAgent;
 
   /**
-   * Extension information of the button. The default value is empty. It is used to store custom extension data of the button. An application can add any key-value pair information as needed, such as the specific identifier and additional data of the button.
+   * Extension information of the button. The default value is empty. It is used to store custom extension data of the button.
+   * An application can add any key-value pair information as needed, such as the specific identifier and additional
+   * data of the button.
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
@@ -68,7 +70,9 @@ export interface NotificationActionButton {
   extras?: { [key: string]: any };
 
   /**
-   * Extension information of the button. The default value is empty. It is used to store custom extension data of the button. An application can add any key-value pair information as needed, such as the specific identifier and additional data of the button.
+   * Extension information of the button. The default value is empty. It is used to store custom extension data of the button.
+   * An application can add any key-value pair information as needed, such as the specific identifier and additional
+   * data of the button.
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 23 static

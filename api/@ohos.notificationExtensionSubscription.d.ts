@@ -233,7 +233,8 @@ declare namespace notificationExtensionSubscription {
    * Obtains the applications that are allowed to access device notifications for the current application. This API uses a promise to return the result.
    *
    * @permission ohos.permission.SUBSCRIBE_NOTIFICATION
-   * @returns { Promise<GrantedBundleInfo[]> } Promise used to return the list of applications that are allowed to access device notifications for the current application.
+   * @returns { Promise<GrantedBundleInfo[]> } Promise used to return the list of applications that are allowed to
+   *     access device notifications for the current application.
    * @throws { BusinessError } 201 - Permission denied or current device not supported.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.

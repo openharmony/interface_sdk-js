@@ -475,7 +475,8 @@ export interface BadgeNumberCallbackData {
   readonly badgeNumber: int;
 
   /**
-   * Key value of an application instance. This parameter is supported since API version 12 and deprecated since API version 15. You are advised to use **appInstanceKey** instead.
+   * Key value of an application instance. This parameter is supported since API version 12 and deprecated since API version 15.
+   * You are advised to use **appInstanceKey** instead.
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -607,7 +608,7 @@ export type EnabledSilentReminderChangedCallback = (callbackData: EnabledSilentR
  * [notificationManager.setNotificationSwitch]{@link ../@ohos.notificationManager:notificationManager.setNotificationSwitch} API.
  *
  * @param { NotificationSwitchChangedCallbackData } callbackData - Callback that returns the notification switch state change information set by
- * [notificationManager.setNotificationSwitch]{@link ../@ohos.notificationManager:notificationManager.setNotificationSwitch} API.
+ *     [notificationManager.setNotificationSwitch]{@link ../@ohos.notificationManager:notificationManager.setNotificationSwitch} API.
  * @syscap SystemCapability.Notification.Notification
  * @systemapi
  * @stagemodelonly

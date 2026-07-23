@@ -456,7 +456,8 @@ export interface NotificationPictureContent extends NotificationBasicContent {
   expandedTitle: string;
 
   /**
-   * 通知展开后显示的图片内容。图像像素的总字节数不能超过2MB。
+   * 通知展开后显示的图片内容。图标像素的总字节数不能超过2MB（图标像素的总字节数通过
+   * [getPixelBytesNumber]{@link @ohos.multimedia.image:image.PixelMap.getPixelBytesNumber}获取）。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
@@ -735,8 +736,7 @@ export interface NotificationButton {
  */
 export interface NotificationTime {
   /**
-   * 计时起始时间，用于设置实况窗中的计时起点。取值范围为全体非负整数。
-   * 默认值为0。单位：毫秒。
+   * 计时起始时间，用于设置实况窗中的计时起点。默认值为0。单位：毫秒。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 11 dynamic
@@ -794,7 +794,7 @@ export interface NotificationTime {
  */
 export interface NotificationProgress {
   /**
-   * 进度最大值。取值范围为全体非负整数。
+   * 进度最大值。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 11 dynamic
@@ -803,7 +803,7 @@ export interface NotificationProgress {
   maxValue?: int;
 
   /**
-   * 进度当前值。取值范围为全体非负整数。
+   * 进度当前值。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 11 dynamic

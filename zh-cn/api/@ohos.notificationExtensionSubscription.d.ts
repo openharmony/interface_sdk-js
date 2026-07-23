@@ -217,10 +217,10 @@ declare namespace notificationExtensionSubscription {
   function getUserGrantedEnabledBundles(targetBundle: BundleOption): Promise<BundleOption[]>;
 
   /**
-   * 获取指定应用中“已获取的本机通知”通知开关开启的应用列表。使用Promise异步回调。
+   * 获取本应用中“已获取的本机通知”通知开关开启的应用列表。使用Promise异步回调。
    *
    * @permission ohos.permission.SUBSCRIBE_NOTIFICATION
-   * @returns { Promise<GrantedBundleInfo[]> } Promise对象，返回获取指定应用中“已获取的本机通知”通知开关开启的应用列表。
+   * @returns { Promise<GrantedBundleInfo[]> } Promise对象，返回本应用中“已获取的本机通知”通知开关开启的应用列表。
    * @throws { BusinessError } 201 - Permission denied or current device not supported.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
