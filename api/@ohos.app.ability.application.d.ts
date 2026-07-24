@@ -134,8 +134,8 @@ declare namespace application {
     * @param { Context } context - Application context.
     * @param { string } moduleName - Module name.
     * @returns { Context } Return the context created.
-    * @throws { BusinessError } 16000011 - The context does not exitst.
-    * @throws { BusinessError } 16000021 - The module does not exitst.
+    * @throws { BusinessError } 16000011 - The context does not exist.
+    * @throws { BusinessError } 16000021 - The module does not exist.
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
     * @stagemodelonly
     * @atomicservice
