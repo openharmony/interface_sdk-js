@@ -500,6 +500,9 @@ declare namespace dlpPermission {
      * Cancels the sandbox retention state, that is, allows the sandbox application to be automatically uninstalled when
      * the DLP file is closed. This API uses a promise to return the result.
      * 
+     * Cancels the sandbox retention state, that is, allows the sandbox application to be automatically uninstalled when
+     * the DLP file is closed. This API uses a promise to return the result.
+     * 
      * This API is used to cancel the retention state for sandbox application and restore the default behavior to 
      * release system resources. It is applicable to scenarios where the DLP file is no longer frequently accessed.
      *
@@ -586,7 +589,8 @@ declare namespace dlpPermission {
      * to return the result.
      * 
      * This API is used to query the sandbox retention information of a specified application, so that the sandbox 
-     * environment in the retention state can be checked or managed.
+     * environment in the retention state can be checked or managed.This API can be called only in non-DLP sandbox
+     * applications.
      *
      * @param { AsyncCallback<Array<RetentionSandboxInfo>> } callback - Callback used to return the result. If the
      *     operation is successful, **err** is **undefined**. Otherwise, **err** is an error object.
@@ -1205,8 +1209,7 @@ declare namespace dlpPermission {
         waterMarkConfig?: boolean;
         /**
          * Validity period for file viewing, in seconds. The default value is 0. After the validity period expires, 
-         * the file is automatically closed. The value must be greater than or equal to 0. No value range restriction 
-         * is specified.
+         * the file is automatically closed. The value range is [-2<sup>31</sup>, 2<sup>31</sup>-1].
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @stagemodelonly
@@ -1392,8 +1395,10 @@ declare namespace dlpPermission {
          */
         resumeFuseLink(callback: AsyncCallback<void>): void;
         /**
+         * 
          * Replaces a link file. This API uses a promise to return the result. After the API is successfully called, the
-         * current link file is replaced with the new link file.
+         * current link file is replaced with the new link file. Before performing this operation, you need to create a
+         * link file and stop the read and write operation on the FUSE.
          * 
          * When you need to access a different DLP file, you can replace the link file to change the file mapping.
          *
@@ -1418,7 +1423,8 @@ declare namespace dlpPermission {
          * Replaces a link file. This API uses an asynchronous callback to return the result. After the API is 
          * successfully called, the current link file is replaced with the new link file.
          * 
-         * When you need to access a different DLP file, you can replace the link file.
+         * When you need to access a different DLP file, you can replace the link file. Before performing this 
+         * operation, you need to create a link file and stop the read and write operation on the FUSE.
          *
          * @permission ohos.permission.ACCESS_DLP_FILE
          * @param { string } linkFileName - Name of the link file in the FUSE. The value contains up to 255 bytes. If
@@ -1692,7 +1698,7 @@ declare namespace dlpPermission {
      *     of **fd** is less than 0, an error log is generated, and the function stops running. If the value of **fd**
      *     is greater than 2<sup>31</sup>-1, the excess part will be truncated.
      * @param { string } appId - ID of the caller. The value contains 8 to 1024 bytes. If the value is out of range,
-     *     error code 401 is returned.
+     *     error code 401 is thrown.
      * @returns { Promise<DLPFile> } Promise If the value is **resolve**, a **DLPFile** object is returned, indicating
      *     that a DLP file is successfully opened. If the value is **reject**, an error is returned, indicating that the
      *     DLP file fails to be opened.
@@ -1727,7 +1733,7 @@ declare namespace dlpPermission {
      *     of **fd** is less than 0, an error log is generated, and the function stops running. If the value of **fd**
      *     is greater than 2<sup>31</sup>-1, the excess part will be truncated.
      * @param { string } appId - ID of the caller. The value contains 8 to 1024 bytes. If the value is out of range,
-     *     error code 401 is returned.
+     *     error code 401 is thrown.
      * @param { AsyncCallback<DLPFile> } callback - Callback used to receive the result of opening a DLP file. The
      *     callback parameters include **err** and **res**. **err** is **undefined** when the operation is successful;
      *     otherwise, **err** is an error object. **res** is a **DLPFile** object that represents the DLP file opened.
@@ -1754,7 +1760,8 @@ declare namespace dlpPermission {
     /**
      * Sets the configuration information of the sandbox application. The configuration information is in JSON string 
      * format and can be set by the application. After the API is successfully called, the sandbox application runs 
-     * based on the configuration information. This API uses a promise to return the result.
+     * based on the configuration information. This API uses a promise to return the result. This API can be called 
+     * only in non-DLP sandbox applications.
      * 
      * This API sets the sandbox application configuration so that the application can pass custom parameters as 
      * required.
@@ -1776,6 +1783,7 @@ declare namespace dlpPermission {
     /**
      * Clears the sandbox application configuration. After the API is successfully called, the sandbox application 
      * configuration is cleared and the default state is restored. This API uses a promise to return the result.
+     * This API uses a promise to return the result.
      * 
      * This API clears the sandbox application configuration and restores the default state to prevent residual 
      * configurations from affecting subsequent use.
@@ -2105,7 +2113,7 @@ declare namespace dlpPermission {
          *     implemented so that the processing result can be returned using a callback when the API is called on the
          *     SA.
          * @returns { number } Registration result. The unique ID of the callback is returned. The value range is
-         *     [0, 2<sup>64</sup>-1].
+         *     [0, 2<sup>53</sup>-1].
          * @throws { BusinessError } 201 - Permission denied.
          * @throws { BusinessError } 19100001 - Invalid parameter value.
          * @throws { BusinessError } 19100002 - Credential service busy due to too many tasks or duplicate tasks.
