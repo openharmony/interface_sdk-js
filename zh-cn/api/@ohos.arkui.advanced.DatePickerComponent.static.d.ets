@@ -24,7 +24,7 @@ import { PropRef } from '@ohos.arkui.stateManagement';
 import { Component, Builder } from '@ohos.arkui.component';
 
 /**
- * DateMode enum defines the mode of the date picker.
+ * DateMode枚举用于定义日期选择器的模式。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -32,7 +32,7 @@ import { Component, Builder } from '@ohos.arkui.component';
  */
 export declare enum DateMode {
   /**
-   * Date displays three columns: year, month, and day.
+   * 日期显示三列：年、月、日。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -41,7 +41,7 @@ export declare enum DateMode {
   DATE = 0,
 
   /**
-   * Date displays two columns: year and month.
+   * 日期显示两列：年、月。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -50,9 +50,7 @@ export declare enum DateMode {
   YEAR_AND_MONTH = 1,
 
   /**
-   * Defines a mode that displays the date as month and day. In this mode, when the month changes from December to
-   * January, the year does not increment; when the month changes from January to December, the year does not decrement.
-   * The year remains unchanged at its current setting.
+   * 定义以月和日显示日期的模式。在此模式下，当月份从12月变为1月时，年份不会增加；当月份从1月变为12月时，年份不会减少。年份保持当前设置的值不变。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -62,7 +60,7 @@ export declare enum DateMode {
 }
 
 /**
- * DisplayMode enum defines the display mode of the picker.
+ * DisplayMode枚举用于定义选择器的显示模式。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -70,7 +68,7 @@ export declare enum DateMode {
  */
 export declare enum DisplayMode {
   /**
-   * Displays only the date.
+   * 仅显示日期。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -79,7 +77,7 @@ export declare enum DisplayMode {
   DATE = 0,
 
   /**
-   * Displays only the time.
+   * 仅显示时间。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -88,7 +86,7 @@ export declare enum DisplayMode {
   TIME = 1,
 
   /**
-   * Displays both date and time.
+   * 同时显示日期和时间。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -98,7 +96,7 @@ export declare enum DisplayMode {
 }
 
 /**
- * DatePickerComponentResult defines the selection result of the date time picker.
+ * DatePickerComponentResult定义日期时间选择器的选择结果。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -106,8 +104,8 @@ export declare enum DisplayMode {
  */
 export declare class DatePickerComponentResult {
   /**
-   * Year of the selected date.
-   * The value should be an integer.
+   * 所选日期的年份。
+   * 取值限定为整数。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -116,8 +114,8 @@ export declare class DatePickerComponentResult {
   year?: int;
 
   /**
-   * Month index of the selected date, starting from 0, where 0 indicates January and 11 indicates December.
-   * The value should be an integer.
+   * 所选日期的月份索引，从0开始，0表示1月，11表示12月。
+   * 取值限定为整数。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -126,8 +124,8 @@ export declare class DatePickerComponentResult {
   month?: int;
 
   /**
-   * Day of the selected date.
-   * The value should be an integer.
+   * 所选日期的日。
+   * 取值限定为整数。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -136,8 +134,8 @@ export declare class DatePickerComponentResult {
   day?: int;
 
   /**
-   * Hour part of the selected time.
-   * The value should be an integer.
+   * 所选时间的小时部分。
+   * 取值限定为整数。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -146,8 +144,8 @@ export declare class DatePickerComponentResult {
   hour?: int;
 
   /**
-   * Minute part of the selected time.
-   * The value should be an integer.
+   * 所选时间的分钟部分。
+   * 取值限定为整数。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -156,8 +154,8 @@ export declare class DatePickerComponentResult {
   minute?: int;
 
   /**
-   * Second part of the selected time.
-   * The value should be an integer.
+   * 所选时间的秒部分。
+   * 取值限定为整数。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -167,7 +165,7 @@ export declare class DatePickerComponentResult {
 }
 
 /**
- * TimeFormat enum defines the format of the time picker.
+ * TimeFormat枚举用于定义时间选择器的格式。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -175,7 +173,7 @@ export declare class DatePickerComponentResult {
  */
 export declare enum TimeFormat {
   /**
-   * Displays hour and minute.
+   * 显示时、分。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -184,7 +182,7 @@ export declare enum TimeFormat {
   HOUR_MINUTE = 0,
 
   /**
-   * Displays hour, minute, and second.
+   * 显示时、分、秒。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -194,21 +192,19 @@ export declare enum TimeFormat {
 }
 
 /**
- * CommonOptions defines common options for the date time picker.
+ * CommonOptions定义日期时间选择器的通用选项。
  *
- * > **Description:**
+ * > **说明：**
  * >
- * > - For Date usage, refer to
- * > [TimePickerOptions](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-timepicker.md#timepickeroptions对象说明)。
+ * > - Date的使用请参考
+ * > [TimePickerOptions](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-timepicker.md#timepickeroptions)。
  * >
- * > - The text size of DatePickerComponent adapts between 14vp and 16vp. When the component width is too narrow,
- * > text may be truncated.
+ * > - DatePickerComponent的字体字号在14vp至16vp范围内自适应变化，当组件宽度过窄时，可能出现文本显示截断的情况。
  * >
- * > - When parameters are omitted or set to undefined, default values are used.
+ * > - 参数缺省或者设置为undefined时，均保持默认值。
  * >
- * > - In [DateOptions]{@link DateOptions}, setting start, end, and selected only takes effect for the date part
- * > (year, month, day). In [TimeOptions]{@link TimeOptions}, setting start, end, and selected only takes effect for the
- * > time part (hour, minute, second).
+ * > - 在[DateOptions]{@link DateOptions}中设置start、end、selected时仅日期部分（年月日）设置生效，
+ * > 在[TimeOptions]{@link TimeOptions}中设置start、end、selected时仅时间部分（时分秒）设置生效。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -216,11 +212,11 @@ export declare enum TimeFormat {
  */
 export declare class CommonOptions {
   /**
-   * Start date or time of the picker.
+   * 选择器的起始日期或时间。
    *
-   * Default value: Date(1970, 0, 1, 0, 0, 0)
+   * 默认值：Date(1970, 0, 1, 0, 0, 0)
    *
-   * Value range: [Date(0, 0, 1, 0, 0, 0), Date(10000, 11, 31,23, 59, 59)]
+   * 取值范围：[Date(0, 0, 1, 0, 0, 0), Date(10000, 11, 31,23, 59, 59)]
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -229,11 +225,11 @@ export declare class CommonOptions {
   start?: Date;
 
   /**
-   * End date or time of the picker.
+   * 选择器的结束日期或时间。
    *
-   * Default value: Date(2100, 12, 31, 23, 59, 59)
+   * 默认值：Date(2100, 12, 31, 23, 59, 59)
    *
-   * Value range: [Date(0, 0, 1, 0, 0, 0), Date(10000, 11, 31,23, 59, 59)]
+   * 取值范围：[Date(0, 0, 1, 0, 0, 0), Date(10000, 11, 31,23, 59, 59)]
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -242,8 +238,8 @@ export declare class CommonOptions {
   end?: Date;
 
   /**
-   * Selected date.
-   * Default value is the current system date or time.
+   * 选中的日期。
+   * 默认值为当前系统日期或时间。
    *
    * @default current system date or time
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -253,12 +249,12 @@ export declare class CommonOptions {
   selected?: Date;
 
   /**
-   * Sets whether to enable loop mode.
+   * 设置是否启用循环模式。
    *
-   * - true: Enable loop mode.
-   * - false: Disable loop mode.
+   * - true：启用循环模式。
+   * - false：不启用循环模式。
    *
-   * Default value: true
+   * 默认值：true
    *
    * @default true
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -268,7 +264,7 @@ export declare class CommonOptions {
   loop?: boolean;
 
   /**
-   * Callback triggered after date or time is selected.
+   * 选择日期或时间后触发该回调。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -277,7 +273,7 @@ export declare class CommonOptions {
   onChange?: Callback<DatePickerComponentResult>;
 
   /**
-   * Callback triggered when a picker item is selected and scrolling stops.
+   * 选择器项被选中且滚动停止时触发该回调。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -286,18 +282,18 @@ export declare class CommonOptions {
   onScrollStop?: Callback<DatePickerComponentResult>;
 
   /**
-   * Enables or disables haptic feedback.
+   * 启用或禁用触控反馈。
    *
-   * Default value: true
+   * 默认值：true
    *
-   * - true: Enable haptic feedback.
-   * - false: Disable haptic feedback.
+   * - true：开启触控反馈。
+   * - false：不开启触控反馈。
    *
-   * **Description**:
+   * **说明**：
    *
-   * 1. When set to true, its effectiveness depends on whether the system's hardware supports it.
-   * 2. To enable haptic feedback, you need to configure the requestPermissions field in the project's
-   * [module.json5](docroot://quick-start/module-configuration-file.md) to enable vibration permission, as follows:
+   * 1. 设置为true后，其生效情况取决于系统的硬件是否支持。
+   * 2. 开启触控反馈时，需要在工程的[module.json5](docroot://quick-start/module-configuration-file.md)中配置requestPermissions
+   * 字段以开启振动权限，配置如下：
    *
    * "requestPermissions": [{"name": "ohos.permission.VIBRATE"}]
    *
@@ -310,9 +306,9 @@ export declare class CommonOptions {
 }
 
 /**
- * DateOptions defines options for the date picker.
+ * DateOptions定义日期选择器的选项。
  *
- * Inherits from [CommonOptions]{@link CommonOptions}.
+ * 继承于[CommonOptions]{@link CommonOptions}。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -320,9 +316,9 @@ export declare class CommonOptions {
  */
 export declare class DateOptions extends CommonOptions {
   /**
-   * Defines the mode of the date picker.
+   * 定义日期选择器的模式。
    *
-   * Default value: DateMode.DATE
+   * 默认值：DateMode.DATE
    *
    * @default DateMode.DATE
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -332,17 +328,16 @@ export declare class DateOptions extends CommonOptions {
   mode?: DateMode;
 
   /**
-   * Specifies whether to display as lunar calendar.
+   * 指定是否显示农历。
    *
-   * - true: Display as lunar calendar.
-   * - false: Do not display as lunar calendar.
+   * - true：显示为农历。
+   * - false：不显示为农历。
    *
-   * Default value: false
+   * 默认值：false
    *
-   * **Description**:
+   * **说明**：
    *
-   * This only takes effect in Simplified Chinese and Traditional Chinese language environments. In other language
-   * environments, setting this property has no effect.
+   * 仅在简体中文和繁体中文语言环境下生效，其他语言环境下设置该属性无效果。
    *
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -353,9 +348,9 @@ export declare class DateOptions extends CommonOptions {
 }
 
 /**
- * TimeOptions defines options for the time picker.
+ * TimeOptions定义时间选择器的选项。
  *
- * Inherits from [CommonOptions]{@link CommonOptions}.
+ * 继承于[CommonOptions]{@link CommonOptions}。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -363,9 +358,9 @@ export declare class DateOptions extends CommonOptions {
  */
 export declare class TimeOptions extends CommonOptions {
   /**
-   * Defines the format of the time picker.
+   * 定义时间选择器的格式。
    *
-   * Default value: TimeFormat.HOUR_MINUTE
+   * 默认值：TimeFormat.HOUR_MINUTE
    *
    * @default TimeFormat.HOUR_MINUTE
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -375,12 +370,12 @@ export declare class TimeOptions extends CommonOptions {
   format?: TimeFormat;
 
   /**
-   * Specifies whether to display time in 24-hour format.
+   * 指定是否使用24小时制显示时间。
    *
-   * - true: Time is displayed in 24-hour format.
-   * - false: Time is displayed in 12-hour format.
+   * - true：时间以24小时制展示。
+   * - false：时间以12小时制展示。
    *
-   * Default value: false
+   * 默认值：false
    *
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -391,7 +386,7 @@ export declare class TimeOptions extends CommonOptions {
 }
 
 /**
- * DatePickerComponentOptions defines options for the date time picker component.
+ * DatePickerComponentOptions定义日期时间选择器组件的选项。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -399,9 +394,9 @@ export declare class TimeOptions extends CommonOptions {
  */
 export declare class DatePickerComponentOptions {
   /**
-   * Display mode of the picker.
+   * 选择器的显示模式。
    *
-   * Default value: DisplayMode.DATE
+   * 默认值：DisplayMode.DATE
    *
    * @default DisplayMode.DATE
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -411,7 +406,7 @@ export declare class DatePickerComponentOptions {
   displayMode?: DisplayMode;
 
   /**
-   * Date options.
+   * 日期选项。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -420,7 +415,7 @@ export declare class DatePickerComponentOptions {
   dateOptions?: DateOptions;
 
   /**
-   * Time options.
+   * 时间选项。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -430,11 +425,11 @@ export declare class DatePickerComponentOptions {
 }
 
 /**
- * DatePickerComponent component is used to select date (year, month, day) and time (hour, minute, second).
+ * DatePickerComponent组件用于选择日期（年月日）和时间（时分秒）。
  *
- * > **Description:**
+ * > **说明：**
  * >
- * > - This component interface can only be used in Stage model.
+ * > - 该组件接口仅可在Stage模型下使用。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -443,7 +438,7 @@ export declare class DatePickerComponentOptions {
 @Component
 export declare struct DatePickerComponent {
   /**
-   * Defines options for the date time picker component.
+   * 定义日期时间选择器组件的选项。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -452,7 +447,7 @@ export declare struct DatePickerComponent {
   @PropRef
   options: DatePickerComponentOptions;
   /**
-   * The method to build component.
+   * 构建组件的方法。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
