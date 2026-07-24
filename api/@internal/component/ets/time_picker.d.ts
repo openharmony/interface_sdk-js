@@ -28,7 +28,6 @@
  * @since 8 dynamic
  */
 declare interface TimePickerResult {
-
   /**
    * Hour portion of the selected time.
    *
@@ -83,7 +82,6 @@ declare interface TimePickerResult {
  * @since 11 dynamic
  */
 declare enum TimePickerFormat {
-
   /**
    * Time format displaying hours and minutes.
    *
@@ -131,7 +129,6 @@ declare enum TimePickerFormat {
  * @since 8 dynamic
  */
 declare interface TimePickerOptions {
-
   /**
    * Time of the selected item.
    *
@@ -219,7 +216,6 @@ declare interface TimePickerOptions {
  * @noninterop
  */
 interface TimePickerInterface {
-
   /**
    * Creates a time picker, which uses the 24-hour time format by default.
    *
@@ -233,7 +229,6 @@ interface TimePickerInterface {
    */
   (options?: TimePickerOptions): TimePickerAttribute;
 }
-
 /**
  * Defines the options for a **DateTimeOptions** object.
  *
@@ -248,6 +243,7 @@ declare type DateTimeOptions = import('../api/@ohos.intl').default.DateTimeOptio
 /**
  * Triggered when a time is selected.
  *
+ * @param { TimePickerResult } result - Time in 24-hour format.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -269,7 +265,6 @@ declare type OnTimePickerChangeCallback = (result: TimePickerResult) => void;
  * @noninterop
  */
 declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
-
   /**
    * Sets whether the time is displayed in 24-hour format. If this attribute is not specified, the system time format is
    * used by default.
@@ -626,7 +621,6 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
  * @since 8 dynamic
  */
 declare interface TimePickerDialogOptions extends TimePickerOptions {
-
   /**
    * Whether to display the time in 24-hour format or 12-hour format.
    *
@@ -1060,7 +1054,6 @@ declare interface TimePickerDialogOptions extends TimePickerOptions {
    * @since 18 dynamic
    */
   enableHapticFeedback?: boolean;
-
   /**
    * Set system-styled materials for dialog. Different materials have different effects,
    * which can influence backgroundColor, border, shadow, and other visual attributes of dialog.
@@ -1071,7 +1064,6 @@ declare interface TimePickerDialogOptions extends TimePickerOptions {
    * @since 26.0.0 dynamic
    */
   systemMaterial?: SystemUiMaterial;
-
   /**
    * Sets the distortion animation mode for the dialog.
    *
@@ -1082,7 +1074,6 @@ declare interface TimePickerDialogOptions extends TimePickerOptions {
    * @since 26.0.0 dynamic
    */
   distortionMode?: DistortionMode;
-
   /**
    * Sets the edge light animation mode for the dialog.
    *
@@ -1105,7 +1096,6 @@ declare interface TimePickerDialogOptions extends TimePickerOptions {
  * @since 8 dynamic
  */
 declare class TimePickerDialog {
-
   /**
    * Shows a time picker dialog box.
    *
