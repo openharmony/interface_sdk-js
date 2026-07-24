@@ -93,7 +93,7 @@ declare enum TimePickerFormat {
    * @atomicservice [since 12]
    * @since 11 dynamic
    */
-  HOUR_MINUTE = 0,
+  HOUR_MINUTE,
 
   /**
    * Hour and minute and second
@@ -104,7 +104,7 @@ declare enum TimePickerFormat {
    * @atomicservice [since 12]
    * @since 11 dynamic
    */
-  HOUR_MINUTE_SECOND = 1
+  HOUR_MINUTE_SECOND
 }
 
 /**
