@@ -32,6 +32,8 @@ import type connection from './@ohos.net.connection';
  * > 本模块接口仅对设备管理应用开放，且调用接口前需激活设备管理应用，具体请参考[MDM Kit开发指南](docroot://mdm/mdm-kit-guide.md)。
  *
  * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+ * @systemapi [since 10 - 11]
+ * @publicapi [since 12]
  * @stagemodelonly
  * @since 10
  */
@@ -890,6 +892,8 @@ declare namespace networkManager {
    * @systemapi
    * @stagemodelonly
    * @since 10
+   * @deprecated since 26.0.0
+   * @useinstead networkManager.isNetworkInterfaceDisabledSync
    */
   function isNetworkInterfaceDisabled(admin: Want, networkInterface: string, callback: AsyncCallback<boolean>): void;
 
@@ -934,6 +938,26 @@ declare namespace networkManager {
    * @since 12
    */
   function isNetworkInterfaceDisabledSync(admin: Want, networkInterface: string): boolean;
+
+  /**
+   * 查询指定网络接口是否被禁用。适用于企业网络管理场景，例如检查网络接口状态、审计网络接口使用情况、验证网络策略执行效果，帮助企业确认网络接口管理策略是否生效，便于策略调整和问题排查。
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_NETWORK
+   * @param { Want | null } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
+   *     <br>当设备存在多个MDM应用时，传入Want时查询对应企业设备管理应用设置的策略，传入null时查询实际生效的策略。
+   * @param { string } networkInterface - 指定网络接口。
+   * @returns { boolean } 返回指定网络接口是否被禁用，true表示该网络接口被禁用，false表示该网络接口未被禁用。
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  function isNetworkInterfaceDisabledSync(admin: Want | null, networkInterface: string): boolean;
 
   /**
    * 禁止设备使用指定网络。使用callback异步回调。
@@ -1115,7 +1139,7 @@ declare namespace networkManager {
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_NETWORK
    * @param { Want } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
-   * @returns { Promise<connection.HttpProxy> } Promise used to return the global HTTP proxy information obtained.
+   * @returns { Promise<connection.HttpProxy> } Promise对象，返回网络全局Http代理配置信息。
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - Permission verification failed.
@@ -1137,7 +1161,7 @@ declare namespace networkManager {
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_NETWORK
    * @param { Want } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
-   * @returns { connection.HttpProxy } Global HTTP proxy configuration information.
+   * @returns { connection.HttpProxy } 返回网络全局HTTP代理配置信息。
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - Permission verification failed.
@@ -1159,7 +1183,7 @@ declare namespace networkManager {
    * @param { Want | null } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。 [since 15 - 19]
    * @param { number } accountId - 用户ID，取值范围：大于等于0。<br> accountId可以通过@ohos.account.osAccount中的
    *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()}等接口来获取。*@ohos.account.osAccount** to obtain the user ID.
-   * @returns { connection.HttpProxy } HTTP proxy configuration of the network.
+   * @returns { connection.HttpProxy } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。 [since 20]
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - Permission verification failed.
@@ -1546,16 +1570,9 @@ declare namespace networkManager {
    * @param { Want } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
    * @param { string } apnId - 指定的APN ID。可以通过
    *     [networkManager.queryApn]{@link networkManager.queryApn(admin: Want, apnInfo: Record<string, string>)}获取设备信息。
-   * @returns { Record<string, string> } APN parameter information of the specified APN ID.
-   *     <br>- **apnName**: APN identifier.
-   *     <br>- **mcc**: 3-digit mobile country code (MCC).
-   *     <br>- **mnc**: 2-digit or 3-digit mobile network code (MNC).
-   *     <br>- **apn**: access point name.
-   *     <br>- **type**: APN service type.
-   *     <br>- **user**: user name for APN authentication.
-   *     <br>- **proxy**: address of the proxy server for a common data connection.
-   *     <br>- **mmsproxy**: dedicated proxy address of the MMS service.
-   *     <br>- **authType**: authentication protocol type of the APN.
+   * @returns { Record<string, string> } 指定APN ID的APN参数信息。<br/>- apnName：APN配置的名称标识符。<br/>- mcc：3位数字的移动国家代码。<br/>- mnc：2
+   *     -3位数字的移动网络代码。<br/>- apn：接入点名称。<br/>- type：APN的服务类型。<br/>- user：APN身份验证的用户名。<br/>- proxy：普通数据连接的代理服务器地址。<br/>-
+   *     mmsproxy：彩信服务的专用代理地址。<br/>- authType：APN的认证协议类型。
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission

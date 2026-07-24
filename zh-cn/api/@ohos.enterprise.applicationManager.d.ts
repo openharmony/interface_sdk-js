@@ -35,6 +35,8 @@ import statistics from './@ohos.net.statistics';
  * > [applicationManager.isAppKioskAllowed]{@link applicationManager.isAppKioskAllowed}除外，该接口对所有应用开放。
  *
  * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+ * @systemapi [since 10 - 11]
+ * @publicapi [since 12]
  * @since 10
  */
 declare namespace applicationManager {
@@ -494,7 +496,7 @@ declare namespace applicationManager {
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10
    * @deprecated since 26.0.0
    * @useinstead applicationManager.removeDisallowedRunningBundlesSync
@@ -524,7 +526,7 @@ declare namespace applicationManager {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 12
    */
   function removeDisallowedRunningBundlesSync(admin: Want, appIds: Array<string>, accountId?: number): void;
@@ -547,7 +549,7 @@ declare namespace applicationManager {
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10
    * @deprecated since 26.0.0
    * @useinstead applicationManager.getDisallowedRunningBundlesSync
@@ -573,7 +575,7 @@ declare namespace applicationManager {
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10
    * @deprecated since 26.0.0
    * @useinstead applicationManager.getDisallowedRunningBundlesSync
@@ -599,7 +601,7 @@ declare namespace applicationManager {
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10
    * @deprecated since 26.0.0
    * @useinstead applicationManager.getDisallowedRunningBundlesSync
@@ -625,12 +627,37 @@ declare namespace applicationManager {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 12
    */
   function getDisallowedRunningBundlesSync(admin: Want, accountId?: number): Array<string>;
 
   /**
+   * 获取当前/指定用户下的应用运行禁止名单。
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
+   * @param { Want | null } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
+   *     <br>当设备存在多个MDM应用时，API版本26.0.0之前，传入Want时查询对应企业设备管理应用设置的策略。从API版本26.0.0开始，新增支持传入null时查询实际生效的策略。
+   * @param { number } [accountId] - Account ID.
+   *     <br>The value must be greater than or equal to 0.
+   *     <br> You can call [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()}
+   *     of @ohos.account.osAccount to obtain the ID.
+   *     <br> - If **accountId** is passed in, this API applies to the specified user.
+   *     <br> - If **accountId** is not passed in, this API applies to the current user.
+   * @returns { Array<string> } 返回当前/指定用户下的应用运行禁止名单。返回值为应用appId或appIdentifier列表。
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  function getDisallowedRunningBundlesSync(admin: Want | null, accountId?: number): Array<string>;
+
+ /**
    * 添加应用至应用运行允许名单，添加至允许名单的应用允许在指定用户下运行，不在允许名单的应用不允许在指定用户下运行。
    *
    * > **说明：**
@@ -684,8 +711,9 @@ declare namespace applicationManager {
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
    * @param { Want } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
-   * @param { number } accountId - 用户ID，取值范围：大于等于0。<br> accountId可以通过@ohos.account.osAccount中的
-   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()}等接口来获取。
+   * @param { number } accountId - 账号ID。
+   *     <br>取值应为≥0的整数。
+   *     <br>accountId可以通过@ohos.account.osAccount中的[getOsAccountLocalId]{@link @returns { Array<string> } 返回指定用户下的应用运行允许名单。
    * @returns { Array<string> } 返回指定用户下的应用运行允许名单。
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
@@ -696,6 +724,26 @@ declare namespace applicationManager {
    * @since 21
    */
   function getAllowedRunningBundles(admin: Want, accountId: number): Array<string>;
+
+  /**
+   * 获取指定用户下的应用运行允许名单。
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
+   * @param { Want | null } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
+   *     <br>当设备存在多个MDM应用时，传入Want时查询对应企业设备管理应用设置的策略，传入null时查询实际生效的策略。
+   * @param { number } accountId - 账号ID。
+   *     <br>取值应为≥0的整数。
+   *     <br>accountId可以通过@ohos.account.osAccount中的[getOsAccountLocalId]{@link @returns { Array<string> } 返回指定用户下的应用运行允许名单。
+   * @returns { Array<string> } 返回指定用户下的应用运行允许名单。
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  function getAllowedRunningBundles(admin: Want | null, accountId: number): Array<string>;
 
   /**
    * 为当前用户添加开机自启动应用名单。通过本接口添加至自启动名单的应用，禁止用户在设备上手动取消应用自启动<!--RP4--><!--RP4End-->，但可通过
@@ -806,7 +854,7 @@ declare namespace applicationManager {
   function removeAutoStartApps(admin: Want, autoStartApps: Array<Want>, accountId: number): void;
 
   /**
-   * 查询当前用户开机自启动应用名单。
+   * 查询指定用户下的开机自启动应用名单。
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
    * @param { Want } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
@@ -824,12 +872,35 @@ declare namespace applicationManager {
   function getAutoStartApps(admin: Want): Array<Want>;
 
   /**
-   * 查询指定用户下的开机自启动应用名单。
+   * 查询当前用户开机自启动应用名单。
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
+   * @param { Want | null } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the.
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.<br>If the device has multiple MDM
+   *     applications, you can pass **admin** to query the corresponding policies. If **null** is passed, the policies
+   *     that actually take effect on the device are returned.
+   * @returns { Array<Want> } List of the auto-start applications obtained. Since API version 24, the setting of whether
+   *     the UI is hidden can be returned.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  function getAutoStartApps(admin: Want | null): Array<Want>;
+
+  /**
+   * 查询当前用户开机自启动应用名单。
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
    * @param { Want } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
-   * @param { number } accountId - 用户ID，取值范围：大于等于0。<br> accountId可以通过@ohos.account.osAccount中的
-   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()}等接口来获取。
+   * @param { number } accountId - Account ID, which must be greater than or equal to 0.<br> You can call
+   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()} of @
+   *     ohos.account.osAccount to obtain the ID.
    * @returns { Array<Want> } 应用自启动名单数组。从API version 24开始，支持返回是否隐藏UI的配置。
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
@@ -840,6 +911,29 @@ declare namespace applicationManager {
    * @since 20
    */
   function getAutoStartApps(admin: Want, accountId: number): Array<Want>;
+
+  /**
+   * 查询当前用户开机自启动应用名单。
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
+   * @param { Want | null } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the.
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.<br>If the device has multiple MDM
+   *     applications, you can pass **admin** to query the corresponding policies. If **null** is passed, the policies
+   *     that actually take effect on the device are returned.
+   * @param { number } accountId - Account ID, which must be greater than or equal to 0.<br> You can call
+   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()} of @
+   *     ohos.account.osAccount to obtain the ID.
+   * @returns { Array<Want> } List of the auto-start applications obtained. Since API version 24, the setting of whether
+   *     the UI is hidden can be returned.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  function getAutoStartApps(admin: Want | null, accountId: number): Array<Want>;
 
   /**
    * 添加保活应用名单，添加后将自动保活应用进程。在开机和应用被杀死后，由系统主动拉起应用进程。<!--RP7--><!--RP7End-->
@@ -960,13 +1054,34 @@ declare namespace applicationManager {
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - Permission verification failed.The application does not have the permission
    *     required to call the API
-   * @throws { BusinessError } 401 - Parameter error.Possible causes: 1.Mandatory parameters are left unspecified;
-   *     2.Incorrect parameter types;3.Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types;3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
    * @since 14
    */
   function getKeepAliveApps(admin: Want, accountId: number): Array<string>;
+
+  /**
+   * 获取保活应用包名。
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
+   * @param { Want | null } admin - 获取保活应用包名。
+   *     <br>企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。当设备存在多个MDM应用时，传入Want时查询对应企业设备管理应用设置的策略，传入null时查询实际生效的策略。
+   * @param { number } accountId - - 用户ID，取值范围：大于等于0。<br> accountId可以通过@ohos.account.osAccount中的
+   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()}等接口来获取。
+   * @returns { Array<string> } 返回指定用户下保活应用的包名。
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed.The application does not have the permission
+   *     required to call the API
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types;3. Parameter verification failed.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  function getKeepAliveApps(admin: Want | null, accountId: number): Array<string>;
 
   /**
    * 设置允许在Kiosk模式下运行的应用。
@@ -1005,6 +1120,24 @@ declare namespace applicationManager {
   function getAllowedKioskApps(admin: Want): Array<string>;
 
   /**
+   * 获取允许在Kiosk模式下运行的应用。
+   *
+   * @permission ohos.permission.ENTERPRISE_SET_KIOSK
+   * @param { Want | null } admin - 获取允许在Kiosk模式下运行的应用。
+   *     <br>企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
+   *     当设备存在多个MDM应用时，传入Want时查询对应企业设备管理应用设置的策略，传入null时查询实际生效的策略。
+   * @returns { Array<string> } 允许在Kiosk模式下运行的应用[唯一标识符]{@link ./bundleManager/BundleInfo:SignatureInfo}清单。
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed.The application does not have the permission
+   *     required to call the API
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  function getAllowedKioskApps(admin: Want | null): Array<string>;
+
+  /**
    * 查询某应用是否允许在Kiosk模式下运行。
    *
    * @param { string } appIdentifier - 应用[唯一标识符]{@link ./bundleManager/BundleInfo:SignatureInfo}，可以通过接口
@@ -1030,7 +1163,7 @@ declare namespace applicationManager {
    *     当传入空数组时，系统会清空之前下发过的特征，恢复到Kiosk模式的默认状态。即：禁用通知中心、控制中心、最近任务栏、侧边Dock栏等能力。
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 9200012 - The parameter verification failed.
+   * @throws { BusinessError } 9200012 - Parameter verification failed.
    * @throws { BusinessError } 201 - Permission verification failed.The application does not have the permission
    *     required to call the API.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
@@ -1073,6 +1206,7 @@ declare namespace applicationManager {
    *     下添加应用的总和的最大限制为10个。例如：若当前名单中已有3个应用，则最多还能通过本接口为指定用户添加7个应用。
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200010 - A conflict policy has been configured. [since 26.0.0]
    * @throws { BusinessError } 9200012 - Parameter verification failed.
    * @throws { BusinessError } 201 - Permission verification failed.
    *     The application does not have the permission required to call the API.
@@ -1104,7 +1238,7 @@ declare namespace applicationManager {
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
    * @param { Want } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
-   * @returns { Array<common.ApplicationInstance> } Array of non-stoppable applications.
+   * @returns { Array<common.ApplicationInstance> } 不可关停应用名单数组。
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - Permission verification failed.
@@ -1114,6 +1248,23 @@ declare namespace applicationManager {
    * @since 22
    */
   function getUserNonStopApps(admin: Want): Array<common.ApplicationInstance>;
+
+  /**
+   * 获取当前设备下所有用户不可关停应用名单。
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
+   * @param { Want | null } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
+   *     当设备存在多个MDM应用时，传入Want时查询对应企业设备管理应用设置的策略，传入null时查询实际生效的策略。
+   * @returns { Array<common.ApplicationInstance> } 不可关停应用名单数组。
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  function getUserNonStopApps(admin: Want | null): Array<common.ApplicationInstance>;
 
   /**
    * 为指定用户添加后台防冻结应用名单，仅可对已安装应用设置该策略，该策略重启后失效。若参数列表中存在未安装应用，则返回9200012错误码。若设置策略后，名单中有应用被卸载，则卸载的应用将从名单中移除。若添加已存在于名单中的应用，返回
@@ -1158,7 +1309,7 @@ declare namespace applicationManager {
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
    * @param { Want } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
-   * @returns { Array<common.ApplicationInstance> } Array of the background freeze-exempt application list.
+   * @returns { Array<common.ApplicationInstance> } 后台防冻结应用名单数组。
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - Permission verification failed.
@@ -1168,6 +1319,23 @@ declare namespace applicationManager {
    * @since 22
    */
   function getFreezeExemptedApps(admin: Want): Array<common.ApplicationInstance>;
+
+  /**
+   * 获取当前设备下所有用户后台防冻结应用名单。
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
+   * @param { Want | null } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
+   *     <br>当设备存在多个MDM应用时，传入Want时查询对应企业设备管理应用设置的策略，传入null时查询实际生效的策略。
+   * @returns { Array<common.ApplicationInstance> } 后台防冻结应用名单数组。
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  function getFreezeExemptedApps(admin: Want | null): Array<common.ApplicationInstance>;
 
   /**
    * 设置是否禁用指定应用（系统应用和三方应用均支持）的Ability组件。当前仅支持UIAbility类型，禁用后无法拉起此Ability组件的用户界面。
@@ -1213,6 +1381,29 @@ declare namespace applicationManager {
    * @since 23
    */
   function isAbilityDisabled(admin: Want, bundleName: string, accountId: number, abilityName: string): boolean;
+
+  /**
+   * 获取指定应用（系统应用和三方应用均支持）的Ability组件是否被禁用。
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
+   * @param { Want | null } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
+   *     <br>当设备存在多个MDM应用时，传入Want时查询对应企业设备管理应用设置的策略，传入null时查询实际生效的策略。
+   * @param { string } bundleName - 应用包名，指定是否禁用的应用包名。
+   * @param { number } accountId - 账号ID。
+   *     <br>取值应为≥0的整数。
+   *     <br>accountId可以通过@ohos.account.osAccount中的getOsAccountLocalId等接口来获取。
+   * @param { string } abilityName - 表示要禁用/解除禁用的Ability组件名称（当前仅支持UIAbility）。
+   * @returns { boolean } 该能力是否禁用。true表示该Ability组件被禁用，false表示该Ability组件未被禁用。
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200012 - Parameter verification failed.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  function isAbilityDisabled(admin: Want | null, bundleName: string, accountId: number, abilityName: string): boolean;
 
   /**
    * 根据位置索引添加应用到PC/2in1设备的底部快捷栏，添加后用户可以通过点击快捷栏的应用图标直接启动应用，应用图标为应用在桌面上显示的默认图标。
@@ -1546,7 +1737,7 @@ declare namespace applicationManager {
    *     <br>accountId可以通过@ohos.account.osAccount中的
    *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()}等接口来获取。
    * @param { statistics.NetworkInfo } networkInfo - 网络信息。
-   * @returns { Promise<statistics.NetStatsInfo> } returns the detailed network statistics information.
+   * @returns { Promise<statistics.NetStatsInfo> } Promise对象，返回获取的历史流量信息对象。
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 9200012 - Parameter verification failed.
@@ -1590,27 +1781,6 @@ declare namespace applicationManager {
    * @since 26.0.0
    */
   function queryBundleStatsInfos(admin: Want, startTime: number, endTime: number, accountId: number): Array<BundleStatsInfo>;
-
-  /**
-   * 卡片加桌
-   *
-   * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
-   * @param { Want } admin - 企业设备扩展组件
-   * @param { FormInfo } formInfo - 卡片信息
-   * @param { number } accountId - 系统账号ID
-   *     <br>取值范围:[0, +∞)
-   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
-   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 9200012 - Parameter verification failed.
-   * @throws { BusinessError } 201 - Permission verification failed.
-   *     The application does not have the permission required to call the API.
-   * @throws { BusinessError } 801 - Capability not supported.
-   *     Failed to call the API due to limited device capabilities.
-   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @stagemodelonly
-   * @since 26.0.0
-   */
-  function publishFormToDesktop(admin: Want, formInfo: FormInfo, accountId: number): void;
 
   /**
    * 查询应用窗口状态

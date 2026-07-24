@@ -30,6 +30,8 @@
  * > [MDM Kit Development](docroot://mdm/mdm-kit-guide.md).
  *
  * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+ * @systemapi [since 11 - 11]
+ * @publicapi [since 12]
  * @stagemodelonly
  * @since 11 dynamic
  * @since 23 static
@@ -177,7 +179,7 @@ declare namespace securityManager {
      * @stagemodelonly
      * @since 20
      */
-    accountId: number,
+    accountId: number;
 
     /**
      * Index of the application clone. The default value is **0**.
@@ -190,6 +192,33 @@ declare namespace securityManager {
      * @since 20
      */
     appIndex: number;
+  }
+
+  /**
+   * Encryption algorithm.
+   *
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  export enum PasswordAlgs {
+    /**
+     * SCRYPT-HKDF-AES combination encryption algorithm.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    SCRYPT_HKDF_AES = 0,
+
+    /**
+     * SCRYPT-HKDF-SM4 combination encryption algorithm.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    SCRYPT_HKDF_SM4 = 1
   }
 
   /**
@@ -383,11 +412,7 @@ declare namespace securityManager {
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_SECURITY
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
-   *     EnterpriseAdminExtensionAbility and the bundle name of the application. [since 12 - 24]
-   * @param { Want | null } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
-   *     EnterpriseAdminExtensionAbility and the bundle name of the application.<br>If the device has multiple MDM
-   *     applications, you can pass **admin** to query the corresponding policies. If **null** is passed, the policies
-   *     that actually take effect on the device are returned. [since 26.0.0]
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
    * @returns { PasswordPolicy } Device screen lock password policy.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
@@ -398,6 +423,27 @@ declare namespace securityManager {
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
    * @since 12
+   */
+  function getPasswordPolicy(admin: Want): PasswordPolicy;
+
+  /**
+   * Obtains the device screen lock password policy.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_SECURITY
+   * @param { Want | null } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the.
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.<br>If the device has multiple MDM
+   *     applications, you can pass **admin** to query the corresponding policies. If **null** is passed, the policies
+   *     that actually take effect on the device are returned.
+   * @returns { PasswordPolicy } Device screen lock password policy.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
    */
   function getPasswordPolicy(admin: Want | null): PasswordPolicy;
 
@@ -440,11 +486,7 @@ declare namespace securityManager {
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_SECURITY
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
-   *     EnterpriseAdminExtensionAbility and the bundle name of the application. [since 12 - 24]
-   * @param { Want | null } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
-   *     EnterpriseAdminExtensionAbility and the bundle name of the application.<br>If the device has multiple MDM
-   *     applications, you can pass **admin** to query the corresponding policies. If **null** is passed, the policies
-   *     that actually take effect on the device are returned. [since 26.0.0]
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
    * @param { number } [tokenId] - Application token ID, which can be obtained using
    *     [bundleManager.getApplicationInfo]{@link ./bundleManager/ApplicationInfo}.
    * @returns { string } Device clipboard policy in JSON format.
@@ -457,6 +499,29 @@ declare namespace securityManager {
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
    * @since 12
+   */
+  function getAppClipboardPolicy(admin: Want, tokenId?: number): string;
+
+  /**
+   * Obtains the device clipboard policy.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_SECURITY
+   * @param { Want | null } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the.
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.<br>If the device has multiple MDM
+   *     applications, you can pass **admin** to query the corresponding policies. If **null** is passed, the policies
+   *     that actually take effect on the device are returned.
+   * @param { number } [tokenId] - Application token ID, which can be obtained using
+   *     [bundleManager.getApplicationInfo]{@link ./bundleManager/ApplicationInfo}.
+   * @returns { string } Device clipboard policy in JSON format.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
    */
   function getAppClipboardPolicy(admin: Want | null, tokenId?: number): string;
 
@@ -486,11 +551,7 @@ declare namespace securityManager {
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_SECURITY
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
-   *     EnterpriseAdminExtensionAbility and the bundle name of the application. [since 18 - 24]
-   * @param { Want | null } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
-   *     EnterpriseAdminExtensionAbility and the bundle name of the application.<br>If the device has multiple MDM
-   *     applications, you can pass **admin** to query the corresponding policies. If **null** is passed, the policies
-   *     that actually take effect on the device are returned. [since 26.0.0]
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
    * @param { string } bundleName - Bundle name of the application for which the device clipboard policy is set.
    * @param { number } accountId - Account ID, which must be greater than or equal to 0. You can call
    *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()} of
@@ -503,6 +564,29 @@ declare namespace securityManager {
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
    * @since 18
+   */
+  function getAppClipboardPolicy(admin: Want, bundleName: string, accountId: number): string;
+
+  /**
+   * Obtains the device clipboard policy of a specified application for a specified user.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_SECURITY
+   * @param { Want | null } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.<br>If the device has multiple MDM
+   *     applications, you can pass **admin** to query the corresponding policies. If **null** is passed, the policies
+   *     that actually take effect on the device are returned.
+   * @param { string } bundleName - Bundle name of the application for which the device clipboard policy is set.
+   * @param { number } accountId - Account ID, which must be greater than or equal to 0. You can call
+   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()} of
+   *     **@ohos.account.osAccount** to obtain the account ID.
+   * @returns { string } Device clipboard policy in JSON format.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
    */
   function getAppClipboardPolicy(admin: Want | null, bundleName: string, accountId: number): string;
 
@@ -606,7 +690,7 @@ declare namespace securityManager {
 
     /**
      * The encryption algorithm of the password.
-     * 
+     *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
@@ -796,11 +880,7 @@ declare namespace securityManager {
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_SECURITY
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
-   *     EnterpriseAdminExtensionAbility and the bundle name of the application. [since 22 - 24]
-   * @param { Want | null } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
-   *     EnterpriseAdminExtensionAbility and the bundle name of the application.<br>If the device has multiple MDM
-   *     applications, you can pass **admin** to query the corresponding policies. If **null** is passed, the policies
-   *     that actually take effect on the device are returned. [since 26.0.0]
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
    * @returns { common.ManagedPolicy } Management policy obtained.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
@@ -811,6 +891,27 @@ declare namespace securityManager {
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
    * @since 22
+   */
+  function getExternalSourceExtensionsPolicy(admin: Want): common.ManagedPolicy;
+
+  /**
+   * Obtains the management policy for extensions from external sources.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_SECURITY
+   * @param { Want | null } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the.
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.<br>If the device has multiple MDM
+   *     applications, you can pass **admin** to query the corresponding policies. If **null** is passed, the policies
+   *     that actually take effect on the device are returned.
+   * @returns { common.ManagedPolicy } Management policy obtained.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 801 - Capability not supported.
+   *     Failed to call the API due to limited device capabilities.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
    */
   function getExternalSourceExtensionsPolicy(admin: Want | null): common.ManagedPolicy;
 
@@ -1065,34 +1166,6 @@ declare namespace securityManager {
    * @since 26.0.0
    */
   function isScreenLockDisabledForAccount(admin: Want): boolean;
-
-  /**
-   * Encryption algorithm.
-   * 
-   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @stagemodelonly
-   * @since 26.0.0 dynamic&static
-   */
-  export enum PasswordAlgs {
-
-    /**
-     * SCRYPT-HKDF-AES combination encryption algorithm.
-     * 
-     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    SCRYPT_HKDF_AES = 0,
-    
-    /**
-     * SCRYPT-HKDF-SM4 combination encryption algorithm.
-     * 
-     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    SCRYPT_HKDF_SM4 = 1
-  }
 }
 
 /*** if arkts dynamic */
