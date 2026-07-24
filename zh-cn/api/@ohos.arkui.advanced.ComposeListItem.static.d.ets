@@ -15,8 +15,8 @@
  */
 
 /**
- * @file
- * @kit ArkUI
+  * @file
+  * @kit ArkUI
  */
 import { Component } from '@ohos.arkui.component';
 import { ResourceStr } from '@ohos.arkui.component';
@@ -152,7 +152,7 @@ export declare class OperateIcon {
   /**
    * The accessibilityLevel of the icon.
    *
-   * @default auto
+   * @default "auto"
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -205,7 +205,7 @@ export declare class OperateCheck {
   /**
    * The accessibilityLevel of the checkbox/switch/radio.
    *
-   * @default auto
+   * @default "auto"
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -248,7 +248,7 @@ export declare class OperateButton {
   /**
    * The accessibilityLevel of the button.
    *
-   * @default auto
+   * @default "auto"
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static

@@ -24,7 +24,7 @@ import { Param } from './arkui/stateManagement/decorator';
 import { SymbolGlyphModifier } from './arkui/SymbolGlyphModifier';
 import { Builder } from './arkui/component/builder';
 /**
- * Callback method of event registration and processing.
+ * 节点事件回调函数类型。
  *
  * @param { CallbackParamV2 } callbackParam - The result of event.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -33,7 +33,7 @@ import { Builder } from './arkui/component/builder';
  */
 declare type OnChangedCallback = (callbackParam: CallbackParamV2) => void;
 /**
- * Declare class TreeListenerV2
+ * 树视图组件的监听器，可以将此对象绑定至树视图组件，然后通过它监听树视图的节点的变化，同一个树视图监听器不可以控制多个树视图组件。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -41,9 +41,8 @@ declare type OnChangedCallback = (callbackParam: CallbackParamV2) => void;
  */
 export declare class TreeListenerV2 {
   /**
-   * Node click event registration and processing.
-   * The event will not be destroyed after being processed.
-   *
+     * 注册节点点击事件监听，持续监听节点点击事件。使用callback回调。
+     *
    * @param { OnChangedCallback } callback
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -52,9 +51,8 @@ export declare class TreeListenerV2 {
   onNodeClick(callback: OnChangedCallback): void;
 
   /**
-   * Node click event registration and processing.
-   * After the event is processed once, it will be destroyed.
-   *
+     * 注册节点点击事件监听，监听一次后自动销毁。使用callback回调。
+     *
    * @param { OnChangedCallback } callback
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -63,8 +61,8 @@ export declare class TreeListenerV2 {
   onceNodeClick(callback: OnChangedCallback): void;
 
   /**
-   * Destroy node click callback event.
-   *
+     * 取消节点点击事件监听。使用callback回调。
+     *
    * @param { OnChangedCallback } [callback]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -73,9 +71,8 @@ export declare class TreeListenerV2 {
   offNodeClick(callback?: OnChangedCallback): void;
 
   /**
-   * Node add event registration and processing.
-   * The event will not be destroyed after being processed.
-   *
+     * 注册节点添加事件监听，持续监听节点添加事件。使用callback回调。
+     *
    * @param { OnChangedCallback } callback
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -84,9 +81,8 @@ export declare class TreeListenerV2 {
   onNodeAdd(callback: OnChangedCallback): void;
 
   /**
-   * Node add event registration and processing.
-   * After the event is processed once, it will be destroyed.
-   *
+     * 注册节点添加事件监听，监听一次后自动销毁。使用callback回调。
+     *
    * @param { OnChangedCallback } callback
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -95,8 +91,8 @@ export declare class TreeListenerV2 {
   onceNodeAdd(callback: OnChangedCallback): void;
 
   /**
-   * Destroy node add callback event.
-   *
+     * 取消节点添加事件监听。使用callback回调。
+     *
    * @param { OnChangedCallback } [callback]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -105,9 +101,8 @@ export declare class TreeListenerV2 {
   offNodeAdd(callback?: OnChangedCallback): void;
 
   /**
-   * Node delete event registration and processing.
-   * The event will not be destroyed after being processed.
-   *
+     * 注册节点删除事件监听，持续监听节点删除事件。使用callback回调。
+     *
    * @param { OnChangedCallback } callback
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -116,9 +111,8 @@ export declare class TreeListenerV2 {
   onNodeDelete(callback: OnChangedCallback): void;
 
   /**
-   * Node delete event registration and processing.
-   * After the event is processed once, it will be destroyed.
-   *
+     * 注册节点删除事件监听，监听一次后自动销毁。使用callback回调。
+     *
    * @param { OnChangedCallback } callback
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -127,8 +121,8 @@ export declare class TreeListenerV2 {
   onceNodeDelete(callback: OnChangedCallback): void;
 
   /**
-   * Destroy node delete callback event.
-   *
+     * 取消节点删除事件监听。使用callback回调。
+     *
    * @param { OnChangedCallback } [callback]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -137,9 +131,8 @@ export declare class TreeListenerV2 {
   offNodeDelete(callback?: OnChangedCallback): void;
 
   /**
-   * Node modify event registration and processing.
-   * The event will not be destroyed after being processed.
-   *
+     * 注册节点修改事件监听，持续监听节点修改事件。使用callback回调。
+     *
    * @param { OnChangedCallback } callback
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -148,9 +141,8 @@ export declare class TreeListenerV2 {
   onNodeModify(callback: OnChangedCallback): void;
 
   /**
-   * Node modify event registration and processing.
-   * After the event is processed once, it will be destroyed.
-   *
+     * 注册节点修改事件监听，监听一次后自动销毁。使用callback回调。
+     *
    * @param { OnChangedCallback } callback
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -159,8 +151,8 @@ export declare class TreeListenerV2 {
   onceNodeModify(callback: OnChangedCallback): void;
 
   /**
-   * Destroy node modify callback event.
-   *
+     * 取消节点修改事件监听。使用callback回调。
+     *
    * @param { OnChangedCallback } [callback]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -169,9 +161,8 @@ export declare class TreeListenerV2 {
   offNodeModify(callback?: OnChangedCallback): void;
 
   /**
-   * Node move event registration and processing.
-   * The event will not be destroyed after being processed.
-   *
+     * 注册节点移动事件监听，持续监听节点移动事件。节点移动通过拖拽操作触发。使用callback回调。
+     *
    * @param { OnChangedCallback } callback
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -180,9 +171,8 @@ export declare class TreeListenerV2 {
   onNodeMove(callback: OnChangedCallback): void;
 
   /**
-   * Node move event registration and processing.
-   * After the event is processed once, it will be destroyed.
-   *
+     * 注册节点移动事件监听，监听一次后自动销毁。使用callback回调。
+     *
    * @param { OnChangedCallback } callback
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -191,8 +181,8 @@ export declare class TreeListenerV2 {
   onceNodeMove(callback: OnChangedCallback): void;
 
   /**
-   * Destroy node move callback event.
-   *
+     * 取消节点移动事件监听。使用callback回调。
+     *
    * @param { OnChangedCallback } [callback]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -202,7 +192,7 @@ export declare class TreeListenerV2 {
 }
 
 /**
- * Declare class TreeListenerManagerV2
+ * 树视图组件的监听管理器，可以将此对象绑定至树视图组件，然后通过它管理树视图监听器的变化，同一个监听管理器不可以控制多个树视图组件。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -210,18 +200,18 @@ export declare class TreeListenerV2 {
  */
 export declare class TreeListenerManagerV2 {
   /**
-   * Get instance of treeListenerManagerV2.
-   *
-   * @returns { TreeListenerManagerV2 } - Returns the treeListenerManagerV2 instance.
+     * 获取树视图组件的监听管理器单例对象。
+     *
+   * @returns { TreeListenerManagerV2 } - 返回获取到的树视图组件的监听管理器单例对象。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.0.0 static
    */
   static getInstance(): TreeListenerManagerV2;
   /**
-   * Get treeListenerV2.
-   *
-   * @returns { TreeListenerV2 } - Returns the treeListenerV2 object.
+     * 获取树视图监听器实例。
+     *
+   * @returns { TreeListenerV2 } - 返回获取到的树视图监听器实例。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.0.0 static
@@ -230,7 +220,19 @@ export declare class TreeListenerManagerV2 {
 }
 
 /**
- * Declare TreeViewV2 Component
+ * 树视图V2组件。树视图作为一种分层显示的列表，适合显示嵌套结构。拥有父列表项和子列表项，可展开或折叠。
+ * 
+ * 用于效率型应用，如备忘录、电子邮件、图库中的侧边导航栏。
+ * 
+ * 该组件基于[状态管理（V2）](docroot://ui/state-management/arkts-state-management-overview.md#状态管理v2)实现，相较于
+ * [状态管理（V1）](docroot://ui/state-management/arkts-state-management-overview.md#状态管理v1)，状态管理（V2）增强了对数据对象的深度观察与管理能力，不再局限于组
+ * 件层级。借助状态管理（V2），开发者可以通过该组件更灵活地控制树视图的数据和状态，实现更高效的用户界面刷新。
+ * 
+ * > **说明：**
+ * >
+ * > - 如果TreeViewV2设置[通用属性]{@link ./@internal/component/ets/common}和[通用事件]{@link ./@internal/component/ets/common}，编译工具链
+ * > 会额外生成节点__Common__，并将通用属性或通用事件挂载在__Common__上，而不是直接应用到TreeViewV2本身。这可能导致开发者设置的通用属性或通用事件不生效或不符合预期，因此，不建议TreeViewV2设置通用
+ * > 属性和通用事件。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -239,8 +241,8 @@ export declare class TreeListenerManagerV2 {
 @ComponentV2
 export declare struct TreeViewV2 {
   /**
-   * Node data source of TreeViewV2.
-   *
+     * 树视图节点控制器。
+     *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.0.0 static
@@ -249,7 +251,7 @@ export declare struct TreeViewV2 {
   treeControllerV2: TreeControllerV2;
 
   /**
-   * The method to build component.
+   * 构建组件的方法。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -260,7 +262,7 @@ export declare struct TreeViewV2 {
 }
 
 /**
- * Declare CallbackParamV2
+ * 节点回调参数接口，用于传递节点事件回调的参数信息。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -268,24 +270,36 @@ export declare struct TreeViewV2 {
  */
 export interface CallbackParamV2 {
   /**
-   * Get the currentNodeId.
-   *
+     * 返回当前子节点id。
+     * 
+     * 取值范围：大于等于0。
+     *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.0.0 static
    */
   currentNodeId: int;
   /**
-   * ID of the current parent node.
-   *
+     * 返回当前父节点id。
+     * 
+     * 取值范围：大于等于-1。
+     * 
+     * 默认值：-1
+     *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.0.0 static
    */
   parentNodeId?: int;
   /**
-   * Get the childIndex.
-   *
+     * 返回子索引。
+     * 
+     * 取值范围：大于等于-1。
+     * 
+     * 默认值：-1
+     * 
+     * 仅在节点移动事件中有效，表示移动后的位置索引。
+     *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.0.0 static
@@ -293,7 +307,7 @@ export interface CallbackParamV2 {
   childIndex?: int;
 }
 /**
- * Set subcomponent binded on tree item.
+ * 容器回调函数类型，用于定义绑定在树节点上的子组件回调。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -301,7 +315,7 @@ export interface CallbackParamV2 {
  */
 declare type OnContainerCallback = () => void;
 /**
- * Declare NodeParamV2
+ * 节点参数接口，用于配置树节点的属性。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -309,8 +323,12 @@ declare type OnContainerCallback = () => void;
  */
 export interface NodeParamV2 {
   /**
-   * Set the parentNodeId.
-   *
+     * 父节点Id。
+     * 
+     * 取值范围：大于等于-1。
+     * 
+     * 默认值：-1，根节点id值为-1。若设置数值小于-1，该节点无效，不显示在树视图上。
+     *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.0.0 static
@@ -318,8 +336,14 @@ export interface NodeParamV2 {
   parentNodeId?: int;
 
   /**
-   * Set currentNodeId.
-   *
+     * 当前子节点Id。
+     * 
+     * 取值范围：大于等于-1。
+     * 
+     * 不能为根节点id，不能为null，否则会抛出异常。且不能设置两个相同的currentNodeId。
+     * 
+     * 默认值：-1
+     *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.0.0 static
@@ -327,8 +351,12 @@ export interface NodeParamV2 {
   currentNodeId?: int;
 
   /**
-   * Set catalog whether is floder.
-   *
+     * 是否是目录。
+     * 
+     * 默认值：false
+     * 
+     * true：是目录，false：不是目录。
+     *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.0.0 static
@@ -336,8 +364,10 @@ export interface NodeParamV2 {
   isFolder?: boolean;
 
   /**
-   * Set the icon resource.
-   *
+     * 图标。
+     * 
+     * 默认值：空字符串。
+     *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.0.0 static
@@ -345,8 +375,10 @@ export interface NodeParamV2 {
   icon?: ResourceStr;
 
   /**
-   * Set the symbol resource.
-   *
+     * Symbol图标样式，显示优先级大于icon，同时设置symbolIconStyle和icon，只显示Symbol图标。
+     * 
+     * 默认值：undefined，表示不显示Symbol图标。
+     *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.0.0 static
@@ -354,8 +386,10 @@ export interface NodeParamV2 {
   symbolIconStyle?: SymbolGlyphModifier;
 
   /**
-   * Set selected icon resource.
-   *
+     * 选中图标。
+     * 
+     * 默认值：空字符串。
+     *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.0.0 static
@@ -363,8 +397,10 @@ export interface NodeParamV2 {
   selectedIcon?: ResourceStr;
 
   /**
-   * Set selected symbol resource.
-   *
+     * Symbol选中图标样式，优先级大于selectedIcon。
+     * 
+     * 默认值：undefined，选中时显示与未选中一样
+     *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.0.0 static
@@ -372,8 +408,10 @@ export interface NodeParamV2 {
   symbolSelectedIconStyle?: SymbolGlyphModifier;
 
   /**
-   * Set edit icon resource.
-   *
+     * 编辑图标。
+     * 
+     * 默认值：空字符串。
+     *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.0.0 static
@@ -381,8 +419,10 @@ export interface NodeParamV2 {
   editIcon?: ResourceStr;
 
   /**
-   * Set edit symbol resource.
-   *
+     * Symbol编辑图标样式，优先级大于editIcon。
+     * 
+     * 默认值：undefined，编辑时显示与非编辑态一样
+     *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.0.0 static
@@ -390,8 +430,10 @@ export interface NodeParamV2 {
   symbolEditIconStyle?: SymbolGlyphModifier;
 
   /**
-   * Set primary title content.
-   *
+     * 主标题。
+     * 
+     * 默认值：空字符串。
+     *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.0.0 static
@@ -399,8 +441,10 @@ export interface NodeParamV2 {
   primaryTitle?: ResourceStr;
 
   /**
-   * Set secondary title content.
-   *
+     * 副标题。
+     * 
+     * 默认值：空字符串。
+     *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.0.0 static
@@ -408,8 +452,10 @@ export interface NodeParamV2 {
   secondaryTitle?: ResourceStr;
 
   /**
-   * set subcomponent binded on tree item.
-   *
+     * 绑定在节点上的右键子组件，子组件由@Builder修饰。
+     * 
+     * 默认值：() => void
+     *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.0.0 static
@@ -418,7 +464,7 @@ export interface NodeParamV2 {
 }
 
 /**
- * Declare TreeControllerV2
+ * 树视图组件的控制器，可以将此对象绑定至树视图组件，然后通过它控制树的节点信息，同一个控制器不可以控制多个树视图组件。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -426,10 +472,8 @@ export interface NodeParamV2 {
  */
 export declare class TreeControllerV2 {
   /**
-   * Delete a node.
-   * Register an ON_ITEM_DELETE callback through the ListTreeListenerV2 mechanism to obtain the IDs of all deleted
-   * nodes.
-   *
+     * 点击某个节点后，调用该方法可以触发删除该节点。
+     *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.0.0 static
@@ -437,9 +481,8 @@ export declare class TreeControllerV2 {
   removeNode(): void;
 
   /**
-   * Modify the node name.
-   * Register an ON_ITEM_MODIFY callback to obtain the ID, parent node ID, and node name of the modified node.
-   *
+     * 点击某个节点后，调用该方法可以触发修改该节点，该节点进入编辑态。
+     *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.0.0 static
@@ -447,13 +490,10 @@ export declare class TreeControllerV2 {
   modifyNode(): void;
 
   /**
-   * Initialize the interface of the tree view. This interface is used to generate ListNodeDataSource data.
-   * addNode is only designed for initialization. It can only be invoked during initialization.
-   * A maximum of 50 directory levels can be added.
-   * For details, see the comment description of NodeParam.
-   *
-   * @param { NodeParamV2 } [nodeParam] - Configuration information of the newly added node.
-   * @returns { TreeControllerV2 } - ListTreeNode Tree view component proxy class.
+     * 点击某个节点后，调用该方法可以触发新增子节点。
+     *
+   * @param { NodeParamV2 } [nodeParam] - 节点信息，用于指定新增节点的属性。如果不传该参数，在当前选中的节点下添加一个标题为"新建文件夹"的节点。
+   * @returns { TreeControllerV2 } - 树视图组件的控制器。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.0.0 static
@@ -461,12 +501,11 @@ export declare class TreeControllerV2 {
   addNode(nodeParam?: NodeParamV2): TreeControllerV2;
 
   /**
-   * This interface is called when a secondaryTitle needs to be updated
-   *
-   * @param { int } parentId - ID of the parent node.
-   *     <br>Value range:The value must be greater than or equal to -1.
-   * @param { ResourceStr } parentSubTitle - secondaryTitle of parent node.
-   * @param { ResourceStr } currentSubtitle - secondaryTitle of current node.
+     * 更新树视图。调用该方法，更新当前节点的信息。
+     *
+   * @param { int } parentId - 父节点Id。<br />取值范围：大于等于-1。
+   * @param { ResourceStr } parentSubTitle - 父节点副标题。
+   * @param { ResourceStr } currentSubtitle - 当前节点副标题。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.0.0 static
@@ -474,9 +513,7 @@ export declare class TreeControllerV2 {
   refreshNode(parentId: int, parentSubTitle: ResourceStr, currentSubtitle: ResourceStr): void;
 
   /**
-   * After the initialization is complete by calling the addNode interface,
-   * call this interface to complete initialization.
-   * This interface must be called when you finish initializing the ListTreeViewV2 by addNode.
+   * 建立树视图。节点增加完毕后，必须调用该方法，触发树信息的保存。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly

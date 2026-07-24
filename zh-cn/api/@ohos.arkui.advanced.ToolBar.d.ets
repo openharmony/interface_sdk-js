@@ -14,14 +14,14 @@
  */
 
 /**
- * @file
- * @kit ArkUI
+  * @file
+  * @kit ArkUI
  */
 
 import { SymbolGlyphModifier, DividerModifier } from './@ohos.arkui.modifier';
 import { LengthMetrics } from './@ohos.arkui.node';
 /**
- * Enumerates toolbar item states.
+ * 定义工具栏子项的当前状态。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -32,7 +32,7 @@ import { LengthMetrics } from './@ohos.arkui.node';
  */
 export declare enum ItemState {
   /**
-   * The toolbar item is enabled.
+   * 工具栏子项为正常可点击状态。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -42,7 +42,7 @@ export declare enum ItemState {
    */
   ENABLE = 1,
   /**
-   * The toolbar item is disabled.
+   * 工具栏子项为不可点击状态。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -52,7 +52,7 @@ export declare enum ItemState {
    */
   DISABLE = 2,
   /**
-   * The toolbar item is activated.
+   * 工具栏子项为激活状态，可点击。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -64,7 +64,7 @@ export declare enum ItemState {
 }
 
 /**
- * Defines the icon symbol options.
+ * ToolBarSymbolGlyphOptions定义图标的属性。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -76,9 +76,9 @@ export declare enum ItemState {
 export interface ToolBarSymbolGlyphOptions {
 
   /**
-   * Icon symbol of the toolbar item in normal state.
-   *
-   * Default value: **fontColor: $r('sys.color.icon_primary'), fontSize: 24vp**
+   * 工具栏symbol图标普通态样式。
+   * 
+   * 默认值：fontColor：$r('sys.color.icon_primary')，fontSize：24vp。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -89,9 +89,9 @@ export interface ToolBarSymbolGlyphOptions {
   normal?: SymbolGlyphModifier;
 
   /**
-   * Icon symbol of the toolbar item in activated state.
-   *
-   * Default value: **fontColor: $r('sys.color.icon_emphasize'), fontSize: 24vp**
+   * 工具栏symbol图标激活态样式。
+   * 
+   * 默认值：fontColor：$r('sys.color.icon_emphasize')，fontSize：24vp。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -103,7 +103,7 @@ export interface ToolBarSymbolGlyphOptions {
 }
 
 /**
- * Defines the content and attributes of a toolbar.
+ * 定义工具栏的列表内容和属性。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -115,7 +115,7 @@ export interface ToolBarSymbolGlyphOptions {
 @Observed
 export declare class ToolBarOption {
   /**
-   * Text of the toolbar item.
+   * 工具栏子项的文本。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -125,7 +125,7 @@ export declare class ToolBarOption {
    */
   content: ResourceStr;
   /**
-   * Click event of the toolbar item.
+   * 工具栏子项点击事件。不传入时点击子项不会触发任何操作。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -135,11 +135,11 @@ export declare class ToolBarOption {
    */
   action?: () => void;
   /**
-   * Icon of the toolbar item.
-   *
-   * If this parameter is not set or is set to **undefined**, the icon is not displayed.
-   *
-   * If **toolBarSymbolOptions** has input parameters, **icon** is ineffective.
+   * 工具栏子项的图标。
+   * 
+   * 默认不设置或者设置为undefined，图标不显示。
+   * 
+   * 当设置了toolBarSymbolOptions属性时，icon属性将不生效。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -149,9 +149,9 @@ export declare class ToolBarOption {
    */
   icon?: Resource;
   /**
-   * State of the toolbar item.
-   *
-   * Default value: **ItemState.ENABLE**
+   * 工具栏子项的状态。
+   * 
+   * 默认为ItemState.ENABLE。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -161,9 +161,9 @@ export declare class ToolBarOption {
    */
   state?: ItemState;
   /**
-   * Font color of the toolbar item.
-   *
-   * Default value: **$r('sys.color.font_primary')**
+   * 工具栏子项的文本颜色。
+   * 
+   * 默认值为$r('sys.color.font_primary')。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -173,9 +173,9 @@ export declare class ToolBarOption {
    */
   textColor?: ResourceColor;
   /**
-   * Font color of the toolbar item in the activated state.
-   *
-   * Default value: **$r('sys.color.font_emphasize')**
+   * 工具栏子项激活态的文本颜色。
+   * 
+   * 默认值为$r('sys.color.font_emphasize')。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -185,9 +185,11 @@ export declare class ToolBarOption {
    */
   activatedTextColor?: ResourceColor;
   /**
-   * Icon fill color of the toolbar item.
-   *
-   * Default value: **$r('sys.color.icon_primary')**
+   * 工具栏子项的图标填充颜色。
+   * 
+   * 默认值为$r('sys.color.icon_primary')。
+   * 
+   * 当设置了toolBarSymbolOptions属性时，该参数不生效。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -197,9 +199,11 @@ export declare class ToolBarOption {
    */
   iconColor?: ResourceColor;
   /**
-   * Icon fill color of the toolbar option in the activated state.
-   *
-   * Default value: **$r('sys.color.icon_emphasize')**
+   * 工具栏子项激活态的图标填充颜色。
+   * 
+   * 默认值为$r('sys.color.icon_emphasize')。
+   * 
+   * 当设置了toolBarSymbolOptions属性时，该参数不生效。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -209,7 +213,7 @@ export declare class ToolBarOption {
    */
   activatedIconColor?: ResourceColor;
   /**
-   * Icon symbol options of the toolbar item.
+   * 工具栏子项的图标属性，symbol类型。设置此参数后，icon属性将不生效。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -219,13 +223,9 @@ export declare class ToolBarOption {
    */
   toolBarSymbolOptions?: ToolBarSymbolGlyphOptions;
   /**
-   * Accessibility text, that is, accessible label name, of the toolbar item. If a component does not contain text
-   * information, it will not be announced by the screen reader when selected. In this case, the screen reader user
-   * cannot know which component is selected. To solve this problem, you can set accessibility text for components
-   * without text information. When such a component is selected, the screen reader announces the specified
-   * accessibility text, informing the user which component is selected.
-   *
-   * Default value: value of **content**
+   * 工具栏子项的无障碍文本属性。当组件不包含文本属性时，屏幕朗读选中此组件时不播报。开发人员可为不包含文字信息的组件设置无障碍文本，使屏幕朗读选中此组件时播报该文本内容。
+   * 
+   * 默认值为当前项content属性内容。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -235,13 +235,9 @@ export declare class ToolBarOption {
    */
   accessibilityText?: ResourceStr;
   /**
-   * Accessible description of the toolbar item. You can provide comprehensive text explanations to help users
-   * understand the operation they are about to perform and its potential consequences, especially when these cannot be
-   * inferred from the component's attributes and accessibility text alone. If a component contains both text
-   * information and the accessible description, the text is announced first and then the accessible description, when
-   * the component is selected.
-   *
-   * Default value: **"Double-tap to activate"**
+   * 工具栏子项的无障碍描述。用于向用户详细解释当前组件的功能和操作后果，特别是当这些信息无法仅从组件文本直接获知时。组件被选中时，将依次播报文本属性和无障碍说明属性的内容。
+   * 
+   * 默认值为“单指双击即可执行”。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -251,21 +247,19 @@ export declare class ToolBarOption {
    */
   accessibilityDescription?: ResourceStr;
   /**
-   * Accessibility level of the toolbar item. It determines whether the component can be recognized by accessibility
-   * services.
-   *
-   * The options are as follows:
-   *
-   * **"auto"**: This option is treated as "yes" by the system for this component.
-   *
-   * **"yes"**: The component can be recognized by accessibility services.
-   *
-   * **"no"**: The component cannot be recognized by accessibility services.
-   *
-   * **"no-hide-descendants"**: Neither the component nor its child components can be recognized by accessibility
-   * services.
-   *
-   * Default value: **"auto"**
+   * 工具栏子项无障碍重要性。用于控制当前项是否可被无障碍辅助服务所识别。
+   * 
+   * 支持的值为：
+   * 
+   * "auto"：当前组件会转换为"yes"。
+   * 
+   * "yes"：当前组件可被无障碍辅助服务所识别。
+   * 
+   * "no"：当前组件不可被无障碍辅助服务所识别。
+   * 
+   * "no-hide-descendants"：当前组件及其所有子组件不可被无障碍辅助服务所识别。
+   * 
+   * 默认值："auto"
    *
    * @default "auto"
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -278,7 +272,7 @@ export declare class ToolBarOption {
 }
 
 /**
- * Inherits from Array<[ToolBarOption]{@link ToolBarOption}>.
+ * 继承于 Array<[ToolBarOption]{@link ToolBarOption}>。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -291,9 +285,7 @@ export declare class ToolBarOption {
 export declare class ToolBarOptions extends Array<ToolBarOption> {}
 
 /**
- * Provides APIs for setting the height (**height**), background color (**backgroundColor**), left and right padding (
- * **padding**, which only takes effect when there are fewer than five items) of the toolbar, and whether to display the
- * pressed state effect (**stateEffect**).
+ * ToolBarModifier提供设置工具栏高度(height)、背景色(backgroundColor)、左右内边距（padding，仅在子项数量小于5个时生效）、是否显示按压态（stateEffect）的方法。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -304,12 +296,10 @@ export declare class ToolBarOptions extends Array<ToolBarOption> {}
  */
 export declare class ToolBarModifier {
   /**
-   * Sets the height of the toolbar. By overriding this API, you can implement custom drawing for the height of the
-   * toolbar, which does not include the height of the divider.
+   * 设置工具栏高度的接口，此高度不包含分割线高度。
    *
-   * @param { LengthMetrics } height - Height of the toolbar.
-   *     <br>The default height of the toolbar is 56 vp, which does not include the divider.
-   * @returns { ToolBarModifier } **ToolBarModifier** object after the height is set.
+   * @param { LengthMetrics } height - 工具栏高度。<br/>工具栏高度默认为56vp（不包含分割线）。
+   * @returns { ToolBarModifier } 返回当前的ToolBarModifier对象，支持链式调用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform [since 18]
@@ -318,12 +308,10 @@ export declare class ToolBarModifier {
    */
   height(height: LengthMetrics): ToolBarModifier;
   /**
-   * Sets the background color of the toolbar. By overriding this API, you can implement custom drawing for the
-   * background color of the toolbar.
+   * 设置工具栏背景色的接口。
    *
-   * @param { ResourceColor } backgroundColor - Toolbar background color
-   *     <br>Default value: **$r('sys.color.ohos_id_color_toolbar_bg')**
-   * @returns { ToolBarModifier } **ToolBarModifier** object after the background color is set.
+   * @param { ResourceColor } backgroundColor - 工具栏背景色。<br/>默认背景色为$r('sys.color.ohos_id_color_toolbar_bg')。
+   * @returns { ToolBarModifier } 返回当前的ToolBarModifier对象，支持链式调用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform [since 18]
@@ -332,14 +320,10 @@ export declare class ToolBarModifier {
    */
   backgroundColor(backgroundColor: ResourceColor): ToolBarModifier;
   /**
-   * Sets the left and right padding of the toolbar. By overriding this API, you can implement custom drawing for the
-   * left and right padding of the toolbar.
+   * 设置工具栏左右内边距的接口。
    *
-   * @param { LengthMetrics } padding - Left and right padding of the toolbar, which is effective only when there are
-   *     fewer than five items.
-   *     <br>By default, the padding is 24 vp when there are fewer than five items and 0 when there are five or more
-   *     items.
-   * @returns { ToolBarModifier } **ToolBarModifier** object after the padding is set.
+   * @param { LengthMetrics } padding - 工具栏左右内边距，仅在子项数量小于5个时生效。<br/>工具栏默认在子项数量小于5个时padding为24vp，大于等于5个时为0vp。
+   * @returns { ToolBarModifier } 返回当前的ToolBarModifier对象，支持链式调用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform [since 18]
@@ -348,13 +332,10 @@ export declare class ToolBarModifier {
    */
   padding(padding: LengthMetrics): ToolBarModifier;
   /**
-   * Sets whether to display the pressed state effect.
+   * 设置是否显示按压态效果的接口。
    *
-   * @param { boolean } stateEffect - Whether to display the pressed state effect on the toolbar.
-   *     <br>The value **true** means to display the pressed state effect on the toolbar, and **false** means the
-   *     opposite.
-   *     <br>Default value: **true**
-   * @returns { ToolBarModifier } **ToolBarModifier** object after the pressed state effect is set.
+   * @param { boolean } stateEffect - 工具栏是否显示按压态效果。<br/>true为显示按压态效果，false为移除按压态效果，默认为true。
+   * @returns { ToolBarModifier } 返回当前的ToolBarModifier对象，支持链式调用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform [since 18]
@@ -365,21 +346,14 @@ export declare class ToolBarModifier {
 }
 
 /**
- * The **Toolbar** component is designed to present a set of action options related to the current screen, displayed at
- * the bottom of the screen. It can display up to five child components. If there are six or more child components, the
- * first four are shown directly, and the additional ones are grouped under a **More** item on the rightmost side of the
- * toolbar.
- *
- * > **NOTE**
+ * 工具栏组件，用于展示针对当前界面内容的操作选项，在界面底部显示。适用于需要为用户提供快捷操作入口的场景，如编辑页面的复制、粘贴、分享等操作。底部最多显示5个入口，超过则收纳入“更多”子项中，在最右侧显示。
+ * 
+ * > **说明：**
  * >
- * > - This component can be used only in the stage model.
+ * > - 该组件仅可在Stage模型下使用。
  * >
- * > - If the **ToolBar** component has [universal attributes]{@link ./@internal/component/ets/common} and
- * > [universal events]{@link ./@internal/component/ets/common} configured, the compiler toolchain automatically
- * > generates an additional **__Common__** node and mounts the universal attributes and universal events on this node
- * > rather than the **ToolBar** component itself. As a result, the configured universal attributes and universal events
- * > may fail to take effect or behave as intended. For this reason, avoid using universal attributes and events with
- * > the **ToolBar** component.
+ * > - 如果ToolBar设置[通用属性]{@link ./@internal/component/ets/common}和[通用事件]{@link ./@internal/component/ets/common}，编译工具链会额外
+ * > 生成节点__Common__，并将通用属性或通用事件挂载在__Common__上，而不是直接应用到ToolBar本身。这可能导致开发者设置的通用属性或通用事件不生效或不符合预期，因此，不建议ToolBar设置通用属性和通用事件。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -391,7 +365,7 @@ export declare class ToolBarModifier {
 @Component
 export declare struct ToolBar {
   /**
-   * Toolbar list.
+   * 工具栏列表。
    *
    * @type { ToolBarOptions }. [since 10 - 17]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -403,12 +377,9 @@ export declare struct ToolBar {
   @ObjectLink
   toolBarList: ToolBarOptions;
   /**
-   * Index of the active item.
-   *
-   * The value must be greater than or equal to -1.
-   *
-   * The default value is **-1**, indicating that there is no active item. Values less than -1 are treated as no active
-   * item.
+   * 激活态的子项索引。
+   * 
+   * 默认值：-1，表示没有激活态的子项。设置小于-1的值时按没有激活项处理。
    *
    * @type { ?number }. [since 10 - 17]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -420,7 +391,12 @@ export declare struct ToolBar {
   @Prop
   activateIndex?: number;
   /**
-   * Toolbar controller, which cannot be used for controlling individual toolbar items.
+   * 工具栏控制器，用于关联Tabs组件页面切换，不支持控制工具栏子项。
+   * 
+   * **说明：** 
+   * 
+   * 根据自定义组件成员属性访问限定符[使用限制](docroot://ui/state-management/arkts-custom-components-access-restrictions.md#使用限制)，该接口属于常规成员
+   * 变量，可以传参进行初始化；也可以不传。不传时，使用组件内预设值进行初始化，组件内预设值为：new TabsController()。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -430,10 +406,9 @@ export declare struct ToolBar {
    */
   controller: TabsController;
   /**
-   * Modifier for the toolbar header divider, which can be used to customize the divider's height, color, and other
-   * attributes.
-   *
-   * Default value: system default value
+   * 工具栏头部分割线属性，可设置分割线高度、颜色等。
+   * 
+   * 默认值：系统默认值。
    *
    * @type { ?DividerModifier }. [since 13 - 17]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -445,18 +420,17 @@ export declare struct ToolBar {
   @Prop
   dividerModifier?: DividerModifier;
   /**
-   * Modifier for the toolbar, which can be used to set the toolbar's height, background color, padding (which only
-   * takes effect when there are fewer than five toolbar items), and whether to display the pressed state.
-   *
-   * Default value:
-   *
-   * Height of the toolbar: **56vp**
-   *
-   * Background color: **ohos_id_toolbar_bg**
-   *
-   * Padding: **24vp**
-   *
-   * Whether to display the pressed state: yes
+   * 工具栏属性，可设置工具栏高度、背景色、内边距（仅在工具栏子项数量小于5时生效）、是否显示按压态。
+   * 
+   * 默认值：
+   * 
+   * 工具栏高度：56vp
+   * 
+   * 背景色：ohos_id_toolbar_bg
+   * 
+   * 内边距：24vp
+   * 
+   * 显示按压态。
    *
    * @type { ?ToolBarModifier }. [since 13 - 17]
    * @syscap SystemCapability.ArkUI.ArkUI.Full

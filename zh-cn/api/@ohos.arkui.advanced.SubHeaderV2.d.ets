@@ -32,7 +32,7 @@ import { TextModifier as TextModifier } from '@ohos.arkui.modifier';
 declare type SubHeaderV2IconType = ResourceStr | SymbolGlyphModifier;
 
 /**
- * Defines the options for initializing a **SubHeaderV2Title** object.
+ * 用于构建SubHeaderV2Title对象。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -42,9 +42,11 @@ declare type SubHeaderV2IconType = ResourceStr | SymbolGlyphModifier;
  */
 export interface SubHeaderV2TitleOptions {
   /**
-   * Primary title.
-   *
-   * Default value: **undefined**
+   * 标题内容。
+   * 
+   * 当[SubHeaderV2]{@link SubHeaderV2}中同时使用primaryTitle、secondaryTitle、icon属性时，primaryTitle将不会显示。
+   * 
+   * 默认值：undefined
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -54,9 +56,9 @@ export interface SubHeaderV2TitleOptions {
    */
   primaryTitle?: ResourceStr;
   /**
-   * Text attributes of the primary title, such as the font color, font size, and font weight.
-   *
-   * Default value: **undefined**
+   * 设置标题文本属性，如设置主标题颜色、字体大小、字重等。
+   * 
+   * 默认值：undefined
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -66,9 +68,9 @@ export interface SubHeaderV2TitleOptions {
    */
   primaryTitleModifier?: TextModifier;
   /**
-   * Secondary title.
-   *
-   * Default value: **undefined**
+   * 副标题内容。
+   * 
+   * 默认值：undefined
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -78,9 +80,9 @@ export interface SubHeaderV2TitleOptions {
    */
   secondaryTitle?: ResourceStr;
   /**
-   * Text attributes of the secondary title, such as the font color, font size, and font weight.
-   *
-   * Default value: **undefined**
+   * 设置副标题文本属性，如设置副标题颜色、字体大小、字重等。
+   * 
+   * 默认值：undefined
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -90,11 +92,11 @@ export interface SubHeaderV2TitleOptions {
    */
   secondaryTitleModifier?: TextModifier;
   /**
-   * Customized content to be read in the title.
-   *
-   * Default value: **undefined**
-   *
-   * If the value is **undefined**, the title content displayed by the component is read by default.
+   * 设置标题自定义朗读内容。
+   * 
+   * 默认值：undefined
+   * 
+   * 值为undefined时，默认朗读组件显示的标题内容。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -104,7 +106,9 @@ export interface SubHeaderV2TitleOptions {
    */
   titleAccessibilityText?: ResourceStr;
   /**
-   * Set the id of the title.
+   * 标题id。需要为标题设置id的时候设置此参数，缺省时不设置此参数。
+   * 
+   * 默认值：undefined，表示不设置标题id。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -115,7 +119,7 @@ export interface SubHeaderV2TitleOptions {
   id?: string;
 }
 /**
- * Defines the title settings for the subheader.
+ * 标题设置项。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -127,7 +131,6 @@ export interface SubHeaderV2TitleOptions {
 export declare class SubHeaderV2Title {
   /**
    * The first line text of content area.
-   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -138,7 +141,6 @@ export declare class SubHeaderV2Title {
   primaryTitle?: ResourceStr;
   /**
    * Text modifier for primary title.
-   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -149,7 +151,6 @@ export declare class SubHeaderV2Title {
   primaryTitleModifier?: TextModifier;
   /**
    * The secondary line text of content area.
-   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -160,7 +161,6 @@ export declare class SubHeaderV2Title {
   secondaryTitle?: ResourceStr;
   /**
    * Text modifier for secondary title.
-   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -171,13 +171,11 @@ export declare class SubHeaderV2Title {
   secondaryTitleModifier?: TextModifier;
 
   /**
-   * Customized content to be read in the title.
-   *
-   * Default value: **undefined**
-   *
-   * If the value is **undefined**, the title content displayed by the component is read by default.
-   *
-   * Decorator: @Trace
+   * 设置标题自定义朗读内容。
+   * 
+   * 默认值：undefined
+   * 
+   * 值为undefined时，默认朗读组件显示的标题内容。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -189,7 +187,9 @@ export declare class SubHeaderV2Title {
   titleAccessibilityText?: ResourceStr;
 
   /**
-   * Set the id of the title.
+   * 标题id。需要为标题设置id的时候设置此参数，缺省时不设置此参数。
+   * 
+   * 默认值：undefined，表示不设置标题id。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -201,9 +201,9 @@ export declare class SubHeaderV2Title {
   id?: string;
 
   /**
-   * A constructor used to create a **SubHeaderV2Title** object.
+   * 标题内容信息SubHeaderV2Title构造函数。
    *
-   * @param { SubHeaderV2TitleOptions } options - Options for initializing the title.
+   * @param { SubHeaderV2TitleOptions } options - 标题内容信息。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -214,10 +214,10 @@ export declare class SubHeaderV2Title {
 }
 
 /**
- * Defines the callback invoked when an item in the drop-down list box is selected.
+ * 下拉菜单选中某一项的回调类型。
  *
- * @param { number } selectedIndex - Index of the selected drop-down menu option.
- * @param { ?string } selectedContent - Content of the selected drop-down menu option.
+ * @param { number } selectedIndex - 选中的下拉菜单项的索引值，索引从0开始计数。
+ * @param { ?string } selectedContent - 选中的下拉菜单项的文本内容，即用户选择的菜单项显示的文本。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -227,7 +227,7 @@ export declare class SubHeaderV2Title {
 export type SubHeaderV2SelectOnSelect = (selectedIndex: number, selectedContent?: string) => void;
 
 /**
- * Defines the options for initializing a **SubHeaderV2Select** object.
+ * 用于构建SubHeaderV2Select对象。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -237,7 +237,7 @@ export type SubHeaderV2SelectOnSelect = (selectedIndex: number, selectedContent?
  */
 export interface SubHeaderV2SelectOptions {
   /**
-   * Options for the drop-down list box.
+   * 下拉选项内容。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -247,11 +247,13 @@ export interface SubHeaderV2SelectOptions {
    */
   options: SelectOption[];
   /**
-   * Index of the initially selected item in the drop-down list box.
-   *
-   * The index of the first item is 0.
-   *
-   * If this property is not set, the default value **-1** is used, indicating that no item is selected.
+   * 设置下拉菜单初始选项的索引。
+   * 
+   * 第一项的索引为0。
+   * 
+   * 当不设置selectedIndex属性时，
+   * 
+   * 默认选择值为-1，菜单项不选中。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -261,7 +263,7 @@ export interface SubHeaderV2SelectOptions {
    */
   selectedIndex?: number;
   /**
-   * Text content of the drop-down button. Default value: **''**. The Resource type is supported since API version 20.
+   * 设置下拉按钮本身的文本内容。默认值：''。从API version 20开始，支持Resource类型。
    *
    * @type { ?string } [since 18 - 19]
    * @type { ?ResourceStr } [since 20]
@@ -273,9 +275,9 @@ export interface SubHeaderV2SelectOptions {
    */
   selectedContent?: ResourceStr;
   /**
-   * Callback invoked when an item in the drop-down list box is selected.
-   *
-   * Default value: **undefined**
+   * 下拉菜单选中某一项的回调。
+   * 
+   * 默认值：undefined
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -285,13 +287,13 @@ export interface SubHeaderV2SelectOptions {
    */
   onSelect?: SubHeaderV2SelectOnSelect;
   /**
-   * Whether the drop-down button is the default focus.
-   *
-   * **true**: The drop-down button is the default focus.
-   *
-   * **false**: The drop-down button is not the default focus.
-   *
-   * Default value: **false**
+   * 下拉按钮是否为默认焦点。
+   * 
+   * true：下拉按钮是默认焦点。
+   * 
+   * false：下拉按钮不是默认焦点。
+   * 
+   * 默认值：false
    *
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -302,7 +304,9 @@ export interface SubHeaderV2SelectOptions {
    */
   defaultFocus?: boolean;
   /**
-   * Set the id for the SubHeaderV2Select.
+   * 下拉按钮id。需要为下拉按钮设置id的时候设置此参数，缺省时不设置此参数。
+   * 
+   * 默认值：undefined，表示不设置下拉按钮id。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -314,7 +318,7 @@ export interface SubHeaderV2SelectOptions {
 }
 
 /**
- * Defines the content and events for selection.
+ * 下拉选择器配置项，包含下拉选项内容、选中状态及回调事件。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -347,7 +351,6 @@ export declare class SubHeaderV2Select {
   @Trace
   selectedIndex?: number;
   /**
-   * Sets the selected content of the SubHeaderV2SelectOptions.
    *
    * @type { ?string } [since 18 - 19]
    * @type { ?ResourceStr } [since 20]
@@ -371,15 +374,13 @@ export declare class SubHeaderV2Select {
   @Trace
   onSelect?: SubHeaderV2SelectOnSelect;
   /**
-   * Whether the drop-down button is the default focus.
-   *
-   * **true**: The drop-down button is the default focus.
-   *
-   * **false**: The drop-down button is not the default focus.
-   *
-   * Default value: **false**
-   *
-   * Decorator: @Trace
+   * 下拉按钮是否为默认焦点。
+   * 
+   * true：下拉按钮是默认焦点。
+   * 
+   * false：下拉按钮不是默认焦点。
+   * 
+   * 默认值：false
    *
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -392,7 +393,9 @@ export declare class SubHeaderV2Select {
   defaultFocus?: boolean;
 
   /**
-   * Set the id for the SubHeaderV2Select.
+   * 下拉按钮id。需要为下拉按钮设置id的时候设置此参数，缺省时不设置此参数。
+   * 
+   * 默认值：undefined，表示不设置下拉按钮id。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -404,9 +407,9 @@ export declare class SubHeaderV2Select {
   id?: string;
 
   /**
-   * A constructor used to create a **SubHeaderV2SelectOptions** object.
+   * select内容以及事件构造函数。
    *
-   * @param { SubHeaderV2SelectOptions } options - Options of the drop-down list box.
+   * @param { SubHeaderV2SelectOptions } options - 下拉选项信息。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -414,10 +417,28 @@ export declare class SubHeaderV2Select {
    * @since 18 dynamic
    */
   constructor(options: SubHeaderV2SelectOptions);
+
+  /**
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  /**
+   *
+   * @type { ?ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20 dynamic
+   */
+  @Trace selectedContent?: ResourceStr;
 }
 
 /**
- * Defines the style of elements in the operation area.
+ * 操作区元素样式。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -427,7 +448,7 @@ export declare class SubHeaderV2Select {
  */
 export declare enum SubHeaderV2OperationType {
   /**
-   * Text button with a right arrow.
+   * 文本按钮（带右箭头）。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -437,7 +458,7 @@ export declare enum SubHeaderV2OperationType {
    */
   TEXT_ARROW = 0,
   /**
-   * Text button without a right arrow.
+   * 文本按钮（不带右箭头）。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -447,7 +468,7 @@ export declare enum SubHeaderV2OperationType {
    */
   BUTTON = 1,
   /**
-   * Icon-attached button (A maximum of three icons can be configured.)
+   * 图标按钮（最多支持配置三张图标）。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -457,7 +478,7 @@ export declare enum SubHeaderV2OperationType {
    */
   ICON_GROUP = 2,
   /**
-   * Loading animation.
+   * 加载动画。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -469,7 +490,7 @@ export declare enum SubHeaderV2OperationType {
 }
 
 /**
- * Defines the callback for items in the operation area.
+ * 操作区设置项的回调事件类型。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -491,7 +512,7 @@ export type SubHeaderV2OperationItemAction = () => void;
 declare type SubHeaderV2OperationItemType = ResourceStr | SymbolGlyphModifier;
 
 /**
- * Defines the options for initializing a **SubHeaderV2OperationItem** object.
+ * 用于构建SubHeaderV2OperationItem对象。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -501,7 +522,7 @@ declare type SubHeaderV2OperationItemType = ResourceStr | SymbolGlyphModifier;
  */
 export interface SubHeaderV2OperationItemOptions {
   /**
-   * Content of the item in the operation area.
+   * 操作项显示的内容。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -511,7 +532,7 @@ export interface SubHeaderV2OperationItemOptions {
    */
   content: SubHeaderV2OperationItemType;
   /**
-   * Event triggered when the item is operated. Default value: **() => void**.
+   * 选项操作事件回调，点击操作项时触发，用于执行自定义操作。默认值：() => void。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -521,9 +542,9 @@ export interface SubHeaderV2OperationItemOptions {
    */
   action?: SubHeaderV2OperationItemAction;
   /**
-   * Accessibility text of the icon on the right side of the subheader.
-   *
-   * Default value: **undefined**
+   * 子标题右侧操作项无障碍描述。
+   * 
+   * 默认值：undefined
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -533,9 +554,9 @@ export interface SubHeaderV2OperationItemOptions {
    */
   accessibilityText?: ResourceStr;
   /**
-   * Accessibility description.
-   *
-   * Default value: **"Double-tap to activate"**
+   * 子标题右侧操作项无障碍说明，用于为用户进一步说明当前组件。
+   * 
+   * 默认值：“单指双击即可执行”。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -545,20 +566,19 @@ export interface SubHeaderV2OperationItemOptions {
    */
   accessibilityDescription?: ResourceStr;
   /**
-   * Accessibility level of the icon on the right side of the subheader.
-   *
-   * The options are as follows:
-   *
-   * **"auto"**: The icon's recognizability by accessibility services is determined by the accessibility grouping
-   * service and ArkUI.
-   *
-   * **"yes"**: The icon can be recognized by accessibility services.
-   *
-   * **"no"**: The icon cannot be recognized by accessibility services.
-   *
-   * **"no-hide-descendants"**: Neither the icon nor its child components can be recognized by accessibility services.
-   *
-   * Default value: **"yes"**
+   * 子标题右侧操作项无障碍重要性。
+   * 
+   * 支持的值为：
+   * 
+   * "auto"：当前子标题右侧操作项由无障碍分组服务和ArkUI进行综合判断是否可被无障碍辅助服务所识别。
+   * 
+   * "yes"：当前子标题右侧操作项可被无障碍辅助服务所识别。
+   * 
+   * "no"：当前子标题右侧操作项不可被无障碍辅助服务所识别。
+   * 
+   * "no-hide-descendants"：当前子标题右侧操作项及其所有子组件不可被无障碍辅助服务所识别。
+   * 
+   * 默认值：“yes”。
    *
    * @default "auto".The options are as follows:<br/>
    *     "auto":The value is converted to "yes" or "no" based on the component.
@@ -574,13 +594,13 @@ export interface SubHeaderV2OperationItemOptions {
    */
   accessibilityLevel?: string;
   /**
-   * Whether to receive default focus.
-   *
-   * **true**: Receive default focus.
-   *
-   * **false**: Do not receive default focus.
-   *
-   * Default value: **false**
+   * 子标题右侧操作项是否为默认焦点。
+   * 
+   * true：子标题右侧操作项是默认焦点。
+   * 
+   * false：子标题右侧操作项不是默认焦点。
+   * 
+   * 默认值：false
    *
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -591,7 +611,9 @@ export interface SubHeaderV2OperationItemOptions {
    */
   defaultFocus?: boolean;
   /**
-   * Set the id for SubHeaderV2OperationItem.
+   * 子标题右侧操作项id。需要为子标题右侧操作项设置id的时候设置此参数，缺省时不设置此参数。
+   * 
+   * 默认值：undefined，表示不设置子标题右侧操作项id。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -603,7 +625,7 @@ export interface SubHeaderV2OperationItemOptions {
 }
 
 /**
- * Represents an item in the operation area.
+ * 操作区的设置项。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -615,7 +637,6 @@ export interface SubHeaderV2OperationItemOptions {
 export declare class SubHeaderV2OperationItem {
   /**
    * The content of text or the address of icon.
-   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -626,7 +647,6 @@ export declare class SubHeaderV2OperationItem {
   content: SubHeaderV2OperationItemType;
   /**
    * callback function when operate the text or icon.
-   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -636,10 +656,9 @@ export declare class SubHeaderV2OperationItem {
   @Trace
   action?: SubHeaderV2OperationItemAction;
   /**
-   * Constructor of **SubHeaderV2OperationItem**.
+   * 操作项SubHeaderV2OperationItem的构造函数。
    *
-   * @param { SubHeaderV2OperationItemOptions } options - Operation item configuration information. Defines the options
-   *     for initializing a **SubHeaderV2OperationItem** object.
+   * @param { SubHeaderV2OperationItemOptions } options - 操作项配置信息。用于构建SubHeaderV2OperationItem对象。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -649,7 +668,6 @@ export declare class SubHeaderV2OperationItem {
   constructor(options: SubHeaderV2OperationItemOptions);
   /**
    * The accessibilityText of this text or icon.
-   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -660,7 +678,6 @@ export declare class SubHeaderV2OperationItem {
   accessibilityText?: ResourceStr;
   /**
    * The accessibilityDescription of this text or icon.
-   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -671,7 +688,6 @@ export declare class SubHeaderV2OperationItem {
   accessibilityDescription?: ResourceStr;
   /**
    * The accessibilityLevel of this text or icon.
-   *
    * @default "auto".The options are as follows:<br/>
    *     "auto":The value is converted to "yes" or "no" based on the component.
    *     "yes": the current component is selectable for the accessibility service.
@@ -688,7 +704,6 @@ export declare class SubHeaderV2OperationItem {
   accessibilityLevel?: string;
   /**
    * Sets the default focus state of the text or icon.
-   *
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -700,7 +715,9 @@ export declare class SubHeaderV2OperationItem {
   defaultFocus?: boolean;
 
   /**
-   * Set the id for SubHeaderV2OperationItem.
+   * 子标题右侧操作项id。需要为子标题右侧操作项设置id的时候设置此参数，缺省时不设置此参数。
+   * 
+   * 默认值：undefined，表示不设置子标题右侧操作项id。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -713,7 +730,7 @@ export declare class SubHeaderV2OperationItem {
 }
 
 /**
- * Defines the callback used to customize the content of the title area.
+ * 自定义标题区内容的回调事件类型。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -724,25 +741,19 @@ export declare class SubHeaderV2OperationItem {
 export type SubHeaderV2TitleBuilder = () => void;
 
 /**
- * The component is positioned at the top of list items or content sections, organizing lists or content into distinct
- * groups. The subheader text summarizes the content within each respective section.
- *
- * This component is implemented based on
- * [state management V2](docroot://ui/state-management/arkts-state-management-overview.md#state-management-v2). Compared
- * with [state management V1](docroot://ui/state-management/arkts-state-management-overview.md#state-management-v1), V2
- * offers a higher level of observation and management over data objects beyond the component level. You can now more
- * easily manage subheader data and states with greater flexibility, leading to faster UI updates.
- *
- * > **NOTE**
+ * 子标题，用于列表项或内容项顶部，将该列表或内容划分为一个区块，子标题名称用来概括该区块内容。
+ * 
+ * 该组件基于[状态管理（V2）](docroot://ui/state-management/arkts-state-management-overview.md#状态管理v2)实现，相较于
+ * [状态管理（V1）](docroot://ui/state-management/arkts-state-management-overview.md#状态管理v1)，状态管理（V2）增强了对数据对象的深度观察与管理能力，不再局限于组
+ * 件层级。借助状态管理（V2），开发者可以通过该组件更灵活地控制子标题的数据和状态，实现更高效的用户界面刷新。
+ * 
+ * > **说明：**
  * >
- * > - This component can be used only in the stage model.
+ * > - 该组件仅可在Stage模型下使用。
  * >
- * > - If the **SubHeaderV2** component has [universal attributes]{@link ./@internal/component/ets/common} and
- * > [universal events]{@link ./@internal/component/ets/common} configured, the compiler toolchain automatically
- * > generates an additional **__Common__** node and mounts the universal attributes and universal events on this node
- * > rather than the **SubHeaderV2** component itself. As a result, the configured universal attributes and universal
- * > events may fail to take effect or behave as intended. For this reason, avoid using universal attributes and events
- * > with the **SubHeaderV2** component.
+ * > - 如果SubHeaderV2设置[通用属性]{@link ./@internal/component/ets/common}和[通用事件]{@link ./@internal/component/ets/common}，编译工具
+ * > 链会额外生成节点__Common__，并将通用属性或通用事件挂载在__Common__上，而不是直接应用到SubHeaderV2本身。这可能导致开发者设置的通用属性或通用事件不生效或不符合预期，因此，不建议SubHeaderV2设
+ * > 置通用属性和通用事件。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -753,11 +764,11 @@ export type SubHeaderV2TitleBuilder = () => void;
 @ComponentV2
 export declare struct SubHeaderV2 {
   /**
-   * Icon.
-   *
-   * Default value: **undefined**
-   *
-   * **icon** takes effect only when **secondaryTitle** is used for **title**.
+   * 图标设置项，用于为子标题添加图标标识。
+   * 
+   * 默认值：undefined
+   * 
+   * 当title使用secondaryTitle属性时，设置icon属性才会生效。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -768,9 +779,9 @@ export declare struct SubHeaderV2 {
   @Param
   readonly icon?: SubHeaderV2IconType;
   /**
-   * Title of the subheader.
-   *
-   * Default value: **undefined**
+   * 标题设置项。
+   * 
+   * 默认值：undefined
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -781,9 +792,9 @@ export declare struct SubHeaderV2 {
   @Param
   readonly title?: SubHeaderV2Title;
   /**
-   * Content and events for selection.
-   *
-   * Default value: **undefined**
+   * 下拉选择器的配置项，包含下拉选项内容、选中状态及回调事件。
+   * 
+   * 默认值：undefined
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -794,9 +805,9 @@ export declare struct SubHeaderV2 {
   @Param
   readonly select?: SubHeaderV2Select;
   /**
-   * Style of elements in the operation area.
-   *
-   * Default value: **SubHeaderV2OperationType.BUTTON**
+   * 操作区元素样式，用于定义子标题右侧操作按钮的显示形式。
+   * 
+   * 默认值：SubHeaderV2OperationType.BUTTON
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -807,9 +818,11 @@ export declare struct SubHeaderV2 {
   @Param
   readonly operationType?: SubHeaderV2OperationType;
   /**
-   * Items in the operation area.
-   *
-   * Default value: **undefined**
+   * 操作区的设置项，用于配置子标题右侧的操作按钮。
+   * 
+   * 默认值：undefined
+   * 
+   * 当operationType为ICON_GROUP时，数组最多包含三个元素。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -820,9 +833,9 @@ export declare struct SubHeaderV2 {
   @Param
   readonly operationItems?: SubHeaderV2OperationItem[];
   /**
-   * Custom content for the title area.
-   *
-   * Default value: **() => void**
+   * 自定义标题区内容。当设置此参数时，title参数将不生效。
+   * 
+   * 默认值：() => void
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly

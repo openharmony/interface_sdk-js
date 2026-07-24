@@ -74,7 +74,7 @@ declare enum SelectedMode {
 declare enum LayoutMode {
 
   /**
-   * 若页签宽度大于104vp，页签内容为左右排布，否则页签内容为上下排布。仅TabBar为垂直模式或Fixed水平模式时有效。
+   * 若页签宽度大于104vp，页签内容为左右排布（图标在左，文字在右），否则页签内容为上下排布（图标在上，文字在下）。仅TabBar为垂直模式或Fixed水平模式时有效。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -85,7 +85,7 @@ declare enum LayoutMode {
   AUTO = 0,
 
   /**
-   * 页签内容上下排布。适用于页签宽度有限、需要节省空间的场景。
+   * 页签内容上下排布，图标在上，文字在下。适用于页签宽度有限、需要节省空间的场景。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -96,7 +96,7 @@ declare enum LayoutMode {
   VERTICAL = 1,
 
   /**
-   * 页签内容左右排布。适用于页签宽度充足、需要展示更多内容的场景。
+   * 页签内容左右排布，图标在左，文字在右。适用于页签宽度充足、需要展示更多内容的场景。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -658,7 +658,7 @@ declare class SubTabBarStyle {
   /**
    * 设置选中子页签的下划线风格。子页签的下划线风格仅在水平模式下有效。
    *
-   * @param { IndicatorStyle } value - 选中子页签的下划线风格对象。
+   * @param { IndicatorStyle } value - 选中子页签的下划线风格对象，用于设置下划线的颜色、高度、宽度、圆角半径等样式。
    * @returns { SubTabBarStyle } 返回SubTabBarStyle对象本身。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -699,7 +699,7 @@ declare class SubTabBarStyle {
   /**
    * 设置选中子页签的背板风格。子页签的背板风格仅在水平模式下有效。
    *
-   * @param { BoardStyle } value - 选中子页签的背板风格对象。
+   * @param { BoardStyle } value - 选中子页签的背板风格对象，用于设置背板的圆角半径等样式。
    * @returns { SubTabBarStyle } 返回SubTabBarStyle对象本身，用于链式调用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -712,7 +712,7 @@ declare class SubTabBarStyle {
   /**
    * 设置子页签的label文本和字体的样式。子页签的label文本和字体的样式仅在水平模式下有效。
    *
-   * @param { LabelStyle } value - 子页签的label文本和字体的样式对象。
+   * @param { LabelStyle } value - 子页签的label文本和字体的样式对象，用于设置文字的颜色、大小、字体、行数等属性。
    * @returns { SubTabBarStyle } 返回SubTabBarStyle对象本身，用于链式调用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -725,7 +725,7 @@ declare class SubTabBarStyle {
   /**
    * 设置子页签的内边距属性（不支持百分比设置）。使用Dimension时，四个方向内边距同时生效。
    *
-   * @param { Padding | Dimension } value - 子页签的内边距属性（不支持百分比设置）。<br/>取值范围：[0, +∞]<br/>异常值时取默认值。<br />默认值：
+   * @param { Padding | Dimension } value - 子页签的内边距属性（不支持百分比设置），用于调整页签内容与边界的距离。<br/>取值范围：[0, +∞]<br/>异常值时取默认值。<br />默认值：
    *      {left:8.0vp,right:8.0vp,top:17.0vp,bottom:18.0vp}<br/>**说明：**<br/>从API version 12开始，
    *      参数支持[LocalizedPadding](ts-types.md#localizedpadding12)类型，支持镜像能力。
    * @returns { SubTabBarStyle } 返回SubTabBarStyle对象本身，用于链式调用。
@@ -740,7 +740,8 @@ declare class SubTabBarStyle {
   /**
    * 设置子页签的内边距属性，支持镜像能力（不支持百分比设置）。
    *
-   * @param { LocalizedPadding } padding - 子页签的内边距属性。<br/>取值范围：[0, +∞]<br/>异常值时取默认值。<br />默认值：
+   * @param { LocalizedPadding } padding - 子页签的内边距属性（不支持百分比设置），用于调整页签内容与边界的距离，支持镜像能力。
+   * <br/>取值范围：[0, +∞]<br/>异常值时取默认值。<br />默认值：
    * {start:LengthMetrics.vp(8),end:LengthMetrics.vp(8),<br/>top:LengthMetrics.vp(17),bottom:LengthMetrics.vp(18)}
    * @returns { SubTabBarStyle } 返回SubTabBarStyle对象本身，用于链式调用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -752,9 +753,9 @@ declare class SubTabBarStyle {
   padding(padding: LocalizedPadding): SubTabBarStyle;
 
   /**
-   * 设置子页签的id。
+   * 设置子页签的id。可用于通过TabsController查找或控制指定页签，以及在状态管理和事件处理中标识不同的页签。
    *
-   * @param { string } value - 子页签的id。
+   * @param { string } value - 子页签的id，用于标识和区分不同的页签。当需要通过代码控制特定页签的显示、隐藏或进行其他操作时，可设置此参数。id值需在同一Tabs组件内保持唯一。
    * @returns { SubTabBarStyle } 返回SubTabBarStyle对象本身，用于链式调用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -779,7 +780,7 @@ declare class BottomTabBarStyle {
    * BottomTabBarStyle的构造函数。
    *
    * @param { ResourceStr } icon - Image for the tab. [since 9 - 11]
-   * @param { ResourceStr | TabBarSymbol } icon - 页签内的图片内容。异常时显示灰色图块。如果icon采用svg格式图源，需删除svg图源内置的宽高属性。
+   * @param { ResourceStr | TabBarSymbol } icon - 页签内的图片内容。当图标资源加载失败或不存在时，显示灰色图块。如果icon采用svg格式图源，需删除其内置的宽高属性。
    *      否则，icon大小将使用svg图源内置的宽高属性值。 [since 9 - 11]
    * @param { ResourceStr } text - 页签内的文字内容。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -793,10 +794,10 @@ declare class BottomTabBarStyle {
    * BottomTabBarStyle的静态构造函数。
    *
    * @param { ResourceStr } icon - Image for the tab. [since 10 - 11]
-   * @param { ResourceStr | TabBarSymbol } icon - 页签内的图片内容。 异常时显示灰色图块。如果icon采用svg格式图源，需删除svg图源内置的宽高属性。
+   * @param { ResourceStr | TabBarSymbol } icon - 页签内的图片内容。当图标资源加载失败或不存在时，显示灰色图块。如果icon采用svg格式图源，需删除其内置的宽高属性。
    *      否则，icon大小将使用svg图源内置的宽高属性值。[since 10 - 11]
    * @param { ResourceStr } text - 页签内的文字内容。
-   * @returns { BottomTabBarStyle } 返回创建的BottomTabBarStyle对象。
+   * @returns { BottomTabBarStyle } 返回创建的BottomTabBarStyle对象，用于设置底部页签和侧边页签样式。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -808,8 +809,8 @@ declare class BottomTabBarStyle {
   /**
    * 设置底部页签的label文本和字体的样式。
    *
-   * @param { LabelStyle } value - 底部页签的label文本和字体的样式。
-   * @returns { BottomTabBarStyle } 返回BottomTabBarStyle对象本身。
+   * @param { LabelStyle } value - 底部页签的label文本和字体的样式，用于设置文字的颜色、大小、字体、行数等属性。
+   * @returns { BottomTabBarStyle } 返回BottomTabBarStyle对象本身，用于链式调用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -829,7 +830,7 @@ declare class BottomTabBarStyle {
    *     优化视觉效果时传入自定义值。<br/>取值范围：[0, +∞]<br/>默认值：{left:4.0vp,right:4.0vp,top:0.0vp,bottom:
    *     0.0vp}<br/>使用LocalizedPadding时，支持镜像能力。<br />默认值：{start:LengthMetrics.vp(4),end:LengthMetrics.vp(4),<br/>top:
    *     LengthMetrics.vp(0),bottom:LengthMetrics.vp(0)} [since 10 - 11]
-   * @returns { BottomTabBarStyle } 返回BottomTabBarStyle对象本身。
+   * @returns { BottomTabBarStyle } 返回BottomTabBarStyle对象本身，用于链式调用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -842,7 +843,7 @@ declare class BottomTabBarStyle {
    * 设置底部页签的图片、文字排布的方式。
    *
    * @param { LayoutMode } value - 底部页签的图片、文字排布的方式，具体参照LayoutMode枚举。<br/>默认值：LayoutMode.VERTICAL
-   * @returns { BottomTabBarStyle } 返回BottomTabBarStyle对象本身。
+   * @returns { BottomTabBarStyle } 返回BottomTabBarStyle对象本身，用于链式调用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -855,7 +856,7 @@ declare class BottomTabBarStyle {
    * 设置底部页签的图片、文字在垂直方向上的对齐格式。
    *
    * @param { VerticalAlign } value - 底部页签的图片、文字在垂直方向上的对齐格式。<br/>默认值：VerticalAlign.Center
-   * @returns { BottomTabBarStyle } 返回BottomTabBarStyle对象本身。
+   * @returns { BottomTabBarStyle } 返回BottomTabBarStyle对象本身，用于链式调用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -879,10 +880,10 @@ declare class BottomTabBarStyle {
   symmetricExtensible(value: boolean): BottomTabBarStyle;
 
   /**
-   * 设置底部页签的id。
+   * 底部页签的id。
    *
-   * @param { string } value - 设置底部页签的id。
-   * @returns { BottomTabBarStyle } 返回BottomTabBarStyle对象本身。
+   * @param { string } value - 底部页签的id。
+   * @returns { BottomTabBarStyle } 返回BottomTabBarStyle对象本身，用于链式调用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -894,8 +895,8 @@ declare class BottomTabBarStyle {
   /**
    * 设置底部页签的图标样式。
    *
-   * @param { TabBarIconStyle } style - 底部页签的label图标的样式。
-   * @returns { BottomTabBarStyle } 返回BottomTabBarStyle对象本身。
+   * @param { TabBarIconStyle } style - 底部页签的label图标的样式，用于设置图标的选中态和未选中态颜色。
+   * @returns { BottomTabBarStyle } 返回BottomTabBarStyle对象本身，用于链式调用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -968,9 +969,9 @@ declare class TabContentAttribute extends CommonMethod<TabContentAttribute> {
   tabBar(options: string | Resource | CustomBuilder | TabBarOptions): TabContentAttribute;
 
   /**
-   * 设置TabBar上显示内容。底部样式没有下划线效果。icon异常时显示灰色图块。
+   * 设置TabBar上显示内容。底部样式没有下划线效果。当图标资源加载失败或不存在时，显示灰色图块。
    * 
-   * 如果icon采用svg格式图源，需删除svg图源内置的宽高属性。否则，icon大小将使用svg图源内置的宽高属性值。
+   * 如果icon采用svg格式图源，需删除其内置的宽高属性。否则，icon大小将使用svg图源内置的宽高属性值。
    * 
    * 设置的内容超出TabBar页签时进行裁切。
    *
@@ -982,7 +983,7 @@ declare class TabContentAttribute extends CommonMethod<TabContentAttribute> {
    * > - 底部页签/侧边页签（[BottomTabBarStyle]{@link BottomTabBarStyle}）样式：无下划线和背板效果，页签样式通常为图标+文字的组合方式。切换页签时默认无动画跳转效果。底部页签通常用于应用
    * > 主导航（如首页、发现、推荐）。侧边页签适用于宽屏场景，可设置vertical(true)启用纵向布局，让页签在侧边显示，默认左侧显示。
    *
-   * @param { SubTabBarStyle | BottomTabBarStyle } value - TabBar上显示内容。<br/>SubTabBarStyle：?子页签样式。<br/>
+   * @param { SubTabBarStyle | BottomTabBarStyle } value - TabBar上显示的内容，支持子页签样式或底部页签样式。<br/>SubTabBarStyle：?子页签样式。<br/>
    *     BottomTabBarStyle：?底部页签和侧边页签样式，底部样式没有下划线效果。
    * @returns { TabContentAttribute }
       * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -995,8 +996,8 @@ declare class TabContentAttribute extends CommonMethod<TabContentAttribute> {
   /**
    * 设置TabBar上显示内容。
    *
-   * 使用BottomTabBarStyle或TabBarOptions类型作为入参并设置icon，icon异常时显示灰色图块。如果icon采用svg格式图源，需删除svg图源内置的宽高属性属性。否则，icon大小将使用svg图源内置的宽
-   * 高属性值。
+   * 使用BottomTabBarStyle或TabBarOptions类型作为入参并设置icon，当图标资源加载失败或不存在时，显示灰色图块。如果icon采用svg格式图源，需删除其内置的宽高属性。
+   * 否则，icon大小将使用svg图源内置的宽高属性值。
    *
    * 设置的内容超出TabBar页签时进行裁切。
    *

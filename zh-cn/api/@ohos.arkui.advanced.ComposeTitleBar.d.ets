@@ -14,12 +14,11 @@
  */
 
 /**
- * @file
- * @kit ArkUI
+  * @file
+  * @kit ArkUI
  */
 
 /**
- * Declaration of the menu item on the right side.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -29,7 +28,7 @@
  */
 export declare class ComposeTitleBarMenuItem {
   /**
-   * Icon resource.
+   * 图标资源。如果同时设置了symbolStyle属性，则symbolStyle优先级更高。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -40,8 +39,7 @@ export declare class ComposeTitleBarMenuItem {
   value: ResourceStr;
 
   /**
-   * Symbol icon resource, which has higher priority than **value**. This parameter is not available for the **item**
-   * attribute.
+   * Symbol图标资源，优先级大于value，item左侧头像不支持设置该属性。不设置时使用value属性指定的图标资源。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -52,7 +50,7 @@ export declare class ComposeTitleBarMenuItem {
   symbolStyle?: SymbolGlyphModifier;
 
   /**
-   * Icon label.
+   * 图标标签描述，用于设置图标的辅助文本信息。当未设置accessibilityText时，label可作为无障碍文本的默认值。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -63,15 +61,11 @@ export declare class ComposeTitleBarMenuItem {
   label?: ResourceStr;
 
   /**
-   * Whether to enable the item.
+   * 是否启用。默认值：false。
    *
-   * Default value: **false**
+   * true表示启用，false表示禁用。
    *
-   * **true**: The item is enabled.
-   *
-   * **false**: The item is disabled.
-   *
-   * This property cannot be triggered by the **item** property.
+   * item参数不支持触发isEnabled属性。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -82,7 +76,7 @@ export declare class ComposeTitleBarMenuItem {
   isEnabled?: boolean;
 
   /**
-   * Action to perform. This parameter is not available for the **item** attribute.
+   * 点击菜单项时触发的回调函数。item参数不支持触发action事件。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -93,13 +87,9 @@ export declare class ComposeTitleBarMenuItem {
   action?: () => void;
 
   /**
-   * Accessibility text, that is, accessible label name. If a component does not contain text information, it will not
-   * be announced by the screen reader when selected. In this case, the screen reader user cannot know which component
-   * is selected. To solve this problem, you can set accessibility text for components without text information. When
-   * such a component is selected, the screen reader announces the specified accessibility text, informing the user
-   * which component is selected.
+   * 标题栏右侧自定义按钮的无障碍文本。当组件无文本属性时，屏幕朗读不会播报，设置此属性后屏幕朗读可播报该内容，帮助用户了解选中的组件。item属性不支持设置该属性。
    *
-   * Default value: value of the **label** property if it is set and an empty string otherwise.
+   * 默认值：有label时默认值为当前项label属性内容，未设置label时默认值为空字符串。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -110,12 +100,9 @@ export declare class ComposeTitleBarMenuItem {
   accessibilityText?: ResourceStr;
 
   /**
-   * Accessible description. You can provide comprehensive text explanations to help users understand the operation they
-   * are about to perform and its potential consequences, especially when these cannot be inferred from the component's
-   * attributes and accessibility text alone. If a component contains both text information and the accessible
-   * description, the text is announced first and then the accessible description, when the component is selected.
+   * 标题栏右侧自定义按钮的无障碍描述，用于向用户详细解释组件功能和操作后果。组件被选中时，系统先播报文本属性，再播报无障碍描述内容。item属性不支持设置该属性。
    *
-   * Default value: **"Double-tap to activate"**
+   * 默认值为“单指双击即可执行”。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -126,20 +113,19 @@ export declare class ComposeTitleBarMenuItem {
   accessibilityDescription?: ResourceStr;
 
   /**
-   * Accessibility level. It determines whether the component can be recognized by accessibility services.
+   * 标题栏右侧自定义按钮无障碍重要性，控制当前项是否可被无障碍辅助服务识别。仅适用于menuItems中的项，不适用于item参数。
    *
-   * The options are as follows:
+   * 支持的值为：
    *
-   * **"auto"**: It is treated as "yes" by the system.
+   * "auto"：等同于"yes"。
    *
-   * **"yes"**: The component can be recognized by accessibility services.
+   * "yes"：可被无障碍辅助服务识别。
    *
-   * **"no"**: The component cannot be recognized by accessibility services.
+   * "no"：不可被无障碍辅助服务识别。
    *
-   * **"no-hide-descendants"**: Neither the component nor its child components can be recognized by accessibility
-   * services.
+   * "no-hide-descendants"：当前项及其子组件均不可被识别。
    *
-   * Default value: **"auto"**
+   * 默认值："auto"。item参数不支持设置该属性。
    *
    * @default "auto".The options are as follows:<br/>
    *     "auto":The value is converted to "yes" or "no" based on the component.
@@ -157,19 +143,16 @@ export declare class ComposeTitleBarMenuItem {
 }
 
 /**
- * **ComposeTitleBar** represents a common title bar that contains a title, subtitle (optional), and profile picture (
- * optional). It can come with a Back button for switching between pages of different levels.
+ * ComposeTitleBar是一种普通标题栏组件，支持设置标题、头像（可选）和副标题（可选），可用于一级页面、二级及其以上界面显示返回键。可快速构建统一风格的标题栏，简化页面开发，支持灵活的菜单项配置和图标自定义，帮助开发者快速实现
+ * 导航和操作入口。
  *
- * > **NOTE**
+ * > **说明：**
  * >
- * > - This component can be used only in the stage model.
+ * > - 该组件仅可在Stage模型下使用。
  * >
- * > - If the **ComposeTitleBar** component has [universal attributes]{@link ./@internal/component/ets/common} and
- * > [universal events]{@link ./@internal/component/ets/common} configured, the compiler toolchain automatically
- * > generates an additional **__Common__** node and mounts the universal attributes and universal events on this node
- * > rather than the **ComposeTitleBar** component itself. As a result, the configured universal attributes and
- * > universal events may fail to take effect or behave as intended. For this reason, avoid using universal attributes
- * > and events with the **ComposeTitleBar** component.
+ * > - 如果ComposeTitleBar设置[通用属性]{@link ./@internal/component/ets/common}和[通用事件]{@link ./@internal/component/ets/common}，
+ * > 编译工具链会额外生成节点__Common__，并将通用属性或通用事件挂载在__Common__上，而不是直接应用到ComposeTitleBar本身。这可能导致开发者设置的通用属性或通用事件不生效或不符合预期，因此，不建议
+ * > ComposeTitleBar设置通用属性和通用事件。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -180,7 +163,7 @@ export declare class ComposeTitleBarMenuItem {
 @Component
 export declare struct ComposeTitleBar {
   /**
-   * A single menu item for the profile picture on the left.
+   * 用于左侧头像的单个菜单项目。不设置时标题栏左侧不显示头像。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -191,7 +174,7 @@ export declare struct ComposeTitleBar {
   item?: ComposeTitleBarMenuItem;
 
   /**
-   * Title.
+   * 标题栏的标题文本。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -202,7 +185,7 @@ export declare struct ComposeTitleBar {
   title: ResourceStr;
 
   /**
-   * Subtitle.
+   * 副标题。不设置时不显示副标题。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -213,7 +196,7 @@ export declare struct ComposeTitleBar {
   subtitle?: ResourceStr;
 
   /**
-   * List of menu items on the right.
+   * 右侧菜单项目列表。不设置时标题栏右侧不显示菜单项目。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly

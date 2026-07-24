@@ -14,22 +14,23 @@
 */
 
 /**
- * @file
- * @kit ArkUI
+  * @file
+  * @kit ArkUI
  */
 
 /**
- * Enumerates the listening types of tree view nodes.
+ * 定义树视图节点的监听事件类型。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform [since 22]
  * @atomicservice [since 11]
  * @since 10 dynamic
+ * @noninterop
  */
 export declare enum TreeListenType {
   /**
-   * Listens for click events of nodes.
+   * 监听节点点击事件。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -39,7 +40,7 @@ export declare enum TreeListenType {
    */
   NODE_CLICK = "NodeClick",
   /**
-   * Listens for add events of nodes.
+   * 监听节点增加事件。在调用addNode方法添加节点后触发。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -49,7 +50,7 @@ export declare enum TreeListenType {
    */
   NODE_ADD = "NodeAdd",
   /**
-   * Listens for delete events of nodes.
+   * 监听节点删除事件。在调用removeNode方法删除节点后触发。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -59,7 +60,7 @@ export declare enum TreeListenType {
    */
   NODE_DELETE = "NodeDelete",
   /**
-   * Listens for modify events of nodes.
+   * 监听节点修改事件。在调用modifyNode方法修改节点后触发。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -69,7 +70,7 @@ export declare enum TreeListenType {
    */
   NODE_MODIFY = "NodeModify",
   /**
-   * Listens for move events of nodes.
+   * 监听节点移动事件。在节点位置发生变化后触发。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -81,21 +82,22 @@ export declare enum TreeListenType {
 }
 
 /**
- * Listener of the tree view component. You can bind it to the **TreeView** component and use it to listen for changes
- * of tree nodes. One listener can be bound to only one **TreeView** component.
+ * 树视图组件的监听器，可以将此对象绑定至树视图组件，然后通过它监听树的节点的变化，同一个监听器不可以控制多个树视图组件。监听器内部维护事件类型与回调函数的映射关系，当用户在TreeView上进行节点操作时，TreeView会通知监听器触
+ * 发相应的回调函数，开发者可在回调中获取节点信息并进行业务处理。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform [since 22]
  * @atomicservice [since 11]
  * @since 10 dynamic
+ * @noninterop
  */
 export declare class TreeListener {
   /**
-   * Declare class TreeListener
+   * 注册树视图节点事件的监听，监听成功后，当节点发生对应事件时会触发回调函数。同一监听器不可控制多个树视图组件。
    *
-   * @param { TreeListenType } type - Listening type.
-   * @param { (callbackParam: CallbackParam) => void } callback - Node information.
+   * @param { TreeListenType } type - 监听事件类型，用于指定要注册的监听事件。
+   * @param { (callbackParam: CallbackParam) => void } callback - 回调函数，在对应监听事件触发时调用。回调参数callbackParam包含currentNodeId、parentNodeId和childIndex等信息。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform [since 22]
@@ -105,10 +107,10 @@ export declare class TreeListener {
   on(type: TreeListenType, callback: (callbackParam: CallbackParam) => void): void;
 
   /**
-   * Declare class TreeListener
+   * 注册树视图节点事件的监听，监听成功后，当节点发生对应事件时会触发回调函数。同一监听器不可控制多个树视图组件。
    *
-   * @param { TreeListenType } type - Listening type.
-   * @param { (callbackParam: CallbackParam) => void } callback - Node information.
+   * @param { TreeListenType } type - 监听事件类型，用于指定要注册的监听事件。
+   * @param { (callbackParam: CallbackParam) => void } callback - 回调函数，在对应监听事件触发时调用。回调参数callbackParam包含currentNodeId、parentNodeId和childIndex等信息。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform [since 22]
@@ -118,9 +120,9 @@ export declare class TreeListener {
   once(type: TreeListenType, callback: (callbackParam: CallbackParam) => void): void;
 
   /**
-   * Registers a one-off listener.
-   *
-   * @param { TreeListenType } type - Listening type.
+  * 取消监听。需要先注册监听后才能取消。同一监听器不可控制多个树视图组件。
+  *
+   * @param { TreeListenType } type - 监听事件类型，用于指定要取消的监听事件。
    * @param { (callbackParam: CallbackParam) => void } callback - Node information.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -132,18 +134,18 @@ export declare class TreeListener {
 }
 
 /**
- * Implements a **TreeListenerManager** object, which can be bound to a **TreeView** component to listen for changes of
- * tree nodes. One **TreeListenerManager** object can be bound to only one tree view component.
+ * 树视图组件的监听管理器，可以获取监听器实例并绑定至树视图组件，用于管理树的节点监听，同一个监听器不可以控制多个树视图组件。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform [since 22]
  * @atomicservice [since 11]
  * @since 10 dynamic
+ * @noninterop
  */
 export declare class TreeListenerManager {
   /**
-   * Obtains a **TreeListenerManager** singleton object.
+   * 获取监听管理器单例对象。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -155,7 +157,7 @@ export declare class TreeListenerManager {
   static getInstance(): TreeListenerManager;
 
   /**
-   * Obtains a listener.
+   * 获取监听器。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -168,31 +170,29 @@ export declare class TreeListenerManager {
 }
 
 /**
- * The **TreeView** component represents a tree view used to display a hierarchical list of items. Each item can contain
- * subitems, which may be expanded or collapsed.
- *
- * This component is applicable in productivity applications, such as side navigation bars in notepad, email, and
- * Gallery applications.
- *
- * > **NOTE**
+ * 树视图作为一种分层显示的列表，适合显示嵌套结构。树视图包含父节点和子节点，支持展开或折叠。
+ * 
+ * 树视图适用于效率型应用的侧边导航栏中，如备忘录、电子邮件、图库等。
+ * 
+ * > **说明：**
  * >
- * > - If the **TreeView** component has [universal attributes]{@link ./@internal/component/ets/common} and
- * > [universal events]{@link ./@internal/component/ets/common} configured, the compiler toolchain automatically
- * > generates an additional **__Common__** node and mounts the universal attributes and universal events on this node
- * > rather than the **TreeView** component itself. As a result, the configured universal attributes and universal
- * > events may fail to take effect or behave as intended. For this reason, avoid using universal attributes and events
- * > with the **TreeView** component.
+ * > - 该组件仅可在Stage模型下使用。
+ * >
+ * > - 如果TreeView设置[通用属性]{@link ./@internal/component/ets/common}和[通用事件]{@link ./@internal/component/ets/common}，编译工具链会额
+ * > 外生成节点__Common__，并将通用属性或通用事件挂载在__Common__上，而不是直接应用到TreeView本身。这可能导致开发者设置的通用属性或通用事件不生效或不符合预期，因此，不建议TreeView设置通用属性和通用事
+ * > 件。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform [since 22]
  * @atomicservice [since 11]
  * @since 10 dynamic
+ * @noninterop
  */
 @Component
 export declare struct TreeView {
   /**
-   * Node information of the tree view.
+   * 树视图组件的控制器，用于控制树的节点信息。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -205,18 +205,18 @@ export declare struct TreeView {
 
 /**
  * Declare CallbackParam
- *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform [since 22]
  * @atomicservice [since 11]
  * @since 10 dynamic
+ * @noninterop
  */
 export interface CallbackParam {
   /**
-   * ID of the current child node.
-   *
-   * The value must be greater than or equal to 0.
+   * 返回当前子节点id。
+   * 
+   * 取值范围：大于等于0。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -227,11 +227,11 @@ export interface CallbackParam {
   currentNodeId: number;
 
   /**
-   * ID of the current parent node.
-   *
-   * The value must be greater than or equal to -1.
-   *
-   * Default value: **-1**
+   * 返回当前父节点id。
+   * 
+   * 取值范围：大于等于-1。
+   * 
+   * 默认值：-1
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -242,11 +242,11 @@ export interface CallbackParam {
   parentNodeId?: number;
 
   /**
-   * Child index.
-   *
-   * The value must be greater than or equal to -1.
-   *
-   * Default value: **-1**
+   * 返回子节点在父节点下的索引位置，用于标识子节点在父节点的子节点列表中的位置。
+   * 
+   * 取值范围：大于等于-1，-1表示无效索引或无子节点。
+   * 
+   * 默认值：-1
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -259,20 +259,20 @@ export interface CallbackParam {
 
 /**
  * Declare NodeParam
- *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform [since 22]
  * @atomicservice [since 11]
  * @since 10 dynamic
+ * @noninterop
  */
 export interface NodeParam {
   /**
-   * ID of the parent node.
-   *
-   * The value must be greater than or equal to -1.
-   *
-   * Default value: -1. The root node ID is -1. If the value is less than -1, the setting does not take effect.
+   * 父节点Id。
+   * 
+   * 取值范围：大于等于-1。
+   * 
+   * 默认值：-1，根节点id值为-1。若设置数值小于-1，做不生效处理。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -283,14 +283,13 @@ export interface NodeParam {
   parentNodeId?: number;
 
   /**
-   * Current child node ID.
-   *
-   * The value must be greater than or equal to -1.
-   *
-   * The value cannot be the root node ID or null. Otherwise, an exception is thrown. In addition, duplicate
-   * **currentNodeId** values are not allowed.
-   *
-   * Default value: **-1**
+   * 当前子节点Id。
+   * 
+   * 取值范围：大于等于-1。
+   * 
+   * 不能为根节点id（即不能为-1），不能为null，否则会抛出异常。且不能设置两个相同的currentNodeId。
+   * 
+   * 默认值：-1
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -301,11 +300,11 @@ export interface NodeParam {
   currentNodeId?: number;
 
   /**
-   * Whether the node is a directory.
-   *
-   * Default value: **false**.
-   *
-   * **true**: The node is a directory. **false**: The node is not a directory.
+   * 是否是目录。
+   * 
+   * 默认值：false
+   * 
+   * true：是目录，可以包含子节点，支持展开/折叠操作；false：不是目录，为叶子节点。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -316,9 +315,9 @@ export interface NodeParam {
   isFolder?: boolean;
 
   /**
-   * Icon.
-   *
-   * The default value is an empty string.
+   * 图标。若同时设置了symbolIconStyle，则以symbolIconStyle为准。
+   * 
+   * 默认值：空字符串
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -329,9 +328,9 @@ export interface NodeParam {
   icon?: ResourceStr;
 
   /**
-   * Icon of the selected node.
-   *
-   * The default value is an empty string.
+   * 选中图标。若同时设置了symbolSelectedIconStyle，则以symbolSelectedIconStyle为准。
+   * 
+   * 默认值：空字符串
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -342,9 +341,9 @@ export interface NodeParam {
   selectedIcon?: ResourceStr;
 
   /**
-   * Edit icon.
-   *
-   * The default value is an empty string.
+   * 编辑图标。若同时设置了symbolEditIconStyle，则以symbolEditIconStyle为准。
+   * 
+   * 默认值：空字符串
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -355,9 +354,9 @@ export interface NodeParam {
   editIcon?: ResourceStr;
 
   /**
-   * Primary title.
-   *
-   * The default value is an empty string.
+   * 主标题。
+   * 
+   * 默认值：空字符串
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -368,9 +367,9 @@ export interface NodeParam {
   primaryTitle?: ResourceStr;
 
   /**
-   * Secondary title.
-   *
-   * The default value is an empty string.
+   * 副标题。
+   * 
+   * 默认值：空字符串
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -381,9 +380,9 @@ export interface NodeParam {
   secondaryTitle?: ResourceStr;
 
   /**
-   * Right-click child component bound to the node. The child component is decorated with @Builder.
-   *
-   * Default value: **() => void**.
+   * 绑定在节点上的右键菜单组件，用户右键点击节点时显示该菜单，需通过@Builder函数定义。
+   * 
+   * 默认值：() => void
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -394,9 +393,9 @@ export interface NodeParam {
   container?: () => void;
 
   /**
-   * Symbol edit icon, which has a higher priority than **editIcon**.
-   *
-   * Default value: **undefined**
+   * Symbol编辑图标，优先级大于editIcon。
+   * 
+   * 默认值：undefined
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -407,9 +406,9 @@ export interface NodeParam {
   symbolEditIconStyle?: SymbolGlyphModifier;
 
   /**
-   * Symbol icon, which has higher priority than **icon**.
-   *
-   * Default value: **undefined**
+   * Symbol图标，优先级大于icon。
+   * 
+   * 默认值：undefined
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -420,9 +419,9 @@ export interface NodeParam {
   symbolIconStyle?: SymbolGlyphModifier;
 
   /**
-   * Symbol icon of the selected node., which has higher priority than **selectedIcon**.
-   *
-   * Default value: **undefined**
+   * Symbol选中图标，优先级大于selectedIcon。
+   * 
+   * 默认值：undefined
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -434,18 +433,18 @@ export interface NodeParam {
 }
 
 /**
- * Implements a **TreeController** object, which can be bound to a tree view component to control the node information
- * of the component. One **TreeController** object can be bound to only one tree view component.
+ * 树视图组件的控制器，用于控制树的节点信息。同一控制器实例不能同时控制多个树视图组件。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform [since 22]
  * @atomicservice [since 11]
  * @since 10 dynamic
+ * @noninterop
  */
 export declare class TreeController {
   /**
-   * Removes the selected node.
+   * 选中某个节点后，调用该方法删除该节点。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -456,7 +455,7 @@ export declare class TreeController {
   removeNode(): void;
 
   /**
-   * Modifies the selected node.
+   * 选中某个节点后，调用该方法修改该节点。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -467,10 +466,10 @@ export declare class TreeController {
   modifyNode(): void;
 
   /**
-   * Adds a child node to the selected node.
+   * 选中某个节点后，调用该方法新增子节点。
    *
-   * @param { NodeParam } nodeParam - Node information.
-   * @returns { TreeController } Controller of the **TreeView** component.
+   * @param { NodeParam } nodeParam - 节点信息，用于指定新增节点的属性。如果不传该参数，在当前选中的节点下添加一个标题为“新建文件夹”节点。
+   * @returns { TreeController } 返回树视图组件的控制器实例，支持链式调用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform [since 22]
@@ -480,12 +479,11 @@ export declare class TreeController {
   addNode(nodeParam?: NodeParam): TreeController;
 
   /**
-   * Refreshes the tree view. You can call this API to update the information about the current node.
+   * 调用该方法，通过指定父节点Id、父节点副标题和当前节点副标题，更新当前节点的显示信息。
    *
-   * @param { number } parentId - ID of the parent node.
-   *     <br>The value must be greater than or equal to -1.
-   * @param { ResourceStr } parentSubTitle - Secondary text of the parent node.
-   * @param { ResourceStr } currentSubtitle - Secondary text of the current node.
+   * @param { number } parentId - 父节点Id。<br />取值范围：大于等于-1。根节点id值为-1。若设置数值小于-1，做不生效处理。
+   * @param { ResourceStr } parentSubTitle - 父节点副标题。设置后将更新父节点的副标题显示内容。
+   * @param { ResourceStr } currentSubtitle - 当前节点副标题。设置后将更新当前节点的副标题显示内容。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform [since 22]
@@ -495,7 +493,7 @@ export declare class TreeController {
   refreshNode(parentId: number, parentSubTitle: ResourceStr, currentSubtitle: ResourceStr): void;
 
   /**
-   * Builds a tree view. After a node is added, this API must be called to save the tree information.
+   * 节点增加完毕后，必须调用该方法保存树信息。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly

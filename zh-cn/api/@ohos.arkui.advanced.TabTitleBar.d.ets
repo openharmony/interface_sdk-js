@@ -19,17 +19,17 @@
  */
 
 /**
- * Declaration of the menu item on the right side.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform [since 22]
  * @atomicservice [since 11]
  * @since 10 dynamic
+ * @noninterop
  */
 export declare class TabTitleBarMenuItem {
   /**
-   * Icon resource.
+   * 图标资源。若设置了symbolStyle，则该属性不生效。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -40,7 +40,7 @@ export declare class TabTitleBarMenuItem {
   value: ResourceStr;
 
   /**
-   * Icon label.
+   * 图标标签，用于为菜单项图标提供文字说明。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -51,8 +51,9 @@ export declare class TabTitleBarMenuItem {
   label?: ResourceStr;
 
   /**
-   * Whether to enable the item. Default value: **false**. The value **true** means to enable the item, and **false**
-   * means the opposite.
+   * 是否启用。true：启用，false：禁用。禁用时菜单项不响应点击事件，action不会触发。
+   *
+   * 默认值：false
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -63,7 +64,7 @@ export declare class TabTitleBarMenuItem {
   isEnabled?: boolean;
 
   /**
-   * Action to perform.
+   * 点击菜单项时触发的动作闭包。若不设置，点击菜单项无响应。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -74,13 +75,9 @@ export declare class TabTitleBarMenuItem {
   action?: () => void;
 
   /**
-   * Accessibility text, that is, accessibility label name. If a component does not contain text information, it will
-   * not be announced by the screen reader when selected. In this case, the screen reader user cannot know which
-   * component is selected. To solve this problem, you can set accessibility text for components without text
-   * information. When such a component is selected, the screen reader announces the specified accessibility text,
-   * informing the user which component is selected.
+   * 标题栏右侧自定义按钮的无障碍文本属性，用于为不包含文字信息的组件提供朗读文本。
    *
-   * Default value: value of the **label** property if it is set and an empty string otherwise.
+   * 默认值：设置了label属性时，默认值为当前项label属性内容；未设置label属性时，默认值为空格字符。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -91,20 +88,19 @@ export declare class TabTitleBarMenuItem {
   accessibilityText?: ResourceStr;
 
   /**
-   * Accessibility level. It determines whether the component can be recognized by accessibility services.
+   * 标题栏右侧自定义按钮无障碍重要性。用于控制当前项是否可被无障碍辅助服务所识别。
    *
-   * The options are as follows:
+   * 支持的值为：
    *
-   * **"auto"**: It is treated as "yes" by the system.
+   * "auto"：根据组件是否可交互自动判断。若组件可交互，则等同于"yes"；若组件不可交互，则等同于"no"。
    *
-   * **"yes"**: The component can be recognized by accessibility services.
+   * "yes"：当前组件可被无障碍辅助服务所识别。
    *
-   * **"no"**: The component cannot be recognized by accessibility services.
+   * "no"：当前组件不可被无障碍辅助服务所识别。
    *
-   * **"no-hide-descendants"**: Neither the component nor its child components can be recognized by accessibility
-   * services.
+   * "no-hide-descendants"：当前组件及其所有子组件不可被无障碍辅助服务所识别。
    *
-   * Default value: **"auto"**
+   * 默认值："auto"。
    *
    * @default "auto"
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -116,7 +112,7 @@ export declare class TabTitleBarMenuItem {
   accessibilityLevel?: string;
 
   /**
-   * Symbol icon resource, which has higher priority than **value**.
+   * Symbol图标资源，优先级大于value。当需要使用Symbol图标时传入此参数，不传入时使用value参数设置的图标。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -127,12 +123,10 @@ export declare class TabTitleBarMenuItem {
   symbolStyle?: SymbolGlyphModifier;
 
   /**
-   * Accessible description. You can provide comprehensive text explanations to help users understand the operation they
-   * are about to perform and its potential consequences, especially when these cannot be inferred from the component's
-   * attributes and accessibility text alone. If a component contains both text information and the accessible
-   * description, the text is announced first and then the accessible description, when the component is selected.
+   * 标题栏右侧自定义按钮的无障碍描述。此描述用于向用户详细解释当前组件，开发人员应为组件的这一属性提供较为详尽的文本说明，以协助用户理解即将执行的操作及其可能产生的后果。特别是当这些后果无法仅从组件的属性和无障碍文本中直接获知时。如果
+   * 组件同时具备文本属性和无障碍说明属性，当组件被选中时，系统将首先播报组件的文本属性，随后播报无障碍说明属性的内容。
    *
-   * Default value: **"Double-tap to activate"**
+   * 默认值为“单指双击即可执行”。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -151,10 +145,11 @@ export declare class TabTitleBarMenuItem {
  * @crossplatform [since 22]
  * @atomicservice [since 11]
  * @since 10 dynamic
+ * @noninterop
  */
 export declare class TabTitleBarTabItem {
   /**
-   * Text of the tab.
+   * 页签项显示的文字内容。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -165,7 +160,7 @@ export declare class TabTitleBarTabItem {
   title: ResourceStr;
 
   /**
-   * Icon of the tab.
+   * 页签图标资源。若设置了symbolStyle，则该属性不生效。若不设置，页签仅显示文字内容。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -176,7 +171,7 @@ export declare class TabTitleBarTabItem {
   icon?: ResourceStr;
 
   /**
-   * Symbol icon of the tab, which has higher priority than **icon**.
+   * Symbol图标资源，优先级大于icon。当需要使用Symbol图标作为页签时传入此参数，不传入时使用icon参数设置的图片页签。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -188,28 +183,26 @@ export declare class TabTitleBarTabItem {
 }
 
 /**
- * The **TabTitleBar** component is a tab title bar used to switch between tabs pages. It is applicable only to level-1
- * pages.
+ * TabTitleBar是页签型标题栏组件，支持页签列表与关联内容的联动切换，并可配置右侧菜单项。适用于需要通过页签切换页面内容的场景，如顶部导航栏等。该组件通过页签和菜单项的灵活配置，可满足不同的交互需求。仅支持一级页面的页签切换。
  *
- * > **NOTE**
+ * > **说明：**
  * >
- * > - If the **TabTitleBar** component has [universal attributes]{@link ./@internal/component/ets/common} and
- * > [universal events]{@link ./@internal/component/ets/common} configured, the compiler toolchain automatically
- * > generates an additional **__Common__** node and mounts the universal attributes and universal events on this node
- * > rather than the **TabTitleBar** component itself. As a result, the configured universal attributes and universal
- * > events may fail to take effect or behave as intended. For this reason, avoid using universal attributes and events
- * > with the **TabTitleBar** component.
+ * > - 该组件仅可在Stage模型下使用。
+ * >
+ * > - 设置TabTitleBar的[通用属性]{@link ./@internal/component/ets/common}或[通用事件]{@link ./@internal/component/ets/common}时，编译工具
+ * > 链会在__Common__节点上挂载而非直接应用到组件本身，可能导致设置不生效或不符合预期，因此不建议设置。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform [since 22]
  * @atomicservice [since 11]
  * @since 10 dynamic
+ * @noninterop
  */
 @Component
 export declare struct TabTitleBar {
   /**
-   * List of tab items on the left of the title bar.
+   * 左侧页签项目列表。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -220,7 +213,7 @@ export declare struct TabTitleBar {
   tabItems: Array<TabTitleBarTabItem>;
 
   /**
-   * List of menu items on the right of the title bar.
+   * 右侧菜单项目列表。若不传，则不显示右侧菜单项。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -231,7 +224,7 @@ export declare struct TabTitleBar {
   menuItems?: Array<TabTitleBarMenuItem>;
 
   /**
-   * Constructor for page content pertaining to the tab list.
+   * 页签列表关联的页面内容构造器。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
