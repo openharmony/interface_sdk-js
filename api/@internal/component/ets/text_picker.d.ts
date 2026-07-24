@@ -28,7 +28,6 @@
  * @since 10 dynamic
  */
 declare interface TextPickerRangeContent {
-
   /**
    * Image resource. If the value is a string, such as **"/common/hello.png"**, it represents the path to the image.
    *
@@ -67,7 +66,6 @@ declare interface TextPickerRangeContent {
  * @since 10 dynamic
  */
 declare interface TextCascadePickerRangeContent {
-
   /**
    * Text information.
    *
@@ -103,7 +101,6 @@ declare interface TextCascadePickerRangeContent {
  * @since 8 dynamic
  */
 declare interface TextPickerOptions {
-
   /**
    * Data selection range of the picker. This parameter cannot be set to an empty array. If it is set to an empty array,
    * no value is displayed. If it is dynamically changed to an empty array, the current valid value remains displayed.
@@ -225,7 +222,6 @@ declare interface TextPickerOptions {
  * @noninterop
  */
 interface TextPickerInterface {
-
   /**
    * Creates a text picker based on the specified data list.
    *
@@ -250,7 +246,6 @@ interface TextPickerInterface {
  * @since 12 dynamic
  */
 declare interface DividerOptions {
-
   /**
    * Stroke width of the divider.
    *
@@ -333,7 +328,6 @@ declare interface DividerOptions {
  * @since 15 dynamic
  */
 declare interface TextPickerTextStyle extends PickerTextStyle {
-
   /**
    * Minimum font size for the text. Used with **maxFontSize** to enable font scaling. When both **minFontSize** and
    * **maxFontSize** are set, the **size** property in **font** is ignored. By default, the maximum number of lines is
@@ -382,7 +376,6 @@ declare interface TextPickerTextStyle extends PickerTextStyle {
  * @since 20 dynamic
  */
 declare interface PickerBackgroundStyle {
-
   /**
    * Background color of the selected item.
    *
@@ -479,7 +472,6 @@ declare type TextPickerEnterSelectedAreaCallback = (value: string | string[], in
  * @noninterop
  */
 declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
-
   /**
    * Sets the height of the picker items.
    *
@@ -1047,7 +1039,6 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
  * @since 8 dynamic
  */
 declare interface TextPickerResult {
-
   /**
    * The currently selected value.
    * Only valid when only text is displayed.When picture or picture plus text is displayed, the value of value is "".
@@ -1086,7 +1077,6 @@ declare interface TextPickerResult {
  * @since 8 dynamic
  */
 declare interface TextPickerDialogOptions extends TextPickerOptions {
-
   /**
    * Height of the picker item.
    *
@@ -1525,7 +1515,6 @@ declare interface TextPickerDialogOptions extends TextPickerOptions {
  * @since 20 dynamic
  */
 declare interface TextPickerDialogOptionsExt extends TextPickerOptions {
-
   /**
    * Called when the default height of the selected element is set.
    *
@@ -1863,7 +1852,6 @@ declare interface TextPickerDialogOptionsExt extends TextPickerOptions {
    * @since 20 dynamic
    */
   selectedBackgroundStyle?: PickerBackgroundStyle;
-
   /**
    * Set system-styled materials for dialog. Different materials have different effects,
    * which can influence backgroundColor, border, shadow, and other visual attributes of dialog.
@@ -1874,7 +1862,6 @@ declare interface TextPickerDialogOptionsExt extends TextPickerOptions {
    * @since 26.0.0 dynamic
    */
   systemMaterial?: SystemUiMaterial;
-
   /**
    * Sets the distortion animation mode for the dialog.
    *
@@ -1887,7 +1874,6 @@ declare interface TextPickerDialogOptionsExt extends TextPickerOptions {
    * @since 26.0.0 dynamic
    */
   distortionMode?: DistortionMode;
-
   /**
    * Sets the edge light animation mode for the dialog.
    *
@@ -1902,7 +1888,6 @@ declare interface TextPickerDialogOptionsExt extends TextPickerOptions {
   edgeLightMode?: EdgeLightMode;
 }
 
-
 /**
  * A text picker dialog box is a dialog box that allows users to select text from the given range.
  *
@@ -1913,7 +1898,6 @@ declare interface TextPickerDialogOptionsExt extends TextPickerOptions {
  * @since 8 dynamic
  */
 declare class TextPickerDialog {
-
   /**
    * Shows a text picker in the given settings.
    *
