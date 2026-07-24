@@ -49,7 +49,7 @@ import { ImageFit } from '@ohos.arkui.component';
 
 /*** if arkts dynamic */
 /**
- * Defines the window callback.
+ * Defines the window callback. 
  *
  * @syscap SystemCapability.Window.SessionManager
  * @atomicservice
