@@ -3594,17 +3594,16 @@ declare namespace wifiManager {
     isSecureWifi?: boolean;
 
     /**
-     * Set the default network binding when current Wi-Fi has no internet.
-     * When the connected Wi-Fi network has no internet access, if this field is set to UNKNOWN, a prompt dialog will
-     * appear asking the user to manually choose the default network; when set to CELLULAR, the system will bind the
-     * default network to the cellular; when set to WIFI, it will bind to the Wi-Fi instead.
-     * Default value: UNKNOWN.
+     * Whether to show a dialog when the first network probe detects no internet.
+     * If false, the default network is bound to cellular with no dialog shown.
+     * If true, will show a no-internet dialog prompts the user to select the default network binding.
+     * Default value: true
      * 
      * @syscap SystemCapability.Communication.WiFi.STA
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
-    defaultNetworkWhenNoInternet?: NetworkType;
+    showNoInternetDialog?: boolean;
   }
 
   /**
@@ -4183,42 +4182,6 @@ declare namespace wifiManager {
      * @since 26.0.0 dynamic&static
      */
     WIFI_AUTO_ENABLE = 0
-  }
-
-  /**
-   * Network type
-   * 
-   * @syscap SystemCapability.Communication.WiFi.Core
-   * @stagemodelonly
-   * @since 26.0.0 dynamic&static
-   */
-  enum NetworkType {  
-    /**
-     * Network is unknown
-     * 
-     * @syscap SystemCapability.Communication.WiFi.Core
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    UNKNOWN = -1,
-
-    /**
-     * Cellular
-     * 
-     * @syscap SystemCapability.Communication.WiFi.Core
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    CELLULAR = 0,
-
-    /**
-     * Wi-Fi
-     * 
-     * @syscap SystemCapability.Communication.WiFi.Core
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    WIFI = 1
   }
 
   /**
