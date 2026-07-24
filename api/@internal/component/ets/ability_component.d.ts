@@ -27,6 +27,7 @@
  * @since 9 dynamiconly
  * @deprecated since 10
  * @useinstead UIExtensionComponentInterface
+ * @noninterop
  */
 interface AbilityComponentInterface {
   /**
@@ -53,10 +54,12 @@ interface AbilityComponentInterface {
  * @since 9 dynamiconly
  * @deprecated since 10
  * @useinstead UIExtensionComponentAttribute
+ * @noninterop
  */
 declare class AbilityComponentAttribute extends CommonMethod<AbilityComponentAttribute> {
   /**
-   * Called when the component is connected to ability.
+   * Called when the **AbilityComponent** environment is started. After the callback,
+   * the methods of **AbilityComponent** can be used.
    *
    * @param { function } callback - A callback instance used when connected.
    * @returns { AbilityComponentAttribute }
@@ -68,7 +71,7 @@ declare class AbilityComponentAttribute extends CommonMethod<AbilityComponentAtt
    */
   onConnect(callback: () => void): AbilityComponentAttribute;
   /**
-   * Called when the component is disconnected.
+   * Called when the **AbilityComponent** environment is destroyed.
    *
    * @param { function } callback - A callback instance used when disconnected.
    * @returns { AbilityComponentAttribute }
@@ -82,12 +85,13 @@ declare class AbilityComponentAttribute extends CommonMethod<AbilityComponentAtt
 }
 
 /**
- * Defines AbilityComponent Component.
+ * **AbilityComponent** is a container for independently displaying an ability.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9 dynamiconly
  * @deprecated since 10
  * @useinstead UIExtensionComponent
+ * @noninterop
  */
 declare const AbilityComponent: AbilityComponentInterface;
 
@@ -98,5 +102,6 @@ declare const AbilityComponent: AbilityComponentInterface;
  * @since 9 dynamiconly
  * @deprecated since 10
  * @useinstead UIExtensionComponentInstance
+ * @noninterop
  */
-declare const AbilityComponentInstance: AbilityComponentAttribute;
+declare const AbilityComponentInstance: AbilityComponentAttribute;

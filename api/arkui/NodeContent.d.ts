@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2024 Huawei Device Co., Ltd.
+ * Copyright (c) 2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -14,22 +14,19 @@
  */
 
 /**
- * **NodeContent** is the ArkUI-provided manager for [ContentSlot]{@link content_slot}.
- *
- * > **NOTE**
- * >
- * > - **NodeContent** objects do not support JSON serialization.
- *
  * @file
  * @kit ArkUI
  */
 
 import { Content } from './Content';
-
 import { FrameNode } from './FrameNode';
 
 /**
- * NodeContent is the entity encapsulation of the node content.
+ * **NodeContent** is the ArkUI-provided manager for [ContentSlot]{@link ../@internal/component/ets/content_slot}.
+ *
+ * > **NOTE**
+ * >
+ * > - **NodeContent** objects do not support JSON serialization.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -38,7 +35,6 @@ import { FrameNode } from './FrameNode';
  * @since 12 dynamic
  */
 export class NodeContent extends Content {
-
   /**
    * A constructor used to create a **NodeContent** object.
    *

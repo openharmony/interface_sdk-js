@@ -1,3 +1,4 @@
+'use static';
 /*
  * Copyright (c) 2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -27,7 +28,6 @@ import { DynamicNode } from './common';
 /**
  * Defines type for memory optimization strategy.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 26.0.0 static
@@ -42,7 +42,7 @@ export enum LazyForEachMemOptStrategy {
      */
     DEFAULT = 0,
     /**
-     * LazyForEach handle the memory optimization.
+     * LazyForEach handles memory optimization.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
