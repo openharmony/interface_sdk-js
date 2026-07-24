@@ -19,7 +19,7 @@
  */
 
 /**
-* GridItem样式枚举。
+* GridItem样式枚举，用于定义GridItem的交互态样式。
 *
 * > **说明：**
 * >
@@ -34,7 +34,7 @@
 declare enum GridItemStyle {
 
   /**
-   * 无样式。
+   * 无样式，不显示Hover、Press态样式。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -45,7 +45,7 @@ declare enum GridItemStyle {
   NONE = 0,
 
   /**
-   * 显示Hover、Press态样式。
+   * 显示Hover、Press态样式。Hover态为鼠标悬停时的样式，Press态为按下时的样式。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -57,7 +57,7 @@ declare enum GridItemStyle {
 }
 
 /**
-* GridItem样式对象。
+* GridItem样式对象，用于配置GridItem的样式选项。
 *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -74,7 +74,7 @@ declare interface GridItemOptions {
    *
    * 设置为GridItemStyle.NONE时无样式。
    *
-   * 设置为GridItemStyle.PLAIN时，显示Hover、Press态样式。
+   * 设置为GridItemStyle.PLAIN时，显示Hover、Press态样式。Hover态为鼠标悬停时的样式，Press态为按下时的样式。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -92,7 +92,7 @@ declare interface GridItemOptions {
 * >
 * > *
 * >
-* > * 仅支持作为[Grid]{@link grid}组件的子组件使用。
+* > * 仅支持作为[Grid]{@link ./grid}组件的子组件使用。
 * >
 * > * 当GridItem配合[LazyForEach](docroot://ui/rendering-control/arkts-rendering-control-lazyforeach.md)使用时，GridItem子组件在
 * > GridItem创建时创建。配合[if/else](docroot://ui/rendering-control/arkts-rendering-control-ifelse.md)、
@@ -117,8 +117,8 @@ interface GridItemInterface {
   /**
    * 创建网格容器中单项内容容器。
    *
-   * @param { GridItemOptions } value - 为GridItem提供可选参数，该对象内含有[GridItemStyle]{@link GridItemStyle}枚举类型的style参
-   *     数。 [since 11]
+   * @param { GridItemOptions } value - 为GridItem提供可选参数，该对象内包含[GridItemStyle]{@link GridItemStyle}枚举类型的style参数。不传入时使用默认样
+   *     式，即GridItemStyle.NONE。<br/> [since 11]
    * @returns { GridItemAttribute }
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -214,7 +214,7 @@ declare class GridItemAttribute extends CommonMethod<GridItemAttribute> {
    * >
    * > 从API version 7开始支持，从API version 9开始废弃。GridItem会根据自身属性和子组件变化自行决定是否需要重新创建，无需设置。
    *
-   * @param { boolean } value - 在触发组件build时是否重新创建此节点。<br/>默认值：false
+   * @param { boolean } value - 设置为true时，在触发组件build时重新创建此节点；设置为false时，不强制重新创建此节点。<br/>默认值：false
    * @returns { GridItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -226,7 +226,7 @@ declare class GridItemAttribute extends CommonMethod<GridItemAttribute> {
   /**
    * 设置当前GridItem元素是否可以被鼠标框选。外层Grid容器的鼠标框选开启时，GridItem的框选才生效。
    *
-   * 该属性需要在设置[多态样式]{@link common}前使用才能生效选中态样式。
+   * 该属性需要在设置[多态样式]{@link ./common}前使用才能生效选中态样式。
    *
    * @param { boolean } value - 当前GridItem元素是否可以被鼠标框选。设置为true时可以被鼠标框选，设置为false时无法被鼠标框选。<br/>默认值：true
    * @returns { GridItemAttribute }
@@ -241,9 +241,9 @@ declare class GridItemAttribute extends CommonMethod<GridItemAttribute> {
   /**
    * 设置当前GridItem选中状态。该属性支持[$$](docroot://ui/state-management/arkts-two-way-sync.md)双向绑定变量。
    *
-   * 该属性需要在设置[多态样式]{@link common}前使用才能生效选中态样式。
+   * 该属性需要在设置[多态样式]{@link ./common}前使用才能生效选中态样式。
    *
-   * @param { boolean } value - 当前GridItem选中状态。设置为true时为选中状态，设置为false时为默认状态。<br/>默认值：false
+   * @param { boolean } value - 当前GridItem选中状态。设置为true时为选中状态，设置为false时为非选中状态。<br/>默认值：false
    * @returns { GridItemAttribute } the attribute of the gridItem.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -274,7 +274,7 @@ declare class GridItemAttribute extends CommonMethod<GridItemAttribute> {
  * >
  * > *
  * >
- * > * 仅支持作为[Grid]{@link grid}组件的子组件使用。
+ * > * 仅支持作为[Grid]{@link ./grid}组件的子组件使用。
  * >
  * > * 当GridItem配合[LazyForEach](docroot://ui/rendering-control/arkts-rendering-control-lazyforeach.md)使用时，GridItem子组件在
  * > GridItem创建时创建。配合[if/else](docroot://ui/rendering-control/arkts-rendering-control-ifelse.md)、
