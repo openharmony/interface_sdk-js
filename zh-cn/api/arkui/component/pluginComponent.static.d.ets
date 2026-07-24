@@ -19,113 +19,109 @@
  */
 
 import { VoidCallback } from './units';
+
 import { ComponentBuilder, CustomBuilder, CustomBuilderT } from './builder';
+import { ComponentBuilder, CustomBuilderT } from './builder';
 import { AttributeModifier, CommonMethod } from './common';
 import { RecordData } from '../../@ohos.base';
 import { Builder } from '@ohos.arkui.component';
 
 /**
- * PluginComponentTemplate
+ * 定义插件组件模板信息，用于与提供方定义的组件绑定。
  *
- * @interface PluginComponentTemplate
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @stagemodelonly
  * @since 23 static
  */
 export interface PluginComponentTemplate {
-    /**
-     * 定义插件来源名称。
-     *
-     * @type { string | undefined }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @systemapi
-     * @stagemodelonly
-     * @since 23 static
-     */
-    source: string | undefined;
-    /**
-     * 定义模板的bundleName。
-     *
-     * @type { string | undefined }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @systemapi
-     * @stagemodelonly
-     * @since 23 static
-     */
-    bundleName: string | undefined;
+  /**
+   * 组件模板，取值可为模板绝对路径（不建议）、相对HAP包的相对路径（多HAP场景使用“相对路径&模块名称”格式）或FA模型下的AbilityName。
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 static
+   */
+  source: string | undefined;
+  /**
+   * 提供方应用的bundleName。使用绝对路径提供模板时不需要填写，使用应用包提供模板时需要填写。
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 static
+   */
+  bundleName: string | undefined;
 }
 
 /**
  * 定义用于构造插件组件的选项。
  * AnonyMous Object Rectification
  *
- * @interface PluginComponentOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @stagemodelonly
  * @since 23 static
  */
 export declare interface PluginComponentOptions {
-    /**
-     * 插件组件模板。
-     * AnonyMous Object Rectification
-     * @type { PluginComponentTemplate }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @systemapi
-     * @stagemodelonly
-     * @since 23 static
-     */
-    template: PluginComponentTemplate;
-    /**
-     * 插件组件数据。
-     * AnonyMous Object Rectification
-     * @type { RecordData }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @systemapi
-     * @stagemodelonly
-     * @since 23 static
-     */
-    data: RecordData;
+  /**
+   * 组件模板，用于跟提供方定义的组件绑定。
+   * AnonyMous Object Rectification
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 static
+   */
+  template: PluginComponentTemplate;
+  /**
+   * 传给插件组件提供方使用的数据，类型不限（支持对象、字符串等）。具体数据格式由使用方与提供方协商定义。
+   * AnonyMous Object Rectification
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 static
+   */
+  data: RecordData;
 }
 /**
  * 发生错误时提供的数据。
  * AnonyMous Object Rectification
  *
- * @interface PluginErrorData
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @stagemodelonly
  * @since 23 static
  */
 export declare interface PluginErrorData {
-    /**
-     * 错误码。
-     * AnonyMous Object Rectification
-     * @type { int }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @systemapi
-     * @stagemodelonly
-     * @since 23 static
-     */
-    errcode: int;
-    /**
-     * 错误信息。
-     * AnonyMous Object Rectification
-     * @type { string }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @systemapi
-     * @stagemodelonly
-     * @since 23 static
-     */
-    msg: string;
+  /**
+   * 错误码。
+   * AnonyMous Object Rectification
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 static
+   */
+  errcode: int;
+  /**
+   * 错误信息。
+   * AnonyMous Object Rectification
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 static
+   */
+  msg: string;
 }
 /**
- * 发生错误时触发的回调。
+ * 发生错误时触发事件回调。
  * AnonyMous Object Rectification
  *
- * @typedef { function } PluginErrorCallback
- * @param { PluginErrorData } info - 插件错误数据
+ * @param { PluginErrorData } info - 发生错误时提供的数据。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @stagemodelonly
@@ -136,67 +132,66 @@ export type PluginErrorCallback = (info: PluginErrorData) => void;
 /**
  * 定义插件组件的属性方法。
  *
- * @extends CommonMethod
- * @typedef PluginComponentAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @stagemodelonly
- * @noninterop
  * @since 23 static
+ * @noninterop
  */
 export declare interface PluginComponentAttribute extends CommonMethod {
-    /**
-     * 设置插件组件选项。
-     *
-     * @param { PluginComponentOptions } options - 选项
-     * @returns { this } PluginComponentAttribute实例
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @systemapi
-     * @since 26.0.0 staticonly
-     */
-    setPluginComponentOptions(options: PluginComponentOptions): this;
 
-    /**
-     * PluginComponent的onComplete回调
-     * AnonyMous Object Rectification
-     *
-     * @param { VoidCallback | undefined } callback
-     * @returns { PluginComponentAttribute }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @systemapi
-     * @stagemodelonly
-     * @since 23 static
-     */
-    onComplete(callback: VoidCallback | undefined): this;
-    /**
-     * PluginComponent的onError回调
-     * AnonyMous Object Rectification
-     *
-     * @param { PluginErrorCallback | undefined } callback
-     * @returns { PluginComponentAttribute }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @systemapi
-     * @stagemodelonly
-     * @since 23 static
-     */
-    onError(callback: PluginErrorCallback | undefined): this;
-    /**
-     * 设置PluginComponent组件的属性修改器。
-     *
-     * @param { AttributeModifier<PluginComponentAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
-     * @returns { PluginComponentAttribute }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @systemapi
-     * @stagemodelonly
-     * @since 23 static
-     */
-    attributeModifier(modifier: AttributeModifier<PluginComponentAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+  /**
+   * 设置插件组件选项。
+   *
+   * @param { PluginComponentOptions } options - 选项
+   * @returns { this } PluginComponentAttribute实例
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 staticonly
+   */
+  setPluginComponentOptions(options: PluginComponentOptions): this;
+  /**
+   * 组件加载完成时触发回调。
+   * AnonyMous Object Rectification
+   *
+   * @param { VoidCallback | undefined } callback - 组件加载完成时触发事件回调。
+   * @returns { PluginComponentAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 static
+   */
+  onComplete(callback: VoidCallback | undefined): this;
+  /**
+   * 组件加载错误时触发回调。
+   * AnonyMous Object Rectification
+   *
+   * @param { PluginErrorCallback | undefined } callback - 组件加载错误时触发事件回调。
+   * @returns { PluginComponentAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 static
+   */
+  onError(callback: PluginErrorCallback | undefined): this;
+  /**
+   * 设置PluginComponent组件的属性修改器。
+   *
+   * @param { AttributeModifier<PluginComponentAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
+   * @returns { PluginComponentAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 static
+   */
+  attributeModifier(modifier: AttributeModifier<PluginComponentAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
 
 /**
- * 定义PluginComponent组件。
- * @param { PluginComponentOptions } options - 选项
+ * 创建插件组件，用于显示外部应用提供的UI。
+ *
+ * @param { PluginComponentOptions } options - 定义用于构造插件组件的选项。
  * @returns { PluginComponentAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
@@ -206,7 +201,7 @@ export declare interface PluginComponentAttribute extends CommonMethod {
 @ComponentBuilder
 export declare function PluginComponent(
     options: PluginComponentOptions
-): PluginComponentAttribute
+): PluginComponentAttribute;
 
 /**
  * 定义PluginComponent组件。它要求在组件属性设置开始时调用setPluginComponentOptions，
@@ -215,11 +210,11 @@ export declare function PluginComponent(
  * @param { CustomBuilderT<PluginComponentAttribute> } style - 用于设置plugincomponent属性的回调。
  * @returns { PluginComponentAttribute } PluginComponent的属性。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
  * @systemapi
+ * @stagemodelonly
  * @since 26.0.0 staticonly
  */
 @Builder
 export declare function PluginComponent(
     style: CustomBuilderT<PluginComponentAttribute>
-): PluginComponentAttribute
+): PluginComponentAttribute;

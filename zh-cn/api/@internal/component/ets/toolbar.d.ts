@@ -19,9 +19,8 @@
  */
 
 /**
- * 声明toolbar item的放置位置。
+ * 定义工具栏项在标题栏对应分栏的放置位置选项。
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -29,7 +28,7 @@
  */
 declare enum ToolBarItemPlacement {
   /**
-   * 将toolbar item放置在顶部栏的起始位置。
+   * 将工具栏项放置在对应顶部栏的开头位置。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -39,20 +38,19 @@ declare enum ToolBarItemPlacement {
   TOP_BAR_LEADING = 0,
 
   /**
-   * 将toolbar item放置在顶部栏的结束位置。
+   * 将工具栏项放置在对应顶部栏的末尾位置。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @since 20 dynamic
    */
-  TOP_BAR_TRAILING = 1,
+  TOP_BAR_TRAILING = 1
 }
 
 /**
- * ToolBarItem构造选项。
+ * 用于配置ToolBarItem的可选参数，主要通过placement设置工具栏项在标题栏的放置位置。
  *
- * @interface ToolBarItemOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -60,9 +58,14 @@ declare enum ToolBarItemPlacement {
  */
 interface ToolBarItemOptions {
   /**
-   * 垂直布局元素的间距。
+   * 设置工具栏项的放置位置。
    *
-   * @type { ?ToolBarItemPlacement }
+   * 默认值：**ToolBarItemPlacement.TOP_BAR_LEADING**。
+   *
+   * **ToolBarItemPlacement.TOP_BAR_LEADING**：将工具栏项放置在对应顶部栏的开头位置。
+   *
+   * **ToolBarItemPlacement.TOP_BAR_TRAILING**：将工具栏项放置在对应顶部栏的末尾位置。
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -72,9 +75,12 @@ interface ToolBarItemOptions {
 }
 
 /**
- * 定义ToolBarItem组件。
+ * 可以使用**ToolBarItem**组件，通过[toolbar](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-toolbar.md#toolbar)通用属性向标题栏中添加toolbar item。
  *
- * @interface ToolBarItemInterface
+ * > **说明**
+ * >
+ * > 该组件通常与[toolbar](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-toolbar.md#toolbar)通用属性一起使用。
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -82,9 +88,9 @@ interface ToolBarItemOptions {
  */
 interface ToolBarItemInterface {
   /**
-   * 设置选项。
+   * 默认在标题栏对应分栏开头位置创建工具栏项，分栏位置由绑定该[toolbar](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-toolbar.md#toolbar)属性的组件所在分栏位置而定。
    *
-   * @param { ToolBarItemOptions } [options] - 列选项
+   * @param { ToolBarItemOptions } [options] - **ToolBarItem**的可选参数，包括[ToolBarItemPlacement]{@link ToolBarItemPlacement}类型的**placement**参数。<br>默认值：**placement: ToolBarItemPlacement.TOP_BAR_LEADING**
    * @returns { ToolBarItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -95,19 +101,26 @@ interface ToolBarItemInterface {
 }
 
 /**
- * 定义ToolBarItem组件的属性方法。
+ * 不支持[通用属性]{@link ./common}。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
  * @since 20 dynamic
  */
-declare class ToolBarItemAttribute { }
+declare class ToolBarItemAttribute {}
 
 /**
- * 定义ToolBarItem组件。
+ * 可以使用**ToolBarItem**组件，通过[toolbar](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-toolbar.md#toolbar)通用属性向标题栏中添加toolbar item。
  *
- * @type { ToolBarItemInterface }
+ * > **说明**
+ * >
+ * > 该组件通常与[toolbar](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-toolbar.md#toolbar)通用属性一起使用。
+ *
+ * ###### 子组件
+ *
+ * 该组件可以包含单个子组件。
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -118,7 +131,6 @@ declare const ToolBarItem: ToolBarItemInterface;
 /**
  * 定义ToolBarItem组件实例。
  *
- * @type { ToolBarItemAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
