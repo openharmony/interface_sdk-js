@@ -276,7 +276,7 @@ declare namespace dlpPermission {
      */
     function getDLPPermissionInfo(): Promise<DLPPermissionInfo>;
     /**
-     * 查询当前DLP沙箱的权限信息。返回的权限信息包括文件的授权类型和可执行的操作权限(如查看、编辑、复制等)。仅支持在DLP沙箱应用中调用。使用callback异步回调。
+     * 查询当前DLP沙箱的权限信息。返回的权限信息包括文件的授权类型和可执行的操作权限（如查看、编辑、复制等）。仅支持在DLP沙箱应用中调用。使用callback异步回调。
      * 
      * 在DLP沙箱中处理文件时，可根据权限信息判断当前用户可以执行哪些操作，避免调用无权限的功能。
      *
@@ -317,7 +317,7 @@ declare namespace dlpPermission {
     /**
      * 监听打开DLP文件。调用成功后，当DLP文件被打开时会触发回调通知当前应用。仅支持在非DLP沙箱应用中调用。
      * 
-     * 当应用需要在DLP文件打开后执行特定操作(如记录日志、更新界面)时，可注册该监听。
+     * 当应用需要在DLP文件打开后执行特定操作（如记录日志、更新界面）时，可注册该监听。
      *
      * @param { 'openDLPFile' } type - 监听事件类型。固定值为'openDLPFile'：打开DLP文件事件。
      * @param { Callback<AccessedDLPFileInfo> } listener - DLP文件打开事件的回调。在当前应用的沙箱应用打开DLP文件时，通知当前应用。
@@ -433,7 +433,7 @@ declare namespace dlpPermission {
      */
     function setRetentionState(docUris: Array<string>, callback: AsyncCallback<void>): void;
     /**
-     * 取消沙箱保留状态即恢复DLP文件关闭时自动卸载沙箱策略。使用Promise异步回调。
+     * 取消沙箱保留状态，即恢复DLP文件关闭时自动卸载沙箱策略。使用Promise异步回调。
      * 
      * 该接口用于取消沙箱保留状态，恢复默认行为以释放系统资源，适用于不再频繁访问DLP文件的场景。
      *
@@ -448,7 +448,7 @@ declare namespace dlpPermission {
      */
     function cancelRetentionState(docUris: Array<string>): Promise<void>;
     /**
-     * 取消沙箱保留状态即恢复DLP文件关闭时自动卸载沙箱策略。使用callback异步回调。
+     * 取消沙箱保留状态，即恢复DLP文件关闭时自动卸载沙箱策略。使用Promise异步回调。
      * 
      * 该接口用于取消沙箱保留状态，恢复默认行为以释放系统资源，适用于不再频繁访问DLP文件的场景。
      *
@@ -498,7 +498,7 @@ declare namespace dlpPermission {
     /**
      * 查询当前应用的保留沙箱信息列表。使用callback异步回调。
      * 
-     * 该接口用于查询指定应用的保留沙箱列表，以便查看或管理当前处于保留状态的沙箱环境。
+     * 该接口用于查询指定应用的保留沙箱列表，以便查看或管理当前处于保留状态的沙箱环境。仅支持在非DLP沙箱应用中调用。
      *
      * @param { AsyncCallback<Array<RetentionSandboxInfo>> } callback - 回调函数。err为undefined时表示查询成功；否则为错误对象。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
@@ -721,7 +721,7 @@ declare namespace dlpPermission {
      * @param { DLPFileAccess } access - DLP文件授权类型。设置不同的授权类型将决定用户对DLP文件的访问权限范围。
      * @param { number } userId - 当前的用户ID，通过账号子系统获取的系统账号ID，默认主用户ID：100。<br>取值范围为[0, 2<sup>31</sup>-1]，超出范围将被截断。当传入参数值小于0
      *     时，输出错误日志。
-     * @param { string } uri - DLP文件的URI。不超过4095字节。 超出范围时抛出错误码401。
+     * @param { string } uri - DLP文件的URI。不超过4095字节。超出范围时抛出错误码401。
      * @param { AsyncCallback<DLPSandboxInfo> } callback - 回调函数。当安装DLP沙箱成功，err为undefined，data为获取到的沙箱信息；否则为错误对象。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -1047,7 +1047,7 @@ declare namespace dlpPermission {
          */
         waterMarkConfig?: boolean;
         /**
-         * 表示文件可被查看的有效时间，超时后打开的文件将自动关闭，默认为0，单位：秒。取值范围大于等于0。无范围限制。
+         * 表示文件可被查看的有效时间，超时后打开的文件将自动关闭，默认为0，单位：s。取值范围为[-2<sup>31</sup>, 2<sup>31</sup>-1]。
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @stagemodelonly
@@ -1211,7 +1211,7 @@ declare namespace dlpPermission {
          */
         resumeFuseLink(callback: AsyncCallback<void>): void;
         /**
-         * 替换link文件。使用Promise异步回调。调用成功后，使用新的link文件名替换当前link文件。
+         * 替换link文件。使用Promise异步回调。调用成功后，使用新的link文件名替换当前link文件。需要先创建link文件并停止FUSE读写，才能执行此操作。
          * 
          * 需要切换访问不同的DLP文件时，通过替换link文件实现文件映射的切换。
          *
@@ -1234,7 +1234,7 @@ declare namespace dlpPermission {
         /**
          * 替换link文件，使用callback异步回调。调用成功后，使用新的link文件名替换当前link文件。
          * 
-         * 需要切换访问不同的DLP文件时替换link文件。
+         * 需要切换访问不同的DLP文件时替换link文件。需要先创建link文件并停止FUSE读写，才能执行此操作。
          *
          * @permission ohos.permission.ACCESS_DLP_FILE
          * @param { string } linkFileName - 用于FUSE文件系统的link文件名。不超过255字节。超出范围时抛出错误码401。
@@ -1472,7 +1472,7 @@ declare namespace dlpPermission {
      * @permission ohos.permission.ACCESS_DLP_FILE
      * @param { number } ciphertextFd - 加密文件的fd。取值范围为[0, 2<sup>31</sup>-1]。当fd小于0时，打印错误日志，函数停止运行；当fd大于2<sup>31</sup>-1时，
      *     fd的值被截断。
-     * @param { string } appId - 调用方身份。最小8字节，最大1024字节。超出范围时返回错误码401。
+     * @param { string } appId - 调用方身份。最小8字节，最大1024字节。超出范围时抛出错误码401。
      * @returns { Promise<DLPFile> } Promise对象。resolve时返回DLPFile对象表示成功打开DLP文件，reject时抛出错误表示失败。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -1501,7 +1501,7 @@ declare namespace dlpPermission {
      * @permission ohos.permission.ACCESS_DLP_FILE
      * @param { number } ciphertextFd - 加密文件的fd。取值范围为[0, 2<sup>31</sup>-1]。当fd小于0时，打印错误日志，函数停止运行；当fd大于2<sup>31</sup>-1时，
      *     fd的值被截断。
-     * @param { string } appId - 调用方身份。最小8字节，最大1024字节。超出范围时返回错误码401。
+     * @param { string } appId - 调用方身份。最小8字节，最大1024字节。超出范围时抛出错误码401。
      * @param { AsyncCallback<DLPFile> } callback - 回调函数。用于接收打开DLP文件的结果。回调参数包括：err（错误对象，成功时为undefined）和res（DLPFile对象，表示打
      *     开的DLP文件）。
      * @throws { BusinessError } 201 - Permission denied.
@@ -1525,7 +1525,7 @@ declare namespace dlpPermission {
      */
     function openDLPFile(ciphertextFd: number, appId: string, callback: AsyncCallback<DLPFile>): void;
     /**
-     * 设置沙箱应用配置信息，配置信息为JSON字符串格式，具体内容由应用自行设置。调用成功后，沙箱应用将按照配置信息运行。使用Promise异步回调。
+     * 设置沙箱应用配置信息，配置信息为JSON字符串格式，具体内容由应用自行设置。调用成功后，沙箱应用将按照配置信息运行。使用Promise异步回调。仅支持在非DLP沙箱应用中调用。
      * 
      * 该接口用于设置沙箱应用的配置信息，以便应用按需传递自定义参数。
      *
@@ -1543,7 +1543,7 @@ declare namespace dlpPermission {
      */
     function setSandboxAppConfig(configInfo: string): Promise<void>;
     /**
-     * 清理沙箱应用配置信息。调用成功后，沙箱应用配置将被清除，恢复默认状态。使用Promise异步回调。
+     * 清理沙箱应用配置信息。调用成功后，沙箱应用配置将被清除，恢复默认状态。使用Promise异步回调。仅支持在非DLP沙箱应用中调用。
      * 
      * 该接口用于清理沙箱应用的配置信息，恢复默认状态以防止配置残留影响后续使用。
      *
@@ -1836,7 +1836,7 @@ declare namespace dlpPermission {
          * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE or ohos.permission.ACCESS_DLP_SERVICE [since 26.0.0]
          * @param { DlpConnPlugin } plugin - 回调插件对象，用于注册回调能力到SA（System Ability）侧。需要继承DlpConnPlugin接口并实现connectServer方法，以
          *     便SA侧调用时能够通过回调返回处理结果。
-         * @returns { number } 注册结果，返回该回调的唯一标识ID。取值范围为[0, 2<sup>64</sup>-1]。
+         * @returns { number } 注册结果，返回该回调的唯一标识ID。取值范围为[0, 2<sup>53</sup>-1]。
          * @throws { BusinessError } 201 - Permission denied.
          * @throws { BusinessError } 19100001 - Invalid parameter value.
          * @throws { BusinessError } 19100002 - Credential service busy due to too many tasks or duplicate tasks.
