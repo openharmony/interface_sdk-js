@@ -29,7 +29,7 @@
 declare interface StartLineInfo {
 
   /**
-   * 目标索引或目标偏移量所在行的起始索引。
+   * 在OnGetStartIndexByOffsetCallback中，表示滚动偏移量所在行的起始索引；在OnGetStartIndexByIndexCallback中，表示目标索引所在行的起始索引。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -39,7 +39,7 @@ declare interface StartLineInfo {
   startIndex: int;
 
   /**
-   * startIndex对应的GridItem所在的起始行，一般为Grid视窗内的起始行，对于跨多行的GridItem需要找到该节点的起始行，可能在视窗外。
+   * startIndex对应GridItem在Grid布局中的起始行号。若该GridItem跨多行，且当前视窗从该GridItem中间位置开始显示，startLine仍表示该GridItem在完整Grid布局中实际占用的首行行号。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -49,7 +49,9 @@ declare interface StartLineInfo {
   startLine: int;
 
   /**
-   * startIndex对应的GridItem的顶部与Grid顶部之间的偏移量。<br/>单位：vp
+   * startIndex对应的GridItem的顶部与Grid顶部之间的偏移量。
+   *
+   * 单位：vp
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -59,7 +61,9 @@ declare interface StartLineInfo {
   startOffset: double;
 
   /**
-   * 总滚动偏移量，即Grid中第一个GridItem的顶部与Grid顶部之间的偏移量。<br/>单位：vp
+   * 总滚动偏移量，即Grid中第一个GridItem的顶部与Grid顶部之间的偏移量。
+   *
+   * 单位：vp
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -70,7 +74,7 @@ declare interface StartLineInfo {
 }
 
 /**
- * 根据Grid的总偏移量，计算当前页面起始行的位置，用于快速滑动或反向滑动场景。
+ * 根据Grid的总偏移量，计算当前页面起始行的位置，用于快速滑动或反向滑动场景。此回调需与onGetStartIndexByIndex同时设置才能生效。
  *
  * @param { double } totalOffset - 总滚动偏移量，即Grid当中第一个GridItem的顶部与Grid顶部之间的偏移量。<br/>单位：vp
  * @returns { StartLineInfo }
@@ -82,7 +86,8 @@ declare interface StartLineInfo {
 declare type OnGetStartIndexByOffsetCallback = (totalOffset: double) => StartLineInfo;
 
 /**
-* 根据指定的目标索引，计算Grid滚动到该位置时页面内对应的起始行，用于支持[scrollToIndex]{@link scroll:Scroller.scrollToIndex}等操作。
+* 根据指定的目标索引，计算Grid滚动到该位置时页面内对应的起始行，用于支持[scrollToIndex]{@link Scroller#scrollToIndex}等操作。此回调需与onGetStartIndexByOffset同时设
+* 置才能生效。
 *
  * @param { int } targetIndex - 要滚动到的目标GridItem的索引。
  * @returns { StartLineInfo }
@@ -100,11 +105,8 @@ declare type OnGetStartIndexByIndexCallback = (targetIndex: int) => StartLineInf
 * rowsTemplate和columnsTemplate的Grid使用，为指定的index对应的GridItem设置位置和大小，使用方法参见
 * [示例1](docroot://reference/apis-arkui/arkui-ts/ts-container-grid.md#示例1固定行列grid)。
 *
-* 为提高Grid在包含大小不规则节点场景布局性能和准确性，可以使用onGetStartIndexByOffset和onGetStartIndexByIndex两个回调类型参数，两个回调必须同时
-* 设置才能生效。该场景下，建议设置[onScrollBarUpdate](#onscrollbarupdate)来精准定位滚动条的位置。
-*
-* 为提高Grid在跳转、列数变化等场景的性能，应该尽量使用GridLayoutOptions。即使Grid中没有任何特殊的跨行跨列节点，也可以通过使用
-* 'Grid(this.scroller, {regularSize: [1, 1]})'的方式提高跳转性能。参考<!--RP1-->
+* 为提高Grid在跳转、列数变化等场景的性能，应该尽量使用GridLayoutOptions。即使Grid中没有任何特殊的跨行跨列节点，也可以通过使用'Grid(this.scroller, {regularSize: [1, 1]})
+* '的方式提高跳转性能。参考<!--RP1-->
 * [使用GridLayoutOptions提升Grid性能](docroot://performance/grid_optimization.md#使用gridlayoutoptions提升grid性能)<!--RP1End-->。
 *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -127,8 +129,8 @@ declare interface GridLayoutOptions {
   regularSize: [number, number];
 
   /**
-   * 指定索引的GridItem在Grid中的大小是不规则的。当不设置onGetIrregularSizeByIndex时，irregularIndexes中
-   * GridItem的默认大小为垂直滚动Grid的一整行或水平滚动Grid的一整列。
+   * 指定索引的GridItem在Grid中的大小是不规则的。当不设置onGetIrregularSizeByIndex时，irregularIndexes中GridItem的默认大小为垂直滚动Grid的一整行或水平滚动Grid的一整
+   * 列。
    *
    * @default number[] no irregular grid item
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -140,7 +142,8 @@ declare interface GridLayoutOptions {
   irregularIndexes?: number[];
 
   /**
-   * Called to return the size of the irregular grid items with the specified index in [rows, columns].
+   * 配合irregularIndexes使用，设置不规则GridItem占用的行数和列数。开发者可为irregularIndexes中指明的index对应的GridItem设置占用的行数和列数。在API version 12之前，垂直
+   * 滚动Grid不支持GridItem占多行，水平滚动Grid不支持GridItem占多列。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -151,8 +154,21 @@ declare interface GridLayoutOptions {
   onGetIrregularSizeByIndex?: (index: number) => [number, number];
 
   /**
-   * Called to return the size of the grid items with the specified index in
-   * [rowStart, columnStart, rowSpan, columnSpan].
+   * 设置指定索引index对应的GridItem的位置及大小[rowStart,columnStart,rowSpan,columnSpan]。
+   *
+   * 其中rowStart为行起始位置，columnStart为列起始位置，无单位。
+   *
+   * rowSpan为GridItem占用的行数，columnSpan为GridItem占用的列数，无单位。
+   *
+   * rowStart和columnStart取大于等于0的自然数，若取负数时，rowStart和columnStart默认为0。
+   *
+   * rowSpan和columnSpan取大于等于1的自然数，若取小数则向下取整，若小于1则按1计算。
+   *
+   * **说明：**
+   *
+   * 第一种情况：某个GridItem发现给它指定的起始位置被占据了，则从起始位置[0,0]开始按顺序从左到右，从上到下寻找起始的放置位置。
+   *
+   * 第二种情况：如果起始位置没有被占据，但其他位置被占据了，无法显示全部的GridItem大小，则只会布局一部分。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -163,7 +179,9 @@ declare interface GridLayoutOptions {
   onGetRectByIndex?: (index: number) => [number, number, number, number];
 
   /**
-   * 根据Grid滚动的总偏移量，计算Grid当前页面起始行位置，用于快速滑动或反向滑动场景。
+   * 根据Grid滚动的总偏移量，计算Grid当前页面起始行位置，用于快速滑动或反向滑动场景。不设置时不启用该回调，需与onGetStartIndexByIndex同时设置才能生效。
+   *
+   * **系统接口：** 此接口为系统接口。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -173,7 +191,10 @@ declare interface GridLayoutOptions {
   onGetStartIndexByOffset?: OnGetStartIndexByOffsetCallback;
 
   /**
-   * 根据指定的目标索引，计算Grid滚动到该位置时页面内的起始行，用于支持[scrollToIndex]{@link scroll:Scroller.scrollToIndex}等操作。
+   * 根据指定的目标索引，计算Grid滚动到该位置时页面内的起始行，用于支持[scrollToIndex]{@link Scroller#scrollToIndex}等操作。不设置时不启用该回调，需与
+   * onGetStartIndexByOffset同时设置才能生效。
+   *
+   * **系统接口：** 此接口为系统接口。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -187,8 +208,8 @@ declare interface GridLayoutOptions {
 * 网格容器，由“行”和“列”分割的单元格所组成，通过指定“项目”所在的单元格做出各种各样的布局。
 *
 * > **说明：**
-*
-* > 组件内部已绑定手势实现跟手滚动等功能，需要增加自定义手势操作时请参考[手势拦截增强]{@link common}进行处理。
+* >
+* > 组件内部已绑定手势实现跟手滚动等功能，需要增加自定义手势操作时请参考[手势拦截增强]{@link ./common}进行处理。
 *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -202,10 +223,11 @@ interface GridInterface {
   /**
    * 创建网格容器。
    *
-   * @param { Scroller } scroller - 可滚动组件的控制器。用于与可滚动组件进行绑定。<br/>**说明：** <br/>不允许和其他滚动类组件，如：
-   *     [ArcList]{@link @ohos.arkui.ArcList}、[List]{@link list}、[Grid]{@link grid}、[Scroll]{@link scroll}和
-   *     [WaterFlow]{@link water_flow}绑定同一个滚动控制对象。
-   * @param { GridLayoutOptions } layoutOptions - Grid布局选项。 [since 10]
+   * @param { Scroller } scroller - 可滚动组件的控制器。用于与可滚动组件进行绑定。不设置时不绑定外部控制器，组件自行管理滚动行为。<br/>**说明：** <br/>不允许和其他滚动类组件，如：
+   *     [ArcList]{@link @ohos.arkui.ArcList}、[List]{@link ./list}、[Grid]{@link ./grid}、[Scroll]{@link ./scroll}和
+   *     [WaterFlow]{@link ./water_flow}绑定同一个滚动控制对象。
+   * @param { GridLayoutOptions } layoutOptions - Grid布局选项，用于配置GridItem跨行跨列等布局信息。不传入时，Grid按照rowsTemplate、columnsTemplate
+   *     等常规属性以及GridItem自身属性进行布局，不启用GridLayoutOptions提供的布局选项。<br/> [since 10]
    * @returns { GridAttribute } The attribute of the grid
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -351,8 +373,8 @@ declare interface ComputedBarAttribute {
 }
 
 /**
-* frameNode中[getEvent('Grid')]{@link FrameNode:typeNode.getEvent(node: FrameNode, nodeType: 'Grid')}方法的返回值，可用于给Grid节点设置
-* 滚动事件。
+* frameNode中[getEvent('Grid')]{@link ../../../arkui/FrameNode:typeNode.getEvent(node: FrameNode, nodeType: 'Grid')}方法的返
+* 回值，可用于给Grid节点设置滚动事件。
 *
 * UIGridEvent继承于[UIScrollableCommonEvent]{@link UIScrollableCommonEvent}。
 *
@@ -369,7 +391,7 @@ declare interface UIGridEvent extends UIScrollableCommonEvent {
    *
    * 方法入参为undefined时，会重置事件回调。
    *
-   * @param { OnWillScrollCallback | undefined } callback - onWillScroll事件的回调函数。
+   * @param { OnWillScrollCallback | undefined } callback - onWillScroll事件的回调函数。传入undefined时，会重置事件回调。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -383,7 +405,7 @@ declare interface UIGridEvent extends UIScrollableCommonEvent {
    *
    * 方法入参为undefined时，会重置事件回调。
    *
-   * @param { OnScrollCallback | undefined } callback - onDidScroll事件的回调函数。
+   * @param { OnScrollCallback | undefined } callback - onDidScroll事件的回调函数。传入undefined时，会重置事件回调。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -393,11 +415,11 @@ declare interface UIGridEvent extends UIScrollableCommonEvent {
   setOnDidScroll(callback: OnScrollCallback | undefined): void;
 
   /**
-   * 设置[onScrollIndex](docroot://reference/apis-arkui/arkui-ts/ts-container-grid.md#onscrollindex)事件的回调。
+   * 设置[onScrollIndex]{@link GridAttribute#onScrollIndex}事件的回调。
    *
    * 方法入参为undefined时，会重置事件回调。
    *
-   * @param { OnGridScrollIndexCallback | undefined } callback - onScrollIndex事件的回调函数。
+   * @param { OnGridScrollIndexCallback | undefined } callback - onScrollIndex事件的回调函数。传入undefined时，会重置事件回调。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -421,16 +443,11 @@ declare interface UIGridEvent extends UIScrollableCommonEvent {
 declare type OnGridScrollIndexCallback = (first: number, last: number) => void;
 
 /**
-* 除支持[通用属性]{@link common}和[滚动组件通用属性](docroot://reference/apis-arkui/arkui-ts/ts-container-scrollable-common.md#属性)外，还支持以下属性：
-* > **说明：**
-* >
-* > Grid组件使用通用属性[clip<sup>12+</sup>](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-sharp-clipping.md#clip12)和通用属性[clip<sup>18+</sup>](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-sharp-clipping.md#clip18)时默认值都为true。
-* >
-* > 设置Grid的padding后，如果子组件部分位于Grid内容区且部分位于padding区域内，则会显示；如果子组件完全位于padding区域内，则不会显示。如下图所示，GridItem1显示，而GridItem2不显示。
-* >
-* > ![GridPadding示意图](figures/gridPadding.png)
+* 除支持[通用属性]{@link ./common}和[滚动组件通用属性](docroot://reference/apis-arkui/arkui-ts/ts-container-scrollable-common.md#属性)外，还
+* 支持以下属性：
 *
-* 除支持[通用事件]{@link common}和[滚动组件通用事件](docroot://reference/apis-arkui/arkui-ts/ts-container-scrollable-common.md#事件)外，还支持以下事件：
+* 除支持[通用事件]{@link ./common}和[滚动组件通用事件](docroot://reference/apis-arkui/arkui-ts/ts-container-scrollable-common.md#事件)外，还
+* 支持以下事件：
 *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -480,7 +497,8 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
    *
    * 例如，ItemFillPolicy.BREAKPOINT_DEFAULT在组件宽度属于sm及更小的断点区间时显示2列，属于md断点区间时显示3列，属于lg及更大的断点区间时显示5列，且每列均为1fr。
    *
-   * @param { string | ItemFillPolicy } value - 当前网格组件布局列的数量。
+   * @param { string | ItemFillPolicy } value - 当前网格组件布局列的数量。value为string类型时，表示固定列数或repeat函数形式；value为ItemFillPolicy类型时，根
+   *     据断点自动确定列数。
    * @returns { GridAttribute }
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -521,7 +539,7 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
   /**
    * 设置列与列的间距。设置为小于0的值时，按默认值显示。
    *
-   * @param { Length } value - 列与列的间距。<br/>默认值：0 <br/>取值范围：[0, +∞)
+   * @param { Length } value - 列与列的间距。<br/>默认值：0 <br/>取值范围：[0, +∞)，设置为小于0的值时，按默认值0显示。
    * @returns { GridAttribute }
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -534,7 +552,7 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
   /**
    * 设置行与行的间距。设置为小于0的值时，按默认值显示。
    *
-   * @param { Length } value - 行与行的间距。<br/>默认值：0 <br/>取值范围：[0, +∞)
+   * @param { Length } value - 行与行的间距。<br/>默认值：0 <br/>取值范围：[0, +∞)，设置为小于0的值时，按默认值0显示。
    * @returns { GridAttribute }
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -545,9 +563,9 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
   rowsGap(value: Length): GridAttribute;
 
   /**
-   * 设置滚动条的宽度，不支持百分比设置。宽度设置后，滚动条正常状态和按压状态宽度均为滚动条的宽度值。如果滚动条的宽度超过Grid组件主轴方向的高度，则滚动条的宽度会变为默认值。
+   * 设置滚动条的宽度，不支持百分比设置。宽度设置后，滚动条正常状态和按压状态宽度均为滚动条的宽度值。如果滚动条的宽度超过Grid组件主轴方向的可视尺寸，则滚动条的宽度会变为默认值4vp。
    *
-   * @param { number | string } value - 滚动条的宽度。<br/>默认值：4<br/>单位：vp<br/>取值范围：设置为小于0的值时，按默认值处理。设置为0时，不显示滚动条。
+   * @param { number | string } value - 滚动条的宽度。<br/>默认值：4<br/>单位：vp<br/>取值范围：[0, +∞)，设置为小于0的值时，按默认值处理。设置为0时，不显示滚动条。
    * @returns { GridAttribute }
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -558,7 +576,7 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
   scrollBarWidth(value: number | string): GridAttribute;
 
   /**
-   * 设置滚动条的宽度，不支持百分比设置。宽度设置后，滚动条正常状态和按压状态宽度均为滚动条的宽度值。如果滚动条的宽度超过Grid组件主轴方向的高度，则滚动条的宽度会变为4vp。支持Resource资源类型。
+   * 设置滚动条的宽度，不支持百分比设置。宽度设置后，滚动条正常状态和按压状态宽度均为滚动条的宽度值。如果滚动条的宽度超过Grid组件主轴方向的可视尺寸，则滚动条的宽度会变为默认值4vp。支持Resource资源类型。
    *
    * 未通过该接口设置时，设置滚动条的宽度为4vp。
    *
@@ -622,6 +640,7 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
    *
    * @param { function } event - 网格滚动回调，index为当前显示的网格起始位置的索引值，offset为当前显示的网格起始位置元素相对网格显示起始位置的偏移（单位vp），返回ComputedBarAttribute更新滚动条位置和高度。
    * @returns { GridAttribute }
+   *    Grid组件的属性。
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -644,12 +663,12 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
   onScrollIndex(event: (first: number, last: number) => void): GridAttribute;
 
   /**
-   * 设置预加载的GridItem的数量，只在[LazyForEach](docroot://ui/rendering-control/arkts-rendering-control-lazyforeach.md)和开启了
+   * 设置主轴方向前后两侧分别预加载的网格行/列数，只在[LazyForEach](docroot://ui/rendering-control/arkts-rendering-control-lazyforeach.md)和开启了
    * [virtualScroll]{@link RepeatAttribute#virtualScroll}开关的
    * [Repeat](docroot://ui/rendering-control/arkts-new-rendering-control-repeat.md)中生效。<!--Del-->具体使用可参考
    * [减少应用白块说明](docroot://performance/arkts-performance-improvement-recommendation.md#减少应用滑动白块)。<!--DelEnd-->
    *
-   * 设置缓存后会在Grid显示区域上下各缓存cachedCount*列数个GridItem。
+   * 设置缓存后，会在Grid显示区域沿主轴方向的前后两侧分别预加载cachedCount个网格行/列。垂直滚动时，上下两侧分别预加载cachedCount行；水平滚动时，左右两侧分别预加载cachedCount列。
    *
    * [LazyForEach](docroot://ui/rendering-control/arkts-rendering-control-lazyforeach.md)和开启了
    * [virtualScroll]{@link RepeatAttribute#virtualScroll}开关的
@@ -667,9 +686,13 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
   cachedCount(value: number): GridAttribute;
 
   /**
-   * 设置预加载的GridItem数量，并配置是否显示预加载节点。
+   * 设置主轴方向前后两侧分别预加载的网格行/列数，并配置是否显示预加载节点，只在
+   * [LazyForEach](docroot://ui/rendering-control/arkts-rendering-control-lazyforeach.md)和开启了
+   * [virtualScroll]{@link RepeatAttribute#virtualScroll}开关的
+   * [Repeat](docroot://ui/rendering-control/arkts-new-rendering-control-repeat.md)中生效。
    *
-   * 设置缓存后会在Grid显示区域上下各缓存cachedCount*列数个GridItem。配合裁剪[clip]{@link CommonMethod#clip(value: boolean)}或内容裁剪
+   * 设置缓存后，会在Grid显示区域沿主轴方向的前后两侧分别预加载cachedCount个网格行/列。垂直滚动时，上下两侧分别预加载cachedCount行；水平滚动时，左右两侧分别预加载cachedCount列。配合裁剪
+   * [clip]{@link CommonMethod#clip(value: boolean)}或内容裁剪
    * [clipContent](docroot://reference/apis-arkui/arkui-ts/ts-container-scrollable-common.md#clipcontent14)属性可以显示出预加载节点。
    *
    * @param { number } count - 预加载的GridItem的数量。<br/>默认值：垂直滚动时为一个屏幕内可显示的行数，水平滚动时为一个屏幕内可显示的列数，最大值为16。<br/>取值范围：
@@ -685,7 +708,11 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
   cachedCount(count: number, show: boolean): GridAttribute;
 
   /**
-   * 设置Grid是否进入编辑模式，进入编辑模式可以拖拽Grid组件内部[GridItem]{@link gridItem}。
+   * 设置Grid是否进入编辑模式，进入编辑模式可以拖拽Grid组件内部[GridItem]{@link ./gridItem}。
+   *
+   * > **说明：**
+   * >
+   * > 此属性仅在rowsTemplate和columnsTemplate都不设置时生效。
    *
    * @param { boolean } value - Grid是否进入编辑模式。设置为true时当前Grid组件处于可编辑模式，设置为false时当前Grid组件处于不可编辑模式。<br/>默认值：false
    * @returns { GridAttribute }
@@ -698,7 +725,7 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
   editMode(value: boolean): GridAttribute;
 
   /**
-   * 设置是否开启鼠标框选。开启框选后，可以配合GridItem的selected属性和onSelect事件获取GridItem的选中状态，还可以通过[多态样式]{@link common}设置GridItem的选中态样式（
+   * 设置是否开启鼠标框选。开启框选后，可以配合GridItem的selected属性和onSelect事件获取GridItem的选中状态，还可以通过[多态样式]{@link ./common}设置GridItem的选中态样式（
    * GridItem默认无选中态样式）。
    *
    * @param { boolean } value - 是否开启鼠标框选。<br/>默认值：false<br/>false：关闭框选。true：开启框选。
@@ -714,13 +741,16 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
   /**
    * 设置可显示的最大行数或列数。设置为小于1的值时，按默认值显示。
    *
-   * 当layoutDirection是Row/RowReverse时，表示可显示的最大列数。
+   * > **说明：**
+   * >
+   * > 此属性仅在rowsTemplate和columnsTemplate都不设置时生效。
+   * > 当layoutDirection是Row/RowReverse时，表示可显示的最大列数。
    *
    * 当layoutDirection是Column/ColumnReverse时，表示可显示的最大行数。
    *
    * 当maxCount小于minCount时，maxCount和minCount都按默认值处理。
    *
-   * @param { number } value - 可显示的最大行数或列数。<br/>默认值：Infinity
+   * @param { number } value - 可显示的最大行数或列数。<br/>默认值：Infinity<br/>取值范围：[1, +∞)，设置为小于1的值时，按默认值Infinity处理。
    * @returns { GridAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -733,13 +763,16 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
   /**
    * 设置可显示的最小行数或列数。设置为小于1的值时，按默认值显示。
    *
-   * 当layoutDirection是Row/RowReverse时，表示可显示的最小列数。
+   * > **说明：**
+   * >
+   * > 此属性仅在rowsTemplate和columnsTemplate都不设置时生效。
+   * > 当layoutDirection是Row/RowReverse时，表示可显示的最小列数。
    *
    * 当layoutDirection是Column/ColumnReverse时，表示可显示的最小行数。
    *
    * 当minCount大于maxCount时，minCount和maxCount都按默认值处理。
    *
-   * @param { number } value - 可显示的最小行数或列数。<br/>默认值：1
+   * @param { number } value - 可显示的最小行数或列数。<br/>默认值：1<br/>取值范围：[1, +∞)，设置为小于1的值时，按默认值1处理。
    * @returns { GridAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -752,11 +785,15 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
   /**
    * 设置一行的高度或者一列的宽度。
    *
-   * 当layoutDirection是Row/RowReverse时，表示一行的高度。
+   * > **说明：**
+   * >
+   * > 此属性仅在rowsTemplate和columnsTemplate都不设置时生效。
+   * > 当layoutDirection是Row/RowReverse时，表示一行的高度。
    *
    * 当layoutDirection是Column/ColumnReverse时，表示一列的宽度。
    *
-   * @param { number } value - 一行的高度或者一列的宽度。<br/>默认值：第一个元素的大小 <br/>单位：vp <br/>取值范围：(0, +∞)，设置为小于等于0的值时，按默认值显示。
+   * @param { number } value - 一行的高度或者一列的宽度。<br/>默认值：当layoutDirection是Row/RowReverse时，为首个GridItem的高度；当layoutDirection是
+   *     Column/ColumnReverse时，为首个GridItem的宽度。<br/>单位：vp <br/>取值范围：(0, +∞)，设置为小于等于0的值时，按默认值显示。
    * @returns { GridAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -768,6 +805,10 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
 
   /**
    * 设置布局的主轴方向。
+   *
+   * > **说明：**
+   * >
+   * > 此属性仅在rowsTemplate和columnsTemplate都不设置时生效。
    *
    * @param { GridDirection } value - 布局的主轴方向。<br/>默认值：GridDirection.Row
    * @returns { GridAttribute }
@@ -786,8 +827,8 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
    * @param { boolean | undefined } supported - 当前Grid组件是否支持在
    *     [LazyForEach](docroot://ui/rendering-control/arkts-rendering-control-lazyforeach.md)或
    *     [Repeat](docroot://ui/rendering-control/arkts-new-rendering-control-repeat.md)中使用
-   *     [if/else](docroot://ui/rendering-control/arkts-rendering-control-ifelse.md)渲染控制语法生成一个不含任何子节点的空分支节点。</br>true表示支
-   *     持空分支节点；false表示不支持空分支节点。</br>值为undefined时，按false处理。
+   *     [if/else](docroot://ui/rendering-control/arkts-rendering-control-ifelse.md)渲染控制语法生成一个不含任何子节点的空分支节点。<br/>true表示支
+   *     持空分支节点；false表示不支持空分支节点。<br/>值为undefined时，按false处理。
    * @returns { GridAttribute } the attribute of the Gird.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -816,26 +857,32 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
   supportAnimation(value: boolean): GridAttribute;
 
   /**
-   * 开始拖拽网格元素时触发。
+   * 开始拖拽GridItem时触发。
    *
    * 手指长按GridItem时触发该事件。
    *
    * 由于拖拽检测也需要长按，且事件处理机制优先触发子组件事件，GridItem上绑定[LongPressGesture]{@link LongPressGestureInterface}时无法触发拖拽。如有长按和拖拽同时使用的需求可以
    * 使用通用拖拽事件。
    *
-   * 拖拽浮起的网格元素可在应用窗口内移动，若需限制移动范围，可通过自定义手势实现，具体参考
+   * 拖拽浮起的GridItem可在应用窗口内移动，若需限制移动范围，可通过自定义手势实现，具体参考
    * [示例16（实现GridItem自定义拖拽）](docroot://reference/apis-arkui/arkui-ts/ts-container-grid.md#示例16实现griditem自定义拖拽)。
    *
    * 不支持拖动到Grid边缘时自动滚动，可使用通用拖拽实现，具体参考
-   * [示例17（通过拖拽事件实现griditem拖拽）](docroot://reference/apis-arkui/arkui-ts/ts-container-grid.md#示例17通过拖拽事件实现griditem拖拽)。
+   * [示例17（通过拖拽事件实现GridItem拖拽）](docroot://reference/apis-arkui/arkui-ts/ts-container-grid.md#示例17通过拖拽事件实现griditem拖拽)。从
+   * API版本26.0.0开始，可以使用[ForEach](docroot://ui/rendering-control/arkts-rendering-control-foreach.md)、
+   * [LazyForEach](docroot://ui/rendering-control/arkts-rendering-control-lazyforeach.md)、
+   * [Repeat](docroot://ui/rendering-control/arkts-new-rendering-control-repeat.md)的
+   * [onMove](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-drag-sorting.md#onmove)接口实现该效果，参考
+   * [示例22（使用OnMove进行拖拽）](docroot://reference/apis-arkui/arkui-ts/ts-container-grid.md#示例22使用onmove进行拖拽)。它同时支持跨行跨列的
+   * GridItem的拖拽，但需注意Grid必须是可滚动的。
    *
    * @param { function } event - Callback triggered when the dragging of a grid element starts.<br>In API version 22 and
    *     earlier versions, the parameter type is **(event: ItemDragInfo, itemIndex: number) => (() => any) | void**. For
    *     details about the **event** and **itemIndex** parameters, see
    *     [OnItemDragStartCallback]{@link OnItemDragStartCallback}. [since 8 - 22]
-   * @param { OnItemDragStartCallback } event - 网格元素拖拽开始时触发的回调。<br>API version 22及之前版本，该参数类型为(event: ItemDragInfo,
-   *     itemIndex: number) => (() => any) | void，其中event和itemIndex参数含义参考
-   *     [OnItemDragStartCallback]{@link OnItemDragStartCallback}。 [since 23]
+   * @param { OnItemDragStartCallback } event - GridItem拖拽开始时触发的回调。
+   *     <br>API version 22及之前版本，该参数类型为(event: ItemDragInfo, itemIndex: number) => (() => any) | void，其中event和itemIndex参
+   *     数含义参考[OnItemDragStartCallback]{@link OnItemDragStartCallback}。 [since 23]
    * @returns { GridAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -846,7 +893,7 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
   onItemDragStart(event: OnItemDragStartCallback): GridAttribute;
 
   /**
-   * 拖拽进入网格元素范围内时触发。
+   * 拖拽进入GridItem范围内时触发。
    *
    * @param { function } event - 拖拽点的信息。
    * @returns { GridAttribute }
@@ -859,7 +906,7 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
   onItemDragEnter(event: (event: ItemDragInfo) => void): GridAttribute;
 
   /**
-   * 拖拽在网格元素范围内移动时触发。
+   * 拖拽在GridItem范围内移动时触发。
    *
    * @param { function } event
    * @returns { GridAttribute }
@@ -872,7 +919,7 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
   onItemDragMove(event: (event: ItemDragInfo, itemIndex: number, insertIndex: number) => void): GridAttribute;
 
   /**
-   * 拖拽离开网格元素时触发。
+   * 拖拽离开GridItem时触发。
    *
    * @param { function } event
    * @returns { GridAttribute }
@@ -920,8 +967,8 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
    * 设置嵌套滚动选项。设置前后两个方向的嵌套滚动模式，实现与父组件的滚动联动。当组件内容大小小于组件自身，且[edgeEffect]{@link GridAttribute#edgeEffect}的options为{
    * alwaysEnabled: false }时，组件自身滑动手势不会触发，嵌套滚动属性不会生效，如果其父滚动组件有滑动手势，则会触发父组件的滑动手势。
    *
-   * @param { NestedScrollOptions } value - 嵌套滚动选项。
-   * @returns { GridAttribute } the attribute of the grid.
+   * @param { NestedScrollOptions } value - 嵌套滚动选项，用于设置Grid组件与父组件的嵌套滚动联动行为。
+   * @returns { GridAttribute } Grid组件的属性。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform [since 11]
@@ -933,12 +980,8 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
   /**
    * 设置是否支持滚动手势。
    *
-   * **说明：**
-   *
-   * 组件无法通过鼠标按下拖动操作进行滚动。
-   *
-   * @param { boolean } value - 是否支持滚动手势。设置为true时可以通过手指或者鼠标滚动，设置为false时无法通过手指或者鼠标滚动，但不影响控制器
-   *     [Scroller]{@link Scroller}的滚动接口。<br/>默认值：true
+   * @param { boolean } value - 是否支持滚动手势。设置为true时可以通过手指或者鼠标滚动，设置为false时无法通过手指或者鼠标滚动，但不影响控制器[Scroller]{@link Scroller}的滚动
+   *     接口。<br/>默认值：true
    * @returns { GridAttribute } The attribute of the grid
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -949,11 +992,11 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
   enableScrollInteraction(value: boolean): GridAttribute;
 
   /**
-   * 设置摩擦系数，手动划动滚动区域时生效，仅影响惯性滚动过程，对惯性滚动过程中的链式效果有间接影响。
+   * 设置摩擦系数，手动滑动滚动区域时生效，仅影响惯性滚动过程，对惯性滚动过程中的链式效果有间接影响。
    *
    * @param { number | Resource } value - 摩擦系数。<br/>默认值：非可穿戴设备为0.6，可穿戴设备为0.9。<br/>从API version 11开始，非可穿戴设备默认值为0.7。<br/>从
    *     API version 12开始，非可穿戴设备默认值为0.75。<br/>取值范围：(0, +∞)，设置为小于等于0的值时，按默认值处理。
-   * @returns { GridAttribute } the attribute of the grid.
+   * @returns { GridAttribute } Grid组件的属性。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -967,7 +1010,7 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
    * [示例9](docroot://reference/apis-arkui/arkui-ts/ts-container-grid.md#示例9以当前行最高的griditem的高度为其他griditem的高度)。
    *
    * @param { Optional<GridItemAlignment> } alignment - 设置Grid中GridItem的对齐方式。<br/>默认值：GridItemAlignment.DEFAULT
-   * @returns { GridAttribute } The attribute of the grid.
+   * @returns { GridAttribute } Grid组件的属性。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -979,9 +1022,9 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
   /**
    * 设置交叉轴方向键走焦模式。
    *
-   * @param { Optional<FocusWrapMode> } mode - 交叉轴方向键走焦模式。<br/>默认值：FocusWrapMode.DEFAULT<br/>**说明：** <br/>异常值按默认值处理，即交
-   *     叉轴方向键不能换行。
-   * @returns { GridAttribute } the attribute of the grid.
+   * @param { Optional<FocusWrapMode> } mode - 交叉轴方向键走焦模式。<br/>默认值：FocusWrapMode.DEFAULT<br/>**说明：** <br/>异常值按默认值处理，即交叉轴
+   *     方向键不能换行。
+   * @returns { GridAttribute } Grid组件的属性。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -995,7 +1038,7 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
    *
    * @param { boolean } enable - 是否同步加载Grid区域内所有子组件。<br/> true表示同步加载，false表示异步加载。默认值：true。<br/> **说明：** <br/>设置为false时，在
    *     首次显示、不带动画scrollToIndex跳转场景，若当帧布局耗时超过50ms，会将Grid区域内尚未布局的子组件延后到下一帧进行布局。
-   * @returns { GridAttribute } The attribute of the grid.
+   * @returns { GridAttribute } Grid组件的属性。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1007,8 +1050,9 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
   /**
    * 配置编辑模式选项参数。
    *
-   * @param { EditModeOptions } [options] - 编辑模式选项。
-   * @returns { GridAttribute } - The attribute of the grid.
+   * @param { EditModeOptions } [options] - 编辑模式选项，用于配置Grid编辑模式下的多选聚拢动画、预览角标、多选样式、双指滑动多选等行为。需要调整上述行为时传入；不传入时，各选项使用
+   *     EditModeOptions中的默认值。
+   * @returns { GridAttribute } Grid组件的属性。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1018,10 +1062,11 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
   editModeOptions(options?: EditModeOptions): GridAttribute;
 
   /**
-   * 设置Grid是否启用编辑模式，启用编辑模式后可以在Grid组件内滑动多选[GridItem]{@link gridItem}。未通过该接口设置时，不启用编辑模式。
+   * 设置Grid是否启用编辑模式，启用编辑模式后可以在Grid组件内滑动多选[GridItem]{@link ./gridItem}。未通过该接口设置时，不启用编辑模式。
    *
-   * @param { boolean | undefined } enabled - 是否启用编辑模式。设置为true时启用编辑模式，可以滑动多选，设置为false或undefined时关闭编辑模式，不可滑动多选。
-   * @returns { GridAttribute } The attribute of the grid.
+   * @param { boolean | undefined } enabled - 是否启用编辑模式，该参数支持[!!](docroot://ui/state-management/arkts-new-binding.md)双向绑定
+   *     变量。设置为true时启用编辑模式，可以滑动多选，设置为false或undefined时关闭编辑模式，不可滑动多选。
+   * @returns { GridAttribute } Grid组件的属性。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1031,10 +1076,10 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
   enableEditMode(enabled: boolean | undefined): GridAttribute;
 
   /**
-   * 编辑模式状态变化时触发。
+   * [enableEditMode]{@link GridAttribute#enableEditMode}编辑模式状态变化时触发。使用callback异步回调。
    *
-   * @param { Callback<boolean> | undefined } callback - 编辑模式状态变化时触发的回调。
-   *     <br>传入undefined会取消注册回调。
+   * @param { Callback<boolean> | undefined } callback - 编辑模式状态变化时触发的回调。回调参数类型为boolean，true表示进入编辑模式，false表示退出编辑模式。
+   *     <br>传入undefined时取消回调。
    * @returns { GridAttribute } Grid组件的属性。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1062,7 +1107,7 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
   /**
    * 网格到达起始位置时触发。
    *
-   * Grid初始化时会触发一次，Grid滚动到起始位置时触发一次。Grid边缘效果为弹簧效果时，划动经过起始位置时触发一次，回弹回起始位置时再触发一次。
+   * Grid初始化时会触发一次，Grid滚动到起始位置时触发一次。Grid边缘效果为弹簧效果时，滑动经过起始位置时触发一次，回弹返回起始位置时再触发一次。
    *
    * @param { function } event - 网格到达起始位置时触发的回调。
    * @returns { GridAttribute }
@@ -1075,9 +1120,9 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
   onReachStart(event: () => void): GridAttribute;
 
   /**
-   * 网格到达末尾位置时触发。不满一屏并且最后一个子组件末端在Grid内时触发。
+   * 网格到达末尾位置时触发。当网格内容不满一屏，并且最后一个子组件末端在Grid内时触发。
    *
-   * Grid边缘效果为弹簧效果时，划动经过末尾位置时触发一次，回弹回末尾位置时再触发一次。
+   * Grid边缘效果为弹簧效果时，滑动经过末尾位置时触发一次，回弹返回末尾位置时再触发一次。
    *
    * @param { function } event - 网格到达末尾位置时触发的回调。
    * @returns { GridAttribute }
@@ -1146,12 +1191,12 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
 * 网格容器，由“行”和“列”分割的单元格所组成，通过指定“项目”所在的单元格做出各种各样的布局。
 *
 * > **说明：**
-*
-* > 组件内部已绑定手势实现跟手滚动等功能，需要增加自定义手势操作时请参考[手势拦截增强]{@link common}进行处理。
+* >
+* > 组件内部已绑定手势实现跟手滚动等功能，需要增加自定义手势操作时请参考[手势拦截增强]{@link ./common}进行处理。
 *
 * ###### 子组件
 *
-* 仅支持[GridItem]{@link gridItem}子组件和自定义组件。自定义组件在Grid下使用时，建议使用GridItem作为自定义组件的顶层组件，不建议给自定义组件设置属性和事件方法。
+* 仅支持[GridItem]{@link ./gridItem}子组件和自定义组件。自定义组件在Grid下使用时，建议使用GridItem作为自定义组件的顶层组件，不建议给自定义组件设置属性和事件方法。
 *
 * 支持通过渲染控制类型（[if/else](docroot://ui/rendering-control/arkts-rendering-control-ifelse.md)、
 * [ForEach](docroot://ui/rendering-control/arkts-rendering-control-foreach.md)、
@@ -1182,77 +1227,6 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
 * > 当Grid子组件之间留有空隙时，会根据当前的展示区域尽可能填补空隙，因此GridItem可能会随着网格滚动而改变相对位置。
 * >
 * > 从API version 21开始，Grid单个子组件的宽高最大为16777216px；API version 20及之前，Grid单个子组件的宽高最大为1000000px。子组件超出该大小可能导致滚动或显示异常。
-*
-* ###### GridLayoutOptions<sup>10+</sup>对象说明
-*
-* Grid布局选项。其中，irregularIndexes和onGetIrregularSizeByIndex可对仅设置rowsTemplate或columnsTemplate的Grid使用，可以指定一个index数组，并为其中的
-* index对应的GridItem设置其占据的行数与列数，使用方法参见
-* [示例3](docroot://reference/apis-arkui/arkui-ts/ts-container-grid.md#示例3可滚动grid设置跨行跨列节点)；onGetRectByIndex可对同时设置
-* rowsTemplate和columnsTemplate的Grid使用，为指定的index对应的GridItem设置位置和大小，使用方法参见
-* [示例1](docroot://reference/apis-arkui/arkui-ts/ts-container-grid.md#示例1固定行列grid)。
-*
-* 为提高Grid在跳转、列数变化等场景的性能，应该尽量使用GridLayoutOptions。即使Grid中没有任何特殊的跨行跨列节点，也可以通过使用'Grid(this.scroller, {regularSize: [1, 1]})
-* '的方式提高跳转性能。参考<!--RP1-->
-* [使用GridLayoutOptions提升Grid性能](docroot://performance/grid_optimization.md#使用gridlayoutoptions提升grid性能)<!--RP1End-->。
-*
-* **系统能力：** SystemCapability.ArkUI.ArkUI.Full
-*
-* <!--Table: 20%; 20%; 8%; 8%; 44%-->
-*
-* | 名称    | 类型      | 只读   | 可选 | 说明                    |
-* | ----- | ------- | ---- | --  | --------------------- |
-* | regularSize  | [number, number]  | 否    | 否 | 大小规则的GridItem在Grid中占的行数和列数，只支持占1行1列即[1, 1]。 <br/>**原子化服务API：** 从API version 11开始，该接口支持在原子化服务中使用。  |
-* | irregularIndexes | number[] | 否    | 是 | 指定索引的GridItem在Grid中的大小是不规则的。当不设置onGetIrregularSizeByIndex时，irregularIndexes中GridItem的默认大小为垂直滚动Grid的一整行或水平滚动Grid的一整列。 <br/>**原子化服务API：** 从API version 11开始，该接口支持在原子化服务中使用。 |
-* | onGetIrregularSizeByIndex | (index: number) => [number, number] | 否    | 是 | 配合irregularIndexes使用，设置不规则GridItem占用的行数和列数。开发者可为irregularIndexes中指明的index对应的GridItem设置占用的行数和列数。在API version 12之前，垂直滚动Grid不支持GridItem占多行，水平滚动Grid不支持GridItem占多列。<br/>**原子化服务API：** 从API version 11开始，该接口支持在原子化服务中使用。 |
-* | onGetRectByIndex<sup>11+</sup> | (index: number) => [number, number,number,number] | 否  | 是 | 设置指定索引index对应的GridItem的位置及大小[rowStart,columnStart,rowSpan,columnSpan]。 <br/>其中rowStart为行起始位置，columnStart为列起始位置，无单位。 <br/>rowSpan为GridItem占用的行数，columnSpan为GridItem占用的列数，无单位。 <br/>rowStart和columnStart取大于等于0的自然数，若取负数时，rowStart和columnStart默认为0。 <br/>rowSpan和columnSpan取大于等于1的自然数，若取小数则向下取整，若小于1则按1计算。<br/>**说明：** <br/>第一种情况：某个GridItem发现给它指定的起始位置被占据了，则从起始位置[0,0]开始按顺序从左到右，从上到下寻找起始的放置位置。<br/>第二种情况：如果起始位置没有被占据，但其他位置被占据了，无法显示全部的GridItem大小，则只会布局一部分。<br/>**原子化服务API：** 从API version 12开始，该接口支持在原子化服务中使用。 |
-*
-* ###### GridItemAlignment<sup>12+</sup>枚举说明
-*
-* GridItem的对齐方式枚举。
-*
-* **原子化服务API：** 从API version 12开始，该接口支持在原子化服务中使用。
-*
-* **系统能力：** SystemCapability.ArkUI.ArkUI.Full
-*
-* | 名称   | 值 | 说明                                 |
-* | ------ |------| -------------------------------------- |
-* | DEFAULT  |  0  | 使用Grid的默认对齐方式。 |
-* | STRETCH |  1  | 以一行中的最高的GridItem作为其他GridItem的高度。 |
-*
-* > **说明：**
-* >
-* > 1、只有可滚动的Grid中，设置STRETCH参数会生效，其他场景不生效。<br/>
-* > > 2、在Grid的一行中，如果每个GridItem都是大小规律的（只占一行一列），设置STRETCH参数会生效，存在跨行或跨列的GridItem的场景不生效。<br/>
-* > > 3、设置STRETCH后，只有不设置高度的GridItem才会以当前行中最高的GridItem作为自己的高度，设置过高度的GridItem高度不会变化。<br/>
-* > > 4、设置STRETCH后，Grid布局时会有额外的布局流程，可能会带来额外的性能开销。
-*
-* ###### GridDirection<sup>8+</sup>枚举说明
-*
-* 主轴布局方向枚举。
-*
-* **原子化服务API：** 从API version 11开始，该接口支持在原子化服务中使用。
-*
-* **系统能力：** SystemCapability.ArkUI.ArkUI.Full
-*
-* | 名称   |值| 说明                                 |
-* | ------ |------| -------------------------------------- |
-* | Row  |  0  | 主轴布局方向沿水平方向布局，即自左往右先填满一行，再去填下一行。 |
-* | Column |  1  | 主轴布局方向沿垂直方向布局，即自上往下先填满一列，再去填下一列。 |
-* | RowReverse    |  2  | 主轴布局方向沿水平方向反向布局，即自右往左先填满一行，再去填下一行。 |
-* | ColumnReverse   |  3  | 主轴布局方向沿垂直方向反向布局，即自下往上先填满一列，再去填下一列。 |
-*
-* ###### ComputedBarAttribute<sup>10+</sup>对象说明
-*
-* 滚动条位置和长度对象。
-*
-* **原子化服务API：** 从API version 11开始，该接口支持在原子化服务中使用。
-*
-* **系统能力：** SystemCapability.ArkUI.ArkUI.Full
-*
-* | 名称         | 类型         | 只读 | 可选 |   说明         |
-* | ----------- | ------------ | ---- | ---- | ---------- |
-* | totalOffset | number | 否 | 否 |  Grid内容相对显示区域的总偏移，单位px。    |
-* | totalLength   | number | 否 | 否 |  Grid内容总长度，单位px。    |
 *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel

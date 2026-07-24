@@ -7426,14 +7426,14 @@ interface PreviewParams {
 }
 
 /**
- * ItemDragInfo object description
+ * 拖拽点信息对象。
  *
  * @interface ItemDragInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 /**
- * ItemDragInfo object description
+ * 拖拽点信息对象。
  *
  * @interface ItemDragInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -7441,7 +7441,7 @@ interface PreviewParams {
  * @since 10
  */
 /**
- * ItemDragInfo object description
+ * 拖拽点信息对象。
  *
  * @interface ItemDragInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -7452,14 +7452,14 @@ interface PreviewParams {
 declare interface ItemDragInfo {
 
   /**
-   * Obtains the X coordinate of the drag window, in vp.
+   * 当前拖拽点的x坐标，单位vp。
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
-   * Obtains the X coordinate of the drag window, in vp.
+   * 当前拖拽点的x坐标，单位vp。
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -7467,7 +7467,7 @@ declare interface ItemDragInfo {
    * @since 10
    */
   /**
-   * Obtains the X coordinate of the drag window, in vp.
+   * 当前拖拽点的x坐标，单位vp。
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -7478,14 +7478,14 @@ declare interface ItemDragInfo {
   x: number;
 
   /**
-   * Obtains the Y coordinate of the drag window, in vp.
+   * 当前拖拽点的y坐标，单位vp。
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
-   * Obtains the Y coordinate of the drag window, in vp.
+   * 当前拖拽点的y坐标，单位vp。
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -7493,7 +7493,7 @@ declare interface ItemDragInfo {
    * @since 10
    */
   /**
-   * Obtains the Y coordinate of the drag window, in vp.
+   * 当前拖拽点的y坐标，单位vp。
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -19997,7 +19997,7 @@ declare interface ClickEffect {
 }
 
 /**
- * Defines the fadingEdge options.
+ * [fadingEdge](docroot://reference/apis-arkui/arkui-ts/ts-container-scrollable-common.md#fadingedge14)属性边缘渐隐参数对象。
  *
  * @typedef FadingEdgeOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -20009,7 +20009,7 @@ declare interface ClickEffect {
 declare interface FadingEdgeOptions {
 
   /**
-   * The length of FadingEdge.
+   * 设置边缘渐隐长度。默认值为32vp，设置小于0的值或undefined或不设置则取默认值。设置的长度超过容器高度的一半时，渐隐长度取容器高度的一半。
    *
    * @type { LengthMetrics }
    * @default 32vp
@@ -20023,7 +20023,7 @@ declare interface FadingEdgeOptions {
 }
 
 /**
- * 定义嵌套滚动选项
+ * [nestedScroll](docroot://reference/apis-arkui/arkui-ts/ts-container-scrollable-common.md#nestedscroll11)属性参数对象。
  *
  * @interface NestedScrollOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -20031,7 +20031,7 @@ declare interface FadingEdgeOptions {
  * @since 10
  */
 /**
- * 定义嵌套滚动选项
+ * [nestedScroll](docroot://reference/apis-arkui/arkui-ts/ts-container-scrollable-common.md#nestedscroll11)属性参数对象。
  *
  * @interface NestedScrollOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -20040,7 +20040,7 @@ declare interface FadingEdgeOptions {
  * @since 11 dynamic
  */
 /**
- * 定义嵌套滚动选项
+ * [nestedScroll](docroot://reference/apis-arkui/arkui-ts/ts-container-scrollable-common.md#nestedscroll11)属性参数对象。
  *
  * @interface NestedScrollOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -20052,7 +20052,8 @@ declare interface FadingEdgeOptions {
 declare interface NestedScrollOptions {
 
   /**
-   * Set NestedScrollMode when the scrollable component scrolls forward
+   * 滚动组件往末尾端滚动时的嵌套滚动选项。NestedScrollMode.SELF_ONLY表示仅自身滚动，不与父组件联动；NestedScrollMode.SELF_FIRST表示自身先滚动，自身滚动到边缘后父组件滚动；
+   * NestedScrollMode.PARENT_FIRST表示父组件先滚动，父组件滚动到边缘后自身滚动。
    *
    * @type { NestedScrollMode }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -20060,7 +20061,8 @@ declare interface NestedScrollOptions {
    * @since 10
    */
   /**
-   * Set NestedScrollMode when the scrollable component scrolls forward
+   * 滚动组件往末尾端滚动时的嵌套滚动选项。NestedScrollMode.SELF_ONLY表示仅自身滚动，不与父组件联动；NestedScrollMode.SELF_FIRST表示自身先滚动，自身滚动到边缘后父组件滚动；
+   * NestedScrollMode.PARENT_FIRST表示父组件先滚动，父组件滚动到边缘后自身滚动。
    *
    * @type { NestedScrollMode }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -20072,7 +20074,8 @@ declare interface NestedScrollOptions {
   scrollForward: NestedScrollMode;
 
   /**
-   * Set NestedScrollMode when the scrollable component scrolls backward
+   * 滚动组件往起始端滚动时的嵌套滚动选项。NestedScrollMode.SELF_ONLY表示仅自身滚动，不与父组件联动；NestedScrollMode.SELF_FIRST表示自身先滚动，自身滚动到边缘后父组件滚动；
+   * NestedScrollMode.PARENT_FIRST表示父组件先滚动，父组件滚动到边缘后自身滚动。
    *
    * @type { NestedScrollMode }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -20080,7 +20083,8 @@ declare interface NestedScrollOptions {
    * @since 10
    */
   /**
-   * Set NestedScrollMode when the scrollable component scrolls backward
+   * 滚动组件往起始端滚动时的嵌套滚动选项。NestedScrollMode.SELF_ONLY表示仅自身滚动，不与父组件联动；NestedScrollMode.SELF_FIRST表示自身先滚动，自身滚动到边缘后父组件滚动；
+   * NestedScrollMode.PARENT_FIRST表示父组件先滚动，父组件滚动到边缘后自身滚动。
    *
    * @type { NestedScrollMode }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -25778,8 +25782,7 @@ declare class CommonMethod<T> {
    *     、[backgroundEffect]{@link CommonMethod#backgroundEffect(options: BackgroundEffectOptions)}、
    *     [brightness]{@link CommonMethod#brightness(value: number)}、
    *     [blur]{@link CommonMethod#blur(value: number, options?: BlurOptions)}等需要截屏的接口无法截取到正确的画面。
-   * @returns { T }
-   返回当前组件。
+   * @returns { T } 返回当前组件。
    * @stagemodelonly
    * @crossplatform
    * @form
@@ -30445,7 +30448,7 @@ declare abstract class TextContentControllerBase {
 }
 
 /**
- * Enum of scrollable containers' content clip mode.
+  * 表示滚动容器的内容裁剪模式。
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -30457,7 +30460,7 @@ declare abstract class TextContentControllerBase {
 declare enum ContentClipMode {
 
   /**
-   * Clip to content rect inside margin & padding.
+   * 按内容区裁剪，对应图中的绿色区域。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -30468,7 +30471,7 @@ declare enum ContentClipMode {
   CONTENT_ONLY = 0,
 
   /**
-   * Clip to scrollable's outer rect, including padding but inside margin.
+   * 按组件区域裁剪，对应图中的整个蓝色区域。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -30479,7 +30482,7 @@ declare enum ContentClipMode {
   BOUNDARY = 1,
 
   /**
-   * Clip to the safeArea of scrollable container.
+   * 按组件配置的SafeArea区域裁剪，对应图中的整个黄色区域。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -30514,10 +30517,11 @@ declare enum ContentClipMode {
 declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
 
   /**
-   * Scrollbar status.
+   * 设置滚动条状态。
    *
-   * @param { BarState } barState - Scrollbar status.
+   * @param { BarState } barState - 滚动条状态。
    * @returns { T }
+   *    返回当前滚动组件。
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -30527,10 +30531,11 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   scrollBar(barState: BarState): T;
 
   /**
-   * Color of the scrollbar.
+   * 设置滚动条的颜色。
    *
-   * @param { Color | number | string } color - Color of the scrollbar.
+   * @param { Color | number | string } color - 滚动条的颜色。
    * @returns { T }
+   *    返回当前滚动组件。
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -30540,13 +30545,13 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   scrollBarColor(color: Color | number | string): T;
 
   /**
-   * Sets the scrollbar color.
+   * 设置滚动条的颜色。与
+   * [scrollBarColor<sup>11+</sup>](docroot://reference/apis-arkui/arkui-ts/ts-container-scrollable-common.md#scrollbarcolor11)
+   * 相比，color参数开始支持Resource类型。
    *
-   * @param { Color | number | string | Resource } color - Scrollbar color.
-   *     <br>Default value: <em>'\#182431'</em> (40% opacity)
-   *     <br>A number value indicates a HEX color in RGB or ARGB format, for example, <em>0xffffff</em>.
-   *     A string value indicates a color in RGB or ARGB format, for example, <em>'#ffffff'</em>.
+   * @param { Color | number | string | Resource } color - 滚动条的颜色。
    * @returns { T }
+   *    返回当前滚动组件。
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -30556,10 +30561,11 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   scrollBarColor(color: Color | number | string | Resource): T;
 
   /**
-   * Width of the scrollbar.
+   * 设置滚动条的宽度，不支持百分比设置。宽度设置后，滚动条正常状态和按压状态宽度均为滚动条的宽度值。如果滚动条的宽度超过滚动组件主轴方向的可视尺寸，则滚动条的宽度会变为默认值4vp。
    *
-   * @param { number | string } value  - Width of the scrollbar.
+   * @param { number | string } value  - 滚动条的宽度。
    * @returns { T }
+   *    返回当前滚动组件。
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -30569,15 +30575,13 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   scrollBarWidth(value: number | string): T;
 
   /**
-   * 设置滚动条宽度。
+   * 设置滚动条的宽度，不支持百分比设置。宽度设置后，滚动条正常状态和按压状态宽度均为滚动条的宽度值。如果滚动条的宽度超过滚动组件主轴方向的可视尺寸，则滚动条的宽度会变为默认值4vp，支持Resource资源类型。
    *
-   * @param { number | string | Resource } value - 滚动条宽度。
-   *     <br>
-   *     单位：vp
-   *     <br>默认值：<em>4</em>
-   *     <br>如果设置为小于0的值，则使用默认值。
-   *     值<em>0</em>表示不显示滚动条。
+   * 未通过该接口设置时，滚动条的宽度为4vp。
+   *
+   * @param { number | string | Resource } value - 滚动条的宽度。
    * @returns { T }
+   *    返回当前滚动组件。
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -30587,10 +30591,15 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   scrollBarWidth(value: number | string | Resource): T;
 
   /**
-   * Margin of the scrollbar.
+   * 设置滚动条的边距。边距是在滚动条避让滚动组件圆角区域距离的基础上计算的，如果滚动条区域小于滚动条的最小长度，则不显示滚动条。如果设置了本属性，则
+   * [autoAdjustScrollBarMargin](docroot://reference/apis-arkui/arkui-ts/ts-container-scrollable-common.md#autoadjustscrollbarmargin)
+   * 的自动调整边距功能不生效。应注意确保
+   * [scrollBarHeight](docroot://reference/apis-arkui/arkui-ts/ts-container-scrollable-common.md#scrollbarheight)与本属性的设定
+   * 值之和不超过滚动组件高度，否则滚动条可能无法正常显示。
    *
-   * @param { ScrollBarMargin } margin - Margin of the scrollbar.
+   * @param { ScrollBarMargin } margin - 滚动条起始、末尾边距。
    * @returns { T }
+   *    返回当前滚动组件。
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -30600,11 +30609,25 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   scrollBarMargin(margin: ScrollBarMargin): T;
 
   /**
-   * 设置滚动条自动调整margin以避让组件的padding、safeAreaPadding、contentStartOffset/contentEndOffset。
+   * 设置滚动条是否自动调整边距。默认不会自动调整边距。
    *
-   * @param { boolean | undefined } enable - 是否启用自动调整滚动条边距。
-   *     <br>默认值：false。
+   * 打开滚动条自动边距调整后，滚动条滚动方向上会避让组件[padding]{@link CommonMethod#padding}、
+   * [safeAreaPadding]{@link CommonMethod#safeAreaPadding}、
+   * [contentStartOffset](docroot://reference/apis-arkui/arkui-ts/ts-container-scrollable-common.md#contentstartoffset22)
+   * /[contentEndOffset](docroot://reference/apis-arkui/arkui-ts/ts-container-scrollable-common.md#contentendoffset22)区
+   * 域。如果设置了
+   * [scrollBarMargin](docroot://reference/apis-arkui/arkui-ts/ts-container-scrollable-common.md#scrollbarmargin20)属性，则自
+   * 动调整边距不生效。当[padding]{@link CommonMethod#padding}、[safeAreaPadding]{@link CommonMethod#safeAreaPadding}、
+   * [contentStartOffset](docroot://reference/apis-arkui/arkui-ts/ts-container-scrollable-common.md#contentstartoffset22)
+   * 、[contentEndOffset](docroot://reference/apis-arkui/arkui-ts/ts-container-scrollable-common.md#contentendoffset22)在水
+   * 平方向上的总和大于组件的宽度，或在垂直方向上的总和大于组件的高度时，滚动条不显示。
+   *
+   * @param { boolean | undefined } enable - 是否自动调整边距。
+   *     <br>true：自动调整边距。
+   *     <br>false：不自动调整边距。
+   *     <br>undefined：不自动调整边距。
    * @returns { T }
+   *    返回当前滚动组件。
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -30614,11 +30637,15 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   autoAdjustScrollBarMargin(enable: boolean | undefined): T;
 
   /**
-   * Edge scrolling effect.
+   * 设置边缘滑动效果。
    *
-   * @param { EdgeEffect } edgeEffect - edge scrolling effect.
-   * @param { EdgeEffectOptions } options - edge scrolling effect options.
+   * @param { EdgeEffect } edgeEffect - 滚动组件的边缘滑动效果，支持弹簧效果和阴影效果。<br/>默认值：Grid、Scroll、WaterFlow组件默认EdgeEffect.None，List组件
+   *     默认EdgeEffect.Spring。
+   * @param { EdgeEffectOptions } options - 组件内容大小小于组件自身时是否开启滑动效果。从API version 18开始，支持设置边缘效果生效的边缘。设置为{ alwaysEnabled:
+   *     true }会开启滑动效果，{ alwaysEnabled: false }不开启。<br/>默认值：<br/>List、Grid、WaterFlow组件默认{ alwaysEnabled: false }，Scroll组
+   *     件默认{ alwaysEnabled: true }。从API version 18开始，默认增加effectEdge字段，取值为EffectEdge.START | EffectEdge.END。
    * @returns { T }
+   *    返回当前滚动组件。
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -30628,11 +30655,39 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   edgeEffect(edgeEffect: EdgeEffect, options?: EdgeEffectOptions): T;
 
   /**
-   * Called when setting whether to enable fading Edge effect.
+   * 设置是否开启边缘渐隐效果及设置边缘渐隐长度。
    *
-   * @param { Optional<boolean> } enabled - Whether to turn on the edge fade effect
-   * @param { FadingEdgeOptions } [options] - The options of fadingEdge.
+   * > **说明：**
+   * >
+   * > fadingEdge是通过设置[overlay]{@link CommonMethod#overlay}属性和
+   * > [blendMode]{@link CommonMethod#blendMode(value: BlendMode, type?: BlendApplyType)}属性（参数值为BlendMode.SRC_OVER，
+   * > BlendApplyType.OFFSCREEN）实现的。当fadingEdge生效时，会覆盖原组件的.overlay()属性和.blendMode()属性，并将导致当前组件和其子组件需要截屏的接口无法截取到正确的画面。需要截
+   * > 屏的接口有：[blur]{@link CommonMethod#blur(value: number, options?: BlurOptions)}、
+   * > [linearGradientBlur]{@link CommonMethod#linearGradientBlur(value: number, options: LinearGradientBlurOptions)}、
+   * > [brightness]{@link CommonMethod#brightness(value: number)}、[visualEffect]{@link CommonMethod#visualEffect}、
+   * > [grayscale]{@link CommonMethod#grayscale(value: number)}、[saturate]{@link CommonMethod#saturate(value: number)}、
+   * > [contrast]{@link CommonMethod#contrast(value: number)}、
+   * > [invert]{@link CommonMethod#invert(value: number | InvertOptions)}、
+   * > [sepia]{@link CommonMethod#sepia(value: number)}、
+   * > [hueRotate]{@link CommonMethod#hueRotate(value: number | string)}、
+   * > [colorBlend]{@link CommonMethod#colorBlend(value: Color | string | Resource)}、
+   * > [lightUpEffect]{@link CommonMethod#lightUpEffect(value: number)}、
+   * > [pixelStretchEffect]{@link CommonMethod#pixelStretchEffect(options: PixelStretchEffectOptions)}、
+   * > [blendMode]{@link CommonMethod#blendMode(value: BlendMode, type?: BlendApplyType)}、
+   * > [backgroundBrightness]{@link CommonMethod#backgroundBrightness(params: BackgroundBrightnessOptions)}。
+   * >
+   * > fadingEdge生效时，建议不在设置fadingEdge属性的组件上设置[background]{@link CommonMethod#background}相关属性，会影响渐隐的显示效果。
+   * >
+   * > fadingEdge生效时，建议不在设置fadingEdge属性的组件以及其子组件上设置[systemMaterial]{@link CommonMethod#systemMaterial}相关属性，会影响系统材质的显示效果，
+   * > 导致材质效果与预期效果不一致。
+   * >
+   * > fadingEdge生效时，设置fadingEdge属性的组件会裁剪到边界，在该组件上设置[clip]{@link CommonMethod#clip(value: boolean)}属性为false不生效。
+   *
+   * @param { Optional<boolean> } enabled - 是否开启边缘渐隐效果。设置为true时开启边缘渐隐效果，设置为false时不开启边缘渐隐效果。<br/>默认值：false
+   * @param { FadingEdgeOptions } [options] - 边缘渐隐参数对象。可以通过该对象定义边缘渐隐效果属性，比如设置渐隐长度。<br/>如果设置小于0的值或undefined或者不设置则取默认值，默认长
+   *     度为32vp。<br/>如果设置的长度超过容器高度的一半时，渐隐长度取容器高度的一半。
    * @returns { T }
+   *    返回当前滚动组件。
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -30642,10 +30697,12 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   fadingEdge(enabled: Optional<boolean>, options?: FadingEdgeOptions): T;
 
   /**
-   * Nested scrolling options.
+   * 设置前后两个方向的嵌套滚动模式，实现与父组件的滚动联动。
    *
-   * @param { NestedScrollOptions } value - options for nested scrolling.
+   * @param { NestedScrollOptions } value - 嵌套滚动选项。<br/>默认值：{ scrollForward: NestedScrollMode.SELF_ONLY, scrollBackward:
+   *     NestedScrollMode.SELF_ONLY }
    * @returns { T }
+   *    返回当前滚动组件。
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -30655,10 +30712,13 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   nestedScroll(value: NestedScrollOptions): T;
 
   /**
-   * Whether to support scroll gestures by finger or mouse.
+   * 设置是否支持滚动手势。
    *
-   * @param { boolean } value - Whether to support scroll gestures by finger or mouse.
+   * @param { boolean } value - 是否支持手指或鼠标滚动手势。设置为true时支持，设置为false时不支持，但不影响控制器[Scroller]{@link Scroller}的滚动接口和
+   *     [backToTop](docroot://reference/apis-arkui/arkui-ts/ts-container-scrollable-common.md#backtotop15)属性。<br/>默认值：
+   *     true
    * @returns { T }
+   *    返回当前滚动组件。
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -30668,10 +30728,13 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   enableScrollInteraction(value: boolean): T;
 
   /**
-   * friction coefficient.
+   * 设置摩擦系数，手动划动滚动区域时生效，仅影响惯性滚动过程，对惯性滚动过程中嵌套滚动组件间的联动效果（如List组件的链式动效[chainAnimation]{@link ListAttribute#chainAnimation}）
+   * 有间接影响，适用于需要调整惯性滚动减速快慢的场景。设置为小于等于0的值时，按默认值处理。
    *
-   * @param { number | Resource } value - friction coefficient.
+   * @param { number | Resource } value - 摩擦系数。<br/>默认值：非wearable设备为0.6，wearable设备为0.9。<br/>从API version 11开始，非wearable设
+   *     备默认值为0.7。<br/>从API version 12开始，非wearable设备默认值为0.75。 <br/>取值范围：(0, +∞)，设置为小于等于0的值时，按默认值处理。
    * @returns { T }
+   *    返回当前滚动组件。
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -30681,13 +30744,14 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   friction(value: number | Resource): T;
 
   /**
-   * Sets the offset from the start of the content to the boundary of the scrollable display area.
+   * 设置内容区域起始偏移量。滚动组件滚动到起始位置时，内容与组件显示区域边界保留指定距离。
    *
-   * @param { number | Resource } offset - Offset from the start of the content to the boundary of
-   *     the scrollable display area.
-   *     <br>Default value: <em>0</em>
-   *     <br>Unit: vp
+   * contentStartOffset + contentEndOffset超过滚动组件内容区长度后contentStartOffset和contentEndOffset会置0。
+   *
+   * @param { number | Resource } offset - 内容区域起始偏移量。<br/>默认值：0<br/>单位：vp <br/>取值范围：
+   *     [0, +∞)<br/>设置异常值如负数、非数字Resource时，按默认值处理。
    * @returns { T }
+   *    返回当前滚动组件。
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -30697,12 +30761,14 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   contentStartOffset(offset: number | Resource): T;
 
   /**
-   * 设置从内容结尾到可滚动显示区域边界的偏移量。
+   * 设置内容区末尾偏移量。滚动组件滚动到末尾位置时，内容与组件显示区域边界保留指定距离。
    *
-   * @param { number | Resource } offset - 从内容末尾到可滚动显示区域边界的偏移量。
-   * <br>默认值：<em>0</em>
-   * <br>单位：vp
+   * contentStartOffset + contentEndOffset超过滚动组件内容区长度后contentStartOffset和contentEndOffset会置0。
+   *
+   * @param { number | Resource } offset - 内容区末尾偏移量。<br/>默认值：0<br/>单位：vp <br/>取值范围：
+   *     [0, +∞)<br/>设置异常值如负数、非数字Resource时，按默认值处理。
    * @returns { T }
+   *    返回当前滚动组件。
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -30712,11 +30778,12 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   contentEndOffset(offset: number | Resource): T;
 
   /**
-   * 启用鼠标左键按住并拖动滚动。
+   * 设置是否支持鼠标左键按下拖动滚动。未通过该接口设置时，默认不支持鼠标左键按下拖动滚动。
    *
-   * @param { boolean | undefined } enabled - 启用鼠标左键按住并拖动滚动。
-   *     <br>默认值：false。
+   * @param { boolean | undefined } enabled - 是否支持鼠标左键按下拖动滚动。<br/>true：支持鼠标左键按下拖动滚动。<br/>false：不支持鼠标左键按下拖动滚动。<br/>
+   *     undefined：不支持鼠标左键按下拖动滚动。
    * @returns { T }
+   *    返回当前滚动组件。
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -30726,11 +30793,17 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   enableScrollWithMouse(enabled: boolean | undefined): T;
 
   /**
-   * Triggered when the scrollable component scrolls.
+   * 滚动组件滑动时触发。
    *
-   * @param { function } event - callback of scrollable,
-   * scrollOffset is offset per frame scrolling, ScrollState is current scroll state.
+   * > **说明：**
+   * >
+   * > 从API version 11开始支持，从API version 12开始废弃。[List]{@link ./list}、[Grid]{@link ./grid}和[WaterFlow]{@link ./water_flow}
+   * > 组件的onScroll事件在布局之后触发，
+   *
+   * @param { function } event - 滚动组件滑动时的回调。<br/>scrollOffset：相对于上一帧的偏移量，滚动组件的内容向上滚动时偏移量为正，向下滚动时偏移量为负。单位vp。<br/>
+   *     scrollState：当前滑动状态。
    * @returns { T }
+   *    返回当前滚动组件。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -30742,10 +30815,24 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   onScroll(event: (scrollOffset: number, scrollState: ScrollState) => void): T;
 
   /**
-   * Called when the scrollable will scroll.
+   * 滚动事件回调，滚动组件滚动前触发。与
+   * [onDidScroll](docroot://reference/apis-arkui/arkui-ts/ts-container-scrollable-common.md#ondidscroll12)的对比：
+   * onWillScroll在滚动发生前触发，可通过返回值指定将要滚动的偏移量，适用于需要拦截或自定义滚动行为的场景；onDidScroll在滚动发生时触发，返回当前帧的实际滚动偏移量和滑动状态，适用于仅需监听滚动过程的场景。两者可同
+   * 时使用。
    *
-   * @param { Optional<OnWillScrollCallback> } handler - callback of scrollable.
+   * 回调当前帧将要滚动的偏移量、当前滚动状态及滚动操作来源，其中回调的偏移量为计算得到的将要滚动的偏移量值，并非最终实际滚动偏移。可以通过该回调返回值指定滚动组件将要滚动的偏移。[Scroll]{@link ./scroll}组件的
+   * [onWillScroll]{@link ScrollAttribute#onWillScroll}接口的参数类型是
+   * [ScrollOnWillScrollCallback]{@link ScrollOnWillScrollCallback}。
+   *
+   * > **说明：**
+   * >
+   * > - 从API version 14开始，该接口支持在[attributeModifier]{@link CommonMethod#attributeModifier}中调用。
+   * >
+   * > - 调用不带动画的[ScrollEdge]{@link Scroller#scrollEdge}和[ScrollToIndex]{@link Scroller#scrollToIndex}时，不触发onWillScroll。
+   *
+   * @param { Optional<OnWillScrollCallback> } handler - 滚动组件滑动前触发的回调。
    * @returns { T }
+   *    返回当前滚动组件。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -30755,10 +30842,15 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   onWillScroll(handler: Optional<OnWillScrollCallback>): T;
 
   /**
-   * Triggered when the scrollable component scrolls.
+   * 滚动组件滑动时触发，返回当前帧滑动的偏移量和当前滑动状态。
    *
-   * @param { OnScrollCallback } handler - Callback triggered when the scrollable component scrolls.
+   * > **说明：**
+   * >
+   * > 从API version 14开始，该接口支持在[attributeModifier]{@link CommonMethod#attributeModifier}中调用。
+   *
+   * @param { OnScrollCallback } handler - 滚动组件滑动时触发的回调。
    * @returns { T }
+   *    返回当前滚动组件。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -30769,10 +30861,11 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   onDidScroll(handler: OnScrollCallback): T;
 
   /**
-   * Called when the scrollable will start dragging.
+   * 滚动组件开始拖动时触发。
    *
-   * @param { VoidCallback } handler - callback of start dragging.
+   * @param { VoidCallback } handler - 滚动组件开始拖动时触发的回调。
    * @returns { T }
+   *    返回当前滚动组件。
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -30783,10 +30876,11 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   onWillStartDragging(handler: VoidCallback): T;
 
   /**
-   * Called when the scrollable will end dragging.
+   * 滚动组件划动离手时触发，使用鼠标滚轮划动时不会触发。
    *
-   * @param { OnWillStopDraggingCallback } handler - callback of end dragging,
+   * @param { OnWillStopDraggingCallback } handler - 滚动组件划动离手时触发的回调。
    * @returns { T }
+   *    返回当前滚动组件。
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -30797,10 +30891,11 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   onWillStopDragging(handler: OnWillStopDraggingCallback): T;
 
   /**
-   * Called when the scrollable did end dragging.
+   * 滚动组件结束拖动时触发。
    *
-   * @param { OnDidStopDraggingCallback } handler - callback of end dragging.
+   * @param { OnDidStopDraggingCallback } handler - 滚动组件结束拖动时触发的回调。
    * @returns { T }
+   *    返回当前滚动组件。
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -30811,10 +30906,19 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   onDidStopDragging(handler: OnDidStopDraggingCallback): T;
 
   /**
-   * Called when the scrollable will start fling.
+   * 滚动组件将要开始惯性动效时触发。
    *
-   * @param { VoidCallback } handler - callback of start fling.
+   * > **说明：**
+   * >
+   * > - 如果惯性动效通过[fling]{@link Scroller#fling}方法触发，则onWillStartFling不触发。
+   * >
+   * > - 惯性动效的触发场景参考
+   * > [flingSpeedLimit](docroot://reference/apis-arkui/arkui-ts/ts-container-scrollable-common.md#flingspeedlimit11)方法的
+   * > 说明。
+   *
+   * @param { VoidCallback } handler - 滚动组件将要开始惯性动效时触发的回调。
    * @returns { T }
+   *    返回当前滚动组件。
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -30825,10 +30929,11 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   onWillStartFling(handler: VoidCallback): T;
 
   /**
-   * Called when the scrollable did end fling.
+   * 滚动组件结束惯性动效后触发，进行中的惯性动效被新的滑动事件打断时不触发。
    *
-   * @param { VoidCallback } handler - callback of end fling.
+   * @param { VoidCallback } handler - 滚动组件结束惯性动效后触发的回调。
    * @returns { T }
+   *    返回当前滚动组件。
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -30839,10 +30944,13 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   onDidStopFling(handler: VoidCallback): T;
 
   /**
-   * Called when the scrollable reaches the start position.
+   * 滚动组件到达起始位置时触发。
    *
-   * @param { function } event - Callback function, triggered when the scrollable reaches the start position.
+   * 滚动组件初始化时会触发一次，滚动到起始位置时触发一次。边缘效果为弹簧效果时，划动经过起始位置时触发一次，回弹回起始位置时再触发一次。
+   *
+   * @param { function } event - 滚动组件到达起始位置时的回调。
    * @returns { T }
+   *    返回当前滚动组件。
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -30852,10 +30960,13 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   onReachStart(event: () => void): T;
 
   /**
-   * Called when the scrollable reaches the end position.
+   * 滚动组件到达末尾位置时触发。
    *
-   * @param { function } event - Callback function, triggered when the scrollable reaches the end position.
+   * 滚动组件初始化时，若已处于末尾位置则会触发一次。边缘效果为弹簧效果时，划动经过末尾位置时触发一次，回弹回末尾位置时再触发一次。
+   *
+   * @param { function } event - 滚动组件到达末尾位置时的回调。
    * @returns { T }
+   *    返回当前滚动组件。
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -30865,10 +30976,17 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   onReachEnd(event: () => void): T;
 
   /**
-   * Called when the scrollable starts scrolling.
+   * 滚动开始时触发。手指拖动滚动组件或其滚动条触发的滚动开始时，会触发该事件。使用[Scroller]{@link Scroller}滚动控制器触发的带动画的滚动，动画开始时会触发该事件。
    *
-   * @param { function } event - Callback function, triggered when the scrollable starts scrolling.
+   * 触发该事件的条件：
+   *
+   * 1. 滚动组件开始滚动时触发，支持键鼠操作等其他触发滚动的输入设置。
+   *
+   * 2. 通过滚动控制器API接口调用后开始，带过渡动效。
+   *
+   * @param { function } event - 滚动开始时的回调。
    * @returns { T }
+   *    返回当前滚动组件。
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -30878,10 +30996,17 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   onScrollStart(event: () => void): T;
 
   /**
-   * Called when the scrollable stops scrolling.
+   * 滚动停止时触发。手指拖动滚动组件或其滚动条触发的滚动，手指离开屏幕后滚动停止时会触发该事件。使用[Scroller]{@link Scroller}滚动控制器触发的带动画的滚动，动画停止时会触发该事件。
    *
-   * @param { function } event - Callback function, triggered when the scrollable stops scrolling.
+   * 触发该事件的条件：
+   *
+   * 1. 滚动组件触发滚动后停止，支持键鼠操作等其他触发滚动的输入设置。
+   *
+   * 2. 通过调用带过渡动画的滚动控制器API接口，动画停止时。
+   *
+   * @param { function } event - 滚动停止时的回调。
    * @returns { T }
+   *    返回当前滚动组件。
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -30891,11 +31016,21 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   onScrollStop(event: () => void): T;
 
   /**
-   * Limit the max speed when fling.
+   * 限制跟手滑动结束后，惯性动效开始时的最大初始速度。
    *
-   * @param { number } speedLimit - Max fling speed, the minimum value is 0, the maximum value is not limited.
-   *                                The unit is vp/s.
+   * > **说明：**
+   * >
+   * > - 惯性动效是指手指快速滑动并离开屏幕后，滚动内容继续滚动并逐渐减速停止的效果，也称为惯性滚动。
+   * >
+   * > - 惯性动效触发场景包括：惯性手指快速滑动并离手时，或调用[fling]{@link Scroller#fling}方法。
+   * >
+   * > - 使用鼠标滚轮、键盘方向键方式滚动，或通过[scrollTo]{@link Scroller#scrollTo}等方法直接滚动到指定位置，不会产生惯性动效。
+   * >
+   * > - 如果惯性动效通过[fling]{@link Scroller#fling}方法触发，则flingSpeedLimit设置不生效。
+   *
+   * @param { number } speedLimit - 惯性动效开始时的最大初始速度。<br/>默认值：9000<br/>单位：vp/s <br/>取值范围：(0, +∞)，设置为小于等于0的值时，按默认值处理。
    * @returns { T }
+   *    返回当前滚动组件。
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -30905,10 +31040,16 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   flingSpeedLimit(speedLimit: number): T;
 
   /**
-   * Clip the content of the scrollable container, excluding background.
+   * 设置滚动容器的内容层裁剪区域。
    *
-   * @param { ContentClipMode | RectShape } clip - A value from enum ContentClipMode or a customized clip rect.
+   * 从API版本26.0.0开始，内容层裁剪区域内的子组件支持正常显示。API版本26.0.0以前的版本，当List、Grid和WaterFlow组件的内容层裁剪区域大于组件自身时，完全在组件区域外但在裁剪区域内的子组件默认不会显示。
+   * 若需要显示，可将组件的cachedCount属性的show参数设置为true。但由于cachedCount属性设置的预加载子组件仅在空闲时隙执行，在组件大小变化、数据更新等场景下可能存在更新不及时导致闪烁的问题。
+   *
+   * @param { ContentClipMode | RectShape } clip - 裁剪只针对滚动容器的内容，即其子节点，背景不受影响。通过RectShape传入自定义矩形区域时仅支持设置宽高和相对于组件左上角的
+   *     [offset]{@link @ohos.arkui.shape:CommonShapeMethod#offset}，不支持圆角。
+   *     <br>默认值：Grid、Scroll的默认值为ContentClipMode.BOUNDARY，List、WaterFlow的默认值为ContentClipMode.CONTENT_ONLY。
    * @returns { T }
+   *    返回当前滚动组件。
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -30918,10 +31059,15 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   clipContent(clip: ContentClipMode | RectShape): T;
 
   /**
-   * Set the sensitivity of rotating crown.
+   * 设置表冠响应事件灵敏度。
    *
-   * @param { Optional<CrownSensitivity> } sensitivity - The sensitivity of rotating crown, default value is { MEDIUM }.
-   * @returns { T } The component instance.
+   * 组件收到[表冠事件]{@link ./common}的前提是该组件获焦，焦点控制可以通过[focusable]{@link CommonMethod#focusable}、
+   * [defaultFocus]{@link CommonMethod#defaultFocus}、[focusOnTouch]{@link CommonMethod#focusOnTouch}进行管理。
+   *
+   * @param { Optional<CrownSensitivity> } sensitivity - 表冠响应灵敏度。CrownSensitivity.LOW表示低灵敏度，滚动响应较慢；
+   *     CrownSensitivity.MEDIUM表示中灵敏度，滚动响应适中；CrownSensitivity.HIGH表示高灵敏度，滚动响应较快。<br/>默认值：CrownSensitivity.MEDIUM，响应速度适
+   *     中。
+   * @returns { T } 返回当前滚动组件。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -30931,11 +31077,16 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   digitalCrownSensitivity(sensitivity: Optional<CrownSensitivity>): T;
 
   /**
-   * Controls whether the scrollable scrolls back to top when status bar is clicked.
+   * 设置滚动组件是否支持点击状态栏回到顶部。
    *
-   * @param { boolean } backToTop - whether the scrollable scrolls back to top when status bar is clicked.
-   * The default value is false.
+   * 支持当前页面的滚动组件收到点击状态栏事件后，通过动画回到顶部。点击状态栏后，后台应用的滚动组件不受影响，不做回到顶部的动作。本属性不受
+   * [enableScrollInteraction](docroot://reference/apis-arkui/arkui-ts/ts-container-scrollable-common.md#enablescrollinteraction11)
+   * 设置的影响。
+   *
+   * @param { boolean } backToTop - 设置滚动组件是否支持点击状态栏回到顶部。设置为true支持点击状态栏通过动画回到顶部，设置为false不支持点击状态栏回到顶部。<br/>默认值：<br/>API
+   *     version 18之前：false。 <br/>API version 18及以后：滚动方向是水平方向时为false，是垂直方向时为true。
    * @returns { T }
+   *    返回当前滚动组件。
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -30947,10 +31098,18 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   /**
    * 设置滚动条滑轨高度。
    *
-   * @param { LengthMetrics | undefined } height - 滚动条滑轨高度
-   *     <br>取值应≥0，如果设置为undefined或小于0的值，则使用默认值.
-   *     如果设置为0，则不显示滚动条。 默认值： 适应可滚动组件的高度。
+   * 未设置该接口时，滚动条滑轨高度默认自适应滚动组件高度，儿童智能表的默认高度为37vp。
+   *
+   * > **说明：**
+   * >
+   * > 应确保scrollBarHeight与
+   * > [scrollBarMargin](docroot://reference/apis-arkui/arkui-ts/ts-container-scrollable-common.md#scrollbarmargin20)的设定
+   * > 值之和不超过滚动组件高度，否则滚动条可能无法正常显示。
+   *
+   * @param { LengthMetrics | undefined } height - 滚动条滑轨高度。<br/>值必须大于等于0。设置为undefined或小于0时，自适应滚动组件高度，儿童智能表则恢复至默认值37vp。设置
+   *     为0时，不显示滚动条。
    * @returns { T }
+   *    返回当前滚动组件。
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -30961,7 +31120,8 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
 }
 
 /**
- * The actual offset by which the scrollable scrolls.
+ * [OnWillScrollCallback]{@link OnWillScrollCallback}返回值对象。
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -30971,7 +31131,8 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
 declare class ScrollResult {
 
   /**
-   * Actual offset by which the scrollable scrolls in vp.
+   * 将要滑动偏移量，单位vp。
+   *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -31001,11 +31162,11 @@ declare type OnWillScrollCallback =
 (scrollOffset: number, scrollState: ScrollState, scrollSource: ScrollSource) => void | ScrollResult;
 
 /**
- * On scroll callback using in scrollable onDidScroll.
+ * 滚动组件滑动时触发的回调。
  *
  * @typedef { function } OnScrollCallback
- * @param { number } scrollOffset - offset this frame did scroll.
- * @param { ScrollState } scrollState - current scroll state.
+ * @param { number } scrollOffset - 相对于上一帧的偏移量，滚动组件的内容向上滚动时偏移量为正，向下滚动时偏移量为负。<br/>单位vp。
+ * @param { ScrollState } scrollState - 当前滑动状态。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -31016,12 +31177,13 @@ declare type OnWillScrollCallback =
 declare type OnScrollCallback = (scrollOffset: number, scrollState: ScrollState) => void;
 
 /**
- * 定义在onItemDragStart中使用的回调类型。
+ * 开始拖拽列表或网格元素时触发的回调。
  *
  * @typedef { function } OnItemDragStartCallback
- * @param { ItemDragInfo } event - 被拖拽项的信息。
- * @param { number } itemIndex - 拖动项的索引号。
+ * @param { ItemDragInfo } event - 拖拽点的信息。
+ * @param { number } itemIndex - 被拖拽列表元素索引值。
  * @returns { CustomBuilder }
+ *  返回CustomBuilder用于构建被拖拽元素的拖拽图。返回void表示不能拖拽。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
  * @crossplatform
@@ -31031,10 +31193,15 @@ declare type OnScrollCallback = (scrollOffset: number, scrollState: ScrollState)
 declare type OnItemDragStartCallback = (event: ItemDragInfo, itemIndex: number) => CustomBuilder;
 
 /**
- * 定义EditModeOptions的onGetPreviewBadge中使用的回调类型。
+ * 即将启动多选长按聚拢动画时，触发用于获取选中数量的回调。
+ *
+ * 返回true表示显示选中数量角标，对应Grid或List显示范围内选中item数量；false表示不显示角标。
+ * 返回数字时默认显示角标，该数字表示角标中需要显示的数量。取值范围：[0, 2<sup>31</sup>-1]，超过取值范围时按返回true处理。
+ * 返回浮点数时，向下取整。
  *
  * @typedef { function } OnGetPreviewBadgeCallback
  * @returns { boolean | number }
+ *  多选长按聚拢动画后菜单预览图是否显示选中数量角标，或需要显示的数量。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -31044,10 +31211,10 @@ declare type OnItemDragStartCallback = (event: ItemDragInfo, itemIndex: number) 
 declare type OnGetPreviewBadgeCallback = () => boolean | number;
 
 /**
- * On scroll callback using in scrollable onWillStopDragging.
+ * 滚动组件划动离手时触发的回调。
  *
  * @typedef { function } OnWillStopDraggingCallback
- * @param { number } velocity - The veolicity of the scroll view at the moment the touch was released.
+ * @param { number } velocity - 划动离手速度，滚动组件的内容向上滚动时速度为正，向下滚动时速度为负。<br/>单位vp/s。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -31058,10 +31225,10 @@ declare type OnGetPreviewBadgeCallback = () => boolean | number;
 declare type OnWillStopDraggingCallback = (velocity: number) => void;
 
 /**
- * On scroll callback using in scrollable onDidStopDragging.
+ * 滚动组件在结束拖拽时触发的回调。
  *
  * @typedef { function } OnDidStopDraggingCallback
- * @param { boolean } willFling - whether start fling animation.
+ * @param { boolean } willFling - 结束拖拽后是否会有惯性动效。返回true代表拖拽结束后有惯性动效，返回false代表没有惯性动效。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -31072,11 +31239,20 @@ declare type OnWillStopDraggingCallback = (velocity: number) => void;
 declare type OnDidStopDraggingCallback = (willFling: boolean) => void;
 
 /**
- * 定义onScrollIndex的回调类型。
+ * 懒加载布局容器[LazyColumnLayout](docroot://reference/apis-arkui/arkui-ts/ts-container-lazycolumnlayout.md)、
+ * [LazyVGridLayout]{@link ./lazy_grid_layout}、
+ * [LazyVWaterFlowLayout](docroot://reference/apis-arkui/arkui-ts/ts-container-lazyvwaterflowlayout.md)所显示的子组件索引发生变化时的回调
+ * 类型。
+ *
+ * > **说明：**
+ * >
+ * > - 当懒加载布局容器没有子组件时，start和end都返回-1。
+ * >
+ * > - 当懒加载布局容器在可视区域内无子组件时，start和end都返回-1。
  *
  * @typedef {function} OnVisibleIndexesChangeCallback
- * @param { int } start - 可见区域的第一个索引号。
- * @param { int } end - 可见区域的最后一个索引号。
+ * @param { int } start - 可视区域起始位置的索引值。<br/>取值范围：[0, 子节点总数-1]，当没有子节点或所有子节点都在可视区域外时，返回-1。
+ * @param { int } end - 可视区域终止位置的索引值。<br/>取值范围：[0, 子节点总数-1]，当没有子节点或所有子节点都在可视区域外时，返回-1。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -31086,11 +31262,11 @@ declare type OnDidStopDraggingCallback = (willFling: boolean) => void;
 declare type OnVisibleIndexesChangeCallback = (start: int, end: int) => void;
 
 /**
- * Defines the onMove callback.
+ * 定义数据源拖拽回调。
  *
  * @typedef { function } OnMoveHandler
- * @param { number } from - Index number for moving elements.
- * @param { number } to - Target index number for moving elements.
+ * @param { number } from - 数据源拖拽起始索引号。取值范围是[0, 数据源长度-1]。
+ * @param { number } to - 数据源拖拽目标索引号。取值范围是[0, 数据源长度-1]。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -31172,10 +31348,12 @@ declare interface ItemDragEventHandler {
 declare class DynamicNode<T> {
 
   /**
-   * Set the move action.
+   * 拖拽排序数据移动回调。当父容器组件为[List]{@link ./list}或[Grid]{@link ./grid}，并且ForEach/LazyForEach/Repeat每次迭代都生成一个ListItem或GridItem组
+   * 件时才生效。调用后开启拖拽排序功能；拖拽排序离手后，如果数据位置发生变化，将触发handler回调，上报数据移动起始索引号和目标索引号。需要在回调中修改数据源，并确保数据仅顺序发生变化，才能正常执行落位动画。
    *
    * @param { Optional<OnMoveHandler> } handler
    * @returns { T }
+   *    返回当前组件。
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -31185,10 +31363,15 @@ declare class DynamicNode<T> {
   onMove(handler: Optional<OnMoveHandler>): T;
 
   /**
-   * 设置移动动作
+   * 拖拽排序数据移动回调。当父容器组件为[List]{@link ./list}或[Grid]{@link ./grid}，并且ForEach/LazyForEach/Repeat每次迭代都生成一个ListItem或GridItem组
+   * 件时才生效。调用后开启拖拽排序功能；拖拽排序离手后，如果数据位置发生变化，将触发handler回调，上报数据移动起始索引号和目标索引号。需要在回调中修改数据源，并确保数据仅顺序发生变化，才能正常执行落位动画。与
+   * [onMove](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-drag-sorting.md#onmove)相比，新增eventHandler参
+   * 数，可监听长按、开始拖拽、经过其他组件、拖拽结束等拖拽阶段事件。
+   *
    * @param { Optional<OnMoveHandler> } handler
    * @param { ItemDragEventHandler } eventHandler
    * @returns { T }
+   *    返回当前组件。
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -31199,7 +31382,7 @@ declare class DynamicNode<T> {
 }
 
 /**
- * Define EdgeEffect Options.
+ * [edgeEffect](docroot://reference/apis-arkui/arkui-ts/ts-container-scrollable-common.md#edgeeffect11)属性参数对象。
  *
  * @interface EdgeEffectOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -31208,7 +31391,7 @@ declare class DynamicNode<T> {
  * @since 11
  */
 /**
- * Define EdgeEffect Options.
+ * [edgeEffect](docroot://reference/apis-arkui/arkui-ts/ts-container-scrollable-common.md#edgeeffect11)属性参数对象。
  *
  * @interface EdgeEffectOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -31220,7 +31403,8 @@ declare class DynamicNode<T> {
 declare interface EdgeEffectOptions {
 
   /**
-   * Enable Sliding effect when component does not full screen.
+   * 组件内容大小小于组件自身时，设置是否开启滑动效果。设置为true开启滑动效果，设置为false关闭滑动效果。[List]{@link ./list}、[Grid]{@link ./grid}和
+   * [WaterFlow]{@link ./water_flow}组件默认值是false，[Scroll]{@link ./scroll}组件默认值是true。
    *
    * @type { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -31229,7 +31413,8 @@ declare interface EdgeEffectOptions {
    * @since 11
    */
   /**
-   * Enable Sliding effect when component does not full screen.
+   * 组件内容大小小于组件自身时，设置是否开启滑动效果。设置为true开启滑动效果，设置为false关闭滑动效果。[List]{@link ./list}、[Grid]{@link ./grid}和
+   * [WaterFlow]{@link ./water_flow}组件默认值是false，[Scroll]{@link ./scroll}组件默认值是true。
    *
    * @type { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -31241,7 +31426,13 @@ declare interface EdgeEffectOptions {
   alwaysEnabled: boolean;
 
   /**
-   * Set the effective edge of the edge effect.
+   * 设置边缘效果生效的边缘。
+   *
+   * 如果设置[EffectEdge]{@link EffectEdge}.START表示只有起始边生效。如果设置[EffectEdge]{@link EffectEdge}.END表示只有末尾边生效。
+   *
+   * 默认值为[EffectEdge]{@link EffectEdge}.START | [EffectEdge]{@link EffectEdge}.END表示双边同时生效。当设置为其它异常值时，则默认双边同时生效。
+   *
+   * 如果需要双边都不生效，可将edgeEffect设置为EdgeEffect.None。
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -31254,7 +31445,7 @@ declare interface EdgeEffectOptions {
 }
 
 /**
- * Enumerates the effective edge of the edge effect.
+ * 表示当前边缘效果要生效的边缘。
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -31266,7 +31457,7 @@ declare interface EdgeEffectOptions {
 declare enum EffectEdge {
 
   /**
-   * Effective only for the starting edge.
+   * 起始边生效。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -31277,7 +31468,7 @@ declare enum EffectEdge {
   START = 1,
 
   /**
-   * Effective only for the end edge.
+   * 末尾边生效。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -31289,7 +31480,11 @@ declare enum EffectEdge {
 }
 
 /**
- * Indicates children main size.
+ * 维护List组件或ListItemGroup组件的子组件在主轴方向的大小信息，仅支持一对一绑定到List组件或ListItemGroup组件。
+ *
+ * > **说明：**
+ * >
+ * > - 提供的主轴方向大小信息必须与子组件实际在主轴方向的大小一致，子组件在主轴方向大小变化或者增删子组件时都必须通过ChildrenMainSize对象方法通知List组件或ListItemGroup组件。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -31300,10 +31495,9 @@ declare enum EffectEdge {
 declare class ChildrenMainSize {
 
   /**
-   * Creates an instance of ChildrenMainSize.
+   * ChildrenMainSize有参构造函数。
    *
-   * @param { number } childDefaultSize - default main size, in vp. If the main axis is vertical, it indicates height.
-   * If the main axis is horizontal, it indicates width.
+   * @param { number } childDefaultSize - 子组件在主轴方向的默认大小。<br/>单位：vp<br/>**说明：** <br/>必须是有限的非负数值，否则抛出异常。
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
@@ -31317,10 +31511,9 @@ declare class ChildrenMainSize {
   constructor(childDefaultSize: number);
 
   /**
-   * Set default size.
+   * 修改子组件在主轴方向的默认大小。
    *
-   * @param { number } value - default main size, in vp. If the main axis is vertical, it indicates height.
-   * If the main axis is horizontal, it indicates width.
+   * @param { number } value - 子组件在主轴方向的默认大小。<br/>单位：vp<br/>**说明：** <br/>必须是有限的非负数值，否则抛出异常。
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
@@ -31347,11 +31540,15 @@ declare class ChildrenMainSize {
   get childDefaultSize(): number;
 
   /**
-   * Changes children main size by removing or replacing existing elements and/or adding new elements in place.
+   * 批量增删改子组件在主轴方向的大小信息。
    *
-   * @param { number } start - Zero-based index at which to start changing the children main size.
-   * @param { number } [deleteCount] - Indicating the number of children main size to remove from start.
-   * @param { Array<number> } [childrenSize] - Add the new children main size, beginning from start.
+   * @param { number } start - 从0开始计算的索引值，表示要开始修改子组件在主轴方向大小信息的位置。<br/>**说明：** <br/>1. 必须是有限的非负数值，否则抛出异常。<br/>2. 非整数会被截断为
+   *     整数。<br/>3. 超过最大索引值不生效。<br/>取值范围：[0, +∞)
+   * @param { number } [deleteCount] - 从start开始删除的大小信息的数量。<br/>**说明：** <br/>1.  必须是有限的非负数值，否则处理为0。<br/>2. 非整数会被截断为整数。<br
+   *     />3. start + deleteCount - 1可以超过最大索引值，会删除索引值start开始之后的所有子组件的大小信息。<br/>默认值为+∞。 <br/>取值范围：[0, +∞)
+   * @param { Array<number> } [childrenSize] - 要在start位置插入的所有子组件的主轴方向的大小。<br/>Array中各个数值单位：vp <br/>**说明：** <br/>1.数组中数值如
+   *     果是有限的非负值，则认为是指定的大小，后续不随默认大小的变化而变化。<br/>2. 数组中数值如果不是有限的非负值，会被处理成默认大小，后续会随默认大小的变化而变化。<br/>默认值为空数组。 <br/>取值范围：
+   *     [0, +∞)
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
@@ -31368,10 +31565,12 @@ declare class ChildrenMainSize {
   splice(start: number, deleteCount?: number, childrenSize?: Array<number>): void;
 
   /**
-   * Updates main size for specified child.
+   * 修改指定索引值对应的子组件的主轴方向的大小信息。
    *
-   * @param { number } index - index of child to be updated.
-   * @param { number } childSize - new section options.
+   * @param { number } index - 从0开始计算的索引值，表示要开始修改子组件在主轴方向大小信息的位置。<br/>**说明：** <br/>1. 必须是有限的非负数值，否则抛出异常。<br/>2. 非整数会被截断为
+   *     整数。<br/>3. 超过最大索引值不生效。 <br/>取值范围：[0, +∞)
+   * @param { number } childSize - 要更新成的大小。<br/>单位：vp <br/>**说明：** <br/>1.数值如果是有限的非负值，则认为是指定的大小，后续不随默认大小的变化而变化。<br/>2. 数
+   *     值如果不是有限的非负值，会被处理成默认大小，后续会随默认大小的变化而变化。  <br/>取值范围：[0, +∞)
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
@@ -31386,7 +31585,7 @@ declare class ChildrenMainSize {
 }
 
 /**
- * 定义编辑模式选项
+ * List/Grid组件编辑模式选项属性参数对象。
  *
  * @interface EditModeOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -32160,7 +32359,7 @@ declare interface UICommonEvent {
 }
 
 /**
- * Defines a UIScrollableCommonEvent which is used to set event to target component.
+ * 用于设置滚动事件回调。
  *
  * @extends UICommonEvent
  * @interface UIScrollableCommonEvent
@@ -32173,10 +32372,11 @@ declare interface UICommonEvent {
 declare interface UIScrollableCommonEvent extends UICommonEvent {
 
   /**
-   * Set or reset the callback which is triggered when the scrolling reaches the start position.
+   * 设置[onReachStart](docroot://reference/apis-arkui/arkui-ts/ts-container-scrollable-common.md#onreachstart11)事件的回调。
    *
-   * @param { Callback<void> | undefined } callback - callback function, triggered when the
-   *     scrolling reaches the start position.
+   * 方法入参为undefined时，会重置事件回调。
+   *
+   * @param { Callback<void> | undefined } callback - onReachStart事件的回调函数。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -32186,10 +32386,11 @@ declare interface UIScrollableCommonEvent extends UICommonEvent {
   setOnReachStart(callback: Callback<void> | undefined): void;
 
   /**
-   * Set or reset the callback which is triggered when the scrolling reaches the end position.
+   * 设置[onReachEnd](docroot://reference/apis-arkui/arkui-ts/ts-container-scrollable-common.md#onreachend11)事件的回调。
    *
-   * @param { Callback<void> | undefined } callback - callback function, triggered when the
-   *     scrolling reaches the end position.
+   * 方法入参为undefined时，会重置事件回调。
+   *
+   * @param { Callback<void> | undefined } callback - onReachEnd事件的回调函数。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -32199,9 +32400,11 @@ declare interface UIScrollableCommonEvent extends UICommonEvent {
   setOnReachEnd(callback: Callback<void> | undefined): void;
 
   /**
-   * Set or reset the callback which is triggered when the scrolling started.
+   * 设置[onScrollStart](docroot://reference/apis-arkui/arkui-ts/ts-container-scrollable-common.md#onscrollstart11)事件的回调。
    *
-   * @param { Callback<void> | undefined } callback - callback function, triggered when the scrolling started.
+   * 方法入参为undefined时，会重置事件回调。
+   *
+   * @param { Callback<void> | undefined } callback - onScrollStart事件的回调函数。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -32211,9 +32414,11 @@ declare interface UIScrollableCommonEvent extends UICommonEvent {
   setOnScrollStart(callback: Callback<void> | undefined): void;
 
   /**
-   * Set or reset the callback which is triggered when the scrolling stoped.
+   * 设置[onScrollStop](docroot://reference/apis-arkui/arkui-ts/ts-container-scrollable-common.md#onscrollstop11)事件的回调。
    *
-   * @param { Callback<void> | undefined } callback - callback function, triggered when the scrolling stoped.
+   * 方法入参为undefined时，会重置事件回调。
+   *
+   * @param { Callback<void> | undefined } callback - onScrollStop事件的回调函数。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -32223,10 +32428,11 @@ declare interface UIScrollableCommonEvent extends UICommonEvent {
   setOnScrollStop(callback: Callback<void> | undefined): void;
 
   /**
-   * Set or reset the callback which is triggered when scrolling begin each frame.
+   * 设置[onScrollFrameBegin]{@link ScrollAttribute#onScrollFrameBegin}事件的回调。
    *
-   * @param { OnScrollFrameBeginCallback | undefined } callback - callback function, triggered when the
-   *     scrolling begin each frame.
+   * 方法入参为undefined时，会重置事件回调。
+   *
+   * @param { OnScrollFrameBeginCallback | undefined } callback - onScrollFrameBegin事件的回调函数。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform

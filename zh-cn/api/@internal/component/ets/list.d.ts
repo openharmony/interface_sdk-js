@@ -238,7 +238,7 @@ declare enum StickyStyle {
 }
 
 /**
- * 设置链式动效边缘效果。
+ * 设置链式动效的边缘效果，用于决定列表滚动到边缘后继续拖动时列表项间距的变化方式。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
@@ -248,8 +248,9 @@ declare enum StickyStyle {
 declare enum ChainEdgeEffect {
 
   /**
-   * Default edge effect. Compress the space in the drag direction
-   * and stretch the space in the opposite drag direction.
+   * 默认效果，列表滚动到边缘以后继续拖动，拖拽方向上的列表项间距缩小，
+   *
+   * 拖拽反方向上的列表项间距扩大，适用于需要方向性拉伸、回弹反馈的场景。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -259,7 +260,7 @@ declare enum ChainEdgeEffect {
   DEFAULT,
 
   /**
-   * Stretch all space.
+   * 列表滚动到边缘以后继续拖动，所有列表项间距扩大，适用于需要所有列表项同步拉伸反馈的场景。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -281,7 +282,7 @@ declare enum ChainEdgeEffect {
 declare enum ScrollSnapAlign {
 
   /**
-   * 默认无项目滚动对齐效果。
+   * 默认无列表项滚动结束对齐效果。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -338,7 +339,7 @@ declare enum ScrollSnapAlign {
 }
 
 /**
- * 链式联动动效属性集合，用于设置List最大间距、最小间距、动效强度、传导系数和边缘效果。
+ * 链式联动动效属性集合，用于设置List最大间距、最小间距、动效强度、传导系数、边缘效果、刚度和阻尼。当列表需要精细控制链式联动弹性效果时，可通过调整本对象中的参数实现不同动效手感。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
@@ -348,7 +349,9 @@ declare enum ScrollSnapAlign {
 declare interface ChainAnimationOptions {
 
   /**
-   * 设置链式联动动效最小间距。<br/>单位：与Length一致。
+   * 设置链式联动动效最小间距。
+   *
+   * 单位：与Length一致。小于0时按0处理；大于当前列表项间距（space）时按当前列表项间距处理。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -358,7 +361,9 @@ declare interface ChainAnimationOptions {
   minSpace: Length;
 
   /**
-   * 设置链式联动动效最大间距。<br/>单位：与Length一致。
+   * 设置链式联动动效最大间距。
+   *
+   * 单位：与Length一致。小于当前列表项间距（space）时按当前列表项间距处理。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -368,7 +373,9 @@ declare interface ChainAnimationOptions {
   maxSpace: Length;
 
   /**
-   * 设置链式联动动效传导系数。取值范围[0,1]，数值越大，动效传导范围越远。
+   * 设置链式联动动效传导系数，控制联动影响范围。取值范围[0,1]，数值越大，链式联动影响的列表项数量越多；超出范围时使用默认值。
+   *
+   * 默认值：0.7
    *
    * @default 0.7
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -379,7 +386,9 @@ declare interface ChainAnimationOptions {
   conductivity?: number;
 
   /**
-   * 设置链式联动动效效果强度。取值范围[0,1]，数值越大，动效效果越明显。
+   * 设置链式联动动效效果强度，控制列表项在链式联动中的位移幅度。取值范围[0,1]，数值越大，列表项在链式联动中的位移幅度越大；超出范围时使用默认值。
+   *
+   * 默认值：0.3
    *
    * @default 0.3
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -390,7 +399,9 @@ declare interface ChainAnimationOptions {
   intensity?: number;
 
   /**
-   * 设置链式联动动效边缘效果。
+   * 设置链式联动动效边缘效果，控制列表滚动到边缘后的间距变化方式。DEFAULT呈现方向性拉伸、回弹反馈，STRETCH呈现所有列表项同步拉伸反馈。
+   *
+   * 默认值：ChainEdgeEffect.DEFAULT
    *
    * @default ChainEdgeEffect.DEFAULT
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -401,7 +412,11 @@ declare interface ChainAnimationOptions {
   edgeEffect?: ChainEdgeEffect;
 
   /**
-   * 设置链式联动动效效果刚度。<br/>取值范围[0, +∞)
+   * 设置链式联动动效效果刚度，控制回弹速度和动画硬度。
+   *
+   * 取值范围：(0, +∞)，数值越大，回弹速度越快，动画表现越硬；数值越小，动画越柔和。设置为小于或等于0的值时，保持当前值不变；未设置过时使用默认值。
+   *
+   * 默认值：228
    *
    * @default 228
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -412,7 +427,11 @@ declare interface ChainAnimationOptions {
   stiffness?: number;
 
   /**
-   * 设置链式联动动效效果阻尼。<br/>取值范围[0, +∞)
+   * 设置链式联动动效效果阻尼，控制振荡衰减速度。
+   *
+   * 取值范围：(0, +∞)，数值越大，动效衰减越快，震荡次数越少；数值越小，动效越容易产生震荡。设置为小于或等于0的值时，保持当前值不变；未设置过时使用默认值。
+   *
+   * 默认值：30
    *
    * @default 30
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -424,8 +443,8 @@ declare interface ChainAnimationOptions {
 }
 
 /**
- * frameNode中[getEvent('List')]{@link FrameNode:typeNode.getEvent(node: FrameNode, nodeType: 'List')}方法的返回值，可用于给List节点设置
- * 滚动事件。
+ * frameNode中[getEvent('List')]{@link ../../../arkui/FrameNode:typeNode.getEvent(node: FrameNode, nodeType: 'List')}方法的返
+ * 回值，可用于给List节点设置滚动事件。
  *
  * UIListEvent继承于[UIScrollableCommonEvent]{@link UIScrollableCommonEvent}。
  *
@@ -466,7 +485,7 @@ declare interface UIListEvent extends UIScrollableCommonEvent {
   setOnDidScroll(callback: OnScrollCallback | undefined): void;
 
   /**
-   * 设置[onScrollIndex](docroot://reference/apis-arkui/arkui-ts/ts-container-list.md#onscrollindex)事件的回调。
+   * 设置[onScrollIndex]{@link ListAttribute#onScrollIndex}事件的回调。
    *
    * 方法入参为undefined时，会重置事件回调。
    *
@@ -495,7 +514,7 @@ declare interface UIListEvent extends UIScrollableCommonEvent {
 }
 
 /**
- * 收起EXPANDED状态ListItem回调事件集合，用于设置收起动画完成后回调事件。
+ * 收起[EXPANDED]{@link SwipeActionState}状态[ListItem]{@link ./list_item}回调事件集合，用于设置收起动画完成后回调事件。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -506,7 +525,7 @@ declare interface UIListEvent extends UIScrollableCommonEvent {
 declare interface CloseSwipeActionOptions {
 
   /**
-   * Called after collapse animation completed.
+   * 在收起动画完成后触发。未设置此属性时不触发回调。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -529,7 +548,7 @@ declare interface CloseSwipeActionOptions {
 declare interface VisibleListContentInfo {
 
   /**
-   * Index of the list item or list item group in the list display area.
+   * 表示ListItem或ListItemGroup在List中的索引值。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -540,8 +559,7 @@ declare interface VisibleListContentInfo {
   index: number
 
   /**
-   * Position of the top or bottom edge of the viewport in the
-   * list item group to which the edge is located, if applicable.
+   * 表示处于ListItemGroup的哪一个区域。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -552,8 +570,7 @@ declare interface VisibleListContentInfo {
   itemGroupArea?: ListItemGroupArea
 
   /**
-   * Index of the starting or ending list item in the list
-   * item group to which the top or bottom edge of the viewport is located.
+   * 表示ListItem在ListItemGroup中的索引值。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -578,6 +595,10 @@ declare interface ListBackPressBehavior {
   /**
    * 系统返回键生效时是否收起ListItem的划出组件。
    *
+   * true表示收起ListItem的划出组件；false表示不收起ListItem的划出组件。
+   *
+   * 默认值：true
+   *
    * @default true
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -591,6 +612,7 @@ declare interface ListBackPressBehavior {
 /**
  * 有子组件划入或划出List显示区域时触发。
  *
+ * API版本26.0.0开始，List从有子组件变成空的List时，上报的start和end参数的index成员为-1，itemGroupArea和itemIndexInGroup成员为undefined。API版本26.0.0以前，
  * List从有子组件变成空的List时，上报的start和end参数会保留上次有子组件时的值。
  *
  * start和end的index同时返回0，代表List内只有一个子组件。
@@ -635,6 +657,12 @@ declare type OnListScrollIndexCallback = (start: number, end: number, center: nu
  * >
  * > ListScroller继承自[Scroller]{@link Scroller}，具有[Scroller]{@link Scroller}的全部方法。
  *
+ * ###### 导入对象
+ *
+ * ```ts
+ * listScroller: ListScroller = new ListScroller();
+ * ```
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -644,17 +672,10 @@ declare type OnListScrollIndexCallback = (start: number, end: number, center: nu
 declare class ListScroller extends Scroller {
 
   /**
-   * 获取[ListItemGroup]{@link list_item_group}中的[ListItem]{@link list_item}的大小和相对于List的位置。
-   *
-   * > **说明：**
-   * >
-   * > - index必须是当前显示区域显示的子组件的索引值，否则视index为非法值。
-   * > - 索引值为index的子组件必须是ListItemGroup，否则视index为非法值。
-   * > - indexInGroup必须是当前显示区域内ListItemGroup中显示的ListItem的索引值，否则视indexInGroup为非法值。
-   * > - index或者indexInGroup为非法值时返回的大小和位置均为0。
+   * 获取[ListItemGroup]{@link ./list_item_group}中的[ListItem]{@link ./list_item}的大小和相对于List的位置。
    *
    * @param { number } index - ListItemGroup在List中的索引值。
-   * @param { number } indexInGroup - ListItemGroup在List中的索引值。
+   * @param { number } indexInGroup - ListItem在ListItemGroup中的索引值。
    * @returns { RectResult } ListItemGroup中的ListItem的大小和相对于List的位置。<br/>单位：vp。
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
@@ -674,8 +695,8 @@ declare class ListScroller extends Scroller {
    *
    * @param { number } index - 要滑动到的目标元素所在的ListItemGroup在当前容器中的索引值。      <br/>**说明：** <br/>index值设置成负值或者大于当前容器子组件的最大索引值，
    *     视为异常值，本次跳转不生效。
-   * @param { number } indexInGroup - 要滑动到的目标元素所在的ListItemGroup在当前容器中的索引值。      <br/>**说明：** <br/>index值设置成负值或者大于当前容器子组件的最大索引值，
-   *     视为异常值，本次跳转不生效。
+   * @param { number } indexInGroup - 要滑动到的目标元素在index指定的ListItemGroup中的索引值。      <br/>**说明：** <br/>indexInGroup值设置成负值或者大
+   *     于index指定的ListItemGroup容器子组件的最大索引值，视为异常值，本次跳转不生效。
    * @param { boolean } smooth - 设置该次滑动是否有动效，true表示有动效，false表示没有动效。<br/>默认值：false<br/>**说明：** <br/>开启动效时，会对经过的所有item进行加载
    *     和布局计算，当大量加载item时会导致性能问题。
    * @param { ScrollAlign } align - 指定滑动到的元素与当前容器的对齐方式。<br/>默认值：ScrollAlign.START。
@@ -693,10 +714,10 @@ declare class ListScroller extends Scroller {
   scrollToItemInGroup(index: number, indexInGroup:number, smooth?: boolean, align?: ScrollAlign): void;
 
   /**
-   * 将[EXPANDED]{@link SwipeActionState}状态的[ListItem]{@link list_item}收起，并设置回调事件。
+   * 将[EXPANDED]{@link SwipeActionState}状态的[ListItem]{@link ./list_item}收起，并设置回调事件。
    *
-   * @param { CloseSwipeActionOptions } options - 收起[EXPANDED]{@link SwipeActionState}状态的[ListItem]{@link list_item}的回调事
-   *     件集合。
+   * @param { CloseSwipeActionOptions } options - 收起[EXPANDED]{@link SwipeActionState}状态的[ListItem]{@link ./list_item}的回
+   *     调事件集合。不传入时不设置回调事件。
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
    *     <br> 2. Incorrect parameters types.
@@ -747,7 +768,20 @@ declare class ListScroller extends Scroller {
 interface ListOptions {
 
   /**
-   * Set initialIndex.
+   * 设置当前List初次加载时显示区域起始位置的item索引值。
+   *
+   * 默认值：0。当stackFromEnd为true时，默认值为总item个数-1。
+   *
+   * **说明：**
+   *
+   * 设置为负数或超过了当前List最后一个item的索引值时视为无效取值，无效取值按默认值显示。
+   *
+   * 从API version 14开始，如果在List组件创建完成后首次布局前（如List的[onAttach]{@link CommonMethod#onAttach}事件中），调用Scroller滚动控制器中不带动画的
+   * scrollToIndex或scrollEdge方法，会覆盖initialIndex设置的值。
+   *
+   * 设置了initialIndex后，List从initialIndex对应的子组件开始布局，在这之前的子组件未参与布局，无法计算准确大小，因此通过
+   * [currentOffset]{@link Scroller#currentOffset}接口获取到的List的滚动总偏移量通过估算得出，可能会有误差。可通过设置
+   * [childrenMainSize]{@link ListAttribute#childrenMainSize}确保List的滚动总偏移量的准确性。
    *
    * @default 0 [since 18]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -762,12 +796,19 @@ interface ListOptions {
   /**
    * 子组件主轴方向的间隔。
    *
-   * <br/>默认值：0
-   * <br/>参数类型为number时单位为vp。
-   * <br/>**说明：**
-   * <br/>设置为负数或者大于等于List内容区长度时，按默认值显示。
-   * <br/>space参数值小于List分割线宽度时，子组件主轴方向的间隔取分割线宽度。
-   * <br/>List子组件的visibility属性设置为None时不显示，但该子组件上下的space还是会生效。<br/>
+   * 默认值：0
+   *
+   * 参数类型为number时单位为vp。
+   *
+   * **说明：**
+   *
+   * 设置为负数或者大于等于List内容区长度时，按默认值显示。
+   *
+   * space参数值小于List分割线宽度时，子组件主轴方向的间隔取分割线宽度。
+   *
+   * List子组件的visibility属性设置为None时不显示，但该子组件上下的space还是会生效。
+   *
+   * 如果同时设置了spaceWidth和space，则spaceWidth优先生效。当spaceWidth为undefined或null时，space生效。
    *
    * @default 0 [since 18]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -780,17 +821,22 @@ interface ListOptions {
   space?: number | string;
 
   /**
-   * 沿着主轴的列表项之间的间距。
+   * 子组件主轴方向的间隔。
    *
-   * <p><strong>注意</strong>
-   * <br>如果设置为负数或大于或等于列表长度的值
-   * 内容区域，使用默认值。
-   * <br>如果设置的值小于列表分割线的宽度，则列表分割线的宽度
-   * 作为间距。
-   * <br><em>ListItemGroup</em>的子组件，其<em>可见性</em>属性设置为<em>无</em>
-   * 不显示，但它们上下的间距仍然有效。
-   * <br>如果同时设置了spaceWidth和space，则spaceWidth优先。
-   * </p>
+   * 默认值：0
+   *
+   * 参数类型为number时单位为vp。
+   *
+   * **说明：**
+   *
+   * 设置为负数或者大于等于List内容区长度时，按默认值显示。
+   *
+   * spaceWidth参数值小于List分割线宽度时，子组件主轴方向的间隔取分割线宽度。
+   *
+   * List子组件的visibility属性设置为None时不显示，但该子组件上下的spaceWidth间隔还是会生效。如果同时设置了spaceWidth和space，则spaceWidth优先生效。当spaceWidth为
+   * undefined或null时，space生效。
+   *
+   * **卡片能力：** 从API版本26.0.0开始，该接口支持在ArkTS卡片中使用。
    *
    * @type { ?Dimension }
    * @default 0
@@ -804,7 +850,12 @@ interface ListOptions {
   spaceWidth?: Dimension;
 
   /**
-   * Set scroller.
+   * 可滚动组件的控制器。与List绑定后，可以通过它控制List的滚动。默认不绑定滚动控制器。
+   *
+   * **说明：**
+   *
+   * 不允许和其他滚动类组件，如：[ArcList]{@link @ohos.arkui.ArcList}、[List]{@link ./list}、[Grid]{@link ./grid}、
+   * [Scroll]{@link ./scroll}和[WaterFlow]{@link ./water_flow}绑定同一个滚动控制对象。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -828,7 +879,7 @@ interface ListOptions {
 declare enum ScrollSnapAnimationSpeed {
 
   /**
-   * 默认列表限位动画速度，通常用于列表项尺寸较大，划一下滚动一个列表项场景。
+   * 默认列表限位动画速度，适用于列表项主轴方向尺寸较大（如接近列表视口主轴尺寸），每次划动仅滚动一个列表项的场景。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -839,7 +890,7 @@ declare enum ScrollSnapAnimationSpeed {
   NORMAL = 0,
 
   /**
-   * 列表限位动画速度较慢，通常用于列表项尺寸较小，划一下滚动多个列表项场景。
+   * 列表限位动画速度低于NORMAL，适用于列表项主轴方向尺寸较小（如远小于列表视口主轴尺寸），每次划动需滚动多个列表项的场景。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -851,35 +902,36 @@ declare enum ScrollSnapAnimationSpeed {
 }
 
 /**
- * 列表包含一系列相同宽度的列表项。适合连续、多行呈现同类数据，例如图片和文本。
+ * List是ArkUI中的列表容器组件，用于呈现连续、多行或多列的同类数据，例如图片和文本，支持垂直或水平滚动。配合LazyForEach或Repeat可实现懒加载，提升长列表场景下的启动速度并减少内存消耗；支持预加载以减少滚动丢帧、提
+ * 升流畅性；支持单列/多列布局、分组列表、吸顶吸底等能力，适用于消息列表、商品列表、设置页面等场景。
  *
- * List的懒加载是指组件按需加载可见区域可见的子组件。相比全量加载，使用懒加载可以提升应用启动速度，减少内存消耗。List和
+ * List的懒加载是指组件按需加载显示区域内的子组件。相比全量加载，使用懒加载可以提升应用启动速度，减少内存消耗。List和
  * [ForEach](docroot://ui/rendering-control/arkts-rendering-control-foreach.md)、
  * [LazyForEach](docroot://ui/rendering-control/arkts-rendering-control-lazyforeach.md)、
  * [Repeat](docroot://ui/rendering-control/arkts-new-rendering-control-repeat.md)结合，懒加载能力存在差异：
  *
- * - 当List和ForEach结合，会一次性创建所有的子节点，在需要的时候布局和渲染屏幕范围内的节点。当用户滑动时，划出屏幕范围的节点不会下树销毁，划入屏幕范围的节点会布局和渲染。
+ * - 当List和ForEach结合，会一次性创建所有的子组件，在需要的时候布局和渲染屏幕范围内的节点。当用户滑动时，划出屏幕范围的节点不会下树销毁，划入屏幕范围的节点会布局和渲染。
  * - 当List和LazyForEach结合，会一次性创建、布局、渲染屏幕范围的节点。当用户滑动时，划出屏幕范围的节点会下树销毁，划入屏幕范围的节点会创建、布局、渲染。
  * - 当List和带[virtualScroll]{@link RepeatAttribute#virtualScroll}的Repeat结合，它的懒加载行为和LazyForEach一致。当List和不带virtualScroll的
  * Repeat结合，它的懒加载行为和ForEach一致。
  *
- * 如果可滚动组件嵌套List组件，并且滚动方向相同，List组件又没有设置主轴尺寸时，List组件会全量加载子组件，导致懒加载失效。该场景推荐使用List嵌套[ListItemGroup]{@link list_item_group}组
- * 件以实现优化性能。
+ * 如果可滚动组件嵌套List组件，并且滚动方向相同，List组件又没有设置主轴尺寸时，List组件会全量加载子组件，导致懒加载失效。该场景推荐使用List嵌套
+ * [ListItemGroup]{@link ./list_item_group}组件以优化性能。
  *
- * List的预加载是指除了加载显示区域内可见的子组件外，还支持空闲时隙提前加载部分显示区域外不可见的子组件。使用预加载可以减少滚动丢帧，提升流畅性。预加载需要结合懒加载才会生效。List支持通过
- * [cachedCount]{@link ListAttribute#cachedCount(value: number)}设置预加载的数量。默认会预加载显示区域上下各一屏子节点（最大预加载16行子节点）。List和
+ * List的预加载是指除了加载显示区域内可见的子组件外，还支持在空闲时隙提前加载部分显示区域外不可见的子组件。使用预加载可以减少滚动丢帧，提升流畅性。预加载需要结合懒加载才会生效。List支持通过
+ * [cachedCount]{@link ListAttribute#cachedCount(value: number)}设置预加载的数量。默认会预加载显示区域上下各一屏子组件（最大预加载16行子组件）。List和
  * [ForEach](docroot://ui/rendering-control/arkts-rendering-control-foreach.md)、
  * [LazyForEach](docroot://ui/rendering-control/arkts-rendering-control-lazyforeach.md)、
  * [Repeat](docroot://ui/rendering-control/arkts-new-rendering-control-repeat.md)结合，预加载能力存在差异：
  *
- * - 当List和ForEach结合，如果设置了cachedCount，除了会布局显示区域内子组件外，还会在空闲时隙预布局显示区域外cachedCount范围内的子节点。
- * - 当List和LazyForEach结合，如果设置了cachedCount，除了会创建和布局显示区域内子组件外，还会在空闲时隙预创建和预布局显示区域外cachedCount范围内的子节点。
+ * - 当List和ForEach结合，如果设置了cachedCount，除了会布局显示区域内子组件外，还会在空闲时隙预布局显示区域外cachedCount范围内的子组件。
+ * - 当List和LazyForEach结合，如果设置了cachedCount，除了会创建和布局显示区域内子组件外，还会在空闲时隙预创建和预布局显示区域外cachedCount范围内的子组件。
  * - 当List和带[virtualScroll]{@link RepeatAttribute#virtualScroll}的Repeat结合，它的预加载行为和LazyForEach一致。当List和不带virtualScroll的
  * Repeat结合，它的预加载行为和ForEach一致。
  *
  * > **说明：**
  * >
- * > 组件内部已绑定手势实现跟手滚动等功能，需要增加自定义手势操作时请参考[手势拦截增强]{@link common}进行处理。
+ * > 组件内部已绑定手势实现跟手滚动等功能，需要增加自定义手势操作时请参考[手势拦截增强]{@link ./common}进行处理。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -895,7 +947,7 @@ interface ListInterface {
    * 创建List列表容器。
    *
    * @param { object } value [since 7 - 17]
-   * @param { ListOptions } [options] - 设置List组件参数。 [since 18]
+   * @param { ListOptions } [options] - 设置List组件参数。不传入时使用默认配置。 [since 18]
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -924,7 +976,13 @@ interface ListInterface {
 declare interface ListDividerOptions {
 
   /**
-   * Set strokeWidth.
+   * 分割线的线宽。
+   *
+   * 单位：vp
+   *
+   * **说明：**
+   *
+   * 设置为负数，百分比，或者大于等于List内容区长度时，按0处理。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -936,7 +994,9 @@ declare interface ListDividerOptions {
   strokeWidth: Length;
 
   /**
-   * Set color.
+   * 分割线颜色。
+   *
+   * 默认值：0x08000000
    *
    * @default 0x08000000 [since 18]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -949,7 +1009,17 @@ declare interface ListDividerOptions {
   color?: ResourceColor;
 
   /**
-   * Set startMargin.
+   * 分割线与列表侧边起始端的距离。
+   *
+   * 默认值：0
+   *
+   * 单位：vp
+   *
+   * **说明：**
+   *
+   * 设置为负数或者百分比时，按默认值处理。
+   *
+   * endMargin + startMargin 超过列宽度后startMargin和endMargin均会被置0。
    *
    * @default 0vp [since 18]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -962,7 +1032,17 @@ declare interface ListDividerOptions {
   startMargin?: Length;
 
   /**
-   * Set endMargin.
+   * 分割线与列表侧边结束端的距离。
+   *
+   * 默认值：0
+   *
+   * 单位：vp
+   *
+   * **说明：**
+   *
+   * 设置为负数或者百分比时，按默认值处理。
+   *
+   * endMargin + startMargin 超过列宽度后startMargin和endMargin均会被置0。
    *
    * @default 0vp [since 18]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -976,11 +1056,11 @@ declare interface ListDividerOptions {
 }
 
 /**
- * 除支持[通用属性]{@link common}和[滚动组件通用属性](docroot://reference/apis-arkui/arkui-ts/ts-container-scrollable-common.md#属性)外，还支持
- * 以下属性：
+ * 除支持[通用属性]{@link ./common}和[滚动组件通用属性](docroot://reference/apis-arkui/arkui-ts/ts-container-scrollable-common.md#属性)外，还
+ * 支持以下属性：
  *
- * 除支持[通用事件]{@link common}和[滚动组件通用事件](docroot://reference/apis-arkui/arkui-ts/ts-container-scrollable-common.md#事件)外，还支持
- * 以下事件：
+ * 除支持[通用事件]{@link ./common}和[滚动组件通用事件](docroot://reference/apis-arkui/arkui-ts/ts-container-scrollable-common.md#事件)外，还
+ * 支持以下事件：
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -1004,9 +1084,10 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * - value为LengthConstrain类型时，计算ListItemGroup中的列数时会按照ListItemGroup的自身宽度计算。因此ListItemGroup宽度与List宽度不一致时，ListItemGroup中的
    * 列数与List中的列数可能不一样。
    *
-   * @param { number | LengthConstrain } value - List组件的布局列数或行数。<br/>默认值：1 <br/>取值范围：[1, +∞)
-   * @param { Dimension } gutter - 列间距或行间距。<br />默认值：0 <br/>取值范围：
-   *     [0, +∞)<br/>**说明：**<br/>gutter为列间距或行间距，当列数或行数大于1时生效。 [since 10]
+   * @param { number | LengthConstrain } value - List组件的布局列数或行数。<br/>默认值：1 <br/>取值范围：[1, +∞)，传入小于1的值时按默认值处理。
+   * @param { Dimension } gutter - 列间距或行间距。<br />默认值：0<br/>参数类型为number时单位为vp。<br/>取值范围：
+   *     [0, +∞)，传入负值时按默认值处理。<br/>**说明：**<br/>gutter为列间距或行间距，当列数或行数大于1时生效。<br/>
+   *  [since 10]
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -1018,12 +1099,14 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
   lanes(value: number | LengthConstrain, gutter?: Dimension): ListAttribute;
 
   /**
-   * 设置List组件布局列的数量和列的间距，默认按固定一列显示。
+   * 设置List组件交叉轴方向的布局数量和间距。List垂直滚动时，设置列数和列间距；List水平滚动时，设置行数和行间距。默认按一列或一行显示。在多列或多行模式下，ListItemGroup在垂直滚动时独占一行，在水平滚动时独占一
+   * 列；ListItemGroup中的ListItem按照List组件的lanes属性设置值来布局。
    *
-   * @param { number | LengthConstrain | ItemFillPolicy } value - 当前List组件布局列的数量。<br/> 设置为number类型时，根据number类型的数值确定列数，
-   *     number类型取值范围：
-   *     [1, +∞)。<br/>设置为LengthConstrain类型时，根据LengthConstrain中的最大最小值确定列数。<br/>设置为ItemFillPolicy类型时，根据List组件宽度对应[断点类型](docroot://ui/arkts-layout-development-grid-layout.md#栅格容器断点)确定列数，该类型只在List滚动方向为垂直方向时才生效。
-   * @param { Dimension } [gutter] - 列间距。<br />默认值：0 <br/>取值范围：[0, +∞)
+   * @param { number | LengthConstrain | ItemFillPolicy } value - 当前List组件交叉轴方向的布局数量。List垂直滚动时表示列数，水平滚动时表示行数。<br/>设置为
+   *     number类型时，根据number类型的数值确定列数或行数，number类型取值范围：
+   *     [1, +∞)，传入小于1的值时按默认值处理。<br/>设置为LengthConstrain类型时，垂直滚动时根据列宽的最大值和最小值确定列数，水平滚动时根据行高的最大值和最小值确定行数。<br/>设置为ItemFillPolicy类型时，根据List组件宽度对应[断点类型](docroot://ui/arkts-layout-development-grid-layout.md#栅格容器断点)确定列数，该类型只在List滚动方向为垂直方向时才生效。
+   * @param { Dimension } [gutter] - List垂直滚动时表示列间距，水平滚动时表示行间距。<br />默认值：0<br/>参数类型为number时单位为vp。<br/>取值范围：
+   *     [0, +∞)，传入负值时按默认值处理。<br/>**说明：**<br/>当列数或行数大于1时生效。
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1065,7 +1148,8 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
   /**
    * 设置滚动条状态。
    *
-   * @param { BarState } value - 滚动条状态。<br/>默认值：API version 9及以下版本默认值为BarState.Off，API version 10及以上版本的默认值为BarState.Auto。
+   * @param { BarState } value - 滚动条状态。<br/>默认值：API version 9及以下版本默认值为BarState.Off，API version 10及以上版本的默认值为
+   *     BarState.Auto。
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -1081,11 +1165,11 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    *
    * > **说明：**
    * >
-   * > 当List组件的内容区小于一屏时，默认没有回弹效果。若要启用回弹效果，可以通过设置edgeEffect属性的options参数为{ alwaysEnabled: true }来实现。
+   * > 当List组件的内容区小于一屏时，默认没有回弹效果。若要启用回弹效果，设置edgeEffect属性的options参数为{ alwaysEnabled: true }即可。
    *
    * @param { EdgeEffect } value - List组件的边缘滑动效果，支持弹簧效果和阴影效果。<br/>默认值：EdgeEffect.Spring
    * @param { EdgeEffectOptions } options - 组件内容大小小于组件自身时，是否开启滑动效果。设置为{ alwaysEnabled: true }会开启滑动效果，{ alwaysEnabled:
-   *     false }不开启。<br/>默认值：{ alwaysEnabled: false } [since 11]
+   *     false }不开启。<br/>默认值：{ alwaysEnabled: false }<br/> [since 11]
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -1101,7 +1185,7 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    *
    * contentStartOffset + contentEndOffset超过List内容区长度后contentStartOffset和contentEndOffset会置0。
    *
-   * @param { number } value - 内容区域起始偏移量。<br/>默认值：0<br/>单位：vp <br/>**说明：**<br/>设置为负数时，按默认值处理。
+   * @param { number } value - 内容区域起始偏移量。<br/>默认值：0<br/>单位：vp <br/>**说明：**<br/>设置为负数时，按默认值处理。<br/>取值范围：[0, +∞)
    * @returns { ListAttribute } the attribute of the list.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1118,8 +1202,8 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    *
    * contentStartOffset + contentEndOffset超过List内容区长度后contentStartOffset和contentEndOffset会置0。
    *
-   * @param { number | Resource } offset - 内容区域起始偏移量。<br/>默认值：0<br/>参数类型为number时单位为vp。 <br/>设置异常值如负数、非数字Resource时，按默认值处理
-   *     。
+   * @param { number | Resource } offset - 内容区域起始偏移量。<br/>默认值：0<br/>参数类型为number时单位为vp。 <br/>设置异常值如负数、非数字Resource时，按默认值处
+   *     理。<br/>参数类型为number时取值范围：[0, +∞)
    * @returns { ListAttribute } the attribute of the list.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1134,7 +1218,7 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    *
    * contentStartOffset + contentEndOffset超过List内容区长度后contentStartOffset和contentEndOffset会置0。
    *
-   * @param { number } value - 内容区末尾偏移量。<br/>默认值：0<br/>单位：vp <br/>**说明：**<br/>设置为负数时，按默认值处理。
+   * @param { number } value - 内容区末尾偏移量。<br/>默认值：0<br/>单位：vp <br/>**说明：**<br/>设置为负数时，按默认值处理。<br/>取值范围：[0, +∞)
    * @returns { ListAttribute } the attribute of the list.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1152,6 +1236,7 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * contentStartOffset + contentEndOffset超过List内容区长度后contentStartOffset和contentEndOffset会置0。
    *
    * @param { number | Resource } offset - 内容区末尾偏移量。<br/>默认值：0<br/>参数类型为number时单位为vp。 <br/>设置异常值如负数、非数字Resource时，按默认值处理。
+   *     <br/>参数类型为number时取值范围：[0, +∞)
    * @returns { ListAttribute } the attribute of the list.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1187,13 +1272,14 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
   ): ListAttribute;
 
   /**
-   * 设置当前List组件是否处于可编辑模式。可参考[示例3](docroot://reference/apis-arkui/arkui-ts/ts-container-list.md#示例3设置编辑模式)实现删除选中的list项。
+   * 设置当前List组件是否处于可编辑模式。
    *
    * > **说明：**
    * >
-   * > 从API version 7开始支持，从API version 9开始废弃，无替代接口。
+   * > 从API version 7开始支持，从API version 9开始废弃。此接口已完全移除，无替代接口。如需实现编辑状态切换和删除列表项，可通过自定义状态变量控制删除按钮的显示与隐藏，并在删除按钮的点击事件中更新数据源，具体
+   * > 实现方式请参考[示例3](docroot://reference/apis-arkui/arkui-ts/ts-container-list.md#示例3自定义编辑和删除模式)。
    *
-   * @param { boolean } value - 当前List组件是否处于可编辑模式。<br/>默认值：false，当前List组件不处于可编辑模式。
+   * @param { boolean } value - 当前List组件是否处于可编辑模式。true表示当前List组件处于可编辑模式，false表示当前List组件不处于可编辑模式。<br/>默认值：false
    * @returns { ListAttribute }
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -1224,7 +1310,7 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * List设置cachedCount后，显示区域外上下各会预加载并布局cachedCount行ListItem。计算ListItem行数时，会计算ListItemGroup内部的ListItem行数。如果ListItemGroup内
    * 没有ListItem，则整个ListItemGroup算一行。
    *
-   * List下嵌套使用LazyForEach，并且LazyForEach下嵌套使用ListItemGroup时，LazyForEach会在List显示区域外上下各会创建cachedCount个ListItemGroup。
+   * List下嵌套使用LazyForEach，并且LazyForEach下嵌套使用ListItemGroup时，LazyForEach会在List显示区域外上下各创建cachedCount个ListItemGroup。
    *
    * @param { number } value - ListItem/ListItemGroup的预加载数量。<br/>默认值：根据屏幕内显示的节点个数设置，最大值为16。<br/>取值范围：
    *     [0, +∞)，设置为小于0的值时，按1处理。
@@ -1239,10 +1325,10 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
   cachedCount(value: number): ListAttribute;
 
   /**
-   * 设置列表中ListItem/ListItemGroup的预加载数量，并配置是否显示预加载节点。
+   * 设置列表的预加载行数，并配置是否显示预加载节点。懒加载场景才会预加载List显示区域外上下各cachedCount行，非懒加载场景会全量加载。
    *
-   * List设置cachedCount后，显示区域外上下各会预加载并布局cachedCount行ListItem。计算ListItem行数时，会计算ListItemGroup内部的ListItem行数。如果ListItemGroup内
-   * 没有ListItem，则整个ListItemGroup算一行。配合裁剪[clip]{@link CommonMethod#clip(value: boolean)}或内容裁剪
+   * List设置cachedCount后，显示区域外上下各会预加载并布局cachedCount行。计算预加载行数时，会计算ListItemGroup内部的ListItem行数。如果ListItemGroup内没有ListItem，则整
+   * 个ListItemGroup算一行。配合裁剪[clip]{@link CommonMethod#clip(value: boolean)}或内容裁剪
    * [clipContent](docroot://reference/apis-arkui/arkui-ts/ts-container-scrollable-common.md#clipcontent14)属性可以显示出预加载节点。
    *
    * > **说明：**
@@ -1250,8 +1336,9 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * > 通常建议设置cachedCount=n/2（n代表一屏显示的列表项数量），同时需考虑其他因素以实现体验和内存使用的平衡。最佳实践请参考
    * > [优化长列表加载慢丢帧问题-缓存列表项](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-best-practices-long-list#section11667144010222)
    *
-   * @param { number } count - 预加载的ListItem的数量。<br/>默认值：根据屏幕内显示的节点个数设置，最大值为16。 <br/>取值范围：[0, +∞)，设置为小于0的值时，按1处理。
-   * @param { boolean } show - 被预加载的ListItem是否需要显示。设置为true时显示预加载的ListItem，设置为false时不显示预加载的ListItem。 <br/> 默认值：false
+   * @param { number } count - 列表的预加载行数。<br/>默认值：根据屏幕内显示的节点个数设置，最大值为16。 <br/>取值范围：[0, +∞)，设置为小于0的值时，按1处理。
+   * @param { boolean } show - 被预加载的ListItem/ListItemGroup是否需要显示。设置为true时显示预加载的ListItem/ListItemGroup，设置为false时不显示预加载的
+   *     ListItem/ListItemGroup。 <br/> 默认值：false
    * @returns { ListAttribute } the attribute of the list.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1263,14 +1350,14 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
   cachedCount(count: number, show: boolean): ListAttribute;
 
   /**
-   * 设置列表中ListItem/ListItemGroup的预加载数量，并配置是否显示预加载节点。
+   * 设置列表的预加载行数，并配置是否显示预加载节点。懒加载场景才会根据count或CacheCountInfo在List显示区域外预加载，非懒加载场景会全量加载。
    *
-   * 若cachedCount属性的第一个参数为number类型，在帧间空闲时隙会在显示区域外上下各预加载并布局count行ListItem。
+   * 若cachedCount属性的第一个参数为number类型，在帧间空闲时隙会在显示区域外上下各预加载并布局count行。
    *
    * 若cachedCount属性的第一个参数为CacheCountInfo类型，当已缓存行数小于CacheCountInfo.minCount时，会在帧间空闲时隙预加载和布局。当已缓存行数大于
-   * CacheCountInfo.maxCount时，会将超出范围的节点销毁或回收复用。UI空闲时（无动画或用户操作），会在显示区域外上下各预加载CacheCountInfo.maxCount行ListItem。
+   * CacheCountInfo.maxCount时，会将超出范围的节点销毁或回收复用。UI空闲时（无动画或用户操作），会在显示区域外上下各预加载CacheCountInfo.maxCount行。
    *
-   * 在计算ListItem行数时，会计算ListItemGroup内部的ListItem行数。如果ListItemGroup内没有ListItem，则整个ListItemGroup算一行。配合
+   * 计算预加载行数时，会计算ListItemGroup内部的ListItem行数。如果ListItemGroup内没有ListItem，则整个ListItemGroup算一行。配合
    * [clip]{@link CommonMethod#clip(value: boolean)}或
    * [clipContent](docroot://reference/apis-arkui/arkui-ts/ts-container-scrollable-common.md#clipcontent14)属性可以显示出预加载节点。
    *
@@ -1282,9 +1369,10 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * > 两倍，利用UI线程空闲时间创建节点，减少滚动过程中预加载创建节点，提升滚动流畅性。最佳实践请参考
    * > [优化长列表加载慢丢帧问题-缓存列表项](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-best-practices-long-list#section11667144010222)
    *
-   * @param { number | CacheCountInfo } count - 当参数类型为number时，表示预加载的ListItem的数量。 <br/>取值范围：
-   *     [0, +∞)，设置为小于0的值时，按1处理。 <br>当参数类型为CacheCountInfo时，表示预加载的最大最小范围。
-   * @param { boolean } show - 被预加载的ListItem是否需要显示。<br/>true：显示预加载的ListItem。<br/>false：不显示预加载的ListItem。
+   * @param { number | CacheCountInfo } count - 当参数类型为number时，表示列表的预加载行数。 <br/>取值范围：[0, +∞)，设置为小于0的值时，按1处理。
+   *     <br>当参数类型为CacheCountInfo时，表示预加载的最大最小范围。
+   * @param { boolean } show - 被预加载的ListItem/ListItemGroup是否需要显示。<br/>true：显示预加载的ListItem/ListItemGroup。<br/>false：不显示预加
+   *     载的ListItem/ListItemGroup。
    * @returns { ListAttribute } the attribute of the list.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1320,9 +1408,14 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
   chainAnimation(value: boolean): ListAttribute;
 
   /**
-   * 设置链式联动动效。
+   * 设置链式联动动效的配置参数。当列表启用链式联动动效后，列表项之间的间距会在滚动或拖动过程中按弹簧物理动效联动变化。
    *
-   * @param { ChainAnimationOptions } value - 链式联动动效参数。
+   * > **说明：**
+   * >
+   * > 链式动效生效的前提是List处于单列模式并且边缘效果为EdgeEffect.Spring类型。链式动效启用后，List的分割线不显示。如果不设置space参数并且启用了链式动效，该间距默认为20vp。更多说明可参见
+   * > [chainAnimation]{@link ListAttribute#chainAnimation}。
+   *
+   * @param { ChainAnimationOptions } value - 链式联动动效配置参数，包含最小间距、最大间距、传导系数、效果强度、边缘效果、刚度和阻尼属性，用于控制列表链式联动动效行为。
    * @returns { ListAttribute } the attribute of the list.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -1332,9 +1425,9 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
   chainAnimationOptions(value: ChainAnimationOptions): ListAttribute;
 
   /**
-   * 配合[ListItemGroup]{@link list_item_group}组件使用，设置ListItemGroup中header是否要吸顶或footer是否要吸底。sticky属性可以设置为
-   * StickyStyle.Header \| StickyStyle.Footer 以同时支持header吸顶和footer吸底。从API version 20开始，sticky属性也可以设置为StickyStyle.BOTH，以同
-   * 时支持header吸顶和footer吸底。
+   * 配合[ListItemGroup]{@link ./list_item_group}组件使用，设置ListItemGroup中header是否要吸顶或footer是否要吸底。从API version 20开始，sticky属性支持
+   * StickyStyle.BOTH枚举值，可直接设置为StickyStyle.BOTH以同时支持header吸顶和footer吸底，效果与StickyStyle.Header | StickyStyle.Footer相同。API
+   * version 20之前，可通过StickyStyle.Header | StickyStyle.Footer达到相同效果。
    *
    * > **说明：**
    * >
@@ -1399,8 +1492,8 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
   /**
    * 设置摩擦系数，手动划动滚动区域时生效，仅影响惯性滚动过程。设置为小于等于0的值时，按默认值处理。
    *
-   * @param { number | Resource } value - 摩擦系数。<br/>默认值：非wearable设备为0.6，wearable设备为0.9。<br/>从API version 11开始，非wearable设
-   *     备默认值为0.7。<br/>从API version 12开始，非wearable设备默认值为0.75。
+   * @param { number | Resource } value - 摩擦系数。<br/>默认值：非Wearable设备为0.6，Wearable设备为0.9。<br/>从API version 11开始，非Wearable设
+   *     备默认值为0.7。<br/>从API version 12开始，非Wearable设备默认值为0.75。<br/>取值范围：(0, +∞)
    * @returns { ListAttribute } the attribute of the list.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1416,7 +1509,7 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * > **说明：**
    * >
    * > - 该属性通过向List组件提供所有子组件在主轴方向的大小信息，确保在面对子组件主轴大小不一致、增删子组件、使用[scrollToIndex]{@link Scroller#scrollToIndex}等场景时，List组件能
-   * > 够维护其滑动位置准确性。这样，[scrollTo]{@link Scroller#scrollTo}可以准确的跳转到指定位置，[currentOffset]{@link Scroller#currentOffset}可以获取到
+   * > 够维护其滑动位置准确性。这样，[scrollTo]{@link Scroller#scrollTo}可以准确地跳转到指定位置，[currentOffset]{@link Scroller#currentOffset}可以获取到
    * > 当前准确的滑动位置，内置滚动条可以实现平滑移动无跳变。
    * >
    * > - 当子组件是ListItemGroup时，需要根据ListItemGroup的列数、ListItemGroup中ListItem在主轴方向的间距以及ListItemGroup中header、footer和ListItem的大
@@ -1506,9 +1599,9 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
   scrollSnapAnimationSpeed(speed: ScrollSnapAnimationSpeed): ListAttribute;
 
   /**
-   * 配置编辑模式选项参数。
+   * 配置List组件编辑模式的行为选项，包括多选聚拢动画开关、预览徽标获取、默认多选样式等。
    *
-   * @param { EditModeOptions } [options] - 编辑模式选项。
+   * @param { EditModeOptions } [options] - 编辑模式选项，用于自定义List编辑模式的特性行为。当需要自定义编辑模式行为时传入此参数，不传入时使用默认配置。
    * @returns { ListAttribute } - The attribute of the list.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1519,9 +1612,10 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
   editModeOptions(options?: EditModeOptions): ListAttribute;
 
   /**
-   * 设置List是否启用编辑模式，启用编辑模式后可以在List组件内滑动多选[ListItem]{@link list_item}。未通过该接口设置时，不启用编辑模式。
+   * 设置List是否启用编辑模式，启用编辑模式后可以在List组件内滑动多选[ListItem]{@link ./list_item}。未通过该接口设置时，不启用编辑模式。
    *
-   * @param { boolean | undefined } enabled - 是否启用编辑模式。<br/>设置为true时启用编辑模式，可以滑动多选；设置为false或undefined时关闭编辑模式，不可滑动多选。
+   * @param { boolean | undefined } enabled - 是否启用编辑模式，该参数支持[!!](docroot://ui/state-management/arkts-new-binding.md)双向绑定
+   *     变量。<br/>设置为true时启用编辑模式，可以滑动多选；设置为false或undefined时关闭编辑模式，不可滑动多选。
    * @returns { ListAttribute } The attribute of the list.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1535,8 +1629,8 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * 编辑模式状态变化时触发该回调。
    *
    * @param { Callback<boolean> | undefined } callback - 编辑模式状态变化时触发的回调。
-   *     true表示进入编辑模式，false表示退出编辑模式。
-   *     <br>传入undefined会注销回调。
+   *     <br>true表示进入编辑模式，false表示退出编辑模式。
+   *     <br>传入undefined时取消回调。
    * @returns { ListAttribute } The attribute of the list.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1553,8 +1647,8 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @param { boolean | undefined } supported - 当前List组件是否支持在
    *     [LazyForEach](docroot://ui/rendering-control/arkts-rendering-control-lazyforeach.md)或
    *     [Repeat](docroot://ui/rendering-control/arkts-new-rendering-control-repeat.md)中使用
-   *     [if/else](docroot://ui/rendering-control/arkts-rendering-control-ifelse.md)渲染控制语法生成一个不含任何子节点的空分支节点。</br>true表示支
-   *     持空分支节点；false表示不支持空分支节点。</br>值为undefined时，按false处理。
+   *     [if/else](docroot://ui/rendering-control/arkts-rendering-control-ifelse.md)渲染控制语法生成一个不含任何子组件的空分支节点。<br/>true表示支
+   *     持空分支节点；false表示不支持空分支节点。<br/>值为undefined时，按false处理。
    * @returns { ListAttribute } the attribute of the list.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1605,9 +1699,15 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
   /**
    * 有子组件划入或划出List显示区域时触发。计算索引值时，ListItemGroup作为一个整体占一个索引值，不计算ListItemGroup内部ListItem的索引值。
    *
-   * List的边缘效果为弹簧效果时，在List划动到边缘继续划动和松手回弹过程不会触发onScrollIndex事件。
+   * > **说明：**
+   * >
+   * > 与[onScrollVisibleContentChange]{@link ListAttribute#onScrollVisibleContentChange}相比，onScrollIndex将ListItemGroup整体
+   * > 计为一个索引值，且回调仅返回首尾及中间索引值。如需获取ListItemGroup内部header、footer或ListItem的详细索引信息，请使用onScrollVisibleContentChange。
+   * > List的边缘效果为弹簧效果时，在List划动到边缘继续划动和松手回弹过程不会触发onScrollIndex事件。
    *
    * 触发该事件的条件：列表初始化时会触发一次，List显示区域内第一个子组件的索引值或最后一个子组件的索引值有变化时会触发。
+   *
+   * 从API version 10开始，List显示区域中间位置子组件变化时也会触发该事件。
    *
    * @param { function } event
    * @returns { ListAttribute }
@@ -1672,7 +1772,7 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
   onReachEnd(event: () => void): ListAttribute;
 
   /**
-   * 列表滑动开始时触发。手指拖动列表或列表的滚动条触发的滑动开始时，会触发该事件。使用[Scroller]{@link scroll:Scroller}滑动控制器触发的带动画的滑动，动画开始时会触发该事件。
+   * 列表滑动开始时触发。手指拖动列表或列表的滚动条触发的滑动开始时，会触发该事件。使用[Scroller]{@link Scroller}滑动控制器触发的带动画的滑动，动画开始时会触发该事件。
    *
    * @param { function } event - 列表滑动开始时触发的回调。
    * @returns { ListAttribute }
@@ -1686,7 +1786,7 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
   onScrollStart(event: () => void): ListAttribute;
 
   /**
-   * 列表滑动停止时触发。手拖动列表或列表的滚动条触发的滑动，手离开屏幕后滑动停止时会触发该事件。使用[Scroller]{@link scroll:Scroller}滑动控制器触发的带动画的滑动，动画停止会触发该事件。
+   * 列表滑动停止时触发。手指拖动列表或列表的滚动条触发的滑动，手离开屏幕后滑动停止时会触发该事件。使用[Scroller]{@link Scroller}滑动控制器触发的带动画的滑动，动画停止会触发该事件。
    *
    * @param { function } event - 列表滑动停止时触发的回调。
    * @returns { ListAttribute }
@@ -1702,8 +1802,14 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
   /**
    * 当List组件在编辑模式时，点击ListItem右边出现的删除按钮时触发。
    *
+   * > **说明：**
+   * >
+   * > 从API version 7开始支持，从API version 9开始废弃。此接口已完全移除，无替代接口。如需实现删除列表项，可在自定义删除按钮的点击事件中更新数据源，具体实现方式请参考
+   * > [示例3](docroot://reference/apis-arkui/arkui-ts/ts-container-list.md#示例3自定义编辑和删除模式)。
+   *
    * @param { function } event
    * @returns { ListAttribute }
+   *    是否确认删除当前列表项。返回值为true时继续删除流程，返回值为false时取消删除流程。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @since 7 dynamiconly
@@ -1712,10 +1818,11 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
   onItemDelete(event: (index: number) => boolean): ListAttribute;
 
   /**
-   * 列表元素发生移动时触发。
+   * List的子组件[ListItem]{@link ./list_item}发生移动时触发。
    *
    * @param { function } event
    * @returns { ListAttribute }
+   *    是否已经移动。返回值为true时List子组件发生移动，返回值为false时List子组件没有移动。
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform [since 10]
@@ -1725,11 +1832,11 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
   onItemMove(event: (from: number, to: number) => boolean): ListAttribute;
 
   /**
-   * 开始拖拽列表元素时触发。
+   * 开始拖拽List的子组件[ListItem]{@link ./list_item}时触发。
    *
    * 不支持拖动到List边缘时触发List的自动滚动，可以使用ForEach、LazyForEach、Repeat的
    * [onMove](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-drag-sorting.md#onmove)接口实现该效果，参考
-   * [示例12（使用OnMove进行拖拽）](docroot://reference/apis-arkui/arkui-ts/ts-container-list.md#示例12使用onmove进行拖拽)。但需注意
+   * [示例12（使用onMove进行拖拽）](docroot://reference/apis-arkui/arkui-ts/ts-container-list.md#示例12使用onmove进行拖拽)。但需注意
    * [onMove](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-drag-sorting.md#onmove)接口不支持跨ListItemGroup
    * 拖拽。
    *
@@ -1741,9 +1848,9 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    *     earlier versions, the parameter type is **(event: ItemDragInfo, itemIndex: number) => (() => any) | void**. For
    *     details about the **event** and **itemIndex** parameters, see
    *     [OnItemDragStartCallback]{@link OnItemDragStartCallback}. [since 8 - 22]
-   * @param { OnItemDragStartCallback } event - 列表元素拖拽开始时触发的回调。<br> API version 22及之前版本，该参数类型为(event: ItemDragInfo,
-   *     itemIndex: number) => (() => any) | void，其中event和itemIndex参数含义参考
-   *     [OnItemDragStartCallback]{@link OnItemDragStartCallback}。 [since 23]
+   * @param { OnItemDragStartCallback } event - List的子组件[ListItem]{@link ./list_item}拖拽开始时触发的回调。
+   *     <br> API version 22及之前版本，该参数类型为(event: ItemDragInfo, itemIndex: number) => (() => any) | void，其中event和itemIndex
+   *     参数含义参考[OnItemDragStartCallback]{@link OnItemDragStartCallback}。 [since 23]
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -1754,7 +1861,7 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
   onItemDragStart(event: OnItemDragStartCallback): ListAttribute;
 
   /**
-   * 拖拽列表元素进入列表范围内时触发。
+   * 拖拽List的子组件[ListItem]{@link ./list_item}进入列表范围内时触发。
    *
    * @param { function } event - 拖拽点的信息。
    * @returns { ListAttribute }
@@ -1767,7 +1874,7 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
   onItemDragEnter(event: (event: ItemDragInfo) => void): ListAttribute;
 
   /**
-   * 拖拽列表元素在列表范围内移动时触发。
+   * 拖拽List的子组件[ListItem]{@link ./list_item}在列表范围内移动时触发。
    *
    * @param { function } event
    * @returns { ListAttribute }
@@ -1780,7 +1887,7 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
   onItemDragMove(event: (event: ItemDragInfo, itemIndex: number, insertIndex: number) => void): ListAttribute;
 
   /**
-   * 拖拽列表元素离开列表范围时触发。
+   * 拖拽List的子组件[ListItem]{@link ./list_item}离开列表范围时触发。
    *
    * @param { function } event
    * @returns { ListAttribute }
@@ -1794,11 +1901,10 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
 
   /**
    * 绑定该事件的列表可作为拖拽释放目标，当在列表范围内停止拖拽时触发。
+   *
    * 跨List拖拽时，当拖拽释放的位置绑定了onItemDrop时isSuccess为true，否则为false。List内部拖拽时，isSuccess为onItemMove事件的返回值。
    *
-   * @param { function } event - 在列表范围内停止拖拽时触发的回调。<br/>event：拖拽点的信息。<br/>itemIndex：拖拽起始位置。<br/>insertIndex：拖拽插入位置。<br/>
-   *     isSuccess：是否成功释放。返回值为true时List的子组件[ListItem]{@link ./list_item}成功释放，返回值为false时List的子组件[ListItem]{@link
-   *     ./list_item}没有成功释放。<br/>undefined：不使用该回调函数。
+   * @param { function } event - 拖拽点的信息。
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -1839,40 +1945,41 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
 }
 
 /**
- * 列表包含一系列相同宽度的列表项。适合连续、多行呈现同类数据，例如图片和文本。
+ * List是ArkUI中的列表容器组件，用于呈现连续、多行或多列的同类数据，例如图片和文本，支持垂直或水平滚动。配合LazyForEach或Repeat可实现懒加载，提升长列表场景下的启动速度并减少内存消耗；支持预加载以减少滚动丢帧、提
+ * 升流畅性；支持单列/多列布局、分组列表、吸顶吸底等能力，适用于消息列表、商品列表、设置页面等场景。
  *
- * List的懒加载是指组件按需加载可见区域可见的子组件。相比全量加载，使用懒加载可以提升应用启动速度，减少内存消耗。List和
+ * List的懒加载是指组件按需加载显示区域内的子组件。相比全量加载，使用懒加载可以提升应用启动速度，减少内存消耗。List和
  * [ForEach](docroot://ui/rendering-control/arkts-rendering-control-foreach.md)、
  * [LazyForEach](docroot://ui/rendering-control/arkts-rendering-control-lazyforeach.md)、
  * [Repeat](docroot://ui/rendering-control/arkts-new-rendering-control-repeat.md)结合，懒加载能力存在差异：
  *
- * - 当List和ForEach结合，会一次性创建所有的子节点，在需要的时候布局和渲染屏幕范围内的节点。当用户滑动时，划出屏幕范围的节点不会下树销毁，划入屏幕范围的节点会布局和渲染。
+ * - 当List和ForEach结合，会一次性创建所有的子组件，在需要的时候布局和渲染屏幕范围内的节点。当用户滑动时，划出屏幕范围的节点不会下树销毁，划入屏幕范围的节点会布局和渲染。
  * - 当List和LazyForEach结合，会一次性创建、布局、渲染屏幕范围的节点。当用户滑动时，划出屏幕范围的节点会下树销毁，划入屏幕范围的节点会创建、布局、渲染。
  * - 当List和带[virtualScroll]{@link RepeatAttribute#virtualScroll}的Repeat结合，它的懒加载行为和LazyForEach一致。当List和不带virtualScroll的
  * Repeat结合，它的懒加载行为和ForEach一致。
  *
- * 如果可滚动组件嵌套List组件，并且滚动方向相同，List组件又没有设置主轴尺寸时，List组件会全量加载子组件，导致懒加载失效。该场景推荐使用List嵌套[ListItemGroup]{@link list_item_group}组
- * 件以实现优化性能。
+ * 如果可滚动组件嵌套List组件，并且滚动方向相同，List组件又没有设置主轴尺寸时，List组件会全量加载子组件，导致懒加载失效。该场景推荐使用List嵌套
+ * [ListItemGroup]{@link ./list_item_group}组件以优化性能。
  *
- * List的预加载是指除了加载显示区域内可见的子组件外，还支持空闲时隙提前加载部分显示区域外不可见的子组件。使用预加载可以减少滚动丢帧，提升流畅性。预加载需要结合懒加载才会生效。List支持通过
- * [cachedCount]{@link ListAttribute#cachedCount(value: number)}设置预加载的数量。默认会预加载显示区域上下各一屏子节点（最大预加载16行子节点）。List和
+ * List的预加载是指除了加载显示区域内可见的子组件外，还支持在空闲时隙提前加载部分显示区域外不可见的子组件。使用预加载可以减少滚动丢帧，提升流畅性。预加载需要结合懒加载才会生效。List支持通过
+ * [cachedCount]{@link ListAttribute#cachedCount(value: number)}设置预加载的数量。默认会预加载显示区域上下各一屏子组件（最大预加载16行子组件）。List和
  * [ForEach](docroot://ui/rendering-control/arkts-rendering-control-foreach.md)、
  * [LazyForEach](docroot://ui/rendering-control/arkts-rendering-control-lazyforeach.md)、
  * [Repeat](docroot://ui/rendering-control/arkts-new-rendering-control-repeat.md)结合，预加载能力存在差异：
  *
- * - 当List和ForEach结合，如果设置了cachedCount，除了会布局显示区域内子组件外，还会在空闲时隙预布局显示区域外cachedCount范围内的子节点。
- * - 当List和LazyForEach结合，如果设置了cachedCount，除了会创建和布局显示区域内子组件外，还会在空闲时隙预创建和预布局显示区域外cachedCount范围内的子节点。
+ * - 当List和ForEach结合，如果设置了cachedCount，除了会布局显示区域内子组件外，还会在空闲时隙预布局显示区域外cachedCount范围内的子组件。
+ * - 当List和LazyForEach结合，如果设置了cachedCount，除了会创建和布局显示区域内子组件外，还会在空闲时隙预创建和预布局显示区域外cachedCount范围内的子组件。
  * - 当List和带[virtualScroll]{@link RepeatAttribute#virtualScroll}的Repeat结合，它的预加载行为和LazyForEach一致。当List和不带virtualScroll的
  * Repeat结合，它的预加载行为和ForEach一致。
  *
  * > **说明：**
  * >
- * > 组件内部已绑定手势实现跟手滚动等功能，需要增加自定义手势操作时请参考[手势拦截增强]{@link common}进行处理。
+ * > 组件内部已绑定手势实现跟手滚动等功能，需要增加自定义手势操作时请参考[手势拦截增强]{@link ./common}进行处理。
  *
  * ###### 子组件
  *
- * 仅支持[ListItem]{@link list_item}、[ListItemGroup]{@link list_item_group}子组件和自定义组件。自定义组件在List下使用时，建议使用ListItem或
- * ListItemGroup作为自定义组件的顶层组件，不建议给自定义组件设置属性和事件方法。
+ * 仅支持[ListItem]{@link ./list_item}、[ListItemGroup]{@link ./list_item_group}子组件和自定义组件。自定义组件在List下使用时，请使用ListItem或
+ * ListItemGroup作为自定义组件的顶层组件，请勿直接给自定义组件设置属性和事件方法，因为List通过ListItem或ListItemGroup管理子组件的布局和事件处理，直接设置可能导致部分功能无法正常生效。
  *
  * 支持通过渲染控制类型（[if/else](docroot://ui/rendering-control/arkts-rendering-control-ifelse.md)、
  * [ForEach](docroot://ui/rendering-control/arkts-rendering-control-foreach.md)、
@@ -1881,8 +1988,7 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
  *
  * > **说明：**
  * >
- * > 如果在处理大量子组件时遇到卡顿问题，请考虑采用懒加载、缓存列表项、动态预加载、组件复用和布局优化等方法来进行优化。最佳实践请参考
- * > [优化长列表加载慢丢帧问题](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-best-practices-long-list)。
+ * > 在处理大量子组件时遇到卡顿问题，请采用懒加载、缓存列表项、动态预加载、组件复用和布局优化等方法进行优化。
  * >
  * > 从API version 21开始，List单个子组件的宽高最大为16777216px；API version 20及之前，List单个子组件的宽高最大为1000000px。子组件超出该大小可能导致滚动或显示异常。
  * >
@@ -1892,176 +1998,16 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
  * >
  * > - if/else语句中，只有条件成立的分支内的子组件会参与索引值计算，条件不成立的分支内子组件不计算索引值。
  * >
- * > - ForEach/LazyForEach/Repeat语句中，会计算展开所有子节点索引值。
+ * > - ForEach/LazyForEach/Repeat语句中，会计算展开所有子组件索引值。
  * >
  * > - [if/else](docroot://ui/rendering-control/arkts-rendering-control-ifelse.md)、
  * > [ForEach](docroot://ui/rendering-control/arkts-rendering-control-foreach.md)、
  * > [LazyForEach](docroot://ui/rendering-control/arkts-rendering-control-lazyforeach.md)和
- * > [Repeat](docroot://ui/rendering-control/arkts-new-rendering-control-repeat.md)发生变化以后，会更新子节点索引值。
+ * > [Repeat](docroot://ui/rendering-control/arkts-new-rendering-control-repeat.md)发生变化以后，会更新子组件索引值。
  * >
  * > - ListItemGroup作为一个整体计算一个索引值，ListItemGroup内部的ListItem不计算索引值。
  * >
- * > - List子组件visibility属性设置为Hidden或None依然会计算索引值。
- *
- * ###### ListOptions<sup>18+</sup>对象说明
- *
- * 用于设置List组件参数。
- *
- * > **说明：**
- * >
- * > 为规范匿名对象的定义，API 18版本修改了此处的元素定义。其中，保留了历史匿名对象的起始版本信息，会出现外层元素@since版本号高于内层元素版本号的情况，但这不影响接口的使用。
- *
- * **卡片能力：** 从API version 18开始，该接口支持在ArkTS卡片中使用。
- *
- * **原子化服务API：** 从API version 18开始，该接口支持在原子化服务中使用。
- *
- * **系统能力：** SystemCapability.ArkUI.ArkUI.Full
- *
- * <!--Table: 15%; 15%; 10%; 10%; 50%-->
- *
- * | 名称       | 类型                                    | 只读 | 可选 | 说明                                                     |
- * | ------------ | ------------------------------------------- | ---- | -- | ------------------------------------------------------------ |
- * | initialIndex<sup>7+</sup> | number | 否 | 是 | 设置当前List初次加载时显示区域起始位置的item索引值。<br/>默认值：0<br/>**说明：** <br/>设置为负数或超过了当前List最后一个item的索引值时视为无效取值，无效取值按默认值显示。<br/>从API version 14开始，如果在List组件创建完成后首次布局前（如List的[onAttach](docroot://reference/apis-arkui/arkui-ts/ts-universal-events-show-hide.md#onattach12)事件中），调用Scroller滚动控制器中不带动画的scrollToIndex或scrollEdge方法，会覆盖initialIndex设置的值。<br/>设置了initialIndex后，List从initialIndex对应的子组件开始布局，在这之前的子组件未参与布局，无法计算准确大小，因此通过[currentOffset]{@link scroll:Scroller.currentOffset}接口获取到的List的滚动总偏移量通过估算得出，可能会有误差。可通过设置[childrenMainSize](docroot://reference/apis-arkui/arkui-ts/ts-container-list.md#childrenmainsize12)确保List的滚动总偏移量的准确性。<br/>**卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。<br/>**原子化服务API：** 从API version 11开始，该接口支持在原子化服务中使用。 |
- * | space<sup>7+</sup>        | number&nbsp;\|&nbsp;string                  | 否   | 是 | 子组件主轴方向的间隔。<br/>默认值：0<br/>参数类型为number时单位为vp。<br/>**说明：** <br/>设置为负数或者大于等于List内容区长度时，按默认值显示。<br/>space参数值小于List分割线宽度时，子组件主轴方向的间隔取分割线宽度。<br/> List子组件的visibility属性设置为None时不显示，但该子组件上下的space还是会生效。<br/>**卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。<br/>**原子化服务API：** 从API version 11开始，该接口支持在原子化服务中使用。|
- * | spaceWidth        | [Dimension]{@link units:Dimension}                  | 否   | 是 | 子组件主轴方向的间隔。<br/>默认值：0<br/><br/>**说明：** <br/>设置为负数或者大于等于List内容区长度时，按默认值显示。<br/>space参数值小于List分割线宽度时，子组件主轴方向的间隔取分割线宽度。<br/>List子组件的visibility属性设置为None时不显示，但该子组件上下的space还是会生效。如果同时设置了spaceWidth和space，则spaceWidth优先生效。当spaceWidth为undefined或null时，space生效。<br/>**起始版本：** 26.0.0 <br/>**模型约束：** 此接口仅可在Stage模型下使用。<br/>**卡片能力：** 从API版本26.0.0开始，该接口支持在ArkTS卡片中使用。<br/>**原子化服务API：** 从API版本26.0.0开始，该接口支持在原子化服务中使用。|
- * | scroller<sup>7+</sup>      | [Scroller]{@link scroll:Scroller} | 否   | 是 | 可滚动组件的控制器。与List绑定后，可以通过它控制List的滚动。<br/>**说明：** <br/>不允许和其他滚动类组件，如：[ArcList]{@link ./../../../@ohos.arkui.ArcList}、[List]{@link list}、[Grid]{@link grid}、[Scroll]{@link scroll}和[WaterFlow]{@link water_flow}绑定同一个滚动控制对象。<br/>**卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。<br/>**原子化服务API：** 从API version 11开始，该接口支持在原子化服务中使用。 |
- *
- * ###### ListItemAlign<sup>9+</sup>枚举说明
- *
- * 设置子组件在List交叉轴方向的对齐方式。
- *
- * **卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
- *
- * **原子化服务API：** 从API version 11开始，该接口支持在原子化服务中使用。
- *
- * **系统能力：** SystemCapability.ArkUI.ArkUI.Full
- *
- * | 名称     |  值  | 说明                      |
- * | ------ | ------ | ------------------------- |
- * | Start  | 0 | ListItem在List中，交叉轴方向首部对齐。 |
- * | Center | 1 | ListItem在List中，交叉轴方向居中对齐。 |
- * | End    | 2 | ListItem在List中，交叉轴方向尾部对齐。 |
- *
- * ###### StickyStyle<sup>9+</sup>枚举说明
- *
- * ListItemGroup吸顶或吸底效果枚举。
- *
- * **系统能力：** SystemCapability.ArkUI.ArkUI.Full
- *
- * | 名称     |  值  | 说明                               |
- * | ------ | ------ | ---------------------------------- |
- * | None   | 0 | ListItemGroup的header不吸顶，footer不吸底。<br/>**卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。<br/>**原子化服务API：** 从API version 11开始，该接口支持在原子化服务中使用。 |
- * | Header | 1 | ListItemGroup的header吸顶，footer不吸底。<br/>**卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。<br/>**原子化服务API：** 从API version 11开始，该接口支持在原子化服务中使用。  |
- * | Footer | 2 | ListItemGroup的footer吸底，header不吸顶。<br/>**卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。<br/>**原子化服务API：** 从API version 11开始，该接口支持在原子化服务中使用。  |
- * | BOTH<sup>20+</sup> | 3 | ListItemGroup的header吸顶，footer吸底。<br/>**卡片能力：** 从API version 20开始，该接口支持在ArkTS卡片中使用。<br/>**原子化服务API：** 从API version 20开始，该接口支持在原子化服务中使用。 |
- *
- * ###### ScrollSnapAlign<sup>10+</sup>枚举说明
- *
- * 设置列表项滚动结束对齐效果。
- *
- * **原子化服务API：** 从API version 11开始，该接口支持在原子化服务中使用。
- *
- * **系统能力：** SystemCapability.ArkUI.ArkUI.Full
- *
- * | 名称     |  值  | 说明                                     |
- * | ------ | ------ | ---------------------------------------- |
- * | NONE   | 0 | 默认无项目滚动对齐效果。            |
- * | START  | 1 | 视图中的第一项将在列表的开头对齐。<br/>**说明：**<br/>当列表位移至末端，需要将末端的item完整显示，可能出现开头不对齐的情况。 |
- * | CENTER | 2 | 视图中的中间项将在列表中心对齐。<br/>**说明：**<br/>顶端和末尾的item都可以在列表中心对齐，列表显示可能露出空白。 |
- * | END    | 3 | 视图中的最后一项将在列表末尾对齐。<br/>**说明：**<br/>当列表位移至顶端，需要将顶端的item完整显示，可能出现末尾不对齐的情况。 |
- *
- * ###### ScrollSnapAnimationSpeed<sup>22+</sup>枚举说明
- *
- * 设置列表项滚动限位动画速度。
- *
- * **原子化服务API：** 从API version 22开始，该接口支持在原子化服务中使用。
- *
- * **系统能力：** SystemCapability.ArkUI.ArkUI.Full
- *
- * | 名称     |  值  | 说明                                     |
- * | ------ | ------ | ---------------------------------------- |
- * | NORMAL   | 0 | 默认列表限位动画速度，通常用于列表项尺寸较大，划一下滚动一个列表项场景。            |
- * | SLOW  | 1 | 列表限位动画速度较慢，通常用于列表项尺寸较小，划一下滚动多个列表项场景。 |
- *
- * ###### CloseSwipeActionOptions<sup>11+</sup>对象说明
- *
- * 收起[EXPANDED]{@link list_item:SwipeActionState}状态[ListItem]{@link list_item}回调事件集合，用于设置收起动画完成后回调事件。
- *
- * **原子化服务API：** 从API version 12开始，该接口支持在原子化服务中使用。
- *
- * **系统能力：** SystemCapability.ArkUI.ArkUI.Full
- *
- * | 名称     | 类型     | 只读 | 可选 | 说明                   |
- * | ------- | -------- | ---- | -- | ---------------------- |
- * | onFinish | ()=>void | 否   | 是 | 在收起动画完成后触发。 |
- *
- * ###### ListDividerOptions<sup>18+</sup>对象说明
- *
- * 用于设置List或ListItemGroup组件的分割线样式。
- *
- * > **说明：**
- * >
- * > 为规范匿名对象的定义，API 18版本修改了此处的元素定义。其中，保留了历史匿名对象的起始版本信息，会出现外层元素@since版本号高于内层元素版本号的情况，但这不影响接口的使用。
- *
- * **卡片能力：** 从API version 18开始，该接口支持在ArkTS卡片中使用。
- *
- * **原子化服务API：** 从API version 18开始，该接口支持在原子化服务中使用。
- *
- * **系统能力：** SystemCapability.ArkUI.ArkUI.Full
- *
- * <!--Table: 15%; 15%; 10%; 10%; 50%-->
- *
- * | 名称     | 类型     | 只读 | 可选 | 说明                   |
- * | ------- | -------- | ---- | -- | ---------------------- |
- * | strokeWidth<sup>7+</sup> | [Length]{@link units:Length} | 否   | 否 | 分割线的线宽。<br/>单位：vp<br/>**说明：** <br/>设置为负数，百分比，或者大于等于List内容区长度时，按0处理。<br/>**卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。<br/>**原子化服务API：** 从API version 11开始，该接口支持在原子化服务中使用。|
- * | color<sup>7+</sup> | [ResourceColor]{@link units:ResourceColor} | 否   | 是 | 分割线颜色。<br/>默认值：0x08000000<br/>**卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。<br/>**原子化服务API：** 从API version 11开始，该接口支持在原子化服务中使用。 |
- * | startMargin<sup>7+</sup> | [Length]{@link units:Length} | 否   | 是 | 分割线与列表侧边起始端的距离。<br/>默认值：0 <br/>单位：vp<br/>**说明：** <br/>设置为负数或者百分比时，按默认值处理。<br/>endMargin + startMargin 超过列宽度后startMargin和endMargin均会被置0。<br/>**卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。<br/>**原子化服务API：** 从API version 11开始，该接口支持在原子化服务中使用。|
- * | endMargin<sup>7+</sup> | [Length]{@link units:Length} | 否   | 是 | 分割线与列表侧边结束端的距离。<br/>默认值：0 <br/>单位：vp<br/> **说明：** <br/>设置为负数或者百分比时，按默认值处理。<br/>endMargin + startMargin 超过列宽度后startMargin和endMargin均会被置0。<br/>**卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。<br/>**原子化服务API：** 从API version 11开始，该接口支持在原子化服务中使用。|
- *
- * ###### ScrollState枚举说明
- *
- * 滑动状态枚举。
- *
- * **卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
- *
- * **原子化服务API：** 从API version 11开始，该接口支持在原子化服务中使用。
- *
- * **系统能力：** SystemCapability.ArkUI.ArkUI.Full
- *
- * | 名称     |  值  | 说明                                     |
- * | ------ | ------ | ---------------------------------------- |
- * | Idle   |  0  | 空闲状态。滚动状态回归空闲时触发，控制器提供的无动画方法控制滚动时触发。 |
- * | Scroll |  1  | 滚动状态。手指拖动List，拖动滚动条和滚动鼠标滚轮时触发。|
- * | Fling  |  2  | 惯性滚动状态。动画控制的滚动都会触发。包括快速划动松手后的惯性滚动， <br/>划动到边缘回弹的滚动，快速拖动内置滚动条松手后的惯性滚动， <br/>使用滚动控制器提供的带动画的方法控制的滚动。 |
- *
- * ###### VisibleListContentInfo<sup>12+</sup>对象说明
- *
- * 用于表示List可见内容区子组件的详细信息。
- *
- * **原子化服务API：** 从API version 12开始，该接口支持在原子化服务中使用。
- *
- * **系统能力：** SystemCapability.ArkUI.ArkUI.Full
- *
- * | 名称 | 类型 | 只读 | 可选 | 说明 |
- * | ------ | ------ | -- | ------ | ------|
- * | index | number | 否 | 否 | 表示ListItem或ListItemGroup在List中的索引值。 |
- * | itemGroupArea | [ListItemGroupArea]{@link ListItemGroupArea} | 否 | 是 | 表示处于ListItemGroup的哪一个区域。 |
- * | itemIndexInGroup | number | 否 | 是 | 表示ListItem在ListItemGroup中的索引值。 |
- *
- * ###### ListItemGroupArea<sup>12+</sup>枚举说明
- *
- * 枚举了ListItemGroup各个区域。
- *
- * **原子化服务API：** 从API version 12开始，该接口支持在原子化服务中使用。
- *
- * **系统能力：** SystemCapability.ArkUI.ArkUI.Full
- *
- * | 名称     |  值  | 说明                                     |
- * | ------ | ------ | ---------------------------------------- |
- * | NONE |  0  | ListItemGroup内部ListItem区域、header区域以及footer区域以外的区域。 |
- * | IN_LIST_ITEM_AREA |  1  | ListItemGroup内部ListItem区域。 |
- * | IN_HEADER_AREA |  2  | ListItemGroup内部header区域。 |
- * | IN_FOOTER_AREA |  3  | ListItemGroup内部footer区域。 |
+ * > - List子组件的visibility属性设置为Hidden或None依然会计算索引值。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
