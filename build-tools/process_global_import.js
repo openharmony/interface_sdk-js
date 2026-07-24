@@ -709,6 +709,7 @@ const ANNOTATION = `'use static'
  * @kit ArkUI
  */
 import { ReusePoolOwnership } from "arkui.component.customComponent";
+export { ReusePoolOwnership };
 
 /**
  * Defining State annotation
@@ -1155,6 +1156,75 @@ export @interface ComponentV2 {
  */
 @Retention({policy: "SOURCE"})
 export @interface CustomDialog {}
+
+/**
+ * Define IMonitor interface
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 23
+ */
+export declare interface IMonitor {
+
+  /**
+    * Array of changed paths(keys)
+    *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23
+   */
+  dirty: Array<string>;
+
+  /**
+   * Return the pair of the value before the most recent change and current value for given path.
+   * If path does not exist, return undefined; If path is not specified, return the value pair
+   * corresponding to the first path in dirty.
+   *
+   * @param { string } [path] Listened property name
+   * @returns { IMonitorValue<T> | undefined }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23
+   */
+  value<T>(path?: string): IMonitorValue<T> | undefined;
+}
+
+/**
+ * Define IMonitorValue interface
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 23
+ */
+export declare interface IMonitorValue<T> {
+
+  /**
+   * Get the previous value.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23
+   */
+  before: T;
+
+  /**
+   * Get current value.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23
+   */
+  now: T;
+
+  /**
+   * Monitored path input by the user.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23
+   */
+  path: string;
+}
 `;
 
 const whiteList = new Set([
