@@ -397,7 +397,7 @@ declare namespace advertising {
 
   /**
    * Shows a full-screen ad.
-   * 
+   *
    * > **NOTE**
    * >
    * > 1. To ensure that ads can be displayed correctly, this API must be used together with the ad request API.
