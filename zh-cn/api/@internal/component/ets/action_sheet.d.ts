@@ -69,7 +69,7 @@ interface SheetInfo {
 }
 
 /**
- * Dialog关闭的信息。
+ * 弹窗关闭的信息。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -79,7 +79,7 @@ interface SheetInfo {
  */
 declare interface DismissDialogAction {
   /**
-   * Dialog关闭回调函数。开发者需要退出时调用，不需要退出时无需调用。
+   * 弹窗关闭回调函数。开发者需要关闭弹窗时调用，不需要关闭时无需调用，弹窗保持打开。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -90,7 +90,7 @@ declare interface DismissDialogAction {
   dismiss: Callback<void>;
   
   /**
-   * Dialog无法关闭原因。根据开发者需求选择不同操作下，Dialog是否关闭。
+   * 触发关闭弹窗的操作类型。开发者可根据reason判断用户的关闭操作，决定是否调用dismiss关闭弹窗。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -130,7 +130,7 @@ interface ActionSheetButtonOptions {
   enabled?: boolean;
 
   /**
-   * 设置Button是否是默认焦点，true表示Button是默认焦点，false表示Button不是默认焦点。
+   * 设置Button是否是默认焦点，true表示Button是默认焦点，false表示Button不是默认焦点。在弹窗获焦且未进行tab键走焦时，该按钮默认响应Enter键。多重弹窗情况下，可自动获焦并连续响应。默认响应Enter键能力在defaultFocus为true时不生效。
    * 
    * 默认值：false
    *
@@ -185,7 +185,7 @@ interface ActionSheetButtonOptions {
 }
 
 /**
- * 弹窗的对齐方式。
+ * 弹窗相对alignment所在位置的偏移量。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -195,9 +195,9 @@ interface ActionSheetButtonOptions {
  */
 interface ActionSheetOffset {
   /**
-   * 弹出窗口相对于对齐位置dx的偏移量。
+   * 弹窗相对于对齐位置dx的偏移量。
    * 
-   * 需要显式指定像素单位，如'10px'，也可设置百分比字符串，如'100%'。
+   * 可指定像素单位，如'10px'，也可设置百分比字符串，如'100%'。
    * 
    * **说明：** 
    * 
@@ -211,9 +211,9 @@ interface ActionSheetOffset {
    */
   dx: number | string | Resource;
   /**
-   * 弹出窗口相对于对齐位置dy的偏移量。
+   * 弹窗相对于对齐位置dy的偏移量。
    * 
-   * 需要显式指定像素单位，如'10px'，也可设置百分比字符串，如'100%'。
+   * 可指定像素单位，如'10px'，也可设置百分比字符串，如'100%'。
    * 
    * **说明：** 
    * 
@@ -301,8 +301,7 @@ interface ActionSheetOptions
   message: string | Resource;
 
   /**
-   * 确认Button的使能状态、默认焦点、按钮风格、文本内容和点击回调。在弹窗获焦且未进行tab键走焦时，该按钮默认响应Enter键。多重弹窗情况下，可自动获焦并连续响应。默认响应Enter键能力在defaultFocus为true时
-   * 不生效。
+   * 确认Button的使能状态、默认焦点、按钮风格、文本内容和点击回调。
    *
    * @type { ?object } [since 8 - 17]
    * @type { ?ActionSheetButtonOptions } [since 18]
@@ -315,7 +314,7 @@ interface ActionSheetOptions
   confirm?: ActionSheetButtonOptions;
 
   /**
-   * 点击遮障层关闭dialog时的回调。
+   * 点击遮障层关闭弹窗时的回调。
    *
    * @type { ?function } [since 8 - 17]
    * @type { ?VoidCallback } [since 18]
@@ -408,7 +407,7 @@ interface ActionSheetOptions
   maskRect?: Rectangle;
     
   /**
-   * 某弹窗需要显示在主窗口之外时，是否在子窗口显示此弹窗。值为true表示在子窗口显示弹窗。
+   * 当弹窗需要显示在主窗口之外时，是否在子窗口显示此弹窗。值为true表示在子窗口显示弹窗。
    * 
    * 默认值：false，弹窗显示在应用内，而非独立子窗口。
    * 
