@@ -14,30 +14,19 @@
  */
 
 /**
- * 提供自绘制渲染节点RenderNode，支持开发者通过C API进行开发，完成自定义绘制需求。
- *
- * > **说明：**
- * >
- * > - 不建议对[BuilderNode]{@link BuilderNode}中的RenderNode进行修改操作。
- * > BuilderNode中持有的[FrameNode]{@link FrameNode}仅用于将该BuilderNode作为子节点挂载到其他FrameNode上，
- * > 对该FrameNode或对应的RenderNode进行属性设置与子节点操作可能会产生未定义行为，包括但不限于显示异常、事件异常、稳定性问题等。
- * >
- * > - RenderNode对象不支持使用JSON序列化。
- *
  * @file
  * @kit ArkUI
  */
 
-import { BusinessError } from '../@ohos.base';
-
 import { DrawContext, Size, Offset, Position, Pivot, Scale, Translation, Matrix4, Rotation, Frame, BorderRadiuses, ShapeMask, ShapeClip, Edges, LengthMetricsUnit, BackgroundBlur, ContentBlur, ForegroundBlur } from './Graphics';
 
 /**
- * 提供自绘制渲染节点RenderNode，支持开发者通过C API进行开发，完成自定义绘制需求。
- *
+ * 提供自绘制渲染节点RenderNode，支持开发者通过C API进行开发，完成自定义绘制需求。RenderNode还支持渲染节点树管理（添加、删除、查询子节点）、背景色与不透明度等视觉属性设置、变换（缩放、旋转、平移、变换矩阵）、阴影
+ * 、边框、遮罩与裁剪、模糊效果等能力，适用于在Stage模型下进行自定义渲染与节点树管理的场景。
+ * 
  * > **说明：**
- *
- * > - 不建议对[BuilderNode]{@link BuilderNode}中的RenderNode进行修改操作。BuilderNode中持有的[FrameNode]{@link FrameNode}仅用于将该
+ * >
+ * > - 不建议对[BuilderNode]{@link ./BuilderNode}中的RenderNode进行修改操作。BuilderNode中持有的[FrameNode]{@link ./FrameNode}仅用于将该
  * > BuilderNode作为子节点挂载到其他FrameNode上，对该FrameNode或对应的RenderNode进行属性设置与子节点操作可能会产生未定义行为，包括但不限于显示异常、事件异常、稳定性问题等。
  * >
  * > - RenderNode对象不支持使用JSON序列化。
@@ -79,7 +68,7 @@ export class RenderNode {
    * 在RenderNode指定子节点之后添加新的子节点。
    *
    * @param { RenderNode } child - 需要添加的子节点。
-   * @param { RenderNode | null } sibling - 需要添加的子节点。
+   * @param { RenderNode | null } sibling - 新节点将插入到该节点之后。若该参数设置为空，则新节点将插入到首个子节点之前。
    * @throws { BusinessError } 100025 - The parameter is invalid. Details about the invalid parameter and the reason
    *     are included in the error message. For example: "The parameter 'child' is invalid: its corresponding FrameNode
    *     cannot be adopted." [since 22]
@@ -117,9 +106,8 @@ export class RenderNode {
   /**
    * 获取当前RenderNode指定位置的子节点。
    *
-   * @param { number } index - 需要查询的子节点的序列号。
-   * @returns { RenderNode | null } Child node obtained. If the RenderNode does not contain the specified child node,
-   *     null is returned.
+   * @param { number } index - 需要查询的子节点的序列号，从0开始。取值范围：[0, 子节点数量-1]，超出范围时返回null。不支持负索引。
+   * @returns { RenderNode | null } 子节点。若该RenderNode不包含所查询的子节点，则返回空对象null。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -131,8 +119,7 @@ export class RenderNode {
   /**
    * 获取当前RenderNode的第一个子节点。
    *
-   * @returns {  RenderNode | null } First child node. If the RenderNode does not contain any child node, null is
-   *     returned.
+   * @returns {  RenderNode | null } 首个子节点。若该RenderNode不包含子节点，则返回空对象null。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -144,8 +131,7 @@ export class RenderNode {
   /**
    * 获取当前RenderNode的下一个同级节点。
    *
-   * @returns { RenderNode | null } Next sibling node of the current RenderNode. If the RenderNode does not have the
-   *     next sibling node, null is returned.
+   * @returns { RenderNode | null } 当前RenderNode的下一个同级节点。若该RenderNode不包含下一个同级节点，则返回空对象null。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -157,8 +143,7 @@ export class RenderNode {
   /**
    * 获取当前RenderNode的上一个同级节点。
    *
-   * @returns { RenderNode | null } Previous sibling node of the current RenderNode. If the RenderNode does not have the
-   *     previous sibling node, null is returned.
+   * @returns { RenderNode | null } 当前RenderNode的上一个同级节点。若该RenderNode不包含上一个同级节点，则返回空对象null。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -170,7 +155,7 @@ export class RenderNode {
   /**
    * 设置当前RenderNode的背景颜色。
    *
-   * @param { number } color - 背景颜色值，ARGB格式，示例：0xE5E5E5。
+   * @param { number } color - 背景颜色值，ARGB格式，示例：0xFFE5E5E5。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -180,10 +165,10 @@ export class RenderNode {
   set backgroundColor(color: number);
 
   /**
-   * Get the background color of the RenderNode.
+   * 获取当前RenderNode的背景颜色。
    *
    * @default 0X00000000 [since 11 - 11]
-   * @returns { number } - Returns a background color. Colors are defined as ARGB format represented by number.
+   * @returns { number } - 当前RenderNode的背景颜色，默认值为0X00000000。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -195,7 +180,8 @@ export class RenderNode {
   /**
    * 设置是否对当前RenderNode剪裁。若设置为true，则超出该RenderNode大小的部分将会被截断。
    *
-   * @param { boolean } useClip - 设置是否进行剪裁。<br/>true表示对当前RenderNode剪裁，false表示不对当前RenderNode剪裁。
+   * @param { boolean } useClip - 设置是否进行剪裁。
+   *     <br>true表示对当前RenderNode剪裁，false表示不对当前RenderNode剪裁。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -205,10 +191,10 @@ export class RenderNode {
   set clipToFrame(useClip: boolean);
 
   /**
-   * Get whether the RenderNode clip to frame.
+   * 获取当前RenderNode是否需要进行剪裁。
    *
    * @default true [since 11 - 11]
-   * @returns { boolean } - Returns whether the RenderNode clip to frame.
+   * @returns { boolean } - 当前RenderNode是否需要进行剪裁，默认值为true。<br>true表示对当前RenderNode剪裁，false表示不对当前RenderNode剪裁。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -220,7 +206,7 @@ export class RenderNode {
   /**
    * 设置当前RenderNode的不透明度。若输入的数值小于0，会被视为0。若输入的数值大于1，会被视为1。
    *
-   * @param { number } value - 将要设置的不透明度，数据范围为[0, 1]，值越大透明度越低。
+   * @param { number } value - 将要设置的不透明度，取值范围：[0, 1]，值越大透明度越低。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -230,10 +216,10 @@ export class RenderNode {
   set opacity(value: number);
 
   /**
-   * Get opacity of the RenderNode.
+   * 获取当前RenderNode的不透明度。
    *
    * @default 1 [since 11 - 11]
-   * @returns { number } Returns the opacity of the RenderNode.
+   * @returns { number } 当前RenderNode的不透明度，默认值为1，不透明。<br>取值范围：[0, 1]。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -243,7 +229,7 @@ export class RenderNode {
   get opacity(): number;
 
   /**
-   * 设置当前RenderNode的大小。
+   * 设置当前RenderNode的大小。当和[frame]{@link RenderNode#set frame(frame: Frame)}同时使用时，以后设置的为准。
    *
    * @param { Size } size - 将要设置的RenderNode的大小。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -255,10 +241,10 @@ export class RenderNode {
   set size(size: Size);
 
   /**
-   * Get frame size of the RenderNode.
+   * 获取当前RenderNode的大小。
    *
    * @default Size { width: 0, height: 0 } [since 11 - 11]
-   * @returns { Size } The size of the RenderNode frame.
+   * @returns { Size } 当前RenderNode的大小，默认值为{ width: 0, height: 0 }。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -268,7 +254,7 @@ export class RenderNode {
   get size(): Size;
 
   /**
-   * 设置当前RenderNode的位置。
+   * 设置当前RenderNode的位置。当和[frame]{@link RenderNode#set frame(frame: Frame)}同时使用时，以后设置的为准。
    *
    * @param { Position } position - 将要设置的RenderNode的位置。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -280,10 +266,10 @@ export class RenderNode {
   set position(position: Position);
 
   /**
-   * Get frame position of the RenderNode.
+   * 获取当前RenderNode的位置。
    *
    * @default Position { x: 0, y: 0 } [since 11 - 11]
-   * @returns { Position } - The position of the RenderNode frame.
+   * @returns { Position } - 获取当前RenderNode的位置，默认位置为{ x: 0, y: 0 }。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -306,10 +292,10 @@ export class RenderNode {
   set frame(frame: Frame);
 
   /**
-   * Get frame info of the RenderNode.
+   * 获取当前RenderNode的大小和位置。
    *
    * @default Frame { x: 0, y: 0, width: 0, height: 0 } [since 11 - 11]
-   * @returns { Frame } - Returns frame info of the RenderNode.
+   * @returns { Frame } - 获取当前RenderNode的大小和位置，默认值为{ x: 0, y: 0, width: 0, height: 0 }。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -331,10 +317,10 @@ export class RenderNode {
   set pivot(pivot: Pivot);
 
   /**
-   * Get pivot vector of the RenderNode.
+   * 获取当前RenderNode的轴心。
    *
    * @default Pivot { x: 0.5, y: 0.5 } [since 11 - 11]
-   * @returns { Pivot } - Returns pivot vector of the RenderNode.
+   * @returns { Pivot } - 获取当前RenderNode的轴心，默认值为{ x: 0.5, y: 0.5}。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -344,7 +330,7 @@ export class RenderNode {
   get pivot(): Pivot;
 
   /**
-   * 设置当前RenderNode的比例。
+   * 设置当前RenderNode的缩放比例。缩放效果以[pivot]{@link RenderNode#set pivot(pivot: Pivot)}设置的轴心为中心进行缩放。
    *
    * @param { Scale } scale - 将要设置的RenderNode的缩放比例。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -356,10 +342,10 @@ export class RenderNode {
   set scale(scale: Scale);
 
   /**
-   * Get scale vector of the RenderNode.
+   * 获取当前RenderNode的缩放比例。
    *
    * @default Scale { x: 1, y: 1 } [since 11 - 11]
-   * @returns { Scale } - Returns scale vector of the RenderNode.
+   * @returns { Scale } - 获取当前RenderNode的缩放比例，默认值为{ x: 1, y: 1 }。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -381,10 +367,10 @@ export class RenderNode {
   set translation(translation: Translation);
 
   /**
-   * Get translation vector of the RenderNode.
+   * 获取当前RenderNode的平移量。
    *
    * @default Translation { x: 0, y: 0 } [since 11 - 11]
-   * @returns { Translation } - Returns translation vector of the RenderNode.
+   * @returns { Translation } - 获取当前RenderNode的平移量，默认值为{ x: 0, y: 0 }。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -394,7 +380,7 @@ export class RenderNode {
   get translation(): Translation;
 
   /**
-   * 设置当前RenderNode的旋转角度。
+   * 设置当前RenderNode的旋转角度。旋转效果以[pivot]{@link RenderNode#set pivot(pivot: Pivot)}设置的轴心为中心进行旋转。
    *
    * @param { Rotation } rotation - 将要设置的RenderNode的旋转角度。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -406,10 +392,10 @@ export class RenderNode {
   set rotation(rotation: Rotation);
 
   /**
-   * Get rotation vector of the RenderNode.
+   * 获取当前RenderNode的旋转角度。
    *
    * @default Rotation { x: 0, y: 0, z: 0 } [since 11 - 11]
-   * @returns { Rotation } - Returns rotation vector of the RenderNode.
+   * @returns { Rotation } - 将要设置的RenderNode的旋转角度。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -431,10 +417,18 @@ export class RenderNode {
   set transform(transform: Matrix4);
 
   /**
-   * Get transform info of the RenderNode.
+   * 获取当前RenderNode的变换矩阵。默认值为：
+   * ```ts
+   * [
+   *   1, 0, 0, 0,
+   *   0, 1, 0, 0,
+   *   0, 0, 1, 0,
+   *   0, 0, 0, 1
+   * ]
+   * ```
    *
    * @default Matrix4 [ 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1 ] [since 11 - 11]
-   * @returns {Matrix4 } - Returns transform info of the RenderNode.
+   * @returns {Matrix4 } - 当前RenderNode的变换矩阵，默认值为单位矩阵。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -446,7 +440,8 @@ export class RenderNode {
   /**
    * 设置当前RenderNode的阴影颜色，ARGB格式。若设置了[shadowAlpha]{@link RenderNode#set shadowAlpha(alpha: number)}，则不透明度以shadowAlpha为准。
    *
-   * @param { number } color - 将要设置的RenderNode的阴影颜色，ARGB格式。<br/>取值范围是符合ARGB格式的颜色。
+   * @param { number } color - 将要设置的RenderNode的阴影颜色，ARGB格式。
+   *     <br>示例：0xFF00FF00。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -456,11 +451,10 @@ export class RenderNode {
   set shadowColor(color: number);
 
   /**
-   * Get shadow color of the RenderNode.
+   * 获取当前RenderNode的阴影颜色。
    *
    * @default 0X00000000 [since 11 - 11]
-   * @returns { number } - Returns the shadow color of the RenderNode. Colors are defined as ARGB format represented by
-   *     number.
+   * @returns { number } - 当前RenderNode的阴影颜色，ARGB格式，默认值为0X00000000。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -482,10 +476,10 @@ export class RenderNode {
   set shadowOffset(offset: Offset);
 
   /**
-   * Get shadow offset of the RenderNode.
+   * 获取当前RenderNode的阴影偏移。
    *
    * @default Offset { x: 0, y: 0 } [since 11 - 11]
-   * @returns { Offset } - Returns the shadow offset of the RenderNode.
+   * @returns { Offset } - 当前RenderNode的阴影偏移，默认值为{ x: 0, y: 0 }。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -495,7 +489,7 @@ export class RenderNode {
   get shadowOffset(): Offset;
 
   /**
-   * 设置当前RenderNode的标签。若当前节点是通过new创建的RenderNode，则设置的标签信息会在节点Inspector信息的属性中。
+   * 设置当前RenderNode的标签。若当前节点是通过new创建的RenderNode，则设置的标签信息会显示在节点Inspector信息的属性中。
    *
    * @param { string } label - 将要设置的RenderNode的标签。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -507,9 +501,9 @@ export class RenderNode {
   set label(label: string);
 
   /**
-   * 获取当前RenderNode的标签。默认值为""。
+   * 获取当前RenderNode的标签。
    *
-   * @returns { string } - 返回当前RenderNode的标签。
+   * @returns { string } - 当前RenderNode的标签，默认值为""。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -519,9 +513,11 @@ export class RenderNode {
   get label(): string;
 
   /**
-   * 设置当前RenderNode的阴影颜色的Alpha值。
+   * 设置当前RenderNode的阴影颜色的Alpha值。若设置了该属性，则阴影颜色的不透明度以该属性为准，覆盖
+   * [shadowColor]{@link RenderNode#set shadowColor(color: number)}中的Alpha值。
    *
-   * @param { number } alpha - 将要设置的RenderNode的阴影颜色的Alpha值。<br/> 取值范围是alpha值。
+   * @param { number } alpha - 将要设置的RenderNode的阴影颜色的Alpha值。
+   *     <br> 取值范围：[0, 1]。超出范围的值会被钳位到[0, 1]。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -531,10 +527,10 @@ export class RenderNode {
   set shadowAlpha(alpha: number);
 
   /**
-   * Get shadow alpha of the RenderNode.
+   * 获取当前RenderNode的阴影颜色的Alpha值。
    *
    * @default 0 [since 11 - 11]
-   * @returns { number } - Returns the shadow alpha of the RenderNode.
+   * @returns { number } - 当前RenderNode的阴影颜色的Alpha值，默认值为0。<br>取值范围：[0, 1]。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -544,9 +540,10 @@ export class RenderNode {
   get shadowAlpha(): number;
 
   /**
-   * 设置当前RenderNode的阴影的光照高度。
+   * 设置当前RenderNode的阴影的光照高度。光照高度用于模拟光源相对于节点的高度，值越大阴影越扩散。
    *
-   * @param { number } elevation - 将要设置的RenderNode的光照高度。<br/> 取值范围：[0, +∞)
+   * @param { number } elevation - 将要设置的RenderNode的阴影的光照高度，单位为vp。
+   *     <br>取值范围：[0, +∞)。传入负数时不产生光照阴影。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -556,10 +553,10 @@ export class RenderNode {
   set shadowElevation(elevation: number);
 
   /**
-   * Get shadow elevation of the RenderNode.
+   * 获取当前RenderNode的阴影的光照高度。
    *
    * @default 0 [since 11 - 11]
-   * @returns { number } - Returns the shadow elevation of the RenderNode.
+   * @returns { number } - 当前RenderNode的阴影的光照高度，默认值为0。 <br> 取值范围：[0, +∞)。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -571,7 +568,8 @@ export class RenderNode {
   /**
    * 设置当前RenderNode的阴影模糊半径。
    *
-   * @param { number } radius - 将要设置的RenderNode的阴影模糊半径。<br/> 取值范围：[0, +∞)
+   * @param { number } radius - 将要设置的RenderNode的阴影模糊半径，单位为vp。
+   *     <br>取值范围：[0, +∞)。传入负数时不绘制阴影。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -581,10 +579,10 @@ export class RenderNode {
   set shadowRadius(radius: number);
 
   /**
-   * Get shadow radius of the RenderNode.
+   * 获取当前RenderNode的阴影模糊半径。
    *
    * @default 0 [since 11 - 11]
-   * @returns { number } - Returns the shadow radius of the RenderNode.
+   * @returns { number } - 当前RenderNode的阴影模糊半径，默认值为0。<br> 取值范围：[0, +∞)。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -608,7 +606,7 @@ export class RenderNode {
   /**
    * 获取当前RenderNode的边框样式。
    *
-   * @returns { Edges<BorderStyle> } - 返回当前RenderNode的边框样式。
+   * @returns { Edges<BorderStyle> } - RenderNode的边框样式，默认所有边框样式为BorderStyle.Solid。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -621,6 +619,7 @@ export class RenderNode {
    * 设置当前RenderNode的边框宽度。
    *
    * @param { Edges<number> } width - RenderNode的边框宽度，单位为vp。
+   *     <br>取值范围：[0, +∞)。传入负数或0时不绘制边框。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -630,10 +629,10 @@ export class RenderNode {
   set borderWidth(width: Edges<number>);
 
   /**
-   * Get border width of the RenderNode.
+   * 获取当前RenderNode的边框宽度。
    *
    * @default 0
-   * @returns { Edges<number> } - Returns the border width of the RenderNode.
+   * @returns { Edges<number> } - RenderNode的边框宽度，默认所有边框宽度为0vp。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -645,7 +644,7 @@ export class RenderNode {
   /**
    * 设置当前RenderNode的边框颜色。
    *
-   * @param { Edges<number> } color - RenderNode的边框颜色。
+   * @param { Edges<number> } color - RenderNode的边框颜色，ARGB格式，示例：0XFF000000。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -655,10 +654,10 @@ export class RenderNode {
   set borderColor(color: Edges<number>);
 
   /**
-   * Get border color of the RenderNode.
+   * 获取当前RenderNode的边框颜色。
    *
    * @default 0XFF000000
-   * @returns { Edges<number> } - Returns the border color of the RenderNode.
+   * @returns { Edges<number> } - RenderNode的边框颜色，默认所有边框颜色为0XFF000000。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -680,10 +679,10 @@ export class RenderNode {
   set borderRadius(radius: BorderRadiuses);
 
   /**
-   * Get border radius of the RenderNode.
+   * 获取当前RenderNode的边框圆角。
    *
    * @default 0
-   * @returns { BorderRadiuses } - Returns the border radius of the RenderNode.
+   * @returns { BorderRadiuses } - RenderNode的边框圆角，默认所有边框圆角为0vp。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -707,7 +706,7 @@ export class RenderNode {
   /**
    * 获取当前RenderNode的遮罩。
    *
-   * @returns { ShapeMask } - 返回当前RenderNode的遮罩。
+   * @returns { ShapeMask } - RenderNode的遮罩，默认无遮罩效果。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -729,9 +728,9 @@ export class RenderNode {
   set shapeClip(shapeClip: ShapeClip);
 
   /**
-   * 获取目标RenderNode的形状裁剪属性
+   * 获取当前RenderNode的裁剪形状。
    *
-   * @returns { ShapeClip } - 返回目标RenderNode的形状裁剪属性
+   * @returns { ShapeClip } - RenderNode的裁剪形状，默认无裁剪效果。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -741,11 +740,12 @@ export class RenderNode {
   get shapeClip(): ShapeClip;
 
   /**
-   * 标记是否优先绘制节点及其子节点。若设置为true，则透明度等属性将在节点绘制完毕后再进行合成。设置效果如下：
-   *
+   * 标记是否优先绘制节点及其子节点。若设置为true，则透明度等属性将在节点绘制完毕后再进行合成，适用于多个半透明节点重叠且需要正确合成透明度效果的场景。设置效果如下：
+   * 
    * ![markNodeGroup](docroot://reference/apis-arkui/figures/renderNode-markNodeGroup.png)
    *
-   * @param { boolean } isNodeGroup - 设置是否优先绘制节点及其子节点。<br/>true表示优先绘制节点及其子节点，false表示不是优先绘制节点及其子节点。
+   * @param { boolean } isNodeGroup - 设置是否优先绘制节点及其子节点。
+   *     <br>true表示优先绘制节点及其子节点，false表示不是优先绘制节点及其子节点。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -755,10 +755,12 @@ export class RenderNode {
   set markNodeGroup(isNodeGroup: boolean);
 
   /**
-   * Get whether to preferentially draw the node and its children.
+   * 获取当前节点是否标记了优先绘制。
    *
    * @default false
-   * @returns { boolean } - Return whether to preferentially draw the node and its children.
+   * @returns { boolean } - 当前节点是否标记了优先绘制。
+   *     <br>true表示当前节点标记了优先绘制，false表示当前节点没有标记优先绘制。
+   *     <br>默认值为false。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -769,10 +771,10 @@ export class RenderNode {
 
   /**
    * 绘制方法，需要开发者进行实现。该方法会在RenderNode进行绘制时被调用。
-   *
-   * 该接口的[DrawContext]{@link Graphics:DrawContext}中的Canvas是用于记录指令的临时Canvas，并非节点的真实Canvas。使用请参见
+   * 
+   * 该接口的[DrawContext]{@link ./Graphics:DrawContext}中的Canvas是用于记录指令的临时Canvas，并非节点的真实Canvas。使用请参见
    * [调整自定义绘制Canvas的变换矩阵](docroot://ui/arkts-user-defined-arktsNode-renderNode.md#调整自定义绘制canvas的变换矩阵)。
-   *
+   * 
    * > **说明：**
    * >
    * > RenderNode初始化时，会调用两次draw方法。第一次调用是在首次创建FrameNode时触发Render流程，第二次调用是在首次设置modifier时触发绘制。后续绘制流程皆由modifier触发。
@@ -787,7 +789,8 @@ export class RenderNode {
   draw(context: DrawContext): void;
 
   /**
-   * 该方法会触发RenderNode的重新渲染。
+   * 该方法会触发RenderNode的重新渲染，重新渲染时会调用[draw]{@link RenderNode#draw}方法。若开发者继承了RenderNode并实现了draw方法，调用invalidate()后将重新执行draw方
+   * 法中的绘制逻辑。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -798,7 +801,8 @@ export class RenderNode {
   invalidate(): void;
 
   /**
-   * 立即释放当前RenderNode。
+   * 立即释放当前RenderNode。调用此方法后，RenderNode将解除与后端实体节点的引用关系，再次调用该节点的接口可能会出现crash或返回默认值。可通过
+   * [isDisposed]{@link RenderNode#isDisposed}接口查询节点是否已释放。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -809,7 +813,7 @@ export class RenderNode {
   dispose(): void;
 
   /**
-   * 设置RenderNode各个属性使用的单位。
+   * 设置RenderNode各个属性使用的单位。适用于需要精确像素控制（如使用PX单位）或跟随系统默认排版（如使用DEFAULT单位）的场景。
    *
    * @param { LengthMetricsUnit } unit - 设置RenderNode各个属性使用的单位。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -821,10 +825,10 @@ export class RenderNode {
   set lengthMetricsUnit(unit: LengthMetricsUnit);
 
   /**
-   * Get the length metrics unit of RenderNode.
+   * 获取RenderNode各个属性使用的单位。
    *
    * @default LengthMetricsUnit.DEFAULT
-   * @returns { LengthMetricsUnit } - Return the length metrics unit of RenderNode.
+   * @returns { LengthMetricsUnit } - 获取RenderNode各个属性使用的单位，默认值为LengthMetricsUnit.DEFAULT。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -834,10 +838,9 @@ export class RenderNode {
   get lengthMetricsUnit(): LengthMetricsUnit;
 
   /**
-   * 查询当前RenderNode对象是否已解除与后端实体节点的引用关系。前端节点均绑定有相应的后端实体节点，当节点调用dispose接口解除绑定后，再次调用接口可能会出现crash、返回默认值的情况。由于业务需求，可能存在节点在
-   * dispose后仍被调用接口的情况。为此，提供此接口以供开发者在操作节点前检查其有效性，避免潜在风险。
+   * 查询当前RenderNode对象是否已解除与后端实体节点的引用关系。当节点调用dispose接口后，再次调用其他接口可能会出现crash、返回默认值的情况，建议开发者在操作节点前调用此接口检查其有效性，避免潜在风险。
    *
-   * @returns { boolean } 后端实体节点是否解除引用。true为节点已与后端实体节点解除引用，false为节点未与后端实体节点解除引用。
+   * @returns { boolean } 后端实体节点是否解除引用。true表示节点已与后端实体节点解除引用，false表示节点未与后端实体节点解除引用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -847,7 +850,7 @@ export class RenderNode {
   isDisposed(): boolean;
 
   /**
-   * 设置背景模糊效果。
+   * 设置当前RenderNode的背景模糊效果，对节点背景区域进行模糊处理。
    *
    * @param { BackgroundBlur | undefined } blurValue - 背景模糊效果。undefined表示无背景模糊效果。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -861,7 +864,7 @@ export class RenderNode {
   /**
    * 获取背景模糊效果。
    *
-   * @returns { BackgroundBlur } - 返回背景模糊效果。
+   * @returns { BackgroundBlur } - Returns the background blur effect.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -871,7 +874,7 @@ export class RenderNode {
   get backgroundBlur(): BackgroundBlur;
 
   /**
-   * 设置内容模糊效果。
+   * 设置当前RenderNode的内容模糊效果，对节点绘制内容进行模糊处理。
    *
    * @param { ContentBlur | undefined } blurValue - 内容模糊效果。undefined表示无内容模糊效果。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -883,9 +886,9 @@ export class RenderNode {
   set contentBlur(blurValue: ContentBlur | undefined);
 
   /**
-   * 获取内容模糊效果。
+   * 背景模糊效果。默认值为{radius: 0}。
    *
-   * @returns { ContentBlur } - 返回内容模糊效果。
+   * @returns { ContentBlur } - 背景模糊效果。默认值为{radius: 0}。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -895,7 +898,7 @@ export class RenderNode {
   get contentBlur(): ContentBlur;
 
   /**
-   * 设置前景模糊效果。
+   * 设置当前RenderNode的前景模糊效果，对节点前景区域进行模糊处理。
    *
    * @param { ForegroundBlur | undefined } blurValue - 前景模糊效果。undefined表示无前景模糊效果。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -907,9 +910,9 @@ export class RenderNode {
   set foregroundBlur(blurValue: ForegroundBlur | undefined);
 
   /**
-   * 获取前景模糊效果。
+   * 获取内容模糊效果。
    *
-   * @returns { ForegroundBlur } - 返回前景模糊效果。
+   * @returns { ForegroundBlur } - 内容模糊效果。默认值为{radius: 0}。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform

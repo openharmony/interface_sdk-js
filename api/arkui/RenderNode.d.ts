@@ -14,27 +14,22 @@
  */
 
 /**
- * The **RenderNode** module provides APIs for creating a RenderNode in custom drawing settings with C APIs.
- *
- * > **NOTE**
- * >
- * > - Avoid modifying RenderNodes in [BuilderNode]{@link BuilderNode}. The [FrameNode]{@link FrameNode} associated with
- * > BuilderNode is designed solely for mounting the BuilderNode as a child component. Modifying attributes or 
- * > operations on the FrameNode's child nodes or their corresponding RenderNodes may lead to undefined behavior, 
- * > including display, event handling, and stability issues.
- * >
- * > - RenderNode objects do not support JSON serialization.
- *
  * @file
  * @kit ArkUI
  */
-
-import { BusinessError } from '../@ohos.base';
-
 import { DrawContext, Size, Offset, Position, Pivot, Scale, Translation, Matrix4, Rotation, Frame, BorderRadiuses, ShapeMask, ShapeClip, Edges, LengthMetricsUnit, BackgroundBlur, ContentBlur, ForegroundBlur } from './Graphics';
 
 /**
  * The **RenderNode** module provides APIs for creating a RenderNode in custom drawing settings with C APIs.
+ *
+ * > **NOTE**
+ * >
+ * > - Avoid modifying RenderNodes in [BuilderNode]{@link ./BuilderNode}. The [FrameNode]{@link ./FrameNode} associated
+ * > with BuilderNode is designed solely for mounting the BuilderNode as a child component. Modifying attributes or
+ * > operations on the FrameNode's child nodes or their corresponding RenderNodes may lead to undefined behavior,
+ * > including display, event handling, and stability issues.
+ * >
+ * > - RenderNode objects do not support JSON serialization.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -190,8 +185,8 @@ export class RenderNode {
   /**
    * Sets whether to clip this RenderNode. The value **true** means to clip the RenderNode to its set size.
    *
-   * @param { boolean } useClip - Whether to clip the RenderNode.<br>The value **true** means to clip the RenderNode,
-   *     and **false** means the opposite.
+   * @param { boolean } useClip - Whether to clip the RenderNode.
+   *     <br>The value **true** means to clip the RenderNode, and **false** means the opposite.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -217,7 +212,8 @@ export class RenderNode {
    * Sets the opacity for this RenderNode. If the value passed in is less than **0**, the opacity is set to **0**. If
    * the value passed in is greater than **1**, the opacity is set to **1**.
    *
-   * @param { number } value - Opacity to set.<br>Value range: [0, 1]. A larger value indicates lower transparency.
+   * @param { number } value - Opacity to set.
+   *     <br>Value range: [0, 1]. A larger value indicates lower transparency.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -445,7 +441,8 @@ export class RenderNode {
    * Sets the shadow color for this RenderNode, in ARGB format. If
    * [shadowAlpha]{@link RenderNode#set shadowAlpha(alpha: number)} is set, the opacity is subject to **shadowAlpha**.
    *
-   * @param { number } color - Shadow color to set, in ARGB format.<br>The value must be a valid ARGB color.
+   * @param { number } color - Shadow color to set, in ARGB format.
+   *     <br>The value must be a valid ARGB color.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -507,7 +504,7 @@ export class RenderNode {
   set label(label: string);
 
   /**
-   * Get label of the RenderNode. Default value: **""**.
+   * Get label of the RenderNode.
    *
    * @returns { string } - Returns the label of the RenderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -521,7 +518,8 @@ export class RenderNode {
   /**
    * Sets the alpha value of the shadow color for this RenderNode.
    *
-   * @param { number } alpha - Alpha value of the shadow color to set.<br> The value must be a valid alpha value.
+   * @param { number } alpha - Alpha value of the shadow color to set.
+   *     <br> The value must be a valid alpha value.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -546,7 +544,8 @@ export class RenderNode {
   /**
    * Sets the shadow elevation for this RenderNode.
    *
-   * @param { number } elevation - Shadow elevation to set.<br> Value range: [0, +∞).
+   * @param { number } elevation - Shadow elevation to set.
+   *     <br> Value range: [0, +∞).
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -571,7 +570,8 @@ export class RenderNode {
   /**
    * Sets the shadow blur radius for this RenderNode.
    *
-   * @param { number } radius - Shadow blur radius to set.<br> Value range: [0, +∞).
+   * @param { number } radius - Shadow blur radius to set.
+   *     <br> Value range: [0, +∞).
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -747,8 +747,8 @@ export class RenderNode {
    *
    * ![markNodeGroup](docroot://reference/apis-arkui/figures/renderNode-markNodeGroup.png)
    *
-   * @param { boolean } isNodeGroup - Whether to enable drawing priority for this node and its child nodes.<br>**true**:
-   *     Enable drawing priority. **false**: Disable drawing priority.
+   * @param { boolean } isNodeGroup - Whether to enable drawing priority for this node and its child nodes.
+   *     <br>**true**: Enable drawing priority. **false**: Disable drawing priority.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -773,7 +773,7 @@ export class RenderNode {
   /**
    * Performs drawing. You need to implement this API. It is called when the RenderNode performs drawing.
    *
-   * Note: The Canvas provided in the [DrawContext]{@link Graphics:DrawContext} parameter is a temporary command-
+   * Note: The Canvas provided in the [DrawContext]{@link ./Graphics:DrawContext} parameter is a temporary command-
    * recording canvas, not the actual rendering canvas of the node. For usage instructions, see
    * [Adjusting the Transformation Matrix of the Custom Drawing Canvas](docroot://ui/arkts-user-defined-arktsNode-renderNode.md#adjusting-the-transformation-matrix-of-the-custom-drawing-canvas).
    *
@@ -856,10 +856,10 @@ export class RenderNode {
   isDisposed(): boolean;
 
   /**
-   * Set the background blur effect.
+   * Sets a background blur effect.
    *
-   * @param { BackgroundBlur | undefined } blurValue - The background blur effect.
-   *     If undefined, the background blur effect will be removed.
+   * @param { BackgroundBlur | undefined } blurValue - Background blur effect. The value **undefined** indicates that no
+   *     background blur effect is applied.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -881,10 +881,10 @@ export class RenderNode {
   get backgroundBlur(): BackgroundBlur;
 
   /**
-   * Set the content blur effect.
+   * Sets a content blur effect.
    *
-   * @param { ContentBlur | undefined } blurValue - The content blur effect.
-   *     If undefined, the content blur effect will be removed.
+   * @param { ContentBlur | undefined } blurValue - Content blur effect. The value **undefined** indicates that no
+   *     content blur effect is applied.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -906,10 +906,10 @@ export class RenderNode {
   get contentBlur(): ContentBlur;
 
   /**
-   * Set the foreground blur effect.
+   * Sets a foreground blur effect.
    *
-   * @param { ForegroundBlur | undefined } blurValue - The foreground blur effect.
-   *     If undefined, the foreground blur effect will be removed.
+   * @param { ForegroundBlur | undefined } blurValue - Foreground blur effect. The value **undefined** indicates that no
+   *     foreground blur effect is applied.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform

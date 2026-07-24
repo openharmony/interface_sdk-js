@@ -19,8 +19,7 @@
  */
 
 /**
- * Export NodeRenderType, RenderOptions, BuilderNode, which is used to create a node trees by builder function and 
- * manage the update of the tree.
+ * 导出NodeRenderType、RenderOptions、BuilderNode，用于通过builder创建节点树并管理树的更新。
  * 
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -31,7 +30,7 @@
 export { NodeRenderType, RenderOptions, BuilderNode } from './arkui/BuilderNode';
 
 /**
- * Export BuildOptions which is used to create a node trees by builder function and manage the update of the tree.
+ * 导出BuildOptions，用于通过builder创建节点树并管理树的更新。
  * 
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -42,7 +41,7 @@ export { NodeRenderType, RenderOptions, BuilderNode } from './arkui/BuilderNode'
 export { BuildOptions } from './arkui/BuilderNode';
 
 /**
- * Export InputEventType which refers to the event type used for posting.
+ * 导出InputEventType，即要发送的输入事件类型。
  * 
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -53,8 +52,7 @@ export { BuildOptions } from './arkui/BuilderNode';
 export { InputEventType } from './arkui/BuilderNode';
 
 /**
- * Export ReactiveBuilderNode, which is used to create a node trees by builder function and manage the update of the 
- * tree.
+ * 导出ReactiveBuilderNode，用于通过builder创建节点树并管理树的更新。
  * 
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -65,8 +63,7 @@ export { InputEventType } from './arkui/BuilderNode';
 export { ReactiveBuilderNode } from './arkui/BuilderNode';
 
 /**
- * Export NodeController, which defines the controller of node container. Provides lifecycle callbacks for the 
- * associated NodeContainer and methods to control the child node of the NodeContainer.
+ * 导出NodeController，即节点容器的控制器。为关联的NodeContainer提供生命周期回调，并提供控制NodeContainer子节点的方法。
  * 
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -77,7 +74,7 @@ export { ReactiveBuilderNode } from './arkui/BuilderNode';
 export { NodeController } from './arkui/NodeController';
 
 /**
- * Export FrameNode. FrameNode defines a basic type of node which contains a RenderNode.
+ * 导出FrameNode，一种包含RenderNode的基本节点类型。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -88,8 +85,7 @@ export { NodeController } from './arkui/NodeController';
 export { FrameNode, LayoutConstraint, ExpandMode, UIState } from './arkui/FrameNode';
 
 /**
- * Export ChildrenCountMode.
- * Specifies how to count children when querying number of child nodes.
+ * 导出ChildrenCountMode。指定查询子节点数量时如何计数子节点。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
@@ -98,7 +94,7 @@ export { FrameNode, LayoutConstraint, ExpandMode, UIState } from './arkui/FrameN
 export { ChildrenCountMode } from './arkui/FrameNode';
 
 /**
- * Export typeNode, NodeAdapter.
+ * 导出typeNode、NodeAdapter。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -109,7 +105,7 @@ export { ChildrenCountMode } from './arkui/FrameNode';
 export { typeNode, NodeAdapter } from './arkui/FrameNode';
 
 /**
- * Export Graphics. Defines the basic types related to the Graphics.
+ * 导出与图形相关的基本类型。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -120,7 +116,7 @@ export { typeNode, NodeAdapter } from './arkui/FrameNode';
 export { DrawContext, Size, Offset, Position, Pivot, Scale, Translation, Matrix4, Rotation, Frame, RoundRect, Circle, CommandPath, ShapeMask, ShapeClip, BorderRadiuses, CornerRadius, Rect, Edges, edgeColors, edgeWidths, borderStyles, borderRadiuses, LengthMetricsUnit } from './arkui/Graphics';
 
 /**
- * Export Graphics. Defines the basic types related to the Graphics.
+ * 导出与图形相关的基本类型。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -131,7 +127,7 @@ export { DrawContext, Size, Offset, Position, Pivot, Scale, Translation, Matrix4
 export { LengthUnit, SizeT, LengthMetrics, ColorMetrics } from './arkui/Graphics';
 
 /**
- * Export Graphics. Defines the blur effect to the Graphics.
+ * 导出与图形相关的基本类型。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -141,7 +137,7 @@ export { LengthUnit, SizeT, LengthMetrics, ColorMetrics } from './arkui/Graphics
 export { BackgroundBlur, ContentBlur, ForegroundBlur } from './arkui/Graphics';
 
 /**
- * Export RenderNode. RenderNode contains node tree operations and render property operations on node.
+ * 导出RenderNode。RenderNode包含节点树操作和节点上的渲染属性操作。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -152,7 +148,7 @@ export { BackgroundBlur, ContentBlur, ForegroundBlur } from './arkui/Graphics';
 export { RenderNode } from './arkui/RenderNode';
 
 /**
- * Export XComponentNode, which extends FrameNode.
+ * 导出XComponentNode，继承自FrameNode。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -163,7 +159,7 @@ export { RenderNode } from './arkui/RenderNode';
 export { XComponentNode } from './arkui/XComponentNode';
 
 /**
- * Export Content.
+ * 导出Content。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -174,7 +170,7 @@ export { XComponentNode } from './arkui/XComponentNode';
 export { Content } from './arkui/Content';
 
 /**
- * Export ComponentContent, ComponentContentBase.
+ * 导出ComponentContent、ComponentContentBase。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -185,7 +181,7 @@ export { Content } from './arkui/Content';
 export { ComponentContent, ComponentContentBase } from './arkui/ComponentContent';
 
 /**
- * Export ReactiveComponentContent.
+ * 导出ReactiveComponentContent。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -196,7 +192,7 @@ export { ComponentContent, ComponentContentBase } from './arkui/ComponentContent
 export { ReactiveComponentContent } from './arkui/ComponentContent';
 
 /**
- * Export NodeContent.
+ * 导出NodeContent。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
