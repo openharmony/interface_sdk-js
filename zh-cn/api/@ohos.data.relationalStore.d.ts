@@ -14,83 +14,8 @@
  */
 
 /**
- * ###### pluginLibs的使用约束和示例
- * 
- * **使用约束：** 
- * <br/>
- * 1. 动态库名的数量限制最多为16个，如果超过该数量会开库失败，返回错误码14800000。
- * <br/>
- * 2. 动态库名需为本应用沙箱路径下或系统路径下的动态库，如果动态库无法加载会开库失败，返回错误码14800010。
- * <br/>
- * 3. 动态库名需为完整路径，用于被SQLite加载。路径由[context.bundleCodeDir+ "/libs/arm64/" + so名称]组成，其中context.bundleCodeDir是应用沙箱对应的路径，"libs
- * "是固定目录，"arm64"是由系统架构确定的子目录，例如，系统架构为arm64-v8a时，子目录为"arm64"。
- * <br/>
- * 样例：[context.bundleCodeDir+ "/libs/arm64/" + libtokenizer.so]。当此参数不填时，默认不加载动态库。
- * <br/>
- * 4. 动态库需要包含其全部依赖，避免依赖项丢失导致无法运行。
- * <br/>
- * 例如：在ndk工程中，使用默认编译参数构建libtokenizer.so，此动态库依赖c++标准库。在加载此动态库时，由于namespace与编译时不一致，链接到了错误的libc++_shared.so，导致
- * `__emutls_get_address`符号找不到。要解决此问题，需在编译时静态链接c++标准库，具体请参见[NDK工程构建概述](docroot://napi/build-with-ndk-overview.md)。
- * <br/>
- * 
- * **使用pluginLibs加载开发者自定义分词器示例：** 
- * <br/>
- * 1. 开发者需要实现一个FTS5可加载分词器扩展，并将其编译成so，编译可参考[使用命令行CMake构建NDK工程](docroot://napi/build-with-ndk-cmake.md)。
- * <br/>
- * 2. 将生成的so文件拷贝到工程目录"entry/libs/"文件夹下的相应子目录中(没有相应目录时用户可自行创建)，子目录根据系统架构确定。例如，系统架构为arm64-v8a时，放置在"entry/libs/arm64-v8a"目录
- * 下；系统架构为armeabi-v7a时，放置在"entry/libs/armeabi-v7a"目录下。
- * <br/>
- * 3. 加载自定义分词器。
- * 
- * ```ts
- * import { relationalStore } from '@kit.ArkData'
- * import { UIAbility } from '@kit.AbilityKit';
- * import { window } from '@kit.ArkUI';
- * import { fileIo } from '@kit.CoreFileKit'
- * 
- * export default class EntryAbility extends UIAbility {
- *   async onWindowStageCreate(windowStage: window.WindowStage) {
- *     let rdbStore: relationalStore.RdbStore | undefined = undefined;
- *     const STORE_CONFIG: relationalStore.StoreConfig = {
- *       name: "testTokenize.db",
- *       securityLevel: relationalStore.SecurityLevel.S1,
- *     };
- *     let bundleCodeDir = this.context.bundleCodeDir;
- *     // libdistributeddb_extension.so为实现的FTS5可加载分词器扩展编译成的so名称
- *     let soPath = bundleCodeDir + "/libs/arm64/libdistributeddb_extension.so";
- *     let res = await fileIo.access(soPath);
- *     if (!res) {
- *       console.error("Dynamic library not accessible");
- *       return;
- *     }
- *     console.info("Dynamic library found and accessible");
- * 
- *     // 将pluginLibs配置为需要加载的动态库拓展路径。
- *     STORE_CONFIG.pluginLibs = [soPath];
- *     try {
- *       rdbStore = await relationalStore.getRdbStore(this.context, STORE_CONFIG);
- *       // 使用自定义分词器创建FTS5虚拟表，tokenize后面是实现的分词器名称
- *       await rdbStore.executeSql("CREATE VIRTUAL TABLE IF NOT EXISTS pages USING FTS5(title, keywords, body, tokenize=koowork_tokenizer);");
- *       console.info("CREATE VIRTUAL TABLE OK");
- *       await rdbStore.executeSql("INSERT INTO pages(keywords, title, body) VALUES('歌曲', 'xxx', '1234歌曲，像北哈升');");
- *       console.info("INSERT VIRTUAL TABLE OK, body is '1234歌曲，像北哈升'");
- *       await rdbStore.executeSql("INSERT INTO pages(keywords, title, body) VALUES('歌曲', 'xxx', '我爱北京天安门, 天安门上太阳升');");
- *       console.info("INSERT VIRTUAL TABLE OK, body is '我爱北京天安门, 天安门上太阳升'");
- *       let resultSet = await rdbStore.querySql("select * from pages where body match '天安门';");
- *       while (resultSet.goToNextRow()) {
- *         console.info(`query result success, match body:${resultSet.getString(resultSet.getColumnIndex("body"))}`);
- *       }
- *       resultSet.close();
- *       await rdbStore.close();
- *     } catch (err) {
- *       console.error("RdbStore failed, err: code=" + err.code + " message=" + err.message);
- *     }
- *   }
- * }
- * ```
- *
- * @file 其他
- * [@kit](https://gitcode.com/kit) ArkData
+ * @file 关系型数据库
+ * @kit ArkData
  */
 
 import { AsyncCallback, Callback } from './@ohos.base';
@@ -126,8 +51,8 @@ import sendableRelationalStore from './@ohos.data.sendableRelationalStore';
  *
  * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
  * @crossplatform [since 10]
- * [@since](https://gitcode.com/since) 9 dynamic
- * [@since](https://gitcode.com/since) 23 static
+ * @since 9 dynamic
+ * @since 23 static
  */
 declare namespace relationalStore {
   /**
@@ -135,8 +60,8 @@ declare namespace relationalStore {
    *
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
-   * [@since](https://gitcode.com/since) 10 dynamic
-   * [@since](https://gitcode.com/since) 23 static
+   * @since 10 dynamic
+   * @since 23 static
    */
   enum AssetStatus {
     /**
@@ -144,8 +69,8 @@ declare namespace relationalStore {
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * [@since](https://gitcode.com/since) 10 dynamic
-     * [@since](https://gitcode.com/since) 23 static
+     * @since 10 dynamic
+     * @since 23 static
      */
     ASSET_NORMAL,
 
@@ -154,8 +79,8 @@ declare namespace relationalStore {
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * [@since](https://gitcode.com/since) 10 dynamic
-     * [@since](https://gitcode.com/since) 23 static
+     * @since 10 dynamic
+     * @since 23 static
      */
     ASSET_INSERT,
 
@@ -164,8 +89,8 @@ declare namespace relationalStore {
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * [@since](https://gitcode.com/since) 10 dynamic
-     * [@since](https://gitcode.com/since) 23 static
+     * @since 10 dynamic
+     * @since 23 static
      */
     ASSET_UPDATE,
 
@@ -174,8 +99,8 @@ declare namespace relationalStore {
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * [@since](https://gitcode.com/since) 10 dynamic
-     * [@since](https://gitcode.com/since) 23 static
+     * @since 10 dynamic
+     * @since 23 static
      */
     ASSET_DELETE,
 
@@ -184,8 +109,8 @@ declare namespace relationalStore {
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * [@since](https://gitcode.com/since) 10 dynamic
-     * [@since](https://gitcode.com/since) 23 static
+     * @since 10 dynamic
+     * @since 23 static
      */
     ASSET_ABNORMAL,
 
@@ -194,8 +119,8 @@ declare namespace relationalStore {
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * [@since](https://gitcode.com/since) 10 dynamic
-     * [@since](https://gitcode.com/since) 23 static
+     * @since 10 dynamic
+     * @since 23 static
      */
     ASSET_DOWNLOADING,
 
@@ -204,7 +129,7 @@ declare namespace relationalStore {
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @stagemodelonly
-     * [@since](https://gitcode.com/since) 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic&static
      */
     ASSET_TO_DOWNLOAD
   }
@@ -214,8 +139,8 @@ declare namespace relationalStore {
    *
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
-   * [@since](https://gitcode.com/since) 10 dynamic
-   * [@since](https://gitcode.com/since) 23 static
+   * @since 10 dynamic
+   * @since 23 static
    */
   interface Asset {
     /**
@@ -223,8 +148,8 @@ declare namespace relationalStore {
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * [@since](https://gitcode.com/since) 10 dynamic
-     * [@since](https://gitcode.com/since) 23 static
+     * @since 10 dynamic
+     * @since 23 static
      */
     name: string;
 
@@ -233,8 +158,8 @@ declare namespace relationalStore {
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * [@since](https://gitcode.com/since) 10 dynamic
-     * [@since](https://gitcode.com/since) 23 static
+     * @since 10 dynamic
+     * @since 23 static
      */
     uri: string;
 
@@ -243,8 +168,8 @@ declare namespace relationalStore {
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * [@since](https://gitcode.com/since) 10 dynamic
-     * [@since](https://gitcode.com/since) 23 static
+     * @since 10 dynamic
+     * @since 23 static
      */
     path: string;
 
@@ -253,8 +178,8 @@ declare namespace relationalStore {
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * [@since](https://gitcode.com/since) 10 dynamic
-     * [@since](https://gitcode.com/since) 23 static
+     * @since 10 dynamic
+     * @since 23 static
      */
     createTime: string;
 
@@ -263,8 +188,8 @@ declare namespace relationalStore {
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * [@since](https://gitcode.com/since) 10 dynamic
-     * [@since](https://gitcode.com/since) 23 static
+     * @since 10 dynamic
+     * @since 23 static
      */
     modifyTime: string;
 
@@ -274,8 +199,8 @@ declare namespace relationalStore {
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * [@since](https://gitcode.com/since) 10 dynamic
-     * [@since](https://gitcode.com/since) 23 static
+     * @since 10 dynamic
+     * @since 23 static
      */
     size: string;
 
@@ -284,8 +209,8 @@ declare namespace relationalStore {
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * [@since](https://gitcode.com/since) 10 dynamic
-     * [@since](https://gitcode.com/since) 23 static
+     * @since 10 dynamic
+     * @since 23 static
      */
     status?: AssetStatus;
   }
@@ -295,8 +220,8 @@ declare namespace relationalStore {
    *
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
-   * [@since](https://gitcode.com/since) 10 dynamic
-   * [@since](https://gitcode.com/since) 23 static
+   * @since 10 dynamic
+   * @since 23 static
    */
   type Assets = Asset[];
 
@@ -315,8 +240,8 @@ declare namespace relationalStore {
    * @unionmember { bigint } 表示值类型为任意长度的整数。[since 12]
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform [since 10]
-   * [@since](https://gitcode.com/since) 9 dynamic
-   * [@since](https://gitcode.com/since) 23 static
+   * @since 9 dynamic
+   * @since 23 static
    */
 
   type ValueType = null | long | double | string | boolean | Uint8Array | Asset | Assets | Float32Array | bigint;
@@ -326,8 +251,8 @@ declare namespace relationalStore {
    *
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform [since 10]
-   * [@since](https://gitcode.com/since) 9 dynamic
-   * [@since](https://gitcode.com/since) 23 static
+   * @since 9 dynamic
+   * @since 23 static
    */
   type ValuesBucket = Record<string, ValueType>;
 
@@ -339,8 +264,8 @@ declare namespace relationalStore {
    * @unionmember { string } 主键的类型可以是string。
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @FaAndStageModel
-   * [@since](https://gitcode.com/since) 10 dynamic
-   * [@since](https://gitcode.com/since) 23 static
+   * @since 10 dynamic
+   * @since 23 static
    */
 
   type PRIKeyType = long | double | string;
@@ -349,8 +274,8 @@ declare namespace relationalStore {
    * 用于表示UTC时间的数据类型。
    *
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * [@since](https://gitcode.com/since) 10 dynamic
-   * [@since](https://gitcode.com/since) 23 static
+   * @since 10 dynamic
+   * @since 23 static
    */
   type UTCTime = Date;
 
@@ -358,8 +283,8 @@ declare namespace relationalStore {
    * 用于存储数据库表的主键和修改时间的数据类型。
    *
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * [@since](https://gitcode.com/since) 10 dynamic
-   * [@since](https://gitcode.com/since) 23 static
+   * @since 10 dynamic
+   * @since 23 static
    */
   type ModifyTime = Map<PRIKeyType, UTCTime>;
 
@@ -369,7 +294,7 @@ declare namespace relationalStore {
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @stagemodelonly
    * @crossplatform
-   * [@since](https://gitcode.com/since) 23 dynamic&static
+   * @since 23 dynamic&static
    */
   type RowData = Array<ValueType>;
 
@@ -379,7 +304,7 @@ declare namespace relationalStore {
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @stagemodelonly
    * @crossplatform
-   * [@since](https://gitcode.com/since) 23 dynamic&static
+   * @since 23 dynamic&static
    */
   type RowsData = Array<RowData>;
 
@@ -388,8 +313,8 @@ declare namespace relationalStore {
    *
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform [since 10]
-   * [@since](https://gitcode.com/since) 9 dynamic
-   * [@since](https://gitcode.com/since) 23 static
+   * @since 9 dynamic
+   * @since 23 static
    */
   interface StoreConfig {
     /**
@@ -397,8 +322,8 @@ declare namespace relationalStore {
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform [since 10]
-     * [@since](https://gitcode.com/since) 9 dynamic
-     * [@since](https://gitcode.com/since) 23 static
+     * @since 9 dynamic
+     * @since 23 static
      */
     name: string;
 
@@ -407,8 +332,8 @@ declare namespace relationalStore {
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * [@since](https://gitcode.com/since) 9 dynamic
-     * [@since](https://gitcode.com/since) 23 static
+     * @since 9 dynamic
+     * @since 23 static
      */
     securityLevel: SecurityLevel;
 
@@ -420,8 +345,8 @@ declare namespace relationalStore {
      * false：非加密。
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * [@since](https://gitcode.com/since) 9 dynamic
-     * [@since](https://gitcode.com/since) 23 static
+     * @since 9 dynamic
+     * @since 23 static
      */
     encrypt?: boolean;
 
@@ -434,8 +359,8 @@ declare namespace relationalStore {
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @StageModelOnly
-     * [@since](https://gitcode.com/since) 10 dynamic
-     * [@since](https://gitcode.com/since) 23 static
+     * @since 10 dynamic
+     * @since 23 static
      */
     dataGroupId?: string;
 
@@ -450,8 +375,8 @@ declare namespace relationalStore {
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * [@since](https://gitcode.com/since) 11 dynamic
-     * [@since](https://gitcode.com/since) 23 static
+     * @since 11 dynamic
+     * @since 23 static
      */
     customDir?: string;
 
@@ -463,8 +388,8 @@ declare namespace relationalStore {
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * [@since](https://gitcode.com/since) 18 dynamic
-     * [@since](https://gitcode.com/since) 23 static
+     * @since 18 dynamic
+     * @since 23 static
      */
     rootDir?: string;
 
@@ -478,8 +403,8 @@ declare namespace relationalStore {
      * 从API version 11开始，支持此可选参数。
      *
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
-     * [@since](https://gitcode.com/since) 11 dynamic
-     * [@since](https://gitcode.com/since) 23 static
+     * @since 11 dynamic
+     * @since 23 static
      */
     autoCleanDirtyData?: boolean;
 
@@ -494,7 +419,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @systemapi
      * @stagemodelonly
-     * [@since](https://gitcode.com/since) 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic&static
      */
     autoCleanDeviceDirtyData?: boolean
 
@@ -507,8 +432,8 @@ declare namespace relationalStore {
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @systemapi
-     * [@since](https://gitcode.com/since) 11 dynamic
-     * [@since](https://gitcode.com/since) 23 static
+     * @since 11 dynamic
+     * @since 23 static
      */
     isSearchable?: boolean;
 
@@ -522,8 +447,8 @@ declare namespace relationalStore {
      * 从API version 12开始，支持此可选参数。
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * [@since](https://gitcode.com/since) 12 dynamic
-     * [@since](https://gitcode.com/since) 23 static
+     * @since 12 dynamic
+     * @since 23 static
      */
     allowRebuild?: boolean;
 
@@ -535,8 +460,8 @@ declare namespace relationalStore {
      * 当使用向量数据库时，在调用deleteRdbStore接口前，应当确保向量数据库已打开的RdbStore和ResultSet均已成功关闭。
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * [@since](https://gitcode.com/since) 18 dynamic
-     * [@since](https://gitcode.com/since) 23 static
+     * @since 18 dynamic
+     * @since 23 static
      */
     vector?: boolean;
 
@@ -551,8 +476,8 @@ declare namespace relationalStore {
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform [since 20]
-     * [@since](https://gitcode.com/since) 12 dynamic
-     * [@since](https://gitcode.com/since) 23 static
+     * @since 12 dynamic
+     * @since 23 static
      */
     isReadOnly?: boolean;
 
@@ -561,8 +486,8 @@ declare namespace relationalStore {
      * [pluginLibs的使用约束和示例](docroot://reference/apis-arkdata/arkts-apis-data-relationalStore-i.md#pluginlibs的使用约束和示例)。
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * [@since](https://gitcode.com/since) 12 dynamic
-     * [@since](https://gitcode.com/since) 23 static
+     * @since 12 dynamic
+     * @since 23 static
      */
     pluginLibs?: Array<string>;
 
