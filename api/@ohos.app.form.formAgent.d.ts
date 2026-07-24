@@ -19,6 +19,7 @@
  */
 
 import type { AsyncCallback } from './@ohos.base';
+import formBindingData from './@ohos.app.form.formBindingData';
 import type Want from './@ohos.app.ability.Want';
 
 /**
@@ -85,5 +86,27 @@ declare namespace formAgent {
    * @since 23 static
    */
   function requestPublishForm(want: Want): Promise<string>;
+
+  /**
+   * Updates a widget by cross bundle. This API uses a promise to return the result.
+   *
+   * @permission ohos.permission.UPDATE_FORM_CROSS_BUNDLE
+   * @param { string } formId - ID of the widget to update.
+   * @param { formBindingData.FormBindingData } formBindingData - Data to be used for the update.
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 201 - Permissions denied.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @throws { BusinessError } 16500050 - Possible cause IPC connection error. Such as the remote object dose not exist.
+   * @throws { BusinessError } 16500060 - Possible cause Service State error. Such as the form is recovering.
+   * @throws { BusinessError } 16501000 - Possible cause internal functional error. Such as virtualization failed.
+   * @throws { BusinessError } 16501001 - The ID of the form to be operated does not exist.
+   * @throws { BusinessError } 16501003 - The form to be operated has been deleted already.
+   * @throws { BusinessError } 16501007 - The form to be operated is not trusted.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function updateFormCrossBundle(formId: string, formBindingData: formBindingData.FormBindingData): Promise<void>;
 }
 export default formAgent;
