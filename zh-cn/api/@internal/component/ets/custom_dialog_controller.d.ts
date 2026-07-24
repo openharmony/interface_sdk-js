@@ -62,7 +62,7 @@ declare interface CustomDialogControllerOptions {
   builder: any;
 
   /**
-   * 返回、ESC键和点击遮障层弹窗退出时的回调。
+   * 返回、ESC键和点击遮障层弹窗退出时的回调。未设置时不执行任何操作。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -112,7 +112,7 @@ declare interface CustomDialogControllerOptions {
   offset?: Offset;
 
   /**
-   * 弹窗容器样式是否自定义。值为true表示弹窗容器样式不能自定义，值为false表示弹窗容器样式能自定义。
+   * 弹窗容器样式是否自定义。值为true表示弹窗容器样式能自定义，值为false表示弹窗容器样式不能自定义。
    * 
    * 默认值：false
    * 
@@ -183,7 +183,7 @@ declare interface CustomDialogControllerOptions {
   maskRect?: Rectangle;
 
   /**
-   * 自定义设置弹窗弹出的动画效果相关参数。
+   * 自定义设置弹窗弹出的动画效果相关参数。未设置时使用系统默认弹出动画。
    * 
    * **说明**：
    * 
@@ -223,7 +223,7 @@ declare interface CustomDialogControllerOptions {
   closeAnimation?: AnimateParam;
 
   /**
-   * 某弹框需要显示在主窗口之外时，是否在子窗口显示此弹窗。值为true表示在子窗口显示弹窗。
+   * 某弹窗需要显示在主窗口之外时，是否在子窗口显示此弹窗。值为true表示在子窗口显示弹窗。
    * 
    * 默认值：false，弹窗显示在应用内，而非独立子窗口。
    * 
@@ -240,7 +240,7 @@ declare interface CustomDialogControllerOptions {
   showInSubWindow?: boolean;
 
   /**
-   * 弹窗在子窗口中的显示模式。
+   * 弹窗在子窗口中的显示模式。取值范围及显示效果请参考DialogDisplayMode枚举说明，例如SCREEN_BASED表示弹窗在屏幕居中显示，WINDOW_BASED表示弹窗在应用窗口居中显示。
    * 
    * 默认值：DialogDisplayMode.SCREEN_BASED
    * 
@@ -473,7 +473,7 @@ declare interface CustomDialogControllerOptions {
   keyboardAvoidMode?: KeyboardAvoidMode;
   
   /**
-   * 是否响应悬停态，值为true时，响应悬停态。
+   * 是否响应悬停态。值为true时响应悬停态，值为false时不响应悬停态。
    * 
    * 默认值：false，默认不响应。
    * 
@@ -811,7 +811,7 @@ declare class CustomDialogController {
   constructor(value: CustomDialogControllerOptions);
 
   /**
-   * 显示自定义弹窗内容，允许多次使用，但如果弹框为SubWindow模式，则该弹框不允许再弹出SubWindow弹框。
+   * 显示自定义弹窗内容，允许多次使用，但如果弹窗为SubWindow模式（showInSubWindow为true），则该弹窗不允许再弹出SubWindow模式的弹窗。
    * 
    * > **说明：**
    * >

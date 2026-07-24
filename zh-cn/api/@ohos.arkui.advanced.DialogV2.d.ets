@@ -14,7 +14,7 @@
 */
 
 /**
- * 弹出框是一种模态窗口，通常用于在保持当前的上下文环境时，临时展示用户需关注的信息或待处理的操作，用户在模态弹出框内完成上述交互任务。模态弹出框需要用户进行交互才能够退出模态模式。
+ * 弹出框是一种模态窗口，用于在保持当前上下文环境时，临时展示用户需关注的信息或待处理的操作，用户在弹出框内完成交互。模态弹出框需要用户进行交互才能够退出模态模式。DialogV2提供了提示、选择、确认、警告、加载等多种类型的弹出框，适用于确认删除、显示加载进度、用户选择项、重要提示等场景，帮助开发者简化模态对话框的实现，提供一致的用户交互体验。
  * 
  * 该组件基于[状态管理（V2）](docroot://ui/state-management/arkts-state-management-overview.md#状态管理v2)实现，相较于
  * [状态管理（V1）](docroot://ui/state-management/arkts-state-management-overview.md#状态管理v1)，状态管理（V2）增强了对数据对象的深度观察与管理能力，不再局限于组
@@ -86,7 +86,7 @@ export declare class AdvancedDialogV2Button {
   @Trace
   action?: AdvancedDialogV2ButtonAction;
   /**
-   * 按钮的背景。
+   * 按钮的背景。当buttonStyle和role为默认值时生效。
    * 
    * 默认值跟随buttonStyle。
    *
@@ -99,7 +99,7 @@ export declare class AdvancedDialogV2Button {
   @Trace
   background?: ColorMetrics;
   /**
-   * 按钮的字体颜色。
+   * 按钮的字体颜色。当buttonStyle和role为默认值时生效。
    * 
    * 默认值跟随buttonStyle。
    *
@@ -235,7 +235,7 @@ export declare interface AdvancedDialogV2ButtonOptions {
    */
   action?: AdvancedDialogV2ButtonAction;
   /**
-   * 按钮的背景。
+   * 按钮的背景。当buttonStyle和role为默认值时生效。
    * 
    * 默认值跟随buttonStyle。
    *
@@ -247,7 +247,7 @@ export declare interface AdvancedDialogV2ButtonOptions {
    */
   background?: ColorMetrics;
   /**
-   * 按钮的字体颜色。
+   * 按钮的字体颜色。当buttonStyle和role为默认值时生效。
    * 
    * 默认值跟随buttonStyle。
    *
@@ -346,7 +346,7 @@ export declare interface AdvancedDialogV2ButtonOptions {
 export declare type AdvancedDialogV2OnCheckedChange = (checked: boolean) => void;
 
 /**
- * 提示弹出框，即为带图形确认弹出框，必要时可通过图形化方式展现确认弹出框。
+ * 提示弹出框，即为带图形确认弹出框，必要时可通过图形化方式展现确认弹出框。适用于需要图形化方式展示的重要提示场景，如应用卸载确认等。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -503,7 +503,7 @@ export declare struct TipsDialogV2 {
 }
 
 /**
- * 选择类弹出框，弹框中以列表或网格的形式提供可选的内容。
+ * 选择类弹出框，弹框中以列表或网格的形式提供可选的内容。适用于需要用户从多个选项中选择一个的场景，如选择语言、选择地区等。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -539,7 +539,7 @@ export declare struct SelectDialogV2 {
   @Param
   content?: ResourceStr;
   /**
-   * 选择弹出框的选中项。
+   * 选择弹出框的选中项，基于0的索引（0表示第一个选项）。
    * 
    * 默认值：-1，没有选中项。若设置数值不在取值范围，按没有选中项处理。  
    * 
@@ -581,7 +581,7 @@ export declare struct SelectDialogV2 {
 }
 
 /**
- * 信息确认类弹出框，操作未正确执行（如网络错误、电池电量过低），或未正确操作时（如指纹录入），反馈的错误或提示信息。
+ * 信息确认类弹出框，用于反馈错误或提示信息。当操作未正确执行（如网络错误、电池电量过低）或用户操作不当时（如指纹录入），弹出此类对话框进行提示。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -697,7 +697,7 @@ export declare struct ConfirmDialogV2 {
 @ComponentV2
 export declare struct AlertDialogV2 {
   /**
-   * 确认弹出框一级标题。
+   * 确认弹出框标题。
    * 
    * 默认不显示。
    * 
@@ -712,7 +712,7 @@ export declare struct AlertDialogV2 {
   @Param
   primaryTitle?: ResourceStr;
   /**
-   * 确认弹出框二级标题。
+   * 确认弹出框辅助文本。
    * 
    * 默认不显示。
    * 
@@ -767,7 +767,7 @@ export declare struct AlertDialogV2 {
 }
 
 /**
- * 进度加载类弹出框，操作正在执行时的提示信息。
+ * 进度加载类弹出框，操作正在执行时的提示信息。适用于耗时操作的场景，如数据加载、文件上传等，用于告知用户当前正在处理中。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -795,7 +795,7 @@ export declare struct LoadingDialogV2 {
 }
 
 /**
- * 自定义内容区弹出框，同时支持定义操作区按钮样式。
+ * 自定义内容区弹出框，同时支持定义操作区按钮样式。适用于需要展示复杂或自定义内容的场景，如用户协议确认、表单输入等。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -875,8 +875,8 @@ export declare struct CustomContentDialogV2 {
 }
 
 /**
- * 跟手弹出框，基于目标组件位置弹出，上文中的TipsDialogV2、SelectDialogV2、ConfirmDialogV2、AlertDialogV2、
- * LoadingDialogV2、CustomContentDialogV2都可作为弹出框内容。
+ * 跟手弹出框，基于目标组件位置弹出，上述的TipsDialogV2、SelectDialogV2、ConfirmDialogV2、AlertDialogV2、
+ * LoadingDialogV2、CustomContentDialogV2都可作为弹出框内容。适用于需要跟随目标组件位置显示的场景，如工具提示、操作引导等。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -901,7 +901,7 @@ export declare struct PopoverDialogV2 {
   @Param
   visible: boolean;
   /**
-   * 修改跟手弹出框的显示状态时触发的回调函数，建议在visible后使用!!语法设置双向同步。
+   * 修改跟手弹出框的显示状态时触发的回调函数，建议在visible后使用!!语法（如`visible: this.isShow!!`）设置双向同步，当弹出框内部改变显示状态时会同步更新外部变量。
    * 
    * 默认无事件。
    *

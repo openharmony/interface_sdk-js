@@ -201,7 +201,7 @@ export interface PopupV2InitInfo {
   iconModifier?: ImageModifier;
 
   /**
-    * 布局方向。
+    * 设置PopupV2的布局方向，用于控制文本排列与对齐方式，适用于国际化场景下的RTL（从右到左）布局。具体枚举值含义见[Direction](ts-appendix-enums.md#direction)。
     * 
     * 默认值：Direction.Auto
     *
@@ -215,7 +215,7 @@ export interface PopupV2InitInfo {
 }
 
  /**
- * PopupV2用于显示特定样式的气泡。
+ * PopupV2用于显示特定样式的气泡，适用于提示信息、操作确认或信息通知等需要用户关注或响应的场景。
  * 
  * 该组件基于[状态管理（V2）](docroot://ui/state-management/arkts-state-management-overview.md#状态管理v2)实现，
  * 相较于[状态管理（V1）](docroot://ui/state-management/arkts-state-management-overview.md#状态管理v1)，
