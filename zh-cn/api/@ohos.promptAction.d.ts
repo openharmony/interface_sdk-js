@@ -103,7 +103,7 @@ export class LevelOrder {
      *
      * @param { number } order - 弹窗显示顺序。取值范围为[-100000.0, 100000.0]，如果值小于-100000.0则设置为-100000.0，如果值大于100000.0则设置为100000.
      *     0。
-     * @returns { LevelOrder } 返回当前对象实例。
+     * @returns { LevelOrder } 返回当前对象实例，该对象可用于设置弹窗的显示顺序。
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @crossplatform
@@ -125,7 +125,7 @@ export class LevelOrder {
 }
 
 /**
- * 创建并显示即时反馈、对话框和操作菜单。
+ * 创建并显示即时反馈、对话框和操作菜单，适用于系统通知、交互确认、菜单选择等场景。
  * 
  * > **说明：**
  * 
@@ -179,7 +179,7 @@ declare namespace promptAction {
          */
         duration?: number;
         /**
-         * 设置Toast底部边框距离导航条的高度，软键盘拉起时，如果bottom值过小，Toast要被软键盘遮挡时，会自动避让至距离软键盘80vp处。
+         * 设置Toast底部边框距离导航条的高度。软键盘拉起时，若bottom值过小且Toast会被遮挡，则自动避让至距离软键盘80vp处。
          * <br/>默认值：80vp
          * <br/>**说明：** 
          * <br/>当底部没有导航条时，bottom为设置弹窗底部边框距离窗口底部的高度。
@@ -457,7 +457,7 @@ declare namespace promptAction {
          */
         message?: string | Resource;
         /**
-         * 对话框中按钮的数组，结构为：{text:'button',&nbsp;color:&nbsp;'\#666666'}，支持大于1个按钮。
+         * 对话框中按钮的数组，结构为：{text:'button',&nbsp;color:&nbsp;'\#666666'}，支持1个或多个按钮。
          *
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @FaAndStageModel
@@ -1477,7 +1477,7 @@ declare namespace promptAction {
      */
     declare type DialogOptionsShadow = ShadowOptions | ShadowStyle;
     /**
-     * 自定义弹窗的内容，继承自[BaseDialogOptions](#basedialogoptions11)。
+     * 自定义弹窗的内容，继承自[BaseDialogOptions](#basedialogoptions11)，用于配置自定义弹窗的显示参数和行为。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -1615,7 +1615,7 @@ declare namespace promptAction {
      */
     interface ActionMenuSuccessResponse {
         /**
-         * 选中按钮在buttons数组中的索引，从0开始。
+         * 选中按钮在buttons数组中的索引，从0开始，可用于判断用户点击了哪个按钮。
          *
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @FaAndStageModel
@@ -1647,7 +1647,7 @@ declare namespace promptAction {
          */
         title?: string | Resource;
         /**
-         * 菜单中菜单项按钮的数组，结构为：{text:'button',&nbsp;color:&nbsp;'\#666666'}，支持1-6个按钮。按钮数量大于6个时，仅显示前6个按钮，之后的按钮不显示。
+         * 菜单中菜单项按钮的数组，结构为：{text:'button',&nbsp;color:&nbsp;'\#666666'}，支持1-6个按钮。按钮数量大于6个时，仅显示buttons数组中的前6个按钮（索引0到5），数组中索引大于5的按钮不显示。
          *
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @FaAndStageModel
@@ -1860,7 +1860,7 @@ declare namespace promptAction {
     * > 取到PromptAction对象，再通过该对象调用
     * > [openToast](docroot://reference/apis-arkui/arkts-apis-uicontext-promptaction.md#opentoast18)实现。
      *
-     * @param { ShowToastOptions } options - Toast选项。
+     * @param { ShowToastOptions } options - Toast选项，用于配置Toast的显示内容和样式。
      * @returns { Promise<number> } 返回即时反馈的id，可供closeToast使用。
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     <br> 1. Mandatory parameters are left unspecified.
@@ -1884,7 +1884,7 @@ declare namespace promptAction {
      * > 到PromptAction对象，再通过该对象调用
      * > [closeToast](docroot://reference/apis-arkui/arkts-apis-uicontext-promptaction.md#closetoast18)实现。
      *
-     * @param { number } toastId - openToast返回的id。
+     * @param { number } toastId - openToast返回的id，用于标识要关闭的Toast实例。
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     <br> 1. Mandatory parameters are left unspecified.
      *     <br> 2. Incorrect parameters types.
@@ -1913,8 +1913,8 @@ declare namespace promptAction {
      * [PromptAction](arkts-apis-uicontext-promptaction.md)对象。
      *
      * @param { ShowDialogOptions } options - 页面显示对话框信息描述。
-     * @param { AsyncCallback<ShowDialogSuccessResponse> } callback - 回调函数。弹出对话框成功，err为undefined，
-     *      data为获取到的对话框响应结果，否则为错误对象。
+     * @param { AsyncCallback<ShowDialogSuccessResponse> } callback - 回调函数。弹出对话框成功时，err为undefined，
+     *      data为获取到的对话框响应结果；失败时，err为错误对象。
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     <br> 1. Mandatory parameters are left unspecified.
      *     <br> 2. Incorrect parameters types.
@@ -2043,8 +2043,8 @@ declare namespace promptAction {
      * [PromptAction](arkts-apis-uicontext-promptaction.md)对象。
      *
      * @param { ActionMenuOptions } options - 操作菜单选项。
-     * @param { AsyncCallback<ActionMenuSuccessResponse> } callback - 回调函数。弹出操作菜单成功，err为undefined，
-     *      data为获取到的操作菜单响应结果，否则为错误对象。
+     * @param { AsyncCallback<ActionMenuSuccessResponse> } callback - 回调函数。弹出操作菜单成功时，err为undefined，
+     *      data为获取到的操作菜单响应结果；失败时，err为错误对象。
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     <br> 1. Mandatory parameters are left unspecified.
      *     <br> 2. Incorrect parameters types.
@@ -2074,7 +2074,7 @@ declare namespace promptAction {
      * [getPromptAction](arkts-apis-uicontext-uicontext.md#getpromptaction)方法获取当前UI上下文关联的
      * [PromptAction](arkts-apis-uicontext-promptaction.md)对象。
      *
-     * @param { ActionMenuOptions } options - Promise对象，返回菜单的响应结果。
+     * @param { ActionMenuOptions } options - 操作菜单选项。
      * @returns { Promise<ActionMenuSuccessResponse> } Promise对象，返回菜单的响应结果。
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     <br> 1. Mandatory parameters are left unspecified.
@@ -2112,7 +2112,7 @@ declare interface DismissDialogAction {
      */
     dismiss: Callback<void>;
     /**
-     * Dialog无法关闭原因。根据开发者需求选择不同操作下，Dialog是否关闭。
+     * 触发Dialog关闭的操作类型（如点击遮障层、按返回键等）。开发者可根据reason判断用户的具体关闭操作，决定是否调用dismiss()关闭Dialog。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly

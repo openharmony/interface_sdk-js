@@ -136,7 +136,7 @@ export declare class ButtonOptions {
   textAlign?: TextAlign;
 }
 /**
- * 提示弹出框，即为带图形确认弹出框，必要时可通过图形化方式展现确认弹出框。
+ * 提示弹出框，用于提醒用户关注特定事项或进行确认操作。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -147,7 +147,7 @@ export declare class ButtonOptions {
 @CustomDialog
 export declare struct TipsDialog {
   /**
-   * 提示弹出框控制器。
+   * 提示弹出框控制器，用于控制弹出框的显示和隐藏。
    * 
    * **说明：** 未使用@Require装饰，构造时不强制校验参数。
    *
@@ -316,7 +316,7 @@ export declare struct TipsDialog {
 @CustomDialog
 export declare struct SelectDialog {
   /**
-   * 选择弹出框控制器。
+   * 选择弹出框控制器，用于控制弹出框的显示和隐藏。
    * 
    * **说明：** 未使用@Require装饰，构造时不强制校验参数。
    *
@@ -410,7 +410,7 @@ export declare struct SelectDialog {
 }
 
 /**
- * 信息确认类弹出框，操作未正确执行（如网络错误、电池电量过低），或未正确操作时（如指纹录入），反馈的错误或提示信息。
+ * 信息确认类弹出框，用于在操作未正确执行（如网络错误、电池电量过低），或未正确操作时（如指纹录入）反馈错误或提示信息。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -421,7 +421,7 @@ export declare struct SelectDialog {
 @CustomDialog
 export declare struct ConfirmDialog {
   /**
-   * 确认弹出框控制器。
+   * 确认弹出框控制器，用于控制弹出框的显示和隐藏。
    * 
    * **说明：** 未使用@Require装饰，构造时不强制校验参数。
    *
@@ -539,7 +539,7 @@ export declare struct ConfirmDialog {
 }
 
 /**
- * 操作确认类弹出框，触发一个将产生严重后果的不可逆操作时，如删除、重置、取消编辑、停止等。
+ * 操作确认类弹出框，用于在触发一个将产生严重后果的不可逆操作（如删除、重置、取消编辑、停止等）时进行确认。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -550,7 +550,7 @@ export declare struct ConfirmDialog {
 @CustomDialog
 export declare struct AlertDialog {
   /**
-   * 确认弹出框控制器。
+   * 操作确认弹出框控制器，用于控制弹出框的显示和隐藏。
    * 
    * **说明：** 未使用@Require装饰，构造时不强制校验参数。
    *
@@ -562,7 +562,7 @@ export declare struct AlertDialog {
    */
   controller: CustomDialogController;
   /**
-   * 确认弹出框一级标题。
+   * 操作确认弹出框一级标题。
    * 
    * 默认不设置或设置为undefined，确认弹出框一级标题不显示。
    * 
@@ -576,7 +576,7 @@ export declare struct AlertDialog {
    */
   primaryTitle?: ResourceStr;
   /**
-   * 确认弹出框二级标题。
+   * 操作确认弹出框二级标题。
    * 
    * 默认不设置或设置为undefined，确认弹出框二级标题不显示。
    * 
@@ -590,7 +590,7 @@ export declare struct AlertDialog {
    */
   secondaryTitle?: ResourceStr;
   /**
-   * 确认弹出框内容。
+   * 操作确认弹出框内容。
    * 
    * 默认不设置或设置为undefined，确认弹出框内容不显示。
    *
@@ -602,8 +602,8 @@ export declare struct AlertDialog {
    */
   content: ResourceStr;
   /**
-   * 确认弹出框左侧按钮。
-   * 
+   * 操作确认弹出框左侧按钮。
+   *
    * 默认不设置或设置为undefined，确认弹出框左侧按钮不显示。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -614,7 +614,7 @@ export declare struct AlertDialog {
    */
   primaryButton?: ButtonOptions;
   /**
-   * 确认弹出框右侧按钮。
+   * 操作确认弹出框右侧按钮。
    * 
    * 默认不设置或设置为undefined，确认弹出框右侧按钮不显示。
    *
@@ -661,7 +661,7 @@ export declare struct AlertDialog {
 @CustomDialog
 export declare struct LoadingDialog {
   /**
-   * 加载弹出框控制器。
+   * 加载弹出框控制器，用于控制弹出框的显示和隐藏。
    * 
    * **说明：** 未使用@Require装饰，构造时不强制校验参数。
    *
@@ -727,7 +727,7 @@ export declare struct LoadingDialog {
 @CustomDialog
 export declare struct CustomContentDialog {
   /**
-   * 弹出框控制器。
+   * 弹出框控制器，用于控制弹出框的显示和隐藏。
    * 
    * **说明：** 未使用@Require装饰，构造时不强制校验参数。
    *
@@ -767,7 +767,7 @@ export declare struct CustomContentDialog {
    */
   secondaryTitle?: ResourceStr;
   /**
-   * 弹出框内容。
+   * 用于构建弹出框内容区域的组件构建函数。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -787,7 +787,7 @@ export declare struct CustomContentDialog {
    */
   contentAreaPadding?: Padding;
   /**
-   * 弹出框内容区内边距。
+   * 弹出框内容区内边距，支持按语言方向自适应。设置了该属性时，contentAreaPadding不生效。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -849,7 +849,7 @@ export declare struct CustomContentDialog {
 @Component
 export declare struct PopoverDialog {
   /**
-   * 跟手弹出框显示状态。visible为true时，表示显示弹出框，visible为false时，表示隐藏弹出框。
+   * 是否显示跟手弹出框。true表示显示弹出框，false表示隐藏弹出框。
    * 
    * 默认值为false，隐藏弹出框。
    *
@@ -862,7 +862,7 @@ export declare struct PopoverDialog {
   @Link
   visible: boolean;
   /**
-   * 配置跟手弹出框的参数。
+   * 配置跟手弹出框的参数，包含弹出框内容、位置等属性，具体参见PopoverOptions类型说明。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -873,7 +873,7 @@ export declare struct PopoverDialog {
   @Require @Prop
   popover: PopoverOptions;
   /**
-   * 跟手弹出框基于的目标组件。
+   * 跟手弹出框基于的目标组件构建器函数，用于定义弹出框显示的参考位置组件。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly

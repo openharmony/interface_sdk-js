@@ -54,7 +54,7 @@ declare interface RatingOptions {
   rating: number;
 
   /**
-   * 设置评分组件作为指示器使用，值为true时，不可改变评分。
+   * 设置评分组件作为指示器使用。值为true时，作为指示器使用，不可改变评分；值为false时，可进行评分。
    * 
    * 默认值：false，可进行评分
    * 
@@ -94,7 +94,7 @@ declare interface RatingOptions {
  */
 declare interface StarStyleOptions {
   /**
-   * 未选中的星级的图片链接，可由用户自定义或使用系统默认图片。
+   * 未选中的星级的图片路径，可由用户自定义或使用系统默认图片。
    * 
    * 从API version 20开始，该接口支持设置Resource资源。参考
    * [示例3（通过Resource资源设置评分的样式）](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-rating.md#示例3通过resource资源设置评分的样式)
@@ -130,7 +130,7 @@ declare interface StarStyleOptions {
   foregroundUri: ResourceStr;
 
   /**
-   * 部分选中的星级的图片路径，可由用户自定义或使用系统默认图片。
+   * 部分选中的星级的图片路径，可由用户自定义或使用系统默认图片。未设置时将优先使用backgroundUri，效果等同于仅设置foregroundUri和backgroundUri。
    * 
    * 从API version 20开始，该接口支持设置Resource资源。参考
    * [示例3（通过Resource资源设置评分的样式）](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-rating.md#示例3通过resource资源设置评分的样式)
@@ -149,7 +149,7 @@ declare interface StarStyleOptions {
 }
 
 /**
- * 提供在给定范围内选择评分的组件。
+ * 提供在给定范围内选择评分的组件，通常用于商品评价、内容打分等应用场景。
  * 
  * > **说明：**
  * 
@@ -250,7 +250,7 @@ declare interface RatingConfiguration extends CommonConfiguration<RatingConfigur
   stepSize: number;
 
   /**
-   * 触发评分数量变化。
+   * 触发评分变化的回调，参数为新的评分值。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -262,9 +262,9 @@ declare interface RatingConfiguration extends CommonConfiguration<RatingConfigur
 }
 
 /**
-   * 操作评分条的评星变化时触发该回调。
+   * 当评分条的评分变化时触发该回调。
    *
-   * @param {number} rating - 评分条的评分。
+   * @param {number} rating - 评分条的评分值。取值范围为[0, stars]。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -285,7 +285,7 @@ declare interface RatingConfiguration extends CommonConfiguration<RatingConfigur
  */
 declare class RatingAttribute extends CommonMethod<RatingAttribute> {
   /**
-   * 设置评分总数。设置为小于等于0的值时，按默认值显示。
+   * 设置评分总数。默认值：5。
    *
    * @param { number } value - 设置评分总数。<br/>默认值：5
    * @returns { RatingAttribute }
@@ -299,9 +299,9 @@ declare class RatingAttribute extends CommonMethod<RatingAttribute> {
   stars(value: number): RatingAttribute;
 
   /**
-   * 设置评分总数。设置为小于等于0的值时，按默认值显示。与[stars]{@link RatingAttribute#stars(value: number)}相比，starCount参数新增了对undefined类型的支持。
+   * 设置评分总数。与[stars]{@link RatingAttribute#stars(value: number)}相比，starCount参数新增了对undefined类型的支持。当starCount的值为undefined时，默认值：5。
    *
-   * @param { Optional<number> } starCount - 设置评分总数。<br/>当starCount的值为undefined时，默认值：5
+   * @param { Optional<number> } starCount - 设置评分总数。<br/>取值范围：大于0，小于等于0或undefined时按5显示。
    * @returns { RatingAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -313,7 +313,7 @@ declare class RatingAttribute extends CommonMethod<RatingAttribute> {
   stars(starCount: Optional<number>): RatingAttribute;
 
   /**
-   * 设置操作评级的步长。设置为小于0.1的值时，按默认值显示。
+   * 设置操作评级的步长。设置为小于0.1的值时，按默认值显示。默认值：0.5。
    *
    * @param { number } value - 操作评级的步长。<br/>默认值：0.5<br/>取值范围：[0.1, stars]
    * @returns { RatingAttribute }
@@ -327,7 +327,7 @@ declare class RatingAttribute extends CommonMethod<RatingAttribute> {
   stepSize(value: number): RatingAttribute;
 
   /**
-   * 设置操作评级的步长。设置为小于0.1的值时，按默认值显示。与[stepSize]{@link RatingAttribute#stepSize(value: number)}相比，size参数新增了对undefined类型的支持。
+   * 设置操作评级的步长。设置为小于0.1的值时，按默认值显示。与[stepSize]{@link RatingAttribute#stepSize(value: number)}相比，size参数新增了对undefined类型的支持。当size的值为undefined时，默认值：0.5。
    *
    * @param { Optional<number> } size - 操作评级的步长。<br/>当size的值为undefined时，默认值：0.5<br/>取值范围：[0.1, stars]
    * @returns { RatingAttribute }
@@ -384,7 +384,7 @@ declare class RatingAttribute extends CommonMethod<RatingAttribute> {
   starStyle(options: Optional<StarStyleOptions>): RatingAttribute;
 
   /**
-   * 当评分条的评星变化时触发该回调。
+   * 当评分条的评分变化时触发该回调。
    *
    * @param { function } callback
    * @returns { RatingAttribute }
@@ -398,10 +398,10 @@ declare class RatingAttribute extends CommonMethod<RatingAttribute> {
   onChange(callback: (value: number) => void): RatingAttribute;
 
   /**
-   * 当评分条的评星变化时触发该回调。与[onChange]{@link RatingAttribute#onChange(callback: (value: number) => void)}相比，callback参数新增了对
+   * 当评分条的评分变化时触发该回调。与[onChange]{@link RatingAttribute#onChange(callback: (value: number) => void)}相比，callback参数新增了对
    * undefined类型的支持。
    *
-   * @param { Optional<OnRatingChangeCallback> } callback - 操作评分条的评星变化时触发该回调。<br/>当callback的值为undefined时，不使用回调函数。
+   * @param { Optional<OnRatingChangeCallback> } callback - 当评分条的评分变化时触发该回调。<br/>当callback的值为undefined时，不使用回调函数。
    * @returns { RatingAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -413,7 +413,7 @@ declare class RatingAttribute extends CommonMethod<RatingAttribute> {
   onChange(callback: Optional<OnRatingChangeCallback>): RatingAttribute;
 
   /**
-   * 定制Rating内容区的方法。
+   * 定制Rating内容区的方法。开发者需自定义class实现ContentModifier接口，并在applyContent方法中返回WrappedBuilder，以此重新定义Rating组件内容区的渲染逻辑。
    *
    * @param { ContentModifier<RatingConfiguration> } modifier - 在Rating组件上，定制内容区的方法。<br/>modifier：内容修改器，开发者需要自定义class实现
    *     ContentModifier接口。
@@ -429,7 +429,7 @@ declare class RatingAttribute extends CommonMethod<RatingAttribute> {
   /**
    * 定制Rating内容区的方法。与
    * [contentModifier]{@link RatingAttribute#contentModifier(modifier: ContentModifier<RatingConfiguration>)}相比，modifier
-   * 参数新增了对undefined类型的支持。
+   * 参数新增了对undefined类型的支持。当modifier的值为undefined时，不使用内容修改器。
    *
    * @param { Optional<ContentModifier<RatingConfiguration>> } modifier - 在Rating组件上，定制内容区的方法。<br/>modifier：内容修改器，开发者需要自
    *     定义class实现ContentModifier接口。<br/>当modifier的值为undefined时，不使用内容修改器。
@@ -444,7 +444,7 @@ declare class RatingAttribute extends CommonMethod<RatingAttribute> {
 }
 
 /**
- * 提供在给定范围内选择评分的组件。
+ * 提供在给定范围内选择评分的组件，通常用于商品评价、内容打分等应用场景。
  * 
  * > **说明：**
  * 
@@ -459,10 +459,10 @@ declare class RatingAttribute extends CommonMethod<RatingAttribute> {
  * | 按键         | 功能描述                        |
  * |------------|-----------------------------|
  * | Tab        | 组件间切换焦点。                    |
- * | 左右方向键   | 评分预览增加/减少（步长为step），不改变实际分值。 |
+ * | 左右方向键   | 评分预览增加/减少（步长为stepSize），不改变实际分值。 |
  * | Home       | 移动到第一个星星， 不改变实际分值。          |
  * | End        | 移动到最后一个星星， 不改变实际分值。         |
- * | Space/Enter | 根据当前评分提交评分结果。               |
+ * | Space/Enter | 将当前预览的评分值设置为实际评分。      |
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel

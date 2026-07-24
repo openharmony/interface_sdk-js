@@ -30,7 +30,7 @@
  */
 declare interface CheckboxOptions {
   /**
-   * 指定多选框名称。
+   * 指定多选框名称，用于标识不同的多选框实例。
    * 
    * 默认值：undefined，取值为undefined无效果。
    *
@@ -62,7 +62,7 @@ declare interface CheckboxOptions {
   group?: string;
 
   /**
-   * 配置多选框的选中样式为自定义组件。自定义组件与Checkbox组件为中心点对齐显示。indicatorBuilder设置为undefined/null时，默认为indicatorBuilder未设置状态。
+   * 配置多选框的选中样式为自定义组件。当需要实现非默认勾选图标的选中样式（如文字、数字、自定义图标等）时使用此参数。自定义组件与Checkbox组件为中心点对齐显示。indicatorBuilder设置为undefined/null时，默认为indicatorBuilder未设置状态，使用默认的勾选图标样式。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -106,7 +106,7 @@ declare interface CheckBoxConfiguration extends CommonConfiguration<CheckBoxConf
   selected: boolean;
 
   /**
-   * 触发多选框选中状态变化。true表示从未选中变为选中，false表示从选中变为未选中。
+   * 触发多选框选中状态变化的回调函数。调用时传入true，多选框被设置为选中状态；传入false，多选框被设置为未选中状态。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -118,7 +118,7 @@ declare interface CheckBoxConfiguration extends CommonConfiguration<CheckBoxConf
 }
 
 /**
- * 提供多选框组件，通常用于某选项的打开或关闭。
+ * 提供多选框组件，用于在多个选项中进行选择。
  * 
  * > **说明：**
  * >
@@ -134,9 +134,9 @@ declare interface CheckBoxConfiguration extends CommonConfiguration<CheckBoxConf
  */
 interface CheckboxInterface {
   /**
-   * 多选框组件。
+   * 提供多选框组件，用于在多个选项中进行选择。
    *
-   * @param { CheckboxOptions } options - 配置多选框的参数。
+   * @param { CheckboxOptions } options - 配置多选框的参数。不传入该参数时，多选框使用默认配置。
    * @returns { CheckboxAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -259,7 +259,7 @@ declare class CheckboxAttribute extends CommonMethod<CheckboxAttribute> {
   shape(value: CheckBoxShape): CheckboxAttribute;
 
    /**
-   * 设置Checkbox组件形状，包括圆形和圆角方形。与[shape]{@link CheckboxAttribute#shape(value: CheckBoxShape)}<sup>11+</sup>相比，shape参数新增了对
+   * 设置Checkbox组件形状。与[shape]{@link CheckboxAttribute#shape(value: CheckBoxShape)}<sup>11+</sup>相比，shape参数新增了对
    * undefined类型的支持。如果想要调整当前Checkbox的样式，需使用
    * [contentModifier]{@link CheckboxAttribute#contentModifier(modifier: ContentModifier<CheckBoxConfiguration>)}属性自定义
    * Checkbox样式。
@@ -337,8 +337,8 @@ declare class CheckboxAttribute extends CommonMethod<CheckboxAttribute> {
   /**
    * 当选中状态发生变化时，触发该回调。
    *
-   * @param { function } callback - 返回选中的状态。 [since 8 - 17]
-   * @param { OnCheckboxChangeCallback } callback - 返回选中的状态。 [since 18]
+   * @param { function } callback - 返回选中的状态，true表示已选中，false表示未选中。 [since 8 - 17]
+   * @param { OnCheckboxChangeCallback } callback - 返回选中的状态，true表示已选中，false表示未选中。 [since 18]
    * @returns { CheckboxAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -353,7 +353,7 @@ declare class CheckboxAttribute extends CommonMethod<CheckboxAttribute> {
    * 当选中状态发生变化时，触发该回调。与[onChange]{@link CheckboxAttribute#onChange(callback: OnCheckboxChangeCallback)}相比，callback参数新增了对
    * undefined类型的支持。
    *
-   * @param { Optional<OnCheckboxChangeCallback> } callback - 返回选中的状态。<br/>当callback的值为undefined时，不使用回调函数。
+   * @param { Optional<OnCheckboxChangeCallback> } callback - 返回选中的状态，true表示已选中，false表示未选中。<br/>当callback的值为undefined时，不使用回调函数。
    * @returns { CheckboxAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -396,7 +396,7 @@ declare class CheckboxAttribute extends CommonMethod<CheckboxAttribute> {
 }
 
 /**
- * 提供多选框组件，通常用于某选项的打开或关闭。
+ * 提供多选框组件，用于在多个选项中进行选择。
  * 
  * > **说明：**
  * >

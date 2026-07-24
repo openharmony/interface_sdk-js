@@ -963,9 +963,8 @@ export class PromptAction {
   /**
    * 创建并显示操作菜单，菜单响应结果使用callback异步回调返回。
    *
-   * @param { promptAction.ActionMenuOptions } options - 操作菜单选项。
-   * @param { AsyncCallback<promptAction.ActionMenuSuccessResponse> } callback - 回调函数。弹出操作菜单成功，err为undefined，
-   *    data为获取到的操作菜单响应结果，否则为错误对象。
+   * @param { promptAction.ActionMenuOptions } options - 操作菜单选项。用于配置操作菜单的显示内容和样式，包括title、buttons等属性。
+   * @param { AsyncCallback<promptAction.ActionMenuSuccessResponse> } callback -  菜单响应结果。
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
    *     <br> 2. Incorrect parameters types.
