@@ -34,10 +34,10 @@ import { CommonEventPublishData } from './commonEvent/commonEventPublishData';
  */
 declare namespace commonEvent {
   /**
-   * 发布公共事件（回调形式）。
+   * 以回调形式发布公共事件。
    *
-   * @param { string } event - 表示要发送的公共事件。
-   * @param { AsyncCallback<void> } callback - 表示指定的回调方法。
+   * @param { string } event - 表示要发布的公共事件。
+   * @param { AsyncCallback<void> } callback - 表示发布公共事件的回调方法。
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 7
    * @deprecated since 9
@@ -46,11 +46,11 @@ declare namespace commonEvent {
   function publish(event: string, callback: AsyncCallback<void>): void;
 
   /**
-   * 以回调的形式发布公共事件。
+   * 以回调形式发布公共事件。
    *
    * @param { string } event - 表示要发布的公共事件。
    * @param { CommonEventPublishData } options - 表示发布公共事件的属性。
-   * @param { AsyncCallback<void> } callback - 表示指定的回调方法。
+   * @param { AsyncCallback<void> } callback - 表示发布公共事件的回调方法。
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 7
    * @deprecated since 9
@@ -61,9 +61,9 @@ declare namespace commonEvent {
   /**
    * 以回调的形式向指定用户发布公共事件。
    *
-   * @param { string } event - 表示要发送的公共事件。
-   * @param { number } userId - 表示指定向该用户ID发送此公共事件。
-   * @param { AsyncCallback<void> } callback - 表示被指定的回调方法。
+   * @param { string } event - 表示要发布的公共事件。
+   * @param { number } userId - 表示指定向该用户ID发布此公共事件。
+   * @param { AsyncCallback<void> } callback - 公共事件发布结果的回调方法。
    * @syscap SystemCapability.Notification.CommonEvent
    * @systemapi
    * @since 8
@@ -76,9 +76,9 @@ declare namespace commonEvent {
    * 以回调形式向指定用户发布公共事件并指定发布信息。
    *
    * @param { string } event - 表示要发布的公共事件。
-   * @param { number } userId - 表示指定向该用户ID发送此公共事件。
+   * @param { number } userId - 表示指定向该用户ID发布此公共事件。
    * @param { CommonEventPublishData } options - 表示发布公共事件的属性。
-   * @param { AsyncCallback<void> } callback - 表示被指定的回调方法。
+   * @param { AsyncCallback<void> } callback - 公共事件发布结果的回调方法。
    * @syscap SystemCapability.Notification.CommonEvent
    * @systemapi
    * @since 8
@@ -123,7 +123,7 @@ declare namespace commonEvent {
    * 以回调形式订阅公共事件。
    *
    * @param { CommonEventSubscriber } subscriber - 表示订阅者对象。
-   * @param { AsyncCallback<CommonEventData> } callback - 表示接收公共事件数据的回调函数。
+   * @param { AsyncCallback<CommonEventData> } callback - 表示接收公共事件数据的回调方法。
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 7
    * @deprecated since 9
