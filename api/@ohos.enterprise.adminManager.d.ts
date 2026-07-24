@@ -33,6 +33,8 @@ import type Want from './@ohos.app.ability.Want';
  * > [MDM Kit Development](docroot://mdm/mdm-kit-guide.md).
  *
  * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+ * @systemapi [since 9 - 11]
+ * @publicapi [since 12]
  * @since 9 dynamic
  * @since 23 static
  */

@@ -32,6 +32,8 @@ import type osAccount from './@ohos.account.osAccount';
  * > 本模块接口仅对设备管理应用开放，且调用接口前需激活设备管理应用，具体请参考[MDM Kit开发指南](docroot://mdm/mdm-kit-guide.md)。
  *
  * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+ * @systemapi [since 10 - 11]
+ * @publicapi [since 12]
  * @since 10
  */
 declare namespace accountManager {
@@ -180,7 +182,7 @@ declare namespace accountManager {
    * @param { string } name - 用户ID，指定具体用户，取值范围：大于等于0。
    * @param { osAccount.OsAccountType } type - 要添加的账号的类型。<br/>取值范围：ADMIN、NORMAL、GUEST。<br/>· ADMIN：管理员账号。<br/>· NORMAL：普
    *     通账号。<br/>· GUEST：访客账号。
-   * @returns { osAccount.OsAccountInfo } Information about the account added.
+   * @returns { osAccount.OsAccountInfo } 返回添加的账号信息。
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 9201003 - Failed to add an OS account.
@@ -243,6 +245,33 @@ declare namespace accountManager {
   function isOsAccountAdditionDisallowed(admin: Want, accountId?: number): boolean;
 
   /**
+   * 查询是否禁止用户添加账号。适用于企业审计和合规检查场景，帮助管理员确认账号策略执行情况。
+   *
+   * @permission ohos.permission.ENTERPRISE_SET_ACCOUNT_POLICY
+   * @param { Want | null } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
+   *     <br>当设备存在多个MDM应用时，API版本26.0.0之前，传入Want时查询对应企业设备管理应用设置的策略。从API版本26.0.0开始，新增支持传入null时查询实际生效的策略。
+   * @param { number } [accountId] - 用户ID，指定具体用户。当不传入此参数时，表示查询所有用户是否禁止添加账号；当传入此参数时，表示查询指定用户是否禁止添加账号。取值范围：大于等于0。
+   *     accountId可以通过getOsAccountLocalId等接口来获取。
+   *     <br>取值应≥0。
+   *     whether specified users are not allowed to add accounts. The value must be greater than or equal to 0.<br>You
+   *     can call the
+   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
+   *     API to obtain the user ID.
+   * @returns { boolean } 返回true表示禁止添加账号。
+   *     返回false表示允许添加账号。
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  function isOsAccountAdditionDisallowed(admin: Want | null, accountId?: number): boolean;
+
+  /**
    * 后台添加账号。使用Promise异步回调。
    *
    * > **说明：**
@@ -254,7 +283,7 @@ declare namespace accountManager {
    * @param { string } name - 账号名，指要添加的账号的名称。无法创建同名、名称为空的账号，创建同名账号时会报错误码9201003，创建名称为空的账号时会报错误码401。
    * @param { osAccount.OsAccountType } type - 要添加的账号的类型。<br/>取值范围：ADMIN、NORMAL、GUEST。<br/>· ADMIN：管理员账号。<br/>· NORMAL：普
    *     通账号。<br/>· GUEST：访客账号。
-   * @returns { Promise<osAccount.OsAccountInfo> } Promise used to return the added account information.
+   * @returns { Promise<osAccount.OsAccountInfo> } Promise对象，返回添加的账号信息。
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 9201003 - Failed to add an OS account.
@@ -316,7 +345,7 @@ declare namespace accountManager {
    * @permission ohos.permission.ENTERPRISE_MANAGE_LOCAL_ACCOUNTS
    * @param { Want } admin - 企业设备管理扩展组件。
    * @param { string } name - 系统账号名称。
-   * @returns { Promise<osAccount.OsAccountInfo> } Returns the information about the added OS account.
+   * @returns { Promise<osAccount.OsAccountInfo> } Promise对象，返回创建的系统账号信息。
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 9200012 - Parameter verification failed.

@@ -34,6 +34,8 @@ import type Want from './@ohos.app.ability.Want';
  * > [@ohos.enterprise.restrictions（限制类策略）]{@link @ohos.enterprise.restrictions:restrictions}。
  *
  * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+ * @systemapi [since 10 - 11]
+ * @publicapi [since 12]
  * @stagemodelonly
  * @since 10
  */
@@ -65,7 +67,7 @@ declare namespace wifiManager {
     WIFI_SEC_TYPE_OPEN = 1,
 
     /**
-     * Wired?Equivalent?Privacy?(WEP)加密类型。
+     * Wired Equivalent Privacy (WEP)加密类型。
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
@@ -74,7 +76,7 @@ declare namespace wifiManager {
     WIFI_SEC_TYPE_WEP = 2,
 
     /**
-     * Pre-shared?key?(PSK)加密类型。 例如家庭、小型办公室Wi-Fi。
+     * Pre-shared key (PSK)加密类型。 例如家庭、小型办公室Wi-Fi。
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
@@ -83,7 +85,7 @@ declare namespace wifiManager {
     WIFI_SEC_TYPE_PSK = 3,
 
     /**
-     * Simultaneous?Authentication?of?Equals?(SAE)加密类型。例如智能家居、中小型企业网络。
+     * Simultaneous Authentication of Equals (SAE)加密类型。例如智能家居、中小型企业网络。
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
@@ -934,6 +936,23 @@ declare namespace wifiManager {
   function getDisallowedWifiList(admin: Want): Array<WifiAccessInfo>;
 
   /**
+   * 获取Wi-Fi禁用名单。
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_WIFI
+   * @param { Want | null } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
+   *     <br>当设备存在多个MDM应用时，传入Want时查询对应企业设备管理应用设置的策略，传入null时查询实际生效的策略。
+   * @returns { Array<WifiAccessInfo> } Array of disallowed Wi-Fi networks.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  function getDisallowedWifiList(admin: Want | null): Array<WifiAccessInfo>;
+
+  /**
    * 添加Wi-Fi允许名单。添加允许名单后当前设备仅允许连接该名单下的Wi-Fi。
    *
    * 以下情况下，调用本接口会报策略冲突：
@@ -988,11 +1007,28 @@ declare namespace wifiManager {
   function getAllowedWifiList(admin: Want): Array<WifiAccessInfo>;
 
   /**
+   * 获取Wi-Fi允许名单。
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_WIFI
+   * @param { Want | null } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
+   *     <br>当设备存在多个MDM应用时，传入Want时查询对应企业设备管理应用设置的策略，传入null时查询实际生效的策略。
+   * @returns { Array<WifiAccessInfo> } Wi-Fi允许名单数组。
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  function getAllowedWifiList(admin: Want | null): Array<WifiAccessInfo>;
+
+  /**
    * 打开Wi-Fi开关。
    *
    * 以下情况下，通过本接口打开Wi-Fi开关，会打开失败并提示"系统功能被禁用"：
    *
-   * ?已经通过
+   * ​已经通过
    * [setDisallowedPolicy]{@link @ohos.enterprise.restrictions:restrictions.setDisallowedPolicy(admin: Want, feature: string, disallow: boolean)}
    * 接口禁用了Wi-Fi。需通过
    * [setDisallowedPolicy]{@link @ohos.enterprise.restrictions:restrictions.setDisallowedPolicy(admin: Want, feature: string, disallow: boolean)}
@@ -1018,7 +1054,7 @@ declare namespace wifiManager {
    *
    * 以下情况下，通过本接口关闭Wi-Fi开关，会提示"系统功能被禁用"：
    *
-   * ?已经通过
+   * ​已经通过
    * [setDisallowedPolicy]{@link @ohos.enterprise.restrictions:restrictions.setDisallowedPolicy(admin: Want, feature: string, disallow: boolean)}
    * 接口禁用了Wi-Fi。需通过
    * [setDisallowedPolicy]{@link @ohos.enterprise.restrictions:restrictions.setDisallowedPolicy(admin: Want, feature: string, disallow: boolean)}

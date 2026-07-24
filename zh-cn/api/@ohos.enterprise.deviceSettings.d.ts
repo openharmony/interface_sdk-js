@@ -31,6 +31,8 @@ import type Want from './@ohos.app.ability.Want';
  * > 本模块接口仅对设备管理应用开放，且调用接口前需激活设备管理应用，具体请参考[MDM Kit开发指南](docroot://mdm/mdm-kit-guide.md)。
  *
  * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+ * @systemapi [since 10 - 11]
+ * @publicapi [since 12]
  * @since 10
  */
 declare namespace deviceSettings {
@@ -969,7 +971,7 @@ declare namespace deviceSettings {
    * @returns { Promise<void> } 无返回结果的Promise对象。当设置桌面壁纸失败后会抛出错误对象。
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 9200012 - The parameter validation failed.
+   * @throws { BusinessError } 9200012 - Parameter verification failed.
    * @throws { BusinessError } 201 - Permission verification failed.
    *     The application does not have the permission required to call the API
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
@@ -989,7 +991,7 @@ declare namespace deviceSettings {
    * @returns { Promise<void> } 无返回结果的Promise对象。当设置锁屏壁纸失败后会抛出错误对象。
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 9200012 - The parameter validation failed.
+   * @throws { BusinessError } 9200012 - Parameter verification failed.
    * @throws { BusinessError } 201 - Permission verification failed.
    *     The application does not have the permission required to call the API
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
@@ -1152,25 +1154,6 @@ declare namespace deviceSettings {
    * @since 26.0.0
    */
   function setSwitchStatus(admin: Want, key: SwitchKey, status: SwitchStatus): void;
-
-  /**
-   * 查询开关的状态。
-   *
-   * @permission ohos.permission.ENTERPRISE_MANAGE_SETTINGS or ohos.permission.PERSONAL_MANAGE_RESTRICTIONS
-   * @param { Want } admin - 企业设备管理扩展组件
-   * @param { SwitchKey } key - 开关名称
-   * @returns { SwitchStatus } 9200001 - 应用没有激活成设备管理器
-   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
-   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed.
-   *     The application does not have the permission required to call the API.
-   * @throws { BusinessError } 801 - Capability not supported.
-   *     Failed to call the API due to limited device capabilities.
-   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @stagemodelonly
-   * @since 26.0.0
-   */
-  function getSwitchStatus(admin: Want, key: SwitchKey): SwitchStatus;
 }
 
 export default deviceSettings;

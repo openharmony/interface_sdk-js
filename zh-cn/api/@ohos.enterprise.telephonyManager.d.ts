@@ -49,6 +49,8 @@ declare namespace telephonyManager {
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
    *     required to call the API.
+   * @throws { BusinessError } 801 - Capability not supported.
+   *     Failed to call the API due to limited device capabilities.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
    * @since 20
@@ -65,6 +67,8 @@ declare namespace telephonyManager {
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
    *     required to call the API.
+   * @throws { BusinessError } 801 - Capability not supported.
+   *     Failed to call the API due to limited device capabilities.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
    * @since 20
@@ -82,6 +86,8 @@ declare namespace telephonyManager {
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
    *     required to call the API.
+   * @throws { BusinessError } 801 - Capability not supported.
+   *     Failed to call the API due to limited device capabilities.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
    * @since 20
@@ -104,7 +110,7 @@ declare namespace telephonyManager {
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 9200010 - A conflict policy has been configured.
-   * @throws { BusinessError } 9200012 - The parameter validation failed.
+   * @throws { BusinessError } 9200012 - Parameter verification failed.
    * @throws { BusinessError } 201 - Permission verification failed.
    *     The application does not have the permission required to call the API.
    * @throws { BusinessError } 203 - This function is prohibited by enterprise management policies.
@@ -133,7 +139,7 @@ declare namespace telephonyManager {
    * @param { Array<string> } numbers - 待移除的通话号码数组。数组总长度不能超过1000。
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 9200012 - The parameter validation failed.
+   * @throws { BusinessError } 9200012 - Parameter verification failed.
    * @throws { BusinessError } 201 - Permission verification failed.
    *     The application does not have the permission required to call the API.
    * @throws { BusinessError } 203 - This function is prohibited by enterprise management policies.
@@ -165,6 +171,26 @@ declare namespace telephonyManager {
   function getOutgoingCallPolicyNumbers(admin: Want, policy: adminManager.Policy): Array<string>;
 
   /**
+   * 获取通话呼出的允许或禁用名单。
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_TELEPHONY
+   * @param { Want | null } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
+   *     <br>当设备存在多个MDM应用时，传入Want时查询对应企业设备管理应用设置的策略，传入null时查询实际生效的策略。
+   * @param { adminManager.Policy } policy - 允许或禁用名单策略。 BLOCK_LIST为禁用名单，TRUST_LIST为允许名单。
+   * @returns { Array<string> } 通话呼出禁用或允许名单的号码数组。
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
+   *     capabilities.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  function getOutgoingCallPolicyNumbers(admin: Want | null, policy: adminManager.Policy): Array<string>;
+
+  /**
    * 添加通话呼入的允许或禁用名单，如果不添加名单，则任意号码都可以呼入，添加后仅名单内的号码允许或禁止呼入。
    *
    * 以下情况下，通过本接口添加通话呼入的允许或禁用名单，会报策略冲突：
@@ -180,7 +206,7 @@ declare namespace telephonyManager {
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 9200010 - A conflict policy has been configured.
-   * @throws { BusinessError } 9200012 - The parameter validation failed.
+   * @throws { BusinessError } 9200012 - Parameter verification failed.
    * @throws { BusinessError } 201 - Permission verification failed.
    *     The application does not have the permission required to call the API.
    * @throws { BusinessError } 203 - This function is prohibited by enterprise management policies.
@@ -205,7 +231,7 @@ declare namespace telephonyManager {
    * @param { Array<string> } numbers - 待移除的通话号码数组。数组总长度不能超过1000。
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 9200012 - The parameter validation failed.
+   * @throws { BusinessError } 9200012 - Parameter verification failed.
    * @throws { BusinessError } 201 - Permission verification failed.
    *     The application does not have the permission required to call the API.
    * @throws { BusinessError } 203 - This function is prohibited by enterprise management policies.
@@ -235,6 +261,26 @@ declare namespace telephonyManager {
    * @since 20
    */
   function getIncomingCallPolicyNumbers(admin: Want, policy: adminManager.Policy): Array<string>;
+
+  /**
+   * 获取通话呼入的允许或禁用名单。
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_TELEPHONY
+   * @param { Want | null } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
+   *     <br>当设备存在多个MDM应用时，传入Want时查询对应企业设备管理应用设置的策略，传入null时查询实际生效的策略。
+   * @param { adminManager.Policy } policy - 允许或禁用名单策略。BLOCK_LIST为禁用名单，TRUST_LIST为允许名单。
+   * @returns { Array<string> } 通话呼入禁用或允许名单的号码数组。
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
+   *     capabilities.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  function getIncomingCallPolicyNumbers(admin: Want | null, policy: adminManager.Policy): Array<string>;
 
   /**
    * 挂断当前通话。仅支持运营商通话，不包括畅联等。
@@ -294,131 +340,6 @@ declare namespace telephonyManager {
    * @since 26.0.0
    */
   function deactiveSim(admin: Want, slotId: number): void;
-
-  /**
-   * 添加发送短信的允许或禁用名单
-   *
-   * @permission ohos.permission.ENTERPRISE_MANAGE_TELEPHONY
-   * @param { Want } admin - 企业设备管理扩展组件
-   * @param { adminManager.Policy } policy - 允许或禁用名单策略。
-   * @param { Array<string> } numbers - 通话号码列表，当前仅支持全号码匹配。
-   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
-   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 9200010 - A conflict policy has been configured.
-   * @throws { BusinessError } 9200012 - The parameter validation failed.
-   * @throws { BusinessError } 201 - Permission verification failed.
-   *     The application does not have the permission required to call the API.
-   * @throws { BusinessError } 203 - This function is prohibited by enterprise management policies.
-   * @throws { BusinessError } 801 - Capability not supported.
-   *     Failed to call the API due to limited device capabilities.
-   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @stagemodelonly
-   * @since 26.0.0
-   */
-  function addSendSmsPolicyNumbers(admin: Want, policy: adminManager.Policy, numbers: Array<string>): void;
-
-  /**
-   * 移除发送短信允许或禁用名单
-   *
-   * @permission ohos.permission.ENTERPRISE_MANAGE_TELEPHONY
-   * @param { Want } admin - 企业设备管理扩展组件
-   * @param { adminManager.Policy } policy - 允许或禁用策略
-   * @param { Array<string> } numbers - 通话号码列表，当前仅支持全号码匹配。
-   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
-   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 9200012 - The parameter validation failed.
-   * @throws { BusinessError } 201 - Permission verification failed.
-   *     The application does not have the permission required to call the API.
-   * @throws { BusinessError } 203 - This function is prohibited by enterprise management policies.
-   * @throws { BusinessError } 801 - Capability not supported.
-   *     Failed to call the API due to limited device capabilities.
-   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @stagemodelonly
-   * @since 26.0.0
-   */
-  function removeSendSmsPolicyNumbers(admin: Want, policy: adminManager.Policy, numbers: Array<string>): void;
-
-  /**
-   * 查询发送短信的允许或禁用名单
-   *
-   * @permission ohos.permission.ENTERPRISE_MANAGE_TELEPHONY
-   * @param { Want | null } admin - 企业设备管理扩展组件
-   * @param { adminManager.Policy } policy - 允许或禁用名单策略。
-   * @returns { Array<string> } phone numbers in the trust/block list.
-   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
-   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed.
-   *     The application does not have the permission required to call the API.
-   * @throws { BusinessError } 801 - Capability not supported.
-   *     Failed to call the API due to limited device capabilities.
-   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @stagemodelonly
-   * @since 26.0.0
-   */
-  function getSendSmsPolicyNumbers(admin: Want | null, policy: adminManager.Policy): Array<string>;
-
-  /**
-   * 添加接收短信的允许或禁用名单
-   *
-   * @permission ohos.permission.ENTERPRISE_MANAGE_TELEPHONY
-   * @param { Want } admin - 企业设备管理扩展组件
-   * @param { adminManager.Policy } policy - 允许或禁用名单策略。
-   * @param { Array<string> } numbers - 接收短信号码列表，当前仅支持全号码匹配。
-   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
-   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 9200010 - A conflict policy has been configured.
-   * @throws { BusinessError } 9200012 - The parameter validation failed.
-   * @throws { BusinessError } 201 - Permission verification failed.
-   *     The application does not have the permission required to call the API.
-   * @throws { BusinessError } 203 - This function is prohibited by enterprise management policies.
-   * @throws { BusinessError } 801 - Capability not supported.
-   *     Failed to call the API due to limited device capabilities.
-   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @stagemodelonly
-   * @since 26.0.0
-   */
-  function addReceiveSmsPolicyNumbers(admin: Want, policy: adminManager.Policy, numbers: Array<string>): void;
-
-  /**
-   * 移除接收短信的允许或禁用名单
-   *
-   * @permission ohos.permission.ENTERPRISE_MANAGE_TELEPHONY
-   * @param { Want } admin - 企业设备管理扩展组件
-   * @param { adminManager.Policy } policy - 允许或禁用名单策略。
-   * @param { Array<string> } numbers - 通话号码列表，当前仅支持全号码匹配。
-   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
-   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 9200012 - The parameter validation failed.
-   * @throws { BusinessError } 201 - Permission verification failed.
-   *     The application does not have the permission required to call the API.
-   * @throws { BusinessError } 203 - This function is prohibited by enterprise management policies.
-   * @throws { BusinessError } 801 - Capability not supported.
-   *     Failed to call the API due to limited device capabilities.
-   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @stagemodelonly
-   * @since 26.0.0
-   */
-  function removeReceiveSmsPolicyNumbers(admin: Want, policy: adminManager.Policy, numbers: Array<string>): void;
-
-  /**
-   * 查询接收短信允许或禁用名单
-   *
-   * @permission ohos.permission.ENTERPRISE_MANAGE_TELEPHONY
-   * @param { Want | null } admin - 企业设备管理扩展组件
-   * @param { adminManager.Policy } policy - 允许或禁用名单策略。
-   * @returns { Array<string> } phone numbers in the trust/block list.
-   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
-   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 9200012 - The parameter validation failed.
-   * @throws { BusinessError } 201 - Permission verification failed.
-   *     The application does not have the permission required to call the API.
-   * @throws { BusinessError } 801 - Capability not supported.
-   *     Failed to call the API due to limited device capabilities.
-   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @stagemodelonly
-   * @since 26.0.0
-   */
-  function getReceiveSmsPolicyNumbers(admin: Want | null, policy: adminManager.Policy): Array<string>;
 
   /**
    * 设置指定卡槽的SIM卡为默认数据流量卡，设备将使用指定卡槽的SIM卡流量上网。该接口需要插入SIM卡并关闭飞行模式才能成功调用。

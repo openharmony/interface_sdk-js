@@ -33,6 +33,8 @@ import type osAccount from './@ohos.account.osAccount';
  * > [MDM Kit Development](docroot://mdm/mdm-kit-guide.md).
  *
  * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+ * @systemapi [since 10 - 11]
+ * @publicapi [since 12]
  * @since 10
  */
 declare namespace accountManager {
@@ -247,11 +249,7 @@ declare namespace accountManager {
    *
    * @permission ohos.permission.ENTERPRISE_SET_ACCOUNT_POLICY
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
-   *     EnterpriseAdminExtensionAbility and the bundle name of the application. [since 12 - 24]
-   * @param { Want | null } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
-   *     EnterpriseAdminExtensionAbility and the bundle name of the application.<br>If the device has multiple MDM
-   *     applications, you can pass **admin** to query the corresponding policies. If **null** is passed, the policies
-   *     that actually take effect on the device are returned. [since 26.0.0]
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
    * @param { number } [accountId] - User ID, which specifies a user. If this parameter is not specified, the system
    *     queries whether all users are not allowed to add accounts. If this parameter is specified, the system queries
    *     whether specified users are not allowed to add accounts. The value must be greater than or equal to 0.<br>You
@@ -269,6 +267,34 @@ declare namespace accountManager {
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
    * @since 12
+   */
+  function isOsAccountAdditionDisallowed(admin: Want, accountId?: number): boolean;
+
+  /**
+   * Queries whether a user is not allowed to add an account.
+   *
+   * @permission ohos.permission.ENTERPRISE_SET_ACCOUNT_POLICY
+   * @param { Want | null } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the.
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.<br>If the device has multiple MDM
+   *     applications, you can pass **admin** to query the corresponding policies. If **null** is passed, the policies
+   *     that actually take effect on the device are returned.
+   * @param { number } [accountId] - User ID, which specifies a user. If this parameter is not specified, the system
+   *     queries whether all users are not allowed to add accounts. If this parameter is specified, the system queries
+   *     whether specified users are not allowed to add accounts. You can call the
+   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
+   *     API to obtain the user ID.
+   *     <br>The value must be greater than or equal to 0.
+   * @returns { boolean } If **true** is returned, accounts cannot be added.
+   *     <br>If **false** is returned, the account can be added.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
    */
   function isOsAccountAdditionDisallowed(admin: Want | null, accountId?: number): boolean;
 
