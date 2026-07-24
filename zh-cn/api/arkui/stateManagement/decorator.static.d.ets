@@ -1471,8 +1471,9 @@ export declare interface IStateMgmtFactory {
    * @param { IVariableOwner } owningView - 拥有全局池的自定义组件
    * @returns { IGlobalReusePoolVariable } 全局重用池句柄。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @unpublished
    * @stagemodelonly
-   * @since 26.0.0 static
+   * @since 26.1.0 static
    */
   makeGlobalReusePool(reusePool: ReusePoolOwnership,
     poolAccepts: Class[], owningView: IVariableOwner): IGlobalReusePoolVariable;
