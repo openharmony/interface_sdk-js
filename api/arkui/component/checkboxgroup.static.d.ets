@@ -20,7 +20,7 @@
 import { CommonMethod, Bindable } from './common';
 import { ResourceColor, MarkStyle } from './units';
 import { CheckBoxShape } from './enums';
-import { ComponentBuilder, CustomBuilder, CustomBuilderT, Builder } from './builder';
+import { ComponentBuilder, CustomBuilder } from './builder';
 import { AttributeModifier, CommonMethod, ContentModifier, CommonConfiguration } from './common';
 /**
  * CheckboxGroup SelectStatus
@@ -247,18 +247,7 @@ export declare interface CheckboxGroupAttribute extends CommonMethod {
      * @since 23 static
      */
     default contentModifier(modifier: ContentModifier<CheckBoxGroupConfiguration> | undefined): this;
-
-    /**
-     * Set checkboxgroup options.
-     *
-     * @param { CheckboxGroupOptions } [options] - checkboxgroup constructor options
-     * @returns { CheckboxGroupAttribute } Returns the instance of the CheckboxGroupAttribute.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 26.0.0 staticonly
-     */
-    default setCheckboxGroupOptions(options?: CheckboxGroupOptions): this;
- }
+}
 
 /**
  * Defines CheckboxGroup Component.
@@ -272,23 +261,6 @@ export declare interface CheckboxGroupAttribute extends CommonMethod {
  */
 @ComponentBuilder
 export declare function CheckboxGroup(
-    options?: CheckboxGroupOptions,
-    content_?: CustomBuilder,
-): CheckboxGroupAttribute
-
-/**
- * Defines CheckboxGroup Component.
- *
- * @param { CustomBuilderT<CheckboxGroupAttribute> } style_ - checkboxgroup attribute instance
- * @param { CustomBuilder } [content_] - container
- * @returns { CheckboxGroupAttribute }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @since 26.0.0 staticonly
- * @noninterop
- */
-@Builder
-export declare function CheckboxGroup(
-    style_: CustomBuilderT<CheckboxGroupAttribute>,
+    options?: CheckboxGroupOptions, 
     content_?: CustomBuilder,
 ): CheckboxGroupAttribute
