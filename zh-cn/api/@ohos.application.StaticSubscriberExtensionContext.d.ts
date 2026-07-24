@@ -35,16 +35,11 @@ import ExtensionContext from './application/ExtensionContext';
  */
 declare class StaticSubscriberExtensionContext extends ExtensionContext {
   /**
-   * 拉起一个静态订阅所属的同应用的Ability。使用callback异步回调。
-   *
-   * 使用规则：
-   *
-   * - 调用方应用位于后台时，使用该接口启动Ability需申请`ohos.permission.START_ABILITIES_FROM_BACKGROUND`权限
-   * - 跨应用场景下，目标Ability的visible属性若配置为false，调用方应用需申请`ohos.permission.START_INVISIBLE_ABILITY`权限
+   * 拉起与静态订阅同属一个应用的Ability。使用callback异步回调。
    *
    * @permission ohos.permission.START_ABILITIES_FROM_BACKGROUND
    * @param { Want } want - 启动Ability的want信息。
-   * @param { AsyncCallback<void> } callback - callback形式返回启动结果。
+   * @param { AsyncCallback<void> } callback - 回调函数，用于接收启动结果。
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
    *     required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -72,12 +67,7 @@ declare class StaticSubscriberExtensionContext extends ExtensionContext {
   startAbility(want: Want, callback: AsyncCallback<void>): void;
 
   /**
-   * 拉起一个静态订阅所属的同应用的Ability。使用Promise异步回调。
-   *
-   * 使用规则：
-   *
-   * - 调用方应用位于后台时，使用该接口启动Ability需申请`ohos.permission.START_ABILITIES_FROM_BACKGROUND`权限
-   * - 跨应用场景下，目标Ability的visible属性若配置为false，调用方应用需申请`ohos.permission.START_INVISIBLE_ABILITY`权限
+   * 拉起与静态订阅同属一个应用的Ability。使用Promise异步回调。
    *
    * @permission ohos.permission.START_ABILITIES_FROM_BACKGROUND
    * @param { Want } want - 启动Ability的want信息。
