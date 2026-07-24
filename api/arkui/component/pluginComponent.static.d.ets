@@ -19,6 +19,7 @@
  */
 
 import { VoidCallback } from './units';
+
 import { ComponentBuilder, CustomBuilder, CustomBuilderT } from './builder';
 import { AttributeModifier, CommonMethod } from './common';
 import { RecordData } from '../../@ohos.base';
@@ -27,104 +28,98 @@ import { Builder } from '@ohos.arkui.component';
 /**
  * PluginComponentTemplate
  *
- * @interface PluginComponentTemplate
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @stagemodelonly
  * @since 23 static
  */
 export interface PluginComponentTemplate {
-    /**
-     * Defines the plugin source name.
-     *
-     * @type { string | undefined }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @systemapi
-     * @stagemodelonly
-     * @since 23 static
-     */
-    source: string | undefined;
-    /**
-     * Defines the bundle name of the Template.
-     *
-     * @type { string | undefined }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @systemapi
-     * @stagemodelonly
-     * @since 23 static
-     */
-    bundleName: string | undefined;
+  /**
+   * Defines the plugin source name.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 static
+   */
+  source: string | undefined;
+  /**
+   * Defines the bundle name of the Template.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 static
+   */
+  bundleName: string | undefined;
 }
 
 /**
  * Define options used to construct a plugin component.
  * AnonyMous Object Rectification
  *
- * @interface PluginComponentOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @stagemodelonly
  * @since 23 static
  */
 export declare interface PluginComponentOptions {
-    /**
-     * Plugin component template.
-     * AnonyMous Object Rectification
-     * @type { PluginComponentTemplate }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @systemapi
-     * @stagemodelonly
-     * @since 23 static
-     */
-    template: PluginComponentTemplate;
-    /**
-     * Plugin component data.
-     * AnonyMous Object Rectification
-     * @type { RecordData }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @systemapi
-     * @stagemodelonly
-     * @since 23 static
-     */
-    data: RecordData;
+  /**
+   * Plugin component template.
+   * AnonyMous Object Rectification
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 static
+   */
+  template: PluginComponentTemplate;
+  /**
+   * Plugin component data.
+   * AnonyMous Object Rectification
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 static
+   */
+  data: RecordData;
 }
 /**
  * Data provided when an error occurs.
  * AnonyMous Object Rectification
  *
- * @interface PluginErrorData
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @stagemodelonly
  * @since 23 static
  */
 export declare interface PluginErrorData {
-    /**
-     * Error code.
-     * AnonyMous Object Rectification
-     * @type { int }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @systemapi
-     * @stagemodelonly
-     * @since 23 static
-     */
-    errcode: int;
-    /**
-     * Error message.
-     * AnonyMous Object Rectification
-     * @type { string }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @systemapi
-     * @stagemodelonly
-     * @since 23 static
-     */
-    msg: string;
+  /**
+   * Error code.
+   * AnonyMous Object Rectification
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 static
+   */
+  errcode: int;
+  /**
+   * Error message.
+   * AnonyMous Object Rectification
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 static
+   */
+  msg: string;
 }
 /**
  * Callback invoked when an error occurs.
  * AnonyMous Object Rectification
  *
- * @typedef { function } PluginErrorCallback
  * @param { PluginErrorData } info - Plugin error data
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
@@ -136,13 +131,11 @@ export type PluginErrorCallback = (info: PluginErrorData) => void;
 /**
  * Defines the plugin component attribute functions.
  *
- * @extends CommonMethod
- * @typedef PluginComponentAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @stagemodelonly
- * @noninterop
  * @since 23 static
+ * @noninterop
  */
 export declare interface PluginComponentAttribute extends CommonMethod {
     /**
@@ -158,45 +151,46 @@ export declare interface PluginComponentAttribute extends CommonMethod {
      */
     setPluginComponentOptions(options: PluginComponentOptions): this;
 
-    /**
-     * PluginComponent onComplete callback
-     * AnonyMous Object Rectification
-     *
-     * @param { VoidCallback | undefined } callback
-     * @returns { PluginComponentAttribute }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @systemapi
-     * @stagemodelonly
-     * @since 23 static
-     */
-    onComplete(callback: VoidCallback | undefined): this;
-    /**
-     * PluginComponent onError callback
-     * AnonyMous Object Rectification
-     *
-     * @param { PluginErrorCallback | undefined } callback
-     * @returns { PluginComponentAttribute }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @systemapi
-     * @stagemodelonly
-     * @since 23 static
-     */
-    onError(callback: PluginErrorCallback | undefined): this;
-    /**
-     * Set the attribute modifier of PluginComponent Component.
-     *
-     * @param { AttributeModifier<PluginComponentAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
-     * @returns { PluginComponentAttribute }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @systemapi
-     * @stagemodelonly
-     * @since 23 static
-     */
-    attributeModifier(modifier: AttributeModifier<PluginComponentAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+  /**
+   * PluginComponent onComplete callback
+   * AnonyMous Object Rectification
+   *
+   * @param { VoidCallback | undefined } callback
+   * @returns { PluginComponentAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 static
+   */
+  onComplete(callback: VoidCallback | undefined): this;
+  /**
+   * PluginComponent onError callback
+   * AnonyMous Object Rectification
+   *
+   * @param { PluginErrorCallback | undefined } callback
+   * @returns { PluginComponentAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 static
+   */
+  onError(callback: PluginErrorCallback | undefined): this;
+  /**
+   * Set the attribute modifier of PluginComponent Component.
+   *
+   * @param { AttributeModifier<PluginComponentAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
+   * @returns { PluginComponentAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 static
+   */
+  attributeModifier(modifier: AttributeModifier<PluginComponentAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
 
 /**
  * Defines PluginComponent Component.
+ *
  * @param { PluginComponentOptions } options - The options
  * @returns { PluginComponentAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -207,10 +201,11 @@ export declare interface PluginComponentAttribute extends CommonMethod {
 @ComponentBuilder
 export declare function PluginComponent(
     options: PluginComponentOptions
-): PluginComponentAttribute
+): PluginComponentAttribute;
 
 /**
- * Defines PluginComponent Component.It requires call setPluginComponentOptions at start of the component attribute set-up,
+ * Defines PluginComponent Component.It requires call setPluginComponentOptions at start
+ * of the component attribute set-up,
  * and it requires call applyAttributeFinish at the end of the component attribute set-up.
  *
  * @param { CustomBuilderT<PluginComponentAttribute> } style - the callback to set up plugincomponent's attributes.
@@ -224,4 +219,4 @@ export declare function PluginComponent(
 @Builder
 export declare function PluginComponent(
     style: CustomBuilderT<PluginComponentAttribute>
-): PluginComponentAttribute
+): PluginComponentAttribute;

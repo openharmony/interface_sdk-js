@@ -4011,6 +4011,7 @@ export declare class UIContext {
    * Dispach keyboard event to the frameNode with inspector key.
    *
    * @param { int | string } node - The uniqueId or inspector key of the target FrameNode.
+   * @param { KeyEvent } event - The keyboard event.
    * @returns { boolean } Returns whether the key event is consumed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
