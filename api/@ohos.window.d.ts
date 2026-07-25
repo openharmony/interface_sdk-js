@@ -14562,7 +14562,7 @@ declare namespace window {
      * @throws { BusinessError } 1300016 - Parameter error. Possible cause:
      *     1. Invalid parameter range. 2. Invalid parameter length.
      * @syscap SystemCapability.Window.SessionManager
-     * @systemapi Hide this for inner system use. [since 22 - 24]
+     * @systemapi [since 22 - 24]
      * @publicapi [since 26.0.0]
      * @stagemodelonly
      * @since 22 dynamic
@@ -14586,7 +14586,7 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
-     * @systemapi Hide this for inner system use. [since 22 - 24]
+     * @systemapi [since 22 - 24]
      * @publicapi [since 26.0.0]
      * @stagemodelonly
      * @since 22 dynamic
