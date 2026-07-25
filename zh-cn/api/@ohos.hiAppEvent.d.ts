@@ -19,35 +19,34 @@
  */
 
 import type { AsyncCallback } from './@ohos.base';
-
 /**
- * # 使用说明
- * 
+ * ###### 使用说明
+ *
  * 开发者在使用应用事件打点功能前，需要首先了解应用事件相关的参数规格定义。
- * 
+ *
  * **事件名称**
- * 
+ *
  * 事件名称为string类型，字符串非空且长度在48个字符以内，首字符必须为字母字符或$字符，中间字符必须为数字字符、字母字符或下划线字符，结尾字符必须为数字字符或字母字符。
- * 
+ *
  * **事件类型**
- * 
+ *
  * 事件类型为[EventType]{@link hiAppEvent.EventType}枚举类型。
- * 
+ *
  * **事件参数**
- * 
+ *
  * 事件参数为object类型，key为事件的参数名称，value为事件的参数值，其规格定义如下：
- * 
+ *
  * - 参数名为string类型，字符串非空且长度在32个字符以内，首字符必须为字母字符或$字符，中间字符必须为数字字符、字母字符或下划线字符，结尾字符必须为数字字符或字母字符；
  * - 参数值支持string、number、boolean、数组类型；
  * - 参数值为string类型时，其长度需在8*1024个字符以内，超出会做丢弃处理；
  * - 参数值为number类型时，其取值需在Number.MIN_SAFE_INTEGER~Number.MAX_SAFE_INTEGER范围内，超出可能会产生不确定值；
  * - 参数值为数组类型时，数组中的元素类型只能全为string、number、boolean中的一种，且元素个数需在100以内，超出会做丢弃处理；
  * - 参数个数需在32以内，超出的参数会做丢弃处理。
- * 
+ *
  * **事件回调**
- * 
+ *
  * 开发者在调用事件打点方法后，可以在回调函数中对打点返回值进行处理，当前支持callback形式和Promise形式的回调，其返回值规格定义如下：
- * 
+ *
  * - 返回值为0，表示事件校验成功，将事件直接落盘到事件文件；
  * - 返回值大于0，表示事件校验存在异常参数，在忽略异常参数后将事件落盘到事件文件；
  * - 返回值小于0，表示事件校验失败，不将事件落盘到事件文件。
@@ -66,7 +65,7 @@ import type { AsyncCallback } from './@ohos.base';
  */
 declare namespace hiAppEvent {
   /**
-   * 枚举事件类型。
+   * 事件类型枚举。
    *
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @since 7 dynamiconly
@@ -75,7 +74,7 @@ declare namespace hiAppEvent {
    */
   enum EventType {
     /**
-     * 故障事件。
+     * 故障类型事件。
      *
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @since 7 dynamiconly
@@ -85,7 +84,7 @@ declare namespace hiAppEvent {
     FAULT = 1,
 
     /**
-     * 统计事件。
+     * 统计类型事件。
      *
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @since 7 dynamiconly
@@ -95,7 +94,7 @@ declare namespace hiAppEvent {
     STATISTIC = 2,
 
     /**
-     * 安全事件。
+     * 安全类型事件。
      *
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @since 7 dynamiconly
@@ -105,7 +104,7 @@ declare namespace hiAppEvent {
     SECURITY = 3,
 
     /**
-     * 用户行为事件。
+     * 行为类型事件。
      *
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @since 7 dynamiconly
@@ -131,7 +130,7 @@ declare namespace hiAppEvent {
    */
   namespace Event {
     /**
-     * 用户登录
+     * 用户登录事件。
      *
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @since 7 dynamiconly
@@ -177,7 +176,7 @@ declare namespace hiAppEvent {
    */
   namespace Param {
     /**
-     * 用户ID。
+     * 用户自定义ID。
      *
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @since 7 dynamiconly
@@ -197,7 +196,7 @@ declare namespace hiAppEvent {
     const DISTRIBUTED_SERVICE_NAME: string;
 
     /**
-     * 分布式服务实例id。
+     * 分布式服务实例ID。
      *
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @since 7 dynamiconly
@@ -257,7 +256,7 @@ declare namespace hiAppEvent {
    */
   interface ConfigOption {
     /**
-     * 应用打点功能开关。配置值为true表示关闭打点功能，false表示不关闭打点功能。
+     * 应用打点功能开关，默认值为false。配置值为true表示关闭打点功能，false表示不关闭打点功能。
      *
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @since 7 dynamiconly
@@ -267,7 +266,7 @@ declare namespace hiAppEvent {
     disable?: boolean;
 
     /**
-     * 打点数据本地存储文件所在目录的配额大小，默认限额为“10M”。所在目录大小超出限额后会对目录进行清理操作，会按从旧到新的顺序逐个删除打点数据文件，直到目录大小不超出限额时停止。
+     * 打点数据本地存储文件所在目录的配额大小，默认限额为“10MB”。所在目录大小超出限额后会对目录进行清理操作，会按从旧到新的顺序逐个删除打点数据文件，直到目录大小不超出限额时停止。
      *
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @since 7 dynamiconly
