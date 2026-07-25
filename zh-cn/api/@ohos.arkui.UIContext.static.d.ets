@@ -157,31 +157,30 @@ export declare class MediaQuery {
 }
 
 /**
-* class UIInspector
+ * 提供注册组件布局和组件绘制送显完成回调通知的能力。送显指节点的绘制命令发送到图形服务并完成显示。例如，开发者可在组件布局完成后获取组件精确尺寸，或在送显完成后执行截图、动画同步等操作，适用于需要精确感知组件布局和绘制时机的场景。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  */
 export declare class UIInspector {
-
   /**
-   * 创建当前节点或者当前节点的子节点的布局和送显的事件监听句柄。
+   * 注册组件布局和组件绘制送显完成回调通知。例如，开发者可在组件布局完成后获取组件精确尺寸，或在送显完成后执行截图、动画同步等操作。
    *
-   * @param { string } id - 当前节点的inspector key或者唯一id。
-   * @returns { inspector.ComponentObserver } Component observer, which is used to register or unregister listeners
-   *     for completion of component layout or drawing display.
+   * @param { string } id - 指定组件id，该id通过通用属性id或者key设置。
+   * @returns { inspector.ComponentObserver } 组件回调事件监听句柄，用于注册和取消注册监听回调。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
   createComponentObserver(id: string): inspector.ComponentObserver;
-
   /**
-   * 创建当前节点或者当前节点的子节点的布局和送显的事件监听句柄。
+   * 注册组件布局和组件绘制送显完成回调通知。送显指节点的绘制命令发送到图形服务并完成显示。例如，开发者可在组件布局完成后获取组件精确尺寸，或在送显完成后执行截图、动画同步等操作。
+   * 相比createComponentObserver，新增支持传入UniqueID（系统为节点分配的唯一标识）。
    *
-   * @param { string | int } id - 当前节点的inspector key或者唯一id。
-   * @returns { inspector.ComponentObserver } Component observer, which is used to register or unregister listeners
-   *     for completion of component layout or drawing display.
+   * @param { string | int } id - 类型为string时，为指定的组件id，该id通过通用属性id或者key设置。使用组件id创建监听句柄时，请确保该id对应的组件已经存在，否则后续监听无法生效。
+   *     类型为int时，为系统为节点分配的唯一标识UniqueID，UniqueID通过getUniqueId获取。
+   *     使用UniqueID创建监听句柄时，请确保UniqueID对应的节点已经存在，否则后续监听无法生效。int的取值范围为1~2147483647的整数。
+   * @returns { inspector.ComponentObserver } 组件回调事件监听句柄，用于注册和取消注册监听回调。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -3718,9 +3717,9 @@ export declare class UIContext {
   getMediaQuery(): MediaQuery;
 
   /**
-   * get object UIInspector.
+   * 获取**UIInspector**对象。
    *
-   * @returns { UIInspector }    **UIInspector**对象。
+   * @returns { UIInspector } 返回UIInspector实例对象。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -3728,8 +3727,8 @@ export declare class UIContext {
   getUIInspector(): UIInspector;
 
   /**
-   * get the filtered attributes of the component tree.
-   *
+   * 获取组件树和组件属性。该接口处理时间较长，适用于
+   * <br>testing scenarios only.
    * @param { Array<string> } [filters] - List of component attributes used for filtering. Currently, only the following
    *     filter fields are supported:
    *     <br>**"id"**: unique ID of the component.
@@ -3753,11 +3752,13 @@ export declare class UIContext {
   getFilteredInspectorTree(filters?: Array<string>): string;
 
   /**
-   * get the filtered attributes of the component tree with the specified id and depth
-   *
+   * 获取指定组件及其子组件的属性。该接口处理时间较长，
+   * <br>and is intended for testing scenarios only.
    * @param { string } id - [ID]{@link CommonMethod#id} of the target component.
-   * @param { int } depth - depth of the component tree to be obtained.
-   *     <br>取值限定为整数。
+   * @param { int } depth - Number of layers of child components. If the value is **0**, the attributes of the
+   *     specified component and all its child components are obtained. If the value is **1**, only the attributes of
+   *     <br>the specified component are obtained. If the value is **2**, the attributes of the specified component and its
+   *     <br>level-1 child components are obtained. The rest can be deduced by analogy.
    * @param { Array<string> } [filters] - List of component attributes used for filtering. Currently, only the following
    *     filter fields are supported:
    *     <br>**"id"**: unique ID of the component.
@@ -4014,6 +4015,7 @@ export declare class UIContext {
    * Dispach keyboard event to the frameNode with inspector key.
    *
    * @param { int | string } node - The uniqueId or inspector key of the target FrameNode.
+   * @param { KeyEvent } event - The keyboard event.
    * @returns { boolean } Returns whether the key event is consumed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
