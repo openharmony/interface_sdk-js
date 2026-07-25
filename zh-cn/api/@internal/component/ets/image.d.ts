@@ -1132,22 +1132,14 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * >
    * > API version 11及之前，SVG类型图源不支持该属性。从API version 12开始，SVG类型的图源只有设置了stroke属性（无论是否有值）才会生效。
    *
-   * @param { ColorFilter } value - 1. Color filter of the image. The input parameter is a 4 x 5 RGBA transformation
-   *     matrix.<br>2. The ColorFilter type of **@ohos.graphics.drawing** can be used as an input parameter since API
-   *     version 12.<br>**NOTE**<br>This parameter is not available for SVG images in API version 11 and earlier
-   *     versions.<br>The DrawingColorfilter type can be used in atomic services since API version 12. For SVG sources,
-   *     the effect only applies when the **stroke** property is set (regardless of the value).<br>Since API version 21,
-   *     when [supportSvg2]{@link ImageAttribute#supportSvg2} is set to **true**, **colorFilter** takes effect on the
-   *     entire SVG image source. [since 9 - 11]
+   * @param { ColorFilter } value - 1. 图片的颜色滤镜。输入参数为一个 4 x 5 的 RGBA 变换矩阵。
+   *     2. 从 API 版本 12 开始，可以使用 **@ohos.graphics.drawing** 中的 ColorFilter 类型作为输入参数。**注意**<br>在 API 版本 11 及更早版本中，此参数对 SVG 图片无效。
+   *     从 API 版本 12 起，DrawingColorfilter 类型可在原子化服务中使用。对于 SVG 源，仅当设置了 **stroke** 属性时（无论其值如何），该效果才生效。
+   *     从 API 版本 21 开始，当 [supportSvg2]{@link ImageAttribute#supportSvg2} 设置为 **true** 时，**colorFilter** 将作用于整个 SVG 图片源。[since 9 - 11]
    * @param { ColorFilter | DrawingColorFilter } value - 1. 给图像设置颜色滤镜效果，入参为一个4x5的RGBA转换矩阵。<br/>2. 从API version12开始支持@
    *     ohos.graphics.drawing的ColorFilter类型作为入参。<br/>**说明：** <br/>API version 11及之前，SVG类型图源不支持该属性。<br/>从API version 12开
    *     始，该接口中的DrawingColorFilter类型支持在原子化服务中使用。其中，SVG类型的图源只有设置了stroke属性（无论是否有值）才会生效。<br/>从API version 21开始，当
-   *     [supportSvg2]{@link ImageAttribute#supportSvg2}属性设置为true时，colorFilter属性对整个SVG图源起作用。 [since 12]*@ohos.graphics.drawing** can be used as an input
-   *     parameter since API version 12.<br>**NOTE**<br>This parameter is not available for SVG images in API version 11
-   *     and earlier versions.<br>The DrawingColorfilter type can be used in atomic services since API version 12. For
-   *     SVG sources, the effect only applies when the **stroke** property is set (regardless of the value).<br>Since
-   *     API version 21, when [supportSvg2]{@link ImageAttribute#supportSvg2} is set to **true**, **colorFilter** takes
-   *     effect on the entire SVG image source. [since 12]
+   *     [supportSvg2]{@link ImageAttribute#supportSvg2}属性设置为true时，colorFilter属性对整个SVG图源起作用。 [since 12]
    * @returns { ImageAttribute }
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
