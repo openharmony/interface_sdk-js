@@ -795,6 +795,10 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    *
    * 当组件的参数类型为[AnimatedDrawableDescriptor]{@link @ohos.arkui.drawableDescriptor:AnimatedDrawableDescriptor}时设置该属性不生效。
    *
+   * @param { string | Resource } value - 加载过程中显示的占位图。支持本地图片（PNG、JPG、BMP、
+   *     SVG、GIF 或 HEIF 格式），但不支持在线图片。<br>- 支持 Base64 字符串。<br>- 支持以 **file://** 路径为前缀的字符串（应用沙箱 URI：**file://<bundleName>/<sandboxPath>**）。
+   *     有关如何构造应用沙箱路径 URI 的详细信息，请参见[constructor]{@link @ohos.file.fileuri:fileUri.FileUri#constructor}。
+   *     沙箱路径必须使用[fileUri.getUriFromPath(path)]{@link @ohos.file.fileuri:fileUri.getUriFromPath} API 转换为应用沙箱 URI 后再传入以进行显示。此外，请确保应用具有指定路径下文件的读取权限。<br>默认值：**null**<br>当该值从有效值（可正确解析并加载的图片资源）切换为无效值（无法解析或加载的图片路径）时，组件将保留先前成功加载的图片内容，不会清除或重置它。[since 7 - 11]
    * @param { string | Resource | PixelMap } value - 设置图片加载过程中显示的占位图，支持本地图片（png、jpg、bmp、svg、gif和heif类型），支持
    *     [PixelMap]{@link @ohos.multimedia.image:image.PixelMap}类型图片，不支持网络图片。
    *     <br>- 支持`Base64`字符串。
