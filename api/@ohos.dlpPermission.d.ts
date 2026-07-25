@@ -2227,7 +2227,7 @@ declare namespace dlpPermission {
      *     <br>The maximum length is 100.
      *     <br>The value range of Array is [0, 100], and the value range of String is [0, 4096].
      * @param { number } [userId] - The target userId for which the controlled app list is configured.
-     *     If not specified, the current user is used by default。
+     *     If not specified, the current user is used by default.
      *     <br>The value should be an integer.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 201 - Permission denied.
