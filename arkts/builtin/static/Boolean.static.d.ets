@@ -26,8 +26,7 @@
  * @stagemodelonly
  * @since 24 staticonly
  */
-class Boolean extends Object implements Comparable<boolean> {
-
+export class Boolean extends Object implements Comparable<boolean> {
     /**
      * Constructs a new Boolean with provided value
      *
@@ -110,6 +109,16 @@ class Boolean extends Object implements Comparable<boolean> {
     constructor(value: float);
 
     /**
+     * Constructs a new Boolean with provided number value
+     *
+     * @param { double } value - value to construct class instance with
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    public constructor(value: double);
+
+    /**
      * Constructs a new Boolean with provided string value
      *
      * @param { string } value - value to construct class instance with
@@ -170,4 +179,112 @@ class Boolean extends Object implements Comparable<boolean> {
      * @since 24 staticonly
      */
     toBoolean(): boolean;
+
+    /**
+     * Checks for equality this instance with provided object, treated as a Boolean Returns false if type of provided
+     * object is not the same as this type
+     *
+     * @param { Any } other - object to be checked against
+     * @returns { boolean } True if the objects are equal, false otherwise
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    public equals(other: Any): boolean;
+
+    /**
+     * Converts the primitive to a string
+     *
+     * @param { boolean } v - value to be converted
+     * @returns { string } The string representation of the boolean value
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    public static toString(v: boolean): string;
+
+    /**
+     * Converts this object to a string
+     *
+     * @returns { string } The string representation of this Boolean object
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    public toString(): string;
+
+    /**
+     * Compares this instance to other Boolean object The result is less than 0 if this instance lesser than provided
+     * object 0 if they are equal and greater than 0 otherwise.
+     *
+     * @param { Boolean } other - Boolean object to compare with
+     * @returns { int } Negative if this < other,0 if equal, positive if this > other
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    public compareTo(other: Boolean): int;
+
+    /**
+     * Checks if this instance is true
+     *
+     * @returns { boolean } True if the instance value is true, false otherwise
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    public isTrue(): boolean;
+
+    /**
+     * Checks if this instance is false
+     *
+     * @returns { boolean } True if the instance value is false, false otherwise
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    public isFalse(): boolean;
+
+    /**
+     * Inverts this instance value
+     *
+     * @returns { Boolean } The logical negation of this Boolean instance
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    public negate(): Boolean;
+
+    /**
+     * Does logical `and` on this instance and provided instance
+     *
+     * @param { Boolean } other - provided instance
+     * @returns { Boolean } The logical AND result of both Boolean instances
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    public and(other: Boolean): Boolean;
+
+    /**
+     * Does logical `or` on this instance and provided instance
+     *
+     * @param { Boolean } other - provided instance
+     * @returns { Boolean } The logical OR result of both Boolean instances
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    public or(other: Boolean): Boolean;
+
+    /**
+     * Does `xor` on this instance and provided instance
+     *
+     * @param { Boolean } other - provided instance
+     * @returns { Boolean } The logical XOR result of both Boolean instances
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    public xor(other: Boolean): Boolean;
 }

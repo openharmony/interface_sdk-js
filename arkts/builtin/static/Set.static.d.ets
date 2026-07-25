@@ -20,13 +20,92 @@
  */
 
 /**
+ * ReadonlySet implementation.
+ *
+ * @syscap SystemCapability.Utils.Lang
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ */
+export interface ReadonlySet<T> extends Iterable<T> {
+    /**
+     * Checks if a value is in the Set.
+     *
+     * @param { T } value - the value to find in the Set.
+     * @returns { boolean } true if the value is in the Set.
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    has(value: T): boolean;
+
+    /**
+     * Returns the number of unique elements in the Set.
+     *
+     * @returns { int } the number of unique elements in the Set.
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    get size(): int;
+
+    /**
+     * Executes a provided function once per each value in the Set object, in insertion order.
+     *
+     * @param { Function } callbackfn - the function to apply.
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    forEach(callbackfn: (value: T, value2: T, set: ReadonlySet<T>) => void): void;
+
+    /**
+     * Despite name, returns elements from the Set.
+     *
+     * @returns { IterableIterator<T> } an iterable of the values in the Set.
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    keys(): IterableIterator<T>;
+
+    /**
+     * Returns elements from the Set.
+     *
+     * @returns { IterableIterator<T> } an iterable of the values in the Set.
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    values(): IterableIterator<T>;
+
+    /**
+     * Returns an iterable of [v, v] pairs for every value in the Set.
+     *
+     * @returns { IterableIterator<[T, T]> } an iterable of [v, v] pairs.
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    entries(): IterableIterator<[T, T]>;
+}
+
+/**
+ * SetIterator implementation.
+ *
+ * @syscap SystemCapability.Utils.Lang
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ */
+export interface SetIterator<T> extends IterableIterator<T> {}
+
+/**
  * Set implementation.
  *
  * @syscap SystemCapability.Utils.Lang
  * @stagemodelonly
  * @since 24 staticonly
  */
-class Set<K> implements ReadonlySet<K> {
+export class Set<K> implements ReadonlySet<K> {
     /**
      * Creates a new Set instance with the specified number of buckets.
      *
@@ -88,4 +167,96 @@ class Set<K> implements ReadonlySet<K> {
      * @since 24 staticonly
      */
     $_iterator(): IterableIterator<K>;
+
+    /**
+     * Converts this Set to a String.
+     *
+     * @returns { string } A string representing the Set.
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    toString(): string;
+
+    /**
+     * Puts a value into the Set.
+     *
+     * @param { K } val - the value to put into the Set.
+     * @returns { this } Add value Set.
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    add(val: K): this;
+
+    /**
+     * Checks if a value is in the Set.
+     *
+     * @param { K } val - the value to find in the Set.
+     * @returns { boolean } true if the value is in the Set.
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    has(val: K): boolean;
+
+    /**
+     * Removes a value from the Set.
+     *
+     * @param { K } val - the value to remove.
+     * @returns { boolean } true if the value was removed.
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    delete(val: K): boolean;
+
+    /**
+     * Deletes all elements from the Set.
+     *
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    clear(): void;
+
+    /**
+     * Despite name, returns elements from the Set.
+     *
+     * @returns { IterableIterator<K> } an iterable of the values in the Set.
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    keys(): IterableIterator<K>;
+
+    /**
+     * Returns elements from the Set.
+     *
+     * @returns { IterableIterator<K> } an iterable of the values in the Set.
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    values(): IterableIterator<K>;
+
+    /**
+     * Returns an iterable of [v, v] pairs for every value in the Set.
+     *
+     * @returns { IterableIterator<[K, K]> } an iterable of [v, v] pairs.
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    entries(): IterableIterator<[K, K]>;
+
+    /**
+     * Executes a provided function once per each value in the Set object, in insertion order.
+     *
+     * @param { Function } callbackfn - the function to apply.
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    forEach(callbackfn: (k: K, v: K, set: Set<K>) => void): void;
 }
