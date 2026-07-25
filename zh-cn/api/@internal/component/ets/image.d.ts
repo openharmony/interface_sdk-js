@@ -445,10 +445,7 @@ interface ImageInterface {
    * > **说明：**
    * >
    * > - Image直接传入URL可能会带来的潜在性能问题，例如：(1) 大图加载时无法提前下载，白块显示的时间较长；(2) 小图设置同步加载，在弱网环境下，可能会阻塞UI线程造成冻屏问题；(3) 在快速滑动的瀑布流中，无法提前对即
-   * > 将要显示的图片进行下载，导致滑动白块较多。不同场景下，性能问题会有不同的表现，建议将网络下载部分与Image的显示剥离，可提前下载或者异步下载。如果图片加载过程中出现白色块，请参考
-   * > [Image白块解决方案](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-image-white-lump-solution)。如果图片加载时
-   * > 间过长，请参考
-   * > [预置图片资源加载优化](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-texture-compression-improve-performance)。
+   * > 将要显示的图片进行下载，导致滑动白块较多。不同场景下，性能问题会有不同的表现，建议将网络下载部分与Image的显示剥离，可提前下载或者异步下载。
    * >
    * > - src由有效值（可正常解析并加载的图片资源）切换为无效值（无法解析或加载的图片路径）时，组件保持显示此前成功加载的图片内容，不进行清除或重置操作。
    * >
@@ -475,9 +472,7 @@ interface ImageInterface {
    *     [使用相对路径显示图片](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-image.md#示例25使用相对路径显示图片)时，不支持跨包/跨模块调用该
    *     Image组件，建议使用Resource格式来管理需全局使用的图片资源。
    *     <br>从DevEco Studio 6.0.0 Beta2版本开始，新建工程或模块时，默认创建的模块不会对非resource目录下的资源进行打包，需使能相关开关：模块的build-profile.json5中
-   *     buildOption > resOptions > copyCodeResource > enable 设置为true，详见
-   *     [resOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-hvigor-build-profile#section754823013348)
-   *     中相关介绍。
+   *     buildOption > resOptions > copyCodeResource > enable 设置为true。
    *     <br>- 支持`Base64`字符串。
    *     <br>- 传入的字符串为https网络图片地址时，建议参考
    *     [示例2（下载与显示静态网络图片）](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-image.md#示例2下载与显示静态网络图片)。
@@ -768,13 +763,6 @@ declare class ColorContent {
  * > - Image组件播放GIF动图时，帧时长取自GIF文件中各帧的delay time字段。当某帧的时长值小于等于0时， 
  * >   系统会将其修正为100ms； 
  * >   当某帧的时长值大于0时，系统直接使用该原始值，不做最小帧时长限制。 
- * > 
- * > - 如果图片加载过程中出现白色块，请参考[Image白块问题解决方案] 
- * >   (https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-image-white-lump-solution)。 
- * >   如果图片加载时间过长， 
- * >   请参考[预置图片资源加载优化] 
- * >   (https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-texture-compression-improve- 
- * >    performance#section91526132216)。 
  * > 
  *
  * 除支持[通用事件]{@link ./common}外，还支持以下事件：
@@ -1108,8 +1096,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    *
    * 当组件的参数类型为[AnimatedDrawableDescriptor]{@link @ohos.arkui.drawableDescriptor:AnimatedDrawableDescriptor}时设置该属性不生效。
    *
-   * 如果加载图片时出现闪烁，设置syncLoad为true。详情请参见
-   * [并发优化](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-click-to-click-response-optimization#section715115119192)。
+   * 如果加载图片时出现闪烁，设置syncLoad为true。
    *
    * @param { boolean } value - 是否同步加载图片，默认是异步加载。同步加载时阻塞UI线程，不会显示占位图。<br/>默认值：false，false表示异步加载图片，true表示同步加载图片。<br/>阻塞主线
    *     程超过6s将导致AppFreeze，具体参考[AppFreeze（应用冻屏）检测](docroot://dfx/appfreeze-guidelines.md)。
@@ -1790,13 +1777,6 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
  * > - 动图的播放依赖于Image节点的可见性变化，其默认行为是不播放的。当节点可见时，通过回调启动动画，当节点不可见时，停止动画。可见性状态的判断是通过
  * > [onVisibleAreaChange]{@link CommonMethod#onVisibleAreaChange(ratios: Array<number>, event: VisibleAreaChangeCallback)}
  * > 事件触发的，当可见阈值ratios大于0时，表明Image处于可见状态。
- * >
- * > - Image组件播放GIF动图时，帧时长取自GIF文件中各帧的delay time字段。当某帧的时长值小于等于0时，系统会将其修正为100ms；当某帧的时长值大于0时，系统直接使用该原始值，不做最小帧时长限制。
- * >
- * > - 如果图片加载过程中出现白色块，请参考
- * > [Image白块问题解决方案](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-image-white-lump-solution)。如果图片加载时
- * > 间过长，请参考
- * > [预置图片资源加载优化](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-texture-compression-improve-performance#section91526132216)。
  *
  * 需要权限
  *
@@ -1973,8 +1953,8 @@ declare interface ResizableOptions {
    *
    * **说明：**
    *
-   * 通过@ohos.graphics.drawing的
-   * [createImageLattice]{@link @ohos.graphics.drawing:drawing.Lattice.createImageLattice(xDivs: Array<number>, yDivs: Array<number>, fXCount: number, fYCount: number, fBounds?: common2D.Rect | null, fRectTypes?: Array<RectType> | null, fColors?: Array<common2D.Color> | null)}
+   * 通过@ohos.graphics.drawing的[createImageLattice]{@link @ohos.graphics.drawing:drawing.Lattice.createImageLattice
+   * (xDivs: Array<number>, yDivs: Array<number>, fXCount: number, fYCount: number, fBounds?: common2D.Rect | null, fRectTypes?: Array<RectType> | null, fColors?: Array<common2D.Color> | null)}
    * 接口创建Lattice类型作为入参。将图像划分为矩形网格，同时处于偶数列和偶数行上的网格图像是固定的，不会被拉伸。其他位置的网格图像会根据slice进行拉伸。
    *
    * 该参数对[backgroundImageResizable]{@link CommonMethod#backgroundImageResizable}接口不生效。
