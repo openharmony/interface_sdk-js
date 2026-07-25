@@ -38,28 +38,26 @@ declare enum ImageAnalyzerType {
   SUBJECT = 0,
 
   /**
-   * 文字识别功能。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
    * @since 12 dynamic
    */
-  TEXT,
+  TEXT = 1,
 
   /**
-   * 对象查找功能。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
    * @since 12 dynamic
    */
-  OBJECT_LOOKUP,
+  OBJECT_LOOKUP = 2
 }
 
 /**
- * 图像AI分析控制器。可以将此对象绑定至支持的组件，通过控制器来调用支持的方法。
+ * 图像AI分析控制器。可以将此对象绑定至支持的组件，并通过该控制器调用其提供的方法。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -78,7 +76,7 @@ declare class ImageAnalyzerController {
   constructor();
 
   /**
-   * 获取对应组件支持的AI分析类型。
+   * 获取此控制器已绑定组件所支持的AI分析类型。调用前需先通过 Image/ImageAnimator 等组件的 aiController 属性将本控制器绑定到组件，否则返回空数组。
    *
    * @returns { ImageAnalyzerType[] } 对应组件支持的AI分析类型。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -116,8 +114,7 @@ declare interface ImageAnalyzerConfig {
  * >
  * > 该特性中的参数types优先级高于[ImageAnalyzerConfig]{@link ImageAnalyzerConfig}中的参数types，两者同时设置时以该特性设置的值为准。
  * >
- * > 该特性依赖设备能力，且需要和对应组件的[enableAnalyzer]{@link ImageAttribute#enableAnalyzer}接口
- * > （例如[Image组件]{@link ./image}）搭配使用。
+ * > 该特性依赖设备能力，且需要和对应组件的[enableAnalyzer]{@link ImageAttribute#enableAnalyzer}接口（例如[Image组件]{@link ./image}）搭配使用。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
