@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -17,6 +17,7 @@
   * @file
   * @kit ArkUI
  */
+
 /**
  * 作为Image组件的入参对象。
  *
@@ -117,7 +118,7 @@ declare enum ImageRenderMode {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Original = 0,
+  Original,
 
   /**
    * Render the image as a template image, ignoring the color information of the image.
@@ -129,7 +130,7 @@ declare enum ImageRenderMode {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Template = 1
+  Template
 }
 
 /**
@@ -217,7 +218,7 @@ declare enum ImageInterpolation {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  None = 0,
+  None,
 
   /**
    * Low usage of interpolated image data.
@@ -229,7 +230,7 @@ declare enum ImageInterpolation {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Low = 1,
+  Low,
 
   /**
    * Interpolated image data is used moderately.
@@ -241,7 +242,7 @@ declare enum ImageInterpolation {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Medium = 2,
+  Medium,
 
   /**
    * High usage of interpolated image data may affect the speed of image rendering.
@@ -253,7 +254,7 @@ declare enum ImageInterpolation {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  High = 3
+  High
 }
 
 /**
@@ -740,7 +741,41 @@ declare class ColorContent {
 }
 
 /**
- * 属性的详细使用指导请参考[添加属性](docroot://ui/arkts-graphics-display.md#添加属性)。除支持[通用属性]{@link ./common}外，还支持以下属性：
+ * Image为图片组件，常用于在应用中显示图片。Image支持加载[PixelMap]{@link @ohos.multimedia.image:image.PixelMap}、	 
+ * [ResourceStr]{@link ResourceStr}和[DrawableDescriptor]{@link DrawableDescriptor}类型的数据源，	 
+ * 支持png、jpg、jpeg、bmp、	 
+ * svg、webp、gif、heif和tiff类型的图片格式，不支持apng和svga格式。	 
+ * 
+ * > **说明：** 
+ * 
+ * > - 从API version 23开始，图片类型新增支持tiff格式。 
+ * > 
+ * > - 该组件从API版本26.0.0开始支持[WithTheme]{@link ./with_theme}。 
+ * > 
+ * > - 使用快捷组合键对Image组件复制时，Image组件必须处于获焦状态，如何获焦请参考[设置组件是否可获焦] 
+ * >   (docroot://ui/arkts-common-events-focus-event.md#设置组件是否可获焦)。Image组件默认不获焦， 
+ * >   需将[focusable]{@link CommonMethod#focusable}属性设置为true，即可使用Tab键将焦点切换到组件上，再将 
+ * >   [focusOnTouch]{@link CommonMethod#focusOnTouch}属性设置为true，即可实现点击获焦。 
+ * > 
+ * > - 图片格式支持SVG图源，SVG标签文档请参考[SVG标签说明]{@link ./common}。 
+ * > 
+ * > - 动图的播放依赖于Image节点的可见性变化，其默认行为是不播放的。当节点可见时， 
+ * >   通过回调启动动画，当节点不可见时，停止动画。 
+ * >   可见性状态的判断是通过[onVisibleAreaChange] 
+ * >   {@link CommonMethod#onVisibleAreaChange(ratios: Array<number>, event: VisibleAreaChangeCallback)} 
+ * >   事件触发的，当可见阈值ratios大于0时，表明Image处于可见状态。 
+ * > 
+ * > - Image组件播放GIF动图时，帧时长取自GIF文件中各帧的delay time字段。当某帧的时长值小于等于0时， 
+ * >   系统会将其修正为100ms； 
+ * >   当某帧的时长值大于0时，系统直接使用该原始值，不做最小帧时长限制。 
+ * > 
+ * > - 如果图片加载过程中出现白色块，请参考[Image白块问题解决方案] 
+ * >   (https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-image-white-lump-solution)。 
+ * >   如果图片加载时间过长， 
+ * >   请参考[预置图片资源加载优化] 
+ * >   (https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-texture-compression-improve- 
+ * >    performance#section91526132216)。 
+ * > 
  *
  * 除支持[通用事件]{@link ./common}外，还支持以下事件：
  *
@@ -760,18 +795,6 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    *
    * 当组件的参数类型为[AnimatedDrawableDescriptor]{@link @ohos.arkui.drawableDescriptor:AnimatedDrawableDescriptor}时设置该属性不生效。
    *
-   * @param { string | Resource } value - Placeholder image displayed during loading. Local images (in PNG, JPG, BMP,
-   *     SVG, GIF, or HEIF format) and [PixelMap]{@link @ohos.multimedia.image:image.PixelMap} objects are supported,
-   *     but online images are not.<br>- Base64 strings are supported.<br>- Strings prefixed with the **file://** path
-   *     are supported (application sandbox URI: **file://<bundleName>/<sandboxPath>**). For details about how to
-   *     construct the application sandbox path URI, see
-   *     [constructor]{@link @ohos.file.fileuri:fileUri.FileUri#constructor}. The sandbox path must be converted to an
-   *     application sandbox URI using the
-   *     [fileUri.getUriFromPath(path)]{@link @ohos.file.fileuri:fileUri.getUriFromPath} API before being passed in for
-   *     display. In addition, ensure that the application has the read permission to the files in the specified path.<
-   *     br>Default value: **null**<br>When the value is switched from a valid one (an image resource that can be parsed
-   *     and loaded correctly) to an invalid one (an image path that cannot be parsed or loaded), the component retains
-   *     the previously successfully loaded image content without clearing or resetting it. [since 7 - 11]
    * @param { string | Resource | PixelMap } value - 设置图片加载过程中显示的占位图，支持本地图片（png、jpg、bmp、svg、gif和heif类型），支持
    *     [PixelMap]{@link @ohos.multimedia.image:image.PixelMap}类型图片，不支持网络图片。
    *     <br>- 支持`Base64`字符串。
@@ -1778,11 +1801,11 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
  * > 间过长，请参考
  * > [预置图片资源加载优化](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-texture-compression-improve-performance#section91526132216)。
  *
- * ###### 需要权限
+ * 需要权限
  *
  * 使用网络图片时，需要申请权限ohos.permission.INTERNET。具体申请方式请参考[声明权限](docroot://security/AccessToken/declare-permissions.md)。
  *
- * ###### 子组件
+ * 子组件
  *
  * 无
  *
@@ -1938,6 +1961,8 @@ declare interface ResizableOptions {
    *
    * 设置了EdgeWidths后的效果如图1（设置EdgeWidths效果图）所示。
    *
+   * 单位：vp 
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2002,15 +2027,3 @@ declare interface ImageAlt {
    */
   error?: ResourceStr | PixelMap;
 }
-
-/**
- * Business error in onError callback.
- *
- * @typedef { import('../api/@ohos.base').BusinessError<T> } BusinessError<T>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 20 dynamic
- */
-declare type BusinessError<T> = import ('../api/@ohos.base').BusinessError<T>;;

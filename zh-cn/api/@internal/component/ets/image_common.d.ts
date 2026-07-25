@@ -44,7 +44,7 @@ declare enum ImageAnalyzerType {
    * @atomicservice
    * @since 12 dynamic
    */
-  TEXT = 1,
+  TEXT,
 
   /**
    *
@@ -53,7 +53,7 @@ declare enum ImageAnalyzerType {
    * @atomicservice
    * @since 12 dynamic
    */
-  OBJECT_LOOKUP = 2
+  OBJECT_LOOKUP,
 }
 
 /**
