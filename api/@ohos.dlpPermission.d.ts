@@ -1780,10 +1780,9 @@ declare namespace dlpPermission {
     /**
      * Clears the sandbox application configuration. After the API is successfully called, the sandbox application 
      * configuration is cleared and the default state is restored. This API uses a promise to return the result.
-     * This API uses a promise to return the result.
      * 
      * This API clears the sandbox application configuration and restores the default state to prevent residual 
-     * configurations from affecting subsequent use.
+     * configurations from affecting subsequent use. This API can be called only in non-sandbox applications.
      *
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 19100001 - Invalid parameter value.
