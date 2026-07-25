@@ -26,96 +26,91 @@ import { Builder } from '@ohos.arkui.component';
 /**
  * This interface is used to set the options for DynamicComponentAttribute during construction
  *
- * @interface DynamicOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @stagemodelonly
  * @since 26.0.0 static
  */
 export declare interface DynamicOptions {
-    /**
-     * Indicates entryPoint of the DynamicOptions
-     *
-     * @type { string }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @systemapi
-     * @stagemodelonly
-     * @since 26.0.0 static
-     */
-    entryPoint: string;
-    /**
-     * Indicates restricted worker for run abc.
-     *
-     * @type { EAWorker | undefined } worker - worker which run abc
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @systemapi
-     * @stagemodelonly
-     * @since 26.0.0 static
-     */
-    worker: EAWorker | undefined;
-    /**
-     * Indicates backgroundTransparent of the DynamicComponent.
-     *
-     * @type { ?boolean }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @systemapi
-     * @stagemodelonly
-     * @since 26.0.0 static
-     */
-    backgroundTransparent?: boolean;
-    /**
-     * Indicates allow Inter-process UEC of the DynamicComponent.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @systemapi
-     * @stagemodelonly
-     * @since 26.0.0 static
-     */
-    allowCrossProcessNesting?: boolean;
-    /**
-     * Indicates allow keyboard avoidance inside the DynamicComponent.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @systemapi
-     * @stagemodelonly
-     * @since 26.0.0 static
-     */
-    allowOccupied?: boolean;
+  /**
+   * Indicates entryPoint of the DynamicOptions.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  entryPoint: string;
+  /**
+   * Indicates restricted worker for run abc.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  worker: EAWorker | undefined;
+  /**
+   * Indicates backgroundTransparent of the DynamicComponent.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  backgroundTransparent?: boolean;
+  /**
+   * Indicates allow Inter-process UEC of the DynamicComponent.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  allowCrossProcessNesting?: boolean;
+  /**
+   * Indicates allow keyboard avoidance inside the DynamicComponent.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  allowOccupied?: boolean;
 }
 
 /**
  * Define the attribute functions of DynamicComponent.
  *
- * @extends CommonMethod
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @stagemodelonly
  * @since 26.0.0 static
  */
 export declare interface DynamicComponentAttribute extends CommonMethod {
-    /**
-     * Sets dynamic component options.
-     *
-     * @param { DynamicOptions } options - The options
-     * @returns { this } DynamicComponentAttribute instance
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @systemapi
-     * @stagemodelonly
-     * @since 26.0.0 staticonly
-     */
-    default setDynamicComponentOptions(options: DynamicOptions): this;
-    /**
-     * Called when the dynamic component is error.
-     *
-     * @param { ErrorCallback<BusinessError> | undefined } callback - called when some error occurred<br/>
-     *     except disconnected from DynamicAbility.
-     * @returns { DynamicComponentAttribute }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @systemapi
-     * @stagemodelonly
-     * @since 26.0.0 static
-     */
-    default onError(callback: ErrorCallback<BusinessError> | undefined): this;
+  /**
+   * Sets dynamic component options.
+   *
+   * @param { DynamicOptions } options - The options
+   * @returns { this } DynamicComponentAttribute instance
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 staticonly
+   */
+  default setDynamicComponentOptions(options: DynamicOptions): this;
+  /**
+   * Called when the dynamic component is error.
+   *
+   * @param { ErrorCallback<BusinessError> | undefined } callback - called when some error occurred<br/>
+   *     except disconnected from DynamicAbility.
+   * @returns { DynamicComponentAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  default onError(callback: ErrorCallback<BusinessError> | undefined): this;
 }
 
 /**
