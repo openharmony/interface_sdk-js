@@ -500,9 +500,6 @@ declare namespace dlpPermission {
      * Cancels the sandbox retention state, that is, allows the sandbox application to be automatically uninstalled when
      * the DLP file is closed. This API uses a promise to return the result.
      * 
-     * Cancels the sandbox retention state, that is, allows the sandbox application to be automatically uninstalled when
-     * the DLP file is closed. This API uses a promise to return the result.
-     * 
      * This API is used to cancel the retention state for sandbox application and restore the default behavior to 
      * release system resources. It is applicable to scenarios where the DLP file is no longer frequently accessed.
      *
