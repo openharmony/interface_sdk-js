@@ -19,8 +19,7 @@
  */
 
 /**
- * Export NodeRenderType, RenderOptions, BuilderNode, ReactiveBuilderNode, which is used to create a node trees by
- * builder function and manage the update of the tree.
+ * 导出NodeRenderType、RenderOptions、BuilderNode、ReactiveBuilderNode，用于通过builder创建节点树并管理树的更新。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -29,7 +28,7 @@
 export { NodeRenderType, RenderOptions, BuilderNode, ReactiveBuilderNode } from 'arkui.BuilderNode';
 
 /**
- * Export BuildOptions which is used to create a node trees by builder function and manage the update of the tree.
+ * 导出BuildOptions，用于通过builder创建节点树并管理树的更新。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -38,9 +37,7 @@ export { NodeRenderType, RenderOptions, BuilderNode, ReactiveBuilderNode } from 
 export { BuildOptions } from 'arkui.BuilderNode';
 
 /**
- * Export NodeController, which defines the controller of node container.
- * Provides lifecycle callbacks for the associated NodeContainer
- * and methods to control the child node of the NodeContainer.
+ * 导出NodeController，即节点容器的控制器。为关联的NodeContainer提供生命周期回调，并提供控制NodeContainer子节点的方法。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -49,7 +46,7 @@ export { BuildOptions } from 'arkui.BuilderNode';
 export { NodeController } from 'arkui.NodeController';
 
 /**
- * Export FrameNode. FrameNode defines a basic type of node which contains a RenderNode.
+ * 导出FrameNode，一种包含RenderNode的基本节点类型。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -58,7 +55,7 @@ export { NodeController } from 'arkui.NodeController';
 export { FrameNode, LayoutConstraint, ExpandMode, CrossLanguageOptions } from 'arkui.FrameNode';
 
 /**
- * Export UIState.
+ * 导出UIState。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -67,7 +64,7 @@ export { FrameNode, LayoutConstraint, ExpandMode, CrossLanguageOptions } from 'a
 export { UIState } from 'arkui.FrameNode';
 
 /**
- * Export FrameNode. FrameNode defines a basic type of node which contains a RenderNode.
+ * 导出typeNode、NodeAdapter。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -76,7 +73,7 @@ export { UIState } from 'arkui.FrameNode';
 export { typeNode, NodeAdapter } from 'arkui.FrameNode';
 
 /**
- * Export Graphics. Defines the basic types related to the Graphics.
+ * 导出与图形相关的基本类型。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -85,7 +82,7 @@ export { typeNode, NodeAdapter } from 'arkui.FrameNode';
 export { DrawContext, Size, NodeOffset, NodePosition, Pivot, Scale, Translation, Matrix4, Rotation, Frame, RoundRect, Circle, CommandPath, ShapeMask, ShapeClip, NodeBorderRadiuses, CornerRadius, Rect, NodeEdges, edgeColors, edgeWidths, borderStyles, borderRadiuses, LengthMetricsUnit } from 'arkui.Graphics';
 
 /**
- * Export Graphics. Defines the basic types related to the Graphics.
+ * 导出与图形相关的基本类型。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -94,7 +91,7 @@ export { DrawContext, Size, NodeOffset, NodePosition, Pivot, Scale, Translation,
 export { LengthUnit, SizeT, PositionT, LengthMetrics, ColorMetrics } from 'arkui.Graphics';
 
 /**
- * Export RenderNode. RenderNode contains node tree operations and render property operations on node.
+ * 导出RenderNode。RenderNode包含节点树操作和节点上的渲染属性操作。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -103,7 +100,7 @@ export { LengthUnit, SizeT, PositionT, LengthMetrics, ColorMetrics } from 'arkui
 export { RenderNode } from 'arkui.RenderNode';
 
 /**
- * Export Content.
+ * 导出Content。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -112,7 +109,7 @@ export { RenderNode } from 'arkui.RenderNode';
 export { Content } from 'arkui.Content';
 
 /**
- * Export ComponentContent, ComponentContentBase and ReactiveComponentContent.
+ * 导出ComponentContent、ComponentContentBase、ReactiveComponentContent。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -121,7 +118,7 @@ export { Content } from 'arkui.Content';
 export { ComponentContent, ComponentContentBase, ReactiveComponentContent } from 'arkui.ComponentContent';
 
 /**
- * Export NodeContent.
+ * 导出NodeContent。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly

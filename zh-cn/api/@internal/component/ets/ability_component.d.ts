@@ -19,7 +19,7 @@
  */
 
 /**
- * Provide an interface for the ability component.
+ * 创建AbilityComponent。
  *
  * @interface AbilityComponentInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -31,8 +31,7 @@
  */
 interface AbilityComponentInterface {
   /**
-   * Construct the ability component.
-   * Called when the ability component is used.
+   * 创建AbilityComponent。当AbilityComponent被使用时调用。
    *
    * @param { object } value
    * @returns { AbilityComponentAttribute }
@@ -46,7 +45,7 @@ interface AbilityComponentInterface {
 }
 
 /**
- * Define the attribute functions of ability component.
+ * 定义AbilityComponent的属性函数。
  *
  * @extends CommonMethod<AbilityComponentAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -58,8 +57,7 @@ interface AbilityComponentInterface {
  */
 declare class AbilityComponentAttribute extends CommonMethod<AbilityComponentAttribute> {
   /**
-   * Called when the **AbilityComponent** environment is started. After the callback,
-   * the methods of **AbilityComponent** can be used.
+   * AbilityComponent环境启动完成时的回调，之后可使用AbilityComponent的方法。
    *
    * @param { function } callback - A callback instance used when connected.
    * @returns { AbilityComponentAttribute }
@@ -71,7 +69,7 @@ declare class AbilityComponentAttribute extends CommonMethod<AbilityComponentAtt
    */
   onConnect(callback: () => void): AbilityComponentAttribute;
   /**
-   * Called when the **AbilityComponent** environment is destroyed.
+   * AbilityComponent环境销毁时的回调。
    *
    * @param { function } callback - A callback instance used when disconnected.
    * @returns { AbilityComponentAttribute }
@@ -85,7 +83,7 @@ declare class AbilityComponentAttribute extends CommonMethod<AbilityComponentAtt
 }
 
 /**
- * **AbilityComponent** is a container for independently displaying an ability.
+ * 独立显示Ability的容器。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9 dynamiconly
@@ -96,7 +94,7 @@ declare class AbilityComponentAttribute extends CommonMethod<AbilityComponentAtt
 declare const AbilityComponent: AbilityComponentInterface;
 
 /**
- * Defines AbilityComponent Component instance.
+ * 定义AbilityComponent组件实例。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9 dynamiconly

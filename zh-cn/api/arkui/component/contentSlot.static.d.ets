@@ -43,7 +43,7 @@ export declare interface ContentSlotAttribute {
    * @param { string } sourceLine - 源码行号。
    * @param { string } [moduleName] - 组件所属模块名。
    * @returns { this }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.0.0 staticonly
    */

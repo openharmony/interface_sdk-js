@@ -14,9 +14,6 @@
  */
 
 /**
- * AttributeUpdater directly set attributes to a component to trigger UI re-renders, without marking them as
- * state variables.
- *
  * @file
  * @kit ArkUI
  */
@@ -34,10 +31,8 @@
 declare type Initializer<T> = () => T;
 
 /**
- * Represents the implementation class of AttributeModifier. You need to customize a class to inherit
- * AttributeUpdater.
- * C indicates the constructor type of the component, for example, TextInterface of the Text component and
- * ImageInterface of the Image component. It is required only when updateConstructorParams is used.
+ * **AttributeUpdater** directly set attributes to a component to trigger UI re-renders, without marking them as state
+ * variables.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -47,13 +42,12 @@ declare type Initializer<T> = () => T;
  * @noninterop
  */
 export declare class AttributeUpdater<T, C = Initializer<T>> implements AttributeModifier<T> {
-
   /**
    * Defines the function for updating attributes in normal state.
    *
-   * @param { T } instance - Component attribute class, which identifies the type of component to which attributes
-   *     will be applied, for example, ButtonAttribute for the Button component and TextAttribute for the Text
-   *     component.
+   * @param { T } instance - Component attribute class, which identifies the type of component to which attributes will
+   *     be applied, for example, **ButtonAttribute** for the **Button** component and **TextAttribute** for the
+   *     **Text** component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -63,11 +57,11 @@ export declare class AttributeUpdater<T, C = Initializer<T>> implements Attribut
   applyNormalAttribute?(instance: T): void;
 
   /**
-   * Initializes the component's attributes to the default values defined in this AttributeUpdater.
+   * Initializes the component's attributes to the default values defined in this **AttributeUpdater**.
    *
-   * @param { T } instance - Component attribute class, which identifies the type of component to which attributes
-   *     will be applied, for example, ButtonAttribute for the Button component and TextAttribute for the Text
-   *     component.
+   * @param { T } instance - Component attribute class, which identifies the type of component to which attributes will
+   *     be applied, for example, **ButtonAttribute** for the **Button** component and **TextAttribute** for the
+   *     **Text** component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -77,11 +71,11 @@ export declare class AttributeUpdater<T, C = Initializer<T>> implements Attribut
   initializeModifier(instance: T): void;
 
   /**
-   * Obtains the attribute class instance corresponding to the component in AttributeUpdater.
-   * The instance can then be used to directly update attributes.
+   * Obtains the attribute class instance corresponding to the component in **AttributeUpdater**. The instance can then
+   * be used to directly update attributes.
    *
-   * @returns { T | undefined } Returns the attribute class instance of the component in AttributeUpdater
-   *     if it exists; returns undefined otherwise.
+   * @returns { T | undefined } Returns the attribute class instance of the component in **AttributeUpdater** if it
+   *     exists; returns **undefined** otherwise.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -91,9 +85,9 @@ export declare class AttributeUpdater<T, C = Initializer<T>> implements Attribut
   get attribute(): T | undefined;
 
   /**
-   * The type is used to change the constructor input parameters of the
-   * component.C indicates the constructor type of the component, for example, TextInterface of the Text component and
-   * ImageInterface of the Image component.
+   * **C** indicates the constructor type of the component, for example, **TextInterface** of the **Text** component and
+   * **ImageInterface** of the **Image** component. The type is used to change the constructor input parameters of the
+   * component.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -104,11 +98,11 @@ export declare class AttributeUpdater<T, C = Initializer<T>> implements Attribut
   updateConstructorParams: C;
 
   /**
-   * Invoked to notify the application that the component bound to the same custom Modifier object changes.
+   * Invoked to notify the application that the component bound to the same custom **Modifier** object changes.
    *
-   * @param { T } component - Component attribute class, which identifies the type of component to which attributes
-   *     will be applied, for example, ButtonAttribute for the Button component and TextAttribute for the Text
-   *     component.
+   * @param { T } component - Component attribute class, which identifies the type of component to which attributes will
+   *     be applied, for example, **ButtonAttribute** for the **Button** component and **TextAttribute** for the
+   *     **Text** component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform

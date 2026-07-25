@@ -14,44 +14,20 @@
  */
 
 /**
- * FrameNode表示组件树的实体节点。
- * [NodeController]{@link NodeController:NodeController}可通过[BuilderNode]{@link BuilderNode}持有的FrameNode将其挂载到[NodeContainer]{@link node_container}上，
- * 也可通过FrameNode获取[RenderNode]{@link RenderNode:RenderNode}，挂载到其他FrameNode上。
- * 最佳实践请参考[组件动态创建-组件动态添加、更新和删除](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-ui-dynamic-operations#section153921947151012)。
- * 
- * > **说明：**
- * >
- * > - 当前不支持在预览器中使用FrameNode节点。
- * >
- * > - FrameNode节点暂不支持拖拽。
- * >
- * > - FrameNode对象不支持使用JSON序列化。
- * >
- * > - 在[UI上下文不明确](docroot://ui/arkts-global-interface.md#ui上下文不明确)的场景中调用[FrameNode]{@link FrameNode}对象的接口时，
- * > 建议使用[UIContext]{@link @ohos.arkui.UIContext}的[runScopedTask](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#runscopedtask)接口明确UI上下文，
- * > 参考[执行绑定UI实例的闭包](docroot://ui/arkts-global-interface.md#执行绑定ui实例的闭包)示例。
- * >
- * > - FrameNode的接口中，仅[Optional]{@link Optional}类型的必选参数支持传入null或undefined。
- *
  * @file
  * @kit ArkUI
  */
 
 import { UIContext } from '../@ohos.arkui.UIContext';
-
 import { RenderNode } from './RenderNode';
-
 import { Size, Position, Edges, LengthMetrics, SizeT } from './Graphics';
-
 import { DrawContext } from './Graphics';
-
 import { ComponentContent, ReactiveComponentContent } from './ComponentContent';
-
 import { BusinessError } from '../@ohos.base';
 
 /**
-* 描述组件的布局约束。
-*
+ * 描述组件的布局约束。
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -59,7 +35,6 @@ import { BusinessError } from '../@ohos.base';
  * @since 12 dynamic
  */
 declare interface LayoutConstraint {
-
   /**
    * 最大尺寸。
    *
@@ -95,8 +70,8 @@ declare interface LayoutConstraint {
 }
 
 /**
-* 该接口用于配置或查询FrameNode的跨语言访问权限。例如，针对ArkTS语言创建的节点，可通过该接口控制是否允许通过非ArkTS语言进行属性访问或修改。
-*
+ * 该接口用于配置或查询FrameNode的跨语言访问权限。例如，针对ArkTS语言创建的节点，可通过该接口控制是否允许通过非ArkTS语言进行属性访问或修改。
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -104,7 +79,6 @@ declare interface LayoutConstraint {
  * @since 15 dynamic
  */
 declare interface CrossLanguageOptions {
-
   /**
    * FrameNode是否支持跨ArkTS语言进行属性设置。
    *
@@ -146,8 +120,8 @@ declare interface CrossLanguageOptions {
 }
 
 /**
-* 组件的交互事件绑定状态信息。如果当前节点上绑定了所要查询的交互事件，调用查询接口时返回一个InteractionEventBindingInfo对象，指示事件绑定详细信息。
-*
+ * 组件的交互事件绑定状态信息。如果当前节点上绑定了所要查询的交互事件，调用查询接口时返回一个InteractionEventBindingInfo对象，指示事件绑定详细信息。
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -155,7 +129,6 @@ declare interface CrossLanguageOptions {
  * @since 19 dynamic
  */
 declare interface InteractionEventBindingInfo {
-
   /**
    * 是否以声明方式绑定事件。
    *
@@ -170,8 +143,8 @@ declare interface InteractionEventBindingInfo {
   baseEventRegistered: boolean;
 
   /**
-   * 是否以自定义组件节点的方式绑定事件，请参考[基础事件示例](docroot://reference/apis-arkui/js-apis-arkui-frameNode.md#基础事件示例)
-   *
+   * 是否以自定义组件节点的方式绑定事件，请参考[基础事件示例](docroot://reference/apis-arkui/js-apis-arkui-frameNode.md#基础事件示例)。
+   * 
    * true表示以自定义组件节点的方式绑定事件，false表示没有以自定义组件节点的方式绑定事件。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -198,8 +171,8 @@ declare interface InteractionEventBindingInfo {
   nativeEventRegistered: boolean;
 
   /**
-   * 组件是否绑定内置事件(组件内部定义的事件, 无需开发者手动绑定)。
-   *
+   * 组件是否绑定内置事件（组件内部定义的事件，无需开发者手动绑定）。
+   * 
    * true表示组件绑定内置事件，false表示组件没有绑定内置事件。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -212,8 +185,8 @@ declare interface InteractionEventBindingInfo {
 }
 
 /**
-* 子节点展开模式枚举。
-*
+ * 子节点展开模式枚举。
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -221,10 +194,11 @@ declare interface InteractionEventBindingInfo {
  * @since 15 dynamic
  */
 export enum ExpandMode {
-
   /**
-   * 表示不展开当前FrameNode的子节点。如果FrameNode包含[LazyForEach]{@link lazy_for_each}子节点，获取在主节点树上的子节点时，不展开当前FrameNode的子节点。子节点序列号按在主节
-   * 点树上的子节点计算。
+   * 表示不展开当前FrameNode的子节点。如果FrameNode包含[LazyForEach]{@link ../@internal/component/ets/lazy_for_each}子节点，获取在主节点树上的子节点时，不展
+   * 开当前FrameNode的子节点。子节点序列号按在主节点树上的子节点计算。
+   * 
+   * 使用场景：仅需获取主节点树上已展开子节点且不触发展开操作的场景。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -235,7 +209,10 @@ export enum ExpandMode {
   NOT_EXPAND = 0,
 
   /**
-   * 表示展开当前FrameNode的子节点。如果FrameNode包含[LazyForEach]{@link lazy_for_each}子节点，获取所有子节点时，展开当前FrameNode的子节点。子节点序列号按所有子节点计算。
+   * 表示展开当前FrameNode的子节点。如果FrameNode包含[LazyForEach]{@link ../@internal/component/ets/lazy_for_each}子节点，获取所有子节点时，展开当前
+   * FrameNode的子节点。子节点序列号按所有子节点计算。
+   * 
+   * 使用场景：需要获取包含懒加载在内的所有子节点的场景。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -246,8 +223,10 @@ export enum ExpandMode {
   EXPAND = 1,
 
   /**
-   * 表示按需展开当前FrameNode的子节点。如果FrameNode包含[LazyForEach]{@link lazy_for_each}子节点，获取在主树上的子节点时，不展开当前FrameNode的子节点；获取不在主树上的子节点
-   * 时，展开当前FrameNode的子节点。子节点序列号按所有子节点计算。
+   * 表示按需展开当前FrameNode的子节点。如果FrameNode包含[LazyForEach]{@link ../@internal/component/ets/lazy_for_each}子节点，获取在主节点树上的子节点时，不
+   * 展开当前FrameNode的子节点；获取不在主节点树上的子节点时，展开当前FrameNode的子节点。子节点序列号按所有子节点计算。
+   * 
+   * 使用场景：需要兼顾主节点树与非主节点树子节点按需获取的场景。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -258,8 +237,10 @@ export enum ExpandMode {
   LAZY_EXPAND = 2,
 
   /**
-   * 表示不展开当前FrameNode的子节点，如果FrameNode包含[LazyForEach]{@link lazy_for_each}子节点，获取已经展开的子节点时，可以直接获取，获取未展开的子节点时，仅创建对应位置的节点，而不
-   * 展开所有子节点。子节点序列号按所有子节点计算。
+   * 表示不展开当前FrameNode的子节点，如果FrameNode包含[LazyForEach]{@link ../@internal/component/ets/lazy_for_each}子节点，对于已经展开的子节点，可以直接返
+   * 回，获取未展开的子节点时，仅创建对应位置的节点，而不展开所有子节点。子节点序列号按所有子节点计算。
+   * 
+   * 使用场景：需要按位置精确获取子节点但不批量展开懒加载子节点的场景。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -280,12 +261,11 @@ export enum ExpandMode {
  * @since 26.0.0 dynamic
  */
 export enum ChildrenCountMode {
-
   /**
-   * 展开模式。当遇到懒加载节点（如[LazyForEach]{@link lazy_for_each}）时，展开节点并返回所有子节点数量。
-   *
-   * 是否展开懒加载节点：是
-   *
+   * 计数展开模式。当遇到懒加载节点（如[LazyForEach]{@link ../@internal/component/ets/lazy_for_each}）时，展开节点并返回所有子节点数量。
+   * 
+   * 是否展开懒加载节点：是 
+   * 
    * 使用场景：需要展开并返回所有子节点数量的场景。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -298,9 +278,9 @@ export enum ChildrenCountMode {
 
   /**
    * 计数已展开模式。不展开懒加载节点，只返回当前已展开的子节点数量。未展开的懒加载节点不包含在计数中。
-   *
-   * 是否展开懒加载节点：否
-   *
+   * 
+   * 是否展开懒加载节点：否 
+   * 
    * 使用场景：仅查询已展开子节点数量的场景。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -313,9 +293,9 @@ export enum ChildrenCountMode {
 
   /**
    * 计数所有模式。不展开懒加载节点，但返回包含所有潜在子节点的数量（包括已展开和未展开的懒加载节点）。此模式提供潜在子节点总数而不触发展开操作。
-   *
-   * 是否展开懒加载节点：否
-   *
+   * 
+   * 是否展开懒加载节点：否 
+   * 
    * 使用场景：需要获取所有子节点数量的场景，与ALL_EXPAND相比，该模式不会展开子节点。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -328,8 +308,8 @@ export enum ChildrenCountMode {
 }
 
 /**
-* 多态样式状态枚举，用于处理多态样式。
-*
+ * 多态样式状态枚举，用于处理多态样式。
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -337,7 +317,6 @@ export enum ChildrenCountMode {
  * @since 20 dynamic
  */
 export enum UIState {
-
   /**
    * 正常状态。
    *
@@ -396,8 +375,8 @@ export enum UIState {
   SELECTED = 1 << 3,
 
   /**
-    * 悬停状态。
-    *
+   * 悬浮状态。
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -408,11 +387,14 @@ export enum UIState {
 }
 
 /**
-* 当UI状态发生变化时触发的回调。接收回调触发时的[UIState]{@link UIState}状态，该参数的取值为UIState状态枚举值或其运算结果。
-*
+ * 当UI状态发生变化时触发的回调。接收回调触发时的[UIState]{@link UIState}状态，该参数的取值为UIState状态枚举值或其运算结果。
+ *
  * @param { FrameNode } node - 触发UI状态变化的节点。
- * @param { number } currentUIStates - 回调触发时当前的UI状态。<br>可以通过位与运算判断当前包含哪些[UIState]{@link UIState}状态。<br>位与运算方法：if (
-*     currentState & UIState.PRESSED == UIState.PRESSED)。<br>一般的UIState状态检查可以直接判断：if (currentState == UIState.PRESSED)。
+ * @param { number } currentUIStates - 回调触发时当前的UI状态。
+ *     <br>可以通过位与运算判断当前包含哪些[UIState]{@link UIState}状态。
+ *     <br>位与运算方法：if ((currentUIStates & UIState.PRESSED) == UIState.PRESSED)。
+ *     <br>当仅需判断当前是否仅处于单个状态时，可以直接判断：if (currentUIStates == UIState.PRESSED)。注意，此方式仅在当前仅有一个状态激活时有效，若需判断多个状态中是否包含某个状态，请使用位
+ *     与运算。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -422,8 +404,25 @@ export enum UIState {
 declare type UIStatesChangeHandler = (node: FrameNode, currentUIStates: number) => void;
 
 /**
-* 定义FrameNode。
-*
+ * FrameNode表示组件树的实体节点，支持节点树操作、自定义绘制与布局、位置查询、动画等能力。[NodeController]{@link ./NodeController:NodeController}可通过
+ * [BuilderNode]{@link ./BuilderNode}持有的FrameNode将其挂载到[NodeContainer]{@link ../@internal/component/ets/node_container}上，
+ * 也可通过FrameNode获取[RenderNode]{@link ./RenderNode:RenderNode}，挂载到其他FrameNode上。适用于需要通过代码动态创建和管理组件节点树的场景，可实现声明式组件无法直接满足的灵活
+ * UI组合与自定义渲染需求。<!--RP2--><!--RP2End-->
+ * 
+ * > **说明：**
+ * >
+ * > - 当前不支持在预览器中使用FrameNode节点。
+ * >
+ * > - FrameNode节点暂不支持拖拽。
+ * >
+ * > - FrameNode对象不支持使用JSON序列化。
+ * >
+ * > - 在[UI上下文不明确](docroot://ui/arkts-global-interface.md#ui上下文不明确)的场景中调用[FrameNode]{@link FrameNode}对象的接口时，建议使用
+ * > [UIContext]{@link @ohos.arkui.UIContext}的[runScopedTask]{@link @ohos.arkui.UIContext:UIContext.runScopedTask}接口明确UI
+ * > 上下文，参考[执行绑定UI实例的闭包](docroot://ui/arkts-global-interface.md#执行绑定ui实例的闭包)示例。
+ * >
+ * > - FrameNode的接口中，仅[Optional]{@link Optional}类型的必选参数支持传入null或undefined。
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
  * @crossplatform
@@ -431,7 +430,6 @@ declare type UIStatesChangeHandler = (node: FrameNode, currentUIStates: number) 
  * @since 11 dynamic
  */
 export class FrameNode {
-
   /**
    * FrameNode的构造函数。
    *
@@ -445,11 +443,9 @@ export class FrameNode {
   constructor(uiContext: UIContext);
 
   /**
-   * 获取FrameNode中持有的[RenderNode]{@link RenderNode:RenderNode}。
+   * 获取FrameNode中持有的[RenderNode]{@link ./RenderNode:RenderNode}。
    *
-   * @returns { RenderNode | null } **RenderNode** instance. If the current FrameNode does not hold any RenderNode,
-   *     **null** is returned. If the current FrameNode is a node created by a declarative component, **null** is
-   *     returned.
+   * @returns { RenderNode | null } 一个RenderNode对象。若该FrameNode不包含RenderNode，则返回空对象null。如果当前FrameNode为声明式组件创建的节点，则返回null。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -466,7 +462,9 @@ export class FrameNode {
    *     [dispose]{@link FrameNode#dispose}时返回false。<br/>当返回false时，当前FrameNode不支持
    *     [appendChild]{@link FrameNode#appendChild}、[insertChildAfter]{@link FrameNode#insertChildAfter}、
    *     [removeChild]{@link FrameNode#removeChild}、[clearChildren]{@link FrameNode#clearChildren}、
-   *     [createAnimation]{@link FrameNode#createAnimation}、[cancelAnimations]{@link FrameNode#cancelAnimations}的操作。
+   *     [createAnimation]{@link FrameNode#createAnimation}、[cancelAnimations]{@link FrameNode#cancelAnimations}、
+   *     [moveTo]{@link FrameNode#moveTo}、[addComponentContent]{@link FrameNode#addComponentContent}、
+   *     [adoptChild]{@link FrameNode#adoptChild}、[removeAdoptedChild]{@link FrameNode#removeAdoptedChild}的操作。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -479,8 +477,9 @@ export class FrameNode {
    * 在FrameNode最后一个子节点后添加新的子节点。当前FrameNode如果不可修改，抛出异常信息。[typeNode]{@link typeNode}在appendChild时会校验子组件类型或个数，不满足时抛出异常信息，限制
    * 情况请查看[typeNode]{@link typeNode}描述。
    *
-   * @param { FrameNode } node - 需要添加的FrameNode。<br/> node节点不可以为声明式创建的节点，即不可修改的FrameNode。仅有从BuilderNode中获取的声明式节点可以作为子节点。
-   *     若子节点不符合规格，则抛出异常信息。<br/> node节点不可以拥有父节点，否则抛出异常信息。
+   * @param { FrameNode } node - 需要添加的FrameNode。<br/> node节点不可以为不可修改的FrameNode（例如通过getFrameNodeById等接口获取的声明式组件节点）。仅
+   *     [BuilderNode]{@link ./BuilderNode}通过getFrameNode接口获取的FrameNode可作为声明式子节点添加。若子节点不符合规格，则抛出异常信息。<br/> node节点不可以拥有父节
+   *     点，否则抛出异常信息。
    * @throws { BusinessError } 100021 - The FrameNode is not modifiable.
    * @throws { BusinessError } 100025 - The parameter is invalid. Details about the invalid parameter and the reason
    *     are included in the error message. For example: "The parameter 'node' is invalid: it cannot be adopted.
@@ -494,12 +493,13 @@ export class FrameNode {
   appendChild(node: FrameNode): void;
 
   /**
-   * 在FrameNode指定子节点之后添加新的子节点。当前FrameNode如果不可修改，抛出异常信息。
+   * 在FrameNode指定子节点之后添加新的子节点。当前FrameNode如果不可修改，抛出异常信息。[typeNode]{@link typeNode}在insertChildAfter时会校验子组件类型或个数，不满足时抛出异常信
+   * 息，限制情况请查看[typeNode]{@link typeNode}描述。
    *
-   * @param { FrameNode } child - 需要添加的子节点。<br/>child节点不可以为声明式创建的节点，即不可修改的FrameNode。仅有从BuilderNode中获取的声明式节点可以作为子节点。若子节点不
-   *     符合规格，则抛出异常信息。<br/> child节点不可以拥有父节点，否则抛出异常信息。
-   * @param { FrameNode | null } sibling - 需要添加的子节点。<br/>child节点不可以为声明式创建的节点，即不可修改的FrameNode。仅有从BuilderNode中获取的声明式节点可以作为子节点。若子节点不
-   *     符合规格，则抛出异常信息。<br/> child节点不可以拥有父节点，否则抛出异常信息。
+   * @param { FrameNode } child - 需要添加的子节点。<br/>child节点不可以为不可修改的FrameNode（例如通过getFrameNodeById等接口获取的声明式组件节点）。仅
+   *     [BuilderNode]{@link ./BuilderNode}通过getFrameNode接口获取的FrameNode可作为声明式子节点添加。若子节点不符合规格，则抛出异常信息。<br/> child节点不可以拥有父
+   *     节点，否则抛出异常信息。
+   * @param { FrameNode | null } sibling - 新节点将插入到该节点之后。若该参数设置为空，则新节点将插入到首个子节点之前。
    * @throws { BusinessError } 100021 - The FrameNode is not modifiable.
    * @throws { BusinessError } 100025 - The parameter is invalid. Details about the invalid parameter and the reason
    *     are included in the error message. For example: "The parameter 'child' is invalid: it cannot be adopted.
@@ -541,8 +541,7 @@ export class FrameNode {
    * 获取当前节点指定位置的子节点。
    *
    * @param { number } index - 需要查询的子节点的序列号。<br/>index取值范围为[0, +∞)，若当前节点有n个子节点，index取值有效范围为[0, n-1]。
-   * @returns { FrameNode | null } Child node obtained. If the FrameNode does not contain the specified child node, null
-   *     is returned.
+   * @returns { FrameNode | null } 子节点。若该FrameNode不包含所查询的子节点，则返回空对象null。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -556,8 +555,7 @@ export class FrameNode {
    *
    * @param { number } index - 需要查询的子节点的序列号。<br/>index取值范围为[0, +∞)，若当前节点有n个子节点，index取值有效范围为[0, n-1]。
    * @param { ExpandMode } expandMode - 指定子节点展开模式。<br/>默认值：ExpandMode.EXPAND
-   * @returns { FrameNode | null } Child node obtained. If the FrameNode does not contain the specified child node, null
-   *     is returned.
+   * @returns { FrameNode | null } 子节点。若该FrameNode不包含所查询的子节点，则返回空对象null。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -593,8 +591,7 @@ export class FrameNode {
   /**
    * 获取当前FrameNode的第一个子节点。
    *
-   * @returns {  FrameNode | null } First child node. If the FrameNode does not contain any child node, null is
-   *     returned.
+   * @returns {  FrameNode | null } 首个子节点。若该FrameNode不包含子节点，则返回空对象null。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -606,8 +603,7 @@ export class FrameNode {
   /**
    * 获取当前FrameNode的下一个同级节点。
    *
-   * @returns { FrameNode | null } Next sibling node of the current FrameNode. If the FrameNode does not have the next
-   *     sibling node, null is returned.
+   * @returns { FrameNode | null } 当前FrameNode的下一个同级节点。若该FrameNode不包含下一个同级节点，则返回空对象null。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -619,8 +615,7 @@ export class FrameNode {
   /**
    * 获取当前FrameNode的上一个同级节点。
    *
-   * @returns { FrameNode | null } Previous sibling node of the current FrameNode. If the FrameNode does not have the
-   *     previous sibling node, null is returned.
+   * @returns { FrameNode | null } 当前FrameNode的上一个同级节点。若该FrameNode不包含上一个同级节点，则返回空对象null。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -632,8 +627,7 @@ export class FrameNode {
   /**
    * 获取当前FrameNode的父节点。
    *
-   * @returns { FrameNode | null } Parent node of the current FrameNode. If the FrameNode does not contain a parent
-   *     node, null is returned.
+   * @returns { FrameNode | null } 当前FrameNode的父节点。若该FrameNode不包含父节点，则返回空对象null。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -645,7 +639,7 @@ export class FrameNode {
   /**
    * 获取当前FrameNode的子节点数量。
    *
-   * @returns { number } 获取当前FrameNode的子节点数量。
+   * @returns { number } 当前FrameNode的子节点数量。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -670,14 +664,15 @@ export class FrameNode {
   /**
    * 将当前FrameNode移动到目标FrameNode的指定位置。当前FrameNode如果不可修改，抛出异常信息。targetParent为[typeNode]{@link typeNode}时会校验子组件类型或个数，不满足时抛出
    * 异常信息，限制情况请查看[typeNode]{@link typeNode}描述。
-   *
+   * 
    * > **说明：**
    * >
    * > 当前仅支持以下类型的[TypedFrameNode]{@link TypedFrameNode}进行移动操作：[Stack]{@link typeNode.Stack}、
    * > [XComponent]{@link typeNode.XComponent}。对于其他类型的节点，移动操作不会生效。
    * >
-   * > 当前仅支持根节点为以下类型组件的[BuilderNode]{@link BuilderNode:BuilderNode}进行移动操作：[Stack]{@link stack}、
-   * > [XComponent]{@link xcomponent}、[EmbeddedComponent]{@link embedded_component}。对于其他类型的组件，移动操作不会生效。
+   * > 当前仅支持根节点为以下类型组件的[BuilderNode]{@link ./BuilderNode:BuilderNode}进行移动操作：
+   * > [Stack]{@link ../@internal/component/ets/stack}、[XComponent]{@link ../@internal/component/ets/xcomponent}、
+   * > [EmbeddedComponent]{@link ../@internal/component/ets/embedded_component}。对于其他类型的组件，移动操作不会生效。
    *
    * @param { FrameNode } targetParent - 目标父节点。<br/>targetParent节点不可以为声明式创建的节点，即不可修改的FrameNode。若目标父节点不符合规格，则抛出异常信息。
    * @param { number } [index] - 子节点序列号。当前FrameNode将被添加到目标FrameNode对应序列号的子节点之前，若目标FrameNode有n个节点，index取值范围为[0, n-1]。<br/
@@ -694,13 +689,13 @@ export class FrameNode {
 
   /**
    * 立即解除当前FrameNode对象对实体FrameNode节点的引用关系。
-   *
+   * 
    * > **说明：**
    * >
    * > - FrameNode对象调用dispose后，由于不对应任何实体FrameNode节点，在调用部分查询接口([getMeasuredSize]{@link FrameNode#getMeasuredSize}、
    * > [getLayoutPosition]{@link FrameNode#getLayoutPosition})的时候会导致应用出现jscrash。
    * >
-   * > - 通过[getUniqueId]{@link FrameNode#getUniqueId}可以判断当前FrameNode是否对应一个实体FrameNode节点。当UniqueId大于0时表示该对象对应一个实体
+   * > - 通过[getUniqueId]{@link FrameNode#getUniqueId}可以判断当前FrameNode是否对应一个实体FrameNode节点。当UniqueID大于0时表示该对象对应一个实体
    * > FrameNode节点。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -808,9 +803,9 @@ export class FrameNode {
   getUserConfigSize(): SizeT<LengthMetrics>;
 
   /**
-   * 获取用户设置的节点ID（通用属性设置的[组件标识]{@link common}）。
+   * 获取用户设置的节点ID（通用属性设置的[组件标识]{@link ../@internal/component/ets/common}）。
    *
-   * @returns { string } 用户设置的节点ID（通用属性设置的[组件标识]{@link common}）。
+   * @returns { string } 用户设置的节点ID（通用属性设置的[组件标识]{@link ../@internal/component/ets/common}）。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -820,9 +815,9 @@ export class FrameNode {
   getId(): string;
 
   /**
-   * 获取系统分配的唯一标识的节点UniqueID。
+   * 获取系统分配的节点唯一标识（UniqueID）。
    *
-   * @returns { number } 系统分配的唯一标识的节点UniqueID。
+   * @returns { number } 系统分配的节点唯一标识（UniqueID）。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -832,7 +827,8 @@ export class FrameNode {
   getUniqueId(): number;
 
   /**
-   * 获取节点的类型。系统组件类型为组件名称，例如，按钮组件[Button]{@link button}的类型为Button。而对于自定义组件，若其有渲染内容，则其类型为__Common__。
+   * 获取节点的类型。系统组件类型为组件名称，例如，按钮组件[Button]{@link ../@internal/component/ets/button}的类型为Button。而对于自定义组件，若其有渲染内容，则其类型为
+   * __Common__。
    *
    * @returns { string } 节点的类型。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -872,9 +868,9 @@ export class FrameNode {
   isVisible(): boolean;
 
   /**
-   * 获取节点是否是剪裁到组件区域。当调用[dispose]{@link FrameNode#dispose}解除对实体FrameNode节点的引用关系之后，返回值为true。
+   * 获取节点是否剪裁到组件区域。当调用[dispose]{@link FrameNode#dispose}解除对实体FrameNode节点的引用关系之后，返回值为true。
    *
-   * @returns { boolean } 节点是否是剪裁到组件区域。<br/>true表示节点剪裁到组件区域，false表示节点不是剪裁到组件区域。
+   * @returns { boolean } 节点是否剪裁到组件区域。<br/>true表示节点剪裁到组件区域，false表示节点未剪裁到组件区域。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -896,8 +892,8 @@ export class FrameNode {
   isAttached(): boolean;
 
   /**
-   * 查询当前FrameNode对象是否已解除与后端实体节点的引用关系。前端节点均绑定有相应的后端实体节点，当节点调用dispose接口解除绑定后，再次调用接口可能会出现crash、返回默认值的情况。由于业务需求，可能存在节点在
-   * dispose后仍被调用接口的情况。为此，提供此接口以供开发者在操作节点前检查其有效性，避免潜在风险。
+   * 查询当前FrameNode对象是否已解除与后端实体节点的引用关系。前端节点均绑定有相应的后端实体节点，当节点调用dispose接口解除绑定后，再次调用该节点的其他接口可能会出现crash、返回默认值的情况。由于业务需求，可能存在节
+   * 点在dispose后仍被调用接口的情况。为此，提供此接口以供开发者在操作节点前检查其有效性，避免潜在风险。
    *
    * @returns { boolean } 后端实体节点是否解除引用。true为节点已与后端实体节点解除引用，false为节点未与后端实体节点解除引用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -928,7 +924,7 @@ export class FrameNode {
    * 通过名称获取组件的自定义属性。
    *
    * @param { string } name - 自定义属性的名称。
-   * @returns { Object | undefined } Value of the custom property.
+   * @returns { Object | undefined } 自定义属性的值。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -952,8 +948,10 @@ export class FrameNode {
   get commonEvent(): UICommonEvent;
 
   /**
-   * 获取FrameNode中持有的UIGestureEvent对象，用于设置组件绑定的手势事件。通过gestureEvent接口设置的手势不会覆盖通过[绑定手势事件]{@link common}绑定的手势，两者同时设置了手势时，优先回
-   * 调绑定手势事件设置的手势事件。
+   * 获取FrameNode中持有的UIGestureEvent对象，用于设置组件绑定的手势事件。通过gestureEvent接口设置的手势不会覆盖通过
+   * [绑定手势事件]{@link ../@internal/component/ets/common}绑定的手势，两者同时设置了手势时，优先回调绑定手势事件设置的手势事件。
+   * 
+   * LazyForEach场景下，由于存在节点的销毁重建，对于重建的节点需要重新设置手势事件回调才能保证监听事件正常响应。
    *
    * @returns { UIGestureEvent } UIGestureEvent对象，用于设置组件绑定的手势。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -965,13 +963,14 @@ export class FrameNode {
   get gestureEvent(): UIGestureEvent;
 
   /**
-   * 获取FrameNode中持有的CommonAttribute接口，用于设置[通用属性]{@link common}和[通用事件]{@link common}。
-   *
+   * 获取FrameNode中持有的CommonAttribute接口，用于设置[通用属性]{@link ../@internal/component/ets/common}和
+   * [通用事件]{@link ../@internal/component/ets/common}。
+   * 
    * 仅可以修改自定义节点的属性。
-   *
+   * 
    * > **说明：**
    * >
-   * > FrameNode的效果参考对齐方式为顶部起始端的[Stack]{@link stack}容器组件。
+   * > FrameNode的效果参考对齐方式为顶部起始端的[Stack]{@link ../@internal/component/ets/stack}容器组件。
    * >
    * > FrameNode的属性支持情况参考
    * > [属性或事件对attributemodifier的支持情况](docroot://ui/arkts-user-defined-extension-attributeModifier.md#属性或事件对attributemodifier的支持情况)。
@@ -988,8 +987,8 @@ export class FrameNode {
 
   /**
    * FrameNode的自绘制方法，该方法会重写默认绘制方法，在FrameNode进行内容绘制时被调用。
-   *
-   * 该接口的[DrawContext]{@link Graphics:DrawContext}中的Canvas是用于记录指令的临时Canvas，并非节点的真实Canvas。使用请参见
+   * 
+   * 该接口的[DrawContext]{@link ./Graphics:DrawContext}中的Canvas是用于记录指令的临时Canvas，并非节点的真实Canvas。使用请参见
    * [调整自定义绘制Canvas的变换矩阵](docroot://ui/arkts-user-defined-arktsNode-frameNode.md#调整自定义绘制canvas的变换矩阵)。
    *
    * @param { DrawContext } context - 图形绘制上下文。自绘制区域无法超出组件自身大小。
@@ -1016,7 +1015,7 @@ export class FrameNode {
   /**
    * FrameNode的自定义布局方法，该方法会重写默认布局方法，在FrameNode进行布局时被调用，为FrameNode及其子节点指定位置。
    *
-   * @param { Position } position - 组件进行布局时使用的位置信息。
+   * @param { Position } position - 组件进行布局时使用的位置信息。单位为PX。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1026,9 +1025,9 @@ export class FrameNode {
   onLayout(position: Position): void;
 
   /**
-   * 设置FrameNode的测量后的尺寸，默认单位PX。若设置的宽高为负数，自动取零。
+   * 设置FrameNode的测量后的尺寸，默认单位PX。若设置的宽高为负数，自动取零。建议在[onMeasure]{@link FrameNode#onMeasure}方法中调用，用于设置自定义测量的结果。
    *
-   * @param { Size } size - FrameNode的测量后的尺寸。
+   * @param { Size } size - FrameNode的测量后的尺寸，单位为PX。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1038,9 +1037,9 @@ export class FrameNode {
   setMeasuredSize(size: Size): void;
 
   /**
-   * 设置FrameNode的布局后的位置，默认单位PX。
+   * 设置FrameNode的布局后的位置，默认单位PX。建议在[onLayout]{@link FrameNode#onLayout}方法中调用，用于设置自定义布局的结果。
    *
-   * @param { Position } position - FrameNode的布局后的位置。
+   * @param { Position } position - FrameNode的布局后的位置，单位为PX。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1064,7 +1063,7 @@ export class FrameNode {
   /**
    * 调用FrameNode的布局方法，为FrameNode及其子节点指定布局位置，如果布局方法被重写，则调用重写的方法。建议在[onLayout]{@link FrameNode#onLayout}方法中调用。
    *
-   * @param { Position } position - 组件进行布局时使用的位置信息。
+   * @param { Position } position - 组件进行布局时使用的位置信息。单位为PX。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1074,7 +1073,8 @@ export class FrameNode {
   layout(position: Position): void;
 
   /**
-   * 该方法会将FrameNode标记为需要布局的状态，下一帧将会进行重新布局。
+   * 该方法会将FrameNode标记为需要布局的状态，下一帧将会进行重新布局，触发[onMeasure]{@link FrameNode#onMeasure}和[onLayout]{@link FrameNode#onLayout}方
+   * 法的调用。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1085,7 +1085,7 @@ export class FrameNode {
   setNeedsLayout(): void;
 
   /**
-   * 该方法会触发FrameNode自绘制内容的重新渲染。
+   * 该方法会触发FrameNode自绘制内容的重新渲染，即重新调用[onDraw]{@link FrameNode#onDraw}方法进行自绘制。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1108,7 +1108,7 @@ export class FrameNode {
   getPositionToScreen(): Position;
 
   /**
-   * 获取FrameNode相对于全局屏幕的位置偏移，单位为VP。
+   * 获取FrameNode相对于全局屏幕的位置偏移，单位为VP。与[getPositionToScreen]{@link FrameNode#getPositionToScreen}的坐标系参考不同，请根据实际场景选择使用。
    *
    * @returns { Position } 节点相对于全局屏幕的位置偏移，单位为VP。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1120,10 +1120,10 @@ export class FrameNode {
   getGlobalPositionOnDisplay(): Position;
 
   /**
-   * 获取FrameNode相对于窗口带有绘制属性的位置偏移，单位为VP，绘制属性比如[transform]{@link CommonMethod#transform(value: object)},
+   * 获取FrameNode相对于窗口带有绘制属性的位置偏移，单位为VP，绘制属性比如[transform]{@link CommonMethod#transform(value: object)}、
    * [translate]{@link CommonMethod#translate(value: TranslateOptions)}等，返回的坐标是组件布局时左上角变换后的坐标。
    *
-   * @returns { Position } 节点相对于窗口的位置偏移，单位为VP。 当设置了其他（比如：transform, translate等）绘制属性，由于浮点数精度的影响，返回值会有微小偏差。
+   * @returns { Position } 节点相对于窗口的位置偏移，单位为VP。 当设置了其他（比如：transform、translate等）绘制属性，由于浮点数精度的影响，返回值会有微小偏差。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1133,10 +1133,10 @@ export class FrameNode {
   getPositionToWindowWithTransform(): Position;
 
   /**
-   * 获取FrameNode相对于父组件带有绘制属性的位置偏移，单位为VP，绘制属性比如[transform]{@link CommonMethod#transform(value: object)},
+   * 获取FrameNode相对于父组件带有绘制属性的位置偏移，单位为VP，绘制属性比如[transform]{@link CommonMethod#transform(value: object)}、
    * [translate]{@link CommonMethod#translate(value: TranslateOptions)}等，返回的坐标是组件布局时左上角变换后的坐标。
    *
-   * @returns { Position } 节点相对于父组件的位置偏移，单位为VP。 当设置了其他（比如：transform, translate等）绘制属性，由于浮点数精度的影响，返回值会有微小偏差。
+   * @returns { Position } 节点相对于父组件的位置偏移，单位为VP。当设置了其他（比如：transform、translate等）绘制属性，由于浮点数精度的影响，返回值会有微小偏差。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1146,10 +1146,10 @@ export class FrameNode {
   getPositionToParentWithTransform(): Position;
 
   /**
-   * 获取FrameNode相对于屏幕带有绘制属性的位置偏移，单位为VP，绘制属性比如[transform]{@link CommonMethod#transform(value: object)},
+   * 获取FrameNode相对于屏幕带有绘制属性的位置偏移，单位为VP，绘制属性比如[transform]{@link CommonMethod#transform(value: object)}、
    * [translate]{@link CommonMethod#translate(value: TranslateOptions)}等，返回的坐标是组件布局时左上角变换后的坐标。
    *
-   * @returns { Position } 节点相对于屏幕的位置偏移，单位为VP。 当设置了其他（比如：transform, translate等）绘制属性，由于浮点数精度的影响，返回值会有微小偏差。
+   * @returns { Position } 节点相对于屏幕的位置偏移，单位为VP。 当设置了其他（比如：transform、translate等）绘制属性，由于浮点数精度的影响，返回值会有微小偏差。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1172,8 +1172,8 @@ export class FrameNode {
   /**
    * 支持添加ComponentContent类型的组件内容。要求当前节点是一个可修改的节点，即[isModifiable]{@link FrameNode#isModifiable}的返回值为true，否则抛出异常信息。
    *
-   * @param { ComponentContent<T> } content - Component content to display on the FrameNode. [since 12 - 21]
-   * @param { ComponentContent<T> | ReactiveComponentContent<T> } content - FrameNode节点中显示的组件内容。 [since 12 - 21]
+   * @param { ComponentContent<T> } content - FrameNode节点中显示的组件内容。 [since 12 - 21]
+   * @param { ComponentContent<T> | ReactiveComponentContent<T> } content - FrameNode节点中显示的组件内容。 [since 22]
    * @throws { BusinessError } 100021 - The FrameNode is not modifiable.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1186,18 +1186,18 @@ export class FrameNode {
   /**
    * 设置当前FrameNode的跨ArkTS语言访问选项。例如ArkTS语言创建的节点，设置该节点是否可通过非ArkTS语言进行属性设置，从API版本26.0.0开始支持设置是否可通过非ArkTS语言进行组件树操作。当前
    * FrameNode如果不可修改或不可设置跨ArkTS语言访问选项，抛出异常信息。
-   *
+   * 
    * > **说明：**
    * >
-   * > 当前仅支持[Scroll]{@link typeNode.Scroll}, [Swiper]{@link typeNode.Swiper}，[List]{@link typeNode.List}，
-   * > [ListItem]{@link typeNode.ListItem}，[ListItemGroup]{@link typeNode.ListItemGroup}，
-   * > [WaterFlow]{@link typeNode.WaterFlow}，[FlowItem]{@link typeNode.FlowItem}，[Grid]{@link typeNode.Grid}，
-   * > [GridItem]{@link typeNode.GridItem}，[TextInput]{@link typeNode.TextInput}，[TextArea]{@link typeNode.TextArea}，
-   * > [Column]{@link typeNode.Column}，[Row]{@link typeNode.Row}，[Stack]{@link typeNode.Stack}，
-   * > [Flex]{@link typeNode.Flex}，[RelativeContainer]{@link typeNode.RelativeContainer}，
-   * > [Progress]{@link typeNode.Progress}，[LoadingProgress]{@link typeNode.LoadingProgress}，
-   * > [Image]{@link typeNode.Image}，[Button]{@link typeNode.Button}，[CheckBox]{@link typeNode.Checkbox}，
-   * > [Radio]{@link typeNode.Radio}，[Slider]{@link typeNode.Slider}，[Toggle]{@link typeNode.Toggle}，
+   * > 当前仅支持[Scroll]{@link typeNode.Scroll}、[Swiper]{@link typeNode.Swiper}、[List]{@link typeNode.List}、
+   * > [ListItem]{@link typeNode.ListItem}、[ListItemGroup]{@link typeNode.ListItemGroup}、
+   * > [WaterFlow]{@link typeNode.WaterFlow}、[FlowItem]{@link typeNode.FlowItem}、[Grid]{@link typeNode.Grid}、
+   * > [GridItem]{@link typeNode.GridItem}、[TextInput]{@link typeNode.TextInput}、[TextArea]{@link typeNode.TextArea}、
+   * > [Column]{@link typeNode.Column}、[Row]{@link typeNode.Row}、[Stack]{@link typeNode.Stack}、
+   * > [Flex]{@link typeNode.Flex}、[RelativeContainer]{@link typeNode.RelativeContainer}、
+   * > [Progress]{@link typeNode.Progress}、[LoadingProgress]{@link typeNode.LoadingProgress}、
+   * > [Image]{@link typeNode.Image}、[Button]{@link typeNode.Button}、[Checkbox]{@link typeNode.Checkbox}、
+   * > [Radio]{@link typeNode.Radio}、[Slider]{@link typeNode.Slider}、[Toggle]{@link typeNode.Toggle}、
    * > [XComponent]{@link typeNode.XComponent}类型的[TypedFrameNode]{@link TypedFrameNode}设置跨ArkTS语言访问选项。
    *
    * @param { CrossLanguageOptions } options - 跨ArkTS语言访问选项。
@@ -1224,7 +1224,7 @@ export class FrameNode {
   getCrossLanguageOptions(): CrossLanguageOptions;
 
   /**
-   * 全局复用场景下，触发子组件回收，彻底释放FrameNode后端资源，以便于资源的重新复用，确保后端资源能够被有效回收并再次使用。
+   * 全局复用场景下，触发子组件回收，彻底释放FrameNode后端资源，以便于通过[reuse]{@link FrameNode#reuse}方法实现资源的重新复用，确保后端资源能够被有效回收并再次使用。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1248,9 +1248,10 @@ export class FrameNode {
   /**
    * 获取目标节点的事件绑定信息，如果该组件节点上没有绑定要查询的交互事件类型时，返回 undefined。
    *
-   * @param { EventQueryType } eventType - 要查询的交互事件类型。
-   * @returns { InteractionEventBindingInfo | undefined } Returns an **InteractionEventBindingInfo** object containing
-   *     event binding details if the interaction event is bound to the current node; returns **undefined** otherwise.
+   * @param { EventQueryType } eventType - 要查询的交互事件类型。例如EventQueryType.ON_CLICK表示查询点击事件的绑定信息，各枚举值的具体含义请参考
+   *     [EventQueryType]{@link EventQueryType}。
+   * @returns { InteractionEventBindingInfo | undefined } 如果当前节点上绑定了所查询类型的交互事件，则返回一个InteractionEventBindingInfo对象，指示事件绑定
+   *     详细信息，如果没有绑定所查询类型的交互事件则返回undefined。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1262,10 +1263,11 @@ export class FrameNode {
   /**
    * 设置组件支持的多态样式状态。
    *
-   * @param { number } uiStates - 需要处理目标节点的UI状态。<br>可以通过位或计算同时指定设置多个状态，如：targetUIStates = UIState.PRESSED  |
-   *     UIState.FOCUSED。
+   * @param { number } uiStates - 需要处理目标节点的UI状态。
+   *     <br>可以通过位或计算同时指定多个状态，如：targetUIStates = UIState.PRESSED  |  UIState.FOCUSED。
    * @param { UIStatesChangeHandler } statesChangeHandler - 状态变化时的回调函数。
-   * @param { boolean } [excludeInner] - 禁止内部默认状态样式处理的标志，默认值为false。<br> true表示禁止内部默认状态样式处理，false不禁止内部默认状态样式处理。
+   * @param { boolean } [excludeInner] - 禁止内部默认状态样式处理的标志，默认值为false。内部默认状态样式处理指组件自身内置的状态样式响应（如Button按下时的默认视觉反馈）。
+   *     <br> true表示禁止内部默认状态样式处理，false不禁止内部默认状态样式处理。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1277,8 +1279,8 @@ export class FrameNode {
   /**
    * 删除组件当前注册的状态处理。
    *
-   * @param { number } uiStates - 需要删除的UI状态。<br>可以通过位或计算同时指定删除多个状态，如：removeUIStates = UIState.PRESSED  |
-   *     UIState.FOCUSED。
+   * @param { number } uiStates - 需要删除的UI状态。
+   *     <br>可以通过位或计算同时指定删除多个状态，如：removeUIStates = UIState.PRESSED  |  UIState.FOCUSED。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1295,12 +1297,12 @@ export class FrameNode {
    *     上一次设置的属性终值为此次动画的起点值。如果取值为数组，<br/>- 对于AnimationPropertyType.ROTATION，取值格式为[rotationX, rotationY, rotationZ]，单位为度
    *     （°），表示绕x、y、z轴的旋转角。<br/>- 对于AnimationPropertyType.TRANSLATION，取值格式为[translateX, translateY]，单位为px，表示沿x、y轴的平移量。<
    *     br/>- 对于AnimationPropertyType.SCALE，取值格式为[scaleX, scaleY]，表示x、y方向的缩放比例。<br/>- 对于AnimationPropertyType.OPACITY，取
-   *     值格式为[opacity]，表示不透明度。opacity的取值范围为[0, 1]。<br/>当节点上从未设置过该属性时，需要显式指定startValue才能正常创建动画。当节点上已经设置过属性（如第二次及之后创建动画），则
-   *     推荐不显式指定startValue或者显式指定startValue为上一次的终值，表示使用上一次的终值作为新的动画起点，避免起始值跳变。
+   *     值格式为[opacity]，表示不透明度。opacity的取值范围为[0, 1]，超出范围的值会被钳位到[0, 1]，动画正常创建。<br/>当节点上从未设置过该属性时，需要显式指定startValue才能正常创建动画。当
+   *     节点上已经设置过属性（如第二次及之后创建动画），则推荐不显式指定startValue或者显式指定startValue为上一次的终值，表示使用上一次的终值作为新的动画起点，避免起始值跳变。
    * @param { number[] } endValue - 动画属性的终止值。取值为数组，数组长度需要和属性枚举匹配。<br/>- 对于AnimationPropertyType.ROTATION，取值格式为
    *     [rotationX, rotationY, rotationZ]，单位为度（°），表示绕x、y、z轴的旋转角。<br/>- 对于AnimationPropertyType.TRANSLATION，取值格式为
    *     [translateX, translateY]，单位为px，表示沿x、y轴的平移量。<br/>- 对于AnimationPropertyType.SCALE，取值格式为[scaleX, scaleY]，表示x、y方向的缩
-   *     放比例。<br/>- 对于AnimationPropertyType.OPACITY，取值格式为[opacity]，表示不透明度。opacity的取值范围为[0, 1]。
+   *     放比例。<br/>- 对于AnimationPropertyType.OPACITY，取值格式为[opacity]，表示不透明度。opacity的取值范围为[0, 1]，超出范围的值会被钳位到[0, 1]，动画正常创建。
    * @param { AnimateParam } param - 动画参数。包含时长、动画曲线、结束回调等参数。
    * @returns { boolean } 表示动画是否创建成功。<br/>返回值为true：动画创建成功，如果动画参数中设置结束回调，动画结束后会调用结束回调。<br/>返回值为false：动画创建失败，即使动画参数中设置结束回
    *     调，结束回调也不会被调用。<br/>可能导致动画创建失败的原因：<br/> 1. 节点已经释放，调用过[dispose]{@link FrameNode#dispose}方法。<br/> 2. 对于系统组件的代理节点，即对
@@ -1319,10 +1321,10 @@ export class FrameNode {
    * 请求取消FrameNode上指定属性上的所有动画，该方法需在节点所处线程中调用，会阻塞当前线程以等待取消结果。如果动画成功取消，节点上的属性值会被恢复为取消时的显示值（即当前状态）。
    *
    * @param { AnimationPropertyType[] } properties - 待取消的动画属性枚举数组。可以一次取消一个节点上的多个属性的动画。
-   * @returns { boolean } 表示动画是否取消成功。<br/>返回值为true：动画取消成功。<br/>返回值为false：动画取消失败。<br/>可能导致动画取消失败的原因：<br/> 1. 节点已经释放，调用过
+   * @returns { boolean } 表示动画是否取消成功。<br/>返回值为true：动画取消成功。<br/>返回值为false：动画取消失败。<br/>可能导致动画取消失败的原因：<br/> 1. 节点已经释放，调用过
    *     [dispose]{@link FrameNode#dispose}方法。<br/> 2. 对于系统组件的代理节点，即对于[isModifiable]{@link FrameNode#isModifiable}为false
-   *     的节点，调用该接口会失败。<br/> 3. 属性枚举数组存在非法枚举值。<br/> 4. 系统异常。如发生ipc异常导致动画取消失败。<br/> 1. 即使属性上没有动画，尝试取消该属性的动画，在无系统异常情况下调用取消接
-   *     口也会返回true。<br/> 2. 如果开发者保证传入参数合法且节点正常，返回false时表明发生了系统异常。此时开发者可隔一段时间后再次尝试取消，或通过调用duration为0的
+   *     的节点，调用该接口会失败。<br/> 3. 属性枚举数组存在非法枚举值。<br/> 4. 系统异常。如发生ipc异常导致动画取消失败。<br/>补充说明：<br/> 1. 即使属性上没有动画，尝试取消该属性的动画，在无系统
+   *     异常情况下调用取消接口也会返回true。<br/> 2. 如果开发者保证传入参数合法且节点正常，返回false时表明发生了系统异常。此时开发者可隔一段时间后再次尝试取消，或通过调用duration为0的
    *     [createAnimation]{@link FrameNode#createAnimation}接口停止属性上的动画。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1336,21 +1338,12 @@ export class FrameNode {
    * 获取FrameNode上的属性值。
    *
    * @param { AnimationPropertyType } property - 动画属性枚举。
-   * @returns { number[] } Current property value from the render node. The array length corresponds to the property
-   *     type.
-   *     <br>The return value format varies by property:
-   *     <br>- An empty array (length 0) is returned
-   *     if the node has been disposed, the [dispose]{@link FrameNode#dispose}
-   *     API has been called, or the property enumeration is invalid.
-   *     <br>- **AnimationPropertyType.ROTATION**: [rotationX, rotationY, rotationZ] in degrees (°).
-   *     <br>- **AnimationPropertyType.TRANSLATION**: [translateX, translateY] in px.
-   *     <br>- **AnimationPropertyType.SCALE**: [scaleX, scaleY] (scale factors).
-   *     <br>- **AnimationPropertyType.OPACITY**: [opacity].
-   *     <br>1. After animation cancellation, the node's property value is restored to the display value at the time of
-   *     cancellation, which can be obtained using this API.
-   *     <br>2. During animation playback, this API returns the final target value
-   *     rather than real-time interpolated values.
-   *     <br>
+   * @returns { number[] } 表示FrameNode上的属性值，返回的数组长度与属性枚举相关，异常时返回空数组。<br/>对不同属性枚举的返回值格式：<br/>- 当节点已经释放，调用过
+   *     [dispose]{@link FrameNode#dispose}方法，或者属性枚举非法时，返回长度为0的空数组。<br/>- 对于AnimationPropertyType.ROTATION，返回值为
+   *     [rotationX, rotationY, rotationZ]，单位为度（°），表示绕x、y、z轴的旋转角。<br/>- 对于AnimationPropertyType.TRANSLATION，返回值为
+   *     [translateX, translateY]，单位为px，表示沿x、y轴的平移量。<br/>- 对于AnimationPropertyType.SCALE，返回值为[scaleX, scaleY]，表示x、y方向的缩放
+   *     比例。<br/>- 对于AnimationPropertyType.OPACITY，返回值为[opacity]，表示不透明度。<br/>1. 动画正常取消后，节点上的属性值被恢复为取消时的值，通过该接口可以获取取消后的显示
+   *     值。<br/>2. 动画期间该接口的返回值为该属性的终值，而不是动画过程的实时值。<br/>
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1360,10 +1353,11 @@ export class FrameNode {
   getNodePropertyValue(property: AnimationPropertyType): number[];
 
   /**
-   * 获取FrameNode上的属性值。
+   * 判断FrameNode是否通过transfer.transferStatic或者transfer.transferDynamic方法创建。
    *
-   * @returns { boolean } - Returns true if the FrameNode was converted between dynamic and static states,
-   *     otherwise, returns false.
+   * @returns { boolean } - 返回FrameNode是否通过transfer.transferStatic或transfer.transferDynamic方法创建。<br/>true：FrameNode通过
+   *     transfer.transferStatic或transfer.transferDynamic方法创建。<br/>false：FrameNode不通过transfer.transferStatic或
+   *     transfer.transferDynamic方法创建。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1371,18 +1365,6 @@ export class FrameNode {
    * @since 23 dynamic
    */
   isTransferred(): boolean;
-
-  /**
-   * 获取节点是否处于渲染状态，如果一个节点的对应RenderNode在渲染树上，则处于渲染状态。
-   *
-   * @returns { boolean } 节点是否处于渲染状态。<br/>true：处于渲染状态；false：不处于渲染状态。
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 23 dynamic
-   */
-  isInRenderState(): boolean;
 
   /**
    * 在当前帧触发节点属性更新。
@@ -1400,9 +1382,10 @@ export class FrameNode {
   invalidateAttributes(): void;
 
   /**
-   * 当前节点接纳目标节点为附属节点。被接纳的附属节点不能已有父节点。调用该接口实际上不会将其添加为子节点，而是仅允许其接收对应子节点的生命周期回调。
+   * 当前节点接纳目标节点为附属节点。当前FrameNode如果不可修改，抛出异常信息。被接纳的附属节点不能已有父节点。调用该接口实际上不会将目标节点添加为子节点，而是仅允许当前节点接收该附属节点的生命周期回调。使用场景：当需要监听某个
+   * 节点的生命周期回调但不希望改变其父子关系或组件树结构时，可通过该接口接纳其为附属节点。
    *
-   * @param { FrameNode } child - 指定待被接纳的节点。
+   * @param { FrameNode } child - 指定待被接纳的节点。child节点不可以拥有父节点，否则抛出异常信息。
    * @throws { BusinessError } 100021 - The current FrameNode is not modifiable.
    * @throws { BusinessError } 100025 - The parameter is invalid. Details about the invalid parameter and the reason
    *     are included in the error message. For example: "The parameter 'child' is invalid: it cannot be disposed."
@@ -1416,9 +1399,9 @@ export class FrameNode {
   adoptChild(child: FrameNode): void;
 
   /**
-   * 移除被接纳的目标附属节点。
+   * 移除被接纳的目标附属节点。当前FrameNode如果不可修改，抛出异常信息。
    *
-   * @param { FrameNode } child - 正在被接纳的节点。
+   * @param { FrameNode } child - 已被接纳的目标附属节点。
    * @throws { BusinessError } 100021 - The current FrameNode is not modifiable.
    * @throws { BusinessError } 100025 - The parameter is invalid. Details about the invalid parameter and the reason
    *     are included in the error message. For example: "The parameter 'child' is invalid: it cannot be null."
@@ -1434,9 +1417,10 @@ export class FrameNode {
   /**
    * 将点的坐标从当前节点的坐标系转换为目标节点的坐标系。
    *
-   * @param { Position } position - 当前节点坐标系中的相对坐标。
-   * @param { FrameNode } targetNode - 本次坐标转换的目标节点，转换得到的点坐标就是该节点坐标系中的相对坐标。
-   * @returns { Position } 目标节点局部坐标系中的转换坐标。
+   * @param { Position } position - 当前节点坐标系中的相对坐标。单位为VP。
+   * @param { FrameNode } targetNode - 本次坐标转换的目标节点，转换得到的点坐标就是该节点坐标系中的相对坐标。targetNode节点不可以为已释放的节点，且需与当前节点存在共同祖先节点，否则抛出异常信
+   *     息。
+   * @returns { Position } 目标节点局部坐标系中的转换坐标，单位为VP。
    * @throws { BusinessError } 100024 - The current FrameNode and the target FrameNode do not have a common ancestor
    *     node.
    * @throws { BusinessError } 100025 - The parameter is invalid. Details about the invalid parameter and the reason
@@ -1452,8 +1436,8 @@ export class FrameNode {
   /**
    * 将点的坐标从当前节点的坐标系转换为当前节点所在窗口的坐标系。
    *
-   * @param { Position } positionByLocal - 当前节点坐标系中的相对坐标。
-   * @returns { Position } 当前节点所在窗口的坐标系中的转换坐标。
+   * @param { Position } positionByLocal - 当前节点坐标系中的相对坐标。单位为VP。
+   * @returns { Position } 当前节点所在窗口的坐标系中的转换坐标，单位为VP。
    * @throws { BusinessError } 100026 - The current FrameNode has been disposed.
    * @throws { BusinessError } 100028 - The current FrameNode is not on the main tree.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1467,8 +1451,8 @@ export class FrameNode {
   /**
    * 将点的坐标从当前节点所在窗口的坐标系转换为当前节点的坐标系。
    *
-   * @param { Position } positionByWindow - 当前节点所在窗口的坐标系中的相对坐标。
-   * @returns { Position } 当前节点坐标系中的转换坐标。
+   * @param { Position } positionByWindow - 当前节点所在窗口的坐标系中的相对坐标。单位为VP。
+   * @returns { Position } 当前节点坐标系中的转换坐标，单位为VP。
    * @throws { BusinessError } 100026 - The current FrameNode has been disposed.
    * @throws { BusinessError } 100028 - The current FrameNode is not on the main tree.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1480,7 +1464,21 @@ export class FrameNode {
   convertPositionFromWindow(positionByWindow: Position): Position;
 
   /**
-   * 查询节点是否被挂载到主节点树上。
+   * 获取节点是否处于渲染状态，如果一个节点的对应RenderNode在渲染树上，则处于渲染状态。
+   *
+   * @returns { boolean } 节点是否处于渲染状态。<br/>true：处于渲染状态；false：不处于渲染状态。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  isInRenderState(): boolean;
+
+  /**
+   * 查询节点是否被挂载到主节点树上。与[isAttached]{@link FrameNode#isAttached}均用于判断节点是否挂载到主节点树上，区别在于本接口在节点已调用
+   * [dispose]{@link FrameNode#dispose}解除引用时会抛出错误码100026，开发者可根据是否需要节点dispose时的错误码校验（即抛出错误码100026）来选择使用本接口或
+   * [isAttached]{@link FrameNode#isAttached}接口。
    *
    * @returns { boolean } 节点是否被挂载到主节点树上。<br/>true表示节点被挂载到主节点树上，false表示节点没有被挂载到主节点树上。
    * @throws { BusinessError } 100026 - The current FrameNode has been disposed.
@@ -1497,7 +1495,7 @@ export class FrameNode {
    *
    * @param { UIContext } uiContext - 创建对应节点时所需的UI上下文。
    * @param { number } count - 指定创建节点的数量，取值范围为大于零的整型。若给定值小于等于0或不是整数，则返回空数组。
-   * @returns { FrameNode[] } Array of created FrameNodes.
+   * @returns { FrameNode[] } 创建的FrameNode数组。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1509,10 +1507,8 @@ export class FrameNode {
   /**
    * 以当前节点为根节点，逐层查找所有子节点，返回第一个匹配指定id的节点。查找顺序为：先查找直接子节点，再查找二级子节点，依此类推，找到后立即返回。
    *
-   * @param { string } id - 查询的子节点id，为通用属性设置的[组件标识]{@link common}。
-   * @returns { FrameNode | null } First node that matches the specified ID, which is returned by searching for all
-   *     child nodes layer by layer from the current node (which is used as the root node). If no child node of the
-   *     current node matches the specified ID, a null is returned.
+   * @param { string } id - 查询的子节点id，为通用属性设置的[组件标识]{@link ../@internal/component/ets/common}。
+   * @returns { FrameNode | null } 以当前节点为根节点，逐层查找所有子节点，返回第一个匹配指定id的节点。若当前节点所有的子节点中都不存在匹配该id的节点，则返回空对象null。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1525,10 +1521,7 @@ export class FrameNode {
    * 以当前节点为根节点，查找并返回指定UniqueID（系统分配的节点唯一标识，该标识可通过[getUniqueId]{@link FrameNode#getUniqueId}接口获取）的子节点。
    *
    * @param { int } id - 查询的子节点的唯一标识UniqueID。
-   *     <br>取值限定为整数。
-   * @returns { FrameNode | null } Child node with the unique ID, which is found from the current node (which is used as
-   *     the root node). If the child node with the unique ID cannot be found under the current node, a null is
-   *     returned.
+   * @returns { FrameNode | null } 以当前节点为根节点，查找到指定UniqueID的子节点。若当前节点无法查找到该UniqueID的子节点，则返回空对象null。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1539,8 +1532,9 @@ export class FrameNode {
 }
 
 /**
-* TypedFrameNode继承自[FrameNode]{@link FrameNode}，用于声明具体类型的FrameNode。
-*
+ * TypedFrameNode继承自[FrameNode]{@link FrameNode}，用于声明具体类型的FrameNode，支持Text、Image、Button、Column等多种组件类型，适用于通过代码动态创建具体类型组件节
+ * 点的场景。
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
  * @crossplatform
@@ -1548,9 +1542,8 @@ export class FrameNode {
  * @since 12 dynamic
  */
 export interface TypedFrameNode<C, T> extends FrameNode {
-
   /**
-   * 该接口用于创建对应组件的构造参数，用于设置/更新组件的初始值。
+   * 该接口用于传入对应组件的构造参数，以设置/更新组件的初始值。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1559,9 +1552,8 @@ export interface TypedFrameNode<C, T> extends FrameNode {
    * @since 12 dynamic
    */
   initialize: C;
-
   /**
-   * 该接口用于获取对应组件的属性设置对象，用于设置/更新组件的通用、私有属性。
+   * 该接口用于获取对应组件的属性设置对象，以设置/更新组件的通用、私有属性。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1573,11 +1565,12 @@ export interface TypedFrameNode<C, T> extends FrameNode {
 }
 
 /**
-* typeNode提供创建具体类型的FrameNode能力，可通过FrameNode的基础接口进行自定义的挂载，使用占位容器进行显示。
-*
-* 使用typeNode创建[Text]{@link text}、[Image]{@link image}、[Select]{@link select}、[Toggle]{@link toggle}节点时，当传入的
-* [UIContext]{@link @ohos.arkui.UIContext}对应的UI实例销毁后，调用该接口会返回一个无效的FrameNode节点，无法正常挂载和显示。
-*
+ * typeNode提供创建具体类型的FrameNode能力，可通过FrameNode的基础接口进行自定义的挂载，使用占位容器进行显示。适用于需要通过代码动态创建具体类型组件节点并进行自定义挂载的场景。
+ * 
+ * 使用typeNode创建[Text]{@link ../@internal/component/ets/text}、[Image]{@link ../@internal/component/ets/image}、
+ * [Select]{@link ../@internal/component/ets/select}、[Toggle]{@link ../@internal/component/ets/toggle}节点时，当传入的
+ * [UIContext]{@link @ohos.arkui.UIContext}对应的UI实例销毁后，调用该接口会返回一个无效的FrameNode节点，无法正常挂载和显示。
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -1586,7 +1579,6 @@ export interface TypedFrameNode<C, T> extends FrameNode {
  * @noninterop
  */
 export namespace typeNode {
-
   /**
    * Text类型的FrameNode节点类型。不允许添加子组件。
    *
@@ -1599,7 +1591,7 @@ export namespace typeNode {
   type Text = TypedFrameNode<TextInterface, TextAttribute>;
 
   /**
-   * 创建Text类型的FrameNode节点。
+   * 创建Text类型的FrameNode节点。使用typeNode创建Text节点时，当传入的UIContext对应的UI实例销毁后，调用该接口会返回一个无效的FrameNode节点，无法正常挂载和显示。
    *
    * @param { UIContext } context - 创建对应节点时所需的UI上下文。
    * @param { 'Text' } nodeType - 创建Text类型的FrameNode节点。
@@ -1617,8 +1609,7 @@ export namespace typeNode {
    *
    * @param { FrameNode } node - 获取属性时所需的目标节点。
    * @param { 'Text' } nodeType - 获取Text节点类型的属性。
-   * @returns { TextAttribute | undefined } Attributes of the **Text** node, or **undefined** if they fail to be
-   *     obtained.
+   * @returns { TextAttribute | undefined } Text节点类型的属性，若获取失败，则返回undefined。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1633,7 +1624,7 @@ export namespace typeNode {
    *
    * @param { FrameNode } node - 绑定文本控制器的目标节点。
    * @param { TextController } controller - 文本控制器。
-   * @param { 'Text' } nodeType - 绑定输入框控制器的目标节点的节点类型为Text。
+   * @param { 'Text' } nodeType - 绑定文本控制器的目标节点的节点类型为Text。
    * @throws { BusinessError } 100023 - Parameter error. Possible causes: 1. The component type of the node
    *     is incorrect. 2. The node is null or undefined. 3. The controller is null or undefined.
    * @throws { BusinessError } 100021 - The FrameNode is not modifiable.
@@ -1675,8 +1666,7 @@ export namespace typeNode {
    *
    * @param { FrameNode } node - 获取属性时所需的目标节点。
    * @param { 'Column' } nodeType - 获取Column节点类型的属性。
-   * @returns { ColumnAttribute | undefined } Attributes of the **Column** node, or **undefined** if they fail to be
-   *     obtained.
+   * @returns { ColumnAttribute | undefined } Column节点类型的属性，若获取失败，则返回undefined。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1715,7 +1705,7 @@ export namespace typeNode {
    *
    * @param { FrameNode } node - 获取属性时所需的目标节点。
    * @param { 'Row' } nodeType - 获取Row节点类型的属性。
-   * @returns { RowAttribute | undefined } Attributes of the **Row** node, or **undefined** if they fail to be obtained.
+   * @returns { RowAttribute | undefined } Row节点类型的属性，若获取失败，则返回undefined。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1754,8 +1744,7 @@ export namespace typeNode {
    *
    * @param { FrameNode } node - 获取属性时所需的目标节点。
    * @param { 'Stack' } nodeType - 获取Stack节点类型的属性。
-   * @returns { StackAttribute | undefined } Attributes of the **Stack** node, or **undefined** if they fail to be
-   *     obtained.
+   * @returns { StackAttribute | undefined } Stack节点类型的属性，若获取失败，则返回undefined。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1844,7 +1833,7 @@ export namespace typeNode {
    *
    * @param { FrameNode } node - 获取属性时所需的目标节点。
    * @param { 'Flex' } nodeType - 获取Flex节点类型的属性。
-   * @returns { FlexAttribute | undefined } 获取Flex节点类型的属性。 If the operation fails, undefined is returned.
+   * @returns { FlexAttribute | undefined } Flex节点类型的属性，若获取失败，则返回undefined。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1883,8 +1872,7 @@ export namespace typeNode {
    *
    * @param { FrameNode } node - 获取属性时所需的目标节点。
    * @param { 'Swiper' } nodeType - 获取Swiper节点类型的属性。
-   * @returns { SwiperAttribute | undefined } Properties of the **Swiper** node, or **undefined** if they fail to be
-   *     obtained.
+   * @returns { SwiperAttribute | undefined } Swiper节点类型的属性，若获取失败，则返回undefined。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1941,8 +1929,7 @@ export namespace typeNode {
    *
    * @param { FrameNode } node - 获取属性时所需的目标节点。
    * @param { 'Progress' } nodeType - 获取Progress节点类型的属性。
-   * @returns { ProgressAttribute | undefined } Properties of the **Progress** node, or **undefined** if they fail to be
-   *     obtained.
+   * @returns { ProgressAttribute | undefined } Progress节点类型的属性，若获取失败，则返回undefined。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1981,8 +1968,7 @@ export namespace typeNode {
    *
    * @param { FrameNode } node - 获取属性时所需的目标节点。
    * @param { 'Scroll' } nodeType - 获取Scroll节点类型的属性。
-   * @returns { ScrollAttribute | undefined } Attributes of the **Scroll** node, or **undefined** if they fail to be
-   *     obtained.
+   * @returns { ScrollAttribute | undefined } Scroll节点类型的属性，若获取失败，则返回undefined。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform [since 23]
@@ -1992,12 +1978,12 @@ export namespace typeNode {
   function getAttribute(node: FrameNode, nodeType: 'Scroll'): ScrollAttribute | undefined;
 
   /**
-   * 获取Scroll节点中持有的UIScrollEvent对象，用于设置滚动事件。设置的滚动事件与声明式定义的事件平行；设置的滚动事件不覆盖原有的声明式事件。同时设置两个事件回调的时候，优先回调声明式事件。
+   * 获取Scroll节点中持有的UIScrollEvent对象，用于设置滚动事件。若该节点非ArkTS语言创建，则需要设置是否支持跨语言访问，如果不支持跨语言访问，则返回undefined。该接口不支持声明式方式创建的节点。设置的滚动
+   * 事件与声明式定义的事件平行；设置的滚动事件不覆盖原有的声明式事件。同时设置两个事件回调的时候，优先回调声明式事件。
    *
    * @param { FrameNode } node - 获取事件时所需的目标节点。
    * @param { 'Scroll' } nodeType - 获取Scroll节点类型的滚动事件。
-   * @returns { UIScrollEvent | undefined } **UIScrollEvent** object for the **Scroll** node, or **undefined** if it
-   *     fails to be obtained.
+   * @returns { UIScrollEvent | undefined } Scroll节点类型的滚动事件，若获取失败，则返回undefined。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform [since 23]
@@ -2011,7 +1997,7 @@ export namespace typeNode {
    * 常。从API version 26.0.0开始，该接口支持声明式方式创建的节点，API version 26.0.0以下版本不支持。
    *
    * @param { FrameNode } node - 绑定滚动控制器的目标节点。
-   * @param { Scroller } controller - the controller which is bind to 绑定滚动控制器的目标节点。
+   * @param { Scroller } controller - 滚动控制器。
    * @param { 'Scroll' } nodeType - 绑定滚动控制器的目标节点的节点类型为Scroll。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. the type of the node is error.
    *     2. the node is null or undefined.
@@ -2055,8 +2041,7 @@ export namespace typeNode {
    *
    * @param { FrameNode } node - 获取属性时所需的目标节点。
    * @param { 'RelativeContainer' } nodeType - 获取RelativeContainer节点类型的属性。
-   * @returns { RelativeContainerAttribute | undefined } Attributes of the **RelativeContainer** node, or **undefined**
-   *     if they fail to be obtained.
+   * @returns { RelativeContainerAttribute | undefined } RelativeContainer节点类型的属性，若获取失败，则返回undefined。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2116,13 +2101,12 @@ export namespace typeNode {
   function createNode(context: UIContext, nodeType: 'LoadingProgress'): LoadingProgress;
 
   /**
-   * 获取[LoadingProgress]{@link loading_progress}节点的属性。若该节点非ArkTS语言创建，则需要设置是否支持跨语言访问，如果不支持跨语言访问，则返回undefined。该接口不支持声明式方式创
-   * 建的节点。
+   * 获取[LoadingProgress]{@link ../@internal/component/ets/loading_progress}节点的属性。若该节点非ArkTS语言创建，则需要设置是否支持跨语言访问，如果不支持跨语言访
+   * 问，则返回undefined。该接口不支持声明式方式创建的节点。
    *
    * @param { FrameNode } node - 获取属性时所需的目标节点。
    * @param { 'LoadingProgress' } nodeType - 获取LoadingProgress节点类型的属性。
-   * @returns { LoadingProgressAttribute | undefined } Properties of the **LoadingProgress** node, or **undefined** if
-   *     they fail to be obtained.
+   * @returns { LoadingProgressAttribute | undefined } LoadingProgress节点类型的属性，若获取失败，则返回undefined。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2193,7 +2177,7 @@ export namespace typeNode {
   type Image = TypedFrameNode<ImageInterface, ImageAttribute>;
 
   /**
-   * 创建Image类型的FrameNode节点。
+   * 创建Image类型的FrameNode节点。使用typeNode创建Image节点时，当传入的UIContext对应的UI实例销毁后，调用该接口会返回一个无效的FrameNode节点，无法正常挂载和显示。
    *
    * @param { UIContext } context - 创建对应节点时所需的UI上下文。
    * @param { 'Image' } nodeType - 创建Image类型的节点。
@@ -2211,8 +2195,7 @@ export namespace typeNode {
    *
    * @param { FrameNode } node - 获取属性时所需的目标节点。
    * @param { 'Image' } nodeType - 获取Image节点类型的属性。
-   * @returns { ImageAttribute | undefined } Properties of the **Image** node, or **undefined** if they fail to be
-   *     obtained.
+   * @returns { ImageAttribute | undefined } Image节点类型的属性，若获取失败，则返回undefined。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2251,8 +2234,7 @@ export namespace typeNode {
    *
    * @param { FrameNode } node - 获取属性时所需的目标节点。
    * @param { 'List' } nodeType - 获取List节点类型的属性。
-   * @returns { ListAttribute | undefined } Attributes of the **List** node, or **undefined** if they fail to be
-   *     obtained.
+   * @returns { ListAttribute | undefined } List节点类型的属性，若获取失败，则返回undefined。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2292,12 +2274,12 @@ export namespace typeNode {
   type ListItem = TypedFrameNode<ListItemInterface, ListItemAttribute>;
 
   /**
-   * 获取List节点中持有的UIListEvent对象，用于设置滚动事件。设置的滚动事件与声明式定义的事件平行；设置的滚动事件不覆盖原有的声明式事件。同时设置两个事件回调的时候，优先回调声明式事件。
+   * 获取List节点中持有的UIListEvent对象，用于设置滚动事件。若该节点非ArkTS语言创建，则需要设置是否支持跨语言访问，如果不支持跨语言访问，则返回undefined。该接口不支持声明式方式创建的节点。设置的滚动事件与声
+   * 明式定义的事件平行；设置的滚动事件不覆盖原有的声明式事件。同时设置两个事件回调的时候，优先回调声明式事件。
    *
    * @param { FrameNode } node - 获取事件时所需的目标节点。
    * @param { 'List' } nodeType - 获取List节点类型的滚动事件。
-   * @returns { UIListEvent | undefined } **UIListEvent** object for the **List** node, or **undefined** if it fails to
-   *     be obtained.
+   * @returns { UIListEvent | undefined } List节点类型的滚动事件，若获取失败，则返回undefined。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform [since 23]
@@ -2325,8 +2307,7 @@ export namespace typeNode {
    *
    * @param { FrameNode } node - 获取属性时所需的目标节点。
    * @param { 'ListItem' } nodeType - 获取ListItem节点类型的属性。
-   * @returns { ListItemAttribute | undefined } Attributes of the **ListItem** node, or **undefined** if they fail to be
-   *     obtained.
+   * @returns { ListItemAttribute | undefined } ListItem节点类型的属性，若获取失败，则返回undefined。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2365,8 +2346,7 @@ export namespace typeNode {
    *
    * @param { FrameNode } node - 获取属性时所需的目标节点。
    * @param { 'TextInput' } nodeType - 获取TextInput节点类型的属性。
-   * @returns { TextInputAttribute | undefined } Properties of the **TextInput** node, or **undefined** if they fail to
-   *     be obtained.
+   * @returns { TextInputAttribute | undefined } TextInput节点类型的属性，若获取失败，则返回undefined。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2377,7 +2357,7 @@ export namespace typeNode {
 
   /**
    * 将输入框控制器[TextInputController]{@link TextInputController}绑定到[TextInput]{@link typeNode.TextInput}节点。若该节点非ArkTS语言创建，则需
-   * 要设置是否支持跨语言访问，如果不支持跨语言访问，则抛出异常。该接口从API版本26.0.0开始支持声明式方式创建的节点。
+   * 要设置是否支持跨语言访问，如果不支持跨语言访问，则抛出异常。从API版本26.0.0开始，该接口支持声明式方式创建的节点，API版本26.0.0以下版本不支持。
    *
    * @param { FrameNode } node - 绑定输入框控制器的目标节点。
    * @param { TextInputController } controller - 输入框控制器。
@@ -2423,8 +2403,7 @@ export namespace typeNode {
    *
    * @param { FrameNode } node - 获取属性时所需的目标节点。
    * @param { 'Button' } nodeType - 获取Button节点类型的属性。
-   * @returns { ButtonAttribute | undefined } Attributes of the **Button** node, or **undefined** if they fail to be
-   *     obtained.
+   * @returns { ButtonAttribute | undefined } Button节点类型的属性，若获取失败，则返回undefined。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2434,7 +2413,7 @@ export namespace typeNode {
   export function getAttribute(node: FrameNode, nodeType: 'Button'): ButtonAttribute | undefined;
 
   /**
-   * ListItemGroup类型的FrameNode节点类型。只允许添加[ListItem]{@link list_item}类型子组件。
+   * ListItemGroup类型的FrameNode节点类型。只允许添加[ListItem]{@link ../@internal/component/ets/list_item}类型子组件。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2463,8 +2442,7 @@ export namespace typeNode {
    *
    * @param { FrameNode } node - 获取属性时所需的目标节点。
    * @param { 'ListItemGroup' } nodeType - 获取ListItemGroup节点类型的属性。
-   * @returns { ListItemGroupAttribute | undefined } Attributes of the **ListItemGroup** node, or **undefined** if they
-   *     fail to be obtained.
+   * @returns { ListItemGroupAttribute | undefined } ListItemGroup节点类型的属性，若获取失败，则返回undefined。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2474,7 +2452,7 @@ export namespace typeNode {
   export function getAttribute(node: FrameNode, nodeType: 'ListItemGroup'): ListItemGroupAttribute | undefined;
 
   /**
-   * WaterFlow类型的FrameNode节点类型。只允许添加[FlowItem]{@link flow_item}类型子组件。
+   * WaterFlow类型的FrameNode节点类型。只允许添加[FlowItem]{@link ../@internal/component/ets/flow_item}类型子组件。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2503,8 +2481,7 @@ export namespace typeNode {
    *
    * @param { FrameNode } node - 获取属性时所需的目标节点。
    * @param { 'WaterFlow' } nodeType - 获取WaterFlow节点类型的属性。
-   * @returns { WaterFlowAttribute | undefined } Properties of the **WaterFlow** node, or **undefined** if they fail to
-   *     be obtained.
+   * @returns { WaterFlowAttribute | undefined } WaterFlow节点类型的属性，若获取失败，则返回undefined。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2533,13 +2510,12 @@ export namespace typeNode {
   export function bindController(node: FrameNode, controller: Scroller, nodeType: 'WaterFlow'): void;
 
   /**
-   * 获取[WaterFlow]{@link typeNode.WaterFlow}节点中持有的UIWaterFlowEvent对象，用于设置滚动事件。设置的滚动事件与声明式定义的事件平行；设置的滚动事件不覆盖原有的声明式事件。同时设置
-   * 两个事件回调的时候，优先回调声明式事件。
+   * 获取[WaterFlow]{@link typeNode.WaterFlow}节点中持有的UIWaterFlowEvent对象，用于设置滚动事件。若该节点非ArkTS语言创建，则需要设置是否支持跨语言访问，如果不支持跨语言访问，则
+   * 返回undefined。该接口不支持声明式方式创建的节点。设置的滚动事件与声明式定义的事件平行；设置的滚动事件不覆盖原有的声明式事件。同时设置两个事件回调的时候，优先回调声明式事件。
    *
    * @param { FrameNode } node - 获取事件时所需的目标节点。
    * @param { 'WaterFlow' } nodeType - 获取WaterFlow节点类型的滚动事件。
-   * @returns { UIWaterFlowEvent | undefined } **UIWaterFlowEvent** object for the **WaterFlow** node, or **undefined**
-   *     if it fails to be obtained.
+   * @returns { UIWaterFlowEvent | undefined } WaterFlow节点类型的滚动事件，若获取失败，则返回undefined。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform [since 23]
@@ -2578,8 +2554,7 @@ export namespace typeNode {
    *
    * @param { FrameNode } node - 获取属性时所需的目标节点。
    * @param { 'FlowItem' } nodeType - 获取FlowItem节点类型的属性。
-   * @returns { FlowItemAttribute | undefined } Properties of the **FlowItem** node, or **undefined** if they fail to be
-   *     obtained.
+   * @returns { FlowItemAttribute | undefined } FlowItem节点类型的属性，若获取失败，则返回undefined。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2648,8 +2623,7 @@ export namespace typeNode {
    *
    * @param { FrameNode } node - 获取属性时所需的目标节点。
    * @param { 'XComponent' } nodeType - 获取XComponent节点类型的属性。
-   * @returns { XComponentAttribute | undefined } Properties of the **XComponent** node, or **undefined** if they fail
-   *     to be obtained.
+   * @returns { XComponentAttribute | undefined } XComponent节点类型的属性，若获取失败，则返回undefined。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2688,8 +2662,7 @@ export namespace typeNode {
    *
    * @param { FrameNode } node - 获取属性时所需的目标节点。
    * @param { 'Checkbox' } nodeType - 获取Checkbox节点类型的属性。
-   * @returns { CheckboxAttribute | undefined } Attributes of the **Checkbox** node, or **undefined** if they fail to be
-   *     obtained.
+   * @returns { CheckboxAttribute | undefined } Checkbox节点类型的属性，若获取失败，则返回undefined。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2753,8 +2726,7 @@ export namespace typeNode {
    *
    * @param { FrameNode } node - 获取属性时所需的目标节点。
    * @param { 'Radio' } nodeType - 获取Radio节点类型的属性。
-   * @returns { RadioAttribute | undefined } Properties of the **Radio** node, or **undefined** if they fail to be
-   *     obtained.
+   * @returns { RadioAttribute | undefined } Radio节点类型的属性，若获取失败，则返回undefined。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2800,7 +2772,7 @@ export namespace typeNode {
   type Select = TypedFrameNode<SelectInterface, SelectAttribute>;
 
   /**
-   * 创建Select类型的FrameNode节点。
+   * 创建Select类型的FrameNode节点。使用typeNode创建Select节点时，当传入的UIContext对应的UI实例销毁后，调用该接口会返回一个无效的FrameNode节点，无法正常挂载和显示。
    *
    * @param { UIContext } context - 创建对应节点时所需的UI上下文。
    * @param { 'Select' } nodeType - 创建Select类型的节点。
@@ -2843,8 +2815,7 @@ export namespace typeNode {
    *
    * @param { FrameNode } node - 获取属性时所需的目标节点。
    * @param { 'Slider' } nodeType - 获取Slider节点类型的属性。
-   * @returns { SliderAttribute | undefined } Properties of the **Slider** node, or **undefined** if they fail to be
-   *     obtained.
+   * @returns { SliderAttribute | undefined } Slider节点类型的属性，若获取失败，则返回undefined。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2854,7 +2825,7 @@ export namespace typeNode {
   export function getAttribute(node: FrameNode, nodeType: 'Slider'): SliderAttribute | undefined;
 
   /**
-   * [Toggle]{@link toggle}类型的FrameNode节点类型。
+   * [Toggle]{@link ../@internal/component/ets/toggle}类型的FrameNode节点类型。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2865,11 +2836,12 @@ export namespace typeNode {
   type Toggle = TypedFrameNode<ToggleInterface, ToggleAttribute>;
 
   /**
-   * 创建Toggle类型的FrameNode节点。
+   * 创建Toggle类型的FrameNode节点。使用typeNode创建Toggle节点时，当传入的UIContext对应的UI实例销毁后，调用该接口会返回一个无效的FrameNode节点，无法正常挂载和显示。
    *
    * @param { UIContext } context - 创建对应节点时所需的UI上下文。
    * @param { 'Toggle' } nodeType - 创建Toggle类型的节点。
-   * @param { ToggleOptions } [options] - 创建Toggle节点的接口参数，仅可通过ToggleOptions中的type属性设置开关样式。
+   * @param { ToggleOptions } [options] - 创建Toggle节点的接口参数，仅可通过ToggleOptions中的type属性设置开关样式。不传入该参数时，需通过initialize接口设置
+   *     Toggle的type属性。
    * @returns { Toggle } Toggle类型的FrameNode节点。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2884,8 +2856,7 @@ export namespace typeNode {
    *
    * @param { FrameNode } node - 获取属性时所需的目标节点。
    * @param { 'Toggle' } nodeType - 获取Toggle节点类型的属性。
-   * @returns { ToggleAttribute | undefined } Properties of the **Toggle** node, or **undefined** if they fail to be
-   *     obtained.
+   * @returns { ToggleAttribute | undefined } Toggle节点类型的属性，若获取失败，则返回undefined。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2949,8 +2920,7 @@ export namespace typeNode {
    *
    * @param { FrameNode } node - 获取属性时所需的目标节点。
    * @param { 'TextArea' } nodeType - 获取TextArea节点类型的属性。
-   * @returns { TextAreaAttribute | undefined } Properties of the **TextArea** node, or **undefined** if they fail to be
-   *     obtained.
+   * @returns { TextAreaAttribute | undefined } TextArea节点类型的属性，若获取失败，则返回undefined。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2961,7 +2931,7 @@ export namespace typeNode {
 
   /**
    * 将输入框控制器[TextAreaController]{@link TextAreaController}绑定到[TextArea]{@link typeNode.TextArea}节点。若该节点非ArkTS语言创建，则需要设置是
-   * 否支持跨语言访问，如果不支持跨语言访问，则抛出异常。该接口从API版本26.0.0开始支持声明式方式创建的节点。
+   * 否支持跨语言访问，如果不支持跨语言访问，则抛出异常。从API版本26.0.0开始，该接口支持声明式方式创建的节点，API版本26.0.0以下版本不支持。
    *
    * @param { FrameNode } node - 绑定输入框控制器的目标节点。
    * @param { TextAreaController } controller - 输入框控制器。
@@ -3132,8 +3102,7 @@ export namespace typeNode {
    *
    * @param { FrameNode } node - 获取属性时所需的目标节点。
    * @param { 'Grid' } nodeType - 获取Grid节点类型的属性。
-   * @returns { GridAttribute | undefined } Properties of the **Grid** node, or **undefined** if they fail to be
-   *     obtained.
+   * @returns { GridAttribute | undefined } Grid节点类型的属性，若获取失败，则返回undefined。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3162,12 +3131,12 @@ export namespace typeNode {
   export function bindController(node: FrameNode, controller: Scroller, nodeType: 'Grid'): void;
 
   /**
-   * 获取Grid节点中持有的UIGridEvent对象，用于设置滚动事件。设置的滚动事件与声明式定义的事件平行；设置的滚动事件不覆盖原有的声明式事件。同时设置两个事件回调的时候，优先回调声明式事件。
+   * 获取Grid节点中持有的UIGridEvent对象，用于设置滚动事件。若该节点非ArkTS语言创建，则需要设置是否支持跨语言访问，如果不支持跨语言访问，则返回undefined。该接口不支持声明式方式创建的节点。设置的滚动事件与声
+   * 明式定义的事件平行；设置的滚动事件不覆盖原有的声明式事件。同时设置两个事件回调的时候，优先回调声明式事件。
    *
    * @param { FrameNode } node - 获取事件时所需的目标节点。
    * @param { 'Grid' } nodeType - 获取Grid节点类型的滚动事件。
-   * @returns { UIGridEvent | undefined } **UIGridEvent** object for the **Grid** node, or **undefined** if it fails to
-   *     be obtained.
+   * @returns { UIGridEvent | undefined } Grid节点类型的滚动事件，若获取失败，则返回undefined。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform [since 23]
@@ -3206,8 +3175,7 @@ export namespace typeNode {
    *
    * @param { FrameNode } node - 获取属性时所需的目标节点。
    * @param { 'GridItem' } nodeType - 获取GridItem节点类型的属性。
-   * @returns { GridItemAttribute | undefined } Properties of the **GridItem** node, or **undefined** if they fail to be
-   *     obtained.
+   * @returns { GridItemAttribute | undefined } GridItem节点类型的属性，若获取失败，则返回undefined。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3218,12 +3186,13 @@ export namespace typeNode {
 }
 
 /**
-* NodeAdapter提供FrameNode的数据懒加载能力，通过[LazyForEach]{@link lazy_for_each}实现接口功能。
-*
-* > **说明：**
-* >
-* > 入参不能为负数，入参为负数时不做处理。
-*
+ * NodeAdapter提供FrameNode的数据懒加载能力，通过[LazyForEach]{@link ../@internal/component/ets/lazy_for_each}实现接口功能。适用于长列表等需要按需加载节点数
+ * 据的场景，可提升渲染性能并降低内存占用。
+ * 
+ * > **说明：**
+ * >
+ * > NodeAdapter各方法中的数值入参（如start、count、from、to）不能为负数，入参为负数时不做处理。
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -3231,7 +3200,6 @@ export namespace typeNode {
  * @since 12 dynamic
  */
 declare class NodeAdapter {
-
   /**
    * NodeAdapter的构造函数。
    *
@@ -3242,7 +3210,6 @@ declare class NodeAdapter {
    * @since 12 dynamic
    */
   constructor();
-
   /**
    * 立即释放当前的NodeAdapter。如果是已绑定的状态，会先进行解绑操作，再释放当前的NodeAdapter。
    *
@@ -3253,7 +3220,6 @@ declare class NodeAdapter {
    * @since 12 dynamic
    */
   dispose(): void;
-
   /**
    * 设置数据节点总数。
    *
@@ -3265,7 +3231,6 @@ declare class NodeAdapter {
    * @since 12 dynamic
    */
   set totalNodeCount(count: number);
-
   /**
    * Get the total number of node count.
    *
@@ -3277,9 +3242,8 @@ declare class NodeAdapter {
    * @since 12 dynamic
    */
   get totalNodeCount(): number;
-
   /**
-   * 重新加载全部数据操作。实际调用了LazyForEach中的[OnDataReloaded]{@link DataChangeListener.onDataReloaded}接口通知组件重新加载所有数据。
+   * 重新加载全部数据操作。实际调用了LazyForEach中的[onDataReloaded]{@link DataChangeListener.onDataReloaded()}接口通知组件重新加载所有数据。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3288,7 +3252,6 @@ declare class NodeAdapter {
    * @since 12 dynamic
    */
   reloadAllItems(): void;
-
   /**
    * 从索引值开始重新加载指定数量的节点数据。
    *
@@ -3301,7 +3264,6 @@ declare class NodeAdapter {
    * @since 12 dynamic
    */
   reloadItem(start: number, count: number): void;
-
   /**
    * 从索引值开始删除指定数量的节点数据。
    *
@@ -3314,7 +3276,6 @@ declare class NodeAdapter {
    * @since 12 dynamic
    */
   removeItem(start: number, count: number): void;
-
   /**
    * 从索引值开始新增指定数量的节点数据。
    *
@@ -3327,7 +3288,6 @@ declare class NodeAdapter {
    * @since 12 dynamic
    */
   insertItem(start: number, count: number): void;
-
   /**
    * 将数据从原始索引移动到目的索引。
    *
@@ -3340,7 +3300,6 @@ declare class NodeAdapter {
    * @since 12 dynamic
    */
   moveItem(from: number, to: number): void;
-
   /**
    * 获取所有有效数据。有效节点数据包括显示在屏幕上的节点以及预加载的节点。其中预加载节点的数量可依照LazyForEach的
    * [使用限制](docroot://ui/rendering-control/arkts-rendering-control-lazyforeach.md#使用限制)，调整父容器的cachedCount属性进行设置。
@@ -3353,9 +3312,17 @@ declare class NodeAdapter {
    * @since 12 dynamic
    */
   getAllAvailableItems(): Array<FrameNode>;
-
   /**
    * FrameNode绑定NodeAdapter时回调。
+   * 
+   * > **说明：**
+   * >
+   * > 在API版本26.0.0之前，该回调在宿主节点挂载到主树时触发。如果通过动态赋值方式设置该回调，开发者可以在调用[attachNodeAdapter]{@link NodeAdapter#attachNodeAdapter}后
+   * > 、宿主节点挂载到主树前完成设置，并在宿主节点挂载到主树时收到该回调。
+   * >
+   * > 从API版本26.0.0开始，该回调会在NodeAdapter绑定到宿主节点时立即触发，而不是在宿主节点挂载到主节点树时触发。此时宿主节点可能尚未挂载到主节点树。如果回调逻辑依赖节点已挂载（例如访问布局信息或执行动画），建议在
+   * > 该回调中注册[onAppear]{@link CommonMethod#onAppear}，并将相关逻辑放入onAppear中执行。如果通过动态赋值方式设置该回调，请在调用
+   * > [attachNodeAdapter]{@link NodeAdapter#attachNodeAdapter}前完成设置，否则回调可能无法触发。
    *
    * @param { FrameNode } target - 绑定NodeAdapter的FrameNode节点。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -3365,7 +3332,6 @@ declare class NodeAdapter {
    * @since 12 dynamic
    */
   onAttachToNode?(target: FrameNode): void;
-
   /**
    * 解除绑定时回调。
    *
@@ -3376,7 +3342,6 @@ declare class NodeAdapter {
    * @since 12 dynamic
    */
   onDetachFromNode?(): void;
-
   /**
    * 节点首次加载或新节点滑入时回调。传入的index参数用于自定义生成Id，需要开发者自行保证根据不同index生成Id的唯一性。
    *
@@ -3389,7 +3354,6 @@ declare class NodeAdapter {
    * @since 12 dynamic
    */
   onGetChildId?(index: number): number;
-
   /**
    * 节点首次加载或新节点滑入时回调。建议开发者在添加子组件时，遵循声明式组件中子组件的约束。例如，WaterFlow支持添加FlowItem子节点。父节点根据子节点的索引与key值判断是否触发了节点首次加载或新节点滑入。
    *
@@ -3402,7 +3366,6 @@ declare class NodeAdapter {
    * @since 12 dynamic
    */
   onCreateChild?(index: number): FrameNode;
-
   /**
    * 子节点即将销毁时回调。既不显示在屏幕上，也不处于预加载范围内的节点都属于即将销毁的节点。
    *
@@ -3415,7 +3378,6 @@ declare class NodeAdapter {
    * @since 12 dynamic
    */
   onDisposeChild?(id: number, node: FrameNode): void;
-
   /**
    * 重新加载的数据节点被复用时回调。已缓存节点的key值与被复用节点一致时进行节点复用。
    *
@@ -3428,7 +3390,6 @@ declare class NodeAdapter {
    * @since 12 dynamic
    */
   onUpdateChild?(id: number, node: FrameNode): void;
-
   /**
    * 给FrameNode绑定一个NodeAdapter。一个节点只能绑定一个NodeAdapter。已经绑定NodeAdapter的再次绑定会失败并返回false。
    *
@@ -3446,7 +3407,6 @@ declare class NodeAdapter {
    * @since 12 dynamic
    */
   static attachNodeAdapter(adapter: NodeAdapter, node: FrameNode): boolean;
-
   /**
    * 解除绑定操作，解除FrameNode节点绑定的NodeAdapter。
    *
@@ -3460,8 +3420,8 @@ declare class NodeAdapter {
   static detachNodeAdapter(node: FrameNode): void;
 
   /**
-   * 查询当前FrameNode对象是否已解除与后端实体节点的引用关系。前端节点均绑定有相应的后端实体节点，当节点调用dispose接口解除绑定后，再次调用接口可能会出现crash、返回默认值的情况。由于业务需求，可能存在节点在
-   * dispose后仍被调用接口的情况。为此，提供此接口以供开发者在操作节点前检查其有效性，避免潜在风险。
+   * 查询当前NodeAdapter对象是否已解除与后端实体节点的引用关系。前端节点均绑定有相应的后端实体节点，当节点调用dispose接口解除绑定后，再次调用该节点的其他接口可能会出现crash、返回默认值的情况。由于业务需求，可能存
+   * 在节点在dispose后仍被调用接口的情况。为此，提供此接口以供开发者在操作节点前检查其有效性，避免潜在风险。
    *
    * @returns { boolean } 后端实体节点是否解除引用。true为节点已与后端实体节点解除引用，false为节点未与后端实体节点解除引用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
