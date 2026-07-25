@@ -2220,14 +2220,15 @@ declare namespace dlpPermission {
     }
 
     /**
-     * Set the list of applications that are subject to enterprise DLP control.
+     * Sets the list of applications controlled by enterprise DLP. This API uses a promise to return the result.
      *
      * @permission ohos.permission.DLP_POLICY_MANAGER
-     * @param { Array<string> } appLists - The appIdentifiers of applications to be put under controlled.
-     *     <br>The maximum length is 100.
-     *     <br>The value range of Array is [0, 100], and the value range of String is [0, 4096].
-     * @param { number } [userId] - The target userId for which the controlled app list is configured.
-     *     If not specified, the current user is used by default.
+     * @param { Array<string> } appLists - List of application identifiers of the controlled applications.
+     *     <br>The maximum length of the array is 100. If the length exceeds 100, error code 19100001 is returned.
+     *     <br>Each element in the array is the appIdentifier of the application.  The maximum length of a single
+     *     application identifier is 4096 bytes. If the length exceeds 4096 bytes, error code 19100001 is returned.
+     * @param { number } [userId] - ID of the user for whom the controlled application is configured.
+     *     If this parameter is not specified, the current user is used by default.
      *     <br>The value should be an integer.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 201 - Permission denied.
@@ -2244,10 +2245,15 @@ declare namespace dlpPermission {
     function setControlledAppLists(appLists: Array<string>, userId?: number): Promise<void>;
 
     /**
-     * Obtain the list of applications that are subject to enterprise DLP control for the current user.
+     * Obtains the list of applications controlled by enterprise DLP for the current user. This API uses a promise to
+     * return the result.
+     *
+     * > **NOTE**
+     * > This API can only be used to query the list of applications controlled by enterprise DLP, which is set using
+     * > [setControlledAppLists]{@link dlpPermission.setControlledAppLists(appLists: Array<string>, userId?: number)}.
      *
      * @permission ohos.permission.DLP_POLICY_MANAGER
-     * @returns { Promise<Array<string>> } Promise that returns the appIdentifiers of controlled application
+     * @returns { Promise<Array<string>> } Promise used to return the list of applications controlled by enterprise DLP
      *     for the current user.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 801 - Capability not supported.
