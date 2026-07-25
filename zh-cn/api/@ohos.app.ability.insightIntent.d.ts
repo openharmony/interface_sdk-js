@@ -89,6 +89,106 @@ declare namespace insightIntent {
   }
 
   /**
+   * 定义当前意图执行完成后需要展示的交互界面的信息。
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  interface InteractionUI {
+    /**
+     * 交互界面的类型。
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    interactionUIType: string;
+  }
+
+  /**
+   * 定义当意图执行完成时模态UIExtension要显示为交互界面的信息，不支持分布式。
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  interface InteractionModalUIExtension extends InteractionUI {
+    /**
+     * 交互界面的类型，固定为'MODAL_UIEXTENSION'。
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    interactionUIType: 'MODAL_UIEXTENSION';
+
+    /**
+     * 目标UIExtension能力的Bundle名称。
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    bundleName: string;
+
+    /**
+     * 目标UIExtension能力的模块名称。
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    moduleName: string;
+
+    /**
+     * 目标UIExtension能力的Ability名称。
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    abilityName: string;
+
+    /**
+     * UIExtension的类型。
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    uiExtensionType: string;
+  }
+
+  /**
+   * 定义当前意图执行完成后返回的交互信息，包括下一个要触发的意图和要显示的交互界面。
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  interface InteractionInfo {
+    /**
+     * 当前意图执行完成后需要展示的交互界面信息。
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    interactionUI?: InteractionUI;
+  }
+
+  /**
    * 意图执行的返回结果。
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -154,6 +254,16 @@ declare namespace insightIntent {
      * @since 23 static
      */
     flags?: int;
+
+    /**
+     * 意图执行完成后返回的交互信息。
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    interactionInfo?: InteractionInfo;
   }
 
   /**
@@ -315,6 +425,16 @@ declare namespace insightIntent {
      * @since 26.0.0 static
      */
     result?: T;
+
+    /**
+     * 意图执行完成后返回的交互信息。
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    interactionInfo?: InteractionInfo;
   }
 
   /**

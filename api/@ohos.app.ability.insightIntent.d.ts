@@ -91,6 +91,109 @@ declare namespace insightIntent {
   }
 
   /**
+   * Defines the base information of the interaction UI to be displayed after the current intent execution completes.
+   * This is a base class. Use its subclasses such as {@link InteractionModalUIExtension} in practice.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  interface InteractionUI {
+    /**
+     * Type of the interaction UI.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    interactionUIType: string;
+  }
+
+  /**
+   * Defines the information of the modal UIExtension to be displayed as the interaction UI after the current
+   * intent execution completes. Does not support distributed scenarios.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  interface InteractionModalUIExtension extends InteractionUI {
+    /**
+     * Type of the interaction UI. The value is fixed to 'MODAL_UIEXTENSION'.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    interactionUIType: 'MODAL_UIEXTENSION';
+
+    /**
+     * Bundle name of the target UIExtension ability.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    bundleName: string;
+
+    /**
+     * Module name of the target UIExtension ability.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    moduleName: string;
+
+    /**
+     * Ability name of the target UIExtension ability.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    abilityName: string;
+
+    /**
+     * Type of the UIExtension ability.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    uiExtensionType: string;
+  }
+
+  /**
+   * Defines the interaction information returned after the current intent execution completes, including
+   * the next intent to be triggered and the interaction UI to be displayed.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  interface InteractionInfo {
+    /**
+     * Information of the interaction UI to be displayed after the current intent execution completes.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    interactionUI?: InteractionUI;
+  }
+
+  /**
    * Enumerates the return results of intent execution.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -159,6 +262,16 @@ declare namespace insightIntent {
      * @since 23 static
      */
     flags?: int;
+
+    /**
+     * Interaction information returned after the intent execution completes.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    interactionInfo?: InteractionInfo;
   }
 
   /**
@@ -323,6 +436,16 @@ declare namespace insightIntent {
      * @since 26.0.0 static
      */
     result?: T;
+
+    /**
+     * Interaction information returned after the intent execution completes.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    interactionInfo?: InteractionInfo;
   }
 
   /**
