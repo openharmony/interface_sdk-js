@@ -185,12 +185,8 @@ declare namespace systemSoundManager {
      *
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-<<<<<<< modify26.1
-     * @since 26.0.0 dynamic&static
-=======
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
->>>>>>> master
      */
     RINGTONE_TYPE_ESIM_CARD_0 = 2,
   
@@ -199,12 +195,8 @@ declare namespace systemSoundManager {
      *
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-<<<<<<< modify26.1
-     * @since 26.0.0 dynamic&static
-=======
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
->>>>>>> master
      */
     RINGTONE_TYPE_ESIM_CARD_1 = 3,
   }
@@ -243,12 +235,8 @@ declare namespace systemSoundManager {
      *
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-<<<<<<< modify26.1
-     * @since 26.0.0 dynamic&static
-=======
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
->>>>>>> master
      */
     SYSTEM_TONE_TYPE_ESIM_CARD_0 = 2,
   
@@ -257,12 +245,8 @@ declare namespace systemSoundManager {
      *
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-<<<<<<< modify26.1
-     * @since 26.0.0 dynamic&static
-=======
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
->>>>>>> master
      */
     SYSTEM_TONE_TYPE_ESIM_CARD_1 = 3,
 
@@ -670,12 +654,8 @@ declare namespace systemSoundManager {
      *
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-<<<<<<< modify26.1
-     * @since 26.0.0 dynamic&static
-=======
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
->>>>>>> master
      */
     CALL_ESIM_CARD_0 = 2,
   
@@ -684,12 +664,8 @@ declare namespace systemSoundManager {
      *
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-<<<<<<< modify26.1
-     * @since 26.0.0 dynamic&static
-=======
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
->>>>>>> master
      */
     CALL_ESIM_CARD_1 = 3,
 
@@ -718,12 +694,8 @@ declare namespace systemSoundManager {
      *
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-<<<<<<< modify26.1
-     * @since 26.0.0 dynamic&static
-=======
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
->>>>>>> master
      */
     TEXT_MESSAGE_ESIM_CARD_0 = 22,
  	 
@@ -732,12 +704,8 @@ declare namespace systemSoundManager {
      *
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-<<<<<<< modify26.1
-     * @since 26.0.0 dynamic&static
-=======
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
->>>>>>> master
      */
     TEXT_MESSAGE_ESIM_CARD_1 = 23,
 
