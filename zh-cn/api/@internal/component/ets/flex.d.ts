@@ -216,8 +216,7 @@ declare interface FlexSpaceOptions {
  * 
  * > **说明：**
  * >
- * > - Flex组件在渲染时存在二次布局过程，因此在对性能有严格要求的场景下建议使用[Column]{@link ./column}、[Row]{@link ./row}代替。最佳实践请参考布局优化指导-
- * > [合理使用布局组件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-layout-optimization-guidance#合理使用布局组件)。
+ * > - Flex组件在渲染时存在二次布局过程，因此在对性能有严格要求的场景下建议使用[Column]{@link ./column}、[Row]{@link ./row}代替。最佳实践请参考布局优化指导-合理使用布局组件。
  * >
  * > - Flex组件主轴不设置长度时默认撑满父容器，如果包含设置[position]{@link CommonMethod#position}的子组件，此时Flex组件不会撑满父容器。[Column]{@link ./column}、
  * > [Row]{@link ./row}组件主轴不设置长度时默认跟随子节点大小。
@@ -283,8 +282,7 @@ declare class FlexAttribute extends CommonMethod<FlexAttribute> {
  * 
  * > **说明：**
  * >
- * > - Flex组件在渲染时存在二次布局过程，因此在对性能有严格要求的场景下建议使用[Column]{@link ./column}、[Row]{@link ./row}代替。最佳实践请参考布局优化指导-
- * > [合理使用布局组件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-layout-optimization-guidance#合理使用布局组件)。
+ * > - Flex组件在渲染时存在二次布局过程，因此在对性能有严格要求的场景下建议使用[Column]{@link ./column}、[Row]{@link ./row}代替。最佳实践请参考布局优化指导-合理使用布局组件。
  * >
  * > - Flex组件主轴不设置长度时默认撑满父容器，如果包含设置[position]{@link CommonMethod#position}的子组件，此时Flex组件不会撑满父容器。[Column]{@link ./column}、
  * > [Row]{@link ./row}组件主轴不设置长度时默认跟随子节点大小。

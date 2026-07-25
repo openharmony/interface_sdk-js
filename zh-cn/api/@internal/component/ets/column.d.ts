@@ -136,9 +136,7 @@ interface ColumnInterface {
    * 
    * > **说明：**
    * >
-   * > 在复杂界面中使用多组件嵌套时，若布局组件的嵌套层数过深或嵌套的组件数量过多，将会产生额外开销。建议通过移除冗余节点、利用布局边界减少布局计算、合理采用渲染控制语法及布局组件方法来优化性能。最佳实践请参考<!--RP1-->
-   * > [布局优化指导](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-improve-layout-performance)<!--RP1End--
-   * > >。
+   * > 在复杂界面中使用多组件嵌套时，若布局组件的嵌套层数过深或嵌套的组件数量过多，将会产生额外开销。建议通过移除冗余节点、利用布局边界减少布局计算、合理采用渲染控制语法及布局组件方法来优化性能。最佳实践请参考布局优化指导。
    *
    * @param { object } value [since 7 - 17]
    * @param { ColumnOptions } [options] - Column组件的间距配置选项。通过space属性设置纵向布局元素垂直方向间距。当需要为子组件设置固定垂直间距时传入此参数；省略时不设置子组件间距。
@@ -156,9 +154,7 @@ interface ColumnInterface {
    * 
    * > **说明：**
    * >
-   * > 在复杂界面中使用多组件嵌套时，若布局组件的嵌套层数过深或嵌套的组件数量过多，将会产生额外开销。建议通过移除冗余节点、利用布局边界减少布局计算、合理采用渲染控制语法及布局组件方法来优化性能。最佳实践请参考<!--RP1-->
-   * > [布局优化指导](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-improve-layout-performance)<!--RP1End--
-   * > >。
+   * > 在复杂界面中使用多组件嵌套时，若布局组件的嵌套层数过深或嵌套的组件数量过多，将会产生额外开销。建议通过移除冗余节点、利用布局边界减少布局计算、合理采用渲染控制语法及布局组件方法来优化性能。最佳实践请参考布局优化指导。
    *
    * @param { ColumnOptions | ColumnOptionsV2 } [options] - Column组件的间距配置选项。通过space属性设置纵向布局元素垂直方向间距，space支持设置number、
    *     string或Resource类型。当需要为子组件设置固定垂直间距时传入此参数；省略时不设置子组件间距。

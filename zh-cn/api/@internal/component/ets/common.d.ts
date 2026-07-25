@@ -11000,27 +11000,27 @@ declare interface BorderImageOption {
 }
 
 /**
- * 用于组件宽度和高度的布局策略。
- * >  **说明：**
+ * 用于组件宽度和高度的布局策略。提供matchParent、wrapContent、fixAtIdealSize三种布局策略选项，分别用于组件自适应父组件布局、根据内容自适应但不超过父组件尺寸、根据内容自适应且可超过父组件尺寸的场景。
+ *
+ * > **说明：**
  * >
- * > -
- * LayoutPolicy支持设置三种布局策略：matchParent（自适应父组件布局）、wrapContent（根据内容自适应但不超过父组件尺寸的布局）和fixAtIdealSize（根据内容自适应，可能超过父组件尺寸的布局）。具体
- * 示例代码参见[设置布局策略](./ts-universal-attributes-size.md#示例5设置布局策略)。
+ * > - LayoutPolicy支持设置三种布局策略：matchParent（自适应父组件布局）、wrapContent（根据内容自适应但不超过父组件尺寸的布局）和fixAtIdealSize（根据内容自适应，可能超过父组件尺寸的布局
+ * > ）。具体示例代码参见[设置布局策略](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-size.md#示例5设置布局策略)。
  * >
- * > - wrapContent和fixAtIdealSize场景，组件无法通过内容确定大小时，如果组件大小有默认值，则按照默认值进行测算；如果没有默认值，则按照宽高(0,0)进行测算。
+ * > - wrapContent和fixAtIdealSize场景，组件无法通过内容确定大小时，如果组件大小有默认值，则按照默认值进行测算，组件最终以默认大小显示；如果没有默认值，则按照宽高(0,0)进行测算，组件最终以零尺寸显示。
  * >
- * > -
- * 容器设置wrapContent，并且有子组件设置matchParent时（包括仅一边设置matchParent），容器先由确定大小的子组件撑大，设置matchParent的子组件再匹配容器大小；如果没有确定大小的子组件，容器和子组件大
- * 小均为0。
+ * > - 容器设置wrapContent，并且有子组件设置matchParent时（包括仅一边设置matchParent），容器先由确定大小的子组件撑大，设置matchParent的子组件再匹配容器大小；如果没有确定大小的子组件，容器和
+ * > 子组件大小均为0。
  * >
- * > - LayoutPolicy优先级低于constraintSize。
+ * > - LayoutPolicy的设置会被constraintSize约束，即当同时设置LayoutPolicy和constraintSize时，constraintSize的约束优先生效。
  * >
  * > - 从API version 15开始，仅Row和Column组件的width和height属性支持设置LayoutPolicy类型参数，其他组件设置LayoutPolicy类型参数后与不设置宽度或高度表现一致；从API
- * version 20开始，所有基础组件均支持设置LayoutPolicy类型参数。
+ * > version 20开始，所有基础组件均支持设置LayoutPolicy类型参数。
  * >
- * > -
- * 当Row、Column、Flex组件主轴尺寸自适应子组件，且子组件A仅交叉轴设置matchParent时，API版本26.0.0之前，子组件A不参与Row、Column、Flex组件的主轴尺寸测量过程，此时Row、Column、Fle
- * x组件主轴方向不自适应子组件A的尺寸；从API版本26.0.0开始，子组件A会参与Row、Column、Flex组件的主轴尺寸测量过程，此时Row、Column、Flex组件主轴方向会自适应子组件A的尺寸。交叉轴方向同理。
+ * > - 当Row、Column、Flex组件主轴尺寸自适应子组件，且子组件A仅交叉轴设置matchParent时，API版本26.0.0之前，子组件A不参与Row、Column、Flex组件的主轴尺寸测量过程，此时Row、Column
+ * > 、Flex组件主轴方向不自适应子组件A的尺寸；从API版本26.0.0开始，子组件A会参与Row、Column、Flex组件的主轴尺寸测量过程，此时Row、Column、Flex组件主轴方向会自适应子组件A的尺寸。交叉轴方向同理。
+ * > 具体变更效果参见
+ * > [示例6（子组件单方向设置matchParent效果）](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-size.md#示例6子组件单方向设置matchparent效果)。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -11032,7 +11032,7 @@ declare interface BorderImageOption {
 declare class LayoutPolicy {
 
   /**
-   * 当前组件自适应父组件布局时，其大小与父组件内容区相等，不包括padding，border和safeAreaPadding。
+   * 当前组件自适应父组件布局时，其大小与父组件内容区相等，不包括padding，border和safeAreaPadding。适用于需要组件填满父容器内容区的场景，例如列表项、卡片容器等。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -11044,7 +11044,7 @@ declare class LayoutPolicy {
   static readonly matchParent: LayoutPolicy;
 
   /**
-   * 当前组件自适应子组件（内容）时，其大小与子组件（内容）相等，并且其大小受父组件内容区大小约束。
+   * 当前组件自适应子组件（内容）时，其大小与子组件（内容）相等，并且其大小受父组件内容区大小约束。适用于需要根据内容自动调整大小但不能超出父容器的场景，例如文本容器、弹窗内容区等。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -11056,7 +11056,7 @@ declare class LayoutPolicy {
   static readonly wrapContent: LayoutPolicy;
 
   /**
-   * 当前组件自适应子组件（内容）时，其大小与子组件（内容）相等，并且其大小不受父组件内容区大小约束。
+   * 当前组件自适应子组件（内容）时，其大小与子组件（内容）相等，并且其大小不受父组件内容区大小约束。适用于需要根据内容自动调整大小且可以超出父容器的场景，例如悬浮提示、下拉菜单等。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -12512,9 +12512,9 @@ declare interface AxisEvent extends BaseEvent {
 
 /**
  * 组件区域变化时的回调类型。
- * 
+ *
  * oldValue表示目标元素变化之前的宽高。
- * 
+ *
  * newValue表示目标元素变化之后的宽高。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -21426,18 +21426,15 @@ declare class CommonMethod<T> {
   constructor();
 
   /**
-   * 设置组件自身的宽度，缺省时使用元素自身内容需要的宽度。若子组件的宽大于父组件的宽，则会超出父组件的范围。
+   * 设置组件自身的宽度，缺省时使用子组件自身内容需要的宽度。若子组件的宽大于父组件的宽，则子组件会溢出显示在父组件外部。
    *
    * 从API version 10开始，该接口支持calc计算特性。
    *
-   * @param { Length } value - 要设置的组件宽度
-   *     >  **说明：**
-   *     >
-   *     >  - 在{@link TextInput}组件中，width设置auto表示自适应文本宽度。
-   *     >
-   *     >  - 在 [AlphabetIndexer]{@link AlphabetIndexer}组件中，width设置auto表示自适应宽度最大索引项的宽度
-   *     <br>单位为： vp。
-   * @returns { T } Current component.
+   * @param { Length } value - 要设置的组件宽度。
+   * <br>单位：vp
+   * <br>设置百分比时，以父容器的宽度作为基础值。
+   * <br>异常值：参数为undefined时，属性设置不生效；其它异常值时，width属性恢复到不配置时的默认行为。
+   * @returns { T } 返回当前组件对象，用于链式调用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @form [since 9]
@@ -21447,11 +21444,14 @@ declare class CommonMethod<T> {
   width(value: Length): T;
 
   /**
-   * 设置组件自身的宽度或水平方向布局策略，缺省时使用元素自身内容需要的宽度。若子组件的宽大于父组件的宽，则会超出父组件的范围。
+   * 设置组件自身的宽度或水平方向布局策略，缺省时使用子组件自身内容需要的宽度。若子组件的宽大于父组件的宽，则子组件会溢出显示在父组件外部。
    *
-   * @param { Length | LayoutPolicy } widthValue - 要设置的组件宽度。
-   *     <br>单位为： vp。
-   * @returns { T } Current component.
+   * 从API version 15开始，当参数为Length类型时，该接口支持calc计算特性。
+   *
+   * @param { Length | LayoutPolicy } widthValue - 要设置的组件宽度或水平方向布局策略。
+   * <br>单位：vp
+   * <br>设置百分比时，以父容器的宽度作为基础值。
+   * @returns { T } 返回当前组件对象，用于链式调用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -21462,16 +21462,15 @@ declare class CommonMethod<T> {
   width(widthValue: Length | LayoutPolicy): T;
 
   /**
-   * 设置组件自身的高度，缺省时使用元素自身内容需要的高度。若子组件的高大于父组件的高，则会超出父组件的范围。
+   * 设置组件自身的高度，缺省时使用子组件自身内容需要的高度。若子组件的高大于父组件的高，则子组件会溢出显示在父组件外部。
+   *
    * 从API version 10开始，该接口支持calc计算特性。
    *
    * @param { Length } value - 要设置的组件高度。
-   *     >  **说明：**
-   *     >
-   *     >  在[Row]{@link Row}、 [Column]{@link Column}、[RelativeContainer]{@link
-   *     RelativeContainer}组件中，width、height设置auto表示自适应子组件。
-   *     <br>单位为： vp。
-   * @returns { T } Current component.
+   * <br>单位：vp
+   * <br>设置百分比时，以父容器的高度作为基础值。
+   * <br>异常值：参数为undefined时，属性设置不生效；其它异常值时，height属性恢复到不配置时的默认行为。
+   * @returns { T } 返回当前组件对象，用于链式调用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @form [since 9]
@@ -21481,11 +21480,14 @@ declare class CommonMethod<T> {
   height(value: Length): T;
 
   /**
-   * 设置组件自身的高度或垂直方向布局策略，缺省时使用元素自身内容需要的高度。若子组件的高大于父组件的高，则会超出父组件的范围。
+   * 设置组件自身的高度或垂直方向布局策略，缺省时使用子组件自身内容需要的高度。若子组件的高大于父组件的高，则子组件会溢出显示在父组件外部。
    *
-   * @param { Length | LayoutPolicy } heightValue - 要设置的组件高度。
-   *     <br>单位为： vp。
-   * @returns { T } Current component.
+   * 从API version 15开始，当参数为Length类型时，该接口支持calc计算特性。
+   *
+   * @param { Length | LayoutPolicy } heightValue - 要设置的组件高度或垂直方向布局策略。
+   * <br>单位：vp
+   * <br>设置百分比时，以父容器的高度作为基础值。
+   * @returns { T } 返回当前组件对象，用于链式调用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -21647,12 +21649,14 @@ declare class CommonMethod<T> {
   responseRegionList(regions: Array<ResponseRegion>): T;
 
   /**
-   * 设置组件自身的宽高尺寸。
+   * 设置组件自身的宽高尺寸。设置后会影响组件在父容器中的布局和显示大小。
    *
    * 从API version 10开始，该接口支持calc计算特性。
    *
-   * @param { SizeOptions } value - 设置宽高尺寸。异常值：参数为undefined时，属性设置不生效；其它异常值时，size属性恢复到不配置时的默认行为。单位：vp
-   * @returns { T } Current component.
+   * @param { SizeOptions } value - 设置宽高尺寸。
+   *     <br>异常值：参数为undefined时，属性设置不生效；其它异常值时，size属性恢复到不配置时的默认行为。
+   * <br>单位：vp
+   * @returns { T } 返回当前组件对象，用于链式调用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @form [since 9]
@@ -21662,30 +21666,23 @@ declare class CommonMethod<T> {
   size(value: SizeOptions): T;
 
   /**
-   * 设置约束尺寸，组件布局时，进行尺寸范围限制。
+   * 设置约束尺寸，组件布局时进行尺寸范围限制。设置后组件的宽度和高度将被限制在指定的最小值和最大值范围内，constraintSize的优先级高于width和height属性。
    *
    * 从API version 10开始，该接口支持calc计算特性。
    *
-   * **constraintSize(minWidth/maxWidth/minHeight/maxHeight)取值对width/height影响：**
-   *
-   * | 缺省值                                      | 结果                                       |
-   * | ---------------------------------------- | ---------------------------------------- |
-   * | \ | width=MAX(minWidth,MIN(maxWidth,width))<br/>height=MAX(minHeight,MIN(maxHeight,height)) |
-   * | maxWidth、maxHeight | width=MAX(minWidth,width)<br/>height=MAX(minHeight,height) |
-   * | minWidth、minHeight | width=MIN(maxWidth,width)<br/>height=MIN(maxHeight,height) |
-   * | width、height |
-   * 若minWidth<maxWidth，组件自身布局逻辑生效，width取值范围为[minWidth,maxWidth]；否则，width=MAX(minWidth,maxWidth)。<br/>若minHeight<maxHeig
-   * ht，组件自身布局逻辑生效，height取值范围为[minHeight,maxHeight]；否则，height=MAX(minHeight,maxHeight)。 |
-   * | width与maxWidth、height与maxHeight | width=minWidth<br/>height=minHeight |
-   * | width与minWidth、height与minHeight | 组件自身布局逻辑生效，width取值约束为不大于maxWidth。<br/>组件自身布局逻辑生效，height取值约束为不大于maxHeight。 |
-   * | minWidth与maxWidth、minHeight与maxHeight | width以所设值为基础，根据其他布局属性发生可能的拉伸或者压缩。<br/>height以所设值为基础，根据其他布局属性发生可能的拉伸或者压缩。|
-   * | width与minWidth与maxWidth | 使用父容器传递的布局限制进行布局。 |
-   * | height与minHeight与maxHeight | 使用父容器传递的布局限制进行布局。 |
-   *
-   * @param { ConstraintSizeOptions } value - 设置约束尺寸。constraintSize的优先级高于Width和Height。取值结果参考constraintSize取值对width/height影响。
-   *     <br><br/>默认值：<br/>{<br/>minWidth:&nbsp;0,<br/>maxWidth:&nbsp;Infinity,<br/>minHeight:&nbsp;0,<br/>maxHeight:&nb
-   *     sp;Infinity<br/>}<br/>异常值：数值开头的字符串仅解析出数字部分，非数值开头的字符串解析为0；其它异常值时，constraintSize属性恢复到不配置时的默认行为。<br/>单位：vp<br/>。
-   * @returns { T } Current component.
+   * @param { ConstraintSizeOptions } value - 设置约束尺寸。constraintSize的优先级高于
+   * [width]{@link CommonMethod#width(value: Length)}和[height]{@link CommonMethod#height(value: Length)}。取值结果参考
+   * constraintSize取值对width/height影响。
+   * <br>默认值：
+   * <br>{
+   * <br>minWidth: 0,
+   * <br>maxWidth: Infinity,
+   * <br>minHeight: 0,
+   * <br>maxHeight: Infinity
+   * <br>}
+   * <br>异常值：数值开头的字符串仅解析出数字部分，非数值开头的字符串解析为0；其它异常值时，constraintSize属性恢复到不配置时的默认行为。
+   * <br>单位：vp
+   * @returns { T } 返回当前组件对象，用于链式调用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform [since 10]
@@ -21744,15 +21741,21 @@ declare class CommonMethod<T> {
   onChildTouchTest(event: (value: Array<TouchTestInfo>) => TouchResult): T;
 
   /**
-   * 设置组件的布局权重，使组件在父容器（[Row]{@link Row}/[Column]{@link Column}/[Flex]{@link Flex}的主轴方向按照权重分配尺寸。
+   * 设置组件的布局权重，使组件在父容器（[Row]{@link ./row}/[Column]{@link ./column}/[Flex]{@link ./flex}）的主轴方向按照权重分配尺寸。适用于父容器尺寸确定、需要多个子组件
+   * 按比例分配剩余空间的场景。
    *
-   * @param { number | string } value - 组件的布局权重。
-   *     <br>父容器尺寸确定时，不设置layoutWeight属性或者layoutWeight属性生效值为0的元素优先占位，这些元素占位后在主轴留下的空间称为主轴剩余空间。设置了layoutWeight属性且layoutWeig
-   *     ht属性生效值大于0的子元素会从主轴剩余空间中按照各自所设置的权重占比分配尺寸，分配时会忽略元素本身的尺寸设置。<br/>默认值：0<br/>**说明：** <br/>仅在[Row]{@link
-   *     Row}/[Column]{@link Column}/[Flex]{@link
-   *     Flex}布局中生效。<br/>可选值为大于等于0的数字，或者可以转换为数字的字符串。<br/>如果容器中有子元素设置了layoutWeight属性，且设置的属性值大于0，则所有子元素不会再基于[flexShrink]{@
-   *     link flexShrink}和[flexGrow]{@link flexGrow}布局。
-   * @returns { T } Current component.
+   * @param { number | string } value - 父容器尺寸确定时，不设置layoutWeight属性或者layoutWeight属性生效值为0的子组件优先占位，这些子组件占位后在主轴留下的空间称为主轴剩余空
+   * 间。设置了layoutWeight属性且layoutWeight属性生效值大于0的子组件会从主轴剩余空间中按照各自所设置的权重占比分配尺寸，分配时会忽略子组件本身的width/height设置，但保留minWidth/
+   * minHeight约束。
+   * <br>默认值：0
+   * <br>取值范围：[0, +∞)
+   * <br>超出范围时：传入小于0的值时，按0处理。
+   * <br>**说明：**
+   * <br>仅在[Row]{@link ./row}/[Column]{@link ./column}/[Flex]{@link ./flex}布局中生效。
+   * <br>可选值为大于等于0的数字，或者可以转换为数字的字符串（支持整数、小数格式）。
+   * <br>如果容器中有子组件设置了layoutWeight属性，且设置的属性值大于0，则所有子组件不会再基于[flexShrink]{@link CommonMethod#flexShrink}和
+   * [flexGrow]{@link CommonMethod#flexGrow}布局。
+   * @returns { T } 返回当前组件对象，用于链式调用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform [since 10]
@@ -21780,19 +21783,21 @@ declare class CommonMethod<T> {
   chainWeight(chainWeight: ChainWeightOptions): T;
 
   /**
-   * 设置组件的内边距属性。
+   * 设置组件的内边距属性。设置后会在组件内容和边框之间创建额外空间，影响组件内部内容的布局区域。
    *
    * 从API version 10开始，该接口支持calc计算特性。
    *
-   * @param { Padding | Length } value - [since 7 - 11]
-   * @param { Padding | Length | LocalizedPadding } value - Padding of the component to set
-   *     <br>
-   *     When the parameter is of the **Length** type, the four paddings take effect.
-   *     <br>Default value: **0**
-   *     <br>Unit: vp
-   *     <br>When **padding** is set to a percentage, the width of the parent container is used as the
-   *     basic value. [since 12].
-   * @returns { T } Current component.
+   * @param { Padding | Length } value - 设置组件的内边距。
+   *     <br>参数为Length类型时，四个方向内边距同时生效。
+   * <br>默认值：0
+   * <br>单位：vp
+   * <br>padding设置百分比时，上下左右内边距均以父容器的width作为基础值。 [since 7 - 11]
+   * @param { Padding | Length | LocalizedPadding } value - 设置组件的内边距。
+   * <br>参数为Length类型时，四个方向内边距同时生效。
+   * <br>默认值：0
+   * <br>单位：vp
+   * <br>padding设置百分比时，上下左右内边距均以父容器的width作为基础值。 [since 12]
+   * @returns { T } 返回当前组件对象，用于链式调用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @form [since 9]
@@ -21802,21 +21807,18 @@ declare class CommonMethod<T> {
   padding(value: Padding | Length | LocalizedPadding): T;
 
   /**
-   * 设置安全区边距属性。允许容器向自身添加组件级安全区域，供子组件延伸，支持[attributeModifier]{@link CommonMethod#attributeModifier}动态设置属性方法。
+   * 设置安全区边距属性。允许容器向自身添加组件级安全区域，供子组件延伸，支持[attributeModifier]{@link CommonMethod#attributeModifier}动态设置属性方法。与padding不同，
+   * safeAreaPadding用于设置组件级安全区域供子组件延伸使用，而padding用于设置组件内容区域的内边距，两者可同时设置、分别生效。
    *
-   * > **说明**
+   * > **说明：**
    * >
-   * >
-   * 当父辈和祖先容器设置了组件级安全区域时，子组件可以感知并利用该区域，称该区域为累计安全区延伸（accumulatedSafeAreaExpand，下文简称SAE），表示子组件在四个方向上各可延伸的长度。当祖辈与更上一级祖辈的saf
-   * eAreaPadding相邻接（即未被margin、border、padding分隔）时，SAE将递归地向外累积，直至不存在相邻的更外层safeAreaPadding或递归至页面容器外。系统级避让区域（如状态栏、导航条、挖孔区等，
-   * 详情参见安全区域中的说明）可视为页面容器特有的safeAreaPadding，同样参与该延伸范围的计算。
-   * >
-   * > 通过与其他属性配合使用，可对上述计算得到的组件级安全区区域加以利用。例如，对子组件设置[ignoreLayoutSafeArea]{@link
-   * CommonMethod#ignoreLayoutSafeArea}属性，即可利用SAE延伸组件的布局范围。
+   * > 从API version 18开始，该接口支持在[attributeModifier]{@link CommonMethod#attributeModifier}中调用。
    *
-   * @param { Padding | LengthMetrics | LocalizedPadding } paddingValue - 设置组件的安全区边距。
-   *     <br>单位为： vp。 默认值： 0。
-   * @returns { T } Current component.
+   * @param { Padding | LengthMetrics | LocalizedPadding } paddingValue - 设置组件的安全区边距，用于在组件内部创建组件级安全区域供子组件延伸使用。
+   * <br>默认值：0
+   * <br>单位：vp
+   * <br>paddingValue设置百分比时，上下左右内边距均以父容器的width作为基础值。
+   * @returns { T } 返回当前组件对象，用于链式调用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -21831,19 +21833,23 @@ declare class CommonMethod<T> {
    *
    * 从API version 10开始，该接口支持calc计算特性。
    *
-   * @param { Margin | Length } value - [since 7 - 11]
-   * @param { Margin | Length | LocalizedMargin } value - Margin of the component to set.
-   *     <br>When the parameter is of the **Length** type, the four margins take effect.
-   *     <br>Default value: **0**
-   *     <br>Unit: vp
-   *     <br>When **margin** is set to a percentage, the width of the parent container is used as the
-   *     basic value. When child components are laid out along the cross axis of the
-   *     [Row]{@link Row}, [Column]{@link Column}, or [Flex]{@link Flex} container, the cross axis
-   *     size of the child components and the margins add up to the total size of the container.
-   *     <br>For example, if the width of the **Column** container is 100, the width of the child component
-   *     is 50, the left margin is 10, and the right margin is 20, then the actual horizontal offset of
-   *     the child component is 10. [since 12]
-   * @returns { T } Current component.
+   * @param { Margin | Length } value - 设置组件的外边距。
+   * <br>参数为Length类型时，四个方向外边距同时生效。
+   * <br>默认值：0
+   * <br>单位：vp
+   * <br>margin设置百分比时，上下左右外边距均以父容器的width作为基础值。在[Row]{@link ./row}、[Column]{@link ./column}、[Flex]{@link ./flex}交叉轴上布
+   * 局时，子组件在交叉轴方向占用的空间包含子组件本身尺寸和margin值。
+   * <br>例如Column容器宽100，其中子组件宽50，margin left为10，right为20，子组件宽度与左右margin之和为50+10+20=80，小于容器宽度100，子组件在交叉轴方向居中对齐，此时水平方向
+   * 左侧和右侧各有(100-80)/2=10的空白区域。 [since 7 - 11]
+   * @param { Margin | Length | LocalizedMargin } value - 设置组件的外边距。
+   * <br>参数为Length类型时，四个方向外边距同时生效。
+   * <br>默认值：0
+   * <br>单位：vp
+   * <br>margin设置百分比时，上下左右外边距均以父容器的width作为基础值。在[Row]{@link ./row}、[Column]{@link ./column}、[Flex]{@link ./flex}交叉轴上布
+   * 局时，子组件在交叉轴方向占用的空间包含子组件本身尺寸和margin值。
+   * <br>例如Column容器宽100，其中子组件宽50，margin left为10，right为20，子组件宽度与左右margin之和为50+10+20=80，小于容器宽度100，子组件在交叉轴方向居中对齐，此时水平方向
+   * 左侧和右侧各有(100-80)/2=10的空白区域。 [since 12]
+   * @returns { T } 返回当前组件对象，用于链式调用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @form [since 9]
