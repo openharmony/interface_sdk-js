@@ -692,9 +692,8 @@ export declare interface IStateDecoratedVariable<T> extends IDecoratedMutableVar
    *
    * @param { T } newValue - 默认值
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @unpublished
    * @stagemodelonly
-   * @since 26.1.0 static
+   * @since 26.0.0 static
    */
   resetOnReuse(newValue: T): void;
 }
@@ -714,9 +713,8 @@ export declare interface IPropRefDecoratedVariable<T> extends IDecoratedMutableV
    *
    * @param { T } newValue - 默认值
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @unpublished
    * @stagemodelonly
-   * @since 26.1.0 static
+   * @since 26.0.0 static
    */
   resetOnReuse(newValue: T): void;
 }
@@ -734,9 +732,8 @@ export declare interface ILocalStoragePropRefDecoratedVariable<T> extends IDecor
    * 重置@StoragePropRef变量的源
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @unpublished
    * @stagemodelonly
-   * @since 26.1.0 static
+   * @since 26.0.0 static
    */
   resetOnReuse(): void;
 }
@@ -755,9 +752,8 @@ export declare interface ILinkDecoratedVariable<T> extends IDecoratedMutableVari
    *
    * @param { LinkSourceType<T> } newValue - 默认值
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @unpublished
    * @stagemodelonly
-   * @since 26.1.0 static
+   * @since 26.0.0 static
    */
   resetOnReuse(newValue: LinkSourceType<T>): void;
 }
@@ -776,9 +772,8 @@ export declare interface IProvideDecoratedVariable<T> extends IDecoratedMutableV
    *
    * @param { T } newValue - 默认值
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @unpublished
    * @stagemodelonly
-   * @since 26.1.0 static
+   * @since 26.0.0 static
    */
   resetOnReuse(newValue: T): void;
 }
@@ -799,9 +794,8 @@ export declare interface IConsumeDecoratedVariable<T> extends IDecoratedMutableV
    * @param { WatchFuncType } [watchFunc] - watch函数类型
    * @param { ConsumeOptions<T> } [consumeOptions] - 具有默认值的选项
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @unpublished
    * @stagemodelonly
-   * @since 26.1.0 static
+   * @since 26.0.0 static
    */
   resetOnReuse(provideAlias: string, watchFunc?: WatchFuncType, consumeOptions?: ConsumeOptions<T>): void;
 }
@@ -821,9 +815,8 @@ export declare interface IObjectLinkDecoratedVariable<T> extends IDecoratedImmut
    *
    * @param { T } newValue - 默认值
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @unpublished
    * @stagemodelonly
-   * @since 26.1.0 static
+   * @since 26.0.0 static
    */
   resetOnReuse(newValue: T): void;
 }
@@ -850,9 +843,8 @@ export declare interface IStoragePropRefDecoratedVariable<T> extends IDecoratedM
    * 重置@StoragePropRef变量的源
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @unpublished
    * @stagemodelonly
-   * @since 26.1.0 static
+   * @since 26.0.0 static
    */
   resetOnReuse(): void;
 }
@@ -1442,9 +1434,8 @@ export declare interface IStateMgmtFactory {
    * @param { T } localInitValue - @CustomEnv本地初始值。
    * @returns { ICustomEnvDecoratedVariable<T> } CustomEnv变量实例。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @unpublished
    * @stagemodelonly
-   * @since 26.1.0 static
+   * @since 26.0.0 static
    */
   makeCustomEnv<T>(owner: IVariableOwner, envKey: CustomEnvKey<T>, varName: string, localInitValue: T): ICustomEnvDecoratedVariable<T>;
 
@@ -1456,9 +1447,8 @@ export declare interface IStateMgmtFactory {
    * @param { MakeMonitorOptions } [options] - 此监视器的选项。
    * @returns { IMonitorDecoratedVariable } 监控变量实例
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @unpublished
    * @stagemodelonly
-   * @since 26.1.0 static
+   * @since 26.0.0 static
    */
   makeSyncMonitor(pathInfos: IMonitorPathInfo[], monitorCallback: MonitorCallback,
     options?: MakeMonitorOptions): IMonitorDecoratedVariable;
@@ -1471,9 +1461,8 @@ export declare interface IStateMgmtFactory {
    * @param { IVariableOwner } owningView - 拥有全局池的自定义组件
    * @returns { IGlobalReusePoolVariable } 全局重用池句柄。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @unpublished
    * @stagemodelonly
-   * @since 26.1.0 static
+   * @since 26.0.0 static
    */
   makeGlobalReusePool(reusePool: ReusePoolOwnership,
     poolAccepts: Class[], owningView: IVariableOwner): IGlobalReusePoolVariable;
@@ -1521,9 +1510,8 @@ export declare interface IEnvDecoratedVariable<T> extends IDecoratedImmutableVar
  * 定义CustomEnv装饰变量接口。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @unpublished
  * @stagemodelonly
- * @since 26.1.0 static
+ * @since 26.0.0 static
  */
 export declare interface ICustomEnvDecoratedVariable<T> extends IDecoratedImmutableVariable<T>, IDecoratedV2Variable<T> {}
 
@@ -1724,9 +1712,8 @@ export declare interface IMonitorPathInfo {
    * 默认值为false。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @unpublished
    * @stagemodelonly
-   * @since 26.1.0 static
+   * @since 26.0.0 static
    */
   enableWildcard?: boolean;
 }
@@ -1792,9 +1779,8 @@ export declare interface MakeMonitorOptions {
  * 定义IObservableAnyProp类型。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @unpublished
  * @stagemodelonly
- * @since 26.1.0 static
+ * @since 26.0.0 static
  */
 export declare interface IObservedAnyProp {
 
@@ -1802,9 +1788,8 @@ export declare interface IObservedAnyProp {
    * 添加对任何一级属性更改的引用。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @unpublished
    * @stagemodelonly
-   * @since 26.1.0 static
+   * @since 26.0.0 static
    */
   addRefAnyProp(): void;
 }
@@ -1813,9 +1798,8 @@ export declare interface IObservedAnyProp {
  * 全局复用池句柄。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @unpublished
  * @stagemodelonly
- * @since 26.1.0 static
+ * @since 26.0.0 static
  */
 export declare interface IGlobalReusePoolVariable {}
 
