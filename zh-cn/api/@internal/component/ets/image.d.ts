@@ -418,11 +418,6 @@ declare enum ImageRotateOrientation {
  * > 事件触发的，当可见阈值ratios大于0时，表明Image处于可见状态。
  * >
  * > - Image组件播放GIF动图时，帧时长取自GIF文件中各帧的delay time字段。当某帧的时长值小于等于0时，系统会将其修正为100ms；当某帧的时长值大于0时，系统直接使用该原始值，不做最小帧时长限制。
- * >
- * > - 如果图片加载过程中出现白色块，请参考
- * > [Image白块问题解决方案](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-image-white-lump-solution)。如果图片加载时
- * > 间过长，请参考
- * > [预置图片资源加载优化](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-texture-compression-improve-performance#section91526132216)。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -1777,6 +1772,8 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
  * > - 动图的播放依赖于Image节点的可见性变化，其默认行为是不播放的。当节点可见时，通过回调启动动画，当节点不可见时，停止动画。可见性状态的判断是通过
  * > [onVisibleAreaChange]{@link CommonMethod#onVisibleAreaChange(ratios: Array<number>, event: VisibleAreaChangeCallback)}
  * > 事件触发的，当可见阈值ratios大于0时，表明Image处于可见状态。
+ * >
+ * > - Image组件播放GIF动图时，帧时长取自GIF文件中各帧的delay time字段。当某帧的时长值小于等于0时，系统会将其修正为100ms；当某帧的时长值大于0时，系统直接使用该原始值，不做最小帧时长限制。
  *
  * 需要权限
  *
@@ -1953,8 +1950,8 @@ declare interface ResizableOptions {
    *
    * **说明：**
    *
-   * 通过@ohos.graphics.drawing的[createImageLattice]{@link @ohos.graphics.drawing:drawing.Lattice.createImageLattice
-   * (xDivs: Array<number>, yDivs: Array<number>, fXCount: number, fYCount: number, fBounds?: common2D.Rect | null, fRectTypes?: Array<RectType> | null, fColors?: Array<common2D.Color> | null)}
+   * 通过@ohos.graphics.drawing的[createImageLattice]{@link @ohos.graphics.drawing:drawing.Lattice.createImageLattice(xDivs: Array<number>, yDivs: Array<number>, 
+   * fXCount: number, fYCount: number, fBounds?: common2D.Rect | null, fRectTypes?: Array<RectType> | null, fColors?: Array<common2D.Color> | null)}
    * 接口创建Lattice类型作为入参。将图像划分为矩形网格，同时处于偶数列和偶数行上的网格图像是固定的，不会被拉伸。其他位置的网格图像会根据slice进行拉伸。
    *
    * 该参数对[backgroundImageResizable]{@link CommonMethod#backgroundImageResizable}接口不生效。
