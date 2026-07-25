@@ -41,8 +41,9 @@ declare namespace cliManager {
    */
   interface ExecOptions {
     /**
-     * Indicates whether the tool is executed in the background
+     * Indicates whether the tool is executed in the background.
      *
+     * @default false
      * @syscap SystemCapability.Ability.AgentRuntime.Core
      * @systemapi
      * @stagemodelonly
@@ -53,6 +54,7 @@ declare namespace cliManager {
     /**
      * Indicates the foreground waiting timeout in milliseconds.
      *
+     * @default 0
      * @syscap SystemCapability.Ability.AgentRuntime.Core
      * @systemapi
      * @stagemodelonly
@@ -63,6 +65,7 @@ declare namespace cliManager {
     /**
      * Indicates the maximum execution time of the tool, in seconds.
      *
+     * @default 1800
      * @syscap SystemCapability.Ability.AgentRuntime.Core
      * @systemapi
      * @stagemodelonly
@@ -102,8 +105,8 @@ declare namespace cliManager {
 
     /**
      * Indicates whether the command is executed in the background.
-     * Default value is false.
      *
+     * @default false
      * @syscap SystemCapability.Ability.AgentRuntime.Core
      * @systemapi
      * @stagemodelonly
@@ -113,8 +116,8 @@ declare namespace cliManager {
 
     /**
      * Indicates the foreground waiting timeout in milliseconds.
-     * Default value is 0.
      *
+     * @default 0
      * @syscap SystemCapability.Ability.AgentRuntime.Core
      * @systemapi
      * @stagemodelonly
@@ -124,8 +127,8 @@ declare namespace cliManager {
 
     /**
      * Indicates the maximum execution time of the command, in seconds.
-     * Default value is 1800.
      *
+     * @default 1800
      * @syscap SystemCapability.Ability.AgentRuntime.Core
      * @systemapi
      * @stagemodelonly
@@ -204,7 +207,7 @@ declare namespace cliManager {
     signalNumber?: int;
 
     /**
-     * Indicates whether it timed out.
+     * Indicates whether it timed out. true means timeout occurred, false means no timeout.
      *
      * @syscap SystemCapability.Ability.AgentRuntime.Core
      * @systemapi
@@ -304,7 +307,7 @@ declare namespace cliManager {
     status: SessionStatus;
 
     /**
-     * Indicates the execution result, has a value when stats is completed or failed.
+     * Indicates the execution result, has a value when status is completed or failed.
      *
      * @syscap SystemCapability.Ability.AgentRuntime.Core
      * @systemapi
@@ -319,8 +322,9 @@ declare namespace cliManager {
    *
    * @permission ohos.permission.QUERY_CLI_TOOL
    * @returns { Promise<Array<ToolSummary>> } List of full tool summaries.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 201 - Permission denied, interface caller does not have permission
+   *     "ohos.permission.QUERY_CLI_TOOL".
+   * @throws { BusinessError } 202 - Not system application. Interface caller is not a system app.
    * @throws { BusinessError } 35600050 - System Error. 1. Connect to system service failed;
    *     2.System service failed to communicate with dependency module.
    * @syscap SystemCapability.Ability.AgentRuntime.Core
@@ -335,8 +339,9 @@ declare namespace cliManager {
    *
    * @permission ohos.permission.QUERY_CLI_TOOL
    * @returns { Promise<Array<ToolInfo>> } List of full tool detail info.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 201 - Permission denied, interface caller does not have permission
+   *     "ohos.permission.QUERY_CLI_TOOL".
+   * @throws { BusinessError } 202 - Not system application. Interface caller is not a system app.
    * @throws { BusinessError } 35600050 - System Error. 1. Connect to system service failed;
    *     2.System service failed to communicate with dependency module.
    * @syscap SystemCapability.Ability.AgentRuntime.Core
@@ -352,8 +357,9 @@ declare namespace cliManager {
    * @permission ohos.permission.QUERY_CLI_TOOL
    * @param { string } toolName - The name of target tool.
    * @returns { Promise<ToolInfo> } detailed information of tool.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 201 - Permission denied, interface caller does not have permission
+   *     "ohos.permission.QUERY_CLI_TOOL".
+   * @throws { BusinessError } 202 - Not system application. Interface caller is not a system app.
    * @throws { BusinessError } 35600030 - No tool with the specified name exists.
    * @throws { BusinessError } 35600050 - System Error. 1. Connect to system service failed;
    *     2.System service failed to communicate with dependency module.
@@ -374,11 +380,12 @@ declare namespace cliManager {
    * @param { string } challenge - The unique identifier get from access token manager.
    * @param { ExecOptions } [execOptions] - The options of this action.
    * @returns { Promise<CliSessionInfo> } execute result.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Not system application. 
+   * @throws { BusinessError } 201 - Permission denied, interface caller does not have permission
+   *     "ohos.permission.EXEC_CLI_TOOL".
+   * @throws { BusinessError } 202 - Not system application. Interface caller is not a system app. 
    * @throws { BusinessError } 35600030 - No tool with the specified name exists.
    * @throws { BusinessError } 35600031 - Maximum number of processes has been reached.
-   * @throws { BusinessError } 35600050 - System Error. 1. Failed to connect to the system service;
+   * @throws { BusinessError } 35600050 - System Error. 1. Connect to system service failed;
    *     2. The system service failed to communicate with the dependent module.
    * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @systemapi
@@ -412,10 +419,11 @@ declare namespace cliManager {
    *
    * @permission ohos.permission.EXEC_CLI_TOOL
    * @param { string } sessionId - The session id of target tool process.
-   * @param { ToolEventCallback } callback - The input args of tool.
+   * @param { ToolEventCallback } callback - The callback to receive session events.
    * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 201 - Permission denied, interface caller does not have permission
+   *     "ohos.permission.EXEC_CLI_TOOL".
+   * @throws { BusinessError } 202 - Not system application. Interface caller is not a system app.
    * @throws { BusinessError } 35600032 - The session does not exist.
    * @throws { BusinessError } 35600050 - System Error. 1. Connect to system service failed;
    *     2.System service failed to communicate with dependency module.
@@ -430,10 +438,11 @@ declare namespace cliManager {
    * Close session and force kill tool process.
    *
    * @permission ohos.permission.EXEC_CLI_TOOL
-   * @param { string } sessionId - The session id of target tool process..
+   * @param { string } sessionId - The session id of target tool process.
    * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 201 - Permission denied, interface caller does not have permission
+   *     "ohos.permission.EXEC_CLI_TOOL".
+   * @throws { BusinessError } 202 - Not system application. Interface caller is not a system app.
    * @throws { BusinessError } 35600032 - The session does not exist.
    * @throws { BusinessError } 35600050 - System Error. 1. Connect to system service failed;
    *     2.System service failed to communicate with dependency module.
@@ -450,8 +459,9 @@ declare namespace cliManager {
    * @permission ohos.permission.EXEC_CLI_TOOL
    * @param { string } sessionId - The session id of target tool process.
    * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 201 - Permission denied, interface caller does not have permission
+   *     "ohos.permission.EXEC_CLI_TOOL".
+   * @throws { BusinessError } 202 - Not system application. Interface caller is not a system app.
    * @throws { BusinessError } 35600032 - The session does not exist.
    * @throws { BusinessError } 35600050 - System Error. 1. Connect to system service failed;
    *     2.System service failed to communicate with dependency module.
@@ -469,8 +479,9 @@ declare namespace cliManager {
    * @param { string } sessionId - The session id of target tool process.
    * @param { string } message - The message to write, max length is 10240.
    * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 201 - Permission denied, interface caller does not have permission
+   *     "ohos.permission.EXEC_CLI_TOOL".
+   * @throws { BusinessError } 202 - Not system application. Interface caller is not a system app.
    * @throws { BusinessError } 35600032 - The session does not exist.
    * @throws { BusinessError } 35600033 - failed to write message to tool.
    * @throws { BusinessError } 35600050 - System Error. 1. Connect to system service failed;

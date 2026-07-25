@@ -217,7 +217,7 @@ declare class SwiperController {
 }
 
 /**
-* 设置导航点距离Swiper组件距离。由于导航点有默认交互区域，交互区域高度为32vp，所以无法让显示部分完全贴底。若想实现完全贴底，可以使用
+* 设置导航点与Swiper组件的距离。由于导航点有默认交互区域，交互区域高度为32vp，所以无法让显示部分完全贴底。若想实现完全贴底，可以使用
 * [IndicatorComponent](docroot://reference/apis-arkui/arkui-ts/ts-swiper-components-indicator.md#indicatorcomponent)组件，
 * 更灵活地调整位置。
 *
@@ -235,7 +235,7 @@ declare class Indicator<T> {
    *
    * @param { Length } value - 设置导航点左侧相对于Swiper的位置。<br/>未设置left和right时，进行自适应大小布局，按照指示器本身大小和Swiper的大小在主轴方向上进行居中对齐。<br/>设置
    *     为0时：按照0位置布局计算。<br/>优先级：高于right属性。<br/>取值范围：[0,Swiper宽度-导航点区域宽度]，超出该范围时，取最近的边界值。
-   * @returns { T } 返回当前导航点指示器。
+   * @returns { T } 返回当前导航点指示器，用于支持链式调用配置其他导航点属性。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -250,7 +250,7 @@ declare class Indicator<T> {
    *
    * @param { Length } value - 设置导航点顶部相对于Swiper的位置。<br/>未设置top和bottom时，进行自适应大小布局，按照指示器本身大小和Swiper的大小，在交叉轴方向上，位于底部，效果与设置
    *     bottom=0一致。<br/>设置为0时：按照0位置布局计算。<br/>优先级：高于bottom属性。<br/>取值范围：[0,Swiper高度-导航点区域高度]，超出该范围时，取最近的边界值。
-   * @returns { T } 返回当前导航点指示器。
+   * @returns { T } 返回当前导航点指示器，用于支持链式调用配置其他导航点属性。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -265,7 +265,7 @@ declare class Indicator<T> {
    *
    * @param { Length } value - 设置导航点右侧相对于Swiper的位置。<br/>未设置left和right时，进行自适应大小布局，按照指示器本身大小和Swiper的大小在主轴方向上进行居中对齐。<br/>设置
    *     为0时：按照0位置布局计算。<br/>优先级：低于left属性。<br/>取值范围：[0,Swiper宽度-导航点区域宽度]，超出该范围 时，取最近的边界值。
-   * @returns { T } 返回当前导航点指示器。
+   * @returns { T } 返回当前导航点指示器，用于支持链式调用配置其他导航点属性。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -280,7 +280,7 @@ declare class Indicator<T> {
    *
    * @param { Length } value - 设置导航点底部相对于Swiper的位置。<br/>未设置top和bottom时，进行自适应大小布局，按照指示器本身大小和Swiper的大小，在交叉轴方向上，位于底部，效果与设置
    *     bottom=0一致。<br/>设置为0时：按照0位置布局计算。<br/>优先级：低于top属性。<br/>取值范围：[0,Swiper高度-导航点区域高度]，超出该范围时，取最近的边界值。
-   * @returns { T } 返回当前导航点指示器。
+   * @returns { T } 返回当前导航点指示器，用于支持链式调用配置其他导航点属性。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -295,12 +295,12 @@ declare class Indicator<T> {
    *
    * @param { LengthMetrics | Length } bottom - 设置导航点底部相对于Swiper的位置。<br/>未设置top和bottom时，进行自适应大小布局，按照指示器本身大小和Swiper的大小，在交
    *     叉轴方向上，位于底部，效果与设置bottom=0一致。<br/>设置为0时：按照0位置布局计算。<br/>优先级：低于top属性。<br/>取值范围：[0,Swiper高度-导航点区域高度]，超出该范围时，取最近的边界值。
-   * @param { boolean } ignoreSize - 设置是否忽略导航点本身大小，默认false。<br/>设为true时可以将导航点更靠近Swiper底部，使用方法可以参考
+   * @param { boolean } ignoreSize - 设置是否忽略导航点本身大小，默认false。<br/>设置为true时，忽略导航点大小，可以将导航点更靠近Swiper底部；设置为false时，不忽略导航点大小，导航点按默认大小布局。使用方法可以参考
    *     [示例9演示导航点space与bottom](docroot://reference/apis-arkui/arkui-ts/ts-container-swiper.md#示例9演示导航点space与bottom)。<br
    *     /> 说明：[数字导航点]{@link DigitIndicator}ignoreSize属性，不生效的场景如下：<br/> •  当[vertical]{@link SwiperAttribute#vertical} 设
    *     置为false，且bottom > 0。<br/>  •  当[vertical]{@link SwiperAttribute#vertical} 设置为true时：<br/>1、bottom > 0 时。<br/> 2、
    *     bottom设为undefined。 <br/> 3、isSidebarMiddle设置为false时。
-   * @returns { T } 返回当前导航点指示器。
+   * @returns { T } 返回当前导航点指示器，用于支持链式调用配置其他导航点属性。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -315,7 +315,7 @@ declare class Indicator<T> {
    *
    * @param { LengthMetrics } value - 设置在RTL模式下为导航点距离Swiper组件右边的距离，在LTR模式下为导航点距离Swiper组件左边的距离。<br/>默认值：0<br/>单位：vp<br/>取
    *     值范围：[0, Swiper宽度-导航点区域宽度]，超出该范围时，取最近的边界值。
-   * @returns { T } 返回当前导航点指示器。
+   * @returns { T } 返回当前导航点指示器，用于支持链式调用配置其他导航点属性。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -330,7 +330,7 @@ declare class Indicator<T> {
    *
    * @param { LengthMetrics } value - 设置在RTL模式下为导航点距离Swiper组件左边的距离，在LTR模式下为导航点距离Swiper组件右边的距离。<br/>默认值：0<br/>单位：vp<br/>取
    *     值范围：[0, Swiper宽度-导航点区域宽度]，超出该范围时，取最近的边界值。
-   * @returns { T } 返回当前导航点指示器。
+   * @returns { T } 返回当前导航点指示器，用于支持链式调用配置其他导航点属性。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -343,7 +343,7 @@ declare class Indicator<T> {
   /**
    * 返回一个DotIndicator对象。
    *
-   * @returns { DotIndicator } 圆点指示器。
+   * @returns { DotIndicator } 圆点指示器对象，用于设置Swiper组件的圆点导航样式。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -356,7 +356,7 @@ declare class Indicator<T> {
   /**
    * 返回一个DigitIndicator对象。
    *
-   * @returns { DigitIndicator } 数字指示器。
+   * @returns { DigitIndicator } 数字指示器对象，用于设置Swiper组件的数字导航样式。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -402,7 +402,7 @@ declare class DotIndicator extends Indicator<DotIndicator> {
    * Swiper组件圆点导航指示器的宽。
    *
    * @param { Length } value - 设置Swiper组件圆点导航指示器的宽，不支持设置百分比。<br/>默认值：6<br/>单位：vp<br/>取值范围：(0, +∞)
-   * @returns { DotIndicator } 返回当前圆点指示器。
+   * @returns { DotIndicator } 返回当前圆点指示器，用于支持链式调用配置其他导航点属性。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -416,7 +416,7 @@ declare class DotIndicator extends Indicator<DotIndicator> {
    * Swiper组件圆点导航指示器的高。
    *
    * @param { Length } value - 设置Swiper组件圆点导航指示器的高，不支持设置百分比。<br/>默认值：6<br/>单位：vp<br/>取值范围：(0, +∞)
-   * @returns { DotIndicator } 返回当前圆点指示器。
+   * @returns { DotIndicator } 返回当前圆点指示器，用于支持链式调用配置其他导航点属性。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -430,7 +430,7 @@ declare class DotIndicator extends Indicator<DotIndicator> {
    * 选中Swiper组件圆点导航指示器的宽。
    *
    * @param { Length } value - 设置选中Swiper组件圆点导航指示器的宽，不支持设置百分比。<br/>默认值：6<br/>单位：vp<br/>取值范围：(0, +∞)
-   * @returns { DotIndicator } 返回当前圆点指示器。
+   * @returns { DotIndicator } 返回当前圆点指示器，用于支持链式调用配置其他导航点属性。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -444,7 +444,7 @@ declare class DotIndicator extends Indicator<DotIndicator> {
    * 选中Swiper组件圆点导航指示器的高。
    *
    * @param { Length } value - 设置选中Swiper组件圆点导航指示器的高，不支持设置百分比。<br/>默认值：6<br/>单位：vp<br/>取值范围：(0, +∞)
-   * @returns { DotIndicator } 返回当前圆点指示器。
+   * @returns { DotIndicator } 返回当前圆点指示器，用于支持链式调用配置其他导航点属性。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -458,7 +458,7 @@ declare class DotIndicator extends Indicator<DotIndicator> {
    * 是否显示Swiper组件圆点导航指示器的蒙版样式。
    *
    * @param { boolean } value - 设置是否显示Swiper组件圆点导航指示器的蒙版样式。true为显示Swiper组件圆点导航指示器的蒙版样式，false为不显示。<br/>默认值：false
-   * @returns { DotIndicator } 返回当前圆点指示器。
+   * @returns { DotIndicator } 返回当前圆点指示器，用于支持链式调用配置其他导航点属性。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -472,7 +472,7 @@ declare class DotIndicator extends Indicator<DotIndicator> {
    * Swiper组件圆点导航指示器的颜色。
    *
    * @param { ResourceColor } value - 设置Swiper组件圆点导航指示器的颜色。<br/>默认值：'#1A182431'，浅灰色。
-   * @returns { DotIndicator } 返回当前圆点指示器。
+   * @returns { DotIndicator } 返回当前圆点指示器，用于支持链式调用配置其他导航点属性。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -486,7 +486,7 @@ declare class DotIndicator extends Indicator<DotIndicator> {
    * 选中Swiper组件圆点导航指示器的颜色。
    *
    * @param { ResourceColor } value - 设置选中Swiper组件圆点导航指示器的颜色。<br/>默认值：'#007DFF'，蓝色。
-   * @returns { DotIndicator } 返回当前圆点指示器。
+   * @returns { DotIndicator } 返回当前圆点指示器，用于支持链式调用配置其他导航点属性。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -503,7 +503,7 @@ declare class DotIndicator extends Indicator<DotIndicator> {
    *     [示例5](docroot://reference/apis-arkui/arkui-ts/ts-container-swiper.md#示例5设置圆点导航点超长显示)所示。<br/>默认值：这个属性没有默认值，如果设置异
    *     常值那等同于没有超长显示效果。<br/>取值范围：[6, 9]<br/>**说明：** <br/>1、超长显示场景，目前暂时不支持交互功能（包括：手指点击拖拽、鼠标操作等）。<br/>2、在超长显示场景下，中间页面对应的选
    *     中导航点的位置，并不是完全固定的，取决于之前的翻页操作序列。<br/>3、当前仅支持displayCount为1的场景。
-   * @returns { DotIndicator } 返回当前圆点指示器。
+   * @returns { DotIndicator } 返回当前圆点指示器，用于支持链式调用配置其他导航点属性。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -516,7 +516,7 @@ declare class DotIndicator extends Indicator<DotIndicator> {
    * 设置Swiper圆点导航点间距。
    *
    * @param { LengthMetrics } space - 设置圆点导航点间距，不支持设置百分比。<br/>默认值：PC/2in1设备上为10，其他设备为8。<br/>单位：vp<br/>取值范围：[0, +∞)
-   * @returns { DotIndicator } 返回当前圆点指示器。
+   * @returns { DotIndicator } 返回当前圆点指示器，用于支持链式调用配置其他导航点属性。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -611,7 +611,7 @@ declare class DigitIndicator extends Indicator<DigitIndicator> {
    * Swiper组件数字导航点的字体颜色。
    *
    * @param { ResourceColor } value - 设置Swiper组件数字导航点的字体颜色。<br/>默认值：'#ff182431'
-   * @returns { DigitIndicator } 返回当前数字指示器。
+   * @returns { DigitIndicator } 返回当前数字指示器，用于支持链式调用配置其他导航点属性。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -625,7 +625,7 @@ declare class DigitIndicator extends Indicator<DigitIndicator> {
    * 选中Swiper组件数字导航点的字体颜色。
    *
    * @param { ResourceColor } value - 设置选中Swiper组件数字导航点的字体颜色。<br/>默认值：'#ff182431'
-   * @returns { DigitIndicator } 返回当前数字指示器。
+   * @returns { DigitIndicator } 返回当前数字指示器，用于支持链式调用配置其他导航点属性。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -640,7 +640,7 @@ declare class DigitIndicator extends Indicator<DigitIndicator> {
    *
    * @param { Font } value - 设置Swiper组件数字导航点的字体样式。<br/>只支持Font中size和weight参数，family和style设置不生效。<br/>默认值：<br/>{ size: 14,
    *      weight: FontWeight.Normal }
-   * @returns { DigitIndicator } 返回当前数字指示器。
+   * @returns { DigitIndicator } 返回当前数字指示器，用于支持链式调用配置其他导航点属性。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -654,7 +654,7 @@ declare class DigitIndicator extends Indicator<DigitIndicator> {
    * 选中Swiper组件数字导航点的字体样式。
    *
    * @param { Font } value - 设置选中Swiper组件数字导航点的字体样式。<br/>默认值：<br/>{ size: 14, weight: FontWeight.Normal }
-   * @returns { DigitIndicator } 返回当前数字指示器。
+   * @returns { DigitIndicator } 返回当前数字指示器，用于支持链式调用配置其他导航点属性。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -853,7 +853,7 @@ declare enum SwiperDisplayMode {
 }
 
 /**
-* 滑块视图容器，提供子组件滑动轮播显示的能力。
+* 滑块视图容器，提供子组件滑动轮播显示的能力。适用于轮播图展示、图片浏览、引导页、卡片轮播等场景。
 *
 * > **说明：**
 *
@@ -1350,7 +1350,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
   /**
    * 设置子组件是否自动播放。轮播方向为索引从小到大。
    *
-   * [loop]{@link SwiperAttribute#loop}为false时，自动轮播到最后一页时停止轮播。手势切换后不是最后一页时继续播放。当Swiper不可见时会停止轮播。
+   * [loop]{@link SwiperAttribute#loop}为false时，自动轮播到最后一页时停止轮播。手势切换完成后，如果当前页面不是最后一页，自动轮播将继续播放。当Swiper不可见时会停止轮播。
    *
    * @param { boolean } value - 子组件是否自动播放。<br/>true：自动播放；false：不自动播放。<br/>传入非法值时，按false处理。
    * @returns { SwiperAttribute }
@@ -1363,12 +1363,12 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
   autoPlay(value: boolean): SwiperAttribute;
 
   /**
-   * 设置子组件是否自动播放。options入参控制手指或者鼠标等按下屏幕时子组件是否停止自动播放。
+   * 设置子组件是否自动播放。options入参控制手指或鼠标按下屏幕时子组件是否停止自动播放。
    *
    * 当[loop]{@link SwiperAttribute#loop}设置为false时，自动轮播将在到达最后一页时停止。在通过手势切换且未处于最后一页的情况下，轮播将继续进行。Swiper在不可见时，轮播也将停止。
    *
    * @param { boolean } autoPlay - 子组件是否自动播放。<br/>true：自动播放；false：不自动播放。<br/>传入非法值时，按false处理。
-   * @param { AutoPlayOptions } options - 配置手指或者鼠标等按下屏幕时子组件是否停止自动播放。当stopWhenTouched设置为true时，多指按下场景中任意一个手指抬起后，将自动继续播放。<
+   * @param { AutoPlayOptions } options - 配置手指或鼠标按下屏幕时子组件是否停止自动播放。当stopWhenTouched设置为true时，多指按下场景中任意一个手指抬起后，将自动继续播放。<
    *     br/>默认值：{ stopWhenTouched: true }，停止自动播放。
    * @returns { SwiperAttribute }
       * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1395,13 +1395,14 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
   interval(value: number): SwiperAttribute;
 
   /**
-   * 设置可选导航点指示器样式。
+   * 设置导航点指示器样式。
    *
    * @param { boolean } value - Style of the navigation indicator.<br> - **DotIndicator**: dot-style indicator.<br> -
    *     **DigitIndicator**: digit-style indicator.<br> - **boolean**: whether to enable the navigation indicator.
    *     **true** to enable, **false** otherwise.<br>  Default value: **true**<br>  Default style:
    *     **DotIndicator** [since 7 - 9]
-   * @param { DotIndicator | DigitIndicator | boolean } value - 可选导航点指示器样式。<br/> - DotIndicator：圆点指示器样式。<br/> - DigitIndicator：数字指示器样式。<br/> - boolean：是
+   * @param { DotIndicator | DigitIndicator | boolean } value - 导航点指示器样式。<br/> - DotIndicator：圆点指示器样式，适用于展示简洁的位置提示。
+   *     <br/> - DigitIndicator：数字指示器样式，适用于需要明确显示当前位置的场景。<br/> - boolean：是
    *     否启用导航点指示器。设置为true启用，false不启用。<br/>默认值：true<br/>默认类型：DotIndicator [since 7 - 9]
    * @returns { SwiperAttribute }
       * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1454,7 +1455,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
   displayArrow(value: ArrowStyle | boolean, isHoverShow?: boolean): SwiperAttribute;
 
   /**
-   * 设置是否开启循环。在LazyForEach懒循环加载模式下，加载的组件数量建议大于5个。
+   * 设置导航点是否开启循环。在LazyForEach懒循环加载模式下，加载的组件数量建议大于5个。预加载的组件数量不足时，可能会导致快速切换时出现空白或卡顿。
    *
    * @param { boolean } value - 是否开启循环。<br/>true：开启循环；false：不开启循环。<br/>传入参数非法时，按true处理。
    * @returns { SwiperAttribute }
@@ -1486,7 +1487,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
   duration(value: number): SwiperAttribute;
 
   /**
-   * 设置是否为纵向滑动。
+   * 设置导航点是否为纵向排列。
    *
    * @param { boolean } value - 是否为纵向滑动。true为纵向滑动，false为横向滑动。<br/>默认值：false
    * @returns { SwiperAttribute }
@@ -1529,7 +1530,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
   displayMode(value: SwiperDisplayMode): SwiperAttribute;
 
   /**
-   * 设置预加载子组件个数，以当前页面为基准，加载当前显示页面的前后个数。前面item删除，后面会向前补位。例如cachedCount=1时，会将当前显示的页面的前面一页和后面一页的子组件都预加载。如果设置为按组翻页，即
+   * 设置预加载子组件个数，以当前页面为基准，加载当前显示页面的前后个数。前面item删除，后面会向前补位。例如cachedCount=1时，会将当前显示页面在索引序号上相邻的前一页和后一页的子组件都预加载。如果设置为按组翻页，即
    * displayCount的swipeByGroup参数设为true，预加载时会以组为基本单位。例如cachedCount=1，swipeByGroup=true时，会将当前组的前面一组和后面一组的子组件都预加载。
    *
    * > **说明：**
@@ -1703,7 +1704,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
   effectMode(value: EdgeEffect): SwiperAttribute;
 
   /**
-   * 设置禁用组件滑动切换功能。
+   * 设置禁用组件滑动切换功能。适用于仅通过按钮或导航点控制翻页的场景，或需要限制用户滑动操作的场景。
    *
    * @param { boolean } value - 禁用组件滑动切换功能。设置为true禁用，false不禁用。<br/>默认值：false
    * @returns { SwiperAttribute }
@@ -1927,7 +1928,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
   onGestureSwipe(event: OnSwiperGestureSwipeCallback): SwiperAttribute;
 
   /**
-   * 设置Swiper组件和父组件的嵌套滚动模式。[loop]{@link SwiperAttribute#loop}为true时Swiper组件没有边缘，不会触发父组件嵌套滚动。
+   * 设置Swiper组件和父组件的嵌套滚动模式。当Swiper嵌套在滚动容器（如List、Scroll）中时，需要根据业务需求选择合适的嵌套滚动模式。[loop]{@link SwiperAttribute#loop}为true时Swiper组件没有边缘，不会触发父组件嵌套滚动。
    *
    * > **说明：**
    *
@@ -1994,7 +1995,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
   onContentDidScroll(handler: ContentDidScrollCallback): SwiperAttribute;
 
   /**
-   * 设置禁用组件导航点交互功能。
+   * 设置导航点是否可交互。适用于需要通过其他方式（如按钮）控制翻页，或需要禁止用户通过导航点点击翻页的场景。
    *
    * @param { boolean } value - 导航点是否可交互。<br/>true：导航点可交互；false：导航点不可交互。<br/>传入参数非法时，按true处理。
    * @returns { SwiperAttribute }
@@ -2257,7 +2258,7 @@ declare type ContentDidScrollCallback = (selectedIndex: number, index: number, p
 declare type ContentWillScrollCallback = (result: SwiperContentWillScrollResult) => boolean;
 
 /**
-* 滑块视图容器，提供子组件滑动轮播显示的能力。
+* 滑块视图容器，提供子组件滑动轮播显示的能力。适用于轮播图展示、图片浏览、引导页、卡片轮播等场景。
 *
 * > **说明：**
 *

@@ -34,6 +34,8 @@ import type connection from './@ohos.net.connection';
  * > [MDM Kit Development](docroot://mdm/mdm-kit-guide.md).
  *
  * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+ * @systemapi [since 10 - 11]
+ * @publicapi [since 12]
  * @stagemodelonly
  * @since 10
  */
@@ -970,11 +972,7 @@ declare namespace networkManager {
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_NETWORK
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
-   *     EnterpriseAdminExtensionAbility and the bundle name of the application. [since 12 - 24]
-   * @param { Want | null } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
-   *     EnterpriseAdminExtensionAbility and the bundle name of the application.<br>If the device has multiple MDM
-   *     applications, you can pass **admin** to query the corresponding policies. If **null** is passed, the policies
-   *     that actually take effect on the device are returned. [since 26.0.0]
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
    * @param { string } networkInterface - Network port.
    * @returns { boolean } Returns **true** if the network port is disabled; returns **false** otherwise.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
@@ -986,6 +984,28 @@ declare namespace networkManager {
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
    * @since 12
+   */
+  function isNetworkInterfaceDisabledSync(admin: Want, networkInterface: string): boolean;
+
+  /**
+   * Queries whether a specified network interface is disabled.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_NETWORK
+   * @param { Want | null } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the.
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.<br>If the device has multiple MDM
+   *     applications, you can pass **admin** to query the corresponding policies. If **null** is passed, the policies
+   *     that actually take effect on the device are returned.
+   * @param { string } networkInterface - Network port.
+   * @returns { boolean } Returns **true** if the network port is disabled; returns **false** otherwise.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
    */
   function isNetworkInterfaceDisabledSync(admin: Want | null, networkInterface: string): boolean;
 

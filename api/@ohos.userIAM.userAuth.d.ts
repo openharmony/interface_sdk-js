@@ -1612,7 +1612,7 @@ declare namespace userAuth {
      * error code is returned.
      *
      * - **true**: When biometric authentication is locked, the system skips the countdown screen and directly switches
-     * to another authentication type (for example, from the locked fingerprint to the face or PIN). This is applicable
+     * to another authentication type (for example, from the locked fingerprint to the PIN). This is applicable
      * to scenarios where quick authentication is required.
      * - **false** (default): The system does not skip the countdown screen. The user needs to wait until the countdown
      * ends before attempting the authentication method again or manually switching to another method.

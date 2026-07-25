@@ -177,7 +177,7 @@ export interface PopupIconOptions {
   image: ResourceStr;
 
   /**
-   * 设置图标宽度。
+   * 设置图标宽度。单位：vp。
    * 
    * 默认值：32VP
    *
@@ -190,7 +190,7 @@ export interface PopupIconOptions {
   width?: Dimension;
 
   /**
-   * 设置图标高度。
+   * 设置图标高度。单位：vp。
    * 
    * 默认值：32VP
    *
@@ -216,7 +216,7 @@ export interface PopupIconOptions {
   fillColor?: ResourceColor;
 
   /**
-   * 设置图标圆角。
+   * 设置图标圆角。单位：vp。
    * 
    * 默认值：`$r('sys.float.ohos_id_corner_radius_default_s')`
    *
@@ -240,7 +240,7 @@ export interface PopupIconOptions {
  */
 export interface PopupOptions {
   /**
-   * 设置popup图标。
+   * 设置Popup图标。
    * 
    * **说明：**
    * 
@@ -257,7 +257,7 @@ export interface PopupOptions {
   icon?: PopupIconOptions;
 
   /**
-   * 设置popup标题文本。 
+   * 设置Popup标题文本。 
    * 
    * 默认不显示标题文本。
    *
@@ -270,7 +270,7 @@ export interface PopupOptions {
   title?: PopupTextOptions;
 
   /**
-   * 设置popup内容文本。
+   * 设置Popup内容文本。
    * 
    * **说明：**
    * 
@@ -287,8 +287,8 @@ export interface PopupOptions {
   message: PopupTextOptions;
 
   /**
-   * 设置popup关闭按钮。
-   * 
+   * 设置Popup关闭按钮。
+   *
    * true：显示关闭按钮；false：不显示关闭按钮。
    * 
    * Resource：显示对应的图标。
@@ -304,7 +304,7 @@ export interface PopupOptions {
   showClose?: boolean | Resource;
 
   /**
-   * 设置popup关闭按钮回调函数。 
+   * 设置Popup关闭按钮回调函数。 
    * 
    * 默认不设置关闭按钮回调函数。
    *
@@ -317,7 +317,7 @@ export interface PopupOptions {
   onClose?: () => void;
 
   /**
-   * 设置popup操作按钮，按钮最多设置两个。 
+   * 设置Popup操作按钮，按钮最多设置两个。 
    * 
    * 默认不显示按钮。
    *
@@ -330,7 +330,7 @@ export interface PopupOptions {
   buttons?: [PopupButtonOptions?, PopupButtonOptions?];
 
   /**
-    * 布局方向。
+    * 设置Popup内容的布局方向，可用枚举值见[Direction](ts-appendix-enums.md#direction)。
     * 
     * 默认值：Direction.Auto
     *
@@ -343,7 +343,7 @@ export interface PopupOptions {
    direction?: Direction;
 
   /**
-   * 设置popup的最大宽度，通过此接口popup可以自定义宽度显示。
+   * 设置Popup的最大宽度，支持自定义宽度显示。
    * 
    * **说明：** 
    * 
@@ -364,7 +364,7 @@ export interface PopupOptions {
 
 /**
  *
- * @param { PopupOptions } options - 定义Popup组件的类型。
+ * @param { PopupOptions } options - Popup组件的配置参数。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform

@@ -31,6 +31,8 @@ import type Want from '@ohos.app.ability.Want';
  * > 本模块接口仅对设备管理应用开放，且调用接口前需激活设备管理应用，具体请参考[MDM Kit开发指南](docroot://mdm/mdm-kit-guide.md)。
  *
  * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+ * @systemapi [since 10 - 11]
+ * @publicapi [since 12]
  * @since 10
  */
 declare namespace restrictions {
@@ -110,13 +112,382 @@ declare namespace restrictions {
     DISK_ERASURE = 8,
 
     /**
+     * 设备蓝牙能力。
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    BLUETOOTH = 9,
+
+    /**
      * 安全擦除
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 26.0.0
      */
-    MODIFY_DATE_TIME = 10
+    MODIFY_DATE_TIME = 10,
+
+    /**
+     * 设备打印能力
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    PRINTER = 11,
+
+    /**
+     * 被其他设备通过hdc连接、调试的能力。
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    HDC = 12,
+
+    /**
+     * 设备麦克风能力。
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    MICROPHONE = 13,
+
+    /**
+     * 设备指纹认证能力。
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    FINGERPRINT = 14,
+
+    /**
+     * 设备USB能力。
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    USB = 15,
+
+    /**
+     * 设备Wi-Fi能力
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    WIFI = 16,
+
+    /**
+     * 网络共享能力（设备已有网络共享给其他设备的能力，即共享热点能力）。
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    TETHERING = 17,
+
+    /**
+     * 非活跃用户运行能力。
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    INACTIVE_USER_FREEZE = 18,
+
+    /**
+     * 设备相机能力
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    CAMERA = 19,
+
+    /**
+     * MTP客户端能力（包含读取和写入）
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    MTP_CLIENT = 20,
+
+    /**
+     * MTP服务端能力
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    MTP_SERVER = 21,
+
+    /**
+     * samba客户端能力
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    SAMBA_CLIENT = 22,
+
+    /**
+     * samba服务端能力
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    SAMBA_SERVER = 23,
+
+    /**
+     * 备份和恢复能力
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    BACKUP_AND_RESTORE = 24,
+
+    /**
+     * 设备维修模式能力。
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    MAINTENANCE_MODE = 25,
+
+    /**
+     * 设备接收、发送彩信的能力
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    MMS = 26,
+
+    /**
+     * 设备接收、发送短信的能力
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    SMS = 27,
+
+    /**
+     * 蜂窝数据能力
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    MOBILE_DATA = 28,
+
+    /**
+     * 飞行模式能力
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    AIRPLANE_MODE = 29,
+
+    /**
+     * Virtual Private Network（虚拟专用网络），VPN能力
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    VPN = 30,
+
+    /**
+     * 设备通知能力。
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    NOTIFICATION = 31,
+
+    /**
+     * Near Field Communication（近距离无线通信），NFC能力
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    NFC = 32,
+
+    /**
+     * 创建隐私空间能力
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    PRIVATE_SPACE = 33,
+
+    /**
+     * 设备通话能力
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    TELEPHONE_CALL = 34,
+
+    /**
+     * 应用分身能力
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    APP_CLONE = 35,
+
+    /**
+     * 外置存储能力
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    EXTERNAL_STORAGE_CARD = 36,
+
+    /**
+     * Wi-Fi连接时使用随机MAC能力
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    RANDOM_MAC = 37,
+
+    /**
+     * 设备媒体播放声音能力
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    UNMUTE_DEVICE = 38,
+
+    /**
+     * 设备通过hdc调试其他设备的能力
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    HDC_REMOTE = 39,
+
+    /**
+     * 设备虚拟化服务能力
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    VIRTUAL_SERVICE = 40,
+
+    /**
+     * 设备USB转串口能力
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    USB_SERIAL = 41,
+
+    /**
+     * 设备截屏能力
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    SCREEN_SHOT = 42,
+
+    /**
+     * 设备录屏能力
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    SCREEN_RECORD = 43,
+
+    /**
+     * 恢复密钥导出能力
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    DISK_RECOVERY_KEY = 44,
+
+    /**
+     * 设备星闪能力
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    NEAR_LINK = 45,
+
+    /**
+     * 开发者模式
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    DEVELOPER_MODE = 46,
+
+    /**
+     * 恢复出厂能力
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    RESET_FACTORY = 47,
+
+    /**
+     * 远程桌面能力
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    REMOTE_DESK = 48,
+
+    /**
+     * 远程诊断能力
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    REMOTE_DIAGNOSIS = 49,
+
+    /**
+     * 公网环境下系统升级能力
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    OTA_UPDATE = 50
   }
 
   /**
@@ -152,7 +523,151 @@ declare namespace restrictions {
      * @stagemodelonly
      * @since 26.0.0
      */
-    SUPER_HUB = 2
+    SUPER_HUB = 2,
+
+    /**
+     * 设备指纹认证能力
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    FINGERPRINT = 3,
+
+    /**
+     * 设备打印能力
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    PRINT = 4,
+
+    /**
+     * MTP客户端能力（仅包含写入）
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    MTP_CLIENT = 5,
+
+    /**
+     * USB存储设备写入能力
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    USB_STORAGE_DEVICE_WRITE = 6,
+
+    /**
+     * 恢复密钥导出能力
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    DISK_RECOVERY_KEY = 7,
+
+    /**
+     * superuser do，表示以超级用户执行
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    SUDO = 8,
+
+    /**
+     * 设备间单向传输数据的能力（仅包含向其他设备传输数据）
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    DISTRIBUTED_TRANSMISSION_OUTGOING = 9,
+
+    /**
+     * 文件打开加速，为应用提供文件打开加速状态感知能力
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    OPEN_FILE_BOOST = 10
+  }
+
+  /**
+   * 设备设置项
+   *
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  enum SettingsForDevice {
+    /**
+     * APN设置
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    SET_APN = 0,
+
+    /**
+     * 长按电源键打开电源菜单
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    POWER_LONG_PRESS = 1,
+
+    /**
+     * 修改以太网IP地址
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    SET_ETHERNET_IP = 2,
+
+    /**
+     * 修改设备名称
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    SET_DEVICE_NAME = 3,
+
+    /**
+     * 修改锁屏密码
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    SET_BIOMETRICS_AND_SCREEN_LOCK = 4
+  }
+
+  /**
+   * 用户级设置
+   *
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  enum SettingsForAccount {
+    /**
+     * 修改壁纸
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    MODIFY_WALLPAPER = 0
   }
 
   /**
@@ -448,6 +963,7 @@ declare namespace restrictions {
    * @stagemodelonly
    * @since 12
    * @deprecated since 26.0.0
+   * @useinstead restrictions.setDisallowedPolicy(admin: Want, feature: FeatureForDevice, disallow: boolean)
    */
   function setDisallowedPolicy(admin: Want, feature: string, disallow: boolean): void;
 
@@ -476,6 +992,7 @@ declare namespace restrictions {
    * @stagemodelonly
    * @since 12
    * @deprecated since 26.0.0
+   * @useinstead restrictions.getDisallowedPolicy(admin: Want | null, feature: FeatureForDevice)
    */
   function getDisallowedPolicy(admin: Want | null, feature: string): boolean;
 
@@ -513,7 +1030,7 @@ declare namespace restrictions {
    *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
    *     等接口来获取。
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
-   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 9200010 - A conflict policy has been configured.
    * @throws { BusinessError } 201 - Permission verification failed.
    *     The application does not have the permission required to call the API.
@@ -521,6 +1038,7 @@ declare namespace restrictions {
    * @stagemodelonly
    * @since 14
    * @deprecated since 26.0.0
+   * @useinstead restrictions.setDisallowedPolicyForAccount(admin: Want, feature: FeatureForAccount, disallow: boolean, accountId: number)
    */
   function setDisallowedPolicyForAccount(admin: Want, feature: string, disallow: boolean, accountId: number): void;
 
@@ -553,13 +1071,14 @@ declare namespace restrictions {
    *     等接口来获取。
    * @returns { boolean } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。 [since 20]
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
-   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - Permission verification failed.
    *     The application does not have the permission required to call the API.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
    * @since 14
    * @deprecated since 26.0.0
+   * @useinstead restrictions.getDisallowedPolicyForAccount(admin: Want | null, feature: FeatureForAccount, accountId: number)
    */
   function getDisallowedPolicyForAccount(admin: Want | null, feature: string, accountId: number): boolean;
 
@@ -647,6 +1166,7 @@ declare namespace restrictions {
    * @stagemodelonly
    * @since 20
    * @deprecated since 26.0.0
+   * @useinstead restrictions.setUserRestriction(admin: Want, settingsItem: SettingsForDevice, restricted: boolean)
    */
   function setUserRestriction(admin: Want, settingsItem: string, restricted: boolean): void;
 
@@ -667,6 +1187,7 @@ declare namespace restrictions {
    * @stagemodelonly
    * @since 20
    * @deprecated since 26.0.0
+   * @useinstead restrictions.getUserRestricted(admin: Want, settingsItem: SettingsForDevice)
    */
   function getUserRestricted(admin: Want, settingsItem: string): boolean;
 
@@ -692,6 +1213,7 @@ declare namespace restrictions {
    * @stagemodelonly
    * @since 23
    * @deprecated since 26.0.0
+   * @useinstead restrictions.setUserRestrictionForAccount(admin: Want, settingsItem: SettingsForAccount, accountId: int, restricted: boolean)
    */
   function setUserRestrictionForAccount(admin: Want, settingsItem: string, accountId: int, restricted: boolean): void;
 
@@ -717,6 +1239,7 @@ declare namespace restrictions {
    * @stagemodelonly
    * @since 23
    * @deprecated since 26.0.0
+   * @useinstead restrictions.getUserRestrictedForAccount(admin: Want | null, settingsItem: SettingsForAccount, accountId: int)
    */
   function getUserRestrictedForAccount(admin: Want | null, settingsItem: string, accountId: int): boolean;
 
@@ -784,7 +1307,7 @@ declare namespace restrictions {
    *     AsyncCallback<int>)}
    *     等接口来获取。<br>当feature值为SUPER_HUB时，accountId仅支持传入当前用户的用户ID，不支持跨用户设置。否则会抛出9200012错误码。
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
-   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 9200010 - A conflict policy has been configured.
    * @throws { BusinessError } 9200012 - Parameter verification failed.
    * @throws { BusinessError } 201 - Permission verification failed.
@@ -801,17 +1324,31 @@ declare namespace restrictions {
    * 获取指定用户的某特性状态。
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_RESTRICTIONS
-   * @param { Want | null } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
-   * @param { FeatureForAccount } feature - 指定要查询的用户特性。
-   * @param { number } accountId - 账号ID
-   *     <br>取值应为≥0的整数。
-   *     - 用户ID，取值范围：大于等于0。<br>accountId可以通过
-   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback:
-   *     AsyncCallback<int>)}
-   *     等接口来获取。
-   * @returns { boolean } The value **true** means the feature is disabled; the value **false** means the opposite.
+   * @param { Want | null } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。 [since 14 - 19]
+   * @param { FeatureForAccount } feature - feature名称。<br/>- fingerprint：设备指纹认证能力，当前仅支持PC/2in1设备使用。使用此参数时有以下规则：当已经通过
+   * [setDisallowedPolicyForAccount]{@link restrictions.setDisallowedPolicyForAccount(admin: Want, feature: string, disallow: boolean, accountId: number)}
+   * 接口设置禁用/启用指定用户的设备指纹认证能力后，再通过
+   * [setDisallowedPolicy]{@link restrictions.setDisallowedPolicy(admin: Want, feature: string, disallow: boolean)}接
+   * 口禁用设备指纹认证能力时，后者会覆盖前者的策略。即此时调用本接口结果为false。<br/>- mtpClient<sup>20+</sup>：MTP客户端能力（仅包含写入），当前仅支持PC/2in1设备使用。MTP（
+   * MediaTransferProtocol，媒体传输协议），该协议允许用户在移动设备上线性访问媒体文件。<br/>- usbStorageDeviceWrite<sup>20+</sup>：USB存储设备写入能力，当前仅支
+   * 持PC/2in1企业设备使用。<br/>- diskRecoveryKey<sup>20+</sup>：恢复
+   * [密钥导出](docroot://security/UniversalKeystoreKit/huks-export-key-arkts.md)能力，当前仅支持PC/2in1设备使用。<br/>- sudo<sup>20+
+   * </sup>：superuser do，表示以超级用户执行，当前仅支持PC/2in1设备使用。禁用后企业空间或个人空间不能以超级用户执行。<br/>- distributedTransmissionOutgoing<sup
+   * >20+</sup>：设备间单向传输数据的能力（仅包含向其他设备传输数据）。<br/>- print<sup>20+</sup>：设备打印能力，在API version 23之前仅支持PC/2in1设备使用，从API
+   *     version 23开始支持PC/2in1、Phone、Tablet设备。如果使用
+   * [setDisallowedPolicy]{@link restrictions.setDisallowedPolicy(admin: Want, feature: string, disallow: boolean)}接
+   * 口禁用了设备打印能力，再通过
+   * [setDisallowedPolicyForAccount]{@link restrictions.setDisallowedPolicyForAccount(admin: Want, feature: string, disallow: boolean, accountId: number)}
+   * 接口启用某用户下的设备打印能力，通过本接口查询结果是该用户已启用打印能力，但实际打印能力已被禁用。<br/>- openFileBoost<sup>23+</sup>：<!--RP6-->文件打开加速能力<!--RP6
+   * End-->，为应用提供文件打开加速状态感知能力。应用可以通过接入对应API，感知文件的加速状态，进而应用可以实现对已加速文件给出独特的UI（user interface）标识等功能，优化用户文件打开体验，当前仅支持PC/
+   * 2in1设备使用。
+   * @param { number } accountId - 用户ID，取值范围：大于等于0。<br/>accountId可以通过
+   * [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
+
+   * 等接口来获取。
+   * @returns { boolean } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。 [since 20]
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
-   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 9200012 - Parameter verification failed.
    * @throws { BusinessError } 201 - Permission verification failed.
    *     The application does not have the permission required to call the API.
@@ -822,6 +1359,91 @@ declare namespace restrictions {
    * @since 26.0.0
    */
   function getDisallowedPolicyForAccount(admin: Want | null, feature: FeatureForAccount, accountId: number): boolean;
+
+  /**
+   * 设置用户行为的限制规则。
+   *
+   * @permission ohos.permission.ENTERPRISE_SET_USER_RESTRICTION
+   * @param { Want } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
+   * @param { SettingsForDevice } settingsItem - 行为名称。<br/>- setApn：APN设置，当前仅支持手机、平板使用。<br/>- powerLongPress：长按电源键打开电源菜单，当前仅支持手机、平板
+   *     使用。<br/>- setEthernetIp：修改以太网IP地址，当前仅支持PC/2in1设备使用。<br/>- setDeviceName：修改设备名称，当前仅支持PC/2in1设备、手机、平板使用。禁用后，PC/2
+   *     in1设备的设置中以下设备名称无法修改，包括关于本机、蓝牙、多设备协同->星闪。手机、平板设备设置中的关于本机、蓝牙、个人热点的设备名称无法修改。<br/>- setBiometricsAndScreenLock：修改锁屏
+   *     密码，当前仅支持PC/2in1设备、手机、平板使用。
+   * @param { boolean } restricted - 是否禁用行为。true表示禁用，false表示不禁用。
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 801 - Capability not supported.
+   *     Failed to call the API due to limited device capabilities.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  function setUserRestriction(admin: Want, settingsItem: SettingsForDevice, restricted: boolean): void;
+
+  /**
+   * 获取设置项的禁用状态
+   *
+   * @permission ohos.permission.ENTERPRISE_SET_USER_RESTRICTION
+   * @param { Want } admin - 企业设备管理扩展组件
+   * @param { SettingsForDevice } settingsItem - 指定设置项
+   * @returns { boolean } 返回指定设置项的禁用状态，true表示已禁用，false表示未禁用。
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 801 - Capability not supported.
+   *     Failed to call the API due to limited device capabilities.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  function getUserRestricted(admin: Want, settingsItem: SettingsForDevice): boolean;
+
+  /**
+   * 限制用户使用某用户下的特性
+   *
+   * @permission ohos.permission.ENTERPRISE_SET_USER_RESTRICTION
+   * @param { Want } admin - 企业设备管理扩展组件
+   * @param { SettingsForAccount } settingsItem - 特性名称
+   * @param { int } accountId - 系统账号ID
+   *     <br>取值范围:[0, +∞)。
+   * @param { boolean } restricted - 是否限制
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200012 - Parameter verification failed.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 801 - Capability not supported.
+   *     Failed to call the API due to limited device capabilities.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  function setUserRestrictionForAccount(admin: Want, settingsItem: SettingsForAccount, accountId: int, restricted: boolean): void;
+
+  /**
+   * 查询是否限制用户使用某用户下的特性
+   *
+   * @permission ohos.permission.ENTERPRISE_SET_USER_RESTRICTION
+   * @param { Want | null } admin - 企业设备管理扩展组件
+   * @param { SettingsForAccount } settingsItem - 特性名称
+   * @param { int } accountId - 系统账号ID
+   *     <br>取值范围:[0, +∞)。
+   * @returns { boolean } true if restrict the specific settings item of device, otherwise false.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200012 - Parameter verification failed.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 801 - Capability not supported.
+   *     Failed to call the API due to limited device capabilities.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  function getUserRestrictedForAccount(admin: Want | null, settingsItem: SettingsForAccount, accountId: int): boolean;
 }
 
 export default restrictions;

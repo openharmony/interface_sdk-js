@@ -120,8 +120,9 @@ export declare interface DistortionComponentAttribute extends CommonMethod {
      * @returns { DistortionComponentAttribute } Returns instance of  DistortionComponentAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
+     * @unpublished
      * @stagemodelonly
-     * @since 26.0.0 staticonly
+     * @since 26.1.0 staticonly
      */
     default setDistortionComponentOptions(options?: DistortionComponentOptions): this;
 }
@@ -153,8 +154,9 @@ export declare function DistortionComponent(
  * @returns { DistortionComponentAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
+ * @unpublished
  * @stagemodelonly
- * @since 26.0.0 staticonly
+ * @since 26.1.0 staticonly
  */
 @Builder
 export declare function DistortionComponent(

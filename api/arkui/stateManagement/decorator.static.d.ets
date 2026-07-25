@@ -750,8 +750,9 @@ export declare interface IStateDecoratedVariable<T> extends IDecoratedMutableVar
    *
    * @param { T } newValue - default value
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @unpublished
    * @stagemodelonly
-   * @since 26.0.0 static
+   * @since 26.1.0 static
    */
   resetOnReuse(newValue: T): void;
 }
@@ -771,8 +772,9 @@ export declare interface IPropRefDecoratedVariable<T> extends IDecoratedMutableV
    *
    * @param { T } newValue - default value
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @unpublished
    * @stagemodelonly
-   * @since 26.0.0 static
+   * @since 26.1.0 static
    */
   resetOnReuse(newValue: T): void;
 }
@@ -790,8 +792,9 @@ export declare interface ILocalStoragePropRefDecoratedVariable<T> extends IDecor
    * Reset source for this @StoragePropRef variable
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @unpublished
    * @stagemodelonly
-   * @since 26.0.0 static
+   * @since 26.1.0 static
    */
   resetOnReuse(): void;
 }
@@ -810,8 +813,9 @@ export declare interface ILinkDecoratedVariable<T> extends IDecoratedMutableVari
    *
    * @param { LinkSourceType<T> } newValue - default value
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @unpublished
    * @stagemodelonly
-   * @since 26.0.0 static
+   * @since 26.1.0 static
    */
   resetOnReuse(newValue: LinkSourceType<T>): void;
 }
@@ -830,8 +834,9 @@ export declare interface IProvideDecoratedVariable<T> extends IDecoratedMutableV
    *
    * @param { T } newValue - default value
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @unpublished
    * @stagemodelonly
-   * @since 26.0.0 static
+   * @since 26.1.0 static
    */
   resetOnReuse(newValue: T): void;
 }
@@ -852,8 +857,9 @@ export declare interface IConsumeDecoratedVariable<T> extends IDecoratedMutableV
    * @param { WatchFuncType } [watchFunc] - watch function type
    * @param { ConsumeOptions<T> } [consumeOptions] - options with default value
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @unpublished
    * @stagemodelonly
-   * @since 26.0.0 static
+   * @since 26.1.0 static
    */
   resetOnReuse(provideAlias: string, watchFunc?: WatchFuncType, consumeOptions?: ConsumeOptions<T>): void;
 }
@@ -873,8 +879,9 @@ export declare interface IObjectLinkDecoratedVariable<T> extends IDecoratedImmut
    *
    * @param { T } newValue - default value
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @unpublished
    * @stagemodelonly
-   * @since 26.0.0 static
+   * @since 26.1.0 static
    */
   resetOnReuse(newValue: T): void;
 }
@@ -901,8 +908,9 @@ export declare interface IStoragePropRefDecoratedVariable<T> extends IDecoratedM
    * Reset source for this @StoragePropRef variable
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @unpublished
    * @stagemodelonly
-   * @since 26.0.0 static
+   * @since 26.1.0 static
    */
   resetOnReuse(): void;
 }
@@ -1493,8 +1501,9 @@ export declare interface IStateMgmtFactory {
    * @param { CustomEnvOptions<T> } [customEnvOptions] - additional options for makeCustomEnv.
    * @returns { ICustomEnvDecoratedVariable<T> } CustomEnv variable instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @unpublished
    * @stagemodelonly
-   * @since 26.0.0 static
+   * @since 26.1.0 static
    */
   makeCustomEnv<T>(owner: IVariableOwner, envKey: CustomEnvKey<T>, varName: string, localInitValue: T, customEnvOptions?: CustomEnvOptions<T>): ICustomEnvDecoratedVariable<T>;
 
@@ -1506,8 +1515,9 @@ export declare interface IStateMgmtFactory {
    * @param { MakeMonitorOptions } [options] - options of this monitor.
    * @returns { IMonitorDecoratedVariable } Monitor variable instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @unpublished
    * @stagemodelonly
-   * @since 26.0.0 static
+   * @since 26.1.0 static
    */
   makeSyncMonitor(pathInfos: IMonitorPathInfo[], monitorCallback: MonitorCallback,
     options?: MakeMonitorOptions): IMonitorDecoratedVariable;
@@ -1569,8 +1579,9 @@ export declare interface IEnvDecoratedVariable<T> extends IDecoratedImmutableVar
  * Define CustomEnv decoration variable interface.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @unpublished
  * @stagemodelonly
- * @since 26.0.0 static
+ * @since 26.1.0 static
  */
 export declare interface ICustomEnvDecoratedVariable<T> extends IDecoratedImmutableVariable<T>, IDecoratedV2Variable<T> {}
 
@@ -1773,8 +1784,9 @@ export declare interface IMonitorPathInfo {
    * The default value is false.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @unpublished
    * @stagemodelonly
-   * @since 26.0.0 static
+   * @since 26.1.0 static
    */
   enableWildcard?: boolean;
 }
@@ -1827,8 +1839,9 @@ export declare interface EnvOptions<T> {
    * Watch Function.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @unpublished
    * @stagemodelonly
-   * @since 26.0.0 static
+   * @since 26.1.0 static
    */
   watchFunc?: WatchFuncType;
  }
@@ -1837,16 +1850,18 @@ export declare interface EnvOptions<T> {
  * Defines CustomEnv options to create CustomEnv variables.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @unpublished
  * @stagemodelonly
- * @since 26.0.0 static
+ * @since 26.1.0 static
  */
 export declare interface CustomEnvOptions<T> {
   /**
    * Watch Function.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @unpublished
    * @stagemodelonly
-   * @since 26.0.0 static
+   * @since 26.1.0 static
    */
   watchFunc?: WatchFuncType;
 }
@@ -1855,8 +1870,9 @@ export declare interface CustomEnvOptions<T> {
  * Defines IObservedAnyProp type.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @unpublished
  * @stagemodelonly
- * @since 26.0.0 static
+ * @since 26.1.0 static
  */
 export declare interface IObservedAnyProp {
 
@@ -1864,8 +1880,9 @@ export declare interface IObservedAnyProp {
    * Add reference to any one-level property change.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @unpublished
    * @stagemodelonly
-   * @since 26.0.0 static
+   * @since 26.1.0 static
    */
   addRefAnyProp(): void;
 }
@@ -2049,8 +2066,9 @@ export declare class ReadonlyEnvKey {
  * Global reuse pool handle.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @unpublished
  * @stagemodelonly
- * @since 26.0.0 static
+ * @since 26.1.0 static
  */
 export declare interface IGlobalReusePoolVariable {}
 

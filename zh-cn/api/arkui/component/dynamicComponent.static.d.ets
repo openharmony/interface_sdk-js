@@ -24,104 +24,101 @@ import { ComponentBuilder, CustomBuilder, CustomBuilderT } from './builder';
 import { Builder } from '@ohos.arkui.component';
 
 /**
- * 该接口用于在构造时设置DynamicComponentAttribute的选项。
+ * 用于在DynamicComponent构造时传递参数。
  *
- * @interface DynamicOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @stagemodelonly
  * @since 26.0.0 static
  */
 export declare interface DynamicOptions {
-    /**
-     * 表示DynamicOptions的entryPoint。
-     *
-     * @type { string }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @systemapi
-     * @stagemodelonly
-     * @since 26.0.0 static
-     */
-    entryPoint: string;
-    /**
-     * 表示用于运行abc的受限worker。
-     *
-     * @type { EAWorker | undefined } worker - 运行abc的worker
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @systemapi
-     * @stagemodelonly
-     * @since 26.0.0 static
-     */
-    worker: EAWorker | undefined;
-    /**
-     * 表示DynamicComponent的背景是否透明。
-     *
-     * @type { ?boolean }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @systemapi
-     * @stagemodelonly
-     * @since 26.0.0 static
-     */
-    backgroundTransparent?: boolean;
-    /**
-     * 表示是否允许DynamicComponent跨进程嵌套UEC。
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @systemapi
-     * @stagemodelonly
-     * @since 26.0.0 static
-     */
-    allowCrossProcessNesting?: boolean;
-    /**
-     * 表示是否允许DynamicComponent内部避让键盘。
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @systemapi
-     * @stagemodelonly
-     * @since 26.0.0 static
-     */
-    allowOccupied?: boolean;
+  /**
+   * 要加载的Abc页面入口。<br/>取值格式：'bundleName/moduleName/pagePath'，例如'com.example.myapplication/entry/ets/pages/DynamicPage'。
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  entryPoint: string;
+  /**
+   * 运行Abc的Worker。<br/>ArkTS-Sta模式下，可传入undefined，表示回拉起一个空的DynamicComponent。
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  worker: EAWorker | undefined;
+  /**
+   * 是否启用组件背景透明。<br/>true：启用背景透明；false：不启用背景透明。<br/>默认值：false
+   *
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  backgroundTransparent?: boolean;
+  /**
+   * 是否允许DynamicComponent跨进程嵌套UIExtensionComponent。<br/>true：允许跨进程嵌套；false：不允许跨进程嵌套。<br/>默认值：false
+   *
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  allowCrossProcessNesting?: boolean;
+  /**
+   * 表示是否允许DynamicComponent内部避让键盘。
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  allowOccupied?: boolean;
 }
 
 /**
  * 定义DynamicComponent的属性方法。
  *
- * @extends CommonMethod
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @stagemodelonly
  * @since 26.0.0 static
  */
 export declare interface DynamicComponentAttribute extends CommonMethod {
-    /**
-     * 设置动态组件选项。
-     *
-     * @param { DynamicOptions } options - 选项。
-     * @returns { this } DynamicComponentAttribute实例
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @systemapi
-     * @stagemodelonly
-     * @since 26.0.0 staticonly
-     */
-    default setDynamicComponentOptions(options: DynamicOptions): this;
-    /**
-     * 当动态组件发生错误时回调。
-     *
-     * @param { ErrorCallback<BusinessError> | undefined } callback - 当发生错误时回调，<br/>
-     *     除与DynamicAbility断开连接之外。
-     * @returns { DynamicComponentAttribute }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @systemapi
-     * @stagemodelonly
-     * @since 26.0.0 static
-     */
-    default onError(callback: ErrorCallback<BusinessError> | undefined): this;
+  /**
+   * 设置动态组件选项。
+   *
+   * @param { DynamicOptions } options - 选项。
+   * @returns { this } DynamicComponentAttribute实例
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 staticonly
+   */
+  default setDynamicComponentOptions(options: DynamicOptions): this;
+  /**
+   * DynamicComponent运行过程中发生异常时触发该回调。
+   *
+   * @param { ErrorCallback<BusinessError> | undefined } callback - 回调函数，入参用于接收异常信息。
+   *     <br/>ArkTS-Sta模式下，可传入undefined，表示取消回调函数。
+   * @returns { DynamicComponentAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  default onError(callback: ErrorCallback<BusinessError> | undefined): this;
 }
 
 /**
- * 定义DynamicComponent组件。
+ * 创建DynamicComponent组件，用于显示Worker线程中运行的Abc UI。
  *
- * @param { DynamicOptions } options - 选项。
+ * @param { DynamicOptions } options - DynamicComponent的构造配置参数，用于配置要加载的Abc页面入口、运行Worker及显示选项。
  * @returns { DynamicComponentAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi

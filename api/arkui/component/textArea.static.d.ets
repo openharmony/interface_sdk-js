@@ -1228,11 +1228,12 @@ export declare interface TextAreaAttribute extends CommonMethod {
     /**
      * Set TextArea options.
      *
-     * @param { TextAreaOptions } [value] - TextArea constructor options
+     * @param { TextAreaOptions } [value] - TextArea constructor options.
      * @returns { TextAreaAttribute } Returns the instance of the TextAreaAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @unpublished
      * @stagemodelonly
-     * @since 26.0.0 staticonly
+     * @since 26.1.0 staticonly
      */
     default setTextAreaOptions(value?: TextAreaOptions): this;
 
@@ -1365,8 +1366,9 @@ export declare function TextArea(
  * @param { CustomBuilderT<TextAreaAttribute> } style - TextArea attribute instance
  * @returns { TextAreaAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @unpublished
  * @stagemodelonly
- * @since 26.0.0 staticonly
+ * @since 26.1.0 staticonly
  * @noninterop
  */
 @Builder

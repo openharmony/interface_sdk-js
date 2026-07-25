@@ -35,8 +35,9 @@ export declare interface FlowItemAttribute extends CommonMethod {
    *
    * @returns { FlowItemAttribute } Returns the instance of the FlowItemAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @unpublished
    * @stagemodelonly
-   * @since 26.0.0 staticonly
+   * @since 26.1.0 staticonly
    */
   default setFlowItemOptions(): this;
 
@@ -74,8 +75,9 @@ export declare function FlowItem(
  * @param { CustomBuilder } [content_]
  * @returns { FlowItemAttribute } The attribute of the FlowItem.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @unpublished
  * @stagemodelonly
- * @since 26.0.0 staticonly
+ * @since 26.1.0 staticonly
  * @noninterop
  */
 @Builder

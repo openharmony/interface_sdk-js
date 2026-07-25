@@ -114,7 +114,7 @@ export interface FillRequest {
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @systemapi [since 11 - 24]
-s * @publicapi [since 26.0.0]
+ * @publicapi [since 26.0.0]
  * @stagemodelonly
  * @atomicservice
  * @since 26.0.0 dynamic&static

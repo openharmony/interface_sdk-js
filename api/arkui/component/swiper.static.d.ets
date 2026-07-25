@@ -1280,9 +1280,24 @@ export declare interface SwiperAttribute extends CommonMethod {
    * @returns { SwiperAttribute } Returns the instance of the SwiperAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 26.0.0 staticonly
+   * @since 26.1.0 staticonly
+   * @unpublished
    */
   default setSwiperOptions(controller?: SwiperController): this;
+
+  /**
+   * When the Visibility property of a child node is set to None, whether it will occupy space for display.
+   *
+   * @param { boolean | undefined } enabled - whether child node will occupy space for display.<br>The value **true**
+   *     means it dose not occupy space, and **false** means the opposite.<br>If the input parameter is invalid,
+   *     the value **false** is used.
+   * @returns { SwiperAttribute } the attribute of swiper.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.1.0 static
+   */
+  default ignoreHiddenItem(enabled: boolean | undefined): this;
 }
 
 /**
@@ -1468,7 +1483,8 @@ export declare function Swiper(
  * @returns { SwiperAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 26.0.0 staticonly
+ * @since 26.1.0 staticonly
+ * @unpublished
  */
 @Builder
 export declare function Swiper(

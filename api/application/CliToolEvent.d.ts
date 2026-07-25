@@ -28,7 +28,7 @@
  */
 export interface CliToolEvent {
   /**
-   * Tool event data.
+   * Tool event type.
    *
    * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @systemapi
@@ -49,7 +49,7 @@ export interface CliToolEvent {
 }
 
 /**
- * Enum for query entity mode.
+ * Enum for cli tool event types.
  *
  * @syscap SystemCapability.Ability.AgentRuntime.Core
  * @systemapi

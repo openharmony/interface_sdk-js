@@ -23,7 +23,6 @@
  * eviction on specified files, performing file page cache eviction on specified modules.
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @systemapi
  * @stagemodelonly
  * @since 26.0.0 dynamic&static
  */
@@ -35,10 +34,8 @@ declare namespace appMemoryOptimizer {
    * @param { Array<string> } fileNames - Array of file names for which file page cache needs to be released.
    *     File names must end with .so, .hap, or .hsp.
    * @returns { Promise<void> } Promise that returns no value.
-   * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 16000163 - File type error. File name does not end with .so, .hap, or .hsp.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
@@ -55,12 +52,10 @@ declare namespace appMemoryOptimizer {
    *
    * @param { Array<string> } moduleNames - Array of module names for which file page cache needs to be released.
    * @returns { Promise<void> } Promise that returns no value.
-   * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 16000163 - File type error. File names in the evictFilePages array of the configuration
    *     file do not end with .so, .hap, or .hsp.
    * @throws { BusinessError } 16000164 - Failed to parse configuration file.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */

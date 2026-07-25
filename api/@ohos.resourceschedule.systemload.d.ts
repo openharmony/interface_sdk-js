@@ -14,32 +14,31 @@
  */
 
 /**
- * @file
+ * @file System Load Level Management
  * @kit BasicServicesKit
  */
 
 import type { Callback } from './@ohos.base';
 
 /**
- * This module provides the capability to get systemLoad.
+ * The **systemload** module allows the system to determine the system load level based on the current temperature,
+ * load, and scenario, and notifies registered applications of level changes, if any.
  *
- * @namespace systemLoad
  * @syscap SystemCapability.ResourceSchedule.SystemLoad
  * @since 12 dynamic
  * @since 23 static
  */
 declare namespace systemLoad {
     /**
-     * Enumerates the {@link SystemLoadLevel} types.
+     * Enumerates system load levels.
      *
-     * @enum {int}
      * @syscap SystemCapability.ResourceSchedule.SystemLoad
      * @since 12 dynamic
      * @since 23 static
      */
     export enum SystemLoadLevel {
         /**
-         * level low
+         * The device temperature and load are low.
          * 
          * @syscap SystemCapability.ResourceSchedule.SystemLoad
          * @since 12 dynamic
@@ -47,7 +46,8 @@ declare namespace systemLoad {
          */
         LOW = 0,
         /**
-         * level NORMAL
+         * The device temperature and load are normal but are approaching the medium range. You need to downgrade
+         * or reduce the load of imperceptible services.
          * 
          * @syscap SystemCapability.ResourceSchedule.SystemLoad
          * @since 12 dynamic
@@ -55,7 +55,8 @@ declare namespace systemLoad {
          */
         NORMAL = 1,
         /**
-         * level MEDIUM
+         * One or more device temperature or load items are slightly high, or the device temperature is in the medium
+         * range but the load is high. You need to stop or delay some imperceptible services.
          * 
          * @syscap SystemCapability.ResourceSchedule.SystemLoad
          * @since 12 dynamic
@@ -63,7 +64,8 @@ declare namespace systemLoad {
          */
         MEDIUM = 2,
         /**
-         * level HIGH
+         * The device temperature and load are relatively high. You need to stop all imperceptible services and
+         * downgrade or reduce the load of non-critical services.
          * 
          * @syscap SystemCapability.ResourceSchedule.SystemLoad
          * @since 12 dynamic
@@ -71,7 +73,8 @@ declare namespace systemLoad {
          */
         HIGH = 3,
         /**
-         * level OVERHEATED
+         * The device temperature and load are high, and the device is overheated. You need to stop all imperceptible
+         * services and downgrade or reduce the load of major foreground services.
          * 
          * @syscap SystemCapability.ResourceSchedule.SystemLoad
          * @since 12 dynamic
@@ -79,7 +82,8 @@ declare namespace systemLoad {
          */
         OVERHEATED = 4,
         /**
-         * level WARNING
+         * The device is overheated or heavily loaded and is about to enter the Warning state. You need to stop all
+         * imperceptible services and downgrade major foreground services to the maximum extent.
          * 
          * @syscap SystemCapability.ResourceSchedule.SystemLoad
          * @since 12 dynamic
@@ -87,7 +91,8 @@ declare namespace systemLoad {
          */
         WARNING = 5,
         /**
-         * level EMERGENCY
+         * The device is overheated or significantly heavy loaded and is about to enter the Emergency state.
+         * You need to stop all services except those for fundamental use.
          * 
          * @syscap SystemCapability.ResourceSchedule.SystemLoad
          * @since 12 dynamic
@@ -95,7 +100,8 @@ declare namespace systemLoad {
          */
         EMERGENCY = 6,
         /**
-         * level ESCAPE
+         * The device is overheated or extremely heavy loaded and is about to enter the Escape state.
+         * You need to stop all services and take necessary emergency measures such as data backup.
          * 
          * @syscap SystemCapability.ResourceSchedule.SystemLoad
          * @since 12 dynamic
@@ -105,11 +111,12 @@ declare namespace systemLoad {
     }
 
     /**
-     * Register system load callback for perception system load change
-     * @param { 'systemLoadChange' } type system load change type.
-     * @param { Callback<SystemLoadLevel> } callback Asynchronous callback interface.
+     * Enables listening for system load level changes. This API uses an asynchronous callback to return the result.
+     *
+     * @param { 'systemLoadChange' } type - Change type. This parameter has a fixed value of **systemLoadChange**.
+     * @param { Callback<SystemLoadLevel> } callback - Callback used to return the system load level.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Callback parameter error;
-     * <br> 2. Register a exist callback type; 3. Parameter verification failed.
+     *     <br> 2. Register a exist callback type; 3. Parameter verification failed.
      * @syscap SystemCapability.ResourceSchedule.SystemLoad
      * @since 12 dynamic
      */
@@ -124,9 +131,10 @@ declare namespace systemLoad {
     function onSystemLoadChange(callback: Callback<SystemLoadLevel>): void;
 
     /**
-     * Unregister system load callback for perception system load change
-     * @param { 'systemLoadChange' } type system load change type.
-     * @param { Callback<SystemLoadLevel> } callback Asynchronous callback interface.
+     * Disables listening for system load level changes. This API uses an asynchronous callback to return the result.
+     *
+     * @param { 'systemLoadChange' } type - Change type. This parameter has a fixed value of **systemLoadChange**.
+     * @param { Callback<SystemLoadLevel> } callback - Callback used to return the system load level.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Callback parameter error;
      * <br> 2. Unregister type has not register; 3. Parameter verification failed.
      * @syscap SystemCapability.ResourceSchedule.SystemLoad
@@ -143,8 +151,9 @@ declare namespace systemLoad {
     function offSystemLoadChange(callback?: Callback<SystemLoadLevel>): void;
 
     /**
-     * @returns { Promise<SystemLoadLevel> } The promise form returns the SystemLoadLevel result
-     * Queries the current system level
+     * Obtains the system load level. This API uses a promise to return the result.
+     *
+     * @returns { Promise<SystemLoadLevel> } Promise used to return the system load level.
      * @syscap SystemCapability.ResourceSchedule.SystemLoad
      * @since 12 dynamic
      * @since 23 static

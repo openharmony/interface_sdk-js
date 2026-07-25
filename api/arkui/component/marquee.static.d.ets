@@ -292,8 +292,9 @@ export declare interface MarqueeAttribute extends CommonMethod {
      * @param { MarqueeOptions } options - Marquee constructor options
      * @returns { MarqueeAttribute } Returns the instance of the MarqueeAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @unpublished
      * @stagemodelonly
-     * @since 26.0.0 staticonly
+     * @since 26.1.0 staticonly
      */
     default setMarqueeOptions(options: MarqueeOptions): this;
 }
@@ -319,8 +320,9 @@ export declare function Marquee(
  * @param { CustomBuilderT<MarqueeAttribute> } style - Marquee attribute instance
  * @returns { MarqueeAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @unpublished
  * @stagemodelonly
- * @since 26.0.0 staticonly
+ * @since 26.1.0 staticonly
  * @noninterop
  */
 @Builder

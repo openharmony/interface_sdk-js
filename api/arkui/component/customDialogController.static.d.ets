@@ -436,8 +436,9 @@ export declare interface CustomDialogControllerOptions {
      *
      * @type { ?ExtendableComponent }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @unpublished
      * @stagemodelonly
-     * @since 26.0.0 staticonly
+     * @since 26.1.0 staticonly
      */
     baseComponent?: ExtendableComponent;
 }

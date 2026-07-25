@@ -33,7 +33,7 @@ import base from '@ohos.base';
 export declare enum SplitPolicy {
 
   /**
-   * 主页页面类型。全屏模式显示。
+   * 主页页面类型。全屏模式显示。适用于应用主页，作为导航起始页面。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -44,7 +44,7 @@ export declare enum SplitPolicy {
   HOME_PAGE = 0,
 
   /**
-   * 详情页页面类型。分栏模式显示。
+   * 详情页页面类型。分栏模式显示。适用于详情页面，在大屏设备上与主页形成左右分栏布局。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -55,7 +55,7 @@ export declare enum SplitPolicy {
   DETAIL_PAGE = 1,
 
   /**
-   * 全屏页页面类型。全屏模式显示。
+   * 全屏页页面类型。全屏模式显示。适用于视频播放、图片浏览等需要全屏展示的页面。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -67,14 +67,15 @@ export declare enum SplitPolicy {
 }
 
 /**
-* MultiNavigation用于在大尺寸设备上分栏显示、进行路由跳转。
+* MultiNavigation是一个支持分栏导航的组件，提供多层页面栈管理能力，通过MultiNavPathStack统一管理主页、详情页、全屏页等不同类型页面的导航栈。
+* 支持左起右清栈等智能路由策略，适用于平板、折叠屏等大尺寸设备的复杂导航场景，能够优化页面跳转体验、提升用户操作效率。
 *
 * > **说明：**
 *
-*
-* > 由于MultiNavigation存在多重栈嵌套，调用本文档明确说明的不支持接口或不在本文档支持接口列表中的接口(例如[getParent]{@link NavPathStack#getParent}、
-* > [setInterception]{@link NavPathStack#setInterception}、
-* > [pushDestination]{@link NavPathStack#pushDestination(info: NavPathInfo, animated?: boolean)}等)，可能会发生无法预期的问题。
+* > 由于MultiNavigation存在多层次的页面栈结构（主页、详情页、全屏页各自维护子栈，并由MultiNavPathStack统一管理），
+* > 调用本文档明确说明的不支持接口或不在本文档支持接口列表中的接口(例如[getParent](ts-basic-components-navigation.md#getparent11)、
+* > [setInterception](ts-basic-components-navigation.md#setinterception12)
+* > [pushDestination](ts-basic-components-navigation.md#pushdestination11)等)，可能会发生无法预期的问题。
 *
 * > MultiNavigation在深层嵌套场景下，可能存在路由动效异常的问题。
 *
@@ -114,7 +115,7 @@ export declare struct MultiNavigation {
   navDestination: NavDestinationBuildFunction;
 
   /**
-   * 设置MultiNavigation模式变更时的回调。
+   * 设置MultiNavigation模式变更时的回调。当需要在导航模式变化时执行特定业务逻辑（如调整页面布局、更新UI状态等）时传入此回调。不传入时不监听导航模式变更事件，导航模式变更时无回调触发。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -125,7 +126,7 @@ export declare struct MultiNavigation {
   onNavigationModeChange?: OnNavigationModeChangeCallback;
 
   /**
-   * 设置主页处于栈顶时的回调。
+   * 设置主页处于栈顶时的回调。不传入时不监听主页栈顶状态变化。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -137,7 +138,7 @@ export declare struct MultiNavigation {
 }
 
 /**
-* 当前，MultiNavigation的路由栈仅支持由使用方自行创建，不支持通过回调方式获取。请勿使用[NavDestination]{@link nav_destination}的
+* MultiNavigation的路由栈仅支持由使用方自行创建，不支持通过回调方式获取。请勿使用[NavDestination]{@link nav_destination}的
 * [onReady]{@link NavDestinationAttribute#onReady}等类似事件或接口来获取NavPathStack并进行栈操作，因为这可能会导致不可预知的问题。
 *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -150,7 +151,7 @@ export declare struct MultiNavigation {
 export declare class MultiNavPathStack extends NavPathStack {
 
   /**
-   * Creates an instance of MultiNavPathStack.
+   * 创建MultiNavPathStack路由栈实例。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -165,7 +166,7 @@ export declare class MultiNavPathStack extends NavPathStack {
    *
    * @param { NavPathInfo } info - NavDestination页面的信息。
    * @param { boolean } [animated] - 是否支持转场动画。<br/>默认值：true<br/>true：支持转场动画。<br/>false：不支持转场动画。
-   * @param { SplitPolicy } [policy] - 当前入栈页面的策略。默认值：DETAIL_PAGE
+   * @param { SplitPolicy } [policy] - 当前入栈页面的策略。<br/>默认值：DETAIL_PAGE
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -178,8 +179,8 @@ export declare class MultiNavPathStack extends NavPathStack {
    * 将指定的NavDestination页面信息入栈，通过NavigationOptions设置页面栈操作选项。
    *
    * @param { NavPathInfo } info - NavDestination页面的信息。
-   * @param { NavigationOptions } [options] - 页面栈操作选项。仅支持其中的animated字段。
-   * @param { SplitPolicy } [policy] - 当前入栈页面的策略。默认值：DETAIL_PAGE
+   * @param { NavigationOptions } [options] - 页面栈操作选项。仅支持其中的animated字段，使用其他字段将被忽略。省略时使用默认动画配置。
+   * @param { SplitPolicy } [policy] - 当前入栈页面的策略。<br/>默认值：DETAIL_PAGE
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -191,10 +192,10 @@ export declare class MultiNavPathStack extends NavPathStack {
   /**
    * 将name指定的NavDestination页面信息入栈，传递的数据为param。
    *
-   * @param { string } name - NavDestination页面名称。
-   * @param { Object } param - NavDestination页面详细参数。
+   * @param { string } name - NavDestination页面名称。需要与NavDestinationBuildFunction中注册的页面名称一致。
+   * @param { Object } param - NavDestination页面详细参数，用于向目标页面传递自定义数据。具体字段规格请参考NavDestination相关文档。
    * @param { boolean } [animated] - 是否支持转场动画。<br/>默认值：true<br/>true：支持转场动画。<br/>false：不支持转场动画。
-   * @param { SplitPolicy } [policy] - 当前入栈页面的策略。默认值：DETAIL_PAGE
+   * @param { SplitPolicy } [policy] - 当前入栈页面的策略。<br/>默认值：DETAIL_PAGE
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -206,11 +207,12 @@ export declare class MultiNavPathStack extends NavPathStack {
   /**
    * 将name指定的NavDestination页面信息入栈，传递的数据为param，添加onPop回调接收入栈页面出栈时的返回结果，并进行处理。
    *
-   * @param { string } name - NavDestination页面名称。
-   * @param { Object } param - NavDestination页面详细参数。
-   * @param { base.Callback<PopInfo> } [onPop] - Callback回调，用于页面出栈时触发该回调处理返回结果。
+   * @param { string } name - NavDestination页面名称。需要与NavDestinationBuildFunction中注册的页面名称一致。
+   * @param { Object } param - NavDestination页面详细参数，用于向目标页面传递自定义数据。具体字段规格请参考NavDestination相关文档。
+   * @param { base.Callback<PopInfo> } [onPop] - Callback回调，用于页面出栈时触发该回调处理返回结果。省略时不触发回调处理。
+   * 可通过pop方法、popToName方法、popToIndex方法的result参数传递数据给此回调。
    * @param { boolean } [animated] - 是否支持转场动画。<br/>默认值：true<br/>true：支持转场动画。<br/>false：不支持转场动画。
-   * @param { SplitPolicy } [policy] - 当前入栈页面的策略。默认值：DETAIL_PAGE
+   * @param { SplitPolicy } [policy] - 当前入栈页面的策略。<br/>默认值：DETAIL_PAGE
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -263,7 +265,7 @@ export declare class MultiNavPathStack extends NavPathStack {
   /**
    * 将页面栈内索引值在indexes中的NavDestination页面删除。
    *
-   * @param { Array<number> } indexes - 待删除NavDestination页面的索引值数组。<br/>number类型的取值范围：[0, +∞)
+   * @param { Array<number> } indexes - 待删除NavDestination页面的索引值数组。<br/>number类型的取值范围：[0, +∞)。超出范围时操作不生效。
    * @returns { number } 返回删除的NavDestination页面数量。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -294,7 +296,7 @@ export declare class MultiNavPathStack extends NavPathStack {
    * > 当调用[keepBottomPage]{@link MultiNavPathStack#keepBottomPage}接口并设置为true时，会保留栈底页面。
    *
    * @param { boolean } [animated] - 是否支持转场动画。<br/>默认值：true<br/>true：支持转场动画。<br/>false：不支持转场动画。
-   * @returns { NavPathInfo | undefined } Information about the navigation destination page at the top of the stack.
+   * @returns { NavPathInfo | undefined } 返回栈顶NavDestination页面的信息。栈为空时返回undefined。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -310,9 +312,9 @@ export declare class MultiNavPathStack extends NavPathStack {
    *
    * > 当调用[keepBottomPage]{@link MultiNavPathStack#keepBottomPage}接口并设置为true时，会保留栈底页面。
    *
-   * @param { Object } [result] - 页面自定义处理结果。
+   * @param { Object } [result] - 页面自定义处理结果。具体内容由开发者自定义，建议包含明确的业务标识和处理结果数据。该结果将传递给入栈时设置的onPop回调函数。省略时不传递结果数据。
    * @param { boolean } [animated] - 是否支持转场动画。<br/>默认值：true<br/>true：支持转场动画。<br/>false：不支持转场动画。
-   * @returns { NavPathInfo | undefined } Information about the navigation destination page at the top of the stack.
+   * @returns { NavPathInfo | undefined } 返回栈顶NavDestination页面的信息。栈为空时返回undefined。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -341,7 +343,7 @@ export declare class MultiNavPathStack extends NavPathStack {
    * 回退路由栈到由栈底开始第一个名为name的NavDestination页面，并触发onPop回调传入页面处理结果。
    *
    * @param { string } name - NavDestination页面名称。
-   * @param { Object } result - 页面自定义处理结果。
+   * @param { Object } result - 页面自定义处理结果。具体内容由开发者自定义，建议包含明确的业务标识和处理结果数据。该结果将传递给入栈时设置的onPop回调函数。
    * @param { boolean } [animated] - 是否支持转场动画。<br/>默认值：true<br/>true：支持转场动画。<br/>false：不支持转场动画。
    * @returns { number } Returns the index of the first navigation destination page that matches **name** from the
    *     bottom of the navigation stack; returns **-1** if no such a page is found.
@@ -355,9 +357,9 @@ export declare class MultiNavPathStack extends NavPathStack {
   popToName(name: string, result: Object, animated?: boolean): number;
 
   /**
-   * 回退路由栈到index指定的NavDestination页面。
+   * 回退路由栈到index指定的NavDestination页面。当index无效（超出范围）时，不执行回退操作。
    *
-   * @param { number } index - NavDestination页面的位置索引。<br/>取值范围：[0, +∞)
+   * @param { number } index - NavDestination页面的位置索引。<br/>取值范围：[0, +∞)。超出范围时操作不生效。
    * @param { boolean } [animated] - 是否支持转场动画。<br/>默认值：true<br/>true：支持转场动画。<br/>false：不支持转场动画。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -368,10 +370,10 @@ export declare class MultiNavPathStack extends NavPathStack {
   popToIndex(index: number, animated?: boolean): void;
 
   /**
-   * 回退路由栈到index指定的NavDestination页面，并触发onPop回调传入页面处理结果。
+   * 回退路由栈到index指定的NavDestination页面，并触发onPop回调传入页面处理结果。当index无效（超出范围）时，不执行回退操作。
    *
-   * @param { number } index - NavDestination页面的位置索引。<br/>取值范围：[0, +∞)
-   * @param { Object } result - 页面自定义处理结果。
+   * @param { number } index - NavDestination页面的位置索引。<br/>取值范围：[0, +∞)。超出范围时操作不生效。
+   * @param { Object } result - 页面自定义处理结果。具体内容由开发者自定义，建议包含明确的业务标识和处理结果数据。
    * @param { boolean } [animated] - 是否支持转场动画。<br/>默认值：true<br/>true：支持转场动画。<br/>false：不支持转场动画。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -386,17 +388,17 @@ export declare class MultiNavPathStack extends NavPathStack {
    *
    * > **说明：**
    *
-   * > 根据找到的第一个名为name的页面的不同，MultiNavigation会进行不同的处理：
+   * > 根据指定的index页面的不同，MultiNavigation会进行不同的处理：
    *
-   * > 1)当找到的是最上层主页或者全屏页，此时不做任何处理；
+   * > 1)当指定的是最上层主页或者全屏页的index，此时不做任何处理；
    *
-   * > 2)当找到的是最上层主页对应的详情页，则会将对应的详情页移到栈顶；
+   * > 2)当指定的是最上层主页对应的详情页的index，则会将对应的详情页移到栈顶；
    *
-   * > 3)当找到的是非最上层的主页，则会将主页和对应所有详情页移到栈顶，详情页相对栈关系不变；
+   * > 3)当指定的是非最上层的主页的index，则会将主页和对应所有详情页移到栈顶，详情页相对栈关系不变；
    *
-   * > 4)当找到的是非最上层的详情页，则会将主页和对应所有详情页移到栈顶，且将目标详情页移动到对应所有详情页的栈顶；
+   * > 4)当指定的是非最上层的详情页的index，则会将主页和对应所有详情页移到栈顶，且将目标详情页移动到对应所有详情页的栈顶；
    *
-   * > 5)当找到的是非最上层的全屏页，则会将全屏页移动到栈顶。
+   * > 5)当指定的是非最上层的全屏页的index，则会将全屏页移动到栈顶。
    *
    * @param { string } name - NavDestination页面名称。
    * @param { boolean } [animated] - 是否支持转场动画。<br/>默认值：true<br/>true：支持转场动画。<br/>false：不支持转场动画。
@@ -426,7 +428,7 @@ export declare class MultiNavPathStack extends NavPathStack {
    *
    * > 5)当找到的是非最上层的全屏页，则会将全屏页移动到栈顶。
    *
-   * @param { number } index - NavDestination页面的位置索引。<br/>取值范围：[0, +∞)
+   * @param { number } index - NavDestination页面的位置索引。<br/>取值范围：[0, +∞)。超出范围时操作不生效。
    * @param { boolean } [animated] - 是否支持转场动画。<br/>默认值：true<br/>true：支持转场动画。<br/>false：不支持转场动画。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -455,7 +457,7 @@ export declare class MultiNavPathStack extends NavPathStack {
   /**
    * 获取栈中所有NavDestination页面的名称。
    *
-   * @returns { Array<string> } 返回栈中所有NavDestination页面的名称。
+   * @returns { Array<string> } 返回栈中所有NavDestination页面的名称，数组元素按栈底到栈顶的顺序排列。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -468,8 +470,8 @@ export declare class MultiNavPathStack extends NavPathStack {
    * 获取index指定的NavDestination页面的参数信息。
    *
    * @param { number } index - NavDestination页面的位置索引。<br/>取值范围：[0, +∞)
-   * @returns { unknown | undefined } **Object**: parameter information of the matching navigation destination page.
-   *     <br>**undefined**: returned when an invalid index is provided.
+   * @returns { unknown | undefined } **Object**: 返回对应NavDestination页面的参数信息，具体字段由pushPath或pushPathByName时传入的param决定。
+   *     <br/>undefined: 传入index无效时返回undefined。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -519,7 +521,13 @@ export declare class MultiNavPathStack extends NavPathStack {
   size(): number;
 
   /**
-   * 关闭（true）或打开（false）当前MultiNavigation中所有转场动画。
+   * 关闭（true）或打开（false）当前MultiNavigation中所有转场动画。适用于需要提升页面切换性能或实现自定义转场效果的场景。
+   *
+   * > **说明：**
+   * >
+   * > 此配置会影响以下栈操作方法的动画效果：pushPath、pushPathByName、replacePath、replacePathByName、pop、popToName、
+   * > popToIndex、moveToTop、moveIndexToTop、clear。配置立即生效，在MultiNavigation生命周期内持续有效。
+   * > 建议在批量栈操作前调用disableAnimation(true)关闭动画以提升性能，操作完成后调用disableAnimation(false)恢复动画。
    *
    * @param { boolean } disable - 是否关闭转场动画。<br/>默认值：false<br/>true：关闭转场动画。<br/>false：不关闭转场动画。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -531,9 +539,9 @@ export declare class MultiNavPathStack extends NavPathStack {
   disableAnimation(disable: boolean): void;
 
   /**
-   * 切换当前顶栈详情页面的显示模式。
+   * 切换当前栈顶详情页面的显示模式。适用于视频播放、图片浏览等需要全屏展示的场景。
    *
-   * @param { boolean } [isFullScreen] - 是否切换为全屏。默认值为false。true表示全屏模式，false表示分栏模式。
+   * @param { boolean } [isFullScreen] - 是否切换为全屏模式。<br/>默认值：false<br/>true：全屏模式；false：分栏模式。
    * @returns { boolean } 切换成功或失败。<br/>true：切换成功。<br/>false：切换失败。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -546,8 +554,8 @@ export declare class MultiNavPathStack extends NavPathStack {
   /**
    * 设置主页宽度可拖动范围。应用不设置的情况下宽度为50%，且不可拖动。
    *
-   * @param { number } minPercent - 最小主页宽度百分比。<br/>取值范围：[0, 100]
-   * @param { number } maxPercent - 最大主页宽度百分比。<br/>取值范围：[0, 100]
+   * @param { number } minPercent - 最小主页宽度百分比。<br/>取值范围：[0, 100]，且需小于等于maxPercent。
+   * @param { number } maxPercent - 最大主页宽度百分比。<br/>取值范围：[0, 100]，且需大于等于minPercent。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -576,14 +584,15 @@ export declare class MultiNavPathStack extends NavPathStack {
   /**
    * 设置占位页面。
    *
-   * > **说明**
+   * > **说明：**
    *
-   * > 占位页面为特殊页面类型，当应用设置后，在一些大屏设备上会和主页默认形成左右分栏的效果，即左边主页，右边占位页。
-   *
+   * > 占位页面为特殊页面类型，当应用设置后，在支持分栏显示的大屏设备上会和主页默认形成左右分栏的效果，即左边主页，右边占位页。
+   * >
    * > 当应用可绘制区域小于600vp、折叠屏由展开态切换为折叠态及平板横屏转竖屏等场景时，会自动将占位页出栈，只显示主页；
-   * > > 而当应用可绘制区域大于等于600vp、折叠屏由折叠态切换为展开态及平板竖屏转横屏等场景时，会自动补充占位页，形成分栏。
+   * >
+   * > 而当应用可绘制区域大于等于600vp、折叠屏由折叠态切换为展开态及平板竖屏转横屏等场景时，会自动补充占位页，形成分栏。
    *
-   * @param { NavPathInfo } info - 占位页页面信息。
+   * @param { NavPathInfo } info - 占位页页面信息，用于设置占位页。占位页在大屏设备上会与主页形成左右分栏效果。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -597,7 +606,7 @@ export declare class MultiNavPathStack extends NavPathStack {
 * MultiNavigation用以加载NavDestination的方法。
 *
  * @param { string } name - 路由页面的标识符。
- * @param { object } [param] - 路由跳转创建页面时传递的参数。
+ * @param { object } [param] - 路由跳转创建页面时传递的参数。默认效果：不传入时无参数传递。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform

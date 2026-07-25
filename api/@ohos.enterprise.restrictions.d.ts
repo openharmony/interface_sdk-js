@@ -33,6 +33,8 @@ import type Want from '@ohos.app.ability.Want';
  * > [MDM Kit Development](docroot://mdm/mdm-kit-guide.md).
  *
  * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+ * @systemapi [since 10 - 11]
+ * @publicapi [since 12]
  * @since 10
  */
 declare namespace restrictions {
@@ -639,7 +641,7 @@ declare namespace restrictions {
     SET_APN = 0,
 
     /**
-     * Capability to open the power menu bu long-pressing the power button.
+     * Capability to open the power menu by long-pressing the power button.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
@@ -1458,6 +1460,44 @@ declare namespace restrictions {
   function getDisallowedPolicyForAccount(admin: Want | null, feature: FeatureForAccount, accountId: number): boolean;
 
   /**
+   * Restricting users from changing specified settings item on the device.
+   *
+   * @permission ohos.permission.ENTERPRISE_SET_USER_RESTRICTION
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { SettingsForDevice } settingsItem - settingsItem indicates the specific settings item to be disallowed.
+   * @param { boolean } restricted - true if restrict the specific settings item of device, otherwise false.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 801 - Capability not supported.
+   *     Failed to call the API due to limited device capabilities.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  function setUserRestriction(admin: Want, settingsItem: SettingsForDevice, restricted: boolean): void;
+
+  /**
+   * Gets whether users are restricted from changing specified settings items on the device.
+   *
+   * @permission ohos.permission.ENTERPRISE_SET_USER_RESTRICTION
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { SettingsForDevice } settingsItem - settingsItem indicates the specific settings item to be disallowed.
+   * @returns { boolean } true if restrict the specific settings item of device, otherwise false.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 801 - Capability not supported.
+   *     Failed to call the API due to limited device capabilities.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  function getUserRestricted(admin: Want, settingsItem: SettingsForDevice): boolean;
+
+  /**
    * Restricting users from changing specified settings item for account on the device.
    *
    * @permission ohos.permission.ENTERPRISE_SET_USER_RESTRICTION
@@ -1500,44 +1540,6 @@ declare namespace restrictions {
    * @since 26.0.0
    */
   function getUserRestrictedForAccount(admin: Want | null, settingsItem: SettingsForAccount, accountId: int): boolean;
-
-  /**
-   * Restricting users from changing specified settings item on the device.
-   *
-   * @permission ohos.permission.ENTERPRISE_SET_USER_RESTRICTION
-   * @param { Want } admin - admin indicates the administrator ability information.
-   * @param { SettingsForDevice } settingsItem - settingsItem indicates the specific settings item to be disallowed.
-   * @param { boolean } restricted - true if restrict the specific settings item of device, otherwise false.
-   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
-   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed.
-   *     The application does not have the permission required to call the API.
-   * @throws { BusinessError } 801 - Capability not supported.
-   *     Failed to call the API due to limited device capabilities.
-   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @stagemodelonly
-   * @since 26.0.0
-   */
-  function setUserRestriction(admin: Want, settingsItem: SettingsForDevice, restricted: boolean): void;
-
-  /**
-   * Gets whether users are restricted from changing specified settings items on the device.
-   *
-   * @permission ohos.permission.ENTERPRISE_SET_USER_RESTRICTION
-   * @param { Want } admin - admin indicates the administrator ability information.
-   * @param { SettingsForDevice } settingsItem - settingsItem indicates the specific settings item to be disallowed.
-   * @returns { boolean } true if restrict the specific settings item of device, otherwise false.
-   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
-   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed.
-   *     The application does not have the permission required to call the API.
-   * @throws { BusinessError } 801 - Capability not supported.
-   *     Failed to call the API due to limited device capabilities.
-   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @stagemodelonly
-   * @since 26.0.0
-   */
- 	function getUserRestricted(admin: Want, settingsItem: SettingsForDevice): boolean;
 }
 
 export default restrictions;

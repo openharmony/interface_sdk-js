@@ -239,8 +239,9 @@ export declare interface ToggleAttribute extends CommonMethod {
      * @param { ToggleOptions } options - toggle constructor options
      * @returns { ToggleAttribute } Returns the instance of the ToggleAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @unpublished
      * @stagemodelonly
-     * @since 26.0.0 staticonly
+     * @since 26.1.0 staticonly
      */
     default setToggleOptions(options: ToggleOptions): this;
  }
@@ -295,8 +296,9 @@ export declare abstract class ExtendableToggle implements ToggleAttribute {
      * @param { ConstructorT<T> } factory
      * @param { CustomBuilder } [content_]
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @unpublished
      * @stagemodelonly
-     * @since 26.0.0 staticonly
+     * @since 26.1.0 staticonly
      */
     @Builder
     static _instantiateImpl<T extends ExtendableToggle>(
@@ -324,8 +326,9 @@ export declare abstract class ExtendableToggle implements ToggleAttribute {
  * @param { CustomBuilder } [content_] - container
  * @returns { ToggleAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @unpublished
  * @stagemodelonly
- * @since 26.0.0 staticonly
+ * @since 26.1.0 staticonly
  * @noninterop
  */
 @Builder

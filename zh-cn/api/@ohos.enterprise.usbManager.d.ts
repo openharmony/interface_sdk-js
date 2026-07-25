@@ -34,6 +34,8 @@ import type Want from './@ohos.app.ability.Want';
  * > [@ohos.enterprise.restrictions（限制类策略）]{@link @ohos.enterprise.restrictions:restrictions}。
  *
  * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+ * @systemapi [since 10 - 11]
+ * @publicapi [since 12]
  * @since 10
  */
 declare namespace usbManager {
@@ -218,6 +220,53 @@ declare namespace usbManager {
   }
 
   /**
+   * 非严格的USB设备类型
+   *
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  export interface PermissiveUsbDeviceType {
+    /**
+     * 类型编码。
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    baseClass: number;
+
+    /**
+     * 子类型编码。
+     * 取值应为[0,255]内的整数。
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    subClass?: number;
+
+    /**
+     * 协议编码。
+     * 取值应为[0,255]内的整数。
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    protocol?: number;
+
+    /**
+     * USB描述符。
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    descriptor?: Descriptor;
+  }
+
+  /**
    * 设置USB的读写策略。使用callback异步回调。
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_USB
@@ -374,6 +423,25 @@ declare namespace usbManager {
   function getAllowedUsbDevices(admin: Want): Array<UsbDeviceId>;
 
   /**
+   * 获取USB设备可用名单。
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_USB
+   * @param { Want | null } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
+   *     <br>当设备存在多个MDM应用时，传入Want时查询对应企业设备管理应用设置的策略，传入null时查询实际生效的策略。
+   * @returns { Array<UsbDeviceId> } Allowed USB devices obtained.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  function getAllowedUsbDevices(admin: Want | null): Array<UsbDeviceId>;
+
+  /**
    * 设置USB存储设备访问策略。
    *
    * > **说明**：
@@ -414,8 +482,7 @@ declare namespace usbManager {
   /**
    * 获取USB存储设备访问策略。
    *
-   * @permission ohos.permission.ENTERPRISE_MANAGE_USB [since 12 - 24]
-   * @permission ohos.permission.ENTERPRISE_MANAGE_USB  or ohos.permission.PERSONAL_MANAGE_RESTRICTIONS [since 26.0.0]
+   * @permission ohos.permission.ENTERPRISE_MANAGE_USB
    * @param { Want } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
    * @returns { UsbPolicy } USB存储设备访问策略。
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
@@ -429,6 +496,25 @@ declare namespace usbManager {
    * @since 12
    */
   function getUsbStorageDeviceAccessPolicy(admin: Want): UsbPolicy;
+
+  /**
+   * 获取USB存储设备访问策略。
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_USB or ohos.permission.PERSONAL_MANAGE_RESTRICTIONS
+   * @param { Want | null } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
+   *     <br>当设备存在多个MDM应用时，传入Want时查询对应企业设备管理应用设置的策略，传入null时查询实际生效的策略。
+   * @returns { UsbPolicy } USB存储设备访问策略。
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  function getUsbStorageDeviceAccessPolicy(admin: Want | null): UsbPolicy;
 
   /**
    * 添加禁止使用的USB设备类型。
@@ -493,6 +579,76 @@ declare namespace usbManager {
    * @since 14
    */
   function getDisallowedUsbDevices(admin: Want): Array<UsbDeviceType>;
+
+  /**
+   * 获取禁止使用的USB设备类型。
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_USB
+   * @param { Want | null } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
+   *     <br>当设备存在多个MDM应用时，传入Want时查询对应企业设备管理应用设置的策略，传入null时查询实际生效的策略。
+   * @returns { Array<UsbDeviceType> } 禁止使用的USB设备类型。
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  function getDisallowedUsbDevices(admin: Want | null): Array<UsbDeviceType>;
+
+  /**
+   * 添加禁止使用的USB设备类型。
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_USB
+   * @param { Want } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
+   * @param { Array<PermissiveUsbDeviceType> } usbDevices - 要添加的USB设备类型的数组。
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200010 - A conflict policy has been configured.
+   * @throws { BusinessError } 9200012 - Parameter verification failed.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  function addDisallowedPermissiveUsbDevices(admin: Want, usbDevices: Array<PermissiveUsbDeviceType>): void;
+
+  /**
+   * 移除禁止使用的USB设备类型。
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_USB
+   * @param { Want } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
+   * @param { Array<PermissiveUsbDeviceType> } usbDevices - 要移除的USB设备类型的数组，
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200012 - Parameter verification failed.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  function removeDisallowedPermissiveUsbDevices(admin: Want, usbDevices: Array<PermissiveUsbDeviceType>): void;
+
+  /**
+   * 获取禁止使用的USB设备类型。
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_USB
+   * @param { Want | null } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
+   * @returns { Array<PermissiveUsbDeviceType> } 禁止使用的USB设备类型。
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  function getDisallowedPermissiveUsbDevices(admin: Want | null): Array<PermissiveUsbDeviceType>;
 }
 
 export default usbManager;

@@ -23,9 +23,9 @@ import type Want from './@ohos.app.ability.Want';
 
 /**
  * 本模块提供浏览器管理能力，包括设置/取消浏览器策略、获取浏览器策略等。
- * 
+ *
  * 浏览器策略指通过配置或管理浏览器行为的一系列规则和设置，以确保安全性、合规性、性能优化和用户体验的一致性。
- * 
+ *
  * > **说明：**
  * >
  * > 本模块接口仅可在Stage模型下使用。
@@ -33,6 +33,8 @@ import type Want from './@ohos.app.ability.Want';
  * > 本模块接口仅对设备管理应用开放，且调用接口前需激活设备管理应用，具体请参考[MDM Kit开发指南](docroot://mdm/mdm-kit-guide.md)。
  *
  * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+ * @systemapi [since 10 - 11]
+ * @publicapi [since 12]
  * @since 10
  */
 declare namespace browser {
@@ -99,7 +101,7 @@ declare namespace browser {
    * @StageModelOnly
    * @since 10
    * @deprecated since 26.0.0
-   * @useinstead browser.getPolicySync
+   * @useinstead browser.getPoliciesSync
    */
   function getPolicies(admin: Want, appId: string, callback: AsyncCallback<string>): void;
 
@@ -118,7 +120,7 @@ declare namespace browser {
    * @StageModelOnly
    * @since 10
    * @deprecated since 26.0.0
-   * @useinstead browser.getPolicySync
+   * @useinstead browser.getPoliciesSync
    */
   function getPolicies(admin: Want, appId: string): Promise<string>;
 
@@ -157,6 +159,22 @@ declare namespace browser {
    * @since 12
    */
   function getPoliciesSync(admin: Want, appId: string): string;
+
+  /**
+   * 通过appid获取指定浏览器设置的策略，适用于查询当前浏览器策略配置的场景，例如在企业设备管理应用中展示策略详情、验证策略是否生效等。
+   *
+   * @param { Want | null } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
+   *     <br>当设备存在多个MDM应用时，传入Want时查询对应企业设备管理应用设置的策略，传入null时查询实际生效的策略。
+   * @param { string } appId - 应用ID，用于指定浏览器。
+   * @returns { string } 浏览器策略。
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  function getPoliciesSync(admin: Want | null, appId: string): string;
 
   /**
    * 为指定的浏览器设置浏览器策略，成功后会发布系统公共事件

@@ -328,8 +328,9 @@ export declare interface SpanAttribute {
      * @param { string | Resource } value - Span content.
      * @returns { SpanAttribute } Returns the instance of the SpanAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @unpublished
      * @stagemodelonly
-     * @since 26.0.0 staticonly
+     * @since 26.1.0 staticonly
      */
     default setSpanOptions(value: string | Resource): this;
 
@@ -337,8 +338,9 @@ export declare interface SpanAttribute {
      * Notify the component is finished setting up its attributes.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @unpublished
      * @stagemodelonly
-     * @since 26.0.0 staticonly
+     * @since 26.1.0 staticonly
      */
     default applyAttributesFinish(): void;
 }
@@ -364,8 +366,9 @@ export declare function Span(
  * @param { CustomBuilderT<SpanAttribute> } style - Span attribute instance
  * @returns { SpanAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @unpublished
  * @stagemodelonly
- * @since 26.0.0 staticonly
+ * @since 26.1.0 staticonly
  * @noninterop
  */
 @Builder

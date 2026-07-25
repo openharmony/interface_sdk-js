@@ -835,8 +835,9 @@ export declare enum ParticleUpdater {
      * @param { Particles } particles - The options to create an Particle.
      * @returns { ParticleAttribute } Returns instance of  ParticleAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @unpublished
      * @stagemodelonly
-     * @since 26.0.0 staticonly
+     * @since 26.1.0 staticonly
      */
     default setParticleOptions(particles: Particles): this;
     /**
@@ -1228,8 +1229,9 @@ export declare function Particle(
  * @param { CustomBuilderT<ParticleAttribute> } style_ - Particle attribute instance
  * @returns { ParticleAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @unpublished
  * @stagemodelonly
- * @since 26.0.0 staticonly
+ * @since 26.1.0 staticonly
  */
 @Builder
 export declare function Particle(

@@ -229,6 +229,7 @@ declare namespace power {
    * @throws { BusinessError } 4900101 - Failed to connect to the service.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
    *     required to call the API. [since 19]
+   * @throws { BusinessError } 801 - Capability not supported. This API cannot work in car devices. [since 26.1.0]
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @systemapi
    * @since 12 dynamic
@@ -249,6 +250,7 @@ declare namespace power {
    * @throws { BusinessError } 4900101 - Failed to connect to the service.
    * @throws { BusinessError } 4900201 - The device activity is being refreshed too frequently; the minimum time
    *     interval is 100 ms.
+   * @throws { BusinessError } 801 - Capability not supported. This API cannot work in car devices. [since 26.1.0]
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @systemapi
    * @since 20 dynamic

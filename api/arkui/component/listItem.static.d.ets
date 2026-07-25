@@ -387,8 +387,9 @@ export declare interface ListItemAttribute extends CommonMethod {
    * @param { ListItemOptions } [value] - ListItem constructor options
    * @returns { ListItemAttribute } Returns the instance of the ListItemAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @unpublished
    * @stagemodelonly
-   * @since 26.0.0 staticonly
+   * @since 26.1.0 staticonly
    */
   default setListItemOptions(value?: ListItemOptions): this;
 
@@ -428,8 +429,9 @@ export declare function ListItem(
  * @param { CustomBuilder } [content_]
  * @returns { ListItemAttribute } The attribute of the ListItem.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @unpublished
  * @stagemodelonly
- * @since 26.0.0 staticonly
+ * @since 26.1.0 staticonly
  * @noninterop
  */
 @Builder
@@ -472,8 +474,9 @@ export declare abstract class ExtendableListItem implements ListItemAttribute {
    * @param { ConstructorT<T> } factory
    * @param { CustomBuilder } [content_]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @unpublished
    * @stagemodelonly
-   * @since 26.0.0 staticonly
+   * @since 26.1.0 staticonly
    */
   @Builder
   static _instantiateImpl<T extends ExtendableListItem>(

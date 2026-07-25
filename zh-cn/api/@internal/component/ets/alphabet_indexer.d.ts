@@ -108,10 +108,11 @@ interface AlphabetIndexerOptions {
 }
 
 /**
-* 可以与容器组件联动用于按逻辑结构快速定位容器显示区域的组件。
+* 可以与容器组件联动，用于按逻辑结构快速定位容器显示区域，适用于通讯录、城市列表、分类列表等需要快速定位内容的场景。
 *
 * > **说明：**
-*
+* >
+* >  从API version 12开始，触控反馈默认开启；使用前请按[enableHapticFeedback](#enablehapticfeedback12)的说明配置振动权限。
 *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
@@ -264,10 +265,10 @@ declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttri
    *
    * 对于API version 12至API version 24版本，默认为#66808080，显示为半透明的灰色。
    *
-   * 从API版本26.0.0开始，如果和[popupBackgroundBlurStyle]{@link AlphabetIndexerAttribute#popupBackgroundBlurStyle}均未被主动调用或参数
-   * value传入undefined，高档、中档算力设备默认显示为沉浸式材质
-   * [ImmersiveStyle](docroot://reference/apis-arkui/arkts-apis-uimaterial.md#immersivestyle)的THIN样式，低档算力设备默认显示为白色背景。如果
-   * popupBackgroundBlurStyle被主动调用且参数value传入有效值，提示弹窗背景颜色默认为#66808080，显示为半透明的灰色。
+   * 从API版本26.0.0开始，如果[popupBackground]{@link AlphabetIndexerAttribute#popupBackground}
+   * [popupBackgroundBlurStyle]{@link AlphabetIndexerAttribute#popupBackgroundBlurStyle}均未被主动调用或
+   * 参数value传入undefined，高档、中档算力设备默认显示为沉浸式材质
+   * [ImmersiveStyle](docroot://reference/apis-arkui/arkts-apis-uimaterial.md#immersivestyle)的THIN样式，低档算力设备默认显示为白色背景。
    *
    * @param { ResourceColor } value - 提示弹窗背景颜色。<br/>弹窗的背景模糊材质效果会对背景色产生影响，可通过设置
    *     [popupBackgroundBlurStyle]{@link AlphabetIndexerAttribute#popupBackgroundBlurStyle}属性值为NONE关闭背景模糊材质效果。<br/>
@@ -420,7 +421,7 @@ declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttri
    * 索引项选中事件，回调参数为当前选中项索引。
    *
    * @param { function } callback - Event triggered when an index item is selected. [since 8 - 17]
-   * @param { OnAlphabetIndexerSelectCallback } callback - 索引项选中事件。 [since 18]
+   * @param { OnAlphabetIndexerSelectCallback } callback - 回调函数，用于处理索引项选中事件。 [since 18]
    * @returns { AlphabetIndexerAttribute }
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -434,7 +435,8 @@ declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttri
    *
    * @param { function } callback - Callback for setting the secondary index item content event in the pop-up
    *     window. [since 8 - 17]
-   * @param { OnAlphabetIndexerRequestPopupDataCallback } callback - 设置提示弹窗二级索引项内容事件。 [since 18]
+   * @param { OnAlphabetIndexerRequestPopupDataCallback } callback - 回调函数，用于提供提示弹窗二级索引项内容。
+   *     需先设置[usingPopup](#usingpopup)为true。 [since 18]
    * @returns { AlphabetIndexerAttribute }
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -444,11 +446,12 @@ declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttri
   onRequestPopupData(callback: OnAlphabetIndexerRequestPopupDataCallback): AlphabetIndexerAttribute;
 
   /**
-   * 提示弹窗二级索引选中事件，回调参数为当前选中二级索引项索引。
+   * 提示弹窗二级索引选中事件，回调参数为当前选中二级索引项索引。仅在[usingPopup](#usingpopup)为true时触发。
    *
    * @param { function } callback - Event triggered when a secondary index item in the pop-up window is
    *     selected. [since 8 - 17]
-   * @param { OnAlphabetIndexerPopupSelectCallback } callback - 提示弹窗二级索引选中事件。 [since 18]
+   * @param { OnAlphabetIndexerPopupSelectCallback } callback - 回调函数，用于处理提示弹窗二级索引选中事件。
+   *     需先设置[usingPopup](#usingpopup)为true。 [since 18]
    * @returns { AlphabetIndexerAttribute }
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -458,11 +461,12 @@ declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttri
   onPopupSelect(callback: OnAlphabetIndexerPopupSelectCallback): AlphabetIndexerAttribute;
 
   /**
-   * 设置选中项索引值。
+   * 设置选中项索引值。与[AlphabetIndexerOptions](#alphabetindexeroptions18对象说明)中的selected同时设置时，该属性的优先级更高。
    *
    * 从API version 10开始，该参数支持[$$](docroot://ui/state-management/arkts-two-way-sync.md)双向绑定变量。
    *
-   * @param { number } index - 选中项索引值。<br/>取值范围：[0, [arrayValue]{@link AlphabetIndexerOptions}.length-1]<br/>默认值：0
+   * @param { number } index - 选中项索引值。<br/>取值范围：[0, [arrayValue]{@link AlphabetIndexerOptions}.length-1]
+   *     <br/>若超出索引值范围，则取默认值0。<br/>默认值：0
    * @returns { AlphabetIndexerAttribute }
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -474,7 +478,8 @@ declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttri
   /**
    * 设置弹出窗口相对于索引条上边框中点的位置。
    *
-   * @param { Position } value - 弹出窗口相对于索引条上边框中点的位置。<br/>默认值：{x: 60.0, y: 48.0}
+   * @param { Position } value - 弹出窗口相对于索引条上边框中点的位置。与[alignStyle](#alignstyle)同时设置时，
+   *     水平方向由[alignStyle](#alignstyle)的offset参数控制，竖直方向上value.y生效。<br/>默认值：{x: 60.0, y: 48.0}<br/>单位：vp
    * @returns { AlphabetIndexerAttribute }
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -486,11 +491,11 @@ declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttri
   /**
    * 设置是否使用自适应折叠模式。
    *
-   * 如果索引项第一项为“#”，当除去第一项后剩余索引项数量 <= 9时，选择全显示模式；9 < 剩余索引项数量 <= 13时，根据索引条高度自适应选择全显示模式或者短折叠模式；剩余索引项数量 > 13时，根据索引条高度自适应选择短折叠
-   * 模式或者长折叠模式。
+   * 如果索引项第一项为“#”，当除去第一项后剩余索引项数量 <= 9时，选择全显示模式（所有索引项完整显示）；9 < 剩余索引项数量 <= 13时，根据索引条高度自适应选择全显示模式或者短折叠模式；
+   * 剩余索引项数量 > 13时，根据索引条高度自适应选择短折叠模式或者长折叠模式。
    *
-   * 如果索引项第一项不为“#”，当所有索引项数量 <= 9时，选择全显示模式；9 < 所有索引项数量 <= 13时，根据索引条高度自适应选择全显示模式或者短折叠模式；所有索引项数量 > 13时，根据索引条高度自适应选择短折叠模式或者长
-   * 折叠模式。
+   * 如果索引项第一项不为“#”，当所有索引项数量 <= 9时，选择全显示模式（所有索引项完整显示）；9 < 所有索引项数量 <= 13时，根据索引条高度自适应选择全显示模式或者短折叠模式；
+   * 所有索引项数量 > 13时，根据索引条高度自适应选择短折叠模式或者长折叠模式。
    *
    * > **说明：**
    *
@@ -569,7 +574,7 @@ declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttri
   popupTitleBackground(value: ResourceColor): AlphabetIndexerAttribute;
 
   /**
-   * 设置是否开启触控反馈。
+   * 设置是否开启触控反馈。开启后，在手指触摸或滑动选中索引项时会触发振动反馈。
    *
    * @param { boolean } value - 是否支持触控反馈。<br/>true：支持触控反馈。<br/>false：不支持触控反馈。<br/>默认值：true<br/>开启触控反馈时，需要在工程的
    *     [module.json5](docroot://quick-start/module-configuration-file.md)中配置requestPermissions字段开启振动权限，配置如下：<br/>"
@@ -585,10 +590,11 @@ declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttri
 }
 
 /**
-* 可以与容器组件联动用于按逻辑结构快速定位容器显示区域的组件。
+* 可以与容器组件联动，用于按逻辑结构快速定位容器显示区域，适用于通讯录、城市列表、分类列表等需要快速定位内容的场景。
 *
 * > **说明：**
-*
+* >
+* > >  从API version 12开始，触控反馈默认开启；使用前请按[enableHapticFeedback](#enablehapticfeedback12)的说明配置振动权限。
 *
 * ###### 子组件
 *

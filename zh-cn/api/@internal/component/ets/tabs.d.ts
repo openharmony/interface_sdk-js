@@ -30,7 +30,7 @@
 declare type UIMaterial = import('../api/@ohos.arkui.uiMaterial').uiMaterial;
 
 /**
-* 作为Tabs组件的参数对象。
+* CommonModifier类型用于设置Tabs组件参数。
 *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -216,7 +216,7 @@ declare enum LayoutStyle {
    *
    * 当页签内容不超过TabBar宽度但超过TabBar宽度一半时，TabBar不可滚动，页签紧凑居中。
    *
-   * 当页签内容不超过TabBar宽度一半时，TabBar不可滚动，保证页签居中排列在TabBar宽度一半，且间距相同。
+   * 当页签内容不超过TabBar宽度一半时，TabBar不可滚动，页签居中排列，页签之间的间距相等，所有页签的总宽度占用TabBar宽度的一半。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -318,7 +318,7 @@ declare class TabsController {
   /**
    * 控制Tabs切换到指定页签。
    *
-   * @param { number } value - 页签在Tabs里的索引值，索引值从0开始。<br/>**说明：** <br/>设置小于0或大于最大数量的值时，取默认值0。
+   * @param { number } value - 页签在Tabs里的索引值，索引值从0开始。取值范围：[0, 页签总数-1]。设置范围外的值时按0处理。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @atomicservice [since 11]
@@ -339,7 +339,7 @@ declare class TabsController {
    * > [示例9](docroot://reference/apis-arkui/arkui-ts/ts-container-tabcontent.md#示例9通过componentcontent设置tabbar)。
    *
    * @param { Optional<Array<number>> } indices - 需预加载的子节点的下标数组。<br/>默认值：空数组。
-   * @returns { Promise<void> } 预加载完成后触发的回调。
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 401 - Parameter invalid. Possible causes:
    *     <br> 1. The parameter type is not Array<number>.
    *     <br> 2. The parameter is an empty array.
@@ -394,7 +394,7 @@ declare class TabsController {
 }
 
 /**
-* Tabs组件参数，设置Tabs的页签位置，当前显示页签的索引，Tabs控制器和TabBar的[通用属性]{@link common}。
+* Tabs组件参数，设置Tabs的页签位置，当前显示页签的索引，Tabs控制器和页签栏（TabBar）的[通用属性]{@link common}。
 *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -455,7 +455,8 @@ declare interface TabsOptions {
   controller?: TabsController;
 
   /**
-   * 设置TabBar的[通用属性]{@link common}。
+   * 设置TabBar的[通用属性]{@link common}，用于通过CommonModifier统一管理TabBar的样式、布局等通用属性。
+   * 当需要动态修改TabBar的通用属性或实现属性的状态管理时传入此参数，不传入时TabBar使用默认样式和布局，无额外通用属性设置。
    *
    * **说明：**
    *
@@ -490,15 +491,15 @@ declare interface TabsOptions {
 }
 
 /**
-* 通过页签进行内容视图切换的容器组件，每个页签对应一个内容视图。
-*
-* > **说明：**
-*
-* > - 该组件从API version 11开始，支持安全区域避让特性，其[expandSafeArea]{@link CommonMethod#expandSafeArea}属性的默认值为expandSafeArea(
-* > [SafeAreaType.SYSTEM], [SafeAreaEdge.BOTTOM])。开发者可通过重写该属性覆盖默认行为。对于API version 11之前的版本，则需配合expandSafeArea属性手动实现安全区域避
-* > 让。
-*
- * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * 通过页签进行内容视图切换的容器组件，每个页签对应一个内容视图。适用于常见的标签栏和内容切换场景。
+ *
+ * > **说明：**
+ *
+ * > - 该组件从API version 11开始，支持安全区域避让特性，其[expandSafeArea]{@link CommonMethod#expandSafeArea}属性的默认值为expandSafeArea(
+ * > [SafeAreaType.SYSTEM], [SafeAreaEdge.BOTTOM])。开发者可通过重写该属性覆盖默认行为。对于API version 11之前的版本，则需配合expandSafeArea属性手动实现安全区域避
+ * > 让。
+ *
+ *  @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
  * @atomicservice [since 11]
  * @since 7 dynamic
@@ -510,7 +511,7 @@ interface TabsInterface {
    * 创建Tabs容器。
    *
    * @param { object } value [since 7 - 14]
-   * @param { TabsOptions } [options] - Tabs组件参数。 [since 15]
+   * @param { TabsOptions } [options] - Tabs组件参数。 默认值：undefined，不设置参数时使用默认配置。[since 15]
    * @returns { TabsAttribute }
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -539,7 +540,7 @@ interface DividerStyle {
    *
    * 单位：vp
    *
-   * 取值范围：[0, +∞)。
+   * 取值范围：[0, +∞)。设置为小于0的值时，按默认值显示。
    *
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -570,7 +571,7 @@ interface DividerStyle {
    *
    * 单位：vp
    *
-   * 取值范围：[0, +∞)。
+   * 取值范围：[0, +∞)。设置为小于0的值时，按默认值显示。
    *
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -588,7 +589,7 @@ interface DividerStyle {
    *
    * 单位：vp
    *
-   * 取值范围：[0, +∞)。
+   * 取值范围：[0, +∞)。设置为小于0的值时，按默认值显示。
    *
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -660,7 +661,7 @@ declare interface TabsAnimationEvent {
 interface BarGridColumnOptions {
 
   /**
-   * 小屏下，页签占用的columns数量，必须是非负偶数。小屏为大于等于320vp但小于600vp。
+   * 小屏下，页签占用的columns数量。非负偶数或-1（-1表示页签占用TabBar全部宽度）。小屏为大于等于320vp但小于600vp。
    *
    * 默认值为-1，代表页签占用TabBar全部宽度。
    *
@@ -673,7 +674,7 @@ interface BarGridColumnOptions {
   sm?: number;
 
   /**
-   * 中屏下，页签占用的columns数量，必须是非负偶数。中屏为大于等于600vp但小于800vp。
+   * 中屏下，页签占用的columns数量，非负偶数或-1（-1表示页签占用TabBar全部宽度）。中屏为大于等于600vp但小于800vp。
    *
    * 默认值为-1，代表页签占用TabBar全部宽度。
    *
@@ -686,7 +687,7 @@ interface BarGridColumnOptions {
   md?: number;
 
   /**
-   * 大屏下，页签占用的columns数量，必须是非负偶数。大屏为大于等于840vp但小于1024vp。
+   * 大屏下，页签占用的columns数量，非负偶数或-1（-1表示页签占用TabBar全部宽度）。大屏为大于等于840vp但小于1024vp。
    *
    * 默认值为-1，代表页签占用TabBar全部宽度。
    *
@@ -699,7 +700,7 @@ interface BarGridColumnOptions {
   lg?: number;
 
   /**
-   * 栅格模式下的column边距（不支持百分比设置）。
+   * 栅格模式下的column边距。不支持百分比设置，取值范围：[0, +∞)。
    *
    * 默认值：24.0
    *
@@ -714,7 +715,7 @@ interface BarGridColumnOptions {
   margin?: Dimension;
 
   /**
-   * 栅格模式下的column间隔（不支持百分比设置）。
+   * 栅格模式下的column间隔。不支持百分比设置，取值范围：[0, +∞)。
    *
    * 默认值：24.0
    *
@@ -747,7 +748,7 @@ interface ScrollableBarModeOptions {
    *
    * 单位：vp
    *
-   * 取值范围：[0, +∞)。
+   * 取值范围：[0, +∞)。设置为小于0的值时，按默认值显示。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -758,7 +759,7 @@ interface ScrollableBarModeOptions {
   margin?: Dimension;
 
   /**
-   * Scrollable模式下不滚动时的页签排布方式。
+   * Scrollable模式下不滚动时的页签排布方式，仅水平模式下有效。
    *
    * 默认值：LayoutStyle.ALWAYS_CENTER
    *
@@ -936,7 +937,7 @@ declare type OnTabsAnimationEndCallback = (index: number, extraInfo: TabsAnimati
 /**
 * 在页面跟手滑动过程中，逐帧触发的回调。
 *
- * @param { number } index - 当前显示元素的索引，索引从0开始。 <br/>取值范围：[0, 索引值-1]
+ * @param { number } index - 当前显示元素的索引，索引从0开始。 <br/>取值范围：[0, 页签总数-1]
  * @param { TabsAnimationEvent } extraInfo - 动画相关信息，只返回主轴方向上当前显示元素相对于Tabs起始位置的位移。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -949,8 +950,8 @@ declare type OnTabsGestureSwipeCallback = (index: number, extraInfo: TabsAnimati
 /**
 * 自定义Tabs页面切换动画开始时触发的回调。
 *
- * @param { number } from - 动画开始时，当前页面的index值，索引从0开始。<br/>取值范围：[0, 索引值-1]，当设置的值超过索引值或小于0时无转场动画。
- * @param { number } to - 动画开始时，目标页面的index值，索引从0开始。<br/>取值范围：[0, 索引值-1]，当设置的值超过索引值或小于0时无转场动画。
+ * @param { number } from - 动画开始时，当前页面的index值，索引从0开始。<br/>取值范围：[0, 页签总数-1]，当设置的值超过索引值或小于0时无转场动画。
+ * @param { number } to - 动画开始时，目标页面的index值，索引从0开始。<br/>取值范围：[0, 页签总数-1]，当设置的值超过索引值或小于0时无转场动画。
  * @returns { TabContentAnimatedTransition | undefined } Information about the custom tab switching animation.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1009,11 +1010,11 @@ declare type OnTabsContentDidScrollCallback = (selectedIndex: number, index: num
 declare class TabsAttribute extends CommonMethod<TabsAttribute> {
 
   /**
-   * 设置是否为纵向Tabs。
+   * 设置是否为纵向Tabs。横向Tabs（默认）适用于底部导航栏、顶部页签切换等场景；纵向Tabs适用于侧边栏导航、设置页面分类等场景。
    *
    * @param { boolean } value - 是否为纵向Tabs。<br/>默认值：false，横向Tabs，为true时纵向Tabs。<br/>当横向Tabs设置height为auto时，Tabs组件高度自适应子组件高
    *     度，即为[tabBar]{@link TabContentAttribute#tabBar(options: string | Resource | CustomBuilder | TabBarOptions)}高度+
-   *     divider线宽+TabContent高度+上下padding值+上下border宽度。<br/>当纵向Tabs设置width为auto时，Tabs组件宽度自适应子组件宽度，即为tabBar宽度+divider线宽+
+   *     divider线宽+TabContent高度+Tabs组件的上下padding值+Tabs组件的上下border宽度。<br/>当纵向Tabs设置width为auto时，Tabs组件宽度自适应子组件宽度，即为tabBar宽度+divider线宽+
    *     TabContent宽度+左右padding值+左右border宽度。<br/>尽量保持每一个页面中的子组件尺寸大小一致，避免滑动页面时出现页面切换动画跳动现象。
    * @returns { TabsAttribute }
       * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1026,7 +1027,8 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
   /**
    * 设置Tabs的页签位置。
    *
-   * @param { BarPosition } value - 设置Tabs的页签位置。<br/>默认值：BarPosition.Start
+   * @param { BarPosition } value - 设置Tabs的页签位置。页签的具体位置受vertical属性影响：vertical为true时Start位于左侧、End位于右侧；
+   *       vertical为false时Start位于顶部、End位于底部。默认值：垂直Tabs为BarPosition.End，非垂直Tabs为BarPosition.Start
    * @returns { TabsAttribute }
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -1036,7 +1038,7 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
   barPosition(value: BarPosition): TabsAttribute;
 
   /**
-   * 设置是否可以通过滑动页面进行页面切换。
+   * 设置是否可以通过滑动页面进行页面切换。配合自定义导航按钮或TabBar页签控制切换时，建议设置为false，避免手势滑动与自定义导航逻辑冲突。
    *
    * @param { boolean } value - 是否可以通过滑动页面进行页面切换。<br/>默认值：true，可以通过滑动页面进行页面切换。为false时不可滑动切换页面。
    * @returns { TabsAttribute }
@@ -1075,7 +1077,7 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
   barMode(value: BarMode.Scrollable, options: ScrollableBarModeOptions): TabsAttribute;
 
   /**
-   * 设置TabBar布局模式。
+   * 设置TabBar布局模式。Fixed模式适用于页签数量固定且较少的场景；Scrollable模式适用于页签数量较多或文本长度不固定的场景。
    *
    * @param { BarMode } value - 布局模式。<br/>默认值：BarMode.Fixed
    * @param { ScrollableBarModeOptions } [options] - Scrollable模式下的TabBar的布局样式。<br/>**说明：** <br/>仅Scrollable且水平模式下有
@@ -1089,7 +1091,7 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
   barMode(value: BarMode, options?: ScrollableBarModeOptions): TabsAttribute;
 
   /**
-   * 设置TabBar的宽度值。设置为小于0或大于Tabs宽度值时，按默认值显示。
+   * 设置TabBar的宽度值。设置为小于0或大于Tabs宽度值时，按默认值显示。设置为负值或undefined时按默认值处理。
    *
    * @param { number } value - Width of the tab bar.<br>Default value:<br>If the tab bar has the **vertical** attribute
    *     set to **false** and does not have [SubTabBarStyle]{@link SubTabBarStyle} or
@@ -1114,7 +1116,7 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
   barWidth(value: Length): TabsAttribute;
 
   /**
-   * 设置TabBar的高度值。横向Tabs可以设置height为'auto'，让TabBar自适应子组件高度。height设置为小于0或大于Tabs高度值时，按默认值显示。
+   * 设置TabBar的高度值。横向Tabs可以设置height为'auto'，让TabBar自适应子组件高度。height设置为小于0或大于Tabs高度值时，按默认值显示。设置为负值或undefined时按默认值处理。
    *
    * API version 14之前的版本，若设置barHeight为固定值后，TabBar无法扩展底部安全区。从API version 14开始支持配合
    * [safeAreaPadding]{@link CommonMethod#safeAreaPadding}属性，当safeAreaPadding不设置bottom或者bottom设置为0时，可以实现扩展安全区。
@@ -1252,6 +1254,8 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    * > 使用自定义页签时，在onChange事件中联动可能会导致滑动页面切换后才执行页签联动，引起自定义页签切换效果延迟。建议在
    * > [onAnimationStart]{@link TabsAttribute#onAnimationStart}中监听并刷新当前索引，以确保动效能够及时触发。具体实现可参考
    * > [示例3](docroot://reference/apis-arkui/arkui-ts/ts-container-tabs.md#示例3自定义页签切换联动)。
+   * >
+   * > 如果在动画过程中index参数发生变化，将使用最新值触发回调。
    *
    * @param { function } event - Index of the active tab. The index starts from 0. [since 7 - 17]
    * @param { Callback<number> } event - 当前显示的index索引，索引从0开始计算。 [since 18]
@@ -1347,7 +1351,7 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
   onAnimationStart(handler: OnTabsAnimationStartCallback): TabsAttribute;
 
   /**
-   * 切换动画结束时触发该回调，包括动画过程中手势中断。当animationDuration为0时动画关闭，不触发该回调。
+   * 切换动画结束时触发该回调，包括动画过程中手势中断。当animationDuration为0（关闭动画）时，不触发该回调。
    *
    * @param { function } handler - Callback triggered upon animation completion or interruption. [since 11 - 17]
    * @param { OnTabsAnimationEndCallback } handler - 切换动画结束时触发的回调。 [since 18]
@@ -1361,7 +1365,7 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
   onAnimationEnd(handler: OnTabsAnimationEndCallback): TabsAttribute;
 
   /**
-   * 在页面跟手滑动过程中，逐帧触发该回调。
+   * 在页面跟手滑动过程中，逐帧触发该回调，用于监听当前显示页面的实时滑动状态。
    *
    * @param { function } handler - Triggered on a frame-by-frame basis during swipe gestures for tab
    *     switching. [since 11 - 17]
@@ -1376,8 +1380,8 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
   onGestureSwipe(handler: OnTabsGestureSwipeCallback): TabsAttribute;
 
   /**
-   * 设置页签超过容器宽度时是否渐隐消失。建议配合[barBackgroundColor]{@link TabsAttribute#barBackgroundColor}属性一起使用，如果barBackgroundColor属性没有定
-   * 义，会默认显示页签末端为白色的渐隐效果。
+   * 设置页签超过容器宽度时是否渐隐消失。建议配合[barBackgroundColor](#barbackgroundcolor10)属性一起使用，
+   * 未定义barBackgroundColor属性时，默认显示页签末端为白色的渐隐效果。
    *
    * @param { boolean } value - 页签超过容器宽度时是否渐隐消失。<br />默认值：true，页签超过容器宽度时会渐隐消失。设置为false时，页签超过容器宽度直接截断显示，不产生任何渐变效果?。
    * @returns { TabsAttribute } the attribute of the tabs
@@ -1390,7 +1394,7 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
   fadingEdge(value: boolean): TabsAttribute;
 
   /**
-   * 设置区分TabBar和TabContent的分割线样式。
+   * 设置区分TabBar和TabContent的分割线样式。如TabBar与TabContent之间需要视觉分隔，可通过divider添加分割线。
    *
    * @param { DividerStyle | null } value - 分割线样式，默认不显示分割线。<br/>DividerStyle：分割线的样式；<br/>null：不显示分割线。
    * @returns { TabsAttribute } the attribute of the tabs
@@ -1403,7 +1407,7 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
   divider(value: DividerStyle | null): TabsAttribute;
 
   /**
-   * 设置TabBar是否背后变模糊并叠加在TabContent之上。
+   * 设置TabBar是否背后变模糊并叠加在TabContent之上。适用于需要沉浸式UI效果的场景。
    *
    * @param { boolean } value - TabBar是否背后变模糊并叠加在TabContent之上。当barOverlap设置为true时，TabBar背后变模糊并叠加在TabContent之上，并且TabBar默认
    *     模糊材质的[BlurStyle]{@link BlurStyle}值修改为'BlurStyle.COMPONENT_THICK'。当barOverlap设置为false时，无模糊和叠加效果。<br />默认值：false
@@ -1419,7 +1423,8 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
   /**
    * 设置TabBar的背景颜色。
    *
-   * @param { ResourceColor } value - TabBar的背景颜色。<br />默认值：Color.Transparent，透明
+   * @param { ResourceColor } value - TabBar的背景颜色。<br />**说明：**<br/>建议配合[fadingEdge](#fadingedge10)属性一起使用，
+   *      以避免页签末端显示白色渐隐效果。<br/>默认值：Color.Transparent，透明
    * @returns { TabsAttribute } the attribute of the tabs
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1444,7 +1449,7 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
   barGridAlign(value: BarGridColumnOptions): TabsAttribute;
 
   /**
-   * 自定义Tabs页面切换动画。
+   * 自定义Tabs页面切换动画。适用场景：需要个性化页签切换动效时使用，如翻转、淡入淡出、缩放等。
    *
    * 使用说明：
    *
@@ -1473,7 +1478,7 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
   customContentTransition(delegate: TabsCustomContentTransitionCallback): TabsAttribute;
 
   /**
-   * 设置TabBar的背景模糊材质。
+   * 设置TabBar的背景模糊材质。适用于需要为TabBar添加模糊背景效果的场景。
    *
    * > **说明：**
    *
@@ -1503,10 +1508,10 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
   pageFlipMode(mode: Optional<PageFlipMode>): TabsAttribute;
 
   /**
-   * 为TabBar提供一种在背景和内容之间的模糊能力，通过枚举值的方式封装了不同的模糊半径、蒙版颜色、蒙版透明度、饱和度、亮度。
+   * 设置TabBar背景模糊能力，通过枚举值封装不同的模糊半径、蒙版颜色、蒙版透明度、饱和度、亮度。
    *
    * @param { BlurStyle } style - 背景模糊样式。模糊样式中封装了模糊半径、蒙版颜色、蒙版透明度、饱和度、亮度五个参数。
-   * @param { BackgroundBlurStyleOptions } options - 背景模糊选项。
+   * @param { BackgroundBlurStyleOptions } options - 背景模糊选项，用于自定义模糊效果。
    * @returns { TabsAttribute } the attribute of the tabs
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1517,7 +1522,7 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
   barBackgroundBlurStyle(style: BlurStyle, options: BackgroundBlurStyleOptions): TabsAttribute;
 
   /**
-   * 设置TabBar背景属性，包含背景模糊半径，亮度，饱和度，颜色等参数。
+   * 设置TabBar背景属性，包含背景模糊半径，亮度，饱和度，颜色等参数。适用于需要精细化控制TabBar背景视觉效果的场景。
    *
    * @param { BackgroundEffectOptions } options - 设置TabBar背景属性包括：模糊半径，亮度，饱和度，颜色等。
    * @returns { TabsAttribute } the attribute of the tabs
@@ -1530,9 +1535,9 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
   barBackgroundEffect(options: BackgroundEffectOptions): TabsAttribute;
 
   /**
-   * 设置子组件的最大缓存个数及缓存模式。未设置该属性时默认缓存所有子组件且缓存后不会释放。
+   * 设置子组件的最大缓存个数及缓存模式。未设置该属性时默认缓存所有子组件且缓存后不会释放。建议根据页签数量和子组件内容复杂度设置count值。
    *
-   * @param { number } count - 子组件的最大缓存个数。超出范围时自动释放不再需要的子组件。<br/>取值范围：[0, +∞)。
+   * @param { number } count - 子组件的最大缓存个数。<br/>取值范围：[0, +∞)。设置为小于0的值时，子组件不受缓存管理。超出缓存个数时自动释放不再需要的子组件。
    * @param { TabsCacheMode } mode - 子组件的缓存模式。<br/>默认值：TabsCacheMode.CACHE_BOTH_SIDE
    * @returns { TabsAttribute }
       * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1590,7 +1595,7 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
   onContentDidScroll(handler: OnTabsContentDidScrollCallback | undefined): TabsAttribute;
 
   /**
-   * 设置Tabs组件与其父组件的嵌套滚动模式。未通过该接口设置时，默认嵌套滚动模式为[SELF_ONLY]{@link TabsNestedScrollMode}。
+   * 设置Tabs组件与其父组件的嵌套滚动模式。未设置时默认嵌套滚动模式为[SELF_ONLY]{@link TabsNestedScrollMode}。
    *
    * @param { TabsNestedScrollMode | undefined } value - Tabs组件和父组件的嵌套滚动模式。<br/>设置undefined时，Tabs自身滚动，不与父组件联动。
    * @returns { TabsAttribute } -the attribute of the tabs.
@@ -1636,7 +1641,7 @@ declare interface TabContentAnimatedTransition {
    *
    * 单位：ms
    *
-   * 取值范围：[0, +∞)。
+   * 取值范围：[0, +∞)。设置为小于0的值时，按默认值显示。
    *
    * @default 1000 ms
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1713,7 +1718,7 @@ declare interface TabContentTransitionProxy {
 }
 
 /**
-* 通过页签进行内容视图切换的容器组件，每个页签对应一个内容视图。
+* 通过页签进行内容视图切换的容器组件，每个页签对应一个内容视图。适用于应用底部导航栏、顶部页签切换、侧边栏导航等需要在不同内容视图间快速切换的场景。使用Tabs组件可以简化多视图导航的实现，提升用户切换效率。
 *
 * > **说明：**
 *

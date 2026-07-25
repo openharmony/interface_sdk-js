@@ -43,6 +43,7 @@ export type ValueType = long | double | string | boolean;
  *
  * @syscap SystemCapability.DistributedDataManager.DataShare.Core
  * @stagemodelonly
+ * @crossplatform [since 12]
  * @since 10 dynamic
  * @since 23 static
  */

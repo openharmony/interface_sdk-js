@@ -72,11 +72,12 @@ export declare interface PolylineAttribute extends CommonShapeMethod {
     /**
  	 * Set Polyline options.
  	 *
- 	 * @param { PolylineOptions } [options] - Polyline constructor options
- 	 * @returns { PolylineAttribute } Returns the instance of the PolylineAttribute.
- 	 * @syscap SystemCapability.ArkUI.ArkUI.Full
- 	 * @stagemodelonly
- 	 * @since 26.0.0 staticonly
+     * @param { PolylineOptions } [options] - Polyline constructor options.
+     * @returns { PolylineAttribute } Returns the instance of the PolylineAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @unpublished
+     * @stagemodelonly
+     * @since 26.1.0 staticonly
  	 */
  	default setPolylineOptions(options?: PolylineOptions): this;
     /**
@@ -112,8 +113,9 @@ export declare function Polyline(
  * @param { CustomBuilderT<PolylineAttribute> } style - the callback to set up component's attributes.
  * @returns { PolylineAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @unpublished
  * @stagemodelonly
- * @since 26.0.0 staticonly
+ * @since 26.1.0 staticonly
  * @noninterop
  */
 @Builder

@@ -1517,8 +1517,9 @@ export declare abstract class ExtendableImage implements ImageAttribute {
    * @param { CustomBuilderT<T> } styles
    * @param { ConstructorT<T> } factory
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @unpublished
    * @stagemodelonly
-   * @since 26.0.0 staticonly
+   * @since 26.1.0 staticonly
    */
   @Builder
   static _instantiateImpl<T extends ExtendableImage>(

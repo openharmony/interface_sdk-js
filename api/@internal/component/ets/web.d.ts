@@ -3346,6 +3346,14 @@ declare class WebResourceError {
    * @since 8 dynamic
    */
   getErrorCode(): number;
+  /**
+   * Gets the custom error code of the Web resource.
+   *
+   * @returns { number } Return the custom error code of the Web resource.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 26.1.0 dynamic
+   */
+  getCustomErrorCode(): number;
 }
 
 /**
@@ -8829,6 +8837,20 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 26.0.0 dynamic
    */
   enableFullscreenVideoOverlay(enabled: boolean): WebAttribute;
+
+  /**
+   * Set whether to enable media network proxy for Web components.
+   * When enabled, network requests for media resources are routed through the web components network stack.
+   * This attribute takes effect for HLS media, other media formats are unaffected.
+   *
+   * @param { boolean } enabled - {@code true} to enable media network proxy, {@code false} to disable it.
+   *     The default value is false.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  enableMediaNetworkProxy(enabled: boolean): WebAttribute;
 }
 
 /**

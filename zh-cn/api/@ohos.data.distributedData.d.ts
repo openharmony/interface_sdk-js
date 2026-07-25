@@ -459,8 +459,6 @@ declare namespace distributedData {
      *
      * **数据库特点：** 数据以设备的维度管理，不存在冲突；支持按照设备的维度查询数据。
      *
-     * SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
-     *
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
      * @since 7 dynamiconly
      * @deprecated since 9
@@ -473,8 +471,6 @@ declare namespace distributedData {
      *
      * **数据库特点：** 数据不分设备，设备之间修改相同的key会覆盖。
      *
-     * SystemCapability.DistributedDataManager.KVStore.Core
-     *
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 7 dynamiconly
      * @deprecated since 9
@@ -484,8 +480,6 @@ declare namespace distributedData {
 
     /**
      * 表示多版本数据库。当前暂不支持使用此接口。
-     *
-     * SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
      *
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
      * @since 7 dynamiconly
@@ -506,8 +500,6 @@ declare namespace distributedData {
     /**
      * 表示数据库不设置安全级别(已废弃)。
      *
-     * SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
-     *
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
      * @since 7 dynamiconly
      * @deprecated since 9
@@ -517,8 +509,6 @@ declare namespace distributedData {
     /**
      * 表示数据库的安全级别为公共级别(已废弃)。
      *
-     * SystemCapability.DistributedDataManager.KVStore.Core
-     *
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 7 dynamiconly
      * @deprecated since 9
@@ -527,8 +517,6 @@ declare namespace distributedData {
 
     /**
      * 表示数据库的安全级别为低级别，当数据泄露时会产生较低影响。例如，包含壁纸等系统数据的数据库。
-     *
-     * SystemCapability.DistributedDataManager.KVStore.Core
      *
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 7 dynamiconly
@@ -540,8 +528,6 @@ declare namespace distributedData {
     /**
      * 表示数据库的安全级别为中级别，当数据泄露时会产生较大影响。例如，包含录音、视频等用户生成数据或通话记录等信息的数据库。
      *
-     * SystemCapability.DistributedDataManager.KVStore.Core
-     *
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 7 dynamiconly
      * @deprecated since 9
@@ -552,8 +538,6 @@ declare namespace distributedData {
     /**
      * 表示数据库的安全级别为高级别，当数据泄露时会产生重大影响。例如，包含用户运动、健康、位置等信息的数据库。
      *
-     * SystemCapability.DistributedDataManager.KVStore.Core
-     *
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 7 dynamiconly
      * @deprecated since 9
@@ -563,8 +547,6 @@ declare namespace distributedData {
 
     /**
      * 表示数据库的安全级别为关键级别，当数据泄露时会产生严重影响。例如，包含认证凭据、财务数据等信息的数据库。
-     *
-     * SystemCapability.DistributedDataManager.KVStore.Core
      *
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 7 dynamiconly
@@ -586,8 +568,6 @@ declare namespace distributedData {
     /**
      * 当数据库文件不存在时是否创建数据库，默认为true，即创建。
      *
-     * SystemCapability.DistributedDataManager.KVStore.Core
-     *
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 7 dynamiconly
      * @deprecated since 9
@@ -596,8 +576,6 @@ declare namespace distributedData {
     createIfMissing?: boolean;
     /**
      * 设置数据库文件是否加密，默认为false，即不加密。
-     *
-     * SystemCapability.DistributedDataManager.KVStore.Core
      *
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 7 dynamiconly
@@ -608,8 +586,6 @@ declare namespace distributedData {
     /**
      * 设置数据库文件是否备份，默认为true，即备份。
      *
-     * SystemCapability.DistributedDataManager.KVStore.Core
-     *
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 7 dynamiconly
      * @deprecated since 9
@@ -618,8 +594,6 @@ declare namespace distributedData {
     backup?: boolean;
     /**
      * 设置数据库文件是否自动同步。默认为false，即手动同步。
-     *
-     * SystemCapability.DistributedDataManager.KVStore.Core
      *
      * ohos.permission.DISTRIBUTED_DATASYNC
      *
@@ -633,8 +607,6 @@ declare namespace distributedData {
     /**
      * 设置要创建的数据库类型，默认为DEVICE_COLLABORATION，即多设备协同数据库。
      *
-     * SystemCapability.DistributedDataManager.KVStore.Core
-     *
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 7 dynamiconly
      * @deprecated since 9
@@ -644,8 +616,6 @@ declare namespace distributedData {
     /**
      * 设置数据库安全级别(S1-S4)。
      *
-     * SystemCapability.DistributedDataManager.KVStore.Core
-     *
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 7 dynamiconly
      * @deprecated since 9
@@ -654,8 +624,6 @@ declare namespace distributedData {
     securityLevel?: SecurityLevel;
     /**
      * 设置定义存储在数据库中的值，默认为undefined，即不使用schema。
-     *
-     * SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
      *
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
      * @since 8 dynamiconly
@@ -2575,8 +2543,7 @@ declare namespace distributedData {
      * @param { Options } options - 创建KVStore实例的配置信息。
      * @param { string } storeId - 数据库唯一标识符，长度不大于[MAX_STORE_ID_LENGTH]{@link distributedData.Constants}。
      * @param { AsyncCallback<T> } callback - 回调函数。返回创建的KVStore数据库实例。
-     * @returns { void } Returns a {@code KVStore}, or {@code SingleKVStore}.* @syscap
-     *     SystemCapability.DistributedDataManager.KVStore.Core
+     * @returns { void } Returns a {@code KVStore}, or {@code SingleKVStore}.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 7 dynamiconly
      * @deprecated since 9

@@ -5703,6 +5703,26 @@ declare namespace webview {
          * @since 23 static
          */
         getHeaderByName(name: string): string
+        /**
+         * Set the custom error code for the Web response.
+         *
+         * @param { int } customErrorCode - The custom error code for this response, Web engine will pass the custom
+         *     error code directly to the application through onErrorReceive.
+         *     <br>The value should be an integer.
+         * @syscap SystemCapability.Web.Webview.Core
+         * @stagemodelonly
+         * @since 26.1.0 static
+         */
+        setCustomErrorCode(customErrorCode: int): void;
+        /**
+         * Get the custom error code of the Web response.
+         *
+         * @returns { int } Return the custom error code that was set for this response.
+         * @syscap SystemCapability.Web.Webview.Core
+         * @stagemodelonly
+         * @since 26.1.0 static
+         */
+        getCustomErrorCode(): int;
     }
 
     /**
@@ -5765,6 +5785,20 @@ declare namespace webview {
          * @since 23 static
          */
         didFail(code: WebNetErrorList, completeIfNoResponse: boolean): void;
+        /**
+         * Notify that this request should be failed.
+         *
+         * @param { WebNetErrorList } code - Set response error code to intercept.
+         * @param { boolean } completeIfNoResponse - If completeIfNoResponse is true, when DidFailWithError is called,
+         *     if DidReceiveResponse has not been called, a response is automatically constructed and the current
+         *     request is terminated.
+         * @param { int } customErrorCode - The custom error code for this response, Web engine will pass the custom
+         *     error code directly to the application through onErrorReceive.
+         * @throws { BusinessError } 17100021 - The resource handler is invalid.
+         * @syscap SystemCapability.Web.Webview.Core
+         * @since 26.1.0 static
+         */
+        didFail(code: WebNetErrorList, completeIfNoResponse: boolean, customErrorCode: int): void;
     }
 
     /**

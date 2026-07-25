@@ -30,7 +30,7 @@
  */
 export default interface AutoFillRect {
   /**
-   * Distance between the AutoFill form or page node and the left boundary of the page.
+   * Distance between the AutoFill form or page node and the left boundary of the page. The unit is px.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi [since 12 - 24]
@@ -42,7 +42,7 @@ export default interface AutoFillRect {
   left: double;
 
   /**
-   * Distance between the AutoFill form or page node and the upper boundary of the page.
+   * Distance between the AutoFill form or page node and the upper boundary of the page. The unit is px.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi [since 12 - 24]
@@ -54,7 +54,7 @@ export default interface AutoFillRect {
   top: double;
 
   /**
-   * Width of the AutoFill form or page node.
+   * Width of the AutoFill form or page node. The unit is px.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi [since 12 - 24]
@@ -66,7 +66,7 @@ export default interface AutoFillRect {
   width: double;
 
   /**
-   * Height of the AutoFill form or page node.
+   * Height of the AutoFill form or page node. The unit is px.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi [since 12 - 24]

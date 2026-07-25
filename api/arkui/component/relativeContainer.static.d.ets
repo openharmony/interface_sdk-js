@@ -280,8 +280,9 @@ export declare interface RelativeContainerAttribute extends CommonMethod {
      *
      * @returns { RelativeContainerAttribute } Returns the instance of the RelativeContainerAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @unpublished
      * @stagemodelonly
-     * @since 26.0.0 staticonly
+     * @since 26.1.0 staticonly
      */
     default setRelativeContainerOptions(): this;
     /**
@@ -320,8 +321,9 @@ export declare function RelativeContainer(
  * @param { CustomBuilder } [content_] - container
  * @returns { RelativeContainerAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @unpublished
  * @stagemodelonly
- * @since 26.0.0 staticonly
+ * @since 26.1.0 staticonly
  * @noninterop
  */
 @Builder
@@ -362,8 +364,9 @@ export declare abstract class ExtendableRelativeContainer implements RelativeCon
    * @param { ConstructorT<T> } factory
    * @param { CustomBuilder } [content_]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @unpublished
    * @stagemodelonly
-   * @since 26.0.0 staticonly
+   * @since 26.1.0 staticonly
    */
   @Builder
   static _instantiateImpl<T extends ExtendableRelativeContainer>(

@@ -19,7 +19,7 @@
  */
 
 /**
-* Orientation实例对象。
+* 页面显示方向的枚举类型。
 *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -105,9 +105,14 @@ declare interface NavDestinationCustomTitle {
 * > 设置系统转场动画，支持分别设置系统标题栏动画和内容动画。
 *
 * > 系统默认转场动画中只有STANDARD页面的push和pop动画有单独的标题栏动画，存在如下限制：
-*
-*
-* > 设置NONE或者TITLE时没有系统转场动画，设置CONTENT和DEFAULT时默认系统转场动画。
+* >
+* > - 设置NavigationSystemTransitionType为TITLE时，系统转场只有标题栏动画。
+* >
+* > - 设置NavigationSystemTransitionType为CONTENT时，系统转场只有内容区动画。
+* >
+* > - 设置NavigationSystemTransitionType为NONE时，没有系统转场动画。
+* >
+* > - 设置NavigationSystemTransitionType为DEFAULT时，使用默认系统转场动画。
 *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -218,7 +223,7 @@ declare enum NavigationSystemTransitionType {
 declare enum NavDestinationMode {
 
   /**
-   * 标准模式的NavDestination。
+   * 标准模式的NavDestination，适合常规的内容页面场景，如列表详情页、设置页面、表单页面等。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -229,7 +234,8 @@ declare enum NavDestinationMode {
   STANDARD = 0,
 
   /**
-   * 默认透明，进出路由栈不影响下层NavDestination的可见性（onShown、onHidden等生命周期），只会触发onActive、onInactive这两个生命周期。
+   * 默认透明。进出路由栈不影响下层NavDestination的可见性（onShown、onHidden等生命周期），只触发onActive、onInactive生命周期。
+   * 适合需要透明背景或悬浮效果的场景，如弹窗式页面、浮层提示、操作确认对话框等。
    *
    * API version 13之前，默认无系统转场动画。从API version 13开始，支持系统转场动画。
    *
@@ -366,7 +372,8 @@ declare enum VisibilityChangeReason {
 }
 
 /**
-* 作为子页面的根容器，用于显示[Navigation]{@link navigation}的内容区。
+* NavDestination作为[Navigation]{@link navigation}的子页面根容器，用于显示Navigation的内容区。支持自定义标题栏和工具栏、管理页面生命周期、配置系统/自定义转场动画、
+* 绑定可滚动组件联动等功能。当需要实现多页面导航、管理页面状态、自定义页面交互效果时，使用本组件。
 *
 * > **说明：**
 *
@@ -495,6 +502,8 @@ declare interface NavDestinationContext {
   /**
    * 当前NavDestination的类型。
    * 默认值：NavDestinationMode.Standard。
+   * 
+   * 从API version 22开始，该接口支持在原子化服务中使用。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -519,7 +528,7 @@ declare interface NavDestinationContext {
 }
 
 /**
-* 嵌套可滚动容器组件信息
+* 嵌套可滚动容器组件信息。
 *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -576,6 +585,8 @@ declare interface NavDestinationTransition {
 
   /**
    * 转场动画的持续时间。
+   * 
+   * 取值范围：[0, +∞)
    *
    * 默认值：1000（毫秒）
    *
@@ -602,6 +613,8 @@ declare interface NavDestinationTransition {
 
   /**
    * 转场动画的延迟。
+   * 
+   * 取值范围：[0, +∞)
    *
    * 默认值：0（毫秒）
    *
@@ -652,7 +665,8 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
    *     title. [since 9 - 13]
    * @param { string | CustomBuilder | NavDestinationCommonTitle | NavDestinationCustomTitle | Resource } value - 页面标
    *     题。 [since 9 - 13]
-   * @param { NavigationTitleOptions } [options] - Title bar options. [since 12]
+   * @param { NavigationTitleOptions } [options] - 标题栏选项。<br/>默认值：不设置时使用标题栏默认配置。
+   *     **模型约束：** 此接口仅可在Stage模型下使用。 [since 12]
    * @returns { NavDestinationAttribute }
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -689,7 +703,7 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
   hideTitleBar(hide: boolean, animated: boolean): NavDestinationAttribute;
 
   /**
-   * 设置是否隐藏标题栏中的返回键。
+   * 设置是否隐藏标题栏中的返回键。隐藏返回键后，用户可通过系统返回手势、[onBackPressed](#onbackpressed10)回调或自定义导航按钮返回上一页面。适用于首页或不希望用户通过标准返回键返回的场景。
    *
    * @param { Optional<boolean> } hide - 是否隐藏标题栏中的返回键。 <br/>默认值：false<br/>true：隐藏返回键。<br/>false：显示返回键。
    * @returns { NavDestinationAttribute }
@@ -738,9 +752,8 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
   /**
    * 当与Navigation绑定的导航控制器中存在内容时，此回调生效。当点击返回键时，触发该回调。
    *
-   * 返回值为true时，表示重写返回键逻辑，返回值为false时，表示回退到上一个页面。
-   *
-   * @param { function } callback - 当与Navigation绑定的导航控制器中存在内容时，此回调生效。当点击返回键时，触发该回调。
+   * @param { function } callback - 当与Navigation绑定的导航控制器中存在内容时，此回调生效。当点击返回键时，触发该回调。<br/>返回值为true时，
+   *     表示重写返回键逻辑；返回值为false时，表示回退到上一个页面。
    * @returns { NavDestinationAttribute }
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -814,7 +827,7 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
    * > - 不支持通过SymbolGlyphModifier对象的fontSize属性修改图标大小、effectStrategy属性修改动效、symbolEffect属性修改动效类型。
    *
    * @param { ResourceStr | PixelMap | SymbolGlyphModifier } icon - 标题栏返回键图标。
-   * @param { ResourceStr } accessibilityText - 返回键无障碍播报内容。</br>默认值：系统语言是中文时为“返回”，系统语言是英文时为“back”。
+   * @param { ResourceStr } accessibilityText - 返回键无障碍播报内容。<br/>默认值：系统语言是中文时为“返回”，系统语言是英文时为“back”。
    * @returns { NavDestinationAttribute }
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -856,7 +869,7 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
    * > - 不支持通过SymbolGlyphModifier对象的fontSize属性修改图标大小、effectStrategy属性修改动效、symbolEffect属性修改动效类型。
    *
    * @param { Array<NavigationMenuItem> | CustomBuilder } items - 页面右上角菜单。
-   * @param { NavigationMenuOptions } [options] - 页面右上角菜单选项。
+   * @param { NavigationMenuOptions } [options] - 页面右上角菜单选项。<br/>默认值：不设置时使用菜单默认配置。
    * @returns { NavDestinationAttribute }
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -876,13 +889,13 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
    * > - 不支持通过SymbolGlyphModifier对象的fontSize属性修改图标大小、effectStrategy属性修改动效、symbolEffect属性修改动效类型。
    *
    * @param { Array<ToolbarItem> | CustomBuilder } toolbarParam - 工具栏内容。<br/>使用Array<[ToolbarItem]{@link ToolbarItem}>写法
-   *     设置的工具栏有如下特性：<br/>-工具栏所有选项均分底部工具栏，在每个均分内容区布局文本和图标。<br/>-竖屏模式最多支持显示5个图标，多余的图标会被放入自动生成的更多图标中，点击更多图标，可以展示剩余内容。横屏模式
+   *     设置的工具栏有如下特性：<br/>-底部工具栏的每个选项均分宽度，用于显示文本和图标。<br/>-竖屏模式最多支持显示5个图标，多余的图标会被放入自动生成的更多图标中，点击更多图标可以展示剩余内容。横屏模式
    *     时，如果为[Split]{@link NavigationMode}模式，仍按照竖屏模式显示，如果为[Stack]{@link NavigationMode}模式需配合
    *     [menus]{@link NavDestinationAttribute#menus(value: Array<NavigationMenuItem> | CustomBuilder)}属性的Array<
    *     [NavigationMenuItem]{@link NavigationMenuItem}>使用，底部工具栏会自动隐藏，同时底部工具栏所有选项移动至页面右上角菜单。<br/>使用
    *     [CustomBuilder](docroot://reference/apis-arkui/arkui-ts/ts-types.md#custombuilder8)写法为用户自定义工具栏选项，不具备以上功能。
-   * @param { NavigationToolbarOptions } [options] - 工具栏选项。包含工具栏背景颜色、工具栏背景模糊样式及模糊选项、工具栏背景属性、工具栏布局方式、是否隐藏工具栏的文本、工具栏更多图标的菜
-   *     单选项。
+   * @param { NavigationToolbarOptions } [options] - 工具栏选项，用于自定义工具栏显示样式。包含工具栏背景颜色、工具栏背景模糊样式及模糊选项、工具栏背景属性、工具栏布局方式、
+   *     是否隐藏工具栏的文本、工具栏更多图标的菜单选项。当需要自定义工具栏样式时传入，不传入时使用默认工具栏样式。
    * @returns { NavDestinationAttribute }
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -996,8 +1009,7 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
    *
    * > **说明：**
    *
-   * > - 组件设置ignoreLayoutSafeArea之后生效的条件为：
-   * > > 设置LayoutSafeAreaType.SYSTEM时，组件的边界与非安全区域重合时组件能够延伸到非安全区域下。
+   * > - 组件设置ignoreLayoutSafeArea生效条件：设置LayoutSafeAreaType.SYSTEM时，若组件边界与非安全区域重合，组件可延伸到非安全区域内。
    * >
    * > - 若组件扩展到非安全区域内，此时在非安全区域里触发的事件（例如：点击事件）等可能会被系统拦截，优先响应状态栏等系统组件。
    * >
@@ -1005,7 +1017,7 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
    *
    * @param { Array<LayoutSafeAreaType> } [types] - 配置扩展安全区域的类型。<br />默认值：<br />[LayoutSafeAreaType.SYSTEM]
    * @param { Array<LayoutSafeAreaEdge> } [edges] - 配置扩展安全区域的方向。<br /> 默认值：<br />
-   *     [LayoutSafeAreaEdge.TOP, LayoutSafeAreaEdge.BOTTOM]。
+   *     [LayoutSafeAreaEdge.TOP, LayoutSafeAreaEdge.BOTTOM]。<br/>默认扩展顶部和底部方向，用于避让系统状态栏和导航栏的安全区域。
    * @returns { NavDestinationAttribute }
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1026,7 +1038,7 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
    * >
    * > - 从API version 20开始，该接口支持在[attributeModifier]{@link CommonMethod#attributeModifier}中调用。
    *
-   * @param { Optional<SystemBarStyle> } style - 系统状态栏样式。
+   * @param { Optional<SystemBarStyle> } style - 系统状态栏样式。设置后进入该NavDestination时，系统状态栏会切换到对应样式。
    * @returns { NavDestinationAttribute }
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1043,7 +1055,8 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
    *
    * > 该接口需要配合Navigation的[recoverable]{@link NavigationAttribute#recoverable}接口使用。
    *
-   * @param { boolean } recoverable - NavDestination是否可恢复，默认为不可恢复。<br/>默认值：false<br/>true：路由栈可恢复。<br/>false：路由栈不可恢复。
+   * @param { boolean } recoverable - NavDestination是否可恢复，默认为不可恢复。<br/>默认值：false<br/>true：
+   *      路由栈可恢复，需配合Navigation的recoverable属性使用。<br/>false：路由栈不可恢复。
    * @returns { NavDestinationAttribute }
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1052,7 +1065,7 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
   recoverable(recoverable: Optional<boolean>): NavDestinationAttribute;
 
   /**
-   * 设置NavDestination系统转场动画，支持分别设置系统标题栏动画和内容动画。
+   * 设置NavDestination系统转场动画，支持分别设置系统标题栏动画和内容动画。该属性与customTransition同时设置时，后设置的属性生效。
    *
    * @param { NavigationSystemTransitionType } type - 系统转场动画类型。<br/>默认值：NavigationSystemTransitionType.DEFAULT
    * @returns { NavDestinationAttribute }
@@ -1079,7 +1092,7 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
    * >
    * > - 从API version 22开始，该接口支持在[attributeModifier]{@link CommonMethod#attributeModifier}中调用。
    *
-   * @param { Array<Scroller> } scrollers - 可滚动容器组件的控制器。
+   * @param { Array<Scroller> } scrollers - 可滚动容器组件的控制器。<br/>生效前提：NavDestination的标题栏或工具栏需设置为可见状态。
    * @returns { NavDestinationAttribute } Returns the instance of the NavDestinationAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1208,7 +1221,7 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
    * > [setPreferredOrientation](docroot://reference/apis-arkui/arkts-apis-window-Window.md#setpreferredorientation9-1)接
    * > 口。
    *
-   * @param { Optional<Orientation> } orientation - NavDestination页面对应的Orientation。
+   * @param { Optional<Orientation> } orientation - NavDestination页面的显示方向。转场到该NavDestination后，系统会将应用主窗口切换到该显示方向。
    * @returns { NavDestinationAttribute } Returns the instance of the NavDestinationAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1233,7 +1246,8 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
    * > [setSpecificSystemBarEnabled](docroot://reference/apis-arkui/arkts-apis-window-Window.md#setspecificsystembarenabled11)
    * > 接口。
    *
-   * @param { Optional<boolean> } enabled - 进入该NavDestination后，系统状态栏的显示/隐藏状态。<br/>true：显示状态栏。<br/>false：隐藏状态栏。
+   * @param { Optional<boolean> } enabled - 进入该NavDestination后，系统状态栏的显示/隐藏状态。<br/>默认值：false<br/>true：
+   *     显示状态栏。<br/>false：隐藏状态栏。<br/>undefined：不改变系统状态栏的显示/隐藏状态。
    * @param { boolean } [animated] - 是否使用动画的方式显示/隐藏系统状态栏。<br/>默认值：false<br/>true：使用动画的方式显示/隐藏系统状态栏。<br/>false：不使用动画的方式显示
    *     /隐藏系统状态栏。
    * @returns { NavDestinationAttribute } Returns the instance of the NavDestinationAttribute.
@@ -1257,7 +1271,8 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
    * > [setSpecificSystemBarEnabled](docroot://reference/apis-arkui/arkts-apis-window-Window.md#setspecificsystembarenabled11)
    * > 接口。
    *
-   * @param { Optional<boolean> } enabled - 进入该NavDestination后，系统导航条的显示/隐藏状态。<br/>true：显示导航条。<br/>false：隐藏导航条。
+   * @param { Optional<boolean> } enabled - 进入该NavDestination后，系统导航条的显示/隐藏状态。<br/>默认值：false<br/>true：
+   *     显示导航条。<br/>false：隐藏导航条。<br/>undefined：不改变系统导航条的显示/隐藏状态。
    * @returns { NavDestinationAttribute } Returns the instance of the NavDestinationAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1271,7 +1286,7 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
    * 设置NavDestination是否以全屏覆盖模式显示。
    *
    * 当参数设置为true时，在Navigation分栏模式下，当前页面会覆盖整个Navigation容器，包括NavBar和内容区。该配置作用于当前NavDestination的所有实例；当路由栈中已有页面以全屏覆盖模式显示时，其后入
-   * 栈的[DIALOG]{@link NavDestinationMode}页面与未设置fullScreenOverlay为false的[STANDARD]{@link NavDestinationMode}页面也会继承为全屏覆盖显
+   * 栈的[DIALOG]{@link NavDestinationMode}页面与未将fullScreenOverlay为false的[STANDARD]{@link NavDestinationMode}页面也会继承为全屏覆盖显
    * 示。未通过该接口设置时，NavDestination默认是普通显示模式，遵循Navigation分栏显示规则。
    *
    * @param { Optional<boolean> } fullScreenOverlay - 是否以全屏覆盖模式显示。<br/>true：全屏覆盖模式，覆盖整个Navigation容器。<br/>false：普通显示模式，遵循

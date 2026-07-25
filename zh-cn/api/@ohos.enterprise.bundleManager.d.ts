@@ -31,6 +31,8 @@ import type Want from './@ohos.app.ability.Want';
  * > 本模块接口仅对设备管理应用开放，且调用接口前需激活设备管理应用，具体请参考[MDM Kit开发指南](docroot://mdm/mdm-kit-guide.md)。
  *
  * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+ * @systemapi [since 10 - 11]
+ * @publicapi [since 12]
  * @since 10
  */
 declare namespace bundleManager {
@@ -1005,6 +1007,30 @@ declare namespace bundleManager {
   function getAllowedInstallBundlesSync(admin: Want, accountId?: number): Array<string>;
 
   /**
+   * Get appid list of bundles that can be installed in the device.
+   * Only apps with the ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY permission can call this method.
+   *
+   * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
+   * @param { Want | null } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
+   *     <br>当设备存在多个MDM应用时，传入Want时查询对应企业设备管理应用设置的策略，传入null时查询实际生效的策略。
+   * @param { number } [accountId] - Account ID, which must be greater than or equal to 0.<br> You can call
+   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()} of
+   *     **@ohos.account.osAccount** to obtain the account ID.<br> - If **accountId** is passed in, this API applies to the
+   *     specified user.<br> - If **accountId** is not passed in, this API applies to the current user.
+   * @returns { Array<string> } Array of applications that can be installed by the current user.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  function getAllowedInstallBundlesSync(admin: Want | null, accountId?: number): Array<string>;
+
+  /**
    * 添加应用至应用程序包安装禁止名单，添加至禁止名单的应用不允许在当前用户下安装，使用callback异步回调。
    *
    * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
@@ -1323,6 +1349,32 @@ declare namespace bundleManager {
    * @since 12
    */
   function getDisallowedInstallBundlesSync(admin: Want, accountId?: number): Array<string>;
+
+  /**
+   * Get appid list of bundles that can not be installed in the device.
+   * Only apps with the ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY permission can call this method.
+   *
+   * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
+   * @param { Want | null } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the.
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.<br>If the device has multiple MDM
+   *     applications, you can pass **admin** to query the corresponding policies. If **null** is passed, the policies
+   *     that actually take effect on the device are returned.
+   * @param { number } [accountId] - Account ID, which must be greater than or equal to 0.<br> You can call
+   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()} of
+   *     **@ohos.account.osAccount** to obtain the account ID.<br> - If **accountId** is passed in, this API applies to the
+   *     specified user.<br> - If **accountId** is not passed in, this API applies to the current user.
+   * @returns { Array<string> } Array of applications that cannot be installed by the current user.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  function getDisallowedInstallBundlesSync(admin: Want | null, accountId?: number): Array<string>;
 
   /**
    * 添加应用至应用程序包卸载禁止名单，添加至禁止名单的应用不允许在当前用户下卸载，使用callback异步回调。
@@ -1646,6 +1698,32 @@ declare namespace bundleManager {
   function getDisallowedUninstallBundlesSync(admin: Want, accountId?: number): Array<string>;
 
   /**
+   * Get appid list of bundles that can not be uninstalled in the device.
+   * Only apps with the ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY permission can call this method.
+   *
+   * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
+   * @param { Want | null } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the.
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.<br>If the device has multiple MDM
+   *     applications, you can pass **admin** to query the corresponding policies. If **null** is passed, the policies
+   *     that actually take effect on the device are returned.
+   * @param { number } [accountId] - Account ID, which must be greater than or equal to 0.<br> You can call
+   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()} of
+   *     **@ohos.account.osAccount** to obtain the account ID.<br> - If **accountId** is passed in, this API applies to the
+   *     specified user.<br> - If **accountId** is not passed in, this API applies to the current user.
+   * @returns { Array<string> } Array of bundles that cannot be uninstalled by the user.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  function getDisallowedUninstallBundlesSync(admin: Want | null, accountId?: number): Array<string>;
+
+  /**
    * 卸载当前用户下的指定应用程序包，且不保留应用程序包数据。使用callback异步回调。
    *
    * > **说明：**
@@ -1924,7 +2002,7 @@ declare namespace bundleManager {
    * @param { Array<AppDistributionType> } appDistributionTypes - 应用程序签名证书的分发类型数组。
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 9200012 - The parameter validation failed.
+   * @throws { BusinessError } 9200012 - Parameter verification failed.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
    *     required to call the API.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
@@ -1944,7 +2022,7 @@ declare namespace bundleManager {
    * @param { Array<AppDistributionType> } appDistributionTypes - 应用程序签名证书的分发类型数组。
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 9200012 - The parameter validation failed.
+   * @throws { BusinessError } 9200012 - Parameter verification failed.
    * @throws { BusinessError } 201 - Permission verification failed.
    *     The application does not have the permission required to call the API.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
@@ -1968,6 +2046,25 @@ declare namespace bundleManager {
    * @since 20
    */
   function getInstallationAllowedAppDistributionTypes(admin: Want): Array<AppDistributionType>;
+
+  /**
+   * Get the list of app distribution types can be installed in the device.
+   *
+   * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
+   * @param { Want | null } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the.
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.<br>If the device has multiple MDM
+   *     applications, you can pass **admin** to query the corresponding policies. If **null** is passed, the policies
+   *     that actually take effect on the device are returned.
+   * @returns { Array<AppDistributionType> } Distribution types of the application signing certificate.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  function getInstallationAllowedAppDistributionTypes(admin: Want | null): Array<AppDistributionType>;
 
   /**
    * 获取设备指定用户下已安装应用列表。使用Promise异步回调。
@@ -2019,8 +2116,9 @@ declare namespace bundleManager {
    *
    * > **说明**
    * >
-   * 本接口调用成功后会在桌面上生成应用下载任务，此任务与从应用市场下载所创建任务一致。下载安装结束后，安装结果会通过回调[EnterpriseAdminExtensionAbility.onMarketAppInstallResult
-   * ]{@link
+   * 本接口调用成功后会在桌面上生成应用下载任务，此任务与从应用市场下载所创建任务一致。下载安装结束后，安装结果会通过回调[EnterpriseAdminExtensionAbility.onMarketAppInstallResult]
+   * {@link @ohos.enterprise.EnterpriseAdminExtensionAbility:EnterpriseAdminExtensionAbility.onMarketAppInstallResult}返回。<!--RP
+   * 1--><!--RP1End-->。
    * @permission ohos.permission.ENTERPRISE_INSTALL_BUNDLE
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
    *     EnterpriseAdminExtensionAbility and the bundle name of the application.

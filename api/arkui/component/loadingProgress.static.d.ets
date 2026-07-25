@@ -112,8 +112,9 @@ export declare interface LoadingProgressAttribute extends CommonMethod {
      *
      * @returns { LoadingProgressAttribute } Returns the instance of the LoadingProgressAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @unpublished
      * @stagemodelonly
-     * @since 26.0.0 staticonly
+     * @since 26.1.0 staticonly
      */
     default setLoadingProgressOptions(): this;
 }
@@ -153,8 +154,9 @@ export declare function LoadingProgress(
  * @param { CustomBuilderT<LoadingProgressAttribute> } style - LoadingProgress attribute instance
  * @returns { LoadingProgressAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @unpublished
  * @stagemodelonly
- * @since 26.0.0 staticonly
+ * @since 26.1.0 staticonly
  * @noninterop
  */
 @Builder

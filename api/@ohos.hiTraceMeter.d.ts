@@ -29,12 +29,11 @@
  * >
  * > You are advised to use the performance tracing APIs of API version 19. The
  * > [startTrace()]{@link hiTraceMeter.startTrace}, [finishTrace()]{@link hiTraceMeter.finishTrace}, and
- * > [traceByValue()]{@link hiTraceMeter.traceByValue(name: string, count: long)} APIs will be deprecated.
+ * > [traceByValue()]{@link hiTraceMeter.traceByValue} APIs will be deprecated.
  * >
  * > The trace output level cannot be specified in the [startTrace()]{@link hiTraceMeter.startTrace},
- * > [finishTrace()]{@link hiTraceMeter.finishTrace} and
- * > [traceByValue()]{@link hiTraceMeter.traceByValue(name: string, count: long)} APIs. By default, the trace output
- * > level is **COMMERCIAL**.
+ * > [finishTrace()]{@link hiTraceMeter.finishTrace} and [traceByValue()]{@link hiTraceMeter.traceByValue} APIs. By
+ * > default, the trace output level is **COMMERCIAL**.
  * >
  * > The vertical bar (|) is used as the separator in
  * > [user-mode trace format](docroot://dfx/hitracemeter-view.md#user-mode-trace-format). Therefore, the string
@@ -133,11 +132,12 @@ declare namespace hiTraceMeter {
    * used together with [finishAsyncTrace()]{@link hiTraceMeter.finishAsyncTrace}. In this way, you can specify the
    * trace output level and category.
    *
-   * @param { string } name - Name of the trace to start.<br>The maximum length of a trace record is 512 bytes. The
-   *     excess part will be truncated. It is recommended that the length of this parameter be less than or equal to 420
-   *     bytes.
-   * @param { int } taskId - Task ID.<br>It is used to distinguish multiple tasks with the same name. Ensure that the
-   *     task IDs of concurrently executed tasks with the same name are unique.
+   * @param { string } name - Name of the trace to start.
+   *     The maximum length of a trace record is 512 bytes. The excess part will be truncated. It is recommended
+   *     that the length of this parameter be less than or equal to 420 bytes.
+   * @param { int } taskId - Task ID.
+   *     It is used to distinguish multiple tasks with the same name. Ensure that the task IDs of concurrently
+   *     executed tasks with the same name are unique.
    * @syscap SystemCapability.HiviewDFX.HiTrace
    * @crossplatform [since 20]
    * @atomicservice [since 19]
@@ -168,13 +168,12 @@ declare namespace hiTraceMeter {
   /**
    * Traces the value changes of an integer variable.
    *
-   * Since API version 19, you are advised to use the
-   * [traceByValue<sup>19+</sup>()]{@link hiTraceMeter.traceByValue(level: HiTraceOutputLevel, name: string, count: long)}
+   * Since API version 19, you are advised to use the [traceByValue<sup>19+</sup>()]{@link hiTraceMeter.traceByValue}
    * API to specify the trace output level
    *
-   * @param { string } name - Name of the integer variable to trace.<br>The maximum length of a trace record is 512
-   *     bytes. The excess part will be truncated. It is recommended that the length of this parameter be less than or
-   *     equal to 420 bytes.
+   * @param { string } name - Name of the integer variable to trace.
+   *     The maximum length of a trace record is 512 bytes. The excess part will be truncated. It is recommended
+   *     that the length of this parameter be less than or equal to 420 bytes.
    * @param { long } count - Value of an integer variable.
    * @syscap SystemCapability.HiviewDFX.HiTrace
    * @crossplatform [since 20]
@@ -189,13 +188,13 @@ declare namespace hiTraceMeter {
    * [finishSyncTrace()]{@link hiTraceMeter.finishSyncTrace}.
    *
    * @param { HiTraceOutputLevel } level - Trace output level.
-   * @param { string } name - Name of the trace to start.<br>The maximum length of a trace record is 512 bytes. The
-   *     excess part will be truncated. It is recommended that the total length of **name** and **customArgs** be less
-   *     than or equal to 420 bytes.
+   * @param { string } name - Name of the trace to start.
+   *     The maximum length of a trace record is 512 bytes. The excess part will be truncated. It is recommended
+   *     that the total length of **name** and **customArgs** be less than or equal to 420 bytes.
    * @param { string } [customArgs] - Key-value pair. The format is key=value. Multiple key-value pairs are separated by
-   *     commas (,). The default value is an empty string.<br>The maximum length of a trace record is 512 bytes. The
-   *     excess part will be truncated. It is recommended that the total length of **name** and **customArgs** be less
-   *     than or equal to 420 bytes.
+   *     commas (,). The default value is an empty string.
+   *     The maximum length of a trace record is 512 bytes. The excess part will be truncated. It is recommended
+   *     that the total length of **name** and **customArgs** be less than or equal to 420 bytes.
    * @syscap SystemCapability.HiviewDFX.HiTrace
    * @crossplatform [since 20]
    * @atomicservice
@@ -229,19 +228,20 @@ declare namespace hiTraceMeter {
    * see [finishAsyncTrace()]{@link hiTraceMeter.finishAsyncTrace}.
    *
    * @param { HiTraceOutputLevel } level - Trace output level.
-   * @param { string } name - Name of the trace to start.<br>The maximum length of a trace record is 512 bytes. The
-   *     excess part will be truncated. It is recommended that the total length of **name**, **customCategory**, and
-   *     **customArgs** be less than or equal to 420 bytes.
-   * @param { int } taskId - Task ID.<br>It is used to distinguish multiple tasks with the same name. Ensure that the
-   *     task IDs of concurrently executed tasks with the same name are unique.
+   * @param { string } name - Name of the trace to start.
+   *     The maximum length of a trace record is 512 bytes. The excess part will be truncated. It is recommended
+   *     that the total length of **name**, **customCategory**, and **customArgs** be less than or equal to 420 bytes.
+   * @param { int } taskId - Task ID.
+   *     It is used to distinguish multiple tasks with the same name. Ensure that the task IDs of concurrently
+   *     executed tasks with the same name are unique.
    * @param { string } customCategory - Custom category name, which is used to collect asynchronous trace data of the
-   *     same type.<br>The maximum length of a trace record is 512 bytes. The excess part will be truncated. It is
-   *     recommended that the total length of **name**, **customCategory**, and **customArgs** be less than or equal to
-   *     420 bytes.
+   *     same type.
+   *     The maximum length of a trace record is 512 bytes. The excess part will be truncated. It is recommended
+   *     that the total length of **name**, **customCategory**, and **customArgs** be less than or equal to 420 bytes.
    * @param { string } [customArgs] - Custom key-value pair. The format is key=value. Multiple key-value pairs are
-   *     separated by commas (,). The default value is an empty string.<br>The maximum length of a trace record is 512
-   *     bytes. The excess part will be truncated. It is recommended that the total length of **name**,
-   *     **customCategory**, and **customArgs** be less than or equal to 420 bytes.
+   *     separated by commas (,). The default value is an empty string.
+   *     The maximum length of a trace record is 512 bytes. The excess part will be truncated. It is recommended
+   *     that the total length of **name**, **customCategory**, and **customArgs** be less than or equal to 420 bytes.
    * @syscap SystemCapability.HiviewDFX.HiTrace
    * @crossplatform [since 20]
    * @atomicservice
@@ -273,9 +273,9 @@ declare namespace hiTraceMeter {
    * integer variable to be traced.
    *
    * @param { HiTraceOutputLevel } level - Trace output level.
-   * @param { string } name - Name of the integer variable to trace.<br>The maximum length of a trace record is 512
-   *     bytes. The excess part will be truncated. It is recommended that the length of this parameter be less than or
-   *     equal to 420 bytes.
+   * @param { string } name - Name of the integer variable to trace.
+   *     The maximum length of a trace record is 512 bytes. The excess part will be truncated. It is recommended
+   *     that the length of this parameter be less than or equal to 420 bytes.
    * @param { long } count - Value of an integer variable.
    * @syscap SystemCapability.HiviewDFX.HiTrace
    * @crossplatform [since 20]
@@ -302,8 +302,8 @@ declare namespace hiTraceMeter {
   /**
    * Defines a callback to listen for whether the trace capture is enabled.
    *
-   * @param { boolean } traceStatus - Whether the trace capture is enabled for the current application.<br>The value
-   *     **true** indicates that the trace capture is enabled, and **false** indicates the opposite.
+   * @param { boolean } traceStatus - Whether the trace capture is enabled for the current application.
+   *     The value **true** indicates that the trace capture is enabled, and **false** indicates the opposite.
    * @syscap SystemCapability.HiviewDFX.HiTrace
    * @crossplatform
    * @atomicservice
@@ -319,6 +319,8 @@ declare namespace hiTraceMeter {
    * After the registration is successful, the callback is executed immediately. Subsequent callbacks are executed when
    * the application trace capture status changes.
    *
+   * Callbacks are stored in the application process. A maximum of 10 callbacks can be registered in a process.
+   *
    * > **NOTE**
    * >
    * > If the callback contains time-consuming operations, the registration or deregistration will be blocked (waiting
@@ -329,10 +331,10 @@ declare namespace hiTraceMeter {
    *
    * @param { TraceEventListener } callback - Registered callback.
    * @returns { int } Callback registration status.
-   *     <br>>= 0: The registration is successful. The callback index for deregistration is returned.
-   *     The index ranges from 0 to 9.
-   *     <br> **-1**: The maximum number of callbacks has been reached.
-   *     <br> **-2**: Invalid parameter. The parameter is not of the **TraceEventListener** type.
+   *     >= 0: The registration is successful. The callback index for deregistration is returned. The index ranges
+   *     from 0 to 9.
+   *      **-1**: The maximum number of callbacks has been reached.
+   *      **-2**: Invalid parameter. The parameter is not of the **TraceEventListener** type.
    * @syscap SystemCapability.HiviewDFX.HiTrace
    * @crossplatform
    * @atomicservice
@@ -346,12 +348,11 @@ declare namespace hiTraceMeter {
    * **registerTraceListener()**.
    *
    * @param { int } index - Index of the registered callback function, that is, the return value when
-   *     [registerTraceListener()]{@link hiTraceMeter.registerTraceListener} is successfully called
-   *     <br>The value range is all integers.
+   *     [registerTraceListener()]{@link hiTraceMeter.registerTraceListener} is successfully called.
    * @returns { int } Callback deregistration status.
-   *     <br>**0**: Deregistration succeeded.
-   *     <br>**-1**: The callback corresponding to the index is not registered.
-   *     <br>**-2**: Invalid index. The index value is not within the range of 0 to 9.
+   *     **0**: Deregistration succeeded.
+   *     **-1**: The callback corresponding to the index is not registered.
+   *     **-2**: Invalid index. The index value is not within the range of 0 to 9.
    * @syscap SystemCapability.HiviewDFX.HiTrace
    * @crossplatform
    * @atomicservice

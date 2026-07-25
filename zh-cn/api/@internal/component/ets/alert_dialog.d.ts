@@ -308,7 +308,7 @@ declare interface AlertDialogButtonOptions extends AlertDialogButtonBaseOptions 
 }
 
 /**
- * 弹窗中message的截断方式。
+ * 弹窗中message的文本样式，包含文本截断方式等。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -398,7 +398,7 @@ declare interface AlertDialogParam {
   message: ResourceStr;
 
   /**
-   * 点击遮障层时，是否关闭弹窗，true表示关闭弹窗。false表示不关闭弹窗。
+   * 点击遮障层时，是否关闭弹窗。值为true表示关闭弹窗，值为false表示不关闭弹窗。
    * 
    * 默认值：true
    *
@@ -441,7 +441,7 @@ declare interface AlertDialogParam {
   alignment?: DialogAlignment;
 
   /**
-   * 弹窗相对alignment所在位置的偏移量。
+   * 弹窗相对alignment所在位置的偏移量。dx表示水平方向偏移，正值为向右偏移，负值为向左偏移；dy表示垂直方向偏移，正值为向下偏移，负值为向上偏移。
    * 
    * 默认值：{ dx: 0 , dy: 0 }
    *
@@ -454,7 +454,7 @@ declare interface AlertDialogParam {
   offset?: Offset;
 
   /**
-   * 弹窗容器宽度所占用栅格数。
+   * 弹窗容器宽度所占用栅格数。栅格数为弹窗宽度的相对单位，值越大弹窗越宽。
    * 
    * 默认值：4 
    * 
@@ -502,7 +502,7 @@ declare interface AlertDialogParam {
   showInSubWindow?: boolean;
 
   /**
-   * 弹窗是否为模态窗口，模态窗口有蒙层，非模态窗口无蒙层。值为false时，弹窗为非模态窗口，无蒙层。
+   * 弹窗是否为模态窗口，模态窗口有蒙层，非模态窗口无蒙层。值为true时，弹窗为模态窗口，有蒙层。值为false时，弹窗为非模态窗口，无蒙层。
    * 
    * 默认值：true，此时弹窗有蒙层。
    *
@@ -563,7 +563,7 @@ declare interface AlertDialogParam {
   backgroundBlurStyleOptions?: BackgroundBlurStyleOptions;
 
   /**
-   * 背景效果参数。默认值请参考BackgroundEffectOptions类型说明。
+   * 背景效果参数。当设置系统材质systemMaterial时，backgroundEffect不生效。默认值请参考BackgroundEffectOptions类型说明。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -574,11 +574,11 @@ declare interface AlertDialogParam {
   backgroundEffect?: BackgroundEffectOptions;
 
   /**
-   * 交互式关闭回调函数。
-   * 
+   * 交互式关闭回调函数。当用户执行点击遮障层关闭、侧滑（左滑/右滑）、三键back、键盘ESC关闭交互操作时，如果注册该回调函数，则不会立刻关闭弹窗。
+   *
    * **说明：**
    * 
-   * 1.当用户执行点击遮障层关闭、侧滑（左滑/右滑）、三键back、键盘ESC关闭交互操作时，如果注册该回调函数，则不会立刻关闭弹窗。在回调函数中可以通过reason得到阻拦关闭弹窗的操作类型，从而根据原因选择是否能关闭弹窗。当前组件
+   * 1.在回调函数中可以通过reason得到阻拦关闭弹窗的操作类型，从而根据原因选择是否能关闭弹窗。典型场景如弹窗中存在未保存的表单数据时，拦截关闭并提示用户保存。当前组件
    * 返回的reason中，暂不支持CLOSE_BUTTON的枚举值。
    * 
    * 2.在onWillDismiss回调中，不能再做onWillDismiss拦截。
@@ -667,7 +667,7 @@ declare interface AlertDialogParam {
   height?: Dimension;
 
   /**
-   * 可分别设置4个边框宽度。
+   * 可分别设置4个边框宽度。当设置系统材质systemMaterial时，borderWidth不生效。
    * 
    * 默认值：0
    * 
@@ -688,14 +688,14 @@ declare interface AlertDialogParam {
   borderWidth?: Dimension | EdgeWidths | LocalizedEdgeWidths;
 
   /**
-   * 设置弹窗背板的边框颜色。
-   * 
+   * 设置弹窗背板的边框颜色。当设置系统材质systemMaterial时，borderColor不生效。
+   *
    * 默认值：Color.Black
-   * 
+   *
    * 如果使用borderColor属性，需要和borderWidth属性一起使用。
-   * 
+   *
    * **说明：**
-   * 
+   *
    * 当borderColor属性类型为LocalizedEdgeColors时，支持随语言习惯改变布局顺序。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -746,7 +746,7 @@ declare interface AlertDialogParam {
   textStyle?: TextStyle;
 
   /**
-   * 是否响应悬停态，值为true时，响应悬停态。
+   * 是否响应悬停态，值为true时，响应悬停态，值为false时，不响应悬停态。
    * 
    * 默认值：false，默认不响应。
    * 
@@ -993,7 +993,7 @@ declare interface AlertDialogParamWithConfirm extends AlertDialogParam {
  */
 declare interface DismissDialogAction {
   /**
-   * Dialog关闭回调函数。开发者需要退出时调用，不需要退出时无需调用。
+   * Dialog关闭回调函数。调用此方法将允许弹窗关闭；不调用此方法将阻拦弹窗关闭。开发者可根据reason判断后，如需关闭则调用dismiss()，如需拦截则不调用。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1004,7 +1004,7 @@ declare interface DismissDialogAction {
   dismiss: Callback<void>;
   
   /**
-   * Dialog无法关闭原因。根据开发者需要选择不同操作下，Dialog是否需要关闭。
+   * 触发本次拦截弹窗关闭的操作类型。开发者可根据reason的值判断是否调用dismiss()来允许关闭弹窗。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1075,7 +1075,7 @@ declare interface AlertDialogParamWithOptions extends AlertDialogParam {
   buttons: Array<AlertDialogButtonOptions>;
 
   /**
-   * 按钮排布方向默认为DialogButtonDirection.AUTO。建议3个以上按钮使用Auto模式（两个以上按钮会切换为纵向模式，通常能显示更多按钮）。非Auto模式下，3个以上按钮可能会显示不全，超出显示范围的按钮会被截
+   * 按钮排布方向默认为DialogButtonDirection.AUTO。建议3个以上按钮使用Auto模式，Auto模式下两个以上按钮会切换为纵向排布，通常能显示更多按钮。非Auto模式下，3个以上按钮可能会显示不全，超出显示范围的按钮会被截
    * 断。
    *
    * @default DialogButtonDirection.AUTO

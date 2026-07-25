@@ -79,8 +79,9 @@ export declare interface MenuItemGroupAttribute extends CommonMethod {
      * @param { MenuItemGroupOptions } [value] - menuitemgroup constructor options
      * @returns { MenuItemGroupAttribute } Returns the instance of the MenuItemGroupAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @unpublished
      * @stagemodelonly
-     * @since 26.0.0 staticonly
+     * @since 26.1.0 staticonly
      */
     default setMenuItemGroupOptions(value?: MenuItemGroupOptions): this;
  }
@@ -108,8 +109,9 @@ export declare function MenuItemGroup(
  * @param { CustomBuilder } [content_] - container
  * @returns { MenuItemGroupAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @unpublished
  * @stagemodelonly
- * @since 26.0.0 staticonly
+ * @since 26.1.0 staticonly
  * @noninterop
  */
 @Builder

@@ -219,7 +219,7 @@ interface CommonArcButtonOptions {
      */
     position?: ArcButtonPosition;
     /**
-     * 弧形按钮样式模式。该样式不支持与[ArcButtonProgressConfig]{@link ArcButtonProgressConfig}样式同时使用。
+     * 弧形按钮样式模式。该样式不支持与[ArcButtonProgressConfig]{@link ArcButtonProgressConfig}同时使用。
      * 
      * 默认值：ArcButtonStyleMode.EMPHASIZED_LIGHT。
      *
@@ -298,7 +298,7 @@ interface CommonArcButtonOptions {
      */
     shadowEnabled?: boolean;
     /**
-     * 弧形按钮文本大小。
+     * 弧形按钮文本大小，单位：fp。
      * 
      * 默认值：19fp。
      *
@@ -355,7 +355,7 @@ interface CommonArcButtonOptions {
      */
     fontFamily?: string | Resource;
     /**
-     * 弧形按钮文本边距。
+     * 弧形按钮文本边距，单位：vp。
      * 
      * 默认值：{start:24vp, top: 10vp,end: 24vp, bottom:16vp }。
      *
@@ -423,7 +423,7 @@ export declare class ArcButtonOptions {
      */
     position: ArcButtonPosition;
     /**
-     * 弧形按钮样式模式。该样式不支持与[ArcButtonProgressConfig]{@link ArcButtonProgressConfig}样式同时使用。
+     * 弧形按钮样式模式。该样式不支持与[ArcButtonProgressConfig]{@link ArcButtonProgressConfig}同时使用。
      * 
      * 默认值：ArcButtonStyleMode.EMPHASIZED_LIGHT。
      *
@@ -502,7 +502,7 @@ export declare class ArcButtonOptions {
      */
     shadowEnabled: boolean;
     /**
-     * 弧形按钮文本大小。
+     * 弧形按钮文本大小，单位：fp。
      * 
      * 默认值：19fp。
      *
@@ -559,7 +559,7 @@ export declare class ArcButtonOptions {
      */
     fontFamily: string | Resource;
     /**
-     * 弧形按钮文本边距。
+     * 弧形按钮文本边距，单位：vp。
      * 
      * 默认值：{start:24vp, top: 10vp,end: 24vp, bottom:16vp }。
      *
@@ -618,7 +618,7 @@ export declare class ArcButtonOptions {
     constructor(options: CommonArcButtonOptions);
 }
 /**
- * 弧形按钮组件提供强调、普通、警告等样式按钮，推荐用于圆形屏幕的设备。
+ * 弧形按钮组件提供强调、普通等样式按钮，推荐用于圆形屏幕的设备。
  * 
  * > **说明：**
  * 

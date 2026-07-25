@@ -2654,8 +2654,7 @@ declare namespace distributedData {
      * @param { string } storeId - Unique identifier of the KV store. The length cannot exceed
      *     [MAX_STORE_ID_LENGTH]{@link distributedData.Constants}.
      * @param { AsyncCallback<T> } callback - Callback used to return the KV store instance created.
-     * @returns { void } Returns a {@code KVStore}, or {@code SingleKVStore}.* @syscap
-     *     SystemCapability.DistributedDataManager.KVStore.Core
+     * @returns { void } Returns a {@code KVStore}, or {@code SingleKVStore}.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 7 dynamiconly
      * @deprecated since 9

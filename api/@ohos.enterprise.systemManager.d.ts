@@ -926,11 +926,7 @@ declare namespace systemManager {
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_SYSTEM
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
-   *     EnterpriseAdminExtensionAbility and the bundle name of the application. [since 20 - 24]
-   * @param { Want | null } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
-   *     EnterpriseAdminExtensionAbility and the bundle name of the application.<br>If the device has multiple MDM
-   *     applications, you can pass **admin** to query the corresponding policies. If **null** is passed, the policies
-   *     that actually take effect on the device are returned. [since 26.0.0]
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
    * @returns { boolean } The value **true** indicates the device is automatically unlocked after reboot, and the value
    *     **false** indicates the opposite.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
@@ -942,6 +938,28 @@ declare namespace systemManager {
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
    * @since 20
+   */
+  function getAutoUnlockAfterReboot(admin: Want): boolean;
+
+  /**
+   * Checks whether the device is automatically unlocked upon reboot.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_SYSTEM
+   * @param { Want | null } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the.
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.<br>If the device has multiple MDM
+   *     applications, you can pass **admin** to query the corresponding policies. If **null** is passed, the policies
+   *     that actually take effect on the device are returned.
+   * @returns { boolean } The value **true** indicates the device is automatically unlocked after reboot, and the value
+   *     **false** indicates the opposite.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
+   *     capabilities.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
    */
   function getAutoUnlockAfterReboot(admin: Want | null): boolean;
 
@@ -1123,11 +1141,7 @@ declare namespace systemManager {
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_SYSTEM
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
-   *     EnterpriseAdminExtensionAbility and the bundle name of the application. [since 23 - 24]
-   * @param { Want | null } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
-   *     EnterpriseAdminExtensionAbility and the bundle name of the application.<br>If the device has multiple MDM
-   *     applications, you can pass **admin** to query the corresponding policies. If **null** is passed, the policies
-   *     that actually take effect on the device are returned. [since 26.0.0]
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
    * @returns { Array<KeyEventPolicy> } List of currently configured key event policies.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
@@ -1138,6 +1152,27 @@ declare namespace systemManager {
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
    * @since 23
+   */
+  function getKeyEventPolicies(admin: Want): Array<KeyEventPolicy>;
+
+  /**
+   * Obtains the key event handling policy.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_SYSTEM
+   * @param { Want | null } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the.
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.<br>If the device has multiple MDM
+   *     applications, you can pass **admin** to query the corresponding policies. If **null** is passed, the policies
+   *     that actually take effect on the device are returned.
+   * @returns { Array<KeyEventPolicy> } List of currently configured key event policies.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 801 - Capability not supported.
+   *     Failed to call the API due to limited device capabilities.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
    */
   function getKeyEventPolicies(admin: Want | null): Array<KeyEventPolicy>;
 

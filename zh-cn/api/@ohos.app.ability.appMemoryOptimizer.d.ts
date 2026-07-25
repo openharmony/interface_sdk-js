@@ -22,7 +22,6 @@
  * appMemoryOptimizer提供应用内存优化的能力，包括释放指定文件的文件页缓存、释放指定模块的文件页缓存等。
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @systemapi
  * @stagemodelonly
  * @since 26.0.0 dynamic&static
  */
@@ -31,11 +30,9 @@ declare namespace appMemoryOptimizer {
    * 向系统发出释放指定文件的文件页缓存请求，系统会根据当前内存状况决定是否真正执行释放，不保证一定释放成功。
    *
    * @param { Array<string> } fileNames - 需要释放文件页缓存的文件名数组，文件名必须以.so、.hap 或.hsp结尾。
-   * @returns { Promise<void> } 无返回结果的Promise对象。
-   * @throws { BusinessError } 202 - 非系统应用。
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 16000163 - 文件类型错误。文件名未以.so、.hap或.hsp结尾。
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
@@ -49,12 +46,10 @@ declare namespace appMemoryOptimizer {
    * 配置文件中evictFilePages数组里的文件名必须以 .so、.hap 或 .hsp 结尾。
    *
    * @param { Array<string> } moduleNames - 需要释放文件页缓存的模块名数组。
-   * @returns { Promise<void> } 无返回结果的Promise对象。
-   * @throws { BusinessError } 202 - 非系统应用。
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 16000163 - 文件类型错误。配置文件中evictFilePages数组中的文件名未以.so、.hap或.hsp 结尾。
    * @throws { BusinessError } 16000164 - 解析配置文件失败。
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */

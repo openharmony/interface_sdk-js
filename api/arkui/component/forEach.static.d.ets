@@ -1,3 +1,4 @@
+'use static';
 /*
  * Copyright (c) 2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -78,8 +79,9 @@ export interface ForEachAttribute extends DynamicNode {
    * @param { KeyGeneratorFunc<T> } [keyGenerator] - Key generator function.
    * @returns { this } ForEachAttribute instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @unpublished
    * @stagemodelonly
-   * @since 26.0.0 staticonly
+   * @since 26.1.0 staticonly
    */
   setForEachOptions<T>(arr: () => Array<T>,
         itemGenerator: ItemGeneratorFunc<T>,
@@ -89,8 +91,9 @@ export interface ForEachAttribute extends DynamicNode {
    * Notify ForEach has finished setting up its attributes.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @unpublished
    * @stagemodelonly
-   * @since 26.0.0 staticonly
+   * @since 26.1.0 staticonly
    */
   applyAttributesFinish(): void;
 }
@@ -120,8 +123,9 @@ export declare function ForEach<T = Any>(arr: Array<T>,
  * @param { CustomBuilderT<ForEachAttribute> } style - callback to set up ForEach's attributes.
  * @returns { ForEachAttribute } The attribute of ForEach.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @unpublished
  * @stagemodelonly
- * @since 26.0.0 staticonly
+ * @since 26.1.0 staticonly
  */
 @Builder
 export declare function ForEach(

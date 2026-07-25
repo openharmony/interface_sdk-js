@@ -25,16 +25,14 @@ import Want from './@ohos.app.ability.Want';
 /**
  * Plugin component template property.
  *
- * @interface PluginComponentTemplate
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  */
 export interface PluginComponentTemplate {
   /**
-   * Defines the source
+   * Defines the source.
    *
-   * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -42,9 +40,8 @@ export interface PluginComponentTemplate {
   source: string;
 
   /**
-   * Defines the ability
+   * Defines the ability.
    *
-   * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -55,16 +52,14 @@ export interface PluginComponentTemplate {
 /**
  * Plugin component manager interface.
  *
- * @namespace pluginComponentManager
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  */
 declare namespace pluginComponentManager {
   /**
-   * Defines KVObject
+   * Defines KVObject.
    *
-   * @typedef { Record<string, int | long | double | string | boolean | Array<KVObject> | KVObject> } KVObject
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -73,7 +68,6 @@ declare namespace pluginComponentManager {
   /**
    * Plugin component push parameters.
    *
-   * @interface PushParameters
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -82,58 +76,52 @@ declare namespace pluginComponentManager {
     /**
      * Defines want.
      *
-     * @type { Want }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
-     */    
+     */
     want: Want;
 
     /**
      * Defines name.
      *
-     * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
-     */ 
+     */
     name: string;
 
     /**
      * Defines data.
      *
-     * @type { KVObject }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
-     */ 
+     */
     data: KVObject;
 
     /**
      * Defines extraData.
      *
-     * @type { KVObject }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
-     */ 
+     */
     extraData: KVObject;
 
     /**
      * Defines jsonPath.
      *
-     * @type { ?string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
-     */ 
+     */
     jsonPath?: string;
   }
 
   /**
    * Plugin component push parameters which is used in push function.
    *
-   * @interface PushParameterForStage
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -143,74 +131,67 @@ declare namespace pluginComponentManager {
     /**
      * Defines owner.
      *
-     * @type { Want }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @stagemodelonly
      * @since 23 static
-     */  
+     */
     owner: Want;
 
     /**
      * Defines target.
      *
-     * @type { Want }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @stagemodelonly
      * @since 23 static
-     */  
+     */
     target: Want;
 
     /**
      * Defines name.
      *
-     * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @stagemodelonly
      * @since 23 static
-     */  
+     */
     name: string;
 
     /**
      * Defines data.
      *
-     * @type { KVObject }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @stagemodelonly
      * @since 23 static
-     */  
+     */
     data: KVObject;
 
     /**
      * Defines extraData.
      *
-     * @type { KVObject }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @stagemodelonly
      * @since 23 static
-     */  
+     */
     extraData: KVObject;
 
     /**
      * Defines jsonPath.
      *
-     * @type { ?string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @stagemodelonly
      * @since 23 static
-     */  
+     */
     jsonPath?: string;
   }
 
   /**
    * Plugin component request parameters.
    *
-   * @interface RequestParameters
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -219,48 +200,43 @@ declare namespace pluginComponentManager {
     /**
      * Defines want.
      *
-     * @type { Want }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
-     */  
+     */
     want: Want;
 
     /**
      * Defines name.
      *
-     * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
-     */  
+     */
     name: string;
 
     /**
      * Defines data.
      *
-     * @type { KVObject }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
-     */  
+     */
     data: KVObject;
 
     /**
      * Defines jsonPath.
      *
-     * @type { ?string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
-     */ 
+     */
     jsonPath?: string;
   }
 
   /**
    * Plugin component request parameters which is used in request function.
    *
-   * @interface RequestParameterForStage
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -270,62 +246,56 @@ declare namespace pluginComponentManager {
     /**
      * Defines owner.
      *
-     * @type { Want }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @stagemodelonly
      * @since 23 static
-     */    
+     */
     owner: Want;
 
     /**
      * Defines target.
      *
-     * @type { Want }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @stagemodelonly
      * @since 23 static
-     */  
+     */
     target: Want;
     /**
      * Defines name.
      *
-     * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @stagemodelonly
      * @since 23 static
-     */  
+     */
     name: string;
 
     /**
      * Defines data.
      *
-     * @type { KVObject }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @stagemodelonly
      * @since 23 static
-     */  
+     */
     data: KVObject;
 
     /**
      * Defines jsonPath.
      *
-     * @type { ?string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @stagemodelonly
      * @since 23 static
-     */  
+     */
     jsonPath?: string;
   }
 
   /**
    * Plugin component request callback parameters.
    *
-   * @interface RequestCallbackParameters
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -335,38 +305,34 @@ declare namespace pluginComponentManager {
     /**
      * Defines componentTemplate.
      *
-     * @type { PluginComponentTemplate }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
-     */ 
+     */
     componentTemplate: PluginComponentTemplate;
 
     /**
      * Defines data.
      *
-     * @type { KVObject }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
-     */ 
+     */
     data: KVObject;
 
     /**
      * Defines extraData.
      *
-     * @type { KVObject }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
-     */ 
+     */
     extraData: KVObject;
   }
 
   /**
    * Plugin component request event result value.
    *
-   * @interface RequestEventResult
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -375,38 +341,34 @@ declare namespace pluginComponentManager {
     /**
      * Defines template.
      *
-     * @type { ?string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
-     */ 
+     */
     template?: string;
 
     /**
      * Defines data.
      *
-     * @type { ?KVObject }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
-     */ 
+     */
     data?: KVObject;
 
     /**
      * Defines extraData.
      *
-     * @type { ?KVObject }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
-     */ 
+     */
     extraData?: KVObject;
   }
 
   /**
    * Plugin component push event callback.
    *
-   * @typedef { function } OnPushEventCallback
    * @param { Want } source - Push request sender's relevant information.
    * @param { PluginComponentTemplate } template - Request component template name.
    * @param { KVObject } data - data info.
@@ -421,7 +383,6 @@ declare namespace pluginComponentManager {
   /**
    * Plugin component request event callback.
    *
-   * @typedef { function } OnRequestEventCallback
    * @param { Want } source - Request the sender to provide relevant information.
    * @param { string } name - Template name.
    * @param { KVObject } data - data info.

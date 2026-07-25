@@ -2254,5 +2254,87 @@ declare namespace dlpPermission {
      * @since 26.0.0
      */
     function getControlledAppLists(): Promise<Array<string>>;
+
+    /**
+     * Enumerates command codes for the plugin of an enterprise security application.
+     * 
+     * @syscap SystemCapability.Security.DataLossPrevention
+     * @stagemodelonly
+     * @since 26.1.0
+     */
+    export enum PluginCmd {
+        /**
+         * Command for delivering the plugin file name.
+         * 
+         * @syscap SystemCapability.Security.DataLossPrevention
+         * @stagemodelonly
+         * @since 26.1.0
+         */
+        CMD_BASE_INSTALL_PLUGIN = 0x1001,
+
+        /**
+         * Command for delivering the plugin configuration file name.
+         * 
+         * @syscap SystemCapability.Security.DataLossPrevention
+         * @stagemodelonly
+         * @since 26.1.0
+         */
+        CMD_BASE_INSTALL_CONFIG_FILE = 0x1002,
+
+        /**
+         * Command for delivering the suffix filter file name.
+         * 
+         * @syscap SystemCapability.Security.DataLossPrevention
+         * @stagemodelonly
+         * @since 26.1.0
+         */
+        CMD_BASE_INSTALL_SUFFIX_FILTER_FILE = 0x1003,
+        
+        /**
+         * Command for uninstalling the plugin and removing all related files.
+         * 
+         * @syscap SystemCapability.Security.DataLossPrevention
+         * @stagemodelonly
+         * @since 26.1.0
+         */
+        CMD_BASE_UNINSTALL_PLUGIN = 0x1004,
+
+        /**
+         * Command for querying whether transparent encryption and decryption is enabled.
+         * 
+         * @syscap SystemCapability.Security.DataLossPrevention
+         * @stagemodelonly
+         * @since 26.1.0
+         */
+        CMD_BASE_QUERY_TRANSPARENT_CRYPTO_STATUS = 0x1005,
+
+        /**
+         * Command for delivering generic event data to the plugin.
+         * 
+         * @syscap SystemCapability.Security.DataLossPrevention
+         * @stagemodelonly
+         * @since 26.1.0
+         */
+        CMD_EVENT_REPORT_COMMON = 0x2001
+    }
+
+    /**
+     * Process the plugin-related commands in the transparent encryption and decryption scenario.
+     *
+     * @permission ohos.permission.DLP_POLICY_MANAGER
+     * @param { PluginCmd } code - Represents the command code for the plugin of an enterprise security application
+     * @param { string } message - Represents the messages associated with the given command
+     *     <br>The maximum length is 4096.
+     * @returns { Promise<string> } Promise used to return the result.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 19100001 - Invalid parameter value.
+     * @throws { BusinessError } 19100011 - The system ability works abnormally.
+     * @throws { BusinessError } 19100025 - The file is invalid.
+     * @syscap SystemCapability.Security.DataLossPrevention
+     * @stagemodelonly
+     * @since 26.1.0
+     */
+    function processPluginCommand(code: PluginCmd, message: string): Promise<string>;
 }
 export default dlpPermission;

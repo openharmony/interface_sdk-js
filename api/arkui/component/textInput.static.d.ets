@@ -2034,11 +2034,12 @@ export declare interface TextInputAttribute extends CommonMethod {
     /**
      * Set TextInput options.
      *
-     * @param { TextInputOptions } [value] - TextInput constructor options
+     * @param { TextInputOptions } [value] - TextInput constructor options.
      * @returns { TextInputAttribute } Returns the instance of the TextInputAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @unpublished
      * @stagemodelonly
-     * @since 26.0.0 staticonly
+     * @since 26.1.0 staticonly
      */
     default setTextInputOptions(value?: TextInputOptions): this;
 
@@ -2158,8 +2159,9 @@ export declare function TextInput(
  * @param { CustomBuilderT<TextInputAttribute> } style - TextInput attribute instance
  * @returns { TextInputAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @unpublished
  * @stagemodelonly
- * @since 26.0.0 staticonly
+ * @since 26.1.0 staticonly
  * @noninterop
  */
 @Builder

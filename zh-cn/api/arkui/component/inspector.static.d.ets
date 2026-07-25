@@ -19,13 +19,13 @@
  * @kit ArkUI
  */
 
+import { memo, ComponentBuilder } from './../stateManagement/runtime';
 import { AttributeModifier, CommonMethod } from './common';
 import { Callback } from '../../@ohos.base';
 
 /**
  * inspector的性能分析（Profiler）工具。
  *
- * @namespace Profiler
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @stagemodelonly
@@ -33,27 +33,28 @@ import { Callback } from '../../@ohos.base';
  * @test
  */
 export declare namespace Profiler {
-    /**
-     * 为profiler注册vsync回调。
-     * AnonyMous Object Rectification.
-     * @param { Callback<string> } callback - 回调信息为带有ui更新信息的json字符串。
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @systemapi
-     * @stagemodelonly
-     * @since 23 static
-     * @test
-     */
-    function registerVsyncCallback(callback: Callback<string>): void;
-    /**
-     * 注销vsync回调。
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @systemapi
-     * @stagemodelonly
-     * @since 23 static
-     * @test
-     */
-    function unregisterVsyncCallback(): void;
+  /**
+   * 为profiler注册vsync回调。
+   * AnonyMous Object Rectification.
+   *
+   * @param { Callback<string> } callback - 回调信息为带有ui更新信息的json字符串。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 static
+   * @test
+   */
+  function registerVsyncCallback(callback: Callback<string>): void;
+  /**
+   * 注销vsync回调。
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 static
+   * @test
+   */
+  function unregisterVsyncCallback(): void;
 }
 /**
  * 设置应用背景颜色。

@@ -30,7 +30,7 @@
  */
 declare enum SelectStatus {
   /**
-   * 群组多选择框全部选择。
+   * 群组多选框全部被选中。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -41,7 +41,7 @@ declare enum SelectStatus {
    */
   All,
   /**
-   * 群组多选择框部分选择。
+   * 群组多选框部分被选中。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -52,7 +52,7 @@ declare enum SelectStatus {
    */
   Part,
   /**
-   * 群组多选择框全部没有选择。
+   * 群组多选框全部未被选中。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -117,7 +117,7 @@ declare interface CheckboxGroupResult {
    */
   name: Array<string>;
   /**
-   * 选中状态。
+   * 群组多选框的选中状态。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -130,7 +130,7 @@ declare interface CheckboxGroupResult {
 }
 
 /**
- * 多选框群组，用于控制多选框全选或者不全选状态。
+ * 多选框群组，用于控制多选框全选或取消全选状态。适用于需要批量管理多个Checkbox选择状态的场景，如列表项批量选择、表单全选等，可简化用户操作，提升交互体验。
  * 
  * > **说明：**
  *
@@ -185,7 +185,7 @@ declare type OnCheckboxGroupChangeCallback = (value: CheckboxGroupResult) => voi
  */
 declare interface CheckBoxGroupConfiguration extends CommonConfiguration<CheckBoxGroupConfiguration> {
   /**
-   * 当前多选框群组名称。
+   * 当前多选框群组名称，用于标识和关联Checkbox与CheckboxGroup，与Checkbox的group属性值相同时属于同一群组。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -335,7 +335,7 @@ declare class CheckboxGroupAttribute extends CommonMethod<CheckboxGroupAttribute
   /**
    * 设置多选框内部图标样式。
    *
-   * @param { MarkStyle } value - 多选框内部图标样式。
+   * @param { MarkStyle } value - 多选框内部图标样式。<br/>异常值按照默认值处理。
    * @returns { CheckboxGroupAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -359,7 +359,7 @@ declare class CheckboxGroupAttribute extends CommonMethod<CheckboxGroupAttribute
   mark(style: Optional<MarkStyle>): CheckboxGroupAttribute;
 
   /**
-   * CheckboxGroup的选中状态或群组内的Checkbox的选中状态发生变化时，触发回调。
+   * CheckboxGroup的选中状态或群组内的Checkbox的选中状态发生变化时，触发回调。在与带有缓存功能的组件（如[List]{@link list}）配合使用时，需注意未创建的Checkbox的选中状态对回调结果的影响。
    *
    * @param { function } callback - 多选框群组的信息。 [since 8 - 17]
    * @param { OnCheckboxGroupChangeCallback } callback - 多选框群组的信息。 [since 18]
@@ -376,7 +376,7 @@ declare class CheckboxGroupAttribute extends CommonMethod<CheckboxGroupAttribute
   /**
    * CheckboxGroup的选中状态或群组内的Checkbox的选中状态发生变化时，触发回调。与
    * [onChange]{@link CheckboxGroupAttribute#onChange(callback: OnCheckboxGroupChangeCallback)}相比，callback参数新增了对
-   * undefined类型的支持。
+   * undefined类型的支持。在与带有缓存功能的组件（如[List]{@link list}）配合使用时，需注意未创建的Checkbox的选中状态对回调结果的影响。
    *
    * @param { Optional<OnCheckboxGroupChangeCallback> } callback - 多选框群组的信息。<br/>当callback的值为undefined时，不使用回调函数。
    * @returns { CheckboxGroupAttribute }
@@ -442,7 +442,7 @@ declare class CheckboxGroupAttribute extends CommonMethod<CheckboxGroupAttribute
 }
 
 /**
- * 多选框群组，用于控制多选框全选或者不全选状态。
+ * 多选框群组，用于控制多选框全选或取消全选状态。适用于需要批量管理多个Checkbox选择状态的场景，如列表项批量选择、表单全选等，可简化用户操作，提升交互体验。
  * 
  * > **说明：**
  * 

@@ -109,8 +109,9 @@ export declare interface LazyColumnLayoutAttribute extends CommonMethod {
      *
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @unpublished
      * @stagemodelonly
-     * @since 26.0.0 staticonly
+     * @since 26.1.0 staticonly
      */
     default setLazyColumnLayoutOptions(): this;
 
@@ -147,8 +148,9 @@ export declare function LazyColumnLayout(
  * @param { CustomBuilder } [content_] - content
  * @returns { LazyColumnLayoutAttribute } The attribute of the LazyColumnLayout.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @unpublished
  * @stagemodelonly
- * @since 26.0.0 staticonly
+ * @since 26.1.0 staticonly
  * @noninterop
  */
 @Builder

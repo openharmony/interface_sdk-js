@@ -1,4 +1,4 @@
-'use static'
+'use static';
 /*
  * Copyright (c) 2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -62,9 +62,10 @@ export declare class IndicatorComponentController {
    * Controlling IndicatorComponent to change to the specified subcomponent.
    *
    * @param { int | undefined } index - The index of item to be redirected, default value is 0.
-   *      undefined means set to default value.
-   * @param { boolean } [useAnimation] - If true, swipe to index item with animation. If false, swipe to index item without animation.
-   *      The default value is false.
+   *     undefined means set to default value.
+   * @param { boolean } [useAnimation] - If true, swipe to index item with animation.
+   *     If false, swipe to index item without animation.
+   *     The default value is false.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -75,11 +76,9 @@ export declare class IndicatorComponentController {
 /**
  * Defines the IndicatorComponent attribute functions.
  *
- * @extends CommonMethod
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
- * @noninterop
  */
 export declare interface IndicatorComponentAttribute extends CommonMethod {
   /**
@@ -155,10 +154,10 @@ export declare interface IndicatorComponentAttribute extends CommonMethod {
    * @returns { IndicatorComponentAttribute } Returns the instance of the IndicatorComponentAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 26.0.0 staticonly
+   * @since 26.1.0 staticonly
+   * @unpublished
    */
   default setIndicatorComponentOptions(controller?: IndicatorComponentController): this;
-
 }
 
 /**
@@ -174,7 +173,7 @@ export declare interface IndicatorComponentAttribute extends CommonMethod {
 @ComponentBuilder
 export declare function IndicatorComponent(
   controller?: IndicatorComponentController
-): IndicatorComponentAttribute
+): IndicatorComponentAttribute;
 
 /**
  * Defines IndicatorComponent Component
@@ -183,9 +182,10 @@ export declare function IndicatorComponent(
  * @returns { IndicatorComponentAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 26.0.0 staticonly
+ * @since 26.1.0 staticonly
+ * @unpublished
  */
 @Builder
 export declare function IndicatorComponent(
-  style_: CustomBuilderT<IndicatorComponentAttribute>,
+ style_: CustomBuilderT<IndicatorComponentAttribute>,
 ): IndicatorComponentAttribute;

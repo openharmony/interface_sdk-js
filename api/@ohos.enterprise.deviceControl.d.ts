@@ -32,10 +32,11 @@ import type Want from './@ohos.app.ability.Want';
  * > [MDM Kit Development](docroot://mdm/mdm-kit-guide.md).
  *
  * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+ * @systemapi [since 10 - 11]
+ * @publicapi [since 12]
  * @since 10
  */
 declare namespace deviceControl {
-
   /**
    * The operation to be performed.
    *
@@ -43,7 +44,7 @@ declare namespace deviceControl {
    * @stagemodelonly
    * @since 26.0.0
    */
-  enum Operation {  
+  enum Operation {
     /**
      * Disk erasure.
      *
@@ -51,7 +52,7 @@ declare namespace deviceControl {
      * @stagemodelonly
      * @since 26.0.0
      */
-    DISK_ERASURE = 0,
+    DISK_ERASURE = 0
   }
 
   /**

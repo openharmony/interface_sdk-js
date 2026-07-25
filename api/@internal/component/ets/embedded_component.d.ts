@@ -21,130 +21,127 @@
 /**
  * Enumeration of different types of EmbeddedDpiFollowStrategy.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @atomicservice
  * @since 26.0.0 dynamic
  */
 declare enum EmbeddedDpiFollowStrategy {
-    /**
-     * Followed the host DPI.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @atomicservice
-     * @since 26.0.0 dynamic
-     */
-    FOLLOW_HOST_DPI = 0,
+  /**
+   * Followed the host DPI.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  FOLLOW_HOST_DPI = 0,
 
-    /**
-     * Followed the EmbeddedUIExtensionAbility.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @atomicservice
-     * @since 26.0.0 dynamic
-     */
-    FOLLOW_UI_EXTENSION_ABILITY_DPI = 1,
+  /**
+   * Followed the EmbeddedUIExtensionAbility.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  FOLLOW_UI_EXTENSION_ABILITY_DPI = 1
 }
 
 /**
-* Enumeration of different types of EmbeddedWindowModeFollowStrategy.
-*
-* @enum { number }
-* @syscap SystemCapability.ArkUI.ArkUI.Full
-* @stagemodelonly
-* @atomicservice
-* @since 26.0.0 dynamic
-*/
-declare enum EmbeddedWindowModeFollowStrategy {
-    /**
-     * Followed the host Window Mode.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @atomicservice
-     * @since 26.0.0 dynamic
-     */
-    FOLLOW_HOST_WINDOW_MODE = 0,
-
-    /**
-     * Followed the EmbeddedUIExtensionAbility.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @atomicservice
-     * @since 26.0.0 dynamic
-     */
-    FOLLOW_UI_EXTENSION_ABILITY_WINDOW_MODE = 1,
-}
-
-/**
-* This interface is used to set the options for EmbeddedComponentAttribute during construction
-*
-* @interface EmbeddedOptions
-* @syscap SystemCapability.ArkUI.ArkUI.Full
-* @stagemodelonly
-* @atomicservice
-* @since 26.0.0 dynamic
-*/
-declare interface EmbeddedOptions {
-    /**
-     * Set placeholder.
-     * If set placeholder ComponentContent, show placeholder node when connection is not established.
-     *
-     * @type { ?ComponentContent }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @atomicservice
-     * @since 26.0.0 dynamic
-     */
-    placeholder?: ComponentContent;
-
-    /**
-     * Set Areachange placeholder.
-     * If the Areachange placeholder ComponentContent is set, the placeholder node is displayed until
-     * the EmbeddedComponent size change is complete.
-     *
-     * @type { ?Record<string, ComponentContent> }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @atomicservice
-     * @since 26.0.0 dynamic
-     */
-    areaChangePlaceholder?: Record<string, ComponentContent>;
-
-    /**
-     * Set EmbeddedComponent Content Dpi Follow Strategy.
-     *
-     * @type { ?EmbeddedDpiFollowStrategy }
-     * @default EmbeddedDpiFollowStrategy.FOLLOW_UI_EXTENSION_ABILITY_DPI
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @atomicservice
-     * @since 26.0.0 dynamic
-     */
-    dpiFollowStrategy?: EmbeddedDpiFollowStrategy;
-
-    /**
-     * Set EmbeddedComponent Content Window Mode Follow Strategy.
-     *
-     * @type { ?EmbeddedWindowModeFollowStrategy }
-     * @default EmbeddedWindowModeFollowStrategy.FOLLOW_UI_EXTENSION_ABILITY_WINDOW_MODE
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @atomicservice
-     * @since 26.0.0 dynamic
-     */
-    windowModeFollowStrategy?: EmbeddedWindowModeFollowStrategy;
-}
-
-/**
- * Provide an interface for the EmbeddedComponent, which is used
- * <br/>to render UI asynchronously
+ * Enumeration of different types of EmbeddedWindowModeFollowStrategy.
  *
- * @interface EmbeddedComponentInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+declare enum EmbeddedWindowModeFollowStrategy {
+  /**
+   * Followed the host Window Mode.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  FOLLOW_HOST_WINDOW_MODE = 0,
+
+  /**
+   * Followed the EmbeddedUIExtensionAbility.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  FOLLOW_UI_EXTENSION_ABILITY_WINDOW_MODE = 1
+}
+
+/**
+ * This interface is used to set the options for EmbeddedComponentAttribute during construction
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+declare interface EmbeddedOptions {
+  /**
+   * Set placeholder.
+   * If set placeholder ComponentContent, show placeholder node when connection is not established.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  placeholder?: ComponentContent;
+
+  /**
+   * Set Areachange placeholder.
+   * If the Areachange placeholder ComponentContent is set, the placeholder node is displayed until
+   * the EmbeddedComponent size change is complete.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  areaChangePlaceholder?: Record<string, ComponentContent>;
+
+  /**
+   * Set EmbeddedComponent Content Dpi Follow Strategy.
+   *
+   * @default EmbeddedDpiFollowStrategy.FOLLOW_UI_EXTENSION_ABILITY_DPI
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  dpiFollowStrategy?: EmbeddedDpiFollowStrategy;
+
+  /**
+   * Set EmbeddedComponent Content Window Mode Follow Strategy.
+   *
+   * @default EmbeddedWindowModeFollowStrategy.FOLLOW_UI_EXTENSION_ABILITY_WINDOW_MODE
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  windowModeFollowStrategy?: EmbeddedWindowModeFollowStrategy;
+}
+
+/**
+ * The **EmbeddedComponent** is a component used to embed into the current page the UI provided by another
+ * [EmbeddedUIExtensionAbility]{@link @ohos.app.ability.EmbeddedUIExtensionAbility:EmbeddedUIExtensionAbility} in the
+ * same application. The EmbeddedUIExtensionAbility runs in an independent process for UI layout and rendering.
+ *
+ * It is usually used in modular development scenarios where process isolation is required.
+ *
+ * > **NOTE**
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @atomicservice
@@ -153,46 +150,45 @@ declare interface EmbeddedOptions {
  */
 interface EmbeddedComponentInterface {
   /**
-   * Construct the EmbeddedComponent.<br/>
-   * Called when the EmbeddedComponent is used.
+   * Creates a cross-process embedded component to display the UI of the EmbeddedUIExtensionAbility with the same bundle
+   * name.
    *
-   * @param { import('../api/@ohos.app.ability.Want').default } loader - indicates initialization parameter
-   * @param { EmbeddedType } type - indicates type of the EmbeddedComponent
+   * @param { import('../api/@ohos.app.ability.Want').default } loader - EmbeddedUIExtensionAbility to load.
+   * @param { EmbeddedType } type - Type of the provider.
    * @returns { EmbeddedComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stageModelOnly
+   * @stagemodelonly
    * @atomicservice
    * @since 12 dynamic
    */
   (
-    loader: import('../api/@ohos.app.ability.Want').default,
-    type: EmbeddedType
-  ): EmbeddedComponentAttribute;
+  loader: import('../api/@ohos.app.ability.Want').default,
+  type: EmbeddedType
+): EmbeddedComponentAttribute;
 
   /**
    * Construct the EmbeddedComponent.<br/>
    * Called when the EmbeddedComponent is used.
    *
-   * @param { import('../api/@ohos.app.ability.Want').default } loader - indicates initialization parameter
-   * @param { EmbeddedType } type - indicates type of the EmbeddedComponent
-   * @param { EmbeddedOptions } options - construction configuration of EmbeddedComponent
+   * @param { import('../api/@ohos.app.ability.Want').default } loader - indicates initialization parameter.
+   * @param { EmbeddedType } type - indicates type of the EmbeddedComponent.
+   * @param { EmbeddedOptions } [options] - construction configuration of EmbeddedComponent.
    * @returns { EmbeddedComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stageModelOnly
+   * @stagemodelonly
    * @atomicservice
    * @since 26.0.0 dynamic
    */
   (
-    loader: import('../api/@ohos.app.ability.Want').default,
-    type: EmbeddedType,
-    options?: EmbeddedOptions
-  ): EmbeddedComponentAttribute;
+  loader: import('../api/@ohos.app.ability.Want').default,
+  type: EmbeddedType,
+  options?: EmbeddedOptions
+): EmbeddedComponentAttribute;
 }
 
 /**
- * Indicates the information when the provider of the embedded UI is terminated.
+ * Provides the result returned by the started **EmbeddedUIExtensionAbility**.
  *
- * @interface TerminationInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @atomicservice
@@ -200,32 +196,36 @@ interface EmbeddedComponentInterface {
  */
 declare interface TerminationInfo {
   /**
-   * Defines the termination code.
+   * Result code returned when the EmbeddedUIExtensionAbility exits. The result code is determined by the data passed
+   * when terminateSelfWithResult or terminateSelf is called.
    *
-   * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
    * @since 12 dynamic
    */
-   code: number;
+  code: number;
 
   /**
-   * Defines the additional termination information.
+   * Data returned when the EmbeddedUIExtensionAbility exits.
    *
-   * @type { ?import('../api/@ohos.app.ability.Want').default }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
    * @since 12 dynamic
    */
-   want?: import('../api/@ohos.app.ability.Want').default;
+  want?: import('../api/@ohos.app.ability.Want').default;
 }
 
 /**
- * Define the attribute functions of EmbeddedComponent.
+ * The [universal attributes]{@link ./common} are supported.
  *
- * @extends CommonMethod<EmbeddedComponentAttribute>
+ * Event information related to screen coordinates is converted based on the position, width, and height of the
+ * **EmbeddedComponent**, before being transferred to the EmbeddedUIExtensionAbility for processing.
+ *
+ * Universal events, such as the [click event]{@link ./common}, are not supported. Only the following events are
+ * supported.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @atomicservice
@@ -234,9 +234,17 @@ declare interface TerminationInfo {
  */
 declare class EmbeddedComponentAttribute extends CommonMethod<EmbeddedComponentAttribute> {
   /**
-   * Called when the provider of the embedded UI is terminated.
+   * Triggered when the the launched EmbeddedUIExtensionAbility exits normally by calling
+   * [terminateSelfWithResult]{@link @ohos.app.ability.UIExtensionContentSession:UIExtensionContentSession#terminateSelfWithResult(parameter: AbilityResult, callback: AsyncCallback<void>)}
+   * or
+   * [terminateSelf]{@link @ohos.app.ability.UIExtensionContentSession:UIExtensionContentSession#terminateSelf(callback: AsyncCallback<void>)}.
    *
-   * @param { import('../api/@ohos.base').Callback<TerminationInfo> } callback
+   * > **NOTE**
+   * >
+   * > This API cannot be called within [attributeModifier]{@link CommonMethod#attributeModifier}.
+   *
+   * @param { import('../api/@ohos.base').Callback<TerminationInfo> } callback - Callback used to return the result from
+   *     the EmbeddedUIExtensionAbility.
    * @returns { EmbeddedComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -246,9 +254,17 @@ declare class EmbeddedComponentAttribute extends CommonMethod<EmbeddedComponentA
   onTerminated(callback: import('../api/@ohos.base').Callback<TerminationInfo>): EmbeddedComponentAttribute;
 
   /**
-   * Called when some error occurred.
+   * Called when an error occurs during the running of the started EmbeddedUIExtensionAbility. Through the **code**,
+   * **name**, and **message** in the callback parameters, error information can be obtained and handled. For details
+   * about the error codes, see [UIExtension Error Codes](docroot://reference/apis-arkui/errorcode-uiextension.md).
    *
-   * @param { import('../api/@ohos.base').ErrorCallback } callback
+   * > **NOTE**
+   * >
+   * > This API cannot be called within [attributeModifier]{@link CommonMethod#attributeModifier}.
+   *
+   * @param { import('../api/@ohos.base').ErrorCallback } callback - Callback used to return the error information of
+   *     the [BusinessError]{@link @ohos.base:BusinessError} type. The error information can be obtained and processed
+   *     based on the **code**, **name**, and **message** parameters.
    * @returns { EmbeddedComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -271,7 +287,24 @@ declare class EmbeddedComponentAttribute extends CommonMethod<EmbeddedComponentA
 }
 
 /**
- * Defines EmbeddedComponent Component.
+ * The **EmbeddedComponent** is a component used to embed into the current page the UI provided by another
+ * [EmbeddedUIExtensionAbility]{@link @ohos.app.ability.EmbeddedUIExtensionAbility:EmbeddedUIExtensionAbility} in the
+ * same application. The EmbeddedUIExtensionAbility runs in an independent process for UI layout and rendering.
+ *
+ * It is usually used in modular development scenarios where process isolation is required.
+ *
+ * > **NOTE**
+ *
+ * ###### Constraints
+ *
+ * The **EmbeddedComponent** is supported only on devices configured with multi-process permissions.
+ *
+ * The **EmbeddedComponent** can be used only in the UIAbility, and the EmbeddedUIExtensionAbility to start must belong
+ * to the same application as the UIAbility.
+ *
+ * ###### Child Components
+ *
+ * Not supported
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly

@@ -45,8 +45,9 @@ export declare interface RowSplitAttribute extends CommonMethod {
      *
      * @returns { RowSplitAttribute } Returns the instance of the RowSplitAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @unpublished
      * @stagemodelonly
-     * @since 26.0.0 staticonly
+     * @since 26.1.0 staticonly
      */
     default setRowSplitOptions(): this;
     /**
@@ -82,11 +83,12 @@ export declare function RowSplit(
  * Defines RowSplit Component.
  *
  * @param { CustomBuilderT<RowSplitAttribute> } style - the callback to set up component's attributes.
- * @param { CustomBuilder } [content_] - container
+ * @param { CustomBuilder } [content_] - container.
  * @returns { RowSplitAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @unpublished
  * @stagemodelonly
- * @since 26.0.0 staticonly
+ * @since 26.1.0 staticonly
  * @noninterop
  */
 @Builder

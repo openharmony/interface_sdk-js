@@ -206,15 +206,7 @@
           "name": "Duration of the animation played for switching between child components."
         }
       ],
-      "type": "enum",
-      "options": [
-        {
-          "name": "true"
-        },
-        {
-          "name": "false"
-        }
-      ]
+      "type": "number"
     },
     {
       "name": "vertical",
