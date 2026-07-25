@@ -30,7 +30,7 @@ import type { RecordData } from './@ohos.base'
  * 系统事件来源于系统服务，是系统预先定义的事件，这类事件信息中的事件参数对象params包含的字段已由各系统事件定义，具体字段含义在各系统事件指南的介绍中，例如
  * [崩溃事件介绍](docroot://dfx/hiappevent-watcher-crash-events.md)。
  * 
- * 应用事件来源于应用，是应用开发者自己定义的事件，这类事件信息支持自定义后通过[Write]{@link hiAppEvent.write(info: AppEventInfo)}打点接口进行配置设定，具体字段含义可结合开发者需求展开。
+ * 应用事件来源于应用，是应用开发者自己定义的事件，这类事件信息支持自定义后通过[Write]{@link hiAppEvent.write}打点接口进行配置设定，具体字段含义可结合开发者需求展开。
  *
  * @syscap SystemCapability.HiviewDFX.HiAppEvent
  * @crossplatform [since 19]
@@ -50,7 +50,7 @@ declare namespace hiAppEvent {
    */
   enum EventType {
     /**
-     * 故障事件。
+     * 故障类型事件。
      *
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @crossplatform [since 19]
@@ -61,7 +61,7 @@ declare namespace hiAppEvent {
     FAULT = 1,
 
     /**
-     * 统计事件。
+     * 统计类型事件。
      *
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @crossplatform [since 19]
@@ -72,7 +72,7 @@ declare namespace hiAppEvent {
     STATISTIC = 2,
 
     /**
-     * 安全事件。
+     * 安全类型事件。
      *
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @crossplatform [since 19]
@@ -83,7 +83,7 @@ declare namespace hiAppEvent {
     SECURITY = 3,
 
     /**
-     * 行为事件。
+     * 行为类型事件。
      *
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @crossplatform [since 19]
@@ -491,7 +491,7 @@ declare namespace hiAppEvent {
     /**
      * 事件参数对象，包含每个事件参数的参数名和参数值。
      * **系统事件中params包含的字段已由各系统事件定义，具体字段含义在各类系统事件指南的介绍中，例如[崩溃事件介绍](docroot://dfx/hiappevent-watcher-crash-events.md)。** 针
-     * 对应用事件，[Write]{@link hiAppEvent.write(info: AppEventInfo)}打点写入的参数由开发者定义，其规格如下：
+     * 对应用事件，[Write]{@link hiAppEvent.write}打点写入的参数由开发者定义，其规格如下：
      * 
      * - 参数名为string类型，首字符必须为字母字符或`$`字符，中间字符必须为数字字符、字母字符或下划线字符，结尾字符必须为数字字符或字母字符，长度非空且不超过32个字符。如testName、$123_name等。
      * - 参数值支持string、number、boolean、数组类型。string类型参数长度需在8*1024个字符以内，超出后会和对应的参数名一同被丢弃；number类型参数取值需在
@@ -654,8 +654,13 @@ declare namespace hiAppEvent {
    * - APP_CRASH（参数配置详见[崩溃日志配置参数设置介绍](docroot://dfx/hiappevent-watcher-crash-events.md#自定义规格设置)）
    * - RESOURCE_OVERLIMIT（参数配置详见[资源泄漏事件检测](docroot://dfx/hiappevent-watcher-resourceleak-events.md#自定义规格设置)）
    *
+   * > **说明：**
+   * >
+   * > 从API版本26.0.0开始，configEventPolicy已支持本接口所有设置，推荐使用[configEventPolicy]{@link hiAppEvent.configEventPolicy}。
+   *
    * @param { string } name - 事件名称。
-   * @param { Record<string, ParamType> } config - 事件自定义参数对象。参数名和参数值规格定义如下：<br>- 参数名为string类型，要求非空，且参数名长度需在1024个字符以内。
+   * @param { Record<string, ParamType> } config - 事件自定义参数对象。参数名和参数值规格定义如下：
+   *     <br>- 参数名为string类型，要求非空，且参数名长度需在1024个字符以内。
    *     <br>- 参数值为ParamType类型，参数值长度需在1024个字符以内。
    * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -890,7 +895,7 @@ declare namespace hiAppEvent {
    */
   interface AppEventFilter {
     /**
-     * 需要订阅的事件领域。可以是系统事件领域（hiAppEvent.domain.OS）或开发者在使用[Write]{@link hiAppEvent.write(info: AppEventInfo)}接口时传入的
+     * 需要订阅的事件领域。可以是系统事件领域（hiAppEvent.domain.OS）或开发者在使用[Write]{@link hiAppEvent.write}接口时传入的
      * 自定义事件信息（[AppEventInfo]{@link hiAppEvent.AppEventInfo}）中的事件领域。
      *
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
@@ -1091,7 +1096,7 @@ declare namespace hiAppEvent {
    * 设置用户ID值。用于在配置[Processor]{@link hiAppEvent.Processor}数据处理者时进行关联。
    *
    * @param { string } name - 用户ID的key。只能包含大小写字母、数字、下划线和 $，不能以数字开头，长度非空且不超过256个字符。
-   * @param { string } value - 用户ID的值。长度不超过256，当值为null或空字符串时，则清除用户ID。
+   * @param { string } value - 用户ID的值。长度不超过256个字符，当值为null或空字符串时，则清除用户ID。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types.
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
@@ -1121,7 +1126,7 @@ declare namespace hiAppEvent {
    * 设置用户属性值。用于在配置[Processor]{@link hiAppEvent.Processor}数据处理者时进行关联。
    *
    * @param { string } name - 用户属性的key。只能包含大小写字母、数字、下划线和 $，不能以数字开头，长度非空且不超过256个字符。
-   * @param { string } value - 用户属性的值。长度不超过1024，当值为null或空字符串时，则清除用户属性。
+   * @param { string } value - 用户属性的值。长度不超过1024个字符，当值为null或空字符串时，则清除用户属性。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types.
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
@@ -1347,7 +1352,7 @@ declare namespace hiAppEvent {
      * - 参数值为string类型，参数值长度需在1024个字符以内。
      * - 参数个数需在32个以内。
      * 
-     * 元服务API： 从API version 12开始，该参数支持在元服务中使用。
+     * **原子化服务API：** 从API version 12开始，该参数支持在原子化服务中使用。
      *
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
@@ -1635,7 +1640,7 @@ declare namespace hiAppEvent {
      * 
      * 默认值：false。
      * 
-     * 26.0.0
+     * **起始版本**：26.0.0
      * 
      * **原子化服务API：** 从API版本26.0.0开始，该接口支持在原子化服务中使用。
      *
@@ -1649,7 +1654,7 @@ declare namespace hiAppEvent {
     /**
      * 设置崩溃日志截断大小。单位为byte，取值范围为[0, 5242880]。默认值取0，表示不截断崩溃日志。
      * 
-     * 26.0.0
+     * **起始版本**：26.0.0
      * 
      * **原子化服务API：** 从API版本26.0.0开始，该接口支持在原子化服务中使用。
      *
@@ -1669,7 +1674,7 @@ declare namespace hiAppEvent {
      * 
      * 默认值：false。
      * 
-     * 26.0.0
+     * **起始版本**：26.0.0
      * 
      * **原子化服务API：** 从API版本26.0.0开始，该接口支持在原子化服务中使用。
      *
@@ -1681,10 +1686,18 @@ declare namespace hiAppEvent {
     simplifyVmaPrinting?: boolean;
 
     /**
-     * APP_CRASH事件策略
-     * 值为true表示启用日志转储捕获功能。
-     * false表示关闭日志转储功能。
-     * <br>默认值：false。
+     * 是否使能[minidump](docroot://dfx/performance-analysis-kit-terminology.md#minidump)，默认值为false。
+     *
+     * true：[params字段说明](docroot://dfx/hiappevent-watcher-crash-events.md#params字段说明)中log_over_limit字段判断生成的与已存在的故障日志文件的大
+     * 小总和上限调整为35MB。
+     *
+     * false：log_over_limit字段判断生成的与已存在的故障日志文件的大小总和上限恢复为5MB。
+     *
+     * **说明**：该配置项为持久化配置，应用未重新设置前，值不变。
+     *
+     * **起始版本**：26.0.0
+     *
+     * **原子化服务API：** 从API版本26.0.0开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @FaAndStageModel
@@ -1762,7 +1775,7 @@ declare namespace hiAppEvent {
      * - 参数值为"event_rawheap"，无法确保成功生成堆快照文件。原因是生成堆快照时，应用可能因性能问题触发冻屏而提前退出。
      * - 应用每次使能行为只在应用当前生命周期生效，在同一生命周期内，以最后一次成功调用的使能状态为准。应用重启后，需要重新设置使能状态。
      * 
-     * 26.0.0
+     * **起始版本**：26.0.0
      * 
      * **原子化服务API：** 从API版本26.0.0开始，该接口支持在原子化服务中使用。
      *
@@ -1774,10 +1787,13 @@ declare namespace hiAppEvent {
     jsHeapLogtype?: string;
 
     /**
-     * 该参数用于控制是否输出精细化的external log日志文件名。
+     * 是否使能事件日志文件名精细化开关。
+     *
      * true：使能事件日志文件名精细化开关。
+     *
      * false：不使能事件日志文件名精细化开关。
-     * 默认值为false。
+     *
+     * 默认值：false。
      *
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @FaAndStageModel
