@@ -1203,26 +1203,6 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
   draggable(value: boolean): ImageAttribute;
 
   /**
-   * 设置位图图片边缘是否开启抗锯齿。未通过该接口设置时，默认不开启抗锯齿。SVG类型图片不支持该属性。
-   *
-   * > **说明：**
-   * >
-   * > 如果图片设置了背景色属性([backgroundColor]{@link CommonMethod#backgroundColor(value: ResourceColor)})，图片的抗锯齿属性设置为true不会影响背景色的
-   * > 锯齿效果。
-   * >
-   * > 和[resizable]{@link ImageAttribute#resizable}一起使用时，该属性不生效。
-   *
-   * @param { Optional<boolean> } isAntialiased - 设置位图图片边缘是否开启抗锯齿。<br/> true表示开启边缘抗锯齿；false表示不开启边缘抗锯齿。<br/>设置为undefined
-   *     时，不开启边缘抗锯齿。
-   * @returns { ImageAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 23 dynamic
-   */
-  antialiased(isAntialiased: Optional<boolean>): ImageAttribute;
-  /**
    * 设置点光源样式，用于为Image添加立体光照与高光效果，常见于3D风格卡片、图标悬浮态等场景。
    *
    * @param { PointLightStyle } value - 点光源样式。
@@ -1767,6 +1747,27 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @since 21 dynamic
    */
   contentTransition(transition: ContentTransitionEffect): ImageAttribute;
+
+  /**
+   * 设置位图图片边缘是否开启抗锯齿。未通过该接口设置时，默认不开启抗锯齿。SVG类型图片不支持该属性。
+   *
+   * > **说明：**
+   * >
+   * > 如果图片设置了背景色属性([backgroundColor]{@link CommonMethod#backgroundColor(value: ResourceColor)})，图片的抗锯齿属性设置为true不会影响背景色的
+   * > 锯齿效果。
+   * >
+   * > 和[resizable]{@link ImageAttribute#resizable}一起使用时，该属性不生效。
+   *
+   * @param { Optional<boolean> } isAntialiased - 设置位图图片边缘是否开启抗锯齿。<br/> true表示开启边缘抗锯齿；false表示不开启边缘抗锯齿。<br/>设置为undefined
+   *     时，不开启边缘抗锯齿。
+   * @returns { ImageAttribute }
+      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  antialiased(isAntialiased: Optional<boolean>): ImageAttribute;
 }
 
 /**
