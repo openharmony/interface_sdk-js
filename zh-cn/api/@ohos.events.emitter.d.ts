@@ -26,7 +26,30 @@ import { Callback, RecordData } from './@ohos.base';
 /*** endif */
 
 /**
- * 本模块提供了在同一进程不同线程间或同一线程内发送和处理事件的能力，支持持续订阅事件、单次订阅事件、取消订阅事件及发送事件到事件队列。
+ * 本模块提供进程内线程间或线程内事件的发送与处理能力。开发者可以使用本模块的 API，订阅事件（持续订阅或
+ * 单次订阅）、取消订阅事件，发送事件到事件队列中，以及查询事件的订阅数量，从而实现同一进程内不同线程之
+ * 间、以及同一线程内的事件通信。适用于跨线程通信、模块解耦、事件驱动等场景，能够帮助开发者实现轻量级
+ * 的发布-订阅模式，降低组件间的耦合度，提升代码的可维护性和可扩展性。
+ *
+ * 提供两种事件处理入口，开发者可根据隔离需求选择：
+ *
+ * - **命名空间级 API**（`emitter` 命名空间下的 `on`、`once`、`off`、`emit`、`getListenerCount` 等函
+ * 数）：提供进程内全局范围的事件订阅与发布能力。该入口基于全局事件队列工作，同进程内任意线程均可订阅和
+ * 发布事件，适用于跨线程事件通信。
+ * - **实例级 API**（`Emitter` 类）：提供同一 `Emitter` 实例范围内的事件订阅与发布能力。不同
+ * `Emitter` 实例之间相互隔离，开发者可创建多个独立的事件通信通道，适用于需要事件隔离或按实例分组的
+ * 场景。
+ *
+ * **API 组合使用关系说明：**
+ *
+ * 本模块的事件通信遵循"订阅 → 发布 → 处理 → 取消订阅"的组合调用模式。无论是命名空间级 API 还是实例
+ * 级 API，均需先订阅事件，再由其他线程或同一线程发布事件，收到事件后执行回调处理；当不再需要接收事件
+ * 时，应取消订阅以释放资源。同时，事件订阅具有明确的生命周期，开发者应注意资源管理：
+ * - **持续订阅**（`on`）：订阅后持续有效，直至调用 `off` 取消订阅。若未取消，订阅将一直保留。
+ * - **单次订阅**（`once`）：订阅后，仅在首次接收到事件并执行回调后自动取消，无需手动调用 `off`。
+ * - **取消订阅的时机**：调用 `off` 取消订阅后，已通过 `emit` 发布但尚未执行的事件也将被取消，不再
+ * 触发回调。同时需要注意，取消指定回调时，需传入对应的 `callback` 函数；若未指定，表示取消该事件的所有
+ * 订阅。
  *
  * @syscap SystemCapability.Notification.Emitter
  * @crossplatform [since 12]
@@ -38,7 +61,7 @@ declare namespace emitter {
   /**
    * 持续订阅指定的事件，并在接收到该事件时，执行对应的回调处理函数。
    *
-   * @param { InnerEvent } event - 持续订阅的事件，其中[EventPriority]{@link emitter.EventPriority}，在订阅事件时无需指定，也不生效。
+   * @param { InnerEvent } event - 持续订阅的事件，其中[EventPriority]{@link emitter.EventPriority}在订阅事件时无需指定，也不生效。
    * @param { Callback<EventData> } callback - 接收到该事件时需要执行的回调处理函数。
    * @syscap SystemCapability.Notification.Emitter
    * @crossplatform [since 12]
@@ -51,7 +74,8 @@ declare namespace emitter {
   /**
    * 持续订阅指定的事件，并在接收到该事件时，执行对应的回调处理函数。
    *
-   * @param { string } eventId - 持续订阅的事件。取值为长度不超过10240字节的自定义字符串，且不可为空字符。
+   * @param { string } eventId - 持续订阅的事件ID。
+   *     不可为空字符串，大小不超过10240字节，超出部分会被截断。
    * @param { Callback<EventData> } callback - 接收到该事件时需要执行的回调处理函数。
    * @syscap SystemCapability.Notification.Emitter
    * @crossplatform [since 12]
@@ -74,7 +98,8 @@ declare namespace emitter {
   /**
    * 持续订阅指定的事件，并在接收到该事件时，执行对应的回调处理函数。
    *
-   * @param { string } eventId - 持续订阅的事件。取值为长度不超过10240字节的自定义字符串，且不可为空字符。
+   * @param { string } eventId - 持续订阅的事件ID。
+   *     不可为空字符串，大小不超过10240字节，超出部分会被截断。
    * @param { Callback<GenericEventData<T>> } callback - 接收到该事件时需要执行的回调处理函数。
    * @syscap SystemCapability.Notification.Emitter
    * @crossplatform
@@ -95,9 +120,9 @@ declare namespace emitter {
   function onGenericEventData<T>(eventId: string, callback: Callback<GenericEventData<T>>): void;
 
   /**
-   * 单次订阅指定的事件，在接收到该事件且执行完对应的回调函数后，自动取消订阅。
+   * 单次订阅指定的事件，在接收到该事件且执行完对应的回调处理函数后，自动取消订阅。
    *
-   * @param { InnerEvent } event - 单次订阅的事件，其中[EventPriority]{@link emitter.EventPriority}，在订阅事件时无需指定，也不生效。
+   * @param { InnerEvent } event - 单次订阅的事件，其中[EventPriority]{@link emitter.EventPriority}在订阅事件时无需指定，也不生效。
    * @param { Callback<EventData> } callback - 接收到该事件时需要执行的回调处理函数。
    * @syscap SystemCapability.Notification.Emitter
    * @crossplatform [since 12]
@@ -108,9 +133,10 @@ declare namespace emitter {
   function once(event: InnerEvent, callback: Callback<EventData>): void;
 
   /**
-   * 单次订阅指定的事件，在接收到该事件且执行完对应的回调函数后，自动取消订阅。
+   * 单次订阅指定的事件，在接收到该事件且执行完对应的回调处理函数后，自动取消订阅。
    *
-   * @param { string } eventId - 单次订阅的事件。取值为长度不超过10240字节的自定义字符串，且不可为空字符。
+   * @param { string } eventId - 单次订阅的事件ID。
+   *     不可为空字符串，大小不超过10240字节，超出部分会被截断。
    * @param { Callback<EventData> } callback - 接收到该事件时需要执行的回调处理函数。
    * @syscap SystemCapability.Notification.Emitter
    * @crossplatform [since 12]
@@ -131,9 +157,10 @@ declare namespace emitter {
   function onceEventData(eventId: string, callback: Callback<EventData>): void;
 
   /**
-   * 单次订阅指定的事件，在接收到该事件且执行完相应的回调函数后，自动取消订阅。
+   * 单次订阅指定的事件，在接收到该事件且执行完对应的回调处理函数后，自动取消订阅。
    *
-   * @param { string } eventId - 单次订阅的事件。取值为长度不超过10240字节的自定义字符串，且不可为空字符。
+   * @param { string } eventId - 单次订阅的事件ID。
+   *     不可为空字符串，大小不超过10240字节，超出部分会被截断。
    * @param { Callback<GenericEventData<T>> } callback - 接收到该事件时需要执行的回调处理函数。
    * @syscap SystemCapability.Notification.Emitter
    * @crossplatform
@@ -158,7 +185,7 @@ declare namespace emitter {
    * 
    * 使用该接口取消某个事件订阅后，已通过[emit]{@link emitter.emit(eventId: string)}接口发布但尚未被执行的事件将被取消。
    *
-   * @param { long } eventId - 事件ID。
+   * @param { long } eventId - 事件ID，由开发者定义，用于辨别事件。
    * @syscap SystemCapability.Notification.Emitter
    * @crossplatform [since 12]
    * @atomicservice [since 11]
@@ -172,7 +199,8 @@ declare namespace emitter {
    * 
    * 使用该接口取消某个事件订阅后，已通过[emit]{@link emitter.emit(eventId: string)}接口发布但尚未被执行的事件将被取消。
    *
-   * @param { string } eventId - 事件ID。取值为长度不超过10240字节的自定义字符串，且不可为空字符。
+   * @param { string } eventId - 事件ID。
+   *     不可为空字符串，大小不超过10240字节，超出部分会被截断。
    * @syscap SystemCapability.Notification.Emitter
    * @crossplatform [since 12]
    * @atomicservice
@@ -187,8 +215,9 @@ declare namespace emitter {
    * 
    * 使用该接口取消某个事件订阅后，已通过[emit]{@link emitter.emit(eventId: string)}接口发布但尚未被执行的事件将被取消。
    *
-   * @param { long } eventId - 事件ID。
-   * @param { Callback<EventData> } callback - 事件的回调处理函数。
+   * @param { long } eventId - 事件ID，由开发者定义，用于辨别事件。
+   * @param { Callback<EventData> } callback - 回调函数，指定要取消订阅的事件处理函数，需与订阅时使用的
+   *     callback一致。
    * @syscap SystemCapability.Notification.Emitter
    * @crossplatform [since 12]
    * @atomicservice [since 11]
@@ -203,8 +232,10 @@ declare namespace emitter {
    * 
    * 使用该接口取消某个事件订阅后，已通过[emit]{@link emitter.emit(eventId: string)}接口发布但尚未被执行的事件将被取消。
    *
-   * @param { string } eventId - 事件ID。取值为长度不超过10240字节的自定义字符串，且不可为空字符。
-   * @param { Callback<EventData> } callback - 事件的回调处理函数。
+   * @param { string } eventId - 事件ID。
+   *     不可为空字符串，大小不超过10240字节，超出部分会被截断。
+   * @param { Callback<EventData> } callback - 回调函数，指定要取消订阅的事件处理函数，需与订阅时使用的
+   *     callback一致。
    * @syscap SystemCapability.Notification.Emitter
    * @crossplatform [since 12]
    * @atomicservice
@@ -234,8 +265,10 @@ declare namespace emitter {
    * 
    * 使用该接口取消某个事件订阅后，已通过[emit]{@link emitter.emit(eventId: string)}接口发布但尚未被执行的事件将被取消。
    *
-   * @param { string } eventId - 事件ID。取值为长度不超过10240字节的自定义字符串，且不可为空字符。
-   * @param { Callback<GenericEventData<T>> } callback - 事件的回调处理函数。
+   * @param { string } eventId - 事件ID。
+   *     不可为空字符串，大小不超过10240字节，超出部分会被截断。
+   * @param { Callback<GenericEventData<T>> } callback - 回调函数，指定要取消订阅的事件处理函数，需与订阅时使用的
+   *     callback一致。
    * @syscap SystemCapability.Notification.Emitter
    * @crossplatform
    * @atomicservice
@@ -286,7 +319,8 @@ declare namespace emitter {
    * 
    * 该接口发布某个事件后，不保证该事件立刻执行，执行时间取决于事件队列里面的事件数量以及各事件的执行效率。
    *
-   * @param { string } eventId - 发送的事件ID。取值为长度不超过10240字节的自定义字符串，且不可为空字符。
+   * @param { string } eventId - 发送的事件ID。
+   *     不可为空字符串，大小不超过10240字节，超出部分会被截断。
    * @param { EventData } [data] - 事件携带的数据，默认为空。
    * @syscap SystemCapability.Notification.Emitter
    * @crossplatform [since 12]
@@ -329,7 +363,8 @@ declare namespace emitter {
    * 
    * 该接口发布某个事件后，不保证该事件立刻执行，执行时间取决于事件队列里面的事件数量以及各事件的执行效率。
    *
-   * @param { string } eventId - 发送的事件ID。取值为长度不超过10240字节的自定义字符串，且不可为空字符。
+   * @param { string } eventId - 发送的事件ID。
+   *     不可为空字符串，大小不超过10240字节，超出部分会被截断。
    * @param { GenericEventData<T> } [data] - 事件携带的数据，默认为空。
    * @syscap SystemCapability.Notification.Emitter
    * @crossplatform
@@ -360,7 +395,8 @@ declare namespace emitter {
    * 
    * 该接口发布某个事件后，不保证该事件立刻执行，执行时间取决于事件队列里面的事件数量以及各事件的执行效率。
    *
-   * @param { string } eventId - 发送的事件ID。取值为长度不超过10240字节的自定义字符串，且不可为空字符。
+   * @param { string } eventId - 发送的事件ID。
+   *     不可为空字符串，大小不超过10240字节，超出部分会被截断。
    * @param { Options } options - 事件优先级。
    * @param { EventData } [data] - 事件携带的数据，默认为空。
    * @syscap SystemCapability.Notification.Emitter
@@ -406,7 +442,8 @@ declare namespace emitter {
    * 
    * 该接口发布某个事件后，不保证该事件立刻执行，执行时间取决于事件队列里面的事件数量以及各事件的执行效率。
    *
-   * @param { string } eventId - 发送的事件ID。取值为长度不超过10240字节的自定义字符串，且不可为空字符。
+   * @param { string } eventId - 发送的事件ID。
+   *     不可为空字符串，大小不超过10240字节，超出部分会被截断。
    * @param { Options } options - 事件优先级。
    * @param { GenericEventData<T> } [data] - 事件携带的数据，默认为空。
    * @syscap SystemCapability.Notification.Emitter
@@ -433,7 +470,8 @@ declare namespace emitter {
   /**
    * 获取指定事件的订阅数。
    *
-   * @param { long | string } eventId - 事件ID，string类型的eventId取值为长度不超过10240字节的自定义字符串，且不可为空字符。
+   * @param { long | string } eventId - 事件ID，由开发者定义，用于辨别事件。
+   *     string类型：不可为空字符串，大小不超过10240字节，超出部分会被截断。
    * @returns { long } 指定事件的订阅数。
    * @syscap SystemCapability.Notification.Emitter
    * @crossplatform [since 12]
@@ -455,7 +493,7 @@ declare namespace emitter {
   export interface EventData {
     /**
      * 发送事件时传递的数据，支持数据类型包括Array、ArrayBuffer、Boolean、DataView、Date、Error、Map、Number、Object、Primitive（除了symbol）、RegExp、Set
-     * 、String、TypedArray，数据大小最大为16M。
+     * 、String、TypedArray，数据大小最大为16MB，超出限制时事件发送失败。
      *
      * @syscap SystemCapability.Notification.Emitter
      * @crossplatform [since 12]
@@ -541,7 +579,7 @@ declare namespace emitter {
     HIGH,
 
     /**
-     * 表示事件优于IDLE优先级投递，事件的默认优先级是LOW。
+     * 表示事件先于IDLE优先级投递，事件的默认优先级是LOW。
      *
      * @syscap SystemCapability.Notification.Emitter
      * @crossplatform [since 12]
@@ -596,7 +634,7 @@ declare namespace emitter {
    */
   export interface GenericEventData<T> {
     /**
-     * 发送事件时传递的数据。T：泛型类型。
+     * 发送事件时传递的数据。T：泛型类型，由开发者根据业务需要自定义具体的数据类型。
      *
      * @syscap SystemCapability.Notification.Emitter
      * @crossplatform
@@ -616,7 +654,9 @@ declare namespace emitter {
   }
 
   /**
-   * 该功能支持在同一进程的同一Emitter类实例中，跨不同线程或同一线程内发送和处理事件。它能够实现持续订阅事件、单次订阅事件、取消订阅事件以及将事件发送到事件队列。
+   * 该功能支持在同一进程的同一Emitter类实例中，跨不同线程或同一线程内发送和处理事件。它能够实现持续订阅
+   * 事件、单次订阅事件、取消订阅事件以及将事件发送到事件队列，适用于需要基于独立实例进行线程间通信和
+   * 事件管理的场景，不同Emitter实例类之间相互隔离，互不影响。
    *
    * @syscap SystemCapability.Notification.Emitter
    * @atomicservice
@@ -638,7 +678,8 @@ declare namespace emitter {
     /**
      * 持续订阅当前Emitter类实例指定的事件，并在接收到该事件时，使用callback异步回调。
      *
-     * @param { string } eventId - 持续订阅的事件。取值为长度不超过10240字节的自定义字符串，且不可为空字符。
+     * @param { string } eventId - 持续订阅的事件ID。
+     *     不可为空字符串，大小不超过10240字节，超出部分会被截断。
      * @param { Callback<EventData> } callback - 回调函数，在接收到该事件时被调用。
      * @syscap SystemCapability.Notification.Emitter
      * @atomicservice
@@ -649,7 +690,8 @@ declare namespace emitter {
     /**
      * 持续订阅当前Emitter类实例指定的事件，并在接收到该事件时，使用callback异步回调。
      *
-     * @param { string } eventId - 持续订阅的事件。取值为长度不超过10240字节的自定义字符串，且不可为空字符。
+     * @param { string } eventId - 持续订阅的事件ID。
+     *     不可为空字符串，大小不超过10240字节，超出部分会被截断。
      * @param { Callback<GenericEventData<T>> } callback - 回调函数，在接收到该事件时被调用。
      * @syscap SystemCapability.Notification.Emitter
      * @atomicservice
@@ -658,9 +700,10 @@ declare namespace emitter {
     on<T>(eventId: string, callback: Callback<GenericEventData<T>>): void;
 
     /**
-     * 单次订阅当前Emitter类实例指定的事件，在接收到该事件且执行完对应的回调函数后，自动取消订阅。使用callback异步回调。
+     * 单次订阅当前Emitter类实例指定的事件，在接收到该事件且执行完对应的回调处理函数后，自动取消订阅。使用callback异步回调。
      *
-     * @param { string } eventId - 单次订阅的事件。取值为长度不超过10240字节的自定义字符串，且不可为空字符。
+     * @param { string } eventId - 单次订阅的事件ID。
+     *     不可为空字符串，大小不超过10240字节，超出部分会被截断。
      * @param { Callback<EventData> } callback - 回调函数，在接收到该事件时被调用。
      * @syscap SystemCapability.Notification.Emitter
      * @atomicservice
@@ -669,9 +712,10 @@ declare namespace emitter {
     once(eventId: string, callback: Callback<EventData>): void;
 
     /**
-     * 单次订阅当前Emitter类实例指定的事件，在接收到该事件且执行完相应的回调函数后，自动取消订阅。使用callback异步回调。
+     * 单次订阅当前Emitter类实例指定的事件，在接收到该事件且执行完对应的回调处理函数后，自动取消订阅。使用callback异步回调。
      *
-     * @param { string } eventId - 单次订阅的事件。取值为长度不超过10240字节的自定义字符串，且不可为空字符。
+     * @param { string } eventId - 单次订阅的事件ID。
+     *     不可为空字符串，大小不超过10240字节，超出部分会被截断。
      * @param { Callback<GenericEventData<T>> } callback - 回调函数，在接收到该事件时被调用。
      * @syscap SystemCapability.Notification.Emitter
      * @atomicservice
@@ -724,7 +768,8 @@ declare namespace emitter {
      *
      * 使用该接口取消某个事件订阅后，已通过[emit]{@link emitter.Emitter#emit(eventId: string, data?: EventData)}接口发布但尚未被执行的事件将被取消。
      *
-     * @param { string } eventId - 事件ID。取值为长度不超过10240字节的自定义字符串，且不可为空字符。
+     * @param { string } eventId - 事件ID。
+     *     不可为空字符串，大小不超过10240字节，超出部分会被截断。
      * @syscap SystemCapability.Notification.Emitter
      * @atomicservice
      * @since 22 dynamic
@@ -737,9 +782,10 @@ declare namespace emitter {
      * [once]{@link emitter.Emitter#once(eventId: string, callback: Callback<EventData>)}接口订阅了事件ID为eventId且回调处理函数为
      * callback的事件时，该接口才生效。
      *
-     * 使用该接口取消事件订阅后，已通过[emit]{@link emitter.Emitter#emit(eventId: string, data?: EventData)}接口发布但尚未执行的事件将被取消。
+     * 使用该接口取消事件订阅后，已通过[emit]{@link emitter.Emitter#emit(eventId: string, data?: EventData)}接口发布但尚未被执行的事件将被取消。
      *
-     * @param { string } eventId - 事件ID。取值为长度不超过10240字节的自定义字符串，且不可为空字符。
+     * @param { string } eventId - 事件ID。
+     *     不可为空字符串，大小不超过10240字节，超出部分会被截断。
      * @param { Callback<EventData> } callback - 回调函数，指定要取消订阅的事件处理函数。
      * @syscap SystemCapability.Notification.Emitter
      * @atomicservice
@@ -767,10 +813,10 @@ declare namespace emitter {
      * [once]{@link emitter.Emitter#once<T>(eventId: string, callback: Callback<GenericEventData<T>>)}接口订阅了事件ID为eventId且
      * 回调处理函数为callback的事件时，该接口才生效。
      *
-     * 使用该接口取消事件订阅后，已通过[emit]{@link emitter.Emitter#emit<T>(eventId: string, data?: GenericEventData<T>)}接口发布但尚未执行的事件将被取
-     * 消。
+     * 使用该接口取消事件订阅后，已通过[emit]{@link emitter.Emitter#emit<T>(eventId: string, data?: GenericEventData<T>)}接口发布但尚未被执行的事件将被取消。
      *
-     * @param { string } eventId - 事件ID。取值为长度不超过10240字节的自定义字符串，且不可为空字符。
+     * @param { string } eventId - 事件ID。
+     *     不可为空字符串，大小不超过10240字节，超出部分会被截断。
      * @param { Callback<GenericEventData<T>> } callback - 回调函数，指定要取消订阅的事件处理函数。
      * @syscap SystemCapability.Notification.Emitter
      * @atomicservice
@@ -801,7 +847,8 @@ declare namespace emitter {
      *
      * 该接口发布某个事件后，不保证该事件立刻执行，执行时间取决于事件队列里面的事件数量以及各事件的执行效率。
      *
-     * @param { string } eventId - 发送的事件ID。取值为长度不超过10240字节的自定义字符串，且不可为空字符。
+     * @param { string } eventId - 发送的事件ID。
+     *     不可为空字符串，大小不超过10240字节，超出部分会被截断。
      * @param { EventData } [data] - 事件携带的数据，默认为空。
      * @syscap SystemCapability.Notification.Emitter
      * @atomicservice
@@ -819,7 +866,8 @@ declare namespace emitter {
      *
      * 该接口发布某个事件后，不保证该事件立刻执行，执行时间取决于事件队列里面的事件数量以及各事件的执行效率。
      *
-     * @param { string } eventId - 发送的事件ID。取值为长度不超过10240字节的自定义字符串，且不可为空字符。
+     * @param { string } eventId - 发送的事件ID。
+     *     不可为空字符串，大小不超过10240字节，超出部分会被截断。
      * @param { GenericEventData<T> } [data] - 事件携带的数据，默认为空。
      * @syscap SystemCapability.Notification.Emitter
      * @atomicservice
@@ -829,7 +877,7 @@ declare namespace emitter {
     emit<T>(eventId: string, data?: GenericEventData<T>): void;
 
     /**
-     * 发送指定事件到当前Emitter类实例。
+     * 发送指定优先级事件到当前Emitter类实例。
      *
      * 该接口支持跨线程传输数据对象，需要遵循数据跨线程传输的规格约束，详见[线程间通信对象](docroot://arkts-utils/serializable-overview.md)。目前不支持使用
      * [@State装饰器](docroot://ui/state-management/arkts-state.md)、
@@ -837,7 +885,8 @@ declare namespace emitter {
      *
      * 该接口发布某个事件后，不保证该事件立刻执行，执行时间取决于事件队列里面的事件数量以及各事件的执行效率。
      *
-     * @param { string } eventId - 发送的事件ID。取值为长度不超过10240字节的自定义字符串，且不可为空字符。
+     * @param { string } eventId - 发送的事件ID。
+     *     不可为空字符串，大小不超过10240字节，超出部分会被截断。
      * @param { Options } options - 事件优先级。
      * @param { EventData } [data] - 事件携带的数据，默认为空。
      * @syscap SystemCapability.Notification.Emitter
@@ -856,7 +905,8 @@ declare namespace emitter {
      *
      * 该接口发布某个事件后，不保证该事件立刻执行，执行时间取决于事件队列里面的事件数量以及各事件的执行效率。
      *
-     * @param { string } eventId - 发送的事件ID。取值为长度不超过10240字节的自定义字符串，且不可为空字符。
+     * @param { string } eventId - 发送的事件ID。
+     *     不可为空字符串，大小不超过10240字节，超出部分会被截断。
      * @param { Options } options - 事件优先级。
      * @param { GenericEventData<T> } [data] - 事件携带的数据，默认为空。
      * @syscap SystemCapability.Notification.Emitter
@@ -869,7 +919,8 @@ declare namespace emitter {
     /**
      * 获取当前Emitter类实例指定事件的订阅数。
      *
-     * @param { string } eventId - 事件ID，取值为长度不超过10240字节的自定义字符串，且不可为空字符。
+     * @param { string } eventId - 事件ID。
+     *     不可为空字符串，大小不超过10240字节，超出部分会被截断。。
      * @returns { long } 指定事件的订阅数。
      * @syscap SystemCapability.Notification.Emitter
      * @atomicservice
