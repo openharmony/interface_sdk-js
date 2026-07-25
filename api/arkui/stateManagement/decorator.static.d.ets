@@ -1530,8 +1530,9 @@ export declare interface IStateMgmtFactory {
    * @param { IVariableOwner } owningView - custom component that owns the global pool.
    * @returns { IGlobalReusePoolVariable } global reuse pool handle.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @unpublished
    * @stagemodelonly
-   * @since 26.0.0 static
+   * @since 26.1.0 static
    */
   makeGlobalReusePool(reusePool: ReusePoolOwnership,
     poolAccepts: Class[], owningView: IVariableOwner): IGlobalReusePoolVariable;
