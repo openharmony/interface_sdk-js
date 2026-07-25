@@ -52,55 +52,39 @@ declare type SpringLoadingContext = import('../api/@ohos.arkui.dragController').
 declare type DragSpringLoadingConfiguration = import('../api/@ohos.arkui.dragController').default.DragSpringLoadingConfiguration;
 
 /**
- * Defines the options of Component ClassDecorator.
+ * 自定义组件参数，用于配置是否支持组件冻结和全局复用池，适用于需要优化自定义组件性能表现和提升组件复用效率的场景。
  *
- * @interface ComponentOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
  * @form
- * @since 11
- */
-/**
- * Defines the options of Component ClassDecorator.
- *
- * @interface ComponentOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @form
- * @atomicservice
- * @since 12 dynamic
+ * @atomicservice [since 12]
+ * @since 11 dynamic
  */
 declare interface ComponentOptions {
-
   /**
-   * freeze UI state.
+   * 配置自定义组件支持组件冻结。true：开启组件冻结，false：不开启组件冻结。当开发者未指定ComponentOptions时，freezeWhenInactive将使用false作为默认值。
+   * 
+   * 从API version 11开始，支持通过此参数配置[@Component](docroot://ui/state-management/arkts-create-custom-components.md#component)组
+   * 件冻结。示例可见[自定义组件冻结](docroot://ui/state-management/arkts-custom-components-freeze.md)。
+   * 
+   * 从API version 12开始，支持通过此参数配置
+   * [@ComponentV2](docroot://ui/state-management/arkts-create-custom-components.md#componentv2)组件冻结。示例可见
+   * [自定义组件冻结](docroot://ui/state-management/arkts-custom-components-freezeV2.md)。
    *
-   * @type { boolean }
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @form
-   * @since 11
-   */
-  /**
-   * freeze UI state.
-   *
-   * @type { boolean }
-   * @default false
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   freezeWhenInactive : boolean;
 
   /**
-   * 自定义组件的重用类型。
+   * 在自定义组件上配置全局复用池的类型，适用于应用中存在多个同类型可复用自定义组件、需要在组件实例间共享或隔离复用资源以提升复用效率的场景。如果不传入，则全局复用池不会生效。reusePool需与poolAccepts配合使用，
+   * reusePool参数被设置时，poolAccepts必须为非空数组，否则全局复用不生效。
    *
    * @default perInstance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -113,7 +97,8 @@ declare interface ComponentOptions {
   reusePool?: ReusePoolOwnership;
 
   /**
-   * 要重用的自定义组件集合。
+   * 指定全局复用池可以接纳（即允许被复用）的自定义组件名称列表。当reusePool参数被设置时，系统会根据poolAccepts中列出的组件名称，将匹配的可复用组件缓存到该全局复用池中供后续复用。reusePool参数被设置时，
+   * poolAccepts必须为非空数组，单独设置poolAccepts不会使全局复用生效。当poolAccepts和reusePool都没有赋值时，全局复用不生效。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -126,7 +111,7 @@ declare interface ComponentOptions {
 }
 
 /**
- * 定义自定义组件的重用类型。
+ * 全局复用池的持有类型。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -137,7 +122,7 @@ declare interface ComponentOptions {
 declare type ReusePoolOwnership = 'shared' | 'perInstance';
 
 /**
- * 定义内存优化策略的类型。
+ * 可复用自定义组件内存优化策略枚举。
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -148,7 +133,7 @@ declare type ReusePoolOwnership = 'shared' | 'perInstance';
 declare enum ReusableMemOptStrategy {
 
   /**
-   * 没有内存优化。
+   * 无内存优化策略。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -158,7 +143,18 @@ declare enum ReusableMemOptStrategy {
   DEFAULT = 0,
 
   /**
-   * CustomComponent负责内存优化。
+   * 自动内存优化策略。建议在需要降低可复用自定义组件内存使用量的场景下使用此策略。
+   * 
+   * 满足以下任一条件时，释放复用池内的所有该类型自定义组件：
+   * 
+   * - 应用退后台时。
+   * - 复用池所在组件不可见时（[visibility]{@link CommonMethod#visibility}属性设置为[Visible]{@link Visibility}以外的值，或组件面积为0，不考虑遮挡）。
+   * - 整机低内存时（[MemoryLevel]{@link @ohos.app.ability.AbilityConstant:AbilityConstant.MemoryLevel}达到MEMORY_LEVEL_LOW或
+   * MEMORY_LEVEL_CRITICAL）。
+   * 
+   * 当复用池中相同ReuseId的该类型自定义组件数量超过8，且5分钟内不再增加时，保留8个组件，释放其余组件。
+   * 
+   * 在释放节点时，会触发[自定义组件生命周期](docroot://ui/state-management/arkts-page-custom-components-lifecycle.md)。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -169,7 +165,7 @@ declare enum ReusableMemOptStrategy {
 }
 
 /**
- * 定义组件复用类装饰器的选项。
+ * 可复用自定义组件的参数，用于配置内存优化策略，适用于需要降低可复用自定义组件内存使用量的场景。
  *
  * @interface ReusableOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -178,9 +174,9 @@ declare enum ReusableMemOptStrategy {
  * @since 26.0.0 dynamic
  */
 declare interface ReusableOptions {
-
   /**
-   * CustomComponent重用的内存优化策略
+   * 可复用自定义组件的内存优化策略。该参数在创建可复用自定义组件时设定，不支持动态修改。传入[ENABLE_AUTO_CACHE_OPTIMIZATION]{@link ReusableMemOptStrategy}时可启用自动内存优
+   * 化，在应用退后台、组件不可见或整机低内存等场景下自动释放复用池中的组件；不传入时使用默认值[DEFAULT]{@link ReusableMemOptStrategy}（无内存优化策略）。
    *
    * @type { ?ReusableMemOptStrategy }
    * @default ReusableMemOptStrategy.DEFAULT
@@ -367,166 +363,92 @@ declare interface TextDecorationOptions {
 }
 
 /**
- * 定义组件类装饰器
+ * \@Component装饰器能装饰struct关键字声明的结构体。struct被\@Component装饰后具备组件化的能力，可实现UI的封装与复用，适用于构建可复用的自定义组件、拆分复杂界面等场景。
+ * 使用时需要实现build方法描述UI，一个struct只能被一个\@Component装饰。
+ * 
+ * 开发指南参考：[创建自定义组件](docroot://ui/state-management/arkts-create-custom-components.md)。
+ * 
+ * > **说明：**
+ * >
+ * > - 从API version 11开始，\@Component可以接受一个可选的[ComponentOptions]{@link ComponentOptions}类型参数。
+ * >
+ * > - 从API版本26.0.0开始，ComponentOptions中可以接受可选参数`reusePool`和`poolAccepts`，用于配置全局复用池，
+ * > 开发指南参考：[全局复用：集中化的组件回收与复用](docroot://ui/state-management/arkts-global-reuse-pool.md)。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @since 7
- */
-/**
- * 定义组件类装饰器
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @form
- * @since 9
- */
-/**
- * 定义组件类装饰器
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * 定义组件类装饰器
- *
- * Component is a ClassDecorator and it supports ComponentOptions as parameters.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
+ * @noninterop
  */
 declare const Component: ClassDecorator & ((options: ComponentOptions) => ClassDecorator);
 
 /**
- * 定义ComponentV2类装饰器
- * ComponentV2是一个ClassDecorator，它支持ComponentOptions作为参数。
+ * @ComponentV2主要配合状态管理V2使用，相比[\@Component](docroot://ui/state-management/arkts-create-custom-components.md#component)，
+ * @ComponentV2支持对象的深度观测和深度监听，装饰器易用性高、拓展性强，适用于需要深度观测嵌套对象状态的场景。除非特别说明，@ComponentV2装饰的自定义组件将与@Component装饰的自定义组件保持相同的行为。
+ *
+ * 开发指南参考：[\@ComponentV2](docroot://ui/state-management/arkts-create-custom-components.md#componentv2)。
+ *
+ * > **说明：**
+ * >
+ * > - 从API版本26.0.0开始，\@ComponentV2的[ComponentOptions]{@link ComponentOptions}参数支持
+ * > 可选属性`reusePool`和`poolAccepts`，用于配置全局复用池，
+ * > 开发指南参考：[全局复用：集中化的组件回收与复用](docroot://ui/state-management/arkts-global-reuse-pool.md)。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
+ * @form [since 23]
  * @atomicservice
  * @since 12 dynamic
- */
-/**
- * 定义ComponentV2类装饰器
- * ComponentV2是一个ClassDecorator，它支持ComponentOptions作为参数。
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @form
- * @atomicservice
- * @since 23 dynamic
+ * @noninterop
  */
 declare const ComponentV2: ClassDecorator & ((options: ComponentOptions) => ClassDecorator);
 
 /**
- * 定义Entry类装饰器的选项。
+ * 页面入口配置选项，用于在\@Entry装饰页面时配置路由名称、状态存储和共享存储等参数。
  *
- * @interface EntryOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
+ * @crossplatform [since 23]
  * @form
- * @since 10
- */
-/**
- * 定义Entry类装饰器的选项。
- *
- * @interface EntryOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @form
- * @atomicservice
- * @since 11 dynamic
- */
-/**
- * 定义Entry类装饰器的选项。
- *
- * @interface EntryOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @form
- * @atomicservice
- * @since 23 dynamic
+ * @atomicservice [since 11]
+ * @since 10 dynamic
  */
 declare interface EntryOptions {
-
   /**
-   * 命名路由名称。
+   * 表示作为命名路由页面的名称。当需要通过命名路由方式跳转到此页面时，需设置此参数作为路由名称。不传入时，该页面不会注册为命名路由页面，无法通过命名路由方式跳转访问，仅作为默认入口页面加载。
    *
-   * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform [since 23]
    * @form
-   * @since 10
-   */
-  /**
-   * 命名路由名称。
-   *
-   * @type { ?string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
-   */
-  /**
-   * 命名路由名称。
-   *
-   * @type { ?string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 23 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   routeName? : string;
 
   /**
-   * 要传递的LocalStorage。
+   * 页面级的UI状态存储。当需要在页面外部预先创建并管理UI状态、或需要将已有的LocalStorage实例绑定到此页面以实现状态共享时，传入此参数。当未传入时，框架会创建一个新的LocalStorage实例作为默认值。当
+   * useSharedStorage设置为true且storage已赋值时，useSharedStorage的值优先级更高。
    *
-   * @type { ?LocalStorage }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform [since 23]
    * @form
-   * @since 10
-   */
-  /**
-   * 要传递的LocalStorage。
-   *
-   * @type { ?LocalStorage }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
-   */
-  /**
-   * 要传递的LocalStorage。
-   *
-   * @type { ?LocalStorage }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 23 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   storage? : LocalStorage;
 
   /**
-   * Determines whether to use the LocalStorage instance object returned by the LocalStorage.getShared() interface.
+   * 是否使用
+   * [loadContent]{@link @ohos.window:window.WindowStage.loadContent(path: string, storage: LocalStorage, callback: AsyncCallback<void>)}
+   * 传入的LocalStorage实例。默认值false。true：使用共享的LocalStorage实例（前提条件：需确保loadContent接口已传入LocalStorage实例；若未传入，则创建新的LocalStorage实例
+   * ）。false：不使用共享的LocalStorage实例。当useSharedStorage设置为true且storage已赋值时，useSharedStorage的值优先级更高。
    *
-   * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -538,92 +460,46 @@ declare interface EntryOptions {
 }
 
 /**
- * 定义Entry类Decorator。
+ * \@Entry装饰的自定义组件将作为UI页面的入口，被框架识别为页面的根组件，适用于构建独立UI页面的场景。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @since 7
- */
-/**
- * 定义Entry类Decorator。
- *
- * Entry is a ClassDecorator and it supports LocalStorage as parameters.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @form
- * @since 9
- */
-/**
- * 定义Entry类Decorator。
- *
- * Entry is a ClassDecorator and it supports LocalStorage or EntryOptions as parameters.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * 定义Entry类Decorator。
- *
- * Entry is a ClassDecorator and it supports LocalStorage or EntryOptions as parameters.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
+ * @noninterop
  */
 declare const Entry: ClassDecorator & ((options?: LocalStorage | EntryOptions) => ClassDecorator);
 
 /**
- * 定义观察类装饰器。
+ * \@Observed是类装饰器，用于状态管理V1中，观察嵌套类对象的属性变化。
+ * 
+ * 开发指南参考：[\@Observed装饰器和\@ObjectLink装饰器：嵌套类对象属性变化](docroot://ui/state-management/arkts-observed-and-objectlink.md)。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @since 7
- */
-/**
- * 定义观察类装饰器。
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @form
- * @since 9
- */
-/**
- * 定义观察类装饰器。
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * 定义观察类装饰器。
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
+ * @noninterop
  */
 declare const Observed: ClassDecorator;
 
 /**
- * Defining ObservedV2 ClassDecorator.
+ * @ObservedV2是类装饰器，用于状态管理V2中。@ObservedV2与@Trace配套使用，装饰类以及类中的属性，使得被装饰的类和属性具有深度观测的能力。相较于状态管理V1的@Observed，
+ * @ObservedV2提供了更细粒度的属性级深度观测能力，适用于需要精确追踪嵌套对象属性变化并驱动UI更新的场景，能够有效提升状态管理的性能和灵活性。
+ *
+ * 开发指南参考：[\@ObservedV2装饰器和\@Trace装饰器：类属性变化观测](docroot://ui/state-management/arkts-new-observedV2-and-trace.md)。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
+ * @stagemodelonly
  * @crossplatform
  * @form
  * @atomicservice
  * @since 12 dynamic
+ * @noninterop
  */
 declare const ObservedV2: ClassDecorator;
 
@@ -632,39 +508,29 @@ declare const ObservedV2: ClassDecorator;
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @since 7
- */
-/**
- * 定义预览类装饰器。
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @form
- * @since 9
- */
-/**
- * 定义预览类装饰器。
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * 定义预览类装饰器。
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
+ * @noninterop
  */
 declare const Preview: ClassDecorator & ((value: PreviewParams) => ClassDecorator);
 
 /**
- * Defining Require PropertyDecorator.
+ * \@Require装饰器用于校验[\@Prop](docroot://ui/state-management/arkts-prop.md)、
+ * [\@State](docroot://ui/state-management/arkts-state.md)、
+ * [\@Provide](docroot://ui/state-management/arkts-provide-and-consume.md)、
+ * [\@BuilderParam](docroot://ui/state-management/arkts-builderparam.md)、
+ * [\@Param](docroot://ui/state-management/arkts-new-param.md)和普通变量（无状态装饰器装饰的变量）是否需要构造传参。
+ * 使用该装饰器装饰的变量，要求父组件在构造子组件时必须传入对应参数，否则在编译阶段报错，从而避免因参数缺失导致的运行时异常，适用于需要确保自定义组件必需参数被正确初始化的场景。
+ *
+ * 开发指南参考：[\@Require装饰器：校验构造传参](docroot://ui/state-management/arkts-require.md)。
+ *
+ * > **说明：**
+ * >
+ * > - 从API version 11开始对\@Prop/\@BuilderParam进行校验。
+ * >
+ * > - 从API version 12开始对\@State/\@Provide/\@Param/普通变量（无状态装饰器装饰的变量）进行校验。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -672,188 +538,128 @@ declare const Preview: ClassDecorator & ((value: PreviewParams) => ClassDecorato
  * @form
  * @atomicservice
  * @since 11 dynamic
+ * @noninterop
  */
 declare const Require: PropertyDecorator;
 
 /**
- * 定义BuilderParam属性装饰器
+ * \@BuilderParam用于装饰指向[@Builder]{@link Builder}函数的变量，使自定义组件能够接收外部传入的\@Builder函数，实现UI内容的自定义渲染。
+ * 适用于需要将父组件的UI构建逻辑传递给子组件、实现组件内容动态定制的场景。
+ * 
+ * 开发指南参考：[@BuilderParam装饰器：引用@Builder函数](docroot://ui/state-management/arkts-builderparam.md)。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @since 7
- */
-/**
- * 定义BuilderParam属性装饰器
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @form
- * @since 9
- */
-/**
- * 定义BuilderParam属性装饰器
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * 定义BuilderParam属性装饰器
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
+ * @noninterop
  */
 declare const BuilderParam: PropertyDecorator;
 
 /**
- * 定义@Local装饰器，用于表示自定义组件内部状态
+ * @Local用于状态管理V2中，表示组件内部的状态，使得自定义组件内部的变量具有观测能力。适用于需要在自定义组件内部维护和观测局部状态的场景（如计数器、开关状态等）。使用@Local可以简化组件内部状态管理逻辑，
+ * 当状态变化时自动触发UI刷新，无需手动管理。
+ *
+ * 开发指南参考：[@Local装饰器：组件内部状态](docroot://ui/state-management/arkts-new-local.md)。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
+ * @form [since 23]
  * @atomicservice
  * @since 12 dynamic
- */
-/**
- * 定义@Local装饰器，用于表示自定义组件内部状态
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @form
- * @atomicservice
- * @since 23 dynamic
+ * @noninterop
  */
 declare const Local: PropertyDecorator;
 
 /**
- * 定义@Param装饰器，用于接受外部参数的装饰器
+ * @Param在状态管理V2中用于接收外部输入，实现父子组件之间的单向数据同步。适用于父组件需要向子组件单向传递状态数据的场景，能够简化组件间通信，保证数据流向清晰。@Param装饰的变量不允许在组件内部直接修改，
+ * 如需子组件向父组件同步数据，请配合@Event使用。
+ * 
+ * 开发指南参考：[@Param：组件外部输入](docroot://ui/state-management/arkts-new-param.md)。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
+ * @form [since 23]
  * @atomicservice
  * @since 12 dynamic
- */
-/**
- * 定义@Param装饰器，用于接受外部参数的装饰器
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @form
- * @atomicservice
- * @since 23 dynamic
+ * @noninterop
  */
 declare const Param: PropertyDecorator;
 
 /**
- * 定义@Once装饰器，用于跟@Param一起使用
+ * @Once作为辅助装饰器，用于状态管理V2中，需要搭配[@Param](docroot://ui/state-management/arkts-new-param.md)使用，适用于仅从外部初始化一次且不接受后续同步变化的场景。
+ * 若未与@Param配合使用，@Once单独使用将编译报错。
+ *
+ * 开发指南参考：[@Once：初始化同步一次](docroot://ui/state-management/arkts-new-once.md)。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
+ * @form [since 23]
  * @atomicservice
  * @since 12 dynamic
- */
-/**
- * 定义@Once装饰器，用于跟@Param一起使用
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @form
- * @atomicservice
- * @since 23 dynamic
+ * @noninterop
  */
 declare const Once: PropertyDecorator;
 
 /**
- * 定义@Event装饰器，用于自定义组件的输出
+ * @Event装饰回调方法，用于状态管理V2中，作为自定义组件的输出。@Event通常与@Param配合使用，@Param负责由父组件向子组件传递数据，@Event负责定义子组件向父组件传递消息的回调接口，
+ * 适用于需要在子组件中触发父组件状态变更或事件处理的场景。
+ *
+ * 开发指南参考：[@Event：规范组件输出](docroot://ui/state-management/arkts-new-event.md)。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
+ * @form [since 23]
  * @atomicservice
  * @since 12 dynamic
- */
-/**
- * 定义@Event装饰器，用于自定义组件的输出
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @form
- * @atomicservice
- * @since 23 dynamic
+ * @noninterop
  */
 declare const Event: PropertyDecorator;
 
 /**
- * 定义StatePropertyDecorator。
+ * @State用于[状态管理V1](docroot://ui/state-management/arkts-state-management-overview.md#状态管理v1)，将自定义组件内的普通变量转变为状态变量，
+ * 当状态变量变化时，触发组件内UI重新渲染。适用于需要在组件内管理可变状态的场景。
+ *
+ * 开发指南参考：[@State装饰器：组件内状态](docroot://ui/state-management/arkts-state.md)。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @since 7
- */
-/**
- * 定义StatePropertyDecorator。
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @form
- * @since 9
- */
-/**
- * 定义StatePropertyDecorator。
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * 定义StatePropertyDecorator。
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
+ * @noninterop
  */
 declare const State: PropertyDecorator;
 
 /**
- * Defining Track PropertyDecorator.
+ * @Track用于状态管理V1中，通过装饰class对象的指定属性实现属性级精准观测。当被@Track装饰的属性发生变化时，系统仅更新依赖该属性的UI组件，从而减少不必要的UI重渲染。适用于class对象包含较多属性，
+ * 需要减少冗余UI刷新、优化渲染性能的场景。
+ *
+ * 开发指南参考：[@Track装饰器：class对象属性级更新](docroot://ui/state-management/arkts-track.md)。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
  * @form
- * @since 11
- */
-/**
- * Defining Track PropertyDecorator.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @form
- * @atomicservice
- * @since 12 dynamic
+ * @atomicservice [since 12]
+ * @since 11 dynamic
+ * @noninterop
  */
 declare const Track: PropertyDecorator;
 
 /**
- * Defining Trace PropertyDecorator.
+ * @Trace是属性装饰器，用于[状态管理V2](docroot://ui/state-management/arkts-state-management-overview.md#状态管理v2)中。
+ * [@ObservedV2]{@link ObservedV2}与@Trace配套使用，装饰类以及类中的属性，使被装饰的类和属性具有深度观测能力，即能够深度观测嵌套对象中属性值的变化，并触发UI自动刷新，
+ * 适用于需要精确观测和管理类属性变化状态的场景。
+ *
+ * 开发指南参考：[@ObservedV2装饰器和@Trace装饰器：类属性变化观测](docroot://ui/state-management/arkts-new-observedV2-and-trace.md)。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -861,121 +667,62 @@ declare const Track: PropertyDecorator;
  * @form
  * @atomicservice
  * @since 12 dynamic
+ * @noninterop
  */
 declare const Trace: PropertyDecorator;
 
 /**
- * 定义propPropertyDecorator。
+ * @Prop用于[状态管理V1](docroot://ui/state-management/arkts-state-management-overview.md#状态管理v1)，接收外部传入值，并与父组件建立单向同步关系。
+ * 当父组件中[@State]{@link State}等装饰的状态变量发生变化时，会同步更新到子组件中对应的@Prop变量，触发子组件重新渲染。@Prop采用单向数据流机制，子组件对@Prop变量的修改仅在子组件内部生效，
+ * 不会反向同步到父组件。适用于子组件需要响应父组件状态变化但不需要反向修改的场景。
+ *
+ * 开发指南参考：[@Prop装饰器：父子单向同步](docroot://ui/state-management/arkts-prop.md)。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @since 7
- */
-/**
- * 定义propPropertyDecorator。
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @form
- * @since 9
- */
-/**
- * 定义propPropertyDecorator。
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * 定义propPropertyDecorator。
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
+ * @noninterop
  */
 declare const Prop: PropertyDecorator;
 
 /**
- * 定义链接属性装饰器。
+ * @Link用于[状态管理V1](docroot://ui/state-management/arkts-state-management-overview.md#状态管理v1)，接收父组件传入的状态变量的引用，
+ * 建立父子组件间的双向数据绑定。适用于需要在子组件中直接修改父组件状态、简化父子组件通信的场景。
+ *
+ * 开发指南参考：[@Link装饰器：父子双向同步](docroot://ui/state-management/arkts-link.md)。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @since 7
- */
-/**
- * 定义链接属性装饰器。
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @form
- * @since 9
- */
-/**
- * 定义链接属性装饰器。
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * 定义链接属性装饰器。
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
+ * @noninterop
  */
 declare const Link: PropertyDecorator;
 
 /**
- * 定义ObjectLink属性装饰器。
+ * @ObjectLink用于状态管理V1中，接收\@Observed装饰的类的实例，并与父组件中的数据源建立双向数据绑定，适用于在子组件中独立观察并监听嵌套类属性并触发UI刷新的场景。
+ *
+ * 开发指南参考：[\@Observed装饰器和\@ObjectLink装饰器：嵌套类对象属性变化](docroot://ui/state-management/arkts-observed-and-objectlink.md)。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @since 7
- */
-/**
- * 定义ObjectLink属性装饰器。
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @form
- * @since 9
- */
-/**
- * 定义ObjectLink属性装饰器。
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * 定义ObjectLink属性装饰器。
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
+ * @noninterop
  */
 declare const ObjectLink: PropertyDecorator;
 
 /**
- * Defines the options of Provide PropertyDecorator.
+ * ProvideOptions是\@Provide的选项。允许在同一组件树上通过allowOverride重写同名的\@Provide，适用于子组件需要覆盖父组件同名\@Provide值的场景，提高了跨层级状态管理的灵活性。具体例子可见
+ * [\@Provide支持allowOverride参数](docroot://ui/state-management/arkts-provide-and-consume.md#provide支持allowoverride参数)。
  *
- * @interface ProvideOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -984,12 +731,11 @@ declare const ObjectLink: PropertyDecorator;
  * @since 11 dynamic
  */
 declare interface ProvideOptions {
-
   /**
-   * Override the @Provide of any parent or parent of parent @Component.@Provide({allowOverride: "name"}) is
-   * also allowed to be used even when there is no ancestor @Component whose @Provide would be overridden.
+   * 允许@Provide重写的别名。允许在同一组件树下通过allowOverride重写同名的@Provide。
+   * 
+   * 缺省时表示@Provide不允许重写。若在未设置allowOverride的情况下定义同名@Provide，运行时会报错。
    *
-   * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1001,64 +747,41 @@ declare interface ProvideOptions {
 }
 
 /**
- * 定义属性装饰器。
+ * \@Provide和[@Consume]{@link Consume}配套使用，
+ * 用于[状态管理V1](docroot://ui/state-management/arkts-state-management-overview.md#状态管理v1)，实现跨组件层级的双向同步，适用于需要跨越多层组件传递状态、
+ * 避免逐层传递的场景，能够解决组件层级较深时状态传递繁琐的问题。\@Provide装饰的变量作为数据源，通过别名或变量名与\@Consume装饰的变量建立双向绑定关系。
+ * 当\@Provide或\@Consume装饰的变量发生变化时，变化会自动同步到对方。
+ * 
+ * 开发指南参考：[@Provide装饰器和@Consume装饰器：与后代组件双向同步](docroot://ui/state-management/arkts-provide-and-consume.md)。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @since 7
- */
-/**
- * 定义属性装饰器。
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @form
- * @since 9
- */
-/**
- * 定义属性装饰器。
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * 定义属性装饰器。
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
+ * @noninterop
  */
 declare const Provide: PropertyDecorator & ((value: string | ProvideOptions) => PropertyDecorator);
 
 /**
- * 在定义提供者属性装饰器时，`aliasName` 是唯一的匹配键。如果 `aliasName` 是默认值，则默认属性名称将被视为 `aliasName`。
+ * @Provider和@Consumer搭配使用，用于状态管理V2中，实现跨组件层级的数据双向同步。@Provider装饰数据提供方，为子组件提供数据，适用于组件层级较深、需要跨多层组件共享状态且避免逐层传递数据的场景，
+ * 可简化状态管理流程，降低组件间的耦合度。
+ *
+ * 开发指南参考：[@Provider装饰器和@Consumer装饰器：跨组件层级双向同步](docroot://ui/state-management/arkts-new-provider-and-consumer.md)。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
+ * @form [since 23]
  * @atomicservice
  * @since 12 dynamic
- */
-/**
- * 在定义提供者属性装饰器时，`aliasName` 是唯一的匹配键。如果 `aliasName` 是默认值，则默认属性名称将被视为 `aliasName`。
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @form
- * @atomicservice
- * @since 23 dynamic
+ * @noninterop
  */
 declare const Provider: (aliasName?: string) => PropertyDecorator;
 
 /**
- * 定义System Env Key的类。
+ * 系统环境变量Key对应的类型。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1069,7 +792,7 @@ declare const Provider: (aliasName?: string) => PropertyDecorator;
 declare class SystemEnvKey<T> {
 
   /**
-   * 系统env key对应的类型。
+   * 系统环境变量Key对应值的数据类型，默认值为undefined。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1080,7 +803,7 @@ declare class SystemEnvKey<T> {
   private type?: T;
 
   /**
-   * 构造函数。
+   * 用于创建该类的实例对象。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1092,7 +815,7 @@ declare class SystemEnvKey<T> {
 }
 
 /**
- * 定义可写的系统环境变量键。
+ * 定义可写的系统环境变量Key，继承自[SystemEnvKey\<T\>]{@link SystemEnvKey}。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1103,7 +826,7 @@ declare class SystemEnvKey<T> {
 declare class WritableSystemEnvKey<T> extends SystemEnvKey<T> {}
 
 /**
- * 定义只读的系统环境变量键。
+ * 定义只读的系统环境变量Key，继承自[SystemEnvKey\<T\>]{@link SystemEnvKey}。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1114,7 +837,7 @@ declare class WritableSystemEnvKey<T> extends SystemEnvKey<T> {}
 declare class ReadonlySystemEnvKey<T> extends SystemEnvKey<T> {}
 
 /**
- * 定义自定义环境Key。
+ * 自定义环境变量的Key的类型。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1125,7 +848,7 @@ declare class ReadonlySystemEnvKey<T> extends SystemEnvKey<T> {}
 declare class CustomEnvKey<S> {
 
   /**
-   * 自定义env key对应的类型。
+   * 自定义环境变量Key的类型。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1136,9 +859,9 @@ declare class CustomEnvKey<S> {
   private type?: S;
 
   /**
-   * 创建自定义环境密钥
+   * 创建一个自定义环境变量Key，作为\@CustomEnv装饰器的参数。
    *
-   * @returns { 自定义EnvKey<T> } 自定义EnvKey
+   * @returns { CustomEnvKey<T> } 自定义环境变量Key，用于标识要获取的自定义环境变量。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1148,7 +871,7 @@ declare class CustomEnvKey<S> {
   static create<T>(): CustomEnvKey<T>;
 
   /**
-   * 构造函数。
+   * 用于创建该类的实例对象。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1160,7 +883,10 @@ declare class CustomEnvKey<S> {
 }
 
 /**
- * 定义系统环境键。
+ * 定义可写的系统环境变量Key集合，用于通过@Env装饰器获取对应的系统环境变量。可通过
+ * [WithEnv](docroot://reference/apis-arkui/arkui-ts/ts-container-with-env.md)中的
+ * [env](docroot://reference/apis-arkui/arkui-ts/ts-container-with-env.md#env)方法设置局部环境变量值以影响后代组件渲染，具体示例请参见
+ * [示例2（设置局部布局方向）](docroot://reference/apis-arkui/arkui-ts/ts-container-with-env.md#示例2设置局部布局方向)。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1171,7 +897,11 @@ declare class CustomEnvKey<S> {
 declare class WritableEnvKey {
 
   /**
-   * 定义系统环境键方向。
+   * [@Env](docroot://reference/apis-arkui/arkui-ts/ts-env-system-property.md#env)变量参数，通过@Env(WritableEnvKey.DIRECTION)可
+   * 获取[Direction]{@link Direction}枚举类型的值。
+   * 
+   * 当该装饰器声明在[@Component](docroot://ui/state-management/arkts-create-custom-components.md#component)或
+   * [@ComponentV2](docroot://ui/state-management/arkts-create-custom-components.md#componentv2)中时，用于获取窗口所在屏幕的布局方向。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1182,7 +912,11 @@ declare class WritableEnvKey {
   static readonly DIRECTION: WritableSystemEnvKey<Direction>;
 
   /**
-   * 定义系统环境键fontScale。
+   * [@Env](docroot://reference/apis-arkui/arkui-ts/ts-env-system-property.md#env)变量参数，通过@Env(WritableEnvKey.FONT_SCALE)
+   * 可获取number类型的值，取值无上限，小于等于0的值按0处理。
+   * 
+   * 当该装饰器声明在[@Component](docroot://ui/state-management/arkts-create-custom-components.md#component)或
+   * [@ComponentV2](docroot://ui/state-management/arkts-create-custom-components.md#componentv2)中时，用于为后代组件提供局部字体缩放倍数。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1282,12 +1016,13 @@ declare class ReadonlyEnvKey {
    */
   static readonly WINDOW_IS_HIGHLIGHTED: ReadonlySystemEnvKey<boolean>;
 }
-
 /**
- * 定义自定义环境PropertyDecorator。
+ * 用于获取自定义环境变量。
+ * 
+ * 开发者指南见：[\@CustomEnv开发者指南](docroot://ui/arkts-custom-env-property.md)。
  *
- * @param { CustomEnvKey<T> } key - 自定义环境密钥
- * @returns { PropertyDecorator } CustomEnv装饰器
+ * @param { CustomEnvKey<T> } key - 自定义环境变量Key，用于标识要获取的自定义环境变量。
+ * @returns { PropertyDecorator } 属性装饰器，开发者无需关注该返回值。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -1297,11 +1032,10 @@ declare class ReadonlyEnvKey {
 declare function CustomEnv<T>(key: CustomEnvKey<T>): PropertyDecorator;
 
 /**
- * 定义Env装饰器类型
+ * 定义EnvDecorator属性装饰器类型。
  *
- * @typedef { function } EnvDecorator
- * @param { SystemProperties } value - 用户输入的环境变量key值
- * @returns { PropertyDecorator } Env装饰器
+ * @param { SystemProperties } value - 环境变量属性名，用于指定要获取的系统环境变量。
+ * @returns { PropertyDecorator } 属性装饰器，开发者无需关注该返回值。
  * @throws { BusinessError } 140000 - Invalid key for @Env
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1415,211 +1149,129 @@ declare enum SystemProperties {
 }
 
 /**
- * 定义消费属性装饰器。
+ * [@Provide]{@link Provide}和\@Consume配套使用，
+ * 用于[状态管理V1](docroot://ui/state-management/arkts-state-management-overview.md#状态管理v1)，实现跨组件层级的双向同步，
+ * 适用于需要在多层嵌套组件间共享状态的场景，能够避免逐层传递的繁琐，简化组件间的通信逻辑。\@Consume装饰的变量作为数据消费方，通过别名或变量名与\@Provide装饰的变量建立双向绑定关系。
+ * 当\@Provide或\@Consume装饰的变量发生变化时，变化会自动同步到对方。匹配规则：优先使用别名匹配，若未设置别名则使用变量名匹配。
+ *
+ * 开发指南参考：[@Provide装饰器和@Consume装饰器：与后代组件双向同步](docroot://ui/state-management/arkts-provide-and-consume.md)。
+ *
+ * > **说明：**
+ * >
+ * > 从API version 20开始，@Consume装饰的变量支持设置默认值。当查找不到@Provide的匹配结果时，@Consume装饰的变量会使用默认值进行初始化；当查找到@Provide的匹配结果时，
+ * > @Consume装饰的变量会优先使用@Provide匹配结果的值，默认值不生效。
+ * >
+ * > 从API version 20开始，支持跨BuilderNode配对@Provide/@Consume。在BuilderNode场景下，BuilderNode会在上树前构造节点，
+ * > 所以BuilderNode内部定义的@Consume需要设置默认值，并在BuilderNode上树后，重新获取最近的@Provide数据，与之建立双向同步关系。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @since 7
- */
-/**
- * Defining Consume PropertyDecorator.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @form
- * @since 9
- */
-/**
- * Defining Consume PropertyDecorator.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Defining Consume PropertyDecorator.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
+ * @noninterop
  */
 declare const Consume: PropertyDecorator & ((value: string) => PropertyDecorator);
 
 /**
- * 定义消费者属性装饰器时，`aliasName` 是唯一的匹配键。如果 `aliasName` 是默认值，则默认属性名称将被视为 `aliasName`。
- * 此外，`@Consumer` 会找到最近的 `@Provider`。
+ * [@Provider]{@link Provider}和@Consumer搭配使用，
+ * 用于[状态管理V2](docroot://ui/state-management/arkts-state-management-overview.md#状态管理v2)中，实现跨组件层级的数据双向同步。
+ * @Consumer装饰数据消费方，从数据源获取数据，适用于多层嵌套组件间需要共享和同步状态的场景，可避免通过多层组件逐级传递数据的繁琐操作，简化跨组件层级状态管理。如果@Consumer在组件树中未找到别名匹配的@Provider，
+ * 将使用自身初始值，不进行数据同步。
+ *
+ * 开发指南参考：[@Provider装饰器和@Consumer装饰器：跨组件层级双向同步](docroot://ui/state-management/arkts-new-provider-and-consumer.md)。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
+ * @form [since 23]
  * @atomicservice
  * @since 12 dynamic
- */
-/**
- * 定义消费者属性装饰器时，`aliasName` 是唯一的匹配键。如果 `aliasName` 是默认值，则默认属性名称将被视为 `aliasName`。
- * 此外，`@Consumer` 会找到最近的 `@Provider`。
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @form
- * @atomicservice
- * @since 23 dynamic
+ * @noninterop
  */
 declare const Consumer: (aliasName?: string) => PropertyDecorator;
 
 /**
- * 定义@Computed装饰器，用于减少重复计算
+ * @Computed为方法装饰器，用于状态管理V2中，装饰getter方法，使其变为计算属性，其返回值会被缓存，仅当依赖的源数据发生变化时才重新计算，减少重复计算带来的开销。
+ *
+ * 开发指南参考：[@Computed装饰器：计算属性](docroot://ui/state-management/arkts-new-computed.md)。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
+ * @form [since 23]
  * @atomicservice
  * @since 12 dynamic
- */
-/**
- * 定义@Computed装饰器，用于减少重复计算
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @form
- * @atomicservice
- * @since 23 dynamic
+ * @noninterop
  */
 declare const Computed: MethodDecorator;
 
 /**
- * 定义StorageProp属性装饰器。
+ * @StorageProp用于状态管理V1中，与AppStorage中对应的属性建立单向数据同步。AppStorage中对应属性的变化会同步到@StorageProp装饰的变量，
+ * 但仅修改@StorageProp装饰的变量不会同步回AppStorage。适用于需要跨页面、跨Ability感知AppStorage全局状态变化且仅保持单向数据流的场景，可避免不必要的数据回写。
+ *
+ * 开发指南参考：[AppStorage：应用全局的UI状态存储](docroot://ui/state-management/arkts-appstorage.md)。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @since 7
- */
-/**
- * 定义StorageProp属性装饰器。
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @since 10
- */
-/**
- * 定义StorageProp属性装饰器。
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
+ * @noninterop
  */
 declare const StorageProp: (value: string) => PropertyDecorator;
 
 /**
- * 定义StorageLink属性装饰器。
+ * @StorageLink是状态管理V1的装饰器，用于与AppStorage中指定键名的属性建立双向数据同步：当@StorageLink装饰的变量发生变化时，变更会同步到AppStorage中该键名对应的属性；
+ * 当AppStorage中该键名对应的属性发生变化时，变更也会同步回@StorageLink装饰的变量。适用于需要跨页面、跨Ability共享AppStorage全局状态并与AppStorage保持双向数据同步的场景，
+ * 可避免逐层传递状态数据，保证数据一致性。
+ *
+ * 开发指南参考：[AppStorage：应用全局的UI状态存储](docroot://ui/state-management/arkts-appstorage.md)。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @since 7
- */
-/**
- * 定义StorageLink属性装饰器。
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @since 10
- */
-/**
- * 定义StorageLink属性装饰器。
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
+ * @noninterop
  */
 declare const StorageLink: (value: string) => PropertyDecorator;
 
 /**
- * 定义Watch PropertyDecorator。
+ * @Watch装饰器用于状态管理V1中，监听状态变量的变化，并在变量变化时触发指定回调函数。适用于状态变量变化时需要自动执行联动逻辑、数据同步或计算衍生值的场景。
+ *
+ * 开发指南参考：[@Watch装饰器：状态变量更改通知](docroot://ui/state-management/arkts-watch.md)。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @since 7
- */
-/**
- * 定义Watch PropertyDecorator。
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @form
- * @since 9
- */
-/**
- * 定义Watch PropertyDecorator。
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * 定义Watch PropertyDecorator。
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
+ * @noninterop
  */
 declare const Watch: (value: string) => PropertyDecorator;
 
 /**
- * 定义生成器方法装饰器
+ * \@Builder装饰的函数也称为“自定义构建函数”，用于封装可复用的UI构建逻辑，可在自定义组件中多次调用，从而减少代码重复、提升UI构建的可维护性，适用于需要复用相同UI结构的场景。
+ *
+ * 开发指南参考：[@Builder装饰器：自定义构建函数](docroot://ui/state-management/arkts-builder.md)。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @since 7
- */
-/**
- * 定义生成器方法装饰器
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @form
- * @since 9
- */
-/**
- * 定义生成器方法装饰器
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * 定义生成器方法装饰器
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
+ * @noninterop
  */
 declare const Builder: MethodDecorator;
 
 /**
- * Defining LocalBuilder MethodDecorator
+ * `@LocalBuilder`拥有和局部[`@Builder`]{@link Builder}相同的功能，且比局部`@Builder`能够更好地确定组件的父子关系和状态管理的父子关系。
+ * 适用于需要在自定义构建函数中维持组件父子关系，并保持状态管理同步的场景。
+ * 开发指南参考：[`@LocalBuilder`装饰器：维持组件关系](docroot://ui/state-management/arkts-localBuilder.md)。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1627,78 +1279,37 @@ declare const Builder: MethodDecorator;
  * @form
  * @atomicservice
  * @since 12 dynamic
+ * @noninterop
  */
 declare const LocalBuilder: MethodDecorator;
 
 /**
- * 定义样式方法装饰器
+ * \@Styles装饰器用于将多条样式设置提炼为一个方法，在组件声明处直接调用，实现自定义样式的定义与复用。适用于多个组件需要共享相同样式、减少重复代码、提升样式一致性维护效率的场景。
+ *
+ * 开发指南参考：[\@Styles装饰器：定义组件重用样式](docroot://ui/state-management/arkts-style.md)。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @since 8
- */
-/**
- * 定义样式方法装饰器
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @form
- * @since 9
- */
-/**
- * 定义样式方法装饰器
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * 定义样式方法装饰器
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 8 dynamic
+ * @noninterop
  */
 declare const Styles: MethodDecorator;
 
 /**
- * 定义扩展方法装饰器
+ * \@Extend装饰器用于扩展指定组件的样式，支持在装饰的函数中统一定义多个样式属性，并可通过参数传递实现样式的灵活复用，适用于需要将相同样式应用到多个组件、减少样式代码重复的场景。
+ *
+ * 开发指南参考：[\@Extend装饰器：定义扩展组件样式（ArkTS-Dyn）](docroot://ui/state-management/arkts-extend.md)。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @since 7
- */
-/**
- * 定义扩展方法装饰器
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @form
- * @since 9
- */
-/**
- * 定义扩展方法装饰器
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * 定义扩展方法装饰器
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
+ * @noninterop
  */
 declare const Extend: MethodDecorator & ((value: any) => MethodDecorator);
 
@@ -1715,74 +1326,44 @@ declare const Extend: MethodDecorator & ((value: any) => MethodDecorator);
 declare const AnimatableExtend: MethodDecorator & ((value: Object) => MethodDecorator);
 
 /**
- * 定义@Monitor装饰器，用于监听V2的状态变量的变化
+ * @Monitor装饰器在状态管理V2中用于监听状态变量修改，使得状态变量支持深度监听。适用于需要在状态变量或其嵌套属性发生变化时执行自定义逻辑（如数据同步、UI刷新、日志记录等）的场景。相比状态管理V1的@Watch，
+ * @Monitor支持深度监听嵌套对象属性的变化，并从API版本26.0.0开始支持通配符能力，可更灵活地匹配状态变量路径。
+ *
+ * 开发指南参考：[@Monitor装饰器：状态变量修改异步监听](docroot://ui/state-management/arkts-new-monitor.md)。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
+ * @form [since 23]
  * @atomicservice
  * @since 12 dynamic
- */
-/**
- * 定义@Monitor装饰器，用于监听V2的状态变量的变化
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @form
- * @atomicservice
- * @since 23 dynamic
+ * @noninterop
  */
 declare const Monitor: MonitorDecorator;
 
 /**
- * 定义@Monitor的装饰器类型
+ * @Monitor装饰器的实际类型。
  *
- * @typedef { function } MonitorDecorator
- * @param { string } value - Monitored path input by the user
- * @param { string[] } args - 用户输入的监控路径
- * @returns { MethodDecorator } 监视器装饰器
+ * @param { string } value - Monitored path input by the user [since 12 - 24]
+ * @param { string[] } args - 用于监听的状态变量名路径数组，路径以点号（.）分隔表示嵌套属性（如'a.b.c'），内容由开发者指定。
+ *     当开发者已使用MonitorDecoratorOptions或传入多个字符串时，入参为该类型。不传该参数时默认为空，当value为string类型时，仅监听value参数指定的状态变量路径；
+ *     当value为MonitorDecoratorOptions类型时，需通过该参数指定监听的状态变量路径。传入undefined时，对应的监听不生效。
+ * @param { string | MonitorDecoratorOptions } value - 从API版本26.0.0开始，该参数也可以为MonitorDecoratorOptions类型的对象，
+ *     用于配置通配符能力。 [since 26.0.0]
+ * @returns { MethodDecorator } 方法装饰器，开发者无需关注该返回值。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
+ * @form [since 23]
  * @atomicservice
  * @since 12 dynamic
- */
-/**
- * 定义@Monitor的装饰器类型
- *
- * @typedef { function } MonitorDecorator
- * @param { string } value - Monitored path input by the user
- * @param { string[] } args - 用户输入的监控路径
- * @returns { MethodDecorator } 监视器装饰器
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @form
- * @atomicservice
- * @since 23 dynamic
- */
-/**
- * Defines Monitor Decorator type
- *
- * @typedef { function } MonitorDecorator
- * @param { string | MonitorDecoratorOptions } value - 由用户或配置选项输入的监视路径。
- * @param { string[] } args - 用户输入的监控路径
- * @returns { MethodDecorator } 监视器装饰器
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @form
- * @atomicservice
- * @since 26.0.0 dynamic
  * @noninterop
  */
 declare type MonitorDecorator = (value: string | MonitorDecoratorOptions, ...args: string[]) => MethodDecorator;
 
 /**
- * 定义MonitorDecoratorOptions接口
+ * @Monitor装饰器的配置选项。
  *
- * @interface MonitorDecoratorOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -1791,13 +1372,9 @@ declare type MonitorDecorator = (value: string | MonitorDecoratorOptions, ...arg
  * @since 26.0.0 dynamic
  */
 declare interface MonitorDecoratorOptions {
-
   /**
-   * 启用通配符功能。
-   * 设置为true可启用通配符功能，设置为false可禁用通配符功能。
-   * <br>默认值为true。
+   * 是否支持通配符能力。true：使能通配符能力，路径中可使用通配符（'*'）进行模糊监听；false：关闭通配符能力。默认值为true。
    *
-   * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1809,184 +1386,104 @@ declare interface MonitorDecoratorOptions {
 }
 
 /**
- * 定义IMonitor接口
+ * 当监听的状态变量变化时，状态管理框架侧将回调开发者注册的函数，并传入变化信息。变化信息的类型为IMonitor。
  *
- * @interface IMonitor
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
+ * @form [since 23]
  * @atomicservice
  * @since 12 dynamic
  */
-/**
- * 定义IMonitor接口
- *
- * @interface IMonitor
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @form
- * @atomicservice
- * @since 23 dynamic
- */
 declare interface IMonitor {
-
   /**
-   * 变化的状态变量路径数组集合
+   * 被监听的状态变量中发生变化的属性路径数组，路径格式与@Monitor装饰器指定的状态变量名路径一致，支持点号分隔的嵌套属性路径（如'a.b.c'）。从API版本26.0.0开始，当通配符能力开启时，该数组中可能包含通配符路径，
+   * 通过[value]{@link IMonitor#value}()方法查询通配符路径将返回undefined。
    *
-   * @type { Array<string> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
+   * @form [since 23]
    * @atomicservice
    * @since 12 dynamic
-   */
-  /**
-   * 变化的状态变量路径数组集合
-   *
-   * @type { Array<string> }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 23 dynamic
    */
   dirty: Array<string>;
 
   /**
-   * 返回给定路径上最近一次更改前的值与当前值的对应关系。
-   * 如果路径不存在，则返回未定义；如果未指定路径，则返回 `dirty` 中第一个路径对应的值对。
+   * 获取指定path的变化信息。
    *
-   * @param { string } [path]
-   * @returns { IMonitorValue<T> | undefined }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @param { string } [path] - 被监听的状态变量路径名。未指定时默认使用变化路径数组dirty中的第一个路径。从API版本26.0.0开始，默认使用dirty中第一个非通配符路径。
+   *     当指定路径为通配符路径时，返回undefined。
+   * @returns { IMonitorValue<T> | undefined } @Monitor监听状态变量的路径以及变化前后值信息。
+   *     <br>T为监听状态变量的类型。
+   *     <br>当监听的路径不存在时，返回undefined。
+   *     <br>API版本26.0.0之前，当未指定路径时，默认返回变化路径数组dirty中第一个路径对应的信息。
+   *     <br>从API版本26.0.0开始，当未指定路径时，默认返回变化路径数组dirty中第一个非通配符路径对应的信息。
+   *     <br>当指定路径为通配符路径时，返回undefined。
+   *     <br>当未指定路径，且变化路径数组dirty中所有路径均为通配符路径时，返回undefined。
    * @stagemodelonly
    * @crossplatform
+   * @form [since 23]
    * @atomicservice
    * @since 12 dynamic
-   */
-  /**
-   * Return the pair of the value before the most recent change and current value for given path.
-   * If path does not exist, return undefined; If path is not specified, return the value pair
-   * corresponding to the first path in dirty.
-   *
-   * @param { string } [path]
-   * @returns { IMonitorValue<T> | undefined }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 23 dynamic
    */
   value<T>(path?: string): IMonitorValue<T> | undefined;
 }
 
 /**
- * 定义IMonitorValue的接口
+ * @Monitor监听状态变量变化的具体信息，通过IMonitor的value接口获取。T为状态变量类型。
  *
- * @interface IMonitorValue<T>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
+ * @form [since 23]
  * @atomicservice
  * @since 12 dynamic
  */
-/**
- * 定义IMonitorValue的接口
- *
- * @interface IMonitorValue<T>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @form
- * @atomicservice
- * @since 23 dynamic
- */
 declare interface IMonitorValue<T> {
-
   /**
-   * 获取之前的值
+   * 状态变量变化前的值。
    *
-   * @type { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
+   * @form [since 23]
    * @atomicservice
    * @since 12 dynamic
-   */
-  /**
-   * 获取之前的值
-   *
-   * @type { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 23 dynamic
    */
   before: T;
 
   /**
-   * 获取当前的值
+   * 状态变量当前的值。
    *
-   * @type { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
+   * @form [since 23]
    * @atomicservice
    * @since 12 dynamic
-   */
-  /**
-   * 获取当前的值
-   *
-   * @type { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 23 dynamic
    */
   now: T;
 
   /**
-   * 监听状态变量路径
+   * 状态变量的路径。
    *
-   * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
+   * @form [since 23]
    * @atomicservice
    * @since 12 dynamic
-   */
-  /**
-   * 监听状态变量路径
-   *
-   * @type { string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 23 dynamic
    */
   path: string;
 }
 
 /**
- * 定义 SyncMonitor 方法装饰器。装饰器的路径参数与 Monitor 中定义的相同。
- * 该函数装饰器在功能上等同于启用了 isSynchronous 选项的 UIUtils.addMonitor API。
- * SyncMonitor 必须至少包含一个路径项，多个路径项之间用逗号分隔。
- * 路径项可以是被观察的属性名称，也可以是数组项的索引。SyncMonitor 中的路径
- * 支持在路径项末尾使用通配符，但路径项绝不能出现在路径的开头或中间。
- * 使用一个或多个通配符的其他所有路径都是无效的。
+ * @SyncMonitor用于[状态管理V2](docroot://ui/state-management/arkts-state-management-overview.md#状态管理v2)，同步监听状态变量修改，
+ * 使得状态变量支持深度监听。适用于需要精确监听对象嵌套属性变化、数组元素修改等深层状态变化的场景，解决了传统监听方式无法感知深层属性变化的问题，提升状态管理的精确性和开发效率。
  *
- * 被 @SyncMonitor 装饰的函数可以在 @ObservedV2 对象和 @ComponentV2 中使用。
+ * 开发指南参考：[@SyncMonitor装饰器：状态变量修改同步监听](docroot://ui/state-management/arkts-new-syncmonitor.md)。
  *
- * @type { MonitorDecorator }
  * @throws { BusinessError } 130001 - The path is invalid.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -2123,57 +1620,33 @@ declare const Sendable: ClassDecorator;
 declare const CustomDialog: ClassDecorator;
 
 /**
- * 定义LocalStorageLink属性装饰器。
+ * @LocalStorageLink在状态管理V1中使用，用于与LocalStorage中指定键名对应的属性建立双向数据同步：@LocalStorageLink装饰的变量与LocalStorage中对应属性任一方发生变化时，
+ * 变更均会同步到另一方。适用于需要在多个组件间共享UI状态并与LocalStorage保持数据实时同步的场景，可避免逐层传递数据，保证跨组件数据一致性。
+ *
+ * 开发指南参考：[LocalStorage：页面级UI状态存储](docroot://ui/state-management/arkts-localstorage.md)。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @since 9
- */
-/**
- * 定义LocalStorageLink属性装饰器。
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @since 10
- */
-/**
- * 定义LocalStorageLink属性装饰器。
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 9 dynamic
+ * @noninterop
  */
 declare const LocalStorageLink: (value: string) => PropertyDecorator;
 
 /**
- * 定义LocalStorageProp属性装饰器
+ * @LocalStorageProp在状态管理V1中使用，用于与LocalStorage中指定键名对应的属性建立单向数据同步：LocalStorage中对应属性值的变更会同步到@LocalStorageProp装饰的变量，
+ * 但仅修改@LocalStorageProp装饰的变量不会同步回LocalStorage。适用于需要在多个组件间共享LocalStorage且仅保持单向数据流的场景，可避免不必要的数据回写。
+ *
+ * 开发指南参考：[LocalStorage：页面级UI状态存储](docroot://ui/state-management/arkts-localstorage.md)。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
+ * @crossplatform [since 10]
  * @form
- * @since 9
- */
-/**
- * 定义LocalStorageProp属性装饰器
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * 定义LocalStorageProp属性装饰器
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @atomicservice [since 11]
+ * @since 9 dynamic
+ * @noninterop
  */
 declare const LocalStorageProp: (value: string) => PropertyDecorator;
 
@@ -2238,32 +1711,19 @@ declare function getContext(component?: Object): Context;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @since 10
- */
-/**
- * 定义组件复用的类装饰器。
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @atomicservice [since 11]
+ * @since 10 dynamic
  * @noninterop
- */
-/**
- * 定义组件复用的类装饰器。
- *
- * Reusable is a ClassDecorator and it supports ReusableOptions as a parameters.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 26.0.0 dynamic
  */
 declare const Reusable: ClassDecorator & ((options: ReusableOptions) => ClassDecorator);
 
 /**
+ * 为了降低反复创建销毁自定义组件带来的性能开销，开发者可以使用\@ReusableV2装饰[\@ComponentV2]{@link ComponentV2}装饰的自定义组件，达成组件复用的效果，
+ * 适用于列表滚动、频繁切换组件显示/隐藏等需要反复创建和销毁组件的场景，支持通过参数配置内存优化策略。
+ * 
+ * 开发指南参考：[\@ReusableV2装饰器：组件复用](docroot://ui/state-management/arkts-new-reusableV2.md)。
+ * 
+ * 组件复用的原理与适用场景参考：[组件复用最佳实践](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-component-reuse)。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -2272,24 +1732,13 @@ declare const Reusable: ClassDecorator & ((options: ReusableOptions) => ClassDec
  * @since 18 dynamic
  * @noninterop
  */
-/**
- *
- * ReusableV2 is a ClassDecorator and it supports ReusableOptions as a parameters.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 26.0.0 dynamic
- */
 declare const ReusableV2: ClassDecorator & ((options: ReusableOptions) => ClassDecorator);
 
 /**
  * ReuseId callback type. It is used to compute reuseId.
  *
- * @typedef { function } ReuseIdCallback
  * @returns { string }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
  * @atomicservice
@@ -2300,7 +1749,6 @@ declare type ReuseIdCallback = () => string;
 /**
  * Defining the reusable configuration parameters.
  *
- * @interface ReuseOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -2308,11 +1756,9 @@ declare type ReuseIdCallback = () => string;
  * @since 18 dynamic
  */
 declare interface ReuseOptions {
-
   /**
    * Defining reuseId function. The default reuseId is the custom component name.
    *
-   * @type { ?ReuseIdCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2321,33 +1767,14 @@ declare interface ReuseOptions {
    */
   reuseId? : ReuseIdCallback;
 }
-
 /**
  * Get context.
  *
- * @typedef { import('../api/application/Context').default } Context
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @StageModelOnly
- * @since 9
- */
-/**
- * Get context.
- *
- * @typedef { import('../api/application/Context').default } Context
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @StageModelOnly
- * @crossplatform
- * @since 10
- */
-/**
- * Get context.
- *
- * @typedef { import('../api/application/Context').default } Context
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @StageModelOnly
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 9 dynamic
  */
 declare type Context = import('../api/application/Context').default;
 
@@ -7221,206 +6648,112 @@ declare class TransitionEffect<
 /**
  * Define Preview property
  *
- * @interface PreviewParams
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
+ * @crossplatform [since 11]
  * @form
- * @since 9
- */
-/**
- * Define Preview property
- *
- * @interface PreviewParams
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @atomicservice [since 11]
+ * @since 9 dynamic
  */
 interface PreviewParams {
-
   /**
    * Define Preview title
    *
-   * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform [since 11]
    * @form
-   * @since 9
-   */
-  /**
-   * Define Preview title
-   *
-   * @type { ?string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   title?: string;
 
   /**
    * Define Preview width
    *
-   * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform [since 11]
    * @form
-   * @since 9
-   */
-  /**
-   * Define Preview width
-   *
-   * @type { ?number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   width?: number;
 
   /**
    * Define Preview height
    *
-   * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform [since 11]
    * @form
-   * @since 9
-   */
-  /**
-   * Define Preview height
-   *
-   * @type { ?number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   height?: number;
 
   /**
    * Define Preview locale
    *
-   * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform [since 11]
    * @form
-   * @since 9
-   */
-  /**
-   * Define Preview locale
-   *
-   * @type { ?string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   locale?: string;
 
   /**
    * Define Preview colorMode
    *
-   * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform [since 11]
    * @form
-   * @since 9
-   */
-  /**
-   * Define Preview colorMode
-   *
-   * @type { ?string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   colorMode?: string;
 
   /**
    * 定义预览设备类型
    *
-   * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
+   * @crossplatform [since 11]
    * @form
-   * @since 9
-   */
-  /**
-   * 定义预览设备类型
-   *
-   * @type { ?string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   deviceType?: string;
 
   /**
    * 定义预览dpi
    *
-   * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
+   * @crossplatform [since 11]
    * @form
-   * @since 9
-   */
-  /**
-   * 定义预览dpi
-   *
-   * @type { ?number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   dpi?: number;
 
   /**
    * Define Preview orientation
    *
-   * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform [since 11]
    * @form
-   * @since 9
-   */
-  /**
-   * Define Preview orientation
-   *
-   * @type { ?string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   orientation?: string;
 
   /**
    * Define Preview roundScreen
    *
-   * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform [since 11]
    * @form
-   * @since 9
-   */
-  /**
-   * Define Preview roundScreen
-   *
-   * @type { ?boolean }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   roundScreen?: boolean;
 }
@@ -27610,113 +26943,37 @@ declare class CommonMethod<T> {
 /**
  * CommonAttribute for ide.
  *
- * @extends CommonMethod<CommonAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * CommonAttribute for ide.
- *
- * @extends CommonMethod<CommonAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @since 9
- */
-/**
- * CommonAttribute for ide.
- *
- * @extends CommonMethod<CommonAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * CommonAttribute for ide.
- *
- * @extends CommonMethod<CommonAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
+ * @noninterop
  */
 declare class CommonAttribute extends CommonMethod<CommonAttribute> {}
 
 /**
  * IDE使用的CommonInterface
  *
- * @interface CommonInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * IDE使用的CommonInterface
- *
- * @interface CommonInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @since 9
- */
-/**
- * IDE使用的CommonInterface
- *
- * @interface CommonInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * IDE使用的CommonInterface
- *
- * @interface CommonInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamiconly
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamiconly
+ * @noninterop
  */
 interface CommonInterface {
-
   /**
    * 构造器。
    *
    * @returns { CommonAttribute }
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * Constructor
-   *
-   * @returns { CommonAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Constructor
-   *
-   * @returns { CommonAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Constructor
-   *
-   * @returns { CommonAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamiconly
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamiconly
    */
   (): CommonAttribute;
 }
@@ -27726,34 +26983,11 @@ interface CommonInterface {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @since 7
- */
-/**
- * 公共通用属性实例
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @form
- * @since 9
- */
-/**
- * 公共通用属性实例
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * 公共通用属性实例
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
+ * @noninterop
  */
 declare const CommonInstance: CommonAttribute;
 
@@ -27762,77 +26996,28 @@ declare const CommonInstance: CommonAttribute;
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @since 7
- */
-/**
- * Common通用接口
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @form
- * @since 9
- */
-/**
- * Common通用接口
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Common通用接口
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
+ * @noninterop
  */
 declare const Common: CommonInterface;
 
 /**
  * 定义CustomBuilder类型。
  *
- * @typedef { (() => any) | void } CustomBuilder
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 8
- */
-/**
- * 定义CustomBuilder类型。
- *
- * @typedef { (() => any) | void } CustomBuilder
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @since 9
- */
-/**
- * 定义CustomBuilder类型。
- *
- * @typedef { (() => any) | void } CustomBuilder
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * 定义CustomBuilder类型。
- *
- * @typedef { (() => any) | void } CustomBuilder
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 8 dynamic
  */
 declare type CustomBuilder = (() => any) | void;
 
 /**
  * 定义带参数的CustomBuilder类型
  *
- * @typedef { function } CustomBuilderT<T>
  * @param { T } t - 函数参数
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -29347,17 +28532,8 @@ declare type RouterPageInfo = import('../api/@ohos.arkui.observer').default.Rout
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @since 11
- */
-/**
- * UIContext
- *
- * @typedef { import('../api/@ohos.arkui.UIContext').UIContext } UIContext
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 12 dynamic
+ * @atomicservice [since 12]
+ * @since 11 dynamic
  */
 declare type UIContext = import('../api/@ohos.arkui.UIContext').UIContext;
 
@@ -29443,85 +28619,28 @@ declare type PromptActionDialogController = import('../api/@ohos.promptAction').
 /**
  * 自定义组件
  *
- * @extends CommonAttribute
+ * @extends CommonAttribute [since 7 - 17]
+ * @extends BaseCustomComponent [since 18]
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @since 7
- */
-/**
- * 自定义组件
- *
- * @extends CommonAttribute
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @form
- * @since 9
- */
-/**
- * 自定义组件
- *
- * @extends CommonAttribute
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * 自定义组件
- *
- * @extends CommonAttribute
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11
- */
-/**
- * 自定义组件
- *
- * @extends BaseCustomComponent
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 18 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
+ * @noninterop
  */
 declare class CustomComponent extends BaseCustomComponent {
-
   /**
    * Invoked when a reusable custom component is re-added to the node tree
    * from the reuse cache to receive construction parameters of the component.
    *
-   * @param { object } params - Custom component init params.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Invoked when a reusable custom component is re-added to the node tree
-   * from the reuse cache to receive construction parameters of the component.
-   *
-   * @param { object } params - Custom component init params.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Invoked when a reusable custom component is re-added to the node tree
-   * from the reuse cache to receive construction parameters of the component.
-   *
+   * @param { object } params - Custom component init params. [since 10 - 19]
    * @param { Record<string, Object | undefined | null> } params - Custom component init params.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   aboutToReuse?(params: Record<string, Object | undefined | null>): void;
 
@@ -29553,13 +28672,13 @@ declare class CustomComponent extends BaseCustomComponent {
 /**
  * 自定义组件V2
  *
- * @extends BaseCustomComponent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
  * @form
  * @atomicservice
  * @since 18 dynamic
+ * @noninterop
  */
 declare class CustomComponentV2 extends BaseCustomComponent {
 
@@ -29579,13 +28698,13 @@ declare class CustomComponentV2 extends BaseCustomComponent {
 /**
  * 自定义组件基类，它是从类CustomComponent迁移过来的。
  *
- * @extends BaseCustomComponent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
  * @form
  * @atomicservice
  * @since 18 dynamic
+ * @noninterop
  */
 declare class BaseCustomComponent extends CommonAttribute {
 
@@ -29594,44 +28713,10 @@ declare class BaseCustomComponent extends CommonAttribute {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * Customize the pop-up content constructor.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Customize the pop-up content constructor.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Customize the pop-up content constructor.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Customize the pop-up content constructor and it is migrated from class CustomComponent.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   build(): void;
 
@@ -29642,52 +28727,10 @@ declare class BaseCustomComponent extends CommonAttribute {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * aboutToAppear方法
-   *
-   * aboutToAppear函数在创建自定义组件的新实例之后，在执行其构建（）函数之前执行。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * aboutToAppear方法
-   *
-   * aboutToAppear函数在创建自定义组件的新实例之后，在执行其构建（）函数之前执行。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * aboutToAppear方法
-   *
-   * aboutToAppear函数在创建自定义组件的新实例之后，在执行其构建（）函数之前执行。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * aboutToAppear方法
-   *
-   * aboutToAppear函数在创建自定义组件的新实例之后，在执行其构建（）函数之前执行。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   aboutToAppear?(): void;
 
@@ -29698,52 +28741,10 @@ declare class BaseCustomComponent extends CommonAttribute {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * aboutToDisappear 方法
-   *
-   * 在自定义组件被销毁之前，aboutToDisappear 函数会执行。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * aboutToDisappear 方法
-   *
-   * 在自定义组件被销毁之前，aboutToDisappear 函数会执行。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * aboutToDisappear 方法
-   *
-   * 在自定义组件被销毁之前，aboutToDisappear 函数会执行。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * aboutToDisappear 方法
-   *
-   * 在自定义组件被销毁之前，aboutToDisappear 函数会执行。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   aboutToDisappear?(): void;
 
@@ -29753,25 +28754,8 @@ declare class BaseCustomComponent extends CommonAttribute {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * aboutToRecycle Method
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * aboutToRecycle Method and it is migrated from class CustomComponent.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   aboutToRecycle?(): void;
 
@@ -29861,33 +28845,8 @@ declare class BaseCustomComponent extends CommonAttribute {
    * @stagemodelonly
    * @crossplatform
    * @form
-   * @since 11
-   */
-  /**
-   * onFormRecycle Method, this is only for ArkTS form, if form was marked recyclable by form user, when system memory is low,
-   * it will be recycled after calling this method, you should return a string of params that you wish to be saved, it will be
-   * passed back as params in onFormRecover, in which you can recover the form
-   *
-   * @returns { string } status data of ArkTS form UI, this data will be passed in when recover form later
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * onFormRecycle Method, this is only for ArkTS form, if form was marked recyclable by form user, when system memory is low,
-   * it will be recycled after calling this method, you should return a string of params that you wish to be saved, it will be
-   * passed back as params in onFormRecover, in which you can recover the form, it is migrated from class CustomComponent.
-   *
-   * @returns { string } status data of ArkTS form UI, this data will be passed in when recover form later
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 18 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   onFormRecycle?(): string;
 
@@ -29899,29 +28858,8 @@ declare class BaseCustomComponent extends CommonAttribute {
    * @stagemodelonly
    * @crossplatform
    * @form
-   * @since 11
-   */
-  /**
-   * onFormRecover Method, this is only for ArkTS form
-   *
-   * @param { string } statusData - indicate status data of ArkTS form UI, which is acquired by calling onFormRecycle, it is used to recover form
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * onFormRecover Method, this is only for ArkTS form, it is migrated from class CustomComponent.
-   *
-   * @param { string } statusData - indicate status data of ArkTS form UI, which is acquired by calling onFormRecycle, it is used to recover form
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 18 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   onFormRecover?(statusData: string): void;
 
@@ -29943,33 +28881,9 @@ declare class BaseCustomComponent extends CommonAttribute {
    * Implement Animation when enter this page or move to other pages.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
-   */
-  /**
-   * PageTransition Method.
-   * Implement Animation when enter this page or move to other pages.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * PageTransition Method.
-   * Implement Animation when enter this page or move to other pages.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * PageTransition Method and it is migrated from class CustomComponent.
-   * Implement Animation when enter this page or move to other pages.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   pageTransition?(): void;
 
@@ -29980,27 +28894,8 @@ declare class BaseCustomComponent extends CommonAttribute {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Get current UIContext
-   *
-   * @returns { UIContext } The UIContext that the custom component belongs to.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Get current UIContext and it is migrated from class CustomComponent.
-   *
-   * @returns { UIContext } The UIContext that the custom component belongs to.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   getUIContext(): UIContext;
 
@@ -30012,20 +28907,7 @@ declare class BaseCustomComponent extends CommonAttribute {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * Get uniqueId of the custom component and it is migrated from class CustomComponent.
-   * This unique ID is assigned by the system to each component.
-   * If this API is called before the component's corresponding node is created or after it has been destroyed, an
-   * invalid unique ID, which is -1, will be returned.
-   *
-   * @returns { number } - The uniqueId of the custom component.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    */
   getUniqueId(): number;
 
@@ -30088,18 +28970,7 @@ declare class BaseCustomComponent extends CommonAttribute {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * The callback method after the custom component is built and it is migrated from class CustomComponent.
-   *
-   * Triggered when the custom component has been built.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    */
   onDidBuild?(): void;
 
@@ -30126,25 +28997,16 @@ declare class BaseCustomComponent extends CommonAttribute {
    */
   onNewParam?(param: ESObject): void;
 }
-
-/**
- * 自定义组件
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @systemapi
- * @since 7
- */
 /**
  * 自定义组件
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @FaAndStageModel
- * @form
- * @since 9 dynamic
+ * @form [since 9]
+ * @since 7 dynamic
  */
 declare class View {
-
   /**
    * 只需使用生成tsbundle
    *
@@ -30153,18 +29015,8 @@ declare class View {
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * 只需使用生成tsbundle
-   *
-   * @param { any } value
-   * @returns { any }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @FaAndStageModel
-   * @form
-   * @since 9 dynamic
+   * @form [since 9]
+   * @since 7 dynamic
    */
   create(value: any): any;
 }
@@ -31916,31 +30768,25 @@ declare interface LightSource {
 }
 
 /**
- * Defining wrapBuilder function.
- * @param { function } builder
- * @returns { WrappedBuilder<Args> }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * `wrapBuilder`用于封装全局[@Builder]{@link Builder}，可以将全局`@Builder`函数作为参数传递，实现按引用传递和动态调用，提升代码复用性。
+ * 开发指南见：[wrapBuilder：封装全局@Builder](docroot://ui/state-management/arkts-wrapBuilder.md)。
+ *
+ * @param { function } builder - `@Builder`装饰的全局函数，传入后将被封装为`WrappedBuilder`对象。该函数必须是无返回值（`void`）的函数，其参数列表`...args`的类型和顺序
+ *     由泛型`Args`定义。当需要在组件间按引用传递或复用某个全局`@Builder`函数时传入此参数。
+ * @returns { WrappedBuilder<Args> } `WrappedBuilder<Args>`的实例，用于在组件之间复用或传递全局`@Builder`函数。该实例封装了指定的全局`@Builder`函数，可通过其
+ *     `builder`属性调用被封装的构建函数，便于在组件间作为参数传递或赋值给变量。
  * @stagemodelonly
  * @crossplatform
- * @since 11
- */
-/**
- * Defining wrapBuilder function.
- * @param { function } builder
- * @returns { WrappedBuilder<Args> }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 12 dynamic
+ * @atomicservice [since 12]
+ * @since 11 dynamic
  */
 declare function wrapBuilder<Args extends Object[]>(builder: (...args: Args) => void): WrappedBuilder<Args>;
 
 /**
- * 定义mutableBuilder中使用的回调类型。
+ * `BuilderCallback`是全局`@Builder`函数的类型别名，作为`mutableBuilder`函数的入参类型，用于指定待封装的全局`@Builder`函数。
  *
- * @typedef { function } BuilderCallback
- * @param { Args } args - MutableBuilder的参数。
+ * @param { Args } args - 全局`@Builder`函数的入参。`...args`采用剩余参数语法，允许传入任意数量的参数，`Args`表示这些参数的类型列表。不传入参数时，传入的参数列表为空，
+ *     `@Builder`函数以无参形式调用。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -31950,11 +30796,14 @@ declare function wrapBuilder<Args extends Object[]>(builder: (...args: Args) => 
 declare type BuilderCallback = (...args: Args) => void;
 
 /**
- * 定义mutableBuilder函数。
+ * `mutableBuilder`是一个泛型函数，它返回一个`MutableBuilder`对象，只接受一个全局的`@Builder`函数作为其参数。
+ * 
+ * `mutableBuilder`函数返回的[MutableBuilder]{@link MutableBuilder}对象，其`builder`属性方法只能在自定义组件的`build`函数或`@Builder`装饰的函数内部被调用。
  *
- * @param { BuilderCallback } builder
- * @returns { MutableBuilder<Args> }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @param { BuilderCallback } builder - `@Builder`装饰的全局函数，作为`mutableBuilder`封装的目标构建函数。该函数需符合`BuilderCallback`类型，即
+ *     `(...args: Args) => void`，是一个无返回值的函数，其参数列表`...args`的类型由泛型`Args`指定。
+ * @returns { MutableBuilder<Args> } `MutableBuilder<Args>`的实例，用于封装全局`@Builder`函数，并支持在运行时动态切换构建逻辑。该实例持有对全局`@Builder`函数的引
+ *     用，可通过其`builder`属性调用被封装的构建函数，或通过重新赋值`mutableBuilder`函数返回的新实例动态切换构建逻辑。其`builder`属性方法只能在自定义组件内部使用。
  * @stagemodelonly
  * @crossplatform
  * @atomicservice
@@ -31963,61 +30812,45 @@ declare type BuilderCallback = (...args: Args) => void;
 declare function mutableBuilder<Args extends Object[]>(builder: BuilderCallback): MutableBuilder<Args>;
 
 /**
- * Defines the WrappedBuilder class.
+ * `WrappedBuilder`是`@Builder`函数的包装类，用于封装全局`@Builder`函数及其参数，实现按引用传递和动态调用。
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @since 11
- */
-/**
- * Defines the WrappedBuilder class.
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 12 dynamic
+ * @atomicservice [since 12]
+ * @since 11 dynamic
  */
 declare class WrappedBuilder<Args extends Object[]> {
-
   /**
-   * @type { function }
+   * `@Builder`装饰的全局函数，用于生成对应的自定义构建内容。
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * @type { function }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   builder: (...args: Args) => void;
 
   /**
-   * @param { function } builder
+   * `WrappedBuilder`的构造函数。
+   *
+   * @param { function } builder - `@Builder`装饰的全局函数，作为构造参数用于初始化`WrappedBuilder`实例。函数参数`args`为该`@Builder`函数所需的参数列表。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * @param { function } builder
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   constructor(builder: (...args: Args) => void);
 }
 
 /**
- * 定义MutableBuilder类。
+ * `MutableBuilder`继承自[WrappedBuilder]{@link WrappedBuilder}，用于封装
+ * [全局`@Builder`](docroot://ui/state-management/arkts-builder.md#全局自定义构建函数)，并支持在运行时切换构建函数。需要根据状态或条件动态替换全局`@Builder`内容时，建
+ * 议使用[mutableBuilder](docroot://ui/state-management/arkts-mutableBuilder.md)函数创建`MutableBuilder`对象。其`builder`属性方法只能在自定义
+ * 组件的`build`函数或`@Builder`装饰的函数内部被调用。
  *
- * @extends WrappedBuilder<Args>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
