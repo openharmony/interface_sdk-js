@@ -1392,7 +1392,6 @@ declare namespace dlpPermission {
          */
         resumeFuseLink(callback: AsyncCallback<void>): void;
         /**
-         * 
          * Replaces a link file. This API uses a promise to return the result. After the API is successfully called, the
          * current link file is replaced with the new link file. Before performing this operation, you need to create a
          * link file and stop the read and write operation on the FUSE.
@@ -2224,12 +2223,12 @@ declare namespace dlpPermission {
      * Set the list of applications that are subject to enterprise DLP control.
      *
      * @permission ohos.permission.DLP_POLICY_MANAGER
-     * @param { Array<string> } appLists - The appIdentifiers of applications to be put under controlled
+     * @param { Array<string> } appLists - The appIdentifiers of applications to be put under controlled.
      *     <br>The maximum length is 100.
      *     <br>The value range of Array is [0, 100], and the value range of String is [0, 4096].
      * @param { number } [userId] - The target userId for which the controlled app list is configured.
-     *     If not specified, the current user is used by default
-     *     <br>The value range is all integers.
+     *     If not specified, the current user is used by default。
+     *     <br>The value should be an integer.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 801 - Capability not supported.
