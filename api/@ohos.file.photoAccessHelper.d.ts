@@ -11909,6 +11909,22 @@ declare namespace photoAccessHelper {
     setEditData(editData: MediaAssetEditData): void;
 
     /**
+     * Saves the camera edited data of an asset.
+     *
+     * @param { MediaAssetEditData } editData - Edited data to save.
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 23800151 - The scenario parameter verification fails. Possible causes:
+     *     The input parameter is not within the valid range.
+     * @throws { BusinessError } 23800301 - Internal system error. It is recommended to retry and check the logs.
+     *     Possible causes: 1. Database corrupted. 2. The file system is abnormal. 3. The IPC request timed out.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @FaAndStageModel
+     * @since 26.1.0 dynamic&static
+     */
+    setCameraEditData(editData: MediaAssetEditData): void;
+
+    /**
      * Saves MovingPhoto version which is used to determine what special efficacy is supported.
      *
      * @param { int } version - Motion picture version number
