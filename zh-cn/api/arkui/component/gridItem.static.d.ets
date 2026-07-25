@@ -234,9 +234,8 @@ export declare abstract class ExtendableGridItem implements GridItemAttribute {
    * @param { CustomBuilder } [content_]
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @unpublished
    * @stagemodelonly
-   * @since 26.1.0 staticonly
+   * @since 26.0.0 staticonly
    */
   @ComponentBuilder
   static $_instantiate<T extends ExtendableGridItem>(

@@ -637,8 +637,7 @@ export declare interface CustomComponentContext {
    *     默认值： 默认值：undefined。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 26.1.0 static
-   * @unpublished
+   * @since 26.0.0 static
    */
   registerActiveAndInactiveCallback(active?: ActiveAndInactiveCallbackType,
     inactive?: ActiveAndInactiveCallbackType): void;
@@ -649,8 +648,7 @@ export declare interface CustomComponentContext {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 26.1.0 static
- * @unpublished
+ * @since 26.0.0 static
  */
 export type ActiveAndInactiveCallbackType = () => void;
 
