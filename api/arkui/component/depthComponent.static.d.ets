@@ -20,6 +20,7 @@
  */
 
 import { BusinessError} from '../../@ohos.base'
+import colorSpaceManager from '../../@ohos.graphics.colorSpaceManager';
 import { CommonMethod, PixelMap, DepthVector3, DepthVector4, DepthColorRGB } from './common';
 import { ResourceStr } from './units';
 import { Builder, ComponentBuilder, CustomBuilder, CustomBuilderT } from './builder';
@@ -275,6 +276,17 @@ export declare interface DepthComponentOptions {
    * @since 26.0.0 static
    */
   render3DScale?: double;
+
+  /**
+   * Color space of the background.
+   *
+   * @default colorSpaceManager.ColorSpace.SRGB
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  colorSpace?: colorSpaceManager.ColorSpace;
 }
 
 /**
