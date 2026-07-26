@@ -178,12 +178,12 @@ declare class PatternLockController {
  * screen.
  *
  * > **NOTE**
- *
+ * >
  * > - If you require additional features, use
  * > [custom components](docroot://ui/state-management/arkts-create-custom-components.md). For example, the custom
  * > component<!--RP1-->
  * > [CustomPatternLock](https://gitcode.com/openharmony/applications_app_samples/tree/master/code/UI/CustomPatternLock)
- * > <!--RP1End--> implements the pattern lock function using the [Canvas]{@link canvas} component. You can extend its
+ * > <!--RP1End--> implements the pattern lock function using the [Canvas]{@link ./canvas} component. You can extend its
  * > functionality as required.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -329,7 +329,7 @@ declare class PatternLockAttribute extends CommonMethod<PatternLockAttribute> {
    * displayed.
    *
    * @param { number | string } value - Width of the path stroke.
-   *     <br>Value constraint: (0, sideLength/3]. Default value: 12vp.
+   *     <br>Value constraint: (0, sideLength/3]. Default value: 12.
    *     <br>Unit: vp.
    * @returns { PatternLockAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -425,12 +425,12 @@ declare class PatternLockAttribute extends CommonMethod<PatternLockAttribute> {
  * screen.
  *
  * > **NOTE**
- *
+ * >
  * > - If you require additional features, use
  * > [custom components](docroot://ui/state-management/arkts-create-custom-components.md). For example, the custom
  * > component<!--RP1-->
  * > [CustomPatternLock](https://gitcode.com/openharmony/applications_app_samples/tree/master/code/UI/CustomPatternLock)
- * > <!--RP1End--> implements the pattern lock function using the [Canvas]{@link canvas} component. You can extend its
+ * > <!--RP1End--> implements the pattern lock function using the [Canvas]{@link ./canvas} component. You can extend its
  * > functionality as required.
  *
  * ###### Child Components

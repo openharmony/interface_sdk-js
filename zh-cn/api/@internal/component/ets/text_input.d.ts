@@ -27,7 +27,6 @@
  * @since 7 dynamic
  */
 declare enum InputType {
-
   /**
    * 基本输入模式，无特殊限制。
    * 
@@ -38,7 +37,7 @@ declare enum InputType {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Normal = 0,
+  Normal,
 
   /**
    * 纯数字输入模式。
@@ -50,7 +49,7 @@ declare enum InputType {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Number = 1,
+  Number,
 
   /**
    * 电话号码输入模式。
@@ -62,7 +61,7 @@ declare enum InputType {
    * @atomicservice [since 11]
    * @since 9 dynamic
    */
-  PhoneNumber = 2,
+  PhoneNumber,
 
   /**
    * 邮箱地址输入模式。
@@ -74,7 +73,7 @@ declare enum InputType {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Email = 3,
+  Email,
 
   /**
    * 密码输入模式。
@@ -93,7 +92,7 @@ declare enum InputType {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Password = 4,
+  Password,
 
   /**
    * 纯数字密码输入模式。
@@ -102,7 +101,9 @@ declare enum InputType {
    * 
    * TV设备上输入框末尾默认不显示小眼睛图标，其他设备输入框末尾默认显示小眼睛图标。
    * 
-   * 密码输入模式不支持下划线样式。在已启用密码保险箱的情况下，支持用户名、密码的自动保存和自动填充。
+   * 密码输入模式中，[decoration]{@link TextInputAttribute#decoration}、[showUnderline]{@link TextInputAttribute#showUnderline}、
+   * [lineHeight]{@link TextInputAttribute#lineHeight}、[fontFeature]{@link TextInputAttribute#fontFeature}不生效。在已启用密码保险箱的
+   * 情况下，支持用户名、密码的自动保存和自动填充。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -113,7 +114,9 @@ declare enum InputType {
   NUMBER_PASSWORD = 8,
 
   /**
-   * ScreenLock Password entry mode.
+   * 锁屏应用密码输入模式。支持输入数字、字母、下划线、空格、特殊字符。密码显示小眼睛图标并且默认会将文字变成圆点，从API version 12开始，Wearable设备上输入文字直接显示为圆点。密码输入模式不支持下划线样式。 
+   * 
+   * **系统接口：** 此接口为系统接口。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -125,7 +128,8 @@ declare enum InputType {
   /**
    * 用户名输入模式，无特殊限制。
    * 
-   * 在已启用密码保险箱的情况下，支持用户名、密码的自动保存和自动填充。
+   * 在已启用密码保险箱的情况下，支持用户名的自动保存和自动填充，用于配合[InputType.Password]{@link InputType}、
+   * [InputType.NUMBER_PASSWORD]{@link InputType}、[InputType.NEW_PASSWORD]{@link InputType}完成用户名密码配对填充。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -135,13 +139,15 @@ declare enum InputType {
   USER_NAME = 10,
 
   /**
-   * 新密码输入模式，无特殊限制。
+   * 新密码输入模式。
    * 
    * 默认输入文字短暂显示后变成圆点。从API version 12开始，PC/2in1设备上输入文字直接显示为圆点。
    * 
    * TV设备上输入框末尾默认不显示小眼睛图标，其他设备输入框末尾默认显示小眼睛图标。
    * 
-   * 在已启用密码保险箱的情况下，支持自动生成新密码。
+   * 密码输入模式中，[decoration]{@link TextInputAttribute#decoration}、[showUnderline]{@link TextInputAttribute#showUnderline}、
+   * [lineHeight]{@link TextInputAttribute#lineHeight}、[fontFeature]{@link TextInputAttribute#fontFeature}不生效。在已启用密码保险箱的
+   * 情况下，支持自动生成新密码。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -153,7 +159,7 @@ declare enum InputType {
   /**
    * 带小数点的数字输入模式。
    * 
-   * 支持数字，小数点（只能存在一个小数点）。不支持负数小数，负数小数的数字输入模式请使用inputFilter实现。
+   * 支持数字，小数点（只能存在一个小数点）。不支持负数（包括负数整数和负数小数）。若需支持负数输入，请使用[inputFilter]{@link TextInputAttribute#inputFilter}属性实现负数过滤。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -194,7 +200,6 @@ declare enum InputType {
  * @since 12 dynamic
  */
 declare enum ContentType {
-
   /**
    * 【用户名】在已启用密码保险箱的情况下，支持用户名的自动保存和自动填充。
    *
@@ -535,7 +540,6 @@ declare enum ContentType {
  * @since 7 dynamic
  */
 declare enum EnterKeyType {
-
   /**
    * 显示为开始样式。
    *
@@ -619,9 +623,8 @@ declare enum EnterKeyType {
  * @since 12 dynamic
  */
 declare interface UnderlineColor {
-
   /**
-   * 键入时下划线颜色。不填写、undefined、null、无效值时恢复默认。
+   * 键入时下划线颜色。不填写、undefined、null、无效值时恢复默认，默认为主题配置的下划线颜色。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -630,9 +633,8 @@ declare interface UnderlineColor {
    * @since 12 dynamic
    */
   typing?: ResourceColor | undefined;
-
   /**
-   * 非特殊状态时下划线颜色。不填写、undefined、null、无效值时恢复默认。
+   * 非特殊状态时下划线颜色。不填写、undefined、null、无效值时恢复默认，默认为主题配置的下划线颜色。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -641,9 +643,8 @@ declare interface UnderlineColor {
    * @since 12 dynamic
    */
   normal?: ResourceColor | undefined;
-
   /**
-   * 错误时下划线颜色。不填写、undefined、null、无效值时恢复默认。此选项会修改showCounter属性中达到最大字符数时的颜色。
+   * 错误时下划线颜色。不填写、undefined、null、无效值时恢复默认，默认为主题配置的下划线颜色。此选项会修改showCounter属性中达到最大字符数时的颜色。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -652,9 +653,8 @@ declare interface UnderlineColor {
    * @since 12 dynamic
    */
   error?: ResourceColor | undefined;
-
   /**
-   * 禁用时下划线颜色。不填写、undefined、null、无效值时恢复默认。
+   * 禁用时下划线颜色。不填写、undefined、null、无效值时恢复默认，默认为主题配置的下划线颜色。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -675,7 +675,6 @@ declare interface UnderlineColor {
  * @since 11 dynamic
  */
 declare interface SubmitEvent {
-
   /**
    * 用户自定义输入框编辑状态，调用时保持编辑态。
    *
@@ -707,17 +706,22 @@ declare interface SubmitEvent {
  * [deleteText]{@link TextContentControllerBase#deleteText}、[getSelection]{@link TextContentControllerBase#getSelection}
  * 、[clearPreviewText]{@link TextContentControllerBase#clearPreviewText}、
  * [setStyledPlaceholder]{@link TextContentControllerBase#setStyledPlaceholder}、
- * [deleteBackward]{@link TextContentControllerBase#deleteBackward}<!--Del-->以及系统接口
+ * [deleteBackward]{@link TextContentControllerBase#deleteBackward}、
+ * [scrollToVisible]{@link TextContentControllerBase#scrollToVisible}<!--Del-->以及系统接口
  * [getText]{@link TextContentControllerBase#getText}<!--DelEnd-->。
+ * 
+ * ###### 导入对象
+ * 
+ * ```ts
+ * controller: TextInputController = new TextInputController();
+ * ```
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full [since 10]
- * @stagemodelonly
  * @crossplatform [since 10]
  * @atomicservice [since 11]
  * @since 8 dynamic
  */
 declare class TextInputController extends TextContentControllerBase {
-
   /**
    * TextInputController的构造函数。
    *
@@ -742,10 +746,13 @@ declare class TextInputController extends TextContentControllerBase {
   /**
    * 设置文本选择区域并高亮显示。
    *
-   * @param { number } selectionStart - 文本选择区域起始位置，文本框中文字的起始位置为0。
+   * @param { number } selectionStart - 文本选择区域起始位置，文本框中文字的起始位置为0。当selectionStart<0时，按照0处理；当selectionStart大于文本长度时，按照文本长度处
+   *     理。
    * @param { number } selectionEnd - 文本选择区域结束位置。当selectionEnd<0时，按照0处理；当selectionEnd大于文本长度时，按照文本长度处理。
-   * @param { SelectionOptions } [options] - 选中文字时的配置。<br />默认值：MenuPolicy.DEFAULT<br/>从API version 12开始，该接口中的options参数支
-   *     持在原子化服务中使用。 [since 12]
+   * @param { SelectionOptions } [options] - 选中文字时的配置，用于控制文本选择菜单的显示策略。
+   *     <br>配置项包括menuPolicy，用于指定菜单显示方式：MenuPolicy.DEFAULT表示按系统默认行为显示菜单；MenuPolicy.SHOW表示强制显示菜单；MenuPolicy.HIDE表示强制隐藏菜单。
+   *     <br>默认值MenuPolicy.DEFAULT
+   *     <br>从API version 12开始，该接口中的options参数支持在原子化服务中使用。 [since 12]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -775,9 +782,8 @@ declare class TextInputController extends TextContentControllerBase {
  * @since 7 dynamic
  */
 declare interface TextInputOptions {
-
   /**
-   * 设置无输入时的提示文本。
+   * 设置无输入时的提示文本。不设置时默认无提示文本。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -787,7 +793,11 @@ declare interface TextInputOptions {
   placeholder?: ResourceStr;
 
   /**
-   * 设置输入框当前的文本内容。</br>建议通过onChange事件将状态变量与文本实时绑定，</br>避免组件刷新时TextInput中的文本内容异常。
+   * 设置输入框当前的文本内容。不设置时默认为空字符串。
+   * 
+   * 建议通过onChange事件将状态变量与文本实时绑定，
+   * 
+   * 避免组件刷新时TextInput中的文本内容异常。
    * 
    * 从API version 10开始，该参数支持[$$](docroot://ui/state-management/arkts-two-way-sync.md)双向绑定变量。
    * 
@@ -801,7 +811,7 @@ declare interface TextInputOptions {
   text?: ResourceStr;
 
   /**
-   * 设置TextInput控制器。
+   * 设置TextInput控制器。当需要通过控制器调用光标设置、文本选择等方法时传入此参数。不设置时默认无控制器，无法使用控制器相关方法。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -820,7 +830,6 @@ declare interface TextInputOptions {
  * @since 9 dynamic
  */
 declare enum TextInputStyle {
-
   /**
    * 默认风格，光标宽1.5vp，光标高度与文本选中底板高度和字体大小相关。
    *
@@ -829,7 +838,7 @@ declare enum TextInputStyle {
    * @atomicservice [since 11]
    * @since 9 dynamic
    */
-  Default = 0,
+  Default,
 
   /**
    * 内联输入风格。文本选中底板高度与输入框高度相同。
@@ -845,15 +854,16 @@ declare enum TextInputStyle {
    * @atomicservice [since 11]
    * @since 9 dynamic
    */
-  Inline = 1,
+  Inline,
 }
 
 /**
- * 单行文本输入框组件。
+ * 单行文本输入框组件，用于接收用户的单行文本输入。支持多种输入类型（如文本、密码、邮箱、数字等）、自定义样式（字体、颜色、下划线、装饰线等）、输入过滤、密码输入模式、自动填充等功能，适用于登录注册、搜索、表单填写等多种场景。能够解决文本
+ * 输入验证、格式化、安全输入等常见需求，简化开发流程、提升用户体验并增强数据安全性。
  * 
  * > **说明：**
- * 
- * > 该组件仅支持单文本样式，若需实现富文本样式，建议使用[RichEditor]{@link rich_editor}组件。
+ * >
+ * > 该组件仅支持单文本样式，若需实现富文本样式，建议使用[RichEditor]{@link ./rich_editor}组件。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
@@ -862,12 +872,11 @@ declare enum TextInputStyle {
  * @noninterop
  */
 interface TextInputInterface {
-
   /**
    *
    * 定义单行文本输入组件构造函数。
    *
-   * @param { TextInputOptions } value - TextInput组件参数。
+   * @param { TextInputOptions } value - TextInput组件参数。默认值undefined。不设置该参数时，输入框初始化为空。
    * @returns { TextInputAttribute }
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -887,11 +896,12 @@ interface TextInputInterface {
  * @since 10 dynamic
  */
 interface PasswordIcon {
-
   /**
-   * 密码输入模式时，能够切换密码可见时显示的图标。
+   * 密码输入模式时，能够切换密码可见时显示的图标。默认为系统提供的密码图标。
    * 
    * string格式可用于加载网络图片和本地图片。
+   * 
+   * 网络图片支持http或https协议的URL格式；本地图片支持应用资源路径格式。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -902,9 +912,11 @@ interface PasswordIcon {
   onIconSrc?: string | Resource;
 
   /**
-   * 密码输入模式时，能够切换密码不可见时显示的图标。
+   * 密码输入模式时，能够切换密码不可见时显示的图标。默认为系统提供的密码图标。
    * 
    * string格式可用于加载网络图片和本地图片。
+   * 
+   * 网络图片支持http或https协议的URL格式；本地图片支持应用资源路径格式。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -968,9 +980,9 @@ declare type OnContentScrollCallback = (totalOffsetX: number, totalOffsetY: numb
 declare type OnPasteCallback = (content: string, event: PasteEvent) => void;
 
 /**
- * 除支持[通用属性]{@link common}，还支持以下属性：
+ * 除支持[通用属性](docroot://reference/apis-arkui/arkui-ts/ts-component-general-attributes.md)外，还支持以下属性。 
  * 
- * 除支持[通用事件]{@link common}外，还支持以下事件：
+ * 除支持[通用事件](docroot://reference/apis-arkui/arkui-ts/ts-component-general-events.md)外，还支持以下事件。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
@@ -979,15 +991,14 @@ declare type OnPasteCallback = (content: string, event: PasteEvent) => void;
  * @noninterop
  */
 declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
-
   /**
    * 设置输入框类型。
    * 
-   * 不同的InputType会拉起对应类型的键盘，同时限制输入。
+   * 不同的InputType会拉起对应类型的键盘，同时限制输入。未通过该接口设置时，默认为InputType.Normal。
    *
-   * @param { InputType } value - 输入框类型。<br/>默认值：InputType.Normal
+   * @param { InputType } value - 输入框类型。
    * @returns { TextInputAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @atomicservice [since 11]
    * @since 7 dynamic
@@ -997,9 +1008,9 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   /**
    * 设置自动填充类型。<!--RP7--><!--RP7End-->
    *
-   * @param { ContentType } value - 自动填充类型。
+   * @param { ContentType } value - 自动填充类型。取值范围：详见ContentType枚举说明。
    * @returns { TextInputAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
    * @since 12 dynamic
@@ -1007,15 +1018,24 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   contentType(value: ContentType): TextInputAttribute;
 
   /**
-   * 设置是否对选中文本进行实体识别。该接口依赖设备底层应具有文本识别能力，否则设置不会生效。
+   * 设置是否对选中文本进行实体识别。该接口依赖设备底层应具有文本识别能力，否则设置不会生效。未通过该接口设置时，默认开启选中文本实体识别，并识别所有类型的实体，同时启用AI菜单功能。
    * 
    * 当enableSelectedDataDetector设置为true时，默认识别所有类型的实体。
    * 
+   * 启用后可识别选区中的邮件、电话、网址、日期、地址等，并在文本选择菜单中展示对应的AI菜单项。
+   * 
+   * AI菜单功能启用时，在组件中选中文本后，文本选择菜单能够展示对应的AI菜单项，包括[TextMenuItemId]{@link TextMenuItemId}中的url（打开链接）、email（新建邮件）、phoneNumber（
+   * 呼叫）、address（导航前往）、dateTime（新建日程）。
+   * 
+   * AI菜单生效时，选中范围内需包括且仅包括一个完整的AI实体，才能展示对应的选项。该菜单项与[TextMenuItemId]{@link TextMenuItemId}中的askAI菜单项不同时出现。
+   * 
    * 需要[CopyOptions]{@link CopyOptions}为CopyOptions.LocalDevice或CopyOptions.CROSS_DEVICE时，本功能生效。
    *
-   * @param { boolean | undefined } enable - 开启选中词文本识别。<br/>true：开启识别，false：关闭识别。默认值为：true。
+   * @param { boolean | undefined } enable - 是否开启选中文本实体识别。
+   *     <br>true：开启识别，false：关闭识别。
+   *     <br>值为undefined时，按默认值处理。
    * @returns { TextInputAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
    * @since 22 dynamic
@@ -1023,11 +1043,11 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   enableSelectedDataDetector(enable: boolean | undefined): TextInputAttribute;
 
   /**
-   * 设置placeholder文本颜色。
+   * 设置placeholder文本颜色。未通过该接口设置时，默认颜色跟随主题，Wearable设备上默认值为'#99ffffff'（白色，不透明度为60%）。
    *
-   * @param { ResourceColor } value - placeholder文本颜色。<br/>默认值：跟随主题。<br/>Wearable设备上默认值为：'#99ffffff'
+   * @param { ResourceColor } value - placeholder文本颜色。
    * @returns { TextInputAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @atomicservice [since 11]
    * @since 7 dynamic
@@ -1035,16 +1055,16 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   placeholderColor(value: ResourceColor): TextInputAttribute;
 
   /**
-   * 设置文本超长时的显示方式。仅在[内联模式](docroot://ui/arkts-common-components-text-input.md#内联模式)的编辑态、非编辑态下支持。
+   * 设置文本超长时的显示方式。仅在[TextInputStyle]{@link TextInputStyle}值为内联模式的编辑态、非编辑态下支持。未通过该接口设置时，内联模式非编辑态下默认为
+   * TextOverflow.Ellipsis，内联模式编辑态下默认为TextOverflow.Clip。
    * 
    * 文本截断是按字进行。例如，英文以单词为最小单位进行截断，若需要以字母为单位进行截断，可将wordBreak属性设置为WordBreak.BREAK_ALL。
    * 
    * 当overflow设置为TextOverflow.None时，效果与TextOverflow.Clip相同。
    *
-   * @param { TextOverflow } value - 文本超长时的显示方式。<br/>[内联模式](docroot://ui/arkts-common-components-text-input.md#内联模式)非编辑态
-   *     下默认值：TextOverflow.Ellipsis <br/>内联模式编辑态下默认值：TextOverflow.Clip
+   * @param { TextOverflow } value - 文本超长时的显示方式。
    * @returns { TextInputAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
@@ -1053,10 +1073,11 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   textOverflow(value: TextOverflow): TextInputAttribute;
 
   /**
-   * 设置首行文本缩进。
+   * 设置首行文本缩进。未通过该接口设置时，默认为0。
    *
-   * @param { Dimension } value - 首行文本缩进。<br/>默认值：0 <br/>单位：
-   *     [vp](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位) <br/>取值范围：大于等于0。设置负数时，按默认值处理。
+   * @param { Dimension } value - 首行文本缩进。
+   *     <br>单位：[vp](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位) 
+   *     <br>取值范围：大于等于0。设置负数时，按默认值处理。
    * @returns { TextInputAttribute } The attribute of the text.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1069,9 +1090,11 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   /**
    * 设置placeholder文本样式，包括字体大小、字体粗细、字体族、字体风格。
    *
-   * @param { Font } value - placeholder文本样式。<br/>Wearable设备上默认值为：18fp
+   * @param { Font } value - placeholder文本样式。
+   *     <br>省略该参数时使用系统默认字体样式。
+   *     <br>Wearable设备上字体大小默认值为18fp
    * @returns { TextInputAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @atomicservice [since 11]
    * @since 7 dynamic
@@ -1079,11 +1102,11 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   placeholderFont(value?: Font): TextInputAttribute;
 
   /**
-   * 设置输入法回车键类型。
+   * 设置输入法回车键类型。未通过该接口设置时，默认为EnterKeyType.Done。
    *
-   * @param { EnterKeyType } value - 输入法回车键类型。<br/>默认值：EnterKeyType.Done
+   * @param { EnterKeyType } value - 输入法回车键类型。
    * @returns { TextInputAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @atomicservice [since 11]
    * @since 7 dynamic
@@ -1091,11 +1114,11 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   enterKeyType(value: EnterKeyType): TextInputAttribute;
 
   /**
-   * 设置输入框光标颜色。
+   * 设置输入框光标颜色。未通过该接口设置时，默认为'#007DFF'（蓝色），Wearable设备上默认值为'#5EA1FF'（蓝色，比'#007DFF'颜色稍浅）。
    *
-   * @param { ResourceColor } value - 输入框光标颜色。<br/>默认值：'#007DFF'
+   * @param { ResourceColor } value - 输入框光标颜色。
    * @returns { TextInputAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @atomicservice [since 11]
    * @since 7 dynamic
@@ -1104,14 +1127,10 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
 
   /**
    * 输入状态变化时，触发该回调。
-   * 
-   * > **说明：**
-   * >
-   * > 从API version 7开始支持，从API version 8开始废弃，建议使用[onEditChange]{@link TextInputAttribute#onEditChange}替代。
    *
    * @param { function } callback - 监听事件的回调函数。
    * @returns { TextInputAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7 dynamiconly
    * @deprecated since 8
    * @useinstead TextInputAttribute#onEditChange
@@ -1123,9 +1142,10 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    *
    * @param { function } callback - Callback for the input status change. Returns **true** if the input box is in the
    *     editing state; returns **false** if the input box is in the non-editing state. [since 8 - 17]
-   * @param { Callback<boolean> } callback - 输入状态变化回调，返回值为true表示输入框处于编辑态，返回值为false表示输入框处于非编辑态。 [since 18]
+   * @param { Callback<boolean> } callback - 输入状态变化回调，返回值为true表示输入框处于编辑态（有光标显示，可以接收用户输入）；返回值为false表示输入框处于非编辑态（无光标显示，不能接收
+   *     用户输入）。 [since 18]
    * @returns { TextInputAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @atomicservice [since 11]
    * @since 8 dynamic
@@ -1141,7 +1161,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @param { function } callback - Callback for submission. [since 7 - 17]
    * @param { OnSubmitCallback } callback - 提交回调。 [since 18]
    * @returns { TextInputAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @atomicservice [since 11]
    * @since 7 dynamic
@@ -1156,7 +1176,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @param { function } callback - Callback invoked when the input in the text box changes. [since 7 - 11]
    * @param { EditableTextOnChangeCallback } callback - 当前输入文本内容变化时的回调。 [since 12]
    * @returns { TextInputAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @atomicservice [since 11]
    * @since 7 dynamic
@@ -1192,12 +1212,14 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   onContentScroll(callback: OnContentScrollCallback): TextInputAttribute;
 
   /**
-   * 设置文本的最大输入字符数。
+   * 设置文本的最大输入字符数。未通过该接口设置时，默认可以无限输入。
    *
-   * @param { number } value - 文本的最大输入字符数。<br/>默认值：Infinity，可以无限输入。<br/>**说明：** <br/>当不设置该属性或设置异常值时，取默认值，设置小数时，取整数部分，设置值
-   *     超过2^31-1时，可能导致异常行为。
+   * @param { number } value - 文本的最大输入字符数。
+   *     <br>取值范围：[0, 2^31-1]
+   *     <br>**说明：** 
+   *     <br>当不设置该属性或设置异常值时，取默认值。设置小数时，取整数部分。设置值超过取值范围上限时，可能导致组件显示或功能异常，请勿超过上限值。
    * @returns { TextInputAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @atomicservice [since 11]
    * @since 7 dynamic
@@ -1205,11 +1227,11 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   maxLength(value: number): TextInputAttribute;
 
   /**
-   * 设置字体颜色。
+   * 设置字体颜色。未通过该接口设置时，默认颜色跟随主题，Wearable设备上默认值为'#dbffffff'（白色，不透明度为86%）。
    *
-   * @param { ResourceColor } value - 字体颜色。<br/>Wearable设备上默认值为：'#dbffffff'
+   * @param { ResourceColor } value - 字体颜色。
    * @returns { TextInputAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @atomicservice [since 11]
    * @since 7 dynamic
@@ -1217,11 +1239,11 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   fontColor(value: ResourceColor): TextInputAttribute;
 
   /**
-   * 设置字体大小。
+   * 设置字体大小。未通过该接口设置时，默认字体大小为16fp，Wearable设备上默认值为18fp。
    *
-   * @param { Length } value - 字体大小。fontSize为number类型时，使用fp单位。字体默认大小16fp。不支持设置百分比字符串。<br/>Wearable设备上默认值为：18fp
+   * @param { Length } value - 字体大小。fontSize为number类型时，使用fp单位。不支持设置百分比字符串。
    * @returns { TextInputAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @atomicservice [since 11]
    * @since 7 dynamic
@@ -1229,11 +1251,11 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   fontSize(value: Length): TextInputAttribute;
 
   /**
-   * 设置字体样式。
+   * 设置字体样式。未通过该接口设置时，默认为FontStyle.Normal。
    *
-   * @param { FontStyle } value - 字体样式。<br/>默认值：FontStyle.Normal
+   * @param { FontStyle } value - 字体样式。
    * @returns { TextInputAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @atomicservice [since 11]
    * @since 7 dynamic
@@ -1241,18 +1263,18 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   fontStyle(value: FontStyle): TextInputAttribute;
 
   /**
-   * 设置文本的字体粗细，设置过大可能会在不同字体下有截断。
+   * 设置文本的字体粗细，设置过大可能会在不同字体下有截断。未通过该接口设置时，默认为FontWeight.Normal。
    *
    * @param { number | FontWeight | string } value - Font weight. For the number type, the value range is [100, 900], at
    *     an interval of 100. The default value is **400**. A larger value indicates a heavier font weight. For the
    *     string type, only strings that represent a number, for example, **400**, and the following enumerated values of
    *     **FontWeight** are supported: **bold**, **bolder**, **lighter**, **regular**, and **medium**.<br>Default value:
    *     **FontWeight.Normal**<br>The Resource type is supported since API version 20. [since 7 - 19]
-   * @param { number | FontWeight | ResourceStr } value - 文本的字体粗细，number类型取值[100, 900]，取值间隔为100，默认为400，取值越大，字体越粗。string类
-   *     型仅支持number类型取值的字符串形式，例如"400"，以及"bold"、"bolder"、"lighter"、"regular"、"medium"，分别对应FontWeight中相应的枚举值。<br/>默认值：
-   *     FontWeight.Normal <br>从API version 20开始，支持Resource类型。 [since 20]
+   * @param { number | FontWeight | ResourceStr } value - 文本的字体粗细，number类型取值[100,900]，取值间隔为100，取值越大，字体越粗。string类型仅支持
+   *     number类型取值的字符串形式，例如“400”，以及“bold”、“bolder”、“lighter”、“regular”、“medium”，分别对应FontWeight中相应的枚举值。
+   *     <br>从API version 20开始，支持Resource类型。 [since 20]
    * @returns { TextInputAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @atomicservice [since 11]
    * @since 7 dynamic
@@ -1260,12 +1282,14 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   fontWeight(value: number | FontWeight | ResourceStr): TextInputAttribute;
 
   /**
-   * 设置字体列表。
+   * 设置字体列表。未通过该接口设置时，默认字体为'HarmonyOS Sans'。
    *
-   * @param { ResourceStr } value - 字体列表。默认字体'HarmonyOS Sans'。<br>使用多个字体时，请用逗号','分隔，字体的优先级按顺序生效。例如：'Arial,HarmonyOS Sans
-   *     '。<br>应用当前支持'HarmonyOS Sans'字体和自定义字体。<br>卡片当前仅支持'HarmonyOS Sans'字体。
+   * @param { ResourceStr } value - 字体列表。使用多个字体时，请用逗号','分隔，字体的优先级按顺序生效。例如：'Arial,HarmonyOS Sans'。
+   *     <br>应用当前支持'HarmonyOS Sans'字体和自定义字体。
+   *     <br>卡片当前仅支持'HarmonyOS Sans'字体。
+   *     <br>Wearable设备支持'HarmonyOS Sans'字体和自定义字体。
    * @returns { TextInputAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @atomicservice [since 11]
    * @since 7 dynamic
@@ -1273,9 +1297,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   fontFamily(value: ResourceStr): TextInputAttribute;
 
   /**
-   * 通过正则表达式设置输入过滤器。匹配表达式的输入允许显示，不匹配的输入将被过滤。
-   * 
-   * 单字符输入场景仅支持单字符匹配，多字符输入场景支持字符串匹配，例如粘贴。
+   * 通过正则表达式设置输入过滤器。匹配表达式的输入允许显示，不匹配的输入将被过滤。单字符输入场景仅支持单字符匹配，多字符输入场景支持字符串匹配，例如粘贴。未通过该接口设置时，默认无输入过滤规则，所有输入都允许显示。
    * 
    * 从API version 11开始，设置inputFilter且输入的字符不为空字符，会导致[type]{@link TextInputAttribute#type}接口附带的文本过滤效果失效。
    *
@@ -1283,7 +1305,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @param { function } error - 正则匹配失败时，返回被过滤的内容。 [since 8 - 17]
    * @param { Callback<string> } [error] - 正则匹配失败时，返回被过滤的内容。 [since 18]
    * @returns { TextInputAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @atomicservice [since 11]
    * @since 8 dynamic
@@ -1296,7 +1318,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @param { function } callback - Callback used to return the copied text content. [since 8 - 17]
    * @param { Callback<string> } callback - 复制回调，其返回值为复制的文本内容。 [since 18]
    * @returns { TextInputAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @atomicservice [since 11]
    * @since 8 dynamic
@@ -1305,11 +1327,21 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
 
   /**
    * 在进行复制操作前，触发该回调。
+   * 
+   * > **说明：**
+   * >
+   * > onWillCopy和onCopy形成will/did时序模式：
+   * >
+   * > - onWillCopy在复制操作前触发，可通过返回false拦截复制操作；返回true则允许复制，随后触发onCopy。
+   * >
+   * > - onCopy在复制操作完成后触发，无法拦截。
+   * >
+   * > - 两者可以同时使用，onWillCopy用于拦截控制，onCopy用于获取复制结果。
    *
    * @param { Callback<string, boolean> } callback - 复制操作前的回调。回调参数类型为string时，表示将要被复制的文本内容。回调参数类型为boolean时，表示当前选中文本是否允许被复
-   *     制，true：允许文本被复制；false：不允许文本被复制。
+   *     制，true：允许文本被复制，执行正常的复制操作；false：不允许文本被复制，拦截此次复制操作，文本不会被复制到剪贴板。
    * @returns { TextInputAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
@@ -1332,11 +1364,21 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
 
   /**
    * 在进行剪切操作前，触发该回调。
+   * 
+   * > **说明：**
+   * >
+   * > onWillCut和onCut形成will/did时序模式：
+   * >
+   * > - onWillCut在剪切操作前触发，可通过返回false拦截剪切操作；返回true则允许剪切，随后触发onCut。
+   * >
+   * > - onCut在剪切操作完成后触发，无法拦截。
+   * >
+   * > - 两者可以同时使用，onWillCut用于拦截控制，onCut用于获取剪切结果。
    *
    * @param { Callback<string, boolean> } callback - 剪切操作前的回调。回调参数类型为string时，表示将要被剪切的文本内容。回调参数类型为boolean时，表示当前选中文本是否允许被剪
-   *     切，true：允许文本被剪切；false：不允许文本被剪切。
+   *     切，true：允许文本被剪切，执行正常的剪切操作；false：不允许文本被剪切，拦截此次剪切操作，文本不会被剪切到剪贴板也不会从输入框中删除。
    * @returns { TextInputAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
@@ -1361,13 +1403,11 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   onPaste(callback: OnPasteCallback): TextInputAttribute;
 
   /**
-   * 设置输入的文本是否可复制。设置CopyOptions.None时，只支持粘贴和全选。
-   * 
-   * 设置CopyOptions.None时，不允许拖拽。
+   * 设置输入的文本是否可复制。设置CopyOptions.None时，只支持粘贴和全选。设置CopyOptions.None时，不允许拖拽。未通过该接口设置时，默认为CopyOptions.LocalDevice，支持设备内复制。
    *
-   * @param { CopyOptions } value - 输入的文本是否可复制。<br/>默认值：CopyOptions.LocalDevice，支持设备内复制。
+   * @param { CopyOptions } value - 输入的文本是否可复制。
    * @returns { TextInputAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @atomicservice [since 11]
    * @since 9 dynamic
@@ -1375,11 +1415,12 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   copyOption(value: CopyOptions): TextInputAttribute;
 
   /**
-   * 设置当密码输入模式时，输入框末尾的图标是否显示。
+   * 设置在密码模式下，输入框末尾的图标是否显示。未通过该接口设置时，默认TV设备为false，其他设备为true。
    *
-   * @param { boolean } value - 密码输入模式时，输入框末尾的图标是否显示。<br/>true表示显示，false表示不显示。<br/>默认值：TV设备为false，其他设备为true。
+   * @param { boolean } value - 密码输入模式时，输入框末尾的图标是否显示。
+   *     <br>true表示显示，false表示不显示。
    * @returns { TextInputAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @atomicservice [since 11]
    * @since 9 dynamic
@@ -1387,19 +1428,19 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   showPasswordIcon(value: boolean): TextInputAttribute;
 
   /**
-   * 设置文本在输入框中的水平对齐方式。
+   * 设置文本在输入框中的水平对齐方式。未通过该接口设置时，默认为TextAlign.Start。
    * 
    * 支持TextAlign.Start、TextAlign.Center和TextAlign.End。TextAlign.JUSTIFY的对齐方式按照TextAlign.Start处理。
    * 
-   * 可通过[align]{@link CommonMethod#align(value: Alignment)}属性控制文本段落在垂直方向上的位置。此组件中不可使用align属性控制文本段落在水平方向上的位置。
+   * 可通过[align]{@link CommonMethod#align(value: Alignment)}属性控制文本段落在垂直方向上的位置。此组件不支持通过align属性控制文本段落在水平方向上的位置。
    * 
    * - Alignment.TopStart、Alignment.Top、Alignment.TopEnd：内容顶部对齐。
    * - Alignment.Start、Alignment.Center、Alignment.End：内容垂直居中。
    * - Alignment.BottomStart、Alignment.Bottom、Alignment.BottomEnd：内容底部对齐。
    *
-   * @param { TextAlign } value - 文本在输入框中的水平对齐方式。<br/>默认值：TextAlign.Start
+   * @param { TextAlign } value - 文本在输入框中的水平对齐方式。
    * @returns { TextInputAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @atomicservice [since 11]
    * @since 9 dynamic
@@ -1409,11 +1450,11 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   /**
    * 设置输入框为默认风格或内联输入风格，内联输入风格只支持InputType.Normal类型。
    * 
-   * 输入框类型介绍请参考[type]{@link TextInputAttribute#type}接口。
+   * 输入框类型介绍请参考[type]{@link TextInputAttribute#type}接口。未通过该接口设置时，默认为TextInputStyle.Default。
    *
-   * @param { TextInputStyle | TextContentStyle } value - 输入框为默认风格或内联输入风格。<br/>默认值：TextInputStyle.Default
+   * @param { TextInputStyle | TextContentStyle } value - 输入框为默认风格或内联输入风格。
    * @returns { TextInputAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @atomicservice [since 11]
    * @since 9 dynamic
@@ -1423,9 +1464,9 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   /**
    * 设置光标风格。
    *
-   * @param { CaretStyle } value - 光标的风格。
+   * @param { CaretStyle } value - 光标的风格，用于自定义光标的显示样式。配置项包括width（光标宽度）和color（光标颜色）等。不设置时使用系统默认光标样式。
    * @returns { TextInputAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice [since 11]
@@ -1434,11 +1475,11 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   caretStyle(value: CaretStyle): TextInputAttribute;
 
   /**
-   * 设置文本选中底板颜色。如果未设置不透明度，默认为20%不透明度。
+   * 设置文本选中底板颜色。如果未设置不透明度，默认为20%不透明度。未通过该接口设置时，默认为'#FF007DFF'（蓝色），Wearable设备上默认值为'#FF1F71FF'（蓝色，比'#FF007DFF'颜色稍深）。
    *
    * @param { ResourceColor } value - 文本选中底板颜色。
    * @returns { TextInputAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice [since 11]
@@ -1449,9 +1490,11 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   /**
    * 设置光标位置。
    *
-   * @param { number } value - 光标的位置。<br/>第一个字符前的位置是0。
+   * @param { number } value - 光标的位置。
+   *     <br>第一个字符前的位置是0。
+   *     <br>当取值小于0时，取0；大于文本长度时，显示在文本末尾。
    * @returns { TextInputAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice [since 11]
@@ -1460,11 +1503,12 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   caretPosition(value: number): TextInputAttribute;
 
   /**
-   * 设置TextInput通过点击以外的方式获焦时，是否主动拉起软键盘。
+   * 设置TextInput通过点击以外的方式获焦时，是否主动拉起软键盘。未通过该接口设置时，默认TV设备为false，其他设备为true。
    * 
    * 从API version 10开始，获焦默认绑定输入法。
    *
-   * @param { boolean } value - 通过点击以外的方式获焦时，是否主动拉起软键盘。<br/>true表示主动拉起软键盘，false表示不主动拉起。<br/>默认值：TV设备为false，其他设备为true。
+   * @param { boolean } value - 通过点击以外的方式获焦时，是否主动拉起软键盘。
+   *     <br>true表示主动拉起软键盘，false表示不主动拉起。
    * @returns { TextInputAttribute } Returns the instance of the TextInputAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1475,14 +1519,12 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   enableKeyboardOnFocus(value: boolean): TextInputAttribute;
 
   /**
-   * 设置当密码输入模式时，输入框末尾的图标。
-   * 
-   * 支持jpg、png、bmp、heic和webp类型的图片格式。
+   * 设置在密码模式下，输入框末尾的图标。未通过该接口设置时，默认使用系统提供的密码图标。支持jpg、png、bmp、heic和webp类型的图片格式。该图标的固定尺寸为24vp，Wearable设备上默认尺寸为28vp，若引用的图标过
+   * 大或过小，均显示为固定尺寸。
    *
-   * @param { PasswordIcon } value - 密码输入模式时，输入框末尾的图标。<br/>默认为系统提供的密码图标。<br/>该图标的固定尺寸为24vp，Wearable设备上默认值为28vp，若引用的图标过大或
-   *     过小，均显示为固定尺寸。
+   * @param { PasswordIcon } value - 密码输入模式时，输入框末尾的图标。
    * @returns { TextInputAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform [since 11]
    * @atomicservice [since 11]
@@ -1496,12 +1538,20 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * 当参数类型为ResourceStr并且输入内容不符合定义规范时，提示错误文本，当提示错误单行文本超长时，末尾以省略号显示。当参数类型为undefined时，不显示错误状态。请参考
    * [示例2](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-textinput.md#示例2设置下划线)。
    *
-   * @param { string | undefined } value - 错误状态下提示的错误文本或者不显示错误状态。<br/>默认不显示错误状态。<br/>Wearable设备上字体大小为：13fp，对齐方式为：居中对齐<br
-   *     />**说明：** <br/>从API version 12开始，value支持Resource类型。 [since 10 - 11]
-   * @param { ResourceStr | undefined } [value] - 错误状态下提示的错误文本或者不显示错误状态。<br/>默认不显示错误状态。<br/>Wearable设备上字体大小为：13fp，对齐方式为：
-   *     居中对齐<br/>**说明：** <br/>从API version 12开始，value支持Resource类型。 [since 12]
+   * @param { string | undefined } value - 错误状态下提示的错误文本或者不显示错误状态。
+   *     <br>默认不显示错误状态。
+   *     <br>Wearable设备上字体大小为：13fp，对齐方式为：居中对齐
+   *     <br>**说明：** 
+   *     <br>从API version 12开始，value支持Resource类型。
+   *     <br>不支持[TextInputStyle]{@link TextInputStyle}的内联模式。 [since 10 - 11]
+   * @param { ResourceStr | undefined } [value] - 错误状态下提示的错误文本或者不显示错误状态。
+   *     <br>默认不显示错误状态。
+   *     <br>Wearable设备上字体大小为：13fp，对齐方式为：居中对齐
+   *     <br>**说明：** 
+   *     <br>从API version 12开始，value支持Resource类型。
+   *     <br>不支持[TextInputStyle]{@link TextInputStyle}的内联模式。 [since 12]
    * @returns { TextInputAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform [since 11]
    * @atomicservice [since 11]
@@ -1514,7 +1564,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    *
    * @param { CustomBuilder } value - 文本输入时，文本框的显示单位。
    * @returns { TextInputAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform [since 11]
    * @atomicservice [since 11]
@@ -1523,12 +1573,13 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   showUnit(value: CustomBuilder): TextInputAttribute;
 
   /**
-   * 设置是否开启下划线。
+   * 设置是否开启下划线。未通过该接口设置时，默认不开启下划线，下划线默认颜色为'#33182431'（深灰色，不透明度为20%），默认粗细为1px，文本框尺寸48vp，下划线只支持InputType.Normal类型。设置密码模式时，
+   * 下划线不生效。
    *
-   * @param { boolean } value - 是否开启下划线。<br/>true表示开启，false表示不开启。<br/>默认值：false<br/>下划线默认颜色为'#33182431'，默认粗细为1px，文本框尺寸48
-   *     vp，下划线只支持InputType.Normal类型。
+   * @param { boolean } value - 是否开启下划线。
+   *     <br>true表示开启，false表示不开启。
    * @returns { TextInputAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform [since 11]
    * @atomicservice [since 11]
@@ -1537,14 +1588,14 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   showUnderline(value: boolean): TextInputAttribute;
 
   /**
-   * 设置下划线颜色。
+   * 设置下划线颜色。未通过该接口设置时，默认为主题配置的下划线颜色，主题配置的默认下划线颜色为'#33182431'（深灰色，不透明度为20%）。
    * 
    * 开启输入框下划线[showUnderline]{@link TextInputAttribute#showUnderline}时，支持配置下划线颜色。
    *
-   * @param { ResourceColor | UnderlineColor | undefined } value - 设置下划线颜色。<br/>当设置下划线颜色模式时，修改下划线颜色。当只设定非特殊状态下的颜色，可以直接输入
-   *     ResourceColor。设定值为undefined、null、无效值时，所有下划线恢复为默认值。<br/>默认值：主题配置的下划线颜色。主题配置的默认下划线颜色为'#33182431'。
+   * @param { ResourceColor | UnderlineColor | undefined } value - 设置下划线颜色。
+   *     <br>当设置下划线颜色模式时，修改下划线颜色。当只设定非特殊状态下的颜色，可以直接输入ResourceColor。设定值为undefined、null、无效值时，所有下划线恢复为默认值。
    * @returns { TextInputAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
@@ -1553,10 +1604,11 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   underlineColor(value: ResourceColor | UnderlineColor | undefined): TextInputAttribute;
 
   /**
-   * 设置是否隐藏系统文本选择菜单。
+   * 设置是否隐藏系统文本选择菜单。未通过该接口设置时，默认显示系统文本选择菜单。
    *
-   * @param { boolean } value - 是否隐藏系统文本选择菜单。<br />设置为true时，单击输入框光标、长按输入框、双击输入框、三击输入框或者右键输入框，隐藏系统文本选择菜单。<br />设置为false时，
-   *     显示系统文本选择菜单。<br />默认值：false
+   * @param { boolean } value - 是否隐藏系统文本选择菜单。
+   *     <br>设置为true时，单击输入框光标、长按输入框、双击输入框、三击输入框或者右键输入框，隐藏系统文本选择菜单。
+   *     <br>设置为false时，显示系统文本选择菜单。
    * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1567,9 +1619,9 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   selectionMenuHidden(value: boolean): TextInputAttribute;
 
   /**
-   * 设置内联输入风格编辑态时滚动条的显示模式。
+   * 设置内联输入风格编辑态时滚动条的显示模式。未通过该接口设置时，默认为BarState.Auto。
    *
-   * @param { BarState } value - 内联输入风格编辑态时滚动条的显示模式。<br/>默认值：BarState.Auto
+   * @param { BarState } value - 内联输入风格编辑态时滚动条的显示模式。仅设置内联模式时该属性生效。
    * @returns { TextInputAttribute } - returns the instance of the TextInputAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1580,9 +1632,10 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   barState(value: BarState): TextInputAttribute;
 
   /**
-   * 设置内联输入风格编辑态时文本可显示的最大行数。
+   * 设置内联输入风格编辑态时文本可显示的最大行数。未通过该接口设置时，默认为3。
    *
-   * @param { number } value - 内联输入风格编辑态时文本可显示的最大行数。<br/>默认值：3 <br/>取值范围：(0, UINT32_MAX]
+   * @param { number } value - 内联输入风格编辑态时文本可显示的最大行数。仅设置内联模式且处于编辑态时该属性生效。
+   *     <br>取值范围：(0, UINT32_MAX]。传入0或负数时，按默认值3处理；超出UINT32_MAX时，自动修正为UINT32_MAX。
    * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1593,9 +1646,10 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   maxLines(value: number): TextInputAttribute;
 
   /**
-   * 设置文本断行规则。该属性在组件设置[内联模式](docroot://ui/arkts-common-components-text-input.md#内联模式)时样式生效，但对placeholder文本无效。
+   * 设置文本断行规则。该属性在组件设置[TextInputStyle]{@link TextInputStyle}的内联模式时样式生效，但对placeholder文本无效。未通过该接口设置时，默认为
+   * WordBreak.BREAK_WORD。
    *
-   * @param { WordBreak } value - 内联输入风格编辑态时断行规则。 <br />默认值：WordBreak.BREAK_WORD
+   * @param { WordBreak } value - 内联输入风格编辑态时断行规则。
    * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1606,10 +1660,16 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   wordBreak(value: WordBreak): TextInputAttribute;
 
   /**
-   * 设置折行规则。该属性在wordBreak不等于breakAll的时候生效，不支持连词符。
+   * 设置折行规则。该属性在wordBreak不等于BREAK_ALL的时候生效，不支持连词符。未通过该接口设置时，默认为LineBreakStrategy.GREEDY。
+   * 
+   * 适用于需要优化文本换行效果的场景：LineBreakStrategy.GREEDY适用于优先填充每行的快速换行；LineBreakStrategy.HIGH_QUALITY适用于追求更优视觉效果的排版；
+   * LineBreakStrategy.BALANCED适用于需要均匀分配各行内容的布局。
    *
-   * @param { LineBreakStrategy } strategy - 文本的折行规则。 <br />默认值：LineBreakStrategy.GREEDY <br/>**说明：**<br/>仅设置
-   *     [内联模式](docroot://ui/arkts-common-components-text-input.md#内联模式)时该属性生效。
+   * @param { LineBreakStrategy } strategy - 文本的折行规则。
+   *     <br>LineBreakStrategy.GREEDY表示贪婪折行，优先填充每行；LineBreakStrategy.HIGH_QUALITY表示高质量折行，平衡行长；LineBreakStrategy.BALANCED
+   *     表示均衡折行，优化排版美观。 
+   *     <br>**说明：**
+   *     <br>仅设置[TextInputStyle]{@link TextInputStyle}的内联模式时该属性生效。
    * @returns { TextInputAttribute } The attribute of the TextInputAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1630,15 +1690,14 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * 
    * 自定义键盘无法获取焦点，但是会拦截手势事件。
    * 
-   * 默认在输入控件失去焦点时，关闭自定义键盘，开发者也可以通过
-   * [TextInputController](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-textinput.md#textinputcontroller8).
+   * 默认在输入控件失去焦点时，关闭自定义键盘，开发者也可以通过[TextInputController]{@link TextInputController}.
    * [stopEditing]{@link TextInputController#stopEditing}方法控制键盘关闭。
    * 
    * 当设置自定义键盘时，可以通过绑定[onKeyPreIme]{@link CommonMethod#onKeyPreIme}事件规避物理键盘的输入。
    * 
    * 从API version 23开始，自定义键盘可以通过
-   * [setCustomKeyboardContinueFeature](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#setcustomkeyboardcontinuefeature23)
-   * 开启接续，在切换至其他自定义键盘时，会直接切换，不会触发键盘关闭和拉起动画。
+   * [setCustomKeyboardContinueFeature]{@link @ohos.arkui.UIContext:UIContext.setCustomKeyboardContinueFeature}开启接续，在切换至
+   * 其他自定义键盘时，会直接切换，不会触发键盘关闭和拉起动画。
    * 
    * > **说明：**
    * >
@@ -1647,7 +1706,8 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @param { CustomBuilder } value - Custom keyboard. If the value is **undefined**, the custom keyboard is
    *     closed. [since 10 - 21]
    * @param { CustomBuilder | ComponentContent | undefined } value - 自定义键盘。设定值为undefined时，关闭自定义键盘。 [since 22]
-   * @param { KeyboardOptions } [options] - 设置自定义键盘是否支持避让功能。 [since 12]
+   * @param { KeyboardOptions } [options] - 设置自定义键盘是否支持避让功能。
+   *     <br>不设置该参数时，自定义键盘默认不支持避让功能。 [since 12]
    * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1667,8 +1727,8 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * [InputCounterOptions]{@link InputCounterOptions}，当thresholdPercentage数值在有效区间内，且输入字符数超过最大字符数时，边框和计数器下标将变为红色，框体抖动。
    * highlightBorder设置为false，则不显示红色边框，计数器默认显示红色，框体抖动。
    * 
-   * [内联模式](docroot://ui/arkts-common-components-text-input.md#内联模式)、
-   * [密码模式](docroot://ui/arkts-common-components-text-input.md#密码模式)下字符计数器不显示。
+   * [TextInputStyle]{@link TextInputStyle}的内联模式、[密码模式](docroot://ui/arkts-common-components-text-input.md#密码模式)下字符计数器不显
+   * 示。
    * 
    * [示例5（设置计数器）](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-textinput.md#示例5设置计数器)展示了设置showCounter的效果。
    * 
@@ -1676,10 +1736,12 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * >
    * > 从API version 12开始，该接口支持在[attributeModifier]{@link CommonMethod#attributeModifier}中调用。
    *
-   * @param { boolean } value - 是否显示计数器。<br/>true表示显示计数器，false表示不显示。
-   * @param { InputCounterOptions } options - 计数器的配置项。
+   * @param { boolean } value - 是否显示计数器。
+   *     <br>true表示显示计数器，false表示不显示。
+   * @param { InputCounterOptions } options - 计数器的配置项，用于设置计数器阈值百分比、边框高亮等。当需要自定义计数器显示规则时传入此参数。不传入时使用默认计数器配置（阈值百分比为100%，边框
+   *     高亮为true）。
    * @returns { TextInputAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
@@ -1688,12 +1750,12 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   showCounter(value: boolean, options?: InputCounterOptions): TextInputAttribute;
 
   /**
-   * 设置右侧清除按钮样式，仅支持图片类型的图标。不支持[内联模式](docroot://ui/arkts-common-components-text-input.md#内联模式)。示例请参考
-   * [示例4（设置右侧清除按钮样式）](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-textinput.md#示例4设置右侧清除按钮样式)。
+   * 设置右侧清除按钮样式，仅支持图片类型的图标。不支持[TextInputStyle]{@link TextInputStyle}的内联模式。示例请参考
+   * [示例4（设置右侧清除按钮样式）](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-textinput.md#示例4设置右侧清除按钮样式)。未通过该接口设置
+   * 时，默认为{ style: CancelButtonStyle.INPUT }，Wearable设备上图标默认尺寸为28vp。
    *
    * @param { object } value - indicates the style of the cancel button. [since 11 - 17]
-   * @param { CancelButtonOptions } options - 右侧清除按钮样式选项。<br />默认值：<br />{<br />style: CancelButtonStyle.INPUT<br />}<br
-   *     />Wearable设备上默认值为：28vp [since 18]
+   * @param { CancelButtonOptions } options - 右侧清除按钮样式选项。 [since 18]
    * @returns { TextInputAttribute } Returns the instance of the TextInputAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1704,13 +1766,13 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   cancelButton(options: CancelButtonOptions): TextInputAttribute;
 
   /**
-   * 设置右侧清除按钮样式，仅支持symbol图标。不支持[内联模式](docroot://ui/arkts-common-components-text-input.md#内联模式)。示例请参考
+   * 设置右侧清除按钮样式，仅支持symbol图标。不支持[TextInputStyle]{@link TextInputStyle}的内联模式。示例请参考
    * [示例15（设置symbol类型清除按钮）](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-textinput.md#示例15设置symbol类型清除按钮)。
+   * 未通过该接口设置时，默认为{ style: CancelButtonStyle.INPUT }。
    *
-   * @param { CancelButtonSymbolOptions } symbolOptions - 右侧清除按钮样式。<br />默认值：<br />{<br />style: CancelButtonStyle.INPUT
-   *     <br />}
+   * @param { CancelButtonSymbolOptions } symbolOptions - 右侧清除按钮样式。
    * @returns { TextInputAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform [since 23]
    * @atomicservice
@@ -1719,9 +1781,10 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   cancelButton(symbolOptions: CancelButtonSymbolOptions): TextInputAttribute;
 
   /**
-   * 设置初始状态时，是否全选文本。不支持[内联模式](docroot://ui/arkts-common-components-text-input.md#内联模式)。
+   * 设置初始状态时，是否全选文本。不支持[TextInputStyle]{@link TextInputStyle}的内联模式。未通过该接口设置时，默认不会全选文本。
    *
-   * @param { boolean } value - 是否全选文本。<br/>true表示会全选文本，false表示不会全选文本。<br />默认值：false
+   * @param { boolean } value - 是否全选文本。
+   *     <br>true表示会全选文本，false表示不会全选文本。
    * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1741,10 +1804,12 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * 
    * minFontSize小于或等于0时，自适应字号不生效，此时按照[fontSize]{@link TextInputAttribute#fontSize}属性的值生效，未设置时按照其默认值生效。
    *
-   * @param { number | string | Resource } value - 文本最小显示字号。<br/>单位：
-   *     [fp](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
+   * @param { number | string | Resource } value - 文本最小显示字号。
+   *     <br>单位：[fp](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
+   *     <br>需大于0，小于或等于0时自适应字号不生效，按fontSize属性值生效。
+   *     <br>需配合maxFontSize使用，单独设置不生效。
    * @returns { TextInputAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
@@ -1763,10 +1828,12 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * maxFontSize小于等于0或者maxFontSize小于minFontSize时，自适应字号不生效，此时按照[fontSize]{@link TextInputAttribute#fontSize}属性的值生效，未设置时按照
    * 其默认值生效。
    *
-   * @param { number | string | Resource } value - 文本最大显示字号。<br/>单位：
-   *     [fp](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
+   * @param { number | string | Resource } value - 文本最大显示字号。
+   *     <br>单位：[fp](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
+   *     <br>需大于0且大于minFontSize，否则自适应字号不生效，按fontSize属性值生效。
+   *     <br>需配合minFontSize使用，单独设置不生效。
    * @returns { TextInputAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
@@ -1775,38 +1842,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   maxFontSize(value: number | string | Resource): TextInputAttribute;
 
   /**
-   * 设置文本最小的字体缩放倍数。
-   *
-   * @param { Optional<number | Resource> } scale - 文本最小的字体缩放倍数，支持undefined类型。<br/>取值范围：[0, 1]<br/>**说明：** <br/>设置的值小于0
-   *     时，按值为0处理。设置的值大于1，按值为1处理。异常值默认不生效。<br/>使用前需在工程中配置
-   *     [configuration.json](docroot://quick-start/app-configuration-file.md#configuration标签)文件和
-   *     [app.json5](docroot://quick-start/app-configuration-file.md)文件，具体详见
-   *     [示例18（设置最小字体范围与最大字体范围）](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-textinput.md#示例18设置最小字体范围与最大字体范围)。
-   * @returns { TextInputAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform [since 20]
-   * @atomicservice
-   * @since 18 dynamic
-   */
-  minFontScale(scale: Optional<number|Resource>): TextInputAttribute;
-
-  /**
-   * 设置文本最大的字体缩放倍数。
-   *
-   * @param { Optional<number | Resource> } scale - 文本最大的字体缩放倍数，支持undefined类型。<br/>取值范围：
-   *     [1, +∞)<br/>**说明：** <br/>设置的值小于1时，按值为1处理。异常值默认不生效。<br/>当设置maxFontScale属性后，showError最多放大到2倍。<br/>使用前需在工程中配置[configuration.json](docroot://quick-start/app-configuration-file.md#configuration标签)文件和[app.json5](docroot://quick-start/app-configuration-file.md)文件，具体详见[示例18（设置最小字体范围与最大字体范围）](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-textinput.md#示例18设置最小字体范围与最大字体范围)。
-   * @returns { TextInputAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform [since 20]
-   * @atomicservice
-   * @since 18 dynamic
-   */
-  maxFontScale(scale: Optional<number|Resource>): TextInputAttribute;
-
-  /**
-   * 组件设置为内联输入风格时，设置文本自适应高度的方式。
+   * 组件设置为内联输入风格时，设置文本自适应高度的方式。未通过该接口设置时，默认为TextHeightAdaptivePolicy.MAX_LINES_FIRST。
    * 
    * 当设置为TextHeightAdaptivePolicy.MAX_LINES_FIRST时，优先使用[maxLines]{@link TextInputAttribute#maxLines}属性来调整文本高度。如果使用
    * maxLines属性的布局大小超过了布局约束，则尝试在[minFontSize]{@link TextInputAttribute#minFontSize}和
@@ -1823,9 +1859,9 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * >
    * > 组件设置为内联输入风格，编辑态与非编辑态存在字体大小不一致情况。
    *
-   * @param { TextHeightAdaptivePolicy } value - 文本自适应高度的方式。<br/>默认值：TextHeightAdaptivePolicy.MAX_LINES_FIRST
+   * @param { TextHeightAdaptivePolicy } value - 文本自适应高度的方式。仅设置内联输入风格时该属性生效。
    * @returns { TextInputAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
@@ -1834,9 +1870,10 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   heightAdaptivePolicy(value: TextHeightAdaptivePolicy): TextInputAttribute;
 
   /**
-   * 设置是否启用自动填充。<!--RP6--><!--RP6End-->
+   * 设置是否启用自动填充。未通过该接口设置时，默认启用自动填充。<!--RP6--><!--RP6End-->
    *
-   * @param { boolean } value - 是否启用自动填充。<br/>true表示启用，false表示不启用。<br/>默认值：true
+   * @param { boolean } value - 是否启用自动填充。
+   *     <br>true表示启用，false表示不启用。
    * @returns { TextInputAttribute } Returns the instance of the TextInputAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1846,12 +1883,21 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   enableAutoFill(value: boolean): TextInputAttribute;
 
   /**
-   * 设置文本装饰线类型样式及其颜色。
+   * 设置文本装饰线类型样式及其颜色。未通过该接口设置时，默认为{
+   * 
+   * &nbsp;type:&nbsp;TextDecorationType.None,
+   * 
+   * &nbsp;color:&nbsp;Color.Black,
+   * 
+   * &nbsp;style:&nbsp;TextDecorationStyle.SOLID,
+   * 
+   * &nbsp;thicknessScale:&nbsp;1.0
+   * 
+   * }。
    *
-   * @param { TextDecorationOptions } value - 文本装饰线对象。<br />默认值：{<br/> type: TextDecorationType.None,<br/> color: 
-   *     Color.Black,<br/> style: TextDecorationStyle.SOLID,<br/> thicknessScale: 1.0<br/>}
+   * @param { TextDecorationOptions } value - 文本装饰线对象。
    * @returns { TextInputAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
@@ -1866,8 +1912,8 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * 
    * 对每个字符生效，包括行尾字符。
    *
-   * @param { number | string | Resource } value - 文本字符间距。<br/>单位：
-   *     [fp](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
+   * @param { number | string | Resource } value - 文本字符间距。
+   *     <br>单位：[fp](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
    * @returns { TextInputAttribute }
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1889,9 +1935,10 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * > - 设置[密码模式](docroot://ui/arkts-common-components-text-input.md#密码模式)时，通过该接口设置行高
    * > [lineHeight]{@link TextInputAttribute#lineHeight}不生效。
    *
-   * @param { number | string | Resource } value - 文本的文本行高。
+   * @param { number | string | Resource } value - 文本行高。
+   *     <br>number类型时单位为fp。
    * @returns { TextInputAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
@@ -1903,6 +1950,9 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * 定义生成密码的规则。在触发自动填充时，所设置的密码规则会透传给密码保险箱，用于新密码的生成。<!--RP1--><!--RP1End-->
    *
    * @param { string } value - 定义生成密码的规则。
+   *     <br>**说明：**
+   *     <br>需先设置[enableAutoFill]{@link TextInputAttribute#enableAutoFill}启用自动填充功能，并设置
+   *     [contentType]{@link TextInputAttribute#contentType}为NEW_PASSWORD类型，该属性在触发自动填充时生效。
    * @returns { TextInputAttribute } Returns the instance of the TextInputAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1922,9 +1972,9 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * 
    * 例如，使用等宽数字的输入格式为："ss01" on。
    *
-   * @param { string } value - 文字特性效果。
+   * @param { string } value - 文字特性效果，用于设置OpenType字体高级排版能力（如等宽数字、连字等）。格式为normal或<feature-tag-value>，例如"ss01" on。
    * @returns { TextInputAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
@@ -1933,16 +1983,17 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   fontFeature(value: string): TextInputAttribute;
 
   /**
-   * 设置密码的显隐状态。
+   * 设置密码的显隐状态。未通过该接口设置时，默认不显示密码。
    * 
-   * 当[InputType](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-textinput.md#inputtype枚举说明)设置为Password、
-   * NEW_PASSWORD和NUMBER_PASSWORD模式时，密码保护功能才能生效。非密码输入模式则不会触发该功能。
+   * 当[InputType]{@link InputType}设置为Password、NEW_PASSWORD和NUMBER_PASSWORD模式时，密码保护功能才能生效。非密码输入模式则不会触发该功能。
    * 
    * [密码模式](docroot://ui/arkts-common-components-text-input.md#密码模式)时，由于输入框后端的状态和前端应用侧的状态管理变量会不一致，可能导致末尾图标的状态异常。建议在
    * [onSecurityStateChange]{@link TextInputAttribute#onSecurityStateChange}上增加状态同步。参考
    * [示例1（设置与获取光标位置）](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-textinput.md#示例1设置与获取光标位置)。
    *
-   * @param { boolean } visible - 是否显示密码。<br/>true表示会显示密码，false表示不会显示密码。<br/>默认值：false
+   * @param { boolean } visible - 是否显示密码。
+   *     <br>true表示会显示密码，false表示不会显示密码。
+   *     <br>建议在[onSecurityStateChange]{@link TextInputAttribute#onSecurityStateChange}回调中同步状态，避免末尾图标状态异常。
    * @returns { TextInputAttribute } Returns the instance of the TextInputAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1959,7 +2010,8 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * >
    * > 从API version 20开始，该接口支持在[attributeModifier]{@link CommonMethod#attributeModifier}中调用。
    *
-   * @param { Callback<boolean> } callback - 回调函数。<br/>true表示状态切换；false表示状态未切换。
+   * @param { Callback<boolean> } callback - 回调函数。
+   *     <br>true表示密码显示；false表示密码隐藏。
    * @returns { TextInputAttribute } Returns the instance of the TextInputAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1971,11 +2023,24 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
 
   /**
    * 在将要输入时，触发该回调。
+   * 
+   * > **说明：**
+   * >
+   * > onWillInsert和onDidInsert形成will/did时序模式：
+   * >
+   * > - onWillInsert在输入操作前触发，可通过返回false拦截输入操作；返回true则允许输入，随后触发onDidInsert
+   * >
+   * > - onDidInsert在输入完成后触发，无法拦截
+   * >
+   * > - 两者可以同时使用，onWillInsert用于拦截控制，onDidInsert用于获取输入结果
    *
-   * @param { Callback<InsertValue, boolean> } callback - 在将要输入时调用的回调。<br/>在返回true时，表示正常插入，返回false时，表示不插入。<br/>在预上屏和候选词操
-   *     作时，该回调不触发。<br/>仅支持系统输入法输入的场景。
+   * @param { Callback<InsertValue, boolean> } callback - 在将要输入时调用的回调。
+   *     <br>回调参数类型为InsertValue时，包含将要插入的文本内容等信息。回调参数类型为boolean时，表示是否允许此次插入，返回true：允许文本正常插入到输入框中；返回false：拦截此次插入操作，文本不会被插
+   *     入。开发者可通过此回调实现对输入内容的过滤和拦截。
+   *     <br>在预上屏和候选词操作时，该回调不触发。
+   *     <br>仅支持系统输入法输入的场景。
    * @returns { TextInputAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
@@ -1986,7 +2051,8 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   /**
    * 在输入完成时，触发该回调。
    *
-   * @param { Callback<InsertValue> } callback - 在输入完成时调用的回调。<br/>仅支持系统输入法输入的场景。
+   * @param { Callback<InsertValue> } callback - 在输入完成时调用的回调。
+   *     <br>仅支持系统输入法输入的场景。
    * @returns { TextInputAttribute }
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1998,11 +2064,24 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
 
   /**
    * 在将要删除时，触发该回调。
+   * 
+   * > **说明：**
+   * >
+   * > onWillDelete和onDidDelete形成will/did时序模式：
+   * >
+   * > - onWillDelete在删除操作前触发，可通过返回false拦截删除操作；返回true则允许删除，随后触发onDidDelete
+   * >
+   * > - onDidDelete在删除完成后触发，无法拦截
+   * >
+   * > - 两者可以同时使用，onWillDelete用于拦截控制，onDidDelete用于获取删除结果
    *
-   * @param { Callback<DeleteValue, boolean> } callback - 在将要删除时调用的回调。<br/>在返回true时，表示正常删除，返回false时，表示不删除。<br/>在预上屏删除操作
-   *     时，该回调不触发。<br/>仅支持系统输入法输入的场景。
+   * @param { Callback<DeleteValue, boolean> } callback - 在将要删除时调用的回调。
+   *     <br>回调参数类型为DeleteValue时，包含将要删除的文本内容等信息。回调参数类型为boolean时，表示是否允许此次删除，返回true：允许文本正常删除；返回false：拦截此次删除操作，文本不会被删除。开发者可
+   *     通过此回调实现对删除操作的拦截和控制。
+   *     <br>在预上屏删除操作时，该回调不触发。
+   *     <br>仅支持系统输入法输入的场景。
    * @returns { TextInputAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
@@ -2013,9 +2092,10 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   /**
    * 在删除完成时，触发该回调。
    *
-   * @param { Callback<DeleteValue> } callback - 在删除完成时调用的回调。<br/>仅支持系统输入法输入的场景。
+   * @param { Callback<DeleteValue> } callback - 在删除完成时调用的回调。
+   *     <br>仅支持系统输入法输入的场景。
    * @returns { TextInputAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
@@ -2032,8 +2112,8 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * [setKeyboardAppearanceConfig]{@link @ohos.arkui.UIContext:UIContext#setKeyboardAppearanceConfig}设置键盘的样式。<!--DelEnd-
    * ->
    * 
-   * 从API version 22开始，调用[IMEClient](docroot://reference/apis-arkui/arkui-ts/ts-text-common.md#imeclient20对象说明)的
-   * [setExtraConfig]{@link IMEClient.setExtraConfig}方法可以设置输入法扩展信息。在绑定输入法成功后，输入法会收到扩展信息，输入法可以依据此信息实现自定义功能。
+   * 从API version 22开始，调用[IMEClient]{@link IMEClient}的[setExtraConfig]{@link IMEClient.setExtraConfig}方法可以设置输入法扩展信息。在绑定输
+   * 入法成功后，输入法会收到扩展信息，输入法可以依据此信息实现自定义功能。
    * 
    * IMEClient仅在onWillAttachIME执行期间有效，不可进行异步调用。
    * 
@@ -2043,7 +2123,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    *
    * @param { Callback<IMEClient> } callback - 在输入框将要绑定输入法前触发该回调。
    * @returns { TextInputAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
@@ -2054,13 +2134,13 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   /**
    * 设置自定义菜单扩展项，允许用户设置扩展项的文本内容、图标、回调方法。
    * 
-   * 调用[disableMenuItems](docroot://reference/apis-arkui/arkts-apis-uicontext-textmenucontroller.md#disablemenuitems20)或
-   * [disableSystemServiceMenuItems](docroot://reference/apis-arkui/arkts-apis-uicontext-textmenucontroller.md#disablesystemservicemenuitems20)
-   * 接口屏蔽文本选择菜单内的系统服务菜单项时，editMenuOptions接口内回调方法[onCreateMenu]{@link EditMenuOptions.onCreateMenu}的入参列表中不包含被屏蔽的菜单选项。
+   * 调用[disableMenuItems]{@link @ohos.arkui.UIContext:TextMenuController.disableMenuItems}或
+   * [disableSystemServiceMenuItems]{@link @ohos.arkui.UIContext:TextMenuController.disableSystemServiceMenuItems}接口屏蔽文本
+   * 选择菜单内的系统服务菜单项时，editMenuOptions接口内回调方法[onCreateMenu]{@link EditMenuOptions.onCreateMenu}的入参列表中不包含被屏蔽的菜单选项。
    *
    * @param { EditMenuOptions } editMenu - 扩展菜单选项。
    * @returns { TextInputAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
@@ -2069,13 +2149,14 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   editMenuOptions(editMenu: EditMenuOptions): TextInputAttribute;
 
   /**
-   * 设置是否开启输入预上屏。
+   * 设置是否开启输入预上屏。未通过该接口设置时，默认开启输入预上屏。
    * 
    * 预上屏内容定义为文字暂存态，目前不支持文字拦截功能。
    *
-   * @param { boolean } enable - 是否开启输入预上屏。<br/>true表示开启输入预上屏，false表示不开启输入预上屏。<br/>默认值：true
+   * @param { boolean } enable - 是否开启输入预上屏。
+   *     <br>true表示开启输入预上屏，false表示不开启输入预上屏。
    * @returns { TextInputAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
@@ -2084,12 +2165,26 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   enablePreviewText(enable: boolean): TextInputAttribute;
 
   /**
-   * 设置是否开启触控反馈。
+   * 设置自动大小写模式的文本模式，只提供接口能力，具体实现以输入法应用为主。
+   *
+   * @param { AutoCapitalizationMode } mode - 自动大小写模式。不设置时，默认不启用自动大小写功能。具体实现以输入法应用为主。
+   * @returns { TextInputAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 20 dynamic
+   */
+  autoCapitalizationMode(mode: AutoCapitalizationMode): TextInputAttribute;
+
+  /**
+   * 设置是否开启触控反馈。未通过该接口设置时，默认开启触控反馈。
    * 
    * 开启触控反馈时，需要在工程的[module.json5](docroot://quick-start/module-configuration-file.md)中配置requestPermissions字段以开启振动权限，配置如
    * 下：
    *
-   * @param { boolean } isEnabled - 是否开启触控反馈。<br/>true表示开启触控反馈，false表示不开启触控反馈。<br/>默认值：true
+   * @param { boolean } isEnabled - 是否开启触控反馈。
+   *     <br>true表示开启触控反馈，false表示不开启触控反馈。
    * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2100,39 +2195,14 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   enableHapticFeedback(isEnabled: boolean): TextInputAttribute;
 
   /**
-   * 设置自动大小写模式的文本模式，只提供接口能力，具体实现以输入法应用为主。
-   *
-   * @param { AutoCapitalizationMode } mode - 自动大小写模式，默认状态无效。
-   * @returns { TextInputAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
-   */
-  autoCapitalizationMode(mode: AutoCapitalizationMode): TextInputAttribute;
-
-  /**
-   * 设置文本在行内垂直居中，将行间距平分至行的顶部与底部。
-   *
-   * @param { Optional<boolean> } halfLeading - 设置文本是否垂直居中。<br/>true表示将行间距平分至行的顶部与底部，false则不平分。<br/>默认值：false
-   * @returns { TextInputAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
-   */
-  halfLeading(halfLeading: Optional<boolean>): TextInputAttribute;
-
-  /**
-   * 设置省略位置。ellipsisMode属性仅在[内联模式](docroot://ui/arkts-common-components-text-input.md#内联模式)下生效，需要配合overflow设置为
-   * TextOverflow.Ellipsis使用，单独设置ellipsisMode属性不生效。
+   * 设置省略位置。ellipsisMode属性仅在[TextInputStyle]{@link TextInputStyle}的内联模式下生效，需要配合
+   * [textOverflow]{@link TextInputAttribute#textOverflow}设置为TextOverflow.Ellipsis使用，单独设置ellipsisMode属性不生效。未通过该接口设置时，默认为
+   * EllipsisMode.END。
    * 
    * 非编辑态时正常生效，编辑态时EllipsisMode.START和EllipsisMode.CENTER仅在maxLines设置为1时生效，EllipsisMode.END、EllipsisMode.MULTILINE_START
    * 和EllipsisMode.MULTILINE_CENTER正常生效。
    *
-   * @param { Optional<EllipsisMode> } mode - 省略位置。 <br />默认值：EllipsisMode.END
+   * @param { Optional<EllipsisMode> } mode - 省略位置。
    * @returns { TextInputAttribute } The attribute of TextInput.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2143,9 +2213,108 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   ellipsisMode(mode: Optional<EllipsisMode>): TextInputAttribute;
 
   /**
-   * 设置是否阻止返回键传递。
+   * 设置输入框拉起的键盘样式，需要输入法适配后生效。具体参考[输入法应用沉浸模式](docroot://inputmethod/inputmethod-immersive-mode-guide.md)。未通过该接口设置时，默认为
+   * KeyboardAppearance.NONE_IMMERSIVE。
    *
-   * @param { Optional<boolean> } isStopped - 是否阻止返回键。<br/>true表示阻止，false表示不阻止。<br/>默认值：true。异常值取默认值。
+   * @param { Optional<KeyboardAppearance> } appearance - 键盘样式。
+   * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 15 dynamic
+   */
+  keyboardAppearance(appearance: Optional<KeyboardAppearance>): TextInputAttribute;
+
+  /**
+   * 设置语音按钮选项，启用后将在输入框中显示语音输入按钮，用户可通过语音进行输入。
+   *
+   * @param { Optional<VoiceButtonOptions> } options - 语音按钮配置选项，用于控制语音输入按钮的启用状态和行为。当需要在TextInput组件中启用语音输入功能时使用此参数，具体配置项参
+   *     见VoiceButtonOptions类型定义。
+   * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  voiceButton(options: Optional<VoiceButtonOptions>): TextInputAttribute;
+
+  /**
+   * 设置文本最大的字体缩放倍数。
+   *
+   * @param { Optional<number | Resource> } scale - 文本最大的字体缩放倍数，支持undefined类型。
+   *     <br>取值范围：[1, +∞)
+   *     <br>**说明：** 
+   *     <br>设置的值小于1时，按值为1处理。异常值默认不生效。
+   *     <br>当设置maxFontScale属性后，showError最多放大到2倍。
+   *     <br>使用前需在工程中配置[configuration.json](docroot://quick-start/app-configuration-file.md#configuration标签)文件和
+   *     [app.json5](docroot://quick-start/app-configuration-file.md)文件，具体详见
+   *     [示例18（设置最小字体范围与最大字体范围）](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-textinput.md#示例18设置最小字体范围与最大字体范围)。
+   * @returns { TextInputAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform [since 20]
+   * @atomicservice
+   * @since 18 dynamic
+   */
+  maxFontScale(scale: Optional<number|Resource>): TextInputAttribute;
+
+  /**
+   * 设置文本在行内垂直居中，将行间距平分至行的顶部与底部。未通过该接口设置时，默认为false。
+   *
+   * @param { Optional<boolean> } halfLeading - 设置文本是否垂直居中。
+   *     <br>true表示将行间距平分至行的顶部与底部，false则不平分。
+   * @returns { TextInputAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 18 dynamic
+   */
+  halfLeading(halfLeading: Optional<boolean>): TextInputAttribute;
+
+  /**
+   * 在文本内容将要发生变化时，触发该回调。
+   * 
+   * onWillChange的回调时序晚于onWillInsert、onWillDelete，早于onDidInsert、onDidDelete。
+   *
+   * @param { Callback<EditableTextChangeValue, boolean> } callback - 在文本内容将要发生变化时的回调。
+   *     <br>回调参数类型为EditableTextChangeValue时，包含文本变化的相关信息。回调参数类型为boolean时，表示是否允许此次文本变化，返回true：允许文本正常修改，变化会生效；返回false：拦截此次
+   *     文本变化操作，文本内容不会发生改变。开发者可通过此回调实现对文本变化的拦截和控制。
+   * @returns { TextInputAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 15 dynamic
+   */
+  onWillChange(callback: Callback<EditableTextChangeValue, boolean>): TextInputAttribute;
+
+  /**
+   * 设置文本最小的字体缩放倍数。
+   *
+   * @param { Optional<number | Resource> } scale - 文本最小的字体缩放倍数，支持undefined类型。
+   *     <br>取值范围：[0, 1]
+   *     <br>**说明：** 
+   *     <br>设置的值小于0时，按值为0处理。设置的值大于1，按值为1处理。异常值默认不生效。
+   *     <br>使用前需在工程中配置[configuration.json](docroot://quick-start/app-configuration-file.md#configuration标签)文件和
+   *     [app.json5](docroot://quick-start/app-configuration-file.md)文件，具体详见
+   *     [示例18（设置最小字体范围与最大字体范围）](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-textinput.md#示例18设置最小字体范围与最大字体范围)。
+   * @returns { TextInputAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform [since 20]
+   * @atomicservice
+   * @since 18 dynamic
+   */
+  minFontScale(scale: Optional<number|Resource>): TextInputAttribute;
+
+  /**
+   * 设置是否阻止返回键事件向其他组件或系统传递。设置为true时，TextInput拦截返回键事件，不向其他组件传递；设置为false时，返回键事件正常向其他组件或系统传递。适用于需要自定义返回键行为的场景，如表单未保存时拦截返回操作
+   * 并弹出确认提示、自定义导航流程、游戏或特殊交互场景中需要接管返回键控制等。未通过该接口设置时，默认为true，异常值取默认值。
+   *
+   * @param { Optional<boolean> } isStopped - 是否阻止返回键。
+   *     <br>true表示阻止，false表示不阻止。
    * @returns { TextInputAttribute } - returns the instance of the TextInputAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2156,78 +2325,10 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   stopBackPress(isStopped: Optional<boolean>): TextInputAttribute;
 
   /**
-   * 在文本内容将要发生变化时，触发该回调。
-   * 
-   * onWillChange的回调时序晚于onWillInsert、onWillDelete，早于onDidInsert、onDidDelete。
+   * 设置是否开启中文与西文的自动间距。未通过该接口设置时，默认为false。
    *
-   * @param { Callback<EditableTextChangeValue, boolean> } callback - 在文本内容将要发生变化时的回调。<br/>返回true时，表示正常修改。返回false时，表示拦截此
-   *     次触发。
-   * @returns { TextInputAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 15 dynamic
-   */
-  onWillChange(callback: Callback<EditableTextChangeValue, boolean>): TextInputAttribute;
-
-  /**
-   * 设置输入框拉起的键盘样式，需要输入法适配后生效。具体参考[输入法应用沉浸模式](docroot://inputmethod/inputmethod-immersive-mode-guide.md)。
-   *
-   * @param { Optional<KeyboardAppearance> } appearance - 键盘样式。<br/>默认值：KeyboardAppearance.NONE_IMMERSIVE
-   * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 15 dynamic
-   */
-  keyboardAppearance(appearance: Optional<KeyboardAppearance>): TextInputAttribute;
-
-  /**
-   * 设置文本描边的宽度。
-   *
-   * @param { Optional<LengthMetrics> } width - 文本描边的宽度。如果LengthMetrics的unit值是PERCENT，当前设置不生效，按默认值处理。<br/>若设置值小于0，显示实心字；
-   *     若大于0，显示空心字。<br/>默认值为0，不做描边处理。
-   * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
-   */
-  strokeWidth(width: Optional<LengthMetrics>): TextInputAttribute;
-
-  /**
-   * 设置文本描边的颜色。
-   *
-   * @param { Optional<ResourceColor> } color - 描边颜色。默认值为字体颜色，设置异常值时取默认值。
-   * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
-   */
-  strokeColor(color: Optional<ResourceColor>): TextInputAttribute;
-
-  /**
-   * 设置是否启用自动填充动效。
-   *
-   * @param { Optional<boolean> } enabled - 是否启用自动填充动效。<br/>true表示启用，false表示不启用。<br/>默认值：true <br/>**说明：**<br/>启用之后，仅输入模
-   *     式[InputType](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-textinput.md#inputtype枚举说明)设置为Password
-   *     、NEW_PASSWORD或NUMBER_PASSWORD的输入框在进行自动填充时动效可生效。
-   * @returns { TextInputAttribute } Returns the instance of the TextInputAttribute.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 20 dynamic
-   */
-  enableAutoFillAnimation(enabled: Optional<boolean>): TextInputAttribute;
-
-  /**
-   * 设置是否开启中文与西文的自动间距。
-   *
-   * @param { Optional<boolean> } enabled - 是否开启中文与西文的自动间距。<br/>true为开启自动间距，false为不开启。<br />默认值：false
+   * @param { Optional<boolean> } enabled - 是否开启中文与西文的自动间距。
+   *     <br>true为开启自动间距，false为不开启。
    * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2238,9 +2339,81 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   enableAutoSpacing(enabled: Optional<boolean>): TextInputAttribute;
 
   /**
+   * 设置是否启用自动填充动效。未通过该接口设置时，默认为true。
+   *
+   * @param { Optional<boolean> } enabled - 是否启用自动填充动效。
+   *     <br>true表示启用，false表示不启用。
+   *     <br>**说明：**
+   *     <br>需先设置[enableAutoFill]{@link TextInputAttribute#enableAutoFill}启用自动填充功能。启用之后，仅输入模式
+   *     [InputType]{@link InputType}设置为Password、NEW_PASSWORD或NUMBER_PASSWORD的输入框在进行自动填充时动效可生效。
+   * @returns { TextInputAttribute } Returns the instance of the TextInputAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 20 dynamic
+   */
+  enableAutoFillAnimation(enabled: Optional<boolean>): TextInputAttribute;
+
+  /**
+   * 设置文本描边的宽度。未通过该接口设置时，默认值为0，不做描边处理。
+   *
+   * @param { Optional<LengthMetrics> } width - 文本描边的宽度。如果LengthMetrics的unit值是PERCENT，当前设置不生效，按默认值处理。
+   *     <br>若设置值小于0，显示实心字；若大于0，显示空心字。
+   * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 20 dynamic
+   */
+  strokeWidth(width: Optional<LengthMetrics>): TextInputAttribute;
+
+  /**
+   * 设置文本描边的颜色。未通过该接口设置时，默认为字体颜色，设置异常值时取默认值。
+   *
+   * @param { Optional<ResourceColor> } color - 描边颜色。
+   * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 20 dynamic
+   */
+  strokeColor(color: Optional<ResourceColor>): TextInputAttribute;
+
+  /**
+   * 设置文本输入框内文本拖拽时的背板样式。
+   *
+   * @param { SelectedDragPreviewStyle | undefined } value - 文本拖拽时的背板样式。
+   *     <br>设置为undefined时：背板颜色跟随主题，浅色模式显示白色，深色模式显示黑色。
+   * @returns { TextInputAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  selectedDragPreviewStyle(value: SelectedDragPreviewStyle | undefined): TextInputAttribute;
+
+  /**
+   * 指定文本排版方向，未通过该接口设置时，默认文本排版方向遵循组件布局方向。
+   *
+   * @param { TextDirection | undefined } direction - 文本排版方向。
+   *     <br>设置为undefined时，按照TextDirection.DEFAULT处理，表现为文本排版方向遵循组件布局方向。
+   * @returns { TextInputAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  textDirection(direction: TextDirection | undefined): TextInputAttribute;
+
+  /**
    * 设置是否在首行和尾行增加间距以避免文字截断。不通过该接口设置，默认不增加间距。
    *
-   * @param { Optional<boolean> } include - 是否在首行和尾行增加间距以避免文字截断。<br/>true表示在首行和尾行增加间距；false表示在首行和尾行不增加间距。
+   * @param { Optional<boolean> } include - 是否在首行和尾行增加间距以避免文字截断。
+   *     <br>true表示在首行和尾行增加间距；false表示在首行和尾行不增加间距。
    * @returns { TextInputAttribute } - returns the instance of the TextInputAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2253,7 +2426,9 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   /**
    * 针对多行文字叠加，支持行高基于文字实际高度自适应。此接口仅当行高小于文字实际高度时生效。不通过该接口设置，默认行高不基于文字实际高度自适应。
    *
-   * @param { Optional<boolean> } enabled - 行高是否基于文字实际高度自适应。<br/>true表示行高基于文字实际高度自适应；false表示行高不基于文字实际高度自适应。
+   * @param { Optional<boolean> } enabled - 行高是否基于文字实际高度自适应。
+   *     <br>true表示行高基于文字实际高度自适应；false表示行高不基于文字实际高度自适应。
+   *     <br>此接口仅当行高小于文字实际高度时生效。
    * @returns { TextInputAttribute } - returns the instance of the TextInputAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2264,15 +2439,14 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   fallbackLineSpacing(enabled: Optional<boolean>): TextInputAttribute;
 
   /**
-   * 设置是否开启行首标点符号压缩。
+   * 设置是否开启行首标点符号压缩。未通过该接口设置时，默认不开启行首标点符号压缩。
    * 
    * > **说明：**
    * >
-   * > - 行首标点符号默认不压缩。
-   * >
    * > - 支持压缩的标点符号，请参考[ParagraphStyle]{@link @ohos.graphics.text:text.ParagraphStyle}的行首压缩的标点范围。
    *
-   * @param { Optional<boolean> } enabled - 是否开启行首标点符号压缩。<br/>true表示开启行首标点符号压缩；false表示不开启行首标点符号压缩。
+   * @param { Optional<boolean> } enabled - 是否开启行首标点符号压缩。
+   *     <br>true表示开启行首标点符号压缩；false表示不开启行首标点符号压缩。
    * @returns { TextInputAttribute } - returns the instance of the TextInputAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2281,56 +2455,17 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @since 23 dynamic
    */
   compressLeadingPunctuation(enabled: Optional<boolean>): TextInputAttribute;
-
-  /**
-   * 设置文本输入框内文本拖拽时的背板样式。
-   *
-   * @param { SelectedDragPreviewStyle | undefined } value - 文本拖拽时的背板样式。<br/>设置为undefined时：背板颜色跟随主题，浅色模式显示白色，深色模式显示黑色。
-   * @returns { TextInputAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 23 dynamic
-   */
-  selectedDragPreviewStyle(value: SelectedDragPreviewStyle | undefined): TextInputAttribute;
-
-  /**
-   * 指定文本排版方向，未通过该接口设置时，默认文本排版方向遵循组件布局方向。
-   *
-   * @param { TextDirection | undefined } direction - 文本排版方向。<br/>设置为undefined时，按照TextDirection.DEFAULT处理，表现为文本排版方向遵循组件布
-   *     局方向。
-   * @returns { TextInputAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 23 dynamic
-   */
-  textDirection(direction: TextDirection | undefined): TextInputAttribute;
-
-  /**
-   * 设置语音按键选项。
-   *
-   * @param { Optional<VoiceButtonOptions> } options - 语音按键的选项。
-   * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @stagemodelonly
-   * @atomicservice
-   * @since 23 dynamic
-   */
-  voiceButton(options: Optional<VoiceButtonOptions>): TextInputAttribute;
-
   /**
    * 设置文本排版时是否使能孤字优化。不通过该接口设置，默认不使能孤字优化。
    * 
-   * 孤字优化通过更高效地处理孤立字符（段落尾行首字符）来改善文本布局。使能后，它会调整换行点以尽可能避免孤立字符。孤字优化特性需在[wordBreak]{@link TextInputAttribute#wordBreak}为非
-   * BREAK_ALL并且待排版文本首个[TextStyle]{@link @ohos.graphics.text:text.TextStyle}的
-   * [locale]{@link @ohos.graphics.text:text.TextStyle}为“zh-Hans”或“zh-Hant”时生效。
+   * 使能后，会调整换行点以尽可能避免孤立字符（段落尾行首字符），改善文本布局。该特性需在wordBreak为非BREAK_ALL且待排版文本首个
+   * [TextStyle]{@link @ohos.graphics.text:text.TextStyle}的[locale]{@link @ohos.graphics.text:text.TextStyle}为"zh-Hans"或
+   * "zh-Hant"时生效。
    *
-   * @param { Optional<boolean> } enabled - 段落最后一行是否使能孤字优化。<br/>true表示使能孤字优化，false表示不使能孤字优化。<br/>值为undefined或null时，不使能孤字
-   *     优化。
+   * @param { Optional<boolean> } enabled - 段落最后一行是否使能孤字优化。
+   *     <br>true表示使能孤字优化，false表示不使能孤字优化。
+   *     <br>值为undefined或null时，不使能孤字优化。
+   *     <br>孤字优化需在wordBreak为非BREAK_ALL并且待排版文本首个TextStyle的locale为"zh-Hans"或"zh-Hant"时生效。
    * @returns { TextInputAttribute } - returns the instance of the TextInputAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -2342,8 +2477,8 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   /**
    * 设置文本描边拐角样式。
    *
-   * @param { StrokeJoinStyle | undefined } strokeJoinStyle - 文本描边拐角样式。<br/>值为undefined时，按照StrokeJoinStyle.MITER_JOIN处理，
-   *     请参考[StrokeJoinStyle]{@link StrokeJoinStyle}，文本拐角处表现为锐角。
+   * @param { StrokeJoinStyle | undefined } strokeJoinStyle - 文本描边拐角样式。
+   *     <br>值为undefined时，按照StrokeJoinStyle.MITER_JOIN处理，请参考[StrokeJoinStyle]{@link StrokeJoinStyle}，文本拐角处表现为锐角。
    * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2362,7 +2497,9 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * >
    * > shaderStyle的优先级高于[fontColor]{@link TextInputAttribute#fontColor}。
    *
-   * @param { ShaderStyle | undefined } shader - 文本着色器效果。<br/>值为undefined时，无渐变效果。
+   * @param { ShaderStyle | undefined } shader - 文本着色器效果，用于设置文本的渐变或特殊颜色效果。支持线性渐变、径向渐变、纯色等类型。
+   *     <br>当同时设置shaderStyle和strokeWidth时，shaderStyle不生效。
+   *     <br>值为undefined时，无渐变效果。
    * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2373,10 +2510,11 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   shaderStyle(shader: ShaderStyle | undefined): TextInputAttribute;
 
   /**
-   * 是否启用行尾标点溢出。
+   * 设置是否启用行尾标点符号悬挂。不通过该接口设置，默认标点符号不悬挂。
    *
-   * @param { Optional<boolean> } enabled - 是否开启，默认为false
-   * @returns { TextInputAttribute } 返回TextInputAttribute的实例。
+   * @param { Optional<boolean> } enabled - 是否启用行尾标点符号悬挂。
+   *     <br>true表示启用行尾标点符号悬挂，false表示不启用行尾标点符号悬挂。设置为undefined或null时，不启用标点符号悬挂。
+   * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2387,11 +2525,12 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
 }
 
 /**
- * 单行文本输入框组件。
+ * 单行文本输入框组件，用于接收用户的单行文本输入。支持多种输入类型（如文本、密码、邮箱、数字等）、自定义样式（字体、颜色、下划线、装饰线等）、输入过滤、密码输入模式、自动填充等功能，适用于登录注册、搜索、表单填写等多种场景。能够解决文本
+ * 输入验证、格式化、安全输入等常见需求，简化开发流程、提升用户体验并增强数据安全性。
  * 
  * > **说明：**
- * 
- * > 该组件仅支持单文本样式，若需实现富文本样式，建议使用[RichEditor]{@link rich_editor}组件。
+ * >
+ * > 该组件仅支持单文本样式，若需实现富文本样式，建议使用[RichEditor]{@link ./rich_editor}组件。
  * 
  * ###### 子组件
  * 
