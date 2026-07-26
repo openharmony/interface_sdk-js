@@ -44,17 +44,6 @@ export interface EditorMenuOptions {
   icon: ResourceStr;
 
   /**
-   * Symbol icon resource, which has higher priority than **icon**.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform [since 20]
-   * @atomicservice
-   * @since 18 dynamic
-   */
-  symbolStyle?: SymbolGlyphModifier;
-
-  /**
    * Action triggered when the menu option is clicked.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -76,6 +65,17 @@ export interface EditorMenuOptions {
    * @since 11 dynamic
    */
   builder?: () => void;
+
+  /**
+   * Symbol icon resource, which has higher priority than **icon**.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform [since 20]
+   * @atomicservice
+   * @since 18 dynamic
+   */
+  symbolStyle?: SymbolGlyphModifier;
 }
 
 /**
@@ -275,7 +275,7 @@ export interface SelectionMenuOptions {
 /**
  * Defines a **SelectionMenu** component. When the input parameter is empty, both the component and its content area
  * have a zero size, making the component invisible. For example, when a **SelectionMenu** component activated via right
- * -click is bound to a [RichEditor]{@link rich_editor} component using
+ * -click is bound to a [RichEditor]{@link ./@internal/component/ets/rich_editor} component using
  * [bindSelectionMenu]{@link RichEditorAttribute#bindSelectionMenu}, it will not be displayed when the **RichEditor**
  * component receives a right-click event.
  *

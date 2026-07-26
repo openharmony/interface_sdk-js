@@ -53,8 +53,14 @@ import type common from './@ohos.app.ability.common';
 import type pointer from './@ohos.multimodalInput.pointer';
 
 /**
-* class Font
-*
+ * Font用于管理自定义字体和系统字体信息，支持注册自定义字体、获取系统字体列表、查询字体详细信息等功能，适用于需要在应用中使用自定义字体或查询系统字体资源的场景。
+ *
+ * > **说明**
+ * >
+ * > - 以下API需先使用UIContext中的[getFont()]{@link UIContext.getFont}方法获取到Font对象，再通过该对象调用对应方法。
+ * >
+ * > - 推荐使用字体引擎的[loadFontSync]{@link @ohos.graphics.text:text.FontCollection#loadFontSync}接口注册自定义字体。
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -64,9 +70,14 @@ import type pointer from './@ohos.multimodalInput.pointer';
 export class Font {
 
   /**
-   * Register a customized font in the FontManager.
+   * 在字体管理中注册自定义字体。
    *
-   * @param { font.FontOptions } options - FontOptions
+   * 推荐使用字体引擎的[loadFontSync](../apis-arkgraphics2d/js-apis-graphics-text.md#loadfontsync)接口注册自定义字体。
+   *
+   * 该接口为异步接口，字体注册为异步过程，不支持并发调用。由于注册是异步完成的，建议在页面初始化阶段（如aboutToAppear）提前调用，以确保字体在使用前已注册完成。
+   *
+   * @param { font.FontOptions } options - 注册的自定义字体信息。
+   *     <br>**说明：**<br>设置注册字体文件的路径，读取系统沙箱路径内的资源时，建议使用file://路径前缀的字符串，需要确保沙箱目录路径下的文件存在并且有可读权限。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -78,7 +89,12 @@ export class Font {
   /**
    * 获取系统支持的字体列表。
    *
-   * @returns { Array<string> } 字体名称列表
+   * 该接口仅在PC/2in1设备上生效，在其他设备上返回空数组。
+   *
+   * > **说明**
+   * > 推荐使用[getSystemFontFullNamesByType]{@link @ohos.graphics.text:text.getSystemFontFullNamesByType}接口获取系统最新支持的字体列表数据。
+   *
+   * @returns { Array<string> } 系统支持的字体名称列表，返回的名称可用于getFontByName方法查询对应字体的详细信息。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform [since 11]
@@ -88,10 +104,10 @@ export class Font {
   getSystemFontList(): Array<string>;
 
   /**
-   * 根据字体名称获取字体详细信息。
+   * 根据传入的系统字体名称获取系统字体的相关信息。
    *
-   * @param { string } fontName - 字体名称
-   * @returns { font.FontInfo } Returns the font info
+   * @param { string } fontName - 系统的字体名，可通过[getSystemFontList()](#getsystemfontlist)方法获取支持的字体名称列表。
+   * @returns { font.FontInfo } 字体的详细信息。<br>如果查询不到字体，返回undefined。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform [since 11]
@@ -2800,7 +2816,13 @@ export class OverlayManager {
 }
 
 /**
- * 提供控制放大镜的能力。
+ * 提供控制放大镜的显示与隐藏的能力，放大镜会对组件内容进行放大显示，便于查看组件细节。适用于非文本类组件（如图片）需要查看细节的场景。
+ *
+ * > **说明**
+ * >
+ * > - 以下API需先使用UIContext中的[getMagnifier()]{@link UIContext.getMagnifier}方法获取Magnifier实例，再通过此实例调用对应方法。
+ * >
+ * > - 与文本类组件自带的放大镜能力互不影响，文本类组件推荐使用自带的放大镜能力。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -2811,9 +2833,14 @@ export class OverlayManager {
 export class Magnifier {
 
   /**
-   * 将放大镜和组件绑定。
+   * 绑定放大镜与指定id的组件。
    *
-   * @param { string } id - 组件id
+   * > **说明**
+   * >
+   * >  使用前需先通过UIContext中的getMagnifier()方法获取Magnifier实例。
+   *
+   * @param { string } id - 组件id，可通过通用属性[id]{@link CommonMethod#id}或[key]{@link
+   *     CommonMethod#key}设置。当组件id为空字符串或未找到匹配id的组件时，不显示放大镜。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2823,12 +2850,18 @@ export class Magnifier {
   bind(id: string): void;
 
   /**
-   * 设置放大镜显示内容的位置。
+   * 设置放大镜显示的组件内容相对于组件左上角的位置，设置成功后放大镜会对以该坐标点为中心的区域内容进行放大显示。
    *
-   * @param { number } x - 放大镜显示内容相对组件水平方向坐标。
-   * 单位为vp。
-   * @param { number } y - 放大镜显示内容相对组件垂直方向坐标。
-   * 单位为vp。
+   * > **说明**
+   * >
+   * > - 使用前需先通过UIContext中的getMagnifier()方法获取Magnifier实例。
+   * >
+   * > - 调用此方法前，需先调用[bind](#bind)方法绑定目标组件。
+   * >
+   * > - 当与放大镜绑定的组件自身内容发生变化时，放大镜显示内容不会自动更新，需要主动调用show接口对放大镜显示内容进行更新。
+   *
+   * @param { number } x - 放大镜显示的组件内容相对于组件左上角的水平方向坐标，单位为vp。当坐标值大于组件宽度或小于0时不显示放大镜；传入undefined时不生效，保持放大镜当前的显示状态。
+   * @param { number } y - 放大镜显示的组件内容相对于组件左上角的垂直方向坐标，单位为vp。当坐标值大于组件高度或小于0时不显示放大镜；传入undefined时不生效，保持放大镜当前的显示状态。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2838,7 +2871,7 @@ export class Magnifier {
   show(x: number, y: number): void;
 
   /**
-   * 将放大镜和组件解绑。
+   * 解除放大镜与当前组件的绑定。使用前需先通过UIContext中的getMagnifier()方法获取Magnifier实例。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3077,9 +3110,8 @@ export class SwiperDynamicSyncScene extends DynamicSyncScene {
 }
 
 /**
-* Represents a dynamic synchronization scene of Marquee.
-*
- * @extends DynamicSyncScene
+ * 提供Marquee组件动态帧率的配置能力，支持在Marquee组件运行动画时动态调节帧率，优化性能和功耗，适用于需要在跑马灯场景中平衡动画流畅度和系统资源消耗的场景。
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @atomicservice
@@ -3088,10 +3120,8 @@ export class SwiperDynamicSyncScene extends DynamicSyncScene {
 export class MarqueeDynamicSyncScene extends DynamicSyncScene {
 
   /**
-   * Type of the MarqueeDynamicSyncSceneType.
+   * Marquee的动态帧率场景类型。用于指定Marquee组件的动态帧率场景模式，不同场景类型对应不同的帧率调节策略，详见MarqueeDynamicSyncSceneType。
    *
-   * @type { MarqueeDynamicSyncSceneType }
-   * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
@@ -3266,12 +3296,17 @@ export class DragController {
 }
 
 /**
- * class MeasureUtils
+ * MeasureUtils提供文本宽度、高度等相关计算能力，适用于文本自适应布局、多行文本截断、动态UI适配等场景。通过该类可精确计算文本尺寸，帮助开发者在布局前预判文本显示效果，避免文本溢出或布局错乱等问题。
  *
- * <p><strong>NOTE</strong>:
- * <br>You must first use getMeasureUtils() in UIContext to obtain a MeasureUtils instance,
- * and then call the APIs using the obtained instance.
- * </p>
+ * > **说明**
+ * >
+ * > - 以下API需先使用UIContext中的[getMeasureUtils()]{@link UIContext.getMeasureUtils}方法获取MeasureUtils实例，再通过此实例调用对应方法。
+ * >
+ * > - 如需更多测算文本参数，建议使用图形对应测算接口[Paragraph]{@link @ohos.graphics.text:text.Paragraph}接口。
+ * >
+ * > - 调用文本计算接口时，应避免同时用[ApplicationContext.setFontSizeScale](../apis-ability-kit/js-apis-inner-application-applicationContext.md#applicationcontextsetfontsizescale13)设置应用字体大小缩放比例。为了确保时序正确性，建议开发者自行监听字体缩放变化，以保证测算结果的准确性。
+ * >
+ * > - 在测算裁剪后的文本时，由于某些Unicode字符（如emoji）的码位长度大于1，直接按字符串长度裁剪会导致不准确的结果。建议基于Unicode码点进行迭代处理，避免错误截断字符，确保测算结果准确，请参考[measureTextSize]{@link MeasureUtils.measureTextSize}的示例2。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -3280,12 +3315,17 @@ export class DragController {
  * @since 12 dynamic
  */
 export class MeasureUtils {
-
   /**
-   * Obtains the width of the specified text in a single line layout.
+   * 计算指定文本作为单行文本显示时的宽度，如果文本包含多行（由换行符`\n`分隔），则返回其中最长的行的宽度。
    *
-   * @param { MeasureOptions } options - Options.
-   * @returns { number } - The unit is px.
+   * > **说明**
+   * >
+   * > - 调用此接口时，应避免同时使用[ApplicationContext.setFontSizeScale]{@link ./application/ApplicationContext:ApplicationContext.setFontSizeScale}设置应用字体大小缩放比例。为了确保时序正确性，建议开发者自行监听字体缩放变化，以保证测算结果的准确性。
+   * >
+   * > - measureText接口的计算结果始终是单行文本的宽度，入参options中配置的布局约束（如constraintWidth、maxLines）对measureText的结果没有影响。如果需要计算布局约束下的宽度，请使用[measureTextSize]{@link MeasureUtils.measureTextSize}方法。
+   *
+   * @param { MeasureOptions } options - 文本测量配置选项。包含文本内容（textContent）、字体大小（fontSize）等属性。constraintWidth、maxLines等布局约束属性对measureText的计算结果无影响，如需计算布局约束下的宽度，请使用measureTextSize方法。
+   * @returns { number } 文本宽度。<br>**说明：**<br>浮点数会向上取整。<br>单位：px
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3295,11 +3335,14 @@ export class MeasureUtils {
   measureText(options: MeasureOptions): number;
 
   /**
-   * Obtains the width and height of the specified text in a single line layout.
+   * 计算指定文本的宽度和高度。
    *
-   * @param { MeasureOptions } options - Options of measure area occupied by text.
-   * @returns { SizeOptions } width and height for text to display.The return values for text width and height are both
-   *     in px.
+   * > **说明**
+   * >
+   * > 调用此接口时，应避免同时使用[ApplicationContext.setFontSizeScale]{@link ./application/ApplicationContext:ApplicationContext.setFontSizeScale}设置应用字体大小缩放比例。为了确保时序正确性，建议开发者自行监听字体缩放变化，以保证测算结果的准确性。
+   *
+   * @param { MeasureOptions } options - 文本测量配置选项。包含文本内容（textContent）、字体大小（fontSize）、约束宽度（constraintWidth）、最大行数（maxLines）等属性，用于配置被计算文本的测量参数。
+   * @returns { SizeOptions } 返回文本所占布局宽度和高度。<br>**说明：**<br>未设置constraintWidth时，文本宽度返回值会向上取整；传参constraintWidth时，文本宽度返回值不被取整。<br>文本宽度以及高度返回值单位均为px。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3309,11 +3352,11 @@ export class MeasureUtils {
   measureTextSize(options: MeasureOptions): SizeOptions;
 
   /**
-   * 获取样式字符串的布局信息。
+   * 将属性字符串根据文本布局选项转换成对应的[Paragraph]{@link @ohos.graphics.text:text.Paragraph}数组。
    *
-   * @param { StyledString } styledString - 样式化的字符串值。
-   * @param { TextLayoutOptions } [options] - 布局选项。
-   * @returns { Array<Paragraph> } 段落结果
+   * @param { StyledString } styledString - 待转换的属性字符串。
+   * @param { TextLayoutOptions } [options] - 文本布局选项。省略时使用默认布局配置。
+   * @returns { Array<Paragraph> } 根据文本布局选项转换后得到的[Paragraph]{@link @ohos.graphics.text:text.Paragraph}对象数组，用于后续的文本布局计算。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -4485,9 +4528,9 @@ export class UIContext {
   isAvailable(): boolean;
 
   /**
-   * get object font.
+   * 获取Font对象。
    *
-   * @returns { Font } object Font.
+   * @returns { Font } Font实例对象。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -4667,7 +4710,7 @@ export class UIContext {
   getOverlayManager(): OverlayManager;
 
   /**
-   * 获取[Magnifier]{@link @ohos.arkui.UIContext}对象，可控制放大镜显示和隐藏。
+   * 获取[Magnifier]{@link Magnifier}对象，可控制放大镜显示和隐藏。
    *
    * @returns { Magnifier } Magnifier对象，可用于控制放大镜的显示和隐藏。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -4993,9 +5036,9 @@ export class UIContext {
   getDragController(): DragController;
 
   /**
-   * Get MeasureUtils.
+   * 允许用户通过UIContext对象，获取MeasureUtils对象进行文本计算。
    *
-   * @returns { MeasureUtils } the MeasureUtils
+   * @returns { MeasureUtils } 提供文本宽度、高度等相关计算。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -5699,9 +5742,9 @@ export class UIContext {
   freezeUINode(uniqueId: number, isFrozen: boolean): void;
 
   /**
-   * Get object text menu controller.
+   * 获取[TextMenuController]{@link TextMenuController}对象，可通过该对象控制文本选择菜单。
    *
-   * @returns { TextMenuController } object text menu controller.
+   * @returns { TextMenuController } TextMenuController对象。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -5719,7 +5762,7 @@ export class UIContext {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
-   * @since 20 dynamic
+   * @since 20 dynamiconly
    */
   setKeyboardAppearanceConfig(uniqueId: number, config: KeyboardAppearanceConfig): void;
 
@@ -6031,7 +6074,10 @@ export const enum MarqueeDynamicSyncSceneType {
 }
 
 /**
- * class TextMenuController
+ * TextMenuController用于控制文本选择菜单的行为，支持设置菜单显示选项（如优先使用独立窗口显示）、屏蔽系统服务菜单项或指定菜单项，适用于需要自定义文本选择菜单显示方式或限制特定菜单功能的应用场景，如在特定业务场景下禁用翻译、搜索等功能。
+ *
+ * > **说明**
+ * > - setMenuOptions接口为非静态API，需先使用UIContext中的[getTextMenuController()](arkts-apis-uicontext-uicontext.md#gettextmenucontroller16)方法获取TextMenuController实例，再通过此实例调用对应方法。disableSystemServiceMenuItems和disableMenuItems为静态方法，可直接通过TextMenuController类调用。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -6042,9 +6088,10 @@ export const enum MarqueeDynamicSyncSceneType {
 export class TextMenuController {
 
   /**
-   * Set text menu options.
+   * 设置菜单选项。例如，需要在特定UIContext下优先使用独立窗口显示文本选择菜单时，可通过此接口设置菜单的显示模式。未通过该接口设置时，文本选择菜单默认在当前窗口显示（showMode为TextMenuShowMode.DEFAULT）。
    *
-   * @param { TextMenuOptions } options - the options of the text menu.
+   * @param { TextMenuOptions } options - 设置菜单选项，用于控制文本选择菜单的显示模式。
+   *     <br>默认值：{showMode: TextMenuShowMode.DEFAULT}。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -6054,9 +6101,37 @@ export class TextMenuController {
   setMenuOptions(options: TextMenuOptions): void;
 
   /**
-   * 禁用所有的系统菜单
+   * 屏蔽文本选择菜单内所有系统服务菜单项。适用于需要完全自定义文本选择菜单的场景，例如企业安全应用中仅保留复制、剪切、全选、粘贴等基础功能，禁用搜索、翻译、分享等可能涉及数据外发的服务菜单。未通过该接口设置时，默认不禁用系统服务菜单项。
    *
+   * > **说明**
+   * > >
+   * > - 此接口调用后整个应用进程都会生效。
+   * > >
+   * > - 此接口可在[UIAbility]{@link @ohos.app.ability.UIAbility}使用。
+   * > >
+   * > - 此接口调用后将影响文本组件的接口[editMenuOptions]{@link TextAttribute#editMenuOptions}，其回调方法[onCreateMenu]{@link
+   * > EditMenuOptions.onCreateMenu}的入参列表中不包含被屏蔽的菜单选项。
+   * > >
+   * > - 涉及文本选择菜单的组件有 [Text]{@link ./@internal/component/ets/text}、[TextArea]{@link
+   * > ./@internal/component/ets/text_area}、[TextInput]{@link ./@internal/component/ets/text_input}、[Search]{@link
+   * > ./@internal/component/ets/search}、[RichEditor]{@link ./@internal/component/ets/rich_editor}、[Web]{@link
+   * > ./@internal/component/ets/web}。
+   * > >
+   * > - 系统服务菜单项指除[TextMenuItemId]{@link TextMenuItemId}中的复制、剪切、全选、粘贴以外的菜单项。
+   * > >
+   * > - 当disableSystemServiceMenuItems与disableMenuItems同时设置时，以先调用的方法为准。例如：先调用disableSystemServiceMenuItems(true)，再调用disableMenuItems([...])时，以disableSystemServiceMenuItems的设置为准；反之，先调用disableMenuItems([...])时，则以disableMenuItems的设置为准。建议根据实际禁用范围需求选择使用其中一个方法，避免同时调用。
+   * > >
+   * >  - 使用该接口时，全局生效，多次调用以最后一次为准。
+   * > >
+   * >  - 可以通过以下三种方式恢复禁用菜单：
+   * > >
+   * >  - 仅设置disableSystemServiceMenuItems(true)禁用菜单时，设置false即可恢复菜单；
+   * > >
+   * >  - 仅设置disableMenuItems禁用菜单时，设置为空数组即可恢复菜单；
+   * > >
+   * > - 当disableSystemServiceMenuItems与disableMenuItems同时使用时，则前者设置为false，后者设置为空数组，即可恢复菜单。
    *
+   * @param { boolean } disable - 是否禁用系统服务菜单项。true表示禁用，false表示不禁用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -6066,8 +6141,36 @@ export class TextMenuController {
   static disableSystemServiceMenuItems(disable: boolean): void;
 
   /**
-   * 按照id禁用菜单项
+   * 屏蔽文本选择菜单内指定的系统服务菜单项。适用于需要按需禁用特定菜单功能的场景，例如禁用搜索和翻译菜单以简化用户界面或限制对外部服务的访问。未通过该接口设置时，默认不禁用任何菜单。
    *
+   * > **说明**
+   * > >
+   * > - 此接口调用后整个应用进程都会生效。
+   * > >
+   * >  - 此接口可在[UIAbility]{@link @ohos.app.ability.UIAbility}使用。
+   * > >
+   * > - 此接口调用后将影响文本组件的接口[editMenuOptions]{@link TextAttribute#editMenuOptions}，其回调方法
+   * > [onCreateMenu]{@link EditMenuOptions.onCreateMenu}的入参列表中不包含被屏蔽的菜单选项。
+   * > >
+   * > - 涉及文本选择菜单的组件有 [Text]{@link ./@internal/component/ets/text}、[TextArea]{@link ./@internal/component/ets/text_area}
+   * > 、[TextInput]{@link ./@internal/component/ets/text_input}、[Search]{@link ./@internal/component/ets/search}、
+   * > [RichEditor]{@link ./@internal/component/ets/rich_editor}、[Web]{@link ./@internal/component/ets/web}。
+   * > >
+   * > - 系统服务菜单项指除[TextMenuItemId]{@link TextMenuItemId}中的复制、剪切、全选、粘贴以外的菜单项。
+   * > >
+   * > - 当disableSystemServiceMenuItems与disableMenuItems同时设置时，以先设置的disableSystemServiceMenuItems的设置结果为准。。
+   * > >
+   * > - 使用该接口时，全局生效，多次调用以最后一次为准。
+   * > >
+   * > - 可以通过以下三种方式恢复禁用菜单：
+   * > >
+   * > - 仅设置disableSystemServiceMenuItems(true)禁用菜单时，设置false即可恢复菜单；
+   * > >
+   * >  - 仅设置disableMenuItems禁用菜单时，设置为空数组即可恢复菜单；
+   * > >
+   * > - 当disableSystemServiceMenuItems与disableMenuItems同时使用时，则前者设置为false，后者设置为空数组，即可恢复菜单。
+   *
+   * @param { Array<TextMenuItemId> } items - 禁用菜单项的列表。仅支持禁用系统服务菜单项（复制、剪切、全选、粘贴除外），禁用一级菜单项会同时禁用其所有二级菜单项，不支持直接禁用二级菜单项。 。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform

@@ -737,6 +737,12 @@ declare interface SubmitEvent {
  * [setStyledPlaceholder]{@link TextContentControllerBase#setStyledPlaceholder}, and
  * [deleteBackward]{@link TextContentControllerBase#deleteBackward}.
  *
+ * ###### Objects to Import
+ *
+ * ```ts
+ * controller: TextInputController = new TextInputController();
+ * ```
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full [since 10]
  * @crossplatform [since 10]
  * @atomicservice [since 11]
@@ -890,7 +896,7 @@ declare enum TextInputStyle {
  *
  * > **NOTE**
  * >
- * > This component supports plain text only. For rich text, use the [RichEditor]{@link rich_editor} component.
+ * > This component supports plain text only. For rich text, use the [RichEditor]{@link ./rich_editor} component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
@@ -1005,9 +1011,12 @@ declare type OnContentScrollCallback = (totalOffsetX: number, totalOffsetY: numb
 declare type OnPasteCallback = (content: string, event: PasteEvent) => void;
 
 /**
- * In addition to the [universal attributes]{@link common}, the following attributes are supported.
+ * In addition to the
+ * [universal attributes](docroot://reference/apis-arkui/arkui-ts/ts-component-general-attributes.md), the following
+ * attributes are supported.
  *
- * In addition to the [universal events]{@link common}, the following events are supported.
+ * In addition to the [universal events](docroot://reference/apis-arkui/arkui-ts/ts-component-general-events.md), the
+ * following events are supported.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
@@ -1888,39 +1897,6 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   maxFontSize(value: number | string | Resource): TextInputAttribute;
 
   /**
-   * Sets the minimum font scale factor for text.
-   *
-   * @param { Optional<number | Resource> } scale - Minimum font scale factor for text. The **undefined** type is
-   *     supported.<br>Value range: [0, 1]<br>**NOTE**<br>A value less than 0 is handled as **0**. A value greater than
-   *     1 is handled as **1**. Invalid values are not applied by default.<br>Before use, you need to configure the
-   *     [configuration.json](docroot://quick-start/app-configuration-file.md#tags-in-the-configuration-file) and
-   *     [app.json5](docroot://quick-start/app-configuration-file.md) files in the project. For details, see
-   *     [Example 18: Setting the Minimum and Maximum Font Scale Factors](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-textinput.md#example-18-setting-the-minimum-and-maximum-font-scale-factors).
-   * @returns { TextInputAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform [since 20]
-   * @atomicservice
-   * @since 18 dynamic
-   */
-  minFontScale(scale: Optional<number|Resource>): TextInputAttribute;
-
-  /**
-   * Sets the maximum font scale factor for text.
-   *
-   * @param { Optional<number | Resource> } scale - Maximum font scale factor for text. The **undefined** type is
-   *     supported.<br>Value range:
-   *     [1, +∞)<br>**NOTE**<br>Values less than 1 are treated as **1**. Invalid values are not applied by default.<br>After the **maxFontScale** attribute is set, the error message set by **showError** can be enlarged to a maximum of twice the original size.<br>Before use, you need to configure the [configuration.json](docroot://quick-start/app-configuration-file.md#tags-in-the-configuration-file) and [app.json5](docroot://quick-start/app-configuration-file.md) files in the project. For details, see [Example 18: Setting the Minimum and Maximum Font Scale Factors](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-textinput.md#example-18-setting-the-minimum-and-maximum-font-scale-factors).
-   * @returns { TextInputAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform [since 20]
-   * @atomicservice
-   * @since 18 dynamic
-   */
-  maxFontScale(scale: Optional<number|Resource>): TextInputAttribute;
-
-  /**
    * Sets how the adaptive height is determined for the text in the inline style.
    *
    * When this attribute is set to **TextHeightAdaptivePolicy.MAX_LINES_FIRST**, the
@@ -2232,6 +2208,20 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   enablePreviewText(enable: boolean): TextInputAttribute;
 
   /**
+   * Sets the auto-capitalization text mode. This API provides the capability, but actual implementation depends on the
+   * input method application.
+   *
+   * @param { AutoCapitalizationMode } mode - Auto-capitalization mode. The default state is inactive.
+   * @returns { TextInputAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 20 dynamic
+   */
+  autoCapitalizationMode(mode: AutoCapitalizationMode): TextInputAttribute;
+
+  /**
    * Sets whether to enable haptic feedback.
    *
    * To enable haptic feedback, you must declare the **ohos.permission.VIBRATE** permission under **requestPermissions**
@@ -2247,35 +2237,6 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @since 13 dynamic
    */
   enableHapticFeedback(isEnabled: boolean): TextInputAttribute;
-
-  /**
-   * Sets the auto-capitalization text mode. This API provides the capability, but actual implementation depends on the
-   * input method application.
-   *
-   * @param { AutoCapitalizationMode } mode - Auto-capitalization mode. The default state is inactive.
-   * @returns { TextInputAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
-   */
-  autoCapitalizationMode(mode: AutoCapitalizationMode): TextInputAttribute;
-
-  /**
-   * Enables half leading for text, which splits the leading equally between the top and bottom of the line.
-   *
-   * @param { Optional<boolean> } halfLeading - Whether half leading is enabled. Half leading refers to splitting the
-   *     leading in half and applying it equally to the top and bottom of the line.<br>**true**: Half leading is
-   *     enabled. **false**: Half leading is not enabled.<br>Default value: **false**
-   * @returns { TextInputAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
-   */
-  halfLeading(halfLeading: Optional<boolean>): TextInputAttribute;
 
   /**
    * Sets the ellipsis position. The **ellipsisMode** attribute takes effect only in the
@@ -2297,19 +2258,62 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   ellipsisMode(mode: Optional<EllipsisMode>): TextInputAttribute;
 
   /**
-   * Sets whether to prevent the back key event from being propagated.
+   * Sets the keyboard appearance for the text box. This setting takes effect only after input method adaptation. For
+   * details, see
+   * [Immersive Mode of the Input Method Application](docroot://inputmethod/inputmethod-immersive-mode-guide.md).
    *
-   * @param { Optional<boolean> } isStopped - Whether to prevent the back button press from being propagated to other
-   *     components or applications.<br>**true**: Propagation is prevented. **false**: Propagation is allowed.<br>
-   *     Default value: **true** Invalid values are treated as the default value.
-   * @returns { TextInputAttribute } - returns the instance of the TextInputAttribute.
+   * @param { Optional<KeyboardAppearance> } appearance - Appearance of the keyboard.<br>Default value:
+   *     **KeyboardAppearance.NONE_IMMERSIVE**
+   * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @crossplatform [since 23]
    * @atomicservice
    * @since 15 dynamic
    */
-  stopBackPress(isStopped: Optional<boolean>): TextInputAttribute;
+  keyboardAppearance(appearance: Optional<KeyboardAppearance>): TextInputAttribute;
+
+  /**
+   * Set voice button options.
+   *
+   * @param { Optional<VoiceButtonOptions> } options - Indicates the options of the voice button.
+   * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  voiceButton(options: Optional<VoiceButtonOptions>): TextInputAttribute;
+
+  /**
+   * Sets the maximum font scale factor for text.
+   *
+   * @param { Optional<number | Resource> } scale - Maximum font scale factor for text. The **undefined** type is
+   *     supported.<br>Value range:
+   *     [1, +∞)<br>**NOTE**<br>Values less than 1 are treated as **1**. Invalid values are not applied by default.<br>After the **maxFontScale** attribute is set, the error message set by **showError** can be enlarged to a maximum of twice the original size.<br>Before use, you need to configure the [configuration.json](docroot://quick-start/app-configuration-file.md#tags-in-the-configuration-file) and [app.json5](docroot://quick-start/app-configuration-file.md) files in the project. For details, see [Example 18: Setting the Minimum and Maximum Font Scale Factors](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-textinput.md#example-18-setting-the-minimum-and-maximum-font-scale-factors).
+   * @returns { TextInputAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform [since 20]
+   * @atomicservice
+   * @since 18 dynamic
+   */
+  maxFontScale(scale: Optional<number|Resource>): TextInputAttribute;
+
+  /**
+   * Enables half leading for text, which splits the leading equally between the top and bottom of the line.
+   *
+   * @param { Optional<boolean> } halfLeading - Whether half leading is enabled. Half leading refers to splitting the
+   *     leading in half and applying it equally to the top and bottom of the line.<br>**true**: Half leading is
+   *     enabled. **false**: Half leading is not enabled.<br>Default value: **false**
+   * @returns { TextInputAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 18 dynamic
+   */
+  halfLeading(halfLeading: Optional<boolean>): TextInputAttribute;
 
   /**
    * Triggered when the text content is about to change.
@@ -2329,19 +2333,65 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   onWillChange(callback: Callback<EditableTextChangeValue, boolean>): TextInputAttribute;
 
   /**
-   * Sets the keyboard appearance for the text box. This setting takes effect only after input method adaptation. For
-   * details, see
-   * [Immersive Mode of the Input Method Application](docroot://inputmethod/inputmethod-immersive-mode-guide.md).
+   * Sets the minimum font scale factor for text.
    *
-   * @param { Optional<KeyboardAppearance> } appearance - Appearance of the keyboard.<br>Default value:
-   *     **KeyboardAppearance.NONE_IMMERSIVE**
-   * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
+   * @param { Optional<number | Resource> } scale - Minimum font scale factor for text. The **undefined** type is
+   *     supported.<br>Value range: [0, 1]<br>**NOTE**<br>A value less than 0 is handled as **0**. A value greater than
+   *     1 is handled as **1**. Invalid values are not applied by default.<br>Before use, you need to configure the
+   *     [configuration.json](docroot://quick-start/app-configuration-file.md#tags-in-the-configuration-file) and
+   *     [app.json5](docroot://quick-start/app-configuration-file.md) files in the project. For details, see
+   *     [Example 18: Setting the Minimum and Maximum Font Scale Factors](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-textinput.md#example-18-setting-the-minimum-and-maximum-font-scale-factors).
+   * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform [since 20]
+   * @atomicservice
+   * @since 18 dynamic
+   */
+  minFontScale(scale: Optional<number|Resource>): TextInputAttribute;
+
+  /**
+   * Sets whether to prevent the back key event from being propagated.
+   *
+   * @param { Optional<boolean> } isStopped - Whether to prevent the back button press from being propagated to other
+   *     components or applications.<br>**true**: Propagation is prevented. **false**: Propagation is allowed.<br>
+   *     Default value: **true** Invalid values are treated as the default value.
+   * @returns { TextInputAttribute } - returns the instance of the TextInputAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform [since 23]
    * @atomicservice
    * @since 15 dynamic
    */
-  keyboardAppearance(appearance: Optional<KeyboardAppearance>): TextInputAttribute;
+  stopBackPress(isStopped: Optional<boolean>): TextInputAttribute;
+
+  /**
+   * Sets whether to enable automatic spacing between Chinese and Western characters.
+   *
+   * @param { Optional<boolean> } enabled - Whether to enable automatic spacing between Chinese and Western characters.<
+   *     br>**true** to enable, **false** otherwise.<br>Default value: **false**
+   * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 20 dynamic
+   */
+  enableAutoSpacing(enabled: Optional<boolean>): TextInputAttribute;
+
+  /**
+   * Sets whether to enable the autofill animation.
+   *
+   * @param { Optional<boolean> } enabled - Whether to enable the autofill animation.<br>**true** to enable; **false**
+   *     otherwise.<br>Default value: **true**<br>**NOTE**<br>When enabled, the animation takes effect only for text
+   *     boxes where [InputType]{@link InputType} is set to **Password**, **NEW_PASSWORD**, or **NUMBER_PASSWORD**.
+   * @returns { TextInputAttribute } Returns the instance of the TextInputAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 20 dynamic
+   */
+  enableAutoFillAnimation(enabled: Optional<boolean>): TextInputAttribute;
 
   /**
    * Sets the text stroke width.
@@ -2372,32 +2422,35 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   strokeColor(color: Optional<ResourceColor>): TextInputAttribute;
 
   /**
-   * Sets whether to enable the autofill animation.
+   * Sets the drag preview style for text being dragged in the text box.
    *
-   * @param { Optional<boolean> } enabled - Whether to enable the autofill animation.<br>**true** to enable; **false**
-   *     otherwise.<br>Default value: **true**<br>**NOTE**<br>When enabled, the animation takes effect only for text
-   *     boxes where [InputType]{@link InputType} is set to **Password**, **NEW_PASSWORD**, or **NUMBER_PASSWORD**.
-   * @returns { TextInputAttribute } Returns the instance of the TextInputAttribute.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 20 dynamic
-   */
-  enableAutoFillAnimation(enabled: Optional<boolean>): TextInputAttribute;
-
-  /**
-   * Sets whether to enable automatic spacing between Chinese and Western characters.
-   *
-   * @param { Optional<boolean> } enabled - Whether to enable automatic spacing between Chinese and Western characters.<
-   *     br>**true** to enable, **false** otherwise.<br>Default value: **false**
-   * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
+   * @param { SelectedDragPreviewStyle | undefined } value - Drag preview style for text being dragged in the text box.<
+   *     br>If this parameter is set to **undefined**, the drag preview follows the theme: white in light mode and black
+   *     in dark mode.
+   * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 20 dynamic
+   * @since 23 dynamic
    */
-  enableAutoSpacing(enabled: Optional<boolean>): TextInputAttribute;
+  selectedDragPreviewStyle(value: SelectedDragPreviewStyle | undefined): TextInputAttribute;
+
+  /**
+   * Specifies the text layout direction. If this attribute is not set, the default text layout direction follows the
+   * component layout direction.
+   *
+   * @param { TextDirection | undefined } direction - Text layout direction.<br>If this parameter is set to
+   *     **undefined**, the text layout direction follows the component layout direction as defined by
+   *     **TextDirection.DEFAULT**.
+   * @returns { TextInputAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  textDirection(direction: TextDirection | undefined): TextInputAttribute;
 
   /**
    * Sets whether to add spacing to the first and last lines to avoid text truncation. If this attribute is not set, no
@@ -2451,51 +2504,6 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @since 23 dynamic
    */
   compressLeadingPunctuation(enabled: Optional<boolean>): TextInputAttribute;
-
-  /**
-   * Sets the drag preview style for text being dragged in the text box.
-   *
-   * @param { SelectedDragPreviewStyle | undefined } value - Drag preview style for text being dragged in the text box.<
-   *     br>If this parameter is set to **undefined**, the drag preview follows the theme: white in light mode and black
-   *     in dark mode.
-   * @returns { TextInputAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 23 dynamic
-   */
-  selectedDragPreviewStyle(value: SelectedDragPreviewStyle | undefined): TextInputAttribute;
-
-  /**
-   * Specifies the text layout direction. If this attribute is not set, the default text layout direction follows the
-   * component layout direction.
-   *
-   * @param { TextDirection | undefined } direction - Text layout direction.<br>If this parameter is set to
-   *     **undefined**, the text layout direction follows the component layout direction as defined by
-   *     **TextDirection.DEFAULT**.
-   * @returns { TextInputAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 23 dynamic
-   */
-  textDirection(direction: TextDirection | undefined): TextInputAttribute;
-
-  /**
-   * Set voice button options.
-   *
-   * @param { Optional<VoiceButtonOptions> } options - Indicates the options of the voice button.
-   * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @stagemodelonly
-   * @atomicservice
-   * @since 23 dynamic
-   */
-  voiceButton(options: Optional<VoiceButtonOptions>): TextInputAttribute;
-
   /**
    * Sets whether to enable orphan character optimization during text typesetting. If this attribute is not set, orphan
    * character optimization is disabled by default.
@@ -2567,7 +2575,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
  *
  * > **NOTE**
  * >
- * > This component supports plain text only. For rich text, use the [RichEditor]{@link rich_editor} component.
+ * > This component supports plain text only. For rich text, use the [RichEditor]{@link ./rich_editor} component.
  *
  * ###### Child Components
  *

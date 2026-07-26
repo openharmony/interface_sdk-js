@@ -31,6 +31,12 @@
  * [setStyledPlaceholder]{@link TextContentControllerBase#setStyledPlaceholder}, and
  * [deleteBackward]{@link TextContentControllerBase#deleteBackward}.
  *
+ * ###### Objects to Import
+ *
+ * ```ts
+ * controller: SearchController = new SearchController();
+ * ```
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
  * @atomicservice [since 11]
@@ -319,8 +325,8 @@ declare interface SearchOptions {
  * The **Search** component provides an area for users to enter search queries.
  *
  * > **NOTE**
- *
- * > This component supports plain text only. For rich text, use the [RichEditor]{@link rich_editor} component.
+ * >
+ * > This component supports plain text only. For rich text, use the [RichEditor]{@link ./rich_editor} component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
@@ -524,9 +530,12 @@ interface CancelButtonSymbolOptions {
 declare type SearchSubmitCallback = (searchContent: string, event?: SubmitEvent) => void;
 
 /**
- * In addition to the [universal attributes]{@link common}, the following attributes are supported.
+ * In addition to the
+ * [universal attributes](docroot://reference/apis-arkui/arkui-ts/ts-component-general-attributes.md), the following
+ * attributes are supported.
  *
- * In addition to the [universal events]{@link common}, the following events are supported.
+ * In addition to the [universal events](docroot://reference/apis-arkui/arkui-ts/ts-component-general-events.md), the
+ * following events are supported.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
@@ -1334,6 +1343,23 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
   enableHapticFeedback(isEnabled: boolean): SearchAttribute;
 
   /**
+   * Called when the text content is about to change.
+   *
+   * This callback is triggered after **onWillInsert** and **onWillDelete**, but before **onDidInsert** and
+   * **onDidDelete**.
+   *
+   * @param { Callback<EditableTextChangeValue, boolean> } callback - Callback invoked when the text content is about to
+   *     change.<br>Returning **true** allows the change to proceed, while returning **false** cancels the change.
+   * @returns { SearchAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 15 dynamic
+   */
+  onWillChange(callback: Callback<EditableTextChangeValue, boolean>): SearchAttribute;
+
+  /**
    * Sets the text auto-capitalization mode. This API provides the capability, but actual implementation depends on the
    * input method application.
    *
@@ -1376,23 +1402,6 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @since 15 dynamic
    */
   stopBackPress(isStopped: Optional<boolean>): SearchAttribute;
-
-  /**
-   * Called when the text content is about to change.
-   *
-   * This callback is triggered after **onWillInsert** and **onWillDelete**, but before **onDidInsert** and
-   * **onDidDelete**.
-   *
-   * @param { Callback<EditableTextChangeValue, boolean> } callback - Callback invoked when the text content is about to
-   *     change.<br>Returning **true** allows the change to proceed, while returning **false** cancels the change.
-   * @returns { SearchAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 15 dynamic
-   */
-  onWillChange(callback: Callback<EditableTextChangeValue, boolean>): SearchAttribute;
 
   /**
    * Sets the keyboard appearance for the text box. This setting takes effect only after input method adaptation. For
@@ -1440,8 +1449,8 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
   /**
    * Sets whether to enable automatic spacing between Chinese and Western characters.
    *
-   * @param { Optional<boolean> } enabled - Whether to enable automatic spacing between Chinese and Western characters.<
-   *     br>**true**: Enabled. **false**: Disabled.<br>Default value: **false**
+   * @param { Optional<boolean> } enabled - Whether to enable automatic spacing between Chinese and Western characters.
+   *     <br>**true**: Enabled. **false**: Disabled.<br>Default value: **false**
    * @returns { SearchAttribute } returns the instance of the SearchAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1583,8 +1592,8 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
  * The **Search** component provides an area for users to enter search queries.
  *
  * > **NOTE**
- *
- * > This component supports plain text only. For rich text, use the [RichEditor]{@link rich_editor} component.
+ * >
+ * > This component supports plain text only. For rich text, use the [RichEditor]{@link ./rich_editor} component.
  *
  * ###### Child Components
  *
