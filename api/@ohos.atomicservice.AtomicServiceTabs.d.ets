@@ -84,7 +84,7 @@ export declare struct AtomicServiceTabs {
    * @type { ?LayoutMode }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18 dynamic
+   * @since 18 dynamiconly
    */
   @Prop
   layoutMode?: LayoutMode;
