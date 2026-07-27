@@ -50,6 +50,7 @@ export interface CommonEventData {
    * Bundle name of the common event publisher. The default value is an empty string.
    *
    * @syscap SystemCapability.Notification.CommonEvent
+   * @crossplatform [since 26.1.0]
    * @atomicservice [since 11]
    * @since 7 dynamic
    * @since 23 static
@@ -65,6 +66,7 @@ export interface CommonEventData {
    *
    * @default 0
    * @syscap SystemCapability.Notification.CommonEvent
+   * @crossplatform [since 26.1.0]
    * @atomicservice [since 11]
    * @since 7 dynamic
    * @since 23 static
@@ -94,6 +96,7 @@ export interface CommonEventData {
    * to publish a common event.
    *
    * @syscap SystemCapability.Notification.CommonEvent
+   * @crossplatform [since 26.1.0]
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
