@@ -89,7 +89,8 @@ export declare struct InnerFullScreenLaunchComponent {
   /**
    * Callback triggered when an embedded atomic service exits normally. Exit scenarios include user-triggered exit
    * button taps or edge swipes, or calls to
-   * [terminateSelfWithResult]{@link ./application/UIAbilityContext:UIAbilityContext#terminateSelfWithResult(parameter: AbilityResult, callback: AsyncCallback<void>)}
+   * [terminateSelfWithResult]{@link ./application/UIAbilityContext:UIAbilityContext#terminateSelfWithResult
+   * (parameter: AbilityResult, callback: AsyncCallback<void>)}
    * or
    * [terminateSelf]{@link ./application/UIAbilityContext:UIAbilityContext#terminateSelf
    * (callback: AsyncCallback<void>)}.
