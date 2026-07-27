@@ -2363,7 +2363,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
-   * @since 26.1.0 dynamic
+   * @since 26.0.0 dynamic
    */
   ignoreHiddenItem(enabled: boolean): SwiperAttribute;
 }
