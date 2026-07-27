@@ -7643,7 +7643,7 @@ declare enum SourceTool {
 }
 
 /**
- * Defines the Border Image Repeat Mode.
+ * 用于设置被切割的图片在边框上的重复方式。
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -7651,7 +7651,7 @@ declare enum SourceTool {
  * @since 9
  */
 /**
- * Defines the Border Image Repeat Mode.
+ * 用于设置被切割的图片在边框上的重复方式。
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -7660,7 +7660,7 @@ declare enum SourceTool {
  * @since 10
  */
 /**
- * Defines the Border Image Repeat Mode.
+ * 用于设置被切割的图片在边框上的重复方式。
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -7672,14 +7672,14 @@ declare enum SourceTool {
 declare enum RepeatMode {
 
   /**
-   * Repeat mode.
+   * 被切割的图片会重复铺平在图片边框上，超出部分会被剪裁。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @since 9
    */
   /**
-   * Repeat mode.
+   * 被切割的图片会重复铺平在图片边框上，超出部分会被剪裁。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -7687,7 +7687,7 @@ declare enum RepeatMode {
    * @since 10
    */
   /**
-   * The source image's slices are tiled. Tiles beyond the border box will be clipped.
+   * 被切割的图片会重复铺平在图片边框上，超出部分会被剪裁。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -7698,14 +7698,14 @@ declare enum RepeatMode {
   Repeat = 0,
 
   /**
-   * Stretch mode.
+   * 被切割的图片会以拉伸填充的方式铺满图片边框。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @since 9
    */
   /**
-   * Stretch mode.
+   * 被切割的图片会以拉伸填充的方式铺满图片边框。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -7713,7 +7713,7 @@ declare enum RepeatMode {
    * @since 10
    */
   /**
-   * The source image's slices are stretched to fill the border box.
+   * 被切割的图片会以拉伸填充的方式铺满图片边框。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -7724,14 +7724,14 @@ declare enum RepeatMode {
   Stretch = 1,
 
   /**
-   * Round mode.
+   * 被切割的图片会以整数次平铺在图片边框上，无法以整数次平铺时会压缩图片。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @since 9
    */
   /**
-   * Round mode.
+   * 被切割的图片会以整数次平铺在图片边框上，无法以整数次平铺时会压缩图片。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -7739,7 +7739,7 @@ declare enum RepeatMode {
    * @since 10
    */
   /**
-   * The source image's slices are tiled to fill the border box. Tiles may be compressed when needed.
+   * 被切割的图片会以整数次平铺在图片边框上，无法以整数次平铺时会压缩图片。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -7750,14 +7750,14 @@ declare enum RepeatMode {
   Round = 2,
 
   /**
-   * Space mode.
+   * 被切割的图片会以整数次平铺在图片边框上，无法以整数次平铺时会以空白填充。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @since 9
    */
   /**
-   * Space mode.
+   * 被切割的图片会以整数次平铺在图片边框上，无法以整数次平铺时会以空白填充。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -7765,7 +7765,7 @@ declare enum RepeatMode {
    * @since 10
    */
   /**
-   * The source image's slices are tiled to fill the border box. Extra space will be distributed in between tiles.
+   * 被切割的图片会以整数次平铺在图片边框上，无法以整数次平铺时会以空白填充。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -10093,7 +10093,39 @@ declare interface BaseEvent {
 declare interface BorderImageOption {
 
   /**
-   * Border image slice
+   * 设置边框图片左上角、右上角、左下角以及右下角的切割宽高。
+   *
+   * 默认值：0
+   *
+   * **说明：**
+   *
+   * 设置负数时取默认值。
+   *
+   * 参数类型为[Length]{@link Length}时，统一设置四个角的宽高。
+   *
+   * 参数类型为[EdgeWidths]{@link EdgeWidths}时：
+   *
+   * - Top：设置图片上侧被切割的高。
+   *
+   * - Bottom：设置图片下侧被切割的高。
+   *
+   * - Left：设置图片左侧被切割的宽。
+   *
+   * - Right：设置图片右侧被切割的宽。
+   *
+   * 参数类型为[LocalizedEdgeWidths]{@link LocalizedEdgeWidths}<sup>12+</sup>时：
+   *
+   * - Top：设置图片上侧被切割的高。
+   *
+   * - Bottom：设置图片下侧被切割的高。
+   *
+   * - Start：设置图片左侧被切割的宽。
+   *
+   * 从右至左显示语言模式下为设置图片右侧被切割的宽。
+   *
+   * - End：设置图片右侧被切割的宽。
+   *
+   * 从右至左显示语言模式下为设置图片左侧被切割的宽。
    *
    * @type { ?(Length | EdgeWidths) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -10102,7 +10134,39 @@ declare interface BorderImageOption {
    * @since 9
    */
   /**
-   * Border image slice
+   * 设置边框图片左上角、右上角、左下角以及右下角的切割宽高。
+   *
+   * 默认值：0
+   *
+   * **说明：**
+   *
+   * 设置负数时取默认值。
+   *
+   * 参数类型为[Length]{@link Length}时，统一设置四个角的宽高。
+   *
+   * 参数类型为[EdgeWidths]{@link EdgeWidths}时：
+   *
+   * - Top：设置图片上侧被切割的高。
+   *
+   * - Bottom：设置图片下侧被切割的高。
+   *
+   * - Left：设置图片左侧被切割的宽。
+   *
+   * - Right：设置图片右侧被切割的宽。
+   *
+   * 参数类型为[LocalizedEdgeWidths]{@link LocalizedEdgeWidths}<sup>12+</sup>时：
+   *
+   * - Top：设置图片上侧被切割的高。
+   *
+   * - Bottom：设置图片下侧被切割的高。
+   *
+   * - Start：设置图片左侧被切割的宽。
+   *
+   * 从右至左显示语言模式下为设置图片右侧被切割的宽。
+   *
+   * - End：设置图片右侧被切割的宽。
+   *
+   * 从右至左显示语言模式下为设置图片左侧被切割的宽。
    *
    * @type { ?(Length | EdgeWidths) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -10112,7 +10176,39 @@ declare interface BorderImageOption {
    * @since 10
    */
   /**
-   * Border image slice
+   * 设置边框图片左上角、右上角、左下角以及右下角的切割宽高。
+   *
+   * 默认值：0
+   *
+   * **说明：**
+   *
+   * 设置负数时取默认值。
+   *
+   * 参数类型为[Length]{@link Length}时，统一设置四个角的宽高。
+   *
+   * 参数类型为[EdgeWidths]{@link EdgeWidths}时：
+   *
+   * - Top：设置图片上侧被切割的高。
+   *
+   * - Bottom：设置图片下侧被切割的高。
+   *
+   * - Left：设置图片左侧被切割的宽。
+   *
+   * - Right：设置图片右侧被切割的宽。
+   *
+   * 参数类型为[LocalizedEdgeWidths]{@link LocalizedEdgeWidths}<sup>12+</sup>时：
+   *
+   * - Top：设置图片上侧被切割的高。
+   *
+   * - Bottom：设置图片下侧被切割的高。
+   *
+   * - Start：设置图片左侧被切割的宽。
+   *
+   * 从右至左显示语言模式下为设置图片右侧被切割的宽。
+   *
+   * - End：设置图片右侧被切割的宽。
+   *
+   * 从右至左显示语言模式下为设置图片左侧被切割的宽。
    *
    * @type { ?(Length | EdgeWidths) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -10123,8 +10219,39 @@ declare interface BorderImageOption {
    * @since 11
    */
   /**
-   * Slice width of the upper left corner, upper right corner, lower left corner,
-   * and lower right corner of the border image.
+   * 设置边框图片左上角、右上角、左下角以及右下角的切割宽高。
+   *
+   * 默认值：0
+   *
+   * **说明：**
+   *
+   * 设置负数时取默认值。
+   *
+   * 参数类型为[Length]{@link Length}时，统一设置四个角的宽高。
+   *
+   * 参数类型为[EdgeWidths]{@link EdgeWidths}时：
+   *
+   * - Top：设置图片上侧被切割的高。
+   *
+   * - Bottom：设置图片下侧被切割的高。
+   *
+   * - Left：设置图片左侧被切割的宽。
+   *
+   * - Right：设置图片右侧被切割的宽。
+   *
+   * 参数类型为[LocalizedEdgeWidths]{@link LocalizedEdgeWidths}<sup>12+</sup>时：
+   *
+   * - Top：设置图片上侧被切割的高。
+   *
+   * - Bottom：设置图片下侧被切割的高。
+   *
+   * - Start：设置图片左侧被切割的宽。
+   *
+   * 从右至左显示语言模式下为设置图片右侧被切割的宽。
+   *
+   * - End：设置图片右侧被切割的宽。
+   *
+   * 从右至左显示语言模式下为设置图片左侧被切割的宽。
    *
    * @type { ?(Length | EdgeWidths | LocalizedEdgeWidths) }
    * @default 0
@@ -10138,7 +10265,9 @@ declare interface BorderImageOption {
   slice?: Length | EdgeWidths | LocalizedEdgeWidths;
 
   /**
-   * Border image repeat
+   * 设置被切割的图片在边框上的重复方式。
+   *
+   * 默认值：RepeatMode.Stretch
    *
    * @type { ?RepeatMode }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -10147,7 +10276,9 @@ declare interface BorderImageOption {
    * @since 9
    */
   /**
-   * Border image repeat
+   * 设置被切割的图片在边框上的重复方式。
+   *
+   * 默认值：RepeatMode.Stretch
    *
    * @type { ?RepeatMode }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -10157,7 +10288,9 @@ declare interface BorderImageOption {
    * @since 10
    */
   /**
-   * Repeat mode of the source image's slices on the border.
+   * 设置被切割的图片在边框上的重复方式。
+   *
+   * 默认值：RepeatMode.Stretch
    *
    * @type { ?RepeatMode }
    * @default RepeatMode.Stretch
@@ -10171,7 +10304,13 @@ declare interface BorderImageOption {
   repeat?: RepeatMode;
 
   /**
-   * Border image source
+   * 边框图源或者渐变色设置。参数类型为string类型时，用于设置边框图源，引用方式请参考[加载图片资源](docroot://ui/arkts-graphics-display.md#加载图片资源)。
+   *
+   * 默认值：undefined（不设置边框图源）
+   *
+   * **说明：**
+   *
+   * 边框图源仅适用于容器组件，如[Row]{@link ./row}、[Column]{@link ./column}、[Flex]{@link ./flex}，在非容器组件上使用会失效。
    *
    * @type { ?(string | Resource | LinearGradient) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -10180,7 +10319,13 @@ declare interface BorderImageOption {
    * @since 9
    */
   /**
-   * Border image source
+   * 边框图源或者渐变色设置。参数类型为string类型时，用于设置边框图源，引用方式请参考[加载图片资源](docroot://ui/arkts-graphics-display.md#加载图片资源)。
+   *
+   * 默认值：undefined（不设置边框图源）
+   *
+   * **说明：**
+   *
+   * 边框图源仅适用于容器组件，如[Row]{@link ./row}、[Column]{@link ./column}、[Flex]{@link ./flex}，在非容器组件上使用会失效。
    *
    * @type { ?(string | Resource | LinearGradient) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -10190,13 +10335,13 @@ declare interface BorderImageOption {
    * @since 10
    */
   /**
-   * Source or gradient color of the border image.
-   * When the type is string, this parameter sets the border image source.
-   * For details about how to reference image resources, see Loading Image Resources.
+   * 边框图源或者渐变色设置。参数类型为string类型时，用于设置边框图源，引用方式请参考[加载图片资源](docroot://ui/arkts-graphics-display.md#加载图片资源)。
    *
-   * <p><strong>NOTE</strong>:
-   * <br>The border image source applies only to container components, such as Row, Column, and Flex.
-   * </p>
+   * 默认值：undefined（不设置边框图源）
+   *
+   * **说明：**
+   *
+   * 边框图源仅适用于容器组件，如[Row]{@link ./row}、[Column]{@link ./column}、[Flex]{@link ./flex}，在非容器组件上使用会失效。
    *
    * @type { ?(string | Resource | LinearGradient) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -10209,7 +10354,39 @@ declare interface BorderImageOption {
   source?: string | Resource | LinearGradient;
 
   /**
-   * Border image width
+   * 设置图片边框宽度。
+   *
+   * 默认值：0
+   *
+   * **说明：**
+   *
+   * 设置负数时取默认值。
+   *
+   * 参数类型为[Length]{@link Length}时，统一设置四条边框的宽度。
+   *
+   * 参数类型为[EdgeWidths]{@link EdgeWidths}时：
+   *
+   * - Top：设置图片边框上边框的宽。
+   *
+   * - Bottom：设置图片边框下边框的宽。
+   *
+   * - Left：设置图片边框左边框的宽。
+   *
+   * - Right：设置图片边框右边框的宽。
+   *
+   * 参数类型为[LocalizedEdgeWidths]{@link LocalizedEdgeWidths}<sup>12+</sup>时：
+   *
+   * - Top：设置图片边框上边框的宽。
+   *
+   * - Bottom：设置图片边框下边框的宽。
+   *
+   * - Start：设置图片边框左边框的宽。
+   *
+   * 从右至左显示语言模式下为设置图片边框右边框宽。
+   *
+   * - End：设置图片边框右边框宽。
+   *
+   * 从右至左显示语言模式下为设置图片边框左边框的宽。
    *
    * @type { ?(Length | EdgeWidths) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -10218,7 +10395,39 @@ declare interface BorderImageOption {
    * @since 9
    */
   /**
-   * Border image width
+   * 设置图片边框宽度。
+   *
+   * 默认值：0
+   *
+   * **说明：**
+   *
+   * 设置负数时取默认值。
+   *
+   * 参数类型为[Length]{@link Length}时，统一设置四条边框的宽度。
+   *
+   * 参数类型为[EdgeWidths]{@link EdgeWidths}时：
+   *
+   * - Top：设置图片边框上边框的宽。
+   *
+   * - Bottom：设置图片边框下边框的宽。
+   *
+   * - Left：设置图片边框左边框的宽。
+   *
+   * - Right：设置图片边框右边框的宽。
+   *
+   * 参数类型为[LocalizedEdgeWidths]{@link LocalizedEdgeWidths}<sup>12+</sup>时：
+   *
+   * - Top：设置图片边框上边框的宽。
+   *
+   * - Bottom：设置图片边框下边框的宽。
+   *
+   * - Start：设置图片边框左边框的宽。
+   *
+   * 从右至左显示语言模式下为设置图片边框右边框宽。
+   *
+   * - End：设置图片边框右边框宽。
+   *
+   * 从右至左显示语言模式下为设置图片边框左边框的宽。
    *
    * @type { ?(Length | EdgeWidths) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -10228,7 +10437,39 @@ declare interface BorderImageOption {
    * @since 10
    */
   /**
-   * Border image width
+   * 设置图片边框宽度。
+   *
+   * 默认值：0
+   *
+   * **说明：**
+   *
+   * 设置负数时取默认值。
+   *
+   * 参数类型为[Length]{@link Length}时，统一设置四条边框的宽度。
+   *
+   * 参数类型为[EdgeWidths]{@link EdgeWidths}时：
+   *
+   * - Top：设置图片边框上边框的宽。
+   *
+   * - Bottom：设置图片边框下边框的宽。
+   *
+   * - Left：设置图片边框左边框的宽。
+   *
+   * - Right：设置图片边框右边框的宽。
+   *
+   * 参数类型为[LocalizedEdgeWidths]{@link LocalizedEdgeWidths}<sup>12+</sup>时：
+   *
+   * - Top：设置图片边框上边框的宽。
+   *
+   * - Bottom：设置图片边框下边框的宽。
+   *
+   * - Start：设置图片边框左边框的宽。
+   *
+   * 从右至左显示语言模式下为设置图片边框右边框宽。
+   *
+   * - End：设置图片边框右边框宽。
+   *
+   * 从右至左显示语言模式下为设置图片边框左边框的宽。
    *
    * @type { ?(Length | EdgeWidths) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -10239,7 +10480,39 @@ declare interface BorderImageOption {
    * @since 11
    */
   /**
-   * Width of the border image.
+   * 设置图片边框宽度。
+   *
+   * 默认值：0
+   *
+   * **说明：**
+   *
+   * 设置负数时取默认值。
+   *
+   * 参数类型为[Length]{@link Length}时，统一设置四条边框的宽度。
+   *
+   * 参数类型为[EdgeWidths]{@link EdgeWidths}时：
+   *
+   * - Top：设置图片边框上边框的宽。
+   *
+   * - Bottom：设置图片边框下边框的宽。
+   *
+   * - Left：设置图片边框左边框的宽。
+   *
+   * - Right：设置图片边框右边框的宽。
+   *
+   * 参数类型为[LocalizedEdgeWidths]{@link LocalizedEdgeWidths}<sup>12+</sup>时：
+   *
+   * - Top：设置图片边框上边框的宽。
+   *
+   * - Bottom：设置图片边框下边框的宽。
+   *
+   * - Start：设置图片边框左边框的宽。
+   *
+   * 从右至左显示语言模式下为设置图片边框右边框宽。
+   *
+   * - End：设置图片边框右边框宽。
+   *
+   * 从右至左显示语言模式下为设置图片边框左边框的宽。
    *
    * @type { ?(Length | EdgeWidths | LocalizedEdgeWidths) }
    * @default 0
@@ -10253,7 +10526,39 @@ declare interface BorderImageOption {
   width?: Length | EdgeWidths | LocalizedEdgeWidths;
 
   /**
-   * Border image outset
+   * 设置边框图片向外延伸距离。
+   *
+   * 默认值：0
+   *
+   * **说明：**
+   *
+   * 设置负数时取默认值。
+   *
+   * 参数类型为[Length]{@link Length}时，统一设置四条边框的向外延伸距离。
+   *
+   * 参数类型为[EdgeWidths]{@link EdgeWidths}时：
+   *
+   * - Top：设置边框图片上边框向外延伸的距离。
+   *
+   * - Bottom：设置边框图片下边框向外延伸的距离。
+   *
+   * - Left：设置边框图片左边框向外延伸的距离。
+   *
+   * - Right：设置边框图片右边框向外延伸的距离。
+   *
+   * 参数类型为[LocalizedEdgeWidths]{@link LocalizedEdgeWidths}<sup>12+</sup>时：
+   *
+   * - Top：设置边框图片上边框向外延伸的距离。
+   *
+   * - Bottom：设置边框图片下边框向外延伸的距离。
+   *
+   * - Start：设置边框图片左边框向外延伸的距离。
+   *
+   * 从右至左显示语言模式下为设置边框图片右边框向外延伸的距离。
+   *
+   * - End：设置边框图片右边框向外延伸的距离。
+   *
+   * 从右至左显示语言模式下为设置边框图片左边框向外延伸的距离。
    *
    * @type { ?(Length | EdgeWidths) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -10262,7 +10567,39 @@ declare interface BorderImageOption {
    * @since 9
    */
   /**
-   * Border image outset
+   * 设置边框图片向外延伸距离。
+   *
+   * 默认值：0
+   *
+   * **说明：**
+   *
+   * 设置负数时取默认值。
+   *
+   * 参数类型为[Length]{@link Length}时，统一设置四条边框的向外延伸距离。
+   *
+   * 参数类型为[EdgeWidths]{@link EdgeWidths}时：
+   *
+   * - Top：设置边框图片上边框向外延伸的距离。
+   *
+   * - Bottom：设置边框图片下边框向外延伸的距离。
+   *
+   * - Left：设置边框图片左边框向外延伸的距离。
+   *
+   * - Right：设置边框图片右边框向外延伸的距离。
+   *
+   * 参数类型为[LocalizedEdgeWidths]{@link LocalizedEdgeWidths}<sup>12+</sup>时：
+   *
+   * - Top：设置边框图片上边框向外延伸的距离。
+   *
+   * - Bottom：设置边框图片下边框向外延伸的距离。
+   *
+   * - Start：设置边框图片左边框向外延伸的距离。
+   *
+   * 从右至左显示语言模式下为设置边框图片右边框向外延伸的距离。
+   *
+   * - End：设置边框图片右边框向外延伸的距离。
+   *
+   * 从右至左显示语言模式下为设置边框图片左边框向外延伸的距离。
    *
    * @type { ?(Length | EdgeWidths) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -10272,7 +10609,39 @@ declare interface BorderImageOption {
    * @since 10
    */
   /**
-   * Border image outset
+   * 设置边框图片向外延伸距离。
+   *
+   * 默认值：0
+   *
+   * **说明：**
+   *
+   * 设置负数时取默认值。
+   *
+   * 参数类型为[Length]{@link Length}时，统一设置四条边框的向外延伸距离。
+   *
+   * 参数类型为[EdgeWidths]{@link EdgeWidths}时：
+   *
+   * - Top：设置边框图片上边框向外延伸的距离。
+   *
+   * - Bottom：设置边框图片下边框向外延伸的距离。
+   *
+   * - Left：设置边框图片左边框向外延伸的距离。
+   *
+   * - Right：设置边框图片右边框向外延伸的距离。
+   *
+   * 参数类型为[LocalizedEdgeWidths]{@link LocalizedEdgeWidths}<sup>12+</sup>时：
+   *
+   * - Top：设置边框图片上边框向外延伸的距离。
+   *
+   * - Bottom：设置边框图片下边框向外延伸的距离。
+   *
+   * - Start：设置边框图片左边框向外延伸的距离。
+   *
+   * 从右至左显示语言模式下为设置边框图片右边框向外延伸的距离。
+   *
+   * - End：设置边框图片右边框向外延伸的距离。
+   *
+   * 从右至左显示语言模式下为设置边框图片左边框向外延伸的距离。
    *
    * @type { ?(Length | EdgeWidths) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -10283,7 +10652,39 @@ declare interface BorderImageOption {
    * @since 11
    */
   /**
-   * Amount by which the border image is extended beyond the border box.
+   * 设置边框图片向外延伸距离。
+   *
+   * 默认值：0
+   *
+   * **说明：**
+   *
+   * 设置负数时取默认值。
+   *
+   * 参数类型为[Length]{@link Length}时，统一设置四条边框的向外延伸距离。
+   *
+   * 参数类型为[EdgeWidths]{@link EdgeWidths}时：
+   *
+   * - Top：设置边框图片上边框向外延伸的距离。
+   *
+   * - Bottom：设置边框图片下边框向外延伸的距离。
+   *
+   * - Left：设置边框图片左边框向外延伸的距离。
+   *
+   * - Right：设置边框图片右边框向外延伸的距离。
+   *
+   * 参数类型为[LocalizedEdgeWidths]{@link LocalizedEdgeWidths}<sup>12+</sup>时：
+   *
+   * - Top：设置边框图片上边框向外延伸的距离。
+   *
+   * - Bottom：设置边框图片下边框向外延伸的距离。
+   *
+   * - Start：设置边框图片左边框向外延伸的距离。
+   *
+   * 从右至左显示语言模式下为设置边框图片右边框向外延伸的距离。
+   *
+   * - End：设置边框图片右边框向外延伸的距离。
+   *
+   * 从右至左显示语言模式下为设置边框图片左边框向外延伸的距离。
    *
    * @type { ?(Length | EdgeWidths | LocalizedEdgeWidths) }
    * @default 0
@@ -10297,7 +10698,9 @@ declare interface BorderImageOption {
   outset?: Length | EdgeWidths | LocalizedEdgeWidths;
 
   /**
-   * Border image center fill
+   * 设置边框图片是否中心填充。true表示中心填充，false表示非中心填充。
+   *
+   * 默认值：false
    *
    * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -10306,7 +10709,9 @@ declare interface BorderImageOption {
    * @since 9
    */
   /**
-   * Border image center fill
+   * 设置边框图片是否中心填充。true表示中心填充，false表示非中心填充。
+   *
+   * 默认值：false
    *
    * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -10316,9 +10721,9 @@ declare interface BorderImageOption {
    * @since 10
    */
   /**
-   * Whether to fill the center of the border image.
-   * true: Fill the center of the border image.
-   * false: Do not fill the center of the border image.
+   * 设置边框图片是否中心填充。true表示中心填充，false表示非中心填充。
+   *
+   * 默认值：false
    *
    * @type { ?boolean }
    * @default false
