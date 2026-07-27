@@ -82,7 +82,8 @@ export declare struct HalfScreenLaunchComponent {
    * [terminateSelfWithResult]{@link ./application/UIAbilityContext:UIAbilityContext#terminateSelfWithResult
    * (parameter: AbilityResult, callback: AsyncCallback<void>)}
    * 或者
-   * [terminateSelf]{@link ./application/UIAbilityContext:UIAbilityContext#terminateSelf(callback: AsyncCallback<void>)}
+   * [terminateSelf]{@link ./application/UIAbilityContext:UIAbilityContext#terminateSelf
+   * (callback: AsyncCallback<void>)}
    * 正常退出时，触发本回调函数。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
