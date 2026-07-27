@@ -370,8 +370,9 @@ export declare interface SideBarContainerAttribute extends CommonMethod {
    *     <br>Default value:SideBarContainerType.Embed
    * @returns { SideBarContainerAttribute } Returns the instance of the SideBarContainerAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @unpublished
    * @stagemodelonly
-   * @since 26.0.0 staticonly
+   * @since 26.1.0 staticonly
    */
   default setSideBarContainerOptions(type?: SideBarContainerType): this;
 }
@@ -400,8 +401,9 @@ export declare function SideBarContainer(
  * @param { CustomBuilder } [content_] - container
  * @returns { SideBarContainerAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @unpublished
  * @stagemodelonly
- * @since 26.0.0 staticonly
+ * @since 26.1.0 staticonly
  */
 @Builder
 export declare function SideBarContainer(
