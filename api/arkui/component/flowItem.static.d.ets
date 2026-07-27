@@ -56,4 +56,3 @@ export declare interface FlowItemAttribute extends CommonMethod {
 export declare function FlowItem(
     content_?: CustomBuilder,
 ): FlowItemAttribute
-

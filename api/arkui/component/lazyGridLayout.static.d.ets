@@ -17,9 +17,9 @@
  * @file
  * @kit ArkUI
  */
-import { AttributeModifier, CommonMethod, OnVisibleIndexesChangeCallback } from './common';
 import { LengthMetrics } from '../Graphics';
-import { ComponentBuilder, CustomBuilder } from './builder';
+import { AttributeModifier, CommonMethod, OnVisibleIndexesChangeCallback } from './common';
+import { Builder, ComponentBuilder, CustomBuilder, CustomBuilderT } from './builder';
 import { StickyStyle } from './list';
 
 /**
@@ -149,4 +149,4 @@ export declare interface LazyVGridLayoutAttribute extends LazyGridLayoutAttribut
 @ComponentBuilder
 export declare function LazyVGridLayout(
     content_?: CustomBuilder,
-): LazyVGridLayoutAttribute;
+): LazyVGridLayoutAttribute

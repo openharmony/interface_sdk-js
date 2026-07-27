@@ -314,9 +314,9 @@ export declare interface ArcListItemAttribute extends CommonMethod {
  */
 @ComponentBuilder
 export declare function ArcList(
-    options?: ArkListOptions,
+    options?: ArkListOptions, 
     content_?: CustomBuilder,
-): ArcListAttribute;
+): ArcListAttribute
 
 /**
  * Defines ArcListItem Component.
@@ -330,4 +330,4 @@ export declare function ArcList(
 @ComponentBuilder
 export declare function ArcListItem(
     content_?: CustomBuilder,
-): ArcListItemAttribute;
+): ArcListItemAttribute
