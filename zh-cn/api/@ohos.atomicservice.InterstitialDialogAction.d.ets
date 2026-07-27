@@ -13,17 +13,17 @@
  * limitations under the License.
  */
 /**
- * ###### Child Components
+ * ###### 子组件
  * 
- * Not supported
+ * 无
  * 
- * ###### Attributes
+ * ###### 属性
  * 
- * The [universal attributes]{@link ./@internal/component/ets/common} are not supported.
+ * 不支持[通用属性]{@link ./@internal/component/ets/common}
  * 
- * ###### Events
+ * ###### 事件
  * 
- * The [universal events]{@link ./@internal/component/ets/common} are not supported.
+ * 不支持[通用事件]{@link ./@internal/component/ets/common}
  *
  * @file This section describes the interfaces used by InterstitialDialogAction
  * @kit ArkUI
@@ -32,12 +32,12 @@
 import { UIContext } from '@ohos.arkui.UIContext';
 import { ComponentContent } from '@ohos.arkui.node';
 /**
- * Sets the color style of the close button. By default, the close button is set to light color.
- *
- * | Name| Value| Description|
+ * 设置关闭按钮的色调样式，默认设置关闭按钮为亮色调。
+ * 
+ * | 名称 | 值 | 说明 |
  * | - | - | - |
- * | DARK | 0 | The close button is in dark color.|
- * | LIGHT | 1 | The close button is in light color.Default value.|
+ * | DARK | 0 | 设置关闭按钮为暗色调。 |
+ * | LIGHT | 1 | 设置关闭按钮为亮色调。默认值。 |
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
@@ -62,13 +62,12 @@ export declare enum IconStyle {
   LIGHT = 1
 }
 /**
- * Defines the vertical position of the title relative to the subtitle in the dialog box. By default, the title is above
- * the subtitle.
- *
- * | Name| Value| Description|
+ * 设置主副标题之间的上下相对位置，默认设置为主标题在副标题之上。
+ * 
+ * | 名称 | 值 | 说明 |
  * | - | - | - |
- * | TOP | 0 | The title is above the subtitle.Default value.|
- * | BOTTOM | 1 | The title is below the subtitle.|
+ * | TOP | 0 | 设置主标题位于副标题之上。默认值。 |
+ * | BOTTOM | 1 | 设置副标题位于主标题之上。 |
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
@@ -93,15 +92,12 @@ export declare enum TitlePosition {
   BOTTOM = 1
 }
 /**
- * Defines the distance between the popup and the bottom in different scenario modes, based on the presence or absence
- * of a menu bar, with the default being the distance when there is no menu bar.
- *
- * | Name| Value| Description|
+ * 设置不同情景模式下弹框距离底部的距离，判断依据为是否存在菜单栏，默认显示为不存在菜单栏情况下的距离。
+ * 
+ * | 名称 | 值 | 说明 |
  * | - | - | - |
- * | OFFSET_FOR_BAR | 0 | Distance from the bottom of the window when there is a menu bar.
- * It sets the dialog box 88 vp away from the bottom of the window.|
- * | OFFSET_FOR_NONE | 1 | Distance from the bottom of the window when there is no menu bar.
- * Default value. It sets the dialog box 44 vp away from the bottom of the window.|
+ * | OFFSET_FOR_BAR | 0 | 存在菜单栏情况下与窗口底部的距离。设置后弹框距离底部88vp。 |
+ * | OFFSET_FOR_NONE | 1 | 不存在菜单栏情况下与窗口底部的距离。默认值，设置后弹框距离底部44vp。 |
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
@@ -126,7 +122,7 @@ export declare enum BottomOffset {
   OFFSET_FOR_NONE = 1
 }
 /**
- * Defines the attributes specific to the dialog box and custom click actions for the user.
+ * 设置弹框特有的属性以及提供给用户自定义的点击触发动作。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
@@ -231,9 +227,7 @@ export declare interface DialogOptions {
   onDialogClose?: Callback<void>;
 }
 /**
- * The **InterstitialDialogAction** component is a dialog box used in atomic services to temporarily display information
- * that requires user attention or actions to be taken while maintaining the current context. Users can trigger
- * corresponding actions by clicking different areas of the dialog box.
+ * InterstitialDialogAction弹框在原子化服务中用于在保持当前的上下文环境时，临时展示用户需关注的信息或待处理的操作，用户点击弹框的不同区域可以触发相应的动作。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
@@ -241,8 +235,8 @@ export declare interface DialogOptions {
  */
 export declare class InterstitialDialogAction {
   /**
-   * A constructor used to create an **InterstitialDialogAction** instance.
-   *
+     * InterstitialDialogAction的构造函数
+     *
    * @param { DialogOptions } dialogOptions - Creates a new dialog action object.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -250,16 +244,16 @@ export declare class InterstitialDialogAction {
    */
   constructor(dialogOptions: DialogOptions);
   /**
-   * Opens the dialog box.
-   *
+     * 打开弹框。
+     *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12 dynamiconly
    */
   openDialog(): void;
   /**
-   * Closes the dialog box.
-   *
+     * 关闭弹框。
+     *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12 dynamiconly

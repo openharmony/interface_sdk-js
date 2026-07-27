@@ -14,21 +14,20 @@
  */
 
 /**
- * ###### Child Components
+ * ###### 子组件
  *
- * Not supported
+ * 无
  *
- * ###### Attributes
+ * ###### 属性
  *
- * The [universal attributes]{@link ./@internal/component/ets/common} are not supported.
+ * 不支持[通用属性]{@link ./@internal/component/ets/common}。
  *
- * @file System API
+ * @file 系统接口
  * @kit ArkUI
  */
 
 /**
- * Creates an **AtomicServiceMenuBar** object based on the context of the current atomic service. The object is used to
- * control the display of the menu function capsule in the upper right corner.
+ * 依赖当前元服务的上下文，创建AtomicServiceMenuBar对象，用于操控右上角菜单功能胶囊的显示与隐藏。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
@@ -38,9 +37,9 @@
  */
 export declare class AtomicServiceMenuBar {
   /**
-   * A constructor used to create an **AtomicServiceMenuBar** object.
+   * AtomicServiceMenuBar的构造函数。
    *
-   * @param { UIContext } uiContext - Context information of the current atomic service.
+   * @param { UIContext } uiContext - 当前元服务的上下文信息。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -50,10 +49,9 @@ export declare class AtomicServiceMenuBar {
   constructor(uiContext: UIContext);
 
   /**
-   * Sets whether to display or hide the menu function capsule of the current atomic service.
+   * 设置当前元服务菜单功能胶囊的显隐状态。
    *
-   * @param { boolean } visible - Expected status of the menu function capsule. true: The menu function capsule is
-   *     displayed. false: The menu function capsule is hidden.
+   * @param { boolean } visible - 菜单功能胶囊预期的状态。true表示显示菜单功能胶囊，false表示隐藏菜单功能胶囊。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly

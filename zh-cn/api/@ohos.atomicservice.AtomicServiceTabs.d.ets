@@ -14,22 +14,20 @@
 */
 
 /**
- * ###### Child Components
+ * ###### 子组件
  * 
- * Not supported
+ * 无
  * 
- * ###### Attributes
+ * ###### 属性
  * 
- * The [universal attributes]{@link ./@internal/component/ets/common} are not supported.
+ * 不支持[通用属性]{@link ./@internal/component/ets/common}
  *
  * @file Provides an advanced struct of tabs for atomic services
  * @kit ArkUI
  */
 
 /**
- * **AtomicServiceTabs** is an advanced component designed to streamline the use of the **Tabs** component by limiting
- * customization options. It restricts the display to a maximum of five tabs, with fixed styles, positions, and sizes
- * for the tabs.
+ * AtomicServiceTabs高级组件，对Tabs组件一些不需提供给用户自定义设计的属性进行简化，限制最多显示5个页签，固定页签样式，位置和大小。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
@@ -84,7 +82,7 @@ export declare struct AtomicServiceTabs {
    * @type { ?LayoutMode }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18 dynamiconly
+   * @since 18 dynamic
    */
   @Prop
   layoutMode?: LayoutMode;
@@ -157,7 +155,7 @@ export declare struct AtomicServiceTabs {
 }
 
 /**
- * Array of tab bar container configurations.
+ * 页签容器数组。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
@@ -165,14 +163,12 @@ export declare struct AtomicServiceTabs {
  */
 export declare class TabBarOptions {
   /**
-   * A constructor used to create a **TabBarOptions** instance.
+   * TabBarOptions的构造函数。
    *
-   * @param { (ResourceStr | TabBarSymbol) } icon - Image for the tab.
-   * @param { ResourceStr } text - Text of the tab.
-   * @param { ResourceColor } [unselectedColor] - Color of the tab when it is not selected.
-   *     <br>Default value: **#99182431**
-   * @param { ResourceColor } [selectedColor] - Color of the tab when it is selected.
-   *     <br>Default value: **#FF007DFF**
+   * @param { (ResourceStr | TabBarSymbol) } icon - 页签内的图片内容。
+   * @param { ResourceStr } text - 页签内的文字内容。
+   * @param { ResourceColor } [unselectedColor] - 未选择时的页签颜色，默认值：#99182431。
+   * @param { ResourceColor } [selectedColor] - 被选择时的页签颜色，默认值：#FF007DFF。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12 dynamiconly
@@ -182,7 +178,7 @@ export declare class TabBarOptions {
 }
 
 /**
- * Position of the tab bar. The default value is **TabBarPosition.BOTTOM**.
+ * 设置页签栏位置，默认值为TabBarPosition.BOTTOM。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
@@ -191,7 +187,7 @@ export declare class TabBarOptions {
 export declare enum TabBarPosition {
 
   /**
-   * The tab bar is on the left side of the screen.
+   * 设置TabBar位于屏幕左侧
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -200,7 +196,7 @@ export declare enum TabBarPosition {
   LEFT = 0,
 
   /**
-   * The tab bar is at the bottom of the screen.
+   * 设置TabBar位于屏幕底部
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -210,7 +206,7 @@ export declare enum TabBarPosition {
 }
 
 /**
- * Defines the content view container.
+ * 内容视图容器。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
@@ -219,12 +215,12 @@ export declare enum TabBarPosition {
 export type TabContentBuilder = () => void;
 
 /**
- * Defines the callback function triggered when the page content changes.
+ * 页面内容发生变化时触发的回调函数。
  *
- * @param { number } currentIndex - Index of the current tab.
- * @param { number } comingIndex - Index of the tab to be switched to.
+ * @param { number } currentIndex - 当前页签索引。
+ * @param { number } comingIndex - 即将切换的页签索引。
  * @returns { boolean }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12 dynamiconly
  */

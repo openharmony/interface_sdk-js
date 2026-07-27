@@ -14,19 +14,19 @@
  */
 
 /**
- * ###### Child Components
+ * ###### 子组件
  *
- * Not supported
+ * 无
  *
- * ###### Attributes
+ * ###### 属性
  *
- * The [universal attributes]{@link ./@internal/component/ets/common} are not supported.
+ * 不支持[通用属性]{@link ./@internal/component/ets/common}。
  *
- * ###### Events
+ * ###### 事件
  *
- * The [universal events]{@link ./@internal/component/ets/common} are not supported.
+ * 不支持[通用事件]{@link ./@internal/component/ets/common}。
  *
- * @file System API
+ * @file 系统接口
  * @kit ArkUI
  */
 
@@ -34,16 +34,13 @@ import AtomicServiceOptions from '@ohos.app.ability.AtomicServiceOptions';
 import { Callback, ErrorCallback } from '@ohos.base';
 
 /**
- * **InnerFullScreenLaunchComponent** is a component that allows the invoker to choose the timing for launching an
- * atomic service. If the invoked app (the one being launched) grants the invoker the authorization to run the atomic
- * service in an embedded manner, the invoker can operate the atomic service in full-screen embedded mode. If
- * authorization is not provided, the invoker will launch the atomic service in a pop-up manner.
- *
- * > **NOTE**
+ * 非显式全屏启动原子化服务组件，拉起方可以选择拉起原子化服务的时机。当被拉起方授权使用方可以嵌入式运行原子化服务时，使用方全屏嵌入式运行原子化服务；未授权时，使用方跳出式拉起原子化服务。
+ * 
+ * > **说明：**
  * >
- * > To implement an embeddable atomic service within this component, it must inherit from
- * > [EmbeddableUIAbility]{@link @ohos.app.ability.EmbeddableUIAbility:EmbeddableUIAbility}. If it does not inherit from
- * > **EmbeddableUIAbility**, the system cannot guarantee that the atomic service will function properly.
+ * > 如果需要在该组件中实现一个可嵌入式运行的原子化服务时，必须继承自
+ * > [EmbeddableUIAbility]{@link @ohos.app.ability.EmbeddableUIAbility:EmbeddableUIAbility}。若不继承自EmbeddableUIAbility，系统无
+ * > 法保证原子化服务功能正常。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
@@ -52,7 +49,7 @@ import { Callback, ErrorCallback } from '@ohos.base';
 @Component
 export declare struct InnerFullScreenLaunchComponent {
   /**
-   * Content displayed in the component.
+   * 组件显示内容。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -61,7 +58,7 @@ export declare struct InnerFullScreenLaunchComponent {
   @BuilderParam
   content: Callback<void>;
   /**
-   * Controller for launching the atomic service.
+   * 拉起原子化服务控制器。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -69,7 +66,7 @@ export declare struct InnerFullScreenLaunchComponent {
    */
   controller: LaunchController;
   /**
-   * Callback triggered when an embedded atomic service calls [@ohos.window (window)]{@link @ohos.window} APIs.
+   * 被拉起的嵌入式运行原子化服务通过[@ohos.window (窗口)]{@link @ohos.window}调用API时，触发本回调。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -77,9 +74,7 @@ export declare struct InnerFullScreenLaunchComponent {
    */
   onReceive?: Callback<Record<string, Object>>;
   /**
-   * Callback triggered when an exception occurs during the execution of an embedded atomic service. You can obtain the
-   * error information based on the **code**, **name**, and **message** parameters in the callback and rectify the
-   * exception accordingly.
+   * 被拉起的嵌入式运行原子化服务在运行过程中发生异常时触发本回调。可通过回调参数中的code、name和message获取错误信息并做处理。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -87,13 +82,13 @@ export declare struct InnerFullScreenLaunchComponent {
    */
   onError?: ErrorCallback;
   /**
-   * Callback triggered when an embedded atomic service exits normally. Exit scenarios include user-triggered exit
-   * button taps or edge swipes, or calls to
+   * 被拉起的嵌入式运行原子化服务通过点击原子化服务退出按钮、手势侧滑、调用
    * [terminateSelfWithResult]{@link ./application/UIAbilityContext:UIAbilityContext#terminateSelfWithResult
    * (parameter: AbilityResult, callback: AsyncCallback<void>)}
-   * or
+   * 或者
    * [terminateSelf]{@link ./application/UIAbilityContext:UIAbilityContext#terminateSelf
-   * (callback: AsyncCallback<void>)}.
+   * (callback: AsyncCallback<void>)}
+   * 正常退出时，触发本回调函数。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -103,7 +98,7 @@ export declare struct InnerFullScreenLaunchComponent {
 }
 
 /**
- * Controller for launching the atomic service.
+ * 拉起原子化服务控制器。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
@@ -121,10 +116,10 @@ export declare class LaunchController {
 }
 
 /**
- * Triggered when an atomic service is launched.
+ * 拉起原子化服务触发的回调。
  *
- * @param { string } appId - App ID for the atomic service.
- * @param { AtomicServiceOptions } [options] - Parameters for launching the atomic service.
+ * @param { string } appId - 原子化服务的appId。
+ * @param { AtomicServiceOptions } [options] - 拉起原子化服务参数。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 12 dynamiconly
