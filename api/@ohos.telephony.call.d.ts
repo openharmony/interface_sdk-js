@@ -614,7 +614,7 @@ declare namespace call {
    * @permission ohos.permission.ANSWER_CALL or ohos.permission.MANAGE_CALL_FOR_DEVICES
    * @param { AsyncCallback<void> } callback - The callback of answerCall.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs. [since 9 - 22]
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
    * 2. Incorrect parameters types;
    * @throws { BusinessError } 8300001 - Invalid parameter value.
@@ -722,7 +722,7 @@ declare namespace call {
    * ohos.permission.MANAGE_CALL_FOR_DEVICES
    * @param { AsyncCallback<void> } callback - The callback of hangUpCall.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs. [since 9 - 22]
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
    * 2. Incorrect parameters types;
    * @throws { BusinessError } 8300001 - Invalid parameter value.
@@ -808,7 +808,7 @@ declare namespace call {
    * @permission ohos.permission.ANSWER_CALL or ohos.permission.MANAGE_CALL_FOR_DEVICES
    * @param { AsyncCallback<void> } callback - The callback of rejectCall.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs. [since 9 - 22]
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
    * 2. Incorrect parameters types;
    * @throws { BusinessError } 8300001 - Invalid parameter value.
@@ -1225,13 +1225,13 @@ declare namespace call {
    * @returns { Promise<CallTransferResult> } - Call transfer status.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 801 - Capability not supported.
-   *      
+   *
    * @throws { BusinessError } 8300001 - Invalid parameter value.
    * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8401002 - Invalid input call number.
    * @throws { BusinessError } 8401003 - Operation too frequent.
-   *      
+   *
    * @syscap SystemCapability.Telephony.CallManager
    * @FaAndStageModel
    * @since 26.0.0 dynamic&static
@@ -1988,7 +1988,8 @@ declare namespace call {
    * @param { int } slotId - Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @param { CallTransferType } type - Indicates which type of call forwarding to obtain.
-   * @param { AsyncCallback<CallTransferResult> } callback - Indicates the callback for getting the call forwarding status.
+   * @param { AsyncCallback<CallTransferResult> } callback - Indicates the callback for getting
+   * the call forwarding status.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
@@ -4621,7 +4622,7 @@ declare namespace call {
      * @since 8 dynamic
      * @since 23 static
      */
-    eventId: CallAbilityEventId,
+    eventId: CallAbilityEventId;
   }
 
   /**
@@ -4808,7 +4809,7 @@ declare namespace call {
     TEL_CALL_STATE_RINGING = 1,
 
     /**
-     * Indicates that a least one call is in the dialing, active, or hold state, and there is no new
+     * Indicates that a least one call is in the dialing, and there is no new
      * incoming call ringing or waiting.
      *
      * @syscap SystemCapability.Telephony.CallManager
@@ -5011,7 +5012,7 @@ declare namespace call {
   export interface MakeCallOptions {
     /**
      * Whether to hide the dialer screen after call ends.
-     * Default value: false.
+     * <br>Default value: false.
      *
      * @syscap SystemCapability.Applications.Contacts
      * @FaAndStageModel
@@ -5031,7 +5032,7 @@ declare namespace call {
      * @since 26.0.0 dynamic&static
      */
     isCustomAccessibility?: boolean;
-  }
+  }
 
   /**
    * Indicates the options for initiating a call.
@@ -6910,7 +6911,8 @@ declare namespace call {
      * @since 23 static
      */
     RTT_STATE_REMOTE_NOT_SUPPORT = 3
-    }
+  }
+
   /**
    * Indicates the mode of the ims rtt.
    *
@@ -6962,7 +6964,7 @@ declare namespace call {
      * @since 23 static
      */
     REMOTE_REQUEST_UPGRADE_LOCAL_REJECT = 3
-     }
+  }
 
   /**
    * Indicates the type of the XCall.
