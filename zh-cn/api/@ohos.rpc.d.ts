@@ -2856,7 +2856,7 @@ declare namespace rpc {
      * @param { MessageParcel } data - 保存待发送数据的MessageParcel对象。
      * @param { MessageParcel } reply - 接收应答数据的MessageParcel对象。
      * @param { MessageOption } options - 本次请求的同异步模式，默认同步调用。
-     * @param { AsyncCallback<SendRequestResult> } callback - C接收发送结果的回调。
+     * @param { AsyncCallback<SendRequestResult> } callback - 接收发送结果的回调。
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -3165,7 +3165,7 @@ declare namespace rpc {
     constructor(isAsync: boolean);
 
     /**
-     * A constructor used to create a MessageOption instance. 
+     * A constructor used to create a MessageOption instance.
      *
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 23 static
@@ -3457,18 +3457,18 @@ declare namespace rpc {
     /**
      * sendMessageRequest请求的响应处理函数，服务端在该函数里同步或异步地处理请求，回复结果。
      * 
-     * > **说明**
+     * > **说明：**
      * >
      * >开发者应优先选择重写onRemoteMessageRequest方法，其中可以自由实现同步和异步的消息处理。
      * >
-     * >开发者同时重写onRemoteMessageRequest和onRemoteRequest方法时，仅onRemoteMessageRequest方法生效。
+     * >开发者同时重写onRemoteRequest和onRemoteMessageRequest方法时，仅onRemoteMessageRequest方法生效。
      *
      * @param { int } code - 对端发送的服务请求码。
      * @param { MessageSequence } data - 携带客户端调用参数的MessageSequence对象。
      * @param { MessageSequence } reply - 写入结果的MessageSequence对象。
      * @param { MessageOption } options - 指示操作是同步还是异步。
      * @returns { boolean | Promise<boolean> } - 若在onRemoteMessageRequest中同步处理请求，则返回一个布尔值。返回true表示操作成功，返回false表示操作失败。
-     * </br>- 若在onRemoteMessageRequest中异步处理请求，则返回一个Promise对象。返回true表示操作成功，返回false表示操作失败。
+     * <br/>- 若在onRemoteMessageRequest中异步处理请求，则返回一个Promise对象。返回true表示操作成功，返回false表示操作失败。
      * @syscap SystemCapability.Communication.IPC.Core
      * @atomicservice [since 26.0.0]
      * @since 9 dynamic
@@ -3484,10 +3484,10 @@ declare namespace rpc {
     /**
      * sendMessageRequest请求的响应处理函数，服务端在该函数里同步或异步地处理请求，回复结果，该接口可从入参callingInfo中获取IPC上下文信息。
      *
-     * > **说明**
+     * > **说明：**
      * >
      * > 开发者应优先选择重写带有CallingInfo参数的onRemoteMessageRequest方法，其中可以自由实现同步和异步的消息处理。
-     *
+     * >
      * > 开发者同时重写onRemoteRequest和onRemoteMessageRequest方法时，仅onRemoteMessageRequest方法生效。
      *
      * @param { int } code - 对端发送的服务请求码。
@@ -3544,7 +3544,7 @@ declare namespace rpc {
     sendRequest(code: number, data: MessageParcel, reply: MessageParcel, options: MessageOption): boolean;
 
     /**
-     * 以同步或异步方式向对端进程发送MessageParcel消息。如果为选项设置了异步模式，则发送请求的响应结果应立刻返回，reply报文里没有内容，具体回复需要在业务测的回调函数中获取。如果为选项设置了同步模式，则发送请求的响应结果将
+     * 以同步或异步方式向对端进程发送MessageParcel消息。如果为选项设置了异步模式，则发送请求的响应结果立即返回，reply报文里没有内容，具体回复需要在业务测的回调函数中获取。如果为选项设置了同步模式，则发送请求的响应结果将
      * 在sendRequest返回时返回，回复内容在reply报文里。使用Promise异步回调。
      *
      * @param { number } code - 本次请求调用的消息码[1-16777215]，由通信双方确定。如果接口由IDL工具生成，则消息代码由IDL自动生成。
@@ -3566,12 +3566,12 @@ declare namespace rpc {
     ): Promise<SendRequestResult>;
 
     /**
-     * 以同步或异步方式向对端进程发送MessageSequence消息。如果为选项设置了异步模式，则发送请求的响应结果立即返回，reply报文里没有内容，具体回复需要在业务测的回调函数中获取。如果为选项设置了同步模式，则发送请求的响应结
+     * 以同步或异步方式向对端进程发送MessageSequence消息。如果为选项设置了异步模式，则发送请求的响应结果立即返回，reply报文里没有内容，具体回复需要在业务侧的回调中获取。如果为选项设置了同步模式，则发送请求的响应结
      * 果将在sendMessageRequest返回时返回，回复内容在reply报文里。使用Promise异步回调。
      *
      * @param { int } code - 本次请求调用的消息码[1-16777215]，由通信双方确定。如果接口由IDL工具生成，则消息代码由IDL自动生成。
-     * @param { MessageSequence } data - 保存待发送数据的MessageSequence对象，需先通过create()方法创建并写入数据后方可使用。
-     * @param { MessageSequence } reply - 接收应答数据的MessageSequence对象，异步模式下reply报文里没有内容，具体回复需要在业务侧回调中获取；同步模式下回复内容在reply报文里。
+     * @param { MessageSequence } data - 保存待发送数据的MessageSequence对象。
+     * @param { MessageSequence } reply - 接收应答数据的MessageSequence对象。
      * @param { MessageOption } options - 本次请求的同异步模式，默认同步调用。
      * @returns { Promise<RequestResult> } Promise对象，返回发送请求的响应结果。
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -3590,7 +3590,7 @@ declare namespace rpc {
     ): Promise<RequestResult>;
 
     /**
-     * 以同步或异步方式向对端进程发送MessageParcel消息，使用callback异步回调。如果为选项设置了异步模式，即立刻受到回调，reply报文里没有内容，具体回复需要在业务测的回调函数中获取。如果为选项设置了同步模式，则将在
+     * 以同步或异步方式向对端进程发送MessageParcel消息，使用callback异步回调。如果为选项设置了异步模式，则立即收到回调，reply报文里没有内容，具体回复需要在业务测的回调函数中获取。如果为选项设置了同步模式，则将在
      * sendRequest返回时收到回调，回复内容在reply报文里。
      *
      * @param { number } code - 本次请求调用的消息码[1-16777215]，由通信双方确定。如果接口由IDL工具生成，则消息代码由IDL自动生成。
@@ -3613,11 +3613,12 @@ declare namespace rpc {
     ): void;
 
     /**
-     * 以同步或异步方式向对端进程发送MessageSequence消息。如果为选项设置了异步模式，则发送请求的响应结果立即返回，reply报文里没有内容，具体回复需要在业务测的回调函数中获取。如果为选项设置了同步模式，则将在
-     * sendRequest返回时收到回调，回复内容在reply报文里。
+     * 以同步或异步方式向对端进程发送MessageSequence消息。使用callback异步回调。如果为选项设置了异步模式，则立即收到回调，reply报文里没有内容，具体回复需要在业务侧的回调函数中获取。如果为选项设置了同步模式，则
+     * 将在sendRequest返回时收到回调，回复内容在reply报文里。
+     * 
      * @param { int } code - 本次请求调用的消息码[1-16777215]，由通信双方确定。如果接口由IDL工具生成，则消息代码由IDL自动生成。
-     * @param { MessageSequence } data - 保存待发送数据的MessageParcel对象。
-     * @param { MessageSequence } reply - 接收应答数据的MessageParcel对象。
+     * @param { MessageSequence } data - 保存待发送数据的MessageSequence对象。
+     * @param { MessageSequence } reply - 接收应答数据的MessageSequence对象。
      * @param { MessageOption } options - 本次请求的同异步模式，默认同步调用。
      * @param { AsyncCallback<RequestResult> } callback - 回调函数。当消息发送成功时，可从RequestResult中读取服务端返回的数据。
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -3911,7 +3912,7 @@ declare namespace rpc {
     sendRequest(code: number, data: MessageParcel, reply: MessageParcel, options: MessageOption): boolean;
 
     /**
-     * 同步或异步方式向对端进程发送MessageParcel消息。如果为选项设置了异步模式，则发送请求的响应结果立即返回，reply报文里没有内容，具体回复需要在业务侧的回调中获取。如果为选项设置了同步模式，则发送请求的响应结果将
+     * 以同步或异步方式向对端进程发送MessageParcel消息。如果为选项设置了异步模式，则发送请求的响应结果立即返回，reply报文里没有内容，具体回复需要在业务侧的回调中获取。如果为选项设置了同步模式，则发送请求的响应结果将
      * 在sendRequest返回时返回，回复内容在reply报文里。使用Promise异步回调。
      *
      * @param { number } code - 本次请求调用的消息码[1-16777215]，由通信双方确定。如果接口由IDL工具生成，则消息代码由IDL自动生成。
@@ -3933,8 +3934,8 @@ declare namespace rpc {
     ): Promise<SendRequestResult>;
 
     /**
-     * 以同步或异步方式向对端进程发送MessageSequence消息。如果为选项设置了异步模式，则发送请求的响应结果立即返回，reply报文里没有内容，具体回复需要在业务侧的回调中获取。如果为选项设置了同步模式，则发送请求的响应结果将
-     * 在sendMessageRequest返回时返回，回复内容在reply报文里。使用Promise异步回调。
+     * 以同步或异步方式向对端进程发送MessageSequence消息。如果为选项设置了异步模式，则发送请求的响应结果立即返回，reply报文里没有内容，具体回复需要在业务侧的回调中获取。如果为选项设置了同步模式，则发送请求的响应结
+     * 果将在sendMessageRequest返回时返回，回复内容在reply报文里。使用Promise异步回调。
      *
      * @param { int } code - 本次请求调用的消息码[1-16777215]，由通信双方确定。如果接口由IDL工具生成，则消息代码由IDL自动生成。
      * @param { MessageSequence } data - 保存待发送数据的MessageSequence对象。
@@ -3957,8 +3958,8 @@ declare namespace rpc {
     ): Promise<RequestResult>;
 
     /**
-     * 以同步或异步方式向对端进程发送MessageParcel消息。使用callback异步回调。如果为选项设置了异步模式，则立即收到回调，reply报文里没有内容，具体回复需要在业务侧的回调中获取。如果为选项设置了同步模式，则将在
-     * sendRequest返回时收到回调，回复内容在reply报文里。
+     * 以同步或异步方式向对端进程发送MessageParcel消息。使如果为选项设置了异步模式，则立即收到回调，reply报文里没有内容，具体回复需要在业务侧的回调中获取。如果为选项设置了同步模式，则将在sendRequest返回时收
+     * 到回调，回复内容在reply报文里。
      *
      * @param { number } code - 本次请求调用的消息码[1-16777215]，由通信双方确定。如果接口由IDL工具生成，则消息代码由IDL自动生成。
      * @param { MessageParcel } data - 保存待发送数据的MessageParcel对象。
@@ -3988,7 +3989,7 @@ declare namespace rpc {
      * @param { int } code - 本次请求调用的消息码[1-16777215]，由通信双方确定。如果接口由IDL工具生成，则消息代码由IDL自动生成。
      * @param { MessageSequence } data - 保存待发送数据的MessageSequence对象。
      * @param { MessageSequence } reply - 接收应答数据的MessageSequence对象。
-     * @param { MessageOption } options - 本次请求的同异步模式，默认同步调用
+     * @param { MessageOption } options - 本次请求的同异步模式，默认同步调用。
      * @param { AsyncCallback<RequestResult> } callback - 回调函数。当消息发送成功时，可从RequestResult中读取服务端返回的数据。
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.The number of parameters is incorrect;
