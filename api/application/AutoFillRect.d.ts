@@ -26,7 +26,8 @@
  * @publicapi [since 26.0.0]
  * @stagemodelonly
  * @atomicservice
- * @since 26.0.0 dynamic&static
+ * @since 12 dynamic
+ * @since 23 static
  */
 export default interface AutoFillRect {
   /**
@@ -37,7 +38,8 @@ export default interface AutoFillRect {
    * @publicapi [since 26.0.0]
    * @stagemodelonly
    * @atomicservice
-   * @since 26.0.0 dynamic&static
+   * @since 12 dynamic
+   * @since 23 static
    */
   left: double;
 
@@ -49,7 +51,8 @@ export default interface AutoFillRect {
    * @publicapi [since 26.0.0]
    * @stagemodelonly
    * @atomicservice
-   * @since 26.0.0 dynamic&static
+   * @since 12 dynamic
+   * @since 23 static
    */
   top: double;
 
@@ -61,7 +64,8 @@ export default interface AutoFillRect {
    * @publicapi [since 26.0.0]
    * @stagemodelonly
    * @atomicservice
-   * @since 26.0.0 dynamic&static
+   * @since 12 dynamic
+   * @since 23 static
    */
   width: double;
 
@@ -73,7 +77,8 @@ export default interface AutoFillRect {
    * @publicapi [since 26.0.0]
    * @stagemodelonly
    * @atomicservice
-   * @since 26.0.0 dynamic&static
+   * @since 12 dynamic
+   * @since 23 static
    */
   height: double;
 }
