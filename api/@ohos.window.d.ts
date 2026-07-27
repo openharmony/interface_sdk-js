@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -7692,6 +7692,7 @@ declare namespace window {
      *     1. The window is not created or destroyed;
      *     2. Internal task error.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform [since 26.1.0]
      * @atomicservice
      * @since 12 dynamic
      * @since 23 static
@@ -10156,6 +10157,7 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform [since 26.1.0]
      * @atomicservice [since 12]
      * @since 9 dynamic
      * @since 23 static
@@ -10177,6 +10179,7 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform [since 26.1.0]
      * @atomicservice [since 12]
      * @since 9 dynamic
      * @since 23 static
@@ -12821,6 +12824,7 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause:
      *     The window is not created or destroyed.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform [since 26.1.0]
      * @atomicservice
      * @since 12 dynamic
      * @since 23 static
@@ -13593,6 +13597,7 @@ declare namespace window {
    * Enumerates the modality types of the child window.
    *
    * @syscap SystemCapability.Window.SessionManager
+   * @crossplatform [since 26.1.0]
    * @atomicservice
    * @since 14 dynamic
    * @since 23 static
@@ -13602,6 +13607,7 @@ declare namespace window {
      * Select this value when only the parent window should not respond to user operations.
      *
      * @syscap SystemCapability.Window.SessionManager
+     * @crossplatform [since 26.1.0]
      * @atomicservice
      * @since 14 dynamic
      * @since 23 static
@@ -13649,6 +13655,7 @@ declare namespace window {
    * Describes the parameters used for creating a child window.
    *
    * @syscap SystemCapability.Window.SessionManager
+   * @crossplatform [since 26.1.0]
    * @atomicservice [since 12]
    * @since 11 dynamic
    * @since 23 static
@@ -13659,6 +13666,7 @@ declare namespace window {
      * the system. Any part that goes beyond will show as an ellipsis.
      *
      * @syscap SystemCapability.Window.SessionManager
+     * @crossplatform [since 26.1.0]
      * @atomicservice [since 12]
      * @since 11 dynamic
      * @since 23 static
@@ -13668,6 +13676,7 @@ declare namespace window {
      * Whether decorations are displayed in the child window. **true** if displayed, **false** otherwise.
      *
      * @syscap SystemCapability.Window.SessionManager
+     * @crossplatform [since 26.1.0]
      * @atomicservice [since 12]
      * @since 11 dynamic
      * @since 23 static
@@ -13678,6 +13687,7 @@ declare namespace window {
      * value is **false**.
      *
      * @syscap SystemCapability.Window.SessionManager
+     * @crossplatform [since 26.1.0]
      * @atomicservice
      * @since 12 dynamic
      * @since 23 static
@@ -13698,6 +13708,7 @@ declare namespace window {
      * default value is **WINDOW_MODALITY**.
      *
      * @syscap SystemCapability.Window.SessionManager
+     * @crossplatform [since 26.1.0]
      * @atomicservice
      * @since 14 dynamic
      * @since 23 static
@@ -13713,6 +13724,7 @@ declare namespace window {
      * .
      *
      * @syscap SystemCapability.Window.SessionManager
+     * @crossplatform [since 26.1.0]
      * @atomicservice
      * @since 18 dynamic
      * @since 23 static
@@ -13880,6 +13892,7 @@ declare namespace window {
      * @throws { BusinessError } 1300005 - This window stage is abnormal.
      * @syscap SystemCapability.Window.SessionManager
      * @StageModelOnly
+     * @crossplatform [since 26.1.0]
      * @atomicservice [since 12]
      * @since 11 dynamic
      * @since 23 static
