@@ -9960,45 +9960,6 @@ declare namespace audio {
   }
 
   /**
-   * Options for setting the render target of an audio renderer.
-   * This parameter takes effect only when the target is non-PLAYBACK.
-   * In other cases, this parameter does not need to be specified
-   * and does not take effect even if specified.
-   * Both uid and streamId must be specified.
-   *
-   * @syscap SystemCapability.Multimedia.Audio.Renderer
-   * @systemapi
-   * @stagemodelonly
-   * @since 26.0.0 dynamic&static
-  */
-  interface AudioRendererTargetParams {
-    /**
-     * The application UID of the target capture stream into which the render
-     * stream is injected.
-     * It is valid only when the target is non-PLAYBACK.
-     * The value should be an integer.
-     *
-     * @syscap SystemCapability.Multimedia.Audio.Renderer
-     * @systemapi
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-    */
-    uid: int;
-    /**
-     * The stream ID of the {@link SourceType#SOURCE_TYPE_VOICE_COMMUNICATION}
-     * capture stream identified by uid. This stream is the injection target for
-     * the render stream.
-     * It is valid only when the target is non-PLAYBACK.
-     *
-     * @syscap SystemCapability.Multimedia.Audio.Renderer
-     * @systemapi
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-    */
-    streamId: long;
-  }
-
-  /**
    * 表示音频时延类型的枚举。
    * 
    * | 名称 | 值 | 说明 |
@@ -10924,45 +10885,6 @@ declare namespace audio {
      * @since 23 static
      */
     setTarget(target: RenderTarget): Promise<void>;
-
-    /**
-     * Sets the render target of this audio renderer.
-     * This function can only be called when the audio renderer is not in the running or released state.
-     * Otherwise, it will return an error. The caller must have the
-     * ohos.permission.INJECT_PLAYBACK_TO_AUDIO_CAPTURE permission when target is not {@link RenderTarget#PLAYBACK}.
-     * After changing render target to non-PLAYBACK:
-     *
-     * 1. The audio route and interruption strategy of this renderer will not be affected by
-     * {@link AudioSessionManager}.
-     * 2. The device type of this renderer will be {@link DeviceType#SYSTEM_PRIVATE}.
-     * 3. Calling {@link start} when the audio scene is not {@link AudioScene#AUDIO_SCENE_VOICE_CHAT} will
-     *    return error code 6800301.
-     * 4. Calling {@link getAudioTime} or {@link getAudioTimeSync} will return error code 6800301.
-     * 5. Calling {@link getAudioTimestampInfo} or {@link getAudioTimestampInfoSync} will return error code 6800301.
-     * 6. Calling {@link setDefaultOutputDevice} will return error code 6800301.
-     *
-     * This API uses a promise to return the result.
-     *
-     * @permission ohos.permission.INJECT_PLAYBACK_TO_AUDIO_CAPTURE
-     * @param { RenderTarget } target - Render target.
-     * @param { AudioRendererTargetParams } [targetParams] - Parameter used to specify
-     *     the target capturer stream into which the renderer stream is injected. If this
-     *     parameter is not specified when target is not {@link RenderTarget#PLAYBACK},
-     *     the renderer stream is automatically injected into all voice communication capture
-     *     streams by default.
-     * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 202 - Caller is not a system application.
-     * @throws { BusinessError } 6800101 - Parameter verification failed.
-     * @throws { BusinessError } 6800103 - Operation not permit at running and release state.
-     * @throws { BusinessError } 6800104 - Current renderer is not supported to set target.
-     * @throws { BusinessError } 6800301 - Audio server process died.
-     * @syscap SystemCapability.Multimedia.Audio.Renderer
-     * @systemapi
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-    */
-    setTarget(target: RenderTarget, targetParams?: AudioRendererTargetParams): Promise<void>;
 
     /**
      * Gets the currently render target of this audio renderer.
