@@ -13,8 +13,12 @@
  * limitations under the License.
  */
 
-const { arkts } = require('/srv/workspace/master_default_20260410_0432_huawei_18466aeab/code/interface/sdk-js/build-tools/package_tools/src/dependence/build-tools/koala-wrapper/build/lib/es2panda');
-
+// arkts 由 entry.js 的 configGlobal() 通过 require(sdkPath + ES2PANDA_LIB_PATH) 加载
+// 并赋值给全局变量 arkts。本模块在 configGlobal() 之后被 require，
+// 因此可以直接引用全局 arkts。不再硬编码 require 路径。
+if (typeof arkts === 'undefined') {
+  arkts = null;
+}
 let arr = [];
 
 /**
@@ -266,6 +270,7 @@ function getJSDocInformation(node) {
 }
 
 exports.collectAllIdentifierNode = function collectAllIdentifierNode(node) {
+  arr = [];
   handleAstNode(node)
   return arr
 }

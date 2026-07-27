@@ -63,7 +63,7 @@ declare interface ArcAlphabetIndexerInitInfo {
 declare type OnSelectCallback =  (index: number) => void;
 
 /**
-* 弧形索引条是一种弧形的、可按字母顺序排序进行快速定位的组件，可以与容器组件联动，按逻辑结构快速定位至容器显示区域。
+* 弧形索引条是一种弧形排列、可按字母顺序快速定位的组件，可与容器组件联动，按逻辑结构快速定位至容器显示区域，适用于手表等圆形屏幕设备。
 *
 * > **说明：**
 *
@@ -78,7 +78,7 @@ declare type OnSelectCallback =  (index: number) => void;
 export interface ArcAlphabetIndexerInterface {
 
   /**
-   * 创建弧形索引条实例，传入弧形索引条配置项参数。
+   * 创建并初始化弧形索引条组件。
    *
    * @param { ArcAlphabetIndexerInitInfo } info - 定义弧形字母索引条的初始化参数。
    * @returns { ArcAlphabetIndexerAttribute }
@@ -201,7 +201,7 @@ declare class ArcAlphabetIndexerAttribute extends CommonMethod<ArcAlphabetIndexe
   popupFont(font: Optional<Font>): ArcAlphabetIndexerAttribute;
 
   /**
-   * 设置字母索引条默认字体样式。
+   * 设置弧形字母索引条默认字体样式。
    *
    * @param { Optional<Font> } font - 字母索引条默认字体样式。<br/>默认值：<br/>{<br/>size:'13.0fp',<br/> style:FontStyle.Normal,<br/>
    *     weight:500,<br/> family:'HarmonyOS Sans'<br/>}
@@ -214,9 +214,9 @@ declare class ArcAlphabetIndexerAttribute extends CommonMethod<ArcAlphabetIndexe
   font(font: Optional<Font>): ArcAlphabetIndexerAttribute;
 
   /**
-   * 设置字母索引条字母区域大小。
+   * 设置弧形索引条索引项区域大小。
    *
-   * @param { Optional<LengthMetrics> } size - 字母索引条字母区域大小，字母区域为圆形，即圆形直径。不支持设置为百分比。<br/>默认值：24.0 <br/>单位：vp
+   * @param { Optional<LengthMetrics> } size - 弧形索引条索引项区域大小，索引项区域为圆形，即圆形直径。不支持设置为百分比。<br/>默认值：24.0 <br/>单位：vp
    * @returns { ArcAlphabetIndexerAttribute }
       * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
@@ -228,7 +228,7 @@ declare class ArcAlphabetIndexerAttribute extends CommonMethod<ArcAlphabetIndexe
   /**
    * 设置选中项索引值。
    *
-   * @param { Optional<number> } index - 选中项索引值。 <br/>默认值：0 <br/>该参数支持
+   * @param { Optional<number> } index - 选中项索引值。若超出有效索引范围，则取默认值0。<br/>默认值：0 <br/>该参数支持
    *     [!!](docroot://ui/state-management/arkts-new-binding.md)双向绑定变量。
    * @returns { ArcAlphabetIndexerAttribute }
       * @syscap SystemCapability.ArkUI.ArkUI.Circle
@@ -239,7 +239,7 @@ declare class ArcAlphabetIndexerAttribute extends CommonMethod<ArcAlphabetIndexe
   selected(index: Optional<number>): ArcAlphabetIndexerAttribute;
 
   /**
-   * 设置是否使用自适应折叠模式。
+   * 设置是否使用自适应折叠模式。当索引项过多时，组件会根据可用显示空间自动调整索引项的显示布局。
    *
    * @param { Optional<boolean> } enable - 是否使用自适应折叠模式。<br/>默认值：true <br/>true：使用自适应折叠模式。<br/>false：不使用自适应折叠模式。
    * @returns { ArcAlphabetIndexerAttribute }
@@ -253,7 +253,7 @@ declare class ArcAlphabetIndexerAttribute extends CommonMethod<ArcAlphabetIndexe
   /**
    * 索引条选中回调，返回值为当前选中索引。
    *
-   * @param { Optional<OnSelectCallback> } handler - 回调函数类型。
+   * @param { Optional<OnSelectCallback> } handler - 回调函数，用于处理索引条选中事件。
    * @returns { ArcAlphabetIndexerAttribute }
       * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
@@ -270,7 +270,8 @@ declare class ArcAlphabetIndexerAttribute extends CommonMethod<ArcAlphabetIndexe
    * > 当通过popupBackgroundBlurStyle设置弹窗气泡的背景模糊材质时，不建议再通过
    * > [popupBackground]{@link ArcAlphabetIndexerAttribute#popupBackground}设置背景色。
    *
-   * @param { Optional<BlurStyle> } style - 设置提示弹窗的背景模糊材质。
+   * @param { Optional<BlurStyle> } style - 设置提示弹窗的背景模糊材质。<br/>默认值：BlurStyle.NONE。
+   *     <br/>设置此属性后不建议再设置[popupBackground](#popupbackground)属性。
    * @returns { ArcAlphabetIndexerAttribute }
       * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform

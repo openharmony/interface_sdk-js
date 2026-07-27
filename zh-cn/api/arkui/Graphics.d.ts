@@ -14,16 +14,13 @@
  */
 
 /**
- * 自定义节点相关属性定义的详细信息。
+ * 自定义节点（RenderNode）相关的图形属性定义，提供几何变换（缩放、旋转、平移）、颜色与长度的统一表示、形状定义、图形遮罩与裁剪、模糊效果等能力，适用于需要在自定义节点上进行精细化图形绘制与视觉效果处理的场景。
  *
  * @file
  * @kit ArkUI
  */
-
 import drawing from '../@ohos.graphics.drawing';
-
 import type common2D from '../@ohos.graphics.common2D';
-
 import { Resource } from '../global/resource';
 
 /**
@@ -36,13 +33,14 @@ import { Resource } from '../global/resource';
  * @since 11 dynamic
  */
 export interface Size {
-
   /**
    * 组件大小的宽度。
-   *
+   * 
    * 单位：vp
-   *
+   * 
    * 取值范围：[0, +∞)
+   * 
+   * 负数按默认值处理。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -54,10 +52,12 @@ export interface Size {
 
   /**
    * 组件大小的高度。
-   *
+   * 
    * 单位：vp
-   *
+   * 
    * 取值范围：[0, +∞)
+   * 
+   * 负数按默认值处理。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -69,7 +69,7 @@ export interface Size {
 }
 
 /**
- * 图形绘制上下文，提供绘制所需的画布宽度和高度。
+ * 图形绘制上下文，提供绘制所需的画布及其宽度和高度。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -106,7 +106,7 @@ export class DrawContext {
   /**
    * 获取用于绘制的画布。
    *
-   * @returns { drawing.Canvas } Canvas for drawing.
+   * @returns { drawing.Canvas } 用于绘制的画布。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -126,7 +126,6 @@ export class DrawContext {
  * @since 11 dynamic
  */
 interface Vector2 {
-
   /**
    * 向量x轴方向的值。
    *
@@ -198,10 +197,9 @@ interface Vector2T<T> {
  * @since 11 dynamic
  */
 interface Vector3 {
-
   /**
    * 向量x轴方向的值。
-   *
+   * 
    * 取值范围：(-∞, +∞)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -214,7 +212,7 @@ interface Vector3 {
 
   /**
    * 向量y轴方向的值。
-   *
+   * 
    * 取值范围：(-∞, +∞)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -226,8 +224,8 @@ interface Vector3 {
   y: number;
 
   /**
-   * z轴方向的旋转角度。
-   *
+   * 向量z轴方向的值。
+   * 
    * 取值范围：(-∞, +∞)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -249,10 +247,10 @@ interface Vector3 {
  * @since 26.0.0 dynamic
  */
 interface Vector4 {
-
   /**
    * 向量x轴方向的值。
-   * 取值范围：(-∞,+∞)。
+   * 
+   * 取值范围：(-∞, +∞)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -264,7 +262,8 @@ interface Vector4 {
 
   /**
    * 向量y轴方向的值。
-   * 取值范围：(-∞, +∞)。
+   * 
+   * 取值范围：(-∞, +∞)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -276,7 +275,8 @@ interface Vector4 {
 
   /**
    * 向量z轴方向的值。
-   * 取值范围：(-∞, +∞)。
+   * 
+   * 取值范围：(-∞, +∞)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -288,7 +288,8 @@ interface Vector4 {
 
   /**
    * 向量w轴方向的值。
-   * 取值范围：(-∞, +∞)。
+   * 
+   * 取值范围：(-∞, +∞)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -300,16 +301,17 @@ interface Vector4 {
 }
 
 /**
- * 设置四阶矩阵。
- * 用于设置组件的变换信息，该类型为一个 4x4 矩阵，使用一个长度为16的`number[]`进行表示，各number取值范围：(-∞, +∞)。例如：
+ * 用于设置四阶矩阵。
+ * 
+ * 用于设置组件的变换信息，该类型为一个 4x4 矩阵，使用一个长度为16的`number[]`进行表示，例如：
  * ```
  * const transform: Matrix4 = [
  * 1, 0, 45, 0,
  * 0, 1,  0, 0,
  * 0, 0,  1, 0,
  * 0, 0,  0, 1
- * ]
- * ```。
+ * ]。
+ * ```
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -370,7 +372,7 @@ export type Position = Vector2;
 export type PositionT<T> = Vector2T<T>;
 
 /**
- * 用于设置组件的轴心坐标，轴心会作为组件的旋转/缩放中心点，影响旋转和缩放效果。轴心的x和y轴坐标为浮点数，默认值为0.5， 取值范围为[0.0, 1.0]。
+ * 用于设置组件的轴心坐标，轴心会作为组件的旋转/缩放中心点，影响旋转和缩放效果。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -423,7 +425,6 @@ export type Rotation = Vector3;
  * @since 11 dynamic
  */
 export declare interface Frame {
-
   /**
    * 水平方向位置。
    *
@@ -456,10 +457,12 @@ export declare interface Frame {
 
   /**
    * 组件的宽度。
-   *
+   * 
    * 单位：vp
-   *
+   * 
    * 取值范围：[0, +∞)
+   * 
+   * 负数按默认值处理。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -471,10 +474,12 @@ export declare interface Frame {
 
   /**
    * 组件的高度。
-   *
+   * 
    * 单位：vp
-   *
+   * 
    * 取值范围：[0, +∞)
+   * 
+   * 负数按默认值处理。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -495,7 +500,6 @@ export declare interface Frame {
  * @since 12 dynamic
  */
 export interface Edges<T> {
-
   /**
    * 左侧边框的属性。
    *
@@ -551,9 +555,8 @@ export interface Edges<T> {
  * @since 12 dynamic
  */
 declare enum LengthUnit {
-
   /**
-   * 长度类型，用于描述以px像素单位为单位的长度。
+   * 长度类型，用于描述以px为单位的长度。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -564,7 +567,7 @@ declare enum LengthUnit {
   PX = 0,
 
   /**
-   * 长度类型，用于描述以vp像素单位为单位的长度。
+   * 长度类型，用于描述以vp为单位的长度。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -575,7 +578,7 @@ declare enum LengthUnit {
   VP = 1,
 
   /**
-   * 长度类型，用于描述以fp像素单位为单位的长度。
+   * 长度类型，用于描述以fp为单位的长度。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -586,7 +589,7 @@ declare enum LengthUnit {
   FP = 2,
 
   /**
-   * 长度类型，用于描述以%像素单位为单位的长度。
+   * 长度类型，用于描述以%为单位的长度。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -597,7 +600,7 @@ declare enum LengthUnit {
   PERCENT = 3,
 
   /**
-   * 长度类型，用于描述以lpx像素单位为单位的长度。
+   * 长度类型，用于描述以lpx为单位的长度。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -618,7 +621,6 @@ declare enum LengthUnit {
  * @since 12 dynamic
  */
 export interface SizeT<T> {
-
   /**
    * 宽度的属性。
    *
@@ -654,7 +656,7 @@ export interface SizeT<T> {
 export enum LengthMetricsUnit {
 
   /**
-   * 长度类型，用于描述以vp像素单位为单位的长度。
+   * 长度类型，用于描述以默认的vp为单位的长度。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -665,7 +667,7 @@ export enum LengthMetricsUnit {
   DEFAULT = 0,
 
   /**
-   * 长度类型，用于描述以px像素单位为单位的长度。
+   * 长度类型，用于描述以px为单位的长度。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -686,12 +688,12 @@ export enum LengthMetricsUnit {
  * @since 12 dynamic
  */
 declare class LengthMetrics {
-
   /**
    * LengthMetrics的构造函数。若参数unit不传入值或传入undefined，返回值使用默认单位VP；若unit传入非LengthUnit类型的值，返回默认值0VP。
    *
-   * @param { number } value - 长度属性的值。<br/>取值范围：[0, +∞)
-   * @param { LengthUnit } [unit] - 长度属性的单位。
+   * @param { number } value - 长度属性的值。
+   *     <br>取值范围：(-∞, +∞)
+   * @param { LengthUnit } [unit] - 长度属性的单位，默认为VP。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -703,8 +705,9 @@ declare class LengthMetrics {
   /**
    * 用于生成单位为PX的长度属性。
    *
-   * @param { number } value - 长度属性的值。<br/>取值范围：(-∞, +∞)
-   * @returns { LengthMetrics } LengthMetrics 类的实例。
+   * @param { number } value - 长度属性的值。
+   *     <br>取值范围：(-∞, +∞)
+   * @returns { LengthMetrics } 单位为PX的长度属性对象。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -716,8 +719,9 @@ declare class LengthMetrics {
   /**
    * 用于生成单位为VP的长度属性。
    *
-   * @param { number } value - 长度属性的值。<br/>取值范围：(-∞, +∞)
-   * @returns { LengthMetrics } LengthMetrics 类的实例。
+   * @param { number } value - 长度属性的值。
+   *     <br>取值范围：(-∞, +∞)
+   * @returns { LengthMetrics } 单位为VP的长度属性对象。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -729,8 +733,9 @@ declare class LengthMetrics {
   /**
    * 用于生成单位为FP的长度属性。
    *
-   * @param { number } value - 长度属性的值。<br/>取值范围：(-∞, +∞)
-   * @returns { LengthMetrics } LengthMetrics 类的实例。
+   * @param { number } value - 长度属性的值。
+   *     <br>取值范围：(-∞, +∞)
+   * @returns { LengthMetrics } 单位为FP的长度属性对象。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -742,8 +747,10 @@ declare class LengthMetrics {
   /**
    * 用于生成单位为PERCENT的长度属性，值为1表示100%。
    *
-   * @param { number } value - 长度属性的值。<br/>取值范围：[0, 1]
-   * @returns { LengthMetrics } LengthMetrics 类的实例。
+   * @param { number } value - 长度属性的值。
+   *     <br>取值范围：[0, 1]
+   *     <br>超出范围时按边界值处理。
+   * @returns { LengthMetrics } 单位为PERCENT的长度属性对象，值为1表示100%。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -755,8 +762,9 @@ declare class LengthMetrics {
   /**
    * 用于生成单位为LPX的长度属性。
    *
-   * @param { number } value - 长度属性的值。<br/>取值范围：(-∞, +∞)
-   * @returns { LengthMetrics } LengthMetrics 类的实例。
+   * @param { number } value - 长度属性的值。
+   *     <br>取值范围：(-∞, +∞)
+   * @returns { LengthMetrics } 单位为LPX的长度属性对象。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -769,7 +777,7 @@ declare class LengthMetrics {
    * 用于生成Resource类型资源的长度属性。
    *
    * @param { Resource } value - 长度属性的值。
-   * @returns { LengthMetrics } LengthMetrics 类的实例。
+   * @returns { LengthMetrics } Resource类型资源的长度属性对象。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -792,6 +800,10 @@ declare class LengthMetrics {
 
   /**
    * 长度属性的值。
+   * 
+   * 取值范围：(-∞, +∞)。
+   * 
+   * 当unit为PERCENT时，value表示百分比（1表示100%），参考尺寸取决于具体使用场景；其余单位表示对应单位的绝对长度。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -802,12 +814,12 @@ declare class LengthMetrics {
   public value: number;
 
   /**
-   * 为LengthMetrics对象设置自动刷新。
-   * 启用时，由LengthMetrics.resource()创建的对象的长度值将自动更新
-   * 当系统配置发生变化时。
+   * 设置LengthMetrics对象是否跟随系统配置变化自动更新。
    *
-   * @param { boolean } value - 当系统配置发生变化时，是否自动更新长度值。
-   * @returns { LengthMetrics } 返回用于链接的LengthMetrics对象。
+   * @param { boolean } value - 使用[resource]{@link LengthMetrics#resource}方法构造的LengthMetrics对象是否在系统配置变化时自动刷新值。
+   *     <br>true表示主动监听系统配置变化，在变化时值刷新为对应配置下的资源值。
+   *     <br>false表示不主动监听系统配置变化。
+   * @returns { LengthMetrics } 返回设置自动刷新属性后的LengthMetrics对象。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -818,7 +830,7 @@ declare class LengthMetrics {
 }
 
 /**
- * 用于混合颜色。
+ * 提供颜色的统一表示与封装，支持颜色混合以及 RGB、Alpha 分量的获取。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -827,45 +839,13 @@ declare class LengthMetrics {
  * @since 12 dynamic
  */
 declare class ColorMetrics {
-
-  /**
-   * 检查ColorMetrics是否代表HDR颜色。
-   * 如果颜色是使用createHDRColorWithXx创建的，或者RGB值> 1.0，则返回true。
-   *
-   * @returns { boolean } ColorMetrics是否是HDR颜色。
-   *     如果满足以下条件，则返回true：
-   *     -颜色是使用createHDRColorWithXx()方法创建的。
-   *     -任何RGB通道值都大于1.0。
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @stagemodelonly
-   * @since 26.0.0 dynamic
-   */
-  isHDR(): boolean;
-
-  /**
-   * 设置ColorMetrics对象的自动刷新。
-   * 启用时，当系统配置发生变化时，使用ColorMetrics.resourceColor()创建的对象的颜色值将自动更新
-   *
-   * @param { boolean } value - 当系统配置发生变化时，是否自动刷新颜色值。
-   *     <br>如果设置为true，则使用ColorMetrics.resourceColor()创建的对象的颜色值
-   *     会在系统配置发生变化时自动更新。如果设置为false，则对象的颜色值
-   *     由ColorMetrics.resourceColor()创建的，不会自动更新。
-   *     默认值为false。
-   * @returns { ColorMetrics } 返回用于链接的ColorMetrics对象。
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
-   */
-  autoRefresh?(value: boolean): ColorMetrics;
-
   /**
    * 使用HEX格式颜色实例化 ColorMetrics 类。
    *
-   * @param { number } value - HEX格式颜色。<br/>取值范围：支持rgb或者argb
-   * @returns { ColorMetrics } ColorMetrics 类的实例。
+   * @param { number } value - HEX格式颜色，支持RGB或者ARGB。
+   *     <br>取值范围：[0, 0xffffffff]
+   *     <br>超出范围时按边界值处理。
+   * @returns { ColorMetrics } HEX格式颜色对应的颜色对象。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -877,11 +857,12 @@ declare class ColorMetrics {
   /**
    * 使用rgb或者rgba格式颜色实例化 ColorMetrics 类。
    *
-   * @param { number } red - 颜色的R分量（红色），值是0~255的整数。
-   * @param { number } green - 颜色的G分量（绿色），值是0~255的整数。
-   * @param { number } blue - 颜色的B分量（蓝色），值是0~255的整数。
-   * @param { number } alpha - 颜色的A分量（透明度），值是0.0~1.0的浮点数，默认值为1.0，不透明。<br/> **说明：** alpha小于0为全透明，大于1为不透明。
-   * @returns { ColorMetrics } ColorMetrics 类的实例。
+   * @param { number } red - 颜色的R分量（红色），值是0~255的整数。超出范围时按边界值处理。
+   * @param { number } green - 颜色的G分量（绿色），值是0~255的整数。超出范围时按边界值处理。
+   * @param { number } blue - 颜色的B分量（蓝色），值是0~255的整数。超出范围时按边界值处理。
+   * @param { number } alpha - 颜色的A分量（透明度），值是0.0~1.0的浮点数，默认值为1.0，不透明。
+   *     <br> **说明：** alpha小于0为全透明，大于1为不透明。
+   * @returns { ColorMetrics } rgb或rgba格式颜色对应的颜色对象。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -891,16 +872,17 @@ declare class ColorMetrics {
   static rgba(red: number, green: number, blue: number, alpha?: number): ColorMetrics;
 
   /**
-   * 使用[ColorSpace]{@link ColorSpace}和rgba格式颜色实例化ColorMetrics类。仅部分属性支持在display-p3色彩空间中设置颜色。
+   * 使用[ColorSpace]{@link ColorSpace}和rgba格式颜色实例化ColorMetrics类。仅red、green、blue属性支持在display-p3色彩空间中设置颜色，alpha属性不受色彩空间影响。
    *
-   * @param { ColorSpace } colorSpace - 颜色空间，用于指定颜色的色彩空间。使用ColorSpace.DISPLAY_P3，需要对应窗口调用
-   *     [setWindowColorSpace](docroot://reference/apis-arkui/arkts-apis-window-Window.md#setwindowcolorspace9-1)接口，将当前窗
-   *     口设置为广色域模式。
-   * @param { number } red - 颜色的R分量（红色），值是0~1的浮动数值。
-   * @param { number } green - 颜色的G分量（绿色），值是0~1的浮动数值。
-   * @param { number } blue - 颜色的B分量（蓝色），值是0~1的浮动数值。
+   * @param { ColorSpace } colorSpace - 色彩空间，用于指定颜色的色彩空间。使用ColorSpace.DISPLAY_P3，需要对应窗口调用
+   *     [setWindowColorSpace]{@link @ohos.window:window.Window.setWindowColorSpace(colorSpace:ColorSpace)}接口，将当前窗口设置为广色
+   *     域模式。
+   * @param { number } red - 颜色的R分量（红色），值是0~1的浮点数。超出范围时按边界值处理。
+   * @param { number } green - 颜色的G分量（绿色），值是0~1的浮点数。超出范围时按边界值处理。
+   * @param { number } blue - 颜色的B分量（蓝色），值是0~1的浮点数。超出范围时按边界值处理。
    * @param { number } [alpha] - 颜色的A分量（透明度），值是0.0~1.0的浮点数，默认值为1.0，不透明。
-   * @returns { ColorMetrics } ColorMetrics类的实例。
+   *     <br> **说明：** alpha小于0为全透明，大于1为不透明。
+   * @returns { ColorMetrics } 指定色彩空间下rgba格式颜色对应的颜色对象。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -913,7 +895,7 @@ declare class ColorMetrics {
    * 使用资源格式颜色实例化 ColorMetrics 类。
    *
    * @param { ResourceColor } color - 资源格式颜色。
-   * @returns { ColorMetrics } ColorMetrics 类的实例。
+   * @returns { ColorMetrics } 资源格式颜色对应的颜色对象。
    * @throws { BusinessError } 180003 - Failed to obtain the color resource.
    * @throws { BusinessError } 401 - Parameter error. Possible cause:
    *     1. The type of the input color parameter is not ResourceColor.
@@ -927,22 +909,19 @@ declare class ColorMetrics {
   static resourceColor(color: ResourceColor): ColorMetrics;
 
   /**
-   * 使用具有线性曝光的HDR颜色创建ColorMetrics类。
-   * 创建具有指定线性曝光的HDR颜色值。
-   * 曝光值控制线性色彩空间中颜色的亮度。
-   * 使用线性曝光时，RGB通道值通常在【0,1】范围内。
+   * 使用[ColorSpace]{@link ColorSpace}、线性曝光系数和rgba格式颜色实例化支持HDR的ColorMetrics类。如不需要通过曝光系数调节，可使用
+   * [createHDRColor]{@link ColorMetrics#createHDRColor}直接设置RGB分量值大于1.0来呈现HDR效果。适用于需要按线性比例均匀调整HDR亮度的场景，如HDR图像预览、视频播放器色彩调
+   * 节。
    *
-   * @param { double } linearExposure - 曝光值中的线性曝光值。
-   *     值为1.0表示标准曝光。
-   *     大于1.0的值会线性增加亮度。
-   * @param { ColorSpace } colorSpace - 颜色的颜色空间。
-   *     支持SRGB、Display_P3、BT2020颜色空间。
-   * @param { double } red - 红色分量值。有效范围：【0,1】。
-   * @param { double } green - 绿色分量值。有效范围：【0,1】。
-   * @param { double } blue - 蓝色分量值。有效范围：【0,1】。
-   * @param { double } [alpha] - Alpha（不透明度）分量值。有效范围：【0,1】。
-   *     默认值为1.0（完全不透明）。
-   * @returns { ColorMetrics } 带有HDR颜色的ColorMetrics类实例。
+   * @param { double } linearExposure - 线性曝光系数，取值范围：[1, +∞)。1.0表示标准曝光系数，大于1.0的值表示线性增加的曝光程度。传入小于1.0的值时将被自动钳位到1.0。
+   * @param { ColorSpace } colorSpace - 色彩空间，用于指定颜色的色彩空间。使用ColorSpace.DISPLAY_P3，需要在当前窗口调用
+   *     [setWindowColorSpace]{@link @ohos.window:window.Window.setWindowColorSpace(colorSpace:ColorSpace)}接口，将当前窗口设置为广色
+   *     域模式。
+   * @param { double } red - 颜色的R分量（红色），值是0.0~1.0的浮点数。超出范围时将被自动钳位到[0.0, 1.0]范围内。
+   * @param { double } green - 颜色的G分量（绿色），值是0.0~1.0的浮点数。超出范围时将被自动钳位到[0.0, 1.0]范围内。
+   * @param { double } blue - 颜色的B分量（蓝色），值是0.0~1.0的浮点数。超出范围时将被自动钳位到[0.0, 1.0]范围内。
+   * @param { double } [alpha] - 颜色的A分量（透明度），值是0.0~1.0的浮点数，默认值为1.0，不透明。超出范围时将被自动钳位到[0.0, 1.0]范围内。
+   * @returns { ColorMetrics } 支持HDR的ColorMetrics类的实例，可用于表示HDR颜色及进行后续色彩空间查询、HDR状态判断和RGB分量获取等操作。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -952,23 +931,21 @@ declare class ColorMetrics {
     red: double, green: double, blue: double, alpha?: double): ColorMetrics;
 
   /**
-   * 使用具有对数曝光的HDR颜色创建ColorMetrics类。
-   * 使用指定的对数曝光（色度）创建HDR颜色值。
-   * 曝光值控制对数（感知）色彩空间中的亮度。
-   * 使用对数曝光时，RGB通道值通常在【0,1】范围内。
+   * 使用[ColorSpace]{@link ColorSpace}、对数型曝光系数和rgba格式颜色实例化支持HDR的ColorMetrics类。与
+   * [createHDRColorWithLinearExposure]{@link ColorMetrics#createHDRColorWithLinearExposure}相比，两者均通过曝光系数创建HDR色彩，区别在于本方法使
+   * 用对数型曝光系数（指数级增加曝光程度），后者使用线性曝光系数（线性增加曝光程度），开发者可根据所需的曝光调节方式选择。如不需要通过曝光系数调节，可使用
+   * [createHDRColor]{@link ColorMetrics#createHDRColor}直接设置RGB分量值大于1.0来呈现HDR效果。适用于需要按对数关系调整HDR亮度（更贴近人眼感知）的场景，如HDR照片编辑、影
+   * 视后期调色。
    *
-   * @param { double } exposure - 对数曝光值，单位为秒。
-   *     有效范围：[0, +∞)。
-   *     值0.0表示标准曝光。
-   *     每增加1.0将使亮度加倍（一次停止）。
-   * @param { ColorSpace } colorSpace - 颜色的颜色空间。
-   *     支持SRGB、Display_P3、BT2020颜色空间。
-   * @param { double } red - 红色分量值。有效范围：【0,1】。
-   * @param { double } green - 绿色分量值。有效范围：【0,1】。
-   * @param { double } blue - 蓝色分量值。有效范围：【0,1】。
-   * @param { double } [alpha] - Alpha（不透明度）分量值。有效范围：【0,1】。
-   *     默认值为1.0（完全不透明）。
-   * @returns { ColorMetrics } ColorMetrics class instance with HDR color.
+   * @param { double } exposure - 对数型曝光系数，取值范围：[0, +∞)。0.0表示标准曝光系数，大于0.0的值表示指数级增加的曝光程度。传入负数时将被自动钳位到0.0。
+   * @param { ColorSpace } colorSpace - 色彩空间，用于指定颜色的色彩空间。使用ColorSpace.DISPLAY_P3，需要在当前窗口调用
+   *     [setWindowColorSpace]{@link @ohos.window:window.Window.setWindowColorSpace(colorSpace:ColorSpace)}接口，将当前窗口设置为广色
+   *     域模式。
+   * @param { double } red - 颜色的R分量（红色），值是0.0~1.0的浮点数。超出范围时将被自动钳位到[0.0, 1.0]范围内。
+   * @param { double } green - 颜色的G分量（绿色），值是0.0~1.0的浮点数。超出范围时将被自动钳位到[0.0, 1.0]范围内。
+   * @param { double } blue - 颜色的B分量（蓝色），值是0.0~1.0的浮点数。超出范围时将被自动钳位到[0.0, 1.0]范围内。
+   * @param { double } [alpha] - 颜色的A分量（透明度），值是0.0~1.0的浮点数，默认值为1.0，不透明。超出范围时将被自动钳位到[0.0, 1.0]范围内。
+   * @returns { ColorMetrics } 支持HDR的ColorMetrics类的实例，可用于表示HDR颜色及进行后续色彩空间查询、HDR状态判断和RGB分量获取等操作。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -978,22 +955,16 @@ declare class ColorMetrics {
     red: double, green: double, blue: double, alpha?: double): ColorMetrics;
 
   /**
-   * 使用默认曝光的HDR颜色创建ColorMetrics类。
-   * 使用默认曝光（0.0表示对数，1.0表示线性）创建HDR颜色值。
-   * 当没有指定曝光值时，RGB通道值可以超过1.0以实现HDR亮度。
-   * 这与iOS UIColor行为匹配，其中RGB值> 1.0启用HDR渲染。
+   * 使用[ColorSpace]{@link ColorSpace}和rgba格式颜色实例化支持HDR的ColorMetrics类。适用于无需调整曝光系数、直接指定HDR颜色分量的场景，如HDR纯色背景绘制、固定HDR色彩配置。
    *
-   * @param { ColorSpace } colorSpace - 颜色的颜色空间。
-   *     支持SRGB、Display_P3、BT2020颜色空间。
-   * @param { double } red - 红色分量值。有效范围：[0, +∞)。
-   *     大于1.0的值启用HDR亮度。
-   * @param { double } green - 绿色分量值。有效范围：[0, +∞)。
-   *     大于1.0的值启用HDR亮度。
-   * @param { double } blue - 蓝色分量值。有效范围：[0, +∞)。
-   *     大于1.0的值启用HDR亮度。
-   * @param { double } [alpha] - Alpha（不透明度）分量值。有效范围：【0,1】。
-   *     默认值为1.0（完全不透明）。
-   * @returns { ColorMetrics } ColorMetrics class instance with HDR color.
+   * @param { ColorSpace } colorSpace - 色彩空间，用于指定颜色的色彩空间。使用ColorSpace.DISPLAY_P3，需要在当前窗口调用
+   *     [setWindowColorSpace]{@link @ohos.window:window.Window.setWindowColorSpace(colorSpace:ColorSpace)}接口，将当前窗口设置为广色
+   *     域模式。
+   * @param { double } red - 颜色的R分量（红色），取值范围：[0, +∞)。大于1.0的值会使能HDR特性。传入负数时将被自动钳位到0.0。
+   * @param { double } green - 颜色的G分量（绿色），取值范围：[0, +∞)。大于1.0的值会使能HDR特性。传入负数时将被自动钳位到0.0。
+   * @param { double } blue - 颜色的B分量（蓝色），取值范围：[0, +∞)。大于1.0的值会使能HDR特性。传入负数时将被自动钳位到0.0。
+   * @param { double } [alpha] - 颜色的A分量（透明度），值是0.0~1.0的浮点数，默认值为1.0，不透明。超出范围时将被自动钳位到[0.0, 1.0]范围内。
+   * @returns { ColorMetrics } 支持HDR的ColorMetrics类的实例，可用于表示HDR颜色及进行后续色彩空间查询、HDR状态判断和RGB分量获取等操作。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -1002,11 +973,9 @@ declare class ColorMetrics {
   static createHDRColor(colorSpace: ColorSpace, red: double, green: double, blue: double, alpha?: double): ColorMetrics;
 
   /**
-   * 获取ColorMetrics的颜色空间。
-   * 返回创建此颜色时使用的颜色空间。
+   * 获取ColorMetrics的色彩空间。
    *
-   * @returns { ColorSpace } The color space of the ColorMetrics.
-   *     Possible value: ColorSpace.SRGB, ColorSpace.DISPLAY_P3, ColorSpace.BT2020.
+   * @returns { ColorSpace } 当前ColorMetrics对象所配置的色彩空间，可用于判断当前颜色使用的色彩空间类型。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -1015,15 +984,22 @@ declare class ColorMetrics {
   getColorSpace(): ColorSpace;
 
   /**
-   * 获取红色值。
-   * 以浮点数形式返回红色通道值。
-   * 对于SDR颜色，值在【0,1】范围内。
-   * 对于HDR颜色，值可以大于1.0以表示扩展亮度。
+   * 获取ColorMetrics是否呈现了HDR色彩。
    *
-   * @returns { double } 红色的值。
-   *     有效范围：
-   *     对于SDR颜色：【0,1】。
-   *     HDR颜色：[0,+∞),>1.0表示HDR亮度。
+   * @returns { boolean } ColorMetrics是否呈现了HDR色彩。当色彩是通过createHDRColorWith系列方法（如
+   *     [createHDRColorWithLinearExposure]{@link ColorMetrics#createHDRColorWithLinearExposure}）创建，或任意RGB分量值大于1.0时，将返回
+   *     true；否则返回false，表示ColorMetrics未呈现HDR色彩。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  isHDR(): boolean;
+
+  /**
+   * 获取ColorMetrics颜色的R分量（红色）。
+   *
+   * @returns { double } 颜色的R分量（红色），值是大于等于0的浮点数。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -1032,15 +1008,9 @@ declare class ColorMetrics {
   getRedValue(): double;
 
   /**
-   * 获取绿色值。
-   * 以浮点数形式返回绿色通道值。
-   * 对于SDR颜色，值在【0,1】范围内。
-   * 对于HDR颜色，值可以大于1.0以表示扩展亮度。
+   * 获取ColorMetrics颜色的G分量（绿色）。
    *
-   * @returns { double } 绿色的值。
-   *     有效范围：
-   *     对于SDR颜色：【0,1】。
-   *     HDR颜色：[0,+∞),>1.0表示HDR亮度。
+   * @returns { double } 颜色的G分量（绿色），值是大于等于0的浮点数。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -1049,15 +1019,9 @@ declare class ColorMetrics {
   getGreenValue(): double;
 
   /**
-   * 获取蓝色值。
-   * 以浮点数形式返回蓝色通道值。
-   * 对于SDR颜色，值在【0,1】范围内。
-   * 对于HDR颜色，值可以大于1.0以表示扩展亮度。
+   * 获取ColorMetrics颜色的B分量（蓝色）。
    *
-   * @returns { double } 蓝色值。
-   *     有效范围：
-   *     对于SDR颜色：【0,1】。
-   *     HDR颜色：[0,+∞),>1.0表示HDR亮度。
+   * @returns { double } 颜色的B分量（蓝色），值是大于等于0的浮点数。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -1130,7 +1094,7 @@ declare class ColorMetrics {
   /**
    * 获取ColorMetrics颜色的A分量（透明度）。
    *
-   * @returns { number } 颜色的A分量（透明度），值是0~255的整数。
+   * @returns { number } 颜色的A分量（透明度），值是0~255的整数。通过rgba()或colorWithSpace()方法设置时alpha取值范围为0.0~1.0的浮点数，内部会转换为0~255的整数存储。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1138,6 +1102,21 @@ declare class ColorMetrics {
    * @since 12 dynamic
    */
   get alpha(): number;
+
+  /**
+   * 设置ColorMetrics对象是否跟随系统配置变化自动更新。
+   *
+   * @param { boolean } value - 使用[resourceColor]{@link ColorMetrics#resourceColor}方法构造的ColorMetrics对象是否在系统配置变化时自动刷新颜色值。
+   *     <br>true表示主动监听系统配置变化，变化时值刷新为对应配置下的资源值。
+   *     <br>false表示不主动监听系统配置变化。
+   * @returns { ColorMetrics } 返回设置自动刷新属性后的ColorMetrics对象。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  autoRefresh?(value: boolean): ColorMetrics;
 }
 
 /**
@@ -1150,7 +1129,6 @@ declare class ColorMetrics {
  * @since 12 dynamic
  */
 interface Corners<T> {
-
   /**
    * 左上边框的圆角属性。
    *
@@ -1239,7 +1217,6 @@ export type Rect = common2D.Rect;
  * @since 12 dynamic
  */
 export interface RoundRect {
-
   /**
    * 设置矩形的属性。
    *
@@ -1273,9 +1250,10 @@ export interface RoundRect {
  * @since 12 dynamic
  */
 export interface Circle {
-
   /**
    * 圆心x轴的位置，单位为px。
+   * 
+   * 取值范围：(-∞, +∞)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1287,6 +1265,8 @@ export interface Circle {
 
   /**
    * 圆心y轴的位置，单位为px。
+   * 
+   * 取值范围：(-∞, +∞)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1298,8 +1278,10 @@ export interface Circle {
 
   /**
    * 圆形的半径，单位为px。
-   *
+   * 
    * 取值范围：[0, +∞)
+   * 
+   * 负数按默认值处理。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1320,10 +1302,9 @@ export interface Circle {
  * @since 12 dynamic
  */
 export interface CommandPath {
-
   /**
-   * 路径绘制的指令字符串。像素单位的转换方法请参考[像素单位]{@link common}。
-   *
+   * 路径绘制的指令字符串。像素单位的转换方法请参考[像素单位]{@link ../@internal/component/ets/common}。
+   * 
    * 单位：px
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1336,7 +1317,7 @@ export interface CommandPath {
 }
 
 /**
- * 用于设置图形遮罩。
+ * 用于设置图形遮罩，支持矩形、圆角矩形、圆形、椭圆及自定义路径等多种形状，可作用于RenderNode实现形状遮罩效果。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1345,7 +1326,6 @@ export interface CommandPath {
  * @since 12 dynamic
  */
 export declare class ShapeMask {
-
   /**
    * ShapeMask的构造函数。
    *
@@ -1419,7 +1399,11 @@ export declare class ShapeMask {
 
   /**
    * 遮罩的填充颜色，使用ARGB格式。默认值为`0XFF000000`。
-   *
+   * 
+   * 取值范围：[0, 0xffffffff]
+   * 
+   * 超出范围时按默认值处理。
+   * 
    * 通过fillColor的透明度和亮度生成一个仅含透明度的颜色。亮度越高，颜色越透明。然后，使用[BlendMode.SRC_IN]{@link @ohos.graphics.drawing:drawing.BlendMode}方式
    * 与RenderNode本身的颜色混合，生成最终颜色。
    *
@@ -1434,7 +1418,11 @@ export declare class ShapeMask {
 
   /**
    * 遮罩的边框颜色，使用ARGB格式。默认值为`0XFF000000`。
-   *
+   * 
+   * 取值范围：[0, 0xffffffff]
+   * 
+   * 超出范围时按默认值处理。 
+   * 
    * 通过strokeColor的透明度和亮度生成一个仅含透明度的颜色。亮度越高，颜色越透明。然后，使用[BlendMode.SRC_IN]{@link @ohos.graphics.drawing:drawing.BlendMode}
    * 方式与RenderNode本身的颜色混合，生成最终颜色。
    *
@@ -1449,6 +1437,10 @@ export declare class ShapeMask {
 
   /**
    * 遮罩的边框宽度，单位为px。默认值为0。
+   * 
+   * 取值范围：[0, +∞)
+   * 
+   * 负数按默认值处理。
    *
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1461,7 +1453,7 @@ export declare class ShapeMask {
 }
 
 /**
- * 用于设置图形裁剪。
+ * 用于设置图形裁剪，支持矩形、圆角矩形、圆形、椭圆及自定义路径等多种形状，可对RenderNode进行形状裁剪，仅显示裁剪区域内的内容。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1470,9 +1462,8 @@ export declare class ShapeMask {
  * @since 12 dynamic
  */
 export declare class ShapeClip {
-
   /**
-   * ShapeMask的构造函数。
+   * ShapeClip的构造函数。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1531,7 +1522,7 @@ export declare class ShapeClip {
   setOvalShape(oval: Rect): void;
 
   /**
-   * 用于设置路径绘制指令。
+   * 用于按路径绘制指令进行裁剪。
    *
    * @param { CommandPath } path - 路径绘制指令。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1546,7 +1537,9 @@ export declare class ShapeClip {
 /**
  * 用于生成边框颜色均设置为传入值的边框颜色对象。
  *
- * @param { number } all - 边框颜色，ARGB格式，示例：0xffff00ff。<br/>取值范围：[0, 0xffffffff]
+ * @param { number } all - 边框颜色，ARGB格式，示例：0xffff00ff。
+ *     <br>取值范围：[0, 0xffffffff]
+ *     <br>超出范围时按边界值处理。
  * @returns { Edges<number> } 边框颜色均设置为传入值的边框颜色对象。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1559,7 +1552,9 @@ export function edgeColors(all: number): Edges<number>;
 /**
  * 用于生成边框宽度均设置为传入值的边框宽度对象。
  *
- * @param { number } all - 边框宽度，单位为vp。<br/>取值范围：[0, +∞)
+ * @param { number } all - 边框宽度，单位为vp。
+ *     <br>取值范围：[0, +∞)
+ *     <br>负数按默认值处理。
  * @returns { Edges<number> } 边框宽度均设置为传入值的边框宽度对象。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1585,7 +1580,10 @@ export function borderStyles(all: BorderStyle): Edges<BorderStyle>;
 /**
  * 用于生成边框圆角均设置为传入值的边框圆角对象。
  *
- * @param { number } all - 边框圆角。<br/>单位：vp<br/>取值范围：[0, +∞)
+ * @param { number } all - 边框圆角。
+ *     <br>单位：vp
+ *     <br>取值范围：[0, +∞)
+ *     <br>负数按默认值处理。
  * @returns { BorderRadiuses } 边框圆角均设置为传入值的边框圆角对象。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1596,7 +1594,7 @@ export function borderStyles(all: BorderStyle): Edges<BorderStyle>;
 export function borderRadiuses(all: number): BorderRadiuses;
 
 /**
- * 设置背景模糊效果。
+ * 设置背景模糊效果，支持通过模糊半径控制模糊程度，并可通过灰阶参数对图像黑白像素进行色阶调整。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1605,9 +1603,12 @@ export function borderRadiuses(all: number): BorderRadiuses;
  * @since 26.0.0 dynamic
  */
 export interface BackgroundBlur {
-
   /**
-   * 模糊半径。取值范围为[0, +∞)，默认值为0，值越大背景模糊效果越明显，为0时不模糊。
+   * 模糊半径。
+   * 
+   * 单位：px
+   * 
+   * 取值范围为[0, +∞)，默认值为0，负数、NaN和Infinity按默认值处理。值越大背景模糊效果越明显，为0时不模糊。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1618,8 +1619,8 @@ export interface BackgroundBlur {
   radius: double;
 
   /**
-   * 灰阶模糊参数，两参数取值范围均为[0, 127]，默认值为[0, 0]。对图像中的黑白色进行色阶调整，使其趋于灰色更为柔和美观，对图像中的彩色调整没有效果。参数一表示对黑色的提亮程度，参数二表示对白色的压暗程度，参数值越大调整效果
-   * 越明显（黑白色变得越灰）。例如：设置参数为（20, 20），图片中的黑色像素RGB:[0, 0, 0]会调整为[20, 20, 20]（0+20），白色像素RGB:[255, 255, 255]会调整为
+   * 灰阶模糊参数，两参数取值范围均为[0, 127]，默认值为[0, 0]，超出范围时按默认值处理。对图像中的黑白色进行色阶调整，使其趋于灰色更为柔和美观，对图像中的彩色调整没有效果。参数一表示对黑色的提亮程度，参数二表示对白色的压暗
+   * 程度，参数值越大调整效果越明显（黑白色变得越灰）。例如：设置参数为（20，20），图片中的黑色像素RGB：[0, 0, 0]会调整为[20, 20, 20]（0+20），白色像素RGB：[255, 255, 255]会调整为
    * [235, 235, 235]（255-20），图像中的彩色像素维持不变。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1632,7 +1633,7 @@ export interface BackgroundBlur {
 }
 
 /**
- * 设置内容模糊效果。
+ * 设置内容模糊效果，支持通过模糊半径控制模糊程度，并可通过灰阶参数对图像黑白像素进行色阶调整。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1641,9 +1642,12 @@ export interface BackgroundBlur {
  * @since 26.0.0 dynamic
  */
 export interface ContentBlur {
-
   /**
-   * 模糊半径。取值范围为[0, +∞)，默认值为0，值越大模糊效果越明显，为0时不模糊。
+   * 模糊半径。
+   * 
+   * 单位：px
+   * 
+   * 取值范围为[0, +∞)，默认值为0，负数、NaN和Infinity按默认值处理。值越大模糊效果越明显，为0时不模糊。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1654,8 +1658,8 @@ export interface ContentBlur {
   radius: double;
 
   /**
-   * 灰阶模糊参数，两参数取值范围均为[0, 127]，默认值为[0, 0]。对图像中的黑白色进行色阶调整，使其趋于灰色更为柔和美观，对图像中的彩色调整没有效果。参数一表示对黑色的提亮程度，参数二表示对白色的压暗程度，参数值越大调整效果
-   * 越明显（黑白色变得越灰）。例如：设置参数为（20, 20），图片中的黑色像素RGB:[0, 0, 0]会调整为[20, 20, 20]（0+20），白色像素RGB:[255, 255, 255]会调整为
+   * 灰阶模糊参数，两参数取值范围均为[0, 127]，默认值为[0, 0]，超出范围时按默认值处理。对图像中的黑白色进行色阶调整，使其趋于灰色更为柔和美观，对图像中的彩色调整没有效果。参数一表示对黑色的提亮程度，参数二表示对白色的压暗
+   * 程度，参数值越大调整效果越明显（黑白色变得越灰）。例如：设置参数为（20，20），图片中的黑色像素RGB：[0, 0, 0]会调整为[20, 20, 20]（0+20），白色像素RGB：[255, 255, 255]会调整为
    * [235, 235, 235]（255-20），图像中的彩色像素维持不变。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1668,7 +1672,7 @@ export interface ContentBlur {
 }
 
 /**
- * 设置前景模糊效果。
+ * 设置前景模糊效果，支持通过模糊半径控制模糊程度。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1677,9 +1681,12 @@ export interface ContentBlur {
  * @since 26.0.0 dynamic
  */
 export interface ForegroundBlur {
-
   /**
-   * 模糊效果半径。取值范围为[0, +∞)，默认值为0，值越大前景模糊效果越明显，为0时不模糊。
+   * 模糊半径。
+   * 
+   * 单位：px
+   * 
+   * 取值范围为[0, +∞)，默认值为0，负数、NaN和Infinity按默认值处理。值越大前景模糊效果越明显，为0时不模糊。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly

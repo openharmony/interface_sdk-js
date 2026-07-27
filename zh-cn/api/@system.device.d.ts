@@ -14,7 +14,7 @@
  */
 
 /**
- * 本模块提供当前设备的信息。
+ * 本模块提供当前设备的信息，通过读取系统配置获取设备品牌、型号、生产商、屏幕参数等基础信息，供开发者进行设备适配和功能判断。
  * 
  * > **说明：**
  * >
@@ -24,7 +24,7 @@
  * > >
  * > >     \- 对于支持该模块的其他设备类型，该模块从API Version 6开始不再维护，推荐使用新接口[@ohos.deviceInfo]{@link @ohos.deviceInfo:deviceInfo}进行设备信息查
  * > 询。
- *
+ * > - 本模块首批接口从API version 3开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
  * @file
  * @kit BasicServicesKit
  */
@@ -39,6 +39,12 @@
  * > > 在首页的onShow生命周期之前不建议调用device.getInfo接口。
  * 
  * **系统能力：** SystemCapability.Startup.SystemInfo.Lite
+ * 
+ * **返回值：**
+ * 
+ * | 类型 | 说明 |
+ * | -------- | -------- |
+ * | void | 无返回值，设备信息通过回调函数返回。 |
  * 
  * **参数：**
  * 
@@ -184,6 +190,7 @@ export interface DeviceResponse {
 /**
  * 定义设备信息获取的参数选项。
  *
+ * @throws { BusinessError } 200 - 返回结果中存在无法获取的信息。可能原因包括：设备不支持部分信息字段、系统权限受限或设备配置缺失。解决措施：建议检查设备兼容性、确认应用权限配置，并设置此回调以处理错误情况。
  * @syscap SystemCapability.Startup.SystemInfo.Lite
  * @since 3 dynamiconly
  * @deprecated since 6

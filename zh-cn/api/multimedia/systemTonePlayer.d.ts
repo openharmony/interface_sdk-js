@@ -92,8 +92,8 @@ export declare interface SystemTonePlayer {
   /**
    * 设置播放铃音时的振动风格。
    * 
-   * 调用本接口前，应该先调用[getSupportedHapticsFeatures]{@link SystemTonePlayer.getSupportedHapticsFeatures}查询支持的振动风格，如果设置不支持的振动风
-   * 格，则设置失败。
+   * 调用本接口前，应该先调用[getSupportedHapticsFeatures]{@link SystemTonePlayer.getSupportedHapticsFeatures}查询
+   * 支持的振动风格，如果设置不支持的振动风格，则设置失败。
    *
    * @param { systemSoundManager.ToneHapticsFeature } hapticsFeature - 振动风格。
    * @throws { BusinessError } 202 - Caller is not a system application.
@@ -190,8 +190,8 @@ export declare interface SystemTonePlayer {
    * 监听对象为传入的streamId对应音频流。当streamId传入0时，监听本播放器对应的所有音频流。
    *
    * @param { 'playFinished' } type - 事件回调类型，支持的事件为'playFinished'，当铃音播放完成时，触发该事件。
-   * @param { int } streamId - 监听对象为指定streamId对应的音频流，streamId通过[start]{@link SystemTonePlayer.start}获取。当streamId传入0时，可监听
-   *     当前播放器对应的所有音频流。
+   * @param { int } streamId - 监听对象为指定streamId对应的音频流，streamId通过[start]{@link SystemTonePlayer.start}获取。
+   *     当streamId传入0时，可监听当前播放器对应的所有音频流。
    * @param { Callback<int> } callback - 'playFinished'的回调方法。返回播放完成的音频流的streamId。
    * @throws { BusinessError } 202 - Not system App.
    * @throws { BusinessError } 20700002 -Parameter check error.
@@ -202,7 +202,10 @@ export declare interface SystemTonePlayer {
   on(type: 'playFinished', streamId: int, callback: Callback<int>): void;
 
   /**
-   * Subscribes the play finished events.
+   * 监听铃音播放完成事件（当铃音播放完成时触发）。使用callback异步回调。
+   *
+   * 监听对象为传入的streamId对应音频流。当streamId传入0时，监听本播放器对应的所有音频流。
+   *
    * @param { int } streamId - Stream id, received from start().
    * @param { Callback<int> } callback - Callback used to obtain the finished event. The callback info is the stream
    *     id that is finished.
@@ -228,7 +231,7 @@ export declare interface SystemTonePlayer {
   off(type: 'playFinished', callback?: Callback<int>): void;
 
   /**
-   * Unsubscribes the play finished events.
+   * 取消监听铃音播放完成事件。使用callback异步回调。
    * @param { Callback<int> } [callback] - Callback used to obtain the finished event.
    * @throws { BusinessError } 202 - Not system App.
    * @throws { BusinessError } 20700002 -Parameter check error.
@@ -253,7 +256,7 @@ export declare interface SystemTonePlayer {
   on(type: 'error', callback: ErrorCallback): void;
 
   /**
-   * Subscribes the error events.
+   * 监听铃音播放过程中的错误事件（当铃音播放过程中发生错误时触发）。使用callback异步回调。
    * @param { ErrorCallback } callback - Error callback while receiving the error event.
    * @throws { BusinessError } 202 - Not system App.
    * @throws { BusinessError } 20700002 -Parameter check error.
@@ -277,7 +280,7 @@ export declare interface SystemTonePlayer {
   off(type: 'error', callback?: ErrorCallback): void;
 
   /**
-   * Unsubscribes the error events.
+   * 取消监听铃音播放过程中的错误事件。使用callback异步回调。
    * @param { ErrorCallback } [callback] - Error callback while receiving the error event.
    * @throws { BusinessError } 202 - Not system App.
    * @throws { BusinessError } 20700002 -Parameter check error.

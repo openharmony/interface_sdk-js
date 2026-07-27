@@ -653,7 +653,7 @@ declare namespace dialog {
     /**
      * 设置对话框的edgeLight动画模式。
      *
-     * @default EdgeLightMode.EDGELIGHT_DISABLED
+     * @default EdgeLightMode.EDGELIGHT_AUTO
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @stagemodelonly

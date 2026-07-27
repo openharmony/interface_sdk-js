@@ -2350,15 +2350,6 @@ declare namespace backgroundTaskManager {
     SYSTEM_CANCEL_DATA_TRANSFER_LOW_SPEED = 4,
   
     /**
-     * 申请AUDIO_PLAYBACK类型长时任务，但是未接入[AVSession](docroot://media/avsession/avsession-overview.md)。
-     *
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    SYSTEM_CANCEL_AUDIO_PLAYBACK_NOT_USE_AVSESSION = 5,
-  
-    /**
      * 申请AUDIO_PLAYBACK类型长时任务，但是未播放音视频。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask

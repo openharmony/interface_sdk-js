@@ -2352,6 +2352,20 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @since 20 dynamic
    */
   maintainVisibleContentPosition(enabled: boolean): SwiperAttribute;
+
+  /**
+   * When the Visibility property of a child node is set to None, whether it will occupy space for display.
+   *
+   * @param { boolean } enabled - whether child node will occupy space for display.<br>The value **true** means it
+   *     dose not occupy space, and **false** means the opposite.<br>Default value: **false**.<br>If the input
+   *     parameter is invalid, the value **false** is used.
+   * @returns { SwiperAttribute } the attribute of swiper.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.1.0 dynamic
+   */
+  ignoreHiddenItem(enabled: boolean): SwiperAttribute;
 }
 
 /**

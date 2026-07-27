@@ -26,7 +26,7 @@
  * @stagemodelonly
  * @since 24 staticonly
  */
-class Long extends Integral implements Comparable<Long> {
+export class Long extends Integral implements Comparable<Long> {
 
   /**
    * Constructs a new Long instance with initial value zero
@@ -90,4 +90,342 @@ class Long extends Integral implements Comparable<Long> {
    * @since 24 staticonly
    */
   toString(): string;
+
+  /**
+   * Minimal value that this type can have as a long.
+   *
+   * @syscap SystemCapability.Utils.Lang
+   * @stagemodelonly
+   * @since 26.0.0 staticonly
+   */
+  public static MIN_VALUE: long = -9223372036854775808;
+
+  /**
+   * Maximal value that this type can have as a long.
+   *
+   * @syscap SystemCapability.Utils.Lang
+   * @stagemodelonly
+   * @since 26.0.0 staticonly
+   */
+  public static MAX_VALUE: long = 9223372036854775807;
+
+  /**
+   * Size of this type in bits.
+   *
+   * @syscap SystemCapability.Utils.Lang
+   * @stagemodelonly
+   * @since 26.0.0 staticonly
+   */
+  public static BIT_SIZE: byte = 64;
+
+  /**
+   * Size of this type in bytes.
+   *
+   * @syscap SystemCapability.Utils.Lang
+   * @stagemodelonly
+   * @since 26.0.0 staticonly
+   */
+  public static BYTE_SIZE: byte = 8;
+
+  /**
+   * Returns value of this instance as byte.
+   *
+   * @returns { byte } value as byte.
+   * @syscap SystemCapability.Utils.Lang
+   * @stagemodelonly
+   * @since 26.0.0 staticonly
+   */
+  public toByte(): byte;
+
+  /**
+   * Returns value of this instance as short.
+   *
+   * @returns { short } value as short.
+   * @syscap SystemCapability.Utils.Lang
+   * @stagemodelonly
+   * @since 26.0.0 staticonly
+   */
+  public toShort(): short;
+
+  /**
+   * Returns value of this instance as int.
+   *
+   * @returns { int } value as int.
+   * @syscap SystemCapability.Utils.Lang
+   * @stagemodelonly
+   * @since 26.0.0 staticonly
+   */
+  public toInt(): int;
+
+  /**
+   * Returns value of this instance as float.
+   *
+   * @returns { float } value as float.
+   * @syscap SystemCapability.Utils.Lang
+   * @stagemodelonly
+   * @since 26.0.0 staticonly
+   */
+  public toFloat(): float;
+
+  /**
+   * Returns value of this instance as double.
+   *
+   * @returns { double } value as double.
+   * @syscap SystemCapability.Utils.Lang
+   * @stagemodelonly
+   * @since 26.0.0 staticonly
+   */
+  public toDouble(): double;
+
+  /**
+   * Returns value of this instance as char.
+   *
+   * @returns { char } value as char.
+   * @syscap SystemCapability.Utils.Lang
+   * @stagemodelonly
+   * @since 26.0.0 staticonly
+   */
+  public toChar(): char;
+
+  /**
+   * Returns the primitive as byte value.
+   *
+   * @param { long } value - value to cast.
+   * @returns { byte } casted value.
+   * @syscap SystemCapability.Utils.Lang
+   * @stagemodelonly
+   * @since 26.0.0 staticonly
+   */
+  public static toByte(value: long): byte;
+
+  /**
+   * Returns the primitive as short value.
+   *
+   * @param { long } value - value to cast.
+   * @returns { short } casted value.
+   * @syscap SystemCapability.Utils.Lang
+   * @stagemodelonly
+   * @since 26.0.0 staticonly
+   */
+  public static toShort(value: long): short;
+
+  /**
+   * Returns the primitive as int value.
+   *
+   * @param { long } value - value to cast.
+   * @returns { int } casted value.
+   * @syscap SystemCapability.Utils.Lang
+   * @stagemodelonly
+   * @since 26.0.0 staticonly
+   */
+  public static toInt(value: long): int;
+
+  /**
+   * Returns the primitive as float value.
+   *
+   * @param { long } value - value to cast.
+   * @returns { float } casted value.
+   * @syscap SystemCapability.Utils.Lang
+   * @stagemodelonly
+   * @since 26.0.0 staticonly
+   */
+  public static toFloat(value: long): float;
+
+  /**
+   * Returns the primitive as double value.
+   *
+   * @param { long } value - value to cast.
+   * @returns { double } casted value.
+   * @syscap SystemCapability.Utils.Lang
+   * @stagemodelonly
+   * @since 26.0.0 staticonly
+   */
+  public static toDouble(value: long): double;
+
+  /**
+   * Returns the primitive as char value.
+   *
+   * @param { long } value - value to cast.
+   * @returns { char } casted value.
+   * @syscap SystemCapability.Utils.Lang
+   * @stagemodelonly
+   * @since 26.0.0 staticonly
+   */
+  public static toChar(value: long): char;
+
+  /**
+   * Compares this instance to other Long object. The result is less than 0 if this instance lesser than
+   * provided object, 0 if they are equal, and greater than 0 otherwise.
+   *
+   * @param { Long } other - Long object to compare with.
+   * @returns { int } result of the comparison, -1 if this instance is less than provided object,
+   *     0 if equal, 1 if greater.
+   * @syscap SystemCapability.Utils.Lang
+   * @stagemodelonly
+   * @since 26.0.0 staticonly
+   */
+  public compareTo(other: Long): int;
+
+  /**
+   * Converts this object to a string with specified radix.
+   *
+   * @param { int } radix - the radix of conversion.
+   *     <br>The value should be an integer.
+   * @returns { string } result of the conversion.
+   * @syscap SystemCapability.Utils.Lang
+   * @stagemodelonly
+   * @since 26.0.0 staticonly
+   */
+  public toString(radix: int): string;
+
+  /**
+   * Converts this object to a string with specified radix.
+   *
+   * @param { double } radix - the radix of conversion.
+   * @returns { string } result of the conversion.
+   * @syscap SystemCapability.Utils.Lang
+   * @stagemodelonly
+   * @since 26.0.0 staticonly
+   */
+  public toString(radix: double): string;
+
+  /**
+   * Checks for equality this instance with provided object, treated as a Long.
+   *
+   * @param { Any } other - object to be checked against.
+   * @returns { boolean } true if provided object and this instance have same value, false otherwise.
+   * @syscap SystemCapability.Utils.Lang
+   * @stagemodelonly
+   * @since 26.0.0 staticonly
+   */
+  public equals(other: Any): boolean;
+
+  /**
+   * Converts this object to a locale-specific string representation
+   *
+   * @param { Intl.LocalesArgument } [locales] - A string with a BCP 47 language tag, or an
+   *     array of such strings.
+   * @param { Intl.NumberFormatOptions } [options] - An object with some or all of the properties of the
+   *     Intl.NumberFormat options.
+   * @returns { string } result of the locale-specific conversion
+   * @syscap SystemCapability.Utils.Lang
+   * @stagemodelonly
+   * @since 26.0.0 staticonly
+   */
+  public toLocaleString(locales?: Intl.LocalesArgument, options?: Intl.NumberFormatOptions): string;
+
+  /**
+   * Converts this object to a locale-specific string representation
+   *
+   * @param { Intl.LocalesArgument } [locales] - A string with a BCP 47 language tag, or an
+   *     array of such strings.
+   * @param { object } [options] - An object with some or all of the properties of the
+   *     Intl.NumberFormat options.
+   * @returns { string } result of the locale-specific conversion
+   * @syscap SystemCapability.Utils.Lang
+   * @stagemodelonly
+   * @since 26.0.0 staticonly
+   */
+  public toLocaleString(locales?: Intl.LocalesArgument, options?: object): string;
+
+  /**
+   * Performs integral addition of this instance with provided one, returns the result as new instance.
+   *
+   * @param { Long } other - Right hand side of the addition.
+   * @returns { Long } Result of the addition.
+   * @syscap SystemCapability.Utils.Lang
+   * @stagemodelonly
+   * @since 26.0.0 staticonly
+   */
+  public add(other: Long): Long;
+
+  /**
+   * Performs integral subtraction of this instance with provided one, returns the result as new instance.
+   *
+   * @param { Long } other - Right hand side of the subtraction.
+   * @returns { Long } Result of the subtraction.
+   * @syscap SystemCapability.Utils.Lang
+   * @stagemodelonly
+   * @since 26.0.0 staticonly
+   */
+  public sub(other: Long): Long;
+
+  /**
+   * Performs integral multiplication of this instance with provided one, returns the result as new instance.
+   *
+   * @param { Long } other - Right hand side of the multiplication.
+   * @returns { Long } Result of the multiplication.
+   * @syscap SystemCapability.Utils.Lang
+   * @stagemodelonly
+   * @since 26.0.0 staticonly
+   */
+  public mul(other: Long): Long;
+
+  /**
+   * Performs integral division of this instance with provided one, returns the result as new instance.
+   *
+   * @param { Long } other - Right hand side of the division.
+   * @returns { Long } Result of the division.
+   * @syscap SystemCapability.Utils.Lang
+   * @stagemodelonly
+   * @since 26.0.0 staticonly
+   */
+  public div(other: Long): Long;
+
+  /**
+   * Checks if this instance value is less than value of provided instance.
+   *
+   * @param { Long } other - Right hand side of the comparison.
+   * @returns { boolean } true if this value is less than provided, false otherwise.
+   * @syscap SystemCapability.Utils.Lang
+   * @stagemodelonly
+   * @since 26.0.0 staticonly
+   */
+  public isLessThan(other: Long): boolean;
+
+  /**
+   * Checks if this instance value is less than or equal to value of provided instance.
+   *
+   * @param { Long } other - Right hand side of the comparison.
+   * @returns { boolean } true if this value is less than or equal to provided, false otherwise.
+   * @syscap SystemCapability.Utils.Lang
+   * @stagemodelonly
+   * @since 26.0.0 staticonly
+   */
+  public isLessEqualThan(other: Long): boolean;
+
+  /**
+   * Checks if this instance value is greater than value of provided instance.
+   *
+   * @param { Long } other - Right hand side of the comparison.
+   * @returns { boolean } true if this value is greater than provided, false otherwise.
+   * @syscap SystemCapability.Utils.Lang
+   * @stagemodelonly
+   * @since 26.0.0 staticonly
+   */
+  public isGreaterThan(other: Long): boolean;
+
+  /**
+   * Checks if this instance value is greater than or equal to value of provided instance.
+   *
+   * @param { Long } other - Right hand side of the comparison.
+   * @returns { boolean } true if this value is greater than or equal to provided, false otherwise.
+   * @syscap SystemCapability.Utils.Lang
+   * @stagemodelonly
+   * @since 26.0.0 staticonly
+   */
+  public isGreaterEqualThan(other: Long): boolean;
+
+  /**
+   * Parses from String an integer of specified radix.
+   *
+   * @param { string } s - the string to convert.
+   * @param { int } r - the radix of conversion; should be [2, 36]; 0 assumed to be 10.
+   *     <br>The value should be an integer.
+   * @returns { long } the result of parsing.
+   * @syscap SystemCapability.Utils.Lang
+   * @stagemodelonly
+   * @since 26.0.0 staticonly
+   */
+  public static parseInt(s: string, r: int): long;
 }

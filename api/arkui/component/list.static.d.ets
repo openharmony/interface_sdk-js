@@ -1293,8 +1293,9 @@ export declare interface ListAttribute extends ScrollableCommonMethod {
    * @param { ListOptions } [options] - List constructor options
    * @returns { ListAttribute } Returns the instance of the ListAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @unpublished
    * @stagemodelonly
-   * @since 26.0.0 staticonly
+   * @since 26.1.0 staticonly
    */
   default setListOptions(options?: ListOptions): this;
 
@@ -1390,8 +1391,9 @@ export declare abstract class ExtendableList implements ListAttribute {
  * @param { CustomBuilder } [content_]
  * @returns { ListAttribute } The attribute of the List.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @unpublished
  * @stagemodelonly
- * @since 26.0.0 staticonly
+ * @since 26.1.0 staticonly
  * @noninterop
  */
 @Builder

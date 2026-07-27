@@ -466,7 +466,8 @@ export declare enum LaunchMode {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 26.0.0 staticonly
+ * @since 26.1.0 staticonly
+ * @unpublished
  */
 export declare interface NavigationModuleInfo {
 
@@ -475,7 +476,8 @@ export declare interface NavigationModuleInfo {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 26.0.0 staticonly
+   * @since 26.1.0 staticonly
+   * @unpublished
    */
   moduleName: string;
 
@@ -484,7 +486,8 @@ export declare interface NavigationModuleInfo {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 26.0.0 staticonly
+   * @since 26.1.0 staticonly
+   * @unpublished
    */
   pagePath: string;
 
@@ -495,7 +498,8 @@ export declare interface NavigationModuleInfo {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 26.0.0 staticonly
+   * @since 26.1.0 staticonly
+   * @unpublished
    */
   isUserCreateStack?: boolean;
 }
@@ -2003,7 +2007,8 @@ export declare interface NavigationAttribute extends CommonMethod {
    * @returns { NavigationAttribute } Returns instance of NavigationAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 26.0.0 staticonly
+   * @since 26.1.0 staticonly
+   * @unpublished
    */
   default setNavigationOptions(pathInfos?: NavPathStack, homeDestination?: HomePathInfo, moduleInfo?: NavigationModuleInfo): this;
 
@@ -2015,7 +2020,8 @@ export declare interface NavigationAttribute extends CommonMethod {
    * @returns { NavigationAttribute } Returns instance of NavigationAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 26.0.0 staticonly
+   * @since 26.1.0 staticonly
+   * @unpublished
    */
   default setNavigationOptions(pathInfos?: NavPathStack,  moduleInfo?: NavigationModuleInfo): this;
 
@@ -2311,7 +2317,8 @@ export declare function Navigation(
  * @returns { NavigationAttribute } Returns the instance of the NavigationAttribute.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 26.0.0 staticonly
+ * @since 26.1.0 staticonly
+ * @unpublished
  */
 @Builder
 export declare function Navigation(

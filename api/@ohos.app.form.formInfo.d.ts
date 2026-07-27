@@ -1548,6 +1548,7 @@ declare namespace formInfo {
      * @default -
      * @syscap SystemCapability.Ability.Form
      * @systemapi [since 10 - 19]
+     * @publicapi [since 20]
      * @atomicservice [since 20]
      * @since 10 dynamic
      * @since 23 static

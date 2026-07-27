@@ -23,7 +23,7 @@ import { Callback } from './@ohos.base';
 import { AsyncCallback } from './@ohos.base';
 
 /**
- * 本模块提供通过不同的url访问不同的页面，包括跳转到应用内的指定页面、同应用内的某个页面替换当前页面、返回上一页面或指定的页面等。
+ * 本模块提供页面路由能力，支持通过url或命名路由进行页面跳转与替换、返回上一页面或指定页面、管理页面栈、获取页面状态与跳转参数、设置页面返回询问对话框等，适用于需要在应用内进行页面导航和流转的场景。
  * 
  * 推荐使用[Navigation组件](docroot://ui/arkts-navigation-architecture.md)作为应用路由框架。
  * 
@@ -61,11 +61,11 @@ declare namespace router {
     /**
      * 多实例模式，也是默认情况下的跳转模式。 
      * 
-     * 目标页面会被添加到页面栈顶，无论栈中是否存在相同url的页面。
+     * 目标页面会被添加到页面栈顶，无论栈中是否存在相同url的页面。适用于需要保留多个相同页面的场景，例如浏览商品详情页时每个商品各需要一个独立页面实例。
      * 
      * **说明：**  
      * 
-     * 不使用路由跳转模式时，则按照默认的多实例模式进行跳转。
+     * 不使用路由跳转模式时，则按照默认的多实例模式进行跳转。适用于需要保持页面唯一实例的场景，例如主页、登录页等不应在栈中重复出现的页面。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform [since 10]
@@ -102,13 +102,15 @@ declare namespace router {
     /**
      * 表示目标页面的url，可以用以下两种格式：
      * 
-     * -?页面绝对路径，由配置文件中pages列表提供，例如：
+     * > - 页面绝对路径，由配置文件中pages列表提供，例如：
      * 
-     * ??-?pages/index/index
+     * > - pages/index/index
      * 
-     * ??-?pages/detail/detail
+     * > - pages/detail/detail
      * 
-     * -?特殊值，如果url的值是"/"，则跳转到首页，首页默认为页面跳转配置项src数组的第一个数据项。
+     * > - 特殊值，如果url的值是"/"，则跳转到首页，首页默认为页面跳转配置项src数组的第一个数据项。
+     * 
+     * > - 传入不存在或无效的url路径时，跳转失败，具体错误码参见各接口的错误码说明。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Lite
      * @crossplatform [since 19]
@@ -123,7 +125,8 @@ declare namespace router {
      * 
      * **说明：** 
      * 
-     * params参数只能传递可序列化的参数，不能传递方法和系统接口返回的对象（例如，媒体接口定义和返回的PixelMap对象）。建议开发者提取系统接口返回的对象中需要被传递的基础类型属性，自行构造object类型对象进行传递。
+     * params参数只能传递可序列化的参数，不能传递方法和系统接口返回的对象（例如，媒体接口定义和返回的PixelMap对象）。传入不可序列化的参数时，可能导致参数传递失败或应用运行异常。
+     * 建议开发者提取系统接口返回的对象中需要被传递的基础类型属性，自行构造object类型对象进行传递。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Lite
      * @crossplatform [since 19]
@@ -188,7 +191,14 @@ declare namespace router {
 
     /**
      * 表示当前页面携带的参数。
+     * 
+     * **说明：** 
+     * params参数只能传递可序列化的参数，不能传递方法和系统接口返回的对象（例如，媒体接口定义和返回的PixelMap对象）。建议开发者提取系统接口返回的对象中需要被传递的基础类型属性，自行构造object类型对象进行传递。
      *
+     * 从API version 12开始，该接口支持在原子化服务中使用。
+     * 
+     * 此接口仅可在Stage模型下使用。
+     * 
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @crossplatform
@@ -318,7 +328,7 @@ declare namespace router {
    *
    * @param { RouterOptions } options - 跳转页面描述信息。
    * @param { RouterMode } mode - 跳转页面使用的模式。
-   * @param { AsyncCallback<void> } callback - 异常响应回调。
+   * @param { AsyncCallback<void> } callback - 页面跳转结果回调函数。<br/>当页面跳转成功时，error为undefined。当页面跳转失败时，error为系统返回的错误对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
    *     <br> 2. Incorrect parameters types.
@@ -370,7 +380,7 @@ declare namespace router {
   function pushUrl(options: RouterOptions, mode: RouterMode): Promise<void>;
 
   /**
-   * 用应用内的某个页面替换当前页面，并销毁被替换的页面。
+   * 用应用内的某个页面替换当前页面，并销毁被替换的页面。不支持设置页面转场动效，如需设置，推荐使用[Navigation组件](../../ui/arkts-navigation-architecture.md)。
    * 
    * > **说明：**
    * >
@@ -386,7 +396,7 @@ declare namespace router {
   function replace(options: RouterOptions): void;
 
   /**
-   * 用应用内的某个页面替换当前页面，并销毁被替换的页面。
+   * 用应用内的某个页面替换当前页面，并销毁被替换的页面。不支持设置页面转场动效，如需设置，推荐使用[Navigation组件](../../ui/arkts-navigation-architecture.md)。
    * 
    * > **说明：**
    * >
@@ -454,7 +464,7 @@ declare namespace router {
   function replaceUrl(options: RouterOptions): Promise<void>;
 
   /**
-   * 用应用内的某个页面替换当前页面，并销毁被替换的页面。
+   * 用应用内的某个页面替换当前页面，并销毁被替换的页面。不支持设置页面转场动效，如需设置，推荐使用[Navigation组件](../../ui/arkts-navigation-architecture.md)。
    * 
    * > **说明：**
    * >
@@ -469,7 +479,7 @@ declare namespace router {
    * > [Router]{@link @ohos.arkui.UIContext}对象。
    *
    * @param { RouterOptions } options - 替换页面描述信息。
-   * @param { RouterMode } mode - 跳转页面使用的模式。
+   * @param { RouterMode } mode - 替换页面使用的模式。
    * @param { AsyncCallback<void> } callback - 异常响应回调。
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
@@ -489,7 +499,7 @@ declare namespace router {
   function replaceUrl(options: RouterOptions, mode: RouterMode, callback: AsyncCallback<void>): void;
 
   /**
-   * 用应用内的某个页面替换当前页面，并销毁被替换的页面。
+   * 用应用内的某个页面替换当前页面，并销毁被替换的页面。不支持设置页面转场动效，如需设置，推荐使用[Navigation组件](../../ui/arkts-navigation-architecture.md)。
    * 
    * > **说明：**
    * >
@@ -524,7 +534,8 @@ declare namespace router {
   function replaceUrl(options: RouterOptions, mode: RouterMode): Promise<void>;
 
   /**
-   * 返回上一页面或指定的页面，会删除当前页面与指定页面之间的所有页面。
+   * 返回上一页面或指定的页面，会删除当前页面与指定页面之间的所有页面。如果此前调用了[showAlertBeforeBackPage](#routershowalertbeforebackpagedeprecated)
+   * 开启了返回询问对话框，则在执行返回操作时会先弹出确认对话框，用户确认后才执行返回；用户取消则不执行返回。
    * 
    * > **说明：**
    * >
@@ -538,8 +549,8 @@ declare namespace router {
    * > [getRouter](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#getrouter)方法获取当前UI上下文关联的
    * > [Router]{@link @ohos.arkui.UIContext}对象。
    *
-   * @param { RouterOptions } options - 返回页面描述信息，其中参数url指路由跳转时会返回到指定url的界面，如果页面栈上没有url页面，则不响应该情况。如果url未设置，则返回上一页，页面不会重新构
-   *     建，页面栈里面的page不会回收，出栈后会被回收。back是返回接口，url设置为特殊值"/"不生效。如果是用命名路由的方式跳转，传入的url需是命名路由的名称。
+   * @param { RouterOptions } options - 返回页面描述信息，其中url指返回目标页面的路由地址，如果页面栈中不存在指定url的页面，则不响应当前返回请求。如果url未设置，则返回上一页，页面不会
+   *     重新构建，页面栈里面的page不会回收，出栈后会被回收。back是返回接口，url设置为特殊值"/"不生效。如果是用命名路由的方式跳转，传入的url需是命名路由的名称。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @atomicservice [since 11]
@@ -550,7 +561,8 @@ declare namespace router {
   function back(options?: RouterOptions): void;
 
   /**
-   * 返回指定的页面，会删除当前页面与指定页面之间的所有页面。
+   * 返回指定的页面，会删除当前页面与指定页面之间的所有页面。如果此前调用了[showAlertBeforeBackPage](#routershowalertbeforebackpagedeprecated)
+   * 开启了返回询问对话框，则在执行返回操作时会先弹出确认对话框，用户确认后才执行返回；用户取消则不执行返回。
    * 
    * > **说明：**
    * >
@@ -564,8 +576,9 @@ declare namespace router {
    * > [getRouter](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#getrouter)方法获取当前UI上下文关联的
    * > [Router]{@link @ohos.arkui.UIContext}对象。
    *
-   * @param { number } index - 跳转目标页面的索引值。 从栈底到栈顶，index从1开始递增。
-   * @param { Object } [params] - 页面返回时携带的参数。
+   * @param { number } index - 返回目标页面的索引值，取值范围[1, 页面栈大小]，页面栈最大数量为32。从栈底到栈顶，index从1开始递增。索引不存在或超出页面栈有效范围时不响应。
+   * @param { Object } [params] - 页面返回时携带的参数。<br/>**说明：** <br/>params参数只能传递可序列化的参数，不能传递方法和系统接口返回的对象（例如，媒体接口定义
+   *      和返回的PixelMap对象）。建议开发者提取系统接口返回的对象中需要被传递的基础类型属性，自行构造object类型对象进行传递。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -637,7 +650,7 @@ declare namespace router {
    * > [getRouter](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#getrouter)方法获取当前UI上下文关联的
    * > [Router]{@link @ohos.arkui.UIContext}对象。
    *
-   * @returns { RouterState } 页面状态信息。
+   * @returns { RouterState } 栈顶页面的状态信息，包含页面索引、名称、路径和参数。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @atomicservice [since 11]
@@ -662,9 +675,8 @@ declare namespace router {
    * > [getRouter](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#getrouter)方法获取当前UI上下文关联的
    * > [Router]{@link @ohos.arkui.UIContext}对象。
    *
-   * @param { number } index - 表示要获取的页面索引。从栈底到栈顶，index从1开始递增。
-   * @returns { RouterState | undefined } State information about the target page; **undefined** if the specified index
-   *     does not exist.
+   * @param { number } index - 表示要获取的页面索引，取值范围[1, 页面栈大小]，页面栈最大数量为32。从栈底到栈顶，index从1开始递增。索引不存在时返回undefined。
+   * @returns { RouterState | undefined } 返回对应索引页面的状态信息，包含页面索引、名称、路径和参数。索引不存在时返回undefined。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -689,8 +701,8 @@ declare namespace router {
    * > [getRouter](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#getrouter)方法获取当前UI上下文关联的
    * > [Router]{@link @ohos.arkui.UIContext}对象。
    *
-   * @param { string } url - 表示要获取对应页面信息的url。
-   * @returns { Array<RouterState> } 页面状态信息。
+   * @param { string } url - 表示要获取对应页面信息的url。url格式为页面绝对路径，由配置文件中pages列表提供，例如：pages/index/index。
+   * @returns { Array<RouterState> } 匹配指定url的页面状态信息数组，每个元素包含页面索引、名称、路径和参数。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -702,7 +714,8 @@ declare namespace router {
   function getStateByUrl(url: string): Array<RouterState>;
 
   /**
-   * 开启页面返回询问对话框。
+   * 开启页面返回询问对话框。调用此方法后，执行[back](#routerbackdeprecated)返回页面时将弹出确认对话框，用户确认后才执行页面返回操作。
+   * 适用于需要防止用户误操作返回导致数据丢失的场景，例如用户正在填写表单、编辑文档或进行支付操作时，弹出确认对话框以避免意外退出。
    * 
    * > **说明：**
    * >
@@ -718,7 +731,8 @@ declare namespace router {
   function enableAlertBeforeBackPage(options: EnableAlertOptions): void;
 
   /**
-   * 开启页面返回询问对话框。
+   * 开启页面返回询问对话框。调用此方法后，执行[back](#routerbackdeprecated)返回页面时将弹出确认对话框，用户确认后才执行页面返回操作。
+   * 适用于需要防止用户误操作返回导致数据丢失的场景，例如用户正在填写表单、编辑文档或进行支付操作时，弹出确认对话框以避免意外退出。
    * 
    * > **说明：**
    * >
@@ -748,7 +762,8 @@ declare namespace router {
   function showAlertBeforeBackPage(options: EnableAlertOptions): void;
 
   /**
-   * 禁用页面返回询问对话框。
+   * 禁用页面返回询问对话框。调用此方法后，将关闭由[showAlertBeforeBackPage](#routershowalertbeforebackpagedeprecated)
+   * 开启的返回询问对话框，[back](#routerbackdeprecated)操作将不再弹出确认对话框，直接执行页面返回。
    * 
    * > **说明：**
    * >
@@ -763,7 +778,8 @@ declare namespace router {
   function disableAlertBeforeBackPage(): void;
 
   /**
-   * 禁用页面返回询问对话框。
+   * 禁用页面返回询问对话框。调用此方法后，将关闭由[showAlertBeforeBackPage](#routershowalertbeforebackpagedeprecated)
+   * 开启的返回询问对话框，[back](#routerbackdeprecated)操作将不再弹出确认对话框，直接执行页面返回。
    * 
    * > **说明：**
    * >
@@ -824,7 +840,7 @@ declare namespace router {
   interface NamedRouterOptions {
 
     /**
-     * 表示目标命名路由页面的name。 
+     * 表示目标命名路由页面的name，需为已注册的命名路由名称。
      * 
      * **系统能力：** SystemCapability.ArkUI.ArkUI.Full
      *
@@ -842,7 +858,8 @@ declare namespace router {
      * 
      * **说明：** 
      * 
-     * params参数不能传递方法和系统接口返回的对象（例如，媒体接口定义和返回的PixelMap对象）。建议开发者提取系统接口返回的对象中需要被传递的基础类型属性，自行构造object类型对象进行传递。
+     * params参数不能传递方法和系统接口返回的对象（例如，媒体接口定义和返回的PixelMap对象）。传入不可序列化的参数时，可能导致参数传递失败或应用运行异常。
+     * 建议开发者提取系统接口返回的对象中需要被传递的基础类型属性，自行构造object类型对象进行传递。
      * 
      * **系统能力：** SystemCapability.ArkUI.ArkUI.Full
      *
@@ -1007,7 +1024,7 @@ declare namespace router {
   function pushNamedRoute(options: NamedRouterOptions, mode: RouterMode): Promise<void>;
 
   /**
-   * 用指定的命名路由页面替换当前页面，并销毁被替换的页面。
+   * 用指定的命名路由页面替换当前页面，并销毁被替换的页面。不支持设置页面转场动效，如需设置，推荐使用[Navigation组件](../../ui/arkts-navigation-architecture.md)。
    * 
    * > **说明：**
    * >
@@ -1041,7 +1058,7 @@ declare namespace router {
   function replaceNamedRoute(options: NamedRouterOptions, callback: AsyncCallback<void>): void;
 
   /**
-   * 用指定的命名路由页面替换当前页面，并销毁被替换的页面。
+   * 用指定的命名路由页面替换当前页面，并销毁被替换的页面。不支持设置页面转场动效，如需设置，推荐使用[Navigation组件](../../ui/arkts-navigation-architecture.md)。
    * 
    * > **说明：**
    * >
@@ -1075,7 +1092,7 @@ declare namespace router {
   function replaceNamedRoute(options: NamedRouterOptions): Promise<void>;
 
   /**
-   * 用指定的命名路由页面替换当前页面，并销毁被替换的页面。
+   * 用指定的命名路由页面替换当前页面，并销毁被替换的页面。不支持设置页面转场动效，如需设置，推荐使用[Navigation组件](../../ui/arkts-navigation-architecture.md)。
    * 
    * > **说明：**
    * >
@@ -1090,7 +1107,7 @@ declare namespace router {
    * > [Router]{@link @ohos.arkui.UIContext}对象。
    *
    * @param { NamedRouterOptions } options - 替换页面描述信息。
-   * @param { RouterMode } mode - 跳转页面使用的模式。
+   * @param { RouterMode } mode - 替换页面使用的模式。
    * @param { AsyncCallback<void> } callback - 异常响应回调。
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
@@ -1110,7 +1127,7 @@ declare namespace router {
   function replaceNamedRoute(options: NamedRouterOptions, mode: RouterMode, callback: AsyncCallback<void>): void;
 
   /**
-   * 用指定的命名路由页面替换当前页面，并销毁被替换的页面。
+   * 用指定的命名路由页面替换当前页面，并销毁被替换的页面。不支持设置页面转场动效，如需设置，推荐使用[Navigation组件](../../ui/arkts-navigation-architecture.md)。
    * 
    * > **说明：**
    * >

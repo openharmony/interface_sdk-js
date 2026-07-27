@@ -14,38 +14,33 @@
  */
 
 /**
- * You can create an entity encapsulation component in either of the following ways: You can select either of the 
- * following methods during development:
- * 
- * **ComponentContent** represents an entity encapsulation of component content, which can be created and transmitted 
- * outside of UI components. It allows you to encapsulate and decouple dialog box components. Its underlying 
- * implementation uses BuilderNode. For details, see [BuilderNode]{@link BuilderNode}.
- * 
- * **ReactiveComponentContent** represents an entity encapsulation of component content, which can be created and 
- * transmitted outside of UI components. It allows you to encapsulate and decouple dialog box components. Its underlying
- * implementation uses **ReactiveBuilderNode**. For details, see 
- * [ReactiveBuilderNode]{@link BuilderNode:ReactiveBuilderNode}.
- * 
- * > **NOTE**
- * >
- * > - **ComponentContent** and **ReactiveComponentContent** are not available in DevEco Studio Previewer.
- * >
- * > - ComponentContent objects do not support JSON serialization.
- *
  * @file
  * @kit ArkUI
  */
 
 import { BuildOptions } from './BuilderNode';
-
 import { Content } from './Content';
-
 import { UIContext } from '../@ohos.arkui.UIContext';
-
 import { WrappedBuilder } from 'wrappedBuilderObject';
 
 /**
- * Inherits from [Content](docroot://reference/apis-arkui/js-apis-arkui-Content.md#content-1).
+ * You can create an entity encapsulation component in either of the following ways: You can select either of the
+ * following methods during development:
+ *
+ * **ComponentContent** represents an entity encapsulation of component content, which can be created and transmitted
+ * outside of UI components. It allows you to encapsulate and decouple dialog box components. Its underlying
+ * implementation uses BuilderNode. For details, see [BuilderNode]{@link ./BuilderNode}.
+ *
+ * **ReactiveComponentContent** represents an entity encapsulation of component content, which can be created and
+ * transmitted outside of UI components. It allows you to encapsulate and decouple dialog box components. Its underlying
+ * implementation uses **ReactiveBuilderNode**. For details, see
+ * [ReactiveBuilderNode]{@link ./BuilderNode:ReactiveBuilderNode}.
+ *
+ * > **NOTE**
+ * >
+ * > - **ComponentContent** and **ReactiveComponentContent** are not available in DevEco Studio Previewer.
+ * >
+ * > - ComponentContent objects do not support JSON serialization.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -54,7 +49,6 @@ import { WrappedBuilder } from 'wrappedBuilderObject';
  * @since 12 dynamic
  */
 export class ComponentContent<T extends Object> extends Content {
-
   /**
    * A constructor used to create a **ComponentContent** object.
    *
@@ -181,8 +175,9 @@ export class ComponentContent<T extends Object> extends Content {
   dispose(): void;
 
   /**
-   * Updates the configuration of the entire node by passing in a
-   * [system environment change]{@link @ohos.app.ability.Configuration:Configuration} event.
+   * Transfers a system environment change event and triggers full update of a node. For details about system
+   * environment changes, see
+   * [@ohos.app.ability.Configuration (Environment Variables)]{@link @ohos.app.ability.Configuration:Configuration}.
    *
    * > **NOTE**
    * >
@@ -197,7 +192,7 @@ export class ComponentContent<T extends Object> extends Content {
   updateConfiguration(): void;
 
   /**
-   * Sets whether this **ComponentContent** object inherits the freeze policy from its parent component's custom
+   * Sets whether the current **ComponentContent** object inherits the freeze policy from its parent component's custom
    * components. When inheritance is disabled (set to **false**), the **ComponentContent** object's freeze policy is set
    * to **false**, which means its associated node remains unfrozen even in an inactive state.
    *
@@ -254,7 +249,7 @@ export class ComponentContent<T extends Object> extends Content {
  * ReactiveComponentContent is inherited from
  * [Content](docroot://reference/apis-arkui/js-apis-arkui-Content.md#content-1) and is a container component used to
  * dynamically bear and reuse UI content. It uses the @Builder function to build the UI and uses
- * [ReactiveBuilderNode]{@link BuilderNode:ReactiveBuilderNode} to generate and manage the component tree. The core
+ * [ReactiveBuilderNode]{@link ./BuilderNode:ReactiveBuilderNode} to generate and manage the component tree. The core
  * value of this component is to provide complete lifecycle management for dynamic content so that it can be integrated
  * into the ArkUI component reuse system. This component is especially suitable for scenarios that require high-
  * performance rendering, such as long lists.
@@ -266,7 +261,6 @@ export class ComponentContent<T extends Object> extends Content {
  * @since 22 dynamic
  */
 export class ReactiveComponentContent<T extends Object[]> extends Content {
-
   /**
    * Constructor of ReactiveComponentContent.
    *
@@ -298,11 +292,10 @@ export class ReactiveComponentContent<T extends Object[]> extends Content {
    * through **reuse** and [recycle]{@link ComponentContent#recycle}. For specific usage scenarios, see
    * [Implementing Node Reuse with the BuilderNode reuse and recycle APIs](docroot://ui/arkts-user-defined-arktsNode-builderNode.md#implementing-node-reuse-with-the-buildernode-reuse-and-recycle-apis).
    *
-   * @param { Object } [param] - Parameter used to reuse
-   *     [ReactiveComponentContent]{@link BuilderNode:ReactiveBuilderNode}. This parameter is directly used for reusing
-   *     all top-level custom components in **ReactiveComponentContent**. It should contain the content required by the
-   *     constructor parameters of each custom component. Otherwise, undefined behavior may occur. Calling this method
-   *     synchronously triggers the
+   * @param { Object } [param] - Parameter used to reuse [ReactiveComponentContent]{@link ReactiveComponentContent}.
+   *     This parameter is directly used for reusing all top-level custom components in **ReactiveComponentContent**. It
+   *     should contain the content required by the constructor parameters of each custom component. Otherwise,
+   *     undefined behavior may occur. Calling this method synchronously triggers the
    *     [aboutToReuse](docroot://reference/apis-arkui/arkui-ts/ts-custom-component-lifecycle.md#abouttoreuse10)
    *     lifecycle callback of internal custom components, with this parameter as the callback input. The default value
    *     is undefined. In this case, the custom component in ReactiveComponentContent directly uses the data source
@@ -356,10 +349,10 @@ export class ReactiveComponentContent<T extends Object[]> extends Content {
   dispose(): void;
 
   /**
-   * Updates the configuration of the entire node by passing in a
-   * [system environment change]{@link @ohos.app.ability.Configuration:Configuration} event. This event can be used to
-   * notify the object of the update. Whether the system environment used by the object is updated depends on the
-   * current system environment change of the application.
+   * Transfers a system environment change event and triggers full update of a node. This event can be used to notify
+   * the object of the update. Whether the system environment used by the object is updated depends on the current
+   * system environment change of the application. For details about system environment changes, see
+   * [@ohos.app.ability.Configuration (Environment Variables)]{@link @ohos.app.ability.Configuration:Configuration}.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -385,10 +378,10 @@ export class ReactiveComponentContent<T extends Object[]> extends Content {
   flushState(): void;
 
   /**
-   * Checks whether this **ReactiveComponentContent** object inherits the [freeze policy]{@link ComponentOptions} from
-   * its parent component's custom components. When inheritance is disabled (set to **false**), the
-   * **ReactiveComponentContent** object's freeze policy is set to **false**, which means its associated node remains
-   * unfrozen even in an inactive state.
+   * Sets whether the current **ReactiveComponentContent** object inherits the freeze policy configured by
+   * [ComponentOptions]{@link ComponentOptions} from its parent component's custom components. When inheritance is
+   * disabled (set to **false**), the **ReactiveComponentContent** object's freeze policy is set to **false**, which
+   * means its associated node remains unfrozen even in an inactive state.
    *
    * > **NOTE**
    * >
@@ -398,8 +391,9 @@ export class ReactiveComponentContent<T extends Object[]> extends Content {
    * > custom component, its freeze policy is not transferred to the child component.
    *
    * @param { boolean } enabled - Whether the **ReactiveComponentContent** object inherits the freeze policy from its
-   *     parent component's custom components.<br>The value **true** means to inherit the freeze policy from the parent
-   *     component's custom components, and **false** means the opposite.
+   *     parent component's custom components.
+   *     <br>The value **true** means to inherit the freeze policy from the parent component's custom components, and
+   *     **false** means the opposite.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform

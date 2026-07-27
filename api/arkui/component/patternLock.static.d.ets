@@ -304,8 +304,9 @@ export declare interface PatternLockAttribute extends CommonMethod {
      * @param { PatternLockController } [controller] - pattern lock controller.
      * @returns { PatternLockAttribute } Returns the instance of the PatternLockAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @unpublished
      * @stagemodelonly
-     * @since 26.0.0 staticonly
+     * @since 26.1.0 staticonly
      */
     default setPatternLockOptions(controller?: PatternLockController): this;
 }
@@ -330,8 +331,9 @@ export declare function PatternLock(
  * @param { CustomBuilderT<PatternLockAttribute> } style - PatternLock attribute instance
  * @returns { PatternLockAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @unpublished
  * @stagemodelonly
- * @since 26.0.0 staticonly
+ * @since 26.1.0 staticonly
  * @noninterop
  */
 @Builder

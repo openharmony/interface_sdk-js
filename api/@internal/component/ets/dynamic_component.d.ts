@@ -14,13 +14,13 @@
  */
 
 /**
- * @file
+ * @file System API
  * @kit ArkUI
  */
 
 /**
- * Indicates worker for run abc.
- * @typedef { import('../api/@ohos.worker').default.Worker } Worker
+ * Defines the worker thread object for running the .abc file.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @stagemodelonly
@@ -29,8 +29,8 @@
 declare type Worker = import('../api/@ohos.worker').default.Worker;
 
 /**
- * Indicates error callback.
- * @typedef { import('../api/@ohos.base').ErrorCallback } ErrorCallback
+ * Defines the error callback type, which is used to receive exception information.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @stagemodelonly
@@ -39,63 +39,70 @@ declare type Worker = import('../api/@ohos.worker').default.Worker;
 declare type ErrorCallback = import('../api/@ohos.base').ErrorCallback;
 
 /**
- * This interface is used to set the options for DynamicComponentAttribute during construction
- * @interface DynamicOptions
+ * Defines the parameters to be passed during **DynamicComponent** construction.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @stagemodelonly
  * @since 26.0.0 dynamic
  */
 declare interface DynamicOptions {
-    /**
-     * Indicates entryPoint of the DynamicOptions.
-     * @type { string }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @systemapi
-     * @stagemodelonly
-     * @since 26.0.0 dynamic
-     */
-    entryPoint: string;
-    /**
-     * Indicates restricted worker for run abc.
-     * @type { Worker } worker - worker which run abc
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @systemapi
-     * @stagemodelonly
-     * @since 26.0.0 dynamic
-     */
-    worker: Worker;
-    /**
-     * Indicates backgroundTransparent of the DynamicComponent.
-     * @type { ?boolean }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @systemapi
-     * @stagemodelonly
-     * @since 26.0.0 dynamic
-     */
-    backgroundTransparent?: boolean;
-    /**
-     * Indicates allow Inter-process UEC of the DynamicComponent.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @systemapi
-     * @stagemodelonly
-     * @since 26.0.0 dynamic
-     */
-    allowCrossProcessNesting?: boolean;
-    /**
-     * Indicates allow keyboard avoidance inside the DynamicComponent.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @systemapi
-     * @stagemodelonly
-     * @since 26.0.0 dynamic
-     */
-    allowOccupied?: boolean;
+  /**
+   * Entry of the .abc page to be loaded.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  entryPoint: string;
+  /**
+   * Worker for running the .abc file.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  worker: Worker;
+  /**
+   * Whether to enable the transparent background for the component.
+   * **true**: yes; **false**: no.
+   * The default value is **false**.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  backgroundTransparent?: boolean;
+  /**
+   * Whether to allow cross-process [UIExtensionComponent]{@link ./ui_extension_component} nesting.
+   * **true**: yes; **false**: no.
+   * The default value is **false**.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  allowCrossProcessNesting?: boolean;
+  /**
+   * Indicates allow keyboard avoidance inside the DynamicComponent.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  allowOccupied?: boolean;
 }
 
 /**
- * Provide an interface for the DynamicComponent, which is used to render UI of other ABC
+ * **DynamicComponent** is designed to support the embedding and display of UIs provided by independent .abc files
+ * within the current page, with the displayed content running in a worker thread.
+ *
+ * It is typically used in modular development scenarios where .abc pages are dynamically loaded.
  *
  * @returns { DynamicComponentAttribute } Attribute of DynamicComponent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -104,48 +111,57 @@ declare interface DynamicOptions {
  * @since 26.0.0 dynamic
  */
 interface DynamicComponentInterface {
-    /**
-     * Construct the DynamicComponentInterface.<br/>
-     * Called when the DynamicComponentInterface is used.
-     *
-     * @param { DynamicOptions } options - Construction configuration of DynamicComponentAttribute
-     * @returns { DynamicComponentAttribute }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @systemapi
-     * @stagemodelonly
-     * @since 26.0.0 dynamic
-     */
-    (options: DynamicOptions): DynamicComponentAttribute;
+  /**
+   * Creates a **DynamicComponent** component to display the .abc UI running in the worker thread.
+   *
+   * @param { DynamicOptions } options - Configuration parameters for constructing a **DynamicComponent**, which are
+   *     used to configure the entry of the .abc page to be loaded, worker thread to run, and display options.
+   * @returns { DynamicComponentAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  (options: DynamicOptions): DynamicComponentAttribute;
 }
 
 /**
- * Define the attribute functions of DynamicComponent.
+ * The [universal attributes]{@link ./common} are supported.
  *
- * @extends CommonMethod<DynamicComponentAttribute>
+ * The following events are supported:
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @stagemodelonly
  * @since 26.0.0 dynamic
  */
 declare class DynamicComponentAttribute extends CommonMethod<DynamicComponentAttribute> {
-    /**
-     * Called when the dynamic component is error.
-     *
-     * @param { ErrorCallback } callback - called when some error occurred except disconnected from DynamicAbility.
-     * @returns { DynamicComponentAttribute }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @systemapi
-     * @stagemodelonly
-     * @since 26.0.0 dynamic
-     */
-    onError(
+  /**
+   * Triggered when an exception occurs during the running of the **DynamicComponent**. This API uses an asynchronous
+   * callback to return the result.
+   *
+   * @param { ErrorCallback } callback - Callback used to receive exception information.
+   * @returns { DynamicComponentAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  onError(
         callback: ErrorCallback
     ): DynamicComponentAttribute;
 }
 
 /**
- * Defines DynamicComponent Component.
- * @type { DynamicComponentInterface }
+ * **DynamicComponent** is designed to support the embedding and display of UIs provided by independent .abc files
+ * within the current page, with the displayed content running in a worker thread.
+ *
+ * It is typically used in modular development scenarios where .abc pages are dynamically loaded.
+ *
+ * ###### Child Components
+ *
+ * None
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @stagemodelonly
@@ -155,7 +171,7 @@ declare const DynamicComponent: DynamicComponentInterface;
 
 /**
  * Defines DynamicComponent Component instance.
- * @type { DynamicComponentAttribute }
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @stagemodelonly

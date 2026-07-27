@@ -7362,6 +7362,28 @@ export type TripleLengthDetents = [
     SheetSize | Length | undefined
 ];
 /**
+ * Defines the options for blur snapshot optimization.
+ * Setting this object enables blur optimization.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare interface BlurSnapshotOptions {
+  /**
+   * Whether to enable freeze optimization for the blur snapshot.
+   * When enabled, freeze optimization is applied to reduce rendering overhead during blur snapshot.
+   *
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  enableFreeze?: boolean;
+}
+/**
  * Component sheet options
  *
  * @extends BindOptions
@@ -7813,17 +7835,18 @@ export declare interface SheetOptions extends BindOptions {
      */
     edgeLightMode?: EdgeLightMode;
     /**
- 	 * Specifies whether to enable blur optimization for the sheet.
- 	 * When enabled, the sheet background will be rendered using a blur snapshot.
- 	 * This property cannot be dynamically switched after the sheet is presented.
- 	 *
- 	 * @default false
- 	 * @syscap SystemCapability.ArkUI.ArkUI.Full
- 	 * @systemapi
- 	 * @stagemodelonly
- 	 * @since 26.0.0 static
- 	 */
- 	enableBlurSnapshot?: boolean;
+     * Options for blur snapshot optimization of the sheet.
+     * When this property is set, blur optimization is enabled and the sheet background
+     * will be rendered using a blur snapshot.
+     * This property cannot be dynamically switched after the sheet is presented.
+     *
+     * @default undefined
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    blurSnapshot?: BlurSnapshotOptions;
 }
 /**
  * The custom styles function block.
@@ -10498,6 +10521,37 @@ export declare interface DepthColorRGB {
 }
 
 /**
+ * Spatial position mode. Indicates the coordinate system used by the corner positions.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare enum SpatialPositionMode {
+  /**
+   * World XYZ coordinate mode. The X, Y, and Z components are all in world coordinates.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  WORLD_XYZ = 0,
+
+  /**
+   * NDC XY and world Z coordinate mode. The X and Y components use NDC (Normalized Device Coordinates),
+   * and the Z component is in world coordinates.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  NDC_XY_WORLD_Z = 1
+}
+
+/**
  * Spatial corner positions in 3D space.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -10545,6 +10599,17 @@ export declare interface SpatialPosition {
    * @since 26.0.0 static
    */
   rightBottom: DepthVector3;
+
+  /**
+   * Coordinate mode of the corner positions.
+   *
+   * @default SpatialPositionMode.WORLD_XYZ
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  positionMode?: SpatialPositionMode;
 }
 
 /**
@@ -14271,7 +14336,8 @@ export declare interface CommonMethod {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 26.0.0 staticonly
+     * @since 26.1.0 staticonly
+     * @unpublished
      */
     default applyAttributesFinish(): void;
     /**

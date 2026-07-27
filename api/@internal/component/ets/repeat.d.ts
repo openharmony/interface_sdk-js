@@ -28,7 +28,6 @@
  * @since 26.0.0 dynamic
  */
 declare enum RepeatMemOptStrategy {
-
   /**
    * No memory optimization.
    *
@@ -39,7 +38,6 @@ declare enum RepeatMemOptStrategy {
    * @since 26.0.0 dynamic
    */
   DEFAULT = 0,
-
   /**
    * Repeat handles the memory optimization.
    *
@@ -63,7 +61,6 @@ declare enum RepeatMemOptStrategy {
  * @since 12 dynamic
  */
 interface RepeatItem<T> {
-
   /**
    * Each data item in the **arr** array. **T** indicates the data type passed in.
    *
@@ -75,7 +72,6 @@ interface RepeatItem<T> {
    * @since 12 dynamic
    */
   item: T;
-
   /**
    * Index corresponding to the current data item.
    *
@@ -100,7 +96,6 @@ interface RepeatItem<T> {
  * @since 12 dynamic
  */
 interface VirtualScrollOptions {
-
   /**
    * Expected total number of data items to be loaded, which may not be equal to the data source length (length of the
    * array passed to **Repeat**).
@@ -173,7 +168,8 @@ interface VirtualScrollOptions {
    * you are advised to create a placeholder for the data in the **onLazyLoading** method and then create an
    * asynchronous task to load the data.
    *
-   * @param { number } index - Index of the data item to be loaded.<br>Value range: natural numbers
+   * @param { number } index - Index of the data item to be loaded.
+   *     <br>Value range: natural numbers
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -258,14 +254,12 @@ interface VirtualScrollOptions {
  * @since 12 dynamic
  */
 interface TemplateOptions {
-
   /**
    * Maximum number of child component nodes that can be cached in the cache pool of the current template. The value
-   * range is
-   * [0, +∞). The default value is the sum of the number of nodes in the display area of the container component and
-   * the number of nodes in the preloading area. When this sum increases (during the scrolling, when only part of the
-   * height of child components is within the display area), the value of **cachedCount** also increases accordingly.
-   * Note that the value of **cachedCount** does not decrease.
+   * range is [0, +∞). The default value is the sum of the number of nodes in the display area of the container
+   * component and the number of nodes in the preloading area. When this sum increases (during the scrolling, when only
+   * part of the height of child components is within the display area), the value of **cachedCount** also increases
+   * accordingly. Note that the value of **cachedCount** does not decrease.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -315,7 +309,6 @@ declare type RepeatItemBuilder<T> = (repeatItem: RepeatItem<T>) => void;
  * @noninterop
  */
 declare class RepeatAttribute<T> extends DynamicNode<RepeatAttribute<T>> {
-
   /**
    * Component generator. When the return value of [.templateId()]{@link RepeatAttribute#templateId} does not match any
    * [.template()]{@link RepeatAttribute#template} type (that is, the current item does not match any defined template
@@ -340,7 +333,6 @@ declare class RepeatAttribute<T> extends DynamicNode<RepeatAttribute<T>> {
    * @since 12 dynamic
    */
   each(itemGenerator: (repeatItem: RepeatItem<T>) => void): RepeatAttribute<T>;
-
   /**
    * Key generator.
    *
@@ -359,7 +351,6 @@ declare class RepeatAttribute<T> extends DynamicNode<RepeatAttribute<T>> {
    * @since 12 dynamic
    */
   key(keyGenerator: (item: T, index: number) => string): RepeatAttribute<T>;
-
   /**
    * Enables virtual scrolling for **Repeat**.
    *
@@ -376,7 +367,6 @@ declare class RepeatAttribute<T> extends DynamicNode<RepeatAttribute<T>> {
    * @since 12 dynamic
    */
   virtualScroll(virtualScrollOptions?: VirtualScrollOptions): RepeatAttribute<T>;
-
   /**
    * Renders the corresponding template child component based on the template type.
    *
@@ -395,7 +385,6 @@ declare class RepeatAttribute<T> extends DynamicNode<RepeatAttribute<T>> {
    * @since 12 dynamic
    */
   template(type: string, itemBuilder: RepeatItemBuilder<T>, templateOptions?: TemplateOptions): RepeatAttribute<T>;
-
   /**
    * Assigns a template type for this data item.
    *

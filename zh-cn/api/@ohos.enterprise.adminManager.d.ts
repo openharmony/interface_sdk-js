@@ -23,216 +23,15 @@ import common from '@ohos.app.ability.common';
 import type Want from './@ohos.app.ability.Want';
 
 /**
- * # 附录
+ * 本模块为企业MDM应用提供admin权限管理能力，包括激活/解除激活admin权限、事件订阅、委托授权等。
  *
- * ### 可委托策略列表
- *
- * | 策略名称 | 对应接口                                                     | 说明 |
- * | --- | --- | --- |
- * |disallow_add_local_account|
- * [accountManager.disallowOsAccountAddition]{@link @ohos.enterprise.accountManager:accountManager.disallowOsAccountAddition}
- * <br>
- * [accountManager.isOsAccountAdditionDisallowed]{@link @ohos.enterprise.accountManager:accountManager.isOsAccountAdditionDisallowed}
- * | 不传accountId参数，禁止设备创建本地用户。<br>不传accountId参数，查询是否禁止设备创建本地用户。|
- * |disallow_add_os_account_by_user|
- * [accountManager.disallowOsAccountAddition]{@link @ohos.enterprise.accountManager:accountManager.disallowOsAccountAddition}
- * <br>
- * [accountManager.isOsAccountAdditionDisallowed]{@link @ohos.enterprise.accountManager:accountManager.isOsAccountAdditionDisallowed}
- * | 需传入accountId参数，禁止指定用户添加账号。<br>需传入accountId参数，查询是否禁止指定用户添加账号。|
- * |disallow_running_bundles|
- * [applicationManager.addDisallowedRunningBundlesSync]{@link @ohos.enterprise.applicationManager:applicationManager.addDisallowedRunningBundlesSync}
- * <br>
- * [applicationManager.removeDisallowedRunningBundlesSync]{@link @ohos.enterprise.applicationManager:applicationManager.removeDisallowedRunningBundlesSync}
- * <br>
- * [applicationManager.getDisallowedRunningBundlesSync]{@link @ohos.enterprise.applicationManager:applicationManager.getDisallowedRunningBundlesSync}
- * |添加应用至应用运行禁止名单，添加至禁止名单的应用不允许在当前/指定用户下运行。<br>从应用运行禁止名单中移除应用。<br>获取当前/指定用户下的应用运行禁止名单。 |
- * |manage_auto_start_apps|
- * [applicationManager.addAutoStartApps]{@link @ohos.enterprise.applicationManager:applicationManager.addAutoStartApps(admin: Want, autoStartApps: Array<Want>)}
- * <br>
- * [applicationManager.removeAutoStartApps]{@link @ohos.enterprise.applicationManager:applicationManager.removeAutoStartApps(admin: Want, autoStartApps: Array<Want>)}
- * <br>
- * [applicationManager.getAutoStartApps]{@link @ohos.enterprise.applicationManager:applicationManager.getAutoStartApps(admin: Want)}
- * |添加开机自启动应用名单。<br>从开机自启动应用名单中移除应用。<br>查询开机自启动应用名单。|
- * |allowed_bluetooth_devices|
- * [bluetoothManager.addAllowedBluetoothDevices]{@link @ohos.enterprise.bluetoothManager:bluetoothManager.addAllowedBluetoothDevices}
- * <br>
- * [bluetoothManager.removeAllowedBluetoothDevices]{@link @ohos.enterprise.bluetoothManager:bluetoothManager.removeAllowedBluetoothDevices}
- * <br>
- * [bluetoothManager.getAllowedBluetoothDevices]{@link @ohos.enterprise.bluetoothManager:bluetoothManager.getAllowedBluetoothDevices}
- * |添加蓝牙设备可用名单。<br>从蓝牙设备可用名单中移除。<br>查询蓝牙设备可用名单。|
- * |set_browser_policies|[browser.setPolicySync]{@link @ohos.enterprise.browser:browser.setPolicySync}<br>
- * [browser.getPoliciesSync]{@link @ohos.enterprise.browser:browser.getPoliciesSync}|为指定的浏览器设置浏览器子策略。<br>获取指定浏览器的策略。|
- * |allowed_install_bundles|
- * [bundleManager.addAllowedInstallBundlesSync]{@link @ohos.enterprise.bundleManager:bundleManager.addAllowedInstallBundlesSync}
- * <br>
- * [bundleManager.removeAllowedInstallBundlesSync]{@link @ohos.enterprise.bundleManager:bundleManager.removeAllowedInstallBundlesSync}
- * <br>
- * [bundleManager.getAllowedInstallBundlesSync]{@link @ohos.enterprise.bundleManager:bundleManager.getAllowedInstallBundlesSync}
- * |添加应用至应用程序包安装允许名单，添加至允许名单的应用允许在当前/指定用户下安装，否则不允许安装。<br>从应用程序包安装允许名单中移除应用。<br>获取当前/指定用户下的应用程序包安装允许名单。|
- * |disallowed_install_bundles|
- * [bundleManager.addDisallowedInstallBundlesSync]{@link @ohos.enterprise.bundleManager:bundleManager.addDisallowedInstallBundlesSync}
- * <br>
- * [bundleManager.removeDisallowedInstallBundlesSync]{@link @ohos.enterprise.bundleManager:bundleManager.removeDisallowedInstallBundlesSync}
- * <br>
- * [bundleManager.getDisallowedInstallBundlesSync]{@link @ohos.enterprise.bundleManager:bundleManager.getDisallowedInstallBundlesSync}
- * |添加应用至应用程序包安装禁止名单，添加至禁止名单的应用不允许在当前/指定用户下安装。<br>从应用程序包安装禁止名单中移除应用。<br>获取当前/指定用户下的应用程序包安装禁止名单。|
- * |disallowed_uninstall_bundles|
- * [bundleManager.addDisallowedUninstallBundlesSync]{@link @ohos.enterprise.bundleManager:bundleManager.addDisallowedUninstallBundlesSync}
- * <br>
- * [bundleManager.removeDisallowedUninstallBundlesSync]{@link @ohos.enterprise.bundleManager:bundleManager.removeDisallowedUninstallBundlesSync}
- * <br>
- * [bundleManager.getDisallowedUninstallBundlesSync]{@link @ohos.enterprise.bundleManager:bundleManager.getDisallowedUninstallBundlesSync}
- * |添加应用至应用程序包卸载禁止名单，添加至禁止名单的应用不允许在当前/指定用户下卸载。<br>从应用程序包卸载禁止名单中移除应用。<br>获取当前/指定用户下的应用包程序卸载禁止名单。|
- * |get_device_info|[deviceInfo.getDeviceInfo]{@link @ohos.enterprise.deviceInfo:deviceInfo.getDeviceInfo}|获取设备信息。|
- * |location_policy|
- * [locationManager.setLocationPolicy]{@link @ohos.enterprise.locationManager:locationManager.setLocationPolicy}<br>
- * [locationManager.getLocationPolicy]{@link @ohos.enterprise.locationManager:locationManager.getLocationPolicy}|设置位置服务管
- * 理策略。<br>查询位置服务策略。|
- * |disabled_network_interface|
- * [networkManager.setNetworkInterfaceDisabledSync]{@link @ohos.enterprise.networkManager:networkManager.setNetworkInterfaceDisabledSync}
- * <br>
- * [networkManager.isNetworkInterfaceDisabledSync]{@link @ohos.enterprise.networkManager:networkManager.isNetworkInterfaceDisabledSync}
- * |禁止设备使用指定网络。<br>查询指定网络接口是否被禁用。|
- * |global_proxy|
- * [networkManager.setGlobalProxySync]{@link @ohos.enterprise.networkManager:networkManager.setGlobalProxySync}<br>
- * [networkManager.getGlobalProxySync]{@link @ohos.enterprise.networkManager:networkManager.getGlobalProxySync}|设置网络全局代理
- * 。<br>获取网络全局代理。|
- * |disabled_bluetooth|
- * [restrictions.setDisallowedPolicy]{@link @ohos.enterprise.restrictions:restrictions.setDisallowedPolicy(admin: Want, feature: string, disallow: boolean)}
- * <br>
- * [restrictions.getDisallowedPolicy]{@link @ohos.enterprise.restrictions:restrictions.getDisallowedPolicy(admin: Want | null, feature: string)}
- * |feature传入bluetooth，禁用/启用蓝牙能力。<br>feature传入bluetooth，查询是否禁用蓝牙能力。|
- * |disallow_modify_datetime|
- * [restrictions.setDisallowedPolicy]{@link @ohos.enterprise.restrictions:restrictions.setDisallowedPolicy(admin: Want, feature: string, disallow: boolean)}
- * <br>
- * [restrictions.getDisallowedPolicy]{@link @ohos.enterprise.restrictions:restrictions.getDisallowedPolicy(admin: Want | null, feature: string)}
- * |feature传入modifyDateTime，禁用/启用设置系统时间能力。<br>feature传入modifyDateTime，查询是否禁用修改系统时间能力。|
- * |disabled_printer|
- * [restrictions.setDisallowedPolicy]{@link @ohos.enterprise.restrictions:restrictions.setDisallowedPolicy(admin: Want, feature: string, disallow: boolean)}
- * <br>
- * [restrictions.getDisallowedPolicy]{@link @ohos.enterprise.restrictions:restrictions.getDisallowedPolicy(admin: Want | null, feature: string)}
- * |feature传入printer，禁用/启用打印能力。<br>feature传入printer，查询是否禁用打印能力。|
- * |disabled_hdc|
- * [restrictions.setDisallowedPolicy]{@link @ohos.enterprise.restrictions:restrictions.setDisallowedPolicy(admin: Want, feature: string, disallow: boolean)}
- * <br>
- * [restrictions.getDisallowedPolicy]{@link @ohos.enterprise.restrictions:restrictions.getDisallowedPolicy(admin: Want | null, feature: string)}
- * |feature传入hdc，禁用/启用被其他设备通过hdc连接、调试的能力。<br>feature传入hdc，查询是否禁用被其他设备通过hdc连接、调试的能力。|
- * |disable_microphone|
- * [restrictions.setDisallowedPolicy]{@link @ohos.enterprise.restrictions:restrictions.setDisallowedPolicy(admin: Want, feature: string, disallow: boolean)}
- * <br>
- * [restrictions.getDisallowedPolicy]{@link @ohos.enterprise.restrictions:restrictions.getDisallowedPolicy(admin: Want | null, feature: string)}
- * |feature传入microphone，禁用/启用麦克风能力。<br>feature传入microphone，查询是否禁用麦克风能力。|
- * |fingerprint_auth|
- * [restrictions.setDisallowedPolicy]{@link @ohos.enterprise.restrictions:restrictions.setDisallowedPolicy(admin: Want, feature: string, disallow: boolean)}
- * <br>
- * [restrictions.getDisallowedPolicy]{@link @ohos.enterprise.restrictions:restrictions.getDisallowedPolicy(admin: Want | null, feature: string)}
- * <br>
- * [restrictions.setDisallowedPolicyForAccount]{@link @ohos.enterprise.restrictions:restrictions.setDisallowedPolicyForAccount(admin: Want, feature: string, disallow: boolean, accountId: number)}
- * <br>
- * [restrictions.getDisallowedPolicyForAccount]{@link @ohos.enterprise.restrictions:restrictions.getDisallowedPolicyForAccount(admin: Want | null, feature: string, accountId: number)}
- * |feature传入fingerprint，禁用/启用指纹认证能力。<br>feature传入fingerprint，查询是否禁用指纹认证能力。<br>feature传入fingerprint，禁用/启用指定用户的指纹认证能力。<br
- * >feature传入fingerprint，查询是否禁用指定用户的指纹认证能力。|
- * |disable_usb|
- * [restrictions.setDisallowedPolicy]{@link @ohos.enterprise.restrictions:restrictions.setDisallowedPolicy(admin: Want, feature: string, disallow: boolean)}
- * <br>
- * [restrictions.getDisallowedPolicy]{@link @ohos.enterprise.restrictions:restrictions.getDisallowedPolicy(admin: Want | null, feature: string)}
- * |feature传入usb，禁用/启用USB能力。<br>feature传入usb，查询是否禁用USB能力。|
- * |disable_wifi|
- * [restrictions.setDisallowedPolicy]{@link @ohos.enterprise.restrictions:restrictions.setDisallowedPolicy(admin: Want, feature: string, disallow: boolean)}
- * <br>
- * [restrictions.getDisallowedPolicy]{@link @ohos.enterprise.restrictions:restrictions.getDisallowedPolicy(admin: Want | null, feature: string)}
- * |feature传入wifi，禁用/启用Wi-Fi能力。<br>feature传入wifi，查询是否禁用Wi-Fi能力。|
- * |disallowed_tethering|
- * [restrictions.setDisallowedPolicy]{@link @ohos.enterprise.restrictions:restrictions.setDisallowedPolicy(admin: Want, feature: string, disallow: boolean)}
- * <br>
- * [restrictions.getDisallowedPolicy]{@link @ohos.enterprise.restrictions:restrictions.getDisallowedPolicy(admin: Want | null, feature: string)}
- * |feature传入tethering，禁用/启用网络共享能力。<br>feature传入tethering，查询是否禁用网络共享能力。|
- * |inactive_user_freeze|
- * [restrictions.setDisallowedPolicy]{@link @ohos.enterprise.restrictions:restrictions.setDisallowedPolicy(admin: Want, feature: string, disallow: boolean)}
- * <br>
- * [restrictions.getDisallowedPolicy]{@link @ohos.enterprise.restrictions:restrictions.getDisallowedPolicy(admin: Want | null, feature: string)}
- * |feature传入inactiveUserFreeze，禁用/启用非活跃用户运行能力。<br>feature传入inactiveUserFreeze，查询是否禁用非活跃用户运行能力。|
- * |snapshot_skip|
- * [restrictions.addDisallowedListForAccount]{@link @ohos.enterprise.restrictions:restrictions.addDisallowedListForAccount}
- * <br>
- * [restrictions.removeDisallowedListForAccount]{@link @ohos.enterprise.restrictions:restrictions.removeDisallowedListForAccount}
- * <br>
- * [restrictions.getDisallowedListForAccount]{@link @ohos.enterprise.restrictions:restrictions.getDisallowedListForAccount}
- * |feature传入snapshotSkip，禁用屏幕快照能力的应用名单。<br>feature传入snapshotSkip，从禁用屏幕快照能力的应用名单中移除。<br>feature传入snapshotSkip，查询禁用屏幕快照能力
- * 的应用名单。|
- * |password_policy|
- * [securityManager.setPasswordPolicy]{@link @ohos.enterprise.securityManager:securityManager.setPasswordPolicy}<br>
- * [securityManager.getPasswordPolicy]{@link @ohos.enterprise.securityManager:securityManager.getPasswordPolicy(admin: Want)}
- * |设置设备锁屏口令策略。<br>获取设备锁屏口令策略。|
- * |clipboard_policy|
- * [securityManager.setAppClipboardPolicy]{@link @ohos.enterprise.securityManager:securityManager.setAppClipboardPolicy(admin: Want, tokenId: number, policy: ClipboardPolicy)}
- * <br>
- * [securityManager.getAppClipboardPolicy]{@link @ohos.enterprise.securityManager:securityManager.getAppClipboardPolicy(admin: Want, tokenId?: number)}
- * |设置设备剪贴板策略。<br>获取设备剪贴板策略。|
- * |watermark_image_policy|
- * [securityManager.setWatermarkImage]{@link @ohos.enterprise.securityManager:securityManager.setWatermarkImage(admin: Want, bundleName: string, source: string | image.PixelMap, accountId: number)}
- * <br>
- * [securityManager.cancelWatermarkImage]{@link @ohos.enterprise.securityManager:securityManager.cancelWatermarkImage}|设
- * 置水印策略，当前仅支持PC/2in1使用。<br>取消水印策略，当前仅支持PC/2in1使用。|
- * |ntp_server|[systemManager.setNTPServer]{@link @ohos.enterprise.systemManager:systemManager.setNTPServer}<br>
- * [systemManager.getNTPServer]{@link @ohos.enterprise.systemManager:systemManager.getNTPServer}|设置NTP服务器的策略。<br>获取NTP服务
- * 器信息。|
- * |set_update_policy|
- * [systemManager.setOtaUpdatePolicy]{@link @ohos.enterprise.systemManager:systemManager.setOtaUpdatePolicy}<br>
- * [systemManager.getOtaUpdatePolicy]{@link @ohos.enterprise.systemManager:systemManager.getOtaUpdatePolicy}|设置升级策略。<br>
- * 查询升级策略。|
- * |notify_upgrade_packages|
- * [systemManager.notifyUpdatePackages]{@link @ohos.enterprise.systemManager:systemManager.notifyUpdatePackages}<br>
- * [systemManager.getUpdateResult]{@link @ohos.enterprise.systemManager:systemManager.getUpdateResult}|通知系统更新包信息。<br>获取系
- * 统更新结果。|
- * |allowed_usb_devices|
- * [usbManager.addAllowedUsbDevices]{@link @ohos.enterprise.usbManager:usbManager.addAllowedUsbDevices}<br>
- * [usbManager.removeAllowedUsbDevices]{@link @ohos.enterprise.usbManager:usbManager.removeAllowedUsbDevices}<br>
- * [usbManager.getAllowedUsbDevices]{@link @ohos.enterprise.usbManager:usbManager.getAllowedUsbDevices}|添加USB设备可用名单。<br>
- * 移除USB设备可用名单。<br>获取USB设备可用名单。|
- * |usb_read_only|
- * [usbManager.setUsbStorageDeviceAccessPolicy]{@link @ohos.enterprise.usbManager:usbManager.setUsbStorageDeviceAccessPolicy}
- * <br>
- * [usbManager.getUsbStorageDeviceAccessPolicy]{@link @ohos.enterprise.usbManager:usbManager.getUsbStorageDeviceAccessPolicy}
- * |设置USB存储设备访问策略。<br>获取USB存储设备访问策略。|
- * |disallowed_usb_devices|
- * [usbManager.addDisallowedUsbDevices]{@link @ohos.enterprise.usbManager:usbManager.addDisallowedUsbDevices}<br>
- * [usbManager.removeDisallowedUsbDevices]{@link @ohos.enterprise.usbManager:usbManager.removeDisallowedUsbDevices}<br>
- * [usbManager.getDisallowedUsbDevices]{@link @ohos.enterprise.usbManager:usbManager.getDisallowedUsbDevices}|添加禁止使用的USB
- * 设备类型。<br>移除禁止使用的USB设备类型。<br>获取禁止使用的USB设备类型。|
- * |disallowed_sms|
- * [restrictions.setDisallowedPolicy]{@link @ohos.enterprise.restrictions:restrictions.setDisallowedPolicy(admin: Want, feature: string, disallow: boolean)}
- * <br>
- * [restrictions.getDisallowedPolicy]{@link @ohos.enterprise.restrictions:restrictions.getDisallowedPolicy(admin: Want | null, feature: string)}
- * |feature传入sms，禁用/启用设备接收、发送短信的能力，当前仅支持手机、平板设备使用。<br>feature传入sms，查询是否禁用设备接收、发送短信的能力，当前仅支持手机、平板设备使用。|
- * |disallowed_mms|
- * [restrictions.setDisallowedPolicy]{@link @ohos.enterprise.restrictions:restrictions.setDisallowedPolicy(admin: Want, feature: string, disallow: boolean)}
- * <br>
- * [restrictions.getDisallowedPolicy]{@link @ohos.enterprise.restrictions:restrictions.getDisallowedPolicy(admin: Want | null, feature: string)}
- * |feature传入mms，禁用/启用设备接收、发送彩信的能力，当前仅支持手机、平板设备使用。<br>feature传入mms，查询是否禁用设备接收、发送彩信的能力，当前仅支持手机、平板设备使用。|
- * |disable_backup_and_restore|
- * [restrictions.setDisallowedPolicy]{@link @ohos.enterprise.restrictions:restrictions.setDisallowedPolicy(admin: Want, feature: string, disallow: boolean)}
- * <br>
- * [restrictions.getDisallowedPolicy]{@link @ohos.enterprise.restrictions:restrictions.getDisallowedPolicy(admin: Want | null, feature: string)}
- * |feature传入backupAndRestore，禁用/启用备份和恢复能力，当前仅支持手机、平板使用。<br>feature传入backupAndRestore，查询是否禁用备份和恢复能力，当前仅支持手机、平板使用。|
- * |installed_bundle_info_list|
- * [bundleManager.getInstalledBundleList]{@link @ohos.enterprise.bundleManager:bundleManager.getInstalledBundleList(admin: Want, accountId: number)}
- * |获取设备指定用户下已安装应用列表。|
- * |clear_up_application_data|
- * [applicationManager.clearUpApplicationData]{@link @ohos.enterprise.applicationManager:applicationManager.clearUpApplicationData}
- * |清除应用产生的所有数据。|
- * |disallow_unmute_device|
- * [restrictions.setDisallowedPolicy]{@link @ohos.enterprise.restrictions:restrictions.setDisallowedPolicy(admin: Want, feature: string, disallow: boolean)}
- * <br>
- * [restrictions.getDisallowedPolicy]{@link @ohos.enterprise.restrictions:restrictions.getDisallowedPolicy(admin: Want | null, feature: string)}
- * |feature传入unmuteDevice，禁用/启用设备媒体播放声音能力。<br>feature传入unmuteDevice，查询是否禁用设备媒体播放声音能力。|
- * |disabled_hdc_remote|
- * [restrictions.setDisallowedPolicy]{@link @ohos.enterprise.restrictions:restrictions.setDisallowedPolicy(admin: Want, feature: string, disallow: boolean)}
- * <br>
- * [restrictions.getDisallowedPolicy]{@link @ohos.enterprise.restrictions:restrictions.getDisallowedPolicy(admin: Want | null, feature: string)}
- * |feature传入hdcRemote，禁用/启用设备通过hdc调试其他设备的能力。<br>feature传入hdcRemote，查询是否禁用设备通过hdc调试其他设备的能力。|
+ * > **说明**
+ * >
+ * > 本模块接口仅对设备管理应用开放，具体请参考[MDM Kit开发指南](../../mdm/mdm-kit-guide.md)。
  *
  * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+ * @systemapi [since 9 - 11]
+ * @publicapi [since 12]
  * @since 9 dynamic
  * @since 23 static
  */
@@ -894,7 +693,7 @@ declare namespace adminManager {
    * @permission ohos.permission.START_PROVISIONING_MESSAGE
    * @param { Want } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。仅支持传入当前应用的企业设备管理扩展组件。
    * @returns { boolean } 返回true表示被激活为BYOD设备管理应用，返回false表示没有被激活为BYOD设备管理应用。
-   * @throws { BusinessError } 9200012 - The parameter validation failed.
+   * @throws { BusinessError } 9200012 - Parameter verification failed.
    * @throws { BusinessError } 201 - Permission verification failed.
    *     The application does not have the permission required to call the API.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
@@ -1410,7 +1209,6 @@ declare namespace adminManager {
    * @permission ohos.permission.ENTERPRISE_ACTIVATE_DEVICE_ADMIN
    * @param { Want } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
    * @param { string } credential - 激活凭证。
-   * @returns { Promise<void> } the promise returned by the enableSelfDeviceAdmin.
    * @throws { BusinessError } 9200003 - The administrator ability component is invalid.
    * @throws { BusinessError } 9200004 - Failed to activate the administrator application of the device.
    * @throws { BusinessError } 9200012 - Parameter verification failed.
@@ -1425,7 +1223,7 @@ declare namespace adminManager {
    * @stagemodelonly
    * @since 26.0.0
    */
-  function enableSelfDeviceAdmin(admin: Want, credential: string): Promise<void>;
+  function enableSelfDeviceAdmin(admin: Want, credential: string): void;
 }
 
 export default adminManager;

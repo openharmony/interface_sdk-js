@@ -209,8 +209,9 @@ export declare interface CheckboxAttribute extends CommonMethod {
      * @param { CheckboxOptions } [options] - checkbox constructor options
      * @returns { CheckboxAttribute } Returns the instance of the CheckboxAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @unpublished
      * @stagemodelonly
-     * @since 26.0.0 staticonly
+     * @since 26.1.0 staticonly
      */
     default setCheckboxOptions(options?: CheckboxOptions): this;
  }
@@ -238,8 +239,9 @@ export declare function Checkbox(
  * @param { CustomBuilder } [content_] - container
  * @returns { CheckboxAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @unpublished
  * @stagemodelonly
- * @since 26.0.0 staticonly
+ * @since 26.1.0 staticonly
  * @noninterop
  */
 @Builder

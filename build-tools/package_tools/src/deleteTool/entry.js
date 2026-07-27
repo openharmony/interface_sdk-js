@@ -16,7 +16,7 @@
 const fs = require('fs');
 const path = require('path');
 const commander = require('commander');
-const { collectAllIdentifier1 } = require('./ts_wrapper_node_util');
+let collectAllIdentifierNode = undefined;
 let filetContent = '';
 let nodePositionArr = [];
 let inputDir = '';
@@ -48,7 +48,6 @@ function main() {
     .option('--build_sdk_path <string>', 'SDK构建工具路径')
     .action(opts => {
       outputDir = opts.output;
-      process.env.LD_LIBRARY_PATH = opts.build_sdk_path + 'build-tools/ets2panda/lib';
       let inputPath = opts.input.split('/');
       inputPath.pop();
       inputPath = path.resolve(inputPath.join('/'));
@@ -63,6 +62,8 @@ function configGlobal(sdkPath) {
   arkts = req.arkts;
   arktsGlobal = req.arktsGlobal;
   // 不同节点对应的处理函数映射
+  const tsWrapper = require('./ts_wrapper_node_util');
+  collectAllIdentifierNode = tsWrapper.collectAllIdentifierNode;
 }
 
 /**
@@ -193,14 +194,14 @@ function traverseProgram(node, filePath) {
     return;
   }
   filetContent = fs.readFileSync(filePath, 'utf-8');
+  if (!/\@systemapi/.test(filetContent)) {
+    writeFile(filePath, filetContent)
+    return
+  }
   if (node.statements) {
     node.statements.forEach(statement => {
       collectNodePosition(statement, true)
     })
-  }
-  if (!/\@systemapi/.test(filetContent)) {
-    writeFile(filePath, filetContent)
-    return
   }
   processVisitEachChild(node, filePath);
   formatImportDeclaration(node)
@@ -403,7 +404,7 @@ function isSystemapi(node) {
 function formatImportDeclaration(node) {
   const allIdentifierSet = new Set([]);
   let identifierArr = []
-  identifierArr = collectAllIdentifier1(node);
+  identifierArr = collectAllIdentifierNode(node);
   processVisitEachImportChild(node, identifierArr)
   if (identifierArr.length !== 0) {
     identifierArr.forEach(item => {
@@ -489,7 +490,8 @@ function processVisitEachImportChild(node, arr) {
 
 function collectIdentifierNode(node) {
   if (!isSystemapi(node)) {
-    let newArr = collectAllIdentifier1(node)
+    let newArr = collectAllIdentifierNode(node)
+    let arr = [];
     newArr.forEach(item => {
       if (!arr.includes(item)) {
         arr.push(item)
@@ -510,7 +512,7 @@ function getNodeType(node) {
 
 function formatExportDeclaration(node) {
   const allIdentifierSet = new Set([]);
-  let identifierArr = collectAllIdentifier1(node)
+  let identifierArr = collectAllIdentifierNode(node)
   if (identifierArr.length !== 0) {
     identifierArr.forEach(item => {
       allIdentifierSet.add(item)

@@ -39,7 +39,8 @@ declare type Content = import('../api/@ohos.arkui.node').Content;
  * @since 12 dynamic
  * @noninterop
  */
-declare class ContentSlotAttribute {}
+declare class ContentSlotAttribute {
+}
 
 /**
  * The **ContentSlot** component is a component designed to render and manage components created on the native layer
@@ -56,7 +57,6 @@ declare class ContentSlotAttribute {}
  * @noninterop
  */
 interface ContentSlotInterface {
-
   /**
    * Called when content is added to a placeholder component
    *

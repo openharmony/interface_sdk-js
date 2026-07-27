@@ -28,7 +28,6 @@
  * @since 26.0.0 dynamic
  */
 declare enum LazyForEachMemOptStrategy {
-
   /**
    * No memory optimization.
    *
@@ -39,7 +38,6 @@ declare enum LazyForEachMemOptStrategy {
    * @since 26.0.0 dynamic
    */
   DEFAULT = 0,
-
   /**
    * LazyForEach handle the memory optimization.
    *
@@ -53,6 +51,54 @@ declare enum LazyForEachMemOptStrategy {
 }
 
 /**
+ * Defines the options for LazyForEach.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+declare interface LazyForEachOptions {
+  /**
+   * Memory optimization strategy for LazyForEach.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  memoryOptimizationStrategy?: LazyForEachMemOptStrategy;
+
+  /**
+   * Freeze mode for cached custom nodes that have been removed from the
+   * component tree. Default value: LazyForEachCustomComponentFreezeMode.AUTO.
+   *
+   * @default LazyForEachCustomComponentFreezeMode.AUTO
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  customComponentFreezeMode?: LazyForEachCustomComponentFreezeMode;
+
+  /**
+   * Resource release strategy for LazyForEach discarded nodes.
+   * Default value: LazyForEachReleaseStrategy.BATCH.
+   *
+   * @default LazyForEachReleaseStrategy.BATCH
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  releaseStrategy?: LazyForEachReleaseStrategy;
+}
+
+/**
  * Enumerates the data operation types.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -62,7 +108,6 @@ declare enum LazyForEachMemOptStrategy {
  * @since 12 dynamic
  */
 declare enum DataOperationType {
-
   /**
    * Data addition.
    *
@@ -140,7 +185,6 @@ declare enum DataOperationType {
  * @since 26.0.0 dynamic
  */
 declare enum LazyForEachReleaseStrategy {
-
   /**
    * Release all discarded nodes during the next idle period.
    *
@@ -177,7 +221,6 @@ declare enum LazyForEachReleaseStrategy {
  * @since 26.0.0 dynamic
  */
 declare enum LazyForEachCustomComponentFreezeMode {
-
   /**
    * Follow the enableCustomComponentFreeze field in Metadata to determine
    * whether freezing takes effect.
@@ -215,55 +258,6 @@ declare enum LazyForEachCustomComponentFreezeMode {
 }
 
 /**
- * Defines the options for LazyForEach.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 26.0.0 dynamic
- */
-declare interface LazyForEachOptions {
-
-  /**
-   * Memory optimization strategy for LazyForEach.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
-   */
-  memoryOptimizationStrategy?: LazyForEachMemOptStrategy;
-
-  /**
-   * Freeze mode for cached custom nodes that have been removed from the
-   * component tree. Default value: LazyForEachCustomComponentFreezeMode.AUTO.
-   *
-   * @default LazyForEachCustomComponentFreezeMode.AUTO
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
-   */
-  customComponentFreezeMode?: LazyForEachCustomComponentFreezeMode;
-
-  /**
-   * Resource release strategy for LazyForEach discarded nodes.
-   * Default value: LazyForEachReleaseStrategy.BATCH.
-   *
-   * @default LazyForEachReleaseStrategy.BATCH
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
-   */
-  releaseStrategy?: LazyForEachReleaseStrategy;
-}
-
-/**
  * Represents an operation for adding data.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -273,7 +267,6 @@ declare interface LazyForEachOptions {
  * @since 12 dynamic
  */
 interface DataAddOperation {
-
   /**
    * Type of data addition.
    *
@@ -286,7 +279,7 @@ interface DataAddOperation {
   type: DataOperationType.ADD;
 
   /**
-   * Index at which to insert the data record. The value range is [0, data source length - 1].
+   * Index at which to insert the data record. The value range is [0, data source length].
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -299,7 +292,7 @@ interface DataAddOperation {
   /**
    * Number of data records to insert.
    *
-   * Default value: **1**.
+   * Default value: **1**
    *
    * @default 1
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -332,7 +325,6 @@ interface DataAddOperation {
  * @since 12 dynamic
  */
 interface DataDeleteOperation {
-
   /**
    * Type of data deletion.
    *
@@ -358,7 +350,7 @@ interface DataDeleteOperation {
   /**
    * Number of data records to delete.
    *
-   * Default value: **1**.
+   * Default value: **1**
    *
    * @default 1
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -380,7 +372,6 @@ interface DataDeleteOperation {
  * @since 12 dynamic
  */
 interface DataChangeOperation {
-
   /**
    * Type of data change.
    *
@@ -425,7 +416,6 @@ interface DataChangeOperation {
  * @since 12 dynamic
  */
 interface MoveIndex {
-
   /**
    * Start position for the movement. The value range is [0, data source length - 1].
    *
@@ -436,7 +426,6 @@ interface MoveIndex {
    * @since 12 dynamic
    */
   from: number;
-
   /**
    * End position for the movement. The value range is [0, data source length - 1].
    *
@@ -459,7 +448,6 @@ interface MoveIndex {
  * @since 12 dynamic
  */
 interface ExchangeIndex {
-
   /**
    * First position for the exchange. The value range is [0, data source length - 1].
    *
@@ -470,7 +458,6 @@ interface ExchangeIndex {
    * @since 12 dynamic
    */
   start: number;
-
   /**
    * Second position for the exchange. The value range is [0, data source length - 1].
    *
@@ -493,7 +480,6 @@ interface ExchangeIndex {
  * @since 12 dynamic
  */
 interface ExchangeKey {
-
   /**
    * New key to assign to the first position in the exchange. The original key is used by default.
    *
@@ -504,7 +490,6 @@ interface ExchangeKey {
    * @since 12 dynamic
    */
   start: string;
-
   /**
    * New key to assign to the second position in the exchange. The original key is used by default.
    *
@@ -527,7 +512,6 @@ interface ExchangeKey {
  * @since 12 dynamic
  */
 interface DataMoveOperation {
-
   /**
    * Type of data movement.
    *
@@ -572,7 +556,6 @@ interface DataMoveOperation {
  * @since 12 dynamic
  */
 interface DataExchangeOperation {
-
   /**
    * Type of data exchange.
    *
@@ -619,7 +602,6 @@ interface DataExchangeOperation {
  * @since 12 dynamic
  */
 interface DataReloadOperation {
-
   /**
    * Type of data reloading.
    *
@@ -634,11 +616,8 @@ interface DataReloadOperation {
   /**
    * Whether to enable the feature that reuse old child components when \@Reuseable or \@ReuseableV2 is used and
    * recycle pool is empty.
-   *
    * **true**: Enable the feature.
-   *
    * **false**: Disable the feature.
-   *
    * Default value: **false**.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -652,8 +631,6 @@ interface DataReloadOperation {
 
 /**
  * All data operation types.
- *
- * > **NOTE**
  *
  * @unionmember { DataAddOperation } Represents an operation for adding data.
  * @unionmember { DataDeleteOperation } Represents an operation for deleting data.
@@ -687,7 +664,6 @@ declare type DataOperation =
  * @since 7 dynamic
  */
 declare interface DataChangeListener {
-
   /**
    * Invoked when all data is reloaded. For data items whose key remains unchanged, the original child component is
    * used. For data items whose key changes, a new child component is created.
@@ -707,7 +683,8 @@ declare interface DataChangeListener {
    *
    * @param { boolean } reuseImmediately - Whether to enable the feature that reuse old child components when
    *     \@Reuseable or \@ReuseableV2 is used and recycle pool is empty.
-   *     <br>**true**: Enable the feature.
+   *     <br>
+   *     **true**: Enable the feature.
    *     <br>**false**: Disable the feature.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -720,12 +697,15 @@ declare interface DataChangeListener {
   /**
    * Invoked when data is added to the position indicated by the specified index.
    *
-   * > This API is deprecated since API version 8. You are advised to use
+   * > **NOTE**
+   * >
+   * > This API is supported since API version 7 and deprecated since API version 8. Use
    * > [onDataAdd]{@link DataChangeListener.onDataAdd} instead.
    *
    * @param { number } index - Index of the position where data is added. The value range is
-   *     [0, data source length - 1].<br>If the value is less than 0, it is treated as **0**. If the value is greater
-   *     than the data source length minus 1, it is treated as the data source length minus 1.
+   *     [0, data source length - 1].
+   *     <br>If the value is less than 0, it is treated as **0**. If the value is greater than the data source length
+   *     minus 1, it is treated as the data source length minus 1.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @since 7 dynamiconly
@@ -738,8 +718,9 @@ declare interface DataChangeListener {
    * Invoked when data is added to the position indicated by the specified index.
    *
    * @param { number } index - Index of the position where data is added. The value range is
-   *     [0, data source length - 1].<br>If the value is less than 0, it is treated as **0**. If the value is greater
-   *     than the data source length minus 1, it is treated as the data source length minus 1.
+   *     [0, data source length - 1].
+   *     <br>If the value is less than 0, it is treated as **0**. If the value is greater than the data source length
+   *     minus 1, it is treated as the data source length minus 1.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform [since 10]
@@ -751,20 +732,20 @@ declare interface DataChangeListener {
   /**
    * Invoked when data is moved, that is, when data is swapped between the **from** and **to** positions.
    *
-   * > This API is deprecated since API version 8. You are advised to use
-   * > [onDataMove]{@link DataChangeListener.onDataMove} instead.
-   *
    * > **NOTE**
    * >
-   * > The ID must remain unchanged before and after data movement. If the ID changes, APIs for deleting and adding data
-   * > must be called.
+   * > - This API is supported since API version 7 and deprecated since API version 8. Use
+   * > [onDataMove]{@link DataChangeListener.onDataMove} instead.
+   * >
+   * > - The ID must remain unchanged before and after data movement. If the ID changes, APIs for deleting and adding
+   * > data must be called.
    *
-   * @param { number } from - Original position of data. The value range is [0, data source length - 1].<br>If the value
-   *     is less than 0, it is treated as **0**. If the value is greater than the data source length minus 1, it is
-   *     treated as the data source length minus 1.
-   * @param { number } to - Target position of data. The value range is [0, data source length - 1].<br>If the value is
-   *     less than 0, it is treated as **0**. If the value is greater than the data source length minus 1, it is treated
-   *     as the data source length minus 1.
+   * @param { number } from - Original position of data. The value range is [0, data source length - 1].
+   *     <br>If the value is less than 0, it is treated as **0**. If the value is greater than the data source length
+   *     minus 1, it is treated as the data source length minus 1.
+   * @param { number } to - Target position of data. The value range is [0, data source length - 1].
+   *     <br>If the value is less than 0, it is treated as **0**. If the value is greater than the data source length
+   *     minus 1, it is treated as the data source length minus 1.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @since 7 dynamiconly
@@ -781,12 +762,12 @@ declare interface DataChangeListener {
    * > The ID must remain unchanged before and after data movement. If the ID changes, APIs for deleting and adding data
    * > must be called.
    *
-   * @param { number } from - Original position of data. The value range is [0, data source length - 1].<br>If the value
-   *     is less than 0, it is treated as **0**. If the value is greater than the data source length minus 1, it is
-   *     treated as the data source length minus 1.
-   * @param { number } to - Target position of data. The value range is [0, data source length - 1].<br>If the value is
-   *     less than 0, it is treated as **0**. If the value is greater than the data source length minus 1, it is treated
-   *     as the data source length minus 1.
+   * @param { number } from - Original position of data. The value range is [0, data source length - 1].
+   *     <br>If the value is less than 0, it is treated as **0**. If the value is greater than the data source length
+   *     minus 1, it is treated as the data source length minus 1.
+   * @param { number } to - Target position of data. The value range is [0, data source length - 1].
+   *     <br>If the value is less than 0, it is treated as **0**. If the value is greater than the data source length
+   *     minus 1, it is treated as the data source length minus 1.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform [since 10]
@@ -799,12 +780,15 @@ declare interface DataChangeListener {
    * Invoked when data is deleted from the position indicated by the specified index. LazyForEach will update the
    * displayed content accordingly.
    *
-   * > This API is deprecated since API version 8. You are advised to use
+   * > **NOTE**
+   * >
+   * > This API is supported since API version 7 and deprecated since API version 8. Use
    * > [onDataDelete]{@link DataChangeListener.onDataDelete} instead.
    *
    * @param { number } index - Index of the position where data is deleted. The value range is
-   *     [0, data source length - 1].<br>If the value is less than 0, it is treated as **0**. If the value is greater
-   *     than the data source length minus 1, it is treated as the data source length minus 1.
+   *     [0, data source length - 1].
+   *     <br>If the value is less than 0, it is treated as **0**. If the value is greater than the data source length
+   *     minus 1, it is treated as the data source length minus 1.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @since 7 dynamiconly
@@ -823,8 +807,9 @@ declare interface DataChangeListener {
    * > Otherwise, undefined behavior will occur during page rendering.
    *
    * @param { number } index - Index of the position where data is deleted. The value range is
-   *     [0, data source length - 1].<br>If the value is less than 0, it is treated as **0**. If the value is greater
-   *     than the data source length minus 1, it is treated as the data source length minus 1.
+   *     [0, data source length - 1].
+   *     <br>If the value is less than 0, it is treated as **0**. If the value is greater than the data source length
+   *     minus 1, it is treated as the data source length minus 1.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform [since 10]
@@ -836,12 +821,14 @@ declare interface DataChangeListener {
   /**
    * Invoked when data in the position indicated by the specified index is changed.
    *
-   * > This API is deprecated since API version 8. You are advised to use
+   * > **NOTE**
+   * >
+   * > This API is supported since API version 7 and deprecated since API version 8. Use
    * > [onDataChange]{@link DataChangeListener.onDataChange} instead.
    *
-   * @param { number } index - Listener for data changes. The value range is [0, data source length - 1].<br>If the
-   *     value is less than 0, it is treated as **0**. If the value is greater than the data source length minus 1, it
-   *     is treated as the data source length minus 1.
+   * @param { number } index - Listener for data changes. The value range is [0, data source length - 1].
+   *     <br>If the value is less than 0, it is treated as **0**. If the value is greater than the data source length
+   *     minus 1, it is treated as the data source length minus 1.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @since 7 dynamiconly
@@ -854,8 +841,9 @@ declare interface DataChangeListener {
    * Invoked when data in the position indicated by the specified index is changed.
    *
    * @param { number } index - Index of the position where data is changed. The value range is
-   *     [0, data source length - 1].<br>If the value is less than 0, it is treated as **0**. If the value is greater
-   *     than the data source length minus 1, it is treated as the data source length minus 1.
+   *     [0, data source length - 1].
+   *     <br>If the value is less than 0, it is treated as **0**. If the value is greater than the data source length
+   *     minus 1, it is treated as the data source length minus 1.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform [since 10]
@@ -896,7 +884,6 @@ declare interface DataChangeListener {
  * @since 7 dynamic
  */
 declare interface IDataSource {
-
   /**
    * Obtains the total number of data items.
    *
@@ -949,7 +936,7 @@ declare interface IDataSource {
 }
 
 /**
- * The [drag-and-drop sorting]{@link common} attribute is supported.
+ * The [drag-and-drop sorting]{@link ./common} attribute is supported.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -959,10 +946,7 @@ declare interface IDataSource {
  * @noninterop
  */
 declare class LazyForEachAttribute extends DynamicNode<LazyForEachAttribute> {}
-
 /**
- * > **NOTE**
- *
  * For details about the development, see
  * [LazyForEach: Lazy Data Loading](docroot://ui/rendering-control/arkts-rendering-control-lazyforeach.md).
  *
@@ -979,7 +963,6 @@ declare class LazyForEachAttribute extends DynamicNode<LazyForEachAttribute> {}
  * @noninterop
  */
 interface LazyForEachInterface {
-
   /**
    * **LazyForEach** iterates over provided data sources and creates corresponding components during each iteration.
    * When **LazyForEach** is used in a scrolling container, the framework creates components as required within the
@@ -988,22 +971,30 @@ interface LazyForEachInterface {
    *
    * @param { IDataSource } dataSource - **LazyForEach** data source. You need to implement related APIs.
    * @param { function } itemGenerator - Child component generation function, which generates a child component for each
-   *     data item in the array.<br>**NOTE**<br>- (Optional) **item**: data item.<br>(Optional) **index**: index of the
-   *     data item.<br>- The function body of **itemGenerator** must be included in braces {...}.<br>- **itemGenerator**
-   *     can and must generate only one child component for each iteration.<br>- The **if** statement is allowed in
-   *     **itemGenerator**, but you must ensure that each branch of the **if** statement creates a child component of
-   *     the same type.
+   *     data item in the array.
+   *     <br>**NOTE**
+   *     <br>- (Optional) **item**: data item.
+   *     <br>(Optional) **index**: index of the data item.
+   *     <br>- The function body of **itemGenerator** must be included in braces {...}.
+   *     <br>- **itemGenerator** can and must generate only one child component for each iteration.
+   *     <br>- The **if** statement is allowed in **itemGenerator**, but you must ensure that each branch of the **if**
+   *     statement creates a child component of the same type.
    * @param { function } keyGenerator - ID generation function, which generates a unique and fixed ID for each data item
    *     in the data source. Components are updated only when their generated key changes. The **keyGenerator**
    *     parameter is optional, but you are advised to provide it so that the development framework can better identify
-   *     array changes and update components correctly.<br>The default value is an empty callback.<br>**NOTE**<br>- (
-   *     Optional) **item**: data item.<br>(Optional) **index**: index of the data item.<br>- When **keyGenerator** is
-   *     omitted, the default function **(item: Object, index: number) => { return viewId + '-' + index.toString(); }**
-   *     is used, where key generation is affected by the index value only (**viewId** is compiler-generated and
-   *     consistent within the same **LazyForEach** component).<br>- To ensure correct and efficient child component
-   *     updates, avoiding rendering anomalies or performance degradation, keys must meet the following requirements:<br
-   *     >1. Uniqueness: Each data item must have a distinct key.<br>2. Consistency: Keys must remain unchanged for
-   *     unmodified data items.
+   *     array changes and update components correctly.
+   *     <br>The default value is an empty callback.
+   *     <br>**NOTE**
+   *     <br>- (Optional) **item**: data item.
+   *     <br>(Optional) **index**: index of the data item.
+   *     <br>- When **keyGenerator** is omitted, the default function
+   *     **(item: Object, index: number) => { return viewId + '-' + index.toString(); }** is used, where key generation
+   *     is affected by the index value only (**viewId** is compiler-generated and consistent within the same
+   *     **LazyForEach** component).
+   *     <br>- To ensure correct and efficient child component updates, avoiding rendering anomalies or performance
+   *     degradation, keys must meet the following requirements:
+   *     <br>1. Uniqueness: Each data item must have a distinct key.
+   *     <br>2. Consistency: Keys must remain unchanged for unmodified data items.
    * @returns { LazyForEachInterface } [since 7 - 11]
    * @returns { LazyForEachAttribute } [since 12]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1041,8 +1032,6 @@ interface LazyForEachInterface {
 }
 
 /**
- * > **NOTE**
- *
  * For details about the development, see
  * [LazyForEach: Lazy Data Loading](docroot://ui/rendering-control/arkts-rendering-control-lazyforeach.md).
  *
@@ -1058,4 +1047,4 @@ interface LazyForEachInterface {
  * @since 7 dynamic
  * @noninterop
  */
-declare const LazyForEach: LazyForEachInterface;
+declare const LazyForEach: LazyForEachInterface;

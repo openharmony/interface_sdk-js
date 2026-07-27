@@ -115,11 +115,12 @@ export declare interface RowAttribute extends CommonMethod {
     /**
      * Set Row options.
      *
-     * @param { RowOptions | RowOptionsV2 } [options] - Row constructor options
+     * @param { RowOptions | RowOptionsV2 } [options] - Row constructor options.
      * @returns { RowAttribute } Returns the instance of the RowAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @unpublished
      * @stagemodelonly
-     * @since 26.0.0 staticonly
+     * @since 26.1.0 staticonly
      */
     default setRowOptions(options?: RowOptions | RowOptionsV2): this;
     /**
@@ -156,11 +157,12 @@ export declare function Row(
  * Defines Row Component.
  *
  * @param { CustomBuilderT<RowAttribute> } style - the callback to set up component's attributes.
- * @param { CustomBuilder } [content_] - container
+ * @param { CustomBuilder } [content_] - container.
  * @returns { RowAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @unpublished
  * @stagemodelonly
- * @since 26.0.0 staticonly
+ * @since 26.1.0 staticonly
  * @noninterop
  */
 @Builder

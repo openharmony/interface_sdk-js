@@ -61,8 +61,9 @@ export declare interface LazyDynamicLayoutAttribute extends CommonMethod {
    * @param { LazyLayoutAlgorithm } algorithm - Lazy layout algorithm.
    * @returns { this } Returns the instance of the LazyDynamicLayoutAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @unpublished
    * @stagemodelonly
-   * @since 26.0.0 staticonly
+   * @since 26.1.0 staticonly
    */
   default setLazyDynamicLayoutOptions(algorithm: LazyLayoutAlgorithm): this;
 }
@@ -90,8 +91,9 @@ export declare function LazyDynamicLayout (
  * @param { CustomBuilder } [content_] - content
  * @returns { LazyDynamicLayoutAttribute } The attribute of the LazyDynamicLayout.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @unpublished
  * @stagemodelonly
- * @since 26.0.0 staticonly
+ * @since 26.1.0 staticonly
  * @noninterop
  */
 @Builder

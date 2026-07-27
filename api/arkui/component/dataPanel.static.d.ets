@@ -255,8 +255,9 @@ export declare interface DataPanelAttribute extends CommonMethod {
      * @param { DataPanelOptions } options - DataPanel constructor options
      * @returns { DataPanelAttribute } Returns the instance of the DataPanelAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @unpublished
      * @stagemodelonly
-     * @since 26.0.0 staticonly
+     * @since 26.1.0 staticonly
      */
     default setDataPanelOptions(options: DataPanelOptions): this;
 }
@@ -281,8 +282,9 @@ export declare function DataPanel(
  * @param { CustomBuilderT<DataPanelAttribute> } style - DataPanel attribute instance
  * @returns { DataPanelAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @unpublished
  * @stagemodelonly
- * @since 26.0.0 staticonly
+ * @since 26.1.0 staticonly
  * @noninterop
  */
 @Builder

@@ -58,8 +58,9 @@ export declare interface BlankAttribute extends CommonMethod {
      * @param { double | string } [min] - Minimum size of the Blank component in the container along the main axis.
      * @returns { BlankAttribute } Returns instance of BlankAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @unpublished
      * @stagemodelonly
-     * @since 26.0.0 staticonly
+     * @since 26.1.0 staticonly
      */
     default setBlankOptions(min?: double | string): this;
 }
@@ -85,8 +86,9 @@ export declare function Blank(
  * @param { CustomBuilderT<BlankAttribute> } style - Blank options.
  * @returns { BlankAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @unpublished
  * @stagemodelonly
- * @since 26.0.0 staticonly
+ * @since 26.1.0 staticonly
  * @noninterop
  */
 @Builder

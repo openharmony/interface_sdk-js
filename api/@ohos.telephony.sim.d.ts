@@ -2605,6 +2605,27 @@ declare namespace sim {
      * @since 23 static
      */
     showNumber: string;
+
+    /**
+     * Indicates the simLabelIndex for card.
+     * The value should be an integer.
+     *
+     * @syscap SystemCapability.Telephony.CoreService
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    simLabelIndex?: int;
+
+    /**
+     * Indicates the operatorName for card.
+     *
+     * @syscap SystemCapability.Telephony.CoreService
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    operatorName?: string;
   }
 
   /**

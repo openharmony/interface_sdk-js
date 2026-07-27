@@ -23,7 +23,10 @@ import { RecordData } from '../@ohos.base';
 /*** endif */
 
 /**
- * 表示公共事件的数据。
+ * 表示公共事件的数据。CommonEventData用于在公共事件订阅场景中承载
+ * 订阅者接收到的公共事件数据，包含事件名称、发布者包名、code数据、
+ * data数据及附加参数等信息，适用于应用订阅并处理公共事件、
+ * 解析事件携带数据的场景。
  *
  * @syscap SystemCapability.Notification.CommonEvent
  * @crossplatform [since 11]
@@ -44,7 +47,7 @@ export interface CommonEventData {
   event: string;
 
   /**
-   * 表示包名称，默认为空字符串。
+   * 表示发布公共事件的应用包名，默认为空字符串。
    *
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice [since 11]
@@ -54,9 +57,9 @@ export interface CommonEventData {
   bundleName?: string;
 
   /**
-   * 表示订阅者接收到的公共事件数据（number类型）。该字段取值与发布者使用
+   * 表示订阅者接收到的公共事件数据。该字段取值与发布者使用
    * [commonEventManager.publish]{@link ./../@ohos.commonEventManager:commonEventManager.publish(event: string, options: CommonEventPublishData, callback: AsyncCallback<void>)}
-   * 发布公共事件时，通过[CommonEventPublishData]{@link commonEventPublishData:CommonEventPublishData}中的`code`字段传递的数据一致。默认值为0。
+   * 发布公共事件时，通过[CommonEventPublishData]{@link commonEventPublishData:CommonEventPublishData}中的`code`字段传递的数据一致。取值范围[-2147483648, 2147483647]，默认值为0。
    *
    * @default 0
    * @syscap SystemCapability.Notification.CommonEvent
@@ -67,7 +70,7 @@ export interface CommonEventData {
   code?: int;
 
   /**
-   * 表示订阅者接收到的公共事件数据（string类型）。该字段取值与发布者使用
+   * 表示订阅者接收到的公共事件数据，数据大小不超过64KB。该字段取值与发布者使用
    * [commonEventManager.publish]{@link ./../@ohos.commonEventManager:commonEventManager.publish(event: string, options: CommonEventPublishData, callback: AsyncCallback<void>)}
    * 发布公共事件时，通过[CommonEventPublishData]{@link commonEventPublishData:CommonEventPublishData}中的`data`字段传递的数据一致。
    *

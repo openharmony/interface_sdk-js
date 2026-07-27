@@ -337,8 +337,9 @@ export declare interface TextPickerAttribute extends CommonMethod {
    * @param { TextPickerOptions } [options] - text picker options.
    * @returns { TextPickerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @unpublished
    * @stagemodelonly
-   * @since 26.0.0 staticonly
+   * @since 26.1.0 staticonly
    */
   default setTextPickerOptions(options?: TextPickerOptions): this;
   /**
@@ -1293,8 +1294,9 @@ export declare function TextPicker(
  * @param { CustomBuilderT<TextPickerAttribute> } style - the callback to set up component's attribute.
  * @returns { TextPickerAttribute } The attribute of the TextPicker.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @unpublished
  * @stagemodelonly
- * @since 26.0.0 staticonly
+ * @since 26.1.0 staticonly
  * @noninterop
  */
 @Builder

@@ -494,6 +494,18 @@ declare namespace avMusicTemplate {
   type FavoriteMediaEntityEvent = (actionType: MediaFavoriteType, mediaEntity: MediaEntity) => Promise<OperResult>;
 
   /**
+   * The custom command event.
+   *
+   * @param { string } command - request command.
+   * @param { string } args - arguments associated with event.
+   * @returns { Promise<OperResult> } Promise used to return OperResult.
+   * @syscap SystemCapability.Multimedia.AVSession.AVMusicTemplate
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  type CustomCommandEvent = (command: string, args: string) => Promise<OperResult>;
+
+  /**
    * AVMusicTemplate interface
    * 
    * @syscap SystemCapability.Multimedia.AVSession.AVMusicTemplate
@@ -1209,6 +1221,34 @@ declare namespace avMusicTemplate {
     offFavoriteMediaEntity(callback?: FavoriteMediaEntityEvent): void;
 
     /**
+     * Register custom command callback.
+     *
+     * @param { CustomCommandEvent } callback - The callback used to handle ('sendCustomCommand') event.
+     * @throws { BusinessError } 801 - Capability not supported.function onCustomCommand
+     *     can not work correctly due to limited device capabilities.
+     * @throws { BusinessError } 35000005 - AVMusicTemplate does not exist.
+     * @throws { BusinessError } 35000012 - AVMusicTemplate error.
+     * @syscap SystemCapability.Multimedia.AVSession.AVMusicTemplate
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    onCustomCommand(callback: CustomCommandEvent): void;
+
+    /**
+     * Unregister custom command callback.
+     *
+     * @param { CustomCommandEvent } [callback] - The callback used to handle ('sendCustomCommand') event.
+     * @throws { BusinessError } 801 - Capability not supported.function offCustomCommand
+     *     can not work correctly due to limited device capabilities.
+     * @throws { BusinessError } 35000005 - AVMusicTemplate does not exist.
+     * @throws { BusinessError } 35000012 - AVMusicTemplate error.
+     * @syscap SystemCapability.Multimedia.AVSession.AVMusicTemplate
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    offCustomCommand(callback?: CustomCommandEvent): void;
+
+    /**
      * Report user infomation to MediaUI.
      *
      * @param { UserInfo } userInfo - user information
@@ -1783,6 +1823,21 @@ declare namespace avMusicTemplate {
      * @since 23 dynamic&static
      */
     favoriteMediaEntity(actionType: MediaFavoriteType, mediaEntity: MediaEntity): Promise<OperResult>;
+
+    /**
+     * Send custom commands to AVMusicTemplate
+     *
+     * @param { string } command - The command name to be sent.
+     * @param { string } args - The parameters of command event.
+     * @returns { Promise<OperResult> } Promise used to return OperResult.
+     * @throws { BusinessError } 35000003 - Template listener not registered.
+     * @throws { BusinessError } 35000005 - AVMusicTemplate does not exist.
+     * @throws { BusinessError } 35000006 - AVMusicTemplateController does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.AVMusicTemplate
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    sendCustomCommand(command: string, args: string): Promise<OperResult>;
 
     /**
      * Register report user info callback.
@@ -2987,6 +3042,15 @@ declare namespace avMusicTemplate {
     isSupportPlayRate: boolean;
 
     /**
+     * Support extras or not.
+     *
+     * @syscap SystemCapability.Multimedia.AVSession.AVMusicTemplate
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    isSupportExtras?: boolean;
+
+    /**
      * Supported play rate.
      *
      * @type { string[] }
@@ -3709,6 +3773,15 @@ declare namespace avMusicTemplate {
      * @since 23 dynamic&static
      */
     playMode?: string;
+
+    /**
+     * extras of the Media.
+     *
+     * @syscap SystemCapability.Multimedia.AVSession.AVMusicTemplate
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    extras?: string;
   }
 
   /**
@@ -4263,7 +4336,25 @@ declare namespace avMusicTemplate {
      * @stagemodelonly
      * @since 23 dynamic&static
      */
-    PLAY_VIDEO = 'playVideo'
+    PLAY_VIDEO = 'playVideo',
+
+    /**
+     * play music list.
+     *
+     * @syscap SystemCapability.Multimedia.AVSession.AVMusicTemplate
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    PLAY_MUSIC_LIST = 'playMusicList',
+
+    /**
+     * play video list.
+     *
+     * @syscap SystemCapability.Multimedia.AVSession.AVMusicTemplate
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    PLAY_VIDEO_LIST = 'playVideoList'
   }
 
   /**

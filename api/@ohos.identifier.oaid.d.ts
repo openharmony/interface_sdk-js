@@ -38,6 +38,11 @@ declare namespace identifier {
   /**
    * Obtains the OAID. This API uses an asynchronous callback to return the result.
    *
+   * > **NOTE**
+   * >
+   * > The setting item of cross-app association access permission was named app tracking access permission 
+   * > in HarmonyOS NEXT Developer Beta5 and earlier versions.
+   * 
    * @permission ohos.permission.APP_TRACKING_CONSENT
    * @param { AsyncCallback<string> } callback - Callback used to return the OAID.
    *     1. If the app has configured the ohos.permission.APP_TRACKING_CONSENT permission and the cross-app association 
@@ -55,6 +60,11 @@ declare namespace identifier {
   /**
    * Obtains the OAID. This API uses a promise to return the result.
    *
+   * > **NOTE**
+   * >
+   * > The setting item of cross-app association access permission was named app tracking access permission 
+   * > in HarmonyOS NEXT Developer Beta5 and earlier versions.
+   * 
    * @permission ohos.permission.APP_TRACKING_CONSENT
    * @returns { Promise<string> } Promise used to return the OAID.
    *     1. If the app has configured the ohos.permission.APP_TRACKING_CONSENT

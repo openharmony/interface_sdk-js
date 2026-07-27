@@ -281,8 +281,9 @@ declare namespace hiTraceChain {
    * If the current thread's TLS already contains a valid HiTrace ID, this function does not start tracing and returns
    * an invalid HiTrace ID with all property values being 0.
    *
-   * @param { string } name - Traced service name.<br>It is recommended that the length of this parameter be less than
-   *     or equal to 63 bytes. The excess part will be truncated.
+   * @param { string } name - Traced service name.
+   *     It is recommended that the length of this parameter be less than or equal to 63 bytes. The excess part will
+   *     be truncated.
    * @param { int } flags - Trace flag combination. For details, see [HiTraceFlag]{@link hiTraceChain.HiTraceFlag}. The
    *     default value is **0**.
    * @returns { HiTraceId } **HiTraceId** instance.

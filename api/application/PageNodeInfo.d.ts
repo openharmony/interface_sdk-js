@@ -144,8 +144,9 @@ export default interface PageNodeInfo {
   rect: AutoFillRect;
 
   /**
-   * Is the page node in the focus.
-   *
+   * Is the page node in the focus. 
+   *    The value **true** means the current node is focused;
+   *    The value **false** means the current node is not focused.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi [since 12 - 24]
    * @publicapi [since 26.0.0]

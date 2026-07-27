@@ -26,7 +26,7 @@
  * @stagemodelonly
  * @since 24 staticonly
  */
-class Date {
+export class Date {
 
     /**
      * Default constructor.Initializes Date instance with current time.
@@ -41,7 +41,8 @@ class Date {
      * `Date` constructor. NOTE: Dates before `1921-01-01T00:00:00 GMT`
      * can be represented as UTC milliseconds in different ways then TS do.
      *
-     * @param { long | string | Date } value
+     * @param { long | string | Date } value - A value representing a date. Can be a timestamp in milliseconds (long), 
+     *     a date string (string), or an existing Date object (Date).
      * @syscap SystemCapability.Utils.Lang
      * @stagemodelonly
      * @since 24 staticonly
@@ -90,7 +91,6 @@ class Date {
      * or throws `RangeError` if the string is unrecognized or, in some cases,
      * contains illegal date values (e.g. 2015-02-31).
      *
-     * Only the @link{https://tc39.es/ecma262/#sec-date-time-string-format|ISO 8601 format}
      * (YYYY-MM-DDTHH:mm:ss.sssZ) is explicitly specified to be supported.
      * Other formats are implementation-defined and may not work across all browsers (targets).
      * A library can help if many different formats are to be accommodated.
@@ -117,7 +117,7 @@ class Date {
     /**
      * The `getDate()` method returns the day of the month for the specified date according to local time.
      *
-     * @returns { int }
+     * @returns { int } The day of the month (1 to 31) using local time.
      * @syscap SystemCapability.Utils.Lang
      * @stagemodelonly
      * @since 26.0.0 staticonly
@@ -139,7 +139,7 @@ class Date {
     /**
      * Returns the day of the month (from 1 to 31) in the specified date according to universal time.
      *
-     * @returns { int }
+     * @returns { int } The day of the month (1 to 31) using universal time.
      * @syscap SystemCapability.Utils.Lang
      * @stagemodelonly
      * @since 26.0.0 staticonly
@@ -159,9 +159,9 @@ class Date {
     public setUTCDate(value: int): long;
 
     /**
-     * Changes the day of the month of a given Date instance, based on UTC time.
+     * Sets the numeric day of the month in the Date object using Universal Coordinated Time (UTC).
      *
-     * @param { int } value - new day
+     * @param { int } value - The day of the week using universal time.
      *     <br>The value range is all integers.
      * @returns { long } set UTCDay
      * @syscap SystemCapability.Utils.Lang
@@ -172,9 +172,9 @@ class Date {
 
     /**
      * Returns the day of the week for the specified date according to local time,
-     * where 0 represents Sunday. For the day of the month, see @link{getDayOfMonth}.
+     * where 0 represents Sunday.
      *
-     * @returns { int } get day
+     * @returns { int } The day of the week (0 for Sunday, 1 for Monday, ..., 6 for Saturday).
      * @syscap SystemCapability.Utils.Lang
      * @stagemodelonly
      * @since 26.0.0 staticonly
@@ -184,7 +184,7 @@ class Date {
     /**
      * Returns the day of the week in the specified date according to universal time, where 0 represents Sunday.
      *
-     * @returns { int } get UTCday
+     * @returns { int } The day of the week (0 for Sunday, 1 for Monday, ..., 6 for Saturday)
      * @syscap SystemCapability.Utils.Lang
      * @stagemodelonly
      * @since 26.0.0 staticonly
@@ -192,9 +192,9 @@ class Date {
     public getUTCDay(): int;
 
     /**
-     * Returns the day of the week in the specified date according to universal time, where 0 represents Sunday.
+     * Returns the year of the specified date according to local time.
      *
-     * @returns { int } get Year
+     * @returns { int } The year value.
      * @syscap SystemCapability.Utils.Lang
      * @stagemodelonly
      * @since 26.0.0 staticonly
@@ -202,7 +202,7 @@ class Date {
     public getYear(): int;
 
     /**
-     * Returns the year of the specified date according to local time.
+     * Returns the year of the specified date according to universal time.
      * For dates between the years 1000 and 9999, `getUTCFullYear()` returns a four-digit number,
      * for example, 1995. Use this function to make sure a year is compliant with years after 2000.
      *
@@ -217,7 +217,6 @@ class Date {
      * Returns the year of the specified date according to local time.
      * For dates between the years 1000 and 9999, `getFullYear()` returns a four-digit number,
      * for example, 1995. Use this function to make sure a year is compliant with years after 2000.
-     * ets const today = new Date(); const year = today.getYearFull();
      *
      * @returns { int } get fullyear
      * @syscap SystemCapability.Utils.Lang
@@ -323,10 +322,8 @@ class Date {
 
     /**
      * Returns the hour for the specified date, according to local time. 
-     * const today = new Date(); 
-     * const hours = today.getHour(); 
      *
-     * @returns { int } get new date hour value
+     * @returns { int } The hour (0 to 23) for the specified date according to local time.
      * @syscap SystemCapability.Utils.Lang
      * @stagemodelonly
      * @since 26.0.0 staticonly
@@ -336,7 +333,7 @@ class Date {
     /**
      * Returns the hours in the specified date according to universal time.
      *
-     * @returns { int } get new date hour value
+     * @returns { int } The hour (0 to 23) for the specified date according to universal time.
      * @syscap SystemCapability.Utils.Lang
      * @stagemodelonly
      * @since 26.0.0 staticonly
@@ -466,7 +463,7 @@ class Date {
     /**
      * Returns the milliseconds in the specified date according to local time.
      *
-     * @returns { int }
+     * @returns { int } The milliseconds (0 to 999) for the specified date according to local time.
      * @syscap SystemCapability.Utils.Lang
      * @stagemodelonly
      * @since 26.0.0 staticonly
@@ -738,7 +735,7 @@ class Date {
      * Returns the month in the specified date according to local time,
      * as a zero-based value (where zero indicates the first month of the year).
      *
-     * @returns { int } get new date value
+     * @returns { int } The month (0 to 11), where 0 represents January and 11 represents December.
      * @syscap SystemCapability.Utils.Lang
      * @stagemodelonly
      * @since 26.0.0 staticonly
@@ -823,8 +820,8 @@ class Date {
      * Sets the number of milliseconds since the epoch,
      * which is defined as the midnight at the beginning of January 1, 1970, UTC.
      *
-     * @param { long } value - new ms
-     * @returns { long } get new date value
+     * @param { long } value - new time in milliseconds.
+     * @returns { long } The number of milliseconds since the epoch.
      * @syscap SystemCapability.Utils.Lang
      * @stagemodelonly
      * @since 26.0.0 staticonly
@@ -835,7 +832,7 @@ class Date {
      * Returns the difference, in minutes, between a date as
      * evaluated in the UTC time zone, and the same date as evaluated in the local time zone.
      *
-     * @returns { long } get new date value
+     * @returns { long } The timezone offset in minutes (negative for time zones ahead of UTC).
      * @syscap SystemCapability.Utils.Lang
      * @stagemodelonly
      * @since 26.0.0 staticonly
@@ -846,12 +843,154 @@ class Date {
      * Sets the difference, in minutes, between a date as
      * evaluated in the UTC time zone, and the same date as evaluated in the local time zone.
      *
-     * @param { int } value - new timezone offset
+     * @param { int } value - The timezone offset in minutes from UTC.
      *     <br>The value range is all integers.
-     * @returns { long } get new date value
+     * @returns { long } The new time value in milliseconds.
      * @syscap SystemCapability.Utils.Lang
      * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public setTimezoneOffset(value: int): long;
+
+    /**
+     * Checks if the constructed date is valid.
+     *
+     * @returns { boolean } true if the date is valid.
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    public isDateValid(): boolean;
+
+    /**
+     * Gets local time offset.
+     *
+     * @param { long } ms - the time in milliseconds.
+     * @returns { long } The local time offset.
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    public static getLocalTimezoneOffset(ms: long): long;
+
+    /**
+     * Gets time zone name.
+     *
+     * @param { long } ms - the time in milliseconds.
+     * @returns { string } The time zone name.
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    public static getTimezoneName(ms: long): string;
+
+    /**
+     * Gets a language-sensitive representation of the time portion of the date.
+     *
+     * @returns { string } The localized time string.
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    public toLocaleTimeString(): string;
+
+    /**
+     * Gets a language-sensitive representation of the time portion of the date.
+     *
+     * @param { Intl.LocalesArgument } [locales] - the locale.
+     * @param { Intl.DateTimeFormatOptions } [options] - the format options.
+     * @returns { string } The localized time string.
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    public toLocaleTimeString(locales?: Intl.LocalesArgument,
+        options?: Intl.DateTimeFormatOptions): string;
+
+    /**
+     * Returns a string representing the elements of the array. The elements are converted to Strings using their
+     * toLocaleString methods.
+     *
+     * @param { Intl.LocalesArgument } [locales] - A string with a BCP 47 language tag, or an
+     *     array of such strings.
+     * @param { object } [options] - An object with configuration properties.
+     * @returns { string } A string representing the elements of the array.
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    public toLocaleString(locales?: Intl.LocalesArgument, options?: object): string;
+
+    /**
+     * Gets a language-sensitive representation of the date portion.
+     *
+     * @param { Intl.LocalesArgument } [locales] - the locale.
+     * @param { Intl.DateTimeFormatOptions } [options] - the format options.
+     * @returns { string } The localized date string.
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    public toLocaleDateString(locales?: Intl.LocalesArgument,
+        options?: Intl.DateTimeFormatOptions): string;
+
+    /**
+     * Returns a string in ISO 8601 format according to universal time.
+     *
+     * @returns { string } The ISO 8601 formatted string.
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    public toISOString(): string;
+
+    /**
+     * Returns a JSON representation of the date.
+     *
+     * @returns { string | null } The JSON string or null if invalid.
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    public toJSON(): string | null;
+
+    /**
+     * Returns the time portion of the date in English.
+     *
+     * @returns { string } The time string.
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    public toTimeString(): string;
+
+    /**
+     * Returns the date portion of the date in English.
+     *
+     * @returns { string } The date string.
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    public toDateString(): string;
+
+    /**
+     * Returns a string representing the Date object.
+     *
+     * @returns { string } The string representation.
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    public toString(): string;
+
+    /**
+     * Returns a string representing the Date object in UTC.
+     *
+     * @returns { string } The UTC string representation.
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    public toUTCString(): string;
 }

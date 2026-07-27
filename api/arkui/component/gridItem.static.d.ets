@@ -161,8 +161,9 @@ export declare interface GridItemAttribute extends CommonMethod {
    * @param { GridItemOptions } [value] - GridItem constructor options
    * @returns { GridItemAttribute } Returns the instance of the GridItemAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @unpublished
    * @stagemodelonly
-   * @since 26.0.0 staticonly
+   * @since 26.1.0 staticonly
    */
   default setGridItemOptions(value?: GridItemOptions): this;
 
@@ -202,8 +203,9 @@ export declare function GridItem(
  * @param { CustomBuilder } [content_]
  * @returns { GridItemAttribute } The attribute of the GridItem.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @unpublished
  * @stagemodelonly
- * @since 26.0.0 staticonly
+ * @since 26.1.0 staticonly
  * @noninterop
  */
 @Builder

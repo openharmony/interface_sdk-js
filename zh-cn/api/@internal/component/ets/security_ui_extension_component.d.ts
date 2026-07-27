@@ -14,14 +14,13 @@
  */
 
 /**
- * @file
+ * @file System API
  * @kit ArkUI
  */
 
 /**
- * 不同类型的DpiFollowStrategy的枚举类型。
+ * 定义SecurityUIExtensionComponent内容分辨率跟随策略的枚举。
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @stagemodelonly
@@ -29,7 +28,7 @@
  */
 declare enum SecurityDpiFollowStrategy {
   /**
-   * 跟随宿主DPI。
+   * 表示分辨率跟随宿主。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -39,20 +38,19 @@ declare enum SecurityDpiFollowStrategy {
   FOLLOW_HOST_DPI = 0,
 
   /**
-   * 跟随UIExtensionAbility。
+   * 表示分辨率跟随UIExtensionAbility。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
    * @since 26.0.0 dynamic
    */
-  FOLLOW_UI_EXTENSION_ABILITY_DPI = 1,
+  FOLLOW_UI_EXTENSION_ABILITY_DPI = 1
 }
 
 /**
- * 该接口用于在构造时设置UIExtensionComponentAttribute的选项。
+ * 用于构造SecurityUIExtensionComponent时传递参数。
  *
- * @interface SecurityUIExtensionOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @stagemodelonly
@@ -60,10 +58,12 @@ declare enum SecurityDpiFollowStrategy {
  */
 declare interface SecurityUIExtensionOptions {
   /**
-   * 设置当前能力是否作为调用方使用。<br/>
-   * 如果设置为true，作为调用方，当前UIExtensionComponent的token被设置为rootToken。
+   * 在使用SecurityUIExtensionComponent嵌套时，设置当前组件是否转发上一级调用方的Caller信息（即发起调用的Ability身份信息），用于支持多级嵌套场景下的调用链传递。<br/>
+   * true：转发上一级的Caller信息；false：不转发上一级的Caller信息。<br/>
+   * 默认值：**false**
    *
-   * @type { ?boolean }
+   * 默认值：**false**
+   *
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -73,10 +73,8 @@ declare interface SecurityUIExtensionOptions {
   isTransferringCaller?: boolean;
 
   /**
-   * 设置占位。
-   * 如果设置了占位ComponentContent，则在连接未建立时显示占位节点。
+   * 设置占位符，在SecurityUIExtensionComponent与UIExtensionAbility建立连接前显示。未设置时不显示占位符。
    *
-   * @type { ?ComponentContent }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -85,9 +83,10 @@ declare interface SecurityUIExtensionOptions {
   placeholder?: ComponentContent;
 
   /**
-   * 设置UIExtensionComponent内容的DPI跟随策略。
+   * 设置SecurityUIExtensionComponent内容分辨率跟随策略，用于控制嵌入的UIExtensionAbility内容是跟随宿主应用的分辨率还是使用自身的分辨率。
    *
-   * @type { ?SecurityDpiFollowStrategy }
+   * 默认值：**FOLLOW_UI_EXTENSION_ABILITY_DPI**
+   *
    * @default SecurityDpiFollowStrategy.FOLLOW_UI_EXTENSION_ABILITY_DPI
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -98,9 +97,8 @@ declare interface SecurityUIExtensionOptions {
 }
 
 /**
- * 表示嵌入式UI的提供方终止时的信息。
+ * 用于表示被拉起的UIExtensionAbility正常退出时的返回结果。
  *
- * @interface TerminationInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @stagemodelonly
@@ -108,34 +106,29 @@ declare interface SecurityUIExtensionOptions {
  */
 declare interface TerminationInfo {
   /**
-   * 定义终止码。
+   * 被拉起的UIExtensionAbility退出时返回的结果码，0表示正常退出，非0表示异常退出。具体结果码含义由被拉起的UIExtensionAbility定义。
    *
-   * @type { int }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
    * @since 26.0.0 dynamic
    */
-   code: int;
+  code: int;
 
   /**
-   * 定义额外的终止信息。
+   * 被拉起UIExtensionAbility退出时返回的数据。未返回数据时该字段为空。
    *
-   * @type { ?import('../api/@ohos.app.ability.Want').default }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
    * @since 26.0.0 dynamic
    */
-   want?: import('../api/@ohos.app.ability.Want').default;
+  want?: import('../api/@ohos.app.ability.Want').default;
 }
 
 /**
- * 该接口用于向UIExtensionAbility发送数据。<br/>
- * 当UIExtensionAbility连接成功时，<br/>
- * 它从UIExtensionComponent的onRemoteReady回调中返回。
+ * 用于在双方建立连接成功后，向被拉起的Ability发送数据，以及订阅和取消订阅事件回调。
  *
- * @interface SecurityUIExtensionProxy
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @stagemodelonly
@@ -143,9 +136,9 @@ declare interface TerminationInfo {
  */
 declare interface SecurityUIExtensionProxy {
   /**
-   * 该接口用于向UIExtensionAbility发送数据。
+   * 用于在双方建立连接成功后，向被拉起的Ability发送数据，提供异步发送能力。数据将被扩展Ability通过setReceiveDataCallback接收处理。
    *
-   * @param { Record<string, Object> } data
+   * @param { Record<string, Object> } data - 异步发送给被拉起的Ability的数据。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -154,10 +147,10 @@ declare interface SecurityUIExtensionProxy {
   send(data: Record<string, Object>): void;
 
   /**
-   * 该接口用于向UIExtensionAbility发送数据，并以阻塞方式等待结果。
+   * 用于在双方建立连接成功后，向被拉起的Ability同步发送数据，数据将被拉起的Ability通过setReceiveDataForResultCallback处理并返回结果。
    *
-   * @param { Record<string, Object> } data - 发送给UIExtensionAbility的数据。
-   * @returns { Record<string, Object> } data - 从UIExtensionAbility传输回来的数据。
+   * @param { Record<string, Object> } data - 同步发送给被拉起的Ability的数据。
+   * @returns { Record<string, Object> } 被拉起的Ability对同步发送请求处理后返回的响应数据。
    * @throws { BusinessError } 100011 - 没有注册响应该请求的回调。
    * @throws { BusinessError } 100012 - 传输数据失败。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -168,10 +161,10 @@ declare interface SecurityUIExtensionProxy {
   sendSync(data: Record<string, Object>): Record<string, Object>;
 
   /**
-   * 注册监听器，监听UIExtensionAbility注册的异步数据接收回调。
+   * 在双方建立连接成功后，订阅被拉起的Ability异步注册时触发的回调。使用callback异步回调。
    *
-   * @param { 'asyncReceiverRegister' } type - 表示事件的类型。
-   * @param { Callback<UIExtensionProxy> } callback - 监听事件的回调。
+   * @param { 'asyncReceiverRegister' } type - 固定填'asyncReceiverRegister'，代表订阅被拉起的Ability异步注册时触发的回调。
+   * @param { Callback<UIExtensionProxy> } callback - 回调函数。订阅被拉起的Ability注册setReceiveDataCallback后触发的回调。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -180,10 +173,10 @@ declare interface SecurityUIExtensionProxy {
   on(type: 'asyncReceiverRegister', callback: Callback<UIExtensionProxy>): void;
 
   /**
-   * 注册监听器，监听UIExtensionAbility注册的同步数据接收回调。
+   * 在双方建立连接成功后，订阅被拉起的Ability同步注册时触发的回调。使用callback异步回调。
    *
-   * @param { 'syncReceiverRegister' } type - 表示事件的类型。
-   * @param { Callback<UIExtensionProxy> } callback - 监听事件的回调。
+   * @param { 'syncReceiverRegister' } type - 固定填'syncReceiverRegister'，代表订阅被拉起的Ability同步注册时触发的回调。
+   * @param { Callback<UIExtensionProxy> } callback - 回调函数。被拉起的Ability注册setReceiveDataForResultCallback后触发的回调。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -192,10 +185,10 @@ declare interface SecurityUIExtensionProxy {
   on(type: 'syncReceiverRegister', callback: Callback<UIExtensionProxy>): void;
 
   /**
-   * 注销监听器，该监听器监听UIExtensionAbility注册的异步数据接收回调。
+   * 取消订阅被拉起的Ability异步注册时触发的回调。使用callback异步回调。
    *
-   * @param { 'asyncReceiverRegister' } type - 监听事件的类型。
-   * @param { Callback<UIExtensionProxy> } [callback] - 监听事件的回调。
+   * @param { 'asyncReceiverRegister' } type - 固定填'asyncReceiverRegister'，取消订阅被拉起的Ability异步注册时触发的回调。
+   * @param { Callback<UIExtensionProxy> } [callback] - 回调函数。为空时取消订阅所有异步注册的回调。非空时取消订阅指定的异步注册回调。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -204,10 +197,10 @@ declare interface SecurityUIExtensionProxy {
   off(type: 'asyncReceiverRegister', callback?: Callback<UIExtensionProxy>): void;
 
   /**
-   * 注销监听器，该监听器监听UIExtensionAbility注册的同步数据接收回调。
+   * 取消订阅被拉起的Ability同步注册时触发的回调。使用callback异步回调。
    *
-   * @param { 'syncReceiverRegister' } type - 监听事件的类型。
-   * @param { Callback<UIExtensionProxy> } [callback] - 监听事件的回调。
+   * @param { 'syncReceiverRegister' } type - 固定填'syncReceiverRegister'，取消订阅被拉起的Ability同步注册时触发的回调。
+   * @param { Callback<UIExtensionProxy> } [callback] - 回调函数。为空时取消订阅所有同步注册的回调。非空时取消订阅指定的同步注册回调。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -217,10 +210,10 @@ declare interface SecurityUIExtensionProxy {
 }
 
 /**
- * 提供UIExtensionComponent的接口，用于<br/>
- * 渲染远程UIExtensionAbility的UI。
+ * **SecurityUIExtensionComponent**用于将其他应用提供的UI嵌入到当前页面中。显示的内容运行在另一个进程中，当前应用不参与其布局和渲染。
  *
- * @interface SecurityUIExtensionComponentInterface
+ * 通常用于需要进程隔离的模块化开发场景。目前，**SecurityUIExtensionComponent**只能启动[PhotoPicker]{@link @ohos.file.PhotoPickerComponent}类型的**UIExtensionAbility**。
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @stagemodelonly
@@ -228,11 +221,13 @@ declare interface SecurityUIExtensionProxy {
  */
 interface SecurityUIExtensionComponentInterface {
   /**
-   * 构造UIExtensionComponent。<br/>
-   * 在使用UIExtensionComponent时调用。
+   * 创建**SecurityUIExtensionComponent**组件，用于嵌入显示远程**UIExtensionAbility**提供的UI。
    *
-   * @param { import('../api/@ohos.app.ability.Want').default } want - 表示UIExtensionAbility的Want
-   * @param { SecurityUIExtensionOptions } [options] - UIExtensionComponentAttribute的构造配置
+   * @param { import('../api/@ohos.app.ability.Want').default } want - 要加载的Ability信息。
+   * 通过bundleName和abilityName共同确定被拉起的UIExtensionAbility，
+   * 同时需要在parameters中配置ability.want.params.uiExtensionType字段指定UIExtensionAbility的类型，
+   * 当前仅支持'sysPicker/photoPicker'。
+   * @param { SecurityUIExtensionOptions } [options] - 用于构造**SecurityUIExtensionComponent**的参数。不填时各字段使用默认值。
    * @returns { SecurityUIExtensionComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -246,9 +241,10 @@ interface SecurityUIExtensionComponentInterface {
 }
 
 /**
- * 定义UIExtensionComponent的属性函数。
+   * 支持[通用属性]{@link ./common}。
  *
- * @extends CommonMethod<SecurityUIExtensionComponentAttribute>
+ * 支持以下事件：
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @stagemodelonly
@@ -256,11 +252,11 @@ interface SecurityUIExtensionComponentInterface {
  */
 declare class SecurityUIExtensionComponentAttribute extends CommonMethod<SecurityUIExtensionComponentAttribute> {
   /**
-   * 当远程UIExtensionAbility对象准备好接收数据时<br/>
-   * 回调。
+   * UIExtensionAbility连接完成时触发的回调，使用callback异步回调。之后可通过返回的[SecurityUIExtensionProxy]{@link SecurityUIExtensionProxy}向被拉起的Ability发送数据。
    *
-   * @param { import('../api/@ohos.base').Callback<SecurityUIExtensionProxy> } callback
-   *     当远程UIExtensionAbility对象准备好接收数据时调用
+   * @param { import('../api/@ohos.base').Callback<SecurityUIExtensionProxy> } callback - 回调函数，
+   * 入参为SecurityUIExtensionProxy，
+   * 可用于向对端Ability发送数据及事件订阅。
    * @returns { SecurityUIExtensionComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -272,10 +268,9 @@ declare class SecurityUIExtensionComponentAttribute extends CommonMethod<Securit
   ): SecurityUIExtensionComponentAttribute;
 
   /**
-   * 当接收到来自UIExtensionAbility的数据时回调。
+   * 收到被拉起的Ability发送的数据时触发的回调。使用callback异步回调。
    *
-   * @param { import('../api/@ohos.base').Callback<{ [key: string]: Object }> } callback
-   *     当接收到来自UIExtensionAbility的数据时调用。
+   * @param { import('../api/@ohos.base').Callback<{ [key: string]: Object }> } callback - 回调函数，返回收到的来自对端Ability的数据。
    * @returns { SecurityUIExtensionComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -287,10 +282,9 @@ declare class SecurityUIExtensionComponentAttribute extends CommonMethod<Securit
   ): SecurityUIExtensionComponentAttribute;
 
   /**
-   * 当发生某些错误时回调，除了与UIExtensionAbility断开连接之外。
+   * 被拉起的UIExtensionAbility在运行过程中发生异常时触发的回调，不包含与UIExtensionAbility断开连接场景。使用callback异步回调。
    *
-   * @param { import('../api/@ohos.base').ErrorCallback } callback
-   *     当发生某些错误时调用，除了与UIExtensionAbility断开连接之外。
+   * @param { import('../api/@ohos.base').ErrorCallback } callback - 回调函数，入参用于接收异常信息。
    * @returns { SecurityUIExtensionComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -302,9 +296,9 @@ declare class SecurityUIExtensionComponentAttribute extends CommonMethod<Securit
   ): SecurityUIExtensionComponentAttribute;
 
   /**
-   * 当嵌入式UI的提供方终止时调用。
+   * 被拉起的UIExtensionAbility通过调用[terminateSelfWithResult]{@link ../../../application/UIAbilityContext:UIAbilityContext#terminateSelfWithResult(parameter: AbilityResult, callback: AsyncCallback<void>)}或[terminateSelf]{@link ../../../application/UIAbilityContext:UIAbilityContext#terminateSelf(callback: AsyncCallback<void>)}正常退出时触发此回调。使用callback异步回调。
    *
-   * @param { Callback<TerminationInfo> } callback
+   * @param { Callback<TerminationInfo> } callback - 回调函数，入参用于接收UIExtensionAbility的返回结果。
    * @returns { SecurityUIExtensionComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -315,9 +309,14 @@ declare class SecurityUIExtensionComponentAttribute extends CommonMethod<Securit
 }
 
 /**
- * 定义SecurityUIExtensionComponent组件。
+ * **SecurityUIExtensionComponent**用于将其他应用提供的UI嵌入到当前页面中。显示的内容运行在另一个进程中，当前应用不参与其布局和渲染。
  *
- * @type { SecurityUIExtensionComponentInterface }
+ * 通常用于需要进程隔离的模块化开发场景。目前，**SecurityUIExtensionComponent**只能启动[PhotoPicker]{@link @ohos.file.PhotoPickerComponent}类型的**UIExtensionAbility**。
+ *
+ * ###### 子组件
+ *
+ * 无
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @stagemodelonly
@@ -326,9 +325,8 @@ declare class SecurityUIExtensionComponentAttribute extends CommonMethod<Securit
 declare const SecurityUIExtensionComponent: SecurityUIExtensionComponentInterface;
 
 /**
- * 定义UIExtensionComponent组件实例。
+ * 定义SecurityUIExtensionComponent组件实例。
  *
- * @type { SecurityUIExtensionComponentAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @stagemodelonly

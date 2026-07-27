@@ -14,8 +14,6 @@
  */
 
 /**
- * Defines the base class for ComponentContent and NodeContent.
- *
  * @file
  * @kit ArkUI
  */
@@ -29,4 +27,5 @@
  * @atomicservice
  * @since 12 dynamic
  */
-export abstract class Content {}
+export abstract class Content {
+}

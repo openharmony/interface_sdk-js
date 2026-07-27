@@ -87,11 +87,12 @@ export declare interface StackAttribute extends CommonMethod {
     /**
      * Set Stack options.
      *
-     * @param { StackOptions } [options] - Stack constructor options
+     * @param { StackOptions } [options] - Stack constructor options.
      * @returns { StackAttribute } Returns the instance of the StackAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @unpublished
      * @stagemodelonly
-     * @since 26.0.0 staticonly
+     * @since 26.1.0 staticonly
      */
     default setStackOptions(options?: StackOptions): this;
     /**
@@ -128,11 +129,12 @@ export declare function Stack(
  * Defines Stack Component.
  *
  * @param { CustomBuilderT<StackAttribute> } style - the callback to set up component's attributes.
- * @param { CustomBuilder } [content_] - container
+ * @param { CustomBuilder } [content_] - container.
  * @returns { StackAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @unpublished
  * @stagemodelonly
- * @since 26.0.0 staticonly
+ * @since 26.1.0 staticonly
  * @noninterop
  */
 @Builder

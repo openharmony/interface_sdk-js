@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -24,7 +24,7 @@ import Context from './application/BaseContext';
 
 /**
  * The **BackgroundTaskManager** module provides APIs to manage background tasks.
- * 
+ *
  * If a service needs to be continued when the application or service module is running in the background (not visible 
  * to users), the application or service module can request a transient task to delay the suspension or a continuous 
  * task to prevent the suspension.

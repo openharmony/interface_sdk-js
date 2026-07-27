@@ -2094,8 +2094,9 @@ export declare interface CanvasAttribute extends CommonMethod {
    * @param { ImageAIOptions } [imageAIOptions] - Options for AI analyzer.
    * @returns { CanvasAttribute } Returns instance of CanvasAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @unpublished
    * @stagemodelonly
-   * @since 26.0.0 staticonly
+   * @since 26.1.0 staticonly
    */
   default setCanvasOptions(context?: CanvasRenderingContext2D | DrawingRenderingContext, imageAIOptions?: ImageAIOptions): this;
   /**
@@ -2104,8 +2105,9 @@ export declare interface CanvasAttribute extends CommonMethod {
    * @param { CanvasParams } params - Parameters for creating Canvas.
    * @returns { CanvasAttribute } Returns instance of CanvasAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @unpublished
    * @stagemodelonly
-   * @since 26.0.0 staticonly
+   * @since 26.1.0 staticonly
    */
   default setCanvasOptions(params: CanvasParams): this;
   /**
@@ -2159,8 +2161,9 @@ export declare function Canvas(
  * @param { CustomBuilderT<CanvasAttribute> } style_ - Canvas attribute instance.
  * @returns { CanvasAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @unpublished
  * @stagemodelonly
- * @since 26.0.0 staticonly
+ * @since 26.1.0 staticonly
  * @noninterop
  */
 @Builder

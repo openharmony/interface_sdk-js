@@ -124,8 +124,9 @@ export declare interface CalendarPickerAttribute extends CommonMethod {
    * @param { CalendarOptions } [options] - calendar options.
    * @returns { CalendarPickerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @unpublished
    * @stagemodelonly
-   * @since 26.0.0 staticonly
+   * @since 26.1.0 staticonly
    */
   default setCalendarPickerOptions(options?: CalendarOptions): this;
   /**
@@ -420,8 +421,9 @@ export declare function CalendarPicker(
  * @param { CustomBuilderT<CalendarPickerAttribute> } style - the callback to set up component's attribute.
  * @returns { CalendarPickerAttribute } The attribute of the CalendarPicker.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @unpublished
  * @stagemodelonly
- * @since 26.0.0 staticonly
+ * @since 26.1.0 staticonly
  * @noninterop
  */
 @Builder

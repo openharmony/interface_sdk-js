@@ -3592,6 +3592,18 @@ declare namespace wifiManager {
      * @since 23 static
      */
     isSecureWifi?: boolean;
+
+    /**
+     * Whether to show a dialog when the first network probe detects no internet.
+     * If false, the default network is bound to cellular with no dialog shown.
+     * If true, will show a no-internet dialog prompts the user to select the default network binding.
+     * Default value: true.
+     * 
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    showNoInternetDialog?: boolean;
   }
 
   /**
@@ -4812,7 +4824,7 @@ declare namespace wifiManager {
   
     /**
      * Whether to add the network to the system for connection.
-     * Default is false, if set to ture, the network will be added to the system
+     * Default is false, if set to true, the network will be added to the system
      * before connection and cannot be retrieved again.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @stagemodelonly
@@ -5641,7 +5653,7 @@ declare namespace wifiManager {
   /**
    * Query whether Wi-Fi is available
    *
-   * @returns { boolean } Returns {@code true} if the Wi-Fi is abailable, returns {@code false} otherwise.
+   * @returns { boolean } Returns {@code true} if the Wi-Fi is available, returns {@code false} otherwise.
    * @throws { BusinessError } 2401000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.Core
    * @stagemodelonly

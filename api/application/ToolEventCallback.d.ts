@@ -22,9 +22,9 @@
 import { CliToolEvent } from './CliToolEvent';
 
 /**
- *  Define cli event callback function.
+ *  Defines cli event callback function.
  *
- * @param { CliToolEvent } event - The event send by cli tool.
+ * @param { CliToolEvent } event - The event sent by cli tool.
  * @syscap SystemCapability.Ability.AgentRuntime.Core
  * @systemapi
  * @stagemodelonly

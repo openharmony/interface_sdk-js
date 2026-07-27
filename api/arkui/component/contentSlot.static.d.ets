@@ -53,8 +53,9 @@ export declare interface ContentSlotAttribute {
    * @param { Content } content - Content to display.
    * @returns { this } ContentSlotAttribute instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @unpublished
    * @stagemodelonly
-   * @since 26.0.0 staticonly
+   * @since 26.1.0 staticonly
    */
   setContentSlotOptions(content: Content): this;
 
@@ -62,8 +63,9 @@ export declare interface ContentSlotAttribute {
    * Notify ContentSlot has finished setting up its attributes.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @unpublished
    * @stagemodelonly
-   * @since 26.0.0 staticonly
+   * @since 26.1.0 staticonly
    */
   applyAttributesFinish(): void;
 }
@@ -90,8 +92,9 @@ export declare function ContentSlot(
  * @param { CustomBuilderT<ContentSlotAttribute> } style - the callback to set up ContentSlot's attributes.
  * @returns { ContentSlotAttribute } The attribute of the ContentSlot.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @unpublished
  * @stagemodelonly
- * @since 26.0.0 staticonly
+ * @since 26.1.0 staticonly
  */
 @Builder
 export declare function ContentSlot(

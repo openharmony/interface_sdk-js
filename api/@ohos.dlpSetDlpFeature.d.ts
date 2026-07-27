@@ -19,8 +19,10 @@
  */
 
 /**
- * This module controls the Data Loss Prevention (DLP) feature, including enabling or disabling DLP and returning the 
- * DLP status.
+ * 
+ * This module provides APIs for controlling the Data Loss Prevention (DLP) feature, including enabling or disabling
+ * the DLP feature and returning the DLP status. It helps enterprises meet data security compliance requirements and
+ * implement access control and encryption protection for confidential files.
  * 
  * **Use scenarios**
  * 

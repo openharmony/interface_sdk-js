@@ -151,6 +151,36 @@ export interface DeviceResponse {
   apiVersion: number;
 
   /**
+   * Minor API version of the system software.
+   * From API 26 and later versions, the system API version format is
+   * sdkApiVersion.sdkMinorApiVersion.sdkPatchApiVersion.
+   * Example: 26.0.0
+   * Value range: (-∞,+∞).
+   *
+   * @syscap SystemCapability.Startup.SystemInfo.Lite
+   * @famodelonly
+   * @since 26.0.0 dynamiconly
+   * @deprecated since 26.0.0
+   * @reserved ["liteWearable"]
+   */
+  sdkMinorApiVersion: number;
+
+  /**
+   * Minor API version of the system software.
+   * From API 26 and later versions, the system API version format is
+   * sdkApiVersion.sdkMinorApiVersion.sdkPatchApiVersion.
+   * Example: 26.0.0
+   * Value range: (-∞,+∞).
+   *
+   * @syscap SystemCapability.Startup.SystemInfo.Lite
+   * @famodelonly
+   * @since 26.0.0 dynamiconly
+   * @deprecated since 26.0.0
+   * @reserved ["liteWearable"]
+   */
+  sdkPatchApiVersion: number;
+
+  /**
    * Device type. The options are as follows:
    * phone: smartphone
    * tablet: tablet

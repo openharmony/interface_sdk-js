@@ -179,7 +179,7 @@ declare namespace backgroundTaskManager {
      * API. If notifications need to be combined for an existing task, request the task again and set the value to 
      * **true**.
      *
-     * @returns { boolean | undefined } whethre to merge notifications.
+     * @returns { boolean | undefined } whether to merge notifications.
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @stagemodelonly
      * @since 24 static
@@ -2541,16 +2541,6 @@ declare namespace backgroundTaskManager {
      * @since 26.0.0 dynamic&static
      */
     SYSTEM_CANCEL_DATA_TRANSFER_LOW_SPEED = 4,
-  
-    /**
-     * A continuous task of the **AUDIO_PLAYBACK** type is requested, but 
-     * [AVSession](docroot://media/avsession/avsession-overview.md) is not accessed.
-     *
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    SYSTEM_CANCEL_AUDIO_PLAYBACK_NOT_USE_AVSESSION = 5,
   
     /**
      * A continuous task of the **AUDIO_PLAYBACK** type is requested, but the audio and video are not played.

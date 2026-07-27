@@ -211,8 +211,9 @@ export declare interface MenuItemAttribute extends CommonMethod {
      * @param { MenuItemOptions | CustomBuilder } [value] - menuitem constructor options
      * @returns { MenuItemAttribute } Returns the instance of the MenuItemAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @unpublished
      * @stagemodelonly
-     * @since 26.0.0 staticonly
+     * @since 26.1.0 staticonly
      */
     default setMenuItemOptions(value?: MenuItemOptions | CustomBuilder): this;
  }
@@ -240,8 +241,9 @@ export declare function MenuItem(
  * @param { CustomBuilder } [content_] - container
  * @returns { MenuItemAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @unpublished
  * @stagemodelonly
- * @since 26.0.0 staticonly
+ * @since 26.1.0 staticonly
  * @noninterop
  */
 @Builder

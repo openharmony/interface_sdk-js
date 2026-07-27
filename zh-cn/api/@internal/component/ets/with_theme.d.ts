@@ -30,7 +30,7 @@
 declare type CustomTheme = import('../api/@ohos.arkui.theme').CustomTheme;
 
 /**
- * 设置WithTheme作用域内组件缺省样式及深浅色模式。
+ * 设置WithTheme作用域内组件默认配色及深浅色模式。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -41,9 +41,9 @@ declare type CustomTheme = import('../api/@ohos.arkui.theme').CustomTheme;
 declare interface WithThemeOptions {
 
   /**
-   * 用于自定义WithTheme作用域内组件缺省配色。 
+   * 用于设置WithTheme作用域内组件的自定义主题配色。
    * 
-   * 默认值：undefined，缺省样式跟随系统[token默认样式](docroot://ui/theme_skinning.md#系统缺省token色值)。
+   * 默认值：undefined，默认配色跟随系统[token默认样式](docroot://ui/theme_skinning.md#系统缺省token色值)。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -54,7 +54,7 @@ declare interface WithThemeOptions {
   theme?: CustomTheme;
 
   /**
-   * 用于指定WithTheme作用域内组件配色深浅色模式。
+   * 用于指定WithTheme作用域内组件配色的深浅色模式。
    * 
    * 默认值：ThemeColorMode.SYSTEM
    *

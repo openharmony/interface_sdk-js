@@ -34,7 +34,7 @@ import type { RecordData } from './@ohos.base'
  * example, [Crash Event Overview](docroot://dfx/hiappevent-watcher-crash-events.md).
  *
  * Application events are defined by application developers and can be customized using the
- * [Write]{@link hiAppEvent.write(info: AppEventInfo)} API as required.
+ * [Write]{@link hiAppEvent.write} API as required.
  *
  * @syscap SystemCapability.HiviewDFX.HiAppEvent
  * @crossplatform [since 19]
@@ -330,9 +330,9 @@ declare namespace hiAppEvent {
     const SCROLL_ARKWEB_FLING_JANK: string;
 
     /**
-     * App encounter a longer hang and trigger an system warning, such as THREAD_BLOCK_3S or LIFECYCLE_HALF_TIMEOUT.
-     * This is a system event name constant.
+     * Application freeze warning event. This is a system event name constant.
      *
+     * **Model restriction**: This API can be used only in the stage model.
      * **Atomic service API**: This parameter can be used in atomic services since API version 26.0.0.
      *
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
@@ -431,8 +431,8 @@ declare namespace hiAppEvent {
     disable?: boolean;
 
     /**
-     * Quota for the directory that stores event logging files. The default value is **10MB**. It is recommended that the
-     * quota be less than or equal to 10 MB. Otherwise, the API efficiency may be affected.
+     * Quota for the directory that stores event logging files. The default value is **10MB**. It is recommended that
+     * the quota be less than or equal to 10 MB. Otherwise, the API efficiency may be affected.
      *
      * If the directory size exceeds the specified quota when application event logging is performed, event logging
      * files in the directory will be cleared one by one based on the generation time to ensure that directory size does
@@ -464,8 +464,8 @@ declare namespace hiAppEvent {
    */
   interface AppEventInfo {
     /**
-     * Event domain. The value is a string of up to 32 characters, including digits (0 to 9), letters (a to z)(A to Z), and
-     * underscores (_). It must start with a letter and cannot end with an underscore (_).
+     * Event domain. The value is a string of up to 32 characters, including digits (0 to 9), letters (a to z)(A to Z),
+     * and underscores (_). It must start with a letter and cannot end with an underscore (_).
      *
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @crossplatform [since 19]
@@ -503,8 +503,8 @@ declare namespace hiAppEvent {
      * Event parameter object, which consists of a parameter name and a parameter value. In system events, the fields
      * contained in **params** are defined by system. For details about the fields, you can see the overviews of system
      * events, for example, [Crash Event Overview](docroot://dfx/hiappevent-watcher-crash-events.md). For application
-     * events, you need to define the parameters of the [Write]{@link hiAppEvent.write(info: AppEventInfo)} API. The
-     * specifications are as follows:
+     * events, you need to define the parameters of the [Write]{@link hiAppEvent.write} API. The specifications are as
+     * follows:
      *
      * - A parameter name is a string that contains a maximum of 32 characters, including digits (0 to 9), letters (a to
      * z)(A to Z), underscore (_), and dollar sign ($). It must start with a letter or dollar sign ($) and end with
@@ -638,9 +638,9 @@ declare namespace hiAppEvent {
    *
    * @param { Record<string, ParamType> } params - Custom parameter object. The parameter name and value are defined as
    *     follows:<br>- A parameter name is a string that contains a maximum of 32 characters, including digits (0 to 9),
-   *     letters (a to z)(A to Z), underscore (_), and dollar sign ($). It must start with a letter or dollar sign ($) and
-   *     end with a digit or letter.  <br>- The parameter value is of the [ParamType]{@link hiAppEvent.ParamType} and
-   *     contains a maximum of 1024 characters.<br>- The number of parameters must be less than 64.
+   *     letters (a to z)(A to Z), underscore (_), and dollar sign ($). It must start with a letter or dollar sign ($)
+   *     and end with a digit or letter.  <br>- The parameter value is of the [ParamType]{@link hiAppEvent.ParamType}
+   *     and contains a maximum of 1024 characters.<br>- The number of parameters must be less than 64.
    * @param { string } domain - Event domain. The event domain can be associated with application events and system
    *     events (hiAppEvent.domain.OS).
    * @param { string } name - Event name. The default value is an empty string, which indicates all event names in the
@@ -678,15 +678,21 @@ declare namespace hiAppEvent {
    *
    * Configuration items vary depending on events. Currently, only the following events are supported:
    *
-   * - **MAIN_THREAD_JANK**. (For details about the parameter configuration, see
-   * [Main Thread Jank Event Overview](docroot://dfx/hiappevent-watcher-mainthreadjank-events.md#parameters-of-seteventconfig)
-   * .)
+   * - **MAIN_THREAD_JANK** (For details about the parameter configuration, see
+   * [Main Thread Jank Event Overview](docroot://dfx/hiappevent-watcher-mainthreadjank-events.md#parameters-of-seteventconfig).
+   * )
    * - **APP_CRASH** (For details about the parameter configuration, see
-   * [Customizing Crash Log Specifications](docroot://dfx/hiappevent-watcher-crash-events.md#customizing-crash-log-specifications)
-   * .)
+   * [Crash Log Configuration Parameters](docroot://dfx/hiappevent-watcher-crash-events.md#customizing-crash-log-specifications).
+   * )
    * - **RESOURCE_OVERLIMIT** (For details about the parameter configuration, see
    * [Resource Leak Event Overview](docroot://dfx/hiappevent-watcher-resourceleak-events.md#customizing-specifications).
    * )
+   *
+   * > **NOTE**
+   * >
+   * > Since API version 26.0.0, all settings of this API are supported by
+   * > [configEventPolicy]{@link hiAppEvent.configEventPolicy}. You are advised to use
+   * > [configEventPolicy]{@link hiAppEvent.configEventPolicy}.
    *
    * @param { string } name - Event name.
    * @param { Record<string, ParamType> } config - Custom parameter object. The parameter name and value are defined as
@@ -794,8 +800,8 @@ declare namespace hiAppEvent {
      * an event watcher, and then associate the **AppEventPackageHolder** instance with the watcher added in the
      * application based on the watcher name.
      *
-     * @param { string } watcherName - Name of the event watcher added through [addWatcher]{@link hiAppEvent.addWatcher}
-     *     . If no watcher is added, no data is displayed by default.
+     * @param { string } watcherName - Name of the event watcher added through
+     *     [addWatcher]{@link hiAppEvent.addWatcher}. If no watcher is added, no data is displayed by default.
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @crossplatform [since 19]
      * @atomicservice [since 11]
@@ -910,8 +916,8 @@ declare namespace hiAppEvent {
     size?: int;
 
     /**
-     * Timeout interval for triggering callback. The value is a positive integer, in unit of 30s. The default value is 0
-     * , indicating that no callback is triggered. If this parameter is set to a negative value, the default value is
+     * Timeout interval for triggering callback. The value is a positive integer, in unit of 30s. The default value is
+     * 0, indicating that no callback is triggered. If this parameter is set to a negative value, the default value is
      * used.
      *
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
@@ -943,7 +949,7 @@ declare namespace hiAppEvent {
     /**
      * Event domain, which can be the system event domain (**hiAppEvent.domain.OS**) or the event domain of the custom
      * event information ([AppEventInfo]{@link hiAppEvent.AppEventInfo}) passed through the
-     * [Write]{@link hiAppEvent.write(info: AppEventInfo)} API.
+     * [Write]{@link hiAppEvent.write} API.
      *
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @crossplatform [since 19]
@@ -1017,7 +1023,7 @@ declare namespace hiAppEvent {
    *
    * > **NOTE**
    * >
-   * > You are not advised to [remove watchers]{@link hiAppEvent.removeWatcher} in the callback. Once a watcher is
+   * > You are not advised to call [removeWatcher]{@link hiAppEvent.removeWatcher} in the callback. Once a watcher is
    * > removed, the subscription callback of the watcher becomes invalid, and the callback may not be triggered when an
    * > event occurs.
    *
@@ -1030,8 +1036,8 @@ declare namespace hiAppEvent {
   interface Watcher {
     /**
      * Unique name of a watcher. The value contains a maximum of 32 characters, including digits (0 to 9), letters (a to
-     * z)(A to Z), and underscore (_). It must start with a letter and end with a digit or letter. For example, **testName1**
-     * and **crash_Watcher**.
+     * z)(A to Z), and underscore (_). It must start with a letter and end with a digit or letter. For example,
+     * **testName1** and **crash_Watcher**.
      *
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @crossplatform [since 19]
@@ -1187,8 +1193,8 @@ declare namespace hiAppEvent {
    * Sets a user property, which is used for association when a [Processor]{@link hiAppEvent.Processor} is configured.
    *
    * @param { string } name - Key of a user property. The value is string that contains a maximum of 256 characters,
-   *     including digits (0 to 9), letters (a to z)(A to Z), underscore (_), and dollar sign ($). It must not start with a
-   *     digit.
+   *     including digits (0 to 9), letters (a to z)(A to Z), underscore (_), and dollar sign ($). It must not start
+   *     with a digit.
    * @param { string } value - Value of a user property. It can contain a maximum of 1024 characters. If the value is
    *     **null** or left empty, the user property is cleared.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -1205,8 +1211,8 @@ declare namespace hiAppEvent {
    * Obtains the value set through **setUserProperty**.
    *
    * @param { string } name - Key of a user property. The value is string that contains a maximum of 256 characters,
-   *     including digits (0 to 9), letters (a to z)(A to Z), underscore (_), and dollar sign ($). It must not start with a
-   *     digit.
+   *     including digits (0 to 9), letters (a to z)(A to Z), underscore (_), and dollar sign ($). It must not start
+   *     with a digit.
    * @returns { string } Value of a user property. If no user ID is found, an empty string is returned.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types.
@@ -1229,8 +1235,8 @@ declare namespace hiAppEvent {
   interface AppEventReportConfig {
     /**
      * Event domain. The value is a string that contains a maximum of 32 characters, including digits (0 to 9), letters
-     * (a to z)(A to Z), and underscore (_). It must start with a letter and cannot end with an underscore (_). The default
-     * value is an empty string.
+     * (a to z)(A to Z), and underscore (_). It must start with a letter and cannot end with an underscore (_). The
+     * default value is an empty string.
      *
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
@@ -1465,7 +1471,7 @@ declare namespace hiAppEvent {
   }
 
   /**
-   * Adds the configuration information of the data processor, such as name of the data processor.
+   * Adds the configuration information of the data processor, such as the event name received by it.
    *
    * This is a synchronous API and involves time-consuming operations. To ensure performance, you are advised to use the
    * asynchronous API [addProcessorFromConfig]{@link hiAppEvent.addProcessorFromConfig} or use a child thread.
@@ -1600,7 +1606,7 @@ declare namespace hiAppEvent {
 
     /**
      * Number of sampling reporting times for the main thread jank event of the processes with the same PID of an
-     * application. This can only be set once per lifecycle.
+     * application. This parameter can be set only once for the processes with the same PID.
      *
      * The default value is **1**, Unit: times.
      *
@@ -1752,14 +1758,15 @@ declare namespace hiAppEvent {
     pageSwitchLogEnable?: boolean;
 
     /**
-     * The policy for APP_CRASH event
-     * The value true means to print the memory values of the 248 bytes before and 256 bytes after
-     * the PC and LR in the 64-bit system, or print the memory values of the 124 bytes before and 128 bytes
-     * after the PC and LR in the 32-bit system.
-     * The value false means to print the memory values of the 16 bytes before and 232 bytes after
-     * the PC and LR in the 64-bit system, or print the memory values of the 8 bytes before and 116 bytes
-     * after the PC and LR in the 32-bit system.
-     * If not set the param, the default value is false.
+     * The policy for APP_CRASH event.
+     * Whether to print the memory values before and after the PC and LR registers in crash logs.
+     * The value **true** means to print the memory values of 248 bytes before and 256 bytes after the PC and LR on 64-
+     * bit system, or 124 bytes before and 128 bytes after on 32-bit systems.
+     *
+     * The value **false** means to print the memory values of 16 bytes before and 232 bytes after the PC and LR on 64-
+     * bit system, or 8 bytes before and 116 bytes after on 32-bit systems.
+     *
+     * The default value is **false**.
      *
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @FaAndStageModel
@@ -1769,9 +1776,9 @@ declare namespace hiAppEvent {
     extendPcLrPrinting?: boolean;
 
     /**
-     * The policy for APP_CRASH event
-     * The value ranges from 0 to 5242880, in bytes. The crash log is truncated to the specified size
-     * when this parameter is set. Otherwise, the default value 0 is used, which means no truncation.
+     * The policy for APP_CRASH event.
+     * Truncation size for crash logs. The value ranges from 0 to 5242880, in bytes. The default value is 0, indicating
+     * that crash logs are not truncated.
      *
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @FaAndStageModel
@@ -1781,11 +1788,16 @@ declare namespace hiAppEvent {
     logFileCutoffSzBytes?: int;
 
     /**
-     * The policy for APP_CRASH event
-     * The value true means to print only the Virtual Memory Area (VMA) mapping information of the addresses
-     * in the crash log, that is, Maps in the crash log, to reduce the log size.
-     * The value false means to print all VMA mapping information.
-     * Default value: false.
+     * The policy for APP_CRASH event.
+     * Whether to print the mapping information of all virtual memory areas (VMAs) in the crash log, that is, the
+     * **Maps** field in the crash log.
+     *
+     * The value **true** means to print only the VMA mapping information of the addresses in the crash log to reduce
+     * the log size.
+     *
+     * The value **false** means to print all VMA mapping information.
+     *
+     * The default value is **false**.
      *
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @FaAndStageModel
@@ -1869,10 +1881,20 @@ declare namespace hiAppEvent {
 
     /**
      * The policy for RESOURCE_OVERLIMIT event
-     * event: No heap snapshot is transferred when an OOM error occurs.
-     * event_rawheap: The system generates and transfers a heap snapshot when an OOM error occurs.
-     * Note: Only the preceding two values are supported. If other values are passed in,
-     * the API fails to be called and takes no effect.
+     * **event**: No heap snapshot is transferred when an OOM error occurs.
+     *
+     * **event_rawheap**: The system generates and transfers a heap snapshot when an OOM error occurs.
+     *
+     * **NOTE**
+     *
+     * - Only the preceding two values are supported. If other values are passed in, the method fails to be called and
+     * takes no effect.
+     * - If the parameter value is **event_rawheap**, the heap snapshot file may fail to be generated. This is because
+     * the application may exit in advance due to a freeze event triggered by a performance problem.
+     *
+     * -The enabling behavior of an application takes effect only in its current lifecycle. In the same lifecycle, the
+     * enabling status of the last successful call is used. After the application restarts, you need to set the enabling
+     * status again.
      *
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @FaAndStageModel

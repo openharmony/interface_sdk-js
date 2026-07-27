@@ -23,7 +23,7 @@ import type Want from './@ohos.app.ability.Want';
 
 /**
  * 本模块提供设备控制能力。
- * 
+ *
  * > **说明**：
  * >
  * > 本模块接口仅可在Stage模型下使用。
@@ -31,9 +31,28 @@ import type Want from './@ohos.app.ability.Want';
  * > 本模块接口仅对设备管理应用开放，且调用接口前需激活设备管理应用，具体请参考[MDM Kit开发指南](docroot://mdm/mdm-kit-guide.md)。
  *
  * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+ * @systemapi [since 10 - 11]
+ * @publicapi [since 12]
  * @since 10
  */
 declare namespace deviceControl {
+  /**
+   * 要执行的操作
+   *
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  enum Operation {
+    /**
+     * 磁盘擦除
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    DISK_ERASURE = 0
+  }
 
   /**
    * 使设备恢复出厂设置。使用callback异步回调。
@@ -161,6 +180,27 @@ declare namespace deviceControl {
    * @since 12
    */
   function operateDevice(admin: Want, operate: string, addition?: string): void;
+
+  /**
+   * 允许管理员操作设备。
+   *
+   * @permission ohos.permission.ENTERPRISE_OPERATE_DEVICE
+   * @param { Want } admin - 企业设备管理扩展组件。
+   * @param { string } operation - 要执行的操作。
+   * @param { string } [addition] - 执行时附加参数。
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200010 - A conflict policy has been configured.
+   * @throws { BusinessError } 9200012 - Parameter verification failed.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 801 - Capability not supported.
+   *     Failed to call the API due to limited device capabilities.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  function operateDevice(admin: Want, operation: Operation, addition?: string): void;
 }
 
 export default deviceControl;

@@ -28,6 +28,8 @@
  * > 本模块接口仅对设备管理应用开放，且调用接口前需激活设备管理应用，具体请参考[MDM Kit开发指南](docroot://mdm/mdm-kit-guide.md)。
  *
  * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+ * @systemapi [since 11 - 11]
+ * @publicapi [since 12]
  * @stagemodelonly
  * @since 11 dynamic
  * @since 23 static
@@ -162,15 +164,14 @@ declare namespace securityManager {
     appIdentifier: string;
 
     /**
-     * Account ID, which must be greater than or equal to 0. You can call
-     * [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()} of
-     * **@ohos.account.osAccount** to obtain the account ID.
+     * 用户ID，指定具体用户，取值范围：大于等于0。accountId可以通过@ohos.account.osAccount中的
+     * [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()}等接口来获取。
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 20
      */
-    accountId: number,
+    accountId: number;
 
     /**
      * 表示分身应用的索引，默认值为0。
@@ -185,22 +186,30 @@ declare namespace securityManager {
   }
 
   /**
-   * 添加凭证信息
+   * 加密算法
    *
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
-   * @since 26.0.0
+   * @since 26.0.0 dynamic&static
    */
-  export interface AddCredentialInfo {
-
+  export enum PasswordAlgs {
     /**
-     * 认证令牌
+     * SCRYPT-HKDF-AES组合加密算法
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
-     * @since 26.0.0
+     * @since 26.0.0 dynamic&static
      */
-    authToken?: Uint8Array;
+    SCRYPT_HKDF_AES = 0,
+
+    /**
+     * SCRYPT-HKDF-AES组合加密算法
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    SCRYPT_HKDF_SM4 = 1
   }
 
   /**
@@ -385,6 +394,27 @@ declare namespace securityManager {
   function getPasswordPolicy(admin: Want): PasswordPolicy;
 
   /**
+   * 获取设备锁屏口令策略。企业可通过此接口查询当前配置的口令策略，用于策略审计、合规性检查等场景，确保设备口令策略符合企业安全规范。
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_SECURITY
+   * @param { Want | null } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the.
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.<br>If the device has multiple MDM
+   *     applications, you can pass **admin** to query the corresponding policies. If **null** is passed, the policies
+   *     that actually take effect on the device are returned.
+   * @returns { PasswordPolicy } Device screen lock password policy.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  function getPasswordPolicy(admin: Want | null): PasswordPolicy;
+
+  /**
    * 获取设备锁屏口令策略。
    *
    * @returns { PasswordPolicy } 设备锁屏口令策略。
@@ -438,6 +468,26 @@ declare namespace securityManager {
   function getAppClipboardPolicy(admin: Want, tokenId?: number): string;
 
   /**
+   * 获取指定用户下指定应用的设备剪贴板策略。
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_SECURITY
+   * @param { Want | null } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
+   * @param { number } [tokenId] - Application token ID, which can be obtained using
+   *     [bundleManager.getApplicationInfo]{@link ./bundleManager/ApplicationInfo}.
+   * @returns { string } 返回JSON字符串形式的设备剪贴板策略。
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  function getAppClipboardPolicy(admin: Want | null, tokenId?: number): string;
+
+  /**
    * 设置指定用户下指定应用的设备剪贴板策略。
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_SECURITY
@@ -474,6 +524,27 @@ declare namespace securityManager {
    * @since 18
    */
   function getAppClipboardPolicy(admin: Want, bundleName: string, accountId: number): string;
+
+
+  /**
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_SECURITY
+   * @param { Want | null } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { string } bundleName - Bundle name of the application for which the device clipboard policy is set.
+   * @param { number } accountId - Account ID, which must be greater than or equal to 0. You can call
+   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()} of
+   *     **@ohos.account.osAccount** to obtain the account ID.
+   * @returns { string } Device clipboard policy in JSON format.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  function getAppClipboardPolicy(admin: Want | null, bundleName: string, accountId: number): string;
 
   /**
    * 为指定用户的指定应用设置水印策略。当前只支持最多保存100个策略。
@@ -561,6 +632,15 @@ declare namespace securityManager {
      * @since 23 static
      */
     additionalDescription?: string;
+
+    /**
+     * 密码加密算法
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    passwordAlgs?: PasswordAlgs;
   }
 
   /**
@@ -620,7 +700,7 @@ declare namespace securityManager {
    * @param { WatermarkProperties } properties - 水印图片参数信息
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 9200012 - The parameter validation failed.
+   * @throws { BusinessError } 9200012 - Parameter verification failed.
    * @throws { BusinessError } 201 - Permission verification failed.
    *     The application does not have the permission required to call the API.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
@@ -641,7 +721,7 @@ declare namespace securityManager {
    *     The application does not have the permission required to call the API.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 9200012 - The parameter validation failed.
+   * @throws { BusinessError } 9200012 - Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
    * @since 26.0.0
@@ -663,7 +743,7 @@ declare namespace securityManager {
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 9200010 - A conflict policy has been configured.
-   * @throws { BusinessError } 9200012 - The parameter validation failed.
+   * @throws { BusinessError } 9200012 - Parameter verification failed.
    * @throws { BusinessError } 201 - Permission verification failed.
    *     The application does not have the permission required to call the API.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
@@ -687,7 +767,7 @@ declare namespace securityManager {
    * @returns { PermissionManagedState } 应用权限的管理策略。
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 9200012 - The parameter validation failed.
+   * @throws { BusinessError } 9200012 - Parameter verification failed.
    * @throws { BusinessError } 201 - Permission verification failed.
    *     The application does not have the permission required to call the API.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
@@ -722,6 +802,8 @@ declare namespace securityManager {
    * @throws { BusinessError } 9200012 - Parameter verification failed.
    * @throws { BusinessError } 201 - Permission verification failed.
    *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 801 - Capability not supported.
+   *     Failed to call the API due to limited device capabilities.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
    * @since 22
@@ -733,16 +815,37 @@ declare namespace securityManager {
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_SECURITY
    * @param { Want } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
-   * @returns { common.ManagedPolicy } Management policy obtained.
+   * @returns { common.ManagedPolicy } 返回ManagedPolicy枚举类型的管控策略。
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - Permission verification failed.
    *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 801 - Capability not supported.
+   *     Failed to call the API due to limited device capabilities.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
    * @since 22
    */
   function getExternalSourceExtensionsPolicy(admin: Want): common.ManagedPolicy;
+
+  /**
+   * 获取外部来源扩展程序的管控策略。
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_SECURITY
+   * @param { Want | null } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
+   *     <br>当设备存在多个MDM应用时，传入Want时查询对应企业设备管理应用设置的策略，传入null时查询实际生效的策略。
+   * @returns { common.ManagedPolicy } 返回ManagedPolicy枚举类型的管控策略。
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 801 - Capability not supported.
+   *     Failed to call the API due to limited device capabilities.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  function getExternalSourceExtensionsPolicy(admin: Want | null): common.ManagedPolicy;
 
   /**
    * 安装企业应用重签名证书。
@@ -937,8 +1040,7 @@ declare namespace securityManager {
    * @param { number } accountId - 用户ID，指定具体用户，取值范围：大于等于0。accountId可以通过@ohos.account.osAccount中的
    *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()}等接口来获取
    *     <br>取值应为≥0的整数。
-   * @returns { Array<common.ApplicationInstance> } the list of applications
-   *     that are allowed to be granted the permission.
+   * @returns { Array<common.ApplicationInstance> } 返回权限使用例外名单列表。
    * @throws { BusinessError } 201 - Permission verification failed.
    *     The application does not have the permission required to call the API.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
@@ -949,189 +1051,6 @@ declare namespace securityManager {
    * @since 26.0.0
    */
   function getAllowedPermissionBundles(admin: Want | null, permission: string, accountId: number): Array<common.ApplicationInstance>;
-  /**
-   * 设置解锁策略
-   *
-   * @permission ohos.permission.ENTERPRISE_MANAGE_SECURITY
-   * @param { Want } admin - 企业设备管理扩展组件
-   * @param { UnlockPolicy } policy - 解锁策略
-   * @param { number } accountId - 系统账号ID
-   *     <br>取值范围:[0, +∞)
-   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
-   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 9200012 - Parameter verification failed.
-   * @throws { BusinessError } 201 - Permission verification failed.
-   *     The application does not have the permission required to call the API.
-   * @throws { BusinessError } 801 - Capability not supported.
-   *     Failed to call the API due to limited device capabilities.
-   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @stagemodelonly
-   * @since 26.0.0
-   */
-  function setUnlockPolicy(admin: Want, policy: UnlockPolicy, accountId: number): void;
-
-  /**
-   * 查询解锁策略
-   *
-   * @permission ohos.permission.ENTERPRISE_MANAGE_SECURITY
-   * @param { Want } admin - 企业设备管理扩展组件
-   * @param { number } accountId - 系统账号ID
-   *     <br>取值范围:[0, +∞)
-   * @returns { UnlockPolicy } 9200001 - 应用没有激活成设备管理器
-   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
-   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 9200012 - Parameter verification failed.
-   * @throws { BusinessError } 201 - Permission verification failed.
-   *     The application does not have the permission required to call the API.
-   * @throws { BusinessError } 801 - Capability not supported.
-   *     Failed to call the API due to limited device capabilities.
-   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @stagemodelonly
-   * @since 26.0.0
-   */
-  function getUnlockPolicy(admin: Want, accountId: number): UnlockPolicy;
-
-  /**
-   * 开启指定用户的凭据变更会话
-   *
-   * @permission ohos.permission.ENTERPRISE_MANAGE_SECURITY
-   * @param { Want } admin - 企业设备管理扩展组件
-   * @param { number } accountId - 系统账号ID
-   *     <br>取值范围:[0, +∞)
-   * @returns { Promise<Uint8Array> } promise回调
-   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
-   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 9200012 - Parameter verification failed.
-   * @throws { BusinessError } 201 - Permission verification failed.
-   *     The application does not have the permission required to call the API.
-   * @throws { BusinessError } 801 - Capability not supported.
-   *     Failed to call the API due to limited device capabilities.
-   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @stagemodelonly
-   * @since 26.0.0
-   */
-  function openSession(admin: Want, accountId: number): Promise<Uint8Array>;
-
-  /**
-   * 关闭指定用户的凭据变更会话
-   *
-   * @permission ohos.permission.ENTERPRISE_MANAGE_SECURITY
-   * @param { Want } admin - 企业设备管理扩展组件
-   * @param { number } accountId - 系统账号ID
-   *     <br>取值范围:[0, +∞)
-   *     <br>Value range:[0, +∞)
-   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
-   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 9200012 - Parameter verification failed.
-   * @throws { BusinessError } 201 - Permission verification failed.
-   *     The application does not have the permission required to call the API.
-   * @throws { BusinessError } 801 - Capability not supported.
-   *     Failed to call the API due to limited device capabilities.
-   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @stagemodelonly
-   * @since 26.0.0
-   */
-  function closeSession(admin: Want, accountId: number): void;
-
-  /**
-   * 添加扩展用户认证凭据
-   *
-   * @permission ohos.permission.ENTERPRISE_MANAGE_SECURITY
-   * @param { Want } admin - 企业设备管理扩展组件
-   * @param { AddCredentialInfo } info - 添加用户凭据所需信息
-   * @param { number } accountId - 系统账号ID
-   *     <br>取值范围:[0, +∞)
-   * @returns { Promise<Uint8Array> } 用户凭据ID
-   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
-   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 9200012 - Parameter verification failed.
-   * @throws { BusinessError } 201 - Permission verification failed.
-   *     The application does not have the permission required to call the API.
-   * @throws { BusinessError } 801 - Capability not supported.
-   *     Failed to call the API due to limited device capabilities.
-   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @stagemodelonly
-   * @since 26.0.0
-   */
-  function addUserExtCredential(admin: Want, info: AddCredentialInfo, accountId: number): Promise<Uint8Array>;
-
-  /**
-   * 移除扩展用户认证凭据
-   *
-   * @permission ohos.permission.ENTERPRISE_MANAGE_SECURITY
-   * @param { Want } admin - 企业设备管理扩展组件
-   * @param { RemoveCredentialInfo } info - 移除用户凭据所需信息
-   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
-   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 9200012 - Parameter verification failed.
-   * @throws { BusinessError } 201 - Permission verification failed.
-   *     The application does not have the permission required to call the API.
-   * @throws { BusinessError } 801 - Capability not supported.
-   *     Failed to call the API due to limited device capabilities.
-   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @stagemodelonly
-   * @since 26.0.0
-   */
-  function removeUserExtCredential(admin: Want, info: RemoveCredentialInfo): void;
-
-  /**
-   * 查询指定用户安装的扩展用户凭据
-   *
-   * @permission ohos.permission.ENTERPRISE_MANAGE_SECURITY
-   * @param { Want } admin - 企业设备管理扩展组件
-   * @param { number } accountId - 系统账号ID
-   *     <br>取值范围:[0, +∞)
-   * @returns { Promise<UserExtCredentialInfo[]> } Returns the list of extended user credential information.
-   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
-   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 9200012 - Parameter verification failed.
-   * @throws { BusinessError } 201 - Permission verification failed.
-   *     The application does not have the permission required to call the API.
-   * @throws { BusinessError } 801 - Capability not supported.
-   *     Failed to call the API due to limited device capabilities.
-   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @stagemodelonly
-   * @since 26.0.0
-   */
-  function getUserExtCredential(admin: Want, accountId: number): Promise<UserExtCredentialInfo[]>;
-
-  /**
-   * 设备DSL切换策略
-   *
-   * @permission ohos.permission.ENTERPRISE_MANAGE_SECURITY
-   * @param { Want } admin - 企业设备管理扩展组件
-   * @param { DeviceSecurityLevelPolicy } level - DSL切换策略
-   *     <br>Value range:[0, +∞)
-   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
-   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 9200012 - Parameter verification failed.
-   * @throws { BusinessError } 201 - Permission verification failed.
-   *     The application does not have the permission required to call the API.
-   * @throws { BusinessError } 801 - Capability not supported.
-   *     Failed to call the API due to limited device capabilities.
-   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @stagemodelonly
-   * @since 26.0.0
-   */
-  function setDeviceSecurityLevelPolicy(admin: Want, level: DeviceSecurityLevelPolicy): void;
-
-  /**
-   * 查询DSL切换策略
-   *
-   * @permission ohos.permission.ENTERPRISE_MANAGE_SECURITY
-   * @param { Want } admin - 企业设备管理扩展组件
-   * @returns { DeviceSecurityLevelPolicy } 返回DSL切换策略
-   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
-   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed.
-   *     The application does not have the permission required to call the API.
-   * @throws { BusinessError } 801 - Capability not supported.
-   *     Failed to call the API due to limited device capabilities.
-   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @stagemodelonly
-   * @since 26.0.0
-   */
-  function getDeviceSecurityLevelPolicy(admin: Want): DeviceSecurityLevelPolicy;
 
   /**
    * 禁用/启用当前用户的滑动解锁能力。启用时：设备灭屏后再亮屏，用户需要在屏幕上滑动后才能进入桌面。禁用时：设备灭屏后再亮屏会直接进入桌面。

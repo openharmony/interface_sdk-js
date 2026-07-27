@@ -19,9 +19,8 @@
  */
 
 /**
- * Declare the placement of the toolbar item.
+ * Enumerates the placement options for toolbar items in the title bar.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -29,7 +28,7 @@
  */
 declare enum ToolBarItemPlacement {
   /**
-   * Place toolbar item at the leading of top bar.
+   * Places the item at the start of the top bar.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -39,20 +38,19 @@ declare enum ToolBarItemPlacement {
   TOP_BAR_LEADING = 0,
 
   /**
-   * Place toolbar item at the trailing of top bar.
+   * Places the item at the end of the top bar.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @since 20 dynamic
    */
-  TOP_BAR_TRAILING = 1,
+  TOP_BAR_TRAILING = 1
 }
 
 /**
- * ToolBarItem constructor options.
+ * Provides optional parameters for **ToolBarItem** configuration.
  *
- * @interface ToolBarItemOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -60,9 +58,14 @@ declare enum ToolBarItemPlacement {
  */
 interface ToolBarItemOptions {
   /**
-   * Vertical layout element spacing.
+   * Placement position of the toolbar item.
    *
-   * @type { ?ToolBarItemPlacement }
+   * Default value: **ToolBarItemPlacement.TOP_BAR_LEADING**.
+   *
+   * **ToolBarItemPlacement.TOP_BAR_LEADING**: places the item at the start of the top bar.
+   *
+   * **ToolBarItemPlacement.TOP_BAR_TRAILING**: places the item at the end of the top bar.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -72,9 +75,14 @@ interface ToolBarItemOptions {
 }
 
 /**
- * Defines the ToolBarItem Component.
+ * You can use the **ToolBarItem** component to add toolbar items to the title bar using the
+ * [toolbar](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-toolbar.md#toolbar) universal attribute.
  *
- * @interface ToolBarItemInterface
+ * > **NOTE**
+ * >
+ * > This component is typically used with the
+ * > [toolbar](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-toolbar.md#toolbar) universal attribute.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -82,9 +90,14 @@ interface ToolBarItemOptions {
  */
 interface ToolBarItemInterface {
   /**
-   * Set the options.
+   * Creates a toolbar item at the beginning of the corresponding column in the title bar by default. The column
+   * position is determined by the component's
+   * [toolbar](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-toolbar.md#toolbar) attribute
+   * configuration.
    *
-   * @param { ToolBarItemOptions } [options] - column options
+   * @param { ToolBarItemOptions } [options] - Optional parameters for **ToolBarItem**, including the **placement**
+   *     parameter of the [ToolBarItemPlacement]{@link ToolBarItemPlacement} type.<br>Default value:
+   *     **placement: ToolBarItemPlacement.TOP_BAR_LEADING**
    * @returns { ToolBarItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -95,19 +108,28 @@ interface ToolBarItemInterface {
 }
 
 /**
- * Defines the ToolBarItem component attribute functions.
+ * The [universal attributes]{@link ./common} are not supported.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
  * @since 20 dynamic
  */
-declare class ToolBarItemAttribute { }
+declare class ToolBarItemAttribute {}
 
 /**
- * Defines ToolBarItem Component.
+ * You can use the **ToolBarItem** component to add toolbar items to the title bar using the
+ * [toolbar](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-toolbar.md#toolbar) universal attribute.
  *
- * @type { ToolBarItemInterface }
+ * > **NOTE**
+ * >
+ * > This component is typically used with the
+ * > [toolbar](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-toolbar.md#toolbar) universal attribute.
+ *
+ * ###### Child Components
+ *
+ * This component can contain a single child component.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -118,7 +140,6 @@ declare const ToolBarItem: ToolBarItemInterface;
 /**
  * Defines ToolBarItem Component instance.
  *
- * @type { ToolBarItemAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
