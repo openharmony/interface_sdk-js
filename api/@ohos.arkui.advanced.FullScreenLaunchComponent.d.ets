@@ -62,14 +62,6 @@ import { Callback, ErrorCallback } from '@ohos.base';
 @Component
 export declare struct FullScreenLaunchComponent {
   /**
-   * Sets the component content.
-   * @type { Callback<void> }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 12 dynamic
-   */
-  @BuilderParam content: Callback<void>;
-  /**
    * Custom placeholder icon displayed before the atomic service is launched. This allows you to create a large launch
    * icon similar to those used by desktop apps. Clicking the placeholder icon will launch the atomic service.
    *
