@@ -1295,7 +1295,7 @@ export declare interface SwiperAttribute extends CommonMethod {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
-   * @since 26.1.0 static
+   * @since 26.0.0 static
    */
   default ignoreHiddenItem(enabled: boolean | undefined): this;
 }
