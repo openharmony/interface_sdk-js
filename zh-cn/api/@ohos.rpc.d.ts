@@ -3567,7 +3567,7 @@ declare namespace rpc {
 
     /**
      * 以同步或异步方式向对端进程发送MessageSequence消息。如果为选项设置了异步模式，则发送请求的响应结果立即返回，reply报文里没有内容，具体回复需要在业务侧的回调中获取。如果为选项设置了同步模式，则发送请求的响应结
-     * 果将在sendRequest返回时返回，回复内容在reply报文里。使用Promise异步回调。
+     * 果将在sendMessageRequest返回时返回，回复内容在reply报文里。使用Promise异步回调。
      *
      * @param { int } code - 本次请求调用的消息码[1-16777215]，由通信双方确定。如果接口由IDL工具生成，则消息代码由IDL自动生成。
      * @param { MessageSequence } data - 保存待发送数据的MessageSequence对象。
@@ -3613,7 +3613,7 @@ declare namespace rpc {
     ): void;
 
     /**
-     * 以同步或异步方式向对端进程发送MessageSequence消息。使用callback异步回调。如果为选项设置了异步模式，则立即收到回调，reply报文里没有内容，具体回复需要在业务侧的回调函数中获取。如果为选项设置了同步模式，则
+     * 以同步或异步方式向对端进程发送MessageSequence消息。使用callback异步回调。如果为选项设置了异步模式，则立即收到回调，reply报文里没有内容，具体回复需要在业务侧的回调中获取。如果为选项设置了同步模式，则
      * 将在sendMessageRequest返回时收到回调，回复内容在reply报文里。
      * 
      * @param { int } code - 本次请求调用的消息码[1-16777215]，由通信双方确定。如果接口由IDL工具生成，则消息代码由IDL自动生成。
