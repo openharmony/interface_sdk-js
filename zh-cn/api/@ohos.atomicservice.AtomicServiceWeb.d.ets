@@ -14,22 +14,21 @@
  */
 
 /**
- * ###### Required Permissions
+ * ###### 需要权限
  * 
- * **ohos.permission.INTERNET**, required for accessing online web pages. For details about how to apply for a 
- * permission, see [Declaring Permissions](docroot://security/AccessToken/declare-permissions.md).
+ * 访问在线网页时需添加网络权限：ohos.permission.INTERNET，具体申请方式请参考[声明权限](docroot://security/AccessToken/declare-permissions.md)。
  * 
- * ###### Child Components
+ * ###### 子组件
  * 
- * Not supported
+ * 无
  * 
- * ###### Attributes
+ * ###### 属性
  * 
- * The [universal attributes]{@link ./@internal/component/ets/common} are not supported.
+ * 不支持[通用属性]{@link ./@internal/component/ets/common}
  * 
- * ###### Events
+ * ###### 事件
  * 
- * The [universal events]{@link ./@internal/component/ets/common} are not supported.
+ * 不支持[通用事件]{@link ./@internal/component/ets/common}
  *
  * @file Defines the atomicService web component
  * @kit ArkUI
@@ -38,12 +37,11 @@
 import { Callback } from '@ohos.base';
 
 /**
- * **AtomicServiceWeb** is an advanced web component offering customization to meet specific demands. It shields
- * irrelevant APIs from the native **Web** component and extends functionality through JavaScript capabilities.
- *
- * > **NOTE**
+ * 为开发者提供满足定制化诉求的Web高阶组件，屏蔽原生Web组件中无需关注的接口，并提供JS扩展能力。
+ * 
+ * > **说明：**
  * >
- * > - You can preview how this component looks on a real device, but not in DevEco Studio Previewer.
+ * > - 示例效果请以真机运行为准，当前DevEco Studio预览器不支持。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
@@ -96,7 +94,7 @@ export declare struct AtomicServiceWeb {
   @Prop
   forceDarkAccess?: boolean;
   /**
-   * Sets the nested scroll options.
+   * 设置嵌套滚动选项。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -180,7 +178,7 @@ export declare struct AtomicServiceWeb {
 }
 
 /**
- * Represents the callback invoked when the page is navigated back or destroyed.
+ * 定义页面回退或销毁时触发该回调。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
@@ -198,7 +196,7 @@ export declare interface OnMessageEvent {
 }
 
 /**
- * Represents the callback invoked when an error occurs during web page loading.
+ * 定义网页加载遇到错误时触发该回调。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
@@ -225,7 +223,7 @@ export declare interface OnErrorReceiveEvent {
 }
 
 /**
- * Represents the callback invoked when an HTTP error occurs during web page resource loading.
+ * 定义网页收到加载资源加载HTTP错误时触发。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
@@ -252,7 +250,7 @@ export declare interface OnHttpErrorReceiveEvent {
 }
 
 /**
- * Represents the callback invoked when the web page loading begins.
+ * 定义网页加载开始时触发的函数。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
@@ -270,7 +268,7 @@ export declare interface OnPageBeginEvent {
 }
 
 /**
- * Represents the callback invoked when the web page loading ends.
+ * 定义网页加载结束时触发的函数。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
@@ -288,7 +286,7 @@ export declare interface OnPageEndEvent {
 }
 
 /**
- * Represents the event triggered when resource loading is intercepted.
+ * 当资源加载被拦截时，加载拦截事件。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
@@ -306,7 +304,7 @@ export declare interface OnLoadInterceptEvent {
 }
 
 /**
- * Represents the callback invoked when the web page loading progress changes.
+ * 定义网页加载进度变化时触发该回调。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
@@ -324,10 +322,8 @@ export declare interface OnProgressChangeEvent {
 }
 
 /**
- * Implements an **AtomicServiceWebController** object for controlling the behavior of the **AtomicServiceWeb**
- * component. An **AtomicServiceWebController** can control only one **AtomicServiceWeb** component, and the APIs on the
- * **AtomicServiceWebController** can be called only after it has been bound to the target **AtomicServiceWeb**
- * component.
+ * 通过AtomicServiceWebController可以控制AtomicServiceWeb组件各种行为。一个AtomicServiceWebController对象只能控制一个AtomicServiceWeb组件，且必须在
+ * AtomicServiceWeb组件和AtomicServiceWebController绑定后，才能调用AtomicServiceWebController上的方法。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
@@ -336,10 +332,9 @@ export declare interface OnProgressChangeEvent {
 @Observed
 export declare class AtomicServiceWebController {
   /**
-   * Obtains the default user agent of this web page.
+   * 获取当前默认用户代理。
    *
-   * @returns { string } Default user agent. For details about the specifications and usage scenarios, see
-   *     [Developing User-Agent](docroot://web/web-default-userAgent.md).
+   * @returns { string } 默认用户代理。默认User-Agent定义与使用场景请参考[User-Agent开发指导](docroot://web/web-default-userAgent.md)。
    * @throws { BusinessError } 17100001 - Init error. The AtomicServiceWebController must be associated with a
    *     AtomicServiceWeb component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -349,10 +344,9 @@ export declare class AtomicServiceWebController {
   getUserAgent(): string;
 
   /**
-   * Obtains a custom user agent.
+   * 获取自定义用户代理。
    *
-   * @returns { string } Information about the custom user agent. For details about the specifications and usage
-   *     scenarios, see [Developing User-Agent](docroot://web/web-default-userAgent.md).
+   * @returns { string } 用户自定义代理信息。默认User-Agent定义与使用场景请参考[User-Agent开发指导](docroot://web/web-default-userAgent.md)。
    * @throws { BusinessError } 17100001 - Init error. The AtomicServiceWebController must be associated with a
    *     AtomicServiceWeb component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -362,21 +356,17 @@ export declare class AtomicServiceWebController {
   getCustomUserAgent(): string;
 
   /**
-   * Sets a custom user agent, which will override the default user agent.
-   *
-   * Set the user agent in the **onControllerAttached** callback to ensure that it takes effect. For details about the
-   * setting, see the example. Avoid setting the user agent in **onLoadIntercept**. Otherwise, the setting may fail
-   * occasionally.
-   *
-   * > **NOTE**
+   * 设置自定义用户代理，会覆盖系统的用户代理。
+   * 
+   * 建议在onControllerAttached回调事件中设置User-Agent，设置方式请参考示例。不建议将User-Agent设置在onLoadIntercept回调事件中，会概率性出现设置失败。
+   * 
+   * > **说明：**
    * >
-   * > If a URL is set for the **Web** component **src** and **UserAgent** is not set in the **onControllerAttached**
-   * > callback, calling **setCustomUserAgent** may cause mismatches between the loaded page and the intended user
-   * > agent.
+   * > 当Web组件src设置了url，且未在onControllerAttached回调事件中设置User-Agent。再调用setCustomUserAgent方法时，可能会出现加载的页面与实际设置User-Agent不符的异常现
+   * > 象。
    *
-   * @param { string } userAgent - Information about the custom user agent. It is recommended that you obtain the
-   *     current default user agent through [getUserAgent]{@link AtomicServiceWebController#getUserAgent} and then
-   *     customize the obtained user agent.
+   * @param { string } userAgent - 用户自定义代理信息。建议先使用[getUserAgent]{@link AtomicServiceWebController#getUserAgent}获取当前默认用户代
+   *     理，在此基础上追加自定义用户代理信息。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     <br>2. Incorrect parameter types.
    * @throws { BusinessError } 17100001 - Init error. The AtomicServiceWebController must be associated with a
@@ -388,7 +378,7 @@ export declare class AtomicServiceWebController {
   setCustomUserAgent(userAgent: string): void;
 
   /**
-   * Refreshes the web page.
+   * 调用此接口通知AtomicServiceWeb组件刷新网页。
    *
    * @throws { BusinessError } 17100001 - Init error. The AtomicServiceWebController must be associated with a
    *     AtomicServiceWeb component.
@@ -399,8 +389,7 @@ export declare class AtomicServiceWebController {
   refresh(): void;
 
   /**
-   * Moves to the next page based on the history stack. This API is generally used together with
-   * [accessForward]{@link AtomicServiceWebController#accessForward}.
+   * 按照历史栈，前进一个页面。一般结合[accessForward]{@link AtomicServiceWebController#accessForward}一起使用。
    *
    * @throws { BusinessError } 17100001 - Init error. The AtomicServiceWebController must be associated with a
    *     AtomicServiceWeb component.
@@ -411,8 +400,7 @@ export declare class AtomicServiceWebController {
   forward(): void;
 
   /**
-   * Moves to the previous page based on the history stack. This API is generally used together with
-   * [accessBackward]{@link AtomicServiceWebController#accessBackward}.
+   * 按照历史栈，后退一个页面。一般结合[accessBackward]{@link AtomicServiceWebController#accessBackward}一起使用。
    *
    * @throws { BusinessError } 17100001 - Init error. The AtomicServiceWebController must be associated with a
    *     AtomicServiceWeb component.
@@ -423,10 +411,9 @@ export declare class AtomicServiceWebController {
   backward(): void;
 
   /**
-   * Checks whether going to the next page can be performed on this page.
+   * 当前页面是否可前进，即当前页面是否有前进历史记录。
    *
-   * @returns { boolean } Returns **true** if going to the next page can be performed on the current page; returns
-   *     **false** otherwise.
+   * @returns { boolean } 可以前进返回true，否则返回false。
    * @throws { BusinessError } 17100001 - Init error. The AtomicServiceWebController must be associated with a
    *     AtomicServiceWeb component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -436,10 +423,9 @@ export declare class AtomicServiceWebController {
   accessForward(): boolean;
 
   /**
-   * Checks whether going to the previous page can be performed on this page.
+   * 当前页面是否可后退，即当前页面是否有返回历史记录。
    *
-   * @returns { boolean } Returns **true** if going to the previous page can be performed on the current page; returns
-   *     **false** otherwise.
+   * @returns { boolean } 可以后退返回true，否则返回false。
    * @throws { BusinessError } 17100001 - Init error. The AtomicServiceWebController must be associated with a
    *     AtomicServiceWeb component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -449,12 +435,10 @@ export declare class AtomicServiceWebController {
   accessBackward(): boolean;
 
   /**
-   * Checks whether this page can navigate forward or backward by the specified number of steps.
+   * 当前页面是否可前进或者后退给定的step步。
    *
-   * @param { number } step - Number of the steps to take. A positive number means to go forward, and a negative number
-   *     means to go backward.
-   * @returns { boolean } Whether the page can navigate forward or backward by the specified number of steps. Returns
-   *     **true** if navigation can be performed on the current page; returns **false** otherwise.
+   * @param { number } step - 要跳转的步数，正数代表前进，负数代表后退。
+   * @returns { boolean } 页面是否可前进或者后退给定的step步。返回true表示可以前进或者后退，返回false表示不可以前进或后退。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     <br>2. Incorrect parameter types. 3.Parameter verification failed.
    * @throws { BusinessError } 17100001 - Init error. The AtomicServiceWebController must be associated with a
@@ -466,10 +450,10 @@ export declare class AtomicServiceWebController {
   accessStep(step: number): boolean;
 
   /**
-   * Loads a specified URL.
+   * 加载指定的URL。
    *
-   * @param { string | Resource } url - URL to load.
-   * @param { Array<WebHeader> } [headers] - Additional HTTP request header of the URL.
+   * @param { string | Resource } url - 需要加载的 URL。
+   * @param { Array<WebHeader> } [headers] - URL的附加HTTP请求头。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     <br>2. Incorrect parameter types. 3.Parameter verification failed.
    * @throws { BusinessError } 17100001 - Init error. The AtomicServiceWebController must be associated with a
@@ -484,7 +468,7 @@ export declare class AtomicServiceWebController {
 }
 
 /**
- * Describes the request/response header returned by the **AtomicServiceWeb** component.
+ * Web组件返回的请求/响应头对象。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
@@ -492,7 +476,7 @@ export declare class AtomicServiceWebController {
  */
 export declare interface WebHeader {
   /**
-   * Key of the request/response header.
+   * 请求/响应头的key。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -501,7 +485,7 @@ export declare interface WebHeader {
   headerKey: string;
 
   /**
-   * Value of the request/response header.
+   * 请求/响应头的value。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -511,11 +495,10 @@ export declare interface WebHeader {
 }
 
 /**
- * Represents the callback invoked when resource loading is intercepted.
+ * 资源加载被拦截时触发该回调。
  *
- * @param { OnLoadInterceptEvent } event - Event triggered when resource loading is intercepted.
- * @returns { boolean } Whether resource loading is intercepted. The value **true** indicates that resource loading is
- *     intercepted.
+ * @param { OnLoadInterceptEvent } event - 当资源加载被拦截时，加载拦截事件。
+ * @returns { boolean } 返回资源是否被拦截，true表示被拦截。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12 dynamiconly

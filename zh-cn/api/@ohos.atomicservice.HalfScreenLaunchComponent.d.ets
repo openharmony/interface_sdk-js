@@ -14,13 +14,13 @@
  */
 
 /**
- * ###### Child Components
+ * ###### 子组件
  *
- * Not supported
+ * 无
  *
- * ###### Attributes
+ * ###### 属性
  *
- * The [universal attributes]{@link ./@internal/component/ets/common} are not supported.
+ * 不支持[通用属性]{@link ./@internal/component/ets/common}。
  *
  * @file Defines the halfScreen launch component
  * @kit ArkUI
@@ -30,16 +30,13 @@ import AtomicServiceOptions from '@ohos.app.ability.AtomicServiceOptions';
 import { Callback, ErrorCallback } from '@ohos.base';
 
 /**
- * **HalfScreenLaunchComponent** is a component designed for launching atomic services in half screen. If the invoked
- * application (the one being launched) grants the invoker the authorization to run the atomic service in an embedded
- * manner, the invoker can operate the atomic service in half-screen embedded mode. If authorization is not provided,
- * the invoker will launch the atomic service in a pop-up manner.
- *
- * > **NOTE**
+ * 半屏嵌入式启动原子化服务组件，当被拉起方未授权嵌入式运行原子化服务时，宿主将使用跳出式拉起原子化服务。
+ * 
+ * > **说明：**
  * >
- * > To implement an embeddable atomic service, make sure it inherits from
- * > [EmbeddableUIAbility]{@link @ohos.app.ability.EmbeddableUIAbility:EmbeddableUIAbility}. If the atomic service does
- * > not inherit from **EmbeddableUIAbility**, the system cannot guarantee its proper operation.
+ * > 如果需要在该组件中实现一个可嵌入式运行的原子化服务时，原子化服务必须继承自
+ * > [EmbeddableUIAbility]{@link @ohos.app.ability.EmbeddableUIAbility:EmbeddableUIAbility}。若不继承自EmbeddableUIAbility，系统无
+ * > 法确保原子化服务正常运行。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
@@ -48,7 +45,7 @@ import { Callback, ErrorCallback } from '@ohos.base';
 @Component
 export declare struct HalfScreenLaunchComponent {
   /**
-   * Content displayed in the component.
+   * 组件显示内容。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -57,7 +54,7 @@ export declare struct HalfScreenLaunchComponent {
   @BuilderParam
   content: Callback<void>;
   /**
-   * Application ID for the atomic service.
+   * 原子化服务appId。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -65,7 +62,7 @@ export declare struct HalfScreenLaunchComponent {
    */
   appId: string;
   /**
-   * Parameters for starting the atomic service. The default value is empty.
+   * 拉起原子化服务参数，默认为空。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -73,7 +70,7 @@ export declare struct HalfScreenLaunchComponent {
    */
   options?: AtomicServiceOptions;
   /**
-   * Invoked when an error occurs during the running of the atomic service.
+   * 被拉起的原子化服务扩展在运行过程中发生异常时触发本回调。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -81,11 +78,11 @@ export declare struct HalfScreenLaunchComponent {
    */
   onError?: ErrorCallback;
   /**
-   * Callback triggered when an embedded atomic service exits normally. Exit scenarios include user-triggered exit
-   * button taps or edge swipes, or calls to
+   * 被拉起的嵌入式运行原子化服务通过点击原子化服务退出按钮、手势侧滑、调用
    * [terminateSelfWithResult]{@link ./application/UIAbilityContext:UIAbilityContext#terminateSelfWithResult(parameter: AbilityResult, callback: AsyncCallback<void>)}
-   * or
-   * [terminateSelf]{@link ./application/UIAbilityContext:UIAbilityContext#terminateSelf(callback: AsyncCallback<void>)}.
+   * 或者
+   * [terminateSelf]{@link ./application/UIAbilityContext:UIAbilityContext#terminateSelf(callback: AsyncCallback<void>)}
+   * 正常退出时，触发本回调函数。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -93,7 +90,7 @@ export declare struct HalfScreenLaunchComponent {
    */
   onTerminated?: Callback<TerminationInfo>;
   /**
-   * Callback triggered when an embedded atomic service calls [@ohos.window (window)]{@link @ohos.window} APIs.
+   * 被拉起的嵌入式运行原子化服务通过[@ohos.window (窗口)]{@link @ohos.window}调用API时，触发本回调。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice

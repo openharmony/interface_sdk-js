@@ -14,17 +14,17 @@
  */
 
 /**
- * ###### Child Components
+ * ###### 子组件
  *
- * Not supported
+ * 无
  *
- * ###### Attributes
+ * ###### 属性
  *
- * The [universal attributes]{@link ./@internal/component/ets/common} are not supported.
+ * 不支持[通用属性]{@link ./@internal/component/ets/common}。
  *
- * ###### Events
+ * ###### 事件
  *
- * The [universal events]{@link ./@internal/component/ets/common} are not supported.
+ * 不支持[通用事件]{@link ./@internal/component/ets/common}。
  *
  * @file Defines the fullScreen launch component
  * @kit ArkUI
@@ -43,16 +43,12 @@ import { Component, BuilderParam, TerminationInfo, Builder } from '@ohos.arkui.c
 @Builder
 type ContentBuilder = () => void;
 /**
- * **FullScreenLaunchComponent** is a component designed for launching atomic services in full screen. If the invoked
- * app (the one being launched) grants the invoker the authorization to run the atomic service in an embedded manner,
- * the invoker can operate the atomic service in full-screen embedded mode. If authorization is not provided, the
- * invoker will launch the atomic service in a pop-up manner.
- *
- * > **NOTE**
+ * 全屏启动原子化服务组件，当被拉起方授权使用方可以嵌入式运行原子化服务时，使用方全屏嵌入式运行原子化服务；未授权时，使用方跳出式拉起原子化服务。
+ * 
+ * > **说明：**
  * >
- * > To implement an embeddable atomic service within this component, it must inherit from
- * > [EmbeddableUIAbility]{@link @ohos.app.ability.EmbeddableUIAbility:EmbeddableUIAbility}. Otherwise, the system
- * > cannot guarantee that the atomic service will function properly.
+ * > 如果需要在该组件中实现可嵌入式运行的原子化服务，必须继承自[EmbeddableUIAbility]{@link @ohos.app.ability.EmbeddableUIAbility:EmbeddableUIAbility}
+ * > 。否则，系统无法保证原子化服务功能正常。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 23 static
@@ -61,7 +57,6 @@ type ContentBuilder = () => void;
 export declare struct FullScreenLaunchComponent {
   /**
    * Sets the component content.
-   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 23 static
    */
@@ -69,46 +64,40 @@ export declare struct FullScreenLaunchComponent {
   content: ContentBuilder;
   /**
    * Indicates atomic service appId.
-   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 23 static
    */
   appId: string;
   /**
    * Indicates the atomic service start options.
-   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 23 static
    */
   options?: AtomicServiceOptions;
   /**
-   * Callback triggered when an error occurs during running of the started ExtensionAbility.
-   * It is supported only when the atomic service runs in embedded mode,
-   * with the parameter being of type BusinessError.
-   *
+    * Callback triggered when an error occurs during running of the started ExtensionAbility.
+    * It is supported only when the atomic service runs in embedded mode,
+    * with the parameter being of type BusinessError.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 23 static
    */
   onError?: ErrorCallback;
   /**
-   * Callback triggered when the EmbeddableUIAbility is terminated to receive the information
-   * about the termination. It is supported only when the atomic service runs in embedded mode,
-   * with the parameter being of type TerminationInfo.
-   *
+    * Callback triggered when the EmbeddableUIAbility is terminated to receive the information
+    * about the termination. It is supported only when the atomic service runs in embedded mode,
+    * with the parameter being of type TerminationInfo.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 23 static
    */
   onTerminated?: Callback<TerminationInfo>;
   /**
-   * Indicates the callback of onReceive.
-   *
+    * Indicates the callback of onReceive.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 23 static
    */
   onReceive?: Callback<Record<string, RecordData>>;
   /**
-   * The method to build component.
-   *
+    * The method to build component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 23 static
    */
