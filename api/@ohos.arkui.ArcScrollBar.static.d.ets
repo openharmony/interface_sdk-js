@@ -55,6 +55,7 @@ export declare interface ArcScrollBarOptions {
  * @noninterop
  */
 export declare interface ArcScrollBarAttribute extends CommonMethod {
+
   /**
    * Called attributeModifier.
    *

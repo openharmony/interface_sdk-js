@@ -17,10 +17,12 @@
  * @file
  * @kit ArkUI
  */
-import { AttributeModifier, Callback, CommonMethod, Bindable } from './common';
-import { ComponentBuilder, CustomBuilder } from './builder';
+import { Callback, CommonMethod, Bindable } from './common';
+import { CustomBuilder } from './builder';
 import { ResourceStr, Resource } from './units';
 import { ComponentContentBase } from '../ComponentContent';
+import { ComponentBuilder } from './builder';
+import { AttributeModifier, CommonMethod } from './common';
 /**
  * The refresh status of the drop-down refresh.
  *
@@ -272,6 +274,6 @@ export declare interface RefreshAttribute extends CommonMethod {
  */
 @ComponentBuilder
 export declare function Refresh(
-    value: RefreshOptions,
+    value: RefreshOptions, 
     content_?: CustomBuilder,
-): RefreshAttribute;
+): RefreshAttribute

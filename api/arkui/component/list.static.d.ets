@@ -23,6 +23,7 @@ import { OnScrollFrameBeginCallback, ScrollAlign, Scroller } from "./scroll";
 import { Dimension, Length, LengthConstrain, ResourceColor, ItemFillPolicy, CacheCountInfo, Resource } from './units';
 import { ComponentBuilder, CustomBuilder, Builder, CustomBuilderT, ConstructorT } from './builder';
 import { AttributeModifier, Bindable, Callback, CommonMethod, UIScrollableCommonEvent } from "./common";
+
 /**
  * Declare scroll status
  *
@@ -1312,7 +1313,7 @@ export declare interface ListAttribute extends ScrollableCommonMethod {
  */
 @ComponentBuilder
 export declare function List(
-    options?: ListOptions,
+    options?: ListOptions, 
     content_?: CustomBuilder,
 ): ListAttribute
 

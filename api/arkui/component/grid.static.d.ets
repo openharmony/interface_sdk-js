@@ -819,7 +819,7 @@ export declare interface GridAttribute extends ScrollableCommonMethod {
  */
 @ComponentBuilder
 export declare function Grid(
-    scroller?: Scroller, layoutOptions?: GridLayoutOptions,
+    scroller?: Scroller, layoutOptions?: GridLayoutOptions, 
     content_?: CustomBuilder,
 ): GridAttribute
 

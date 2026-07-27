@@ -1160,6 +1160,6 @@ export type ScrollOnDidZoomCallback = (scale: double) => void;
  */
 @ComponentBuilder
 export declare function Scroll(
-    scroller?: Scroller,
+    scroller?: Scroller, 
     content_?: CustomBuilder,
-): ScrollAttribute;
+): ScrollAttribute

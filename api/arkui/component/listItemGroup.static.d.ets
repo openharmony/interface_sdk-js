@@ -18,9 +18,10 @@
  * @kit ArkUI
  */
 import { ChildrenMainSize, CommonMethod } from './common';
-import { CustomBuilder, ComponentBuilder } from './builder';
+import { CustomBuilder } from './builder';
 import { ComponentContentBase } from '../ComponentContent';
 import { ListDividerOptions } from "./list";
+import { ComponentBuilder } from './builder';
 import { AttributeModifier, CommonMethod } from "./common";
 import { Resource, Dimension} from './units';
 /**
@@ -50,7 +51,6 @@ export declare enum ListItemGroupStyle {
    */
   CARD = 1
 }
-
 /**
  * Defines the list item group header/footer style.
  *

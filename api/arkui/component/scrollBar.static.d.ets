@@ -147,6 +147,6 @@ export declare interface ScrollBarAttribute extends CommonMethod {
  */
 @ComponentBuilder
 export declare function ScrollBar(
-    value: ScrollBarOptions,
+    value: ScrollBarOptions, 
     content_?: CustomBuilder,
-): ScrollBarAttribute;
+): ScrollBarAttribute
