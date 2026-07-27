@@ -319,6 +319,115 @@ declare namespace backgroundTaskManager {
      * @since 26.0.0 dynamic&static
      */
     checkSpecialScenarioAuthResult(context: Context): Promise<UserAuthResult>;
+
+    /**
+     * 通知进度信息。
+     *
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @stagemodelonly
+     * @since 26.1.0 dynamic
+     */
+    progressInfo?: ProgressInfo;
+
+    /**
+     * 通知进度信息。
+     *
+     * @param { ProgressInfo } [value] - 通知进度信息。
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @stagemodelonly
+     * @since 26.1.0 static
+     */
+    set progressInfo(value?: ProgressInfo);
+
+    /**
+     * 通知进度信息。
+     *
+     * @returns { ProgressInfo | undefined } 通知进度信息。
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @stagemodelonly
+     * @since 26.1.0 static
+     */
+    get progressInfo(): ProgressInfo | undefined;
+  }
+
+  /**
+   * 通知进度信息。
+   *
+   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  interface ProgressInfo {  
+    /**
+     * 通知标题。
+     *
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    title: string;
+    /**
+     * 通知内容。
+     *
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    fileName: string;
+    /**
+     * 通知进度。如果该字段不存在，则不显示通知进度环，显示为普通通知。
+     * 取值限定为整数。
+     *
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    progressValue?: int;
+    /**
+     * 下载进度达到100%时是否静音。
+     *
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    isMute?: boolean;
+  }
+
+  /**
+   * 长时任务通知进度信息。
+   *
+   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  interface DataTransferProgress {  
+    /**
+     * 长时任务ID。
+     * 取值限定为整数。
+     *
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    continuousTaskId: int;
+
+    /**
+     * 通知参数，用于指定点击长时任务通知后跳转的界面。
+     *
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    wantAgent?: WantAgent;
+
+    /**
+     * 通知进度信息。
+     *
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    progressInfo: ProgressInfo;
   }
 
   /**
@@ -1151,6 +1260,23 @@ declare namespace backgroundTaskManager {
    * @since 24 static
    */
   function updateBackgroundRunning(context: Context, request: ContinuousTaskRequest): Promise<ContinuousTaskNotification>;
+
+  /**
+   * 更新通知。仅支持数据传输类型长时任务。
+   *
+   * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
+   * @param { Context } context - 应用运行的上下文。
+   * @param { DataTransferProgress } progressInfo - 长时任务通知进度信息。
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 9800004 - System service operation failed.
+   * @throws { BusinessError } 9800005 - Continuous task verification failed.
+   * @throws { BusinessError } 9800006 - Notification verification failed for a continuous task.
+   * @throws { BusinessError } 9800007 - Continuous task storage failed.
+   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  function updateDataTransferProgress(context: Context, progressInfo: DataTransferProgress): void;
 
   /**
    * 取消当前UIAbility（FA模型则为ServiceAbility）下所有长时任务，使用callback异步回调。也可以通过
