@@ -11361,8 +11361,6 @@ declare namespace audio {
      * This function can only be called when the audio renderer is not in the running or released state.
      * Otherwise, it will return an error. The caller must have the
      * ohos.permission.INJECT_PLAYBACK_TO_AUDIO_CAPTURE permission when target is not {@link RenderTarget#PLAYBACK}.
-     * This method can only be called when the audio renderer is ​​not​​ in the RUNNING or RELEASED state.
-     * Otherwise, an error will be returned.
      * After changing render target to non-PLAYBACK：
      *
      * 1. The audio route and interruption strategy of this renderer will not be affected by {@link AudioSessionManager}.
