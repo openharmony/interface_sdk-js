@@ -3654,13 +3654,13 @@ export class BigInt64Array {
     /**
      * Copies all elements of arr to the current BigInt64Array starting from offset.
      *
-     * @param { BigInt64Array } array - array to copy data from
-     * @param { int } offset - start index where data from arr will be inserted
+     * @param { BigInt64Array } array - array to copy data from.
+     * @param { int } offset - start index where data from arr will be inserted.
      *     <br>The value range is all integers.
      * @throws { RangeError } - If the number of assigned elements exceeds the array range, throw an exception
      * @syscap SystemCapability.Utils.Lang
      * @stagemodelonly
-     * @since 26.0.0 staticonlyl
+     * @since 26.0.0 staticonly
      */
     public set(array: BigInt64Array, offset: int): void;
 
@@ -4283,13 +4283,13 @@ export class BigInt64Array {
      *
      * @param { function } fn - A function to test each element. Called with (value, index, array).
      *     Should return true for the element to be found.
-     * @returns { long } - the last element that satisfies fn
+     * @returns { BigInt } - the last element that satisfies fn
      * @throws { Error } - If the element cannot be found, throw an exception
      * @syscap SystemCapability.Utils.Lang
      * @stagemodelonly
      * @since 26.0.0 staticonly
      */
-    public findLast(fn: (val: BigInt, index: int, array: BigInt64Array) => boolean): long;
+    public findLast(fn: (val: BigInt, index: int, array: BigInt64Array) => boolean): BigInt;
 
     /**
      * Finds an index of the last element in the BigInt64Array that satisfies the condition
