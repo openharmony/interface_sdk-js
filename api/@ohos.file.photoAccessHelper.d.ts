@@ -17167,9 +17167,8 @@ declare namespace photoAccessHelper {
    */
   interface AnalysisToolResult {
     /**
-     * Error code of the tool execution.
+     * Error code of the tool execution. The value 0 indicates success.
      * Possible error codes:
-     * <br>0 - Success.
      * <br>23800203 - Temperature is too high.
      * <br>23800204 - Battery level is too low.
      * <br>23800205 - Storage space is insufficient.
