@@ -312,7 +312,7 @@ declare namespace accountManager {
    * @param { string } name - Account name, which is the name of the account to be added. An account with the same name
    *     or an empty name cannot be created.
    * @param { osAccount.OsAccountType } type - Type of the account to add.<br>The value can be any of the following:<br>
-   *     �� **ADMIN**: administrator account.<br>�� **NORMAL**: normal account.<br>�� **GUEST**: guest account.
+   *     **ADMIN**: administrator account.<br> **NORMAL**: normal account.<br> **GUEST**: guest account.
    * @returns { Promise<osAccount.OsAccountInfo> } Promise used to return the added account information.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
