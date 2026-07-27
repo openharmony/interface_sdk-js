@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -132,6 +132,7 @@ declare namespace display {
    * @param { AsyncCallback<Array<Display>> } callback - Callback used to return all the Display objects.
    * @throws { BusinessError } 1400001 - Invalid display or screen.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @crossplatform [since 26.1.0]
    * @atomicservice [since 12]
    * @since 9 dynamic
    * @since 23 static
@@ -144,6 +145,7 @@ declare namespace display {
    * @returns { Promise<Array<Display>> } Promise used to return all the Display objects.
    * @throws { BusinessError } 1400001 - Invalid display or screen.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @crossplatform [since 26.1.0]
    * @atomicservice [since 12]
    * @since 9 dynamic
    * @since 23 static
@@ -1200,6 +1202,7 @@ declare namespace display {
      * folded.
      *
      * @syscap SystemCapability.Window.SessionManager
+     * @crossplatform [since 26.1.0]
      * @atomicservice [since 12]
      * @since 10 dynamic
      * @since 23 static
@@ -1478,6 +1481,7 @@ declare namespace display {
    * Describes the crease region of a foldable device.
    *
    * @syscap SystemCapability.Window.SessionManager
+   * @crossplatform [since 26.1.0]
    * @atomicservice [since 12]
    * @since 10 dynamic
    * @since 23 static
@@ -1487,6 +1491,7 @@ declare namespace display {
      * ID of the display where the crease is located.
      *
      * @syscap SystemCapability.Window.SessionManager
+     * @crossplatform [since 26.1.0]
      * @atomicservice [since 12]
      * @since 10 dynamic
      * @since 23 static
@@ -1497,6 +1502,7 @@ declare namespace display {
      * Crease region.
      *
      * @syscap SystemCapability.Window.SessionManager
+     * @crossplatform [since 26.1.0]
      * @atomicservice [since 12]
      * @since 10 dynamic
      * @since 23 static
@@ -1557,6 +1563,7 @@ declare namespace display {
    * Describes a rectangle on the display.
    *
    * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @crossplatform [since 26.1.0]
    * @atomicservice [since 12]
    * @since 9 dynamic
    * @since 23 static
@@ -1566,6 +1573,7 @@ declare namespace display {
      * Left boundary of the rectangle, in px. The value is an integer.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform [since 26.1.0]
      * @atomicservice [since 12]
      * @since 9 dynamic
      * @since 23 static
@@ -1576,6 +1584,7 @@ declare namespace display {
      * Top boundary of the rectangle, in px. The value is an integer.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform [since 26.1.0]
      * @atomicservice [since 12]
      * @since 9 dynamic
      * @since 23 static
@@ -1586,6 +1595,7 @@ declare namespace display {
      * Width of the rectangle, in px. The value is an integer.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform [since 26.1.0]
      * @atomicservice [since 12]
      * @since 9 dynamic
      * @since 23 static
@@ -1596,6 +1606,7 @@ declare namespace display {
      * Height of the rectangle, in px. The value is an integer.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform [since 26.1.0]
      * @atomicservice [since 12]
      * @since 9 dynamic
      * @since 23 static
@@ -1801,6 +1812,7 @@ declare namespace display {
      * The value **3** indicates that the display rotates clockwise by 270��.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform [since 26.1.0]
      * @atomicservice [since 11]
      * @since 7 dynamic
      * @since 23 static
@@ -2054,6 +2066,7 @@ declare namespace display {
      *     capabilities.
      * @throws { BusinessError } 1400003 - This display manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
+     * @crossplatform [since 26.1.0]
      * @since 20 dynamic
      * @since 23 static
      */

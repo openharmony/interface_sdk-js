@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -126,6 +126,7 @@ declare namespace display {
    * @param { AsyncCallback<Array<Display>> } callback - 回调函数。返回当前所有的Display对象。
    * @throws { BusinessError } 1400001 - Invalid display or screen.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @crossplatform [since 26.1.0]
    * @atomicservice [since 12]
    * @since 9 dynamic
    * @since 23 static
@@ -138,6 +139,7 @@ declare namespace display {
    * @returns { Promise<Array<Display>> } Promise对象。返回当前所有的Display对象。
    * @throws { BusinessError } 1400001 - Invalid display or screen.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @crossplatform [since 26.1.0]
    * @atomicservice [since 12]
    * @since 9 dynamic
    * @since 23 static
@@ -1116,6 +1118,7 @@ declare namespace display {
      * 表示设备当前折叠状态为折叠。如果是双折轴设备，则表示折轴一和折轴二的折叠状态均为折叠。
      *
      * @syscap SystemCapability.Window.SessionManager
+     * @crossplatform [since 26.1.0]
      * @atomicservice [since 12]
      * @since 10 dynamic
      * @since 23 static
@@ -1389,6 +1392,7 @@ declare namespace display {
    * 折叠折痕区域。
    *
    * @syscap SystemCapability.Window.SessionManager
+   * @crossplatform [since 26.1.0]
    * @atomicservice [since 12]
    * @since 10 dynamic
    * @since 23 static
@@ -1398,6 +1402,7 @@ declare namespace display {
      * 屏幕ID，用于识别折痕所在的屏幕。
      *
      * @syscap SystemCapability.Window.SessionManager
+     * @crossplatform [since 26.1.0]
      * @atomicservice [since 12]
      * @since 10 dynamic
      * @since 23 static
@@ -1408,6 +1413,7 @@ declare namespace display {
      * 折痕区域。
      *
      * @syscap SystemCapability.Window.SessionManager
+     * @crossplatform [since 26.1.0]
      * @atomicservice [since 12]
      * @since 10 dynamic
      * @since 23 static
@@ -1457,6 +1463,7 @@ declare namespace display {
    * 矩形区域。
    *
    * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @crossplatform [since 26.1.0]
    * @atomicservice [since 12]
    * @since 9 dynamic
    * @since 23 static
@@ -1466,6 +1473,7 @@ declare namespace display {
      * 矩形区域的左边界，单位为px，该参数为整数。
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform [since 26.1.0]
      * @atomicservice [since 12]
      * @since 9 dynamic
      * @since 23 static
@@ -1476,6 +1484,7 @@ declare namespace display {
      * 矩形区域的上边界，单位为px，该参数为整数。
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform [since 26.1.0]
      * @atomicservice [since 12]
      * @since 9 dynamic
      * @since 23 static
@@ -1486,6 +1495,7 @@ declare namespace display {
      * 矩形区域的宽度，单位为px，该参数为整数。
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform [since 26.1.0]
      * @atomicservice [since 12]
      * @since 9 dynamic
      * @since 23 static
@@ -1496,6 +1506,7 @@ declare namespace display {
      * 矩形区域的高度，单位为px，该参数为整数。
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform [since 26.1.0]
      * @atomicservice [since 12]
      * @since 9 dynamic
      * @since 23 static
@@ -1714,6 +1725,7 @@ declare namespace display {
      * SystemCapability.WindowManager.WindowManager.Core
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform [since 26.1.0]
      * @atomicservice [since 11]
      * @since 7 dynamic
      * @since 23 static
@@ -1964,6 +1976,7 @@ declare namespace display {
      *     capabilities.
      * @throws { BusinessError } 1400003 - This display manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
+     * @crossplatform [since 26.1.0]
      * @since 20 dynamic
      * @since 23 static
      */
