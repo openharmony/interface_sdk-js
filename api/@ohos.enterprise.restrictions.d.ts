@@ -62,7 +62,7 @@ declare namespace restrictions {
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
-     * @since 26.0.0
+     * @since 26.1.0
      */
     X_KEY = 1,
 
@@ -80,7 +80,7 @@ declare namespace restrictions {
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
-     * @since 26.0.0
+     * @since 26.1.0
      */
     PACKET_FILTERING = 3,
 
@@ -89,7 +89,7 @@ declare namespace restrictions {
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
-     * @since 26.0.0
+     * @since 26.1.0
      */
     SUDO = 4,
 
