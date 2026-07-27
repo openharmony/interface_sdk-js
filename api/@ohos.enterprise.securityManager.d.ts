@@ -609,8 +609,8 @@ declare namespace securityManager {
    *     path and the actual physical path, see
    *     [Mappings Between App Sandbox Paths and Physical Paths](docroot://file-management/app-sandbox-directory.md#mappings-between-application-sandbox-paths-and-physical-paths)
    *     .<br>**image.PixelMap** indicates an image object. The size of an image pixel cannot exceed 500 KB.<br>The size
-   *     of an image pixel is calculated as follows: Image width (pixels) �� Image height (pixels) �� Number of bytes per
-   *     pixel (typically 4). For example, the size of a 100 �� 100 image is 100 �� 100 �� 4 = 40,000 bytes.
+   *     of an image pixel is calculated as follows: Image width (pixels) × Image height (pixels) × Number of bytes per
+   *     pixel (typically 4). For example, the size of a 100 × 100 image is 100 × 100 × 4 = 40,000 bytes.
    * @param { number } accountId - Account ID. You can call
    *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()} of
    *     **@ohos.account.osAccount** to obtain the account ID.
