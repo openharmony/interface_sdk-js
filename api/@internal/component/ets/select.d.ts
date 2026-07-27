@@ -1191,37 +1191,14 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    *     retaining the original visual style of the select's menu.
    * @returns { SelectAttribute } - the attribute of the select.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @systemapi [since 23-24]
-    * @publicapi [since 26.0.0]
+   * @systemapi [since 23 - 24]
+   * @publicapi [since 26.0.0]
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 23 dynamic
    */
   menuSystemMaterial(material: Optional<SystemUiMaterial>): SelectAttribute;
-
-  /**
-   * Sets the distortion animation mode of the select with the new material.
-   *
-   * @param { DistortionMode } mode - Animation mode. The default value is DistortionMode.DISTORTION_AUTO.
-   * @returns { SelectAttribute } - the attribute of the select.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @stagemodelonly
-   * @since 26.0.0 dynamic
-   */
-  menuDistortionMode(mode: DistortionMode): SelectAttribute;
-  /**
-   * Sets the edgelight animation mode of the select with the new material.
-   * 
-   * @param { EdgeLightMode } mode - Animation mode. The default value is EdgeLightMode.EDGELIGHT_DISABLED.
-   * @returns { SelectAttribute } - the attribute of the select.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @stagemodelonly
-   * @since 26.0.0 dynamic
-   */
-  menuEdgeLightMode(mode: EdgeLightMode): SelectAttribute;
 
   /**
    * Defines the select menu's background blur style with options
@@ -1250,6 +1227,29 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @since 26.0.0 dynamic
    */
   menuBackgroundEffect(effect: Optional<BackgroundEffectOptions>): SelectAttribute;
+
+  /**
+   * Sets the distortion animation mode of the select with the new material.
+   *
+   * @param { DistortionMode } mode - Animation mode. The default value is DistortionMode.DISTORTION_AUTO.
+   * @returns { SelectAttribute } - the attribute of the select.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  menuDistortionMode(mode: DistortionMode): SelectAttribute;
+  /**
+   * Sets the edgelight animation mode of the select with the new material.
+   * 
+   * @param { EdgeLightMode } mode - Animation mode. The default value is EdgeLightMode.EDGELIGHT_DISABLED.
+   * @returns { SelectAttribute } - the attribute of the select.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  menuEdgeLightMode(mode: EdgeLightMode): SelectAttribute;
 }
 
 /**
@@ -1270,7 +1270,6 @@ declare interface MenuItemConfiguration extends CommonConfiguration<MenuItemConf
    * 
    * If the length of the text exceeds the width of the menu item text area, the text will be truncated.
    *
-   * @type { ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform

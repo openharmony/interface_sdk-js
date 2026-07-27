@@ -322,9 +322,9 @@ declare namespace promptAction {
  	     * Set system-styled materials for toast. Different materials have different effects, which can influence
  	     * backgroundColor, border, shadow, and other visual attributes of toast.
  	     *
- 	     * @type { ?SystemUiMaterial }
  	     * @syscap SystemCapability.ArkUI.ArkUI.Full
  	     * @stagemodelonly
+         * @crossplatform
  	     * @atomicservice
  	     * @since 26.0.0 dynamic
  	     */
@@ -333,7 +333,6 @@ declare namespace promptAction {
     /**
      * Enumerates display modes for toasts. By default, the toast is displayed within the application and supports display in subwindows.
      *
-     * @enum { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @crossplatform [since 12]

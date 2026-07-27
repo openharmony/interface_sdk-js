@@ -64,6 +64,7 @@ export interface PopupTextOptions {
    * 默认值：`$r('sys.float.ohos_id_text_size_body2')` 
    * 
    * string类型可选值：可以转化为数字的字符串（如'10'）或带长度单位的字符串（如'10px'），不支持设置百分比字符串。
+   * 为number类型时单位：fp。
    * 
    * number：取值范围(0,+∞)。
    *
@@ -141,6 +142,7 @@ export interface PopupButtonOptions {
    * 默认值：`$r('sys.float.ohos_id_text_size_button2')`
    * 
    * string类型可选值：可以转化为数字的字符串（如'10'）或带长度单位的字符串（如'10px'），不支持设置百分比字符串。
+   * 为number类型时单位：fp。
    * 
    * 设置值为异常值时取默认值。
    *

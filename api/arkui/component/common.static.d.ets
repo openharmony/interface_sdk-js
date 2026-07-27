@@ -8389,6 +8389,15 @@ export declare interface PopupCommonOptions {
      */
     systemMaterial?: SystemUiMaterial;
     /**
+     * Defines the display level of the popup.
+     *
+     * @type { ?LevelMode }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    levelMode?: LevelMode;
+    /**
      * Defines the popup's background blur style with options
      *
      * @type { ?BackgroundBlurStyleOptions }
@@ -8406,15 +8415,7 @@ export declare interface PopupCommonOptions {
      * @since 26.0.0 static
      */
     backgroundEffect?: BackgroundEffectOptions;
-    /**
-     * Defines the display level of the popup.
-     *
-     * @type { ?LevelMode }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 26.0.0 static
-     */
-    levelMode?: LevelMode;
+
 
   /**
    * Callback function when the popup disappears.
@@ -8912,6 +8913,15 @@ export declare interface PopupOptions {
      */
     systemMaterial?: SystemUiMaterial;
     /**
+     * Defines the display level of the popup.
+     *
+     * @type { ?LevelMode }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    levelMode?: LevelMode;
+    /**
      * Defines the popup's background blur style with options
      *
      * @type { ?BackgroundBlurStyleOptions }
@@ -8929,15 +8939,7 @@ export declare interface PopupOptions {
      * @since 26.0.0 static
      */
     backgroundEffect?: BackgroundEffectOptions;
-    /**
-     * Defines the display level of the popup.
-     *
-     * @type { ?LevelMode }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 26.0.0 static
-     */
-    levelMode?: LevelMode;
+
 
   /**
    * Callback function before the popup closeAnimation starts.
@@ -9326,6 +9328,15 @@ export declare interface CustomPopupOptions {
      */
     systemMaterial?: SystemUiMaterial;
     /**
+     * Defines the display level of the popup.
+     *
+     * @type { ?LevelMode }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    levelMode?: LevelMode;
+    /**
      * Defines the popup's background blur style with options
      *
      * @type { ?BackgroundBlurStyleOptions }
@@ -9343,15 +9354,7 @@ export declare interface CustomPopupOptions {
      * @since 26.0.0 static
      */
     backgroundEffect?: BackgroundEffectOptions;
-    /**
-     * Defines the display level of the popup.
-     *
-     * @type { ?LevelMode }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 26.0.0 static
-     */
-    levelMode?: LevelMode;
+
 
   /**
    * Callback function when the popup appears.
@@ -10120,6 +10123,15 @@ export declare interface ContextMenuOptions {
      * @since 26.0.0 static
      */
     systemMaterial?: SystemUiMaterial;
+        /**
+     * Defines the max height of menu.
+     *
+     * @type { ?LengthMetrics }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    maxHeight?: LengthMetrics;
     /**
      * Defines the scroll bar state of menu.
      *
@@ -10131,17 +10143,8 @@ export declare interface ContextMenuOptions {
      */
     scrollBar?: BarState;
     /**
-     * Defines the max height of menu.
-     *
-     * @type { ?LengthMetrics }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 26.0.0 static
-     */
-    maxHeight?: LengthMetrics;
-    /**
      * Sets the distortion animation Mode of the menu.
-     * 
+     *
      * @default DistortionMode.DISTORTION_AUTO
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
@@ -10456,7 +10459,6 @@ export declare interface DepthVector4 {
 /**
  * RGB color in depth space.
  *
- * @interface DepthColorRGB
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @stagemodelonly
