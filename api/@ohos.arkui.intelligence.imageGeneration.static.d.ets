@@ -968,7 +968,7 @@ declare namespace imageGeneration {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   function closeGeneratorDialog(uiContext: UIContext): Promise<void>;
   /**
@@ -1000,7 +1000,7 @@ declare namespace imageGeneration {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   interface GeneratorNodeGraphOptions {
     /**
@@ -1010,7 +1010,7 @@ declare namespace imageGeneration {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @stagemodelonly
-     * @since 24 static
+     * @since 26.0.0 static
      */
     customIcons?: Array<GeneratorResultPageIcon>;
     /**
@@ -1020,7 +1020,7 @@ declare namespace imageGeneration {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @stagemodelonly
-     * @since 24 static
+     * @since 26.0.0 static
      */
     imageGenerationModel?: ImageGenerationModel;
     /**
@@ -1030,7 +1030,7 @@ declare namespace imageGeneration {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @stagemodelonly
-     * @since 24 static
+     * @since 26.0.0 static
      */
     textGenerationModel?: TextGenerationModel;
     /**
@@ -1063,7 +1063,7 @@ declare namespace imageGeneration {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   function openGeneratorNodeGraph(uiContext: UIContext, options?: GeneratorNodeGraphOptions): Promise<void>;
 
@@ -1075,7 +1075,7 @@ declare namespace imageGeneration {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   function closeGeneratorNodeGraph(uiContext: UIContext): Promise<void>;
   /**
