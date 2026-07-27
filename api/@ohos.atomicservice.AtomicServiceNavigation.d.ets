@@ -193,7 +193,7 @@ export declare struct AtomicServiceNavigation {
    * @type { ?GradientBackground }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18 dynamic
+   * @since 18 dynamiconly
    */
   @Prop
   gradientBackground?: GradientBackground;
@@ -294,7 +294,7 @@ export declare struct AtomicServiceNavigation {
    * @type { ?SideBarOptions }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18 dynamic
+   * @since 18 dynamiconly
    */
   @Prop
   sideBarOptions?: SideBarOptions;
@@ -304,7 +304,7 @@ export declare struct AtomicServiceNavigation {
    * @type { ?Callback<void> }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18 dynamic
+   * @since 18 dynamiconly
    */
   @BuilderParam
   sideBarContent?: Callback<void>;
@@ -357,7 +357,7 @@ export interface TitleOptions {
    * @default TitleBarType.ROUND_ICON
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18 dynamic
+   * @since 18 dynamiconly
    */
   titleBarType?: TitleBarType;
 
@@ -368,7 +368,7 @@ export interface TitleOptions {
    * @default atomicservice icon
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18 dynamic
+   * @since 18 dynamiconly
    */
   titleIcon?: Resource | SymbolGlyphModifier;
 }
@@ -387,7 +387,7 @@ export interface GradientBackground {
    * @type { ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18 dynamic
+   * @since 18 dynamiconly
    */
   primaryColor: ResourceColor;
 
@@ -397,7 +397,7 @@ export interface GradientBackground {
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18 dynamic
+   * @since 18 dynamiconly
    */
   secondaryColor?: ResourceColor;
 
@@ -407,7 +407,7 @@ export interface GradientBackground {
    * @type { ?BackgroundTheme }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18 dynamic
+   * @since 18 dynamiconly
    */
   backgroundTheme?: BackgroundTheme;
 
@@ -417,7 +417,7 @@ export interface GradientBackground {
    * @type { ?MixMode }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18 dynamic
+   * @since 18 dynamiconly
    */
   mixMode?: MixMode;
 
@@ -427,7 +427,7 @@ export interface GradientBackground {
    * @type { ?GradientAlpha }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18 dynamic
+   * @since 18 dynamiconly
    */
   alpha?: GradientAlpha;
 }
@@ -446,7 +446,7 @@ export interface SideBarOptions {
    * @type { ?ResourceColor }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18 dynamic
+   * @since 18 dynamiconly
    */
   sideBarBackground?: ResourceColor;
 
@@ -456,7 +456,7 @@ export interface SideBarOptions {
    * @type { ?Callback<boolean> }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18 dynamic
+   * @since 18 dynamiconly
    */
   onChange?: Callback<boolean>;
 
@@ -467,7 +467,7 @@ export interface SideBarOptions {
    * @default $r('sys.symbol.open_sidebar')
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18 dynamic
+   * @since 18 dynamiconly
    */
   sideBarIcon?: Resource | SymbolGlyphModifier;
 }
