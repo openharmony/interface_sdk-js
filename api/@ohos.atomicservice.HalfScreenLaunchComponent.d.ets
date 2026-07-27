@@ -83,9 +83,11 @@ export declare struct HalfScreenLaunchComponent {
   /**
    * Callback triggered when an embedded atomic service exits normally. Exit scenarios include user-triggered exit
    * button taps or edge swipes, or calls to
-   * [terminateSelfWithResult]{@link ./application/UIAbilityContext:UIAbilityContext#terminateSelfWithResult(parameter: AbilityResult, callback: AsyncCallback<void>)}
+   * [terminateSelfWithResult]{@link ./application/UIAbilityContext:UIAbilityContext#terminateSelfWithResult
+   * (parameter: AbilityResult, callback: AsyncCallback<void>)}
    * or
-   * [terminateSelf]{@link ./application/UIAbilityContext:UIAbilityContext#terminateSelf(callback: AsyncCallback<void>)}.
+   * [terminateSelf]{@link ./application/UIAbilityContext:UIAbilityContext#terminateSelf
+   * (callback: AsyncCallback<void>)}.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
