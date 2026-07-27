@@ -91,7 +91,8 @@ export declare struct InnerFullScreenLaunchComponent {
    * button taps or edge swipes, or calls to
    * [terminateSelfWithResult]{@link ./application/UIAbilityContext:UIAbilityContext#terminateSelfWithResult(parameter: AbilityResult, callback: AsyncCallback<void>)}
    * or
-   * [terminateSelf]{@link ./application/UIAbilityContext:UIAbilityContext#terminateSelf(callback: AsyncCallback<void>)}.
+   * [terminateSelf]{@link ./application/UIAbilityContext:UIAbilityContext#terminateSelf
+   * (callback: AsyncCallback<void>)}.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
