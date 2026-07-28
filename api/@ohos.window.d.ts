@@ -3653,7 +3653,7 @@ declare namespace window {
    * @throws { BusinessError } 1300003 - This window manager service works abnormally.
    *     Possible cause: Internal task error.
    * @syscap SystemCapability.Window.SessionManager
-   * @systemapi Hide this for inner system use. [since 12 - 17]
+   * @systemapi [since 12 - 17]
    * @publicapi [since 18]
    * @since 12 dynamic
    * @since 23 static
@@ -10076,7 +10076,7 @@ declare namespace window {
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      *     Possible cause: Invalid window type. Only main windows are supported.
      * @syscap SystemCapability.Window.SessionManager
-     * @systemapi Hide this for inner system use. [since 20 - 24]
+     * @systemapi [since 20 - 24]
      * @publicapi [since 26.0.0]
      * @since 20 dynamic
      * @since 23 static
