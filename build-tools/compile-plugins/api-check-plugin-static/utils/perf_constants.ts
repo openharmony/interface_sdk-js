@@ -61,8 +61,8 @@ const GET_JSDOC = `${CHECK_JSDOC}.getJsDoc`;
 const CHECK_AVAILABLE_DECORATOR = `${CHECK_CALLBACK}.checkAvailableDecorator`;
 const CHECK_SYSTEM_API_TAG = `${CHECK_CALLBACK}.checkSystemApiTag`;
 const CHECK_SINCE_VALUE = `${CHECK_CALLBACK}.checkSinceValue`;
-const CHECK_SYSCAP_ABILITY = `${CHECK_CALLBACK}.checkSyscapAbility`;
-const CHECK_PERMISSION_VALUE = `${CHECK_CALLBACK}.checkPermissionValue`;
+const CHECK_SYSCAP_ABILITY = `${CHECK_CALLBACK}.checkSyscapTag`;
+const CHECK_PERMISSION_VALUE = `${CHECK_CALLBACK}.checkPermissionTag`;
 const CHECK_STAGE_MODULE_VALUE = `${CHECK_CALLBACK}.checkStageModuleValue`;
 
 export const PERF = {
