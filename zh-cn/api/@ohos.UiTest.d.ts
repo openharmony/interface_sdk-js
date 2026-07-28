@@ -1030,7 +1030,7 @@ declare enum DisplayRotation {
  */
 declare interface Point {
   /**
-   * 坐标点的横坐标，取值大于0的整数。
+   * 坐标点的横坐标，取值大于等于0的整数，单位：px。
    * 
    * **说明：** 从API version 20开始，该属性不再为只读属性。
    * 
@@ -1045,7 +1045,7 @@ declare interface Point {
    */
   x: int;
   /**
-   * 坐标点的纵坐标，取值大于0的整数。
+   * 坐标点的纵坐标，取值大于等于0的整数，单位：px。
    * 
    * **说明：** 从API version 20开始，该属性不再为只读属性。
    * 
@@ -1083,7 +1083,7 @@ declare interface Point {
  */
 declare interface Rect {
   /**
-   * 控件边框的左上角的X坐标，取值大于0的整数。
+   * 控件边框的左上角的X坐标，取值大于等于0的整数，单位：px。
    * 
    * **说明：** 从API version 20开始，该属性不再为只读属性。
    * 
@@ -1098,7 +1098,7 @@ declare interface Rect {
    */
   left: int;
   /**
-   * 控件边框的左上角的Y坐标，取值大于0的整数。
+   * 控件边框的左上角的Y坐标，取值大于等于0的整数，单位：px。
    * 
    * **说明：** 从API version 20开始，该属性不再为只读属性。
    * 
@@ -1113,7 +1113,7 @@ declare interface Rect {
    */
   top: int;
   /**
-   * 控件边框的右下角的X坐标，取值大于0的整数。
+   * 控件边框的右下角的X坐标，取值大于等于0的整数，单位：px。
    * 
    * **说明：** 从API version 20开始，该属性不再为只读属性。
    * 
@@ -1128,7 +1128,7 @@ declare interface Rect {
    */
   right: int;
   /**
-   * 控件边框的右下角的Y坐标，取值大于0的整数。
+   * 控件边框的右下角的Y坐标，取值大于等于0的整数，单位：px。
    * 
    * **说明：** 从API version 20开始，该属性不再为只读属性。
    * 
@@ -1165,7 +1165,7 @@ declare interface Rect {
  */
 declare interface WindowFilter {
   /**
-   * 窗口归属应用的包名，默认值为空。
+   * 窗口归属应用的包名，默认值为空，用于在多窗口场景下根据应用包名筛选目标窗口。
    * 
    * 从API version 11开始，该接口支持在原子化服务中使用。
    *
@@ -1177,7 +1177,7 @@ declare interface WindowFilter {
   bundleName?: string;
 
   /**
-      * 窗口的标题信息，默认值为空。 从API version 11开始，该接口支持在原子化服务中使用。
+      * 窗口的标题信息，默认值为空，用于在多窗口场景下根据窗口标题筛选目标窗口。 从API version 11开始，该接口支持在原子化服务中使用。
       *
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice [since 11]
@@ -1298,7 +1298,7 @@ declare enum WindowChangeType {
  */
 declare enum ComponentEventType {
   /**
-   * 非窗口变化事件。
+   * 非控件操作事件。
    * 
    * **说明：** 该枚举值仅支持作为返回值，如果作为接口入参会抛出异常。
    *
@@ -1372,7 +1372,7 @@ declare enum ComponentEventType {
  */
 declare interface WindowChangeOptions {
   /**
-   * 监听超时时间，默认值为10000，单位：ms。
+   * 监听超时时间，取值范围：大于等于500的整数，默认值为10000，单位：ms。传入不在范围内的值抛出错误码。
    *
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
@@ -1404,7 +1404,7 @@ declare interface WindowChangeOptions {
  */
 declare interface ComponentEventOptions {
   /**
-   * 监听超时时间，默认值为10000，单位：ms。
+   * 监听超时时间，取值范围：大于等于500的整数，默认值为10000，单位：ms。传入不在范围内的值抛出错误码。
    *
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
@@ -1846,7 +1846,7 @@ declare interface KeyOptions {
    */
   key1?: int;
   /**
-   * 操作期间要按下的第一个键码。  
+   * 操作期间要按下的第二个键码。  
    * 如果未设置，将不会注入任何按键事件。  
    * 如果仅设置 key2 而未设置 key1，将会导致业务错误 17000007。
    *
@@ -1891,7 +1891,7 @@ declare interface TouchOptions {
    */
   duration?: int;
   /**
-   * 触摸的压力值，取值范围为 0 到 1， 默认值为 1。
+   * 触摸的压力值，取值范围为[0, 1]，包含0和1，默认值为0。取值为null或undefined时按照默认值处理，其他超出取值范围情况时抛出17000007错误码。
    *
    * @syscap SystemCapability.Test.UiTest
    * @FaAndStageModel
@@ -4669,7 +4669,7 @@ declare class PointerMatrix {
  }
 
 /**
- * The static builder for building {@link By}object conveniently,usage example:BY.text('txt').enabled(true).
+ * 用于便捷构造{@link By}对象的静态构造器，使用示例：BY.text('txt').enabled(true)。
  *
  * @syscap SystemCapability.Test.UiTest
  * @since 8 dynamiconly
@@ -4680,7 +4680,7 @@ declare class PointerMatrix {
 declare const BY: By;
 
 /**
- * The static builder for building {@link On}object conveniently,usage example:ON.text('txt').enabled(true).
+ * 用于便捷构造{@link On}对象的静态构造器，使用示例：ON.text('txt').enabled(true)。
  *
  * @syscap SystemCapability.Test.UiTest
  * @crossplatform [since 11]
@@ -4691,7 +4691,7 @@ declare const BY: By;
 declare const ON: On;
 
 /**
- * The static builder for building {@link On}object conveniently,usage example:ON.text('txt').enabled(true).
+ * 用于便捷构造{@link On}对象的静态构造器，使用示例：ON.text('txt').enabled(true)。
  *
  * @syscap SystemCapability.Test.UiTest
  * @since 23 static
