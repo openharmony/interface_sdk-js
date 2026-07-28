@@ -6456,37 +6456,6 @@ declare enum RawInputEventType {
 }
 
 /**
- * Enumerates the component animation modes under the UI material effect.
- *
- * @enum { int }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @atomicservice
- * @since 26.0.0 dynamic
- */
-declare enum UIMaterialAnimationMode {
-  /**
-   * When the material is enabled for the component, the animation effect is automatically enabled.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 26.0.0 dynamic
-   */
-  IMMERSIVE = 0,
-
-  /**
-   * Disable the animation effect.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 26.0.0 dynamic
-   */
-  NONE = 1
-}
-
-/**
  * Defines the position of the edge light effect.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
