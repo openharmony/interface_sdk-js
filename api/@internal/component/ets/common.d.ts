@@ -970,7 +970,7 @@ declare enum SystemProperties {
    * @since 26.0.0 dynamic
    */
   WINDOW_SIZE_PX = 'system.window.size.px',
-};
+}
 
 /**
  * Defining Consume PropertyDecorator.
@@ -28537,7 +28537,7 @@ declare function wrapBuilder<Args extends Object[]>(builder: (...args: Args) => 
  * @atomicservice
  * @since 22 dynamiconly
  */
-declare type BuilderCallback = (...args: Args) => void;
+declare type BuilderCallback<Args extends Object[] = any[]> = (...args: Args) => void;
 
 /**
  * Defining mutableBuilder function.
