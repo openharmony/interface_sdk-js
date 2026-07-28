@@ -7230,6 +7230,17 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 26.0.0 dynamic&static
      */
     hdrComposeToMainPixelmap(): Promise<void>;
+
+    /**
+     * 设置图片的PixelMap对象。
+     *
+     * @param { PixelMap } pixelmap  - PixelMap对象。
+     * @throws { BusinessError } 7700204  - 参数错误。
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    setMainPixelmap(pixelmap: PixelMap): void;
   }
 
   /**
