@@ -28,7 +28,6 @@
  * @since 10 dynamic
  */
 declare enum CalendarAlign {
-
   /**
    * Left-aligned with the entry component.
    *
@@ -39,7 +38,6 @@ declare enum CalendarAlign {
    * @since 10 dynamic
    */
   START = 0,
-
   /**
    * Center-aligned with the entry component.
    *
@@ -50,7 +48,6 @@ declare enum CalendarAlign {
    * @since 10 dynamic
    */
   CENTER = 1,
-
   /**
    * Right-aligned with the entry component.
    *
@@ -73,7 +70,6 @@ declare enum CalendarAlign {
  * @since 10 dynamic
  */
 declare interface CalendarOptions {
-
   /**
    * Style of the background of the selected state.
    *
@@ -180,7 +176,6 @@ declare interface CalendarOptions {
  * @noninterop
  */
 interface CalendarPickerInterface {
-
   /**
    * Creates a calendar picker.
    *
@@ -208,7 +203,6 @@ interface CalendarPickerInterface {
  * @noninterop
  */
 declare class CalendarPickerAttribute extends CommonMethod<CalendarPickerAttribute> {
-
   /**
    * Sets how the picker is aligned with the entry component.
    *
@@ -223,7 +217,6 @@ declare class CalendarPickerAttribute extends CommonMethod<CalendarPickerAttribu
    * @since 10 dynamic
    */
   edgeAlign(alignType: CalendarAlign, offset?: Offset): CalendarPickerAttribute;
-
   /**
    * Sets how the picker is aligned with the entry component. Compared with
    * [edgeAlign]{@link CalendarPickerAttribute#edgeAlign(alignType: CalendarAlign, offset?: Offset)}, this API supports
@@ -340,7 +333,6 @@ declare class CalendarPickerAttribute extends CommonMethod<CalendarPickerAttribu
  * @since 10 dynamic
  */
 declare interface CalendarDialogOptions extends CalendarOptions {
-
   /**
    * Triggered when the OK button in the dialog box is clicked.
    *
@@ -619,7 +611,6 @@ declare interface CalendarDialogOptions extends CalendarOptions {
    * @since 19 dynamic
    */
   markToday?: boolean;
-
   /**
    * Set system-styled materials for dialog. Different materials have different effects,
    * which can influence backgroundColor, border, shadow, and other visual attributes of dialog.
@@ -630,7 +621,6 @@ declare interface CalendarDialogOptions extends CalendarOptions {
    * @since 26.0.0 dynamic
    */
   systemMaterial?: SystemUiMaterial;
-
   /**
    * Sets the distortion animation mode for the dialog.
    *
@@ -643,7 +633,6 @@ declare interface CalendarDialogOptions extends CalendarOptions {
    * @since 26.0.0 dynamic
    */
   distortionMode?: DistortionMode;
-
   /**
    * Sets the edge light animation mode for the dialog.
    *
@@ -667,7 +656,6 @@ declare interface CalendarDialogOptions extends CalendarOptions {
  * @since 10 dynamic
  */
 declare class CalendarPickerDialog {
-
   /**
    * Defines a calendar picker dialog box.
    *
