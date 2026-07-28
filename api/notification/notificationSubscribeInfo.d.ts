@@ -26,6 +26,9 @@ import type notificationManager from '../@ohos.notificationManager';
  * 
  * > **NOTE**
  * >
+ * > The initial APIs of this module are supported since API version 7. Newly added APIs will be marked with a
+ * > superscript to indicate their earliest API version.
+ * >
  * > The APIs provided by this module are system APIs.
  *
  * @syscap SystemCapability.Notification.Notification
@@ -46,7 +49,8 @@ export interface NotificationSubscribeInfo {
   bundleNames?: Array<string>;
 
   /**
-   * User ID. If this parameter is not specified, the subscription defaults to notifications from all user IDs.
+   * User ID. If this parameter is not specified, the subscription defaults to notifications from the current user
+   * ID.
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -56,7 +60,7 @@ export interface NotificationSubscribeInfo {
   userId?: int;
 
   /**
-   * Device type. If this parameter is not specified, the subscription defaults to notifications from the current 
+   * Device type. If this parameter is not specified, the subscription defaults to notifications from the current
    * device. The value is obtained based on [device information]{@link ./../@ohos.deviceInfo:deviceInfo}.
    *
    * @syscap SystemCapability.Notification.Notification
@@ -96,7 +100,7 @@ export interface NotificationSubscribeInfo {
   filterLimit?: long;
 
   /**
-   * Configuration for voice content subscription options.
+   * Configuration options for notification voice broadcast.
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -106,7 +110,7 @@ export interface NotificationSubscribeInfo {
   voiceContentOptions?: VoiceContentOptions;
 
   /**
-   * Live notification image configuration item.
+   * Image options of the live notification.
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -116,9 +120,10 @@ export interface NotificationSubscribeInfo {
   pictureOptions?: PictureOptions;
 
   /**
-   * Whether to enable the notification classification.
-   * - true: enabled.
-   * - false: disabled. The default value is false.
+   * Whether to enable notification classification.
+   *
+   * - **true**: yes.
+   * - **false**: no. The default value is **false**.
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -126,13 +131,15 @@ export interface NotificationSubscribeInfo {
    * @since 26.0.0 dynamic&static
    */
   enableClassification?: boolean;
- 
+
   /**
-   * Whether to enable silent replay during subscription.
-   * - true: enabled.
-   * - false: disabled. The default value is false.
-   * If this function is enabled, historical notifications will be replayed silently when you subscribe to the first
-   * time, without ringing or vibrating.
+   * Whether to enable silent replay upon subscription.
+   *
+   * - **true**: yes.
+   * - **false**: no. The default value is **false**.
+   *
+   * After this feature is enabled, historical notifications are silently re-pushed upon the first subscription,
+   * without ringing or vibration reminders.
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -143,7 +150,7 @@ export interface NotificationSubscribeInfo {
 }
 
 /**
- * Describes the voice content options for notification subscriptions.
+ * Describes the configuration options for notification voice broadcast.
  *
  * @syscap SystemCapability.Notification.Notification
  * @systemapi
@@ -152,9 +159,10 @@ export interface NotificationSubscribeInfo {
  */
 export interface VoiceContentOptions {
   /**
-   * Whether to enable voice content generation for subscribed notifications. The value **true** means enable
-   * the voice content generation, and **false** means the opposite.
-   * Default value: false.
+   * Whether to subscribe to the voice broadcast content of a notification.
+   *
+   * - **true**: yes.
+   * - **false**: no. The default value is **false**.
    *
    * @default false
    * @syscap SystemCapability.Notification.Notification
@@ -166,7 +174,7 @@ export interface VoiceContentOptions {
 }
 
 /**
- * Describes Live notification image configuration item.
+ * Describes the image options of the live notification.
  *
  * @syscap SystemCapability.Notification.Notification
  * @systemapi
@@ -175,13 +183,13 @@ export interface VoiceContentOptions {
  */
 export interface PictureOptions {
   /**
-   * Subscribes to parse the image information in the extraInfo of
-   * [NotificationLiveViewContent]{@link ./notification/notificationContent:NotificationLiveViewContent} for live view
-   * notifications. The input parameter is the key of the image filename in extraInfo that needs to be parsed into
-   * PixelMap format. When an application publishes a live view notification, the parsed image information is called
-   * back to the subscriber via
-   * [onConsume]{@link ./notification/notificationSubscriber:NotificationSubscriber.onConsume}, and the parsed image
-   * information is stored in the pictureInfo of NotificationLiveViewContent.
+   * Subscribes to the image information in **extraInfo** of
+   * [NotificationLiveViewContent]{@link ./notification/notificationContent:NotificationLiveViewContent} in a common live
+   * notification. The input parameter is the **Key** of the image file name that needs to be parsed into the
+   * pixelMap format in **extraInfo**.<br>When the application publishes a common live notification, the parsed image
+   * information is called back to the subscriber through
+   * [onConsume]{@link ./notification/notificationSubscriber:NotificationSubscriber.onConsume} and stored in **pictureInfo** of
+   * **NotificationLiveViewContent**.
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi

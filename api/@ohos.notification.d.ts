@@ -1509,14 +1509,11 @@ declare namespace notification {
 
   /**
    * > **NOTE**
-   * > This API is supported since API version 7 and deprecated since API version 9. <!--Del-->You are advised to use 
-   * > [notificationManager.NotificationKey]{@link @ohos.notificationSubscribe:notificationSubscribe.NotificationKey}.<!
-   * > --DelEnd-->
+   * > This API is supported since API version 7 and deprecated since API version 9.
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.notificationManager/notificationManager#NotificationKey
    */
   export interface NotificationKey {
     /**

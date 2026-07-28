@@ -1465,14 +1465,11 @@ declare namespace notification {
 
   /**
    * > **说明：**
-   * > 从 API version 7开始支持，从API version 9开始废弃。<!--Del-->建议使用
-   * > [notificationManager.NotificationKey]{@link @ohos.notificationSubscribe:notificationSubscribe.NotificationKey}替代。
-   * > <!--DelEnd-->
+   * > 从 API version 7开始支持，从API version 9开始废弃。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 7
    * @deprecated since 9
-   * @useinstead @ohos.notificationSubscribe:notificationSubscribe.NotificationKey
    */
   export interface NotificationKey {
     /**

@@ -14,9 +14,6 @@
  */
 
 /**
- * 作为订阅通知接口[subscribeNotification]{@link @ohos.notificationSubscribe:notificationSubscribe.subscribeNotification} 的入参，
- * 提供订阅者接收到新通知、取消通知等的回调方法。
- * 
  * @file Provides methods that will be called back when the subscriber receives a new notification or a notification is canceled
  * @kit NotificationKit
  */
@@ -30,6 +27,12 @@ import notification from '../@ohos.notification';
 
 /**
  * 提供订阅者接收到新通知、取消通知等的回调方法。
+ *
+ * > **说明：**
+ * >
+ * > 本模块首批接口从API version 7开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
+ * >
+ * > 本模块为系统接口。
  *
  * @syscap SystemCapability.Notification.Notification
  * @systemapi
@@ -157,7 +160,7 @@ export interface NotificationSubscriber {
   onEnabledPriorityByBundleChanged?: (callbackData: EnabledPriorityNotificationByBundleCallbackData) => void;
 
   /**
-   * 回调返回监听到的应用信息。
+   * 回调返回监听到的应用角标数量变化。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -177,7 +180,7 @@ export interface NotificationSubscriber {
   onBadgeEnabledChanged?: BadgeEnabledChangedCallback;
 
   /**
-   * 新接收到的通知信息。
+   * 批量删除的通知信息。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -258,7 +261,7 @@ export interface SubscribeCallbackData {
   readonly sound?: string;
 
   /**
-   * 通知震动。
+   * 通知振动。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -268,7 +271,7 @@ export interface SubscribeCallbackData {
   readonly vibrationValues?: Array<long>;
 
   /**
-   * 通知消息中语音播报内容定义
+   * 通知语音播报内容。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -291,7 +294,7 @@ export interface SubscribeCallbackData {
 }
 
 /**
- * 应用角标使能状态变化。
+ * 应用使能状态变化的回调函数类型。
  * 
  * @syscap SystemCapability.Notification.Notification
  * @systemapi
@@ -333,7 +336,7 @@ export interface EnabledNotificationCallbackData {
 }
 
 /**
- * 应用通知静默提醒使能状态变化。
+ * 应用通知静默提醒开关状态的回调函数类型。
  * 
  * @syscap SystemCapability.Notification.Notification
  * @systemapi
@@ -396,7 +399,7 @@ export interface EnabledPriorityNotificationCallbackData {
 }
 
 /**
- * 应用通知优先级开关状态
+ * 应用通知优先级开关状态。
  * 
  * @syscap SystemCapability.Notification.Notification
  * @systemapi
@@ -423,9 +426,6 @@ export interface EnabledPriorityNotificationByBundleCallbackData {
 
   /**
    * 应用通知的优先使能状态。
-   * - DISABLE：不允许设置为优先通知。
-   * - ENABLE_BY_INTELLIGENT：允许经智能识别、用户关键词匹配、应用规则匹配等方式设置为优先通知。
-   * - ENABLE：应用通知均设置为优先通知。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -435,7 +435,7 @@ export interface EnabledPriorityNotificationByBundleCallbackData {
 }
 
 /**
- * 应用通知角标数量状态变化的回调函数类型。
+ * 应用角标数量变化的回调函数类型。
  * 
  * @syscap SystemCapability.Notification.Notification
  * @systemapi
@@ -515,7 +515,7 @@ export interface BadgeEnabledChangedCallback {
 }
 
 /**
- * 通知消息中语音播报内容定义
+ * 通知语音播报内容。
  *
  * @syscap SystemCapability.Notification.Notification
  * @systemapi
@@ -524,7 +524,7 @@ export interface BadgeEnabledChangedCallback {
  */
 export interface VoiceContent {
   /**
-   * 语音播报内容定义
+   * 文本语音播报内容。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -535,7 +535,7 @@ export interface VoiceContent {
 }
 
 /**
- * 描述通知分类信息。
+ * 通知分类信息。
  *
  * @syscap SystemCapability.Notification.Notification
  * @systemapi
@@ -578,6 +578,7 @@ export type BadgeEnabledChangedCallback = (data: EnabledNotificationCallbackData
 
 /**
  * type SystemUpdateCallback = (data: SubscribeCallbackData) => void
+ * 返回携带系统属性值通知信息的回调函数类型。
  *
  * @param { SubscribeCallbackData } data - 返回携带系统属性值的通知信息。
  * @syscap SystemCapability.Notification.Notification
@@ -603,7 +604,9 @@ export type EnabledSilentReminderChangedCallback = (callbackData: EnabledSilentR
  * 注册由[notificationManager.setNotificationSwitch]{@link
  * ../@ohos.notificationManager:notificationManager.setNotificationSwitch}接口设置的通知开关状态变化的回调函数类型。
  *
- * @param { NotificationSwitchChangedCallbackData } callbackData  - 回调返回由[notificationManager.setNotificationSwitch]{@link ../@ohos.notificationManager:notificationManager.setNotificationSwitch}接口设置的通知开关状态变化信息。
+ * @param { NotificationSwitchChangedCallbackData } callbackData  -
+ *     回调返回由[notificationManager.setNotificationSwitch]{@link ../@ohos.notificationManager:notificationManager.setNotificationSwitch}
+ *     接口设置的通知开关状态变化信息。
  * @syscap SystemCapability.Notification.Notification
  * @systemapi
  * @stagemodelonly
@@ -612,7 +615,7 @@ export type EnabledSilentReminderChangedCallback = (callbackData: EnabledSilentR
 export type NotificationSwitchChangedCallback = (callbackData: NotificationSwitchChangedCallbackData) => void;
  
 /**
- * 描述通知开关状态变化的回调数据。
+ * 通知开关状态变化的回调函数类型。
  *
  * @syscap SystemCapability.Notification.Notification
  * @systemapi
@@ -622,7 +625,6 @@ export type NotificationSwitchChangedCallback = (callbackData: NotificationSwitc
 export interface NotificationSwitchChangedCallbackData {
   /**
    * 用户ID。
-   * 取值为所有整数。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
