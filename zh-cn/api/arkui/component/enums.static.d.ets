@@ -1500,16 +1500,15 @@ export declare enum LineCapStyle {
 }
 
 /**
- * Axis enumeration description.
+ * 定义轴的方向。
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  */
 export declare enum Axis {
   /**
-   * Longitudinal arrangement
+   * 方向为纵向。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1518,7 +1517,7 @@ export declare enum Axis {
   Vertical = 0,
 
   /**
-   * Horizontal arrangement.
+   * 方向为横向。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
