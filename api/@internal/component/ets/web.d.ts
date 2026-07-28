@@ -1406,6 +1406,7 @@ declare enum SslError {
    * General error.
    *
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform [since 26.1.0]
    * @atomicservice [since 11]
    * @since 9 dynamic
    */
@@ -3829,6 +3830,7 @@ declare interface WebOptions {
  *
  * @syscap SystemCapability.Web.Webview.Core
  * @stagemodelonly
+ * @crossplatform [since 26.1.0]
  * @since 23 dynamic
  */
 declare interface UrlRegexRule {
@@ -3839,6 +3841,7 @@ declare interface UrlRegexRule {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @stagemodelonly
+   * @crossplatform [since 26.1.0]
    * @since 23 dynamic
    */
   secondLevelDomain: string;
@@ -3847,6 +3850,7 @@ declare interface UrlRegexRule {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @stagemodelonly
+   * @crossplatform [since 26.1.0]
    * @since 23 dynamic
    */
   rule: string;
@@ -3857,6 +3861,7 @@ declare interface UrlRegexRule {
  *
  * @interface ScriptItem [since 11 - 11]
  * @syscap SystemCapability.Web.Webview.Core
+ * @crossplatform [since 26.1.0]
  * @atomicservice
  * @since 11 dynamic
  */
@@ -3865,6 +3870,7 @@ declare interface ScriptItem {
    * Sets the JavaScript to be injected.
    *
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform [since 26.1.0]
    * @atomicservice
    * @since 11 dynamic
    */
@@ -3882,6 +3888,7 @@ declare interface ScriptItem {
    * 6. If one of the preceding rules is not met in **scriptRules**, the **scriptRules** does not take effect.
    *
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform [since 26.1.0]
    * @atomicservice
    * @since 11 dynamic
    */
@@ -3892,6 +3899,7 @@ declare interface ScriptItem {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @stagemodelonly
+   * @crossplatform [since 26.1.0]
    * @since 23 dynamic
    */
   urlRegexRules?: Array<UrlRegexRule>;
@@ -4955,6 +4963,7 @@ declare interface OnShowFileSelectorEvent {
  * Defines the triggered when the url loading.
  *
  * @syscap SystemCapability.Web.Webview.Core
+ * @crossplatform [since 26.1.0]
  * @atomicservice
  * @since 12 dynamic
  */
@@ -4963,6 +4972,7 @@ declare interface OnResourceLoadEvent {
    * The URL of the loaded resource file.
    *
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform [since 26.1.0]
    * @atomicservice
    * @since 12 dynamic
    */
@@ -7082,6 +7092,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @param { Callback<OnResourceLoadEvent> } callback The triggered when the url loading. [since 12]
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform [since 26.1.0]
    * @atomicservice [since 11]
    * @since 9 dynamic
    */
@@ -8382,6 +8393,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @param { Array<ScriptItem> } scripts - The JavaScripts executed in array order.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform [since 26.1.0]
    * @since 15 dynamic
    */
   runJavaScriptOnDocumentStart(scripts: Array<ScriptItem>): WebAttribute;
@@ -8404,6 +8416,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @param { Array<ScriptItem> } scripts - The JavaScripts executed in array order.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform [since 26.1.0]
    * @since 15 dynamic
    */
   runJavaScriptOnDocumentEnd(scripts: Array<ScriptItem>): WebAttribute;

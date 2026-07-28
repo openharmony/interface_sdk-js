@@ -1568,6 +1568,7 @@ declare namespace webview {
      *     <br>2. Incorrect parameter types.
      * @throws { BusinessError } 17100002 - URL error. No valid cookie found for the specified URL.
      * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform [since 26.1.0]
      * @atomicservice
      * @since 11 dynamic
      */
@@ -1665,6 +1666,7 @@ declare namespace webview {
      * @throws { BusinessError } 17100005 - The provided cookie value is invalid. It must follow the format specified
      *     <br>in RFC 6265.
      * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform [since 26.1.0]
      * @atomicservice
      * @since 11 dynamic
      */
@@ -1699,6 +1701,7 @@ declare namespace webview {
      * @throws { BusinessError } 17100005 - The provided cookie value is invalid. It must follow the format specified
      *     <br>in RFC 6265.
      * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform [since 26.1.0]
      * @since 14 dynamic
      */
     static configCookieSync(url: string, value: string, incognito: boolean, includeHttpOnly: boolean): void;
@@ -1735,6 +1738,7 @@ declare namespace webview {
      * @throws { BusinessError } 17100005 - The provided cookie value is invalid. It must follow the format specified
      *     <br>in RFC 6265.
      * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform [since 26.1.0]
      * @since 14 dynamic
      */
     static configCookie(url: string, value: string, incognito: boolean, includeHttpOnly: boolean): Promise<void>;
@@ -1779,6 +1783,7 @@ declare namespace webview {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform [since 26.1.0]
      * @atomicservice [since 11]
      * @since 9 dynamic
      */
@@ -1791,6 +1796,7 @@ declare namespace webview {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform [since 26.1.0]
      * @atomicservice [since 11]
      * @since 9 dynamic
      */
@@ -1815,6 +1821,7 @@ declare namespace webview {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform [since 26.1.0]
      * @atomicservice [since 11]
      * @since 9 dynamic
      */
@@ -1839,6 +1846,7 @@ declare namespace webview {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform [since 26.1.0]
      * @atomicservice [since 11]
      * @since 9 dynamic
      */
@@ -1872,6 +1880,7 @@ declare namespace webview {
      *
      * @param { boolean } incognito - true表示清除隐私模式下Webview的所有内存cookies，false表示清除正常非隐私模式下的持久化cookies。
      * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform [since 26.1.0]
      * @atomicservice
      * @since 11 dynamic
      */
@@ -1916,6 +1925,7 @@ declare namespace webview {
      * 清除所有会话cookie。
      *
      * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform [since 26.1.0]
      * @atomicservice
      * @since 11 dynamic
      */
@@ -4188,6 +4198,7 @@ declare namespace webview {
      * @throws { BusinessError } 17100001 - Init error.
      *     The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform [since 26.1.0]
      * @atomicservice [since 11]
      * @since 9 dynamic
      */
@@ -5070,6 +5081,7 @@ declare namespace webview {
      *
      * @returns {string} ArkWeb默认User-Agent字符串。
      * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform [since 26.1.0]
      * @since 14 dynamic
      */
     static getDefaultUserAgent(): string;
