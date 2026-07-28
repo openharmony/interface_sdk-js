@@ -26754,7 +26754,7 @@ declare class BaseCustomComponent extends CommonAttribute {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice [since 11]
-   * @since 18 dynamic
+   * @since 10 dynamic
    */
   onPlaceChildren?(selfLayoutInfo: GeometryInfo, children: Array<Layoutable>, constraint: ConstraintSizeOptions): void;
 
@@ -26774,7 +26774,7 @@ declare class BaseCustomComponent extends CommonAttribute {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice [since 11]
-   * @since 18 dynamic
+   * @since 10 dynamic
    */
   onMeasureSize?(selfLayoutInfo: GeometryInfo, children: Array<Measurable>, constraint: ConstraintSizeOptions): SizeResult;
 
