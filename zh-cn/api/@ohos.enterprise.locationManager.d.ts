@@ -22,7 +22,7 @@ import type Want from './@ohos.app.ability.Want';
 
 /**
  * 本模块提供设备位置服务策略管理的能力，包括设置和查询位置服务开关策略等。
- * 
+ *
  * > **说明：**
  * >
  * > 本模块接口仅可在Stage模型下使用。
@@ -30,6 +30,8 @@ import type Want from './@ohos.app.ability.Want';
  * > 本模块接口仅对设备管理应用开放，且调用接口前需激活设备管理应用，具体请参考[MDM Kit开发指南](docroot://mdm/mdm-kit-guide.md)。
  *
  * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+ * @systemapi [since 11 - 11]
+ * @publicapi [since 12]
  * @stagemodelonly
  * @since 11
  */
@@ -105,6 +107,28 @@ declare namespace locationManager {
    * @since 12
    */
   function getLocationPolicy(admin: Want): LocationPolicy;
+
+  /**
+   * 查询位置服务管理策略。
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_LOCATION
+   * @param { Want | null } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the.
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.<br>If the device has multiple MDM
+   *     applications, you can pass **admin** to query the corresponding policies. If **null** is passed, the policies
+   *     that actually take effect on the device are returned.
+   * @returns { LocationPolicy } Enumerated value of the location service policy. **0**: The default policy is used.
+   *     **1**: The location service is disabled. **2**: The location service is forcibly enabled.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  function getLocationPolicy(admin: Want | null): LocationPolicy;
 }
 
 export default locationManager;

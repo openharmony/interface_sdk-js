@@ -37,6 +37,8 @@ import type access from './@ohos.bluetooth.access';
  * > [@ohos.enterprise.restrictions]{@link @ohos.enterprise.restrictions:restrictions}.
  *
  * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+ * @systemapi [since 11 - 11]
+ * @publicapi [since 12]
  * @stagemodelonly
  * @since 11
  */
@@ -271,11 +273,7 @@ declare namespace bluetoothManager {
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_BLUETOOTH
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
-   *     EnterpriseAdminExtensionAbility and the bundle name of the application. [since 12 - 24]
-   * @param { Want | null } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
-   *     EnterpriseAdminExtensionAbility and the bundle name of the application.<br>If the device has multiple MDM
-   *     applications, you can pass **admin** to query the corresponding policies. If **null** is passed, the policies
-   *     that actually take effect on the device are returned. [since 26.0.0]
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
    * @returns { Array<string> } MAC addresses of allowed Bluetooth devices obtained.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
@@ -286,6 +284,27 @@ declare namespace bluetoothManager {
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
    * @since 12
+   */
+  function getAllowedBluetoothDevices(admin: Want): Array<string>;
+
+  /**
+   * Obtains allowed Bluetooth devices.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_BLUETOOTH
+   * @param { Want | null } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the.
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.<br>If the device has multiple MDM
+   *     applications, you can pass **admin** to query the corresponding policies. If **null** is passed, the policies
+   *     that actually take effect on the device are returned.
+   * @returns { Array<string> } MAC addresses of allowed Bluetooth devices obtained.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
    */
   function getAllowedBluetoothDevices(admin: Want | null): Array<string>;
 
@@ -376,11 +395,7 @@ declare namespace bluetoothManager {
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_BLUETOOTH
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
-   *     EnterpriseAdminExtensionAbility and the bundle name of the application. [since 20 - 24]
-   * @param { Want | null } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
-   *     EnterpriseAdminExtensionAbility and the bundle name of the application.<br>If the device has multiple MDM
-   *     applications, you can pass **admin** to query the corresponding policies. If **null** is passed, the policies
-   *     that actually take effect on the device are returned. [since 26.0.0]
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
    * @returns { Array<string> } MAC addresses of disallowed Bluetooth devices obtained.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
@@ -389,6 +404,25 @@ declare namespace bluetoothManager {
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
    * @since 20
+   */
+  function getDisallowedBluetoothDevices(admin: Want): Array<string>;
+
+  /**
+   * Obtains disallowed Bluetooth devices.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_BLUETOOTH
+   * @param { Want | null } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the.
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.<br>If the device has multiple MDM
+   *     applications, you can pass **admin** to query the corresponding policies. If **null** is passed, the policies
+   *     that actually take effect on the device are returned.
+   * @returns { Array<string> } MAC addresses of disallowed Bluetooth devices obtained.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
    */
   function getDisallowedBluetoothDevices(admin: Want | null): Array<string>;
 
