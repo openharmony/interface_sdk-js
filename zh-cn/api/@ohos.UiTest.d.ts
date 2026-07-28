@@ -2535,7 +2535,7 @@ declare class Component {
    * 
    * > **说明**
    * >
-   * > 如果控件的无障碍属性
+   * > 如果控件的
    * > [accessibilityLevel](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-accessibility.md#accessibilitylevel)
    * > 设置为'no'或'no-hide-descendants'，无法使用本接口获取控件的文本信息，可以使用[Component.getOriginalText()]{@link Component#getOriginalText}
    * > 获取控件的文本信息。
@@ -2939,7 +2939,7 @@ declare class Component {
    */
   scrollSearch(on: On, vertical?: boolean, offset?: int): Promise<Component | null>;
   /**
-   * 获取控件对象的文本信息。使用Promise异步回调。如果控件的无障碍属性
+   * 获取控件对象的文本信息。使用Promise异步回调。如果控件的
    * [accessibilityLevel](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-accessibility.md#accessibilitylevel)
    * 设置为'no'或'no-hide-descendants'，可以使用本接口获取控件的文本信息，无法使用[Component.getText()]{@link Component#getText}获取控件的文本信息。
    *
@@ -4930,11 +4930,10 @@ declare namespace ON {
   export function hint(val: string, pattern?: MatchPattern): On;
 
   /**
-   * Specifies the original text for the target Component.
-   * If the accessibility property 'accessibilityLevel' of a component is set to 'no' or 'no-hide-descendants',
-   * you will not be able to use {@link On.text} to match the component with the specified original text, but you can 
-   * use this method to achieve it;
-   * if the component does not set the above accessibility property, this method has no difference with {@link On.text}
+   * 为目标控件指定原始文本。如果控件的
+   * [accessibilityLevel](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-accessibility.md#accessibilitylevel)
+   * 设置为'no'或'no-hide-descendants'，将无法使用[On.text()]{@link On#text}按指定原始文本匹配控件，但可以使用本接口实现；
+   * 如果控件未将 accessibilityLevel 设置为上述值，本接口与[On.text()]{@link On#text}无区别。
    *
    * @param { string } text - the original text value.
    * @param { MatchPattern } [pattern] - the {@link MatchPattern} of the text value, Set it default {@link 
