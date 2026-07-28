@@ -25,7 +25,46 @@ import { CommonEventSubscribeInfo as _CommonEventSubscribeInfo } from './commonE
 import { CommonEventPublishData as _CommonEventPublishData } from './commonEvent/commonEventPublishData';
 
 /**
- * 本模块提供了公共事件相关的能力，包括发布公共事件、订阅公共事件、以及退订公共事件。
+ * 本模块提供公共事件的发布、订阅、取消订阅等能力。公共事件是一种系统级的事件通知机制，允许应用在系统状态变化
+ * （如开机完成、电量变化、屏幕亮灭等）或业务自定义事件发生时，向订阅了该事件的应用发送通知，实现跨组件、跨
+ * 应用的信息传递。
+ *
+ * 本模块涉及的关键概念：
+ * - 无序公共事件：CES在转发公共事件时，不考虑订阅者是否接收到该事件，也不保证订阅者接收到该事件的顺序与
+ * 其订阅顺序一致。
+ * - 有序公共事件：CES在转发公共事件时，根据订阅者设置的优先级等级，优先将公共事件发送给优先级较高的订阅
+ * 者，等待其成功接收该公共事件之后再将事件发送给优先级较低的订阅者。如果有多个订阅者具有相同的优先级，
+ * 则他们将随机接收到公共事件。
+ * - 粘性公共事件：能够让订阅者收到在订阅前已经发送的公共事件就是粘性公共事件。普通的公共事件只能在订阅后
+ * 发送才能收到，而粘性公共事件的特殊性就是可以先发送后订阅，同时也支持先订阅后发送。发送粘性公共事件必须
+ * 是系统应用或系统服务。
+ *
+ * **API 组合使用关系说明：**
+ *
+ * 本模块的事件通信遵循三条组合调用链：订阅流、发布流与有序事件流。其中订阅流与发布流通过事件名称关联，
+ * 发布者与订阅者无需感知对方存在。
+ *
+ * **订阅流：创建订阅者 → 注册订阅 → 接收事件 → 取消订阅**
+ *
+ * 1. 配置订阅者信息，声明订阅的事件名称，可选设置订阅优先级、发布方权限与包名。
+ * 2. 通过`commonEventManager.createSubscriberSync`创建订阅者对象。
+ * 3. 通过`commonEventManager.subscribe`注册订阅，事件发布时通过回调接收`CommonEventData`，在回调中处理事件
+ * 数据。
+ * 4. 不再需要时，通过`commonEventManager.unsubscribe`取消订阅。
+ *
+ * **发布流：发布事件（可选携带数据与属性）**
+ *
+ * 1. 简单发布：通过`commonEventManager.publish`仅指定事件名发布事件。
+ * 2. 携带数据与属性发布：通过`CommonEventPublishData`配置code、data、parameters及`isOrdered`等属性，再调用
+ * `publish`发布。
+ *
+ * **有序事件流：按优先级顺序投递 + 订阅者协作**
+ *
+ * 1. 通过`CommonEventPublishData`将`isOrdered`设为`true`，调用`publish`发布有序事件，事件按订阅者优先级依
+ * 次投递。
+ * 2. 高优先级订阅者先收到事件，可在回调中通过`setCodeAndData`等方法修改code与data数据，供后续订阅者接收。
+ * 3. 处理完成后调用`finishCommonEvent`，触发事件向下一优先级订阅者投递；若需中止后续投递，可调用
+ * `abortCommonEvent`标记事件为中止状态。
  *
  * @syscap SystemCapability.Notification.CommonEvent
  * @crossplatform [since 11]
@@ -37,8 +76,9 @@ declare namespace commonEventManager {
   /**
    * 发布公共事件。使用callback异步回调。
    *
-   * @param { string } event - 表示要发送的公共事件。
-   * @param { AsyncCallback<void> } callback - 回调函数。当公共事件发布成功时，err为undefined，否则为错误对象。
+   * @param { string } event - 表示要发布的公共事件。
+   * @param { AsyncCallback<void> } callback - 回调函数。当公共事件发布成功时，err为undefined；发布失败时，
+   *     err为错误对象。
    * @throws { BusinessError } 1500003 - The common event sending frequency too high. [since 20]
    * @throws { BusinessError } 1500007 - Failed to send the message to the common event service.
    * @throws { BusinessError } 1500008 - Failed to initialize the common event service.
@@ -56,7 +96,8 @@ declare namespace commonEventManager {
    *
    * @param { string } event - 表示要发布的公共事件。
    * @param { CommonEventPublishData } options - 表示发布公共事件的属性。
-   * @param { AsyncCallback<void> } callback - 回调函数。当公共事件发布成功时，err为undefined，否则为错误对象。
+   * @param { AsyncCallback<void> } callback - 回调函数。当公共事件发布成功时，err为undefined；发布失败时，
+   *     err为错误对象。
    * @throws { BusinessError } 1500003 - The common event sending frequency too high. [since 20]
    * @throws { BusinessError } 1500007 - Failed to send the message to the common event service.
    * @throws { BusinessError } 1500008 - Failed to initialize the common event service.
@@ -72,8 +113,8 @@ declare namespace commonEventManager {
   /**
    * 向指定用户发布公共事件。使用callback异步回调。
    *
-   * @param { string } event - 表示要发送的公共事件。
-   * @param { int } userId - 表示指定向该用户ID发送此公共事件。
+   * @param { string } event - 表示要发布的公共事件。
+   * @param { int } userId - 表示指定接收此公共事件的用户ID。
    * @param { AsyncCallback<void> } callback - 回调函数。当公共事件发布成功，err为undefined，否则为错误对象。
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 1500003 - The common event sending frequency too high. [since 20]
@@ -92,7 +133,7 @@ declare namespace commonEventManager {
    * 向指定用户发布公共事件并指定发布信息。使用callback异步回调。
    *
    * @param { string } event - 表示要发布的公共事件。
-   * @param { int } userId - 表示指定向该用户ID发送此公共事件。
+   * @param { int } userId - 表示指定接收此公共事件的用户ID。
    * @param { CommonEventPublishData } options - 表示发布公共事件的属性。
    * @param { AsyncCallback<void> } callback - 回调函数。当公共事件发布成功，err为undefined，否则为错误对象。
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -117,7 +158,8 @@ declare namespace commonEventManager {
    * 创建订阅者。使用callback异步回调。
    *
    * @param { CommonEventSubscribeInfo } subscribeInfo - 表示订阅信息。
-   * @param { AsyncCallback<CommonEventSubscriber> } callback - 回调函数。当公共事件订阅者创建成功时，err为undefined，否则为错误对象。
+   * @param { AsyncCallback<CommonEventSubscriber> } callback - 回调函数，用于接收创建的订阅者对象。当公共事件订阅者
+   *     创建成功时，err为undefined，data为创建成功的CommonEventSubscriber订阅者对象；创建失败时，err为错误对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Notification.CommonEvent
@@ -147,7 +189,7 @@ declare namespace commonEventManager {
   function createSubscriber(subscribeInfo: CommonEventSubscribeInfo): Promise<CommonEventSubscriber>;
 
   /**
-   * createSubscriber的同步接口。
+   * 同步创建订阅者的接口。
    *
    * @param { CommonEventSubscribeInfo } subscribeInfo - 表示订阅信息。
    * @returns { CommonEventSubscriber } 返回订阅者对象。
@@ -164,11 +206,12 @@ declare namespace commonEventManager {
    * 订阅公共事件。使用callback异步回调。
    *
    * @param { CommonEventSubscriber } subscriber - 表示订阅者对象。
-   * @param { AsyncCallback<CommonEventData> } callback - 回调函数。当公共事件订阅成功后，事件触发时执行的回调函数；否则订阅失败时，err为错误对象。
-   * @throws { BusinessError } 801 - capability not supported
+   * @param { AsyncCallback<CommonEventData> } callback - 回调函数。当公共事件订阅成功后，事件触发时通过data返回公共
+   *     事件数据；订阅失败时，err为错误对象。
+   * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 1500007 - Failed to send the message to the common event service.
    * @throws { BusinessError } 1500008 - Failed to initialize the common event service.
-   * @throws { BusinessError } 1500010 - The count of subscriber exceed system specification. [since 20]
+   * @throws { BusinessError } 1500010 - The count of subscriber exceeds system specification. [since 20]
    * @syscap SystemCapability.Notification.CommonEvent
    * @crossplatform [since 11]
    * @atomicservice [since 11]
@@ -186,7 +229,7 @@ declare namespace commonEventManager {
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 1500007 - Failed to send the message to the common event service.
    * @throws { BusinessError } 1500008 - Failed to initialize the common event service.
-   * @throws { BusinessError } 1500010 - The count of subscriber exceed system specification.
+   * @throws { BusinessError } 1500010 - The count of subscriber exceeds system specification.
    * @syscap SystemCapability.Notification.CommonEvent
    * @crossplatform
    * @atomicservice
@@ -199,10 +242,11 @@ declare namespace commonEventManager {
    * 取消订阅公共事件。使用callback异步回调。
    *
    * @param { CommonEventSubscriber } subscriber - 表示订阅者对象。
-   * @param { AsyncCallback<void> } [callback] - 回调函数。当取消公共事件订阅成功时，err为undefined，否则为错误对象。
+   * @param { AsyncCallback<void> } [callback] - 回调函数。当取消公共事件订阅成功时，err为undefined；取消失败时，
+   *     err为错误对象。不传该参数时，默认取消订阅且不返回结果。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - capability not supported
+   * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 1500007 - Failed to send the message to the common event service.
    * @throws { BusinessError } 1500008 - Failed to initialize the common event service.
    * @syscap SystemCapability.Notification.CommonEvent
@@ -218,7 +262,7 @@ declare namespace commonEventManager {
    *
    * @permission ohos.permission.COMMONEVENT_STICKY
    * @param { string } event - 表示被移除的粘性公共事件。
-   * @param { AsyncCallback<void> } callback - 回调函数。当移除粘性事件成功，err为undefined，否则为错误对象。
+   * @param { AsyncCallback<void> } callback - 回调函数。当移除粘性公共事件成功，err为undefined，否则为错误对象。
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
    *     required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -235,7 +279,7 @@ declare namespace commonEventManager {
   function removeStickyCommonEvent(event: string, callback: AsyncCallback<void>): void;
 
   /**
-   * 移除粘性公共事件。使用Promise异步回调。
+   * 移除已发布的粘性公共事件。使用Promise异步回调。
    *
    * @permission ohos.permission.COMMONEVENT_STICKY
    * @param { string } event - 表示被移除的粘性公共事件。
@@ -258,7 +302,7 @@ declare namespace commonEventManager {
   /**
    * 为当前应用设置静态订阅事件使能或去使能状态。使用callback异步回调。
    *
-   * @param { boolean } enable - 表示静态订阅事件使能状态。 true：使能 false：去使能。
+   * @param { boolean } enable - 表示静态订阅事件使能状态。true：使能，false：去使能。
    * @param { AsyncCallback<void> } callback - 回调函数。当设置静态订阅事件使能状态成功，err为undefined，否则为错误对象。
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -276,7 +320,7 @@ declare namespace commonEventManager {
   /**
    * 为当前应用设置静态订阅事件使能或去使能状态。使用Promise异步回调。
    *
-   * @param { boolean } enable - 表示静态订阅事件使能状态。 true：使能 false：去使能。
+   * @param { boolean } enable - 表示静态订阅事件使能状态。true：使能，false：去使能。
    * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -292,10 +336,11 @@ declare namespace commonEventManager {
   function setStaticSubscriberState(enable: boolean): Promise<void>;
 
   /**
-   * 为当前应用设置静态订阅事件的使能状态，并且记录事件名称。使用Promise异步回调。
+   * 设置当前应用的静态订阅公共事件的使能状态。使用Promise异步回调。
    *
-   * @param { boolean } enable - 表示静态订阅事件使能状态。 true：使能 false：去使能。
-   * @param { Array<string> } events - 表示记录事件名称。
+   * @param { boolean } enable - 表示静态订阅事件使能状态。true：使能，false：去使能。
+   * @param { Array<string> } events - 表示需要设置的公共事件名称列表，默认为空列表，表示设置当前应用所有的
+   *     静态订阅公共事件状态。
    * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -328,7 +373,7 @@ declare namespace commonEventManager {
   function setStaticSubscriberState(enable: boolean, events: Array<string>): Promise<void>;
 
   /**
-   * 系统公共事件是指由系统服务或系统应用发布的事件，订阅这些公共事件需要特定的权限、使用相应的值。
+   * 系统公共事件是指由系统服务或系统应用发布的事件，订阅这些公共事件需要特定的权限，并使用相应的事件值。
    *
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice [since 11]
@@ -381,7 +426,7 @@ declare namespace commonEventManager {
     COMMON_EVENT_BATTERY_CHANGED = 'usual.event.BATTERY_CHANGED',
 
     /**
-     * 表示电池电量低的普通事件的动作。
+     * 表示电池电量低的公共事件的动作。
      *
      * 当电池电量低于设备设置的低电量百分比值时，将会触发事件通知服务发布该系统公共事件。<!--Del-->设备设置低电量百分比值请参考
      * [电量等级定制开发指导](docroot://../../device-dev/subsystems/subsys-power-battery-level-customization.md)。<!--DelEnd-->
@@ -395,7 +440,7 @@ declare namespace commonEventManager {
     /**
      * 表示电池退出低电量状态的公共事件的动作。
      *
-     * 当电池电量从低电量等级变化到电池电量高于低电量等级时，将会触发事件通知服务发布该系统公共事件。
+     * 当电池电量从低电量等级上升到高于低电量等级时，将会触发事件通知服务发布该系统公共事件。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
@@ -404,7 +449,7 @@ declare namespace commonEventManager {
     COMMON_EVENT_BATTERY_OKAY = 'usual.event.BATTERY_OKAY',
 
     /**
-     * 设备连接到外部电源的公共事件的动作。
+     * 表示设备连接到外部电源的公共事件的动作。
      *
      * 当设备连接到外部可识别的充电器类型充电时，将会触发事件通知服务发布该系统公共事件。
      *
@@ -415,7 +460,7 @@ declare namespace commonEventManager {
     COMMON_EVENT_POWER_CONNECTED = 'usual.event.POWER_CONNECTED',
 
     /**
-     * 设备与外部电源断开的公共事件的动作。
+     * 表示设备与外部电源断开的公共事件的动作。
      *
      * 当设备与外部电源断开时，将会触发事件通知服务发布该系统公共事件。
      *
@@ -606,7 +651,7 @@ declare namespace commonEventManager {
     COMMON_EVENT_PACKAGE_REMOVED = 'usual.event.PACKAGE_REMOVED',
 
     /**
-     * 表示现有的应用程序包从设备中移除的事件。
+     * （预留事件，暂未支持）表示现有的应用程序包从设备中移除的事件。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
@@ -626,7 +671,7 @@ declare namespace commonEventManager {
     /**
      * 表示应用包已更改的公共事件的动作（例如，包中的组件已启用或禁用）。
      *
-     * 在设备上安装的应用程序包更新或者包的组件被禁用使能，将会触发事件通知服务发布该系统公共事件。
+     * 在设备上安装的应用程序包更新或者包的组件被启用/禁用，将会触发事件通知服务发布该系统公共事件。
      *
      * > **说明：**
      * >
@@ -684,7 +729,7 @@ declare namespace commonEventManager {
     COMMON_EVENT_PACKAGE_CACHE_CLEARED = 'usual.event.PACKAGE_CACHE_CLEARED',
 
     /**
-     * 表示包已经被挂起。
+     * （预留事件，暂未支持）表示包已经被挂起。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
@@ -702,7 +747,7 @@ declare namespace commonEventManager {
     COMMON_EVENT_PACKAGES_UNSUSPENDED = 'usual.event.PACKAGES_UNSUSPENDED',
 
     /**
-     * 发送到已被系统挂起的包。
+     * （预留事件，暂未支持）发送到已被系统挂起的包。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
@@ -711,7 +756,7 @@ declare namespace commonEventManager {
     COMMON_EVENT_MY_PACKAGE_SUSPENDED = 'usual.event.MY_PACKAGE_SUSPENDED',
 
     /**
-     * 发送到已被系统解除挂起的包。
+     * （预留事件，暂未支持）发送到已被系统解除挂起的包。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
@@ -1058,7 +1103,7 @@ declare namespace commonEventManager {
     /**
      * 表示分布式账号注销的动作。
      *
-     * 分布式账号注销成功会时触发事件通知服务发布该系统公共事件，事件携带系统账号ID和子身份ID。
+     * 分布式账号注销成功会触发事件通知服务发布该系统公共事件，事件携带系统账号ID和子身份ID。
      *
      * 与这个公共事件相关的接口：setOsAccountDistributedInfo、updateOsAccountDistributedInfo(已废弃)，这些为公共API，
      * setOsAccountDistributedInfoByLocalId为系统API，具体参看[分布式账号接口文档](docroot://reference/js-apis-distributed-account.md)。
@@ -1642,7 +1687,7 @@ declare namespace commonEventManager {
         'usual.event.bluetooth.host.DISCOVERY_FINISHED',
 
     /**
-     * 指示设备蓝牙适配器名称已更改的公共事件的操作。
+     * 表示设备蓝牙适配器名称已更改的公共事件的操作。
      *
      * 要订阅此事件，您的应用必须具备ohos.permission.ACCESS_BLUETOOTH权限。
      *
@@ -1690,9 +1735,9 @@ declare namespace commonEventManager {
         'usual.event.bluetooth.a2dpsink.AUDIO_STATE_UPDATE',
 
     /**
-     * 指示设备NFC状态已更改的公共事件的操作。
+     * 表示设备NFC状态已更改的公共事件的操作。
      *
-     * 指示设备NFC状态更改时，将会触发事件通知服务发布该系统公共事件。
+     * 表示设备NFC状态更改时，将会触发事件通知服务发布该系统公共事件。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
@@ -1879,7 +1924,7 @@ declare namespace commonEventManager {
     COMMON_EVENT_LOCATION_MODE_STATE_CHANGED = 'usual.event.location.MODE_STATE_CHANGED',
 
     /**
-     * （预留事件，暂未支持）表示表示车辆的车载信息娱乐（IVI）系统正在休眠的常见事件的动作。
+     * （预留事件，暂未支持）表示车辆的车载信息娱乐（IVI）系统正在休眠的公共事件的动作。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
@@ -1942,7 +1987,7 @@ declare namespace commonEventManager {
     COMMON_EVENT_IVI_EXTREME_TEMPERATURE = 'common.event.IVI_EXTREME_TEMPERATURE',
 
     /**
-     * （预留事件，暂未支持）表示车载系统具有极端温度的常见事件的动作。
+     * （预留事件，暂未支持）表示车载系统具有极端温度的公共事件的动作。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
@@ -2218,7 +2263,7 @@ declare namespace commonEventManager {
     COMMON_EVENT_APP_FIRST_LAUNCH = 'usual.event.APP_FIRST_LAUNCH',
 
     /**
-     * 指示飞行模式状态变化。
+     * 表示飞行模式状态变化。
      *
      * 在开启或者关闭系统飞行模式状态后，将会触发事件通知服务发布该系统公共事件。
      *
@@ -2304,7 +2349,7 @@ declare namespace commonEventManager {
     COMMON_EVENT_USER_INFO_UPDATED = 'usual.event.USER_INFO_UPDATED',
 
     /**
-     * 指示网络Http代理配置信息更新。
+     * 表示网络Http代理配置信息更新。
      *
      * 在系统全局代理或者各类网络（以太网、Wi-Fi、蜂窝等）Http代理配置信息发生变化时，将会触发事件通知服务发布该系统公共事件。
      *
@@ -2628,9 +2673,9 @@ declare namespace commonEventManager {
     COMMON_EVENT_SCREEN_LOCKED = 'usual.event.SCREEN_LOCKED',
 
     /**
-     * 指示网络连接状态变化。
+     * 表示网络连接状态变化。
      *
-     * 各类网络（以太网、Wi-Fi、蜂窝等）在发生连接状态状态变化时（断开、断开中、连接中、已连接等），将会触发事件通知服务发布该系统公共事件。
+     * 各类网络（以太网、Wi-Fi、蜂窝等）在连接状态变化时（断开、断开中、连接中、已连接等），将会触发事件通知服务发布该系统公共事件。
      *
      * 具体枚举值及其对应的连接状态如下表所示：
      *
@@ -2692,7 +2737,7 @@ declare namespace commonEventManager {
     /**
      * 表示隐私签署结果的公共事件。
      *
-     * 隐私弹框场景下，用户点击同意，会发送此事件。
+     * 隐私弹框场景下，用户点击同意，将会触发事件通知服务发布该系统公共事件。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @systemapi
@@ -3120,7 +3165,7 @@ declare namespace commonEventManager {
   export type CommonEventSubscriber = _CommonEventSubscriber;
 
   /**
-   * 用于表示订阅者的信息。
+   * 描述公共事件订阅者的信息。
    *
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice [since 11]
