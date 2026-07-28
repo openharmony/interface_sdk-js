@@ -100,7 +100,7 @@ declare interface GridContainerOptions {
    * @deprecated since 9
    * @useinstead grid_col/GridColOptions and grid_row/GridRowOptions
    */
-  columns?: number | 'auto';
+  columns?: number | "auto";
 
   /**
    * 选用设备宽度类型。
@@ -186,7 +186,7 @@ declare class GridContainerAttribute extends ColumnAttribute {}
  * @deprecated since 9
  * @useinstead grid_col/GridColColumnOption and grid_row/GridRowColumnOption
  */
-declare const GridContainer: GridContainerInterface;
+declare const GridContainer: GridContainerInterface
 
 /**
  * Defines GridContainer Component instance.
