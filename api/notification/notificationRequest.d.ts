@@ -14,8 +14,9 @@
  */
 
 /**
- * The NotificationRequest module provides APIs for defining the notification request.
- * 
+ * This module defines the data structure of a notification request, which is used to describe all information of a
+ * notification, including notification content, identifier, display style, and interaction behavior.
+ *
  * @file Information carried when a notification is sent
  * @kit NotificationKit
  */
@@ -39,7 +40,7 @@ import { RecordData } from '../@ohos.base';
 /*** endif */
 
 /**
- * Describes part of the **wantAgent** information about in [NotificationRequest]{@link NotificationRequest}.
+ * Describes part of the **wantAgent** information in NotificationRequest.
  *
  * @syscap SystemCapability.Notification.Notification
  * @stagemodelonly
@@ -186,7 +187,7 @@ export interface Geofence {
   latitude:double;
 
   /**
-   * Geofence radius, in meters. The value ranges from 200 to 2000.
+   * Radius of the geofence, in meters. Value range: [200, 2000].
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -195,8 +196,8 @@ export interface Geofence {
   radius:double;
 
   /**
-   * Delay time from geofence entry to event trigger, in seconds. 
-   * The value ranges from 0 to 300. The default value is **0**.
+   * Delay time of the geofence, in seconds. That is, the delay time before the geofence is triggered after entering
+   * the geofence. Value range: [0, 300]. Default value: **0**.
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -260,7 +261,8 @@ export interface Trigger {
 }
 
 /**
- * The **NotificationRequest** module provides APIs for defining the notification request.
+ * Defines the data structure of a notification request, which is used to describe all information about a
+ * notification, including the notification content, identifier, display style, and interaction behavior.
  *
  * @crossplatform [since 12]
  * @syscap SystemCapability.Notification.Notification
@@ -269,7 +271,7 @@ export interface Trigger {
  */
 export interface NotificationRequest {
   /**
-   * Notification content.
+   * Notification display content, including the notification title and body.
    *
    * @crossplatform [since 12]
    * @syscap SystemCapability.Notification.Notification
@@ -288,7 +290,7 @@ export interface NotificationRequest {
   trigger?:Trigger;
 
   /**
-   * Notification ID. The default value is **0**. If a notification with the same ID exists, the notification is 
+   * Notification ID. The default value is **0**. If a notification with the same ID exists, the notification is
    * updated. If no notification with the same ID exists, a new notification is created.
    *
    * @crossplatform [since 12]
@@ -299,9 +301,9 @@ export interface NotificationRequest {
   id?: int;
 
   /**
-   * Notification priority type. The default value is **OTHER**. If this parameter is set, the notification is pinned on
-   * the top and displayed in a highlighted manner in the notification center. <!--RP2--><!--RP2End-->The actual display
-   * effect depends on the device capability and notification center UI style.
+   * Notification priority type. The default value is **OTHER**. If this parameter is set, the notification is pinned
+   * on the top and displayed in a highlighted manner in the notification center. The actual display effect depends on
+   * the device capability and notification center UI style.
    *
    * @syscap SystemCapability.Notification.Notification
    * @stagemodelonly
@@ -310,11 +312,12 @@ export interface NotificationRequest {
   priorityNotificationType?: notificationManager.PriorityNotificationType;
 
   /**
-   * Unique ID carried in a notification sent by an application, which is used for notification deduplication. If an 
-   * application publishes notifications with the same **appMessageId** locally or on the cloud, the device displays 
-   * only one message. Repeated notifications received later will be silenced and deduplicated, and will not be 
-   * displayed or notified. The deduplication flag is valid only within 24 hours after the notification is published. 
-   * After 24 hours or the device is restarted, the deduplication flag becomes invalid.
+   * Unique identifier field carried when an application sends a notification, used for notification deduplication.
+   * If the same application publishes notifications carrying the same **appMessageId** through different channels such
+   * as local and cloud, the device displays only one message, and subsequent duplicate notifications received will be
+   * silently deduplicated without being displayed or alerted. The deduplication identifier is valid only within 24
+   * hours after the notification is published, and becomes invalid after 24 hours or after the device restarts. The
+   * size does not exceed 202 bytes, and the excess part will be truncated. The value is empty by default.
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 12 dynamic
@@ -336,7 +339,7 @@ export interface NotificationRequest {
   slotType?: notification.SlotType;
 
   /**
-   * Notification slot type. The default value is **OTHER_TYPES**. The notification reminder mode varies depending on 
+   * Notification slot type. The default value is **OTHER_TYPES**. The notification reminder mode varies depending on
    * the notification slot type.
    *
    * @syscap SystemCapability.Notification.Notification
@@ -379,11 +382,8 @@ export interface NotificationRequest {
   updateOnly?: boolean;
 
   /**
-   * Time when the notification is sent. This API is automatically generated by the system.
-   * 
-   * Data format: timestamp,
-   * 
-   * in milliseconds.
+   * Notification delivery time. This parameter is automatically generated by the system and does not require
+   * configuration. Data format: timestamp. Unit: millisecond.
    *
    * @crossplatform [since 12]
    * @syscap SystemCapability.Notification.Notification
@@ -408,15 +408,11 @@ export interface NotificationRequest {
   tapDismissed?: boolean;
 
   /**
-   * Scheduled time for clearing a notification. If this parameter is set, the notification will be automatically 
-   * cleared after the specified time. The default value is **0**.
-   * 
-   * Data format: timestamp,
-   * 
-   * in milliseconds.
-   * 
-   * For example, if a notification is to be cleared after being displayed for 3 seconds (3000 ms), you can set 
-   * **new Date().getTime() + 3000** to meet this requirement.
+   * Scheduled auto-delete time for the notification. You can set this parameter to automatically delete the
+   * notification after the specified time. Default value: **0**. This parameter does not take effect if a value less
+   * than 0 or a past time is passed in.
+   * Data format: timestamp. Unit: millisecond. For example, to delete a notification after it has been retained for
+   * 3 seconds (3000 ms), the corresponding deletion time is: **new Date().getTime()** + 3000.
    *
    * @crossplatform [since 12]
    * @syscap SystemCapability.Notification.Notification
@@ -426,8 +422,8 @@ export interface NotificationRequest {
   autoDeletedTime?: long;
 
   /**
-   * Behavior intent of an application, which is triggered when a notification is clicked. This parameter is left empty 
-   * by default.
+   * Behavior intent of an application, which is triggered when a notification is clicked. This parameter is left
+   * empty by default.
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
@@ -549,13 +545,10 @@ export interface NotificationRequest {
   isFloatingIcon?: boolean;
 
   /**
-   * Notification label. This parameter is left empty by default.
-   * 
-   * The **label** field can be used independently, or used together with ID as a notification identifier. ID is 
-   * preferentially used.
-   * 
-   * If the label is not empty when a notification is published, you need to specify the label when updating or deleting
-   * the notification.
+   * Notification label. The **label** field functions similarly to an ID and can be used alone or combined with the
+   * ID to serve as the notification identifier. It is recommended to use the ID. If the **label** is not empty when a
+   * notification is published, the corresponding **label** must also be specified when the notification is updated or
+   * deleted. The size does not exceed 202 bytes, and the excess part will be truncated. The value is empty by default.
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
@@ -593,10 +586,12 @@ export interface NotificationRequest {
   actionButtons?: Array<NotificationActionButton>;
 
   /**
-   * Small notification icon. This parameter is left empty by default. The total number of the icon pixel bytes cannot 
-   * exceed 192 KB (which is obtained through 
-   * [getPixelBytesNumber]{@link @ohos.multimedia.image:image.PixelMap.getPixelBytesNumber}). The recommended icon size 
-   * is 128 × 128 pixels. The display effect depends on the device capability and notification center UI style.
+   * Small notification icon. This parameter is left empty by default. The total number of the icon pixel bytes cannot
+   * exceed 192 KB (which is obtained through
+   * [getPixelBytesNumber]{@link @ohos.multimedia.image:image.PixelMap.getPixelBytesNumber}). The setting does not take
+   * effect if the limit is exceeded. When **smallIcon** is not set, the notification displays the default application
+   * icon. The recommended icon size is 128 × 128 pixels. The display effect depends on the device capability and
+   * notification center UI style.
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
@@ -605,10 +600,12 @@ export interface NotificationRequest {
   smallIcon?: image.PixelMap;
 
   /**
-   * Large notification icon. This parameter is left empty by default. The total number of the icon pixel bytes cannot 
-   * exceed 192 KB (which is obtained through 
-   * [getPixelBytesNumber]{@link @ohos.multimedia.image:image.PixelMap.getPixelBytesNumber}). The recommended icon size 
-   * is 128 × 128 pixels. The display effect depends on the device capability and notification center UI style.
+   * Large notification icon. This parameter is left empty by default. The total number of the icon pixel bytes cannot
+   * exceed 192 KB (which is obtained through
+   * [getPixelBytesNumber]{@link @ohos.multimedia.image:image.PixelMap.getPixelBytesNumber}). The setting does not take
+   * effect if the limit is exceeded. When **largeIcon** is not set, the notification does not display a large icon. The
+   * recommended icon size is 128 × 128 pixels. The display effect depends on the device capability and notification
+   * center UI style.
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
@@ -617,13 +614,8 @@ export interface NotificationRequest {
   largeIcon?: image.PixelMap;
 
   /**
-   * Notification overlay icon. This parameter is left empty by default. The total number of the icon pixel bytes cannot
-   * exceed 192 KB (which is obtained through 
-   * [getPixelBytesNumber]{@link @ohos.multimedia.image:image.PixelMap.getPixelBytesNumber}).
-   * 
-   * This API takes effect only when [notificationSlotType]{@link NotificationRequest} is set to 
-   * **SOCIAL_COMMUNICATION**. The recommended icon size is 128 × 128 pixels. The display effect depends on the device 
-   * capability and notification center UI style.
+   * Notification overlay icon. This parameter is left empty by default. The total bytes of the icon pixels cannot
+   * exceed 192 KB.
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi [since 11 - 22]
@@ -634,8 +626,9 @@ export interface NotificationRequest {
   overlayIcon?: image.PixelMap;
 
   /**
-   * Group to which a notification belongs. If the group names of different notifications are the same, these 
-   * notifications are displayed in a group. This parameter is left blank by default.
+   * Group to which the notification belongs. When different notifications have the same **groupName**, these
+   * notifications will be displayed as a group. The size does not exceed 202 bytes, and the excess part will be
+   * truncated. The value is empty by default.
    *
    * @crossplatform [since 12]
    * @syscap SystemCapability.Notification.Notification
@@ -681,8 +674,8 @@ export interface NotificationRequest {
   readonly creatorUserId?: int;
 
   /**
-   * Creator instance key.
-   * This parameter is supported since API version 12 and deprecated since API version 15. You are advised to use **appInstanceKey** instead.
+   * Creator instance key. This parameter is supported since API version 12 and deprecated since API version 15. You
+   * are advised to use **appInstanceKey** instead.
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -716,8 +709,7 @@ export interface NotificationRequest {
   sound?: string;
 
   /**
-   * Notification category.
-   * Not supported currently.
+   * Notification classification. Not supported currently.
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -736,7 +728,11 @@ export interface NotificationRequest {
   readonly hashCode?: string;
 
   /**
-   * Whether the notification can be removed. If a notification is not removable, it will not be deleted when the user touches the delete button below the notification, and it also cannot be deleted by swiping left on the notification and touching the delete button. <br> - **true**: The notification can be removed.
+   * Whether the notification can be removed. If a notification is not removable, it will not be deleted when the user
+   * touches the delete button below the notification, and it also cannot be deleted by swiping left on the notification
+   * and touching the delete button. The default value is **true**.
+   *
+   * - **true**: The notification can be removed.
    * - **false**: The notification cannot be removed.
    *
    * @permission ohos.permission.SET_UNREMOVABLE_NOTIFICATION [since 11]
@@ -746,12 +742,11 @@ export interface NotificationRequest {
    * @since 8 dynamic
    * @since 23 static
    */
-  
+
   isRemoveAllowed?: boolean;
 
   /**
-   * Notification source.
-   * Not supported currently. 
+   * Notification source. Not supported currently.
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -779,8 +774,7 @@ export interface NotificationRequest {
   distributedOption?: DistributedOptions;
 
   /**
-   * Device ID of the notification source.
-   * Not supported currently.
+   * Device ID of the notification source. Not supported currently.
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -790,8 +784,9 @@ export interface NotificationRequest {
   readonly deviceId?: string;
 
   /**
-   * Notification flags to be set or obtained. This parameter is left empty by default. This parameter is writable since
-   * API version 23. You can set this parameter to reduce the notification reminder modes.
+   * Notification flags. The default value is empty. This parameter is writable since API version 23. You can set
+   * this parameter to reduce the notification modes. This parameter does not take effect when the notification slot
+   * type is LIVE_VIEW.
    *
    * @readonly [since 8 - 22]
    * @syscap SystemCapability.Notification.Notification
@@ -802,11 +797,9 @@ export interface NotificationRequest {
   notificationFlags?: NotificationFlags;
 
   /**
-   * Behavior intent of an application, which is triggered when a notification is removed. This parameter is left empty 
-   * by default.
-   * 
-   * Currently, redirection to UIAbility is not supported. Only common events can be published (that is, the 
-   * **actionType** field of [WantAgentInfo]{@link ./wantAgent/wantAgentInfo:WantAgentInfo} is set to **4**).
+   * Behavior intent of an application, which is triggered when a notification is removed. This parameter is left
+   * empty by default. Currently, redirection to UIAbility is not supported. Only common events can be published (that
+   * is, the **actionType** field of WantAgentInfo is set to **4**).
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 9 dynamic
@@ -862,8 +855,9 @@ export interface NotificationRequest {
   unifiedGroupInfo?: UnifiedGroupInfo;
 
   /**
-   * Notification mode control. The default value is **0**.
-   * This API can be used to reduce the notification modes of the current notification. This parameter is obtained by performing the bitwise OR operation with the enumeration of [NotificationControlFlagStatus](@link @ohos.notificationManager:notificationManager.NotificationControlFlagStatus).
+   * Notification mode control. The default value is **0**. This API can be used to reduce the notification modes of
+   * the current notification. This parameter is obtained by performing the bitwise OR operation with the enumeration
+   * of NotificationControlFlagStatus.
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -883,7 +877,7 @@ export interface NotificationRequest {
   readonly appInstanceKey?: string;
 
   /**
-   * Whether notifications are forcibly displayed in all scenario across devices.
+   * Whether notifications are forcibly displayed in all scenario across devices. The default value is **false**.
    * **NOTE**
    * This field takes effect only when the application is in the cross-device collaborative management list and **notDistributed** is set to **false**. Check whether the **collaborationFilter** field in the **notification_config.json** file contains the UID or bundle name of the application. For details about the file configuration path, see the **NOTIFICATION_CONFIG_FILE** property in [notification_config_parse.h](https://gitcode.com/openharmony/notification_distributed_notification_service/blob/master/services/ans/include/notification_config_parse.h). If yes, the application is on the cross-device collaborative management list.
    * - **true**: Notifications are displayed on all collaboration devices.
@@ -898,7 +892,7 @@ export interface NotificationRequest {
   forceDistributed?: boolean;
 
   /**
-   * Whether notifications are not displayed in all scenarios across devices.
+   * Whether notifications are not displayed in all scenarios across devices. The default value is **false**.
    * **NOTE**
    * This field is mutually exclusive with the **forceDistributed** field. 
    * When both fields are set to **true**, only the **notDistributed** field takes effect.
@@ -933,7 +927,7 @@ export interface NotificationRequest {
  */
 export interface DistributedOptions {
   /**
-   * Whether cross-device notifications are supported.
+   * Whether cross-device notifications are supported. The default value is **true**.
    * 
    * - **true**: cross-device notifications are supported.
    * - **false**: cross-device notifications are not supported.

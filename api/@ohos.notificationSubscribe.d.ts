@@ -46,6 +46,9 @@ import type { BadgeNumberCallbackData as _BadgeNumberCallbackData } from './noti
  * 
  * > **NOTE**
  * >
+ * > The initial APIs of this module are supported since API version 9. Newly added APIs will be marked with a superscript
+ * > to indicate their earliest API version.
+ * >
  * > The APIs provided by this module are system APIs.
  *
  * @syscap SystemCapability.Notification.Notification
@@ -55,7 +58,7 @@ import type { BadgeNumberCallbackData as _BadgeNumberCallbackData } from './noti
  */
 declare namespace notificationSubscribe {
   /**
-   * Notification key.
+   * Defines the notification key value.
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -85,7 +88,7 @@ declare namespace notificationSubscribe {
   }
 
   /**
-   * Reason for removing the notification.
+   * Defines the reasons for notification removal.
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -572,7 +575,7 @@ declare namespace notificationSubscribe {
   function distributeOperation(hashcode: string, operationInfo?: OperationInfo): Promise<void>;
 
   /**
-   * Cross-device operation information.
+   * Defines cross-device collaborative operation information.
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi

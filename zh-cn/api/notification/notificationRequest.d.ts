@@ -14,8 +14,15 @@
  */
 
 /**
- * 描述通知的请求。
- * 
+ * 定义了通知请求的数据结构，用于描述一条通知的全部信息，包括通知内容、标识、展示样式、交互行为等。
+ *
+ * > **说明：**
+ * >
+ * > 本模块首批接口从API version 7开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
+ *
+ */
+
+/**
  * @file Information carried when a notification is sent
  * @kit NotificationKit
  */
@@ -182,7 +189,7 @@ export interface Geofence {
   latitude:double;
 
   /**
-   * 围栏半径，单位米，取值范围：[200, 2000]。
+   * 围栏半径，单位：米，取值范围：[200, 2000]。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -191,7 +198,7 @@ export interface Geofence {
   radius:double;
 
   /**
-   * 围栏延迟时间，单位秒，进入围栏后触发围栏的延迟时间，取值范围：[0, 300]。默认值为0。
+   * 围栏延迟时间，单位：秒，进入围栏后触发围栏的延迟时间，取值范围：[0, 300]。默认值为0。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -255,7 +262,7 @@ export interface Trigger {
 }
 
 /**
- * 描述通知的请求。
+ * 定义了通知请求的数据结构，用于描述一条通知的全部信息，包括通知内容、标识、展示样式、交互行为等。
  * 
  * @crossplatform [since 12]
  * @syscap SystemCapability.Notification.Notification
@@ -264,7 +271,7 @@ export interface Trigger {
  */
 export interface NotificationRequest {
   /**
-   * 通知展示内容。
+   * 通知展示内容。包括通知标题、正文等。
    *
    * @crossplatform [since 12]
    * @syscap SystemCapability.Notification.Notification
@@ -303,8 +310,9 @@ export interface NotificationRequest {
   priorityNotificationType?: notificationManager.PriorityNotificationType;
 
   /**
-   * 应用发送通知携带的唯一标识字段，用于通知去重。如果同一应用通过本地和云端等不同途径发布携带相同appMessageId的通知，设备只展示一条消息，之后收到的重复通知会被静默去重，不展示、不提醒。去重标识仅在通知发布的24小时内有效
-   * ，超过24小时或者设备重启失效。
+   * 应用发送通知携带的唯一标识字段，用于通知去重。如果同一应用通过本地和云端等不同途径发布携带相同appMessageId的通知，
+   * 设备只展示一条消息，之后收到的重复通知会被静默去重，不展示、不提醒。去重标识仅在通知发布的24小时内有效，
+   * 超过24小时或者设备重启失效。大小不超过202字节，超出部分会被截断。默认为空。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 12 dynamic
@@ -369,7 +377,7 @@ export interface NotificationRequest {
    * 
    * 数据格式：时间戳。
    * 
-   * 单位：ms。
+   * 单位：毫秒。
    *
    * @crossplatform [since 12]
    * @syscap SystemCapability.Notification.Notification
@@ -393,10 +401,11 @@ export interface NotificationRequest {
 
   /**
    * 通知定时清除时间。设置该参数可使通知在指定时间后自动清除。默认值为0。
+   * 传入小于0的值或过去的时间值，该参数不生效。
    * 
    * 数据格式：时间戳。
    * 
-   * 单位：ms。
+   * 单位：毫秒。
    * 
    * 例如，希望某通知存留3秒（3000ms）后对其进行清除，则对应的清除时间为：new Date().getTime() + 3000。
    *
@@ -481,7 +490,7 @@ export interface NotificationRequest {
   colorEnabled?: boolean;
 
   /**
-   * 发布或更新该通知时，是否只进行一次通知提醒，默认为false。
+   * 发布或更新该通知时，是否只进行一次通知提醒，默认值为false。
    * 
    * - true：仅首次发布通知时进行提醒，后续更新该通知时，提醒方式变更为[LEVEL_LOW]{@link @ohos.notificationManager:notificationManager.SlotLevel}。
    * - false：每次均按照配置的通知提醒方式进行提醒。
@@ -521,11 +530,12 @@ export interface NotificationRequest {
   isFloatingIcon?: boolean;
 
   /**
-   * 通知标签，默认为空。
+   * 通知标签。
    * 
    * label字段的功能类似于id，可以单独使用，也可与id结合共同作为通知的标识。优先推荐使用id。
    * 
    * 如果发布通知时label不为空，那么在更新或删除该通知时，也需要指定相应的label。
+   * 大小不超过202字节，超出部分会被截断。默认为空。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
@@ -563,8 +573,9 @@ export interface NotificationRequest {
 
   /**
    * 通知小图标，默认为空。图标像素的总字节数不超过192KB（图标像素的总字节数通过
-   * [getPixelBytesNumber]{@link @ohos.multimedia.image:image.PixelMap.getPixelBytesNumber}获取），建议图标像素长宽为128*128。实际显示效果依赖
-   * 于设备能力和通知中心UI样式。
+   * [getPixelBytesNumber]{@link @ohos.multimedia.image:image.PixelMap.getPixelBytesNumber}获取），超出后设置不生效。
+   * 未设置`smallIcon`时，通知将展示应用默认图标。建议图标像素长宽为128*128。
+   * 实际显示效果依赖于设备能力和通知中心UI样式。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
@@ -574,8 +585,9 @@ export interface NotificationRequest {
 
   /**
    * 通知大图标，默认为空。图标像素的总字节数不超过192KB（图标像素的总字节数通过
-   * [getPixelBytesNumber]{@link @ohos.multimedia.image:image.PixelMap.getPixelBytesNumber}获取），建议图标像素长宽为128*128。实际显示效果依赖
-   * 于设备能力和通知中心UI样式。
+   * [getPixelBytesNumber]{@link @ohos.multimedia.image:image.PixelMap.getPixelBytesNumber}获取），超出后设置不生效。
+   * 未设置`largeIcon`时，通知将不展示大图标。建议图标像素长宽为128*128。
+   * 实际显示效果依赖于设备能力和通知中心UI样式。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
@@ -584,11 +596,12 @@ export interface NotificationRequest {
   largeIcon?: image.PixelMap;
 
   /**
-   * 通知重叠图标，默认为空。图像像素的总字节数不超过192KB（图标像素的总字节数通过
-   * [getPixelBytesNumber]{@link @ohos.multimedia.image:image.PixelMap.getPixelBytesNumber}获取）。
+   * 通知重叠图标，默认为空。图标像素的总字节数不超过192KB（图标像素的总字节数通过
+   * [getPixelBytesNumber]{@link @ohos.multimedia.image:image.PixelMap.getPixelBytesNumber}获取），超出后设置不生效。
+   * 未设置`overlayIcon`时，通知将不展示重叠图标。
    * 
-   * 此接口只在[notificationSlotType]{@link NotificationRequest}类型设置为SOCIAL_COMMUNICATION时生效。建议图标像素长宽为128*128。实际显示效果依赖于设备能力和通
-   * 知中心UI样式。
+   * 此接口只在[notificationSlotType]{@link NotificationRequest}类型设置为SOCIAL_COMMUNICATION时生效。
+   * 建议图标像素长宽为128*128。实际显示效果依赖于设备能力和通知中心UI样式。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi [since 11 - 22]
@@ -599,7 +612,8 @@ export interface NotificationRequest {
   overlayIcon?: image.PixelMap;
 
   /**
-   * 通知所属组。当不同通知的groupName相同时，这些通知将成组展示。默认为空。
+   * 通知所属组。当不同通知的groupName相同时，这些通知将成组展示。大小不超过202字节，
+   * 超出部分会被截断。默认为空。
    *
    * @crossplatform [since 12]
    * @syscap SystemCapability.Notification.Notification
@@ -647,7 +661,7 @@ export interface NotificationRequest {
   /**
    * 创建者实例键值。
    * 
-   * 从API version 12开始支持，从API version 15开始废弃，建议使用appInstanceKey替代。。
+   * 从API version 12开始支持，从API version 15开始废弃，建议使用appInstanceKey替代。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -660,8 +674,8 @@ export interface NotificationRequest {
   /**
    * 应用通知自定义铃声资源路径，默认为空。支持两种音频资源来源：
    * 
-   * - 资源文件：应用预置的音频文件，资源文件必须放在放在resources/rawfile目录下，使用时直接传入文件名。
-   * - 沙箱文件：网络下载或者用户生成的音频文件，必须放在[沙箱文件目录](docroot://file-management/app-sandbox-directory.md#应用文件目录与应用文件路径)EL1区域的files目录或
+   * - 资源文件：应用预置的音频文件，资源文件必须放在resources/rawfile目录下，使用时直接传入文件名。
+   * - 沙箱文件：网络下载或者用户生成的音频文件，必须放在沙箱文件目录EL1区域的files目录或
    * 者其子目录下，传入格式为uri::{fileUri}，其中fileUri是通过[getUriFromPath]{@link @ohos.file.fileuri:fileUri.getUriFromPath}获取的路径。例如，应用
    * 将下载的音频资源demo.mp3传入沙箱文件目录/data/storage/el1/base/files/，通过getUriFromPath获取的路径为file://{bundleName}/data/storage/el1/
    * base/files/demo.mp3，使用该路径发布通知即可播放应用下载的音频资源。
@@ -695,12 +709,10 @@ export interface NotificationRequest {
   readonly hashCode?: string;
 
   /**
-   * 通知是否能被移除（点击通知下方删除按钮无法删除，左滑不出现删除按钮）。
+   * 通知是否能被移除（点击通知下方删除按钮无法删除，左滑不出现删除按钮）。默认为true。
    * 
    * - true：是。
    * - false：否。
-   * 
-   * ohos.permission.SET_UNREMOVABLE_NOTIFICATION
    *
    * @permission ohos.permission.SET_UNREMOVABLE_NOTIFICATION [since 11]
    * @default true
@@ -753,7 +765,7 @@ export interface NotificationRequest {
   readonly deviceId?: string;
 
   /**
-   * 设置或获取NotificationFlags，默认为空。从API version 23开始成为可写参数，设置该参数可削减通知的提醒方式，当通知渠道类型为
+   * 通知标志位设置，默认为空。从API version 23开始成为可写参数，设置该参数可削减通知的提醒方式，当通知渠道类型为
    * [LIVE_VIEW]{@link @ohos.notificationManager:notificationManager.SlotType}时，该参数设置不生效。
    *
    * @readonly [since 8 - 22]
@@ -776,7 +788,7 @@ export interface NotificationRequest {
   removalWantAgent?: WantAgent;
 
   /**
-   * 应用程序图标上显示的通知数，该数量累计展示，默认值为0。
+   * 应用图标上显示的通知数，该数量累计展示，默认值为0。
    * 
    * 当`badgeNumber`取值小于或等于0时，将忽略本次角标设定。
    * 
@@ -846,13 +858,15 @@ export interface NotificationRequest {
   readonly appInstanceKey?: string;
 
   /**
-   * 通知是否强制进行全场景跨设备协同显示。
+   * 通知是否强制进行全场景跨设备协同显示，默认为false。
    * 
    * **说明**:
    * 
-   * 仅当应用在跨设备协同管控名单中且notDistributed为false时，该字段才会生效。通过读取notification_config.json文件（文件配置路径见：
-   * [notification_config_parse.h](https://gitcode.com/openharmony/notification_distributed_notification_service/blob/master/services/ans/include/notification_config_parse.h)
-   * 中的NOTIFICATION_CONFIG_FILE属性）中的collaborationFilter字段，查看是否包含应用的UID或包名。如果包含，说明是在应用跨设备协同管控名单中。
+   * 仅当应用在跨设备协同管控名单中且notDistributed为false时，该字段才会生效。通过读取notification_config.json文件
+   * （文件配置路径见：[notification_config_parse.h]
+   * (https://gitcode.com/openharmony/notification_distributed_notification_service/blob/master/services/ans/include/notification_config_parse.h)
+   * 中的NOTIFICATION_CONFIG_FILE属性）中的collaborationFilter字段，查看是否包含应用的UID或包名。如果包含，
+   * 说明是在应用跨设备协同管控名单中。
    * 
    * - 设置为true时：通知将在所有协同设备上显示。
    * 
@@ -867,7 +881,7 @@ export interface NotificationRequest {
   forceDistributed?: boolean;
 
   /**
-   * 通知是否不进行全场景跨设备协同显示。
+   * 通知是否不进行全场景跨设备协同显示，默认为false。
    * 
    * **说明**:
    * 
@@ -887,8 +901,6 @@ export interface NotificationRequest {
 
   /**
    * 组通知定制信息。默认为空。
-   * 
-   * 26.0.0
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -907,7 +919,7 @@ export interface NotificationRequest {
  */
 export interface DistributedOptions {
   /**
-   * 是否支持跨设备协同通知。
+   * 是否支持跨设备协同通知。默认为true。
    * 
    * - true：支持跨设备协同通知。
    * - false：不支持跨设备协同通知。
