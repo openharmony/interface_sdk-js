@@ -52,7 +52,61 @@ declare namespace deviceControl {
      * @stagemodelonly
      * @since 26.0.0
      */
-    DISK_ERASURE = 0
+    DISK_ERASURE = 0,
+
+    /**
+     * Restore device factory settings.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.1.0
+     */
+    RESET_FACTORY = 1,
+
+    /**
+     * Restart devices.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.1.0
+     */
+    REBOOT = 2,
+
+    /**
+     * Shut down devices.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.1.0
+     */
+    SHUT_DOWN = 3,
+
+    /**
+     * Lock device screens.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.1.0
+     */
+    LOCK_SCREEN = 4,
+
+    /**
+     * Lock devices.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.1.0
+     */
+    LOCK_DEVICE = 5,
+
+    /**
+     * Unlock devices.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.1.0
+     */
+    UNLOCK_DEVICE = 6
   }
 
   /**
