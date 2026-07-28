@@ -186,7 +186,7 @@ declare namespace deviceControl {
    *
    * @permission ohos.permission.ENTERPRISE_OPERATE_DEVICE
    * @param { Want } admin - 企业设备管理扩展组件。
-   * @param { string } operation - 要执行的操作。
+   * @param { Operation } operation - 要执行的操作。
    * @param { string } [addition] - 执行时附加参数。
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
