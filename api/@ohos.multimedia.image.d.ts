@@ -7365,6 +7365,17 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 26.0.0 dynamic&static
      */
     hdrComposeToMainPixelmap(): Promise<void>;
+
+    /**
+     * Sets the PixelMap object of the picture.
+     *
+     * @param { PixelMap } pixelmap - PixelMap object.
+     * @throws { BusinessError } 7700204 - Parameter error. The pixelmap object is null or has been released.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    setMainPixelmap(pixelmap: PixelMap): void;
   }
 
   /**
