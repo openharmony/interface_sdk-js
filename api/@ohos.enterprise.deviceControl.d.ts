@@ -204,7 +204,7 @@ declare namespace deviceControl {
    *
    * @permission ohos.permission.ENTERPRISE_OPERATE_DEVICE
    * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   * @param { string } operation - operation indicates the operation to performed.
+   * @param { Operation } operation - operation indicates the operation to performed.
    * @param { string } [addition] - addition indicates the specified additional parameters
    *     when performing the operation.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
