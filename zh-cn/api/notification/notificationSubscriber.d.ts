@@ -14,16 +14,6 @@
  */
 
 /**
- * 作为订阅通知接口{@link subscribeNotification}的入参，提供订阅者接收到新通知、取消通知等的回调方法。
- *
- * > **说明：**
- * >
- * > 本模块首批接口从API version 7开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
- * >
- * > 本模块为系统接口。
- */
-
-/**
  * @file Provides methods that will be called back when the subscriber receives a new notification or a notification is canceled
  * @kit NotificationKit
  */
@@ -37,6 +27,12 @@ import notification from '../@ohos.notification';
 
 /**
  * 提供订阅者接收到新通知、取消通知等的回调方法。
+ *
+ * > **说明：**
+ * >
+ * > 本模块首批接口从API version 7开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
+ * >
+ * > 本模块为系统接口。
  *
  * @syscap SystemCapability.Notification.Notification
  * @systemapi
@@ -298,7 +294,7 @@ export interface SubscribeCallbackData {
 }
 
 /**
- * 应用角标使能状态变化的回调函数类型。
+ * 应用使能状态变化的回调函数类型。
  * 
  * @syscap SystemCapability.Notification.Notification
  * @systemapi
@@ -430,9 +426,6 @@ export interface EnabledPriorityNotificationByBundleCallbackData {
 
   /**
    * 应用通知的优先使能状态。
-   * - DISABLE：不允许设置为优先通知。
-   * - ENABLE_BY_INTELLIGENT：允许经智能识别、用户关键词匹配、应用规则匹配等方式设置为优先通知。
-   * - ENABLE：应用通知均设置为优先通知。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -611,7 +604,9 @@ export type EnabledSilentReminderChangedCallback = (callbackData: EnabledSilentR
  * 注册由[notificationManager.setNotificationSwitch]{@link
  * ../@ohos.notificationManager:notificationManager.setNotificationSwitch}接口设置的通知开关状态变化的回调函数类型。
  *
- * @param { NotificationSwitchChangedCallbackData } callbackData  - 回调返回由[notificationManager.setNotificationSwitch]{@link ../@ohos.notificationManager:notificationManager.setNotificationSwitch}接口设置的通知开关状态变化信息。
+ * @param { NotificationSwitchChangedCallbackData } callbackData  -
+ *     回调返回由[notificationManager.setNotificationSwitch]{@link ../@ohos.notificationManager:notificationManager.setNotificationSwitch}
+ *     接口设置的通知开关状态变化信息。
  * @syscap SystemCapability.Notification.Notification
  * @systemapi
  * @stagemodelonly
@@ -630,7 +625,6 @@ export type NotificationSwitchChangedCallback = (callbackData: NotificationSwitc
 export interface NotificationSwitchChangedCallbackData {
   /**
    * 用户ID。
-   * 取值为所有整数。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi

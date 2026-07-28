@@ -46,7 +46,7 @@ import { RecordData } from '../@ohos.base';
 /*** endif */
 
 /**
- * 描述[NotificationRequest]{@link NotificationRequest}中wantAgent的部分信4息。
+ * 描述[NotificationRequest]{@link NotificationRequest}中wantAgent的部分信息。
  *
  * @syscap SystemCapability.Notification.Notification
  * @stagemodelonly
@@ -401,6 +401,7 @@ export interface NotificationRequest {
 
   /**
    * 通知定时清除时间。设置该参数可使通知在指定时间后自动清除。默认值为0。
+   * 传入小于0的值或过去的时间值，该参数不生效。
    * 
    * 数据格式：时间戳。
    * 
@@ -572,8 +573,9 @@ export interface NotificationRequest {
 
   /**
    * 通知小图标，默认为空。图标像素的总字节数不超过192KB（图标像素的总字节数通过
-   * [getPixelBytesNumber]{@link @ohos.multimedia.image:image.PixelMap.getPixelBytesNumber}获取），建议图标像素长宽为128*128。实际显示效果依赖
-   * 于设备能力和通知中心UI样式。
+   * [getPixelBytesNumber]{@link @ohos.multimedia.image:image.PixelMap.getPixelBytesNumber}获取），超出后设置不生效。
+   * 未设置`smallIcon`时，通知将展示应用默认图标。建议图标像素长宽为128*128。
+   * 实际显示效果依赖于设备能力和通知中心UI样式。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
@@ -583,8 +585,9 @@ export interface NotificationRequest {
 
   /**
    * 通知大图标，默认为空。图标像素的总字节数不超过192KB（图标像素的总字节数通过
-   * [getPixelBytesNumber]{@link @ohos.multimedia.image:image.PixelMap.getPixelBytesNumber}获取），建议图标像素长宽为128*128。实际显示效果依赖
-   * 于设备能力和通知中心UI样式。
+   * [getPixelBytesNumber]{@link @ohos.multimedia.image:image.PixelMap.getPixelBytesNumber}获取），超出后设置不生效。
+   * 未设置`largeIcon`时，通知将不展示大图标。建议图标像素长宽为128*128。
+   * 实际显示效果依赖于设备能力和通知中心UI样式。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
@@ -593,11 +596,12 @@ export interface NotificationRequest {
   largeIcon?: image.PixelMap;
 
   /**
-   * 通知重叠图标，默认为空。图像像素的总字节数不超过192KB（图标像素的总字节数通过
-   * [getPixelBytesNumber]{@link @ohos.multimedia.image:image.PixelMap.getPixelBytesNumber}获取）。
+   * 通知重叠图标，默认为空。图标像素的总字节数不超过192KB（图标像素的总字节数通过
+   * [getPixelBytesNumber]{@link @ohos.multimedia.image:image.PixelMap.getPixelBytesNumber}获取），超出后设置不生效。
+   * 未设置`overlayIcon`时，通知将不展示重叠图标。
    * 
-   * 此接口只在[notificationSlotType]{@link NotificationRequest}类型设置为SOCIAL_COMMUNICATION时生效。建议图标像素长宽为128*128。实际显示效果依赖于设备能力和通
-   * 知中心UI样式。
+   * 此接口只在[notificationSlotType]{@link NotificationRequest}类型设置为SOCIAL_COMMUNICATION时生效。
+   * 建议图标像素长宽为128*128。实际显示效果依赖于设备能力和通知中心UI样式。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi [since 11 - 22]
@@ -670,7 +674,7 @@ export interface NotificationRequest {
   /**
    * 应用通知自定义铃声资源路径，默认为空。支持两种音频资源来源：
    * 
-   * - 资源文件：应用预置的音频文件，资源文件必须放在放在resources/rawfile目录下，使用时直接传入文件名。
+   * - 资源文件：应用预置的音频文件，资源文件必须放在resources/rawfile目录下，使用时直接传入文件名。
    * - 沙箱文件：网络下载或者用户生成的音频文件，必须放在沙箱文件目录EL1区域的files目录或
    * 者其子目录下，传入格式为uri::{fileUri}，其中fileUri是通过[getUriFromPath]{@link @ohos.file.fileuri:fileUri.getUriFromPath}获取的路径。例如，应用
    * 将下载的音频资源demo.mp3传入沙箱文件目录/data/storage/el1/base/files/，通过getUriFromPath获取的路径为file://{bundleName}/data/storage/el1/
@@ -761,7 +765,7 @@ export interface NotificationRequest {
   readonly deviceId?: string;
 
   /**
-   * 设置或获取NotificationFlags，默认为空。从API version 23开始成为可写参数，设置该参数可削减通知的提醒方式，当通知渠道类型为
+   * 通知标志位设置，默认为空。从API version 23开始成为可写参数，设置该参数可削减通知的提醒方式，当通知渠道类型为
    * [LIVE_VIEW]{@link @ohos.notificationManager:notificationManager.SlotType}时，该参数设置不生效。
    *
    * @readonly [since 8 - 22]
@@ -784,7 +788,7 @@ export interface NotificationRequest {
   removalWantAgent?: WantAgent;
 
   /**
-   * 应用程序图标上显示的通知数，该数量累计展示，默认值为0。
+   * 应用图标上显示的通知数，该数量累计展示，默认值为0。
    * 
    * 当`badgeNumber`取值小于或等于0时，将忽略本次角标设定。
    * 
@@ -858,9 +862,11 @@ export interface NotificationRequest {
    * 
    * **说明**:
    * 
-   * 仅当应用在跨设备协同管控名单中且notDistributed为false时，该字段才会生效。通过读取notification_config.json文件（文件配置路径见：
-   * [notification_config_parse.h](https://gitcode.com/openharmony/notification_distributed_notification_service/blob/master/services/ans/include/notification_config_parse.h)
-   * 中的NOTIFICATION_CONFIG_FILE属性）中的collaborationFilter字段，查看是否包含应用的UID或包名。如果包含，说明是在应用跨设备协同管控名单中。
+   * 仅当应用在跨设备协同管控名单中且notDistributed为false时，该字段才会生效。通过读取notification_config.json文件
+   * （文件配置路径见：[notification_config_parse.h]
+   * (https://gitcode.com/openharmony/notification_distributed_notification_service/blob/master/services/ans/include/notification_config_parse.h)
+   * 中的NOTIFICATION_CONFIG_FILE属性）中的collaborationFilter字段，查看是否包含应用的UID或包名。如果包含，
+   * 说明是在应用跨设备协同管控名单中。
    * 
    * - 设置为true时：通知将在所有协同设备上显示。
    * 

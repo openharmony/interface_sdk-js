@@ -37,7 +37,7 @@ export interface NotificationSlot {
   /**
    * Channel type.
    * 
-   * This attribute is supported since API version 7 and deprecated since API version 11. It is recommended to use
+   * This parameter is supported since API version 7 and deprecated since API version 11. It is recommended to use
    * **notificationType** instead.
    *
    * @syscap SystemCapability.Notification.Notification
@@ -48,7 +48,7 @@ export interface NotificationSlot {
   type?: notification.SlotType;
 
   /**
-   * Notification slot type.
+   * Slot type. Different slot types have different notification reminder types.
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 11 dynamic
@@ -59,7 +59,7 @@ export interface NotificationSlot {
   /**
    * Notification level.
    * 
-   * This attribute is supported since API version 7 and deprecated since API version 20. You are advised to use 
+   * This parameter is supported since API version 7 and deprecated since API version 20. It is recommended to use
    * **notificationLevel** instead.
    *
    * @syscap SystemCapability.Notification.Notification
@@ -70,7 +70,8 @@ export interface NotificationSlot {
   level?: notification.SlotLevel;
 
   /**
-   * Notification level.
+   * Notification level, which is used to describe the display priority and alert intensity of notifications of this
+   * channel type.
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 20 dynamic
@@ -176,7 +177,7 @@ export interface NotificationSlot {
   vibrationValues?: Array<long>;
 
   /**
-   * Whether to allow notifications to be published from this notification channel.
+   * Whether to allow notifications of this slot type to be published.
    *
    * - **true**: yes.
    * - **false**: no.

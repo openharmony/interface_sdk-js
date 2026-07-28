@@ -80,7 +80,10 @@ import type UIAbilityContext from './application/UIAbilityContext';
  *
  * 3. **通知取消流程**：通过cancel取消指定ID的通知，通过cancelAll取消本应用所有通知，通过cancelGroup取消指定分组下的通知。
  *
- * 4. **通知渠道管理流程**：通过addSlot创建通知渠道，通过getSlot/getSlots查询通知渠道配置，通过removeSlot/removeAllSlots删除通知渠道。建议在发布通知前先创建对应类型的通知渠道。除了可以使用addSlot创建通知渠道，还可以在发布通知的NotificationRequest中携带notificationSlotType字段，如果对应类型的渠道不存在，会自动创建。
+ * 4. **通知渠道管理流程**：通过addSlot创建通知渠道，通过getSlot/getSlots查询通知渠道配置，
+ * 通过removeSlot/removeAllSlots删除通知渠道。建议在发布通知前先创建对应类型的通知渠道。
+ * 除了可以使用addSlot创建通知渠道，还可以在发布通知的NotificationRequest中携带notificationSlotType字段，
+ * 如果对应类型的渠道不存在，会自动创建。
  *
  * 5. **角标管理流程**：通过setBadgeNumber设置角标数字，或者通过publish接口发布通知时，在NotificationRequest的badgeNumber字段里携带需要增加的角标数量。
  *
@@ -405,10 +408,12 @@ declare namespace notificationManager {
    * 取消后，对应的通知将从通知中心、状态栏等位置移除，用户不再可见。
    * 适用于需要精确取消某一条带有特定标签的通知的场景。
    * 与仅传入通知ID的notificationManager.cancel(id, callback)相比，
-   * 此接口额外传入label参数，可精确取消同一ID下不同标签的通知。
+   * 此接口额外传入label参数，可精确取消同一ID，不同标签的通知。
    *
    * @param { int } id - 通知ID，用于标识目标通知。该值由发布通知时NotificationRequest的id字段指定。
-   * @param { string } label - 通知标签，用于区分同一ID下不同标签的通知。该值由发布通知时NotificationRequest的label字段指定。
+   * @param { string } label - 通知标签。该值由发布通知时NotificationRequest的label字段指定。
+   *     - 若标签为空，则取消与指定通知ID匹配，标签为空的已发布通知。
+   *     - 若标签不为空，则取消与指定通知ID和标签同时匹配的已发布通知。
    * @param { AsyncCallback<void> } callback - 回调函数。根据通知ID和标签取消已发布的通知成功，err为undefined，否则为错误对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types. 3. Parameter verification failed.
@@ -423,13 +428,14 @@ declare namespace notificationManager {
   function cancel(id: int, label: string, callback: AsyncCallback<void>): void;
 
   /**
-   * 根据通知ID和标签取消已发布的通知，若标签为空，则取消与指定通知ID匹配，
-   * 标签为空的已发布通知。使用Promise异步回调。
+   * 根据通知ID和标签label取消已发布的通知。使用Promise异步回调。
    *
    * 取消后，对应的通知将从通知中心、状态栏等位置移除，用户不再可见。
    *
    * @param { int } id - 通知ID，用于标识目标通知。该值由发布通知时NotificationRequest的id字段指定。
-   * @param { string } [label] - 通知标签，默认为空。
+   * @param { string } [label] - 通知标签，默认为空。该值由发布通知时NotificationRequest的label字段指定。
+   *     - 若标签为空，则取消与指定通知ID匹配，标签为空的已发布通知。
+   *     - 若标签不为空，则取消与指定通知ID和标签同时匹配的已发布通知。
    * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types. 3. Parameter verification failed.
@@ -793,7 +799,7 @@ declare namespace notificationManager {
    * 获取当前应用的所有通知渠道。使用callback异步回调。
    *
    * 用于批量查询当前应用已创建的所有通知渠道的配置信息，包括各渠道的类型、提醒方式、级别等设置。
-   * 适用于需要查看所有渠道配置的场景。
+   * 适用于需要查看所有渠道配置的场景。需先通过addSlot创建对应类型的通知渠道，否则获取结果为空。
    *
    * @param { AsyncCallback<Array<NotificationSlot>> } callback - 回调函数。当获取通知渠道成功，
    *     err为undefined，data为获取到的NotificationSlot数组，否则为错误对象。
@@ -812,7 +818,7 @@ declare namespace notificationManager {
    * 获取当前应用的所有通知渠道。使用Promise异步回调。
    *
    * 用于批量查询当前应用已创建的所有通知渠道的配置信息，包括各渠道的类型、提醒方式、级别等设置。
-   * 适用于需要查看所有渠道配置的场景。
+   * 适用于需要查看所有渠道配置的场景。需先通过addSlot创建对应类型的通知渠道，否则获取结果为空。
    *
    * @returns { Promise<Array<NotificationSlot>> } Promise对象，返回通知渠道对象。
    * @throws { BusinessError } 1600001 - Internal error.
@@ -825,10 +831,10 @@ declare namespace notificationManager {
   function getSlots(): Promise<Array<NotificationSlot>>;
 
   /**
-   * 获取允许通知的应用程序列表。使用Promise异步回调。
+   * 获取允许通知的应用列表。使用Promise异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @returns { Promise<Array<BundleOption>> } 返回允许通知的应用程序列表。
+   * @returns { Promise<Array<BundleOption>> } 返回允许通知的应用列表。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -842,11 +848,11 @@ declare namespace notificationManager {
   function getAllNotificationEnabledBundles(): Promise<Array<BundleOption>>;
 
   /**
-   * 获取指定用户下允许通知的应用程序列表。使用Promise异步回调。
+   * 获取指定用户下允许通知的应用列表。使用Promise异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { int } userId - 要获取允许通知的应用程序列表的用户。
-   * @returns { Promise<Array<BundleOption>> } 返回允许通知的应用程序列表。
+   * @param { int } userId - 要获取允许通知的应用列表的用户。
+   * @returns { Promise<Array<BundleOption>> } 返回允许通知的应用列表。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -1444,7 +1450,9 @@ declare namespace notificationManager {
   function getAllActiveNotifications(): Promise<Array<NotificationRequest>>;
 
   /**
-   * 获取当前应用未删除的通知数。使用callback异步回调。
+   * 获取当前应用的通知数量。使用callback异步回调。
+   *
+   * 用于查询当前应用在通知中心中已发布的存量通知数量。适用于需要展示未读通知数量提示的场景。
    *
    * @param { AsyncCallback<long> } callback - 回调函数。当获取当前应用未删除的通知数成功，err为undefined，data为当前应用未删除的通知数，否则为错误对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -1459,7 +1467,9 @@ declare namespace notificationManager {
   function getActiveNotificationCount(callback: AsyncCallback<long>): void;
 
   /**
-   * 获取当前应用未删除的通知数。使用Promise异步回调。
+   * 获取当前应用的通知数量。使用Promise异步回调。
+   *
+   * 用于查询当前应用在通知中心中已发布的存量通知数量。适用于需要展示未读通知数量提示的场景。
    *
    * @returns { Promise<long> } Promise对象，返回当前应用未删除通知数。
    * @throws { BusinessError } 1600001 - Internal error.
@@ -1473,6 +1483,8 @@ declare namespace notificationManager {
 
   /**
    * 获取当前应用未删除的通知列表。使用callback异步回调。
+   *
+   * 用于查询当前应用在通知中心中所有存量通知的详细信息列表，包括每条通知的ID、标签、内容、创建时间等。
    *
    * @param { AsyncCallback<Array<NotificationRequest>> } callback - 回调函数。当获取未删除的通知列表成功，err为undefined，data为获取到的通知列表，否则为错
    *     误对象。
@@ -1489,6 +1501,8 @@ declare namespace notificationManager {
 
   /**
    * 获取当前应用未删除的通知列表。使用Promise异步回调。
+   *
+   * 用于查询当前应用在通知中心中所有存量通知的详细信息列表，包括每条通知的ID、标签、内容、创建时间等。
    *
    * @returns { Promise<Array<NotificationRequest>> } Promise对象，返回当前应用的通知列表。
    * @throws { BusinessError } 1600001 - Internal error.
@@ -1568,8 +1582,10 @@ declare namespace notificationManager {
    * 获取通知[NotificationRequest]{@link ./notification/notificationRequest:NotificationRequest}中wantAgent字段的部分信息。使用Promise异
    * 步回调。
    *
-   * @param { number } id - 通知ID。
-   * @param { string } [label] - 通知标签，默认为空。
+   * @param { number } id - 通知ID，用于标识目标通知。该值由发布通知时NotificationRequest的id字段指定。
+   * @param { string } [label] - 通知标签，默认为空。该值由发布通知时NotificationRequest的label字段指定。
+   *     - 若标签为空，则获取与指定通知ID匹配，标签为空的已发布通知的部分信息。
+   *     - 若标签不为空，则获取与指定通知ID和标签同时匹配的已发布通知的部分信息。
    * @returns { Promise<NotificationParameters> } Promise对象，返回wantAgent的部分信息。
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
@@ -1585,8 +1601,10 @@ declare namespace notificationManager {
    * 获取通知[NotificationRequest]{@link ./notification/notificationRequest:NotificationRequest}中wantAgent字段的部分信息。使用Promise异
    * 步回调。
    *
-   * @param { int } id - 通知ID。
-   * @param { string } [label] - 通知标签，默认为空。
+   * @param { int } id - 通知ID，用于标识目标通知。该值由发布通知时NotificationRequest的id字段指定。
+   * @param { string } [label] - 通知标签，默认为空。该值由发布通知时NotificationRequest的label字段指定。
+   *     - 若标签为空，则获取与指定通知ID匹配，标签为空的已发布通知的部分信息。
+   *     - 若标签不为空，则获取与指定通知ID和标签同时匹配的已发布通知的部分信息。
    * @returns { Promise<NotificationParameters | null> } Promise对象，返回wantAgent的部分信息。
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
@@ -2129,7 +2147,7 @@ declare namespace notificationManager {
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { BundleOption } bundle - 应用的包信息。
    * @param { boolean } enable - 指定应用是否支持分布式通知（true：支持，false：不支持）。
-   * @param { AsyncCallback<void> } callback - 应用程序是否支持分布式通知的回调函数。
+   * @param { AsyncCallback<void> } callback - 设置指定应用是否支持分布式通知的回调函数。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -2202,7 +2220,7 @@ declare namespace notificationManager {
   function setDistributedEnabledByBundle(bundle: BundleOption, deviceType: string, enable: boolean): Promise<void>;
 
   /**
-   * 根据应用的包获取应用程序是否支持分布式通知。使用callback异步回调。
+   * 根据应用的包获取应用是否支持分布式通知。使用callback异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { BundleOption } bundle - 应用的包。
@@ -2542,12 +2560,12 @@ declare namespace notificationManager {
   function isNotificationSlotEnabledByBundles(bundles: Array<BundleOption>, type: SlotType): Promise<Map<BundleOption, boolean>>;
 
   /**
-   * 设置是否将通知同步到未安装应用程序的设备(callback形式)。
+   * 设置是否将通知同步到未安装应用的设备(callback形式)。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { int } userId - 用户ID。
    * @param { boolean } enable - 是否启用（true：使能，false：禁止）。
-   * @param { AsyncCallback<void> } callback - 设置是否将通知同步到未安装应用程序的设备的回调函数。
+   * @param { AsyncCallback<void> } callback - 设置是否将通知同步到未安装应用的设备的回调函数。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -2566,12 +2584,12 @@ declare namespace notificationManager {
   function setSyncNotificationEnabledWithoutApp(userId: int, enable: boolean, callback: AsyncCallback<void>): void;
 
   /**
-   * 设置是否将通知同步到未安装应用程序的设备(Promise形式)。
+   * 设置是否将通知同步到未安装应用的设备(Promise形式)。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { int } userId - 用户ID。
    * @param { boolean } enable - 是否启用（true：使能，false：禁止）。
-   * @returns { Promise<void> } 以Promise形式返回设置是否将通知同步到未安装应用程序的设备的结果。
+   * @returns { Promise<void> } 以Promise形式返回设置是否将通知同步到未安装应用的设备的结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -2590,11 +2608,12 @@ declare namespace notificationManager {
   function setSyncNotificationEnabledWithoutApp(userId: int, enable: boolean): Promise<void>;
 
   /**
-   * 获取同步通知到未安装应用程序设备的开关是否开启(callback形式)。
+   * 获取同步通知到未安装应用设备的开关是否开启(callback形式)。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { int } userId - 用户ID。
-   * @param { AsyncCallback<boolean> } callback - 获取同步通知到未安装应用程序设备的开关是否开启的回调函数（true：开启，false：未开启）。
+   * @param { AsyncCallback<boolean> } callback -
+   *     获取同步通知到未安装应用设备的开关是否开启的回调函数（true：开启，false：未开启）。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -2613,11 +2632,12 @@ declare namespace notificationManager {
   function getSyncNotificationEnabledWithoutApp(userId: int, callback: AsyncCallback<boolean>): void;
 
   /**
-   * 获取同步通知到未安装应用程序设备的开关是否开启(Promise形式)。
+   * 获取同步通知到未安装应用设备的开关是否开启(Promise形式)。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { int } userId - 用户ID。
-   * @returns { Promise<boolean> } 以Promise形式返回获取同步通知到未安装应用程序设备的开关是否开启的结果（true：开启，false：未开启）。
+   * @returns { Promise<boolean> } 以Promise形式返回获取同步通知到未安装应用设备的
+   *     开关是否开启的结果（true：开启，false：未开启）。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -2914,10 +2934,10 @@ declare namespace notificationManager {
   function getSlotFlagsByBundle(bundle: BundleOption): Promise<long>;
 
   /**
-   * 获取应用程序的通知设置，包括锁屏通知、横幅通知、桌面角标、振动、铃声等
+   * 获取应用的通知设置，包括锁屏通知、横幅通知、桌面角标、振动、铃声等
    *     开关状态。使用Promise异步回调。
    *
-   * @returns { Promise<NotificationSetting> } Promise对象，返回此应用程序的通知设置。
+   * @returns { Promise<NotificationSetting> } Promise对象，返回此应用的通知设置。
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -3220,7 +3240,7 @@ declare namespace notificationManager {
    *     权限，从而决定后续逻辑。
    *
    * @param { UIAbilityContext } context - 通知设置页面绑定Ability的上下文。
-   * @returns { Promise<NotificationSetting> } Promise对象，返回此应用程序的通知设置。
+   * @returns { Promise<NotificationSetting> } Promise对象，返回此应用的通知设置。
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -4460,7 +4480,7 @@ declare namespace notificationManager {
     bundleName: string;
 
     /**
-     * 应用程序的UID。
+     * 应用的UID。
      *
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
@@ -5414,7 +5434,7 @@ declare namespace notificationManager {
   export type Trigger = _Trigger;
 
   /**
-   * 描述NotificationRequest中wantAgent的部分信息。
+   * 描述通知请求中wantAgent的部分信息。
    *
    * @syscap SystemCapability.Notification.Notification
    * @stagemodelonly

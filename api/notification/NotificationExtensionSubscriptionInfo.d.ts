@@ -30,7 +30,8 @@ import type notificationExtensionSubscription from '../@ohos.notificationExtensi
  */
 export interface NotificationExtensionSubscriptionInfo {
   /**
-   * MAC address, which is a unique identifier of the device. Example: 11:22:33:AA:BB:FF.
+   * Unique identifier of the device. When **type** is set to **SubscribeType.BLUETOOTH**, the corresponding
+   * Bluetooth device address is specified. Example: "11:22:33:AA:BB:FF".
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 22 dynamic

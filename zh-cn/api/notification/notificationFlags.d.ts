@@ -14,7 +14,7 @@
  */
 
 /**
- * 描述通知标志的实例。
+ * 描述通知标志位。应用可以使用`NotificationFlags`按需削减通知的提醒方式。
  *
  * > **说明：**
  * >
@@ -37,7 +37,7 @@
  */
 export enum NotificationFlagStatus {
   /**
-   * 默认标志，与TYPE_OPEN效果相同。
+   * 未设置标志时的默认值，与TYPE_OPEN效果相同。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi [since 8 - 10]

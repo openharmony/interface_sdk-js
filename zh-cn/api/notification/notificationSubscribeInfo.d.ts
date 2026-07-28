@@ -92,7 +92,7 @@ export interface NotificationSubscribeInfo {
   filterLimit?: long;
 
   /**
-   * 订阅通知的语音播报内容配置项。
+   * 通知语音播报配置项。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -162,7 +162,7 @@ export interface PictureOptions {
 }
 
 /**
- * 描述订阅通知的语音播报内容配置项。
+ * 通知语音播报配置项。
  *
  * @syscap SystemCapability.Notification.Notification
  * @systemapi
