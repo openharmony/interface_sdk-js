@@ -54,6 +54,7 @@ declare namespace reminderAgentManager {
    *     After the agent-powered reminder is
    *     published, **err** is **undefined**, and **data** is the ID of the published reminder. Otherwise, **err** is an
    *     error object.
+   * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 1700001 - Notification is not enabled.
    * @throws { BusinessError } 1700002 - The number of reminders exceeds the limit.
@@ -76,6 +77,7 @@ declare namespace reminderAgentManager {
    * @permission ohos.permission.PUBLISH_AGENT_REMINDER
    * @param { ReminderRequest } reminderReq - Request used for publishing the reminder.
    * @returns { Promise<int> } Promise used to return the published reminder ID.
+   * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 1700001 - Notification is not enabled.
    * @throws { BusinessError } 1700002 - The number of reminders exceeds the limit.
