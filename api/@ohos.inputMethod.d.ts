@@ -19,7 +19,7 @@
  */
 import type { Callback, AsyncCallback } from './@ohos.base';
 import InputMethodSubtype from './@ohos.InputMethodSubtype';
-import { UIContext } from "./@ohos.arkui.UIContext";
+import { UIContext } from './@ohos.arkui.UIContext';
 /*** if arkts dynamic */
 import type { ElementName } from './bundleManager/ElementName';
 import type { PanelInfo } from './@ohos.inputMethod.Panel';
@@ -1037,22 +1037,6 @@ declare namespace inputMethod {
     offImeHide(callback?: Callback<Array<InputWindowInfo>>): void;
 
     /**
-     * <p>Get the default input method ability.</p>
-     * <p>To optimize performance, only the 'name' and 'id' properties which can uniquely identify an input method ability
-     * are included in the returned InputMethodProperty object.</p>
-     *
-     * @returns { InputMethodProperty } property of the default input method.Only contains 'name' and 'id' properties.
-     * @throws { BusinessError } 202 - not system application.
-     * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
-     *     a system error, such as null pointer, IPC exception.
-     * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @systemapi
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    getDefaultInputMethodAbility(): InputMethodProperty;
-
-    /**
      * Get the cursor information of a specified user.
      *
      * @param { int } [userId] - the user ID. If not provided:
@@ -1074,9 +1058,24 @@ declare namespace inputMethod {
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
-     getCursorInfo(userId?: int): CursorInfo;
+    getCursorInfo(userId?: int): CursorInfo;
+    
+    /**
+     * <p>Get the default input method ability.</p>
+     * <p>To optimize performance, only the 'name' and 'id' properties which can uniquely identify an input method ability
+     *  are included in the returned InputMethodProperty object.</p>
+     *
+     * @returns { InputMethodProperty } property of the default input method.Only contains 'name' and 'id' properties.
+     * @throws { BusinessError } 202 - not system application.
+     * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
+     *     a system error, such as null pointer, IPC exception.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    getDefaultInputMethodAbility(): InputMethodProperty;
   }
-
   /**
    * A control class that encapsulates APIs for input method management, which can only be invoked after an 
    * **InputMethodController** instance is obtained via 
@@ -2243,13 +2242,13 @@ declare namespace inputMethod {
      */
     onGetTextIndexAtCursor(callback: GetTextIndexAtCursorCallback): void;
    /**
-     * Unregister the callback of getTextIndexAtCursor.
-     *
-     * @param { GetTextIndexAtCursorCallback } [callback] - the callback called when the input method gets cursor index.
-     * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @stagemodelonly
-     * @since 23 static
-     */
+    * Unregister the callback of getTextIndexAtCursor.
+    * 
+    * @param { GetTextIndexAtCursorCallback } [callback] - the callback called when the input method gets cursor index.
+    * @syscap SystemCapability.MiscServices.InputMethodFramework
+    * @stagemodelonly
+    * @since 23 static
+    */
     offGetTextIndexAtCursor(callback?:GetTextIndexAtCursorCallback): void;
 
    /**
@@ -2262,14 +2261,14 @@ declare namespace inputMethod {
      */
     onSetPreviewText(callback: SetPreviewTextCallback): void;
    /**
-     * Unsubscribe 'setPreviewText' event.
-     *
-     * @param { SetPreviewTextCallback } [callback] - optional, the callback called when the input method
-     *     sets preview text.
-     * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @stagemodelonly
-     * @since 23 static
-     */
+    * Unsubscribe 'setPreviewText' event.
+    * 
+    * @param { SetPreviewTextCallback } [callback] - optional, the callback called when the input method
+    *     sets preview text.
+    * @syscap SystemCapability.MiscServices.InputMethodFramework
+    * @stagemodelonly
+    * @since 23 static
+    */
     offSetPreviewText(callback?:SetPreviewTextCallback): void;
 
    /**
@@ -2878,7 +2877,7 @@ declare namespace inputMethod {
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
- 	  displayId?: long;
+    displayId?: long;
   }
 
   /**
