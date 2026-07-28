@@ -46,10 +46,10 @@ declare interface RowOptions {
    * > Default value: **0**.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   space?: string | number;
 }
