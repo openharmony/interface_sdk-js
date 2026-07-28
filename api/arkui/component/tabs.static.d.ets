@@ -59,7 +59,6 @@ export declare enum BarMode {
    */
   Fixed = 1
 }
-
 /**
  * Tabs nested scroll nested mode
  * 
@@ -662,6 +661,7 @@ export type OnTabsGestureSwipeCallback = (index: int, extraInfo: TabsAnimationEv
 /**
  * Defines a tabs callback when customContentTransition.
  *
+ * @typedef { function } TabsCustomContentTransitionCallback
  * @param { int } from - The index value of the current tab when the animation begins.
  *     The value range is all integers
  *     The value should be an integer.Value constraint:Value range: [0, index-1]
@@ -1238,7 +1238,6 @@ export declare interface TabsAttribute extends CommonMethod {
    */
   default barFloatingStyle(style: FloatingTabBarStyle | undefined): this;
 }
-
 /**
  * Defines the Tab Content animated transition options.
  *
