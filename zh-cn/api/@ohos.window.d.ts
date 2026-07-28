@@ -14,32 +14,33 @@
  */
 
 /**
- * The Window module provides basic window management capabilities, such as creating and destroying the current window, 
- * setting properties for the current window, and managing and scheduling windows.
+ * 提供管理窗口的一些基础能力，包括对当前窗口的创建、销毁、各属性设置，以及对各窗口间的管理调度。
  * 
- * This module provides the following common window-related functions:
+ * 该模块提供以下窗口相关的常用功能：
  * 
- * - [Window]{@link @ohos.window}: window instance, which is the basic unit managed by the window manager.
- * - [WindowStage]{@link window.WindowStage}: window manager that manages windows.
+ * - [Window]{@link @ohos.window}：当前窗口实例，窗口管理器管理的基本单元。
+ * - [WindowStage]{@link @ohos.window}：窗口管理器。管理各个基本窗口单元。
  * 
- * > **NOTE**
+ * > **说明：**
  * >
- * > - This topic describes only system APIs provided by the module. For details about its public APIs, see 
- * > [@ohos.window (Window)]{@link @ohos.window}.
- * >
- * > - For the system capability SystemCapability.Window.SessionManager, use 
- * > [canIUse()]{@link canIUse} to check whether the device supports this system 
- * > capability and the corresponding APIs.
+ * > - 针对系统能力SystemCapability.Window.SessionManager，请先使用
+ * > [canIUse()](docroot://reference/common/js-apis-syscap.md#caniuse)接口判断当前设备是否支持此syscap及对应接口。
  *
  * @file
  * @kit ArkUI
  */
 
+import { AsyncCallback, BusinessError } from './@ohos.base';
+import BaseContext from './application/BaseContext';
+import image from './@ohos.multimedia.image';
+import rpc from './@ohos.rpc';
+import dialogRequest from './@ohos.app.ability.dialogRequest';
 /*** if arkts dynamic */
 import { UIContext } from './@ohos.arkui.UIContext';
 import { ColorMetrics } from './@ohos.arkui.node';
 /*** endif */
-
+import ConfigurationConstant from './@ohos.app.ability.ConfigurationConstant';
+import bundleManager from './@ohos.bundle.bundleManager';
 /*** if arkts static */
 import { LocalStorage } from '@ohos.arkui.stateManagement';
 import { UIContext } from '@ohos.arkui.UIContext';
@@ -67,6 +68,7 @@ declare interface Callback<T, V = void> {
    */
   (data: T): V;
 }
+/*** endif */
 
 /**
  * Defines the window callback.
@@ -78,7 +80,7 @@ declare interface Callback<T, V = void> {
 type Callback<T, V = void> = (data: T) => V;
 
 /**
- * Defines the window animation curve param.
+ * 动画曲线参数。
  *
  * @syscap SystemCapability.Window.SessionManager
  * @atomicservice
@@ -98,18 +100,17 @@ declare type WindowAnimationCurveParam = Array<double>;
 declare type TransitionControllerCallback = (context: window.TransitionContext) => void;
 
 /**
- * 窗口事件的回调函数定义
+ * 窗口生命周期事件通知的回调函数。
  *
  * @param { int } windowId - 触发事件的窗口id
  * @param { window.WindowEventType } event - 窗口回调的事件类型
  * @syscap SystemCapability.Window.SessionManager
  * @stagemodelonly
- * @since 24 dynamic&static
+ * @since 26.0.0 dynamic&static
  */
 declare type WindowEventListener = (windowId: int, event: window.WindowEventType) => void;
 
 /**
- * Window manager.
  *
  * @syscap SystemCapability.WindowManager.WindowManager.Core
  * @crossplatform [since 10]
@@ -144,7 +145,10 @@ declare namespace window {
      */
     TYPE_SYSTEM_ALERT = 1,
     /**
-     *
+     * 表示输入法窗口。
+     * 
+     * **说明：** 从API version 9开始支持，从API version 13开始废弃，无替代窗口类型，输入法相关控制都请调用
+     * [输入法框架侧接口](docroot://inputmethod/inputmethod-application-guide.md)执行。
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
@@ -152,7 +156,7 @@ declare namespace window {
      * @since 9 dynamiconly
      * @deprecated since 13
      */
-    TYPE_INPUT_METHOD = 2,
+    TYPE_INPUT_METHOD, 
     /**
      * 表示状态栏窗口。
      *
@@ -2276,7 +2280,7 @@ declare namespace window {
     animationForShown(context: TransitionContext): void;
 
     /**
-     * Animation configuration when showing window
+     * 窗口显示时的自定义动画配置。
      *
      * @default undefined
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -2301,7 +2305,7 @@ declare namespace window {
     animationForHidden(context: TransitionContext): void;
 
     /**
-     * Animation configuration when hiding window
+     * 窗口隐藏时的自定义动画配置。
      *
      * @default undefined
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -7633,8 +7637,7 @@ declare namespace window {
      * <!--RP7-->常见的触发避让区回调的场景如下：应用窗口在全屏模式、悬浮模式、分屏模式之间的切换；应用窗口旋转；可折叠设备在屏幕折叠状态发生变化；应用窗口在多设备之间的流转。<!--RP7End-->
      *
      * @param { 'avoidAreaChange' } type - 监听事件，固定为'avoidAreaChange'，即系统避让区变化事件。
-     * @param { Callback<{ type: AvoidAreaType, area: AvoidArea }> } callback - Callback used to return the area and
-     *     area type. [since 9 - 11]
+     * @param { Callback<{ type: AvoidAreaType, area: AvoidArea }> } callback - 回调函数。返回当前避让区以及避让区类型。 [since 9 - 11]
      * @param { Callback<AvoidAreaOptions> } callback - 回调函数。返回当前避让区以及避让区类型。 [since 12]
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     2. Incorrect parameter types;
@@ -7665,6 +7668,7 @@ declare namespace window {
      * 
      * <!--RP7-->常见的触发避让区回调的场景如下：应用窗口在全屏模式、悬浮模式、分屏模式之间的切换；应用窗口旋转；可折叠设备在屏幕折叠状态发生变化；应用窗口在多设备之间的流转。<!--RP7End-->
      *
+     * @param { Callback<{ type: AvoidAreaType, area: AvoidArea }> } callback - 回调函数。返回当前避让区以及避让区类型。 [since 9 - 11]
      * @param { Callback<AvoidAreaOptions> } callback - 回调函数。返回当前避让区以及避让区类型。 [since 12]
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
@@ -7676,9 +7680,8 @@ declare namespace window {
      * 关闭当前窗口系统避让区变化的监听。
      *
      * @param { 'avoidAreaChange' } type - 监听事件，固定为'avoidAreaChange'，即系统避让区变化事件。
-     * @param { Callback<{ type: AvoidAreaType, area: AvoidArea }> } callback - Callback used to return the area and
-     *     area type. If a value is passed in, the corresponding subscription is canceled. If no value is passed in, all
-     *     subscriptions to the specified event are canceled. [since 9 - 11]
+     * @param { Callback<{ type: AvoidAreaType, area: AvoidArea }> } callback - 回调函数。返回当前避让区以及避让区类型。如果传入参数，则关闭该监听。如果未传入参
+     *     数，则关闭所有系统避让区变化的监听。 [since 9 - 11]
      * @param { Callback<AvoidAreaOptions> } callback - 回调函数。返回当前避让区以及避让区类型。如果传入参数，则关闭该监听。如果未传入参数，则关闭所有系统避让区变化的监听
      *     。 [since 12 - 19]
      * @param { Callback<AvoidAreaOptions> } [callback] - 回调函数。返回当前避让区以及避让区类型。如果传入参数，则关闭该监听。如果未传入参数，则关闭所有系统避让区变化的监听
@@ -7695,9 +7698,8 @@ declare namespace window {
     /**
      * 关闭当前窗口系统避让区变化的监听。
      *
-     * @param { Callback<{ type: AvoidAreaType, area: AvoidArea }> } callback - Callback used to return the area and
-     *     area type. If a value is passed in, the corresponding subscription is canceled. If no value is passed in, all
-     *     subscriptions to the specified event are canceled. [since 9 - 11]
+     * @param { Callback<{ type: AvoidAreaType, area: AvoidArea }> } callback - 回调函数。返回当前避让区以及避让区类型。如果传入参数，则关闭该监听。如果未传入参
+     *     数，则关闭所有系统避让区变化的监听。 [since 9 - 11]
      * @param { Callback<AvoidAreaOptions> } callback - 回调函数。返回当前避让区以及避让区类型。如果传入参数，则关闭该监听。如果未传入参数，则关闭所有系统避让区变化的监听
      *     。 [since 12 - 19]
      * @param { Callback<AvoidAreaOptions> } [callback] - 回调函数。返回当前避让区以及避让区类型。如果传入参数，则关闭该监听。如果未传入参数，则关闭所有系统避让区变化的监听
@@ -7724,10 +7726,10 @@ declare namespace window {
     on(type: 'keyboardHeightChange', callback: Callback<int>): void;
 
     /**
-     * Register the callback of keyboard height change
+     * 开启固定态软键盘高度变化的监听。当软键盘从本窗口唤出且与窗口有重叠区域时，通知键盘高度变化。从API version 10开始，有关将软键盘设置为固定态或悬浮态的方法，请参见
+     * [输入法服务]{@link @ohos.inputMethodEngine:inputMethodEngine.Panel.changeFlag}。
      *
-     * @param { Callback<int> } callback - Callback used to return the current keyboard height,
-     *     which is an integer, in px.
+     * @param { Callback<int> } callback - 回调函数。返回当前的键盘高度。返回值为整数，单位为px。
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 23 static
      */
@@ -7748,9 +7750,10 @@ declare namespace window {
     off(type: 'keyboardHeightChange', callback?: Callback<int>): void;
 
     /**
-     * 解注册键盘高度监听
+     * 关闭固定态软键盘高度变化的监听，使应用程序不再接收键盘高度变化的通知。从API version 10开始，有关将软键盘设置为固定态或悬浮态的方法，请参见
+     * [输入法服务]{@link @ohos.inputMethodEngine:inputMethodEngine.Panel.changeFlag}。
      *
-     * @param { Callback<int> } [callback] - 监听用于返回当前键盘高度，单位为px。如果没有提供该监听，则解注册所有键盘高度监听。
+     * @param { Callback<int> } [callback] - 回调函数。返回当前的键盘高度，返回值为整数，单位为px。若传入参数，则关闭该监听；未传入参数，则关闭所有固定态软键盘高度变化的监听。
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 23 static
      */
@@ -7774,9 +7777,10 @@ declare namespace window {
     on(type: 'keyboardWillShow', callback: Callback<KeyboardInfo>): void;
 
     /**
-     * Register the callback of keyboard will show
+     * 开启固定态软键盘即将开始显示的监听。此监听在固定态软键盘即将开始显示或软键盘由悬浮态切换为固定态时触发，此监听仅对当前拉起或隐藏固定态软键盘的应用窗口生效。对于虚拟屏上应用拉起输入法键盘到主屏上，输入法键盘显隐通知只会给主屏上
+     * 获焦窗口，而不是虚拟屏上应用窗口。
      *
-     * @param { Callback<KeyboardInfo> } callback - Callback invoked before the keyboard show animation start.
+     * @param { Callback<KeyboardInfo> } callback - 回调函数。返回软键盘窗口信息。
      * @throws { BusinessError } 801 - Capability not supported.
      *     Function keyboardWillShow can not work correctly due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
@@ -7801,10 +7805,10 @@ declare namespace window {
     off(type: 'keyboardWillShow', callback?: Callback<KeyboardInfo>): void;
 
     /**
-     * Unregister the callback of keyboard will show
+     * 关闭固定态软键盘即将开始显示的监听。改变输入法窗口为固定态或者悬浮态方法详细介绍请参见
+     * [输入法服务]{@link @ohos.inputMethodEngine:inputMethodEngine.Panel.changeFlag}。
      *
-     * @param { Callback<KeyboardInfo> } [callback] - Unregister the callback function. If not provided,
-     *     all callbacks for the given event type will be removed.
+     * @param { Callback<KeyboardInfo> } [callback] - 回调函数。返回软键盘窗口信息。若传入参数，则关闭该监听。如果未传入参数，则关闭所有固定态软键盘即将开始显示的监听。
      * @throws { BusinessError } 801 - Capability not supported.
      *     Function keyboardWillShow can not work correctly due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
@@ -7831,9 +7835,12 @@ declare namespace window {
     on(type: 'keyboardDidShow', callback: Callback<KeyboardInfo>): void;
 
     /**
-     * Register the callback of keyboard did show
+     * 开启固定态软键盘显示动画完成的监听。此监听在固定态软键盘显示动画完成或软键盘由悬浮态切换至固定态时触发，此监听仅对当前拉起或隐藏固定态软键盘的应用窗口生效。对于虚拟屏上应用拉起输入法键盘到主屏上，输入法键盘显隐通知只会给主屏上
+     * 获焦窗口，而不是虚拟屏上应用窗口。
+     * 
+     * 改变软键盘为固定态或者悬浮态方法详细介绍请参见[输入法服务]{@link @ohos.inputMethodEngine:inputMethodEngine.Panel.changeFlag}。
      *
-     * @param { Callback<KeyboardInfo> } callback - Callback invoked when the keyboard show animation is completed.
+     * @param { Callback<KeyboardInfo> } callback - 回调函数。返回软键盘窗口信息。
      * @throws { BusinessError } 801 - Capability not supported.
      *     Function keyboardDidShow can not work correctly due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
@@ -7858,10 +7865,10 @@ declare namespace window {
     off(type: 'keyboardDidShow', callback?: Callback<KeyboardInfo>): void;
 
     /**
-     * Unregister the callback of keyboard did show
+     * 关闭固定态软键盘显示动画完成的监听。改变输入法窗口为固定态或者悬浮态方法详细介绍请参见
+     * [输入法服务]{@link @ohos.inputMethodEngine:inputMethodEngine.Panel.changeFlag}。
      *
-     * @param { Callback<KeyboardInfo> } [callback] - Unregister the callback function. If not provided,
-     *     all callbacks for the given event type will be removed.
+     * @param { Callback<KeyboardInfo> } [callback] - 回调函数。返回软键盘窗口信息。若传入参数，则关闭该监听。如果未传入参数，则关闭所有固定态软键盘显示动画完成的监听。
      * @throws { BusinessError } 801 - Capability not supported.
      *     Function keyboardDidShow can not work correctly due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
@@ -7888,9 +7895,12 @@ declare namespace window {
     on(type: 'keyboardWillHide', callback: Callback<KeyboardInfo>): void;
 
     /**
-     * Register the callback of keyboard will hide
+     * 开启固定态软键盘即将开始隐藏的监听。此监听在固定态软键盘即将开始隐藏或软键盘由固定态切换为悬浮态时触发，此监听仅对当前拉起或隐藏固定态软键盘的应用窗口生效。对于虚拟屏上应用拉起输入法键盘到主屏上，输入法键盘显隐通知只会给主屏上
+     * 获焦窗口，而不是虚拟屏上应用窗口。
+     * 
+     * 改变软键盘为固定态或者悬浮态方法详细介绍请参见[输入法服务]{@link @ohos.inputMethodEngine:inputMethodEngine.Panel.changeFlag}。
      *
-     * @param { Callback<KeyboardInfo> } callback - Callback invoked before the keyboard hide animation start.
+     * @param { Callback<KeyboardInfo> } callback - 回调函数。返回软键盘窗口信息
      * @throws { BusinessError } 801 - Capability not supported.
      *     Function keyboardWillHide can not work correctly due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
@@ -7915,10 +7925,10 @@ declare namespace window {
     off(type: 'keyboardWillHide', callback?: Callback<KeyboardInfo>): void;
 
     /**
-     * Unregister the callback of keyboard will hide
+     * 关闭固定态软键盘即将开始隐藏的监听。改变输入法窗口为固定态切换至悬浮态方法详细介绍请参见
+     * [输入法服务]{@link @ohos.inputMethodEngine:inputMethodEngine.Panel.changeFlag}。
      *
-     * @param { Callback<KeyboardInfo> } [callback] - Unregister the callback function. If not provided,
-     *     all callbacks for the given event type will be removed.
+     * @param { Callback<KeyboardInfo> } [callback] - 回调函数。返回软键盘窗口信息。若传入参数，则关闭该监听。如果未传入参数，则关闭所有固定态软键盘即将开始隐藏的监听。
      * @throws { BusinessError } 801 - Capability not supported.
      *     Function keyboardWillHide can not work correctly due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
@@ -7945,9 +7955,12 @@ declare namespace window {
     on(type: 'keyboardDidHide', callback: Callback<KeyboardInfo>): void;
 
     /**
-     * Register the callback of keyboard did hide
+     * 开启固定态软键盘隐藏动画完成的监听。此监听在固定态软键盘隐藏动画完成或软键盘由固定态切换至悬浮态时触发，此监听仅对当前拉起或隐藏固定态软键盘的应用窗口生效。对于虚拟屏上应用拉起输入法键盘到主屏上，输入法键盘显隐通知只会给主屏上
+     * 获焦窗口，而不是虚拟屏上应用窗口。
+     * 
+     * 改变软键盘为固定态或者悬浮态方法详细介绍请参见[输入法服务]{@link @ohos.inputMethodEngine:inputMethodEngine.Panel.changeFlag}。
      *
-     * @param { Callback<KeyboardInfo> } callback - Callback invoked when the keyboard hide animation is completed.
+     * @param { Callback<KeyboardInfo> } callback - 回调函数。返回软键盘窗口信息。
      * @throws { BusinessError } 801 - Capability not supported.
      *     Function keyboardDidHide can not work correctly due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
@@ -7972,10 +7985,10 @@ declare namespace window {
     off(type: 'keyboardDidHide', callback?: Callback<KeyboardInfo>): void;
 
     /**
-     * Unregister the callback of keyboard did hide
+     * 关闭固定态软键盘隐藏动画完成的监听。改变输入法窗口为固定态切换至悬浮态方法详细介绍请参见
+     * [输入法服务]{@link @ohos.inputMethodEngine:inputMethodEngine.Panel.changeFlag}。
      *
-     * @param { Callback<KeyboardInfo> } [callback] - Unregister the callback function. If not provided,
-     *     all callbacks for the given event type will be removed.
+     * @param { Callback<KeyboardInfo> } [callback] - 回调函数。返回软键盘窗口信息。若传入参数，则关闭该监听。如果未传入参数，则关闭所有固定态软键盘隐藏动画完成的监听。
      * @throws { BusinessError } 801 - Capability not supported.
      *     Function keyboardDidHide can not work correctly due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
@@ -7999,9 +8012,9 @@ declare namespace window {
     on(type: 'touchOutside', callback: Callback<void>): void;
 
     /**
-     * Subscribes to the touch event outside this window.
+     * 开启本窗口区域范围外的点击事件的监听。
      *
-     * @param { Callback<void> } callback - Callback used to return the click event outside this window.
+     * @param { Callback<void> } callback - 回调函数。当点击事件发生在本窗口范围之外的回调。
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 23 static
      */
@@ -8021,10 +8034,9 @@ declare namespace window {
     off(type: 'touchOutside', callback?: Callback<void>): void;
 
     /**
-     * Unsubscribes from the touch event outside this window.
+     * 关闭本窗口区域范围外的点击事件的监听。
      *
-     * @param { Callback<void> } [callback] - Unregister the callback function.
-     *     If not provided, all callbacks for the given event type will be removed.
+     * @param { Callback<void> } [callback] - 回调函数。当点击事件发生在本窗口范围之外的回调。如果传入参数，则关闭该监听。如果未传入参数，则关闭所有本窗口区域范围外的点击事件的监听。
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 23 static
      */
@@ -8056,7 +8068,7 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.Window.SessionManager
      * @since 23 static
-     */
+     */   
     onDisplayIdChange(callback: Callback<long>): void;
 
     /**
@@ -8153,9 +8165,8 @@ declare namespace window {
     /**
      * 关闭本窗口可见状态变化事件的监听。
      *
-     * @param { Callback<boolean> } [callback] - Callback used to return the visibility status of the window. If a value
-     *     is passed in, the corresponding subscription is canceled. If no value is passed in, all subscriptions to the
-     *     specified event are canceled. [since 11 - 11]
+     * @param { Callback<boolean> } callback - 回调函数。当本窗口可见状态发生变化时的回调。如果传入参数，则关闭该监听。如果未传入参数，则关闭所有本窗口可见状态变化事件的回调
+     *     。 [since 11 - 11]
      * @param { Callback<boolean> } [callback] - 回调函数。当本窗口可见状态发生变化时的回调。如果传入参数，则关闭该监听。如果未传入参数，则关闭所有本窗口可见状态变化事件的回调
      *     。 [since 12]
      * @throws { BusinessError } 801 - Capability not supported.
@@ -8197,7 +8208,7 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.Window.SessionManager
      * @since 23 static
-     */
+     */   
     onSystemDensityChange(callback: Callback<double>): void;
 
     /**
@@ -8254,7 +8265,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
      * @since 20 dynamic
-     */
+     */   
     on(type: 'mainWindowFullScreenAcrossDisplaysChanged', callback: Callback<boolean>): void;
 
     /**
@@ -8326,8 +8337,8 @@ declare namespace window {
      * @param { number } timeout - 指定本窗口在多长时间内无交互即回调，单位为秒(s)。该参数仅支持整数输入，负数和小数为非法参数。
      * @param { Callback<void> } callback - 回调函数。当本窗口在指定超时时间内无交互事件时的回调。
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
-     *                                                                  2. Incorrect parameter types;
-     *                                                                  3. Parameter verification failed.
+     *     2. Incorrect parameter types;
+     *     3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      *     Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
@@ -8339,12 +8350,10 @@ declare namespace window {
     on(type: 'noInteractionDetected', timeout: number, callback: Callback<void>): void;
 
     /**
-     * Subscribes to non-interaction events in a window within the specified period.
-     *     Interaction events include physical keyboard input events and screen touch/click events,
-     *     but not soft keyboard input events.
+     * 开启本窗口在指定超时时间内无交互事件的监听，交互事件支持物理键盘输入事件和屏幕触控点击事件，不支持软键盘输入事件。
      *
-     * @param { long } timeout - The timeout(in seconds) of no interaction detection.
-     * @param { Callback<void> } callback - Callback used to notify the window has no interaction for a long time.
+     * @param { long } timeout - 指定本窗口在多长时间内无交互即回调，单位为秒(s)。该参数仅支持整数输入，负数和小数为非法参数。
+     * @param { Callback<void> } callback - 回调函数。当本窗口在指定超时时间内无交互事件时的回调。
      * @throws { BusinessError } 801 - Capability not supported.
      *     Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
@@ -8372,12 +8381,9 @@ declare namespace window {
     off(type: 'noInteractionDetected', callback?: Callback<void>): void;
 
     /**
-     * Unsubscribes from non-interaction events in a window within the specified period.
-     *     Interaction events include physical keyboard input events and screen touch/click events,
-     *     but not soft keyboard input events.
+     * 关闭本窗口在指定超时时间内无交互事件的监听，交互事件支持物理键盘输入事件和屏幕触控点击事件，不支持软键盘输入事件。
      *
-     * @param { Callback<void> } [callback] - Unregister the callback function.
-     *     If not provided, all callbacks for the given event type will be removed.
+     * @param { Callback<void> } [callback] - 回调函数，当本窗口在指定超时时间内无交互事件时的回调。如果传入参数，则关闭该监听。如果未传入参数，则关闭所有本窗口在指定超时时间内无交互事件的监听。
      * @throws { BusinessError } 801 - Capability not supported.
      *     Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
@@ -8494,11 +8500,9 @@ declare namespace window {
     on(type: 'dialogTargetTouch', callback: Callback<void>): void;
 
     /**
-     * Subscribes to click or touch events in a window covered by a modal window.
-     *     This API takes effect only when it is called by a modal window.
+     * 开启模态窗口所遮盖窗口的点击或触摸事件的监听，除模态窗口以外其他窗口调用此接口不生效。
      *
-     * @param { Callback<void> } callback
-          *     - Callback invoked when the click event occurs in the target window of the modal window mode.
+     * @param { Callback<void> } callback - 回调函数。当点击或触摸事件发生在模态窗口所遮盖窗口的回调。
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 23 static
      */
@@ -8518,10 +8522,9 @@ declare namespace window {
     off(type: 'dialogTargetTouch', callback?: Callback<void>): void;
 
     /**
-     * Unsubscribes from the touch event of the target window in the modal window mode.
+     * 关闭模态窗口目标窗口的点击事件的监听。
      *
-     * @param { Callback<void> } [callback] - Unregister the callback function.
-     *     If not provided, all callbacks for the given event type will be removed.
+     * @param { Callback<void> } [callback] - 回调函数。当点击事件发生在模态窗口目标窗口的回调。若传入参数，则关闭该监听。若未传入参数，则关闭所有模态窗口目标窗口的点击事件的监听。
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 23 static
      */
@@ -8874,9 +8877,9 @@ declare namespace window {
     on(type: 'windowHighlightChange', callback: Callback<boolean>): void;
 
     /**
-     * Register the callback of window highlight state change
+     * 开启窗口激活态变化事件的监听。
      *
-     * @param { Callback<boolean> } callback - Callback used to return the highlight status of the window.
+     * @param { Callback<boolean> } callback - 回调函数。当本窗口的激活态发生变化时的回调。回调函数返回boolean类型参数。当返回参数为true表示激活态；false表示非激活态。
      * @throws { BusinessError } 801 - Capability not supported.
      *     Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
@@ -8905,10 +8908,9 @@ declare namespace window {
     off(type: 'windowHighlightChange', callback?: Callback<boolean>): void;
 
     /**
-     * Unregister the callback of window highlight state change
+     * 关闭窗口激活态变化事件的监听。
      *
-     * @param { Callback<boolean> } [callback] - Callback used to return the highlight status of the window.
-     *     if not provided, all callbacks for the given event type will be removed.
+     * @param { Callback<boolean> } [callback] - 回调函数。当本窗口的激活态发生变化时的回调。若传入参数，则关闭该监听。若未传入参数，则关闭所有窗口激活态变化的监听。
      * @throws { BusinessError } 801 - Capability not supported.
      *     Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
@@ -12412,9 +12414,8 @@ declare namespace window {
      * 当前只支持在应用主窗下使用。
      *
      * @param { WindowTransitionType } transitionType - 本次转场动画场景。当前只支持销毁场景。
-     * @returns { TransitionAnimation | undefined } Transition animation configuration in the corresponding scene. If
-     *     the [setWindowTransitionAnimation]{@link window.Window.setWindowTransitionAnimation} API is not used,
-     *     undefined is returned.
+     * @returns { TransitionAnimation | undefined } 对应场景下的转场动画配置。当未使用过
+     *     [setWindowTransitionAnimation]{@link window.Window.setWindowTransitionAnimation}接口时，返回undefined。
      * @throws { BusinessError } 801 - Capability not supported.
      *     Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause:
