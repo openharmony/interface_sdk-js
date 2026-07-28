@@ -779,7 +779,7 @@ declare namespace window {
      */
     INTERPOLATION_SPRING = 1,
     /**
-     * Cubic B��zier curve.
+     * Cubic Bézier curve.
      *
      * When this curve type is used, **param** and **duration** in
      * [WindowAnimationConfig]{@link @ohos.window:window.WindowAnimationConfig} are mandatory.
