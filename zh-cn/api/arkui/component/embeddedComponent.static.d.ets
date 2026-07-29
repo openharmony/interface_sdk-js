@@ -51,7 +51,7 @@ export declare enum EmbeddedDpiFollowStrategy {
    * @stagemodelonly
    * @since 26.0.0 static
    */
-  FOLLOW_UI_EXTENSION_ABILITY_DPI = 1
+  FOLLOW_UI_EXTENSION_ABILITY_DPI = 1,
 }
 
 /**
@@ -78,7 +78,7 @@ export declare enum EmbeddedWindowModeFollowStrategy {
    * @stagemodelonly
    * @since 26.0.0 static
    */
-  FOLLOW_UI_EXTENSION_ABILITY_WINDOW_MODE = 1
+  FOLLOW_UI_EXTENSION_ABILITY_WINDOW_MODE = 1,
 }
 
 /**
@@ -138,7 +138,6 @@ export declare interface EmbeddedOptions {
  * @noninterop
  */
 export declare interface EmbeddedComponentAttribute extends CommonMethod {
-
   /**
    * 设置嵌入式组件的选项。
    *

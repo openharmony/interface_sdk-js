@@ -51,7 +51,7 @@ export declare enum EmbeddedDpiFollowStrategy {
    * @stagemodelonly
    * @since 26.0.0 static
    */
-  FOLLOW_UI_EXTENSION_ABILITY_DPI = 1
+  FOLLOW_UI_EXTENSION_ABILITY_DPI = 1,
 }
 
 /**
@@ -78,7 +78,7 @@ export declare enum EmbeddedWindowModeFollowStrategy {
    * @stagemodelonly
    * @since 26.0.0 static
    */
-  FOLLOW_UI_EXTENSION_ABILITY_WINDOW_MODE = 1
+  FOLLOW_UI_EXTENSION_ABILITY_WINDOW_MODE = 1,
 }
 
 /**
@@ -165,6 +165,7 @@ export declare interface EmbeddedComponentAttribute extends CommonMethod {
    * @since 26.0.0 staticonly
    */
   setEmbeddedComponentOptions(loader: Want, type?: EmbeddedType, options?: EmbeddedOptions): this;
+
   /**
    * Called when the provider of the embedded UI is terminated.
    *
@@ -256,3 +257,4 @@ export declare function EmbeddedComponent(
 export declare function EmbeddedComponent(
     style: CustomBuilderT<EmbeddedComponentAttribute>
 ): EmbeddedComponentAttribute;
+

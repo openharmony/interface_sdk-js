@@ -45,7 +45,7 @@ declare enum SecurityDpiFollowStrategy {
    * @stagemodelonly
    * @since 26.0.0 dynamic
    */
-  FOLLOW_UI_EXTENSION_ABILITY_DPI = 1
+  FOLLOW_UI_EXTENSION_ABILITY_DPI = 1,
 }
 
 /**

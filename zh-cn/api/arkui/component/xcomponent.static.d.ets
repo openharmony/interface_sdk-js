@@ -402,16 +402,6 @@ export declare interface NativeXComponentParameters {
 export declare interface XComponentAttribute extends CommonMethod {
 
   /**
-   * 设置XComponent选项。
-   *
-   * @param { XComponentParameters | XComponentOptions | NativeXComponentParameters } params - 用于创建XComponent的选项。
-   * @returns { this } XComponentAttribute实例
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 26.0.0 staticonly
-   */
-  setXComponentOptions(params: XComponentParameters | XComponentOptions | NativeXComponentParameters): this;
-  /**
    * 插件加载完成时回调事件。
    *
    * @param { VoidCallback | undefined } callback - 插件加载完成时回调事件，用于获取XComponent实例对象的context。<br>ArkTS-Sta模式下可不传。
@@ -572,19 +562,4 @@ export declare interface XComponentParameters {
 @ComponentBuilder
 export declare function XComponent(
     params: XComponentParameters | XComponentOptions | NativeXComponentParameters
-): XComponentAttribute;
-
-/**
- * 定义XComponent组件。要求在组件属性设置开始时调用setXComponentOptions，
- * 并在组件属性设置结束时调用applyAttributeFinish。
- *
- * @param { CustomBuilderT<XComponentAttribute> } style - 用于设置XComponent属性的回调。
- * @returns { XComponentAttribute } XComponent的属性。
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @since 26.0.0 staticonly
- */
-@Builder
-export declare function XComponent(
-    style: CustomBuilderT<XComponentAttribute>
 ): XComponentAttribute;

@@ -195,18 +195,6 @@ export declare interface SecurityUIExtensionProxy {
  */
 export declare interface SecurityUIExtensionComponentAttribute extends CommonMethod {
   /**
-   * Sets ui extension component options.
-   *
-   * @param { Want } want - The want
-   * @param { SecurityUIExtensionOptions } [options] - The options
-   * @returns { this } SecurityUIExtensionComponentAttribute instance
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @stagemodelonly
-   * @since 26.0.0 staticonly
-   */
-  default setSecurityUIExtensionComponentOptions(want: Want, options?: SecurityUIExtensionOptions): this;
-  /**
    * callback called when remote UIExtensionAbility object is ready for receive data
    *
    * @param { Callback<SecurityUIExtensionProxy> | undefined } callback - <br>SecurityUIExtensionProxy object.
@@ -279,23 +267,5 @@ export declare interface SecurityUIExtensionComponentAttribute extends CommonMet
 @ComponentBuilder
 export declare function SecurityUIExtensionComponent(
     want: Want, options?: SecurityUIExtensionOptions, 
-    content_?: CustomBuilder,
-): SecurityUIExtensionComponentAttribute;
-
-/**
- * Defines SecurityUIExtensionComponent Component.
- *
- * @param { CustomBuilderT<SecurityUIExtensionComponentAttribute> } style - the callback to set up
- *     SecurityUIExtensionComponent's attributes.
- * @param { CustomBuilder } [content_] - container
- * @returns { SecurityUIExtensionComponentAttribute } The attribute of the SecurityUIExtensionComponent.
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @systemapi
- * @stagemodelonly
- * @since 26.0.0 staticonly
- */
-@Builder
-export declare function SecurityUIExtensionComponent(
-    style: CustomBuilderT<SecurityUIExtensionComponentAttribute>,
     content_?: CustomBuilder,
 ): SecurityUIExtensionComponentAttribute;

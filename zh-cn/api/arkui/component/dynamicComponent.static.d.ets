@@ -91,17 +91,6 @@ export declare interface DynamicOptions {
  */
 export declare interface DynamicComponentAttribute extends CommonMethod {
   /**
-   * 设置动态组件选项。
-   *
-   * @param { DynamicOptions } options - 选项。
-   * @returns { this } DynamicComponentAttribute实例
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @stagemodelonly
-   * @since 26.0.0 staticonly
-   */
-  default setDynamicComponentOptions(options: DynamicOptions): this;
-  /**
    * DynamicComponent运行过程中发生异常时触发该回调。
    *
    * @param { ErrorCallback<BusinessError> | undefined } callback - 回调函数，入参用于接收异常信息。
@@ -128,21 +117,4 @@ export declare interface DynamicComponentAttribute extends CommonMethod {
 @ComponentBuilder
 export declare function DynamicComponent(
     options: DynamicOptions
-): DynamicComponentAttribute;
-
-/**
- * 定义DynamicComponent组件。要求在组件属性设置开始时调用setDynamicComponentOptions，
- * 在组件属性设置结束时
- * 调用applyAttributeFinish。
- *
- * @param { CustomBuilderT<DynamicComponentAttribute> } style - 用于设置DynamicComponent属性的回调。
- * @returns { DynamicComponentAttribute } DynamicComponent的属性。
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @systemapi
- * @stagemodelonly
- * @since 26.0.0 staticonly
- */
-@Builder
-export declare function DynamicComponent(
-    style: CustomBuilderT<DynamicComponentAttribute>
 ): DynamicComponentAttribute;

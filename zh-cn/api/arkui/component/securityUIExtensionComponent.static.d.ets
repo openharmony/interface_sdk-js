@@ -50,7 +50,7 @@ export declare enum SecurityDpiFollowStrategy {
    * @stagemodelonly
    * @since 26.0.0 static
    */
-  FOLLOW_UI_EXTENSION_ABILITY_DPI = 1
+  FOLLOW_UI_EXTENSION_ABILITY_DPI = 1,
 }
 /**
  * 用于构造SecurityUIExtensionComponent时传递参数。
@@ -196,18 +196,6 @@ export declare interface SecurityUIExtensionProxy {
  */
 export declare interface SecurityUIExtensionComponentAttribute extends CommonMethod {
   /**
-   * 设置SecurityUIExtensionComponent的选项。
-   *
-   * @param { Want } want - Want对象
-   * @param { SecurityUIExtensionOptions } [options] - 选项
-   * @returns { this } SecurityUIExtensionComponentAttribute实例
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @stagemodelonly
-   * @since 26.0.0 staticonly
-   */
-  default setSecurityUIExtensionComponentOptions(want: Want, options?: SecurityUIExtensionOptions): this;
-  /**
    * UIExtensionAbility连接完成时触发的回调，使用callback异步回调。之后可通过返回的SecurityUIExtensionProxy向被拉起的Ability发送数据。
    *
    * @param { Callback<SecurityUIExtensionProxy> | undefined } callback - 回调函数，入参为SecurityUIExtensionProxy，
@@ -285,23 +273,5 @@ export declare interface SecurityUIExtensionComponentAttribute extends CommonMet
 @ComponentBuilder
 export declare function SecurityUIExtensionComponent(
     want: Want, options?: SecurityUIExtensionOptions, 
-    content_?: CustomBuilder,
-): SecurityUIExtensionComponentAttribute;
-
-/**
- * 定义SecurityUIExtensionComponent组件。
- *
- * @param { CustomBuilderT<SecurityUIExtensionComponentAttribute> } style - 用于设置
- *     SecurityUIExtensionComponent属性的回调。
- * @param { CustomBuilder } [content_] - 容器
- * @returns { SecurityUIExtensionComponentAttribute } SecurityUIExtensionComponent的属性。
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @systemapi
- * @stagemodelonly
- * @since 26.0.0 staticonly
- */
-@Builder
-export declare function SecurityUIExtensionComponent(
-    style: CustomBuilderT<SecurityUIExtensionComponentAttribute>,
     content_?: CustomBuilder,
 ): SecurityUIExtensionComponentAttribute;

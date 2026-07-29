@@ -53,7 +53,7 @@ export declare enum DpiFollowStrategy {
    * @stagemodelonly
    * @since 23 static
    */
-  FOLLOW_UI_EXTENSION_ABILITY_DPI = 1
+  FOLLOW_UI_EXTENSION_ABILITY_DPI = 1,
 }
 /**
  * 窗口Mode跟随策略，用于设置窗口Mode，使其能够跟随宿主或UIExtensionAbility。
@@ -81,7 +81,7 @@ export declare enum WindowModeFollowStrategy {
    * @stagemodelonly
    * @since 23 static
    */
-  FOLLOW_UI_EXTENSION_ABILITY_WINDOW_MODE = 1
+  FOLLOW_UI_EXTENSION_ABILITY_WINDOW_MODE = 1,
 }
 /**
  * 用于在UIExtensionComponent进行构造时传递可选的构造参数。
@@ -250,18 +250,6 @@ export declare interface UIExtensionProxy {
  */
 export declare interface UIExtensionComponentAttribute extends CommonMethod {
   /**
-   * 设置UIExtensionComponent的选项。
-   *
-   * @param { Want } want - want
-   * @param { UIExtensionOptions } [options] - 选项
-   * @returns { this } UIExtensionComponentAttribute实例
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @stagemodelonly
-   * @since 26.0.0 staticonly
-   */
-  setUIExtensionComponentOptions(want: Want, options?: UIExtensionOptions): this;
-  /**
    * UIExtensionAbility连接完成时的回调，之后可使用proxy向被拉起的Ability发送数据。
    *
    * @param { Callback<UIExtensionProxy> | undefined } callback - 回调函数。
@@ -349,20 +337,4 @@ export declare interface UIExtensionComponentAttribute extends CommonMethod {
 @ComponentBuilder
 export declare function UIExtensionComponent(
     want: Want, options?: UIExtensionOptions
-): UIExtensionComponentAttribute;
-
-/**
- * 定义UIExtensionComponent组件。它要求在组件属性设置开始时调用setUIExtensionComponentOptions，
- * 并在组件属性设置结束时调用applyAttributeFinish。
- *
- * @param { CustomBuilderT<UIExtensionComponentAttribute> } style - 用于设置uiextensioncomponent属性的回调。
- * @returns { UIExtensionComponentAttribute } UIExtensionComponent的属性。
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @systemapi
- * @stagemodelonly
- * @since 26.0.0 staticonly
- */
-@Builder
-export declare function UIExtensionComponent(
-    style: CustomBuilderT<UIExtensionComponentAttribute>
 ): UIExtensionComponentAttribute;

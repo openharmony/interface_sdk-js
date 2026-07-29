@@ -45,7 +45,7 @@ declare enum EmbeddedDpiFollowStrategy {
    * @atomicservice
    * @since 26.0.0 dynamic
    */
-  FOLLOW_UI_EXTENSION_ABILITY_DPI = 1
+  FOLLOW_UI_EXTENSION_ABILITY_DPI = 1,
 }
 
 /**
@@ -75,7 +75,7 @@ declare enum EmbeddedWindowModeFollowStrategy {
    * @atomicservice
    * @since 26.0.0 dynamic
    */
-  FOLLOW_UI_EXTENSION_ABILITY_WINDOW_MODE = 1
+  FOLLOW_UI_EXTENSION_ABILITY_WINDOW_MODE = 1,
 }
 
 /**
