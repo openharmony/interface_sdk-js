@@ -148,7 +148,7 @@ declare namespace batteryInfo {
   function batteryCapacityLevel(): BatteryCapacityLevel;
 
   /**
-   * 表示当前设备充满电的预估时间，单位毫秒。此接口为系统接口。
+   * 获取当前设备充满电的预估时间，单位毫秒。
    *
    * @returns { long } 返回当前设备充满电的预估时间，单位毫秒。
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
@@ -158,7 +158,7 @@ declare namespace batteryInfo {
   function estimatedRemainingChargeTime(): long;
 
   /**
-   * 表示当前设备电池的总容量，单位毫安时。此接口为系统接口。
+   * 获取当前设备电池的总容量，单位毫安时。
    *
    * @returns { int } 返回当前设备电池的总容量，单位毫安时。
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
@@ -177,7 +177,7 @@ declare namespace batteryInfo {
   function nowCurrent(): int;
 
   /**
-   * 表示当前设备电池的剩余容量，单位毫安时。此接口为系统接口。
+   * 获取当前设备电池的剩余容量，单位毫安时。
    *
    * @returns { int } 返回当前设备电池的剩余容量，单位毫安时。
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
