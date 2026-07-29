@@ -3170,7 +3170,8 @@ declare namespace window {
    *     is thrown.
    * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types.
-   * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause: The window is not created or destroyed.
+   * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause:
+   *     1. The window is not created or destroyed.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @crossplatform [since 10]
    * @atomicservice [since 11]
@@ -4151,11 +4152,11 @@ declare namespace window {
    * @throws { BusinessError } 801 - Capability not supported.
    *     Failed to call the API due to limited device capabilities.
    * @throws { BusinessError } 1300002 - This window state is abnormal.
-   *     Possible cause: The window is not found or has been destoryed.
+   *     Possible cause: The window is not found or has been destroyed.
    * @throws { BusinessError } 1300003 - This window manager service works abnormally.
    * @throws { BusinessError } 1300004 - Unauthorized operation. Possible cause: The window is not a main window.
    * @throws { BusinessError } 1300008 - Invalid display. Possible cause:
-   *     1. DisplayId is a negative number or not exist.
+   *     1. DisplayId is a negative number or not exists.
    * @throws { BusinessError } 1300016 - Parameter error. Possible cause: 
    *     1. The userId is not exist. 
    * @syscap SystemCapability.Window.SessionManager
