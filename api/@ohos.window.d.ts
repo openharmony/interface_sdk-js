@@ -73,6 +73,7 @@ declare interface Callback<T, V = void> {
    */
   (data: T): V;
 }
+/*** endif */
 
 /**
  * Defines the window callback.
@@ -294,7 +295,7 @@ declare namespace window {
      */
     TYPE_FLOAT_CAMERA = 15,
     /**
-     * Modal window.
+     * Dialog window.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @StageModelOnly
@@ -1732,7 +1733,7 @@ declare namespace window {
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
-    displayId?: int;
+    displayId?: long;
 
     /**
      * Indicates the actual display size and position of the window.
@@ -2856,6 +2857,57 @@ declare namespace window {
      * @since 23 static
      */
     DRAG_END = 6
+  }
+
+  /**
+   * Enum for window mode
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Window.SessionManager
+   * @atomicservice
+   * @since 20 dynamic
+   * @since 23 static
+   */
+  enum GlobalWindowMode {
+    /**
+     * Fullscreen
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 20 dynamic
+     * @since 23 static
+     */
+    FULLSCREEN = 1,
+
+    /**
+     * Split
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 20 dynamic
+     * @since 23 static
+     */
+    SPLIT = 1 << 1,
+
+    /**
+     * Float
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 20 dynamic
+     * @since 23 static
+     */
+    FLOAT = 1 << 2,
+
+    /**
+     * Picture in picture
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 20 dynamic
+     * @since 23 static
+     */
+    PIP = 1 << 3
   }
 
   /**
@@ -4956,7 +5008,7 @@ declare namespace window {
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
-    EXIT_ACROSS_DISPLAY_MODE = 2
+    EXIT_ACROSS_DISPLAY_MODE = 2,
   }
 
   /**
@@ -4998,56 +5050,6 @@ declare namespace window {
      * @since 26.0.0 dynamic&static
      */
     snapshotAnimationConfig?: WindowSnapshotAnimationConfig;
-  }
-
-  /**
-   * Enumerates the window modes.
-   *
-   * @syscap SystemCapability.Window.SessionManager
-   * @atomicservice
-   * @since 20 dynamic
-   * @since 23 static
-   */
-  enum GlobalWindowMode {
-    /**
-     * Full-screen window. The first binary bit from right to left is 1.
-     *
-     * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
-     * @since 20 dynamic
-     * @since 23 static
-     */
-    FULLSCREEN = 1,
-
-    /**
-     * Split-screen window. The second binary bit from right to left is 1.
-     *
-     * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
-     * @since 20 dynamic
-     * @since 23 static
-     */
-    SPLIT = 1 << 1,
-
-    /**
-     * Floating window. The third binary bit from right to left is 1.
-     *
-     * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
-     * @since 20 dynamic
-     * @since 23 static
-     */
-    FLOAT = 1 << 2,
-
-    /**
-     * PiP window. The fourth binary bit from right to left is 1.
-     *
-     * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
-     * @since 20 dynamic
-     * @since 23 static
-     */
-    PIP = 1 << 3
   }
 
   /**
@@ -6835,6 +6837,7 @@ declare namespace window {
      * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead window.Window.setWindowSystemBarEnable(names: Array<'status' | 'navigation'>)
+     * @useinstead window.Window.setWindowLayoutFullScreen(isLayoutFullScreen: boolean)
      */
     setFullScreen(isFullScreen: boolean, callback: AsyncCallback<void>): void;
 
@@ -6863,6 +6866,7 @@ declare namespace window {
      * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead window.Window.setWindowSystemBarEnable(names: Array<'status' | 'navigation'>)
+     * @useinstead window.Window.setWindowLayoutFullScreen(isLayoutFullScreen: boolean)
      */
     setFullScreen(isFullScreen: boolean): Promise<void>;
 
@@ -6972,7 +6976,7 @@ declare namespace window {
      *
      * @param { Array<'status' | 'navigation'> } names - Whether to show the status bar and <!--RP15-->three-button
      *     navigation bar<!--RP15End--> in full-screen mode.<br>For example, to show all of them, set this parameter to
-     *     **['status','navigation']**. If this parameter is set to [], they are hidden.
+     *     **['status',?'navigation']**. If this parameter is set to [], they are hidden.
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7 dynamiconly
@@ -6992,7 +6996,7 @@ declare namespace window {
      *
      * @param { Array<'status' | 'navigation'> } names - Whether to show the status bar and <!--RP15-->three-button
      *     navigation bar<!--RP15End--> in full-screen mode.<br>For example, to show all of them, set this parameter to
-     *     **['status','navigation']**. If this parameter is set to [], they are hidden.
+     *     **['status',?'navigation']**. If this parameter is set to [], they are hidden.
      * @returns { Promise<void> } Promise that returns no value.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7 dynamiconly
@@ -8144,7 +8148,6 @@ declare namespace window {
      *     2. Incorrect parameter types;
      *     3. Parameter verification failed.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @crossplatform [since 26.1.0]
      * @atomicservice [since 12]
      * @since 7 dynamic
      */
@@ -11992,8 +11995,7 @@ declare namespace window {
      *     capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause: The window is not created or destroyed.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally. [since 20]
-     * @throws { BusinessError } 1300004 - Unauthorized operation. Possible cause:
-     *     Invalid window type. Only subwindows are supported.
+     * @throws { BusinessError } 1300004 - Unauthorized operation. Possible cause: Invalid window type. Only subwindows are supported.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 14 dynamic

@@ -406,16 +406,7 @@ declare namespace window {
      * @since 18 dynamic
      * @since 23 static
      */
-    TYPE_MAIN = 32,
-    /**
-     * TYPE_FLOAT_NAVIGATION.
-     *
-     * @syscap SystemCapability.Window.SessionManager
-     * @systemapi Hide this for inner system use.
-     * @stagemodelonly
-     * @since 16 dynamic
-     */
-    TYPE_FLOAT_NAVIGATION = 22
+    TYPE_MAIN = 32
   }
 
   /**
@@ -732,7 +723,7 @@ declare namespace window {
      * @since 22 dynamic
      * @since 23 static
      */
-    VP = 1
+    VP = 1,
   }
 
   /**
@@ -1405,23 +1396,25 @@ declare namespace window {
 
     /**
      * 是否使用处于协同关系中两个窗口的宽度限制的交集。
+     * 默认值： 否。
      *
      * @default false
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
      * @stagemodelonly
-     * @since 24 dynamic&static
+     * @since 26.0.0 dynamic&static
      */
     isIntersectedWidthLimit?: boolean;
 
     /**
      * 是否使用处于协同关系中两个窗口的高度限制的交集。
+     * 默认值： 否。
      *
      * @default false
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
      * @stagemodelonly
-     * @since 24 dynamic&static
+     * @since 26.0.0 dynamic&static
      */
     isIntersectedHeightLimit?: boolean;
   }
@@ -2571,7 +2564,7 @@ declare namespace window {
    */
   interface RectChangeOptions {
     /**
-     * New value of the window rectangle.
+     * 窗口矩形变化后的值。
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
@@ -2859,7 +2852,7 @@ declare namespace window {
      * @since 21 dynamic
      * @since 23 static
      */
-    label: string;
+    label: string
   }
 
   /**
@@ -2877,7 +2870,7 @@ declare namespace window {
      * @since 21 dynamic
      * @since 23 static
      */
-    useCache?: boolean;
+    useCache?: boolean
   }
 
   /**
@@ -3049,10 +3042,11 @@ declare namespace window {
    * @throws { BusinessError } 1300003 - This window manager service works abnormally.
    * @throws { BusinessError } 1300009 - The parent window is invalid.
    *     Possible cause: 1. The parent window does not exist or has been destroyed.
-   *                     2. Invalid window type. Only main windows are supported.
+   *     2. Invalid window type. Only main windows are supported.
    * @syscap SystemCapability.Window.SessionManager
    * @systemapi Hide this for inner system use.
    * @stagemodelonly
+   * @since 26.0.0 dynamic&static
    * @since 26.0.0 dynamic&static
    */
   function createSubWindowAndBindParent(name: string, parentId: int, ctx: BaseContext,
@@ -3098,8 +3092,8 @@ declare namespace window {
    * @returns { Window } 当前查找的窗口对象。如果查找指定名称对应的窗口不存在，会抛出1300002错误码
    * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types.
-   * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause:
-   *     1. The window is not created or destroyed.
+   * @throws { BusinessError } 1300002 - This window state is abnormal.
+   *     Possible cause: The window is not created or destroyed.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @crossplatform [since 10]
    * @atomicservice [since 11]
@@ -4024,11 +4018,14 @@ declare namespace window {
    * @throws { BusinessError } 801 - Capability not supported.
    *     Failed to call the API due to limited device capabilities.
    * @throws { BusinessError } 1300002 - This window state is abnormal.
-   *     Possible cause: The window is not found or has been destroyed.
+   *     Possible cause: The window is not created or destoryed.
    * @throws { BusinessError } 1300003 - This window manager service works abnormally.
    * @throws { BusinessError } 1300004 - Unauthorized operation. Possible cause: The window is not a main window.
    * @throws { BusinessError } 1300008 - Invalid display. Possible cause:
    *     1. DisplayId is a negative number or not exists.
+   * @throws { BusinessError } 1300009 - Invalid window. Possible cause:
+   *     1. The window is not a main window.
+   *     2. The window is not found or has been destroyed.
    * @throws { BusinessError } 1300016 - Parameter error. Possible cause: 
    *     1. The userId is not exist. 
    * @syscap SystemCapability.Window.SessionManager
@@ -4770,7 +4767,7 @@ declare namespace window {
   }
 
   /**
-   * 在可折叠的2in1设备的半折叠状态下，最大化窗口时用于控制瀑布流模式切换策略的枚举。
+   * 折叠屏的跨屏策略枚举，用于控制折叠2in1设备在悬停态下主窗口最大化时的瀑布流模式行为。
    *
    * @syscap SystemCapability.Window.SessionManager
    * @stagemodelonly
@@ -4778,11 +4775,9 @@ declare namespace window {
    */
   enum AcrossDisplayPresentation {
     /**
-     * 表示跟随当前的最大化瀑布流模式切换的策略。
-     * 如果未设置跨屏显示，则应用默认的系统策略：
-     * 在设备对折状态下，窗口进入单屏最大化
-     * （即最大化时，窗口只显示在屏幕的上半部分或下半部分）。
-     * 在展开状态下，窗口最大化，并在折回为对折时保持瀑布模式。
+     * 跟随当前跨屏策略设置，若未设置过跨屏策略，则使用系统默认策略：
+     * 设备悬停态下，窗口进入单屏最大化（即窗口最大化时只在上半屏或下半屏显示）；
+     * 展开态下，窗口最大化并在折回悬停态时保持瀑布流模式（即窗口跨上下两半屏显示）。
      *
      * @syscap SystemCapability.Window.SessionManager
      * @stagemodelonly
@@ -4791,8 +4786,7 @@ declare namespace window {
     FOLLOW_ACROSS_DISPLAY_SETTING = 0,
 
     /**
-     * 在设备的半折状态下，窗口可以直接进入瀑布模式。
-     * 在展开状态下，窗口最大化，并在折回一半时保持瀑布模式。
+     * 设备悬停态下，窗口直接进入瀑布流模式；展开态下，窗口最大化并在折回悬停态时保持瀑布流模式。
      *
      * @syscap SystemCapability.Window.SessionManager
      * @stagemodelonly
@@ -4801,9 +4795,7 @@ declare namespace window {
     ENTER_ACROSS_DISPLAY_MODE = 1,
 
     /**
-     * 在设备对折状态下，窗口退出瀑布模式，进入单屏最大化
-     * （即最大化时，窗口仅显示在屏幕的上半部分或下半部分）。
-     * 在展开状态下，窗口最大化，重新进入半折后将退出瀑布模式。
+     * 设备悬停态下，窗口退出瀑布流模式，进入单屏最大化；展开态下，窗口最大化并在折回悬停态时退出瀑布流模式。
      *
      * @syscap SystemCapability.Window.SessionManager
      * @stagemodelonly
@@ -4900,7 +4892,7 @@ declare namespace window {
      * @since 20 dynamic
      * @since 23 static
      */
-    PIP = 1 << 3
+    PIP = 1 << 3,
   }
 
   /**
@@ -4925,12 +4917,53 @@ declare namespace window {
   }
 
   /**
+   * Optional configuration for startMovingWithOptions.
+   *
+   * @syscap SystemCapability.Window.SessionManager
+   * @systemapi Hide this for inner system use.
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  interface StartMovingOptions {  
+    /**
+     * Indicates whether the window needs to be focused when moving starts.
+     *
+     * @default true
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    needFocused?: boolean;
+
+    /**
+     * The avoidance rect of window during drag-moving.
+     * If unspecified, the system defaults to the following avoidance behavior:
+     * Free window state:
+     * 1.Main windows, subWindows and dialog windows can be dragged beyond the screen bounds
+     * and will spring back on release.
+     * 2.Other windows can be dragged beyond the screen bounds without springing back.
+     * Non-free window state:
+     * 1.System windows can be dragged beyond the main window bounds and the screen bounds without springing back.
+     * 2.When the main window is fullscreen,
+     * subWindows and dialog windows can be dragged beyond it without springing back.
+     * 3.When the main window is not fullscreen,
+     * subWindows and dialog windows can be dragged beyond it and will spring back on release.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    avoidRect?: Rect;
+  }
+
+  /**
    * 当前支持显示或隐藏的系统栏类型。
    *
-   * @unionmember { 'status' } Status bar.
-   * @unionmember { 'navigation' } <!--RP13--><!--RP13End-->Three-button navigation bar.
-   * @unionmember { 'navigationIndicator' } Bottom navigation bar. <!--RP12-->OpenHarmony devices do not support this
-   *     capability.<!--RP12End-->
+   * @unionmember { 'status' } 状态栏.
+   * @unionmember { 'navigation' } <!--RP13--><!--RP13End-->三键导航栏.
+   * @unionmember { 'navigationIndicator' } 底部导航. <!--RP12-->OpenHarmony各设备不支持此能力<!--RP12End-->
    * @syscap SystemCapability.Window.SessionManager
    * @crossplatform [since 12]
    * @atomicservice
@@ -6124,11 +6157,11 @@ declare namespace window {
      *
      * @param { WindowMode } mode - 窗口模式。
      * @returns { Promise<void> } 无返回结果的Promise对象。
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system
+     *     API. [since 12]
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
      *     2. Incorrect parameter types;
      *     3. Parameter verification failed.
-     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system
-     *     API. [since 12]
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -6621,7 +6654,7 @@ declare namespace window {
      * > 替代。
      *
      * @param { Array<'status' | 'navigation'> } names - 设置窗口全屏模式时状态栏和<!--RP15-->三键导航栏<!--RP15End-->是否显示。<br>例如，需全部显示，该参
-     *     数设置为['status','navigation']；设置为[]，则不显示。
+     *     数设置为['status',?'navigation']；设置为[]，则不显示。
      * @param { AsyncCallback<void> } callback - 回调函数。
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7 dynamiconly
@@ -6644,7 +6677,7 @@ declare namespace window {
      * > 替代。
      *
      * @param { Array<'status' | 'navigation'> } names - 设置窗口全屏模式时状态栏和<!--RP15-->三键导航栏<!--RP15End-->是否显示。<br>例如，需全部显示，该参
-     *     数设置为['status','navigation']；设置为[]，则不显示。
+     *     数设置为['status',?'navigation']；设置为[]，则不显示。
      * @returns { Promise<void> } 无返回结果的Promise对象。
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7 dynamiconly
@@ -6667,7 +6700,7 @@ declare namespace window {
      * > 替代。
      *
      * @param { Array<'status' | 'navigation'> } names - 设置窗口全屏模式时状态栏和<!--RP15-->三键导航栏<!--RP15End-->是否显示。<br>例如，需全部显示，该参
-     *     数设置为['status','navigation']；设置为[]，则不显示。
+     *     数设置为['status',?'navigation']；设置为[]，则不显示。
      * @param { AsyncCallback<void> } callback - 回调函数。
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified;
      *     2.Incorrect parameter types.
@@ -10220,13 +10253,13 @@ declare namespace window {
      * 设置窗口背景模糊类型。
      *
      * @param { BlurStyle } blurStyle - 表示窗口背景模糊类型。
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system
+     *     API. [since 12]
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
      *     2. Incorrect parameter types;
      *     3. Parameter verification failed.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
-     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system
-     *     API. [since 12]
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
@@ -10741,7 +10774,6 @@ declare namespace window {
      * 实现最大化功能。主窗口可调用此接口实现最大化功能；子窗口需在创建时设置子窗口参数maximizeSupported为true，
      * 再调用此接口可实现最大化功能。使用Promise异步回调。
      *
-     * @param { MaximizePresentation } presentation - set window presentation when maximize. [since 12 - 19]
      * @param { MaximizePresentation } [presentation] - 主窗口或子窗口最大化时的布局枚举。
      *     默认值window.MaximizePresentation.ENTER_IMMERSIVE，即默认最大化时进入全屏模式。
      * @returns { Promise<void> } 无返回结果的Promise对象。
@@ -10796,18 +10828,48 @@ declare namespace window {
      * @throws { BusinessError } 801 - Capability not supported.
      *     Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
-     *     1. The window is not created or destroyed;
+     *     1. The window is not created or destroyed.
      *     2. Internal task error.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @throws { BusinessError } 1300004 - Unauthorized operation. Possible cause:
-     *     1. Invalid window type. Only main windows and maximizable subwindows are supported;
+     *     1. Invalid window type. Only main windows and maximizable subwindows are supported.
      *     2. The acrossDisplay parameter only supports main windows.
+     *     3. The snapshotAnimationConfig parameter only supports main windows.
      * @throws { BusinessError } 1300016 - Parameter error. Possible cause: Invalid parameter range.
      * @syscap SystemCapability.Window.SessionManager
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
     maximizeWithOptions(maximizeOptions?: MaximizeOptions): Promise<void>;
+
+    /**
+     * 设置应用窗口的窗口支持模式，使用Promise异步回调。
+     *
+     * @param { Array<bundleManager.SupportWindowMode> } supportedWindowModes - 设置主窗的窗口支持模式。
+     *     <br>- FULL_SCREEN：支持全屏模式。<br>- FLOATING：支持自由悬浮窗口模式。<br>- SPLIT：支持分屏模式。
+     *     需要配合FULL_SCREEN或FLOATING一起使用，不支持仅配置SPLIT。
+     *     <br> 注：数组中SupportWindowMode字段取值不应该与该UIAbility对应的
+     *     [module.json5配置文件](docroot://quick-start/module-configuration-file.md)中
+     *     [abilities标签](docroot://quick-start/module-configuration-file.md#abilities)的supportWindowMode字段取值或者
+     *     [StartOptions]{@link @ohos.app.ability.StartOptions:StartOptions}的
+     *     supportWindowModes属性取值冲突。当取值冲突时，最终以该参数设置的窗口支持模式为准。
+     * @returns { Promise<void> } 无返回结果的Promise对象。
+     * @throws { BusinessError } 801 - Capability not supported.
+     *     Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause:
+     *     1. The window is not created or destroyed.
+     *     2. Internal task error.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @throws { BusinessError } 1300004 - Unauthorized operation. Possible cause:
+     *     Only main windows and subwindows are supported.
+     * @throws { BusinessError } 1300016 - Parameter error. Possible cause:
+     *     1. When called on a main window, the parameter should not only contain SPLIT.
+     *     2. When called on a sub window, the parameter should not contain SPLIT.
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    setSupportedWindowModes(supportedWindowModes: Array<bundleManager.SupportWindowMode>): Promise<void>;
 
     /**
      * 禁止/使能通过拖拽方式缩放主窗口或启用装饰的子窗口的功能。使用callback异步回调。
@@ -11067,9 +11129,11 @@ declare namespace window {
      * @throws { BusinessError } 1300001 - Repeated operation.
      * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause:
      *     1. The window is not created or destroyed;
-     *     2. Internal task error;
+     *     2. Internal task error.
      *     3. The window does not support floating mode.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @throws { BusinessError } 1300004 - Unauthorized operation. Possible cause:
+     *     1. The snapshotAnimationConfig parameter only supports main windows.
      * @throws { BusinessError } 1300016 - Parameter error. Possible cause: Invalid parameter range.
      * @syscap SystemCapability.Window.SessionManager
      * @stagemodelonly
@@ -11464,6 +11528,39 @@ declare namespace window {
      * @since 23 static
      */
     startMoving(): Promise<void>;
+
+    /**
+     * 开始移动窗口，使用Promise异步回调。
+     * 
+     * [自由窗口](docroot://windowmanager/window-terminology.md#自由窗口)状态下，对系统窗口、应用主窗口、应用子窗口、全局悬浮窗和模态窗口生效。非自由窗口状态下，仅对系统窗口、应用子窗
+     * 口、全局悬浮窗和模态窗口生效，应用主窗口调用该接口返回801或1300004错误码。
+     * 
+     * 仅在[onTouch](docroot://reference/apis-arkui/arkui-ts/ts-universal-events-touch.md#touchevent对象说明)事件（其中，事件类型必须为
+     * TouchType.Down）的回调方法中调用此接口才会有移动效果，成功调用此接口后，窗口将跟随鼠标或触摸点移动。
+     * 
+     * 在点击拖拽场景下，若不期望在按下时触发拖拽事件，则可以在事件类型为[TouchType.Move]{@link ./@internal/component/ets/enums:TouchType}（需要保证当前行为已经触发
+     * TouchType.Down事件）时调用此接口，触发移动效果。
+     *
+     * @param { StartMovingOptions } [startMovingOptions] - 移动窗口过程中的参数配置。
+     * @returns { Promise<void> } 无返回结果的Promise对象。
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *     Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300001 - Repeated operation.
+     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause:
+     *     1. The window is not created or destroyed.
+     *     2. Internal task error.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @throws { BusinessError } 1300004 - Unauthorized operation. Possible cause:
+     *     Invalid window type, main windows are not supported in non-free window mode.
+     * @throws { BusinessError } 1300016 - Parameter error.
+     *     Possible cause: Invalid parameter range.
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    startMovingWithOptions(startMovingOptions?: StartMovingOptions): Promise<void>;
 
     /**
      * 指定鼠标在窗口内的位置并移动窗口，使用Promise异步回调。
@@ -11915,6 +12012,23 @@ declare namespace window {
     getImmersiveModeEnabledState(): boolean;
 
     /**
+     * Set whether the current window enables immersive layout. When immersive layout is disabled, the
+     * available layout area of the application is constrained by the safe area (the safe area refers to the maximum
+     * rectangular area of the window area excluding the area occluded by system windows or UI, e.g., status bar,
+     * navigation bar, display cutout).
+     *
+     * @param { boolean } enabled - The value true means to enable immersive layout, and false means the opposite.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
+     *     capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     *     Possible cause: The window is not created or destroyed.
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    setImmersiveLayout(enabled: boolean): void;
+
+    /**
      * 查询当前窗口是否处于沉浸式布局状态。
      *
      * @returns { boolean } 是否处于沉浸式布局状态。true表示处于沉浸式布局状态，false表示不处于沉浸式布局状态。
@@ -12020,6 +12134,28 @@ declare namespace window {
      * @since 23 static
      */
     setParentWindow(windowId: int): Promise<void>;
+
+    /**
+     * Change the parent window of a subwindow, support set parent cross process in same Application.
+     *
+     * @param { int } windowId - Indicates parent window id.
+     * @param { WindowEventListener } parentWindowEventListener - Listener for parent window events.
+     * @returns { Promise<void> } - Promise that returns no value indicates complete.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *     Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause:
+     *     1. The window is not created or destroyed;
+     *     2. Internal task error.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @throws { BusinessError } 1300004 - Unauthorized operation. Possible cause:
+     *     Invalid window type. Only subwindow are supported.
+     * @throws { BusinessError } 1300009 - The parent window is invalid. Possible cause:
+     *     The parent window does not exist or has been destroyed.
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    setParentWindow(windowId: int, parentWindowEventListener: WindowEventListener): Promise<void>;
 
     /**
      * 获取子窗口的父窗口。
@@ -12338,7 +12474,6 @@ declare namespace window {
      *
      * @returns { boolean } 返回true表示在自由窗口模式，false表示非自由窗口模式。
      * @throws { BusinessError } 1300002 - This window state is abnormal.
-     *     Possible cause: The window is not created or destroyed.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
@@ -12353,7 +12488,6 @@ declare namespace window {
      * @param { 'freeWindowModeChange' } type - 监听事件，固定为'freeWindowModeChange'，即自由窗口模式变化事件。
      * @param { Callback<boolean> } callback - 回调函数。返回当前窗口是否在自由窗口模式，true表示是自由窗口模式，false表示非自由窗口模式。
      * @throws { BusinessError } 1300002 - This window state is abnormal.
-     *     Possible cause: The window is not created or destroyed.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
@@ -12367,7 +12501,6 @@ declare namespace window {
      * @param { 'freeWindowModeChange' } type - 监听事件，固定为'freeWindowModeChange'，即自由窗口模式变化事件。
      * @param { Callback<boolean> } [callback] - 回调函数。返回当前窗口是否在自由窗口模式。如果传入参数，则关闭该监听。如果未传入参数，则关闭自由窗口模式变化事件的监听。
      * @throws { BusinessError } 1300002 - This window state is abnormal.
-     *     Possible cause: The window is not created or destroyed.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
@@ -12381,9 +12514,9 @@ declare namespace window {
      * @param { Callback<boolean> } callback Callback used to return the result if the current device
      *     is in free window mode. true - means in free window mode; false - means not in free window mode.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
-     *     Possible cause: The window is not created or destroyed.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @atomicservice
      * @since 23 static
      */
     onFreeWindowModeChange(callback: Callback<boolean>): void;
@@ -12395,9 +12528,9 @@ declare namespace window {
      *     is in free window mode. true - means in free window mode; false - means not in free window mode.
      *     Unregister the callback function. If not provided, all callbacks for the given event type will be removed.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
-     *     Possible cause: The window is not created or destroyed.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @atomicservice
      * @since 23 static
      */
     offFreeWindowModeChange(callback?: Callback<boolean>): void;
@@ -13290,12 +13423,12 @@ declare namespace window {
      * 设置应用显示在锁屏之上。
      *
      * @param { boolean } showOnLockScreen - 是否设置应用显示在锁屏之上。true表示显示在锁屏之上；false表示不显示在锁屏之上。
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system
+     *     API. [since 12]
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
      *     2. Incorrect parameter types.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300005 - This window stage is abnormal.
-     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system
-     *     API. [since 12]
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @StageModelOnly
@@ -13595,9 +13728,11 @@ declare namespace window {
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @throws { BusinessError } 1300016 - Parameter error. Possible cause:
      *     1. Invalid parameter range. 2. Invalid parameter length.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have
+     *     the permission required or a non-system application calls the API. [since 26.0.0]
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use. [since 22 - 24]
-     * @publciapi [since 26.0.0]
+     * @publicapi [since 26.0.0]
      * @stagemodelonly
      * @since 22 dynamic
      * @since 23 static
