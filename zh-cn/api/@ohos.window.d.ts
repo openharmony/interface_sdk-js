@@ -4045,7 +4045,7 @@ declare namespace window {
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
-  function moveMainWindowToTargetDisplay(displayId: long, windowId: int): Promise<void>;
+  function moveMainWindowToTargetDisplay(displayId: long, windowId: int, userId?: int): Promise<void>;
 
   /**
    * 窗口显示方向类型枚举。<!--Del-->不同枚举值之间的区别可查询
