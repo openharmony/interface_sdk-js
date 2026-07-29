@@ -16350,6 +16350,7 @@ declare namespace photoAccessHelper {
    * Search Suggestion Type.
    *
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @systemapi
    * @stagemodelonly
    * @atomicservice
    * @since 26.0.0 dynamic&static
@@ -16359,6 +16360,7 @@ declare namespace photoAccessHelper {
      * Searching for recommended words by time, location, and label.
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
      * @stagemodelonly
      * @atomicservice
      * @since 26.0.0 dynamic&static
@@ -16369,6 +16371,7 @@ declare namespace photoAccessHelper {
      * Searching for recommended words by time and location.
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
      * @stagemodelonly
      * @atomicservice
      * @since 26.0.0 dynamic&static
@@ -16379,6 +16382,7 @@ declare namespace photoAccessHelper {
      * Searching for recommended words by time and label.
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
      * @stagemodelonly
      * @atomicservice
      * @since 26.0.0 dynamic&static
@@ -16389,6 +16393,7 @@ declare namespace photoAccessHelper {
      * Searching for recommended words by time, people, location and label.
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
      * @stagemodelonly
      * @atomicservice
      * @since 26.0.0 dynamic&static
@@ -16399,6 +16404,7 @@ declare namespace photoAccessHelper {
      * Searching for recommended words by time, people and label.
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
      * @stagemodelonly
      * @atomicservice
      * @since 26.0.0 dynamic&static
@@ -16409,6 +16415,7 @@ declare namespace photoAccessHelper {
      * Searching for recommended words by time, people and label.
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
      * @stagemodelonly
      * @atomicservice
      * @since 26.0.0 dynamic&static
@@ -16419,6 +16426,7 @@ declare namespace photoAccessHelper {
      * Searching for recommended words by time and people.
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
      * @stagemodelonly
      * @atomicservice
      * @since 26.0.0 dynamic&static
