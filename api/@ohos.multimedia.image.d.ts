@@ -108,7 +108,7 @@ import type rpc from './@ohos.rpc';
  * objects, with the actual content determined by the producer. For example, the Image object provided by
  * a camera preview stream contains YUV data, whereas the Image object provided by a camera photo contains a JPEG file.
  *
- * @syscap SystemCapability.Multimedia.Image.Core [since 11]
+ * @syscap SystemCapability.Multimedia.Image.Core
  * @crossplatform [since 11]
  * @form [since 12]
  * @atomicservice [since 11]
