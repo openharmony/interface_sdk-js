@@ -1696,13 +1696,13 @@ declare namespace window {
     globalDisplayRect?: Rect;
 
     /**
-     * Indicates the ID of the display where the window is located.
+     * 窗口所在的屏幕ID，默认返回主屏幕ID，该参数为整数。
      *
      * @syscap SystemCapability.Window.SessionManager
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
-    displayId?: int;
+    displayId?: long;
 
     /**
      * 窗口所在物理屏幕上的真实显示区域。若窗口显示时经过了缩放，获取到的是缩放后窗口在屏幕上的真实位置和大小。默认值：[0, 0, 0, 0]。
@@ -2829,7 +2829,7 @@ declare namespace window {
    */
   interface MainWindowInfo {
     /**
-     * ID of the display to which the main window belongs.
+     * 主窗口所在的屏幕ID。
      *
      * @syscap SystemCapability.Window.SessionManager
      * @since 21 dynamic
@@ -2837,7 +2837,7 @@ declare namespace window {
      */
     displayId: long,
     /**
-     * ID of the main window.
+     * 主窗口ID。
      *
      * @syscap SystemCapability.Window.SessionManager
      * @since 21 dynamic
@@ -2845,8 +2845,7 @@ declare namespace window {
      */
     windowId: int,
     /**
-     * Foreground/Background status of the main window. **true** if the main window is in the foreground, **false**
-     * otherwise.
+     * 主窗口的前后台状态。true表示主窗口在前台，false表示主窗口不在前台。
      *
      * @syscap SystemCapability.Window.SessionManager
      * @since 21 dynamic
@@ -3615,7 +3614,7 @@ declare namespace window {
    *
    * @param { int } windowId - 窗口Id。可通过[getWindowProperties](@link @ohos.window:window.Window.getWindowProperties)
    * 接口获取到相关窗口属性，其中属性id即对应为窗口ID。
-   * @returns { Promise<image.PixelMap> } - Promise that returns no value.
+   * @returns { Promise<image.PixelMap> } - Promise对象，返回指定窗口截图。
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     <br>2. Incorrect parameter types. 3.Parameter verification failed.
@@ -3987,9 +3986,8 @@ declare namespace window {
    *     [window.getAllMainWindowInfo()]{@link window.getAllMainWindowInfo}获取到主窗口windowId。当windowId为null、undefined、小于0、存
    *     在重复值或数量超过512个时，返回错误码401；当windowId大于0但不存在对应窗口时，返回undefined。
    * @param { WindowSnapshotConfiguration } config - 获取窗口截图时的配置信息。
-   * @returns { Promise<Array<image.PixelMap | undefined>> } Promise used to return an array of PixelMap objects of the
-   *     screenshots, representing the screenshots, in the order of the provided window ID array. If a window ID is
-   *     valid but the corresponding main window cannot be found, undefined is returned.
+   * @returns { Promise<Array<image.PixelMap | undefined>> } Promise对象，截图的PixelMap列表，按传入的窗口ID数组的顺序排列，当窗口ID合法但无法找到对应的主窗口时
+   *     ，返回undefined。
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
    *     capabilities.
@@ -6879,8 +6877,8 @@ declare namespace window {
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      *     Possible cause: The internal services of the window are not started normally.
      * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
      * @stagemodelonly
+     * @atomicservice
      * @since 23 dynamic&static
      * @test
      */
@@ -9244,7 +9242,7 @@ declare namespace window {
      * [loadContent()]{@link window.Window.loadContent(path: string, storage: LocalStorage, callback: AsyncCallback<void>)}
      * 或[setUIContent()]{@link window.Window.setUIContent(path: string, callback: AsyncCallback<void>)}调用生效后使用。
      *
-     * @param { string } color the specified color. [since 9 - 17]
+     * @param { string } color 需要设置的背景色，为十六进制RGB或ARGB颜色，不区分大小写，例如`'#00FF00'`或`'#FF00FF00'`。 [since 9 - 17]
      * @param { string | ColorMetrics } color - 需要设置的背景色，为十六进制RGB或ARGB颜色，不区分大小写，例如'#00FF00'或'#FF00FF00'。
      *     从API version 18开始，此参数支持ColorMetrics类型。 [since 18]
      * @throws { BusinessError } 1300002 - This window state is abnormal.
@@ -10035,7 +10033,7 @@ declare namespace window {
      * [setWindowPrivacyMode]{@link window.Window.setWindowPrivacyMode(isPrivacyMode: boolean, callback: AsyncCallback<void>)}
      * 接口设置），截图结果为白屏。
      *
-     * @returns { Promise<image.PixelMap> } Promise used to return the window screenshot.
+     * @returns { Promise<image.PixelMap> } Promise对象，返回当前窗口截图。
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      *     Possible cause: 1. The window is not created or destroyed;
      *     2. Get pixelMap failed;
@@ -10056,7 +10054,7 @@ declare namespace window {
      * [loadContent()]{@link window.Window.loadContent(path: string, storage: LocalStorage, callback: AsyncCallback<void>)}
      * 或[setUIContent()]{@link window.Window.setUIContent(path: string, callback: AsyncCallback<void>)}调用生效后使用。
      *
-     * @returns { image.PixelMap } Window screenshot.
+     * @returns { image.PixelMap } 返回当前窗口截图。
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
      *     capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
@@ -10074,7 +10072,7 @@ declare namespace window {
      * [setWindowPrivacyMode]{@link window.Window.setWindowPrivacyMode(isPrivacyMode: boolean, callback: AsyncCallback<void>)}
      * 接口设置），仍可调用本接口返回当前窗口截图。
      *
-     * @returns { Promise<image.PixelMap> } Promise used to return the window screenshot.
+     * @returns { Promise<image.PixelMap> } Promise对象，返回当前窗口截图。
      * @throws { BusinessError } 801 - Capability not supported.
      *     Function snapshotIgnorePrivacy can not work correctly due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
