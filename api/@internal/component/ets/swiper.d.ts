@@ -1714,7 +1714,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * >
    * > - In continuous scrolling scenarios where one **Swiper** child component is displayed per screen, setting
    * > **cachedCount** to **1** or **2** is typically sufficient. For best practices, see
-   * > [Optimizing Frame Loss During Swiper Component Loading — Caching Data Items](https://developer.huawei.com/consumer/en/doc/best-practices/bpta-swiper_high_performance_development_guide#section143504547145).
+   * > [Optimizing Frame Loss During Swiper Component Loading – Caching Data Items](https://developer.huawei.com/consumer/en/doc/best-practices/bpta-swiper_high_performance_development_guide#section143504547145).
    * >
    * >
    * > - This parameter takes effect only when used with
@@ -2128,7 +2128,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * > - When this callback is invoked, the page transition animation logic is executed in the rendering thread,
    * > allowing the idle main thread to load resources required by child components. This reduces preloading time for
    * > nodes within the **cachedCount** range. For best practices, see
-   * > [Optimizing Frame Loss During Swiper Component Loading — Preloading Data](https://developer.huawei.com/consumer/en/doc/best-practices/bpta-swiper_high_performance_development_guide#section8783121513246).
+   * > [Optimizing Frame Loss During Swiper Component Loading – Preloading Data](https://developer.huawei.com/consumer/en/doc/best-practices/bpta-swiper_high_performance_development_guide#section8783121513246).
    * >
    * >
    * > - When the duration of the page transition animation is set to **0**, this callback is triggered only in the

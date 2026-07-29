@@ -1984,6 +1984,17 @@ export declare interface NavigationAttribute extends CommonMethod {
   default enableVisibilityLifecycleWithContentCover(isEnabled: boolean | undefined): this;
 
   /**
+   * Set placeholder in split mode.
+   *
+   * @param { ComponentContent<Object> | undefined } placeholder - Set placeholder in split mode.
+   * @returns { NavigationAttribute } - Returns the instance of the NavigationAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  default splitPlaceholder(placeholder: ComponentContent<Object> | undefined): this;
+
+  /**
    * Sets Navigation configuration.
    *
    * @param { NavigationConfiguration | undefined } config - Navigation configuration options.
@@ -2030,17 +2041,6 @@ export declare interface NavigationAttribute extends CommonMethod {
    * @since 23 static
    */
   default attributeModifier(modifier: AttributeModifier<NavigationAttribute> | AttributeModifier<CommonMethod> | undefined): this;
-
-  /**
-   * Set placeholder in split mode.
-   *
-   * @param { ComponentContent<Object> | undefined } placeholder - Set placeholder in split mode.
-   * @returns { NavigationAttribute } - Returns the instance of the NavigationAttribute.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 26.0.0 static
-   */
-  default splitPlaceholder(placeholder: ComponentContent<Object> | undefined): this;
 }
 
 /**

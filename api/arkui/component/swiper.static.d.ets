@@ -23,7 +23,7 @@
 import { IndicatorComponentController } from './indicatorcomponent';
 import { CommonMethod, Callback, ICurve, Bindable, AttributeModifier } from './common';
 import { EdgeEffect, Curve, PageFlipMode } from './enums';
-import { Length, LengthMetrics, VoidCallback, ResourceColor, VP, Font, ItemFillPolicy, ResourceStr } from './units';
+import { Length, LengthMetrics, VoidCallback, ResourceColor, VP, Font, ResourceStr, ItemFillPolicy } from './units';
 import { Builder, ComponentBuilder, CustomBuilder, CustomBuilderT } from './builder';
 import { ScrollState } from "./list";
 import { SymbolGlyphModifier } from '../SymbolGlyphModifier';
@@ -1033,7 +1033,7 @@ export declare interface SwiperAttribute extends CommonMethod {
    * @stagemodelonly
    * @since 23 static
    */
-  default displayCount(value: int | string | SwiperAutoFill | ItemFillPolicy | undefined, swipeByGroup?: boolean | undefined): this;
+  default displayCount(value: int | string | SwiperAutoFill | ItemFillPolicy| undefined, swipeByGroup?: boolean | undefined): this;
 
   /**
    * Invoked when setting the sliding effect

@@ -23,7 +23,7 @@
 
 /**
  * @namespace router
- * @syscap SystemCapability.ArkUI.ArkUI.Full [since 23]
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  */

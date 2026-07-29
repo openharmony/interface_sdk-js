@@ -22,17 +22,15 @@
 
 import { ResourceColor } from '@ohos.arkui.component';
 
-import { ResourceColor } from './arkui/component/units';
-
 /**
  * Defines the struct of Theme.
  *
+ * @interface Theme
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  */
 export declare interface Theme {
-
   /**
    * Define tokens associated with color resources.
    *
@@ -42,16 +40,15 @@ export declare interface Theme {
    */
   colors: Colors;
 }
-
 /**
  * Defines the struct of Colors.
  *
+ * @interface Colors
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  */
 export declare interface Colors {
-
   /**
    * System brand Color.
    *
@@ -538,7 +535,6 @@ export declare interface Colors {
    */
   interactiveClick: ResourceColor;
 }
-
 /**
  * Defines the struct of CustomTheme.
  *
@@ -547,7 +543,6 @@ export declare interface Colors {
  * @since 23 static
  */
 export declare interface CustomTheme {
-
   /**
    * Define tokens associated with color resources..
    *
@@ -568,7 +563,6 @@ export declare interface CustomTheme {
    */
   darkColors?: CustomDarkColors;
 }
-
 /**
  * Defines the struct of CustomColors.
  *
@@ -577,7 +571,6 @@ export declare interface CustomTheme {
  * @since 23 static
  */
 export type CustomColors = Partial<Colors>;
-
 /**
  * Defines a struct for custom dark theme colors.
  *

@@ -8551,6 +8551,7 @@ declare interface PickerTextStyle {
 /**
  * Provide an interface for the button style of picker
  *
+ * @interface PickerDialogButtonStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -8561,6 +8562,7 @@ declare interface PickerDialogButtonStyle {
   /**
    * Describes the button type.
    *
+   * @type { ?ButtonType }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -8572,6 +8574,7 @@ declare interface PickerDialogButtonStyle {
   /**
    * Describes the button style.
    *
+   * @type { ?ButtonStyleMode }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -8583,6 +8586,7 @@ declare interface PickerDialogButtonStyle {
   /**
    * Describes the button role.
    *
+   * @type { ?ButtonRole }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -8594,6 +8598,7 @@ declare interface PickerDialogButtonStyle {
   /**
    * Describes the button text size.
    *
+   * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -8605,6 +8610,7 @@ declare interface PickerDialogButtonStyle {
   /**
    * Describes the button text color.
    *
+   * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -8616,6 +8622,7 @@ declare interface PickerDialogButtonStyle {
   /**
    * Describes the button font weight.
    *
+   * @type { ?(FontWeight | number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -8627,6 +8634,7 @@ declare interface PickerDialogButtonStyle {
   /**
    * Describes the button font style.
    *
+   * @type { ?FontStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -8638,6 +8646,7 @@ declare interface PickerDialogButtonStyle {
   /**
    * Describes the button font family.
    *
+   * @type { ?(Resource | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -8649,6 +8658,7 @@ declare interface PickerDialogButtonStyle {
   /**
    * Describes the button background color.
    *
+   * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -8660,6 +8670,7 @@ declare interface PickerDialogButtonStyle {
   /**
    * Describes the button border radius.
    *
+   * @type { ?(Length | BorderRadiuses) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -8671,6 +8682,7 @@ declare interface PickerDialogButtonStyle {
   /**
    * Define whether the button default to responding to the Enter key
    *
+   * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -30746,6 +30758,7 @@ declare enum HoverModeAreaType {
 /**
  * Defines a range of dates.
  *
+ * @interface DateRange
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -30756,6 +30769,7 @@ declare interface DateRange {
   /**
    * Defines the start date of the date range.
    *
+   * @type { ?Date }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -30767,6 +30781,7 @@ declare interface DateRange {
   /**
    * Defines the end date of the date range.
    *
+   * @type { ?Date }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform

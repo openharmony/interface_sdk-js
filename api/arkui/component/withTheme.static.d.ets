@@ -19,9 +19,7 @@
  */
 
 import { CustomTheme } from '../../@ohos.arkui.theme';
-
 import { ThemeColorMode, AttributeModifier, CommonMethod } from './common';
-
 import { ComponentBuilder, CustomBuilder, CustomBuilderT, Builder } from './builder';
 
 /**
@@ -32,7 +30,6 @@ import { ComponentBuilder, CustomBuilder, CustomBuilderT, Builder } from './buil
  * @since 23 static
  */
 export declare interface WithThemeOptions {
-
   /**
    * Custom Theme.
    *
