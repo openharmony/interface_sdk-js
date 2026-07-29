@@ -3663,7 +3663,7 @@ export declare class ContextMenuController {
 }
 
 /**
-* 用于设置下一帧渲染时需要执行的任务。
+* 用于定义帧回调任务，可在下一帧渲染阶段或帧渲染任务结束后的空闲阶段执行。
 *
 * > **说明：**
 * >
@@ -4471,8 +4471,7 @@ export const enum ResolveStrategy {
 * >
 * > - 示例效果请以真机运行为准，当前DevEco Studio预览器不支持。
 * >
-* > - ResolvedUIContext继承自[UIContext]{@link @ohos.arkui.UIContext}，该类对象包含[UIContext]{@link @ohos.arkui.UIContext}实例和
-* > [UIContext]{@link @ohos.arkui.UIContext}的解析策略。
+* > - ResolvedUIContext继承自[UIContext]{@link @ohos.arkui.UIContext}，并新增strategy属性用于记录该UIContext实例的解析策略。
 *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -5047,9 +5046,9 @@ export class UIContext {
   setImageRawDataCacheSize(value: number): void;
 
   /**
-   * 在当前UI上下文执行传入的回调函数。
+   * 在当前UIContext对应的UI实例作用域内执行传入的回调函数。
    *
-   * @param { function } callback - 回调函数
+   * @param { function } callback - 需要在当前UIContext对应的UI实例作用域内执行的回调函数。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -5235,7 +5234,7 @@ export class UIContext {
   getAttachedFrameNodeById(id: string): FrameNode | null;
 
   /**
-   * 提供getFrameNodeByUniqueId接口通过组件的uniqueId获取组件树的实体节点。
+   * 通过组件的uniqueId获取组件树的实体节点。
    *
    * 1. 当uniqueId对应的是系统组件时，返回组件所对应的FrameNode；
    * 2. 当uniqueId对应的是自定义组件时：
@@ -5243,7 +5242,7 @@ export class UIContext {
    *    - 若其无渲染内容，或者被[@Reusable装饰器](docroot://ui/state-management/arkts-reusable.md)修饰时，在该自定义组件的子组件创建完成前调用此接口，将返回null；在该自定义组件的子组件创建完成后调用，返回其第一个子组件的FrameNode。
    * 3. 当uniqueId无对应的组件时，返回null。
    *
-   * @param { number } id - 节点对应的UniqueId
+   * @param { number } id - 节点对应的UniqueId。
    * @returns { FrameNode | null } - The FrameNode with the target uniqueId, or null if the frameNode is not existed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -5254,7 +5253,7 @@ export class UIContext {
   getFrameNodeByUniqueId(id: number): FrameNode | null;
 
   /**
-   * Get page information of the frameNode with uniqueId.
+   * 通过组件的uniqueId获取该节点对应的Router和NavDestination页面信息。
    *
    * @param { number } id - The uniqueId of the target FrameNode.
    * @returns { PageInfo } - The page information of the frameNode with the target uniqueId, includes
@@ -5605,7 +5604,7 @@ export class UIContext {
   /**
    * 获取当前实例所在窗口的高度断点。具体枚举值根据窗口高宽比确定，详见 [HeightBreakpoint]{@link HeightBreakpoint}。
    *
-   * @returns { HeightBreakpoint } 当前实例所在窗口的宽高比对应的高度断点枚举值。若窗口高宽比为0，则返回HEIGHT_SM。
+   * @returns { HeightBreakpoint } 当前实例所在窗口的高宽比对应的高度断点枚举值。若窗口高宽比为0，则返回HEIGHT_SM。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform [since 22]
