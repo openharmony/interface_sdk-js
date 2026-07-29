@@ -148,7 +148,7 @@ declare namespace batteryInfo {
   function batteryCapacityLevel(): BatteryCapacityLevel;
 
   /**
-   * 获取当前设备电池的总容量，单位毫安时。
+   * 获取当前设备充满电的预估时间，单位毫秒。
    *
    * @returns { long } 返回当前设备充满电的预估时间，单位毫秒。
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
