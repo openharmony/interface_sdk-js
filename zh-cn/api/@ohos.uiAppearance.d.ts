@@ -35,7 +35,7 @@ import type { AsyncCallback } from './@ohos.base';
 declare namespace uiAppearance {
 
   /**
-   * 深色模式枚举。
+   * 深浅色模式枚举，用于配置系统的深色或浅色模式。
    *
    * | 名称 | 值 | 说明 |
    * | -- | -- | -- |
@@ -71,7 +71,7 @@ declare namespace uiAppearance {
   }
 
   /**
-   * 设置系统深色模式。使用callback异步回调。
+   * 设置系统深浅色模式，修改系统级配色方案配置。设置后，所有跟随系统配色方案的应用将自动切换至对应模式。使用callback异步回调。
    *
    * @permission ohos.permission.UPDATE_CONFIGURATION
    * @param { DarkMode } mode - indicates the dark-mode to set
@@ -89,7 +89,7 @@ declare namespace uiAppearance {
   function setDarkMode(mode: DarkMode, callback: AsyncCallback<void>): void;
 
   /**
-   * 设置系统深色模式。使用Promise异步回调。
+   * 设置系统深浅色模式，修改系统级配色方案配置。设置后，所有跟随系统配色方案的应用将自动切换至对应模式。使用Promise异步回调。
    *
    * @permission ohos.permission.UPDATE_CONFIGURATION
    * @param { DarkMode } mode - indicates the dark-mode to set
@@ -107,7 +107,7 @@ declare namespace uiAppearance {
   function setDarkMode(mode: DarkMode): Promise<void>;
 
   /**
-   * 获取系统当前的深色模式配置。
+   * 获取系统当前的深浅色模式配置。适用于需要根据系统外观模式动态适配应用UI主题的场景，例如应用内实现深色/浅色主题风格自动切换。
    *
    * <!--Del-->
    *
@@ -150,7 +150,7 @@ declare namespace uiAppearance {
   function setFontScale(fontScale: number): Promise<void>;
 
   /**
-   * 获取系统当前的字体大小缩放比例。
+   * 获取系统当前的字体大小缩放比例。该比例为系统设置中用户配置的字体大小相对于默认字体大小的倍数，取值范围请参考系统字体大小设置。开发者可基于该比例值调整应用内字体大小，以适配用户的字体偏好设置。
    *
    * <!--Del-->
    *
@@ -191,7 +191,7 @@ declare namespace uiAppearance {
   function setFontWeightScale(fontWeightScale: number): Promise<void>;
 
   /**
-   * 获取系统当前的字体粗细缩放比例。
+   * 获取系统当前的字体粗细缩放比例。该比例为系统设置中用户配置的字体粗细相对于默认字体粗细的倍数，取值范围请参考系统字体粗细设置。开发者可基于该比例值调整应用内字体粗细，以适配用户的字体粗细偏好设置。
    *
    * <!--Del-->
    *

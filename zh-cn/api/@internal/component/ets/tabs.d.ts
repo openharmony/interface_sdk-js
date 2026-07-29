@@ -86,7 +86,7 @@ declare enum BarMode {
 declare enum AnimationMode {
 
   /**
-   * 先加载目标页内容，再开始切换动画。
+   * 先加载目标页内容，再开始切换动画。适用于需要先确保内容加载完成再展示动画的场景，可避免动画过程中出现空白内容，推荐用于内容加载较快、需要平滑过渡的场景。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -97,7 +97,7 @@ declare enum AnimationMode {
   CONTENT_FIRST = 0,
 
   /**
-   * 先开始切换动画，再加载目标页内容；生效需要同时需要满足：Tabs的height、width没有设置成auto。
+   * 先开始切换动画，再加载目标页内容；生效需要同时需要满足：Tabs的height、width没有设置成auto。适用于需要立即响应用户操作、快速开始动画的场景，推荐用于内容加载较慢但希望提供快速视觉反馈的场景。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -154,7 +154,7 @@ declare enum AnimationMode {
 declare enum BarPosition {
 
   /**
-   * vertical属性方法设置为true时，页签位于容器左侧；vertical属性方法设置为false时，页签位于容器顶部。
+   * vertical属性设置为true时，页签位于容器左侧；vertical属性设置为false时，页签位于容器顶部。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -164,7 +164,7 @@ declare enum BarPosition {
   Start,
 
   /**
-   * vertical属性方法设置为true时，页签位于容器右侧；vertical属性方法设置为false时，页签位于容器底部。
+   * vertical属性设置为true时，页签位于容器右侧；vertical属性设置为false时，页签位于容器底部。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -273,7 +273,7 @@ declare enum TabsCacheMode {
 declare enum TabsNestedScrollMode {
 
   /**
-   * Tabs自身滚动，不与父组件联动。
+   * Tabs自身滚动，不与父组件联动。适用于Tabs组件内部有完整滚动功能、需要独立控制滚动行为的场景。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -284,7 +284,7 @@ declare enum TabsNestedScrollMode {
   SELF_ONLY = 0,
 
   /**
-   * Tabs自身先滚动，自身滚动到边缘以后父组件滚动。父组件滚动到边缘以后，如果父组件有边缘效果，则父组件触发边缘效果，否则Tabs触发边缘效果。
+   * Tabs自身先滚动，自身滚动到边缘以后父组件滚动。父组件滚动到边缘以后，如果父组件有边缘效果，则父组件触发边缘效果，否则Tabs触发边缘效果。适用于Tabs作为主要滚动区域、滚动到边缘后需要与父组件联动的嵌套滚动场景。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -316,7 +316,7 @@ declare class TabsController {
   constructor();
 
   /**
-   * 控制Tabs切换到指定页签。
+   * 控制Tabs切换到指定页签。在需要通过按钮、下拉菜单或其他控件实现页签跳转功能时使用，例如点击“上一页”/“下一页”按钮切换页签。
    *
    * @param { number } value - 页签在Tabs里的索引值，索引值从0开始。取值范围：[0, 页签总数-1]。设置范围外的值时按0处理。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -327,7 +327,7 @@ declare class TabsController {
   changeIndex(value: number): void;
 
   /**
-   * 控制Tabs预加载指定子节点。调用该接口后会一次性加载所有指定的子节点，因此为了性能考虑，建议分批加载子节点。
+   * 控制Tabs预加载指定子节点。调用该接口后会一次性加载所有指定的子节点，因此为了性能考虑，建议分批加载子节点。适用于需要提前加载某些页签以提高切换性能的场景，如某些页签内容较复杂或资源较多时，可预加载以优化用户体验。
    *
    * > **说明：**
    *
@@ -353,7 +353,7 @@ declare class TabsController {
   preloadItems(indices: Optional<Array<number>>): Promise<void>;
 
   /**
-   * 设置TabBar的平移距离。
+   * 设置TabBar的平移距离。适用于需要实现TabBar动态位置调整的场景，如TabBar滑动隐藏显示效果、配合页面滚动实现沉浸式体验等。
    *
    * > **说明：**
    *
@@ -373,7 +373,7 @@ declare class TabsController {
   setTabBarTranslate(translate: TranslateOptions): void;
 
   /**
-   * 设置TabBar的不透明度。
+   * 设置TabBar的不透明度。适用于需要调整TabBar显示透明度的场景，如TabBar渐隐渐显效果、降低TabBar视觉干扰突出内容等。
    *
    * > **说明：**
    *
@@ -383,7 +383,7 @@ declare class TabsController {
    * > 等接口绑定了Tabs组件和可滚动容器组件后，在滑动可滚动容器组件时，会触发所有与其绑定的Tabs组件的TabBar的显示和隐藏动效，调用setTabBarOpacity接口设置的TabBar不透明度会失效。因此不建议同时使用
    * > bindTabsToScrollable、bindTabsToNestedScrollable和setTabBarOpacity接口。
    *
-   * @param { number } opacity - 设置TabBar的不透明度，取值范围为[0.0, 1.0]，设置的值小于0.0时，按0.0处理，设置的值大于1.0时，按1.0处理。<br> 默认值：1.0。
+   * @param { number } opacity - 设置TabBar的不透明度，值为1.0表示完全不透明，值为0.0表示完全透明。取值范围为[0.0, 1.0]，设置的值小于0.0时，按0.0处理，设置的值大于1.0时，按1.0处理。<br> 默认值：1.0。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1258,7 +1258,7 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    * > 如果在动画过程中index参数发生变化，将使用最新值触发回调。
    *
    * @param { function } event - Index of the active tab. The index starts from 0. [since 7 - 17]
-   * @param { Callback<number> } event - 当前显示的index索引，索引从0开始计算。 [since 18]
+   * @param { Callback<number> } event - 当前显示页签的索引值，从0开始计算。 [since 18]
    * @returns { TabsAttribute }
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -1298,7 +1298,7 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    * Tab页签点击后触发的事件。
    *
    * @param { function } event - Index of the clicked tab. The index starts from 0. [since 10 - 17]
-   * @param { Callback<number> } event - 被点击的index索引，索引从0开始计算。 [since 18]
+   * @param { Callback<number> } event - 被点击页签的索引值，从0开始计算。 [since 18]
    * @returns { TabsAttribute }
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1369,7 +1369,7 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    *
    * @param { function } handler - Triggered on a frame-by-frame basis during swipe gestures for tab
    *     switching. [since 11 - 17]
-   * @param { OnTabsGestureSwipeCallback } handler - 在页面跟手滑动过程中，逐帧触发的回调。 [since 18]
+   * @param { OnTabsGestureSwipeCallback } handler - 在页面跟手滑动过程中，逐帧触发，用于监听当前显示页面的实时滑动状态。 [since 18]
    * @returns { TabsAttribute }
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1634,7 +1634,7 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
 declare interface TabContentAnimatedTransition {
 
   /**
-   * Tabs自定义切换动画超时时间。从自定义动画开始切换计时，如果到达该时间后，开发者仍未调用[TabContentTransitionProxy]{@link TabContentTransitionProxy}的
+   * 自定义切换动画超时时间。如果到达该时间后，开发者仍未调用[TabContentTransitionProxy]{@link TabContentTransitionProxy}的
    * finishTransition接口通知Tabs组件自定义动画结束，那么组件就会认为此次自定义动画已结束，直接执行后续操作。
    *
    * 默认值：1000

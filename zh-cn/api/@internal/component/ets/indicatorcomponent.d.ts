@@ -19,7 +19,8 @@
  */
 
 /**
- * Indicator组件的控制器，可以将此对象绑定至Indicator组件来控制翻页。
+ * Indicator组件的控制器，可以将此对象绑定至Indicator组件来控制翻页。通过将同一IndicatorComponentController
+ * 实例传入IndicatorComponent的构造函数和Swiper组件的indicator属性，可实现Indicator与Swiper的绑定联动。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -42,7 +43,7 @@ declare class IndicatorComponentController {
   constructor();
 
   /**
-   * 跳转到下一导航点。
+   * 跳转到下一导航点。当与Swiper组件绑定时，同时会控制Swiper切换至下一页面。适用于通过按钮或其他交互方式控制导航点切换的场景。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -54,7 +55,7 @@ declare class IndicatorComponentController {
   showNext():void;
 
   /**
-   * 跳转到上一导航点。
+   * 跳转到上一导航点。当与Swiper组件绑定时，同时会控制Swiper切换至上一页面。适用于通过按钮等交互方式控制导航点切换的场景。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -66,7 +67,7 @@ declare class IndicatorComponentController {
   showPrevious():void;
 
    /**
-   * 翻至指定导航点。
+   * 翻至指定导航点。适用于需要跳转到指定导航点的场景。
    *
    * @param { number } index - 指定导航点在Swiper中的索引值。<br/>**说明：** <br/>设置的值小于0或大于最大导航点索引时，取0。
    * @param { boolean } [useAnimation] - 设置翻至指定导航点时是否有动效，true表示有动效，false表示没有动效。<br/>默认值：false。
@@ -121,7 +122,7 @@ interface IndicatorComponentInterface {
  */
 declare class IndicatorComponentAttribute extends CommonMethod<IndicatorComponentAttribute> {
  /**
-   * 设置首次显示时当前导航点的索引值。设置小于0或大于等于导航点数量时，按照默认值0处理。
+   * 设置首次显示时当前导航点的索引值。传入值小于0或大于等于导航点数量时，按照默认值0处理。
    * 
    * 单独导航点组件和Swiper绑定的时候，该属性不生效。
    *

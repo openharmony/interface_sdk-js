@@ -49,7 +49,7 @@ export class ArcSwiperController {
   constructor();
 
   /**
-   * 翻至下一页。翻页带动效切换过程，时长通过[duration]{@link ArcSwiperAttribute#duration}指定。
+   * 翻至下一页。翻页带动效切换过程，时长通过[duration]{@link ArcSwiperAttribute#duration}指定。通过此方法控制翻页时，effectMode设置的回弹效果不生效。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
@@ -59,7 +59,7 @@ export class ArcSwiperController {
   showNext();
 
   /**
-   * 翻至上一页。翻页带动效切换过程，时长通过[duration]{@link ArcSwiperAttribute#duration}指定。
+   * 翻至上一页。翻页带动效切换过程，时长通过[duration]{@link ArcSwiperAttribute#duration}指定。通过此方法控制翻页时，effectMode设置的回弹效果不生效。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
@@ -69,7 +69,7 @@ export class ArcSwiperController {
   showPrevious();
 
   /**
-   * 停止播放动画。
+   * 停止播放动画。通过此方法控制翻页时，effectMode设置的回弹效果不生效。
    *
    * @param { FinishAnimationHandler } handler - 动画结束的回调。<br>默认值：不传入时无回调。
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
@@ -227,7 +227,7 @@ interface ArcSwiperInterface {
 }
 
 /**
-* 当前显示元素的索引变化时，告知应用。
+* 当前显示元素的索引变化时，告知应用。index序列从0开始。
 *
  * @param { number } index - 当前显示元素的索引。index序列从0开始。
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
@@ -287,8 +287,8 @@ declare interface SwiperContentAnimatedTransition {
   /**
    * ArcSwiper自定义切换动画超时时间。从页面执行默认动画（页面滑动）至移出视窗外的第一帧开始计时，如果到达该时间后，开发者仍未调用
    * [SwiperContentTransitionProxy]{@link SwiperContentTransitionProxy}的
-   * [finishTransition]{@link SwiperContentTransitionProxy.finishTransition}接口通知ArcSwiper组件此页面的自定义动画已结束，那么组件就会认为此页面的自定义动
-   * 画已结束，立即在该页面节点下渲染树。<br/>单位：ms<br/>默认值：0。
+   * [finishTransition]{@link SwiperContentTransitionProxy.finishTransition}接口通知ArcSwiper组件此页面的自定义动画已结束，组件将强制结束该页面的自定义动
+   * 画，并立即在该页面节点下渲染树。单位ms，默认值为0。
    *
    * @default 0 ms
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
@@ -391,7 +391,7 @@ declare interface SwiperContentTransitionProxy {
 declare class ArcSwiperAttribute extends CommonMethod<ArcSwiperAttribute> {
 
   /**
-   * 设置当前在容器中显示的子组件的索引值。设置小于0或大于等于子组件数量时，按照默认值0处理。
+   * 设置当前在容器中显示的子组件的索引值。当index值为undefined、小于0或大于等于子组件数量时，按照默认值0处理。
    *
    * @param { Optional<number> } index - 当前在容器中显示的子组件的索引值。<br/>当index值为undefined时，按取值为0处理。
    * @returns { ArcSwiperAttribute }
@@ -418,7 +418,7 @@ declare class ArcSwiperAttribute extends CommonMethod<ArcSwiperAttribute> {
   /**
    * 设置子组件切换的动画时长。
    *
-   * @param { Optional<number> } duration - 子组件切换的动画时长。<br/>默认值：400<br/>单位：毫秒
+   * @param { Optional<number> } duration - 子组件切换的动画时长。<br/>默认值：400<br/>单位：毫秒。传入负数时按默认值处理。
    * @returns { ArcSwiperAttribute }
       * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
@@ -452,7 +452,7 @@ declare class ArcSwiperAttribute extends CommonMethod<ArcSwiperAttribute> {
   disableSwipe(disabled: Optional<boolean>): ArcSwiperAttribute;
 
   /**
-   * 设置旋转表冠的灵敏度。
+   * 设置旋转表冠的灵敏度。通过旋转表冠可以控制ArcSwiper组件的翻页，设置不同灵敏度级别可调整表冠滚动的响应速度，灵敏度越高，单位旋转角度对应的页面切换步进越大。
    *
    * @param { Optional<CrownSensitivity> } sensitivity - 旋转表冠的灵敏度。设置不同灵敏度级别可调整表冠滚动的响应速度。<br/>默认值：CrownSensitivity.MEDIUM
    * @returns { ArcSwiperAttribute }
@@ -493,7 +493,7 @@ declare class ArcSwiperAttribute extends CommonMethod<ArcSwiperAttribute> {
   /**
    * 切换动画结束时触发该回调。
    *
-   * 当ArcSwiper切换动效结束时触发，包括动画过程中手势中断，通过[SwiperController]{@link SwiperController}调用finishAnimation。参数为动画结束后的index值，多列
+   * 当ArcSwiper切换动效结束时触发，包括动画过程中手势中断或通过[SwiperController]{@link SwiperController}调用finishAnimation。参数为动画结束后的index值，多列
    * ArcSwiper时，index为最左侧组件的索引。
    *
    * @param { Optional<AnimationEndHandler> } handler - 切换动画结束时触发该回调。
@@ -536,7 +536,7 @@ declare class ArcSwiperAttribute extends CommonMethod<ArcSwiperAttribute> {
    * 在页面跟手滑动和离手后执行切换动画的过程中，会对视窗内所有页面逐帧触发[SwiperContentTransitionProxy]{@link SwiperContentTransitionProxy}回调。例如，当视窗内有下标为
    * 0、1的两个页面时，会每帧触发两次index值分别为0和1的回调。
    *
-   * @param { Optional<SwiperContentAnimatedTransition> } transition - ArcSwiper自定义切换动画相关信息。
+   * @param { Optional<SwiperContentAnimatedTransition> } transition - ArcSwiper自定义切换动画相关信息，包含timeout和transition两个属性。
    * @returns { ArcSwiperAttribute }
       * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
@@ -546,7 +546,7 @@ declare class ArcSwiperAttribute extends CommonMethod<ArcSwiperAttribute> {
   customContentTransition(transition: Optional<SwiperContentAnimatedTransition>): ArcSwiperAttribute;
 
   /**
-   * 是否关闭特殊动效效果。
+   * 设置是否关闭特殊动效效果。
    *
    * @param { Optional<boolean> } disabled - 是否关闭特殊动效效果。<br/>true：关闭特殊动效效果；false：不关闭特殊动效效果。<br/>传入参数非法时，按false处理。
    * @returns { ArcSwiperAttribute }
