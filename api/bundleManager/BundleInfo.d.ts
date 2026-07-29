@@ -624,7 +624,7 @@ export interface BundleOptions {
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @systemapi
  * @stagemodelonly
- * @since 26.1.0 dynamic&static
+ * @since 26.0.0 dynamic&static
  */
 export interface AppClonePreference {
   /**
@@ -633,7 +633,7 @@ export interface AppClonePreference {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.1.0 dynamic&static
+   * @since 26.0.0 dynamic&static
    */
   mode: bundleManager.AppClonePreferenceMode;
 
@@ -646,7 +646,7 @@ export interface AppClonePreference {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.1.0 dynamic&static
+   * @since 26.0.0 dynamic&static
    */
   appIndex?: int;
 }

@@ -1597,7 +1597,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.1.0 dynamic&static
+   * @since 26.0.0 dynamic&static
    */
   export enum AppClonePreferenceMode {
     /**
@@ -1606,7 +1606,7 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.0 dynamic&static
      */
     ALWAYS_ASK = 0,
 
@@ -1616,7 +1616,7 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.0 dynamic&static
      */
     MAIN_APP = 1,
 
@@ -1626,7 +1626,7 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.0 dynamic&static
      */
     CLONE_APP = 2
   }
@@ -4321,7 +4321,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.1.0 dynamic&static
+   * @since 26.0.0 dynamic&static
    */
   function getAppClonePreference(bundleName: string): Promise<AppClonePreference>;
 
@@ -4341,7 +4341,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.1.0 dynamic&static
+   * @since 26.0.0 dynamic&static
    */
   function setAppClonePreference(bundleName: string, appClonePreference: AppClonePreference): Promise<void>;
 
@@ -4983,7 +4983,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.1.0 dynamic
+   * @since 26.0.0 dynamic
    */
   export type AppClonePreference = _BundleInfo.AppClonePreference;
 
@@ -4993,7 +4993,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.1.0 static
+   * @since 26.0.0 static
    */
   export type AppClonePreference = _AppClonePreference;
 
