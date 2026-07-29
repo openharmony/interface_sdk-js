@@ -23,12 +23,12 @@ import userAuth from '@ohos.userIAM.userAuth';
 /**
  * **userAccessCtrl**模块是OpenHarmony用户身份认证体系（UserIAM）的核心组件，专门用于认证令牌的验证和管理。该模块提供了验证认证令牌（AuthToken）的API，能够解析和验证用户身份认证结果，并返回
  * 详细的认证信息。
- *
+ * 
  * 该模块主要用于以下场景：
- *
- * - 系统级应用需要验证用户身份认证令牌的有效性。
- * - 需要获取认证令牌的详细信息（如认证类型、信任级别、用户ID等）。
- * - 需要基于认证结果进行访问控制决策的场景。
+ * 
+ * - 系统级应用需要验证用户身份认证令牌的有效性，确保访问的安全性。
+ * - 需要获取认证令牌的详细信息（如认证类型、信任级别、用户ID等），用于精确识别用户身份。
+ * - 需要基于认证结果进行访问控制决策的场景，实现精细化权限管理。
  *
  * @syscap SystemCapability.UserIAM.UserAuth.Core
  * @since 18 dynamic
@@ -37,12 +37,14 @@ import userAuth from '@ohos.userIAM.userAuth';
 declare namespace userAccessCtrl {
   /**
    * 验证认证令牌。该接口用于校验AuthToken的有效性，包括完整性校验和时效性校验，校验通过后返回解析后的AuthToken详细信息。使用Promise异步回调。
+   * 
+   * 完整性校验通过验证AuthToken的数字签名确保令牌未被篡改；时效性校验通过比对AuthToken的签发时间与当前时间，并结合allowableDuration参数判断令牌是否在有效期内。
    *
    * @permission ohos.permission.USE_USER_ACCESS_MANAGER
    * @param { Uint8Array } authToken - 待验证的认证令牌。最大长度为1024字节，由用户认证通过后返回。令牌中包含用户身份认证的凭证信息，用于后续的安全操作验证。
    * @param { int } allowableDuration - 允许的认证有效时长。从AuthToken签发起允许使用的最大时间间隔，单位为毫秒。值需大于0且小于等于86400000（24小时）。用于校验令牌的时效性，防止过
    *     期令牌被使用。
-   * @returns { Promise<AuthToken> } Promise对象，用于返回AuthToken。
+   * @returns { Promise<AuthToken> } Promise对象，验证成功时返回解析后的AuthToken数据，包含挑战值、认证信任等级、认证类型、用户ID等详细信息；验证失败时抛出相应错误码。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied. Called by non-system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -60,7 +62,7 @@ declare namespace userAccessCtrl {
   function verifyAuthToken(authToken: Uint8Array, allowableDuration: int): Promise<AuthToken>;
 
   /**
-   * 认证令牌数据。表示校验通过后返回解析的AuthToken数据结果，包含认证的详细信息，如挑战值、认证信任等级、认证类型、用户ID等。
+   * 认证令牌数据。表示校验通过后返回解析后的AuthToken数据，包含认证的详细信息，如挑战值、认证信任等级、认证类型、用户ID等。
    *
    * @syscap SystemCapability.UserIAM.UserAuth.Core
    * @systemapi Hide this for inner system use.
@@ -79,7 +81,7 @@ declare namespace userAccessCtrl {
     challenge: Uint8Array;
 
     /**
-     * 认证信任等级。表示本次认证达到的安全强度等级，值为ATL1(10000)、ATL2(20000)、ATL3(30000)或ATL4(40000)。等级越高，表示活体检测能力越强、身份识别越精确。
+     * 认证信任等级。表示本次认证达到的安全强度等级，值为ATL1（10000）、ATL2（20000）、ATL3（30000）或ATL4（40000）。等级越高，表示活体检测能力越强、身份识别越精确。
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @systemapi Hide this for inner system use.
@@ -89,7 +91,7 @@ declare namespace userAccessCtrl {
     authTrustLevel: userAuth.AuthTrustLevel;
 
     /**
-     * 身份认证的凭据类型。表示本次认证使用的认证方式，如PIN(1)、FACE(2)、FINGERPRINT(4)等。
+     * 身份认证的凭据类型。表示本次认证使用的认证方式，如PIN（1）、FACE（2）、FINGERPRINT（4）等。
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @systemapi Hide this for inner system use.
@@ -109,7 +111,7 @@ declare namespace userAccessCtrl {
     tokenType: AuthTokenType;
 
     /**
-     * 用户ID。表示完成认证的用户标识，为大于等于0的正整数。
+     * 用户ID。表示完成认证的用户标识，取值为非负整数。
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @systemapi Hide this for inner system use.
