@@ -340,7 +340,7 @@ declare class SecurityComponentMethod<T> {
    * 设置安全控件中图标和文字的间距。
    *
    * @param { Dimension } value - 安全控件中图标和文字的间距。
-   *     <br>默认值：**4vp**<br/>
+   *     <br>默认值：**4vp**。<br/>
    *     <br>未显式指定单位时，单位为vp。<br/>**说明：** 本参数不支持设置百分比字符串数据类型，若设置百分比字符串，则图标和文字的间距显示为0；
    *     从API version 14开始，若设置值为负值，则使用默认值。
    * @returns { T } 安全控件的属性。
