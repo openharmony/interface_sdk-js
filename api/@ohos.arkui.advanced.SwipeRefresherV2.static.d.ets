@@ -18,7 +18,7 @@
  * @file
  * @kit ArkUI
  */
-import { Builder, ComponentV2 } from './@ohos.arkui.component';
+import { Builder, ComponentV2, ResourceStr } from './@ohos.arkui.component';
 import { Param, Require } from '@ohos.arkui.stateManagement';
 /**
  * Declare component SwipeRefresherV2
@@ -33,13 +33,12 @@ export declare struct SwipeRefresherV2 {
   /**
    * Sets the content when loading.
    *
-   * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.0.0 static
    */
   @Param
-  content?: string;
+  content?: ResourceStr;
 
   /**
    * Whether the component is loading.
