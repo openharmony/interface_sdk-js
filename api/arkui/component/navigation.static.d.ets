@@ -26,7 +26,7 @@ import { TextModifier } from '../../arkui/TextModifier';
 import { LengthMetrics } from '../../arkui/Graphics';
 import { Callback, BlurStyle, CommonMethod, LayoutSafeAreaType, LayoutSafeAreaEdge, BackgroundEffectOptions, 
   BackgroundBlurStyleOptions, PixelMap, Bindable, AttributeModifier } from './common';
-import { Builder, CustomBuilder, CustomBuilderT, PageMapBuilder } from './builder';
+import { CustomBuilder, PageMapBuilder } from './builder';
 import { Length, ResourceStr, ResourceColor, Dimension, VoidCallback } from './units';
 import { TitleHeight } from './enums';
 import { SymbolGlyphModifier } from '../../arkui/SymbolGlyphModifier';
@@ -459,45 +459,6 @@ export declare enum LaunchMode {
    * @since 23 static
    */
   NEW_INSTANCE = 3
-}
-
-/**
- * Navigation module info.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @since 26.0.0 staticonly
- */
-export declare interface NavigationModuleInfo {
-
-  /**
-   * The module name of Navigation
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 26.0.0 staticonly
-   */
-  moduleName: string;
-
-  /**
-   * The page path of Navigation
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 26.0.0 staticonly
-   */
-  pagePath: string;
-
-  /**
-   * Whether the stack of navigation is created by user
-   *
-   * Default value: false
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 26.0.0 staticonly
-   */
-  isUserCreateStack?: boolean;
 }
 
 /**
@@ -1968,6 +1929,17 @@ export declare interface NavigationAttribute extends CommonMethod {
    */
   default enableModeChangeAnimation(isEnabled: boolean | undefined): this;
 
+    /**
+     * Set placeholder in split mode.
+     *
+     * @param { ComponentContent<Object> | undefined } placeholder - Set placeholder in split mode.
+     * @returns { NavigationAttribute } - Returns the instance of the NavigationAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    default splitPlaceholder(placeholder: ComponentContent<Object> | undefined): this;
+  
   /**
    * Whether to enable the show or hide lifecycle with bindContentCover.
    * The true means that bindContentCover can affect the show or hide lifecycle of Navigation, and the false not.
@@ -1984,17 +1956,6 @@ export declare interface NavigationAttribute extends CommonMethod {
   default enableVisibilityLifecycleWithContentCover(isEnabled: boolean | undefined): this;
 
   /**
-   * Set placeholder in split mode.
-   *
-   * @param { ComponentContent<Object> | undefined } placeholder - Set placeholder in split mode.
-   * @returns { NavigationAttribute } - Returns the instance of the NavigationAttribute.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 26.0.0 static
-   */
-  default splitPlaceholder(placeholder: ComponentContent<Object> | undefined): this;
-
-  /**
    * Sets Navigation configuration.
    *
    * @param { NavigationConfiguration | undefined } config - Navigation configuration options.
@@ -2004,31 +1965,6 @@ export declare interface NavigationAttribute extends CommonMethod {
    * @since 26.0.0 static
    */
   default configuration(config: NavigationConfiguration | undefined): this;
-
-  /**
-   * Sets Navigation options.
-   *
-   * @param { NavPathStack } [pathInfos] - the stack of navigation
-   * @param { HomePathInfo } [homeDestination] - the custom home destination info.
-   * @param { NavigationModuleInfo } [moduleInfo] - the pageInfo and module info of navigation
-   * @returns { NavigationAttribute } Returns instance of NavigationAttribute.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 26.0.0 staticonly
-   */
-  default setNavigationOptions(pathInfos?: NavPathStack, homeDestination?: HomePathInfo, moduleInfo?: NavigationModuleInfo): this;
-
-  /**
-   * Sets Navigation options.
-   *
-   * @param { NavPathStack } [pathInfos] - the stack of navigation
-   * @param { NavigationModuleInfo } [moduleInfo] - the pageInfo and module info of navigation
-   * @returns { NavigationAttribute } Returns instance of NavigationAttribute.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 26.0.0 staticonly
-   */
-  default setNavigationOptions(pathInfos?: NavPathStack,  moduleInfo?: NavigationModuleInfo): this;
 
   /**
    * Set the attribute modifier of navigation.
@@ -2301,20 +2237,4 @@ export declare function Navigation(
     pathInfos?: NavPathStack, 
     homeDestination?: HomePathInfo,
     content_?: CustomBuilder
-): NavigationAttribute;
-
-/**
- * Defines Navigation Component
- *
- * @param { CustomBuilderT<NavigationAttribute> } style_ - navigation attribute instance
- * @param { CustomBuilder } [content_] - container
- * @returns { NavigationAttribute } Returns the instance of the NavigationAttribute.
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @since 26.0.0 staticonly
- */
-@Builder
-export declare function Navigation(
- style_: CustomBuilderT<NavigationAttribute>,
- content_?: CustomBuilder,
 ): NavigationAttribute;

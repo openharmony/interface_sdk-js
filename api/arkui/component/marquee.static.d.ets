@@ -21,7 +21,7 @@ import { ResourceColor, Length, LengthMetrics, ResourceStr, VoidCallback } from 
 import { CommonMethod, AttributeModifier } from "./common";
 import { FontWeight, MarqueeUpdateStrategy } from "./enums";
 import { Resource } from './../../../api/global/resource';
-import { Builder, ComponentBuilder, CustomBuilder, CustomBuilderT } from './builder';
+import { ComponentBuilder, CustomBuilder } from './builder';
 
 /**
  * Defines Marquee constructor options.
@@ -285,17 +285,6 @@ export declare interface MarqueeAttribute extends CommonMethod {
      * @since 23 static
      */
     default attributeModifier(modifier: AttributeModifier<MarqueeAttribute> | AttributeModifier<CommonMethod> | undefined): this;
-
-    /**
-     * Set Marquee options.
-     *
-     * @param { MarqueeOptions } options - Marquee constructor options
-     * @returns { MarqueeAttribute } Returns the instance of the MarqueeAttribute.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 26.0.0 staticonly
-     */
-    default setMarqueeOptions(options: MarqueeOptions): this;
 }
 
 /**
@@ -312,18 +301,3 @@ export declare interface MarqueeAttribute extends CommonMethod {
 export declare function Marquee(
     options: MarqueeOptions
 ): MarqueeAttribute
-
-/**
- * Defines Marquee Component.
- *
- * @param { CustomBuilderT<MarqueeAttribute> } style - Marquee attribute instance
- * @returns { MarqueeAttribute }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @since 26.0.0 staticonly
- * @noninterop
- */
-@Builder
-export declare function Marquee(
-    style: CustomBuilderT<MarqueeAttribute>,
-): MarqueeAttribute;

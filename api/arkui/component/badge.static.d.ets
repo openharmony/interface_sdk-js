@@ -21,7 +21,7 @@
 import { ResourceColor, Length, Position, Resource, ResourceStr, LengthMetrics } from "./units";
 import { FontWeight } from "./enums";
 import { CommonMethod } from './common';
-import { Builder, ComponentBuilder, CustomBuilder, CustomBuilderT } from './builder';
+import { ComponentBuilder, CustomBuilder } from './builder';
 import { AttributeModifier } from "./common";
 
 /**
@@ -288,17 +288,6 @@ export declare interface BadgeAttribute extends CommonMethod {
      * @since 23 static
      */
     default attributeModifier(modifier: AttributeModifier<BadgeAttribute> | AttributeModifier<CommonMethod> | undefined): this;
-
-    /**
-     * Set badge options.
-     *
-     * @param { BadgeParamWithNumber | BadgeParamWithString } value - badge constructor options
-     * @returns { BadgeAttribute } Returns the instance of the BadgeAttribute.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 26.0.0 staticonly
-     */
-    default setBadgeOptions(value: BadgeParamWithNumber | BadgeParamWithString): this;
 }
 /**
  * Defines Badge Component.
@@ -316,21 +305,4 @@ export declare interface BadgeAttribute extends CommonMethod {
 export declare function Badge(
     value: BadgeParamWithNumber | BadgeParamWithString, 
     content_?: CustomBuilder
-): BadgeAttribute;
-
-/**
- * Defines Badge Component.
- *
- * @param { CustomBuilderT<BadgeAttribute> } style - badge attribute instance
- * @param { CustomBuilder } [content_] - Child component
- * @returns { BadgeAttribute }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @since 26.0.0 staticonly
- * @noninterop
- */
-@Builder
-export declare function Badge(
-    style: CustomBuilderT<BadgeAttribute>,
-    content_?: CustomBuilder,
 ): BadgeAttribute;

@@ -21,8 +21,7 @@ import { ImageAIOptions, ImageAnalyzerConfig } from "./imageCommon";
 import { CommonMethod, AttributeModifier, Callback } from "./common";
 import { XComponentType } from "./enums";
 import { VoidCallback, DrawingCanvas } from "./units";
-import { ComponentBuilder, CustomBuilder, CustomBuilderT } from './builder';
-import { Builder } from '@ohos.arkui.component';
+import { ComponentBuilder } from './builder';
 
 /**
  * Surface Rectangle information.
@@ -368,7 +367,6 @@ export declare interface NativeXComponentParameters {
  * @since 23 static
  */
 export declare interface XComponentAttribute extends CommonMethod {
-
   /**
    * Called when judging whether the xcomponent surface is created.
    *

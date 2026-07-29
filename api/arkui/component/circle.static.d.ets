@@ -17,8 +17,8 @@
  * @kit ArkUI
  */
 import { CommonShapeMethod, CommonMethod, AttributeModifier } from "./common";
-import { ComponentBuilder, CustomBuilder, CustomBuilderT, Builder} from './builder';
 import { Length, ColorMetrics, ResourceColor } from './units';
+import { ComponentBuilder, CustomBuilder } from './builder';
 
 /**
  * Defines circle options for Circle component.
@@ -59,17 +59,6 @@ export declare interface CircleOptions {
  * @since 23 static
  */
 export declare interface CircleAttribute extends CommonShapeMethod {
-    /**
-     * Set Circle options.
-     *
-     * @param { CircleOptions } [options] - Circle constructor options
-     * @returns { CircleAttribute } Returns the instance of the CircleAttribute.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 26.0.0 staticonly
-     */
-    default setCircleOptions(options?: CircleOptions): this;
-
     /**
      * Sets the stroke color.
      * If this attribute is not set, the component does not have any stroke.
@@ -122,19 +111,4 @@ export declare interface CircleAttribute extends CommonShapeMethod {
 @ComponentBuilder
 export declare function Circle(
     options?: CircleOptions
-): CircleAttribute;
-
-/**
- * Defines Circle Component.
- *
- * @param { CustomBuilderT<CircleAttribute> } style - Circle options.
- * @returns { CircleAttribute }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @since 26.0.0 staticonly
- * @noninterop
- */
-@Builder
-export declare function Circle(
-    style: CustomBuilderT<CircleAttribute>
 ): CircleAttribute;

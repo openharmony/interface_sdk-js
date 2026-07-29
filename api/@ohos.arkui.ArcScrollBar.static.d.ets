@@ -79,6 +79,6 @@ export declare interface ArcScrollBarAttribute extends CommonMethod {
  */
 @ComponentBuilder
 export declare function ArcScrollBar(
-    options: ArcScrollBarOptions,
+    options: ArcScrollBarOptions, 
     content_?: CustomBuilder,
-): ArcScrollBarAttribute;
+): ArcScrollBarAttribute

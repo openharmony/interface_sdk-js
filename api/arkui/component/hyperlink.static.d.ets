@@ -20,7 +20,7 @@
 import { Resource } from './../../../api/global/resource';
 import { CommonMethod, AttributeModifier } from "./common";
 import { Color } from "./enums";
-import { Builder, ComponentBuilder, CustomBuilder, CustomBuilderT } from './builder';
+import { ComponentBuilder, CustomBuilder } from './builder';
 
 /**
  * Defines the hyperlink attribute functions
@@ -51,18 +51,6 @@ export declare interface HyperlinkAttribute extends CommonMethod {
      * @since 23 static
      */
     default attributeModifier(modifier: AttributeModifier<HyperlinkAttribute> | AttributeModifier<CommonMethod> | undefined): this;
-
-    /**
-     * Set Hyperlink options.
-     *
-     * @param { string | Resource | undefined } address - The link address of component.
-     * @param { string | Resource } [content] - The title of the component.
-     * @returns { HyperlinkAttribute } Returns the instance of the HyperlinkAttribute.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 26.0.0 staticonly
-     */
-    default setHyperlinkOptions(address: string | Resource | undefined, content?: string | Resource): this;
 }
 
 /**
@@ -84,20 +72,3 @@ export declare function Hyperlink(
     address: string | Resource | undefined, content?: string | Resource, 
     content_?: CustomBuilder,
 ): HyperlinkAttribute
-
-/**
- * Defines Hyperlink Component.
- *
- * @param { CustomBuilderT<HyperlinkAttribute> } style - Hyperlink attribute instance
- * @param { CustomBuilder } [content_] - container
- * @returns { HyperlinkAttribute }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @since 26.0.0 staticonly
- * @noninterop
- */
-@Builder
-export declare function Hyperlink(
-    style: CustomBuilderT<HyperlinkAttribute>,
-    content_?: CustomBuilder,
-): HyperlinkAttribute;

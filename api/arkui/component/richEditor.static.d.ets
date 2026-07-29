@@ -18,7 +18,7 @@
  * @kit ArkUI
  */
 import { ShadowOptions, ClickEvent, SelectionOptions, CommonMethod, Callback, HapticFeedbackMode, RectResult, HoverEvent, PixelMap } from './common';
-import { Builder, CustomBuilder, CustomBuilderT, ComponentBuilder } from './builder';
+import { CustomBuilder } from './builder';
 import { ResourceColor, Length, ResourceStr, Dimension, Margin, BorderRadiuses, Font, VoidCallback } from './units';
 import { FontStyle, FontWeight, TextAlign, WordBreak, LineBreakStrategy, ImageSpanAlignment, ImageFit, ResponseType, CopyOptions, BarState } from './enums';
 import { DecorationStyleInterface, StyledString, MutableStyledString } from './styledString';
@@ -29,6 +29,7 @@ import { GestureEvent } from './gesture';
 import { EnterKeyType, SubmitEvent } from './textInput';
 import { LengthMetrics, ColorMetrics } from '../Graphics';
 import { TextBackgroundStyle } from './span';
+import { ComponentBuilder } from './builder';
 import { AttributeModifier, CommonMethod } from './common';
 import { ComponentContentBase } from '../ComponentContent';
 /**
@@ -2428,18 +2429,6 @@ export declare interface RichEditorAttribute extends CommonMethod {
      */    
     default attributeModifier(modifier: AttributeModifier<RichEditorAttribute> | AttributeModifier<CommonMethod> |
         undefined): this;
-
-    /**
-     * Set RichEditor options.
-     *
-     * @param { RichEditorOptions | RichEditorStyledStringOptions } options - RichEditor constructor options.
-     * @returns { RichEditorAttribute } Returns the instance of the RichEditorAttribute.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 26.0.0 staticonly
-     */
-    default setRichEditorOptions(options: RichEditorOptions | RichEditorStyledStringOptions): this;
-
     /**
      * Used to set the selected drag preview style.
      *
@@ -2600,18 +2589,3 @@ export type OnHoverCallback = (status: boolean, event: HoverEvent) => void;
 export declare function RichEditor(
     options: RichEditorOptions | RichEditorStyledStringOptions, 
 ): RichEditorAttribute
-
-/**
- * Defines RichEditor Component.
- *
- * @param { CustomBuilderT<RichEditorAttribute> } style - RichEditor attribute instance
- * @returns { RichEditorAttribute }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @since 26.0.0 staticonly
- * @noninterop
- */
-@Builder
-export declare function RichEditor(
-    style: CustomBuilderT<RichEditorAttribute>,
-): RichEditorAttribute;

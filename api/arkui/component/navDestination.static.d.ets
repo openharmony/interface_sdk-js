@@ -23,7 +23,7 @@
 import window from '../../@ohos.window';
 import { Resource } from '../../global/resource';
 import { CommonMethod, Callback, LayoutSafeAreaType, LayoutSafeAreaEdge, PixelMap, AttributeModifier } from './common';
-import { Builder, CustomBuilder, CustomBuilderT } from './builder';
+import { CustomBuilder } from './builder';
 import { Length, ResourceStr, VoidCallback } from './units';
 import { TitleHeight, Curve } from './enums';
 import { NavPathInfo, NavPathStack, NavigationTitleOptions, NavigationMenuItem, NavigationToolbarOptions, ToolbarItem,
@@ -483,34 +483,6 @@ export declare interface NavDestinationTransition {
 }
 
 /**
- * The module info of NavDestination
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @since 26.0.0 staticonly
- */
-export declare interface NavDestinationModuleInfo {
-
-  /**
-   * The module name of NavDestination
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 26.0.0 staticonly
-   */
-  moduleName: string;
-
-  /**
-   * The source file path of NavDestination
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 26.0.0 staticonly
-   */
-  pagePath: string;
-}
-
-/**
  * Custom page state save callback.
  *
  * @returns { Record<string, Object> | null } Custom page state.
@@ -959,17 +931,6 @@ export declare interface NavDestinationAttribute extends CommonMethod {
    * @since 26.0.0 static
    */
   default onRestoreState(callback: RestoreStateCallback | undefined): this;
-
-  /**
-   * Set navDestination options.
-   *
-   * @param { NavDestinationModuleInfo } [moduleInfo] - The NavDestination module info
-   * @returns { NavDestinationAttribute } Returns the instance of the NavDestinationAttribute.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 26.0.0 staticonly
-   */
-  default setNavDestinationOptions(moduleInfo?: NavDestinationModuleInfo): this;
 }
 
 /**
@@ -998,20 +959,4 @@ export type NavDestinationTransitionDelegate = (operation: NavigationOperation, 
 export declare function NavDestination(
     
   content_?: CustomBuilder
-): NavDestinationAttribute;
-
-/**
- * Defines NavDestination Component
- *
- * @param { CustomBuilderT<NavDestinationAttribute> } style_ - navDestination attribute instance
- * @param { CustomBuilder } [content_] - container
- * @returns { NavDestinationAttribute }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @since 26.0.0 staticonly
- */
-@Builder
-export declare function NavDestination(
- style_: CustomBuilderT<NavDestinationAttribute>,
- content_?: CustomBuilder,
 ): NavDestinationAttribute;

@@ -17,7 +17,6 @@
  * @file Defines toolbar attributes.
  * @kit ArkUI
  */
-
 import { ComponentBuilder, CustomBuilder, CustomBuilderT } from './builder';
 import { Builder } from '@ohos.arkui.component';
 /**

@@ -19,8 +19,7 @@
  * @kit ArkUI
  */
 
-import { Builder, CustomBuilderT } from './builder';
-
+import { Builder } from './builder';
 import { ComponentBuilder } from './builder';
 
 import { DynamicNode } from './common';
@@ -673,7 +672,6 @@ export interface IDataSource<T> {
  * @noninterop
  */
 export interface LazyForEachAttribute extends DynamicNode {
-
   /**
    * Set the component's source code redirection information.
    *
@@ -685,47 +683,6 @@ export interface LazyForEachAttribute extends DynamicNode {
    * @since 26.0.0 staticonly
    */
   debugLine(sourceLine: string, moduleName?: string): this;
-
-  /**
-   * Sets LazyForEach options.
-   *
-   * @param { IDataSource<T> } dataSource - Data source to provide data.
-   * @param { ItemGeneratorFunc<T> } itemGenerator - Item generator function.
-   * @param { KeyGeneratorFunc<T> } [keyGenerator] - Key generator function.
-   * @returns { this } LazyForEachAttribute instance
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 26.0.0 staticonly
-   */
-  setLazyForEachOptions<T>(dataSource: IDataSource<T>,
-        itemGenerator: ItemGeneratorFunc<T>,
-        keyGenerator?: KeyGeneratorFunc<T>): this;
-
-  /**
-   * Sets LazyForEach options.
-   *
-   * @param { IDataSource<T> } dataSource - Data source to provide data.
-   * @param { ItemGeneratorFunc<T> } itemGenerator - Item generator function.
-   * @param { KeyGeneratorFunc<T> } [keyGenerator] - Key generator function.
-   * @param { LazyForEachOptions } [options] - options for LazyForEach behavior
-   * @returns { this } LazyForEachAttribute instance
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 26.0.0 staticonly
-   */
-  setLazyForEachOptions<T>(dataSource: IDataSource<T>,
-        itemGenerator: ItemGeneratorFunc<T>,
-        keyGenerator?: KeyGeneratorFunc<T>,
-        options?: LazyForEachOptions): this;
-
-  /**
-   * Notify LazyForEach has finished setting up its attributes.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 26.0.0 staticonly
-   */
-  applyAttributesFinish(): void;
 }
 
 /**
@@ -788,19 +745,4 @@ export declare function LazyForEach<T = Any>(dataSource: IDataSource<T>,
     itemGenerator: ItemGeneratorFunc<T>,
     keyGenerator?: KeyGeneratorFunc<T>,
     options?: LazyForEachOptions,
-): LazyForEachAttribute;
-
-/**
- * Defines LazyForEach Component. It requires call setLazyForEachOptions at start of component attribute set-up,
- * and it requires call applyAttributeFinish at end of component attribute set-up.
- *
- * @param { CustomBuilderT<LazyForEachAttribute> } style - callback to set up LazyForEach's attributes.
- * @returns { LazyForEachAttribute } The attribute of LazyForEach.
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @since 26.0.0 staticonly
- */
-@Builder
-export declare function LazyForEach<T = Any>(
-    style: CustomBuilderT<LazyForEachAttribute>
 ): LazyForEachAttribute;
