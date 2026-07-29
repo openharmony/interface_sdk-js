@@ -80,7 +80,106 @@ declare enum TextDataDetectorType {
 }
 
 /**
- * This configuration is only available for the [Text]{@link text} and [RichEditor]{@link rich_editor} components.
+ * Defines the vertical alignment mode of text. The default value is **BASELINE** (aligning along the baseline).
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 20 dynamic
+ */
+declare enum TextVerticalAlign {
+  /**
+   * Aligns text along the baseline.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 20 dynamic
+   */
+  BASELINE = 0,
+
+  /**
+   * Aligns text to the bottom.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 20 dynamic
+   */
+  BOTTOM = 1,
+
+  /**
+   * Aligns text vertically to the center.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 20 dynamic
+   */
+  CENTER = 2,
+
+  /**
+   * Aligns text to the top.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 20 dynamic
+   */
+  TOP = 3
+}
+
+/**
+ * Enumerates the vertical alignment directions of the text content area.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 21 dynamic
+ */
+declare enum TextContentAlign {
+  /**
+   * Aligns the content area to the top.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 21 dynamic
+   */
+  TOP = 0,
+
+  /**
+   * Aligns the content area to the center.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 21 dynamic
+   */
+  CENTER = 1,
+
+  /**
+   * Aligns the content area to the bottom.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 21 dynamic
+   */
+  BOTTOM = 2
+}
+
+/**
+ * This configuration is only available for the [Text]{@link ./text} and [RichEditor]{@link ./rich_editor} components.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -347,65 +446,6 @@ declare enum MenuType {
    * @since 13 dynamic
    */
   PREVIEW_MENU = 1
-}
-
-/**
- * Enumerates automatic capitalization modes. This only provides API capabilities; the specific implementation depends
- * on the input method application.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 20 dynamic
- */
-declare enum AutoCapitalizationMode {
-
-  /**
-   * Default state; automatic capitalization is disabled.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
-   */
-  NONE = 0,
-
-  /**
-   * Automatic capitalization is applied per word: The first character of each word is capitalized, others are
-   * lowercase.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
-   */
-  WORDS = 1,
-
-  /**
-   * Automatic capitalization is applied per sentence: The first character of each sentence is capitalized, others are
-   * lowercase.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
-   */
-  SENTENCES = 2,
-
-  /**
-   * Automatic capitalization applied to all characters.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
-   */
-  ALL_CHARACTERS = 3
 }
 
 /**
@@ -837,6 +877,38 @@ declare interface LayoutManager {
   getCharacterPositionAtCoordinate(x: number, y: number): PositionWithAffinity | undefined;
 
   /**
+   * Obtains the information about the specified line, including line metrics, text style information, and font
+   * properties.
+   *
+   * @param { number } lineNumber - Line number, which is zero-based.
+   * @returns { LineMetrics } Information about the specified line, including line metrics, text style information, and
+   *     font properties.
+   *     <br>Returns an invalid value if the line number is less than 0 or exceeds the actual number of lines.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  getLineMetrics(lineNumber: number): LineMetrics;
+
+  /**
+   * Obtains the drawing area information of the characters or placeholders within any range of the text, based on the
+   * specified rectangle width and height styles.
+   *
+   * @param { TextRange } range - Text range for which the drawing area is to be obtained.
+   * @param { RectWidthStyle } widthStyle - Width style of the rectangle.
+   * @param { RectHeightStyle } heightStyle - Height style of the rectangle.
+   * @returns { Array<TextBox> } Array of drawing rectangles.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 14 dynamic
+   */
+  getRectsForRange(range: TextRange, widthStyle: RectWidthStyle, heightStyle: RectHeightStyle): Array<TextBox>;
+
+  /**
    * Obtains the glyph range and the actual character range based on the specified character range. If the first glyph
    * is a Chinese character, the glyph index range of the character is [0, 1]. A Chinese character occupies three
    * characters, so the corresponding character index range is [0, 3]. If the specified character index range is [0, 1],
@@ -871,38 +943,6 @@ declare interface LayoutManager {
    * @since 24 dynamic
    */
   getCharacterRangeForGlyphRange(glyphRange: TextRange): Array<TextRange> | undefined;
-
-  /**
-   * Obtains the information about the specified line, including line metrics, text style information, and font
-   * properties.
-   *
-   * @param { number } lineNumber - Line number, which is zero-based.
-   * @returns { LineMetrics } Information about the specified line, including line metrics, text style information, and
-   *     font properties.
-   *     <br>Returns an invalid value if the line number is less than 0 or exceeds the actual number of lines.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
-   */
-  getLineMetrics(lineNumber: number): LineMetrics;
-
-  /**
-   * Obtains the drawing area information of the characters or placeholders within any range of the text, based on the
-   * specified rectangle width and height styles.
-   *
-   * @param { TextRange } range - Text range for which the drawing area is to be obtained.
-   * @param { RectWidthStyle } widthStyle - Width style of the rectangle.
-   * @param { RectHeightStyle } heightStyle - Height style of the rectangle.
-   * @returns { Array<TextBox> } Array of drawing rectangles.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 14 dynamic
-   */
-  getRectsForRange(range: TextRange, widthStyle: RectWidthStyle, heightStyle: RectHeightStyle): Array<TextBox>;
 }
 
 /**
@@ -993,16 +1033,6 @@ declare type RectHeightStyle = import('../api/@ohos.graphics.text').default.Rect
  * @since 14 dynamic
  */
 declare type TextBox = import('../api/@ohos.graphics.text').default.TextBox;
-
-/**
- * Implements a carrier that stores the text content and style. It supports operations such as layout and drawing.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @since 20 dynamic
- */
-declare type Paragraph = import('../api/@ohos.graphics.text').default.Paragraph;
 
 /**
  * Represents the extension configuration of an input method.
@@ -1293,8 +1323,8 @@ declare class TextMenuItemId {
   /**
    * ID for the password vault menu item. It is a level-2 menu item. Tapping this menu item launches the password vault
    * app, which supports automatic username and password filling. The menu item is supported only for
-   * [Search]{@link search}, [TextInput]{@link text_input}, [TextArea]{@link text_area}, and
-   * [RichEditor]{@link rich_editor}.
+   * [Search]{@link ./search}, [TextInput]{@link ./text_input}, [TextArea]{@link ./text_area}, and
+   * [RichEditor]{@link ./rich_editor}.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1686,7 +1716,7 @@ declare enum TextMenuShowMode {
    * [UIExtension]{@link @ohos.arkui.uiExtension:uiExtension}.
    *
    * When a text component is displayed in a child window of [Popup]{@link @ohos.arkui.advanced.Popup},
-   * [Dialog]{@link @ohos.arkui.advanced.Dialog}, [Toast](docroot://ui/arkts-create-toast.md), or [Menu]{@link menu},
+   * [Dialog]{@link @ohos.arkui.advanced.Dialog}, [Toast](docroot://ui/arkts-create-toast.md), or [Menu]{@link ./menu},
    * the corresponding text selection menu cannot be displayed in a separate window.
    *
    * When **autoFill** is available for **TextInput** or **TextArea**, the corresponding text selection menu cannot be
@@ -1775,6 +1805,130 @@ declare enum KeyboardAppearance {
    * @since 15 dynamic
    */
   DARK_IMMERSIVE = 3
+}
+
+/**
+ * Configures the line spacing of text and whether it applies only between lines.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 20 dynamic
+ */
+declare interface LineSpacingOptions {
+  /**
+   * Whether line spacing applies only between lines.
+   *
+   * **true**: Line spacing applies only between lines; no extra spacing is added above the first line or below the last
+   * line. **false**: Extra line spacing is added both above the first line and below the last line.
+   *
+   * Default value: **false**
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 20 dynamic
+   */
+  onlyBetweenLines?: boolean;
+}
+
+/**
+ * Sets the voice button options.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @stagemodelonly
+ * @atomicservice
+ * @since 23 dynamic
+ */
+interface VoiceButtonOptions {
+  /**
+   * Whether to enable or disable the voice button for the input box.
+   *
+   * **true**: The voice button is enabled. **false**: The voice button is disabled.
+   *
+   * Default value: **false**
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  enabled?: boolean;
+}
+
+/**
+ * Defines font configurations.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 24 dynamic
+ */
+declare interface FontConfigs {
+  /**
+   * Font weight configuration. The default value is inherited from [FontWeightConfigs] (#fontweightconfigs24).
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 24 dynamic
+   */
+  fontWeightConfigs?: FontWeightConfigs;
+}
+
+/**
+ * Defines font weight configurations. When the configuration object (including an empty object **{}**) is passed, the
+ * default values are used for properties that are not explicitly set. When **null** or **undefined** is passed, default
+ * values are not applied, and the font weight behavior is consistent with that of the parent component text.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 24 dynamic
+ */
+declare interface FontWeightConfigs {
+  /**
+   * Whether to enable variable font weight adjustment. When **weight** is set to a non-multiple of 100 within
+   * [100, 900], **enableVariableFontWeight** is used to set whether the **weight** value takes effect.
+   *
+   * Default value: **false**
+   *
+   * **true**: Enable variable font weight adjustment. If the value of **weight** is any integer within [100, 900],
+   * the value is used. Otherwise, the default value **400** is used.
+   *
+   * **false**: Disable variable font weight adjustment. If the value of **weight** is a multiple of 100 within
+   * [100, 900], the value is used. If **weight** is a non-multiple of 100, the default value **400** is used.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 24 dynamic
+   */
+  enableVariableFontWeight?: boolean;
+  /**
+   * Whether to automatically synchronize the font weight with the device's font weight setting.
+   *
+   * Default value: **true**
+   *
+   * **true**: The font weight is automatically synchronized when the device's font weight setting changes.
+   *
+   * **false**: The font weight is not automatically synchronized when the device's font weight setting changes.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 24 dynamic
+   */
+  enableDeviceFontWeightCategory?: boolean;
 }
 
 /**
@@ -2041,7 +2195,18 @@ declare enum FlipDirection {
 }
 
 /**
- * Configures the line spacing of text and whether it applies only between lines.
+ * Implements a carrier that stores the text content and style. It supports operations such as layout and drawing.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @since 20 dynamic
+ */
+declare type Paragraph = import('../api/@ohos.graphics.text').default.Paragraph;
+
+/**
+ * Enumerates automatic capitalization modes. This only provides API capabilities; the specific implementation depends
+ * on the input method application.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -2049,15 +2214,9 @@ declare enum FlipDirection {
  * @atomicservice
  * @since 20 dynamic
  */
-declare interface LineSpacingOptions {
-
+declare enum AutoCapitalizationMode {
   /**
-   * Whether line spacing applies only between lines.
-   *
-   * **true**: Line spacing applies only between lines; no extra spacing is added above the first line or below the last
-   * line. **false**: Extra line spacing is added both above the first line and below the last line.
-   *
-   * Default value: **false**
+   * Default state; automatic capitalization is disabled.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2065,7 +2224,42 @@ declare interface LineSpacingOptions {
    * @atomicservice
    * @since 20 dynamic
    */
-  onlyBetweenLines?: boolean;
+  NONE = 0,
+
+  /**
+   * Automatic capitalization is applied per word: The first character of each word is capitalized, others are
+   * lowercase.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 20 dynamic
+   */
+  WORDS = 1,
+
+  /**
+   * Automatic capitalization is applied per sentence: The first character of each sentence is capitalized, others are
+   * lowercase.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 20 dynamic
+   */
+  SENTENCES = 2,
+
+  /**
+   * Automatic capitalization applied to all characters.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 20 dynamic
+   */
+  ALL_CHARACTERS = 3
 }
 
 /**
@@ -2080,7 +2274,7 @@ declare interface LineSpacingOptions {
 declare interface MaxLinesOptions {
 
   /**
-   * **overflowMode** can be used to set the non-inline mode for the [TextArea]{@link text_area} component. When the
+   * **overflowMode** can be used to set the non-inline mode for the [TextArea]{@link ./text_area} component. When the
    * text exceeds the set value of **maxLines** (maximum number of lines), a scroll effect is enabled. This requires
    * configuration of [textOverflow]{@link TextAreaAttribute#textOverflow}, and **MaxLinesMode** takes effect only when
    * **textOverflow** is set to **None** or **Clip**. The default value of **MaxLinesMode** is **Clip**, indicating that
@@ -2461,153 +2655,6 @@ declare interface IMEClient {
 }
 
 /**
- * Defines the vertical alignment mode of text. The default value is **BASELINE** (aligning along the baseline).
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 20 dynamic
- */
-declare enum TextVerticalAlign {
-
-  /**
-   * Aligns text along the baseline.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
-   */
-  BASELINE = 0,
-
-  /**
-   * Aligns text to the bottom.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
-   */
-  BOTTOM = 1,
-
-  /**
-   * Aligns text vertically to the center.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
-   */
-  CENTER = 2,
-
-  /**
-   * Aligns text to the top.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
-   */
-  TOP = 3
-}
-
-/**
- * Enumerates the vertical alignment directions of the text content area.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 21 dynamic
- */
-declare enum TextContentAlign {
-
-  /**
-   * Aligns the content area to the top.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 21 dynamic
-   */
-  TOP = 0,
-
-  /**
-   * Aligns the content area to the center.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 21 dynamic
-   */
-  CENTER = 1,
-
-  /**
-   * Aligns the content area to the bottom.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 21 dynamic
-   */
-  BOTTOM = 2
-}
-
-/**
- * An enumeration that defines the line corner style, i.e.,
- * the style of the brush when drawing a polyline at the corners of the line segments.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 26.0.0 dynamic
- */
-declare enum StrokeJoinStyle {
-
-  /**
-   * The corner type is an acute angle.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
-   */
-  MITER_JOIN = 0,
-
-  /**
-   * The corner type is round.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
-   */
-  ROUND_JOIN = 1,
-
-  /**
-   * The corner type is flat.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
-   */
-  BEVEL_JOIN = 2
-}
-
-/**
  * Defines the text layout options.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2616,7 +2663,6 @@ declare enum StrokeJoinStyle {
  * @since 20 dynamic
  */
 declare interface TextLayoutOptions {
-
   /**
    * Layout width of the measured text. If not set, the width is the maximum width occupied by a single-line layout.
    *
@@ -2626,6 +2672,31 @@ declare interface TextLayoutOptions {
    * @since 20 dynamic
    */
   constraintWidth?: LengthMetrics;
+}
+
+/**
+ * Defines the drag preview style for selected text.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 23 dynamic
+ */
+declare interface SelectedDragPreviewStyle {
+  /**
+   * Drag preview color for selected text
+   *
+   * The default value follows the theme. When the default theme is applied, the drag preview is white in light mode
+   * and black in dark mode.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  color?: ResourceColor;
 }
 
 /**
@@ -2712,130 +2783,49 @@ declare interface AccessibilitySpanOptions {
 }
 
 /**
- * Defines the drag preview style for selected text.
+ * An enumeration that defines the line corner style, i.e.,
+ * the style of the brush when drawing a polyline at the corners of the line segments.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 23 dynamic
+ * @since 26.0.0 dynamic
  */
-declare interface SelectedDragPreviewStyle {
+declare enum StrokeJoinStyle {
 
   /**
-   * Drag preview color for selected text
-   *
-   * The default value follows the theme. When the default theme is applied, the drag preview is white in light mode
-   * and black in dark mode.
+   * The corner type is an acute angle.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 23 dynamic
+   * @since 26.0.0 dynamic
    */
-  color?: ResourceColor;
-}
-
-/**
- * Sets the voice button options.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @systemapi
- * @stagemodelonly
- * @atomicservice
- * @since 23 dynamic
- */
-interface VoiceButtonOptions {
+  MITER_JOIN = 0,
 
   /**
-   * Whether to enable or disable the voice button for the input box.
-   *
-   * **true**: The voice button is enabled. **false**: The voice button is disabled.
-   *
-   * Default value: **false**
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @stagemodelonly
-   * @atomicservice
-   * @since 23 dynamic
-   */
-  enabled?: boolean;
-}
-
-/**
- * Defines font configurations.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 24 dynamic
- */
-declare interface FontConfigs {
-
-  /**
-   * Font weight configuration. The default value is inherited from [FontWeightConfigs] (#fontweightconfigs24).
+   * The corner type is round.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 24 dynamic
+   * @since 26.0.0 dynamic
    */
-  fontWeightConfigs?: FontWeightConfigs;
-}
-
-/**
- * Defines font weight configurations. When the configuration object (including an empty object **{}**) is passed, the
- * default values are used for properties that are not explicitly set. When **null** or **undefined** is passed, default
- * values are not applied, and the font weight behavior is consistent with that of the parent component text.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 24 dynamic
- */
-declare interface FontWeightConfigs {
+  ROUND_JOIN = 1,
 
   /**
-   * Whether to enable variable font weight adjustment. When **weight** is set to a non-multiple of 100 within
-   * [100, 900], **enableVariableFontWeight** is used to set whether the **weight** value takes effect.
-   *
-   * Default value: **false**
-   *
-   * **true**: Enable variable font weight adjustment. If the value of **weight** is any integer within [100, 900],
-   * the value is used. Otherwise, the default value **400** is used.
-   *
-   * **false**: Disable variable font weight adjustment. If the value of **weight** is a multiple of 100 within
-   * [100, 900], the value is used. If **weight** is a non-multiple of 100, the default value **400** is used.
+   * The corner type is flat.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 24 dynamic
+   * @since 26.0.0 dynamic
    */
-  enableVariableFontWeight?: boolean;
-
-  /**
-   * Whether to automatically synchronize the font weight with the device's font weight setting.
-   *
-   * Default value: **true**
-   *
-   * **true**: The font weight is automatically synchronized when the device's font weight setting changes.
-   *
-   * **false**: The font weight is not automatically synchronized when the device's font weight setting changes.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 24 dynamic
-   */
-  enableDeviceFontWeightCategory?: boolean;
+  BEVEL_JOIN = 2
 }
 
 /**

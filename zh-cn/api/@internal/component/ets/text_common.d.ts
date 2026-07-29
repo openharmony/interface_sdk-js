@@ -27,7 +27,6 @@
  * @since 11 dynamic
  */
 declare enum TextDataDetectorType {
-
   /**
    * 电话号码
    *
@@ -69,7 +68,7 @@ declare enum TextDataDetectorType {
   ADDRESS = 3,
 
   /**
-   * 时间
+   * 日期时间
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -80,7 +79,106 @@ declare enum TextDataDetectorType {
 }
 
 /**
- * 该配置只支持[Text]{@link text}组件和[RichEditor]{@link rich_editor}组件。
+ * 文本垂直对齐的方式。默认值BASELINE，沿基线对齐。
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 20 dynamic
+ */
+declare enum TextVerticalAlign {
+  /**
+   * 对齐文本基线。
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 20 dynamic
+   */
+  BASELINE = 0,
+
+  /**
+   * 对齐文本底部。
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 20 dynamic
+   */
+  BOTTOM = 1,
+
+  /**
+   * 垂直居中对齐。
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 20 dynamic
+   */
+  CENTER = 2,
+
+  /**
+   * 对齐文本顶部。
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 20 dynamic
+   */
+  TOP = 3
+}
+
+/**
+ * 文本内容区垂直对齐方向。
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 21 dynamic
+ */
+declare enum TextContentAlign {
+  /**
+   * 内容区顶部对齐。
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 21 dynamic
+   */
+  TOP = 0,
+
+  /**
+   * 内容区中心对齐。
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 21 dynamic
+   */
+  CENTER = 1,
+
+  /**
+   * 内容区底部对齐。
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 21 dynamic
+   */
+  BOTTOM = 2
+}
+
+/**
+ * 该配置只支持[Text]{@link ./text}组件和[RichEditor]{@link ./rich_editor}组件。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -88,7 +186,6 @@ declare enum TextDataDetectorType {
  * @since 11 dynamic
  */
 declare interface TextDataDetectorConfig {
-
   /**
    * 设置文本识别的实体类型。设置types为null或者[]时，识别所有类型的实体，否则只识别指定类型的实体。
    *
@@ -101,6 +198,8 @@ declare interface TextDataDetectorConfig {
 
   /**
    * 文本识别成功后，触发onDetectResultUpdate回调。
+   * 
+   * 默认值：undefined，不触发回调。
    *
    * @type { ?function } [since 11 - 11]
    * @type { ?Callback<string> } [since 12]
@@ -114,7 +213,7 @@ declare interface TextDataDetectorConfig {
   /**
    * 设置文本识别成功后的实体颜色。
    * 
-   * 默认值：'#ff0a59f7'
+   * 默认值：'#ff0a59f7'，表示蓝色（不透明度为100%）
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -152,7 +251,8 @@ declare interface TextDataDetectorConfig {
    * 
    * 当[copyOptions]{@link RichEditorAttribute#copyOptions}设置为None时，若enablePreviewMenu设置为true，长按AI实体也不能显示预览菜单。
    * 
-   * 该参数在Phone、Tablet中可正常调用，在PC/2in1、TV和Wearable等其他设备类型中无效果。
+   * 本接口实际支持的设备类型范围（Phone、Tablet）小于其所属系统能力支持的设备类型范围（Phone、PC/2in1、Tablet、TV、Car、Wearable）。因硬件形态限制，该接口在PC/2in1、TV、Car、
+   * Wearable设备中调用功能不生效。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -172,7 +272,6 @@ declare interface TextDataDetectorConfig {
  * @since 12 dynamic
  */
 declare interface TextRange {
-
   /**
    * 起始索引。
    *
@@ -208,9 +307,8 @@ declare interface TextRange {
  * @since 12 dynamic
  */
 declare interface InsertValue {
-
   /**
-   * 插入的值的位置信息。
+   * 插入的值的位置索引，从0开始。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -242,7 +340,6 @@ declare interface InsertValue {
  * @since 12 dynamic
  */
 declare enum TextDeleteDirection {
-
   /**
    * 向后删除。
    *
@@ -276,7 +373,6 @@ declare enum TextDeleteDirection {
  * @since 20 dynamic
  */
 declare enum SuperscriptStyle {
-
   /**
    * 普通文本样式。
    *
@@ -321,7 +417,6 @@ declare enum SuperscriptStyle {
  * @since 13 dynamic
  */
 declare enum MenuType {
-
   /**
    * 文本选择菜单。
    *
@@ -346,62 +441,6 @@ declare enum MenuType {
 }
 
 /**
- * 自动大小写模式类型，只提供接口能力，具体实现以输入法应用为主。
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 20 dynamic
- */
-declare enum AutoCapitalizationMode {
-
-  /**
-   * 默认状态无效。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
-   */
-  NONE = 0,
-
-  /**
-   * 按单词自动大小写，即输入单词的首个字符大写，其他字符小写。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
-   */
-  WORDS = 1,
-
-  /**
-   * 按句子自动大小写，即输入句子的首个字符大写，其他字符小写。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
-   */
-  SENTENCES = 2,
-
-  /**
-   * 按全字符自动大小写。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
-   */
-  ALL_CHARACTERS = 3
-}
-
-/**
  * 提供从文本中删除值的接口。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -411,9 +450,8 @@ declare enum AutoCapitalizationMode {
  * @since 12 dynamic
  */
 declare interface DeleteValue {
-
   /**
-   * 删除的值的位置信息。
+   * 删除的值的位置索引，从0开始。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -449,8 +487,8 @@ declare interface DeleteValue {
 /**
  * 文本变换后回调。
  *
- * @param { TextRange } rangeBefore - 文本变化前将要被替换的文本范围。
- * @param { TextRange } rangeAfter - 文本变化后新增内容的文本范围。
+ * @param { TextRange } rangeBefore - Range of the text to be changed.
+ * @param { TextRange } rangeAfter - Range of the text added.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -462,9 +500,11 @@ declare type OnDidChangeCallback = (rangeBefore: TextRange, rangeAfter: TextRang
 /**
  * 输入内容发生变化时，触发该回调。
  *
- * @param { string } value - 文本框内正式上屏的文本内容。
- * @param { PreviewText } [previewText] - 预上屏文本信息，包含预上屏起始位置和文本内容。
- * @param { TextChangeOptions } [options] - 文本内容变化信息，包含文本的选中区范围、文本框内正式上屏的文本内容、预上屏文本内容。 [since 15]
+ * @param { string } value - Text displayed in the text box.
+ * @param { PreviewText } [previewText] - Information about the preview text, including its start position and text
+ *     content.
+ * @param { TextChangeOptions } [options] - Information about the text change, including the selection range, text
+ *     displayed in the text box, and preview text. [since 15]
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -483,7 +523,6 @@ declare type EditableTextOnChangeCallback = (value: string, previewText?: Previe
  * @since 12 dynamic
  */
 declare interface TextBaseController {
-
   /**
    * 支持设置组件内的内容选中，选中部分背板高亮。
    * 
@@ -491,7 +530,7 @@ declare interface TextBaseController {
    * 
    * 未获焦时调用该接口不产生选中效果。
    * 
-   * 从API version 12开始，在2in1设备中，无论options取何值，调用setSelection接口都不会弹出菜单，此外，如果组件中已经存在菜单，调用setSelection接口会关闭菜单。
+   * 从API version 12开始，在PC/2in1设备中，无论options取何值，调用setSelection接口都不会弹出菜单，此外，如果组件中已经存在菜单，调用setSelection接口会关闭菜单。
    * 
    * 在非2in1设备中，options取值为MenuPolicy.DEFAULT时，遵循以下规则：
    * 
@@ -499,8 +538,12 @@ declare interface TextBaseController {
    * 2. 组件内有不带手柄的菜单时，接口调用后不关闭菜单，并且菜单位置不变。
    * 3. 组件内无菜单时，接口调用后也无菜单显示。
    *
-   * @param { number } selectionStart - 选中开始位置。<br/>取值小于0时，按0处理。
-   * @param { number } selectionEnd - 选中结束位置。<br/>取值大于文本长度时，按当前文本长度处理。
+   * @param { number } selectionStart - 选中开始位置。
+   *     <br>取值小于0时，按0处理。取值大于文本长度时，按当前文本长度处理。
+   *     <br>特殊取值效果：当selectionStart和selectionEnd均为-1时，表示全选。
+   * @param { number } selectionEnd - 选中结束位置。
+   *     <br>取值小于0时，按0处理。取值大于文本长度时，按当前文本长度处理。
+   *     <br>特殊取值效果：当selectionStart和selectionEnd均为-1时，表示全选。
    * @param { SelectionOptions } [options] - 选择项配置。 默认值继承[SelectionOptions]{@link SelectionOptions}。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -524,7 +567,7 @@ declare interface TextBaseController {
   /**
    * 获取布局管理器对象。
    *
-   * @returns { LayoutManager } 布局管理器对象。
+   * @returns { LayoutManager } 布局管理器对象，用于获取文本布局信息，如行数、行度量、字形位置等。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -546,7 +589,6 @@ declare interface TextBaseController {
  * @since 12 dynamic
  */
 declare interface TextEditControllerEx extends TextBaseController {
-
   /**
    * 获取当前富文本的编辑状态。
    *
@@ -573,8 +615,9 @@ declare interface TextEditControllerEx extends TextBaseController {
   /**
    * 设置光标偏移位置。
    *
-   * @param { number } offset - 光标偏移位置。超出所有内容范围时，设置失败。
-   * @returns { boolean } 光标是否设置成功。<br/>true表示光标设置成功，false表示设置失败。
+   * @param { number } offset - 光标偏移位置，取值范围[0, 文本长度]。超出所有内容范围时，设置失败。
+   * @returns { boolean } 光标是否设置成功。
+   *     <br>true表示光标设置成功，false表示设置失败。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -598,7 +641,7 @@ declare interface TextEditControllerEx extends TextBaseController {
   /**
    * 获取预上屏信息。
    *
-   * @returns { PreviewText } 预上屏信息。
+   * @returns { PreviewText } 预上屏信息，包含预上屏起始位置索引和预上屏文本内容。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -618,9 +661,8 @@ declare interface TextEditControllerEx extends TextBaseController {
  * @since 12 dynamic
  */
 declare interface PreviewText {
-
   /**
-   * 预上屏内容的起始位置。
+   * 预上屏内容的起始位置索引，从0开始。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -652,12 +694,12 @@ declare interface PreviewText {
  * @since 12 dynamic
  */
 declare interface StyledStringController {
-
   /**
    * 设置富文本组件显示的属性字符串。
    *
-   * @param { StyledString } styledString - 属性字符串。<br/>**说明：** <br/>StyledString的子类
-   *     [MutableStyledString]{@link MutableStyledString}也可以作为入参值。
+   * @param { StyledString } styledString - 属性字符串。
+   *     <br>**说明：** 
+   *     <br>StyledString的子类[MutableStyledString]{@link MutableStyledString}也可以作为入参值。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -689,7 +731,6 @@ declare interface StyledStringController {
  * @since 12 dynamic
  */
 declare interface StyledStringChangedListener {
-
   /**
    * 文本内容将要变化回调函数。
    *
@@ -723,7 +764,6 @@ declare interface StyledStringChangedListener {
  * @since 12 dynamic
  */
 interface StyledStringChangeValue {
-
   /**
    * 即将被替换的属性字符串子串在原字符串中的范围。
    *
@@ -766,6 +806,16 @@ interface StyledStringChangeValue {
  * > **说明：**
  * >
  * > 文本内容变更后，需等待布局完成才可获取到最新的布局信息。
+ * 
+ * ###### 导入对象
+ * 
+ * 以Text组件为例，完整示例请参考Text组件的
+ * [示例10（获取文本信息）](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-text.md#示例10获取文本信息)。
+ * 
+ * ```ts
+ * controller: TextController = new TextController();
+ * let layoutManager: LayoutManager = this.controller.getLayoutManager();
+ * ```
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -774,11 +824,14 @@ interface StyledStringChangeValue {
  * @since 12 dynamic
  */
 declare interface LayoutManager {
-
   /**
    * 获取组件内容的总行数。
+   * 
+   * > **说明：**
+   * >
+   * > 文本内容变更后，需等待布局完成才可获取到最新的总行数。
    *
-   * @returns { number } 组件内容的总行数。
+   * @returns { number } 组件内容的总行数。当[LayoutManager]{@link LayoutManager}没有和组件绑定时，返回0。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -789,10 +842,19 @@ declare interface LayoutManager {
 
   /**
    * 获取较为接近给定坐标的字形的位置信息。
+   * 
+   * > **说明：**
+   * >
+   * > - 字形（Glyph）是文本渲染的基本单元，与字符（Character）可能存在一对多关系。如需获取字符级别的位置信息，可使用
+   * > [getCharacterPositionAtCoordinate]{@link LayoutManager.getCharacterPositionAtCoordinate}方法。
+   * >
+   * > - 文本内容变更后，需等待布局完成才可获取到最新的位置信息。
    *
-   * @param { number } x - 相对于组件的横坐标。<br/>单位：[px](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
-   * @param { number } y - 相对于组件的纵坐标。<br/>单位：[px](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
-   * @returns { PositionWithAffinity } 字形位置信息。
+   * @param { number } x - 相对于组件的横坐标。
+   *     <br>单位：[px](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
+   * @param { number } y - 相对于组件的纵坐标。
+   *     <br>单位：[px](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
+   * @returns { PositionWithAffinity } 字形位置信息。当[LayoutManager]{@link LayoutManager}没有和组件绑定时，返回无效值。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -803,11 +865,20 @@ declare interface LayoutManager {
 
   /**
    * 获取距离指定坐标最近的字符的位置信息。
+   * 
+   * > **说明：**
+   * >
+   * > - 字形（Glyph）是文本渲染的基本单元，与字符（Character）可能存在一对多关系。如需获取字形级别的位置信息，可使用
+   * > [getGlyphPositionAtCoordinate]{@link LayoutManager.getGlyphPositionAtCoordinate}方法。
+   * >
+   * > - 文本内容变更后，需等待布局完成才可获取到最新的位置信息。
    *
-   * @param { number } x - 相对于组件的横坐标。<br/>单位：[px](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
-   * @param { number } y - 相对于组件的纵坐标。<br/>单位：[px](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
-   * @returns { PositionWithAffinity | undefined } Character position. Returns **undefined** when
-   *     [LayoutManager]{@link LayoutManager} is not bound to a component.
+   * @param { number } x - 相对于组件的横坐标。
+   *     <br>单位：[px](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
+   * @param { number } y - 相对于组件的纵坐标。
+   *     <br>单位：[px](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
+   * @returns { PositionWithAffinity | undefined } 字符的位置信息。当[LayoutManager]{@link LayoutManager}没有和组件绑定时，该接口会返回
+   *     undefined。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -817,42 +888,15 @@ declare interface LayoutManager {
   getCharacterPositionAtCoordinate(x: number, y: number): PositionWithAffinity | undefined;
 
   /**
-   * 根据给定的文本字符范围来获取范围内的字形范围，以及实际的字符范围。例如文本为"世界Hello"，其中文本"世"的字形索引范围为[0, 1]，一个汉字占三个字符，所以其对应的字符索引范围为[0, 3]。如果指定的字符索引范围是
-   * [0, 1]，但无法解析出三分之一个汉字，所以实际的字符索引范围是[0, 3]。
-   *
-   * @param { TextRange } charRange - 文本的字符范围。
-   * @returns { Array<TextRange> | undefined } Contains two elements: the first is the glyph range, and the second is
-   *     the actual character range. When the returned range is invalid, the element in the range is **-1**. Returns
-   *     **undefined** when [LayoutManager]{@link LayoutManager} is not bound to a component.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 24 dynamic
-   */
-  getGlyphRangeForCharacterRange(charRange: TextRange): Array<TextRange> | undefined;
-
-  /**
-   * 根据给定的文本字形范围来获取范围内的字符范围，以及实际的字形范围。例如文本为"世界Hello"，其字形索引范围为[0, 7]，一个汉字占三个字符，所以其对应的字符索引范围为[0, 11]。如果指定的索引范围是[0, 11]，但字形
-   * 一共只有7个，所以实际的字形索引范围是[0, 7]。
-   *
-   * @param { TextRange } glyphRange - 文本的字形范围。
-   * @returns { Array<TextRange> | undefined } Contains two elements: the first is the character range, and the second
-   *     is the actual glyph range. When the returned range is invalid, the element in the range is **-1**. Returns
-   *     **undefined** when [LayoutManager]{@link LayoutManager} is not bound to a component.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 24 dynamic
-   */
-  getCharacterRangeForGlyphRange(glyphRange: TextRange): Array<TextRange> | undefined;
-
-  /**
    * 获取指定行的行信息、文本样式信息、以及字体属性信息。
+   * 
+   * > **说明：**
+   * >
+   * > 文本内容变更后，需等待布局完成才可获取到最新的行信息。
    *
-   * @param { number } lineNumber - 行号，从0开始。
-   * @returns { LineMetrics } 行信息、文本样式信息、以及字体属性信息。<br/>当行号小于0或超出实际行，返回无效值。
+   * @param { number } lineNumber - 行号，取值范围[0, 实际行数-1]，从0开始。当行号小于0或超出实际行数时，返回无效值。
+   * @returns { LineMetrics } 行信息、文本样式信息、以及字体属性信息。
+   *     <br>当行号小于0或超出实际行，返回无效值。当[LayoutManager]{@link LayoutManager}没有和组件绑定时，返回无效值。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -862,12 +906,16 @@ declare interface LayoutManager {
   getLineMetrics(lineNumber: number): LineMetrics;
 
   /**
-   * 获取给定的矩形区域宽度以及矩形区域高度的规格下，文本中任意区间范围内的字符或占位符所占的绘制区域信息。
+   * 根据给定的矩形区域宽度样式和高度样式，获取文本中任意区间范围内的字符或占位符所占的绘制区域信息。
+   * 
+   * > **说明：**
+   * >
+   * > 文本内容变更后，需等待布局完成才可获取到最新的绘制区域信息。
    *
    * @param { TextRange } range - 需要获取的区域的文本区间。
-   * @param { RectWidthStyle } widthStyle - 返回的矩形区域的宽度的规格。
-   * @param { RectHeightStyle } heightStyle - 返回的矩形区域的高度的规格。
-   * @returns { Array<TextBox> } 矩形区域数组。
+   * @param { RectWidthStyle } widthStyle - 返回的矩形区域的宽度规格，用于控制返回矩形的宽度计算方式，不同规格值会影响矩形的宽度边界。
+   * @param { RectHeightStyle } heightStyle - 返回的矩形区域的高度规格，用于控制返回矩形的高度计算方式，不同规格值会影响矩形的高度边界。
+   * @returns { Array<TextBox> } 矩形区域数组。当[LayoutManager]{@link LayoutManager}没有和组件绑定时，返回空数组。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -875,6 +923,60 @@ declare interface LayoutManager {
    * @since 14 dynamic
    */
   getRectsForRange(range: TextRange, widthStyle: RectWidthStyle, heightStyle: RectHeightStyle): Array<TextBox>;
+
+  /**
+   * 根据给定的文本字符范围来获取范围内的字形范围，以及实际的字符范围。
+   * 
+   * > **说明：**
+   * >
+   * > 文本内容变更后，需等待布局完成才可获取到最新的字形范围信息。
+   * > 以文本“世界Hello”为例，其字形索引与字符索引的对应关系如下：
+   * 
+   * | 文本 | 世 | 界 | H | e | l | l | o |
+   * |---|---|---|---|---|---|---|---|
+   * | 字形索引范围 | [0, 1] | [1, 2] | [2, 3] | [3, 4] | [4, 5] | [5, 6] | [6, 7] |
+   * | 字符索引范围 | [0, 3] | [3, 6] | [6, 7] | [7, 8] | [8, 9] | [9, 10] | [10, 11] |
+   * 
+   * 其中文本“世”的字形索引范围为[0, 1]，一个汉字占三个字符，所以其对应的字符索引范围为[0, 3]。如果指定的字符索引范围是[0, 1]，但无法解析出三分之一个汉字，所以实际的字符索引范围是[0, 3]。
+   *
+   * @param { TextRange } charRange - 文本的字符范围。
+   * @returns { Array<TextRange> | undefined } 数组中含有两个元素，第一个元素是字形范围，第二个元素是实际的字符范围。
+   *     <br>当返回的范围是异常值时，范围内元素为-1。
+   *     <br>当[LayoutManager]{@link LayoutManager}没有和组件绑定时，该接口会返回undefined。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 24 dynamic
+   */
+  getGlyphRangeForCharacterRange(charRange: TextRange): Array<TextRange> | undefined;
+
+  /**
+   * 根据给定的文本字形范围来获取范围内的字符范围，以及实际的字形范围。
+   * 
+   * > **说明：**
+   * >
+   * > 文本内容变更后，需等待布局完成才可获取到最新的字符范围信息。
+   * > 以文本“世界Hello”为例，其字形索引与字符索引的对应关系如下：
+   * 
+   * | 文本 | 世 | 界 | H | e | l | l | o |
+   * |---|---|---|---|---|---|---|---|
+   * | 字形索引范围 | [0, 1] | [1, 2] | [2, 3] | [3, 4] | [4, 5] | [5, 6] | [6, 7] |
+   * | 字符索引范围 | [0, 3] | [3, 6] | [6, 7] | [7, 8] | [8, 9] | [9, 10] | [10, 11] |
+   * 
+   * 其字形索引范围为[0, 7]，一个汉字占三个字符，所以其对应的字符索引范围为[0, 11]。如果指定的字形索引范围是[0, 11]，但字形一共只有7个，所以实际的字形索引范围是[0, 7]。
+   *
+   * @param { TextRange } glyphRange - 文本的字形范围。
+   * @returns { Array<TextRange> | undefined } 数组中含有两个元素，第一个元素是字符范围，第二个元素是实际的字形范围。
+   *     <br>当返回的范围是异常值时，范围内元素为-1。
+   *     <br>当[LayoutManager]{@link LayoutManager}没有和组件绑定时，该接口会返回undefined。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 24 dynamic
+   */
+  getCharacterRangeForGlyphRange(glyphRange: TextRange): Array<TextRange> | undefined;
 }
 
 /**
@@ -887,7 +989,6 @@ declare interface LayoutManager {
  * @since 12 dynamic
  */
 interface PositionWithAffinity {
-
   /**
    * 字形或字符相对于组件内容的索引，整数。
    *
@@ -900,7 +1001,7 @@ interface PositionWithAffinity {
   position: number;
 
   /**
-   * 位置亲和度。
+   * 位置亲和度，表示光标位置在字形边界处的倾向性，具体取值请参见Affinity枚举。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -954,7 +1055,6 @@ declare type RectWidthStyle = import('../api/@ohos.graphics.text').default.RectW
  * @since 14 dynamic
  */
 declare type RectHeightStyle = import('../api/@ohos.graphics.text').default.RectHeightStyle;
-
 /**
  * 文本矩形区域。
  *
@@ -965,16 +1065,6 @@ declare type RectHeightStyle = import('../api/@ohos.graphics.text').default.Rect
  * @since 14 dynamic
  */
 declare type TextBox = import('../api/@ohos.graphics.text').default.TextBox;
-
-/**
- * 保存文本内容及样式的载体，支持排版与绘制操作。
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @since 20 dynamic
- */
-declare type Paragraph = import('../api/@ohos.graphics.text').default.Paragraph;
 
 /**
  * 输入法扩展信息。
@@ -1007,7 +1097,6 @@ declare type FontVariation = import('../api/@ohos.graphics.text').default.FontVa
  * @since 10 dynamic
  */
 interface CaretStyle {
-
   /**
    * 光标尺寸，不支持百分比。
    * 
@@ -1024,7 +1113,7 @@ interface CaretStyle {
   /**
    * 光标颜色。
    * 
-   * 默认值：'#ff007dff'
+   * 默认值：'#ff007dff'，表示蓝色。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1045,12 +1134,11 @@ interface CaretStyle {
  * @since 12 dynamic
  */
 declare class TextMenuItemId {
-
   /**
    * 根据id创建TextMenuItemId。
    *
-   * @param { ResourceStr } id - 菜单的id。
-   * @returns { TextMenuItemId } TextMenuItemId的对象。
+   * @param { ResourceStr } id - 菜单项标识，用于创建TextMenuItemId对象以识别菜单选项。
+   * @returns { TextMenuItemId } 根据传入id创建的菜单项标识对象，用于识别菜单选项。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1062,8 +1150,9 @@ declare class TextMenuItemId {
   /**
    * 判断TextMenuItemId是否相等。
    *
-   * @param { TextMenuItemId } id - TextMenuItemId的id。
-   * @returns { boolean } 两个TextMenuItemId是否相等。<br/>true表示相等，false表示不相等。
+   * @param { TextMenuItemId } id - 需要比较的TextMenuItemId对象。
+   * @returns { boolean } 两个TextMenuItemId是否相等。
+   *     <br>true表示相等，false表示不相等。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1197,7 +1286,7 @@ declare class TextMenuItemId {
   static readonly email: TextMenuItemId;
 
   /**
-   * 呼叫，为一级菜单项。对选中的电话号码跳转服务，拉起电话拨号页面。
+   * 呼叫，为一级菜单项。对选中的电话号码提供跳转服务，拉起电话拨号页面。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1227,7 +1316,7 @@ declare class TextMenuItemId {
   static readonly dateTime: TextMenuItemId;
 
   /**
-   * <!--RP2--><!--RP2End-->对选中的文本提供AI问询能力，为一级菜单项。
+   * <!--RP2--><!--RP2End-->对选中的文本提供AI问询能力，为一级菜单项。该菜单项依赖大模型能力，否则不生效。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1237,8 +1326,8 @@ declare class TextMenuItemId {
   static readonly askAI: TextMenuItemId;
 
   /**
-   * 自动填充，为一级菜单项。点击后会展开二级菜单项“密码保险箱”，仅支持[Search]{@link search}、[TextInput]{@link text_input}、[TextArea]{@link text_area}或
-   * [RichEditor]{@link rich_editor}。
+   * 自动填充，为一级菜单项。点击后会展开二级菜单项“密码保险箱”，仅支持[Search]{@link ./search}、[TextInput]{@link ./text_input}、
+   * [TextArea]{@link ./text_area}或[RichEditor]{@link ./rich_editor}。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1248,8 +1337,8 @@ declare class TextMenuItemId {
   static readonly autoFill: TextMenuItemId;
 
   /**
-   * 密码保险箱，为二级菜单项。点击该菜单项后会拉起密码保险箱应用，该应用提供自动填充账号密码能力，仅支持[Search]{@link search}、[TextInput]{@link text_input}、
-   * [TextArea]{@link text_area}或[RichEditor]{@link rich_editor}。
+   * 密码保险箱，为二级菜单项。点击该菜单项后会拉起密码保险箱应用，该应用提供自动填充账号密码能力，仅支持[Search]{@link ./search}、[TextInput]{@link ./text_input}、
+   * [TextArea]{@link ./text_area}或[RichEditor]{@link ./rich_editor}。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1269,7 +1358,6 @@ declare class TextMenuItemId {
  * @since 12 dynamic
  */
 declare interface TextMenuItem {
-
   /**
    * 菜单名称。
    *
@@ -1280,11 +1368,12 @@ declare interface TextMenuItem {
    * @since 12 dynamic
    */
   content: ResourceStr;
-
   /**
    * 菜单图标。
    * 
    * 不支持网络图片。
+   * 
+   * 默认值：undefined，不显示菜单图标。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1293,7 +1382,6 @@ declare interface TextMenuItem {
    * @since 12 dynamic
    */
   icon?: ResourceStr;
-
   /**
    * 菜单id。
    *
@@ -1304,11 +1392,12 @@ declare interface TextMenuItem {
    * @since 12 dynamic
    */
   id: TextMenuItemId;
-
   /**
    * 快捷键提示。
    * 
    * 该字段仅2in1设备支持。
+   * 
+   * 默认值：undefined，不显示快捷键提示。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1335,7 +1424,9 @@ type OnCreateMenuCallback = (menuItems: Array<TextMenuItem>) => Array<TextMenuIt
 /**
  * 当文本选择区域变化后显示菜单之前触发该回调，可在该回调中进行菜单数据设置。入参和返回值只包含一级菜单项，不包含二级菜单项。
  *
- * @param { Array<TextMenuItem> } menuItems - 将要显示的菜单项。<br/>**说明：** <br/>对默认菜单项的名称、图标、快捷键提示修改不生效。
+ * @param { Array<TextMenuItem> } menuItems - 将要显示的菜单项。
+ *     <br>**说明：** 
+ *     <br>对默认菜单项的名称、图标、快捷键提示修改不生效。
  * @returns { Array<TextMenuItem> } 处理后的菜单项。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1355,11 +1446,12 @@ type OnPrepareMenuCallback = (menuItems: Array<TextMenuItem>) => Array<TextMenuI
  * @since 12 dynamic
  */
 declare interface EditMenuOptions {
-
   /**
    * 在菜单创建时触发该回调，可在该回调中进行菜单数据设置。入参和返回值只包含一级菜单项，不包含二级菜单项。
    *
-   * @param { Array<TextMenuItem> } menuItems - 将要显示的菜单项。<br/>**说明：** <br/>对默认菜单项的名称、图标、快捷键提示修改不生效。
+   * @param { Array<TextMenuItem> } menuItems - 将要显示的菜单项。
+   *     <br>**说明：** 
+   *     <br>对默认菜单项的名称、图标、快捷键提示修改不生效。
    * @returns { Array<TextMenuItem> } 处理后的菜单项。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1368,14 +1460,16 @@ declare interface EditMenuOptions {
    * @since 12 dynamic
    */
   onCreateMenu(menuItems: Array<TextMenuItem>): Array<TextMenuItem>;
-
   /**
-   * 菜单项功能函数。
+   * 在菜单项被点击时触发该回调，用于处理菜单项的点击行为。
    *
-   * @param { TextMenuItem } menuItem - 菜单项。<br/>**说明：** <br/>从API version 23开始，对于具备可展开二级菜单能力的一级菜单项，例如自动填充，仅执行系统默认逻辑，不会执
-   *     行用户自定义逻辑。
+   * @param { TextMenuItem } menuItem - 菜单项。
+   *     <br>**说明：** 
+   *     <br>从API version 23开始，对于具备可展开二级菜单能力的一级菜单项，例如自动填充，仅执行系统默认逻辑，不会执行用户自定义逻辑。
    * @param { TextRange } range - 选中的文本信息。
-   * @returns { boolean } 菜单项的执行逻辑。<br/>返回为true，拦截系统默认逻辑，仅执行自定义逻辑。<br/>返回为false，先执行自定义逻辑，再执行系统逻辑。
+   * @returns { boolean } 菜单项的执行逻辑。
+   *     <br>返回为true，拦截系统默认逻辑，仅执行自定义逻辑。
+   *     <br>返回为false，先执行自定义逻辑，再执行系统逻辑。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1385,7 +1479,10 @@ declare interface EditMenuOptions {
   onMenuItemClick(menuItem: TextMenuItem, range: TextRange): boolean;
 
   /**
-   * 当文本选择区域变化后显示菜单之前触发该回调，可在该回调中进行菜单数据设置。 </br>
+   * 当文本选择区域变化后显示菜单之前触发该回调，可在该回调中进行菜单数据设置。
+   * 
+   * 与[onCreateMenu]{@link EditMenuOptions.onCreateMenu}功能相似但触发时机不同：onCreateMenu在菜单创建时触发，适用于初始化菜单项；本接口在每次选择区域变化后、菜单显示前触
+   * 发，适用于根据选择内容动态调整菜单。两者可同时使用。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1406,7 +1503,6 @@ declare interface EditMenuOptions {
  * @since 12 dynamic
  */
 interface DecorationStyleResult {
-
   /**
    * 装饰线类型。
    *
@@ -1469,7 +1565,6 @@ interface DecorationStyleResult {
  * @since 12 dynamic
  */
 declare interface FontSettingOptions {
-
   /**
    * 是否启用可变字重调节。字体配置项作为
    * [fontWeight]{@link TextAttribute#fontWeight(weight: number | FontWeight | ResourceStr, options?: FontSettingOptions)}
@@ -1477,7 +1572,7 @@ declare interface FontSettingOptions {
    * 
    * 默认值：false 
    * 
-   * true：启用可变字重调节。此时如果weight取值为[100, 900]范围内任意整数，字重取值为weight。
+   * true：启用可变字重调节。此时如果weight取值为[100, 900]范围内任意整数，字重取值为weight，否则取默认值400。
    * 
    * false：禁用可变字重调节。此时如果weight取值为[100, 900]范围内的整百数值，字重取值为weight；weight是非整百数值时，字重取默认值400。
    *
@@ -1492,7 +1587,7 @@ declare interface FontSettingOptions {
 }
 
 /**
- * 变化前的文本信息，以及变化后的选区范围。
+ * 文本变化相关信息，包括变化前后的选区范围、变化前的文本内容等。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1501,7 +1596,6 @@ declare interface FontSettingOptions {
  * @since 15 dynamic
  */
 declare interface TextChangeOptions {
-
   /**
    * 变化前的选区范围。
    *
@@ -1557,7 +1651,6 @@ declare interface TextChangeOptions {
  * @since 15 dynamic
  */
 interface EditableTextChangeValue {
-
   /**
    * 当前的文本内容。
    *
@@ -1571,6 +1664,8 @@ interface EditableTextChangeValue {
 
   /**
    * 预上屏的内容信息。
+   * 
+   * 默认值：undefined，表示无预上屏内容。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1582,6 +1677,8 @@ interface EditableTextChangeValue {
 
   /**
    * 变化的文本内容信息。
+   * 
+   * 默认值：undefined。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1602,7 +1699,6 @@ interface EditableTextChangeValue {
  * @since 16 dynamic
  */
 declare enum TextMenuShowMode {
-
   /**
    * 显示在当前窗口中。
    *
@@ -1626,7 +1722,7 @@ declare enum TextMenuShowMode {
    * 在[UIExtension]{@link @ohos.arkui.uiExtension:uiExtension}中不支持将文本选择菜单显示在独立窗口中。
    * 
    * 当文本类组件已经显示在子窗类型的[Popup]{@link @ohos.arkui.advanced.Popup}、[Dialog]{@link @ohos.arkui.advanced.Dialog}、
-   * [Toast](docroot://ui/arkts-create-toast.md)、[Menu]{@link menu}中时，不支持将其对应的文本选择菜单显示在独立窗口中。
+   * [Toast](docroot://ui/arkts-create-toast.md)、[Menu]{@link ./menu}中时，不支持将其对应的文本选择菜单显示在独立窗口中。
    * 
    * 当TextInput、TextArea可支持拉起AutoFill时，不支持将其对应的文本选择菜单显示在独立窗口中。
    *
@@ -1649,7 +1745,6 @@ declare enum TextMenuShowMode {
  * @since 16 dynamic
  */
 declare interface TextMenuOptions {
-
   /**
    * 菜单的显示模式。
    * 
@@ -1663,7 +1758,6 @@ declare interface TextMenuOptions {
    */
   showMode?: TextMenuShowMode;
 }
-
 /**
  * 键盘外观。
  *
@@ -1673,7 +1767,6 @@ declare interface TextMenuOptions {
  * @since 15 dynamic
  */
 declare enum KeyboardAppearance {
-
   /**
    * 默认外观模式，不采用沉浸式风格。
    *
@@ -1716,6 +1809,124 @@ declare enum KeyboardAppearance {
 }
 
 /**
+ * 设置文本的行间距，是否仅在行与行之间生效。
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 20 dynamic
+ */
+declare interface LineSpacingOptions {
+  /**
+   * 文本的行间距是否仅在行与行之间生效。
+   * 
+   * 当设置为true时，行间距仅适用于行与行之间，首行上方和尾行下方无额外的行间距。当设置为false时，首行上方和尾行下方均会存在行间距。
+   * 
+   * 默认值：false
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 20 dynamic
+   */
+  onlyBetweenLines?: boolean;
+}
+
+/**
+ * 语音按钮选项。
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @stagemodelonly
+ * @atomicservice
+ * @since 23 dynamic
+ */
+interface VoiceButtonOptions {
+  /**
+   * 输入框启用或禁用语音按钮。
+   * 
+   * true表示启用语音按钮，false表示禁用语音按钮。
+   * 
+   * 默认值：false
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  enabled?: boolean;
+}
+
+/**
+ * 字体配置项。
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 24 dynamic
+ */
+declare interface FontConfigs {
+  /**
+    * 字体粗细配置。默认值继承[FontWeightConfigs]{@link FontWeightConfigs}。
+    *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 24 dynamic
+   */
+  fontWeightConfigs?: FontWeightConfigs;
+}
+
+/**
+ * 字体粗细配置项。当传入该配置对象时（包括空对象{}），未显式设置的属性将使用默认值。当传入null或undefined时，不应用默认值，字体粗细行为与父组件文本保持一致。
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 24 dynamic
+ */
+declare interface FontWeightConfigs {
+  /**
+   * 是否启用可变字重调节。当设置字体粗细的值weight为[100, 900]内非整百数值时，enableVariableFontWeight用于设置weight的值是否生效。
+   * 
+   * 默认值：false 
+   * 
+   * true：启用可变字重调节。此时如果weight取值为[100, 900]范围内任意整数，字重取值为weight，否则取默认值400。
+   * 
+   * false：禁用可变字重调节。此时如果weight取值为[100, 900]范围内的整百数值，字重取值为weight；weight是非整百数值时，字重取默认值400。
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 24 dynamic
+   */
+  enableVariableFontWeight?: boolean;
+  /**
+   * 是否随设备的字体粗细级别自动更新字重。
+   * 
+   * 默认值：true 
+   * 
+   * true：当设备的字体粗细级别发生变化时，字重会自动更新。
+   * 
+   * false：当设备的字体粗细级别发生变化时，字重不会自动更新。
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 24 dynamic
+   */
+  enableDeviceFontWeightCategory?: boolean;
+}
+
+/**
  * 文本着色器效果基类。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1736,12 +1947,12 @@ declare class ShaderStyle {}
  * @since 20 dynamic
  */
 declare class LinearGradientStyle extends ShaderStyle {
-
   /**
    * 用于创建LinearGradientStyle对象的构造函数。
    *
-   * @param { LinearGradientOptions } options - 显示为线性渐变效果。<br/>[LinearGradientOptions]{@link LinearGradientOptions}中的
-   *     direction默认值按[GradientDirection]{@link GradientDirection}中的NONE处理。
+   * @param { LinearGradientOptions } options - 显示为线性渐变效果。
+   *     <br>[LinearGradientOptions]{@link LinearGradientOptions}中的direction默认值按
+   *     [GradientDirection]{@link GradientDirection}中的NONE处理。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1772,9 +1983,8 @@ declare class LinearGradientStyle extends ShaderStyle {
  * @since 20 dynamic
  */
 declare class RadialGradientStyle extends ShaderStyle {
-
   /**
-   * 用于创建RadialGradientOptions对象的构造函数。
+   * 用于创建RadialGradientStyle对象的构造函数。
    *
    * @param { RadialGradientOptions } options - 显示为径向渐变效果。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1807,9 +2017,8 @@ declare class RadialGradientStyle extends ShaderStyle {
  * @since 20 dynamic
  */
 declare class ColorShaderStyle extends ShaderStyle {
-
   /**
-   * 用于创建ResourceColor对象的构造函数。
+   * 用于创建ColorShaderStyle对象的构造函数。
    *
    * @param { ResourceColor } color - 显示为纯色效果。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1856,12 +2065,11 @@ declare class ContentTransition {}
  * @since 20 dynamic
  */
 declare class NumericTextTransition extends ContentTransition {
-
   /**
    * 用于创建NumericTextTransition对象的构造函数。
    *
    * @param { NumericTextTransitionOptions } [options] - 设置数字翻牌动效。 默认值继承
-   *     [NumericTextTransitionOptions](docroot://reference/apis-arkui/arkui-ts/ts-text-common.md#numerictexttransitionoptions20对象说明)。
+   *     [NumericTextTransitionOptions]{@link NumericTextTransitionOptions}。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform [since 23]
@@ -1911,7 +2119,6 @@ declare class NumericTextTransition extends ContentTransition {
  * @since 20 dynamic
  */
 declare interface NumericTextTransitionOptions {
-
   /**
    * 翻牌方向。
    * 
@@ -1953,7 +2160,6 @@ declare interface NumericTextTransitionOptions {
  * @since 20 dynamic
  */
 declare enum FlipDirection {
-
   /**
    * 内容往下翻。
    *
@@ -1978,7 +2184,17 @@ declare enum FlipDirection {
 }
 
 /**
- * 设置文本的行间距，是否仅在行与行之间生效。
+ * 保存文本内容及样式的载体，支持排版与绘制操作。
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @since 20 dynamic
+ */
+declare type Paragraph = import('../api/@ohos.graphics.text').default.Paragraph;
+
+/**
+ * 自动大小写模式类型，只提供接口能力，具体实现由输入法应用决定。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1986,14 +2202,10 @@ declare enum FlipDirection {
  * @atomicservice
  * @since 20 dynamic
  */
-declare interface LineSpacingOptions {
+declare enum AutoCapitalizationMode {
 
   /**
-   * 文本的行间距是否仅在行与行之间生效。
-   * 
-   * 当设置为true时，行间距仅适用于行与行之间，首行上方和尾行下方无额外的行间距。当设置为false时，首行上方和尾行下方均会存在行间距。
-   * 
-   * 默认值：false
+   * 默认状态，不进行自动大小写处理。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2001,7 +2213,40 @@ declare interface LineSpacingOptions {
    * @atomicservice
    * @since 20 dynamic
    */
-  onlyBetweenLines?: boolean;
+  NONE = 0,
+
+  /**
+   * 按单词自动大小写，即输入单词的首个字符大写，其他字符小写。
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 20 dynamic
+   */
+  WORDS = 1,
+
+  /**
+   * 按句子自动大小写，即输入句子的首个字符大写，其他字符小写。
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 20 dynamic
+   */
+  SENTENCES = 2,
+
+  /**
+   * 按全字符自动大小写。
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 20 dynamic
+   */
+  ALL_CHARACTERS = 3
 }
 
 /**
@@ -2014,9 +2259,8 @@ declare interface LineSpacingOptions {
  * @since 20 dynamic
  */
 declare interface MaxLinesOptions {
-
   /**
-   * `overflowMode`可配置[TextArea]{@link text_area}组件的非内联模式。当超出设置的`maxLines`最大行数时，会启用滚动效果。需同时配置
+   * `overflowMode`可配置[TextArea]{@link ./text_area}组件的非内联模式。当超出设置的`maxLines`最大行数时，会启用滚动效果。需同时配置
    * [textOverflow]{@link TextAreaAttribute#textOverflow}，且仅当`textOverflow`为None或Clip时，`MaxLinesMode`才能生效。默认情况下，
    * `MaxLinesMode`的值为Clip，超出`maxLines`后文本会被截断。
    *
@@ -2039,7 +2283,6 @@ declare interface MaxLinesOptions {
  * @since 20 dynamic
  */
 declare enum MaxLinesMode {
-
   /**
    * 文本超长时按最大行截断显示。
    *
@@ -2072,7 +2315,6 @@ declare enum MaxLinesMode {
  * @since 20 dynamic
  */
 declare enum TextChangeReason {
-
   /**
    * 未知原因。
    *
@@ -2213,7 +2455,6 @@ declare enum TextChangeReason {
  * @since 20 dynamic
  */
 declare enum KeyboardGradientMode {
-
   /**
    * 键盘无模糊效果。
    *
@@ -2244,7 +2485,6 @@ declare enum KeyboardGradientMode {
  * @since 20 dynamic
  */
 declare enum KeyboardFluidLightMode {
-
   /**
    * 键盘无流光效果。
    *
@@ -2276,7 +2516,6 @@ declare enum KeyboardFluidLightMode {
  * @since 22 dynamic
  */
 declare enum TextDirection {
-
   /**
    * 文本排版方向从左到右。
    *
@@ -2287,7 +2526,6 @@ declare enum TextDirection {
    * @since 22 dynamic
    */
   LTR = 0,
-
   /**
    * 文本排版方向从右到左。
    *
@@ -2298,7 +2536,6 @@ declare enum TextDirection {
    * @since 22 dynamic
    */
   RTL = 1,
-
   /**
    * 文本排版方向遵循组件布局方向。
    *
@@ -2309,7 +2546,6 @@ declare enum TextDirection {
    * @since 23 dynamic
    */
   DEFAULT = 2,
-
   /**
    * 遵循自身实际文本内容的排版方向，如果文本为 RTL（Right-to-Left）类语言（如藏文、维吾尔文），文本排版方向为从右到左。如果为 LTR（Left-to-Right）类语言（如中文、英文），文本排版方向为从左到右。
    *
@@ -2331,7 +2567,6 @@ declare enum TextDirection {
  * @since 20 dynamic
  */
 declare interface KeyboardAppearanceConfig {
-
   /**
    * 键盘的模糊效果。
    * 
@@ -2367,7 +2602,6 @@ declare interface KeyboardAppearanceConfig {
  * @since 20 dynamic
  */
 declare interface IMEClient {
-
   /**
    * 当前输入控件的组件UniqueId。取值范围大于等于0。
    *
@@ -2392,104 +2626,122 @@ declare interface IMEClient {
 }
 
 /**
- * 文本垂直对齐的方式。默认值BASELINE，沿基线对齐。
+ * 文本布局选项。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @atomicservice
  * @since 20 dynamic
  */
-declare enum TextVerticalAlign {
-
+declare interface TextLayoutOptions {
   /**
-   * 对齐文本基线。
+   * 设置被计算文本布局宽度。若不设置则宽度为单行布局所占最大宽度值。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @atomicservice
    * @since 20 dynamic
    */
-  BASELINE = 0,
-
-  /**
-   * 对齐文本底部。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
-   */
-  BOTTOM = 1,
-
-  /**
-   * 垂直居中对齐。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
-   */
-  CENTER = 2,
-
-  /**
-   * 对齐文本顶部。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
-   */
-  TOP = 3
+  constraintWidth?: LengthMetrics;
 }
 
 /**
- * 文本内容区垂直对齐方向。
+ * 文本拖拽时的背板样式。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 21 dynamic
+ * @since 23 dynamic
  */
-declare enum TextContentAlign {
-
+declare interface SelectedDragPreviewStyle {
   /**
-   * 内容区顶部对齐。
+   * 用于设置文本拖拽时的背板颜色。
+   * 
+   * 默认值：跟随主题。默认主题时，浅色模式显示白色，深色模式显示黑色。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 21 dynamic
+   * @since 23 dynamic
    */
-  TOP = 0,
+  color?: ResourceColor;
+}
 
+/**
+ * Span的无障碍朗读功能属性。
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 23 dynamic
+ */
+declare interface AccessibilitySpanOptions {
   /**
-   * 内容区中心对齐。
+   * 无障碍文本属性。组件无文本属性时，屏幕朗读选中此组件不会播报。设置该属性后可为此类组件设置无障碍文本，屏幕朗读时将播报该文本，帮助使用者明确选中了什么组件。
+   * 
+   * 默认值：''
+   * 
+   * 值为undefined时，按默认值处理。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 21 dynamic
+   * @since 23 dynamic
    */
-  CENTER = 1,
+  accessibilityText?: ResourceStr;
 
   /**
-   * 内容区底部对齐。
+   * 无障碍说明属性。此描述用于向用户详细解释当前组件，开发人员应提供详尽的文本说明，以协助用户理解即将执行的操作及其后果，尤其当这些后果无法仅从组件的属性和无障碍文本中直接获取时。
+   * 
+   * 默认值：''
+   * 
+   * 值为undefined时，按默认值处理。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 21 dynamic
+   * @since 23 dynamic
    */
-  BOTTOM = 2
+  accessibilityDescription?: ResourceStr;
+
+  /**
+   * 无障碍重要性。用于设置组件是否可被无障碍辅助服务识别。
+   * 
+   * 支持取值如下：
+   * 
+   * "auto"：当前组件由无障碍辅助服务和ArkUI进行综合判断组件是否可被无障碍辅助服务所识别。
+   * 
+   * "yes"：当前组件可被无障碍辅助服务识别。
+   * 
+   * "no"：当前组件不可被无障碍辅助服务识别。
+   * 
+   * "no-hide-descendants"：当前组件及其所有子组件不可被无障碍辅助服务所识别。
+   * 
+   * 默认值："auto"
+   * 
+   * 值为undefined时，按默认值处理。
+   * 
+   * **说明：**
+   * 
+   * 当accessibilityLevel设置成"auto"时，组件是否可被无障碍辅助服务所识别取决于以下多方面因素：
+   * 
+   * 1. 组件是否可被识别由无障碍辅助服务内部判断，自行选择。
+   * 2. 若组件的父组件accessibilityGroup属性中isGroup设置为true，无障碍服务将不再关注其子组件内容，组件不可被无障碍辅助服务所识别。
+   * 3. 若组件的父组件accessibilityLevel属性设置为"no-hide-descendants"，组件不可被无障碍辅助服务所识别。
+   *
+   * @default "auto".
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  accessibilityLevel?: string;
 }
 
 /**
@@ -2538,225 +2790,6 @@ declare enum StrokeJoinStyle {
 }
 
 /**
- * 文本布局选项。
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @since 20 dynamic
- */
-declare interface TextLayoutOptions {
-
-  /**
-   * 设置被计算文本布局宽度。若不设置则宽度为单行布局所占最大宽度值。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @since 20 dynamic
-   */
-  constraintWidth?: LengthMetrics;
-}
-
-/**
- * Span的无障碍朗读功能属性。
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 23 dynamic
- */
-declare interface AccessibilitySpanOptions {
-
-  /**
-   * 无障碍文本属性。组件无文本属性时，屏幕朗读选中此组件不会播报。设置该属性后可为此类组件设置无障碍文本，屏幕朗读时将播报该文本，帮助使用者明确选中了什么组件。
-   * 
-   * 默认值：''
-   * 
-   * 值为undefined时，按默认值处理。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 23 dynamic
-   */
-  accessibilityText?: ResourceStr;
-
-  /**
-   * 无障碍说明属性。此描述用于向用户详细解释当前组件，开发人员应提供详尽的文本说明，以协助用户理解即将执行的操作及其后果，尤其当这些后果无法仅从组件的属性和无障碍文本中直接获取时。
-   * 
-   * 默认值：''
-   * 
-   * 值为undefined时，按默认值处理。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 23 dynamic
-   */
-  accessibilityDescription?: ResourceStr;
-
-  /**
-   * 无障碍重要性。用于设置组件是否可被无障碍辅助服务识别。
-   * 
-   * 支持取值如下：
-   * 
-   * "auto"：当前组件由无障碍辅助服务和ArkUl进行综合判断组件是否可被无障碍辅助服务所识别。
-   * 
-   * "yes"：当前组件可被无障碍辅助服务识别。
-   * 
-   * "no"：当前组件不可被无障碍辅助服务识别。
-   * 
-   * "no-hide-descendants"：当前组件及其所有子组件不可被无障碍辅助服务所识别。
-   * 
-   * 默认值："auto"
-   * 
-   * 值为undefined时，按默认值处理。
-   * 
-   * **说明：**
-   * 
-   * 当accessibilityLevel设置成"auto"时，组件是否可被无障碍辅助服务所识别取决于以下多方面因素：
-   * 
-   * 1. 组件是否可被识别由无障碍辅助服务内部判断，自行选择。
-   * 2. 若组件的父组件accessibilityGroup属性中isGroup设置为true，无障碍服务将不再关注其子组件内容，组件不可被无障碍辅助服务所识别。
-   * 3. 若组件的父组件accessibilityLevel属性设置为"no-hide-descendants"，组件不可被无障碍辅助服务所识别。
-   *
-   * @default "auto".
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 23 dynamic
-   */
-  accessibilityLevel?: string;
-}
-
-/**
- * 文本拖拽时的背板样式。
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 23 dynamic
- */
-declare interface SelectedDragPreviewStyle {
-
-  /**
-   * 用于设置文本拖拽时的背板颜色。
-   * 
-   * 默认值：跟随主题。默认主题时，浅色模式显示白色，深色模式显示黑色。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 23 dynamic
-   */
-  color?: ResourceColor;
-}
-
-/**
- * 语音按钮选项。
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @systemapi
- * @stagemodelonly
- * @atomicservice
- * @since 23 dynamic
- */
-interface VoiceButtonOptions {
-
-  /**
-   * 输入框启用或禁用语音按钮。
-   * 
-   * true表示启用语音按钮，false表示禁用语音按钮。
-   * 
-   * 默认值：false
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @stagemodelonly
-   * @atomicservice
-   * @since 23 dynamic
-   */
-  enabled?: boolean;
-}
-
-/**
- * 字体配置项。
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 24 dynamic
- */
-declare interface FontConfigs {
-
-  /**
-   * 字体粗细配置。默认值继承
-   * [FontWeightConfigs](docroot://reference/apis-arkui/arkui-ts/ts-text-common.md#fontweightconfigs24对象说明)。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 24 dynamic
-   */
-  fontWeightConfigs?: FontWeightConfigs;
-}
-
-/**
- * 字体粗细配置项。当传入该配置对象时（包括空对象{}），未显式设置的属性将使用默认值。当传入null或undefined时，不应用默认值，字体粗细行为与父组件文本保持一致。
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 24 dynamic
- */
-declare interface FontWeightConfigs {
-
-  /**
-   * 是否启用可变字重调节。当设置字体粗细的值weight为[100, 900]内非整百数值时，enableVariableFontWeight用于设置weight的值是否生效。
-   * 
-   * 默认值：false 
-   * 
-   * true：启用可变字重调节。此时如果weight取值为[100, 900]范围内任意整数，字重取值为weight，否则取默认值400。
-   * 
-   * false：禁用可变字重调节。此时如果weight取值为[100, 900]范围内的整百数值，字重取值为weight；weight是非整百数值时，字重取默认值400。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 24 dynamic
-   */
-  enableVariableFontWeight?: boolean;
-
-  /**
-   * 是否随设备的字体粗细级别自动更新字重。
-   * 
-   * 默认值：true 
-   * 
-   * true：当设备的字体粗细级别发生变化时，字重会自动更新。
-   * 
-   * false：当设备的字体粗细级别发生变化时，字重不会自动更新。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 24 dynamic
-   */
-  enableDeviceFontWeightCategory?: boolean;
-}
-
-/**
  * 文本渲染的增量更新策略。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2766,7 +2799,6 @@ declare interface FontWeightConfigs {
  * @since 26.0.0 dynamic
  */
 declare enum IncrementalUpdatePolicy {
-
   /**
    * 不启用增量更新，采用全量布局渲染。
    *
