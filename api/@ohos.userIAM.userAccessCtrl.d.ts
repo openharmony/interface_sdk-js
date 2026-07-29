@@ -28,10 +28,11 @@ import userAuth from '@ohos.userIAM.userAuth';
  *
  * This module applies to the following scenarios:
  *
- * - System-level applications need to verify the validity of user authentication tokens.
+ * - System-level applications need to verify the validity of user authentication tokens to ensure access security.
  * - Detailed information about the authentication token needs to be obtained, such as the authentication type, trust
- * level, and user ID.
- * - Access control decisions need to be made based on the authentication result.
+ * level, and user ID, for precise user identity identification.
+ * - Access control decisions need to be made based on the authentication result to implement fine-grained permission
+ * management.
  *
  * @syscap SystemCapability.UserIAM.UserAuth.Core
  * @since 18 dynamic
@@ -43,6 +44,10 @@ declare namespace userAccessCtrl {
    * integrity and validity check. After the verification is successful, the detailed information about the parsed
    * **AuthToken** is returned. This API uses a promise to return the result.
    *
+   * The integrity check verifies the digital signature of the **AuthToken** to ensure that the token has not been
+   * tampered with. The validity check compares the issuance time of the **AuthToken** with the current time and
+   * determines whether the token is within the validity period based on the **allowableDuration** parameter.
+   *
    * @permission ohos.permission.USE_USER_ACCESS_MANAGER
    * @param { Uint8Array } authToken - Authentication token to be verified. The value contains a maximum of 1024 bytes
    *     and is returned after the user is authenticated. The token contains the credentials information for user
@@ -51,7 +56,9 @@ declare namespace userAccessCtrl {
    *     the token from the time when the token is issued. The unit is millisecond. The value must be greater than 0 and
    *     less than or equal to 86400000 (24 hours). It is used to verify the validity of a token to prevent expired
    *     tokens from being used.
-   * @returns { Promise<AuthToken> } Promise used to return the result.
+   * @returns { Promise<AuthToken> } Promise used to return the result. If the verification is successful, the
+   *     parsed **AuthToken** data is returned, including the challenge value, authentication trust level,
+   *     authentication type, and user ID. If the verification fails, the corresponding error code is returned.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied. Called by non-system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -69,9 +76,9 @@ declare namespace userAccessCtrl {
   function verifyAuthToken(authToken: Uint8Array, allowableDuration: int): Promise<AuthToken>;
 
   /**
-   * Authentication token data. It indicates the parsed **AuthToken** data returned after the verification is
-   * successful, including detailed authentication information such as the challenge value, authentication trust level,
-   * authentication type, and user ID.
+   * Defines the authentication token data. It indicates the parsed **AuthToken** data returned after the verification
+   * is successful, including detailed authentication information such as the challenge value, authentication trust
+   * level, authentication type, and user ID.
    *
    * @syscap SystemCapability.UserIAM.UserAuth.Core
    * @systemapi Hide this for inner system use.
@@ -93,7 +100,7 @@ declare namespace userAccessCtrl {
 
     /**
      * Authentication trust level. It indicates the security strength level of the current authentication. The value can
-     * be **ATL1(10000)**, **ATL2(20000)**, **ATL3(30000)**, or **ATL4(40000)**. A higher level indicates a stronger
+     * be **ATL1 (10000)**, **ATL2 (20000)**, **ATL3 (30000)**, or **ATL4 (40000)**. A higher level indicates a stronger
      * liveness detection capability and more accurate identity recognition.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
@@ -105,7 +112,7 @@ declare namespace userAccessCtrl {
 
     /**
      * Credential type for the identity authentication. It indicates the authentication mode used for the current
-     * authentication, such as **PIN(1)**, **FACE(2)**, and **FINGERPRINT(4)**.
+     * authentication, such as **PIN (1)**, **FACE (2)**, and **FINGERPRINT (4)**.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @systemapi Hide this for inner system use.
@@ -115,8 +122,8 @@ declare namespace userAccessCtrl {
     authType: userAuth.UserAuthType;
 
     /**
-     * Enumerates the authentication token types. It identifies the source of the token, such as local authentication,
-     * reuse authentication, or collaborative authentication.
+     * Authentication token type. It identifies the source of the token, such as local authentication, reuse
+     * authentication, or collaborative authentication.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @systemapi Hide this for inner system use.
@@ -126,8 +133,7 @@ declare namespace userAccessCtrl {
     tokenType: AuthTokenType;
 
     /**
-     * User ID. It indicates the ID of the user who has completed authentication. The value is a positive integer
-     * greater than or equal to 0.
+     * User ID. It indicates the ID of the user who has completed authentication. The value is a non-negative integer.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @systemapi Hide this for inner system use.

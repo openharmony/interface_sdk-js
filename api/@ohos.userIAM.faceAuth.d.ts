@@ -20,8 +20,8 @@
 
 /**
  * The **faceAuth** module is an important part of the OpenHarmony user identity and access management (UserIAM) and is
- * used to manage face enrollment. This module provides core APIs for face authentication management, enabling
- * developers to enroll and manage face information within their applications.
+ * used to manage face enrollment. This module provides core APIs for face authentication management, allowing
+ * developers to enroll and manage face information within the application.
  *
  * This module applies to the following scenarios:
  *
@@ -61,10 +61,12 @@ declare namespace faceAuth {
      * [getXComponentSurfaceId]{@link XComponentController#getXComponentSurfaceId} component.
      *
      * @permission ohos.permission.MANAGE_USER_IDM
-     * @param { string } surfaceId - ID of the surface held by
-     *     [XComponent]{@link XComponentController#getXComponentSurfaceId}. This ID is used to display the face preview
-     *     page during face enrollment. It must be obtained using the **getXComponentSurfaceId** method of
-     *     **XComponentController**.
+     * @param { string } surfaceId - ID of the surface held by [XComponent]{@link ./@internal/component/ets/xcomponent}.
+     *     This ID is used to display the face preview page during face enrollment.
+     *     <br>**Note:** A valid **surfaceId** must be obtained through the
+     *     [getXComponentSurfaceId]{@link XComponentController#getXComponentSurfaceId} method after **XComponent**
+     *     initialization. An invalid **surfaceId** may cause the preview page to fail to display or the API call to
+     *     fail.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Permission denied. Called by non-system application.
      * @throws { BusinessError } 12700001 - The service is unavailable.

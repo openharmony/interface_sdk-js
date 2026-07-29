@@ -19,10 +19,10 @@
  */
 
 /**
- * **faceAuth**模块是OpenHarmony用户身份认证体系（UserIAM）的重要组成部分，用于管理人脸录入功能。该模块提供了面部认证管理的核心API，使开发者能够在应用内录入和管理人脸信息。
- *
+ * **faceAuth**模块是OpenHarmony用户身份认证体系（UserIAM）的重要组成部分，用于管理人脸录入功能。该模块提供了人脸认证管理的核心API，使开发者能够在应用内录入和管理人脸信息。
+ * 
  * 该模块主要用于以下场景：
- *
+ * 
  * - 需要实现人脸录入功能的应用。
  * - 需要与系统级身份认证服务集成的场景。
  * - 需要自定义人脸预览界面的应用。
@@ -33,7 +33,7 @@
  */
 declare namespace faceAuth {
   /**
-   * 人脸认证管理器对象。用于提供人脸录入过程中的管理功能，包括设置人脸预览界面的Surface ID等。
+   * 人脸认证管理器对象。用于提供人脸录入过程中的管理功能，目前支持设置人脸预览界面的Surface ID。
    *
    * @syscap SystemCapability.UserIAM.UserAuth.FaceAuth
    * @systemapi Hide this for inner system use.
@@ -57,8 +57,10 @@ declare namespace faceAuth {
      * [getXComponentSurfaceId]{@link XComponentController#getXComponentSurfaceId}组件的Surface来显示人脸预览画面。
      *
      * @permission ohos.permission.MANAGE_USER_IDM
-     * @param { string } surfaceId - [XComponent]{@link XComponentController#getXComponentSurfaceId} 持有 Surface 的 ID。用于在
-     *     人脸录入过程中显示人脸预览画面，该ID需通过XComponentController的getXComponentSurfaceId方法获取。
+     * @param { string } surfaceId - [XComponent]{@link ./@internal/component/ets/xcomponent}持有Surface的ID。用于在人脸录入过程中显示人脸
+     *     预览画面。
+     *     <br>**说明**：需在XComponent完成初始化后，通过[getXComponentSurfaceId]{@link XComponentController#getXComponentSurfaceId}方法
+     *     获取有效的surfaceId，若传入无效的surfaceId可能导致预览画面无法正常显示或接口调用失败。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Permission denied. Called by non-system application.
      * @throws { BusinessError } 12700001 - The service is unavailable.
