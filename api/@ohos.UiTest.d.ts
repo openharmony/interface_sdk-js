@@ -5110,11 +5110,12 @@ declare namespace ON {
 
   /**
    * Specifies the original text for the target Component.
-   * If the [accessibilityLevel]{@link ./@internal/component/ets/common:CommonMethod#accessibilityLevel}
-   * of a component is set to **no** or **no-hide-descendants**,
+   * If the accessibility property
+   * [accessibilityLevel]{@link ./@internal/component/ets/common:CommonMethod#accessibilityLevel}
+   * of a component is set to 'no' or 'no-hide-descendants',
    * you will not be able to use {@link On.text} to match the component with the specified original text, but you can
    * use this method to achieve it;
-   * if accessibilityLevel is not set to the above values, this method has no difference with {@link On.text}
+   * if the component does not set the above accessibility property, this method has no difference with {@link On.text}
    *
    * @param { string } text - the original text value.
    * @param { MatchPattern } [pattern] - the {@link MatchPattern} of the text value.
