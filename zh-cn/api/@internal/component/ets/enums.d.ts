@@ -5528,7 +5528,7 @@ declare enum ResponseType {
    * @atomicservice
    * @since 11 dynamic
    */
-  RightClick,
+  RightClick = 0,
 
   /**
    * Long press.
@@ -5554,7 +5554,7 @@ declare enum ResponseType {
    * @atomicservice
    * @since 11 dynamic
    */
-  LongPress,
+  LongPress = 1
 }
 
 /**
