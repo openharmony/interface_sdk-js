@@ -20,6 +20,7 @@
 
 /**
  * Provides text style settings.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -31,7 +32,7 @@
 export interface PopupTextOptions {
   /**
    * Text content.
-   * @type { ResourceStr }.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -50,7 +51,6 @@ export interface PopupTextOptions {
    * 
    * Value range of number values: (0, +∞)
    *
-   * @type { ?(number | string | Resource) }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -64,7 +64,6 @@ export interface PopupTextOptions {
    * 
    * Default value: **$r('sys.color.ohos_id_color_text_secondary')**
    *
-   * @type { ?ResourceColor }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -84,8 +83,7 @@ export interface PopupTextOptions {
    * **FontWeight**.
    * 
    * Default value: **FontWeight.Regular**
-   * 
-   * @type { ?(number | FontWeight | string) }.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -97,6 +95,7 @@ export interface PopupTextOptions {
 
 /**
  * Defines the button attributes and events.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -106,7 +105,7 @@ export interface PopupTextOptions {
 export interface PopupButtonOptions {
   /**
    * Text of the button.
-   * @type { ResourceStr }.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -120,7 +119,6 @@ export interface PopupButtonOptions {
    * 
    * By default, no operation is performed.
    *
-   * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -139,7 +137,6 @@ export interface PopupButtonOptions {
    * 
    * Invalid values are handled as default values.
    *
-   * @type { ?(number | string | Resource) }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -153,7 +150,6 @@ export interface PopupButtonOptions {
    * 
    * Default value: **$r('sys.color.ohos_id_color_text_primary_activated')**
    *
-   * @type { ?ResourceColor }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -176,7 +172,6 @@ export interface PopupIconOptions {
   /**
    * Icon content.
    *
-   * @type { ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -190,7 +185,6 @@ export interface PopupIconOptions {
    * 
    * Default value: **32VP**
    *
-   * @type { ?Dimension }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -204,7 +198,6 @@ export interface PopupIconOptions {
    * 
    * Default value: **32VP**
    *
-   * @type { ?Dimension }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -218,7 +211,6 @@ export interface PopupIconOptions {
    * 
    * By default, the icon color is not changed.
    *
-   * @type { ?ResourceColor }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -232,7 +224,6 @@ export interface PopupIconOptions {
    * 
    * Default value: **$r('sys.float.ohos_id_corner_radius_default_s')**
    *
-   * @type { ?(Length | BorderRadiuses) }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -260,8 +251,7 @@ export interface PopupOptions {
    * The icon is not displayed when **width** and **height** are set to an invalid value or **0**.
    * 
    * By default, no icon is displayed.
-    *
-   * @type { ?PopupIconOptions }
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -274,8 +264,7 @@ export interface PopupOptions {
    * Title of the popup.
    * 
    * By default, no title is displayed.
-    *
-   * @type { ?PopupTextOptions }
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -293,7 +282,6 @@ export interface PopupOptions {
    * 
    * By default, no message is displayed.
    *
-   * @type { PopupTextOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -311,7 +299,6 @@ export interface PopupOptions {
    * 
    * Default value: **true**
    *
-   * @type { ?(boolean | Resource) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -325,7 +312,6 @@ export interface PopupOptions {
    * 
    * By default, the callback for the close button is not set.
    *
-   * @type { ?() => void }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -339,7 +325,6 @@ export interface PopupOptions {
    * 
    * By default, no buttons are displayed.
    *
-   * @type { ?[PopupButtonOptions?, PopupButtonOptions?] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -349,17 +334,17 @@ export interface PopupOptions {
   buttons?: [PopupButtonOptions?, PopupButtonOptions?];
 
   /**
-   * Layout direction.
-   * 
-   * Default value: **Direction.Auto**
-   *
-   * @type { ?Direction }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
-   */
+    * Layout direction.
+    * 
+    * Default value: **Direction.Auto**
+    *
+    * @type { ?Direction }
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
+    * @crossplatform
+    * @atomicservice
+    * @since 12 dynamic
+    */
    direction?: Direction;
 
   /**
@@ -373,7 +358,6 @@ export interface PopupOptions {
    * 
    * Default value: **400vp**
    *
-   * @type { ?Dimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform

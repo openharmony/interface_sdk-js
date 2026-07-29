@@ -14828,6 +14828,17 @@ declare interface PopupCommonOptions {
   systemMaterial?: SystemUiMaterial;
 
   /**
+   * Defines the display level of the popup.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  levelMode?: LevelMode;
+
+  /**
    * Defines the popup's background blur style with options
    *
    * @type { ?BackgroundBlurStyleOptions }
@@ -14850,16 +14861,6 @@ declare interface PopupCommonOptions {
    * @since 26.0.0 dynamic
    */
   backgroundEffect?: BackgroundEffectOptions;
-  /**
-   * Defines the display level of the popup.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
-   */
-  levelMode?: LevelMode;
 }
 
 /**
@@ -15731,6 +15732,17 @@ declare interface PopupOptions {
   systemMaterial?: SystemUiMaterial;
 
   /**
+   * Defines the display level of the popup.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  levelMode?: LevelMode;
+
+  /**
    * Defines the popup's background blur style with options
    *
    * @type { ?BackgroundBlurStyleOptions }
@@ -15753,16 +15765,6 @@ declare interface PopupOptions {
    * @since 26.0.0 dynamic
    */
   backgroundEffect?: BackgroundEffectOptions;
-  /**
-   * Defines the display level of the popup.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
-   */
-  levelMode?: LevelMode;
 }
 
 /**
@@ -16345,6 +16347,17 @@ declare interface CustomPopupOptions {
   systemMaterial?: SystemUiMaterial;
 
   /**
+   * Defines the display level of the popup.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  levelMode?: LevelMode;
+
+  /**
    * Defines the popup's background blur style with options
    *
    * @type { ?BackgroundBlurStyleOptions }
@@ -16367,16 +16380,6 @@ declare interface CustomPopupOptions {
    * @since 26.0.0 dynamic
    */
   backgroundEffect?: BackgroundEffectOptions;
-  /**
-   * Defines the display level of the popup.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
-   */
-  levelMode?: LevelMode;
 }
 
 /**
@@ -17561,7 +17564,6 @@ declare interface ContextMenuOptions {
  	 * When both targetSpace and offset are set, they take effect additively. It is recommended to use targetSpace
  	 * to set the space between the menu and target, and use offset for additional offset.
  	 *
- 	 * @type { ?LengthMetrics }
  	 * @syscap SystemCapability.ArkUI.ArkUI.Full
  	 * @stagemodelonly
  	 * @crossplatform
@@ -17587,6 +17589,16 @@ declare interface ContextMenuOptions {
    */
   systemMaterial?: SystemUiMaterial;
   /**
+   * Defines the max height of menu.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  maxHeight?: LengthMetrics;
+  /**
    * Defines the scroll bar state of menu.
    *
    * @default BarState.Auto
@@ -17596,21 +17608,10 @@ declare interface ContextMenuOptions {
    * @atomicservice
    * @since 26.0.0 dynamic
    */
-   scrollBar?: BarState;
-   /**
-   * Defines the max height of menu.
-   *
-   * @type { ?LengthMetrics }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
-   */
-  maxHeight?: LengthMetrics;
+  scrollBar?: BarState;
   /**
    * Sets the distortion animation Mode of the menu.
-   * 
+   *
    * @default DistortionMode.DISTORTION_AUTO
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -17644,8 +17645,6 @@ declare interface ContextMenuOptions {
 /**
  * Configues menu item information, which is inherited from [ContextMenuOptions]{@link ContextMenuOptions}.
  *
- * @extends ContextMenuOptions
- * @interface MenuOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -17660,7 +17659,6 @@ declare interface MenuOptions extends ContextMenuOptions {
    * 
    * This parameter is effective only when **content** is set to Array<[MenuElement]{@link MenuElement}>.
    *
-   * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -17680,7 +17678,6 @@ declare interface MenuOptions extends ContextMenuOptions {
    * 
    * This parameter takes effect only for 2-in-1 devices.
    *
-   * @type { ?boolean }
    * @default true for 2-in-1 devices [since 12]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -17908,6 +17905,7 @@ declare class TouchResult {
 /**
  * 3D vector in depth space.
  *
+ * @interface DepthVector3
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @stagemodelonly
@@ -17918,6 +17916,7 @@ declare interface DepthVector3 {
   /**
    * X component.
    *
+   * @type { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -17929,6 +17928,7 @@ declare interface DepthVector3 {
   /**
    * Y component.
    *
+   * @type { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -17940,6 +17940,7 @@ declare interface DepthVector3 {
   /**
    * Z component.
    *
+   * @type { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -17952,6 +17953,7 @@ declare interface DepthVector3 {
 /**
  * 4D vector in depth space.
  *
+ * @interface DepthVector4
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @stagemodelonly
@@ -17962,6 +17964,7 @@ declare interface DepthVector4 {
   /**
    * X component.
    *
+   * @type { double }
    * @default 0.0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -17974,6 +17977,7 @@ declare interface DepthVector4 {
   /**
    * Y component.
    *
+   * @type { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -17985,6 +17989,7 @@ declare interface DepthVector4 {
   /**
    * Z component.
    *
+   * @type { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -17996,6 +18001,7 @@ declare interface DepthVector4 {
   /**
    * W component.
    *
+   * @type { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -18008,6 +18014,7 @@ declare interface DepthVector4 {
 /**
  * RGB color in depth space.
  *
+ * @interface DepthColorRGB
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @stagemodelonly
@@ -18018,6 +18025,7 @@ declare interface DepthColorRGB {
   /**
    * Red component (0-255).
    *
+   * @type { int }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -18029,6 +18037,7 @@ declare interface DepthColorRGB {
   /**
    * Green component (0-255).
    *
+   * @type { int }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -18040,6 +18049,7 @@ declare interface DepthColorRGB {
   /**
    * Blue component (0-255).
    *
+   * @type { int }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -18086,6 +18096,7 @@ declare enum SpatialPositionMode {
 /**
  * Spatial corner positions in 3D space.
  *
+ * @interface SpatialPosition
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @stagemodelonly
@@ -18096,6 +18107,7 @@ declare interface SpatialPosition {
   /**
    * Left-top corner position in 3D space.
    *
+   * @type { DepthVector3 }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -18107,6 +18119,7 @@ declare interface SpatialPosition {
   /**
    * Right-top corner position in 3D space.
    *
+   * @type { DepthVector3 }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -18118,6 +18131,7 @@ declare interface SpatialPosition {
   /**
    * Left-bottom corner position in 3D space.
    *
+   * @type { DepthVector3 }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -18129,6 +18143,7 @@ declare interface SpatialPosition {
   /**
    * Right-bottom corner position in 3D space.
    *
+   * @type { DepthVector3 }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -18153,6 +18168,7 @@ declare interface SpatialPosition {
 /**
  * Spatial effect params.
  *
+ * @interface SpatialEffectParams
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @stagemodelonly
@@ -18163,6 +18179,7 @@ declare interface SpatialEffectParams {
   /**
    * Spatial position defined by corner points or depth value.
    *
+   * @type { SpatialPosition | double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -18175,6 +18192,7 @@ declare interface SpatialEffectParams {
    * Occlusion weight for spatial effect.
    * <br>Value range:[0, 1].Default value:0
    *
+   * @type { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -24188,11 +24206,13 @@ declare class CommonMethod<T> {
 
   /**
    * Popup control
+   *
    * <p><strong>NOTE</strong>:
    * <br>The popup can be displayed only after the entire page is fully constructed. Therefore, to avoid incorrect
    * display positions and shapes, do not set this parameter to true while the page is still being constructed.
    * </p>
    *
+   * @param { boolean } show - Whether to show the popup, default is false.
    * @param { PopupOptions } popup [since 7 - 7]
    * @param { PopupOptions | CustomPopupOptions } popup [since 8]
    * @returns { T }
@@ -27549,6 +27569,7 @@ declare type Theme = import('../api/@ohos.arkui.theme').Theme;
 /**
  * Import the DialogController type from promptAction.
  *
+ * @typedef { import('../api/@ohos.promptAction').promptAction.DialogController } PromptActionDialogController
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @atomicservice

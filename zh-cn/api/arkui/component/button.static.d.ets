@@ -382,6 +382,7 @@ export declare interface ButtonLabelStyle {
      * **说明：**  
      * 
      * minFontSize小于或等于0时，自适应字号不生效。
+     * 为number类型时单位：fp。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -390,6 +391,7 @@ export declare interface ButtonLabelStyle {
     minFontSize?: double | ResourceStr;
     /**
      * 设置label文本最大显示字号。需配合minFontSize以及maxLines或布局大小限制使用。
+     * 为number类型时单位：fp。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly

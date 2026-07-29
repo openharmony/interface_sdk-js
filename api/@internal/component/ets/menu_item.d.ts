@@ -21,6 +21,7 @@
 /**
  * Provides information about the menu item.
  *
+ * @interface MenuItemOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
  * @crossplatform [since 10]
@@ -128,6 +129,7 @@ declare interface MenuItemOptions {
  */
 interface MenuItemInterface {
   /**
+   * Creates the MenuItem component.
    *
    * @param { MenuItemOptions | CustomBuilder } value - Information about the menu item.
    * @returns { MenuItemAttribute }

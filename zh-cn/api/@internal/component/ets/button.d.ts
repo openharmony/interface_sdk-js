@@ -481,7 +481,7 @@ declare interface LabelStyle {
      * **说明：**  
      * 
      * minFontSize小于或等于0时，自适应字号不生效。
-     * 为number类型时默认单位：fp。
+     * 为number类型时单位：fp。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -492,7 +492,7 @@ declare interface LabelStyle {
     minFontSize?: number | ResourceStr;
     /**
      * 设置label文本最大显示字号。需配合minFontSize以及maxLines或布局大小限制使用。
-     * 为number类型时默认单位：fp。
+     * 为number类型时单位：fp。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
