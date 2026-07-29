@@ -70,10 +70,10 @@ declare namespace PiPWindow {
    *     [PiPTemplateType]{@link PiPWindow.PiPTemplateType}, and **controlGroups** (if specified) must match the value
    *     of **templateType**. For details, see [PiPControlGroup]{@link PiPWindow.PiPControlGroup}.
    * @returns { Promise<PiPController> } Promise used to return the PiP controller.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * @throws { BusinessError } 401 - Params error. Possible causes:
    *     <br>1. Mandatory parameters are left unspecified.
    *     <br>2. Incorrect parameter types.
-   *     <br>3. Parameter verification failed.
+   *     <br>3. Parameter verification failed
    * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
    *     capabilities.
    * @syscap SystemCapability.Window.SessionManager
@@ -95,7 +95,7 @@ declare namespace PiPWindow {
    * @param { typeNode.XComponent } contentNode - Content to be rendered in the PiP window. The parameter value cannot
    *     be empty.
    * @returns { Promise<PiPController> } Promise used to return the PiP controller.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * @throws { BusinessError } 401 - Params error. Possible causes:
    *     <br>1. Mandatory parameters are left unspecified.
    *     <br>2. Incorrect parameter types.
    *     <br>3. Parameter verification failed.
@@ -1039,7 +1039,7 @@ declare namespace PiPWindow {
      *     to update the aspect ratio of the PiP window.
      * @param { int } height - Height of the media content, in px. The value must be an integer greater than 0. It is
      *     used to update the aspect ratio of the PiP window.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: The PiPController is not created or destroyed.
+     * @throws { BusinessError } 401 - Params error. Possible causes: The PiPController is not created or destroyed.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice [since 12]
      * @since 11 dynamic

@@ -382,6 +382,15 @@ declare namespace floatingBall {
     title: string;
 
     /**
+     * 闪控球内容，大小不超过64字节。不传入时默认为空字符串，不显示闪控球内容。
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 20 dynamic
+     * @since 23 static
+     */
+    content?: string;
+
+    /**
      * 闪控球标题颜色，为不带透明度的十六进制颜色格式（例如'#008EF5'或'#FF008EF5'）。如果背景颜色没有指定，不允许指定标题颜色。
      *
      * @default Set different default values according to the 'backgroundColor'.
@@ -393,15 +402,6 @@ declare namespace floatingBall {
      * @since 26.0.0 dynamic&static
      */
     titleColor?: string;
-
-    /**
-     * 闪控球内容，大小不超过64字节。不传入时默认为空字符串，不显示闪控球内容。
-     *
-     * @syscap SystemCapability.Window.SessionManager
-     * @since 20 dynamic
-     * @since 23 static
-     */
-    content?: string;
 
     /**
      * 闪控球内容颜色，为不带透明度的十六进制颜色格式（例如'#008EF5'或'#FF008EF5'）。如果背景颜色没有指定，不允许指定内容颜色。
